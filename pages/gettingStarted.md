@@ -1,10 +1,10 @@
 ####Please read through this guide as it contains information you *will* need.
 
-<font color="red">**BIG RED ALPHA WARNING: Resin.io is in alpha, and should not be used for critical workloads. <a href="#alpha">Proceed ONLY if you are comfortable with the caveats.</a>**</font>
+<font color="red">**BIG RED ALPHA WARNING: Resin.io is in alpha, and should not be used for critical workloads. <a href="#8._Caveats_for_Alpha_releases">Proceed ONLY if you are comfortable with the caveats.</a>**</font>
 
 Having said that, welcome! If you're reading this, you're on board ahead of the crowds! We're currently testing the third Alpha release.
 
-We thank you very much for jumping in, and ask for your patience with the inevitable rroughness.
+We thank you very much for jumping in, and ask for your patience with the inevitable roughness.
 
 ##What's here
 
