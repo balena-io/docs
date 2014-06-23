@@ -8,17 +8,16 @@ We thank you very much for jumping in, and ask for your patience with the inevit
 
 ##What's here
 
-1. <a href="#ready">Getting ready to Resin</a>
-1. <a href="#create">Creating an application</a>
-1. <a href="#add">Adding devices</a>
-1. <a href="#prepare">Preparing your code</a>
-1. <a href="#push">Pushing to your devices</a>
-1. <a href="#troubleshoot">Troubleshooting</a>
-1. <a href="#feedback">Feedback & Getting Help</a>
-1. <a href="#alpha">Caveats for Alpha releases</a>
+1. <a href="#1._Getting_ready_to_Resin">Getting ready to Resin</a>
+1. <a href="#2._Creating_an_application">Creating an application</a>
+1. <a href="#3._Adding_devices">Adding devices</a>
+1. <a href="#4._Preparing_your_code">Preparing your code</a>
+1. <a href="#5._Pushing_to_your_devices">Pushing to your devices</a>
+1. <a href="#6._Troubleshooting">Troubleshooting</a>
+1. <a href="#7._Feedback_&_Getting_Help!">Feedback & Getting Help</a>
+1. <a href="#8._Caveats_for_Alpha_releases">Caveats for Alpha releases</a>
 
 
-<a id="ready"></a>
 ##1. Getting ready to Resin
 
 The whole process up to first code running on the device should take about 30 - 60 minutes (but is highly variable on download and SD card speed).
@@ -32,12 +31,10 @@ Before you get started, you'll need these ingredients:
 
 We’ve created an account for you under the username mentioned in your invitation email, visit the invitation link to set a password and then your ssh key. You can log back into the application at any time by visiting [alpha.resin.io](alpha.resin.io)
 
-<a id="create"></a>
 ##2. Creating an application
 
 Once you get to your (empty) application list, you can create an application by entering a name for it. For the moment the name should be alphanumeric characters only. This will take into the application page.
 
-<a id="add"></a>
 ##3. Adding devices
 
 1. Press the ‘download’ button on the application page. The archive is 115mb.
@@ -50,7 +47,6 @@ The device will now run through a number of configuration steps, including shapi
 
 You can add as many Raspberry Pi to the application as you like in the same way, using the same archive you downloaded in step 1, no need to download again.
 
-<a id="prepare"></a>
 ##4. Preparing your code
 
 You’ll now need to either create a new node.js project, or to clone our **[example application](https://bitbucket.org/rulemotion/resin-text2speech)**.
@@ -66,7 +62,6 @@ The **entry point** is by default server.js in the root, or alternatively, anyth
 
 The example application also shows how to **add custom packages** to the raspbian operating system inside the docker container, currently using a preinstall script, should you need to do that. (hint: look in the deps.sh file). You can add any **[raspbian package](http://www.raspberryconnect.com/raspbian-packages-list)** you need to your application.
 
-<a id="push"></a>
 ##5. Pushing to your devices
 
 Add the git remote that’s displayed at the top right of the application page to your local project repository, and you can then push your code to resin.io.
@@ -77,17 +72,14 @@ Any subsequent pushes will get to the device(s) in the same way. We plan to be s
 
 Welcome to resin.io. *Don't forget to have fun!* **And let us know what you think, and what you made!**
 
-<a id="troubleshoot"></a>
 ##6. Troubleshooting
 
 If at any point you get into trouble, have a look at our small but growing [troubleshooting guide](http://resin.io/blog/troubleshooting-resin-io-applications/).
 
-<a id="feedback"></a>
 ##7. Feedback & Getting Help!
 
 We look forward to (and eagerly solicit) your feedback. No issue is too small, just ping us on the feedback tab in the bottom right if we're online, or submit an issue, and one of us will jump in ASAP to get it sorted. And if at any point you need any help, don't hesitate to get in touch at support@resin.io
 
-<a id="alpha"></a>
 ##8. Caveats for Alpha releases
 
 This is an Alpha release, not to be applied to any critical use case whatsoever. The sole purpose of making this available is giving early adopters a preview, and learning from use in the wild. The Alpha release comes with certain caveats:
