@@ -47,7 +47,9 @@ maintenance get in the way of your creativity.
 
 * The image written to the device is a customised version of the
   [boot2docker][boot2docker] linux distribution which runs the resin supervisor
-  on boot.
+  on boot. We plan to use [yocto][yocto] very soon to take advantage of its
+  excellent modular design and thus significantly expand our reach across
+  devices.
 
 * The resin supervisor controls the docker environment on the device, deploying
   new containers when provided by the cross-compilation server and uses
@@ -64,3 +66,4 @@ maintenance get in the way of your creativity.
 [boot2docker]:https://github.com/boot2docker/boot2docker
 [pubnub]:http://www.pubnub.com/
 [openvpn]:https://openvpn.net/
+[yocto]:https://www.yoctoproject.org/
