@@ -90,7 +90,7 @@ for the moment regardless of what’s specified in `package.json`.)
 
 The example application also shows how to add custom packages to the raspbian
 operating system inside the docker container using a preinstall script, should
-you need to do that (take a look at `deps.sh` and where its referenced in
+you need to do that (take a look at `deps.sh` and where it's referenced in
 `package.json` in the [example application][example_app] as a guide as to how to
 do this.)
 
