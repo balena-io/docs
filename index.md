@@ -7,3 +7,4 @@ for new content!
 
 * [What is Resin.io?](/pages/about.md)
 * [Getting Started](/pages/gettingStarted.md)
+* [Resin.io Architecture](/pages/architecture.md)
