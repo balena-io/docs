@@ -1,6 +1,9 @@
 ####Please read through this guide as it contains information you *will* need.
-
-<font color="red">**BIG RED ALPHA WARNING: Resin.io is in alpha, and should not be used for critical workloads. <a href="#8._Caveats_for_Alpha_releases">Proceed ONLY if you are comfortable with the caveats.</a>**</font>
+<br />
+<font color="red">**BIG RED ALPHA WARNING: Resin.io is in alpha, and should not
+be used for critical workloads. Proceed
+ONLY if you are comfortable with the [caveats][caveats].**</font>
+<br />
 
 Having said that, welcome! If you're reading this, you're on board ahead of the crowds! We're currently testing the third Alpha release.
 
@@ -8,15 +11,14 @@ We thank you very much for jumping in, and ask for your patience with the inevit
 
 ##What's here
 
-1. <a href="#1._Getting_ready_to_Resin">Getting ready to Resin</a>
-1. <a href="#2._Creating_an_application">Creating an application</a>
-1. <a href="#3._Adding_devices">Adding devices</a>
-1. <a href="#4._Preparing_your_code">Preparing your code</a>
-1. <a href="#5._Pushing_to_your_devices">Pushing to your devices</a>
-1. <a href="#6._Troubleshooting">Troubleshooting</a>
-1. <a href="#7._Feedback_&_Getting_Help!">Feedback & Getting Help</a>
-1. <a href="#8._Caveats_for_Alpha_releases">Caveats for Alpha releases</a>
-
+1. [Getting ready to Resin][resin]
+1. [Creating an application][app]
+1. [Adding devices][devices]
+1. [Preparing your code][code]
+1. [Pushing to your devices][pushing]
+1. [Troubleshooting][troubleshooting]
+1. [Feedback & Getting Help][feedback]
+1. [Caveats for Alpha releases][caveats]
 
 ##1. Getting ready to Resin
 
@@ -105,3 +107,12 @@ If you need wifi support for your application, we suggest the [TP-Link nano rout
 As we mature the infrastructure and rapidly progress with the codebase, periods of downtime should be expected. While we will work hard to minimise them, and ensure we never fail for the same reason twice, we can guarantee that there will be outages. Please use Resin.io for non-critical projects only.
 
 The programming conventions themselves will also change as we learn more from real-world use cases. While we will not break backwards compatibility lightly, we highly value a clean experience going forward and will break existing conventions if needed.
+
+[resin]:#1._Getting_ready_to_Resin
+[app]:#2._Creating_an_application
+[devices]:#3._Adding_devices
+[code]:#4._Preparing_your_code
+[pushing]:#5._Pushing_to_your_devices
+[troubleshooting]:#6._Troubleshooting
+[feedback]:#7._Feedback_&_Getting_Help!
+[caveats]:#8._Caveats_for_Alpha_releases
