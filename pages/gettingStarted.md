@@ -1,4 +1,4 @@
-##Please read through this guide as it contains information you *will* need.
+## Please read through this guide as it contains information you *will* need.
 <br />
 <font color="red">**BIG RED ALPHA WARNING: Resin.io is in alpha, and should not
 be used for critical workloads. Proceed
@@ -11,7 +11,7 @@ crowds! We're currently testing the third Alpha release.
 We thank you very much for jumping in, and ask for your patience with the
 inevitable roughness.
 
-##What's here
+## What's here
 
 1. [Getting ready to Resin][resin]
 1. [Creating an application][app]
@@ -22,7 +22,7 @@ inevitable roughness.
 1. [Feedback & Getting Help][feedback]
 1. [Caveats for Alpha releases][caveats]
 
-##1. Getting ready to Resin
+## 1. Getting ready to Resin
 
 The whole process up to first code running on the device should take about 30 -
 60 minutes (but is highly variable on download and SD card speed).
@@ -40,13 +40,13 @@ email, visit the invitation link to set a password and then your ssh key. You
 can log back into the application at any time by visiting
 [alpha.resin.io](alpha.resin.io)
 
-##2. Creating an application
+## 2. Creating an application
 
 Once you get to your (empty) application list, you can create an application by
 entering a name for it. For the moment the name should be alphanumeric
 characters only. This will take into the application page.
 
-##3. Adding devices
+## 3. Adding devices
 
 1. Press the ‘download’ button on the application page. The archive is 115mb.
 
@@ -67,24 +67,24 @@ minutes at most. class 4 SD cards can take upto 3 times longer.
 You can add as many Raspberry Pi to the application as you like in the same way,
 using the same archive you downloaded in step 1, no need to download again.
 
-##4. Preparing your code
+## 4. Preparing your code
 
 You’ll now need to either create a new node.js project, or to clone our
 **[example application][example_app]**.
 
-####4.1 Basics
+#### 4.1 Basics
 
 The apps themselves must be node.js applications, and require a package.json
 file to exist.
 
-####4.2 Entry point
+#### 4.2 Entry point
 
 The **entry point** is by default server.js in the root, or alternatively,
 anything you specify in the "start" attribute of the package.json file. Slight
 exception: the version of nodejs is fixed to 0.10.22 for the moment regardless
 of what’s specified in package.json.
 
-####4.3 Custom OS packages
+#### 4.3 Custom OS packages
 
 The example application also shows how to **add custom packages** to the
 raspbian operating system inside the docker container, currently using a
@@ -92,7 +92,7 @@ preinstall script, should you need to do that. (hint: look in the deps.sh
 file). You can add any **[raspbian package][raspbian_packages]** you need to
 your application.
 
-##5. Pushing to your devices
+## 5. Pushing to your devices
 
 Add the git remote that’s displayed at the top right of the application page to
 your local project repository, and you can then push your code to resin.io.
@@ -110,33 +110,33 @@ sending the entire application every time.
 Welcome to resin.io. *Don't forget to have fun!* **And let us know what you
 think, and what you made!**
 
-##6. Troubleshooting
+## 6. Troubleshooting
 
 If at any point you get into trouble, have a look at our small but growing
 [troubleshooting guide][troubleshooting_guide].
 
-##7. Feedback & Getting Help!
+## 7. Feedback & Getting Help!
 
 We look forward to (and eagerly solicit) your feedback. No issue is too small,
 just ping us on the feedback tab in the bottom right if we're online, or submit
 an issue, and one of us will jump in ASAP to get it sorted. And if at any point
 you need any help, don't hesitate to get in touch at support@resin.io
 
-##8. Caveats for Alpha releases
+## 8. Caveats for Alpha releases
 
 This is an Alpha release, not to be applied to any critical use case
 whatsoever. The sole purpose of making this available is giving early adopters a
 preview, and learning from use in the wild. The Alpha release comes with certain
 caveats:
 
-####8.0 Raspberry Pi & node.js
+#### 8.0 Raspberry Pi & node.js
 
 For the duration of the Alpha (and likely the Beta) we will be focusing on
 node.js and the Raspberry Pi. There is nothing fundamentally limiting Resin.io
 to these choices, but there are enough moving parts as it is, we want to get
 those right before we try to be everything to everyone.
 
-####8.1 Feedback from the device
+#### 8.1 Feedback from the device
 
 There is very little feedback from the device when something goes wrong right
 now, especially if it can't get online. While we want to implement a simple
@@ -144,20 +144,20 @@ error code communicated via an LED, it's not there yet. Once the device is
 online, you can read the logs on the device page to try and determine what's
 going wrong. That will get better too.
 
-####8.2 OS updates
+#### 8.2 OS updates
 
 Whenever we release new operating system versions, you may need to replace the
 files on your SD card. For a no-reflashing version, please be patient until we
 get to the beta.
 
-####8.3 WiFi support
+#### 8.3 WiFi support
 
 If you need wifi support for your application, we suggest the
 [TP-Link nano router][router] that can be configured to receive WiFi signal and
 provide Ethernet connectivity to your device. First-class WiFi support by means
 of a WiPi or similar, will be released during the beta.
 
-####8.4 Reliability & Stability
+#### 8.4 Reliability & Stability
 
 As we mature the infrastructure and rapidly progress with the codebase, periods
 of downtime should be expected. While we will work hard to minimise them, and
