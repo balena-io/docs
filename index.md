@@ -7,3 +7,4 @@ for new content!
 
 * [What is Resin.io?](/pages/about.md)
 * [Getting Started](/pages/gettingStarted.md)
+* [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
