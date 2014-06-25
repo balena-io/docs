@@ -123,7 +123,7 @@ git clone https://bitbucket.org/rulemotion/resin-text2speech.git
 
 Next copy the git endpoint address from the top right-hand corner of the
 application page (the button to the right of this will do this for you
-automatically) into a termianl and add the 'resin' remote endpoint (i.e. make it
+automatically) into a terminal and add the 'resin' remote endpoint (i.e. make it
 available to push code to.)
 
 Once you've done this, you can push code to your device and it will run on your
