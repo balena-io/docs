@@ -11,3 +11,4 @@ for new content!
 * [Deployment Guide](/pages/deployment.md)
 * [Uses of Resin.io](/pages/uses.md)
 * [Resin.io Caveats](/pages/caveats.md)
+* [Example Projects](/pages/projects.md)
