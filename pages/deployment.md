@@ -2,7 +2,9 @@
 
 ## Basics
 
-In order to deploy code to your devices, first ensure they are correctly set up to run the Resin.io image and are associated with an application. Then either create a git repository for your code via:-
+In order to deploy code to your devices you must first ensure they are correctly connected to a Resin.io application. See the [getting started guide](/pages/gettingStarted.md) for details.
+
+Then either create a git repository for your code via:-
 
 ```
 git init
@@ -21,15 +23,15 @@ Whenever you subsequently need to push code to your devices, simply run
 
 ## Configuring the Build and Deploy
 
-Resin.io defaults to assuming you will be using node.js, and uses [package.json](https://www.npmjs.org/doc/package.json.html) to determine what to run on a. build and b. execution.
+Resin.io defaults to assuming you will be using node.js, and uses [package.json](https://www.npmjs.org/doc/package.json.html) to determine how to build and execute the code.
 
-When you push your code to your application's git endpoint, the deploy server generates a [linux container](https://wiki.archlinux.org/index.php/Linux_Containers) specifically for the environment your device operates in, pulls your code into it, runs `npm install` which runs any specified pre-install scripts in this environment followed by any specified [npm](https://www.npmjs.org/) dependencies, reporting progress to your terminal as it goes.
+When you push your code to your application's git endpoint the deploy server generates a [linux container](https://wiki.archlinux.org/index.php/Linux_Containers) specifically for the environment your device operates in, pulls your code into it, runs `npm install` which runs any specified pre-install scripts in this environment followed by any specified [npm](https://www.npmjs.org/) dependencies, reporting progress to your terminal as it goes.
 
 If the build executes successfully, the container is shipped over to your device where the supervisor runs it in place of any previously running containers, using `npm start` to execute your code (note that if no start script is specified, it defaults to running `node server.js`.)
 
 ## An Instructive Example
 
-A good example application to examine to see this in action is our [text-to-speech example app](https://bitbucket.org/rulemotion/resin-text2speech/src).
+A good example application to see this in action is our [text-to-speech example app](https://bitbucket.org/rulemotion/resin-text2speech/src).
 
 Let's take a look at its `package.json` file (correct at the time of writing):-
 
@@ -71,6 +73,6 @@ At the time of writing we use Raspbian as our contained operating system so we u
 
 ## The Build Server
 
-A quick word on the build server - it's an incredibly powerful tool, configured for your convenience to cross-compile code for the target device on our far more powerful server. This means that if you need to compile some gnarly dependency that could take minutes to hours on your Raspberry Pi, it can instead be built in seconds before even hitting the device.
+A quick word on the build server - it's an incredibly powerful tool, configured for your convenience to cross-compile code for the target device on our far more powerful server. This means that if you need to compile some gnarly dependency that could take minutes to hours to build on your Raspberry Pi, it can instead be built in seconds on our server before even hitting the device.
 
-The server is entirely transparent to you other than the feedback you receive on `git push`, in fact for all you know the code could be building on a super-beefed up Raspberry Pi :) what's important to realise is that we significantly reduce the pain of getting native code extensions to your node code or even just native code up and running on your pi, as well as making the deployment easy.
+The server is entirely transparent to you other than the feedback you receive from `git push`. We simply accelerate the building of your applications without you having to think about it at all!
