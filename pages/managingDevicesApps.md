@@ -53,19 +53,19 @@ the devices it owns.
 
 ### Associating Devices with Applications
 
-To associate a device with an application, you simply download the install image contained in the application's zip file, unzip that onto a fat32 formatted SD card, connect an ethernet cable to your Raspberry Pi and plug in your SD card and power connector and the device will set itself up, appear in your application dashboard and have any code associated with the application deployed and executed.
+To associate a device with an application, simply download the install image contained in the application's zip file, unzip it onto a fat32 formatted SD card, connect an ethernet cable to your Raspberry Pi and plug in your SD card and power connector and the device will set itself up, pull the application's code and execute it, before appearing in the application dashboard.
 
 ### Identifying Devices
 
 Each device is assigned a unique identifier, the short form of which is displayed on its application's dashboard, the long form displayed in its device details page.
 
-In addition to this unique identifier you can assign a meaningful name to each device, both from its application dashboard by clicking on its default name 'new' and replacing that with the name you desire, or within the device's detail page.
+In addition to this unique identifier you can assign a meaningful name to each device, both from its application dashboard by clicking on its default name 'new' and replacing it there or changing it in the device's detail page.
 
 We have also added a means of visually identifying Raspberry Pis - clicking on the lightbulb icon on a device's application dashboard or the 'Identify Device (Blinks LED)' button on its details page causes its 'ACT' (activity) LED to blink.
 
 ### Logging
 
-An extremely useful feature of the devices detail page is the log window. This is automatically synchronised with the application running on this device, showing both its standard out and standard error output in real time. The output even handles ANSI escape codes correctly and is coloured appropriately :)
+An extremely useful feature of the devices detail page is the log window. This is automatically synchronised with the application running on this device, showing both its standard out and standard error output in real time. The output even displays ANSI colour codes :)
 
 ## Preferences
 
