@@ -30,7 +30,7 @@ We chose to initially focus on a single device, as we felt it was vital to avoid
 
 With over 2 million units shipped worldwide the [Raspberry Pi][rpi] is nothing short of a phenomenon. Unfortunately, a lot of these devices end up in a drawer or a desk somewhere, sadly unused. Both these facts motivated us in choosing the Pi - its popularity means there are there are lots of projects already available, and the latter suggests that removing friction from users' experience could be of real benefit to many owners out there.
 
-While we are initially targeting the Raspberry Pi, we are by no means limited to it or devices like it - our infrastructure and systems are written with as few assumptions as possible, and we plan to expand to support a number of different devices of different types and computational capacities.
+While we are initially targeting the Raspberry Pi, we are by no means limited to it or devices like it - our infrastructure and systems are written with as few assumptions as possible, and we plan to expand to support a number of devices of different types and computational capacities.
 
 ## Getting Stated
 
