@@ -10,7 +10,9 @@ We handle all of this for you.
 
 ## How Does Resin.io Work?
 
-We provide an image for you to place on your devices which contains an OS and our supervisor software which configures a secure local virtual network, connects to our servers and listens for updates to your software which it runs, transmitting logs to your device dashboard.
+We provide an installation image for you to place on your devices which contains an OS and our supervisor software which configures a secure local virtual network, connects to our servers, listens for updates to your software, and executes your code.
+
+Output from your code is securely transmitted from the device and displayed on your device's dashboard.
 
 ## What is Resin.io Useful For?
 
