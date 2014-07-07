@@ -42,9 +42,11 @@ Applications can be customised through setting environment variables - this is a
 
 __Note:__ Changing an environment variable will, for the time being, result in your application restarting. This is *usually* desirable behaviour as this is often the only means of having code 'pick up' the fact that variables have changed.
 
-### System Environment Variables
+### System-Defined Environment Variables
 
-__Note:__ Environment variables that are set by the system are prefixed with `RESIN_` and are not available for user definition.
+__NOTE:__ Environment variables that are set by the system are prefixed with `RESIN_`; as a consequence you cannot define environment variables for an application with this prefix in their name.
+
+Currently available system-defined environment variables are listed below:-
 
 * `RESIN_UUID` - The value of this variable is the current device's unique identifier.
 
