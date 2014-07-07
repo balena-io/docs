@@ -48,7 +48,7 @@ __NOTE:__ Environment variables that are set by the system are prefixed with `RE
 
 Currently available system-defined environment variables are listed below:-
 
-* `RESIN_UUID` - The value of this variable is the current device's unique identifier.
+* `RESIN_DEVICE_UUID` - The value of this variable is the current device's unique identifier.
 
 ## Devices
 
