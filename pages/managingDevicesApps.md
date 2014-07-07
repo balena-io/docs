@@ -34,11 +34,19 @@ For more details on deployment, check out our [deployment guide](http://docs.res
 
 ![Empty Devices Dangerous Settings](/img/screenshots/devices_empty_settings_dangerous.png)
 
+Hidden behind the 'Dangerous' section is the option to delete applications - note this is an *insanely* destructive action - all devices attached to the application will become 'orphaned' and will require re-downloads of new applications' install images and a brand new set up, not to mention of course you lose the application and all the data associated with it.
+
+### Environment Variables
+
 Applications can be customised through setting environment variables - this is available hidden behind the cog graphic at the bottom of each application's dashboard. Simply enter environment variable key/value pairs which can in turn be interpreted by your software to provide an additional level of customisation. We plan to provide device-specific environment variables configuration soon.
 
 __Note:__ Changing an environment variable will, for the time being, result in your application restarting. This is *usually* desirable behaviour as this is often the only means of having code 'pick up' the fact that variables have changed.
 
-A second option below environment variables is the option to delete applications - note this is an *insanely* destructive action - all devices attached to the application will become 'orphaned' and will require re-downloads of new applications' install images and a brand new set up, not to mention of course you lose the application and all the data associated with it.
+#### System Environment Variables
+
+Environment variables that are set by the system are prefixed with `RESIN_` and are not available for user definition:-
+
+* `RESIN_UUID` - The value of this variable is the current device's unique identifier.
 
 ## Devices
 
