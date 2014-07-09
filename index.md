@@ -12,3 +12,4 @@ for new content!
 * [Uses of Resin.io](/pages/uses.md)
 * [Resin.io Caveats](/pages/caveats.md)
 * [Example Projects](/pages/projects.md)
+* [Wifi Guide](/pages/wifi.md)
