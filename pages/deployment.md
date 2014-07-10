@@ -76,3 +76,39 @@ At the time of writing we use Raspbian as our contained operating system so we u
 A quick word on the build server - it's an incredibly powerful tool, configured for your convenience to cross-compile code for the target device on our far more powerful server. This means that if you need to compile some gnarly dependency that could take minutes to hours to build on your Raspberry Pi, it can instead be built in seconds on our server before even hitting the device.
 
 The server is entirely transparent to you other than the feedback you receive from `git push`. We simply accelerate the building of your applications without you having to think about it at all!
+
+## Native Code
+
+__NOTE:__ We plan to improve the means by which we expose this functionality,
+however while we are in alpha you will need to use the node.js `package.json`
+configuration file to specify how your native code installs and executes.
+
+It is possible to deploy native code by simply adapting the `package.json` file
+in your repo to build and execute a native program on pre-install and startup,
+respectively, e.g.:-
+
+```
+{
+  "name": "some-native-app",
+  "scripts": {
+    "preinstall": "bash deps.sh",
+    "start": "./native_code"
+  }
+}
+```
+
+Where you can run arbitrary commands in `deps.sh` (or run whatever you like.)
+
+The default base image we use is [raspbian][raspbian], so see their
+documentation to determine available packages, default paths for things, etc.
+
+### Kernel Modules
+
+A nice consequence of this flexibility is the capacity to load kernel modules
+into your device - once you have either built code into a kernel module or
+installed via a package that doesn't [modprobe][modprobe] automatically, you can
+install a module by simply prefixing a modprobe prior to the start script entry
+in `package.json`, e.g. `"start": "modprobe kernel_module && ./native_code"`.
+
+[raspbian]:http://www.raspbian.org/
+[modprobe]:http://en.wikipedia.org/wiki/Modprobe
