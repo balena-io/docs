@@ -14,8 +14,8 @@ for new content!
 ### Using Resin
 
 * [Getting Started](/pages/gettingStarted.md)
+* [Resin.io Projects](/pages/projects.md)
 * [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
 * [Deployment Guide](/pages/deployment.md)
-* [Example Projects](/pages/projects.md)
 * [Wifi Guide](/pages/wifi.md)
 * [Advanced Configuration](/pages/advanced.md)
