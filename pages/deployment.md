@@ -106,9 +106,15 @@ documentation to determine available packages, default paths for things, etc.
 
 A nice consequence of this flexibility is the capacity to load kernel modules
 into your device - once you have either built code into a kernel module or
-installed via a package that doesn't [modprobe][modprobe] automatically, you can
-install a module by simply prefixing a modprobe prior to the start script entry
-in `package.json`, e.g. `"start": "modprobe kernel_module && ./native_code"`.
+installed via a package that doesn't [insmod/modprobe][modprobe] automatically,
+you can install a module by simply executing the appropriate command prior to
+starting your application, e.g. in `package.json`:-
+
+```
+...
+"start": "insmod kernel_module.ko && ./start_app"
+...
+```
 
 [raspbian]:http://www.raspbian.org/
 [modprobe]:http://en.wikipedia.org/wiki/Modprobe
