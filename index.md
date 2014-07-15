@@ -19,3 +19,7 @@ for new content!
 * [Deployment Guide](/pages/deployment.md)
 * [Wifi Guide](/pages/wifi.md)
 * [Advanced Configuration](/pages/advanced.md)
+
+### Support
+
+* [Support Forum](http://support.resin.io/)
