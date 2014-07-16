@@ -8,7 +8,6 @@ for new content!
 ### About Resin
 
 * [What is Resin.io?](/pages/about.md)
-* [How Can I use Resin.io?](/pages/uses.md)
 * [Alpha Version Limitations and Caveats](/pages/caveats.md)
 
 ### Using Resin
