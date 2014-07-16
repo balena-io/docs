@@ -116,5 +116,10 @@ starting your application, e.g. in `package.json`:-
 ...
 ```
 
+__NOTE:__ You will need to recompile your module each time we update the kernel
+for it to continue working correctly - we're planning on making life easier via
+[DKMS][dkmks] soon.
+
 [raspbian]:http://www.raspbian.org/
 [modprobe]:http://en.wikipedia.org/wiki/Modprobe
+[dkms]:http://en.wikipedia.org/wiki/Dynamic_Kernel_Module_Support
