@@ -18,6 +18,7 @@ for new content!
 * [Deployment Guide](/pages/deployment.md)
 * [Wifi Guide](/pages/wifi.md)
 * [Advanced Configuration](/pages/advanced.md)
+* [Runtime Configuration](/pages/runtime.md)
 
 ### Support
 
