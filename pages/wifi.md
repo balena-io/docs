@@ -89,7 +89,10 @@ Passphrase = VeryVeryVerySecret
 
 If you have issues connecting with the wifi device, first check to ensure the
 SSID and passphrase are correct. If they are, try rebooting with an ethernet
-cable plugged in.
+cable plugged in, then booting again with just wifi.
+
+If neither of these approaches work, please let us know on our
+[support forums][support].
 
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
@@ -99,3 +102,4 @@ cable plugged in.
 [connman]:https://connman.net/
 [advanced]:/pages/advanced.md
 [wifi]:/pages/wifi.md
+[support]:http://support.resin.io/
