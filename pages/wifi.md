@@ -22,10 +22,6 @@ causes power issues with the Raspberry Pi if you try to *hotswap* them in
 (adding a wifi adapter to your pi *after* power-on), so __ensure__ you connect
 your wifi device prior to switching on your pi to avoid instability.
 
-__Important Note:__ It's important that on *first boot* of your device you run
-with an ethernet cable connected, otherwise the boot may not succeed. As with
-much else at the alpha stage, we plan to eliminate this limitation soon :)
-
 ### Configuration Files
 
 In order to configure a wifi adapter you need to manually update some files on
@@ -88,6 +84,12 @@ Type = wifi
 Name = SomeWifiSSID
 Passphrase = VeryVeryVerySecret
 ```
+
+## Troubleshooting
+
+If you have issues connecting with the wifi device, first check to ensure the
+SSID and passphrase are correct. If they are, try rebooting with an ethernet
+cable plugged in.
 
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
