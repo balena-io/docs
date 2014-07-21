@@ -46,6 +46,9 @@ simply projects which are *pre-*Resin.io supercharged :)
   endpoint on a MAX7219 7-segment display.
 * [Facerate][facerate] - An (incomplete :) tool for using a USB webcam connected
   to a Pi to recognise faces and count them.
+* [FirebaseDTL][firebaseDTL] - A firebased Digital Temperature Logger, allowing you to connect 
+  multiple RPis with multiple temperature sensors to a central cloudbased datastore.
+
 
 ### Extended to be Resin.io-Enabled
 
