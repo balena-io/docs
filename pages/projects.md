@@ -86,3 +86,4 @@ simply projects which are *pre-*Resin.io supercharged :)
 [simple-demo]:https://github.com/csquared/resin-simple-demo
 [digitiser]:http://github.com/lorenzo-stoakes/digitiser
 [facerate]:https://github.com/lorenzo-stoakes/facerate
+[firebase]:https://github.com/shaunmulligan/firebaseDTL
