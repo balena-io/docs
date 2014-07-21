@@ -193,6 +193,6 @@ conventions if needed.
 
 [resin_home]:http://alpha.resin.io
 [router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
-[example_app]:https://bitbucket.org/rulemotion/resin-text2speech
+[example_app]:https://github.com/resin-io/text2speech
 [raspbian_packages]:http://www.raspberryconnect.com/raspbian-packages-list
 [troubleshooting_guide]:http://resin.io/blog/troubleshooting-resin-io-applications/

@@ -31,7 +31,7 @@ If the build executes successfully, the container is shipped over to your device
 
 ## An Instructive Example
 
-A good example application to see this in action is our [text-to-speech example app](https://bitbucket.org/rulemotion/resin-text2speech/src).
+A good example application to see this in action is our [text-to-speech example app](https://github.com/resin-io/text2speech).
 
 Let's take a look at its `package.json` file (correct at the time of writing):-
 
@@ -41,7 +41,7 @@ Let's take a look at its `package.json` file (correct at the time of writing):-
   "description": "Simple resin app that uses Google's TTS endpoint",
   "repository": {
     "type": "git",
-    "url": "https://petrosagg@bitbucket.org/rulemotion/resin-text2speech.git"
+    "url": "https://github.com/resin-io/text2speech.git"
   },
   "scripts": {
     "preinstall": "bash deps.sh"

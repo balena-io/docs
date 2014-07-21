@@ -118,7 +118,7 @@ A good first project to test out your device with is our demo
 To clone it, run the following in a terminal:-
 
 ```
-git clone https://bitbucket.org/rulemotion/resin-text2speech.git
+git clone https://github.com/resin-io/text2speech.git
 ```
 
 Next copy the git endpoint address from the top right-hand corner of the
@@ -178,5 +178,5 @@ to see you soon :)
 [wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
 [wikihow]:http://www.wikihow.com/Main-Page
 [fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
-[example_app]:https://bitbucket.org/rulemotion/resin-text2speech
+[example_app]:https://github.com/resin-io/text2speech
 [managing_devices_apps]:/pages/managingDevicesApps.md
