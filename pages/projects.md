@@ -12,7 +12,7 @@ For a more detailed general guide to setting up see the
 E.g. for the text-to-speech converter:-
 
 ```
-git clone https://bitbucket.org/rulemotion/resin-text2speech.git
+git clone https://github.com/resin-io/text2speech.git
 cd resin-text2speech
 git remote add resin [git endpoint]
 git push resin master
@@ -64,7 +64,7 @@ simply projects which are *pre-*Resin.io supercharged :)
 [rpi]:http://www.raspberrypi.org/
 
 [getting-started]:/pages/gettingStarted.md
-[text2speech]:https://bitbucket.org/rulemotion/resin-text2speech/src
+[text2speech]:https://github.com/resin-io/text2speech
 [coder-fork]:https://github.com/resin-io/coder
 [coder]:http://googlecreativelab.github.io/coder/
 [ttyjs-fork]:https://github.com/resin-io/tty.js-resin
