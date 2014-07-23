@@ -7,8 +7,8 @@ your testing so you can get hacking as soon as possible :)
 
 ## What You'll Need
 
-* A [Raspberry Pi][rpi], we assume you have the most recent model B, if you
-  bought one even somewhat recently, this is the model you'll own.
+* A [Raspberry Pi][rpi], we support all variants of the Raspberry Pi - A, B
+  rev1/rev2, and B+.
 
 * A 4GB or larger SD card. The *class* of the card matters - this determines how
   fast it is and we strongly recommend you get hold of a card in
