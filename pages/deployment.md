@@ -81,6 +81,6 @@ The server is entirely transparent to you other than the feedback you receive fr
 
 To push code other than node-specific javascript, you can simply use the node
 deployment strategy but specify different build and run parameters -
-[detailed instructions[non-js].
+[detailed instructions][non-js].
 
 [non-js]:/pages/nonjs.md
