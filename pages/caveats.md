@@ -18,13 +18,6 @@ When we release new version of the install image, you may need to manually
 updated your SD cards. We expect to remove this limitation once the beta version
 of the software is available.
 
-## WiFi Support
-
-If you need wifi support for your application, we suggest the
-[TP-Link nano router](http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW) that can be configured to receive wifi signal and
-provide ethernet connectivity to your device. First class wifi support by means
-of a WiPi or similar will be available during the beta.
-
 ## Reliability
 
 As we mature the infrastructure and develop the codebase, occasional periods of downtime should be expected. While we work very hard to minimise these, and endeavour to avoid failing for the same reason twice, we do expect outages from time-to-time.
