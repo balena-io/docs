@@ -24,6 +24,6 @@ As we mature the infrastructure and develop the codebase, occasional periods of 
 
 Again, we reiterate: please do *not* use Resin.io for critical projects.
 
-## Stability
+## API Stability
 
 The programming conventions and interfaces we use are also likely to change over time as we learn from real-world use cases. While we will not break backwards compatibility lightly, we value a clean experience very highly, and going forward will break existing conventions if needed.
