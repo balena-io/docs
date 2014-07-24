@@ -9,6 +9,7 @@ for new content!
 
 * [What is Resin.io?](/pages/about.md)
 * [Alpha Version Limitations and Caveats](/pages/caveats.md)
+* [FAQ](/pages/faq.md)
 
 ### Using Resin
 
@@ -19,6 +20,7 @@ for new content!
 * [Wifi Guide](/pages/wifi.md)
 * [Advanced Configuration](/pages/advanced.md)
 * [Runtime Configuration](/pages/runtime.md)
+* [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
 
 ### Support
 
