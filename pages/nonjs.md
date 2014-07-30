@@ -23,6 +23,16 @@ Where you can run arbitrary commands in `deps.sh` (or run whatever you like.)
 The default base image we use is [raspbian][raspbian], so see their
 documentation to determine available packages, default paths for things, etc.
 
+### Script Errors
+
+Note that it's wise to include the following commands to cause errors to result
+in a script exit, both in individual commands and piped-to commands:-
+
+```bash
+set -o errexit
+set -o pipefail
+```
+
 ### Kernel Modules
 
 A nice consequence of this flexibility is the capacity to load kernel modules
