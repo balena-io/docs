@@ -51,6 +51,26 @@ __NOTE:__ You will need to recompile your module each time we update the kernel
 for it to continue working correctly - we're planning on making life easier via
 [DKMS][dkmks] soon.
 
+## Using a Custom Dockerfile
+
+An alternative, far more flexible and powerful option is to make use of our
+[containerisation][container] infrastructure directly, which currently makes use
+of the [docker][docker] project.
+
+We enable you to deploy your own custom docker via a [Dockerfile][Dockerfile] -
+simply insert a file named `Dockerfile` at the root of your project, and it will
+be used automatically when pushed to the `resin` endpoint.
+
+For an example of a `Dockerfile` used in practice, check out the
+[Hello Python][hello-python] project which uses [a Dockerfile][hello-dockerfile]
+to deploy a simple Python project to a device.
+
 [raspbian]:http://www.raspbian.org/
 [modprobe]:http://en.wikipedia.org/wiki/Modprobe
 [dkms]:http://en.wikipedia.org/wiki/Dynamic_Kernel_Module_Support
+
+[Dockerfile]:https://docs.docker.com/reference/builder/
+[container]:https://wiki.archlinux.org/index.php/Linux_Containers
+[docker]:http://docker.io
+[hello-python]:[example-dockerfile]:https://github.com/alexandrosm/hello-python
+[hello-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
