@@ -72,5 +72,6 @@ to deploy a simple Python project to a device.
 [Dockerfile]:https://docs.docker.com/reference/builder/
 [container]:https://wiki.archlinux.org/index.php/Linux_Containers
 [docker]:http://docker.io
-[hello-python]:[example-dockerfile]:https://github.com/alexandrosm/hello-python
+[hello-python]:https://github.com/alexandrosm/hello-python
+[example-dockerfile]:https://github.com/alexandrosm/hello-python
 [hello-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
