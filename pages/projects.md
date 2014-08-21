@@ -51,6 +51,8 @@ simply projects which are *pre-*Resin.io supercharged :)
   cloudbased datastore.
 * [Hello Python!][hello-python] - A bare-bones [Python][python] project to get
   you up and running with a Python project.
+* [Resin CCTV][resin-cctv] - A project that lets you use your Raspberry Pi as a
+  CCTV camera system.
 
 ### Extended to be Resin.io-Enabled
 
@@ -91,3 +93,4 @@ simply projects which are *pre-*Resin.io supercharged :)
 [facerate]:https://github.com/lorenzo-stoakes/facerate
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
 [hello-python]:https://github.com/alexandrosm/hello-python
+[resin-cctv]:https://github.com/abresas/resin-cctv
