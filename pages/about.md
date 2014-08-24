@@ -24,7 +24,7 @@ In each of these examples there are barriers to getting the applications working
 
 ## Raspberry Pi
 
-We chose to initially focus on a single device, as we felt it was vital to avoid the distraction of supporting a number devices before getting something useful out there to provide real-world feedback on our product.
+Initially we've chosen to focus on a single device, as we feel it's vital to avoid the distraction of supporting a number of devices before getting something useful out there to get some real-world feedback on our product.
 
 With over 2 million units shipped worldwide the [Raspberry Pi][rpi] is nothing short of a phenomenon. Unfortunately, a lot of these devices end up in a drawer or a desk somewhere, sadly unused. Both these facts motivated us in choosing the Pi - its popularity means there are there are lots of projects already available, and the latter suggests that removing friction from users' experience could be of real benefit to many owners out there.
 
