@@ -16,8 +16,6 @@ Output from your code is securely transmitted from the device and displayed on y
 
 ## What is Resin.io Useful For?
 
-For a more in-depth analysis of potential uses, see the [uses page](/pages/uses.md).
-
 There are many situations where you may wish to have devices running remotely - day-to-day it can be useful to have small devices connected around your house providing home automation such as turning on the heating before you arrive home, waking you up with natural sunlight by opening curtains at a set time, or perhaps a more sophisticated home automation task such as intelligently monitoring energy usage around your home and providing detailed analyses so you can see the cost benefits of improving insulation, or even using face recognition technology to see if there are unwanted strangers in your home.
 
 These are simple everyday examples, the possibilities are far broader - imagine industrial machines detecting that they require maintenance ahead of time and automatically ordering required parts and scheduling technicians to fix them, or swarms of drones which conduct searches for missing people in vast areas efficiently and far more precisely than humans ever could.
