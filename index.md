@@ -13,14 +13,20 @@ for new content!
 
 ### Using Resin
 
+#### Software
+
 * [Getting Started](/pages/gettingStarted.md)
 * [Resin.io Projects](/pages/projects.md)
 * [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
 * [Deployment Guide](/pages/deployment.md)
-* [Wifi Guide](/pages/wifi.md)
 * [Advanced Configuration](/pages/advanced.md)
 * [Runtime Configuration](/pages/runtime.md)
 * [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
+
+#### Hardware
+
+* [Wifi Guide](/pages/wifi.md)
+* [LED Notifications](/pages/led.md)
 
 ### Support
 
