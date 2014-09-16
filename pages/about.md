@@ -35,7 +35,7 @@ Both of these facts motivated us in choosing the Pi - its popularity means there
 
 Though we target the Raspberry Pi, we are by no means limited to it or devices like it - our infrastructure and systems are written with as few assumptions as possible and we plan to support a number of devices of different types and computational capabilities.
 
-## Getting Stated
+## Getting Started
 
 To get started, check out our [guide][gettingStarted].
 
