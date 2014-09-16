@@ -1,29 +1,21 @@
 # Caveats
 
-The first and most important caveat to state is that Resin.io is in __alpha__ and thus should not be used for anything even approaching a critical project.
+The first and most important point to highlight is that Resin.io is in __alpha__ and thus should not be used for anything even remotely critical.
 
-## Raspberry Pi and node.js
-
-We have chosen initially to target a single device rather than trying to spread ourselves thin targeting a wide range of devices at once.
-
-The focus provided by targeting a single device gets Resin.io out there receiving feedback from users as soon as possible, without the delays targeting more would inevitably cause.
-
-This additionally enables us to get an end-to-end system working which exercises all aspects of our product, giving us room to iterate and improve any issues which arise based on real-world experience.
-
-For the same reason, we have chosen to use node.js to power our install and execution scripts when pushing code - though it's possible to use pretty much whatever environment you wish even now (though this is unsupported!), we leave the actual specification of what to build and what to execute to the standard node.js configuration of pre-install and start scripts.
+We plan to release a beta version soon which ought to reduce the number of caveats, however the caution with regard to critical work will remain in place until we release a production version.
 
 ## OS Updates
 
-When we release new version of the install image, you may need to manually
-updated your SD cards. We expect to remove this limitation once the beta version
-of the software is available.
+When we release new version of the install image you may need to manually updated your SD cards. We expect to remove this limitation once the beta version is available.
 
 ## Reliability
 
-As we mature the infrastructure and develop the codebase, occasional periods of downtime should be expected. While we work very hard to minimise these, and endeavour to avoid failing for the same reason twice, we do expect outages from time-to-time.
+While our infrastructure matures we expect we will suffer from occasional outages.
 
-Again, we reiterate: please do *not* use Resin.io for critical projects.
+We will endeavour to keep you informed as and when this occurs and ensure we never fail for the same reason twice.
 
 ## API Stability
 
-The programming conventions and interfaces we use are also likely to change over time as we learn from real-world use cases. While we will not break backwards compatibility lightly, we value a clean experience very highly, and going forward will break existing conventions if needed.
+The programming conventions and interfaces we use are likely to change over time as we learn from real-world use cases.
+
+While we will not break backwards compatibility lightly, we value a clean experience and reserve the right to break existing conventions when necessary during the early stages of our development process.
