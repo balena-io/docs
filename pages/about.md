@@ -17,7 +17,7 @@ You simply create an account, download an installation tool, boot your devices a
 
 ## What is Resin.io Useful For?
 
-The most obvious example is having small devices connected around your house providing home automation - e.g. turning on the heating before you arrive home, or waking you up with natural sunlight by opening curtains at a set time.
+The most obvious example is having small devices connected around your house providing home automation - e.g. turning on the heating before you arrive home, or waking you up with natural sunlight by opening your curtains at a set time.
 
 Though this kind of application is incredibly useful, the broader possibilities are far more exciting - imagine industrial machines detecting that they require maintenance ahead of time and automatically ordering required parts and scheduling technicians to fix them, or swarms of drones which conduct searches for missing people in vast areas far more efficiently and precisely than humans ever could.
 
