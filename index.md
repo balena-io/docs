@@ -9,7 +9,6 @@ for new content!
 
 * [What is Resin.io?](/pages/about.md)
 * [Alpha Version Limitations and Caveats](/pages/caveats.md)
-* [FAQ](/pages/faq.md)
 
 ### Using Resin
 
