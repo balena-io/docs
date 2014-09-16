@@ -5,7 +5,7 @@
 
 Our goal is to empower you to write great applications for devices - both in the virtual realm and those that cross over into the physical world - without having to worry about the friction involved in getting your hardware working and keeping your application up to date.
 
-The tasks associated with doing this manually include setting up an operating system, establishing a secure local network, logging, and providing some means of shipping new versions of code to devices in the field.
+Doing this manually involves setting up an operating system, establishing a secure local network, configuring some means of recording and viewing logs, and providing some means of shipping new versions of code to devices in the field, amongst other equally vexing tasks.
 
 Resin.io handles all of this for you.
 
