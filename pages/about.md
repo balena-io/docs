@@ -51,7 +51,7 @@ We decided to target the NUC in order to both provide an x86 target and to suppo
 
 ![Beaglebone Black](/img/bbb.jpg)
 
-The [Beaglebone Black][bbb] is a small device similar to the Raspberry Pi but with significantly improved computational ability - 1GHz vs. the Raspberry Pi's 700MHz, and a more recent [Cortex V8][cortex] ARM chip with the better supported ARMv7 instruction set vs. the Raspberry Pi's ARMv6, all at a comparable price of $45.
+The [Beaglebone Black][bbb] is a small $45 device similar to the Raspberry Pi but with significantly improved computational ability - 1GHz vs. the Raspberry Pi's 700MHz and a more recent [Cortex V8][cortex] ARM chip, with the better supported ARMv7 instruction set vs. the Raspberry Pi's ARMv6.
 
 We chose to target the Beaglebone Black to provide support for a more capable device in the same class and price point as the Raspberry Pi.
 
