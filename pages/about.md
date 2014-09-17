@@ -25,24 +25,47 @@ In each of these examples there is significant work in getting up and running be
 
 ## Launch Devices
 
+We've chosen to target a small set of target devices on launch - the [Raspberry Pi][rpi], the [NUC][nuc], and the [Beaglebone Black][bbb].
+
+Though we are target smaller devices on launch, we are by no means limited to devices of this form factor - our infrastructure and systems are written with as few assumptions as possible and we plan to support a number of devices of different types and computational capabilities.
+
 ### Raspberry Pi
 
-We've chosen to target a small set of target devices on launch, with particular focus on the [Raspberry Pi][rpi].
+![Raspberry Pi](/img/rpi.png)
 
-With over 2 million units shipped worldwide, the Raspberry Pi is nothing short of a phenomenon. Unfortunately a lot of these devices end up in a drawer or an attic somewhere, sadly unused.
+With over 2 million units shipped worldwide, the [Raspberry Pi][rpi] is nothing short of a phenomenon. Unfortunately a lot of these devices end up in a drawer or an attic somewhere, sadly unused.
 
-Both of these facts motivated us in choosing the Pi - its popularity means there are there are lots of projects already available for people to implement, and the latter suggests that removing friction from users' experience could be of real benefit.
+Both of these facts motivated us to target the Pi - its popularity means there are there are lots of projects already available for people to implement, and the latter suggests that removing friction from users' experience could be of real benefit.
 
-Though we target the Raspberry Pi, we are by no means limited to it or devices like it - our infrastructure and systems are written with as few assumptions as possible and we plan to support a number of devices of different types and computational capabilities.
+### NUC
+
+![NUC](/img/nuc.jpg)
+
+Intel's [NUC][nuc] is a small form-factor x86 device which bridges the gap between desktop PCs and smaller devices like the Raspberry Pi. The NUC sports a powerful processor up to 2.3GHz Core i5, up to 16Gb of RAM and capable Intel HD graphics with HDMI out in a form factor measuring 4 inches squared.
+
+The capacities of the NUC make it ideal for tasks which require more computational power than, for example, the Raspberry Pi can provide, particularly for tasks such as signage with high resolution graphics.
+
+We decided to target the NUC in order to both provide an x86 target and to support a device with strong computational capability.
+
+### Beaglebone Black
+
+![Beaglebone Black](/img/bbb.jpg)
+
+The [Beaglebone Black][bbb] is a small device similar to the Raspberry Pi but with significantly improved computational ability - 1GHz vs. the Raspberry Pi's 700MHz, and a more recent [Cortex V8][cortex] ARM chip with the better supported ARMv7 instruction set vs. the Raspberry Pi's ARMv6, all at a comparable price of $45.
+
+We chose to target the Beaglebone Black to provide support for a more capable device in the same class and price point as the Raspberry Pi.
 
 ## Getting Started
 
 To get started, check out our [guide][gettingStarted].
 
-[resin]:http://resin.io
-[rpi]:http://www.raspberrypi.org/
-
 [gettingStarted]:/pages/gettingStarted.md
 
+[resin]:http://resin.io
 [containers]:http://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
 [git]:http://git-scm.com/
+[cortex]:http://en.wikipedia.org/wiki/ARM_Cortex-A8
+
+[rpi]:http://www.raspberrypi.org/
+[nuc]:http://www.intel.co.uk/content/www/uk/en/nuc/overview.html
+[bbb]:http://beagleboard.org/black
