@@ -1,4 +1,3 @@
-
 # What is Resin.io?
 
 [Resin.io][resin] is a service which makes it simple to deploy, update, and maintain code running on remote devices.
