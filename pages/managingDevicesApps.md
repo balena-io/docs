@@ -2,31 +2,29 @@
 
 ## Applications
 
-![Empty Devices Screen Settings](/img/screenshots/devices_empty_settings.png)
+![Applications Page](/img/screenshots/applications_empty.png)
 
 ### What is a Resin.io Application?
 
-Resin.io *applications* store the code you want to run on a particular set of devices and are linked to the devices you want the code to run on.
+A Resin.io __application__ contains both the code you want to run and the devices you want to run that code on.
 
-In terms of hierarchy, users own applications which each own their own mutually exclusive set of devices - the applications literally represent an *application* of the devices they own, e.g. temperature monitoring or face recognition.
-
-You should create an application whenever you want to program a set of devices to do something new. To do this you simply tap in a descriptive name in the [applications dashboard](http://alpha.resin.io/dashboard/apps) and hit create.
+To create an application you simply tap in a descriptive name in the [applications dashboard](http://alpha.resin.io/dashboard/apps) and hit create.
 
 __Note__: Currently there are some restrictions on application names - they must be at least 4 characters long and can only contain letters and numbers. We hope to lift this limitation soon.
 
 ### Associating Devices with Applications
 
-When you create an application an install image for your devices is automatically associated with it and available via the 'Download Zip File' button on each individual application dashboard.
+When you create an application an install zip is generated specifically for that application.
 
-When installed on your device an application's install image automatically associates that device with the application in question and has the device appear in its dashboard, no manual intervention required.
+When you install this image onto your device it will automatically appear in your application dashboard, no manual intervention is required.
 
 ### Deploying Your Code to an Application
 
 The key thing to know about any application from your perspective as a developer is its git endpoint - this is visible in the applications list on the [applications dashboard](http://alpha.resin.io/dashboard/apps) and also in the top-right hand corner of each individual application dashboard.
 
-To configure a git repo to be able to push code to resin, you need to add a [git remote](http://gitref.org/remotes/) for resin. This is easier than it sounds - simply click the button to the right of the git endpoint to copy the git command you need to run to the clipboard and run it the folder where you git repo is located.
+To configure a git repo to be able to push code to resin, you need to add a [git remote](http://gitref.org/remotes/) - simply click the button to the right of the git endpoint to copy the git command you need to run to the clipboard and run it the folder where you git repo is located.
 
-Alternatively, simply run `git remote add resin [git endpoint]`, and you're done. From then on in you can simply run `git push resin master` to push your master branch off to your application's devices.
+Alternatively, simply run `git remote add resin [git endpoint]`, and you're done. From then on in you can simply run `git push resin master` to push your master branch to your devices.
 
 For more details on deployment, check out our [deployment guide](http://docs.resin.io/#!/pages/deployment.md).
 
@@ -34,19 +32,21 @@ For more details on deployment, check out our [deployment guide](http://docs.res
 
 ![Empty Devices Dangerous Settings](/img/screenshots/devices_empty_settings_dangerous.png)
 
-Hidden behind the 'Dangerous' section is the option to delete applications - note this is an *insanely* destructive action - all devices attached to the application will become 'orphaned' and will require re-downloads of new applications' install images and a brand new set up, not to mention of course you lose the application and all the data associated with it.
+### Deleting the application
+
+Hidden behind the 'Dangerous' section is the option to delete your application.
+
+__Warning__: All devices attached to the application will become orphaned and you will need to reconfigure them from scratch in another application.
 
 ### Environment Variables
 
-Applications can be customised through setting environment variables - this is available hidden behind the cog graphic at the bottom of each application's dashboard. Simply enter environment variable key/value pairs which can in turn be interpreted by your software to provide an additional level of customisation. We plan to provide device-specific environment variables configuration soon.
+Applications can be customised via environment variables - simply enter environment variable key/value pairs.
 
-__Note:__ Changing an environment variable will, for the time being, result in your application restarting. This is *usually* desirable behaviour as this is often the only means of having code 'pick up' the fact that variables have changed.
+__Warning:__ Changing an environment variable will, for the time being, result in your application restarting.
 
 ### System-Defined Environment Variables
 
-__NOTE:__ Environment variables that are set by the system are prefixed with `RESIN_`; as a consequence you cannot define environment variables for an application with this prefix in their name.
-
-Currently available system-defined environment variables are listed below:-
+__Note:__ Environment variables that are set by the system are prefixed with `RESIN_`; as a consequence you cannot define environment variables for an application with this prefix in their name.
 
 * `RESIN_DEVICE_UUID` - The value of this variable is the current device's unique identifier.
 
@@ -56,33 +56,28 @@ Currently available system-defined environment variables are listed below:-
 
 ### What are Resin.io Devices?
 
-Devices are Resin.io's representation of the actual hardware that is running the code you are pushing to its application. Devices are exclusively owned by applications and inherit their environment variables.
+Devices represent your actual hardware and are exclusively owned by applications, inheriting their environment variables.
 
-All code pushed to an application's git endpoint is automatically pushed onto
-the devices it owns.
-
-### Associating Devices with Applications
-
-To associate a device with an application, simply download the install image contained in the application's zip file, unzip it onto a fat32 formatted SD card, connect an ethernet cable to your Raspberry Pi and plug in your SD card and power connector and the device will set itself up, pull the application's code and execute it, before appearing in the application dashboard.
+All code pushed to an application's git endpoint is automatically pushed to the devices it owns.
 
 ### Identifying Devices
 
-Each device is assigned a unique identifier, the short form of which is displayed on its application's dashboard, the long form displayed in its device details page.
+Each device has a unique identifier, however you can assign a more meaningful name to each device, by either clicking on the name in its application dashboard to edit it or changing it in the device detail page.
 
-In addition to this unique identifier you can assign a meaningful name to each device, both from its application dashboard by clicking on its default name 'new' and replacing it there or changing it in the device's detail page.
+#### Raspberry Pi
 
-We have also added a means of visually identifying Raspberry Pis - clicking on the lightbulb icon on a device's application dashboard or the 'Identify Device (Blinks LED)' button on its details page causes its 'ACT' (activity) LED to blink.
+We have also added a means of visually identifying [Raspberry Pi][rpi]s - clicking on the lightbulb icon on a device's application dashboard or the 'Identify Device (Blinks LED)' button on its details page will cause its 'ACT' (activity) LED to blink so you can physically tell one device apart from another.
 
 ### Logging
 
-An extremely useful feature of the devices detail page is the log window. This is automatically synchronised with the application running on this device, showing both its standard out and standard error output in real time. The output even displays ANSI colour codes :)
+An extremely useful feature of the devices detail page is the log window. This is automatically synchronised with the application running on this device, showing both its standard out and standard error output in real time. You can expand this log window to occupy the whole page if you need to view more log output at once.
 
 ## Preferences
 
 ![Preferences Top](/img/screenshots/prefs_top.png)
 
-In the preferences page you can change your password and view your current
-public SSH key.
+In the preferences page you can change your password and view your current public SSH key.
 
-For the time being you can't change anything other than password here, however
-we will add the ability to change other fields soon!
+For the time being you can't change anything other than password here, however we will add the ability to change other fields soon!
+
+[rpi]:http://www.raspberrypi.org/
