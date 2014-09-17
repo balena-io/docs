@@ -2,69 +2,61 @@
 
 ## Installing a Project
 
-To set up an existing project, first set up a [Resin.io account](http://alpha.resin.io/signup), create an application and associate your device with the application.
+See the [getting started][getting-started] and [deployment][deploy] guides for
+details on setting up applications and devices.
 
-Next, clone the project into a new folder, add the application's git remote to associate the code with your application, and push it.
-
-For a more detailed general guide to setting up see the
-[getting started guide][getting-started]. For more detailed instructions on deployment, see the [deployment guide][deploy].
+Then simply clone the project you want to work on and push it to your
+application's `resin` endpoint.
 
 E.g. for the text-to-speech converter:-
 
 ```
 git clone https://github.com/resin-io/text2speech.git
 cd resin-text2speech
-git remote add resin [git endpoint]
+git remote add resin git@git.resin.io:joebloggs/skynet.git
 git push resin master
 ```
 
 ## Resin.io Projects
 
-Below is a list of known Resin.io-enabled projects.
-
-By using the [deployment guide][deploy] it's easy to adapt pretty well any
-Raspberry Pi Project to work correctly with Resin.io, so don't feel you can't
-hack on a Raspberry Pi project simply because it isn't listed here, these are
-simply projects which are *pre-*Resin.io supercharged :)
-
 ### Built for Resin.io
 
-* [Text-to-Speech Converter][text2speech] - A simple project for getting the
-  Raspberry Pi to say text you give it out loud.
-* [Resin.io Pi Miner][rpiminer] - A Bitcoin CPU miner for [Raspberry Pi][rpi].
+* [Text-to-Speech Converter][text2speech] - A simple application that makes your
+  device speak out loud.
+* [Resin.io Pi Miner][rpiminer] - A Bitcoin CPU miner for the [Raspberry Pi][rpi].
 * [Cimon][cimon] - A simple tool for reading temperatures from a USB-enabled
   thermometer.
 * [Simple Digitiser Kiosk][digitiser-kiosk] - Displays values from a JSON
   endpoint on your browser in kiosk mode (based on [this blogpost][kiosk-post].)
 * [SMS 2 Speech][sms2speech] - A simple tool which uses [Twillio][twillio] to
   read out incoming SMS messages.
-* [Hoversnap][hoversnap] - A tool for controlling a camera via a flood switch in
-  order to capture awesome jumping shots where the subjects appear to be flying :)
+* [Hoversnap][hoversnap] - A tool for controlling a camera using a foot switch in
+  order to capture shots in which people appear to be flying.
 * [Blink ACT LED][blink-led] and [Simple Demo][simple-demo] - Simple
-  demonstrations which blink the ACT[ivity] LED on the Raspberry Pi.
+  demonstrations which blink the ACT[ivity] LED on the [Raspberry Pi][rpi].
 * [Digitiser][digitiser] - A tool for displaying integer values from a JSON
   endpoint on a MAX7219 7-segment display.
-* [Facerate][facerate] - An (incomplete :) tool for using a USB webcam connected
-  to a Pi to recognise faces and count them.
-* [FirebaseDTL][firebase-dtl] - A firebased Digital Temperature Logger, allowing
-  you to connect multiple RPis with multiple temperature sensors to a central
-  cloudbased datastore.
-* [Hello Python!][hello-python] - A bare-bones [Python][python] project to get
-  you up and running with a Python project.
-* [Resin CCTV][resin-cctv] - A project that lets you use your Raspberry Pi as a
-  CCTV camera system.
+* [Facerate][facerate] - An (incomplete :-) tool for using a USB webcam connected
+  to your device to recognise faces and count them.
+* [FirebaseDTL][firebase-dtl] - A Firebase-ed Digital Temperature Logger allowing
+  you to connect multiple devices with multiple temperature sensors to a
+  central cloud-based datastore.
+* [Hello Python!][hello-python] - A bare-bones project to get you up and running
+  with a [Python][python] on your devices.
+* [Resin CCTV][resin-cctv] - A project that lets you use your device as a CCTV
+  camera system.
 
 ### Extended to be Resin.io-Enabled
 
 * [Google Coder][coder-fork] - Resin.io-enabled version of Google's excellent
-  [Coder][coder] project which makes it easy to develop web projects on the
-  Raspberry Pi.
-* [tty.js][ttyjs-fork] - Resin.io-enabled version of [tty.js][ttyjs] - a
-  terminal in your browser! Useful for interacting with hardware on your device
+  [Coder][coder] project which makes it easy to develop web projects on your
+  device.
+* [tty.js][ttyjs-fork] - Resin.io-enabled version of [tty.js][ttyjs], the
+  web-based terminal. Useful for interacting with hardware on your device
   (particularly GPIO) we actually plan to integrate this into the dashboard
   soon.
 * [Resin Player][resin-player] - Lets you play [squeezebox][squeezebox] media
-  through your Raspberry Pis.
+  through your devices.
 
 [deploy]:/pages/deployment.md
 
