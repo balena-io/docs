@@ -5,8 +5,8 @@
 See the [getting started][getting-started] and [deployment][deploy] guides for
 details on setting up applications and devices.
 
-Then simply clone the project you want to work on and push it to your
-application's `resin` endpoint.
+To deploy a project simply clone it and push it to your application's `resin`
+endpoint.
 
 E.g. for the text-to-speech converter:-
 
@@ -42,7 +42,7 @@ git push resin master
   you to connect multiple devices with multiple temperature sensors to a
   central cloud-based datastore.
 * [Hello Python!][hello-python] - A bare-bones project to get you up and running
-  with a [Python][python] on your devices.
+  with [Python][python] on your devices.
 * [Resin CCTV][resin-cctv] - A project that lets you use your device as a CCTV
   camera system.
 
