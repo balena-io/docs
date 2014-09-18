@@ -1,7 +1,4 @@
-#  ![logo](img/logo.svg) Resin.io
-
-Welcome to our documentation. This is an early, rough version. Check back often
-for new content!
+# ![logo](img/logo.svg) Resin.io Documentation
 
 ## Contents
 
