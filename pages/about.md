@@ -30,7 +30,7 @@ Though we are target smaller devices on launch, we are by no means limited to de
 
 ### Raspberry Pi
 
-![Raspberry Pi](/img/rpi.png)
+![Raspberry Pi](/img/rpi_b_plus.jpg)
 
 With over 2 million units shipped worldwide, the [Raspberry Pi][rpi] is nothing short of a phenomenon. Unfortunately a lot of these devices end up in a drawer or an attic somewhere, sadly unused.
 
