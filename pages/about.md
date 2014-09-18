@@ -38,7 +38,7 @@ Both of these facts motivated us to target the Pi - its popularity means there a
 
 ### NUC
 
-![NUC](/img/nuc.jpg)
+![NUC](/img/nuc.png)
 
 Intel's [NUC][nuc] is a small form-factor x86 device which bridges the gap between desktop PCs and smaller devices like the Raspberry Pi. The NUC sports a powerful processor up to 2.3GHz Core i5, up to 16Gb of RAM and capable Intel HD graphics with HDMI out in a form factor measuring 4 inches squared.
 
