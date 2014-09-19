@@ -21,11 +21,11 @@ file located in the root of the repository to determine how to build and execute
 node applications.
 
 When you push your code to your application's git endpoint the deploy server
-generates a [linux container][container] specifically for the environment your
-device operates in, deploys your code to it and runs `npm install` to resolve
-[npm][npm] dependencies, reporting progress to your terminal as it goes.
+generates a [container][container] for the environment your device operates in,
+deploys your code to it and runs `npm install` to resolve [npm][npm]
+dependencies, reporting progress to your terminal as it goes.
 
-If the build executes successfully, the container is shipped over to your device
+If the build executes successfully the container is shipped over to your device
 where the supervisor runs it in place of any previously running containers,
 using `npm start` to execute your code (note that if no start script is
 specified, it defaults to running `node server.js`.)
@@ -69,22 +69,28 @@ apt-get install -y alsa-utils libasound2-dev
 mv sound_start /usr/bin/sound_start
 ```
 
-So here we see actual bash commands that are run within the linux container on
-the build server (configured such that dependencies are resolved for the target
-architecture not the build server's) - this can be very useful in deploying
-[non-js][non-js] code.
+These are shell commands that are run within the container on the build server
+which are configured such that dependencies are resolved for the target
+architecture not the build server's - this can be very useful for deploying
+[non-js][non-js] code or fulfilling package dependencies that your node code
+might require.
 
 We use [Raspbian][raspbian] as our contained operating system, so this scripts
-uses aptitude to install native packages before moving a script for our node
-code to use over to `/usr/bin`. Note that the install scripts runs with root
-privileges within the container.
+uses [aptitude][aptitude] to install native packages before moving a script for
+our node code to use over to `/usr/bin` (the install scripts runs with root
+privileges within the container.)
+
+### Non-Javascript Applications
+
+See the [non-javascript code][non-js] guide for details on how to deploy code
+written in other languages to your devices.
 
 ## The Build Server
 
 The build server is an incredibly powerful tool which cross-compiles code for
 the target device on our (far more powerful) server. This gives you the ability
 to compile a gnarly dependency tree which would take minutes or even hours to
-build on your Raspberry Pi in seconds before even hitting the device.
+build on your Raspberry Pi in *seconds*, before it even hits the device.
 
 <hr />
 
@@ -100,3 +106,4 @@ build on your Raspberry Pi in seconds before even hitting the device.
 [git]:http://git-scm.com/
 [node]:http://nodejs.org/
 [raspbian]:http://www.raspbian.org/
+[aptitude]:https://wiki.debian.org/Aptitude
