@@ -10,9 +10,8 @@ simply add a file named `Dockerfile` at the root of your project and it will be
 used automatically when pushed to the `resin` endpoint.
 
 For an example of a `Dockerfile` used in practice, check out the
-[Hello Python][hello-python] project which uses
-[its Dockerfile][hello-dockerfile] to deploy a simple Python project to a
-device.
+[Hello Python][hello-python] project which uses its
+[Dockerfile][hello-dockerfile] to deploy a simple Python project to a device.
 
 ## Using `package.json`
 
