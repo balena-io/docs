@@ -21,3 +21,8 @@ h2 {
 .img-thumbnail {
 	border: none;
 }
+
+/* Centre images. */
+.md-image-group {
+	text-align: center;
+}
