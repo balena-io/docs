@@ -7,14 +7,13 @@ get hacking as soon as possible :-)
 
 ## What You'll Need
 
-* A [Raspberry Pi][rpi], we support all variants of the Raspberry Pi - A, B
-  rev1/rev2, and B+.
+* A [supported device][supported].
 
 * A 4GB or larger SD card. The [speed class][speed_class] of the card matters -
   this determines its maximum transfer rate. We strongly recommend you get hold
   of a class 10 card or above.
 
-* An ethernet cable or [WiFi adapter][wifi] to connect your Raspberry Pi to the
+* An ethernet cable or [WiFi adapter][wifi] to connect your device to the
   internet.
 
 * Some awesome ideas to hack on! If you need inspiration, check out our
@@ -78,9 +77,7 @@ Ensure your SD card is formatted in [FAT32][fat32] ([WikiHow][wikihow] has
 [instructions][wikihow_format] on how to do this) and expand the application
 zip file onto it.
 
-## Setting Up Your Raspberry Pi
-
-![raspberry pi](/img/rpi.png)
+## Setting Up Your Device
 
 Put the SD card into your device and wait for it to appear on the application
 dashboard.
@@ -138,6 +135,7 @@ and respond to any issues as soon as we can.
 [projects]:/pages/projects.md
 [managing_devices_apps]:/pages/managingDevicesApps.md
 [wifi]:/pages/wifi.md
+[supported]:/pages/devices.md
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [rpi]:http://www.raspberrypi.org/
