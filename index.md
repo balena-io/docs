@@ -5,6 +5,7 @@
 ### About Resin
 
 * [What is Resin.io?](/pages/about.md)
+* [Supported Devices](/pages/devices.md)
 * [Alpha Version Limitations and Caveats](/pages/caveats.md)
 
 ### Using Resin
