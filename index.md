@@ -27,4 +27,4 @@
 
 ### Support
 
-* [Support Forum](http://support.resin.io/)
+* [Support Forum](http://support.resin.io/) (external link)
