@@ -138,7 +138,6 @@ and respond to any issues as soon as we can.
 [supported]:/pages/devices.md
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
-[rpi]:http://www.raspberrypi.org/
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
 [signup]:http://alpha.resin.io/signup
 [git]:http://git-scm.com/
