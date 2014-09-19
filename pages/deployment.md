@@ -4,34 +4,25 @@
 
 In order to deploy code to your devices you must first ensure they are correctly
 connected to a Resin.io application. See the
-[getting started guide][getting-started] for details.
+[Getting Started Guide][getting-started] for details.
 
-Then either create a git repository for your code via:-
-
-```
-git init
-git remote add resin [application endpoint]
-```
-
-Or if the code is in an existing repository:-
-
-```
-git remote add resin [application endpoint]
-git push resin master
-```
+Then simply add your resin endpoint to your [git][git] repository via `git
+remote add resin [application endpoint]`.
 
 Whenever you subsequently need to push code to your devices, simply run
 `git push resin master`.
 
-## Configuring the Build and Deploy
+## Configuration
 
-Resin.io defaults to assuming you will be using node.js, and uses
-[package.json][package] to determine how to build and execute the code.
+### Node Applications
+
+Resin.io supports [node.js][node] natively using the [package.json][package]
+file located in the root of the repository to determine how to build and execute
+node applications.
 
 When you push your code to your application's git endpoint the deploy server
 generates a [linux container][container] specifically for the environment your
-device operates in, pulls your code into it, runs `npm install` which runs any
-specified pre-install scripts in this environment followed by any specified
+device operates in, deploys your code to it and runs `npm install` to resolve
 [npm][npm] dependencies, reporting progress to your terminal as it goes.
 
 If the build executes successfully, the container is shipped over to your device
@@ -39,12 +30,10 @@ where the supervisor runs it in place of any previously running containers,
 using `npm start` to execute your code (note that if no start script is
 specified, it defaults to running `node server.js`.)
 
-## An Instructive Example
+### Node.js Example
 
-A good example application to see this in action is our
-[text-to-speech example app][text-to-speech].
-
-Let's take a look at its `package.json` file (correct at the time of writing):-
+A good example of this is the [text-to-speech][text-to-speech] application -
+here's its `package.json` file*:-
 
 ```
 {
@@ -69,13 +58,11 @@ Let's take a look at its `package.json` file (correct at the time of writing):-
 }
 ```
 
-Note that here we don't specify a start script, meaning we want `server.js` to
-run. Usually you will want to specifically add this to make it clear that you
-want particular code to run on startup.
+__Note:__ We don't specify a `start` script here which means node will default
+to running `server.js`.
 
-The next thing to note is that we execute a bash script called `deps.sh` before
-`npm install` tries to satisfy the code's dependencies. Let's have a look at
-that:-
+We execute a bash script called `deps.sh` before `npm install` tries to satisfy
+the code's dependencies. Let's have a look at that:-
 
 ```
 apt-get install -y alsa-utils libasound2-dev
@@ -84,30 +71,24 @@ mv sound_start /usr/bin/sound_start
 
 So here we see actual bash commands that are run within the linux container on
 the build server (configured such that dependencies are resolved for the target
-architecture not the build server's.)
+architecture not the build server's) - this can be very useful in deploying
+[non-js][non-js] code.
 
-At the time of writing we use Raspbian as our contained operating system so we
-use aptitude to install required native packages, and copy a script our node
-code uses to `/usr/bin` (the install scripts runs with root privileges - in the
-container ;)
+We use [Raspbian][raspbian] as our contained operating system, so this scripts
+uses aptitude to install native packages before moving a script for our node
+code to use over to `/usr/bin`. Note that the install scripts runs with root
+privileges within the container.
 
 ## The Build Server
 
-A quick word on the build server - it's an incredibly powerful tool, configured
-for your convenience to cross-compile code for the target device on our far more
-powerful server. This means that if you need to compile some gnarly dependency
-that could take minutes to hours to build on your Raspberry Pi, it can instead
-be built in seconds on our server before even hitting the device.
+The build server is an incredibly powerful tool which cross-compiles code for
+the target device on our (far more powerful) server. This gives you the ability
+to compile a gnarly dependency tree which would take minutes or even hours to
+build on your Raspberry Pi in seconds before even hitting the device.
 
-The server is entirely transparent to you other than the feedback you receive
-from `git push`. We simply accelerate the building of your applications without
-you having to think about it at all!
+<hr />
 
-## Non-Javascript Code
-
-To push code other than node-specific javascript, you can simply use the node
-deployment strategy but specify different build and run parameters -
-[detailed instructions][non-js].
+\* correct at the time of writing.
 
 [non-js]:/pages/nonjs.md
 [getting-started]:/pages/gettingStarted.md
@@ -116,3 +97,6 @@ deployment strategy but specify different build and run parameters -
 [container]:https://wiki.archlinux.org/index.php/Linux_Containers
 [npm]:https://www.npmjs.org/
 [text-to-speech]:https://github.com/resin-io/text2speech
+[git]:http://git-scm.com/
+[node]:http://nodejs.org/
+[raspbian]:http://www.raspbian.org/
