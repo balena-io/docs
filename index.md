@@ -23,7 +23,7 @@
 #### Hardware
 
 * [Wifi Guide](/pages/wifi.md)
-* [Error Notifications](/pages/led.md)
+* [Error Notifications](/pages/error.md)
 
 ### Support
 
