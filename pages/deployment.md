@@ -2,7 +2,9 @@
 
 ## Basics
 
-In order to deploy code to your devices you must first ensure they are correctly connected to a Resin.io application. See the [getting started guide](/pages/gettingStarted.md) for details.
+In order to deploy code to your devices you must first ensure they are correctly
+connected to a Resin.io application. See the
+[getting started guide][getting-started] for details.
 
 Then either create a git repository for your code via:-
 
@@ -23,15 +25,24 @@ Whenever you subsequently need to push code to your devices, simply run
 
 ## Configuring the Build and Deploy
 
-Resin.io defaults to assuming you will be using node.js, and uses [package.json](https://www.npmjs.org/doc/package.json.html) to determine how to build and execute the code.
+Resin.io defaults to assuming you will be using node.js, and uses
+[package.json][package] to determine how to build and execute the code.
 
-When you push your code to your application's git endpoint the deploy server generates a [linux container](https://wiki.archlinux.org/index.php/Linux_Containers) specifically for the environment your device operates in, pulls your code into it, runs `npm install` which runs any specified pre-install scripts in this environment followed by any specified [npm](https://www.npmjs.org/) dependencies, reporting progress to your terminal as it goes.
+When you push your code to your application's git endpoint the deploy server
+generates a [linux container][container] specifically for the environment your
+device operates in, pulls your code into it, runs `npm install` which runs any
+specified pre-install scripts in this environment followed by any specified
+[npm][npm] dependencies, reporting progress to your terminal as it goes.
 
-If the build executes successfully, the container is shipped over to your device where the supervisor runs it in place of any previously running containers, using `npm start` to execute your code (note that if no start script is specified, it defaults to running `node server.js`.)
+If the build executes successfully, the container is shipped over to your device
+where the supervisor runs it in place of any previously running containers,
+using `npm start` to execute your code (note that if no start script is
+specified, it defaults to running `node server.js`.)
 
 ## An Instructive Example
 
-A good example application to see this in action is our [text-to-speech example app](https://github.com/resin-io/text2speech).
+A good example application to see this in action is our
+[text-to-speech example app][text-to-speech].
 
 Let's take a look at its `package.json` file (correct at the time of writing):-
 
@@ -58,24 +69,39 @@ Let's take a look at its `package.json` file (correct at the time of writing):-
 }
 ```
 
-Note that here we don't specify a start script, meaning we want `server.js` to run. Usually you will want to specifically add this to make it clear that you want particular code to run on startup.
+Note that here we don't specify a start script, meaning we want `server.js` to
+run. Usually you will want to specifically add this to make it clear that you
+want particular code to run on startup.
 
-The next thing to note is that we execute a bash script called `deps.sh` before `npm install` tries to satisfy the code's dependencies. Let's have a look at that:-
+The next thing to note is that we execute a bash script called `deps.sh` before
+`npm install` tries to satisfy the code's dependencies. Let's have a look at
+that:-
 
 ```
 apt-get install -y alsa-utils libasound2-dev
 mv sound_start /usr/bin/sound_start
 ```
 
-So here we see actual bash commands that are run within the linux container on the build server (configured such that dependencies are resolved for the target architecture not the build server's.)
+So here we see actual bash commands that are run within the linux container on
+the build server (configured such that dependencies are resolved for the target
+architecture not the build server's.)
 
-At the time of writing we use Raspbian as our contained operating system so we use aptitude to install required native packages, and copy a script our node code uses to `/usr/bin` (the install scripts runs with root privileges - in the container ;)
+At the time of writing we use Raspbian as our contained operating system so we
+use aptitude to install required native packages, and copy a script our node
+code uses to `/usr/bin` (the install scripts runs with root privileges - in the
+container ;)
 
 ## The Build Server
 
-A quick word on the build server - it's an incredibly powerful tool, configured for your convenience to cross-compile code for the target device on our far more powerful server. This means that if you need to compile some gnarly dependency that could take minutes to hours to build on your Raspberry Pi, it can instead be built in seconds on our server before even hitting the device.
+A quick word on the build server - it's an incredibly powerful tool, configured
+for your convenience to cross-compile code for the target device on our far more
+powerful server. This means that if you need to compile some gnarly dependency
+that could take minutes to hours to build on your Raspberry Pi, it can instead
+be built in seconds on our server before even hitting the device.
 
-The server is entirely transparent to you other than the feedback you receive from `git push`. We simply accelerate the building of your applications without you having to think about it at all!
+The server is entirely transparent to you other than the feedback you receive
+from `git push`. We simply accelerate the building of your applications without
+you having to think about it at all!
 
 ## Non-Javascript Code
 
@@ -84,3 +110,9 @@ deployment strategy but specify different build and run parameters -
 [detailed instructions][non-js].
 
 [non-js]:/pages/nonjs.md
+[getting-started]:/pages/gettingStarted.md
+
+[package]:https://www.npmjs.org/doc/package.json.html
+[container]:https://wiki.archlinux.org/index.php/Linux_Containers
+[npm]:https://www.npmjs.org/
+[text-to-speech]:https://github.com/resin-io/text2speech
