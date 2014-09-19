@@ -14,4 +14,4 @@
 
 ### NUC
 
-![NUC](/img/nuc.png)
+![NUC](/img/nuc.jpg)
