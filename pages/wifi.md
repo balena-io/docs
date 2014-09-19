@@ -1,9 +1,11 @@
 # Wifi Guide
 
+## Raspberry Pi
+
 Unfortunately the [Raspberry Pi][rpi] does not come with a wifi device equipped,
 however you can install an adapter to overcome this limitation.
 
-## Known Working Devices
+### Known Working Devices
 
 * [TP-Link Nano Router][nano-router] - Though this isn't strictly a wifi
   adapter, it does enable you to connect to wifi network using the ethernet port
@@ -15,27 +17,27 @@ however you can install an adapter to overcome this limitation.
   or devices which use one of the `linux-firmware-ath9k`, `linux-firmware-ralink`
   and `linux-firmware-rtl8192cu` firmwares should work correctly.
 
-## Configuration
+### Configuration
 
 __Important Note:__ Wifi adapters drain a lot of power which unfortunately
 causes power issues with the Raspberry Pi if you try to *hotswap* them in
-(adding a wifi adapter to your pi *after* power-on), so __ensure__ you connect
-your wifi device prior to switching on your pi to avoid instability.
+(adding a wifi adapter to your Pi *after* power-on), so __ensure__ you connect
+your wifi device prior to switching on your Pi to avoid instability.
 
-### Configuration Files
+#### Configuration Files
 
 In order to configure a wifi adapter you need to manually update some files on
-the SD card image. We plan to make this easier very soon.
+the SD card image. We plan to make this easier soon.
 
 The location the files need to be placed in varies depending on whether you have
 booted from the SD card at least once:-
 
-### Pre-Boot
+#### Pre-Boot
 
 If you haven't booted from your SD card yet, simply expand the zip file onto the
 card and follow the steps described below.
 
-### Post-Boot
+#### Post-Boot
 
 If you have booted from the SD card at least once, you need to mount the first
 partition, which should be roughly 200mb in size, e.g. in linux this could be
@@ -44,7 +46,7 @@ card.
 
 This partition may be labelled `RECOVERY`, again depending on your environment.
 
-### Steps
+#### Steps
 
 You will know you have the correct partition as it will contain the `/resin`
 directory. To configure your wifi do the following:-
@@ -59,7 +61,7 @@ details on specifying further options soon in the
 [Advanced Configuration][advanced] section. For the time being, simply adapt
 these to your needs!
 
-### Setting Files
+#### Setting Files
 
 `settings`
 
@@ -85,14 +87,14 @@ Name = SomeWifiSSID
 Passphrase = VeryVeryVerySecret
 ```
 
-## Troubleshooting
+### Troubleshooting
 
 If you have issues connecting with the wifi device, first check to ensure the
 SSID and passphrase are correct. If they are, try rebooting with an ethernet
 cable plugged in, then booting again with just wifi.
 
-If neither of these approaches work, please let us know on our
-[support forums][support].
+If neither of these approaches work, please let us know on the
+[support forums][support]!
 
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
