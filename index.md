@@ -19,6 +19,7 @@
 * [Advanced Configuration](/pages/advanced.md)
 * [Runtime Configuration](/pages/runtime.md)
 * [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
+* [Persistent Storage](/pages/storage.md)
 
 #### Hardware
 
