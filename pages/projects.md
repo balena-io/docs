@@ -66,7 +66,7 @@ git push resin master
 [getting-started]:/pages/gettingStarted.md
 [text2speech]:https://github.com/resin-io/text2speech
 [coder-fork]:https://github.com/resin-io/coder
-[coder]:http://googlecreativelab.github.io/coder/
+[coder]:https://googlecreativelab.github.io/coder/
 [ttyjs-fork]:https://github.com/resin-io/tty.js-resin
 [ttyjs]:https://github.com/chjj/tty.js/
 [rpiminer]:https://github.com/csquared/resin-piminer
@@ -77,7 +77,7 @@ git push resin master
 [digitiser-kiosk]:https://bitbucket.org/lifeeth/resin-kiosk
 [kiosk-post]:http://blogs.wcode.org/2013/09/howto-boot-your-raspberry-pi-into-a-fullscreen-browser-kiosk/
 [sms2speech]:https://github.com/alexandrosm/sms2speech
-[twillio]:http://www.twilio.com/
+[twillio]:https://www.twilio.com/
 [hoversnap]:https://github.com/resin-io/hoversnap
 [blink-led]:https://github.com/csquared/resin-blink-act-led
 [simple-demo]:https://github.com/csquared/resin-simple-demo
