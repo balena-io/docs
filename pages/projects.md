@@ -81,7 +81,7 @@ git push resin master
 [hoversnap]:https://github.com/resin-io/hoversnap
 [blink-led]:https://github.com/csquared/resin-blink-act-led
 [simple-demo]:https://github.com/csquared/resin-simple-demo
-[digitiser]:http://github.com/lorenzo-stoakes/digitiser
+[digitiser]:https://github.com/shaunmulligan/digitiser
 [facerate]:https://github.com/lorenzo-stoakes/facerate
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
 [hello-python]:https://github.com/alexandrosm/hello-python
