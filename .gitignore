@@ -1,1 +1,4 @@
 .#*
+
+# Ignore local scripts.
+run.sh
