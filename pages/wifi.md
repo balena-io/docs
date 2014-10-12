@@ -24,69 +24,6 @@ causes power issues with the Raspberry Pi if you try to *hotswap* them in
 (adding a wifi adapter to your Pi *after* power-on), so __ensure__ you connect
 your wifi device prior to switching on your Pi to avoid instability.
 
-#### Configuration Files
-
-In order to configure a wifi adapter you need to manually update some files on
-the SD card image. We plan to make this easier soon.
-
-The location the files need to be placed in varies depending on whether you have
-booted from the SD card at least once:-
-
-#### Pre-Boot
-
-If you haven't booted from your SD card yet, simply expand the zip file onto the
-card and follow the steps described below.
-
-#### Post-Boot
-
-If you have booted from the SD card at least once, you need to mount the first
-partition, which should be roughly 200mb in size, e.g. in linux this could be
-`/dev/mmcblk0p1`, depending on your distribution, linux configuration, and SD
-card.
-
-This partition may be labelled `RECOVERY`, again depending on your environment.
-
-#### Steps
-
-You will know you have the correct partition as it will contain the `/resin`
-directory. To configure your wifi do the following:-
-
-1. Create the directory `/resin/network`.
-
-2. Copy the two files listed below and modify them as needed to match your wifi
-configuration.
-
-These are [connman][connman] configuration files - we plan to provide more
-details on specifying further options soon in the
-[Advanced Configuration][advanced] section. For the time being, simply adapt
-these to your needs!
-
-#### Setting Files
-
-`settings`
-
-```
-[global]
-OfflineMode=false
-
-[WiFi]
-Enable=true
-Tethering=false
-
-[Wired]
-Enable=true
-Tethering=false
-```
-
-`network.config`
-
-```
-[service_home_wifi]
-Type = wifi
-Name = SomeWifiSSID
-Passphrase = VeryVeryVerySecret
-```
-
 ### Troubleshooting
 
 If you have issues connecting with the wifi device, first check to ensure the
@@ -101,7 +38,4 @@ If neither of these approaches work, please let us know on the
 [adafruit]:http://www.adafruit.com/products/814
 [epn8531]:http://www.amazon.com/BestDealUSA-EP-N8531-150Mbps-802-11n-Wireless/dp/B00AT7S060
 [elinux]:http://elinux.org/RPi_USB_Wi-Fi_Adapters
-[connman]:https://connman.net/
-[advanced]:/pages/advanced.md
-[wifi]:/pages/wifi.md
 [support]:http://support.resin.io/
