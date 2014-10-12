@@ -21,6 +21,7 @@
 
 * [Deployment Guide](/pages/deployment.md)
 * [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
+* [Dockerfile Guide](/pages/dockerfile.md)
 * [Persistent Storage](/pages/storage.md)
 
 ### Troubleshooting

@@ -13,6 +13,9 @@ For an example of a `Dockerfile` used in practice, check out the
 [Hello Python][hello-python] project which uses its
 [Dockerfile][hello-dockerfile] to deploy a simple Python project to a device.
 
+For more details on constructing a Dockerfile, read our
+[Dockerfile guide][dockerfile-guide].
+
 ## Using `package.json`
 
 It is possible to deploy native code by simply adapting the `package.json` file
@@ -64,6 +67,7 @@ __NOTE:__ You will need to recompile your module each time we update the kernel
 for it to continue working correctly - we're planning on making life easier via
 [DKMS][dkms] soon.
 
+[dockerfile-guide]:/pages/dockerfile.md
 
 [raspbian]:http://www.raspbian.org/
 [modprobe]:http://en.wikipedia.org/wiki/Modprobe
