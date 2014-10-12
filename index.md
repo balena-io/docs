@@ -27,6 +27,7 @@
 ### Troubleshooting
 
 * [Error Notifications](/pages/error.md)
+* [Using the Web Terminal](/pages/terminal.md)
 
 ### Example Projects
 
