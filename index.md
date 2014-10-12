@@ -1,30 +1,35 @@
 # ![logo](img/logo.svg) Resin.io Documentation
 
-## Contents
-
-### About Resin
+### About Resin.io
 
 * [What is Resin.io?](/pages/about.md)
 * [Supported Devices](/pages/devices.md)
 * [Alpha Version Limitations and Caveats](/pages/caveats.md)
 
-### Using Resin
+### Getting Started
 
-#### Software
-
-* [Getting Started](/pages/gettingStarted.md)
-* [Resin.io Projects](/pages/projects.md)
+* [Getting Started Guide](/pages/gettingStarted.md)
 * [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
-* [Deployment Guide](/pages/deployment.md)
-* [Advanced Configuration](/pages/advanced.md)
+
+### Configuration
+
+* [Wifi Guide](/pages/wifi.md)
 * [Runtime Configuration](/pages/runtime.md)
+* [Advanced Configuration](/pages/advanced.md)
+
+### Deployment
+
+* [Deployment Guide](/pages/deployment.md)
 * [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
 * [Persistent Storage](/pages/storage.md)
 
-#### Hardware
+### Troubleshooting
 
-* [Wifi Guide](/pages/wifi.md)
 * [Error Notifications](/pages/error.md)
+
+### Example Projects
+
+* [Resin.io Projects](/pages/projects.md)
 
 ### Support
 
