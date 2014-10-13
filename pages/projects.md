@@ -17,22 +17,20 @@ git push resin master
 ## Projects
 
 ### Cimon
+[Repository][cimon] by [efwe][efwe]
 
-[Repository][cimon]
-
-A simple tool for reading temperatures from a USB-enabled thermometer.
+A simple tool for reading temperatures from a USB-enabled thermometer. This
+project is used as the backend to [efwe][efwe]'s awesome temperature
+visualisation at [123k.de](http://123k.de).
 
 ### Digital Temperature Logger
-
-[Repository][firebase-dtl]
+[Repository][firebase-dtl] by [Shaun Mulligan][shaun-mulligan]
 
 A [Firebase][firebase]-backed Digital Temperature Logger allowing you to connect
-multiple devices with multiple temperature sensors to a central cloud-based
-datastore.
+devices with multiple temperature sensors to a central cloud-based datastore.
 
 ### Digitiser
-
-[Repository][digitiser]
+[Repository][digitiser] by [Shaun Mulligan][shaun-mulligan]
 
 A tool for displaying integer values from a JSON endpoint on a MAX7219 7-segment
 display.
@@ -53,31 +51,31 @@ which people appear to be flying.
 
 ### Pi Miner
 
-[Repository][rpiminer]
+[Repository][rpiminer] by [Chris Continanza][csquared]
 
 A Bitcoin CPU miner for the [Raspberry Pi][rpi].
 
 ### Resin CCTV
 
-[Repository][resin-cctv]
+[Repository][resin-cctv] by [Aleksis Brezas][aleksis]
 
 A project that lets you use your device as a CCTV camera system.
 
 ### Resin Player
 
-[Repository][resin-player]
+[Repository][resin-player] by [Praneeth Bodduluri][lifeeth]
 
 Lets you play [squeezebox][squeezebox] media through your devices.
 
 ### SMS to Speech
 
-[Repository][sms2speech]
+[Repository][sms2speech] by [Alexandros Marinos][alex]
 
 A simple tool which uses [Twillio][twillio] to read out incoming SMS messages.
 
 ### Simple Digitiser Kiosk
 
-[Repository][digitiser-kiosk]
+[Repository][digitiser-kiosk] by [Praneeth Bodduluri][lifeeth]
 
 Displays values from a JSON endpoint on your browser in kiosk mode (based on
 [this blogpost][kiosk-post].)
@@ -172,3 +170,10 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [java-dockerfile]:https://github.com/nghiant2710/Hello-Java/blob/master/Dockerfile
 [python-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
 [ruby-dockerfile]:https://github.com/nghiant2710/Hello-Ruby/blob/master/Dockerfile
+
+[efwe]:https://bitbucket.org/efwe/
+[shaun-mulligan]:https://github.com/shaunmulligan
+[csquared]:https://github.com/csquared/
+[aleksis]:https://github.com/abresas/
+[lifeeth]:https://bitbucket.org/lifeeth/
+[alex]:https://github.com/alexandrosm
