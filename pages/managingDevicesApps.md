@@ -30,7 +30,7 @@ For more details on deployment, check out our [deployment guide](http://docs.res
 
 ### Application Settings
 
-![Empty Devices Dangerous Settings](/img/screenshots/devices_empty_settings_dangerous.png)
+![Application Settings](/img/screenshots/application_settings.png)
 
 ### Deleting the application
 
@@ -74,7 +74,7 @@ An extremely useful feature of the devices detail page is the log window. This i
 
 ## Preferences
 
-![Preferences Top](/img/screenshots/prefs_top.png)
+![Preferences Top](/img/screenshots/preferences.png)
 
 In the preferences page you can change your password and view your current public SSH key.
 
