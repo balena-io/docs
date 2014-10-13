@@ -34,7 +34,7 @@ Though we are target smaller devices on launch, we are by no means limited to de
 
 With over 2 million units shipped worldwide, the [Raspberry Pi][rpi] is nothing short of a phenomenon. Unfortunately a lot of these devices end up in a drawer or an attic somewhere, sadly unused.
 
-Both of these facts motivated us to target the Pi - its popularity means there are there are lots of projects already available for people to implement, and the latter suggests that removing friction from users' experience could be of real benefit.
+Both of these facts motivated us to target the Pi - the former means there are there are lots of projects already available for people to implement, and the latter suggests that removing friction from users' experience could be of real benefit.
 
 ### NUC
 
