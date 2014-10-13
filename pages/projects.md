@@ -44,13 +44,6 @@ display.
 Resin.io-enabled version of Google's excellent [Coder][coder] project which
 makes it easy to develop web projects on your device.
 
-### Hello Python
-
-[Repository][hello-python]
-
-A bare-bones project to get you up and running with [Python][python] on your
-devices.
-
 ### Hoversnap
 
 [Repository][hoversnap]
@@ -95,10 +88,57 @@ Displays values from a JSON endpoint on your browser in kiosk mode (based on
 
 A simple application that makes your device speak out loud.
 
+## Programming Language Starter Projects
+
+Below are links to a number of simple 'Hello, World' projects written in a
+number of different programming languages, designed to form the basis of your
+own projects written in each language.
+
+The projects use [Dockerfile][dockerfile]'s to install packages and configure the
+local environment as needed for each language. This step is performed on the
+Resin.io build server and the finished product is pushed to your devices.
+
+A link is provided for each project's individual Dockerfile below for easy
+customisation:-
+
+### C♯
+
+[Repository][hello-dotnet]
+
+Hello World written in [C#][csharp] using a
+[custom Dockerfile][csharp-dockerfile].
+
+__NOTE:__ This project can be adapted fairly easily to target any [.net][dotnet]
+language.
+
+### Java
+
+[Repository][hello-java]
+
+Hello World written in [Java][java] using a
+[custom Dockerfile][java-dockerfile].
+
+__NOTE:__ This project can be adapted fairly easily to target any [JVM][jvm]
+language.
+
+### Python
+
+[Repository][hello-python]
+
+Hello World written in [Python][python] using a
+[custom Dockerfile][python-dockerfile].
+
+### Ruby
+
+[Repository][hello-ruby]
+
+Hello World written in [Ruby][ruby] using a
+[custom Dockerfile][ruby-dockerfile].
+
 [deploy]:/pages/deployment.md
+[dockerfile]:/pages/dockerfile.md
 
 [rpi]:http://www.raspberrypi.org/
-[python]:https://www.python.org/
 [firebase]:https://www.firebase.com/
 
 [getting-started]:/pages/gettingStarted.md
@@ -117,5 +157,21 @@ A simple application that makes your device speak out loud.
 [hoversnap]:https://github.com/resin-io/hoversnap
 [digitiser]:https://github.com/shaunmulligan/digitiser
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
-[hello-python]:https://github.com/alexandrosm/hello-python
 [resin-cctv]:https://github.com/abresas/resin-cctv
+
+[hello-dotnet]:https://github.com/nghiant2710/hello.NET
+[hello-java]:https://github.com/nghiant2710/Hello-Java
+[hello-python]:https://github.com/alexandrosm/hello-python
+[hello-ruby]:https://github.com/nghiant2710/Hello-Ruby
+
+[csharp]:http://msdn.microsoft.com/en-gb/vstudio/hh341490.aspx
+[dotnet]:http://www.microsoft.com/net
+[jvm]:http://en.wikipedia.org/wiki/Java_virtual_machine
+[java]:https://www.java.com/en/
+[python]:https://www.python.org/
+[ruby]:https://www.ruby-lang.org/en/
+
+[csharp-dockerfile]:https://github.com/nghiant2710/hello.NET/blob/master/Dockerfile
+[java-dockerfile]:https://github.com/nghiant2710/Hello-Java/blob/master/Dockerfile
+[python-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
+[ruby-dockerfile]:https://github.com/nghiant2710/Hello-Ruby/blob/master/Dockerfile
