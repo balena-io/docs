@@ -1,19 +1,16 @@
-# Resin.io Projects
+# Projects Built on Resin.io
 
 ## Installing a Project
 
 See the [getting started][getting-started] and [deployment][deploy] guides for
-details on setting up applications and devices.
+details on setting up A Resin.io project.
 
 To deploy a project simply clone it and push it to your application's `resin`
-endpoint.
-
-E.g. for the text-to-speech converter:-
+endpoint. E.g. for the [text to speech projects][converter]:-
 
 ```
-git clone https://github.com/resin-io/text2speech.git
-cd resin-text2speech
-git remote add resin git@git.resin.io:joebloggs/skynet.git
+git clone https://github.com/resin-io/text2speech.git .
+git remote add resin [endpoint]
 git push resin master
 ```
 
