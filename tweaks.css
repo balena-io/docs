@@ -5,6 +5,10 @@ body {
 	text-align: justify;
 }
 
+h1,h2,h3,h4 {
+	text-align: left;
+}
+
 h2 {
 	/* Headers are too close to the text beneath them. */
 	margin-bottom: 1em !important;
