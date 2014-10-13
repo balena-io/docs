@@ -2,11 +2,13 @@
 
 ## Installing a Project
 
-See the [getting started][getting-started] and [deployment][deploy] guides for
-details on setting up A Resin.io project.
+To install a project you will need a [Resin.io][resin] account with an
+application set up ready to receive code. See the
+[getting started][getting-started] and [deployment][deploy] guides for details
+on how to do this.
 
 To deploy a project simply clone it and push it to your application's `resin`
-endpoint. E.g. for the [text to speech converter project][text2speech]:-
+endpoint. E.g. for the [Text to Speech Converter project][text2speech]:-
 
 ```
 git clone https://github.com/resin-io/text2speech.git .
@@ -129,6 +131,8 @@ Hello World written in [Python][python] using a [custom Dockerfile][python-docke
 [Repository][hello-ruby]
 
 Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile].
+
+[resin]:https://resin.io
 
 [deploy]:/pages/deployment.md
 [dockerfile]:/pages/dockerfile.md
