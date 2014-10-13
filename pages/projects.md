@@ -94,7 +94,7 @@ Below is a list of simple 'Hello, World' projects written in a number of
 different programming languages, which are designed to form the basis of your
 own projects written in each language.
 
-The projects use [Dockerfile][dockerfile]'s to install packages and configure the
+The projects use [Dockerfile][dockerfile]s to install packages and configure the
 local environment as needed for each language. This step is performed on the
 Resin.io build server and the finished product is pushed to your devices.
 
@@ -108,7 +108,7 @@ customisation:-
 Hello World written in [C#][csharp] using a
 [custom Dockerfile][csharp-dockerfile].
 
-__NOTE:__ This project can be adapted fairly easily to target any [.net][dotnet]
+__NOTE:__ This project can be adapted to target any [.net][dotnet]
 language.
 
 ### Java
@@ -118,22 +118,19 @@ language.
 Hello World written in [Java][java] using a
 [custom Dockerfile][java-dockerfile].
 
-__NOTE:__ This project can be adapted fairly easily to target any [JVM][jvm]
-language.
+__NOTE:__ This project can be adapted to target any [JVM][jvm] language.
 
 ### Python
 
 [Repository][hello-python]
 
-Hello World written in [Python][python] using a
-[custom Dockerfile][python-dockerfile].
+Hello World written in [Python][python] using a [custom Dockerfile][python-dockerfile].
 
 ### Ruby
 
 [Repository][hello-ruby]
 
-Hello World written in [Ruby][ruby] using a
-[custom Dockerfile][ruby-dockerfile].
+Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile].
 
 [deploy]:/pages/deployment.md
 [dockerfile]:/pages/dockerfile.md
