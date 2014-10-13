@@ -101,6 +101,10 @@ Finally, we create the `start` file which Resin.io will run on our devices. We s
 
 At this point we're done - Resin.io will build this container on the build server and automatically run `start` on all our devices!
 
+## Dockerfiles for Other Programming Languages
+
+There are a number of example Dockerfiles avialable for different languages listed on the [projects page][starter-projects].
+
 [container]:https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
 [docker]:https://www.docker.com/
 [dockerfile]:https://docs.docker.com/reference/builder/
@@ -111,3 +115,5 @@ At this point we're done - Resin.io will build this container on the build serve
 [from]:https://docs.docker.com/reference/builder/#from
 [run]:https://docs.docker.com/reference/builder/#run
 [add]:https://docs.docker.com/reference/builder/#add
+
+[starter-projects]:/pages/projects.md#Programming_Language_Starter_Projects
