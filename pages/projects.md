@@ -6,7 +6,7 @@ See the [getting started][getting-started] and [deployment][deploy] guides for
 details on setting up A Resin.io project.
 
 To deploy a project simply clone it and push it to your application's `resin`
-endpoint. E.g. for the [text to speech projects][converter]:-
+endpoint. E.g. for the [text to speech converter project][text2speech]:-
 
 ```
 git clone https://github.com/resin-io/text2speech.git .
@@ -16,50 +16,11 @@ git push resin master
 
 ## Projects
 
-### Text to Speech Converter
-
-[Repository][text2speech]
-
-A simple application that makes your device speak out loud.
-
-### Pi Miner
-
-[Repository][rpiminer]
-
-A Bitcoin CPU miner for the [Raspberry Pi][rpi].
-
 ### Cimon
 
 [Repository][cimon]
 
 A simple tool for reading temperatures from a USB-enabled thermometer.
-
-### Simple Digitiser Kiosk
-
-[Repository][digitiser-kiosk]
-
-Displays values from a JSON endpoint on your browser in kiosk mode (based on
-[this blogpost][kiosk-post].)
-
-### SMS to Speech
-
-[Repository][sms2speech]
-
-A simple tool which uses [Twillio][twillio] to read out incoming SMS messages.
-
-### Hoversnap
-
-[Repository][hoversnap]
-
-A tool for controlling a camera using a foot switch in order to capture shots in
-which people appear to be flying.
-
-### Digitiser
-
-[Repository][digitiser]
-
-A tool for displaying integer values from a JSON endpoint on a MAX7219 7-segment
-display.
 
 ### Digital Temperature Logger
 
@@ -69,18 +30,12 @@ A [Firebase][firebase]-backed Digital Temperature Logger allowing you to connect
 multiple devices with multiple temperature sensors to a central cloud-based
 datastore.
 
-### Hello Python
+### Digitiser
 
-[Repository][hello-python]
+[Repository][digitiser]
 
-A bare-bones project to get you up and running with [Python][python] on your
-devices.
-
-### Resin CCTV
-
-[Repository][resin-cctv]
-
-A project that lets you use your device as a CCTV camera system.
+A tool for displaying integer values from a JSON endpoint on a MAX7219 7-segment
+display.
 
 ### Google Coder
 
@@ -89,11 +44,56 @@ A project that lets you use your device as a CCTV camera system.
 Resin.io-enabled version of Google's excellent [Coder][coder] project which
 makes it easy to develop web projects on your device.
 
+### Hello Python
+
+[Repository][hello-python]
+
+A bare-bones project to get you up and running with [Python][python] on your
+devices.
+
+### Hoversnap
+
+[Repository][hoversnap]
+
+A tool for controlling a camera using a foot switch in order to capture shots in
+which people appear to be flying.
+
+### Pi Miner
+
+[Repository][rpiminer]
+
+A Bitcoin CPU miner for the [Raspberry Pi][rpi].
+
+### Resin CCTV
+
+[Repository][resin-cctv]
+
+A project that lets you use your device as a CCTV camera system.
+
 ### Resin Player
 
 [Repository][resin-player]
 
 Lets you play [squeezebox][squeezebox] media through your devices.
+
+### SMS to Speech
+
+[Repository][sms2speech]
+
+A simple tool which uses [Twillio][twillio] to read out incoming SMS messages.
+
+### Simple Digitiser Kiosk
+
+[Repository][digitiser-kiosk]
+
+Displays values from a JSON endpoint on your browser in kiosk mode (based on
+[this blogpost][kiosk-post].)
+
+### Text to Speech Converter
+
+[Repository][text2speech]
+
+A simple application that makes your device speak out loud.
 
 [deploy]:/pages/deployment.md
 
