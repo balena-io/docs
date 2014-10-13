@@ -14,58 +14,97 @@ git remote add resin [endpoint]
 git push resin master
 ```
 
-## Resin.io Projects
+## Projects
 
-### Built for Resin.io
+### Text to Speech Converter
 
-* [Text-to-Speech Converter][text2speech] - A simple application that makes your
-  device speak out loud.
-* [Resin.io Pi Miner][rpiminer] - A Bitcoin CPU miner for the [Raspberry Pi][rpi].
-* [Cimon][cimon] - A simple tool for reading temperatures from a USB-enabled
-  thermometer.
-* [Simple Digitiser Kiosk][digitiser-kiosk] - Displays values from a JSON
-  endpoint on your browser in kiosk mode (based on [this blogpost][kiosk-post].)
-* [SMS 2 Speech][sms2speech] - A simple tool which uses [Twillio][twillio] to
-  read out incoming SMS messages.
-* [Hoversnap][hoversnap] - A tool for controlling a camera using a foot switch in
-  order to capture shots in which people appear to be flying.
-* [Blink ACT LED][blink-led] and [Simple Demo][simple-demo] - Simple
-  demonstrations which blink the ACT[ivity] LED on the [Raspberry Pi][rpi].
-* [Digitiser][digitiser] - A tool for displaying integer values from a JSON
-  endpoint on a MAX7219 7-segment display.
-* [Facerate][facerate] - An (incomplete :-) tool for using a USB webcam connected
-  to your device to recognise faces and count them.
-* [FirebaseDTL][firebase-dtl] - A Firebase-ed Digital Temperature Logger allowing
-  you to connect multiple devices with multiple temperature sensors to a
-  central cloud-based datastore.
-* [Hello Python!][hello-python] - A bare-bones project to get you up and running
-  with [Python][python] on your devices.
-* [Resin CCTV][resin-cctv] - A project that lets you use your device as a CCTV
-  camera system.
+[Repository][text2speech]
 
-### Extended to be Resin.io-Enabled
+A simple application that makes your device speak out loud.
 
-* [Google Coder][coder-fork] - Resin.io-enabled version of Google's excellent
-  [Coder][coder] project which makes it easy to develop web projects on your
-  device.
-* [tty.js][ttyjs-fork] - Resin.io-enabled version of [tty.js][ttyjs], the
-  web-based terminal. Useful for interacting with hardware on your device
-  (particularly GPIO) we actually plan to integrate this into the dashboard
-  soon.
-* [Resin Player][resin-player] - Lets you play [squeezebox][squeezebox] media
-  through your devices.
+### Pi Miner
+
+[Repository][rpiminer]
+
+A Bitcoin CPU miner for the [Raspberry Pi][rpi].
+
+### Cimon
+
+[Repository][cimon]
+
+A simple tool for reading temperatures from a USB-enabled thermometer.
+
+### Simple Digitiser Kiosk
+
+[Repository][digitiser-kiosk]
+
+Displays values from a JSON endpoint on your browser in kiosk mode (based on
+[this blogpost][kiosk-post].)
+
+### SMS to Speech
+
+[Repository][sms2speech]
+
+A simple tool which uses [Twillio][twillio] to read out incoming SMS messages.
+
+### Hoversnap
+
+[Repository][hoversnap]
+
+A tool for controlling a camera using a foot switch in order to capture shots in
+which people appear to be flying.
+
+### Digitiser
+
+[Repository][digitiser]
+
+A tool for displaying integer values from a JSON endpoint on a MAX7219 7-segment
+display.
+
+### Digital Temperature Logger
+
+[Repository][firebase-dtl]
+
+A [Firebase][firebase]-backed Digital Temperature Logger allowing you to connect
+multiple devices with multiple temperature sensors to a central cloud-based
+datastore.
+
+### Hello Python
+
+[Repository][hello-python]
+
+A bare-bones project to get you up and running with [Python][python] on your
+devices.
+
+### Resin CCTV
+
+[Repository][resin-cctv]
+
+A project that lets you use your device as a CCTV camera system.
+
+### Google Coder
+
+[Repository][coder-fork]
+
+Resin.io-enabled version of Google's excellent [Coder][coder] project which
+makes it easy to develop web projects on your device.
+
+### Resin Player
+
+[Repository][resin-player]
+
+Lets you play [squeezebox][squeezebox] media through your devices.
 
 [deploy]:/pages/deployment.md
 
 [rpi]:http://www.raspberrypi.org/
 [python]:https://www.python.org/
+[firebase]:https://www.firebase.com/
 
 [getting-started]:/pages/gettingStarted.md
 [text2speech]:https://github.com/resin-io/text2speech
 [coder-fork]:https://github.com/resin-io/coder
 [coder]:https://googlecreativelab.github.io/coder/
-[ttyjs-fork]:https://github.com/resin-io/tty.js-resin
-[ttyjs]:https://github.com/chjj/tty.js/
 [rpiminer]:https://github.com/csquared/resin-piminer
 [bitcoin]:http://en.wikipedia.org/wiki/Bitcoin
 [resin-player]:https://bitbucket.org/lifeeth/resin_player/
@@ -76,10 +115,7 @@ git push resin master
 [sms2speech]:https://github.com/alexandrosm/sms2speech
 [twillio]:https://www.twilio.com/
 [hoversnap]:https://github.com/resin-io/hoversnap
-[blink-led]:https://github.com/csquared/resin-blink-act-led
-[simple-demo]:https://github.com/csquared/resin-simple-demo
 [digitiser]:https://github.com/shaunmulligan/digitiser
-[facerate]:https://github.com/lorenzo-stoakes/facerate
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
 [hello-python]:https://github.com/alexandrosm/hello-python
 [resin-cctv]:https://github.com/abresas/resin-cctv
