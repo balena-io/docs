@@ -31,7 +31,7 @@ restrictions:-
 
 ## SSH Key
 
-![Add SSH Key Filled In](/img/screenshots/add_ssh_key.png)
+![Add SSH Key](/img/screenshots/add_ssh_key.png)
 
 SSH keys use the power of [public-key cryptography][pub_key_crypto] to secure
 your connection when sending your code to us. In order to secure your [git][git]
@@ -68,7 +68,7 @@ take you to its dashboard:-
 
 ## Adding Your First Device
 
-![Empty Devices Page](/img/screenshots/devices_empty.png)
+![Empty Application Page](/img/screenshots/application_empty.png)
 
 This is the application dashboard where all of the devices connected to your
 application will be shown along with their status and logs.
