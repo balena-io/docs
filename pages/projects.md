@@ -90,9 +90,9 @@ A simple application that makes your device speak out loud.
 
 ## Programming Language Starter Projects
 
-Below are links to a number of simple 'Hello, World' projects written in a
-number of different programming languages, designed to form the basis of your
-own projects written in each language.
+Below is a list of simple 'Hello, World' projects written in a number of
+different programming languages which are designed to form the basis of your own
+projects written in each language.
 
 The projects use [Dockerfile][dockerfile]'s to install packages and configure the
 local environment as needed for each language. This step is performed on the
