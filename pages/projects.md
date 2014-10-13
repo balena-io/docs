@@ -55,19 +55,21 @@ which people appear to be flying.
 
 [Repository][rpiminer] by [Chris Continanza][csquared]
 
-A Bitcoin CPU miner for the [Raspberry Pi][rpi].
+A [bitcoin][bitcoin] miner for the [Raspberry Pi][rpi].
 
 ### Resin CCTV
 
 [Repository][resin-cctv] by [Aleksis Brezas][aleksis]
 
-A project that lets you use your device as a CCTV camera system.
+A project which allows you to use your devices as a CCTV camera system which
+hooks into [Dropbox][dropbox].
 
 ### Resin Player
 
 [Repository][resin-player] by [Praneeth Bodduluri][lifeeth]
 
-Lets you play [squeezebox][squeezebox] media through your devices.
+A project which allows you to play [squeezebox][squeezebox] media through your
+devices.
 
 ### SMS to Speech
 
@@ -133,6 +135,7 @@ Hello World written in [Python][python] using a [custom Dockerfile][python-docke
 Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile].
 
 [resin]:https://resin.io
+[dropbox]:https://www.dropbox.com/
 
 [deploy]:/pages/deployment.md
 [dockerfile]:/pages/dockerfile.md
@@ -181,3 +184,5 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [aleksis]:https://github.com/abresas/
 [lifeeth]:https://bitbucket.org/lifeeth/
 [alex]:https://github.com/alexandrosm
+
+[bitcoin]:https://bitcoin.org/
