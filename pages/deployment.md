@@ -30,7 +30,7 @@ where the supervisor runs it in place of any previously running containers,
 using `npm start` to execute your code (note that if no start script is
 specified, it defaults to running `node server.js`.)
 
-### Node.js Example
+#### Node.js Example
 
 A good example of this is the [text-to-speech][text-to-speech] application -
 here's its `package.json` file*:-
@@ -80,24 +80,31 @@ uses [aptitude][aptitude] to install native packages before moving a script for
 our node code to use over to `/usr/bin` (the install scripts runs with root
 privileges within the container.)
 
-### Non-Javascript Applications
+### Dockerfile Deployment
 
-See the [non-javascript code][non-js] guide for details on how to deploy code
-written in other languages to your devices.
+See the [Dockerfile][dockerfile] guide for custom application deployment using
+[Dockerfile][docker-dockerfile]s. This allows you to completely control the
+Linux environment you deploy to your devices and write your application in
+whatever programming language you prefer.
 
 ## The Build Server
 
 The build server is an incredibly powerful tool which cross-compiles code for
 the target device on our (far more powerful) server. This gives you the ability
-to compile a gnarly dependency tree which would take minutes or even hours to
-build on your Raspberry Pi in *seconds*, before it even hits the device.
+to compile a gnarly dependency tree in seconds on the server rather than minutes
+or even hours to build on your device.
 
-<hr />
+All code that is pushed to your Resin.io devices is sent to the build server
+which builds it, then ships the resultant environment to your devices.
+
+---
 
 \* correct at the time of writing.
 
-[non-js]:/pages/nonjs.md
 [getting-started]:/pages/gettingStarted.md
+[dockerfile]:/pages/dockerfile.md
+
+[docker-dockerfile]:https://docs.docker.com/reference/builder/
 
 [package]:https://www.npmjs.org/doc/package.json.html
 [container]:https://wiki.archlinux.org/index.php/Linux_Containers
