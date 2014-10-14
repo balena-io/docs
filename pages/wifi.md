@@ -1,5 +1,16 @@
 # Wifi Guide
 
+## Connecting a Device to WiFi
+
+![Wifi Settings](/img/screenshots/wifi_settings.png)
+
+To connect your devices to a WiFi network choose 'Wireless LAN', put in your
+network's SSID and, if the network is encrypted, enter a passphrase.
+
+__NOTE:__ The device will automatically determine your network's encryption (if
+any) and connect using the provided passphrase, there's no need to specify the
+encryption type.
+
 ## Raspberry Pi
 
 The [Raspberry Pi][rpi] can be expanded to connect to a WiFi network by
