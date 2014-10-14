@@ -9,13 +9,13 @@ installing a adapter:-
 
 * [Pi Hut USB WiFi Adapter][pi-hut-usb] - Small form-factor and works right out
   of the box!
-* [TP-Link Nano Router][nano-router] - Though this isn't strictly a wifi
-  adapter, it does enable you to connect to wifi network using the ethernet port
+* [TP-Link Nano Router][nano-router] - Though this isn't strictly a WiFi
+  adapter, it does enable you to connect to WiFi network using the ethernet port
   of the Pi and is known to work correctly with Resin.io. As a result no further
   configuration is required.
 * [Adafruit Miniature Wifi (802.11B/G/N) Module][adafruit]
 * [EP-N8531][epn8531]
-* Generally speaking, wifi devices listed over at the [elinux rpi wifi page][elinux]
+* Generally speaking, WiFi devices listed over at the [elinux rpi wifi page][elinux]
   or devices which use one of the `linux-firmware-ath9k`, `linux-firmware-ralink`
   and `linux-firmware-rtl8192cu` firmwares should work correctly.
 
@@ -23,12 +23,12 @@ installing a adapter:-
 
 __Important Note:__ Wifi adapters drain a lot of power which unfortunately
 causes power issues with the Raspberry Pi if you try to *hotswap* them in
-(adding a wifi adapter to your Pi *after* power-on), so __ensure__ you connect
-your wifi device prior to switching on your Pi to avoid instability.
+(adding a WiFi adapter to your Pi *after* power-on), so __ensure__ you connect
+your WiFi device prior to switching on your Pi to avoid instability.
 
 ### Troubleshooting
 
-If you have issues connecting with the wifi device, first check to ensure the
+If you have issues connecting with the WiFi device, first check to ensure the
 SSID and passphrase are correct. If they are, try rebooting with an ethernet
 cable plugged in, then booting again with just WiFi.
 
