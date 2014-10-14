@@ -7,6 +7,8 @@ installing a adapter:-
 
 ### Known Working Devices
 
+* [Pi Hut USB WiFi Adapter][pi-hut-usb] - Small form-factor and works right out
+  of the box!
 * [TP-Link Nano Router][nano-router] - Though this isn't strictly a wifi
   adapter, it does enable you to connect to wifi network using the ethernet port
   of the Pi and is known to work correctly with Resin.io. As a result no further
@@ -28,7 +30,7 @@ your wifi device prior to switching on your Pi to avoid instability.
 
 If you have issues connecting with the wifi device, first check to ensure the
 SSID and passphrase are correct. If they are, try rebooting with an ethernet
-cable plugged in, then booting again with just wifi.
+cable plugged in, then booting again with just WiFi.
 
 If neither of these approaches work, please let us know on the
 [support forums][support]!
@@ -39,3 +41,4 @@ If neither of these approaches work, please let us know on the
 [epn8531]:http://www.amazon.com/BestDealUSA-EP-N8531-150Mbps-802-11n-Wireless/dp/B00AT7S060
 [elinux]:http://elinux.org/RPi_USB_Wi-Fi_Adapters
 [support]:http://support.resin.io/
+[pi-hut-usb]:http://thepihut.com/products/usb-wifi-adapter-for-the-raspberry-pi
