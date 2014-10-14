@@ -1,10 +1,5 @@
 # Getting Started With Resin.io
 
-__IMPORTANT NOTE__: It's important to point out that Resin.io is at an
-[alpha testing][alpha] stage - you should not rely on Resin.io for anything
-evenly vaguely critical - we are making the software available early so you can
-get hacking as soon as possible!
-
 ## What You'll Need
 
 * A [supported device][supported].
