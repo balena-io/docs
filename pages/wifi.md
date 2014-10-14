@@ -2,8 +2,8 @@
 
 ## Raspberry Pi
 
-Unfortunately the [Raspberry Pi][rpi] does not come with a wifi device equipped,
-however you can install an adapter to overcome this limitation.
+The [Raspberry Pi][rpi] can be expanded to connect to a WiFi network by
+installing a adapter:-
 
 ### Known Working Devices
 
