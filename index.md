@@ -16,6 +16,10 @@
 * [Runtime Configuration](/pages/runtime.md)
 * [Advanced Configuration](/pages/advanced.md)
 
+### Hardware
+
+* [GPIO Interface](/pages/gpio.md)
+
 ### Deployment
 
 * [Deployment Guide](/pages/deployment.md)
