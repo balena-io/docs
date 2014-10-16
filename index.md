@@ -5,6 +5,10 @@
 * [What is Resin.io?](/pages/about.md)
 * [Supported Devices](/pages/devices.md)
 
+### Example Projects
+
+* [Resin.io Projects](/pages/projects.md)
+
 ### Getting Started
 
 * [Getting Started Guide](/pages/gettingStarted.md)
@@ -31,10 +35,6 @@
 
 * [Error Notifications](/pages/error.md)
 * [Using the Web Terminal](/pages/terminal.md)
-
-### Example Projects
-
-* [Resin.io Projects](/pages/projects.md)
 
 ### Support
 
