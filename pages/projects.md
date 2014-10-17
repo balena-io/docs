@@ -173,10 +173,10 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [python]:https://www.python.org/
 [ruby]:https://www.ruby-lang.org/en/
 
-[csharp-dockerfile]:https://github.com/nghiant2710/hello.NET/blob/master/Dockerfile
-[java-dockerfile]:https://github.com/nghiant2710/Hello-Java/blob/master/Dockerfile
+[csharp-dockerfile]:https://github.com/resin-io/hello.NET/blob/master/Dockerfile
+[java-dockerfile]:https://github.com/resin-io/Hello-Java/blob/master/Dockerfile
 [python-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
-[ruby-dockerfile]:https://github.com/nghiant2710/Hello-Ruby/blob/master/Dockerfile
+[ruby-dockerfile]:https://github.com/resin-io/Hello-Ruby/blob/master/Dockerfile
 
 [efwe]:https://bitbucket.org/efwe/
 [shaun-mulligan]:https://github.com/shaunmulligan
