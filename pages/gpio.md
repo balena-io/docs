@@ -10,6 +10,8 @@ The [Raspberry Pi][rpi]'s [General Purpose I/O][gpio] (GPIO) pins can be used to
 
 There are many libraries available for GPIO access, e.g. [Wiring Pi][wiring-pi]. For [node.js][node] users [npm][npm] has a number of [GPIO libraries][npm-gpio] available.
 
+We recommend [Pi Pins][pi-pins] for node.js projects - we've found it works reliably on Resin.io.
+
 There are also specialist libraries available for powering particular classes of devices via GPIO, e.g. the [MAX7219 node library][max7219] for [MAX7219][max7219] LED displays.
 
 ### File System Access
@@ -136,3 +138,4 @@ Please note that these are operating at a different voltage from the data pins -
 [wiring-pi]:http://wiringpi.com/
 [max7219]:https://github.com/victorporof/MAX7219.js
 [eeprom-diag]:http://www.raspberrypi.org/wp-content/uploads/2014/04/bplus-gpio.png
+[pi-pins]:https://www.npmjs.org/package/pi-pins
