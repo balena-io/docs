@@ -46,6 +46,15 @@ cable plugged in, then booting again with just WiFi.
 If neither of these approaches work, please let us know on the
 [support forums][support]!
 
+### Multiple WiFi Connections
+
+Though we currently don't support multiple WiFi SSIDs through the user
+interface, this can be achieved by manually editing a configuration file on your
+SD card. See the [custom network guide][custom-network] for details on how to do
+this.
+
+[custom-network]:/pages/custom-network.md
+
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
 [adafruit]:http://www.adafruit.com/products/814

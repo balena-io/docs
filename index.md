@@ -19,6 +19,7 @@
 * [Wifi Guide](/pages/wifi.md)
 * [Runtime Configuration](/pages/runtime.md)
 * [Advanced Configuration](/pages/advanced.md)
+* [Custom Network Configuration](/pages/custom-network.md)
 
 ### Hardware
 
