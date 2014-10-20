@@ -10,7 +10,7 @@ The [Raspberry Pi][rpi]'s [General Purpose I/O][gpio] (GPIO) pins can be used to
 
 There are many libraries available for GPIO access, e.g. [Wiring Pi][wiring-pi]. For [node.js][node] users [npm][npm] has a number of [GPIO libraries][npm-gpio] available.
 
-We recommend [Pi Pins][pi-pins] for node.js projects - we've found it works reliably on Resin.io.
+We recommend [Pi Pins][pi-pins] for node.js projects - we've found it works reliably on [Resin.io][resin].
 
 There are also specialist libraries available for powering particular classes of devices via GPIO, e.g. the [MAX7219 node library][max7219] for [MAX7219][max7219] LED displays.
 
@@ -124,6 +124,8 @@ All numbered data pins operate at 3.3v, however there are two 5v ports which out
 Please note that these are operating at a different voltage from the data pins - if you need to drive a 5v (or higher) device, you will need to use a [level converter][level-converter] to step up the data pin's voltage or your device will not be able to correctly interpret high signals from the Pi.
 
 [terminal]:/pages/terminal.md
+
+[resin]:https://resin.io
 
 [rpi]:http://www.raspberrypi.org/
 [node]:http://nodejs.org/
