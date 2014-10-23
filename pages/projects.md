@@ -21,9 +21,9 @@ git push resin master
 ### Node.js Starter Project
 [Repository][simple-nodejs]
 
-This is a very simple Hello, World project for [node.js][node] to act as a basis
-for a node.js Resin.io projects. It demonstrates how to configure a working
-node.js project and install native Linux packages.
+This is a simple Hello, World project for [node.js][node] designed to act as a
+basis for future work. It demonstrates how to install native Linux packages and
+configure your application.
 
 ### Cimon
 [Repository][cimon] by [efwe][efwe]
