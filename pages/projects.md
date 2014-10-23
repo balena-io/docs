@@ -18,6 +18,13 @@ git push resin master
 
 ## Projects
 
+### Node.js Starter Project
+[Repository][simple-nodejs]
+
+This is a very simple Hello, World project for [node.js][node] to act as a basis
+for a node.js Resin.io projects. It demonstrates how to configure a working
+node.js project and install native Linux packages.
+
 ### Cimon
 [Repository][cimon] by [efwe][efwe]
 
@@ -160,6 +167,8 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [digitiser]:https://github.com/shaunmulligan/digitiser
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
 [resin-cctv]:https://github.com/abresas/resin-cctv
+[simple-nodejs]:https://github.com/resin-io/basic-resin-node-project
+[node]:https://nodejs.org/
 
 [hello-dotnet]:https://github.com/nghiant2710/hello.NET
 [hello-java]:https://github.com/nghiant2710/Hello-Java
