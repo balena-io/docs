@@ -44,6 +44,12 @@ devices with multiple temperature sensors to a central cloud-based datastore.
 A tool for displaying integer values from a JSON endpoint on a MAX7219 7-segment
 display.
 
+### Example Pi Pins Application
+[Repository][example-pi-pins] by [Shaun Mulligan][shaun-mulligan]
+
+A simple application which demonstrates the use of the [Pi Pins][pi-pins]
+library to interface with [GPIO][gpio].
+
 ### Google Coder
 
 [Repository][coder-fork]
@@ -77,6 +83,13 @@ hooks into [Dropbox][dropbox].
 
 A project which allows you to play [squeezebox][squeezebox] media through your
 devices.
+
+### Salesforce Temperature Probe
+
+[Repository][salesforce-temp] by [Shaun Mulligan][shaun-mulligan]
+
+Example application for interfacing with a temperature probe using
+[Salesforce.com][salesforce].
 
 ### SMS to Speech
 
@@ -168,7 +181,8 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
 [resin-cctv]:https://github.com/abresas/resin-cctv
 [simple-nodejs]:https://github.com/resin-io/basic-resin-node-project
-[node]:https://nodejs.org/
+[example-pi-pins]:https://github.com/shaunmulligan/basic-gpio
+[salesforce-temp]:https://github.com/shaunmulligan/salesforceTemp
 
 [hello-dotnet]:https://github.com/nghiant2710/hello.NET
 [hello-java]:https://github.com/nghiant2710/Hello-Java
@@ -194,4 +208,8 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [lifeeth]:https://bitbucket.org/lifeeth/
 [alex]:https://github.com/alexandrosm
 
+[node]:https://nodejs.org/
 [bitcoin]:https://bitcoin.org/
+[gpio]:http://en.wikipedia.org/wiki/General-purpose_input/output
+[pi-pins]:https://github.com/natevw/pi-pins
+[salesforce]:https://www.salesforce.com
