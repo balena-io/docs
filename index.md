@@ -14,12 +14,11 @@
 * [Getting Started Guide](/pages/gettingStarted.md)
 * [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
 
-### Configuration
+### Using Resin.io
 
-* [Wifi Guide](/pages/wifi.md)
 * [Runtime Environment](/pages/runtime.md)
-* [Advanced Configuration](/pages/advanced.md)
-* [Custom Network Configuration](/pages/custom-network.md)
+* [Using the Web Terminal](/pages/terminal.md)
+* [Wifi Guide](/pages/wifi.md)
 
 ### Hardware
 
@@ -30,12 +29,15 @@
 * [Deployment Guide](/pages/deployment.md)
 * [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
 * [Dockerfile Guide](/pages/dockerfile.md)
-* [Persistent Storage](/pages/storage.md)
+
+### Configuration
+
+* [Advanced Configuration](/pages/advanced.md)
+* [Custom Network Configuration](/pages/custom-network.md)
 
 ### Troubleshooting
 
 * [Error Notifications](/pages/error.md)
-* [Using the Web Terminal](/pages/terminal.md)
 * [SSH Keys for Multiple Accounts](/pages/multi-account.md)
 
 ### Support
