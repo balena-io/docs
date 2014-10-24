@@ -1,18 +1,18 @@
 # ![logo](img/logo.svg) Resin.io Documentation
 
-### About Resin.io
+### Getting Started
 
-* [What is Resin.io?](/pages/about.md)
-* [Supported Devices](/pages/devices.md)
+* [Getting Started Guide](/pages/gettingStarted.md)
+* [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
 
 ### Example Projects
 
 * [Resin.io Projects](/pages/projects.md)
 
-### Getting Started
+### About Resin.io
 
-* [Getting Started Guide](/pages/gettingStarted.md)
-* [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
+* [What is Resin.io?](/pages/about.md)
+* [Supported Devices](/pages/devices.md)
 
 ### Using Resin.io
 
