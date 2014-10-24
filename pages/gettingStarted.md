@@ -1,5 +1,7 @@
 # Getting Started With Resin.io
 
+<iframe class="getting-started-vid" src="//player.vimeo.com/video/108930903?title=0&amp;byline=0&amp;portrait=0" width="900" height="506" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 ## What You'll Need
 
 * A [supported device][supported].

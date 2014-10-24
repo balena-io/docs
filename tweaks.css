@@ -34,3 +34,11 @@ td,th {
 .md-image-group {
 	text-align: center;
 }
+
+/* Centre the getting started video. */
+.getting-started-vid {
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
