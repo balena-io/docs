@@ -36,6 +36,7 @@
 
 * [Error Notifications](/pages/error.md)
 * [Using the Web Terminal](/pages/terminal.md)
+* [SSH Keys for Multiple Accounts](/pages/multi-account.md)
 
 ### Support
 
