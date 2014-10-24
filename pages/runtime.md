@@ -1,11 +1,16 @@
-# Runtime Configuration
+# Runtime Environment
+
+## Exposed Ports
+
+Resin.io devices expose all ports by default, meaning you can run applications
+which listen on any port without issue.
+
+## Environment Variables
 
 Resin.io exposes runtime data to programs running on devices to enable you to
 adapt your programs to specific runtime configurations.
 
 We currently expose these via [environment variables][env_vars]:-
-
-## Environment Variables
 
 * `RESIN_DEVICE_UUID` - The unique identifier associated with the device the
   program is running on. Read-only.
