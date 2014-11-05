@@ -39,7 +39,3 @@
 
 * [Error Notifications](/pages/error.md)
 * [SSH Keys for Multiple Accounts](/pages/multi-account.md)
-
-### Support
-
-* [Support Forum](http://support.resin.io/) (external link)
