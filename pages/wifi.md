@@ -43,8 +43,7 @@ If you have issues connecting with the WiFi device, first check to ensure the
 SSID and passphrase are correct. If they are, try rebooting with an ethernet
 cable plugged in, then booting again with just WiFi.
 
-If neither of these approaches work, please let us know on the
-[support forums][support]!
+If neither of these approaches work, please let us know!
 
 ### Multiple WiFi Connections
 
@@ -60,5 +59,4 @@ this.
 [adafruit]:http://www.adafruit.com/products/814
 [epn8531]:http://www.amazon.com/BestDealUSA-EP-N8531-150Mbps-802-11n-Wireless/dp/B00AT7S060
 [elinux]:http://elinux.org/RPi_USB_Wi-Fi_Adapters
-[support]:http://support.resin.io/
 [pi-hut-usb]:http://thepihut.com/products/usb-wifi-adapter-for-the-raspberry-pi
