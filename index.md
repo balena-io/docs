@@ -37,5 +37,6 @@
 
 ### Troubleshooting
 
+* [Known Issues](/pages/knownIssues.md)
 * [Error Notifications](/pages/error.md)
 * [SSH Keys for Multiple Accounts](/pages/multi-account.md)
