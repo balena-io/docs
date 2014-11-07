@@ -6,9 +6,11 @@
 
 * A [supported device][supported].
 
-* A 4GB or larger SD card. The [speed class][speed_class] of the card matters -
-  this determines its maximum transfer rate. We strongly recommend you get hold
-  of a class 10 card or above.
+* A 4GB or larger SD card. Check what kind of media your device accepts - e.g. a
+  [Raspberry Pi B+][rpi-b-plus] uses Micro SD cards whereas older
+  [Raspberry Pi][rpi]'s use standard SD cards. The [speed class][speed_class] of
+  the card also matters - this determines its maximum transfer rate. We strongly
+  recommend you get hold of a class 10 card or above.
 
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the
   internet.
@@ -152,3 +154,5 @@ feedback and respond to any issues as soon as we can.
 [example_app]:https://github.com/resin-io/text2speech
 [try-git]:https://www.codeschool.com/courses/try-git
 [code-school]:https://www.codeschool.com/
+[rpi]:http://www.raspberrypi.org/
+[rpi-b-plus]:http://www.raspberrypi.org/products/model-b-plus/
