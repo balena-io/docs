@@ -75,9 +75,16 @@ take you to its dashboard:-
 This is the application dashboard where all of the devices connected to your
 application will be shown along with their status and logs.
 
-Ensure your SD card is formatted in [FAT32][fat32] ([WikiHow][wikihow] has
-[instructions][wikihow_format] on how to do this) and expand the application
-zip file onto it.
+Click the `Download Zip File` button to get the Resin.io image for your
+application. A dialog will appear prompting you to specify how your device
+connects to the internet - either via an ethernet cable or wifi, in which case
+you can specify your Wifi network's SSID and passphrase:-
+
+![Wifi Settings](/img/screenshots/wifi_settings.png)
+
+While the zip file downloads ensure your SD card is formatted in [FAT32][fat32]
+([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this) and
+expand the zip file onto it.
 
 ## Setting Up Your Device
 
