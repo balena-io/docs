@@ -34,9 +34,9 @@
 
 * [Advanced Configuration](/pages/advanced.md)
 * [Custom Network Configuration](/pages/custom-network.md)
+* [SSH Keys for Multiple Accounts](/pages/multi-account.md)
 
 ### Troubleshooting
 
-* [Known Issues](/pages/knownIssues.md)
+* [Troubleshooting](/pages/troubleshooting.md)
 * [Error Notifications](/pages/error.md)
-* [SSH Keys for Multiple Accounts](/pages/multi-account.md)

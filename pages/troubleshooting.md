@@ -1,4 +1,4 @@
-# Known Issues
+# Troubleshooting
 
 ## Raspberry Pi
 
