@@ -125,11 +125,9 @@ friendly unicorn mascot:-
 
 ## Feedback
 
-![Feedback Page](/img/screenshots/feedback.png)
-
 If you find any issues with the application, please click the feedback label on
-the right-hand side of the page and let us know! We are always open to feedback
-and respond to any issues as soon as we can.
+the bottom right-hand side of the page and let us know! We are always open to
+feedback and respond to any issues as soon as we can.
 
 [deploy]:/pages/deployment.md
 [projects]:/pages/projects.md
