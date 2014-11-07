@@ -76,8 +76,6 @@ An extremely useful feature of the devices detail page is the log window. This i
 
 ![Preferences Top](/img/screenshots/preferences.png)
 
-In the preferences page you can change your password and view your current public SSH key.
-
-For the time being you can't change anything other than password here, however we will add the ability to change other fields soon!
+In the preferences page you can change your password and manage the SSH keys assigned to your account.
 
 [rpi]:http://www.raspberrypi.org/
