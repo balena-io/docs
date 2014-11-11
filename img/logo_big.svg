@@ -7,10 +7,10 @@
 
 	 x="0px"
 	 y="0px"
-	 width="269px"
-	 height="314px"
-	 viewbox="0 0 269 314">
-	<g transform="scale(0.44)">
+	 width="150px"
+	 height="175px"
+	 viewbox="0 0 150 175">
+	<g transform="scale(0.25)">
 		<g>
 			<polygon points="303,0 0,175 303,350 605,175" fill="#e0a800"></polygon>
 			<polygon points="0,175 0,525 303,700 303,350" fill="#ffec52"></polygon>
