@@ -6,7 +6,7 @@ The [Resin.io][resin] software running on your device leverages a number of powe
 
 ![Yocto Project Logo](/img/yocto.png)
 
-The operating system we install on your device is [Yocto][yocto] [Linux][linux]. This is an innovative distribution which comprises components which can be combined together to build a custom Linux system containing only the software you need for any target architecture.
+The operating system we install on your device is [Yocto][yocto] [Linux][linux]. This is an innovative distribution which comprises components which can be combined together to build a custom Linux system containing only the software you need for any target architecture. We plan to support additional Operating Systems bases in the future.
 
 This is perfect for Resin.io - we have built an optimised Linux system for the devices we support and can guarantee the same behaviour on any further devices we support in the future.
 
@@ -23,6 +23,16 @@ In addition we leverage containerisation to have our build server build your pro
 ![Resin.io Logo](/img/logo_big.svg)
 
 The Resin.io supervisor is a lightweight process which runs on your device, manages your applications and communicates with our servers - downloading new applications and updates to existing applications as you push them, sending logs to your dashboard, as well as updating itself automatically when new releases of the supervisor are pushed out by us.
+
+## Your Application
+
+![Application Image](/img/logo_app.svg)
+
+When you download the base image for your devices you get [Yocto][yocto], [Docker][docker] and the Resin.io Supervisor, but no application to actually run on your device. So how does your code get there?
+
+Once your device has booted and initial setup is complete, the Supervisor contacts our servers and downloads the latest version of your application.
+
+From this point on, as soon as you push an update it will connect to our servers, pull down the container for your application and update it seamlessly, giving you zero overhead updates across any number of devices.
 
 [resin]:https://resin.io
 [yocto]:https://www.yoctoproject.org/
