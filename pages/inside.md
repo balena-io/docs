@@ -20,7 +20,7 @@ In addition we leverage containerisation to have our build server build your pro
 
 ## Resin.io Supervisor
 
-![Resin.io Logo](/img/logo_big.svg)
+![Resin.io Logo](/img/logo_supervisor.svg)
 
 The Resin.io supervisor is a lightweight process which runs on your device, manages your applications and communicates with our servers - downloading new applications and updates to existing applications as you push them, sending logs to your dashboard, as well as updating itself automatically when new releases of the supervisor are pushed out by us.
 
