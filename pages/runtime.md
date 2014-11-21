@@ -21,4 +21,11 @@ Applications can store data in the `/data` folder mounted on the application's
 file system. This folder is guaranteed to be maintained across updates and thus
 files contained in it can act as persistent storage.
 
+Note that this folder is __not__ mounted when your project is building on our
+build server, and is only created once your project is deployed to your actual
+devices.
+
+Additionally, the `/data` folder is created per-device and it not kept in sync
+between devices, so ensure your application takes this into account.
+
 [env_vars]:http://en.wikipedia.org/wiki/Environment_variable
