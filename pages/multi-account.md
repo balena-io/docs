@@ -28,5 +28,5 @@ Host resin-as-joebloggs
 You then need to update the git remote of the project in question via:-
 
 ```
-git remote set-url resin git@resin-staging-as-joebloggs:[your username]/[app name].git
+git remote set-url resin git@resin-as-joebloggs:[your username]/[app name].git
 ```
