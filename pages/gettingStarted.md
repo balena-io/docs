@@ -23,8 +23,6 @@ __NOTE:__ If you're not experienced with [git][git], check out the excellent
 
 ## Signing Up
 
-![Signup Page](/img/screenshots/signup.png)
-
 Enter your details on the [sign up page][signup]. There are a couple of
 restrictions:-
 
@@ -56,7 +54,8 @@ retrieve this data.)
 
 ## Creating Your First Application
 
-![Creating an Application](/img/screenshots/applications_empty.png)
+<!-- ![Creating an Application](/img/screenshots/applications_empty.png) -->
+![Creating an Application](/img/gifs/createapp.gif)
 
 The two key components you will interact with in Resin.io are *applications* and
 *devices* - applications represent the code you want to run on your devices, and
