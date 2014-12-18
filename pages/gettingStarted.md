@@ -95,6 +95,7 @@ expand the zip file onto it.
 Put the SD card into your device and wait for it to appear on the application
 dashboard.
 
+![unzip and expand](/img/gifs/unzip-image.gif)
 ![insert SD](/img/gifs/insert-sd.gif) 
 
 While you wait Resin.io is partitioning your SD card, installing a custom linux
