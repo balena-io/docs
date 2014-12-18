@@ -55,7 +55,7 @@ retrieve this data.)
 ## Creating Your First Application
 
 <!-- ![Creating an Application](/img/screenshots/applications_empty.png) -->
-![Creating an Application](/img/gifs/createapp.gif)
+![Creating an Application](/img/gifs/createapp.gif =500x)
 
 The two key components you will interact with in Resin.io are *applications* and
 *devices* - applications represent the code you want to run on your devices, and
