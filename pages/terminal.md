@@ -54,5 +54,9 @@ If no window appears, wait a while or refresh, as sometimes the connection can t
 
 If a terminal window flashes up then disappears, this is usually due to your application exiting before the terminal session is established. Ensure your application continues running long enough after being started to enable a terminal session to be connected.
 
+### Terminal Closes On Update
+
+When you push updates, the terminal session is automatically closed. To restart the terminal session, simply close the terminal session and restart it once the update is complete.
+
 [tty.js]:https://github.com/chjj/tty.js/
 [docker-container]:https://docs.docker.com/introduction/understanding-docker/#inside-docker
