@@ -39,23 +39,15 @@ We provide a base [Raspbian][raspbian] Raspberry Pi image especially configured 
 To use this image prefix your `Dockerfile`s with:-
 
 ```
-FROM resin/rpi-buildstep-armv6hf
+FROM resin/rpi-raspbian:wheezy
 ```
-
-or:-
-
-```
-FROM resin/rpi-buildstep-armv6hf:latest
-```
-
-Note: The `:latest` tag is automatically suffixed if you don't provide it.
 
 ## Example Dockerfile
 
 Let's take a look at an example `Dockerfile`. This comes from the [Hello Python][hello-python] project and executes a simple Hello World Python project:-
 
 ```
-FROM resin/rpi-buildstep-armv6hf:latest
+FROM resin/rpi-raspbian:wheezy
 
 # Install Python.
 RUN apt-get update
@@ -72,7 +64,7 @@ RUN chmod +x /start
 Let's take a look at what's going on here, line-by-line:-
 
 ```
-FROM resin/rpi-buildstep-armv6hf:latest
+FROM resin/rpi-raspbian:wheezy
 ```
 
 Here we use the Resin.io Raspberry Pi [Raspbian][raspbian] image as our base Docker image.
