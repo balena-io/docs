@@ -25,12 +25,15 @@ This is a simple Hello, World project for [node.js][node] designed to act as a
 basis for future work. It demonstrates how to install native Linux packages and
 configure your application.
 
-### Cimon
-[Repository][cimon] by [efwe][efwe]
+### Analog-to-digital converter
+[Repository][ADC_py] by [Shaun Mulligan][shaun-mulligan]
 
-A simple tool for reading temperatures from a USB-enabled thermometer. This
-project is used as the backend to [efwe][efwe]'s awesome temperature
-visualisation at [123k.de](http://123k.de).
+This is a simple project so show to read analog sensor values into the raspberry pi using python. It uses the [ADS1x15][ADC_adafruit] family of I2C analog-to-digital converters to read in analog signals between 0 and 3.3V.
+
+### resin-tether
+[Repository][resin-tether] by [petrosagg][petrosagg]
+
+This python project allows you to share your ethernet connection to wifi. It essentially allows the raspberry pi to act as a wifi access point.
 
 ### Digital Temperature Logger
 [Repository][firebase-dtl] by [Shaun Mulligan][shaun-mulligan]
@@ -109,6 +112,13 @@ Displays values from a JSON endpoint on your browser in kiosk mode (based on
 [Repository][text2speech]
 
 A simple application that makes your device speak out loud.
+
+### Cimon
+[Repository][cimon] by [efwe][efwe]
+
+A simple tool for reading temperatures from a USB-enabled thermometer. This
+project is used as the backend to [efwe][efwe]'s awesome temperature
+visualisation at [123k.de](http://123k.de).
 
 ## Programming Language Starter Projects
 
@@ -207,9 +217,12 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [aleksis]:https://github.com/abresas/
 [lifeeth]:https://bitbucket.org/lifeeth/
 [alex]:https://github.com/alexandrosm
+[petrosagg]:https://github.com/petrosagg
 
 [node]:https://nodejs.org/
 [bitcoin]:https://bitcoin.org/
 [gpio]:http://en.wikipedia.org/wiki/General-purpose_input/output
 [pi-pins]:https://github.com/natevw/pi-pins
 [salesforce]:https://www.salesforce.com
+[ADC_adafruit]:http://www.adafruit.com/product/1085
+[resin-tether]:https://github.com/petrosagg/resin-tether
