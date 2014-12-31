@@ -237,6 +237,7 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [gpio]:http://en.wikipedia.org/wiki/General-purpose_input/output
 [pi-pins]:https://github.com/natevw/pi-pins
 [salesforce]:https://www.salesforce.com
+[ADC_py]:https://github.com/shaunmulligan/resin-rpi-py-ADC
 [ADC_adafruit]:http://www.adafruit.com/product/1085
 [resin-tether]:https://github.com/petrosagg/resin-tether
 [dockerHub]:https://github.com/nghiant2710/resin-DockerHubDeploymentGuide
