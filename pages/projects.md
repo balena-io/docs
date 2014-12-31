@@ -241,3 +241,4 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [ADC_adafruit]:http://www.adafruit.com/product/1085
 [resin-tether]:https://github.com/petrosagg/resin-tether
 [dockerHub]:https://github.com/nghiant2710/resin-DockerHubDeploymentGuide
+[resin-samba]:https://github.com/abresas/resin-samba
