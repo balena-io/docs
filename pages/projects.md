@@ -41,11 +41,23 @@ This python project allows you to share your ethernet connection to wifi. It ess
 A [Firebase][firebase]-backed Digital Temperature Logger allowing you to connect
 devices with multiple temperature sensors to a central cloud-based datastore.
 
+### resin-samba
+[Repository][resin-samba] by [Aleksis Brezas][aleksis]
+
+Sets up a samba share that you can use to send and receive files to your Raspberry Pi. You can use this project as a template to add file sharing capabilities to your projects.
+
 ### Digitiser
 [Repository][digitiser] by [Shaun Mulligan][shaun-mulligan]
 
 A tool for displaying integer values from a JSON endpoint on a MAX7219 7-segment
 display.
+
+### Deployment guide for DockerHub images
+[Repository][dockerHub] by [nghiant2710][nghiant2710]
+
+Resin.io offers you the flexibility to deploy your application from a custom Dockerfile which allows you to define your own development environment.
+
+Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, Resin.io allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
 
 ### Example Pi Pins Application
 [Repository][example-pi-pins] by [Shaun Mulligan][shaun-mulligan]
@@ -218,6 +230,7 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [lifeeth]:https://bitbucket.org/lifeeth/
 [alex]:https://github.com/alexandrosm
 [petrosagg]:https://github.com/petrosagg
+[nghiant2710]:https://github.com/nghiant2710
 
 [node]:https://nodejs.org/
 [bitcoin]:https://bitcoin.org/
@@ -226,3 +239,4 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [salesforce]:https://www.salesforce.com
 [ADC_adafruit]:http://www.adafruit.com/product/1085
 [resin-tether]:https://github.com/petrosagg/resin-tether
+[dockerHub]:https://github.com/nghiant2710/resin-DockerHubDeploymentGuide
