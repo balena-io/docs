@@ -45,6 +45,12 @@ This python project allows you to share your ethernet connection to wifi. It ess
 A [Firebase][firebase]-backed Digital Temperature Logger allowing you to connect
 devices with multiple temperature sensors to a central cloud-based datastore.
 
+### Cloud Synchronised Streaming Radios
+
+[Repository][sonos-clone]
+
+Build your own version of Sonos cloud synchronised speakers using Grooveshark, some raspberry pis and resin.io. It also has an awesome frontend web app [link][clonos-frontend] that allows you to search and queue up songs in a playlist so that all the rooms in your house are in perfect harmony.
+
 ### resin-samba
 
 [Repository][resin-samba] by [Aleksis Brezas][aleksis]
@@ -278,3 +284,5 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [picamera-node]:https://github.com/shaunmulligan/resin-rpi-nodejs-picamera
 [picamera-py]:https://github.com/shaunmulligan/resin-rpi-python-picamera
 [webLamp]:https://github.com/shaunmulligan/webLamp
+[sonos-clone]:https://github.com/resin-io/music-player-device
+[clonos-frontend]:https://github.com/resin-io/music-player-web
