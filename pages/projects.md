@@ -49,7 +49,7 @@ devices with multiple temperature sensors to a central cloud-based datastore.
 
 [Repository][sonos-clone]
 
-Build your own version of Sonos cloud synchronised speakers using Grooveshark, some raspberry pis and resin.io. It also has an awesome frontend web app [link][clonos-frontend] that allows you to search and queue up songs in a playlist so that all the rooms in your house are in perfect harmony.
+Build your own version of Sonos cloud synchronised speakers using Grooveshark, some raspberry pis and resin.io. It also has an awesome frontend web app [[link][clonos-frontend]] that allows you to search and queue up songs in a playlist so that all the rooms in your house are in perfect harmony.
 
 ### resin-samba
 
@@ -63,14 +63,6 @@ Sets up a samba share that you can use to send and receive files to your Raspber
 
 A tool for displaying integer values from a JSON endpoint on a MAX7219 7-segment
 display.
-
-### Deployment guide for DockerHub images
-
-[Repository][dockerHub] by [nghiant2710][nghiant2710]
-
-Resin.io offers you the flexibility to deploy your application from a custom Dockerfile which allows you to define your own development environment.
-
-Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, Resin.io allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
 
 ### Example GPIO control in node.js
 
@@ -169,6 +161,14 @@ A simple application that makes your device speak out loud.
 A simple tool for reading temperatures from a USB-enabled thermometer. This
 project is used as the backend to [efwe][efwe]'s awesome temperature
 visualisation at [123k.de](http://123k.de).
+
+### Deployment guide for DockerHub images
+
+[Repository][dockerHub] by [nghiant2710][nghiant2710]
+
+Resin.io offers you the flexibility to deploy your application from a custom Dockerfile which allows you to define your own development environment.
+
+Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, Resin.io allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
 
 ## Programming Language Starter Projects
 
