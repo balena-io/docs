@@ -19,6 +19,7 @@ git push resin master
 ## Projects
 
 ### Node.js Starter Project
+
 [Repository][simple-nodejs]
 
 This is a simple Hello, World project for [node.js][node] designed to act as a
@@ -26,44 +27,67 @@ basis for future work. It demonstrates how to install native Linux packages and
 configure your application.
 
 ### Analog-to-digital converter
+
 [Repository][ADC_py] by [Shaun Mulligan][shaun-mulligan]
 
 This is a simple project so show to read analog sensor values into the raspberry pi using python. It uses the [ADS1x15][ADC_adafruit] family of I2C analog-to-digital converters to read in analog signals between 0 and 3.3V.
 
 ### resin-tether
+
 [Repository][resin-tether] by [petrosagg][petrosagg]
 
 This python project allows you to share your ethernet connection to wifi. It essentially allows the raspberry pi to act as a wifi access point.
 
 ### Digital Temperature Logger
+
 [Repository][firebase-dtl] by [Shaun Mulligan][shaun-mulligan]
 
 A [Firebase][firebase]-backed Digital Temperature Logger allowing you to connect
 devices with multiple temperature sensors to a central cloud-based datastore.
 
 ### resin-samba
+
 [Repository][resin-samba] by [Aleksis Brezas][aleksis]
 
 Sets up a samba share that you can use to send and receive files to your Raspberry Pi. You can use this project as a template to add file sharing capabilities to your projects.
 
 ### Digitiser
+
 [Repository][digitiser] by [Shaun Mulligan][shaun-mulligan]
 
 A tool for displaying integer values from a JSON endpoint on a MAX7219 7-segment
 display.
 
 ### Deployment guide for DockerHub images
+
 [Repository][dockerHub] by [nghiant2710][nghiant2710]
 
 Resin.io offers you the flexibility to deploy your application from a custom Dockerfile which allows you to define your own development environment.
 
 Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, Resin.io allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
 
-### Example Pi Pins Application
+### Example GPIO control in node.js
+
 [Repository][example-pi-pins] by [Shaun Mulligan][shaun-mulligan]
 
 A simple application which demonstrates the use of the [Pi Pins][pi-pins]
 library to interface with [GPIO][gpio].
+
+### Example GPIO control in pythyon
+
+[Repository][py-gpio] by [nghiant2710][nghiant2710]
+
+A simple application that shows you how to toggle the general purpose I/O pins on the raspberry pi using python.
+
+### Node.js and the RPI camera module 
+[Repository][picamera-node]
+
+A basic skeleton application to get you up and running with the raspberry pi camera module using node.js
+
+### Python and the RPI camera module
+[Repository][picamera-py]
+
+A basic skeleton application to get you up and running with the raspberry pi camera module using python.
 
 ### Google Coder
 
@@ -78,6 +102,12 @@ makes it easy to develop web projects on your device.
 
 A tool for controlling a camera using a foot switch in order to capture shots in
 which people appear to be flying.
+
+### Web Controlled Desk Lamp
+
+[Repository][webLamp] by [Shaun Mulligan][shaun-mulligan]
+
+Allows you to control a simple desk lamp from your browser anywhere in the world. Warning!!! It uses a relay to switch on and off mains power. So some level of familiarity with electronics is required.
 
 ### Pi Miner
 
@@ -242,3 +272,7 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [resin-tether]:https://github.com/petrosagg/resin-tether
 [dockerHub]:https://github.com/nghiant2710/resin-DockerHubDeploymentGuide
 [resin-samba]:https://github.com/abresas/resin-samba
+[py-gpio]:https://github.com/nghiant2710/resin-rpi-gpio-sample-with-python
+[picamera-node]:https://github.com/shaunmulligan/resin-rpi-nodejs-picamera
+[picamera-py]:https://github.com/shaunmulligan/resin-rpi-python-picamera
+[webLamp]:https://github.com/shaunmulligan/webLamp
