@@ -107,7 +107,9 @@ which people appear to be flying.
 
 [Repository][webLamp] by [Shaun Mulligan][shaun-mulligan]
 
-Allows you to control a simple desk lamp from your browser anywhere in the world. Warning!!! It uses a relay to switch on and off mains power. So some level of familiarity with electronics is required.
+Allows you to control a simple desk lamp from your browser anywhere in the world. 
+
+Warning!!! This project uses a relay to switch on and off mains power. So some level of familiarity with electronics is required.
 
 ### Pi Miner
 
