@@ -1,12 +1,12 @@
 angular
-  .module('resinDocs', [ 'ngRoute' ])
+  .module('resinDocs', [ 'ngRoute', 'ui.bootstrap' ])
 
   // config
   .config(function($routeProvider) {
     $routeProvider
       .when('/pages/:pageName', {
         controller: 'PageCtrl',
-        template: '<div ng-bind-html="::pageContent"></div>',
+        template: '<div class="page-content"></div>',
         resolve: {
           pageContent: function($route, PageRendererService) {
             return PageRendererService.getPageHtml($route.current.params.pageName);
@@ -27,8 +27,12 @@ angular
   })
 
   // controllers
-  .controller('PageCtrl', function($scope, $sce, pageContent, $timeout) {
-    $scope.pageContent = $sce.trustAsHtml(pageContent);
+  .controller('PageCtrl', function($scope, $sce, pageContent, $timeout, $compile) {
+    // hacky way of replacing content
+    var pageContentEl = angular.element('.page-content');
+    pageContentEl.html(pageContent);
+    $compile(pageContentEl.contents())($scope);
+
     $timeout(function() {
       $scope.$emit('page-rendered', pageContent)
     });
@@ -40,7 +44,7 @@ angular
       restrict: 'A',
       link: function(scope, el) {
         $rootScope.$on('page-rendered', function(event, content) {
-          $('content h1').first().after(el)
+          $('content h1').first().append(el)
         });
       }
     }

@@ -1,8 +1,10 @@
 # Advanced Configuration Guide
 
+<alert type="warning">
 __Warning:__ This page contains details of the more *involved* configuration
 options that expose more functionality but potentially enable you to break
 things should you configure them incorrectly - tread carefully!
+</alert>
 
 ## Raspberry Pi
 

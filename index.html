@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     <meta charset="UTF-8">
 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/static/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 </head>
@@ -25,6 +26,8 @@
             <li><a href="https://resin.io/blog">Blog</a></li>
           </ul>
 
+          <a class="logo" href="https://resin.io">resin.io</a>
+
           <ul class="nav navbar-nav navbar-right">
             <li><a href="https://resin.io/contact">Contact</a></li>
             <li><a href="https://alpha.resin.io/login">Login</a></li>
@@ -36,18 +39,18 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search Docs...">
-                    </div>
+            <div class="sidebar col-sm-3">
+                <form ng-submit="search()">
+                    <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Docs...">
                 </form>
                 <navigation></navigation>
             </div>
             <article class="col-sm-9">
                 <header>
                     <breadcrumb></breadcrumb>
-                    <a href="https://alpha.resin.io/signup" sign-up class="btn btn-warning">Sign up &amp; deploy your first project</a>
+                    <div sign-up>
+                        <a id="sign-up" href="https://alpha.resin.io/signup" class="btn btn-warning">Sign up &amp; deploy your first project</a>
+                    </div>
                 </header>
                 <content ng-view></content>
             </article>
@@ -57,6 +60,8 @@
     <script type="text/javascript" src="/static/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/static/lib/angular/angular.js"></script>
     <script type="text/javascript" src="/static/lib/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/static/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="/static/lib/marked/lib/marked.js"></script>
 
     <script type="text/javascript" src="/static/scripts/main.js"></script>

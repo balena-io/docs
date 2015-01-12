@@ -1,6 +1,6 @@
 # Getting Started With Resin.io
 
-<iframe class="getting-started-vid" src="//player.vimeo.com/video/108930903?title=0&amp;byline=0&amp;portrait=0" width="900" height="506" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe class="getting-started-vid" src="//player.vimeo.com/video/108930903?title=0&amp;byline=0&amp;portrait=0" style="width:100%" height="456px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ## What You'll Need
 
@@ -95,7 +95,7 @@ expand the zip file onto it.
 Put the SD card into your device and wait for it to appear on the application
 dashboard.
 
-![insert SD](/img/gifs/insert-sd.gif) 
+![insert SD](/img/gifs/insert-sd.gif)
 
 While you wait Resin.io is partitioning your SD card, installing a custom linux
 environment and establishing a secure connecting with our servers.
