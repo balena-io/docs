@@ -21,6 +21,20 @@ angular
   .service('PageRendererService', function($http) {
     this.getPageHtml = function(pageName) {
       return $http.get('/pages/' + pageName).then(function(resp) {
+        var preparedHtmlEl = angular.element('<div>' + marked(resp.data) + '</div>');
+
+        // add custom classess/directives
+        preparedHtmlEl.find('table').addClass('table table-bordered');
+        preparedHtmlEl.find('p > strong:first-child:contains("Warning")').parent().wrap('<alert type="warning"></alert>')
+        preparedHtmlEl.find('p > strong:first-child:contains("Note")').parent().wrap('<alert type="note"></alert>')
+        preparedHtmlEl.find('p > strong:first-child:contains("NOTE")').parent().wrap('<alert type="note"></alert>')
+
+        return preparedHtmlEl.html();
+      });
+    };
+
+    this.getSidebarNavigation = function() {
+      return $http.get('/navigation.md').then(function(resp) {
         return marked(resp.data);
       });
     };
@@ -44,7 +58,7 @@ angular
       restrict: 'A',
       link: function(scope, el) {
         $rootScope.$on('page-rendered', function(event, content) {
-          $('content h1').first().append(el)
+          angular.element('content h1').first().append(el)
         });
       }
     }
@@ -62,14 +76,14 @@ angular
       }
     }
   })
-  .directive('navigation', function($http, $sce, $timeout, $routeParams, $rootScope) {
+  .directive('navigation', function($sce, $timeout, $routeParams, $rootScope, PageRendererService) {
     return {
       restrict: 'E',
       replace: true,
       template: '<nav id="navigation" ng-bind-html="::navigationContent"></nav>',
       link: function(scope, el) {
-        $http.get('/navigation.md').then(function(resp) {
-          scope.navigationContent = $sce.trustAsHtml(marked(resp.data));
+        PageRendererService.getSidebarNavigation().then(function(nav) {
+          scope.navigationContent = $sce.trustAsHtml(nav);
 
           $timeout(function() {
             el.find('a').each(function() {
@@ -84,7 +98,7 @@ angular
               });
             });
 
-            var activeLink = $('#navigation a[href="#/pages/'+ $routeParams.pageName +'"]').parent()
+            var activeLink = angular.element('#navigation a[href="#/pages/'+ $routeParams.pageName +'"]').parent()
             activeLink.addClass('active');
             $rootScope.$emit('active-link-added', { el: activeLink })
           });
