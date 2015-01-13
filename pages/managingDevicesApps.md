@@ -36,17 +36,13 @@ For more details on deployment, check out our [deployment guide](http://docs.res
 
 Hidden behind the 'Dangerous' section is the option to delete your application.
 
-<alert type="warning">
 __Warning:__ All devices attached to the application will become orphaned and you will need to reconfigure them from scratch in another application.
-</alert>
 
 ### Environment Variables
 
 Applications can be customised via environment variables - simply enter environment variable key/value pairs.
 
-<alert type="warning">
 __Warning:__ Changing an environment variable will, for the time being, result in your application restarting.
-</alert>
 
 ### System-Defined Environment Variables
 
