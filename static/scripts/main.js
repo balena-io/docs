@@ -47,6 +47,12 @@ angular
     pageContentEl.html(pageContent);
     $compile(pageContentEl.contents())($scope);
 
+    // resize sidebar
+    var sidebarEl = angular.element('.sidebar');
+    $timeout(function() {
+      sidebarEl.css('min-height', angular.element('article').height());
+    }, 500);
+
     $timeout(function() {
       $scope.$emit('page-rendered', pageContent)
     });
@@ -82,6 +88,11 @@ angular
       replace: true,
       template: '<nav id="navigation" ng-bind-html="::navigationContent"></nav>',
       link: function(scope, el) {
+        function addActiveClass(activeEl) {
+          activeEl.addClass('active');
+          $rootScope.$emit('active-link-added', { el: activeEl })
+        }
+
         PageRendererService.getSidebarNavigation().then(function(nav) {
           scope.navigationContent = $sce.trustAsHtml(nav);
 
@@ -93,14 +104,12 @@ angular
 
               $(this).click(function() {
                 el.find('.active').removeClass('active');
-                $(this).parent().addClass('active');
-                $rootScope.$emit('active-link-added', { el: $(this).parent() })
+                addActiveClass($(this).parent());
               });
             });
 
             var activeLink = angular.element('#navigation a[href="#/pages/'+ $routeParams.pageName +'"]').parent()
-            activeLink.addClass('active');
-            $rootScope.$emit('active-link-added', { el: activeLink })
+            addActiveClass(activeLink);
           });
         });
       }
