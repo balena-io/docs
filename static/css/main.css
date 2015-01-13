@@ -233,3 +233,7 @@ body {
   background-color: #f8dc6b;
   border-color: #edd160;
 }
+
+.colorbox-img-wrappper {
+  outline: none!important;
+}
