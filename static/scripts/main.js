@@ -25,9 +25,10 @@ angular
 
         // add custom classess/directives
         preparedHtmlEl.find('table').addClass('table table-bordered');
-        preparedHtmlEl.find('p > strong:first-child:contains("Warning")').parent().wrap('<alert type="warning"></alert>')
-        preparedHtmlEl.find('p > strong:first-child:contains("Note")').parent().wrap('<alert type="note"></alert>')
-        preparedHtmlEl.find('p > strong:first-child:contains("NOTE")').parent().wrap('<alert type="note"></alert>')
+        preparedHtmlEl.find('p > strong:first-child:contains("Warning")').parent().wrap('<alert type="warning"></alert>');
+        preparedHtmlEl.find('p > strong:first-child:contains("Note")').parent().wrap('<alert type="note"></alert>');
+        preparedHtmlEl.find('p > strong:first-child:contains("NOTE")').parent().wrap('<alert type="note"></alert>');
+        preparedHtmlEl.find('img').attr('colorbox', '');
 
         return preparedHtmlEl.html();
       });
@@ -54,11 +55,25 @@ angular
     }, 500);
 
     $timeout(function() {
-      $scope.$emit('page-rendered', pageContent)
+      $scope.$emit('page-rendered', pageContent);
+      angular.element('.colorbox-img-wrappper').colorbox({
+        maxWidth: '95%',
+        maxHeight: '95%',
+        scalePhotos: !0,
+        photo: !0
+      });
     });
   })
 
   // directives
+  .directive('colorbox', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, el) {
+        el.wrap('<a href="' + el.attr('src') + '" class="colorbox-img-wrappper"></a>');
+      }
+    }
+  })
   .directive('signUp', function($rootScope) {
     return {
       restrict: 'A',
