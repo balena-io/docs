@@ -29,6 +29,7 @@ angular
         preparedHtmlEl.find('p > strong:first-child:contains("Note")').parent().wrap('<alert type="note"></alert>');
         preparedHtmlEl.find('p > strong:first-child:contains("NOTE")').parent().wrap('<alert type="note"></alert>');
         preparedHtmlEl.find('img').attr('colorbox', '');
+        preparedHtmlEl.find('h2,h3,h4,h5,h6').attr('anchor', '')
 
         return preparedHtmlEl.html();
       });
@@ -72,6 +73,18 @@ angular
   })
 
   // directives
+  .directive('anchor', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, el) {
+        var url = location.href;
+        url = url.replace(/#\w.+/, '')
+        url += '#' + el.attr('id')
+
+        el.append(' <a class="hash" href="' + url + '">#</a>')
+      }
+    }
+  })
   .directive('colorbox', function() {
     return {
       restrict: 'A',
