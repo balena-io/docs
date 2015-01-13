@@ -41,10 +41,11 @@
     <div class="container">
         <div class="row">
             <div class="sidebar col-sm-3">
-                <form ng-submit="search()">
+                <form ng-controller="SearchCtrl" ng-submit="search()">
                     <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Docs...">
                 </form>
                 <navigation></navigation>
+                <gcse:search></gcse:search>
             </div>
             <article class="col-sm-9">
                 <header>
@@ -67,5 +68,18 @@
     <script type="text/javascript" src="/static/lib/colorbox/jquery.colorbox-min.js"></script>
 
     <script type="text/javascript" src="/static/scripts/main.js"></script>
+
+    <script>
+      (function() {
+        var cx = '013679408131970639568:glcs23wqy-o';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
 </body>
 </html>
