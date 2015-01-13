@@ -238,6 +238,14 @@ body {
   outline: none!important;
 }
 
+.hash {
+  display: none;
+}
+
+h2:hover .hash, h3:hover .hash, h4:hover .hash, h5:hover .hash, h6:hover .hash {
+  display: inline-block;
+}
+
 /* hidding google search ugly input */
 #___gcse_0 {
   visibility: hidden;
