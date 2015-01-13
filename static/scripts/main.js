@@ -42,6 +42,12 @@ angular
   })
 
   // controllers
+  .controller('SearchCtrl', function($scope, $http) {
+    $scope.search = function() {
+      angular.element('input.gsc-input').val($scope.searchTerm);
+      angular.element('.gsc-search-button').trigger('click');
+    };
+  })
   .controller('PageCtrl', function($scope, $sce, pageContent, $timeout, $compile) {
     // hacky way of replacing content
     var pageContentEl = angular.element('.page-content');

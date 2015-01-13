@@ -237,3 +237,8 @@ body {
 .colorbox-img-wrappper {
   outline: none!important;
 }
+
+/* hidding google search ugly input */
+#___gcse_0 {
+  visibility: hidden;
+}
