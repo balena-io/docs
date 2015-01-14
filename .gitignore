@@ -2,3 +2,5 @@
 
 # Ignore local scripts.
 run.sh
+
+node_modules/
