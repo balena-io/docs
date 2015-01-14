@@ -1,0 +1,22 @@
+{
+  "name": "resin-docs",
+  "version": "0.0.0",
+  "description": "This repo contains our public-facing documentation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/resin-io/docs.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/resin-io/docs/issues"
+  },
+  "homepage": "https://github.com/resin-io/docs",
+  "dependencies": {
+    "express": "~4.11.0"
+  }
+}
