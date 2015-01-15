@@ -1,6 +1,6 @@
 # Optimise your Build
 
-These are just a few tips and tricks to optimise your resin container build and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the docker container builders on our servers. If you want to read more about how dockers caches layers and docker best practises, head over here - [Docker best practise][docker-best-practise]. 
+These are just a few tips and tricks to optimise your resin.io container build and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the docker container builders on our servers. If you want to read more about how dockers caches layers and docker best practises, head over here - [Docker best practise][docker-best-practise]. 
 
 ## Move `ADD` and `COPY` Commands
 
@@ -22,12 +22,27 @@ In order to reduce complexity, dependencies, file sizes, and build times, you sh
 We can tidy up a bit by cleaning out the apt-cache and cleaning out tmp:
 
 ```
-RUN apt-get update && apt-get install ... && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    libsqlite3-dev \ 
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 ```
-Where `...` is a list of things you want to install.
 
-__NOTE:__ The above command should not be split over two or more `RUN` commands, as benefit will be lost.
+__NOTE:__ The above command should never be split over two or more `RUN` commands, as the benefits will be lost.
 
 It is also wise to remove any .tar.gz or temporary files in a similar fashion to the above, as this will reduce build size.
+
+## .dockerignore
+
+Make use of .dockerignore to ignore anything that is in the git repo, but is not strictly needed on the device(s). This can allow you to safely ignore images or assets used to document your project on github or bitbucket.
+
+## Don't do apt-get update or upgrade
+
+This isn't so much of an optimisation tip, but more a guideline to ensure maintainable docker images. Note the below tips were shamelessly borrowed from [Docker Best Practise][docker-best-practise].
+
+* Don’t do `RUN apt-get update` on a single line. This will cause caching issues if the referenced archive gets updated, which will make your subsequent apt-get install fail without comment.
+
+* Avoid `RUN apt-get upgrade` or `dist-upgrade`, since many of the “essential” packages from the base images will fail to upgrade inside an unprivileged container. If a base package is out of date, you should contact its maintainers. If you know there’s a particular package, foo, that needs to be updated, use apt-get install -y foo and it will update automatically.
 
 [docker-best-practise]:https://docs.docker.com/articles/dockerfile_best-practices/
