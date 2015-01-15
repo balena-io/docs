@@ -98,12 +98,17 @@ angular
       }
     }
   })
-  .directive('signUp', function($rootScope) {
+  .directive('signUp', function($rootScope, $routeParams) {
     return {
       restrict: 'A',
       link: function(scope, el) {
         $rootScope.$on('page-rendered', function(event, content) {
-          angular.element('content h1').first().append(el)
+          if ($routeParams.pageName == 'gettingStarted.md') {
+            angular.element('content h1').first().append(el)
+            el.removeClass('hidden');
+          } else {
+            el.addClass('hidden');
+          }
         });
       }
     }
