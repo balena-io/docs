@@ -1,12 +1,22 @@
 body {
-  margin-top: 140px;
+  margin-top: 115px;
   font-family: "Open Sans", Arial, sans-serif;
+  background: url('/img/sidebar-bg.jpg') repeat-y;
+}
+
+.content-wrapper {
+  max-width: 960px;
+  min-width: 485px;
+}
+
+article {
+  padding-left: 231px;
 }
 
 .sidebar {
-  background: #f7f7f8;
+  float: left;
   padding: 0;
-  border-right: 1px solid #e6e8eb;
+  width: 231px;
 }
 
 .sidebar a {
@@ -63,6 +73,7 @@ body {
 .sidebar form {
   border-bottom: 1px solid #e6e8eb;
   padding: 10px;
+  padding-bottom: 9px;
 }
 
 .sidebar input {
@@ -72,8 +83,10 @@ body {
 .breadcrumb {
   background: white;
   margin: 0;
-  padding: 18px 0;
+  padding: 18px 15px;
   font-size: 14px;
+  border-radius: 0;
+  border-bottom: 1px solid #e6e8eb;
 }
 
 .breadcrumb li {
@@ -83,16 +96,6 @@ body {
 .breadcrumb .active {
   color: #444547;
   font-weight: 600;
-}
-
-#sign-up {
-  margin-top: 23px;
-  color: #232427;
-  font-size: 12px;
-  font-weight: normal;
-  text-transform: uppercase;
-  padding: 15px 20px;
-  background: #FDC02E;
 }
 
 .page-content {
@@ -113,7 +116,7 @@ body {
   display: block;
 }
 
-.page-content h2, .page-content h3, .page-content h4, .page-content h5 {
+.page-content h1, .page-content h2, .page-content h3, .page-content h4, .page-content h5 {
   color: #444547;
   margin-top: 50px;
   margin-bottom: 27px;
@@ -139,18 +142,7 @@ body {
   padding-bottom: 17px;
 }
 
-.page-content > h1 {
-  height: 230px;
-  margin: 0;
-  border-top: 1px solid #e6e8eb;
-  border-bottom: 4px solid #e6e8eb;
-  margin-left: -71px;
-  background: url('/img/header-bg.jpg');
-  color: white;
-  text-align: center;
-  vertical-align: middle;
-  padding-top: 70px;
-  margin-bottom: 55px;
+.page-content h1 {
   font-weight: normal;
   font-size: 36px;
 }
