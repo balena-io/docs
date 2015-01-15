@@ -30,6 +30,7 @@
 * [Deployment Guide](/pages/deployment.md)
 * [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
 * [Dockerfile Guide](/pages/dockerfile.md)
+* [Optimise your Build](/pages/build-optimisation.md)
 
 ### Configuration
 
