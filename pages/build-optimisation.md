@@ -33,9 +33,9 @@ __NOTE:__ The above command should never be split over two or more `RUN` command
 
 It is also wise to remove any .tar.gz or temporary files in a similar fashion to the above, as this will reduce build size.
 
-## .dockerignore
+## Use .dockerignore
 
-Make use of .dockerignore to ignore anything that is in the git repo, but is not strictly needed on the device(s). This can allow you to safely ignore images or assets used to document your project on github or bitbucket.
+Make use of `.dockerignore` to ignore anything that is in the git repo, but is not strictly needed on the device(s). This can allow you to safely ignore images or assets used to document your project on github or bitbucket.
 
 ## Don't do apt-get update or upgrade
 
