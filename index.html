@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/static/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/lib/colorbox/example3/colorbox.css">
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/menu-top.css">
 </head>
 <body>
     <noscript>
@@ -18,25 +19,30 @@
         and reload the page.
     </noscript>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="menu menu--top" data-md-sticky-header>
       <div class="container">
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/#/pages/gettingStarted.md">Getting started</a></li>
-            <li><a href="/">Docs +</a></li>
-            <li><a href="https://resin.io/blog">Blog</a></li>
+        <nav class="menu__nav navbar" role="navigation">
+          <ul class="menu__items nav navbar-nav navbar-left">
+            <li class="menu__item"><a href="/#/pages/gettingStarted.md">Getting Started</a></li>
+            <li class="menu__item"><a href="/">Docs +</a></li>
+            <li class="menu__item"><a href="https://resin.io/blog">Blog</a></li>
           </ul>
 
-          <a class="logo" href="https://resin.io">resin.io</a>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://resin.io/contact">Contact</a></li>
-            <li><a href="https://alpha.resin.io/login">Login</a></li>
-            <li><a href="https://alpha.resin.io/signup">Sign up</a></li>
+          <ul class="menu__items nav navbar-nav navbar-right">
+            <li class="menu__item"><a href="https://resin.io/contact">Contact</a></li>
+            <li class="menu__item menu__item--button"><a href="https://alpha.resin.io/signup">Signup</a></li>
+            <li class="menu__item"><a href="https://alpha.resin.io/login">Login</a></li>
           </ul>
-        </div>
+
+          <a class="menu__logo navbar-brand" href="https://resin.io">
+            <span class="logo">
+              <img class="logo__img" src="/img/logo.svg">
+              <span class="logo__text">resin.io</span>
+            </span>
+          </a>
+        </nav>
       </div>
-    </nav>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -51,7 +57,7 @@
                 <header>
                     <breadcrumb></breadcrumb>
                     <div sign-up>
-                        <a id="sign-up" href="https://alpha.resin.io/signup" class="btn btn-warning">Sign up &amp; deploy your first project</a>
+                      <a id="sign-up" href="https://alpha.resin.io/signup" class="btn btn-warning">Sign up &amp; deploy your first project</a>
                     </div>
                 </header>
                 <content ng-view></content>
