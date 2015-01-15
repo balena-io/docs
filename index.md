@@ -12,7 +12,7 @@
 ### About Resin.io
 
 * [What is Resin.io?](/pages/about.md)
-* [What's Installed On a Resin.io Device?](/pages/inside.md)
+* [What's Installed on a Resin.io Device?](/pages/inside.md)
 * [Supported Devices](/pages/devices.md)
 
 ### Using Resin.io

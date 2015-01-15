@@ -46,9 +46,17 @@ The [Beaglebone Black][bbb] is a small $45 device similar to the Raspberry Pi bu
 
 We chose to target the Beaglebone Black to provide support for a more capable device in the same class and price point as the Raspberry Pi.
 
+### ODROID-W
+
+![ODROID-W](/img/odroid.jpg)
+
+The [ODROID-W][odroid] is a compressed design of the [Raspberry Pi][rpi] and based on the Broadcom BCM2835 CPU, it also includes an onboard analog-to-digital converter and a real-time clock.
+
+Sadly this board was discontinued soon after its first production run, so if you can get your hands on one of these lovely boards, count yourself lucky. 
+
 ## Getting Started
 
-To get started, check out our [guide][gettingStarted].
+To get started building a fleet of connected devices, check out our [getting started guide][gettingStarted].
 
 [gettingStarted]:/pages/gettingStarted.md
 
