@@ -60,8 +60,7 @@ Let's take a look at an example `Dockerfile`. This comes from the [Hello Python]
 FROM resin/rpi-raspbian:wheezy-2015-01-15
 
 # Install Python.
-RUN apt-get update
-RUN apt-get install -y python
+RUN apt-get update && apt-get install -y python
 
 COPY . /app
 
@@ -80,8 +79,7 @@ Here we use the resin.io Raspberry Pi [Raspbian][raspbian] image as our base Doc
 
 ```
 # Install Python.
-RUN apt-get update
-RUN apt-get install -y python
+RUN apt-get update && apt-get install -y python
 ```
 
 Next we update Raspbian's packages and install Python (using the `-y` switch to prevent any
