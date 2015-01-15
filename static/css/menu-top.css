@@ -23,6 +23,9 @@
 .navbar-nav {
   float: none;
 }
+.navbar-nav.navbar-right {
+  margin-right: 0;
+}
 .navbar-nav.navbar-right:last-child {
   margin-right: 0;
 }
