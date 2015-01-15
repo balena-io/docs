@@ -1,3 +1,8 @@
+$(window).scroll(function() {
+  var scroll = $(window).scrollTop();
+  $('[data-md-sticky-header]').toggleClass('menu--top-sticky', scroll > 0);
+});
+
 angular
   .module('resinDocs', [ 'ngRoute', 'ui.bootstrap' ])
 
