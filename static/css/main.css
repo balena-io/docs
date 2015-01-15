@@ -34,7 +34,7 @@ body {
 }
 
 .sidebar li {
-  padding: 5px 0;
+  padding: 10px 0;
   padding-left: 30px;
 }
 
@@ -58,8 +58,6 @@ body {
 
 .sidebar .active {
   background: #429ece;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .sidebar form {
