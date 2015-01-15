@@ -24,9 +24,11 @@ In each of these examples there is significant work in getting up and running be
 
 ## Launch Devices
 
-We've chosen to target a small set of target devices on launch - the [Raspberry Pi][rpi], the [NUC][nuc], and the [Beaglebone Black][bbb].
+We've chosen to target a small set of target devices on launch - the [Raspberry Pi][rpi], the [Beaglebone Black][bbb] and the [ODROID-W][odroid].
 
 Though we are target smaller devices on launch, we are by no means limited to devices of this form factor - our infrastructure and systems are written with as few assumptions as possible and we plan to support a number of devices of different types and computational capabilities.
+
+In the coming months we plan to add support for other single board computers (SBC) such as the [Intel Edison][edison], [Parallella][parallella] and the i.MX 6 based [Hummingboard][hummingboard].
 
 ### Raspberry Pi
 
@@ -35,16 +37,6 @@ Though we are target smaller devices on launch, we are by no means limited to de
 With over 2 million units shipped worldwide, the [Raspberry Pi][rpi] is nothing short of a phenomenon. Unfortunately a lot of these devices end up in a drawer or an attic somewhere, sadly unused.
 
 Both of these facts motivated us to target the Pi - the former means there are there are lots of projects already available for people to implement, and the latter suggests that removing friction from users' experience could be of real benefit.
-
-### NUC
-
-![NUC](/img/nuc.jpg)
-
-Intel's [NUC][nuc] is a small form-factor x86 device which bridges the gap between desktop PCs and smaller devices like the Raspberry Pi. The NUC sports a powerful processor up to 2.3GHz Core i5, up to 16Gb of RAM and capable Intel HD graphics with HDMI out in a form factor measuring 4 inches squared.
-
-The capacities of the NUC make it ideal for tasks which require more computational power than, for example, the Raspberry Pi can provide, particularly for tasks such as signage with high resolution graphics.
-
-We decided to target the NUC in order to both provide an x86 target and to support a device with strong computational capability.
 
 ### Beaglebone Black
 
@@ -68,3 +60,7 @@ To get started, check out our [guide][gettingStarted].
 [rpi]:http://www.raspberrypi.org/
 [nuc]:http://www.intel.co.uk/content/www/uk/en/nuc/overview.html
 [bbb]:http://beagleboard.org/black
+[odroid]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=g140610189490
+[edison]:http://www.intel.co.uk/content/www/uk/en/do-it-yourself/edison.html
+[parallella]:https://www.parallella.org/board/
+[hummingboard]:http://www.solid-run.com/products/hummingboard/

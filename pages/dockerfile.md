@@ -14,7 +14,7 @@ To create a container from an image in Docker we use a [Dockerfile][dockerfile] 
 
 The syntax of Dockerfiles is fairly simple - at core there are 2 valid entries in a Dockerfile - comments, prepended with `#` as in script files, and instructions of the format `INSTRUCTION arguments`.
 
-Typically you will only need to use 3 instructions - [FROM][from], [RUN][run] and [ADD][add]:-
+Typically you will only need to use 3 instructions - [FROM][from], [RUN][run] and [ADD][add]/[COPY][copy]:-
 
 * [FROM][from] __has__ to be the first instruction in any valid `Dockerfile` and defines the base image to use as the basis for the container you're building.
 
@@ -22,9 +22,9 @@ Typically you will only need to use 3 instructions - [FROM][from], [RUN][run] an
 
 * [ADD][add] copies files from the current directory into the container, e.g. `ADD <src> <dest>`. Note that if `<dest>` doesn't exist, it will be created for you, e.g. if you specify a folder. It also allows the <src> to be a url, and if the <src> is a recognised compression format, it will unpack it for you. 
 
-* [COPY][copy] is very similar to [ADD][add], but with out the compression and url functionality. According to [docker best practise][docker-best-practise] you should always use COPY unless the auto-extraction capability of ADD is needed.
+* [COPY][copy] is very similar to [ADD][add], but with out the compression and url functionality. According to [docker best practise][docker-best-practise] you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
 
-* [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, where as RUN commands will be executed on our build servers. In a resin.io application, this is typically used to execute a start script or entrypoint for the users application. CMD should always be the last command in your dockerfile. The only processes that will be running inside the container is the CMD command, and all processes that it spawns. 
+* [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, where as RUN commands will be executed on our build servers. In a resin.io application, this is typically used to execute a start script or entrypoint for the users application. [CMD][cmd] should always be the last command in your dockerfile. The only processes that will be running inside the container is the [CMD][cmd] command, and all processes that it spawns. 
 
 
 For details on other instructions, consult the official [Dockerfile documentation][dockerfile].
@@ -32,6 +32,10 @@ For details on other instructions, consult the official [Dockerfile documentatio
 ## Using Dockerfiles with Resin.io
 
 To use a `Dockerfile` to deploy to Resin.io simply place it at the root of your repository. When you push your code to Resin.io it will automatically recognise it and use that to deploy code to your device.
+
+You can also include a `.dockerignore` file with your project if you wish the builder to ignore certain files.
+
+__NOTE:__ You *don't* need to worry about ignoring `.git` as the builders already do this by default.  
 
 
 ## Resin.io Base Images
@@ -46,7 +50,7 @@ To use this image prefix your `Dockerfile`s with:-
 FROM resin/rpi-raspbian:wheezy-2015-01-15
 ```
 
-You will note that this image has a build date appended to it, we try to keep our builds as up-to-date as possible. To use the most up-to-date version or a previous version, check out the resin registry over [here][docker-registry].
+You will note that this image has a build date appended to it, we try to keep our builds as up-to-date as possible. To use the most up-to-date version or a previous version, check out the resin.io registry over [here][docker-registry].
 
 ## Example Dockerfile
 
@@ -110,7 +114,7 @@ At this point we're done - resin.io will build this container on the build serve
 
 ## Dockerfiles for Other Programming Languages
 
-There are a number of example Dockerfiles avialable for different languages listed on the [projects page][starter-projects].
+There are a number of example Dockerfiles available for different languages listed on the [projects page][starter-projects].
 
 [container]:https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
 [docker]:https://www.docker.com/
