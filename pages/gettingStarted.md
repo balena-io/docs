@@ -1,4 +1,4 @@
-# Getting Started With Resin.io
+# Getting Started With Resin.io and the Raspberry Pi
 
 <iframe class="getting-started-vid" src="//player.vimeo.com/video/108930903?title=0&amp;byline=0&amp;portrait=0" width="900" height="506" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -58,7 +58,7 @@ retrieve this data.)
 ![Creating an Application](/img/gifs/createapp.gif)
 
 
-The two key components you will interact with in Resin.io are *applications* and
+The two key components you will interact with in resin.io are *applications* and
 *devices* - applications represent the code you want to run on your devices, and
 devices the actual hardware itself.
 
@@ -76,7 +76,7 @@ take you to its dashboard:-
 This is the application dashboard where all of the devices connected to your
 application will be shown along with their status and logs.
 
-Click the `Download Zip File` button to get the Resin.io image for your
+Click the `Download Zip File` button to get the resin.io image for your
 application. A dialog will appear prompting you to specify how your device
 connects to the internet - either via an ethernet cable or wifi, in which case
 you can specify your Wifi network's SSID and passphrase:-
@@ -92,16 +92,16 @@ expand the zip file onto it.
 
 ## Setting Up Your Device
 
-Put the SD card into your device and wait for it to appear on the application
+Put the SD card into your device, connect either the ethernet cable or insert the usb wifi dongle. Now power up the device by inserting the usb cable and wait for it to appear on the application
 dashboard.
 
 ![insert SD](/img/gifs/insert-sd.gif) 
 
-While you wait Resin.io is partitioning your SD card, installing a custom linux
+While you wait resin.io is partitioning your SD card, installing a custom linux
 environment and establishing a secure connecting with our servers.
 
 If you have a class 10 SD card and a fast internet connection your device should
-appear on the dashboard in around 10 minutes. Note that Class 4 SD cards can
+appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can
 take up to 3 times longer so it's well worth investing in the fastest card you
 can find.
 
@@ -109,17 +109,19 @@ can find.
 
 ![git pushing](/img/screenshots/git_pushing.png)
 
-A good first project is our [text to speech app][example_app]. To clone it, run
+A good first project is our [text to speech app][example_app] written in node.js. To clone it, run
 the following in a terminal:-
 
 ```
 git clone https://github.com/resin-io/text2speech.git
 ```
 
-Next add the Resin git endpoint by running the `git remote add` command shown in
+Once the repo is cloned, cd into the newly created text2speech directory and add the resin git endpoint by running the `git remote add` command shown in
 the top-right corner of the application page, e.g.:-
 
 ```
+cd text2speech
+
 git remote add resin git@git.resin.io:joebloggs/skynet.git
 ```
 
@@ -130,6 +132,10 @@ You'll know your code has deployed successfully from the appearance of our
 friendly unicorn mascot:-
 
 ![git pushing](/img/screenshots/git_pushed.png)
+
+You should now have a friendly talking raspberry pi and a good base to start building and deploying awesome connected devices.
+
+If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example]
 
 ## Further Reading
 
@@ -149,6 +155,7 @@ feedback and respond to any issues as soon as we can.
 [managing_devices_apps]:/pages/managingDevicesApps.md
 [wifi]:/pages/wifi.md
 [supported]:/pages/devices.md
+[dockerfile]:/pages/dockerfile.md
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
@@ -169,3 +176,4 @@ feedback and respond to any issues as soon as we can.
 [code-school]:https://www.codeschool.com/
 [rpi]:http://www.raspberrypi.org/
 [rpi-b-plus]:http://www.raspberrypi.org/products/model-b-plus/
+[python-example]:https://github.com/alexandrosm/hello-python
