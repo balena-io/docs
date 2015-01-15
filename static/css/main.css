@@ -1,37 +1,6 @@
 body {
-  margin-top: 70px;
+  margin-top: 140px;
   font-family: "Open Sans", Arial, sans-serif;
-}
-
-.navbar, .nav {
-  height: 70px;
-}
-
-.nav a {
-  text-transform: uppercase;
-  color: white!important;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.nav li:hover {
-  background: #10100F;
-}
-
-.navbar-nav > li > a {
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-
-.navbar .logo {
-  position: absolute;
-  left: 50%;
-  color: white;
-  text-decoration: none;
-  font-size: 2.8rem;
-  margin-top: 15px;
-  text-transform: lowercase;
-  letter-spacing: -1px;
 }
 
 .sidebar {
@@ -181,7 +150,7 @@ body {
   color: white;
   text-align: center;
   vertical-align: middle;
-  padding-top: 65px;
+  padding-top: 90px;
   margin-bottom: 55px;
   font-weight: normal;
   font-size: 36px;
