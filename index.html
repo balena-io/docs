@@ -44,23 +44,22 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="sidebar col-sm-3">
+            <div class="sidebar">
                 <form ng-controller="SearchCtrl" ng-submit="search()">
                     <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Docs...">
                 </form>
                 <navigation></navigation>
                 <gcse:search></gcse:search>
             </div>
-            <article class="col-sm-9">
+            <article>
                 <header>
                     <breadcrumb></breadcrumb>
-                    <div class="hidden" sign-up>
-                      <a id="sign-up" href="https://alpha.resin.io/signup" class="btn btn-warning">Sign up &amp; deploy your first project</a>
-                    </div>
                 </header>
-                <content ng-view></content>
+                <div class="content-wrapper">
+                    <content ng-view></content>
+                </div>
             </article>
         </div>
     </div>
