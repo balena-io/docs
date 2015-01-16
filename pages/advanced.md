@@ -12,7 +12,7 @@ The Raspberry Pi exposes device configuration options via a text file on the
 boot medium, `config.txt` - you change boot options simply by editing this file.
 
 The location of this file varies depending on whether you have booted your Pi
-using your Resin.io-configured SD card yet:-
+using your resin.io-configured SD card yet:-
 
 #### Pre-Boot
 

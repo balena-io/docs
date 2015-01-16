@@ -20,7 +20,7 @@ The most obvious example is having small devices connected around your house pro
 
 Though this kind of application is incredibly useful, the broader possibilities are far more exciting - imagine industrial machines detecting that they require maintenance ahead of time and automatically ordering required parts and scheduling technicians to fix them, or swarms of drones which conduct searches for missing people in vast areas far more efficiently and precisely than humans ever could.
 
-In each of these examples there is significant work in getting up and running before you are even able to start using your hardware - Resin.io eliminates these distractions altogether.
+In each of these examples there is significant work in getting up and running before you are even able to start using your hardware - resin.io eliminates these distractions altogether.
 
 ## Launch Devices
 

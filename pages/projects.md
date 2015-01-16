@@ -2,7 +2,7 @@
 
 ## Installing a Project
 
-To install a project you will need a [Resin.io][resin] account with an
+To install a project you will need a [resin.io][resin] account with an
 application set up ready to receive code. See the
 [getting started][getting-started] and [deployment][deploy] guides for details
 on how to do this.
@@ -168,7 +168,7 @@ visualisation at [123k.de](http://123k.de).
 
 Resin.io offers you the flexibility to deploy your application from a custom Dockerfile which allows you to define your own development environment.
 
-Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, Resin.io allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
+Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, resin.io allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
 
 ## Programming Language Starter Projects
 
@@ -178,7 +178,7 @@ own projects written in each language.
 
 The projects use [Dockerfile][dockerfile]s to install packages and configure the
 local environment as needed for each language. This step is performed on the
-Resin.io build server and the finished product is pushed to your devices.
+resin.io build server and the finished product is pushed to your devices.
 
 A link is provided for each project's individual Dockerfile below for easy
 customisation:-
