@@ -3,11 +3,11 @@
 ## Basics
 
 In order to deploy code to your devices you must first ensure they are correctly
-connected to a Resin.io application. See the
+connected to a resin.io application. See the
 [Getting Started Guide][getting-started] for details.
 
-Then simply add your resin endpoint to your [git][git] repository via `git
-remote add resin [application endpoint]`.
+Then simply add your resin.io endpoint to your [git][git] repository via `git
+remote add resin.io [application endpoint]`.
 
 Whenever you subsequently need to push code to your devices, simply run
 `git push resin master`.
@@ -94,7 +94,7 @@ the target device on our (far more powerful) server. This gives you the ability
 to compile a gnarly dependency tree in seconds on the server rather than minutes
 or even hours to build on your device.
 
-All code that is pushed to your Resin.io devices is sent to the build server
+All code that is pushed to your resin.io devices is sent to the build server
 which builds it, then ships the resultant environment to your devices.
 
 ---
