@@ -1,6 +1,6 @@
 $(window).scroll(function() {
   var scroll = $(window).scrollTop();
-  $('[data-md-sticky-header]').toggleClass('menu--top-sticky', scroll > 0);
+  $('[data-md-sticky-header]').toggleClass('sticky', scroll > 61);
 });
 
 angular
@@ -59,12 +59,6 @@ angular
     var pageContentEl = angular.element('.page-content');
     pageContentEl.html(pageContent);
     $compile(pageContentEl.contents())($scope);
-
-    // resize sidebar
-    var sidebarEl = angular.element('.sidebar');
-    $timeout(function() {
-      sidebarEl.css('min-height', angular.element('article').height());
-    }, 500);
 
     $timeout(function() {
       $scope.$emit('page-rendered', pageContent);

@@ -1,5 +1,5 @@
 body {
-  margin-top: 115px;
+  margin-top: 61px;
   font-family: "Open Sans", Arial, sans-serif;
   background: url('/img/sidebar-bg.jpg') repeat-y;
 }
@@ -11,6 +11,10 @@ body {
 
 article {
   padding-left: 231px;
+}
+
+article .sticky {
+  width: 100%;
 }
 
 .sidebar {
@@ -72,8 +76,14 @@ article {
 
 .sidebar form {
   border-bottom: 1px solid #e6e8eb;
+  border-right: 1px solid #e6e8eb;
   padding: 10px;
   padding-bottom: 9px;
+  background: #F7F7F7;
+}
+
+.sidebar form.sticky {
+  width: 231px;
 }
 
 .sidebar input {
@@ -209,4 +219,9 @@ h2:hover .hash, h3:hover .hash, h4:hover .hash, h5:hover .hash, h6:hover .hash {
 /* hidding google search ugly input */
 #___gcse_0 {
   visibility: hidden;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
 }
