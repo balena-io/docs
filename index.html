@@ -19,7 +19,7 @@
         and reload the page.
     </noscript>
 
-    <div class="menu menu--top" data-md-sticky-header>
+    <div class="menu menu--top">
       <div class="container">
         <nav class="menu__nav navbar" role="navigation">
           <ul class="menu__items nav navbar-nav navbar-left">
@@ -47,14 +47,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="sidebar">
-                <form ng-controller="SearchCtrl" ng-submit="search()">
+                <form data-md-sticky-header ng-controller="SearchCtrl" ng-submit="search()">
                     <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Docs...">
                 </form>
                 <navigation></navigation>
                 <gcse:search></gcse:search>
             </div>
             <article>
-                <header>
+                <header data-md-sticky-header>
                     <breadcrumb></breadcrumb>
                 </header>
                 <div class="content-wrapper">
