@@ -90,11 +90,8 @@ Now we have to burn the SD card on to the SD card. There are a couple of ways to
 ## Burning the OS image onto the SD
 
 ### On Mac and Linux
-* [From the command line](/pages/gettingStarted-BBB.md#from-the-command-line)
-* [From a GUI](/pages/gettingStarted-BBB.md#from-a-gui)
-
-### On Windows
-* [Using Win32 Disk Imager](/pages/getStarted-BBB.md#windows)
+* [From the command line](#from-the-command-line)
+* [From a GUI](#from-a-gui)
 
 ####From the command line
 
@@ -117,7 +114,7 @@ __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rd
 
 This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/pages/gettingStarted-BBB.md#setting-up-your-device) 
 
-####From a GUI
+#### From a GUI
 
 Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn the SD card.
 
