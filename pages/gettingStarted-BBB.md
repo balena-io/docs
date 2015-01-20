@@ -54,7 +54,7 @@ retrieve this data.)
 
 ## Creating Your First Application
 
-![Creating an Application](/img/screenshots/create_application_BBB.png)
+![Creating an Application](/img/BBB/create_application_BBB.png)
 
 
 The two key components you will interact with in resin.io are *applications* and
@@ -69,54 +69,81 @@ take you to its dashboard:-
 
 ## Adding Your First Device
 
-![Empty Application Page](/img/screenshots/application_empty_BBB.png)
+![Empty Application Page](/img/BBB/application_empty_BBB.png)
 
 This is the application dashboard where all of the devices connected to your
 application will be shown along with their status and logs.
 
 Click the `Download Device OS` button to get the resin.io operating system image for your
 application. A dialog will appear prompting you to specify how your device
-connects to the internet - either via an ethernet cable or wifi, in which case
-you can specify your Wifi network's SSID and passphrase:-
-
-![Wifi Settings](/img/gifs/download-image-Wifi.gif)
+connects to the internet, its recommended at this point to select ethernet.
 
 __NOTE:__ Wifi on the Beaglebone has not been thoroughly tested, and for the time being it is recommended to use an ethernet connection. 
 
 While the zip file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
+Once the download is finished you should have a zip file with a name like `resin-myApp-0.1.0-0.0.4.img.zip` where myApp is the name you gave your application on the dashboard. Now extract the zip file to your Downloads folder.
+
+Now we have to burn the SD card on to the SD card. There are a couple of ways to do this, depending on your host computer operating system. We have listed a few below.
+
 ## Burning the OS image onto the SD
 
 ### On Mac and Linux
-* [From the command line](#from-the-command-line)
-* [From a GUI](#from-a-gui)
+* [From the command line](/pages/gettingStarted-BBB.md#from-the-command-line)
+* [From a GUI](/pages/gettingStarted-BBB.md#from-a-gui)
+
+### On Windows
+* [Using Win32 Disk Imager](/pages/getStarted-BBB.md#windows)
 
 ####From the command line
 
-open a terminal to get started.
-
-Execute the following command to see the list of connected storage devices:
+First we need to figure out what our SD card is called, to do this open a terminal and execute the following command to see the list of connected storage devices:
 `df -h`
 Next, insert your microSD card, and then execute the following command again:
 `df -h`
-Compare the two outputs, and find the newly added device. In my case, the microSD card was '/dev/disk4s1'.
+Compare the two outputs, and find the newly added device. In my case, the microSD card was '/dev/disk2s1'.
 
-Once you've got the name of the device, you'll want to unmount that disk using the following command, but replacing the specifics with your card details:
-`sudo diskutil unmount /dev/disk4s1`
+Once you've got the name of the SD card, you'll want to unmount that disk using the following command, but replacing the specifics with your card details:
+`sudo diskutil unmount /dev/disk2s1`
 Now, you'll want to execute the command that actually copies the image onto the SD card. 
 
-> You have to be really careful here, and make sure you're entering the correct device details. You could end up copying over the wrong drive, such as your master hard disk, and then you'd end up having a bad day. Double check everything!
-
-Note that we subtly changed the device name from "/dev/disk4s1" to "/dev/rdisk4". You'll want to do the same when you execute the below command.
+> You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive, such as your master hard disk, and then you're gonna have a bad time. Double check everything!
 
 Also, choose the right file location for your .img file in the input file field (if=...).
-`sudo dd bs=1m if=~/Downloads/beaglebone.img of=/dev/rdisk4`
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. 
+`sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2`
+
+__NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
+
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/pages/gettingStarted-BBB.md#setting-up-your-device) 
 
 ####From a GUI
 
+Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn the SD card.
+
+Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your .img file. It mentions the Raspberry Pi, but you can ignore that, it doesn't make any difference.
+
+Locate your beaglebone .img file in your Downloads folder. It should be named something like `resin-myApp-0.1.0-0.0.4.img`, now click "choose".
+
+You can now insert your microSD card into your host machine and click continue. PiFiller will look for your SD card and tell you when it finds it.
+
+__NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
+
+Click continue and piFiller will write the SD card. This can 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/pages/gettingStarted-BBB.md#setting-up-your-device)
+
 ### Windows
+
+To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to. 
+
+Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your beaglebone image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.4.img`.
+
+Next insert your SD card into your host computer and in the Win32DiskImager GUI, select you SD card when it appears. 
+
+__NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines harddisk.
+
+Once you have made your selections and are 100% sure you are writing to your SD card and nothing else, you can click write and wait for the SD card to be burnt.
+
+Once it is completed, you can carry on setting up your beaglebone as shown below.
 
 ## Setting Up Your Device
 
@@ -206,3 +233,5 @@ feedback and respond to any issues as soon as we can.
 [rpi-b-plus]:http://www.raspberrypi.org/products/model-b-plus/
 [python-example]:https://github.com/alexandrosm/hello-python
 [BBB-link]:http://beagleboard.org/BLACK
+[win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
+[pifiller-download]:http://ivanx.com/raspberrypi/
