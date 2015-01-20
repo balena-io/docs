@@ -1,6 +1,7 @@
 ### Getting Started
 
-* [Getting Started Guide](/pages/gettingStarted.md)
+* [Raspberry Pi](/pages/gettingStarted.md)
+* [Beaglebone Black](/pages/gettingStarted-BBB.md)
 * [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
 
 ### Example Projects
@@ -19,15 +20,17 @@
 * [Using the Web Terminal](/pages/terminal.md)
 * [Wifi Guide](/pages/wifi.md)
 
-### Hardware
-
-* [GPIO Interface](/pages/gpio.md)
-
 ### Deployment
 
 * [Deployment Guide](/pages/deployment.md)
-* [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
 * [Dockerfile Guide](/pages/dockerfile.md)
+* [Optimise your builds](/pages/build-optimisation.md)
+* [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
+
+### Hardware
+
+* [GPIO Interface](/pages/gpio.md)
+* [I2C and Other Interfaces](/pages/i2c-and-spi.md)
 
 ### Configuration
 

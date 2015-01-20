@@ -76,7 +76,7 @@ application will be shown along with their status and logs.
 
 Click the `Download Device OS` button to get the resin.io operating system image for your
 application. A dialog will appear prompting you to specify how your device
-connects to the internet, its recommended at this point to select ethernet.
+connects to the internet, its recommended at this point to select ethernet. The download can take a little while to get started, so be patient.
 
 __NOTE:__ Wifi on the Beaglebone has not been thoroughly tested, and for the time being it is recommended to use an ethernet connection. 
 
@@ -90,8 +90,6 @@ Now we have to burn the SD card on to the SD card. There are a couple of ways to
 ## Burning the OS image onto the SD
 
 ### On Mac and Linux
-* [From the command line](#from-the-command-line)
-* [From a GUI](#from-a-gui)
 
 ####From the command line
 
@@ -112,7 +110,7 @@ Also, choose the right file location for your .img file in the input file field 
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/pages/gettingStarted-BBB.md#setting-up-your-device) 
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-BBB.md#setting-up-your-device) 
 
 #### From a GUI
 
@@ -126,7 +124,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write the SD card. This can 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/pages/gettingStarted-BBB.md#setting-up-your-device)
+Click continue and piFiller will write the SD card. This can 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-BBB.md#setting-up-your-device)
 
 ### Windows
 
@@ -144,10 +142,12 @@ Once it is completed, you can carry on setting up your beaglebone as shown below
 
 ## Setting Up Your Device
 
-Put the SD card into your device, connect either the ethernet cable. Now hold down the small black button marked s2 (located near the SD card slot) and power up the device by inserting the usb cable and wait for it to appear on the application
+Put the SD card into your device, connect either the ethernet cable. Now hold down the small black button marked s2 (located near the SD card slot) and power up the device by inserting the usb cable. 
+
+You should only need to hold the button down for about 5 seconds until the blue leds start flashing like crazy. Basically, by holding down the button, we are telling the beaglebone that we want to flash the OS which in on the SD card onto the internal memory. This can take a few minutes, so grab some tea while you wait for your beagle to appear on the application
 dashboard.
 
-![insert SD](/img/gifs/insert-sd.gif)
+![insert SD](/img/BBB/sd_card_BBB.jpg)
 
 While you wait resin.io is partitioning your SD card, installing a custom linux
 environment and establishing a secure connecting with our servers.
@@ -161,18 +161,18 @@ can find.
 
 ![git pushing](/img/screenshots/git_pushing.png)
 
-A good first project is our [text to speech app][example_app] written in node.js. To clone it, run
-the following in a terminal:-
+A good little project to get you started is the[tty.js app][example_app] written in node.js. It will allow you to play around with terminal commands on the beaglebone from your webbrowser.
+To clone it, run the following in a terminal:-
 
 ```
-git clone https://github.com/resin-io/text2speech.git
+git clone https://github.com/resin-io/tty.js-resin.git
 ```
 
 Once the repo is cloned, cd into the newly created text2speech directory and add the resin git endpoint by running the `git remote add` command shown in
 the top-right corner of the application page, e.g.:-
 
 ```
-cd text2speech
+cd tty.js-resin
 
 git remote add resin git@git.resin.io:joebloggs/skynet.git
 ```
@@ -185,7 +185,7 @@ friendly unicorn mascot:-
 
 ![git pushing](/img/screenshots/git_pushed.png)
 
-You should now have a friendly talking raspberry pi and a good base to start building and deploying awesome connected devices.
+After the device has finished updating, you should be able to start playing around in the terminal and have a good base to start building and deploying awesome connected devices.
 
 If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
 
@@ -223,7 +223,7 @@ feedback and respond to any issues as soon as we can.
 [wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
 [wikihow]:http://www.wikihow.com/Main-Page
 [fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
-[example_app]:https://github.com/resin-io/text2speech
+[example_app]:https://github.com/resin-io/tty.js-resin
 [try-git]:https://www.codeschool.com/courses/try-git
 [code-school]:https://www.codeschool.com/
 [rpi]:http://www.raspberrypi.org/
