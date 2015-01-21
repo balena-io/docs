@@ -4,7 +4,7 @@
 
 ### Multiple WiFi Networks
 
-We hope to eventually implement the ability to use Multiple WiFi SSIDs in the Resin.io user interface however for the time being you can add this functionality manually by editing a configuration file on your SD card.
+We hope to eventually implement the ability to use Multiple WiFi SSIDs in the resin.io user interface however for the time being you can add this functionality manually by editing a configuration file on your SD card.
 
 In order to add additional networks edit`/resin/network/network.config` on the SD card either prior to the first execution of the device or on the `RECOVERY` partition after first execution.
 

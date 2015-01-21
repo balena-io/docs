@@ -20,13 +20,15 @@ The most obvious example is having small devices connected around your house pro
 
 Though this kind of application is incredibly useful, the broader possibilities are far more exciting - imagine industrial machines detecting that they require maintenance ahead of time and automatically ordering required parts and scheduling technicians to fix them, or swarms of drones which conduct searches for missing people in vast areas far more efficiently and precisely than humans ever could.
 
-In each of these examples there is significant work in getting up and running before you are even able to start using your hardware - Resin.io eliminates these distractions altogether.
+In each of these examples there is significant work in getting up and running before you are even able to start using your hardware - resin.io eliminates these distractions altogether.
 
 ## Launch Devices
 
-We've chosen to target a small set of target devices on launch - the [Raspberry Pi][rpi], the [NUC][nuc], and the [Beaglebone Black][bbb].
+We've chosen to target a small set of target devices on launch - the [Raspberry Pi][rpi], the [Beaglebone Black][bbb] and the [ODROID-W][odroid].
 
 Though we are target smaller devices on launch, we are by no means limited to devices of this form factor - our infrastructure and systems are written with as few assumptions as possible and we plan to support a number of devices of different types and computational capabilities.
+
+In the coming months we plan to add support for other single board computers (SBC) such as the [Intel Edison][edison], [Parallella][parallella] and the i.MX 6 based [Hummingboard][hummingboard].
 
 ### Raspberry Pi
 
@@ -36,16 +38,6 @@ With over 2 million units shipped worldwide, the [Raspberry Pi][rpi] is nothing 
 
 Both of these facts motivated us to target the Pi - the former means there are there are lots of projects already available for people to implement, and the latter suggests that removing friction from users' experience could be of real benefit.
 
-### NUC
-
-![NUC](/img/nuc.jpg)
-
-Intel's [NUC][nuc] is a small form-factor x86 device which bridges the gap between desktop PCs and smaller devices like the Raspberry Pi. The NUC sports a powerful processor up to 2.3GHz Core i5, up to 16Gb of RAM and capable Intel HD graphics with HDMI out in a form factor measuring 4 inches squared.
-
-The capacities of the NUC make it ideal for tasks which require more computational power than, for example, the Raspberry Pi can provide, particularly for tasks such as signage with high resolution graphics.
-
-We decided to target the NUC in order to both provide an x86 target and to support a device with strong computational capability.
-
 ### Beaglebone Black
 
 ![Beaglebone Black](/img/bbb.jpg)
@@ -54,9 +46,17 @@ The [Beaglebone Black][bbb] is a small $45 device similar to the Raspberry Pi bu
 
 We chose to target the Beaglebone Black to provide support for a more capable device in the same class and price point as the Raspberry Pi.
 
+### ODROID-W
+
+![ODROID-W](/img/odroid.jpg)
+
+The [ODROID-W][odroid] is a compressed design of the [Raspberry Pi][rpi] and based on the Broadcom BCM2835 CPU, it also includes an onboard analog-to-digital converter and a real-time clock.
+
+Sadly this board was discontinued soon after its first production run, so if you can get your hands on one of these lovely boards, count yourself lucky. 
+
 ## Getting Started
 
-To get started, check out our [guide][gettingStarted].
+To get started building a fleet of connected devices, check out our [getting started guide][gettingStarted].
 
 [gettingStarted]:/pages/gettingStarted.md
 
@@ -68,3 +68,7 @@ To get started, check out our [guide][gettingStarted].
 [rpi]:http://www.raspberrypi.org/
 [nuc]:http://www.intel.co.uk/content/www/uk/en/nuc/overview.html
 [bbb]:http://beagleboard.org/black
+[odroid]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=g140610189490
+[edison]:http://www.intel.co.uk/content/www/uk/en/do-it-yourself/edison.html
+[parallella]:https://www.parallella.org/board/
+[hummingboard]:http://www.solid-run.com/products/hummingboard/

@@ -16,13 +16,13 @@ __Note__: Currently there are some restrictions on application names - they must
 
 When you create an application an install zip is generated specifically for that application.
 
-When you install this image onto your device it will automatically appear in your application dashboard, no manual intervention is required.
+When you install this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can copy this one download to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name. 
 
 ### Deploying Your Code to an Application
 
 The key thing to know about any application from your perspective as a developer is its git endpoint - this is visible in the applications list on the [applications dashboard](http://alpha.resin.io/dashboard/apps) and also in the top-right hand corner of each individual application dashboard.
 
-To configure a git repo to be able to push code to resin, you need to add a [git remote](http://gitref.org/remotes/) - simply click the button to the right of the git endpoint to copy the git command you need to run to the clipboard and run it the folder where you git repo is located.
+To configure a git repo to be able to push code to resin, you need to add a [git remote](http://gitref.org/remotes/) - simply click the button to the right of the git endpoint to copy the command to the clipboard and run it in the folder where your local git repo is located.
 
 Alternatively, simply run `git remote add resin [git endpoint]`, and you're done. From then on in you can simply run `git push resin master` to push your master branch to your devices.
 
@@ -36,7 +36,7 @@ For more details on deployment, check out our [deployment guide](http://docs.res
 
 Hidden behind the 'Dangerous' section is the option to delete your application.
 
-__Warning__: All devices attached to the application will become orphaned and you will need to reconfigure them from scratch in another application.
+__Warning:__ All devices attached to the application will become orphaned and you will need to reconfigure them from scratch in another application.
 
 ### Environment Variables
 
