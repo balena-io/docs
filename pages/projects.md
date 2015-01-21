@@ -71,13 +71,13 @@ display.
 A simple application which demonstrates the use of the [Pi Pins][pi-pins]
 library to interface with [GPIO][gpio].
 
-### Example GPIO control in pythyon
+### Example GPIO control in python
 
 [Repository][py-gpio] by [nghiant2710][nghiant2710]
 
 A simple application that shows you how to toggle the general purpose I/O pins on the raspberry pi using python.
 
-### Node.js and the RPI camera module 
+### Node.js and the RPI camera module
 [Repository][picamera-node]
 
 A basic skeleton application to get you up and running with the raspberry pi camera module using node.js
@@ -105,7 +105,7 @@ which people appear to be flying.
 
 [Repository][webLamp] by [Shaun Mulligan][shaun-mulligan]
 
-Allows you to control a simple desk lamp from your browser anywhere in the world. 
+Allows you to control a simple desk lamp from your browser anywhere in the world.
 
 Warning!!! This project uses a relay to switch on and off mains power. So some level of familiarity with electronics is required.
 
