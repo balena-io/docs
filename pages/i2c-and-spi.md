@@ -29,7 +29,7 @@ To get you started, here is an [example][i2c-example] that uses i2c to communica
 
 ## SPI
 
-SPI is enabled by default and should work out of the box with spi node module [here][https://www.npmjs.com/package/spi].
+SPI is enabled by default and should work out of the box with the [spi node module][spi-npm].
 
 For an example of this, check our this project: [digitiser][digitiser-link].
 
@@ -47,3 +47,4 @@ An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-li
 [ads1115-link]:http://www.adafruit.com/product/1085
 [digitiser-link]:https://github.com/shaunmulligan/digitiser
 [firebaseTemp-link]:https://github.com/shaunmulligan/firebaseDTL
+[spi-npm]:https://www.npmjs.com/package/spi
