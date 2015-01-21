@@ -1,4 +1,4 @@
-# Getting Started With Resin.io and the Raspberry Pi
+# Getting Started with the Raspberry Pi
 
 <iframe class="getting-started-vid" src="//player.vimeo.com/video/108930903?title=0&amp;byline=0&amp;portrait=0" style="width:100%" height="456px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 

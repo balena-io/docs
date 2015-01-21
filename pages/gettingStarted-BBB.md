@@ -1,5 +1,6 @@
-# Getting Started With Resin.io and the Beaglebone Black
+# Getting Started With the Beaglebone Black
 
+![Beaglebone Black](/img/bbb.jpg)
 
 ## What You'll Need
 
@@ -19,7 +20,7 @@
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with a Beaglebone black then skip ahead to [Creating Your First Application](#creating-your-first-application).
+If you already have a resin.io account and just want to get started with a Beaglebone black then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-BBB#creating-your-first-application).
 
 ## Signing Up
 
@@ -161,7 +162,7 @@ can find.
 
 ![git pushing](/img/screenshots/git_pushing.png)
 
-A good little project to get you started is the[tty.js app][example_app] written in node.js. It will allow you to play around with terminal commands on the beaglebone from your webbrowser.
+A good little project to get you started is the [tty.js app][example_app] written in node.js. It will allow you to play around with terminal commands on the beaglebone from your web browser.
 To clone it, run the following in a terminal:-
 
 ```
