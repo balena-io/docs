@@ -1,7 +1,11 @@
 ### Getting Started
 
+<<<<<<< HEAD
 * [Raspberry Pi](/pages/gettingStarted.md)
 * [Beaglebone Black](/pages/gettingStarted-BBB.md)
+=======
+* [Getting Started Guide](/pages/gettingStarted.md)
+>>>>>>> 3e95870f27f52655920e742f2fe82efdfdd2b24b
 * [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
 
 ### Example Projects

@@ -31,4 +31,3 @@ If a terminal window flashes up then disappears, this is usually due to your app
 
 When you push updates, the terminal session is automatically closed. To restart the terminal session, simply close the terminal session and restart it once the update is complete.
 
-[error]:/pages/error.md
