@@ -130,10 +130,18 @@ device(s). If this fails, you may need to force the push by running `git push re
 
 __NOTE:__ On your very first push, git may ask you if you would like to add this host to your list of allowed hosts. Don't worry about this, just type 'yes' and carry on your merry way.
 
-You'll know your code has deployed successfully from the appearance of our
-friendly unicorn mascot:-
+You'll know your code has been successfully compiled and built when our
+friendly unicorn mascot appears in your terminal:-
 
 ![git pushing](/img/screenshots/git_pushed.png)
+
+The terminal will also say:
+```
+-----> Image created successfully!
+-----> Uploading image..
+       Image uploaded successfully!
+```
+This means your code is safely on our servers and will be downloaded and executed by all the devices you have connected to your application. You may have to wait a little while for the code to start running on your devices.
 
 You should now have a friendly talking raspberry pi and a good base to start building and deploying awesome connected devices.
 
