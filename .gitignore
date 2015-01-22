@@ -1,5 +1,7 @@
 .#*
 
+.DS_Store
+
 # Ignore local scripts.
 run.sh
 
