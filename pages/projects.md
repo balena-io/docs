@@ -42,14 +42,14 @@ This python project allows you to share your ethernet connection to wifi. It ess
 
 [Repository][firebase-dtl] by [Shaun Mulligan][shaun-mulligan]
 
-A [Firebase][firebase]-backed Digital Temperature Logger allowing you to connect
+A [Firebase][firebase]-backed Digital Temperature Logger, written in node.js, allowing you to connect
 devices with multiple temperature sensors to a central cloud-based datastore.
 
 ### Cloud Synchronised Streaming Radios
 
 [Repository][sonos-clone]
 
-Build your own version of Sonos cloud synchronised speakers using Grooveshark, some raspberry pis and resin.io. It also has an awesome frontend web app [[link][clonos-frontend]] that allows you to search and queue up songs in a playlist so that all the rooms in your house are in perfect harmony.
+Build your own version of Sonos cloud synchronised speakers using Grooveshark, some raspberry pis, node.js and resin.io. It also has an awesome frontend web app [[link][clonos-frontend]] that allows you to search and queue up songs in a playlist so that all the rooms in your house are in perfect harmony.
 
 ### resin-samba
 
@@ -61,7 +61,7 @@ Sets up a samba share that you can use to send and receive files to your Raspber
 
 [Repository][digitiser] by [Shaun Mulligan][shaun-mulligan]
 
-A tool for displaying integer values from a JSON endpoint on a MAX7219 7-segment
+A node.js project for displaying integer values from a JSON endpoint on a MAX7219 7-segment
 display.
 
 ### Example GPIO control in node.js
@@ -76,6 +76,12 @@ library to interface with [GPIO][gpio].
 [Repository][py-gpio] by [nghiant2710][nghiant2710]
 
 A simple application that shows you how to toggle the general purpose I/O pins on the raspberry pi using python.
+
+### GrovePi Humidity sensor and OLED display
+
+[Repository][grovepi-humidity]
+
+This python project logs humidity and temperature data to a small OLED display and the resin.io dashboard. It uses the GrovePi addon board to interface with the sensors.
 
 ### Node.js and the RPI camera module
 [Repository][picamera-node]
@@ -286,3 +292,4 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [webLamp]:https://github.com/shaunmulligan/webLamp
 [sonos-clone]:https://github.com/resin-io/music-player-device
 [clonos-frontend]:https://github.com/resin-io/music-player-web
+[grovepi-humidity]:https://github.com/shaunmulligan/grovePi
