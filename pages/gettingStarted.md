@@ -141,7 +141,9 @@ The terminal will also say:
 -----> Uploading image..
        Image uploaded successfully!
 ```
-This means your code is safely on our servers and will be downloaded and executed by all the devices you have connected to your application. You may have to wait a little while for the code to start running on your devices.
+This means your code is safely on our servers and will be downloaded and executed by all the devices you have connected to your application. You may have to wait a little while for the code to start running on your devices, you can see the progress of the device code updates on the device dashboard:-
+
+![Code updating](/img/screenshots/rpi-app-updating.png)
 
 You should now have a friendly talking raspberry pi and a good base to start building and deploying awesome connected devices.
 
