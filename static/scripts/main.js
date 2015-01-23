@@ -3,6 +3,13 @@ $(window).scroll(function() {
   $('[data-md-sticky-header]').toggleClass('sticky', scroll > 61);
 });
 
+function fixLocalUrl(links) {
+  links.each(function() {
+    var href = $(this).attr('href');
+    $(this).attr('href', '/#' + href);
+  });
+}
+
 angular
   .module('resinDocs', [ 'ngRoute', 'ui.bootstrap' ])
 
@@ -34,7 +41,9 @@ angular
         preparedHtmlEl.find('p > strong:first-child:contains("Note")').parent().wrap('<alert type="note"></alert>');
         preparedHtmlEl.find('p > strong:first-child:contains("NOTE")').parent().wrap('<alert type="note"></alert>');
         preparedHtmlEl.find('img').attr('colorbox', '');
-        preparedHtmlEl.find('h2,h3,h4,h5,h6').attr('anchor', '')
+        preparedHtmlEl.find('h2,h3,h4,h5,h6').attr('anchor', '');
+
+        fixLocalUrl(preparedHtmlEl.find('a[href^="/pages"]'));
 
         return preparedHtmlEl.html();
       });
@@ -54,13 +63,17 @@ angular
       angular.element('.gsc-search-button').trigger('click');
     };
   })
-  .controller('PageCtrl', function($scope, $sce, pageContent, $timeout, $compile) {
+  .controller('PageCtrl', function($scope, $sce, pageContent, $timeout, $compile, $location) {
     // hacky way of replacing content
     var pageContentEl = angular.element('.page-content');
     pageContentEl.html(pageContent);
     $compile(pageContentEl.contents())($scope);
 
     $timeout(function() {
+      if (!$location.hash()) {
+        window.scrollTo(0,0);
+      }
+
       $scope.$emit('page-rendered', pageContent);
       angular.element('.colorbox-img-wrappper').colorbox({
         maxWidth: '95%',
@@ -112,27 +125,22 @@ angular
       template: '<nav id="navigation" ng-bind-html="::navigationContent"></nav>',
       link: function(scope, el) {
         function addActiveClass(activeEl) {
+          el.find('.active').removeClass('active');
           activeEl.addClass('active');
           $rootScope.$emit('active-link-added', { el: activeEl })
         }
+
+        $rootScope.$on('page-rendered', function(event, data) {
+          var activeLink = angular.element('#navigation a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+          addActiveClass(activeLink);
+        });
 
         PageRendererService.getSidebarNavigation().then(function(nav) {
           scope.navigationContent = $sce.trustAsHtml(nav);
 
           $timeout(function() {
-            el.find('a').each(function() {
-              // update all links href
-              var href = '#' + $(this).attr('href');
-              $(this).attr('href', href);
-
-              $(this).click(function() {
-                el.find('.active').removeClass('active');
-                addActiveClass($(this).parent());
-              });
-            });
-
-            var activeLink = angular.element('#navigation a[href="#/pages/'+ $routeParams.pageName +'"]').parent()
-            addActiveClass(activeLink);
+            // update all links href
+            fixLocalUrl(el.find('a'));
           });
         });
       }

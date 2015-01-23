@@ -16,7 +16,7 @@ __Note__: Currently there are some restrictions on application names - they must
 
 When you create an application an install zip is generated specifically for that application.
 
-When you install this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can copy this one download to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name. 
+When you install this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can copy this one download to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name.
 
 ### Deploying Your Code to an Application
 
@@ -26,7 +26,7 @@ To configure a git repo to be able to push code to resin, you need to add a [git
 
 Alternatively, simply run `git remote add resin [git endpoint]`, and you're done. From then on in you can simply run `git push resin master` to push your master branch to your devices.
 
-For more details on deployment, check out our [deployment guide](http://docs.resin.io/#!/pages/deployment.md).
+For more details on deployment, check out our [deployment guide](/pages/deployment.md).
 
 ### Application Settings
 
