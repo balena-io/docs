@@ -11,7 +11,7 @@ To deploy a project simply clone it and push it to your application's `resin`
 endpoint. E.g. for the [Text to Speech Converter project][text2speech]:-
 
 ```
-git clone https://github.com/resin-io/text2speech.git .
+git clone https://github.com/resin-io/text2speech.git
 git remote add resin [endpoint]
 git push resin master
 ```

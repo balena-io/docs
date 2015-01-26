@@ -169,7 +169,7 @@ To clone it, run the following in a terminal:-
 git clone https://github.com/resin-io/tty.js-resin.git
 ```
 
-Once the repo is cloned, cd into the newly created text2speech directory and add the resin git endpoint by running the `git remote add` command shown in
+Once the repo is cloned, cd into the newly created tty.js-resin directory and add the resin git endpoint by running the `git remote add` command shown in
 the top-right corner of the application page, e.g.:-
 
 ```
