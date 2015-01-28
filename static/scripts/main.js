@@ -82,18 +82,29 @@ angular
   .controller('SearchResultsCtrl', function($scope, $location, idxService, $rootScope) {
     var searchTerm = $location.search().searchTerm;
 
-    $rootScope.$emit('update-breadcrumb', { lvlOne: 'Search Results', lvlTwo: searchTerm });
-
     var searchResults = idxService.search(searchTerm);
-    $scope.searchResults = [];
-    searchResults.forEach(function(result) {
-      var el = angular.element('#navigation a[href$="/pages/' + result.ref + '"]');
-      $scope.searchResults.push({
-        id: result.ref,
-        title: el.text(),
-        link: '/#/pages/' + result.ref
+
+    var processSearch = function() {
+      $scope.searchResults = [];
+      searchResults.forEach(function(result) {
+        var el = angular.element('#navigation a[href$="/pages/' + result.ref + '"]');
+
+        $scope.searchResults.push({
+          id: result.ref,
+          title: el.text(),
+          link: '/#/pages/' + result.ref
+        });
       });
+
+      $rootScope.$emit('update-breadcrumb', { lvlOne: 'Search Results', lvlTwo: searchTerm });
+    }
+
+    processSearch();
+    $rootScope.$on('active-link-added', function() {
+      processSearch();
     });
+
+    window.scrollTo(0,0);
 
   })
   .controller('SearchCtrl', function($scope, $location) {
@@ -160,7 +171,6 @@ angular
         });
 
         $rootScope.$on('update-breadcrumb', function(event, data) {
-          console.log('sdsd')
           scope.lvlOne = data.lvlOne;
           scope.lvlTwo = data.lvlTwo;
         });

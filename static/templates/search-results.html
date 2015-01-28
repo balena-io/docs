@@ -1,7 +1,7 @@
 <div class="page-content">
   <h1>Search results:</h1>
 
-  <alert ng-if="!searchResults.length" type="info">No results found</alert>
+  <alert ng-if="searchResults && !searchResults.length" type="info">No results found</alert>
 
   <ul>
     <li ng-repeat="result in searchResults">
