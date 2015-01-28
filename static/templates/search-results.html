@@ -1,0 +1,11 @@
+<div class="page-content">
+  <h1>Search results:</h1>
+
+  <alert ng-if="searchResults && !searchResults.length" type="info">No results found</alert>
+
+  <ul>
+    <li ng-repeat="result in searchResults">
+      <a ng-href="{{ result.link }}">{{ result.title }}</a>
+    </li>
+  </ul>
+</div>
