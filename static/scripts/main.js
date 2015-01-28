@@ -3,7 +3,7 @@ $(window).scroll(function() {
   $('[data-md-sticky-header]').toggleClass('sticky', scroll > 61);
 });
 
-function fixLocalUrl(links) {
+function updateLinksHref(links) {
   links.each(function() {
     var href = $(this).attr('href');
     $(this).attr('href', '/#' + href);
@@ -26,6 +26,16 @@ angular
         }
       })
 
+      .when('/search-results', {
+        controller: 'SearchResultsCtrl',
+        templateUrl: '/static/templates/search-results.html',
+        resolve: {
+          idxService: function(LurnService) {
+            return LurnService.getInstance();
+          }
+        }
+      })
+
       .otherwise('/pages/gettingStarted.md');
   })
 
@@ -43,7 +53,7 @@ angular
         preparedHtmlEl.find('img').attr('colorbox', '');
         preparedHtmlEl.find('h2,h3,h4,h5,h6').attr('anchor', '');
 
-        fixLocalUrl(preparedHtmlEl.find('a[href^="/pages"]'));
+        updateLinksHref(preparedHtmlEl.find('a[href^="/pages"]'));
 
         return preparedHtmlEl.html();
       });
@@ -55,15 +65,45 @@ angular
       });
     };
   })
+  .service('LurnService', function($http) {
+    this.getInstance = function() {
+      if (window.idx) {
+        return window.idx;
+      }
+
+      return $http.get('/lunr_index.json').then(function(resp) {
+        var indexDump = angular.fromJson(resp.data);
+        return window.idx = lunr.Index.load(indexDump);
+      })
+    }
+  })
 
   // controllers
-  .controller('SearchCtrl', function($scope, $http) {
+  .controller('SearchResultsCtrl', function($scope, $location, idxService, $rootScope) {
+    var searchTerm = $location.search().searchTerm;
+
+    $rootScope.$emit('update-breadcrumb', { lvlOne: 'Search Results', lvlTwo: searchTerm });
+
+    var searchResults = idxService.search(searchTerm);
+    $scope.searchResults = [];
+    searchResults.forEach(function(result) {
+      var el = angular.element('#navigation a[href$="/pages/' + result.ref + '"]');
+      $scope.searchResults.push({
+        id: result.ref,
+        title: el.text(),
+        link: '/#/pages/' + result.ref
+      });
+    });
+
+  })
+  .controller('SearchCtrl', function($scope, $location) {
+    $scope.searchTerm = $location.search().searchTerm;
+
     $scope.search = function() {
-      angular.element('input.gsc-input').val($scope.searchTerm);
-      angular.element('.gsc-search-button').trigger('click');
+      $location.path('/search-results').search({ searchTerm: $scope.searchTerm });
     };
   })
-  .controller('PageCtrl', function($scope, $sce, pageContent, $timeout, $compile, $location) {
+  .controller('PageCtrl', function($scope, $sce, pageContent, $timeout, $compile, $location, LurnService) {
     // hacky way of replacing content
     var pageContentEl = angular.element('.page-content');
     pageContentEl.html(pageContent);
@@ -82,6 +122,9 @@ angular
         photo: !0
       });
     });
+
+    // preload if needed
+    LurnService.getInstance();
   })
 
   // directives
@@ -109,12 +152,19 @@ angular
     return {
       restrict: 'E',
       replace: true,
-      template: '<ol class="breadcrumb list-inline"><li>{{ lvlOne }}</li><li class="active">{{ lvlTwo }}</li></ol>',
+      templateUrl: '/static/templates/directives/breadcrumb.html',
       link: function(scope, el) {
         $rootScope.$on('active-link-added', function(event, data) {
           scope.lvlOne = data.el.parent().prev().text();
           scope.lvlTwo = data.el.text();
         });
+
+        $rootScope.$on('update-breadcrumb', function(event, data) {
+          console.log('sdsd')
+          scope.lvlOne = data.lvlOne;
+          scope.lvlTwo = data.lvlTwo;
+        });
+
       }
     }
   })
@@ -122,17 +172,17 @@ angular
     return {
       restrict: 'E',
       replace: true,
-      template: '<nav id="navigation" ng-bind-html="::navigationContent"></nav>',
+      templateUrl: '/static/templates/directives/navigation.html',
       link: function(scope, el) {
-        function addActiveClass(activeEl) {
+        function addActiveClass() {
+          var activeEl = angular.element('#navigation a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
           el.find('.active').removeClass('active');
           activeEl.addClass('active');
           $rootScope.$emit('active-link-added', { el: activeEl })
         }
 
         $rootScope.$on('page-rendered', function(event, data) {
-          var activeLink = angular.element('#navigation a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
-          addActiveClass(activeLink);
+          addActiveClass();
         });
 
         PageRendererService.getSidebarNavigation().then(function(nav) {
@@ -140,7 +190,8 @@ angular
 
           $timeout(function() {
             // update all links href
-            fixLocalUrl(el.find('a'));
+            updateLinksHref(el.find('a'));
+            addActiveClass();
           });
         });
       }

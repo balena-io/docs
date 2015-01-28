@@ -58,7 +58,7 @@
                     <breadcrumb></breadcrumb>
                 </header>
                 <div class="content-wrapper">
-                    <content ng-view></content>
+                    <section ng-view></section>
                 </div>
             </article>
         </div>
@@ -71,21 +71,10 @@
     <script type="text/javascript" src="/static/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="/static/lib/marked/lib/marked.js"></script>
     <script type="text/javascript" src="/static/lib/colorbox/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="/static/lib/lunr.js/lunr.min.js"></script>
 
     <script type="text/javascript" src="/static/scripts/main.js"></script>
 
-    <script>
-      (function() {
-        var cx = '013679408131970639568:glcs23wqy-o';
-        var gcse = document.createElement('script');
-        gcse.type = 'text/javascript';
-        gcse.async = true;
-        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-            '//www.google.com/cse/cse.js?cx=' + cx;
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(gcse, s);
-      })();
-    </script>
 
     <!-- GA -->
     <script>
