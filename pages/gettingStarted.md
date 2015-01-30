@@ -105,6 +105,8 @@ appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can
 take up to 3 times longer so it's well worth investing in the fastest card you
 can find.
 
+If you encounter issues with your Raspberry Pi refusing to boot to the SD card, it may be because the SD card was not formatted properly. For best results, it is recommended that you use the [SD Card Formatter][sdformatter] utility from the SD Association.
+
 ## Running Code On Your Device
 
 ![git pushing](/img/screenshots/git_pushing.png)
@@ -183,6 +185,7 @@ feedback and respond to any issues as soon as we can.
 [wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
 [wikihow]:http://www.wikihow.com/Main-Page
 [fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
+[sdformatter]:https://www.sdcard.org/downloads/formatter_4/
 [example_app]:https://github.com/resin-io/text2speech
 [try-git]:https://www.codeschool.com/courses/try-git
 [code-school]:https://www.codeschool.com/
