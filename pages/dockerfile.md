@@ -1,20 +1,18 @@
 # Dockerfile Guide
 
-Resin.io offers you the flexibility to deploy [Docker][docker] containers to devices directly to enable you to define your own environment and use whatever tools you need.
-
-Docker uses [containerisation][container] to allow the deployment of a completely isolated Linux instance configured exactly to your specifications with minimal performance penalty. This combination of control and performance is what makes containerisation the ideal approach for deployment of code to resin.io devices.
+Resin.io offers you the flexibility to deploy [Docker][docker] containers to devices. This enable you to define your own environment and use whatever tools you need.
 
 ## Images and Containers
-
-Docker images and containers are to standard virtualisation as a saved snapshot of a fully installed OS with applications and a running virtual machine - i.e. the image is a read-only template and the container is a running system (see [Docker's introduction][docker-images-containers] for more details on this.)
+To understand how this works we need to understand a bit about how [Docker][docker] works and what images and a containers are in this context. 
+Basically an image is a read-only template or blueprint and the container is a running system built from an image. (see [Docker's introduction][docker-images-containers] for more details on this.)
 
 ## Dockerfiles
 
-To create a container from an image in Docker we use a [Dockerfile][dockerfile] - this is similar to a `Makefile` in that it contains instructions to build our container.
+To create a container from an image we use a [Dockerfile][dockerfile] - this is similar to a `Makefile` in that it contains a recipe or set of instructions to build our container.
 
 The syntax of Dockerfiles is fairly simple - at core there are 2 valid entries in a Dockerfile - comments, prepended with `#` as in script files, and instructions of the format `INSTRUCTION arguments`.
 
-Typically you will only need to use 3 instructions - [FROM][from], [RUN][run] and [ADD][add]/[COPY][copy]:-
+Typically you will only need to use 4 instructions - [FROM][from], [RUN][run] and [ADD][add] or [COPY][copy]:-
 
 * [FROM][from] __has__ to be the first instruction in any valid `Dockerfile` and defines the base image to use as the basis for the container you're building.
 

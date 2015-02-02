@@ -12,9 +12,7 @@ This is perfect for Resin.io - we have built an optimised Linux system for the d
 
 ## Application Environment
 
-![Docker Logo](/img/docker.png)
-
-We use [Docker][docker] to leverage the power of [containerisation][containerisation] to provide a consistent environment for your software to operate inside at a far smaller performance penalty than virtualisation, as well as giving you the freedom to provide custom [Dockerfiles][Dockerfile] so you have total freedom in what runs on your device.
+On the device, we run the Resin Container Enging (RCE) which uses the power of [containerisation][containerisation] to provide a consistent environment for your software to operate inside at a far smaller performance penalty than virtualisation. Additionally since RCE runs Docker containers you have the freedom to provide custom [Dockerfiles][Dockerfile] giving you the ability to control exactly what is installed and run on the device.
 
 In addition we leverage containerisation to have our build server build your project without consuming a single CPU cycle on your actual device, then ship a container to it which is guaranteed to run as built without concern for the host operating system running on your device.
 
@@ -28,9 +26,7 @@ The Resin.io supervisor is a lightweight process which runs on your device, mana
 
 ![Application Image](/img/logo_app.svg)
 
-When you download the base image for your devices you get [Yocto][yocto], [Docker][docker] and the Resin.io Supervisor, but no application to actually run on your device. So how does your code get there?
-
-Once your device has booted and initial setup is complete, the Supervisor contacts our servers and downloads the latest version of your application.
+Once your device has booted and the initial setup is complete, the Supervisor contacts our servers and downloads the latest version of your application.
 
 From this point on, as soon as you push an update it will connect to our servers, pull down the container for your application and update it seamlessly, giving you zero overhead updates across any number of devices.
 

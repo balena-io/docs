@@ -2,10 +2,10 @@
 
 ## Using a Custom Dockerfile
 
-The most flexible option is to make use of our [containerisation][container]
-infrastructure directly which currently uses [Docker][docker].
+The most flexible option is to make use of the [containerisation][container]
+infrastructure directly by means of a Dockerfile.
 
-We enable you to deploy your own custom docker via a [Dockerfile][Dockerfile] -
+We enable you to deploy your own custom environment on the device via a [Dockerfile][Dockerfile] -
 simply add a file named `Dockerfile` at the root of your project and it will be
 used automatically when pushed to the `resin` endpoint.
 
