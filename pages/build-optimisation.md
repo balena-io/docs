@@ -1,10 +1,10 @@
 # Optimise your Build
 
-These are just a few tips and tricks to optimise your resin.io container build and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the docker container builders on our servers. If you want to read more about how dockers caches layers and docker best practises, head over here - [Docker best practise][docker-best-practise]. 
+These are just a few tips and tricks to optimise your resin.io container build and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the Docker container builders on our servers. If you want to read more about how Docker caches layers and Docker best practises, head over here - [Docker best practise][docker-best-practise]. 
 
 ## Move `ADD` and `COPY` Commands
 
-Caching in docker is done by comparing the insturctions in the current `Dockerfile` with the ones in the previous build. If the instuctions have changed, the cache is invalidated. This however, is slightly different for the `ADD` and `COPY`, for these commands the contents of the files being put into the image are examined. If there are any changes, even in the file metadata, then the cache is invalidated. So we recommend you place your `ADD` or `COPY` statements near the end of your dockerfiles, after all your package installs and source compilation steps have been completed.
+Caching in Docker is done by comparing the insturctions in the current `Dockerfile` with the ones in the previous build. If the instuctions have changed, the cache is invalidated. This however, is slightly different for the `ADD` and `COPY`, for these commands the contents of the files being put into the image are examined. If there are any changes, even in the file metadata, then the cache is invalidated. So we recommend you place your `ADD` or `COPY` statements near the end of your dockerfiles, after all your package installs and source compilation steps have been completed.
 
 ## Minimize the number of layers
 
@@ -39,7 +39,7 @@ Make use of `.dockerignore` to ignore anything that is in the git repo, but is n
 
 ## Don't do apt-get update or upgrade
 
-This isn't so much of an optimisation tip, but more a guideline to ensure maintainable docker images. Note the below tips were shamelessly borrowed from [Docker Best Practise][docker-best-practise].
+This isn't so much of an optimisation tip, but more a guideline to ensure maintainable Docker images. Note the below tips were kindly borrowed from [Docker Best Practise][docker-best-practise].
 
 * Don’t do `RUN apt-get update` on a single line. This will cause caching issues if the referenced archive gets updated, which will make your subsequent apt-get install fail without comment.
 

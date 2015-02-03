@@ -11,17 +11,6 @@ things should you configure them incorrectly - tread carefully!
 The Raspberry Pi exposes device configuration options via a text file on the
 boot medium, `config.txt` - you change boot options simply by editing this file.
 
-The location of this file varies depending on whether you have booted your Pi
-using your resin.io-configured SD card yet:-
-
-#### Pre-Boot
-
-`config.txt` is located in the root of the image zip file (and thus your SD card
-after unzipping there.)
-
-__Note:__ Though we update this file during first boot any changes you make will
-be retained.
-
 #### Post-Boot
 
 The `config.txt` is located in the root of the `BOOT` partition.
