@@ -12,7 +12,7 @@ This is perfect for Resin.io - we have built an optimised Linux system for the d
 
 ## Application Environment
 
-On the device, we run the Resin Container Enging (RCE) which uses the power of [containerisation][containerisation] to provide a consistent environment for your software to operate inside at a far smaller performance penalty than virtualisation. Additionally since RCE runs Docker containers you have the freedom to provide custom [Dockerfiles][Dockerfile] giving you the ability to control exactly what is installed and run on the device.
+On the device, we run the Resin Container Engine (RCE) which uses the power of [containerisation][containerisation] to provide a consistent environment for your software to operate inside at a far smaller performance penalty than virtualisation. Additionally since RCE runs Docker containers you have the freedom to provide custom [Dockerfiles][Dockerfile] giving you the ability to control exactly what is installed and run on the device.
 
 In addition we leverage containerisation to have our build server build your project without consuming a single CPU cycle on your actual device, then ship a container to it which is guaranteed to run as built without concern for the host operating system running on your device.
 
