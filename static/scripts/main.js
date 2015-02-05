@@ -13,6 +13,40 @@ function updateLinksHref(links) {
 angular
   .module('resinDocs', [ 'ngRoute', 'ui.bootstrap' ])
 
+  .run(function($rootScope, LEFT_MENU, RIGTH_MENU) {
+    $rootScope.leftMenu = LEFT_MENU;
+    $rootScope.rightMenu = RIGTH_MENU;
+  })
+
+  .constant('LEFT_MENU', [
+    {
+      "title": "What it's for",
+      "link": "https://resin.io/usecases"
+    },
+    {
+      "title": "How it works",
+      "link": "https://resin.io/how-it-works"
+    },
+    {
+      "title": "Docs",
+      "link": "http://docs.resin.io"
+    }
+  ])
+  .constant('RIGTH_MENU', [
+    {
+      "title": "Blog",
+      "link": "https://resin.io/blog/"
+    },
+    {
+      "title": "Team",
+      "link": "https://resin.io/team"
+    },
+    {
+      "title": "Contact",
+      "link": "https://resin.io/contact"
+    }
+  ])
+
   // config
   .config(function($routeProvider) {
     $routeProvider
@@ -87,7 +121,7 @@ angular
     var processSearch = function() {
       $scope.searchResults = [];
       searchResults.forEach(function(result) {
-        var el = angular.element('#navigation a[href$="/pages/' + result.ref + '"]');
+        var el = angular.element('.site-navigation a[href$="/pages/' + result.ref + '"]');
 
         $scope.searchResults.push({
           id: result.ref,
@@ -113,6 +147,12 @@ angular
     $scope.search = function() {
       $location.path('/search-results').search({ searchTerm: $scope.searchTerm });
     };
+
+    $scope.$on('$routeChangeStart', function(next, current) {
+      if (current.controller != 'SearchResultsCtrl') {
+        $scope.searchTerm = '';
+      }
+    });
   })
   .controller('PageCtrl', function($scope, $sce, pageContent, $timeout, $compile, $location, LurnService) {
     // hacky way of replacing content
@@ -159,6 +199,28 @@ angular
       }
     }
   })
+  .directive('mobileNav', function($rootScope, $location) {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: '/static/templates/directives/mobile-nav.html',
+      link: function(scope, el) {
+        scope.subMenuCollapsed = false;
+
+        $rootScope.$on('active-link-added', function(event, data) {
+          scope.pageTitle = data.el.text();
+          angular.element('.navbar-submenu .site-navigation').height(angular.element(window).height() - 190);
+        });
+
+        scope.$on('$routeChangeStart', function(next, current) {
+          if (current.controller == 'SearchResultsCtrl') {
+            scope.pageTitle = 'Search results for "' + $location.search().searchTerm + '"';
+          }
+          scope.subMenuCollapsed = false;
+        });
+      }
+    }
+  })
   .directive('breadcrumb', function($routeParams, $timeout, $rootScope) {
     return {
       restrict: 'E',
@@ -183,12 +245,12 @@ angular
       restrict: 'E',
       replace: true,
       templateUrl: '/static/templates/directives/navigation.html',
-      link: function(scope, el) {
+      link: function(scope, el, attrs) {
         function addActiveClass() {
-          var activeEl = angular.element('#navigation a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+          var activeEl = angular.element('.site-navigation a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
           el.find('.active').removeClass('active');
           activeEl.addClass('active');
-          $rootScope.$emit('active-link-added', { el: activeEl })
+          $rootScope.$emit('active-link-added', { el: activeEl.first() })
         }
 
         $rootScope.$on('page-rendered', function(event, data) {
