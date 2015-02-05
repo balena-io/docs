@@ -6,7 +6,6 @@ body {
 
 .content-wrapper {
   max-width: 960px;
-  min-width: 485px;
 }
 
 article {
@@ -222,6 +221,17 @@ h2:hover .hash, h3:hover .hash, h4:hover .hash, h5:hover .hash, h6:hover .hash {
 }
 
 .sticky {
-  position: fixed;
-  top: 0;
+  position: fixed!important;
+  top: 0!important;
+}
+
+.btn-primary {
+  color: #474747;
+  background-color: #fcc100;
+  border-color: #fcc100;
+}
+.btn-primary:hover {
+  color: #474747;
+  background-color: #c99a00;
+  border-color: #bf9200;
 }

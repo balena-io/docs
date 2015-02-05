@@ -23,15 +23,17 @@
       <div class="container">
         <nav class="menu__nav navbar" role="navigation">
           <ul class="menu__items nav navbar-nav navbar-left">
-            <li class="menu__item"><a href="/#/pages/gettingStarted.md">Getting Started</a></li>
-            <li class="menu__item"><a href="/">Docs</a></li>
-            <li class="menu__item"><a href="https://resin.io/blog">Blog</a></li>
+            <li ng-repeat="menuItem in leftMenu" class="menu__item"><a ng-href="{{ menuItem.link }}">{{ menuItem.title }}</a></li>
           </ul>
 
           <ul class="menu__items nav navbar-nav navbar-right">
-            <li class="menu__item"><a href="https://resin.io/contact">Contact</a></li>
-            <li class="menu__item menu__item--button"><a href="https://dashboard.resin.io/signup">Signup</a></li>
-            <li class="menu__item"><a href="https://dashboard.resin.io/login">Login</a></li>
+            <li ng-repeat="menuItem in rightMenu" class="menu__item"><a ng-href="{{ menuItem.link }}">{{ menuItem.title }}</a></li>
+            <li class="menu__item menu__item--btn-group">
+              <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                <a class="btn" href="https://dashboard.resin.io/signup">Sign up</a>
+                <a class="btn" href="https://dashboard.resin.io/login">Login</a>
+              </div>
+            </li>
           </ul>
 
           <a class="menu__logo navbar-brand" href="https://resin.io">
@@ -43,6 +45,8 @@
         </nav>
       </div>
     </div>
+
+    <mobile-nav></mobile-nav>
 
     <div class="container-fluid">
         <div class="row">
