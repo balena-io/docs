@@ -223,6 +223,11 @@ h2:hover .hash, h3:hover .hash, h4:hover .hash, h5:hover .hash, h6:hover .hash {
 .sticky {
   position: fixed!important;
   top: 0!important;
+  box-shadow: 0px -1px 6px 0px rgba(194,194,194,1);
+}
+
+header.sticky {
+  box-shadow: 2px -1px 6px 0px rgba(194,194,194,1);
 }
 
 .btn-primary {
