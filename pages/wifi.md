@@ -11,6 +11,50 @@ __NOTE:__ The device will automatically determine your network's encryption (if
 any) and connect using the provided passphrase, there's no need to specify the
 encryption type.
 
+###Changing your SSID and/or Passphrase
+
+It is possible to change your wifi SSID or Passphrase after booting and provisioning the device. This requires changing a configuration on the SD card. Simply edit `/resin/network/network.config` on the SD card either prior to the first execution of the device or on the RECOVERY partition after first boot.
+
+Your `network.config` file should look something like this, but `[SSID]` and `[passphrase]` should be substituted for your network settings.
+```
+[service_home_wifi]
+Type = wifi
+Name = [SSID]
+Passphrase = [passphrase]
+```
+
+If you previously downloaded your OS without selecting the 'wireless LAN' option, then you may find that your SD card does not contain a `network.config` file. Fear not! Simply create a network sub-directory in the `/resin` directory on the `RECOVERY` partition of the SD card. In this network directory, make sure you have the following files:
+
+`network.config`
+```
+[service_home_wifi]
+Type = wifi
+Name = [SSID]
+Passphrase = [passphrase]
+```
+
+`settings`
+```
+[global]
+OfflineMode=false
+
+[WiFi]
+Enable=true
+Tethering=false
+
+[Wired]
+Enable=true
+Tethering=false
+```
+Once these files have been added, your Raspberry Pi should easily connect to the wifi using one of the recommended wifi adapters mentioned lower down this page.
+
+### Multiple WiFi Connections
+
+Though we currently don't support multiple WiFi SSIDs through the user
+interface, this can be achieved by manually editing a configuration file on your
+SD card. See the [custom network guide][custom-network] for details on how to do
+this.
+
 ## Raspberry Pi
 
 The [Raspberry Pi][rpi] can be expanded to connect to a WiFi network by
@@ -43,14 +87,9 @@ If you have issues connecting with the WiFi device, first check to ensure the
 SSID and passphrase are correct. If they are, try rebooting with an ethernet
 cable plugged in, then booting again with just WiFi.
 
+__NOTE:__ There is a known bug in the connection manager ConnMan, which makes it impossible for resin devices to connect to wifi routers that have no passphrase at all. For the time being please try use password protected wifi networks to connect your devices.
+
 If neither of these approaches work, please let us know!
-
-### Multiple WiFi Connections
-
-Though we currently don't support multiple WiFi SSIDs through the user
-interface, this can be achieved by manually editing a configuration file on your
-SD card. See the [custom network guide][custom-network] for details on how to do
-this.
 
 [custom-network]:/pages/custom-network.md
 
