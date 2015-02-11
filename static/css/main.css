@@ -6,16 +6,24 @@ body {
 
 .content-wrapper {
   max-width: 960px;
-  position: relative;
 }
 
 #improve-docs {
-  position: absolute;
-  right: 0;
+  float: right;
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.03px;
   line-height: 17px;
+  margin-left: 20px;
+  padding: 11px 18px;
+}
+
+@media (max-width: 767px) {
+  #improve-docs {
+    float: none;
+    margin-top: 10px;
+    margin-bottom: -40px;
+  }
 }
 
 article {

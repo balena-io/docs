@@ -432,7 +432,7 @@ fieldset[disabled] .menu__item--btn-group .btn.active {
 }
 
 .navbar-default {
-  z-index: 1;
+  z-index: 2;
 }
 .navbar-default .navbar-collapse {
   border-color: inherit;
@@ -442,6 +442,7 @@ fieldset[disabled] .menu__item--btn-group .btn.active {
   top: 56px;
   background-color: #F7F7F7;
   text-align: left;
+  z-index: 1;
 }
 .navbar-submenu a {
   color: #429ece!important;
