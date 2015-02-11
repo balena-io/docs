@@ -6,6 +6,16 @@ body {
 
 .content-wrapper {
   max-width: 960px;
+  position: relative;
+}
+
+#improve-docs {
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.03px;
+  line-height: 17px;
 }
 
 article {
@@ -228,6 +238,15 @@ h2:hover .hash, h3:hover .hash, h4:hover .hash, h5:hover .hash, h6:hover .hash {
 
 header.sticky {
   box-shadow: 2px -1px 6px 0px rgba(194,194,194,1);
+}
+
+.btn-info {
+  background-color: #3C9DD0;
+  border-color: #3C9DD0;
+}
+.btn-info:hover {
+  background-color: #2F8CBD;
+  border-color: #2F8CBD;
 }
 
 .btn-primary {

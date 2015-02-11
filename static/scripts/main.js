@@ -10,12 +10,15 @@ function updateLinksHref(links) {
   });
 }
 
+var GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/gh-pages';
+
 angular
   .module('resinDocs', [ 'ngRoute', 'ui.bootstrap' ])
 
   .run(function($rootScope, LEFT_MENU, RIGTH_MENU) {
     $rootScope.leftMenu = LEFT_MENU;
     $rootScope.rightMenu = RIGTH_MENU;
+    $rootScope.improveDocsLink = null;
   })
 
   .constant('LEFT_MENU', [
@@ -115,8 +118,9 @@ angular
   // controllers
   .controller('SearchResultsCtrl', function($scope, $location, idxService, $rootScope) {
     var searchTerm = $location.search().searchTerm;
-
     var searchResults = idxService.search(searchTerm);
+
+    $rootScope.improveDocsLink = null;
 
     var processSearch = function() {
       $scope.searchResults = [];
@@ -154,11 +158,13 @@ angular
       }
     });
   })
-  .controller('PageCtrl', function($scope, $sce, pageContent, $timeout, $compile, $location, LurnService) {
+  .controller('PageCtrl', function($rootScope, $scope, $sce, pageContent, $timeout, $compile, $location, LurnService) {
     // hacky way of replacing content
     var pageContentEl = angular.element('.page-content');
     pageContentEl.html(pageContent);
     $compile(pageContentEl.contents())($scope);
+
+    $rootScope.improveDocsLink = GITHUB_EDIT_PAGE_LINK + $location.path()
 
     $timeout(function() {
       if (!$location.hash()) {
