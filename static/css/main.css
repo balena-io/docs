@@ -2,10 +2,13 @@ body {
   margin-top: 61px;
   font-family: "Open Sans", Arial, sans-serif;
   background: url('/img/sidebar-bg.jpg') repeat-y;
+  background-color: #F7F7F7;
 }
 
 .content-wrapper {
-  max-width: 960px;
+  max-width: 1035px;
+  min-height: 1371px;
+  background-color: white;
 }
 
 #improve-docs {
@@ -16,6 +19,8 @@ body {
   line-height: 17px;
   margin-left: 20px;
   padding: 11px 18px;
+  margin-right: 55px;
+  margin-top: 55px;
 }
 
 @media (max-width: 767px) {
@@ -127,10 +132,11 @@ article .sticky {
 
 .page-content {
   padding-left: 55px;
+  padding-right: 55px;
   font-size: 16px;
   color: #898a8d;
   line-height: 24px;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .page-content a {
@@ -172,6 +178,8 @@ article .sticky {
 .page-content h1 {
   font-weight: normal;
   font-size: 36px;
+  margin-top: 0;
+  padding-top: 50px;
 }
 
 .page-content code {
