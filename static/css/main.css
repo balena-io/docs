@@ -2,13 +2,14 @@ body {
   margin-top: 61px;
   font-family: "Open Sans", Arial, sans-serif;
   background: url('/img/sidebar-bg.jpg') repeat-y;
-  background-color: #F7F7F7;
+  background-color: #F5F5F5;
 }
 
 .content-wrapper {
   max-width: 1035px;
   min-height: 1371px;
   background-color: white;
+  border-right: 1px solid #E7E9EC;
 }
 
 #improve-docs {
