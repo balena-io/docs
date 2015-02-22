@@ -7,7 +7,7 @@ connected to a resin.io application. See the
 [Getting Started Guide][getting-started] for details.
 
 Then simply add your resin.io endpoint to your [git][git] repository via `git
-remote add resin.io [application endpoint]`.
+remote add resin [application endpoint]`.
 
 Whenever you subsequently need to push code to your devices, simply run
 `git push resin master`.
