@@ -145,7 +145,7 @@ Once it is completed, you can carry on setting up your beaglebone as shown below
 
 Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now hold down the small black button marked s2 (located near the SD card slot) and power up the device by inserting the usb cable. 
 
-You should only need to hold the button down for about 5 seconds until the blue LEDs start flashing like crazy. Basically, by holding down the button, we are telling the beaglebone that we want to boot from the SD card instead of the onboard flash. From there, the OS which in on the SD card is flashed onto the internal memory. This can take a few minutes, so grab some tea while you wait for your beagle to appear on the application
+You should only need to hold the button down for about 5 seconds until the blue LEDs start flashing like crazy. Basically, by holding down the button, we are telling the beaglebone that we want to boot from the SD card instead of the onboard flash. From there, the OS which is on the SD card is flashed onto the internal memory. This can take a few minutes, so grab some tea while you wait for your beagle to appear on the application
 dashboard.
 
 ![insert SD](/img/BBB/sd_card_BBB.jpg)
