@@ -4,7 +4,7 @@ These are just a few tips and tricks to optimise your resin.io container build a
 
 ## Move `ADD` and `COPY` Commands
 
-Caching in Docker is done by comparing the insturctions in the current `Dockerfile` with the ones in the previous build. If the instuctions have changed, the cache is invalidated. This however, is slightly different for the `ADD` and `COPY`, for these commands the contents of the files being put into the image are examined. If there are any changes, even in the file metadata, then the cache is invalidated. So we recommend you place your `ADD` or `COPY` statements near the end of your dockerfiles, after all your package installs and source compilation steps have been completed.
+Caching in Docker is done by comparing the instructions in the current `Dockerfile` with the ones in the previous build. If the instructions have changed, the cache is invalidated. This however, is slightly different for the `ADD` and `COPY`, for these commands the contents of the files being put into the image are examined. If there are any changes, even in the file metadata, then the cache is invalidated. So we recommend you place your `ADD` or `COPY` statements near the end of your dockerfiles, after all your package installs and source compilation steps have been completed.
 
 ## Minimize the number of layers
 
