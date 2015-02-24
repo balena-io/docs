@@ -125,7 +125,7 @@ angular
     var processSearch = function() {
       $scope.searchResults = [];
       searchResults.forEach(function(result) {
-        var el = angular.element('.site-navigation a[href$="/pages/' + result.ref + '"]');
+        var el = angular.element('.site-navigation a[href$="/pages/' + result.ref + '"]').first();
 
         $scope.searchResults.push({
           id: result.ref,
