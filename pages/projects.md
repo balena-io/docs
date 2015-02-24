@@ -168,6 +168,19 @@ A simple tool for reading temperatures from a USB-enabled thermometer. This
 project is used as the backend to [efwe][efwe]'s awesome temperature
 visualisation at [123k.de](http://123k.de).
 
+### Resin-ssh
+
+[Repository][resin-ssh] by [Shaun Mulligan][shaun-mulligan]
+[Repository][resin-ssh-node] by [Craig Mulligan][craig-mulligan]
+
+A basic resin project that starts dropbear on boot and allows ssh access. 
+
+### occupied
+
+[Repository][occupied] by [Craig Mulligan][craig-mulligan]
+
+A toilet queueing app for serious poopers. Uses resin.io, firebase and twilio to notify people when the toilet is open - runs on the RPI.
+
 ### Deployment guide for DockerHub images
 
 [Repository][dockerHub] by [nghiant2710][nghiant2710]
@@ -249,6 +262,9 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [simple-nodejs]:https://github.com/resin-io/basic-resin-node-project
 [example-pi-pins]:https://github.com/shaunmulligan/basic-gpio
 [salesforce-temp]:https://github.com/shaunmulligan/salesforceTemp
+[resin-ssh]:https://github.com/shaunmulligan/resin-ssh
+[resin-ssh-node]:https://github.com/craig-mulligan/resin-ssh-node
+[occupied]:http://www.hackster.io/craig-mulligan/occupied
 
 [hello-dotnet]:https://github.com/nghiant2710/hello.NET
 [hello-java]:https://github.com/nghiant2710/Hello-Java
@@ -269,6 +285,7 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 
 [efwe]:https://bitbucket.org/efwe/
 [shaun-mulligan]:https://github.com/shaunmulligan
+[craig-mulligan]:https://github.com/craig-mulligan
 [csquared]:https://github.com/csquared/
 [aleksis]:https://github.com/abresas/
 [lifeeth]:https://bitbucket.org/lifeeth/
