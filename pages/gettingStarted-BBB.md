@@ -7,12 +7,12 @@
 * A [Beaglebone Black][BBB-link].
 
 * A 4GB or larger SD card. 
-  The [Beaglebone Black][BBB-link] uses Micro SD card. The [speed class][speed_class] of
+  The [Beaglebone Black][BBB-link] uses a Micro SD card. The [speed class][speed_class] of
   the card also matters - this determines its maximum transfer rate. We strongly
   recommend you get hold of a class 10 card or above.
 
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the
-  internet. Currently the wifi adapter for the Beaglebone is unstable at moment and there is no easy way of changing the wifi `SSID` and `PASSWORD`, so for the time being, it is recommended that you connect via ethernet.
+  internet. The wifi adapter for the Beaglebone is unstable at moment and there is no easy way of changing the wifi `SSID` and `PASSWORD`, so for the time being, it is recommended that you connect via ethernet.
 
 * Some awesome ideas to hack on! If you need inspiration, check out our
   [projects][projects] page.
@@ -143,9 +143,9 @@ Once it is completed, you can carry on setting up your beaglebone as shown below
 
 ## Setting Up Your Device
 
-Put the SD card into your device, connect either the ethernet cable. Now hold down the small black button marked s2 (located near the SD card slot) and power up the device by inserting the usb cable. 
+Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now hold down the small black button marked s2 (located near the SD card slot) and power up the device by inserting the usb cable. 
 
-You should only need to hold the button down for about 5 seconds until the blue leds start flashing like crazy. Basically, by holding down the button, we are telling the beaglebone that we want to flash the OS which in on the SD card onto the internal memory. This can take a few minutes, so grab some tea while you wait for your beagle to appear on the application
+You should only need to hold the button down for about 5 seconds until the blue LEDs start flashing like crazy. Basically, by holding down the button, we are telling the beaglebone that we want to boot from the SD card instead of the onboard flash. From there, the OS which is on the SD card is flashed onto the internal memory. This can take a few minutes, so grab some tea while you wait for your beagle to appear on the application
 dashboard.
 
 ![insert SD](/img/BBB/sd_card_BBB.jpg)
