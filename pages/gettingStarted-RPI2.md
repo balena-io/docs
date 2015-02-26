@@ -1,6 +1,6 @@
 # Getting Started With the Raspberry Pi 2
 
-The newest addition to the Raspberry Pi family brings with it an awesome quad-core ARMv7 chip. This bigger brother to the trust old Pi is supposedly 6 times more powerful. 
+The newest addition to the Raspberry Pi family brings with it an awesome [quad-core ARMv7][RPI2-link] chip. This bigger brother to the trust old Pi is supposedly 6 times more powerful. 
 
 Because the new Pi 2 has different architecture, the setup for it is slightly different.
 ![Raspberry Pi 2](/img/rpi2.png)
@@ -9,7 +9,7 @@ Because the new Pi 2 has different architecture, the setup for it is slightly di
 
 * A [Raspberry Pi 2][RPI2-link].
 * A 4GB or larger SD card. 
-  The [Beaglebone Black][BBB-link] uses a Micro SD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
+  The [Raspberry Pi 2][RPI2-link] uses a Micro SD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the
   internet. Note: At the time of writing, there is no easy way of changing the wifi `SSID` and `PASSWORD` after the download. This will be worked out pretty soon and some awesome new tools will help :D
 * A micro USB cable.
@@ -54,38 +54,32 @@ retrieve this data.)
 
 ## Creating Your First Application
 <!-- TODO: add images for RPI2 specifically -->
-![Creating an Application](/img/BBB/create_application_BBB.png)
-
+![Creating an Application](/img/RPI2/create_application_RPI2.png)
 
 The two key components you will interact with in resin.io are *applications* and
 *devices* - applications represent the code you want to run on your devices, and
-devices the actual hardware itself.
+devices are the actual hardware itself.
 
 You can have as many devices connected to an application as you like - when you
 push code it deploys to every device that application owns.
 
-To create your first application simply type in a name, select Beaglebone Black as your device type and tap create which will
-take you to its dashboard:-
+To create your first application simply type in a name, select Raspberry Pi 2 as your device type and click the create button. You should now be taken to the dashboard of your newly created application:-
 
 ## Adding Your First Device
-
-![Empty Application Page](/img/BBB/application_empty_BBB.png)
+<!-- TODO: add images for RPI2 specifically -->
+![Empty Application Page](/img/RPI2/application_empty_RPI2.png)
 
 This is the application dashboard where all of the devices connected to your
 application will be shown along with their status and logs.
 
-Click the `Download Device OS` button to get the resin.io operating system image for your
-application. A dialog will appear prompting you to specify how your device
-connects to the internet, its recommended at this point to select ethernet. The download can take a little while to get started, so be patient.
+Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify how your device connects to the internet. The download can take a little while to get started, so be patient.
 
-__NOTE:__ Wifi on the Beaglebone has not been thoroughly tested, and for the time being it is recommended to use an ethernet connection. 
-
-While the zip file downloads ensure your SD card is formatted in [FAT32][fat32]
+While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
+<!-- TODO: change file download name if neccessary -->
+Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.4.img` where myApp is the name you gave your application on the dashboard. 
 
-Once the download is finished you should have a zip file with a name like `resin-myApp-0.1.0-0.0.4.img.zip` where myApp is the name you gave your application on the dashboard. Now extract the zip file to your Downloads folder.
-
-Now we have to burn the SD card on to the SD card. There are a couple of ways to do this, depending on your host computer operating system. We have listed a few below.
+Now we have to burn the downloaded `.img` file on to the SD card. There are a couple of ways to do this, depending on your host computer operating system. We have listed a few below.
 
 ## Burning the OS image onto the SD
 
@@ -108,27 +102,27 @@ Now, you'll want to execute the command that actually copies the image onto the 
 Also, choose the right file location for your .img file in the input file field (if=...).
 `sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2`
 
-__NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
+__NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the above command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-BBB.md#setting-up-your-device) 
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-RPI2.md#setting-up-your-device) 
 
 #### From a GUI
 
 Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn the SD card.
 
-Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your .img file. It mentions the Raspberry Pi, but you can ignore that, it doesn't make any difference.
+Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your `.img` file.
 
-Locate your beaglebone .img file in your Downloads folder. It should be named something like `resin-myApp-0.1.0-0.0.4.img`, now click "choose".
+Locate your raspberry pi 2 `.img` file in your Downloads folder. It should be named something like `resin-myApp-0.1.0-0.0.4.img`, now click "choose".
 
 You can now insert your microSD card into your host machine and click continue. PiFiller will look for your SD card and tell you when it finds it.
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write the SD card. This can 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-BBB.md#setting-up-your-device)
+Click continue and piFiller will write the SD card. This can 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-RPI2.md#setting-up-your-device)
 
 ### Windows
 
-To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to. 
+To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to. 
 
 Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your beaglebone image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.4.img`.
 
@@ -138,54 +132,61 @@ __NOTE:__ Be very careful to make sure that you have selected the right SD card.
 
 Once you have made your selections and are 100% sure you are writing to your SD card and nothing else, you can click write and wait for the SD card to be burnt.
 
-Once it is completed, you can carry on setting up your beaglebone as shown below.
+Once it is completed, you can carry on setting up your raspberry pi 2 as shown below.
 
 ## Setting Up Your Device
 
-Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now hold down the small black button marked s2 (located near the SD card slot) and power up the device by inserting the usb cable. 
+Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now power up the device by inserting the usb cable. 
 
-You should only need to hold the button down for about 5 seconds until the blue LEDs start flashing like crazy. Basically, by holding down the button, we are telling the beaglebone that we want to boot from the SD card instead of the onboard flash. From there, the OS which is on the SD card is flashed onto the internal memory. This can take a few minutes, so grab some tea while you wait for your beagle to appear on the application
-dashboard.
+![insert SD](/img/gifs/insert-sd.gif)
 
-![insert SD](/img/BBB/sd_card_BBB.jpg)
+It will take a few minutes for the raspberry pi 2 to appear on your resin.io dashboard, so take this time to grab some tea while you wait.
 
-While you wait resin.io is partitioning your SD card, installing a custom linux
-environment and establishing a secure connecting with our servers.
+While you wait resin.io is expanding the partitioning on your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
-If you have a class 10 SD card and a fast internet connection your device should
-appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can
-take up to 3 times longer so it's well worth investing in the fastest card you
-can find.
+If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
 
 ## Running Code On Your Device
 
 ![git pushing](/img/screenshots/git_pushing.png)
 
-A good little project to get you started is the [tty.js app][example_app] written in node.js. It will allow you to play around with terminal commands on the beaglebone from your web browser.
-To clone it, run the following in a terminal:-
+A good first project is our [text to speech app][example_app] written in node.js. To clone it, run
+the following in a terminal:-
 
 ```
-git clone https://github.com/resin-io/tty.js-resin.git
+git clone https://github.com/resin-io/text2speech.git
 ```
 
-Once the repo is cloned, cd into the newly created tty.js-resin directory and add the resin git endpoint by running the `git remote add` command shown in
+Once the repo is cloned, cd into the newly created text2speech directory and add the resin git endpoint by running the `git remote add` command shown in
 the top-right corner of the application page, e.g.:-
 
 ```
-cd tty.js-resin
+cd text2speech
 
 git remote add resin git@git.resin.io:joebloggs/skynet.git
 ```
 
-Now you can simply run `git push resin master` and push code direct to your
-device.
+Now you can simply run `git push resin master` and push your code up to our servers, where it will distribute it to your
+device(s). If this fails, you may need to force the push by running `git push resin master --force`
 
-You'll know your code has deployed successfully from the appearance of our
-friendly unicorn mascot:-
+__NOTE:__ On your very first push, git may ask you if you would like to add this host to your list of allowed hosts. Don't worry about this, just type 'yes' and carry on your merry way.
+
+You'll know your code has been successfully compiled and built when our
+friendly unicorn mascot appears in your terminal:-
 
 ![git pushing](/img/screenshots/git_pushed.png)
 
-After the device has finished updating, you should be able to start playing around in the terminal and have a good base to start building and deploying awesome connected devices.
+The terminal will also say:
+```
+-----> Image created successfully!
+-----> Uploading image..
+       Image uploaded successfully!
+```
+This means your code is safely on our servers and will be downloaded and executed by all the devices you have connected to your application. You may have to wait a little while for the code to start running on your devices, you can see the progress of the device code updates on the device dashboard:-
+<!-- TODO: add images for RPI2 specifically -->
+![Code updating](/img/screenshots/rpi-app-updating.png)
+
+You should now have a friendly talking raspberry pi and a good base to start building and deploying awesome connected devices.
 
 If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
 

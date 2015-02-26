@@ -81,12 +81,12 @@ connects to the internet, its recommended at this point to select ethernet. The 
 
 __NOTE:__ Wifi on the Beaglebone has not been thoroughly tested, and for the time being it is recommended to use an ethernet connection. 
 
-While the zip file downloads ensure your SD card is formatted in [FAT32][fat32]
+While the file downloads, ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
-Once the download is finished you should have a zip file with a name like `resin-myApp-0.1.0-0.0.4.img.zip` where myApp is the name you gave your application on the dashboard. Now extract the zip file to your Downloads folder.
+Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.4.img` where myApp is the name you gave your application on the dashboard.
 
-Now we have to burn the SD card on to the SD card. There are a couple of ways to do this, depending on your host computer operating system. We have listed a few below.
+Now we have to burn the downloaded image on to the SD card. There are a couple of ways to do this, depending on your host computer operating system. We have listed a few below.
 
 ## Burning the OS image onto the SD
 
@@ -151,7 +151,7 @@ dashboard.
 ![insert SD](/img/BBB/sd_card_BBB.jpg)
 
 While you wait resin.io is partitioning your SD card, installing a custom linux
-environment and establishing a secure connecting with our servers.
+environment and establishing a secure connection with our servers.
 
 If you have a class 10 SD card and a fast internet connection your device should
 appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can
