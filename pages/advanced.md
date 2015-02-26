@@ -1,4 +1,4 @@
-# Advanced Configuration Guide
+# Advanced Boot Configuration Guide
 
 __Warning:__ This page contains details of the more *involved* configuration
 options that expose more functionality but potentially enable you to break
@@ -10,6 +10,8 @@ things should you configure them incorrectly - tread carefully!
 
 The Raspberry Pi exposes device configuration options via a text file on the
 boot medium, `config.txt` - you change boot options simply by editing this file.
+
+__Note:__ You will only find the `config.txt` file after first boot, it can then easily be found in the `BOOT` partition of the SD card.
 
 #### Post-Boot
 

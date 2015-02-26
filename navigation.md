@@ -34,7 +34,8 @@
 
 ### Configuration
 
-* [Advanced Configuration](/pages/advanced.md)
+* [Custom Base Docker Images](/pages/custom-docker-base-images.md)
+* [Advanced Boot Configuration](/pages/advanced.md)
 * [Custom Network Configuration](/pages/custom-network.md)
 * [SSH Keys for Multiple Accounts](/pages/multi-account.md)
 
