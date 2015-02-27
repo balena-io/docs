@@ -14,7 +14,7 @@ Resin.io currently exposes port 8080 for web forwarding. To enable webforwarding
 
 Running a server listening on port 8080 with public device url enabled will allow you to serve content from the device to the world. Here is an example of an express server which will serve to the devices url. 
 
-```
+```javascript
 var express = require('express')
 var app = express()
 
