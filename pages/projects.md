@@ -57,6 +57,12 @@ This is a simple project so show to read analog sensor values into the raspberry
 
 This python project allows you to share your ethernet connection to wifi. It essentially allows the raspberry pi to act as a wifi access point.
 
+### Avahi Daemon on Raspberry Pi
+
+[Repository][avahi-example] by [nghiant2710][nghiant2710]
+
+This simple example demonstrates how to get the avahi daemon running on your resin.io device. From this example you will be able to access your device from `<RESIN_UUID>.local` on your local network. The `<RESIN_UUID>` is the ID shown on the resin.io device dashboard.
+
 ### Example GPIO control in node.js
 
 [Repository][example-pi-pins] by [Shaun Mulligan][shaun-mulligan]
@@ -283,6 +289,7 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [sonos-clone]:https://github.com/resin-io/music-player-device
 [clonos-frontend]:https://github.com/resin-io/music-player-web
 [grovepi-humidity]:https://github.com/shaunmulligan/grovePi
+[avahi-example]:https://github.com/nghiant2710/avahi-example
 
 
 <!-- ###Community Project Links -->

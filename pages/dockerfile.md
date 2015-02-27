@@ -128,3 +128,9 @@ There are a number of example Dockerfiles available for different languages list
 [starter-projects]:/pages/projects.md#Programming_Language_Starter_Projects
 [docker-best-practise]:https://docs.docker.com/articles/dockerfile_best-practices/#add-or-copy
 [docker-registry]:https://registry.hub.docker.com/u/resin/rpi-raspbian/tags/manage/
+[resin-docker-blog]:https://resin.io/blog/docker-on-raspberry-pi/
+[dockerhub-link]:https://registry.hub.docker.com/search?q=rpi
+[rpi-archlinux-link]:https://registry.hub.docker.com/u/digitallyseamless/archlinux-armv6h/
+[docker-custom-base-os-repo]:https://github.com/nghiant2710/base-os-image-example
+[docker-create-images-link]:https://docs.docker.com/userguide/dockerimages/#creating-our-own-images
+[example-archlinux]:https://github.com/shaunmulligan/resin-archlinux-rpi
