@@ -17,6 +17,13 @@ If you are presented with a 'recovery login' prompt this usually indicates an is
 * You've copied data onto the card but disconnected it from your computer without properly ejecting it - some data may have not finished being copied yet and thus the card is corrupted - reformat your SD card and copy files over to it and try again.
 * The SD card itself is faulty - older SD cards, especially ones which have been used a lot and thus may also be *physically* worn at the pins can be unreliable, resulting in data corruption. Try using a new SD card.
 
+## Beaglebone Black
+
+### I can't get my beaglebone to reprovision.
+In order to reprovison a beaglebone that has already been connected to the resin.io service, you need to remove a file named something like `REMOVE_TO_REPROVISION_54BE-BCEB` from the SD card. You should then be able to pop the SD card back into the beaglebone and power it up again, while holding down the small `s1` button like you did when you did the original provisioning.
+
+## General
+
 ### The 'Start the Terminal Session' Button Doesn't Appear
 
 Ensure you application is online and code is deployed. If either of these criteria are not fulfilled then the button will not appear.
