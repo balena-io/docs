@@ -1,6 +1,7 @@
 ### Getting Started
 
 * [Raspberry Pi](/pages/gettingStarted.md)
+* [Raspberry Pi 2](/pages/gettingStarted-RPI2.md)
 * [Beaglebone Black](/pages/gettingStarted-BBB.md)
 * [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
 

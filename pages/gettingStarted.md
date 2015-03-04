@@ -4,7 +4,7 @@
 
 ## What You'll Need
 
-* A [supported device][supported].
+* A [Raspberry Pi][rpi-all-models-link]. Note you can use the Raspberry Pi B, B+ and A+. If you want to use the new Raspberry Pi 2, have a look at [Getting Started with RPI2](/pages/gettingStarted-RPI2.md).
 
 * A 4GB or larger SD card. Check what kind of media your device accepts - e.g. a
   [Raspberry Pi B+][rpi-b-plus] uses Micro SD cards whereas older
@@ -98,7 +98,7 @@ dashboard.
 ![insert SD](/img/gifs/insert-sd.gif)
 
 While you wait resin.io is partitioning your SD card, installing a custom linux
-environment and establishing a secure connecting with our servers.
+environment and establishing a secure connection with our servers.
 
 If you have a class 10 SD card and a fast internet connection your device should
 appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can
@@ -192,3 +192,4 @@ feedback and respond to any issues as soon as we can.
 [rpi]:http://www.raspberrypi.org/
 [rpi-b-plus]:http://www.raspberrypi.org/products/model-b-plus/
 [python-example]:https://github.com/alexandrosm/hello-python
+[rpi-all-models-link]:http://www.raspberrypi.org/products/
