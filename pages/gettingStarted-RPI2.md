@@ -1,6 +1,6 @@
 # Getting Started With the Raspberry Pi 2
 
-The newest addition to the Raspberry Pi family brings with it an awesome [quad-core ARMv7][RPI2-link] chip. This bigger brother to the trust old Pi is supposedly 6 times more powerful. 
+The newest addition to the Raspberry Pi family brings with it an awesome [quad-core ARMv7][RPI2-link] chip. This bigger brother to the trust old Pi is supposedly 6 times more powerful.
 
 Because the new Pi 2 has different architecture, the setup for it is slightly different.
 ![Raspberry Pi 2](/img/rpi2.png)
@@ -8,7 +8,7 @@ Because the new Pi 2 has different architecture, the setup for it is slightly di
 ## What You'll Need
 
 * A [Raspberry Pi 2][RPI2-link].
-* A 4GB or larger SD card. 
+* A 4GB or larger SD card.
   The [Raspberry Pi 2][RPI2-link] uses a Micro SD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the
   internet. Note: At the time of writing, there is no easy way of changing the wifi `SSID` and `PASSWORD` after the download. This will be worked out pretty soon and some awesome new tools will help :D
@@ -77,7 +77,7 @@ Click the `Download Device OS` button to get the resin.io operating system image
 While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 <!-- TODO: change file download name if neccessary -->
-Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.4.img` where myApp is the name you gave your application on the dashboard. 
+Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.4.img` where myApp is the name you gave your application on the dashboard.
 
 Now we have to burn the downloaded `.img` file on to the SD card. There are a couple of ways to do this, depending on your host computer operating system. We have listed a few below.
 
@@ -95,7 +95,7 @@ Compare the two outputs, and find the newly added device. In my case, the microS
 
 Once you've got the name of the SD card, you'll want to unmount that disk using the following command, but replacing the specifics with your card details:
 `sudo diskutil unmount /dev/disk2s1`
-Now, you'll want to execute the command that actually copies the image onto the SD card. 
+Now, you'll want to execute the command that actually copies the image onto the SD card.
 
 > You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive, such as your master hard disk, and then you're gonna have a bad time. Double check everything!
 
@@ -104,7 +104,9 @@ Also, choose the right file location for your .img file in the input file field 
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the above command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-RPI2.md#setting-up-your-device) 
+__NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2` (uppercase M)
+
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-RPI2.md#setting-up-your-device)
 
 #### From a GUI
 
@@ -122,11 +124,11 @@ Click continue and piFiller will write the SD card. This can 5-25 minutes depend
 
 ### Windows
 
-To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to. 
+To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
 Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your beaglebone image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.4.img`.
 
-Next insert your SD card into your host computer and in the Win32DiskImager GUI, select you SD card when it appears. 
+Next insert your SD card into your host computer and in the Win32DiskImager GUI, select you SD card when it appears.
 
 __NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines harddisk.
 
@@ -136,7 +138,7 @@ Once it is completed, you can carry on setting up your raspberry pi 2 as shown b
 
 ## Setting Up Your Device
 
-Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now power up the device by inserting the usb cable. 
+Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now power up the device by inserting the usb cable.
 
 ![insert SD](/img/gifs/insert-sd.gif)
 
