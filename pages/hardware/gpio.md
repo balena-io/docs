@@ -123,7 +123,7 @@ All numbered data pins operate at 3.3v, however there are two 5v ports which out
 
 Please note that these are operating at a different voltage from the data pins - if you need to drive a 5v (or higher) device, you will need to use a [level converter][level-converter] to step up the data pin's voltage or your device will not be able to correctly interpret high signals from the Pi.
 
-[terminal]:/pages/terminal.md
+[terminal]:/pages/using/terminal.md
 
 [resin]:https://resin.io
 

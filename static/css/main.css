@@ -52,14 +52,16 @@ article .sticky {
   display: block;
 }
 
-.sidebar h3 {
+.sidebar h3 a{
   padding-left: 30px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #6b6d73;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-decoration: none;
 }
 
 .sidebar ul {
@@ -67,7 +69,12 @@ article .sticky {
   margin: 0;
   padding: 0;
   border-bottom: 1px solid #e6e8eb;
-  padding-bottom: 20px;
+  max-height: 0;
+  overflow: hidden;
+  /* Set our transitions up. */
+  -webkit-transition: max-height 0.5s;
+  -moz-transition: max-height 0.5s;
+  transition: max-height 0.5s;
 }
 
 .sidebar li {
@@ -275,4 +282,14 @@ header.sticky {
   color: #474747;
   background-color: #c99a00;
   border-color: #bf9200;
+}
+
+ul.expand {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #e6e8eb;
+    padding-bottom: 20px;
+    max-height: 500px;
+    overflow: visible;
 }

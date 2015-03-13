@@ -111,7 +111,7 @@ Also, choose the right file location for your .img file in the input file field 
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-BBB.md#setting-up-your-device) 
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-BBB.md#setting-up-your-device) 
 
 #### From a GUI
 
@@ -125,7 +125,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write the SD card. This can 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-BBB.md#setting-up-your-device)
+Click continue and piFiller will write the SD card. This can 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-BBB.md#setting-up-your-device)
 
 ### Windows
 
@@ -203,12 +203,12 @@ If you find any issues with the application, please click the feedback label on
 the bottom right-hand side of the page and let us know! We are always open to
 feedback and respond to any issues as soon as we can.
 
-[deploy]:/pages/deployment.md
-[projects]:/pages/projects.md
-[managing_devices_apps]:/pages/managingDevicesApps.md
-[wifi]:/pages/wifi.md
+[deploy]:/pages/using/deployment.md
+[projects]:/pages/examples/projects.md
+[managing_devices_apps]:/pages/applications.md
+[wifi]:/pages/using/wifi.md
 [supported]:/pages/devices.md
-[dockerfile]:/pages/dockerfile.md
+[dockerfile]:/pages/using/dockerfile.md
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating

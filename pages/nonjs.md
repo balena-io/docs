@@ -67,7 +67,7 @@ __NOTE:__ You will need to recompile your module each time we update the kernel
 for it to continue working correctly - we're planning on making life easier via
 [DKMS][dkms] soon.
 
-[dockerfile-guide]:/pages/dockerfile.md
+[dockerfile-guide]:/pages/using/dockerfile.md
 
 [raspbian]:http://www.raspbian.org/
 [modprobe]:http://en.wikipedia.org/wiki/Modprobe

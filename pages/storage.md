@@ -1,3 +1,3 @@
 # Persistent Storage
 
-See [Runtime Environment](/pages/runtime.md).
+See [Runtime Environment](/pages/using/runtime.md).

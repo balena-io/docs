@@ -53,7 +53,7 @@ to be able to connect to a one of multiple WiFi networks.
 There are more details on the options available in `config.txt` over at
 [elinux's RPi Config page][elinux].
 
-[custom-network]:/pages/custom-network.md
+[custom-network]:/pages/configuration/custom-network.md
 
 [dd]:http://en.wikipedia.org/wiki/Dd
 [elinux]:http://elinux.org/RPiconfig

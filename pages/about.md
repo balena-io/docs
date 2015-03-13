@@ -58,7 +58,7 @@ Sadly this board was discontinued soon after its first production run, so if you
 
 To get started building a fleet of connected devices, check out our [getting started guide][gettingStarted].
 
-[gettingStarted]:/pages/gettingStarted.md
+[gettingStarted]:/pages/installing/gettingStarted.md
 
 [resin]:http://resin.io
 [containers]:http://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization

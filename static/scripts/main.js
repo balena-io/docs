@@ -53,7 +53,7 @@ angular
   // config
   .config(function($routeProvider) {
     $routeProvider
-      .when('/pages/:pageName', {
+      .when('/pages/:pageName*', {
         controller: 'PageCtrl',
         template: '<div class="page-content"></div>',
         resolve: {
@@ -253,9 +253,20 @@ angular
       templateUrl: '/static/templates/directives/navigation.html',
       link: function(scope, el, attrs) {
         function addActiveClass() {
-          var activeEl = angular.element('.site-navigation a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+          var activeEl = angular.element('.site-navigation ul a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+          console.log($routeParams.pageName);
+          var expandEl = activeEl.parents('ul')
           el.find('.active').removeClass('active');
+          el.find('.expand').removeClass('expand');
           activeEl.addClass('active');
+          expandEl.addClass('expand');
+          $rootScope.$emit('active-link-added', { el: activeEl.first() })
+        }
+
+        function expand() {
+          console.log('tits');
+          child = $(this).child('ul');
+          child.addClass('expand');
           $rootScope.$emit('active-link-added', { el: activeEl.first() })
         }
 
