@@ -91,7 +91,7 @@ __NOTE:__ There is a known bug in the connection manager ConnMan, which makes it
 
 If neither of these approaches work, please let us know!
 
-[custom-network]:/pages/custom-network.md
+[custom-network]:/pages/configuration/custom-network.md
 
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW

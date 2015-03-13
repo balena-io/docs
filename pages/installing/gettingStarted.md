@@ -4,7 +4,7 @@
 
 ## What You'll Need
 
-* A [Raspberry Pi][rpi-all-models-link]. Note you can use the Raspberry Pi B, B+ and A+. If you want to use the new Raspberry Pi 2, have a look at [Getting Started with RPI2](/pages/gettingStarted-RPI2.md).
+* A [Raspberry Pi][rpi-all-models-link]. Note you can use the Raspberry Pi B, B+ and A+. If you want to use the new Raspberry Pi 2, have a look at [Getting Started with RPI2](/pages/installing/gettingStarted-RPI2.md).
 
 * A 4GB or larger SD card. Check what kind of media your device accepts - e.g. a
   [Raspberry Pi B+][rpi-b-plus] uses Micro SD cards whereas older
@@ -164,12 +164,12 @@ If you find any issues with the application, please click the feedback label on
 the bottom right-hand side of the page and let us know! We are always open to
 feedback and respond to any issues as soon as we can.
 
-[deploy]:/pages/deployment.md
-[projects]:/pages/projects.md
-[managing_devices_apps]:/pages/managingDevicesApps.md
-[wifi]:/pages/wifi.md
-[supported]:/pages/devices.md
-[dockerfile]:/pages/dockerfile.md
+[deploy]:/pages/using/deployment.md
+[projects]:/pages/examples/projects.md
+[managing_devices_apps]:/pages/applications.md
+[wifi]:/pages/using/wifi.md
+[supported]:/pages/hardware/devices.md
+[dockerfile]:/pages/using/dockerfile.md
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating

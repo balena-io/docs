@@ -1,46 +1,51 @@
-### Getting Started
+### [Introduction](/pages/introduction/introduction.md)
 
-* [Raspberry Pi](/pages/gettingStarted.md)
-* [Raspberry Pi 2](/pages/gettingStarted-RPI2.md)
-* [Beaglebone Black](/pages/gettingStarted-BBB.md)
-* [Managing Your Devices and Applications](/pages/managingDevicesApps.md)
+* [Introduction](/pages/introduction/introduction.md)
 
-### Example Projects
+### [Understanding resin.io](/pages/understanding/understanding-code-deployment.md)
 
-* [Resin.io Projects](/pages/projects.md)
+* [Code Deployment](/pages/understanding/understanding-code-deployment.md)
+* [What's Installed on a Resin.io Device?](/pages/understanding/understanding-devices.md)
 
-### About Resin.io
+### [Installing resin.io](/pages/installing/gettingStarted.md)
 
-* [What is Resin.io?](/pages/about.md)
-* [What's Installed on a Resin.io Device?](/pages/inside.md)
-* [Supported Devices](/pages/devices.md)
+* [Raspberry Pi](/pages/installing/gettingStarted.md)
+* [Raspberry Pi 2](/pages/installing/gettingStarted-RPI2.md)
+* [Beaglebone Black](/pages/installing/gettingStarted-BBB.md)
 
-### Using Resin.io
+### [Using Resin.io](/pages/using/deployment.md)
 
-* [Runtime Environment](/pages/runtime.md)
-* [Using the Web Terminal](/pages/terminal.md)
-* [Wifi Guide](/pages/wifi.md)
+* [Deployment Guide](/pages/using/deployment.md)
+* [Dockerfile Guide](/pages/using/dockerfile.md)
+* [Optimise your builds](/pages/using/build-optimisation.md)
+* [Runtime Environment](/pages/using/runtime.md)
+* [Using the Web Terminal](/pages/using/terminal.md)
+* [Wifi Guide](/pages/using/wifi.md)
 
-### Deployment
+### [Managing Resin.io](/pages/managing/applications.md)
 
-* [Deployment Guide](/pages/deployment.md)
-* [Dockerfile Guide](/pages/dockerfile.md)
-* [Optimise your builds](/pages/build-optimisation.md)
-* [Deploying Non-JS Code to Your Devices](/pages/nonjs.md)
+* [Applications](/pages/managing/applications.md)
+* [Devices](/pages/managing/devices.md)
 
-### Hardware
+### [Examples](/pages/examples/seed-projects.md)
+* [Seed Projects](/pages/examples/seed-projects.md)
+* [Snippets](/pages/examples/snippets.md)
+* [Resin.io Projects](/pages/examples/projects.md)
 
-* [GPIO Interface](/pages/gpio.md)
-* [I2C and Other Interfaces](/pages/i2c-and-spi.md)
+### [Hardware](/pages/hardware/devices.md)
 
-### Configuration
+* [Supported Devices](/pages/hardware/devices.md)
+* [GPIO Interface](/pages/hardware/gpio.md)
+* [I2C and Other Interfaces](/pages/hardware/i2c-and-spi.md)
 
-* [Custom Base Docker Images](/pages/custom-docker-base-images.md)
-* [Advanced Boot Configuration](/pages/advanced.md)
-* [Custom Network Configuration](/pages/custom-network.md)
-* [SSH Keys for Multiple Accounts](/pages/multi-account.md)
+### [Configuration](/pages/configuration/custom-docker-base-images.md)
 
-### Troubleshooting
+* [Custom Base Docker Images](/pages/configuration/custom-docker-base-images.md)
+* [Advanced Boot Configuration](/pages/configuration/advanced.md)
+* [Custom Network Configuration](/pages/configuration/custom-network.md)
+* [SSH Keys for Multiple Accounts](/pages/configuration/multi-account.md)
 
-* [Troubleshooting](/pages/troubleshooting.md)
-* [Error Notifications](/pages/error.md)
+### [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
+
+* [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
+* [Error Notifications](/pages/troubleshooting/error.md)

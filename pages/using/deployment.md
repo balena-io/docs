@@ -101,8 +101,8 @@ which builds it, then ships the resultant environment to your devices.
 
 \* correct at the time of writing.
 
-[getting-started]:/pages/gettingStarted.md
-[dockerfile]:/pages/dockerfile.md
+[getting-started]:/pages/installing/gettingStarted.md
+[dockerfile]:/pages/using/dockerfile.md
 
 [docker-dockerfile]:https://docs.docker.com/reference/builder/
 
