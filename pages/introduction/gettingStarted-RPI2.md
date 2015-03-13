@@ -208,7 +208,7 @@ feedback and respond to any issues as soon as we can.
 [projects]:/pages/projects.md
 [managing_devices_apps]:/pages/applications.md
 [wifi]:/pages/using/wifi.md
-[supported]:/pages/devices.md
+[supported]:/pages/hardware/devices.md
 [dockerfile]:/pages/using/dockerfile.md
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha

@@ -1,24 +1,38 @@
-# Devices
+# What's On The Device?
 
-So there is now a Docker image with all the dependencies to suceessfully run your project. This container is stored in our container index and our agent on your devices is alerted that a new version of your app is ready. If a device is offline at the time, it will become aware of this when it gets back online. Having a device behind a NAT is not a problem as we set up a VPN for the devices in your app. This is a good point to note that all communication between resin.io and your device is encrypted, either via the VPN or through HTTPS.
+The [Resin.io][resin] software running on your device leverages a number of powerful components to provide great functionality at a minimal performance cost:-
 
-The resin agent then downloads the changed layers of your application container image, stops the old version of your application, and starts the new one. This is a part of the workflow that will soon have additional features added. One is that we will be downloading only the differences between the container images, not whole layers, as we’re aware many devices are on very limited connections. Another is that the application itself will have control of when it’s updated, as certain use cases are sensitive to updates without warning.
+## Operating System
 
-As the process is ongoing, you can see the overall progress of the download in your resin.io dashboard. You can click on any specific device to see more detailed information about the device, such as logs.
+![Yocto Project Logo](/img/yocto.png)
 
-At every step of the process, each part of the resin.io back-end reports back to our API server which makes the information available to our user interface. But the resin.io UI is just another API client. Soon, our CLI and node.js SDK will be available, and shortly after that, we will be releasing the full API documentation so that users can build rich experiences, combining device-level information provided by resin.io, with higher-level application-specific information that lives in other data silos.
+The operating system we install on your device is [Yocto][yocto] [Linux][linux]. This is an innovative distribution which comprises components which can be combined together to build a custom Linux system containing only the software you need for any target architecture. We plan to support additional Operating Systems bases in the future.
 
-And this is how we go from “git push” to “new version running on your devices”.
+This is perfect for Resin.io - we have built an optimised Linux system for the devices we support and can guarantee the same behaviour on any further devices we support in the future.
 
-## Device Provisioning
+## Application Environment
 
-But how are the devices added in the first place? Glad you asked! The details of the provisioning differ depending on the device type (does it have an SD card slot? Does it boot from on-board flash?). However you get the software onto your device, at first boot, the following things happen.
+On the device, we run the Resin Container Engine (RCE) which uses the power of [containerisation][containerisation] to provide a consistent environment for your software to operate inside at a far smaller performance penalty than virtualisation. Additionally since RCE runs Docker containers you have the freedom to provide custom [Dockerfiles][Dockerfile] giving you the ability to control exactly what is installed and run on the device.
 
-First, the device connects to the internet and performs its early provisioning, which registers it on your dashboard, but still appearing offline. Then, the container partition is de-compressed, and the resin agent starts. This is the part that takes the most time. As soon as the container of the resin agent starts, it registers onto the VPN and receives its unique resin.io API key. At that point you see the device as online in your dashboard and can use the device as normal. If the application the device provisions into has had code pushed to it, the device downloads the latest version and begins operating as expected.
+In addition we leverage containerisation to have our build server build your project without consuming a single CPU cycle on your actual device, then ship a container to it which is guaranteed to run as built without concern for the host operating system running on your device.
 
-## On-device Software Architecture
+## Resin.io Supervisor
 
-We’ve hinted at what goes on in the device, but let’s take a closer look. It’s important to separate the host OS which is a fairly bare system with just enough to start the resin agent, and the OS inside your container, which is by default some flavour of Debian, or whatever you specify in your Dockerfile. We currently use Yocto Linux as the host OS but will offer more options soon, depending on which host OS works best on the devices we want to support. However the host OS should be reasonably transparent for the users. What really matters is the OS within the container, called the “Base OS”. This OS shares the kernel of the Host, but otherwise has its own way of working and with Resin the users can specify what Base OS their applications use by pointing to an existing Docker image, as long as that image is compatible with their target architecture, of course. Resin’s agent runs in a separate container, which allows us to continue running even if your application crashes, and in this way we can continue to pull new code.
+![Resin.io Logo](/img/logo_supervisor.svg)
 
-![software anatomy](https://resin.io/pages/how-it-works/on-device-software-anatomy.png)
+The Resin.io supervisor is a lightweight process which runs on your device, manages your applications and communicates with our servers - downloading new applications and updates to existing applications as you push them, sending logs to your dashboard, as well as updating itself automatically when new releases of the supervisor are pushed out by us.
 
+## Your Application
+
+![Application Image](/img/logo_app.svg)
+
+Once your device has booted and the initial setup is complete, the Supervisor contacts our servers and downloads the latest version of your application.
+
+From this point on, as soon as you push an update it will connect to our servers, pull down the container for your application and update it seamlessly, giving you zero overhead updates across any number of devices.
+
+[resin]:https://resin.io
+[yocto]:https://www.yoctoproject.org/
+[linux]:http://en.wikipedia.org/wiki/Linux
+[docker]:https://www.docker.com/
+[containerisation]:http://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
+[Dockerfile]:http://docs.docker.com/reference/builder/

@@ -6,8 +6,7 @@
 
 * [Understanding resin.io](/pages/understanding/understanding.md)
 * [Code Deployment](/pages/understanding/understanding-code-deployment.md)
-* [Devices](/pages/understanding/understanding-devices.md)
-* [Upcoming Additions](/pages/understanding/understanding-additions.md)
+* [What's Installed on a Resin.io Device?](/pages/understanding/understanding-devices.md)
 
 ### [Installing resin.io](/pages/installing/gettingStarted.md)
 
@@ -15,7 +14,7 @@
 * [Raspberry Pi 2](/pages/installing/gettingStarted-RPI2.md)
 * [Beaglebone Black](/pages/installing/gettingStarted-BBB.md)
 
-### [Using Resin.io](/pages/using/runtime.md)
+### [Using Resin.io](/pages/using/deployment.md)
 
 * [Deployment Guide](/pages/using/deployment.md)
 * [Dockerfile Guide](/pages/using/dockerfile.md)
@@ -34,8 +33,9 @@
 * [Snippets](/pages/examples/snippets.md)
 * [Resin.io Projects](/pages/examples/projects.md)
 
-### [Hardware](/pages/hardware/gpio.md)
+### [Hardware](/pages/hardware/devices.md)
 
+* [Supported Devices](/pages/hardware/devices.md)
 * [GPIO Interface](/pages/hardware/gpio.md)
 * [I2C and Other Interfaces](/pages/hardware/i2c-and-spi.md)
 
@@ -53,6 +53,4 @@
 
 ### [About Resin.io](/pages/about.md)
 
-* [What is Resin.io?](/pages/about.md)
-* [What's Installed on a Resin.io Device?](/pages/inside.md)
 * [Supported Devices](/pages/devices.md)
