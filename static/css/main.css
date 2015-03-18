@@ -24,14 +24,6 @@ body {
   margin-top: 55px;
 }
 
-@media (max-width: 767px) {
-  #improve-docs {
-    float: none;
-    margin-top: 10px;
-    margin-bottom: -40px;
-  }
-}
-
 article {
   padding-left: 231px;
 }
@@ -69,12 +61,8 @@ article .sticky {
   margin: 0;
   padding: 0;
   border-bottom: 1px solid #e6e8eb;
-  max-height: 0;
+  height: 0;
   overflow: hidden;
-  /* Set our transitions up. */
-  -webkit-transition: max-height 0.5s;
-  -moz-transition: max-height 0.5s;
-  transition: max-height 0.5s;
 }
 
 .sidebar li {
@@ -290,6 +278,22 @@ ul.expand {
     padding: 0;
     border-bottom: 1px solid #e6e8eb;
     padding-bottom: 20px;
-    max-height: 500px;
+    height: auto;
     overflow: visible;
+}
+
+@media (max-width: 767px) {
+  #improve-docs {
+    float: none;
+    margin-top: 10px;
+    margin-bottom: -40px;
+  }
+
+  .sidebar ul {
+    height: auto;
+  }
+
+  .sidebar h3 a {
+    color: #6b6d73 !important;
+  }
 }

@@ -2,9 +2,8 @@
 
 * [Introduction](/pages/introduction/introduction.md)
 
-### [Understanding resin.io](/pages/understanding/understanding.md)
+### [Understanding resin.io](/pages/understanding/understanding-code-deployment.md)
 
-* [Understanding resin.io](/pages/understanding/understanding.md)
 * [Code Deployment](/pages/understanding/understanding-code-deployment.md)
 * [What's Installed on a Resin.io Device?](/pages/understanding/understanding-devices.md)
 
@@ -50,7 +49,3 @@
 
 * [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 * [Error Notifications](/pages/troubleshooting/error.md)
-
-### [About Resin.io](/pages/about.md)
-
-* [Supported Devices](/pages/devices.md)

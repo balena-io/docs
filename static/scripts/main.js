@@ -255,11 +255,16 @@ angular
         function addActiveClass() {
           var activeEl = angular.element('.site-navigation ul a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
           console.log($routeParams.pageName);
-          var expandEl = activeEl.parents('ul')
-          el.find('.active').removeClass('active');
+          
           el.find('.expand').removeClass('expand');
           activeEl.addClass('active');
-          expandEl.addClass('expand');
+
+          if ($(window).width() >= 767){  
+            var expandEl = activeEl.parents('ul');
+            expandEl.addClass('expand');
+          }
+
+          el.find('.active').removeClass('active');
           $rootScope.$emit('active-link-added', { el: activeEl.first() })
         }
 
