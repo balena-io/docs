@@ -238,10 +238,12 @@ customisation:-
 
 ### C♯
 
-[Repository][hello-dotnet]
+[Repository][hello-dotnet] by [Martin Calsyn][martincalsyn]
 
 Hello World written in [C#][csharp] using a
 [custom Dockerfile][csharp-dockerfile].
+
+Martin is also currently building out a series of [.net][dotnet] resin.io examples, you can view his progress [here][dotnet-lib]
 
 __NOTE:__ This project can be adapted to target any [.net][dotnet]
 language.
@@ -311,13 +313,14 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 
 <!-- ###Language Demo Projects Links  -->
 
-[hello-dotnet]:https://github.com/nghiant2710/hello.NET
+[hello-dotnet]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld
 [hello-java]:https://github.com/nghiant2710/Hello-Java
 [hello-python]:https://github.com/alexandrosm/hello-python
 [hello-ruby]:https://github.com/nghiant2710/Hello-Ruby
+[dotnet-lib]:https://github.com/ResinIoDotNetExamples
 
 
-[csharp-dockerfile]:https://github.com/resin-io/hello.NET/blob/master/Dockerfile
+[csharp-dockerfile]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld/blob/master/Dockerfile
 [java-dockerfile]:https://github.com/resin-io/Hello-Java/blob/master/Dockerfile
 [python-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
 [ruby-dockerfile]:https://github.com/resin-io/Hello-Ruby/blob/master/Dockerfile
@@ -339,7 +342,7 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [joscha]:https://github.com/joscha/
 [faurehu]:https://github.com/faurehu/
 [zettajs]:https://github.com/zettajs/
-
+[martincalsyn]: https://github.com/martincalsyn
 <!-- ###Additional links -->
 
 [resin]:https://resin.io
