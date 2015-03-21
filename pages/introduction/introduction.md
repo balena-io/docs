@@ -1,11 +1,13 @@
-# Modern software development and deployment workflow for the Internet of Things
+# Welcome
 
-[Resin.io][resin] makes it simple to deploy, update, and maintain code running on remote devices.
+[Resin.io][resin] makes it simple to deploy, update, and maintain code running on remote devices. We are bringing the web development and deployment workflow to hardware. Using tools like git and docker to allow you to seamlessly update all your embedded linux devices in the wild. We handle cross-compilation, device monitoring, VPNs, and log collection, so you can focus on your product and not the infrastructure.
 
-[Resin.io][resin] pulls hardware development into the 21st century. It endows you with the ability to seamlessly update all your embedded linux devices in the wild. Any language, any packages, nicely contained and shipped to all your devices with a simple "git push".resin.io deals with all the messy bits like cross-compilation, device monitoring, VPNs, and log collection transparently, so you can focus on your product, not infrastructure.
+To get started with resin.io, first read [understanding resin.io][understanding] or you can jump right in with [installing resin.io][installing] to a quick start on provisioning your devices.
 
-To get started with resin.io, first read [Understanding resin.io][understanding] or you can jump right in with [Installing resin.io][installing] to a quick start on provisioning your devices.
+Have fun! 
+
+If you have any further questions drop us mail **hello at resin dot io**.
 
 [resin]:http://resin.io
-[installing]:/pages/installing.md
-[understanding]:/pages/understanding/understanding.md
+[installing]:/pages/installing/gettingStarted.md
+[understanding]:/pages/understanding/understanding-code-deployment.md

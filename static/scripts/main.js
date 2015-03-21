@@ -15,13 +15,12 @@ var GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/gh-pages';
 angular
   .module('resinDocs', [ 'ngRoute', 'ui.bootstrap' ])
 
-  .run(function($rootScope, LEFT_MENU, RIGTH_MENU) {
-    $rootScope.leftMenu = LEFT_MENU;
-    $rootScope.rightMenu = RIGTH_MENU;
+  .run(function($rootScope, MAIN_MENU) {
+    $rootScope.mainMenu = MAIN_MENU;
     $rootScope.improveDocsLink = null;
   })
 
-  .constant('LEFT_MENU', [
+  .constant('MAIN_MENU', [
     {
       "title": "What it's for",
       "link": "https://resin.io/usecases"
@@ -31,11 +30,9 @@ angular
       "link": "https://resin.io/how-it-works"
     },
     {
-      "title": "Docs",
-      "link": "http://docs.resin.io"
-    }
-  ])
-  .constant('RIGTH_MENU', [
+      "title": "Community",
+      "link": "http://talk.resin.io/"
+    },
     {
       "title": "Blog",
       "link": "https://resin.io/blog/"
@@ -73,7 +70,7 @@ angular
         }
       })
 
-      .otherwise('/pages/gettingStarted.md');
+      .otherwise('/pages/introduction/introduction.md');
   })
 
   // services
@@ -126,7 +123,7 @@ angular
       $scope.searchResults = [];
       searchResults.forEach(function(result) {
         var el = angular.element('.site-navigation a[href$="/pages/' + result.ref + '"]').first();
-
+        
         $scope.searchResults.push({
           id: result.ref,
           title: el.text(),

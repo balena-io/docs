@@ -1,6 +1,6 @@
 var fs = require('fs');
 var lunr = require('./static/lib/lunr.js/lunr.js');
-
+var async = require('async');
 var PAGES_PATH = './pages';
 
 var idx = lunr(function () {
@@ -13,32 +13,45 @@ function extractTitleFromText(body) {
   return body.substr(0, body.indexOf("\n")).replace(/\#\s?/, '').trim();
 }
 
-fs.readdir(PAGES_PATH, function(err, dir) {
+function write() {
+    fs.writeFile('./lunr_index.json', JSON.stringify(idx), function (err) {
+      if (err) throw err
+      console.log('Successfull finished indexing.')
+    });
+}
+
+fs.readdir(PAGES_PATH + '/', function(err, dir) {
   if (err) throw err;
-
-  dir.forEach(function(dirName) {
-      fs.readdir(PAGES_PATH + '/' + dirName,['*/'], function(err, file) {
-      if (err) throw err;
-
-          files.forEach(function(fileName) {
-            var bodyText = fs.readFileSync(PAGES_PATH + '/' + fileName);
+    async.forEach(dir, function(dirName, callBackOuter) { 
+        
+        fs.readdir(PAGES_PATH + '/' + dirName + '/', function(err, file) {
+          if (err) throw err;
+          
+          async.forEach(file, function(fileName, callBackInner) { 
+            var bodyText = fs.readFileSync(PAGES_PATH + '/' + dirName + '/' + fileName);
             bodyText = bodyText.toString();
 
             var title = extractTitleFromText(bodyText);
             var page = {
-              id: fileName,
+              id: dirName + "/" + fileName,
               title: title,
-              body: bodyText
+              body: bodyText,
             };
 
-            idx.add(page)
-          });
-      });
-  });
+            idx.add(page);
+            callBackInner();
 
-  fs.writeFile('./lunr_index.json', JSON.stringify(idx), function (err) {
-    if (err) throw err
-    console.log('Successfull finished indexing.')
-  })
+          }, function(err) {
+            // success, all files iterated 
+            callBackOuter();
+            console.log(dirName + ' directory proccessed.')
+          }); // foreach file
+          
+        }); 
 
+    }, function(err) {
+        // success, all folders iterated
+        //only write once all pages are added
+        write();
+    }); // forEach folder
 });

@@ -2,6 +2,22 @@
 
 This is just a small collection of base projects to get you started. The focus on specific functionality and are a nice base to start a project from.
 
+## Installing a Project
+
+To install a project you will need a [resin.io][resin] account with an
+application set up ready to receive code. See the
+[getting started][getting-started] and [deployment][deploy] guides for details
+on how to do this.
+
+To deploy a project simply clone it and push it to your application's `resin`
+endpoint. E.g. for the [Text to Speech Converter project][text2speech]:-
+
+```
+git clone https://github.com/resin-io/text2speech.git
+git remote add resin [endpoint]
+git push resin master
+```
+
 
 ### Resin-ssh
 
@@ -63,6 +79,7 @@ A simple application that shows you how to toggle the general purpose I/O pins o
 [avahi-example]:https://github.com/nghiant2710/avahi-example
 [resin-ssh]:https://github.com/shaunmulligan/resin-ssh
 [resin-ssh-node]:https://github.com/craig-mulligan/resin-ssh-node
+[text2speech]:https://github.com/resin-io/text2speech
 
 <!-- ###Team Github name links-->
 
