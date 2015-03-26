@@ -92,6 +92,7 @@ First we need to figure out what our SD card is called. To do this open a termin
 Next, insert your microSD card and execute the following command again:
 `df -h`
 Compare the two outputs and find the newly added device. In my case, the microSD card was '/dev/disk2s1'.
+Depending on your OS, this device can take different names, like '/dev/mmcblk0p1' or '/dev/sdb1'.
 
 Once you've got the name of the SD card, you'll want to unmount that disk using the following command, replacing the specifics with your card details:
 `sudo diskutil unmount /dev/disk2s1`
@@ -102,7 +103,7 @@ Now you'll want to execute the command that actually copies the image onto the S
 Also, choose the right file location for your `.img` file in the input file field (if=...).
 `sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2`
 
-__NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the above command.
+__NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the above command, with the corresponding device name. If your device name is "/dev/mmcblk0p1", use "/dev/mmcblk0". If it's "/dev/sdb1", use "/dev/sdb". The idea is to use the device name for the whole SD card and not just a partition. If you're not sure, use `ls /dev` before and after inserting the card and note the difference.
 
 __NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2` (uppercase M)
 
@@ -138,7 +139,7 @@ Once it is completed, you can carry on setting up your raspberry pi 2 as shown b
 
 ## Setting Up Your Device
 
-Put the SD card into your device and connect either the ethernet cable or WiFi adapter. Now power up the device by inserting the USB cable. 
+Put the SD card into your device and connect either the ethernet cable or WiFi adapter. If you're connecting the cable to your computer, you'll need to enable connection sharing. Now power up the device by inserting the USB cable. 
 
 ![insert SD](/img/gifs/insert-sd.gif)
 
