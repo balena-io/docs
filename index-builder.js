@@ -22,12 +22,12 @@ function write() {
 
 fs.readdir(PAGES_PATH + '/', function(err, dir) {
   if (err) throw err;
-    async.forEach(dir, function(dirName, callBackOuter) { 
-        
+    async.forEach(dir, function(dirName, callBackOuter) {
+
         fs.readdir(PAGES_PATH + '/' + dirName + '/', function(err, file) {
           if (err) throw err;
-          
-          async.forEach(file, function(fileName, callBackInner) { 
+
+          async.forEach(file, function(fileName, callBackInner) {
             var bodyText = fs.readFileSync(PAGES_PATH + '/' + dirName + '/' + fileName);
             bodyText = bodyText.toString();
 
@@ -42,12 +42,12 @@ fs.readdir(PAGES_PATH + '/', function(err, dir) {
             callBackInner();
 
           }, function(err) {
-            // success, all files iterated 
+            // success, all files iterated
             callBackOuter();
             console.log(dirName + ' directory proccessed.')
           }); // foreach file
-          
-        }); 
+
+        });
 
     }, function(err) {
         // success, all folders iterated

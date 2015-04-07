@@ -7,4 +7,4 @@ run.sh
 
 
 node_modules/
-
+npm-debug.log

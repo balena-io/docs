@@ -52,8 +52,12 @@ Hello World written in [C#][csharp] using a
 
 Martin is also currently building out a series of [.net][dotnet] resin.io examples, you can view his progress [here][dotnet-lib]
 
+<<<<<<< HEAD
 __NOTE:__ This project can be adapted to target any [.net][dotnet]
 language.
+=======
+__NOTE:__ This project can be adapted to target any [.net][dotnet] language.
+>>>>>>> 0633eff65d4ea745436010f524e4ec37498619c7
 
 ### Java
 
@@ -94,4 +98,8 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [python-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
 [ruby-dockerfile]:https://github.com/resin-io/Hello-Ruby/blob/master/Dockerfile
 
+<<<<<<< HEAD
 [martincalsyn]: https://github.com/martincalsyn
+=======
+[martincalsyn]: https://github.com/martincalsyn
+>>>>>>> 0633eff65d4ea745436010f524e4ec37498619c7

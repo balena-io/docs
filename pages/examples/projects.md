@@ -142,7 +142,7 @@ This is project allows you to log humidity and temperature data from a simple se
 
 [Repository][rpi-smartBin-user] by [faureh][faurehu]
 
-This is a fairly complex project that uses OpenCV and python to do facial recognition of users of an office rubbish bin. It can then be used to keep track of who is not behaving well and emptying the bins when they should be. It was submitted as part of a IoT hackathon in London, called Seedhack. 
+This is a fairly complex project that uses OpenCV and python to do facial recognition of users of an office rubbish bin. It can then be used to keep track of who is not behaving well and emptying the bins when they should be. It was submitted as part of a IoT hackathon in London, called Seedhack.
 
 ###Zettajs Integration
 
@@ -192,6 +192,18 @@ visualisation at [123k.de](http://123k.de).
 [rpiminer]:https://github.com/csquared/resin-piminer
 [cimon]:https://bitbucket.org/efwe/cimon
 
+<<<<<<< HEAD:pages/examples/projects.md
+=======
+<!-- ###Code Snippets Links -->
+
+[py-gpio]:https://github.com/nghiant2710/resin-rpi-gpio-sample-with-python
+[picamera-node]:https://github.com/shaunmulligan/resin-rpi-nodejs-picamera
+[picamera-py]:https://github.com/shaunmulligan/resin-rpi-python-picamera
+[ADC_py]:https://github.com/shaunmulligan/resin-rpi-py-ADC
+[resin-tether]:https://github.com/petrosagg/resin-tether
+[example-pi-pins]:https://github.com/shaunmulligan/basic-gpio
+
+>>>>>>> 0633eff65d4ea745436010f524e4ec37498619c7:pages/examples/projects.md
 <!-- ###Team Github name links-->
 
 [shaun-mulligan]:https://github.com/shaunmulligan
@@ -209,7 +221,7 @@ visualisation at [123k.de](http://123k.de).
 [joscha]:https://github.com/joscha/
 [faurehu]:https://github.com/faurehu/
 [zettajs]:https://github.com/zettajs/
-
+[martincalsyn]: https://github.com/martincalsyn
 <!-- ###Additional links -->
 
 [resin]:https://resin.io

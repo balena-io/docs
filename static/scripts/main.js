@@ -251,12 +251,20 @@ angular
       link: function(scope, el, attrs) {
         function addActiveClass() {
           var activeEl = angular.element('.site-navigation ul a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+<<<<<<< HEAD
           console.log($routeParams.pageName);
           
           el.find('.expand').removeClass('expand');
           activeEl.addClass('active');
 
           if ($(window).width() >= 767){  
+=======
+
+          el.find('.expand').removeClass('expand');
+          activeEl.addClass('active');
+
+          if ($(window).width() >= 767) {
+>>>>>>> 0633eff65d4ea745436010f524e4ec37498619c7
             var expandEl = activeEl.parents('ul');
             expandEl.addClass('expand');
           }
@@ -266,7 +274,10 @@ angular
         }
 
         function expand() {
+<<<<<<< HEAD
           console.log('tits');
+=======
+>>>>>>> 0633eff65d4ea745436010f524e4ec37498619c7
           child = $(this).child('ul');
           child.addClass('expand');
           $rootScope.$emit('active-link-added', { el: activeEl.first() })

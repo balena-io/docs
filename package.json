@@ -18,6 +18,10 @@
   "homepage": "https://github.com/resin-io/docs",
   "dependencies": {
     "express": "~4.11.0",
+<<<<<<< HEAD
     "async": "~2.2.0"
+=======
+    "async": "~0.9.0"
+>>>>>>> 0633eff65d4ea745436010f524e4ec37498619c7
   }
 }
