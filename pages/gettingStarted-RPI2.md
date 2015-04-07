@@ -2,7 +2,6 @@
 
 The newest addition to the Raspberry Pi family brings with it an awesome [quad-core ARMv7][RPI2-link] chip. This bigger brother to the trusty old Pi is supposedly 6 times more powerful. 
 
-Because the new Pi 2 has a different architecture, the setup is slightly different.
 ![Raspberry Pi 2](/img/rpi2.png)
 
 ## What You'll Need

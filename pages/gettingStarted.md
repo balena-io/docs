@@ -1,30 +1,29 @@
-# Getting Started with the Raspberry Pi
+# Getting Started With the Raspberry Pi family
 
-<iframe class="getting-started-vid" src="//player.vimeo.com/video/108930903?title=0&amp;byline=0&amp;portrait=0" style="width:100%" height="456px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+This guide will walk you through setting up all of the Raspberry Pi devices on resin.io
+
 
 ## What You'll Need
 
-* A [Raspberry Pi][rpi-all-models-link]. Note you can use the Raspberry Pi B, B+ and A+. If you want to use the new Raspberry Pi 2, have a look at [Getting Started with RPI2](/pages/gettingStarted-RPI2.md).
-
-* A 4GB or larger SD card. Check what kind of media your device accepts - e.g. a
-  [Raspberry Pi B+][rpi-b-plus] uses Micro SD cards whereas older
-  [Raspberry Pi][rpi]'s use standard SD cards. The [speed class][speed_class] of
-  the card also matters - this determines its maximum transfer rate. We strongly
-  recommend you get hold of a class 10 card or above.
-
+* A Raspberry Pi model [B][rpi-b], [B+][rpi-b-plus], [A+][rpi-A-plus] or [Raspberry Pi 2][RPI2-link].
+  See our [supported devices][supported] for a full list of the boards we currently support. 
+* A 4GB or larger SD card. 
+  The [Raspberry Pi][rpi] uses a Micro SD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get ahold of a class 10 card or above.
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the
-  internet.
-
+  internet. Note: At the time of writing, there is no easy way of changing the wifi `SSID` and `PASSWORD` after the download. This will be worked out pretty soon and some awesome new tools will help :D
+* A micro USB cable.
 * Some awesome ideas to hack on! If you need inspiration, check out our
   [projects][projects] page.
 
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
+If you already have a resin.io account and just want to get started with your RPI 2, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-RPI2#creating-your-first-application).
+
 ## Signing Up
 
 Enter your details on the [sign up page][signup]. There are a couple of
-restrictions:-
+restrictions:
 
 * The username can only contain letters and numbers.
 * The password has to be at least 8 characters long.
@@ -39,7 +38,7 @@ connection, we need your __public__ [SSH Key][ssh_key] (you must never share
 your *private* key with anyone.)
 
 Once generated, SSH keys are easy to use. In fact you generally don't have to
-think about it at all, once you're set up just `git push` your code to us and
+think about it at all. Once you're set up just `git push` your code to us and
 it's taken care of automatically.
 
 In order to generate a key pair for your platform we recommend you take a look
@@ -54,72 +53,121 @@ retrieve this data.)
 
 ## Creating Your First Application
 
-<!-- ![Creating an Application](/img/screenshots/applications_empty.png) -->
-![Creating an Application](/img/gifs/createapp.gif)
-
-
 The two key components you will interact with in resin.io are *applications* and
 *devices* - applications represent the code you want to run on your devices, and
-devices the actual hardware itself.
+devices are the actual hardware itself.
 
 You can have as many devices connected to an application as you like - when you
 push code it deploys to every device that application owns.
 
-To create your first application simply type in a name and tap create which will
-take you to its dashboard:-
+To create your first application simply type in a name, select Raspberry Pi or Raspberry Pi 2 as your device type and click the create button. You should now be taken to the dashboard of your newly created application:
+
+![Creating an Application](/img/screenshots/create-app.png)
+
+__NOTE:__ The new Pi 2 has a different architecture, and therefore a different device type is required in the selection box when creating an app. The B rev1 + rev2, A+, B+ all fall under the standard Raspberry Pi device type.
+
+![Creating an Application](/img/screenshots/select-device-type.png)
 
 ## Adding Your First Device
-
-<!-- ![Empty Application Page](/img/screenshots/application_empty.png) -->
-![Empty Application Page](/img/gifs/download-image.gif)
+<!-- TODO: add images for RPI2 specifically -->
+![Empty Application Page](/img/screenshots/image-download.png)
 
 This is the application dashboard where all of the devices connected to your
-application will be shown along with their status and logs.
+application will be shown along with their statuses and logs. 
 
-Click the `Download Zip File` button to get the resin.io image for your
-application. A dialog will appear prompting you to specify how your device
-connects to the internet - either via an ethernet cable or wifi, in which case
-you can specify your Wifi network's SSID and passphrase:-
-
-![Wifi Settings](/img/gifs/download-image-Wifi.gif)
+Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify how your device connects to the internet - either via an ethernet cable or wifi, in which case you can specify your Wifi network's SSID and passphrase. Click the `Download Device OS` button to get the resin.io operating system image for your application.
 
 
-While the zip file downloads ensure your SD card is formatted in [FAT32][fat32]
-([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this) and
-expand the zip file onto it.
+![Empty Application Page](/img/screenshots/wifi-settings.png)
 
-![unzip and expand](/img/gifs/unzip-image.gif)
+While the file downloads ensure your SD card is formatted in [FAT32][fat32]
+([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
+<!-- TODO: change file download name if neccessary -->
+Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.4.img` where "myApp" is the name you gave your application on the dashboard. 
+
+Now we have to burn the downloaded `.img` file onto the SD card. There are a couple of ways to do this depending on your host computer's operating system. We have listed a few below.
+
+## Burning the OS image onto the SD card
+
+### On Mac and Linux
+
+####From the command line
+
+First we need to figure out what our SD card is called. To do this open a terminal and execute the following command to see the list of connected storage devices:
+`df -h`
+Next, insert your microSD card and execute the following command again:
+`df -h`
+Compare the two outputs and find the newly added device. In my case, the microSD card was '/dev/disk2s1'.
+Depending on your OS, this device can take different names, like '/dev/mmcblk0p1' or '/dev/sdb1'.
+
+Once you've got the name of the SD card, you'll want to unmount that disk using the following command, replacing the specifics with your card details:
+`sudo diskutil unmount /dev/disk2s1`
+Now you'll want to execute the command that actually copies the image onto the SD card. 
+
+> You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive (such as your master hard disk) and then you're gonna have a bad time. Double check everything!
+
+Also, choose the right file location for your `.img` file in the input file field (if=...).
+`sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2`
+
+__NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the above command, with the corresponding device name. If your device name is "/dev/mmcblk0p1", use "/dev/mmcblk0". If it's "/dev/sdb1", use "/dev/sdb". The idea is to use the device name for the whole SD card and not just a partition. If you're not sure, use `ls /dev` before and after inserting the card and note the difference.
+
+__NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2` (uppercase M)
+
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-RPI2.md#setting-up-your-device)
+
+#### From a GUI
+
+Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn the SD card.
+
+Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your `.img` file.
+
+Locate your raspberry pi `.img` file in your Downloads folder. It should be named something like `resin-myApp-0.1.0-0.0.4.img`. Now click "choose".
+
+You can now insert your microSD card into your host machine and click continue. PiFiller will look for your SD card and tell you when it finds it.
+
+__NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
+
+Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-RPI2.md#setting-up-your-device).
+
+### Windows
+
+To burn OS images to SD cards on Windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to. 
+
+Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your beaglebone image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.4.img`.
+
+Next insert your SD card into your host computer and in the Win32DiskImager GUI, select your SD card when it appears. 
+
+__NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machine's harddisk.
+
+Once you have made your selections and are 100% sure you are writing to your SD card and nothing else, you can click write and wait for the SD card to be burned.
+
+Once it is completed, you can carry on setting up your raspberry pi as shown below.
 
 ## Setting Up Your Device
 
-Put the SD card into your device, connect either the ethernet cable or insert the usb wifi dongle. Now power up the device by inserting the usb cable and wait for it to appear on the application
-dashboard.
+Put the SD card into your device and connect either the ethernet cable or WiFi adapter. If you're connecting the cable to your computer, you'll need to enable connection sharing. Now power up the device by inserting the USB cable. 
 
 ![insert SD](/img/gifs/insert-sd.gif)
 
-While you wait resin.io is partitioning your SD card, installing a custom linux
-environment and establishing a secure connection with our servers.
+It will take a few minutes for the raspberry pi to appear on your resin.io dashboard, so take this time to grab some tea while you wait.
 
-If you have a class 10 SD card and a fast internet connection your device should
-appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can
-take up to 3 times longer so it's well worth investing in the fastest card you
-can find.
+While you wait resin.io is expanding the partitioning on your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
-If you encounter issues with your Raspberry Pi refusing to boot to the SD card, it may be because the SD card was not formatted properly. For best results, it is recommended that you use the [SD Card Formatter][sdformatter] utility from the SD Association.
+If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
 
 ## Running Code On Your Device
 
 ![git pushing](/img/screenshots/git_pushing.png)
 
 A good first project is our [text to speech app][example_app] written in node.js. To clone it, run
-the following in a terminal:-
+the following in a terminal:
 
 ```
 git clone https://github.com/resin-io/text2speech.git
 ```
 
-Once the repo is cloned, cd into the newly created text2speech directory and add the resin git endpoint by running the `git remote add` command shown in
-the top-right corner of the application page, e.g.:-
+Once the repo is cloned, cd into the newly created `text2speech` directory and add the resin git endpoint by running the `git remote add` command shown in
+the top-right corner of the application page, e.g.:
 
 ```
 cd text2speech
@@ -127,13 +175,12 @@ cd text2speech
 git remote add resin git@git.resin.io:joebloggs/skynet.git
 ```
 
-Now you can simply run `git push resin master` and push your code up to our servers, where it will distribute it to your
-device(s). If this fails, you may need to force the push by running `git push resin master --force`
+Now you can simply run `git push resin master` and push your code up to our servers where they will distribute it to your device(s). If this fails, you may need to force the push by running `git push resin master --force`.
 
 __NOTE:__ On your very first push, git may ask you if you would like to add this host to your list of allowed hosts. Don't worry about this, just type 'yes' and carry on your merry way.
 
 You'll know your code has been successfully compiled and built when our
-friendly unicorn mascot appears in your terminal:-
+friendly unicorn mascot appears in your terminal:
 
 ![git pushing](/img/screenshots/git_pushed.png)
 
@@ -143,8 +190,8 @@ The terminal will also say:
 -----> Uploading image..
        Image uploaded successfully!
 ```
-This means your code is safely on our servers and will be downloaded and executed by all the devices you have connected to your application. You may have to wait a little while for the code to start running on your devices, you can see the progress of the device code updates on the device dashboard:-
-
+This means your code is safely on our servers and will be downloaded and executed by all the devices you have connected to your application. You may have to wait a little while for the code to start running on your devices. You can see the progress of the device code updates on the device dashboard:
+<!-- TODO: add images for RPI2 specifically -->
 ![Code updating](/img/screenshots/rpi-app-updating.png)
 
 You should now have a friendly talking raspberry pi and a good base to start building and deploying awesome connected devices.
@@ -185,11 +232,14 @@ feedback and respond to any issues as soon as we can.
 [wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
 [wikihow]:http://www.wikihow.com/Main-Page
 [fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
-[sdformatter]:https://www.sdcard.org/downloads/formatter_4/
-[example_app]:https://github.com/resin-io/text2speech
+[example_app]:https://github.com/resin-io/tty.js-resin
 [try-git]:https://www.codeschool.com/courses/try-git
 [code-school]:https://www.codeschool.com/
 [rpi]:http://www.raspberrypi.org/
 [rpi-b-plus]:http://www.raspberrypi.org/products/model-b-plus/
+[rpi-b]:http://www.raspberrypi.org/products/model-b/
+[rpi-A-plus]:http://www.raspberrypi.org/products/model-a-plus/
 [python-example]:https://github.com/alexandrosm/hello-python
-[rpi-all-models-link]:http://www.raspberrypi.org/products/
+[RPI2-link]:http://www.raspberrypi.org/products/raspberry-pi-2-model-b/
+[win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
+[pifiller-download]:http://ivanx.com/raspberrypi/
