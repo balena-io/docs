@@ -2,24 +2,7 @@
   text-align: center;
   margin-bottom: 11px;
 }
-.navbar-brand {
-  position: absolute;
-  left: 50%;
-  width: 60px;
-  margin-left: -30px;
-}
-@media (max-width: 800px) {
-  .navbar-brand {
-    left: 50%;
-    width: 100px;
-    margin-left: -50px;
-  }
-}
-@media (max-width: 767px) {
-  .navbar-brand {
-    display: none;
-  }
-}
+
 .navbar-nav {
   float: none;
 }
@@ -40,6 +23,13 @@
   color: #474747;
 }
 
+.navbar-right.menu__items {
+  margin-top: 15px;
+}
+
+.navbar-left {
+  margin-left: 50px;
+}
 
 .menu--top {
   position: absolute;

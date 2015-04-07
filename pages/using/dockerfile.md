@@ -125,7 +125,7 @@ There are a number of example Dockerfiles available for different languages list
 [copy]:https://docs.docker.com/reference/builder/#copy
 [cmd]:https://docs.docker.com/reference/builder/#cmd
 
-[starter-projects]:/pages/projects.md#Programming_Language_Starter_Projects
+[starter-projects]:/pages/examples/projects.md#Programming_Language_Starter_Projects
 [docker-best-practise]:https://docs.docker.com/articles/dockerfile_best-practices/#add-or-copy
 [docker-registry]:https://registry.hub.docker.com/u/resin/rpi-raspbian/tags/manage/
 [resin-docker-blog]:https://resin.io/blog/docker-on-raspberry-pi/

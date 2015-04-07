@@ -24,14 +24,6 @@ body {
   margin-top: 55px;
 }
 
-@media (max-width: 767px) {
-  #improve-docs {
-    float: none;
-    margin-top: 10px;
-    margin-bottom: -40px;
-  }
-}
-
 article {
   padding-left: 231px;
 }
@@ -52,14 +44,16 @@ article .sticky {
   display: block;
 }
 
-.sidebar h3 {
+.sidebar h3 a{
   padding-left: 30px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #6b6d73;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-decoration: none;
 }
 
 .sidebar ul {
@@ -67,7 +61,8 @@ article .sticky {
   margin: 0;
   padding: 0;
   border-bottom: 1px solid #e6e8eb;
-  padding-bottom: 20px;
+  height: 0;
+  overflow: hidden;
 }
 
 .sidebar li {
@@ -275,4 +270,30 @@ header.sticky {
   color: #474747;
   background-color: #c99a00;
   border-color: #bf9200;
+}
+
+ul.expand {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #e6e8eb;
+    padding-bottom: 20px;
+    height: auto;
+    overflow: visible;
+}
+
+@media (max-width: 767px) {
+  #improve-docs {
+    float: none;
+    margin-top: 10px;
+    margin-bottom: -40px;
+  }
+
+  .sidebar ul {
+    height: auto;
+  }
+
+  .sidebar h3 a {
+    color: #6b6d73 !important;
+  }
 }

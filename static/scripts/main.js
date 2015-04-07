@@ -15,13 +15,12 @@ var GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/gh-pages';
 angular
   .module('resinDocs', [ 'ngRoute', 'ui.bootstrap' ])
 
-  .run(function($rootScope, LEFT_MENU, RIGTH_MENU) {
-    $rootScope.leftMenu = LEFT_MENU;
-    $rootScope.rightMenu = RIGTH_MENU;
+  .run(function($rootScope, MAIN_MENU) {
+    $rootScope.mainMenu = MAIN_MENU;
     $rootScope.improveDocsLink = null;
   })
 
-  .constant('LEFT_MENU', [
+  .constant('MAIN_MENU', [
     {
       "title": "What it's for",
       "link": "https://resin.io/usecases"
@@ -31,11 +30,9 @@ angular
       "link": "https://resin.io/how-it-works"
     },
     {
-      "title": "Docs",
-      "link": "http://docs.resin.io"
-    }
-  ])
-  .constant('RIGTH_MENU', [
+      "title": "Community",
+      "link": "http://talk.resin.io/"
+    },
     {
       "title": "Blog",
       "link": "https://resin.io/blog/"
@@ -53,7 +50,7 @@ angular
   // config
   .config(function($routeProvider) {
     $routeProvider
-      .when('/pages/:pageName', {
+      .when('/pages/:pageName*', {
         controller: 'PageCtrl',
         template: '<div class="page-content"></div>',
         resolve: {
@@ -73,7 +70,7 @@ angular
         }
       })
 
-      .otherwise('/pages/gettingStarted.md');
+      .otherwise('/pages/introduction/introduction.md');
   })
 
   // services
@@ -253,9 +250,23 @@ angular
       templateUrl: '/static/templates/directives/navigation.html',
       link: function(scope, el, attrs) {
         function addActiveClass() {
-          var activeEl = angular.element('.site-navigation a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
-          el.find('.active').removeClass('active');
+          var activeEl = angular.element('.site-navigation ul a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+
+          el.find('.expand').removeClass('expand');
           activeEl.addClass('active');
+
+          if ($(window).width() >= 767) {
+            var expandEl = activeEl.parents('ul');
+            expandEl.addClass('expand');
+          }
+
+          el.find('.active').removeClass('active');
+          $rootScope.$emit('active-link-added', { el: activeEl.first() })
+        }
+
+        function expand() {
+          child = $(this).child('ul');
+          child.addClass('expand');
           $rootScope.$emit('active-link-added', { el: activeEl.first() })
         }
 

@@ -22,12 +22,18 @@
     <div class="menu menu--top">
       <div class="container">
         <nav class="menu__nav navbar" role="navigation">
+          <a class="menu__logo navbar-brand" href="https://resin.io">
+            <span class="logo">
+              <img class="logo__img" src="/img/logo.svg">
+              <span class="logo__text">resin.io</span>
+            </span>
+          </a>
+
           <ul class="menu__items nav navbar-nav navbar-left">
-            <li ng-repeat="menuItem in leftMenu" class="menu__item"><a ng-href="{{ menuItem.link }}">{{ menuItem.title }}</a></li>
+            <li ng-repeat="menuItem in mainMenu" class="menu__item"><a ng-href="{{ menuItem.link }}">{{ menuItem.title }}</a></li>
           </ul>
 
           <ul class="menu__items nav navbar-nav navbar-right">
-            <li ng-repeat="menuItem in rightMenu" class="menu__item"><a ng-href="{{ menuItem.link }}">{{ menuItem.title }}</a></li>
             <li class="menu__item menu__item--btn-group">
               <div class="btn-group btn-group-sm" role="group" aria-label="...">
                 <a class="btn" href="https://dashboard.resin.io/signup">Sign up</a>
@@ -36,12 +42,6 @@
             </li>
           </ul>
 
-          <a class="menu__logo navbar-brand" href="https://resin.io">
-            <span class="logo">
-              <img class="logo__img" src="/img/logo.svg">
-              <span class="logo__text">resin.io</span>
-            </span>
-          </a>
         </nav>
       </div>
     </div>

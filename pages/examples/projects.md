@@ -16,67 +16,6 @@ git remote add resin [endpoint]
 git push resin master
 ```
 
-## Code Snippets
-
-This is just a small collection of base projects to get you started. The focus on specific functionality and are a nice base to start a project from.
-
-### Node.js Starter Project
-
-[Repository][simple-nodejs]
-
-This is a simple Hello, World project for [node.js][node] designed to act as a
-basis for future work. It demonstrates how to install native Linux packages and
-configure your application.
-
-### Resin-ssh
-
-[SSH python][resin-ssh] by [Shaun Mulligan][shaun-mulligan]
-
-[SSH node.js][resin-ssh-node] by [Craig Mulligan][craig-mulligan]
-
-This basic resin project allows you to have local ssh access to your running container on your device. It does this by starting dropbear, a light weight ssh daemon, in a background process. There is both a node and a python demo of this, so you can get up and running fast. Please note, both of these have small webservers running in the main app, but these could be replaced by an infinite loop. This is needed because in order to ssh into a container, it has to have a long running process in it. That way docker does not close/destroy the container.
-
-### Node.js and the RPI camera module
-[Repository][picamera-node]
-
-A basic skeleton application to get you up and running with the raspberry pi camera module using node.js
-
-### Python and the RPI camera module
-[Repository][picamera-py]
-
-A basic skeleton application to get you up and running with the raspberry pi camera module using python.
-
-### Analog-to-digital converter
-
-[Repository][ADC_py] by [Shaun Mulligan][shaun-mulligan]
-
-This is a simple project so show to read analog sensor values into the raspberry pi using python. It uses the [ADS1x15][ADC_adafruit] family of I2C analog-to-digital converters to read in analog signals between 0 and 3.3V.
-
-### resin-tether
-
-[Repository][resin-tether] by [petrosagg][petrosagg]
-
-This python project allows you to share your ethernet connection to wifi. It essentially allows the raspberry pi to act as a wifi access point.
-
-### Avahi Daemon on Raspberry Pi
-
-[Repository][avahi-example] by [nghiant2710][nghiant2710]
-
-This simple example demonstrates how to get the avahi daemon running on your resin.io device. From this example you will be able to access your device from `<RESIN_UUID>.local` on your local network. The `<RESIN_UUID>` is the ID shown on the resin.io device dashboard.
-
-### Example GPIO control in node.js
-
-[Repository][example-pi-pins] by [Shaun Mulligan][shaun-mulligan]
-
-A simple application which demonstrates the use of the [Pi Pins][pi-pins]
-library to interface with [GPIO][gpio].
-
-### Example GPIO control in python
-
-[Repository][py-gpio] by [nghiant2710][nghiant2710]
-
-A simple application that shows you how to toggle the general purpose I/O pins on the raspberry pi using python.
-
 ##Projects
 
 These are some awesome projects built using resin.io and are a lot more fully featured and complete than the code snippets.
@@ -203,7 +142,7 @@ This is project allows you to log humidity and temperature data from a simple se
 
 [Repository][rpi-smartBin-user] by [faureh][faurehu]
 
-This is a fairly complex project that uses OpenCV and python to do facial recognition of users of an office rubbish bin. It can then be used to keep track of who is not behaving well and emptying the bins when they should be. It was submitted as part of a IoT hackathon in London, called Seedhack. 
+This is a fairly complex project that uses OpenCV and python to do facial recognition of users of an office rubbish bin. It can then be used to keep track of who is not behaving well and emptying the bins when they should be. It was submitted as part of a IoT hackathon in London, called Seedhack.
 
 ###Zettajs Integration
 
@@ -224,52 +163,6 @@ A simple tool for reading temperatures from a USB-enabled thermometer. This
 project is used as the backend to [efwe][efwe]'s awesome temperature
 visualisation at [123k.de](http://123k.de).
 
-## Programming Language Starter Projects
-
-Below is a list of simple 'Hello, World' projects written in a number of
-different programming languages, which are designed to form the basis of your
-own projects written in each language.
-
-The projects use [Dockerfile][dockerfile]s to install packages and configure the
-local environment as needed for each language. This step is performed on the
-resin.io build server and the finished product is pushed to your devices.
-
-A link is provided for each project's individual Dockerfile below for easy
-customisation:-
-
-### C♯
-
-[Repository][hello-dotnet] by [Martin Calsyn][martincalsyn]
-
-Hello World written in [C#][csharp] using a
-[custom Dockerfile][csharp-dockerfile].
-
-Martin is also currently building out a series of [.net][dotnet] resin.io examples, you can view his progress [here][dotnet-lib]
-
-__NOTE:__ This project can be adapted to target any [.net][dotnet]
-language.
-
-### Java
-
-[Repository][hello-java]
-
-Hello World written in [Java][java] using a
-[custom Dockerfile][java-dockerfile].
-
-__NOTE:__ This project can be adapted to target any [JVM][jvm] language.
-
-### Python
-
-[Repository][hello-python]
-
-Hello World written in [Python][python] using a [custom Dockerfile][python-dockerfile].
-
-### Ruby
-
-[Repository][hello-ruby]
-
-Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile].
-
 <!-- ###Team Project Links -->
 
 [text2speech]:https://github.com/resin-io/text2speech
@@ -281,10 +174,7 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [digitiser]:https://github.com/shaunmulligan/digitiser
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
 [resin-cctv]:https://github.com/abresas/resin-cctv
-[simple-nodejs]:https://github.com/resin-io/basic-resin-node-project
 [salesforce-temp]:https://github.com/shaunmulligan/salesforceTemp
-[resin-ssh]:https://github.com/shaunmulligan/resin-ssh
-[resin-ssh-node]:https://github.com/craig-mulligan/resin-ssh-node
 [occupied]:http://www.hackster.io/craig-mulligan/occupied
 [dockerHub]:https://github.com/nghiant2710/resin-DockerHubDeploymentGuide
 [resin-samba]:https://github.com/abresas/resin-samba
@@ -292,7 +182,6 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [sonos-clone]:https://github.com/resin-io/music-player-device
 [clonos-frontend]:https://github.com/resin-io/music-player-web
 [grovepi-humidity]:https://github.com/shaunmulligan/grovePi
-[avahi-example]:https://github.com/nghiant2710/avahi-example
 
 
 <!-- ###Community Project Links -->
@@ -311,20 +200,6 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [ADC_py]:https://github.com/shaunmulligan/resin-rpi-py-ADC
 [resin-tether]:https://github.com/petrosagg/resin-tether
 [example-pi-pins]:https://github.com/shaunmulligan/basic-gpio
-
-<!-- ###Language Demo Projects Links  -->
-
-[hello-dotnet]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld
-[hello-java]:https://github.com/nghiant2710/Hello-Java
-[hello-python]:https://github.com/alexandrosm/hello-python
-[hello-ruby]:https://github.com/nghiant2710/Hello-Ruby
-[dotnet-lib]:https://github.com/ResinIoDotNetExamples
-
-
-[csharp-dockerfile]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld/blob/master/Dockerfile
-[java-dockerfile]:https://github.com/resin-io/Hello-Java/blob/master/Dockerfile
-[python-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
-[ruby-dockerfile]:https://github.com/resin-io/Hello-Ruby/blob/master/Dockerfile
 
 <!-- ###Team Github name links-->
 
@@ -348,22 +223,16 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 
 [resin]:https://resin.io
 [dropbox]:https://www.dropbox.com/
-[deploy]:/pages/deployment.md
-[dockerfile]:/pages/dockerfile.md
+[deploy]:/pages/using/deployment.md
+[dockerfile]:/pages/using/dockerfile.md
 [rpi]:http://www.raspberrypi.org/
 [firebase]:https://www.firebase.com/
-[getting-started]:/pages/gettingStarted.md
+[getting-started]:/pages/installing/gettingStarted.md
 [node]:https://nodejs.org/
 [bitcoin]:https://bitcoin.org/
 [gpio]:http://en.wikipedia.org/wiki/General-purpose_input/output
 [pi-pins]:https://github.com/natevw/pi-pins
 [salesforce]:https://www.salesforce.com
-[csharp]:http://msdn.microsoft.com/en-gb/vstudio/hh341490.aspx
-[dotnet]:http://www.microsoft.com/net
-[jvm]:http://en.wikipedia.org/wiki/Java_virtual_machine
-[java]:https://www.java.com/en/
-[python]:https://www.python.org/
-[ruby]:https://www.ruby-lang.org/en/
 [ADC_adafruit]:http://www.adafruit.com/product/1085
 [coder]:https://googlecreativelab.github.io/coder/
 [bitcoin]:http://en.wikipedia.org/wiki/Bitcoin
