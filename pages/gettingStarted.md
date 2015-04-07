@@ -18,7 +18,7 @@ This guide will walk you through setting up all of the Raspberry Pi devices on r
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with your RPI 2, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-RPI2#creating-your-first-application).
+If you already have a resin.io account and just want to get started with your Raspberry Pi, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted.md#creating-your-first-application).
 
 ## Signing Up
 
@@ -113,7 +113,7 @@ __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rd
 
 __NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2` (uppercase M)
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-RPI2.md#setting-up-your-device)
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted.md#setting-up-your-device)
 
 #### From a GUI
 
@@ -127,7 +127,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted-RPI2.md#setting-up-your-device).
+Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/gettingStarted.md#setting-up-your-device).
 
 ### Windows
 
