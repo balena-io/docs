@@ -64,7 +64,7 @@ To create your first application simply type in a name, select Raspberry Pi or R
 
 ![Creating an Application](/img/screenshots/create-app.png)
 
-__NOTE:__ The new Pi 2 has a different architecture, and therefore a different device type is required in the selection box when creating an app. The B rev1 + rev2, A+, B+ all fall under the standard Raspberry Pi device type.
+__NOTE:__ Each Raspberry Pi model has its own device type, which you will need to select from the dropdown menu when creating your application. 
 
 ![Creating an Application](/img/screenshots/select-device-type.png)
 

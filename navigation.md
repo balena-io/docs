@@ -11,6 +11,7 @@
 
 * [Raspberry Pi](/pages/installing/gettingStarted.md)
 * [Beaglebone Black](/pages/installing/gettingStarted-BBB.md)
+* [Two Factor Authentication](/pages/installing/2fa.md)
 
 ### [Using Resin.io](/pages/using/deployment.md)
 
