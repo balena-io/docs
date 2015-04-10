@@ -2,7 +2,7 @@
   "name": "resin-docs",
   "version": "0.0.0",
   "description": "This repo contains our public-facing documentation.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
