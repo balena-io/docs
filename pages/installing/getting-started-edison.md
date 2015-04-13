@@ -84,7 +84,7 @@ Once the download completes, you should have a `.zip` file with a name that look
 
 In order to use resin to deploy code on the Edison it is necessary to flash new firmware (the resinOS) onto the device. 
 
-__Note__: This will erase your current yocto OS system on your Edison and any data or configurations you have on it, but trust us, its for the best ;) If for some terrible reason you have to revert to the old way of doing things, you can restore your Edison to it's factory default firmware by following the instructions over [here](recover-edison-firmware)
+__Note__: This will erase your current yocto OS system on your Edison and any data or configurations you have on it, but trust us, it's for the best ;) If for some terrible reason you have to revert to the old way of doing things, you can restore your Edison to it's factory default firmware by following the instructions over [here](recover-edison-firmware)
 
 #### install dfu-util
 

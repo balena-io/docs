@@ -1,6 +1,6 @@
 ### [Introduction](/pages/introduction/introduction.md)
 
-* [Introduction](/pages/introduction/introduction.md)
+* [Welcome to Resin.io](/pages/introduction/introduction.md)
 
 ### [Understanding resin.io](/pages/understanding/understanding-code-deployment.md)
 
