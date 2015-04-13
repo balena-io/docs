@@ -232,7 +232,7 @@ feedback and respond to any issues as soon as we can.
 [wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
 [wikihow]:http://www.wikihow.com/Main-Page
 [fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
-[example_app]:https://github.com/resin-io/tty.js-resin
+[example_app]:https://github.com/resin-io/text2speech
 [try-git]:https://www.codeschool.com/courses/try-git
 [code-school]:https://www.codeschool.com/
 [rpi]:http://www.raspberrypi.org/
