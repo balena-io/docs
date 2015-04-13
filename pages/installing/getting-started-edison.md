@@ -1,6 +1,6 @@
 # Getting Started with the Intel Edison
 
-![Intel Edison](/img/edison/intel_edison.jpg)
+![Intel Edison](/img/edison.jpg)
 
 ## What you will need
 
@@ -9,11 +9,12 @@
     - [The official Intel development board](official-dev-board)
     - [Sparkfun Base Block](sparkfun-base-block)
     - [Intel® Edison and Arduino Breakout Kit](edison-ardiuno-breakout-board) 
+![Edison Boards with OTG](/img/edison/edison-otg-ports.png)
 * A micro-usb cable
 * Some awesome ideas to hack on! If you need inspiration, check out our
   [projects][projects] page.
 
-__NOTE:__ If you're not experienced with [git][git], check out the excellent
+__Note:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
 If you already have a resin.io account and just want to get started with a Beaglebone black then skip ahead to [Creating Your First Application](/#/pages/getting-started-edison#start-a-new-application).
@@ -71,12 +72,18 @@ To connect a device to our newly created application, we need to first get the r
 ## Adding Your First Edison Device
 ### download image
 
-To get the resin operating system you need to click on the "Download Device OS" button.
+To get the resin operating system (resinOS) you need to click on the "Download Device OS" button. You should then be directed to add your wifi network name (aka `SSID`) and your networks password (aka `passphrase`) .
+
+__Note__: It is not possible to provision an Edison without adding your wifi credentials as the device needs this to connect to the internet.
+
+![Add your Wifi Credentials](/img/edison/add-wifi-credentials-edison.png)
+
 Once the download completes, you should have a `.zip` file with a name that looks something like this: `resin-myEdisonApp-0.1.0-0.0.9.zip`. 
 
 ### Burn the ResinOS onto the Edison
 
 In order to use resin to deploy code on the Edison it is necessary to flash new firmware (the resinOS) onto the device. 
+
 __Note__: This will erase your current yocto OS system on your Edison and any data or configurations you have on it, but trust us, its for the best ;) If for some terrible reason you have to revert to the old way of doing things, you can restore your Edison to it's factory default firmware by following the instructions over [here](recover-edison-firmware)
 
 #### install dfu-util
@@ -126,7 +133,8 @@ Now waiting for dfu device 8087:0a99
 Please plug and reboot the board
 ```
 At this point you can connect your Edison to your computer. 
-__Note__: Make sure you connect it to the USB-OTG port and **NOT** the USB-CONSOLE port.
+
+__Note__: Make sure you connect it to the USB-OTG port and **NOT** the USB-CONSOLE port. 
 
 You should now see the flashing process happen and output something like this:
 ```
@@ -155,7 +163,9 @@ U-boot & Kernel System Flash Success...
 **Before starting the flashing process, make sure you unplug the Edison from your computer.**
 
 Unzip the `resin-myEdisonApp-0.1.0-0.0.9.zip` file that you downloaded and open the folder. In the folder, find the `flashall.bat` file and double-click it. 
+
 __Note__: You need administrative privileges to successfully execute `flashall.bat`.
+
 You should now see the following:
 ```
 Using U-Boot target: edison-defaultcdc
@@ -164,6 +174,7 @@ Please plug and reboot the board
 ```
 
 At this point you can connect your Edison to your computer. 
+
 __Note__: Make sure you connect it to the USB-OTG port and **NOT** the USB-CONSOLE port.
 
 You should now see the flashing process happen and outout something like this:
@@ -204,6 +215,7 @@ Please plug and reboot the board
 ```
 
 At this point plug your Edison into the USB port of your computer.
+
 __Note__: Make sure you connect it to the USB-OTG port and **NOT** the USB-CONSOLE port.
 
 Once your computer detects the Edison you should see the flashing process happen and the following output:
