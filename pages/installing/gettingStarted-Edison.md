@@ -8,7 +8,7 @@
 * A base board for the edison that has an USB-OTG port, any of the following boards will do the trick:
     - [The official Intel development board](official-dev-board)
     - [Sparkfun Base Block](sparkfun-base-block)
-    - [Intel® Edison and Arduino Breakout Kit](edison-ardiuno-breakout-board) 
+    - [Intel® Edison and Arduino Breakout Kit](edison-ardiuno-breakout-board)
 ![Edison Boards with OTG](/img/edison/edison-otg-ports.png)
 * A micro-usb cable
 * Some awesome ideas to hack on! If you need inspiration, check out our
@@ -17,7 +17,7 @@
 __Note:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with a Beaglebone black then skip ahead to [Creating Your First Application](/#/pages/getting-started-edison#start-a-new-application).
+If you already have a resin.io account and just want to get started with an Edison then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Edison#start-a-new-application).
 
 ## Signing Up
 
@@ -55,7 +55,7 @@ retrieve this data.)
 The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
 
 You can have as many devices connected to an application as you like - when you
-push code it deploys to every device that application owns. 
+push code it deploys to every device that application owns.
 
 Okay, lets get started...
 
@@ -63,7 +63,7 @@ First things first, we need to start a new resin.io application. Choose a fancy 
 
 ![Creating an Application](/img/edison/create_application_edison.png)
 
-Next make sure you select `Intel Edison (PREVIEW)` from the device type drop down menu and click the big yellow create button. You should now be magically redirected to your new creatively named `myEdisonApp` and will see a couple of tabs notice saying "No devices are connected to this application", that isn't very exciting, so lets change that by adding a new device...
+Next make sure you select `Intel Edison (EXPERIMENTAL)` from the device type drop down menu and click the big yellow create button. You should now be magically redirected to your new creatively named `myEdisonApp` and will see a couple of tabs notice saying "No devices are connected to this application", that isn't very exciting, so lets change that by adding a new device...
 
 ![Empty Application Page](/img/edison/application_empty_edison.png)
 
@@ -78,11 +78,11 @@ __Note__: It is not possible to provision an Edison without adding your wifi cre
 
 ![Add your Wifi Credentials](/img/edison/add-wifi-credentials-edison.png)
 
-Once the download completes, you should have a `.zip` file with a name that looks something like this: `resin-myEdisonApp-0.1.0-0.0.9.zip`. 
+Once the download completes, you should have a `.zip` file with a name that looks something like this: `resin-myEdisonApp-0.1.0-0.0.9.zip`.
 
 ### Burn the ResinOS onto the Edison
 
-In order to use resin to deploy code on the Edison it is necessary to flash new firmware (the resinOS) onto the device. 
+In order to use resin to deploy code on the Edison it is necessary to flash new firmware (the resinOS) onto the device.
 
 __Note__: This will erase your current yocto OS system on your Edison and any data or configurations you have on it, but trust us, it's for the best ;) If for some terrible reason you have to revert to the old way of doing things, you can restore your Edison to it's factory default firmware by following the instructions over [here](recover-edison-firmware)
 
@@ -93,7 +93,7 @@ In order to put the new resinOS firmware on the Edison we need a special tool ca
 ##### dfu-util on Mac OSX
 
 For this step you will need either [Homebrew](homebrew-link) or [MacPorts](macports-link) to install dfu-util, coreutils, and gnu-getopt
-**Using Homebrew:** 
+**Using Homebrew:**
 `brew install dfu-util gnu-getopt coreutils`
 **Using MacPorts:**
 `sudo port install dfu-util gnu-getopt coreutils`
@@ -107,7 +107,7 @@ __Note__: the dfu-util is bundled with the resinOS download, but you will still 
 
 If you have not previously installed Intel’s Edison drivers for Windows, you will need to do that first.
 
-* Navigate to https://communities.intel.com/docs/DOC-23242 
+* Navigate to https://communities.intel.com/docs/DOC-23242
 * Scroll down and download the “Windows Driver setup” file
 * Double-click on the downloaded .exe and follow the command prompts (accepting all defaults) to install the drivers
 
@@ -132,9 +132,9 @@ Using U-Boot target: edison-defaultcdc
 Now waiting for dfu device 8087:0a99
 Please plug and reboot the board
 ```
-At this point you can connect your Edison to your computer. 
+At this point you can connect your Edison to your computer.
 
-__Note__: Make sure you connect it to the USB-OTG port and **NOT** the USB-CONSOLE port. 
+__Note__: Make sure you connect it to the USB-OTG port and **NOT** the USB-CONSOLE port.
 
 You should now see the flashing process happen and output something like this:
 ```
@@ -162,7 +162,7 @@ U-boot & Kernel System Flash Success...
 
 **Before starting the flashing process, make sure you unplug the Edison from your computer.**
 
-Unzip the `resin-myEdisonApp-0.1.0-0.0.9.zip` file that you downloaded and open the folder. In the folder, find the `flashall.bat` file and double-click it. 
+Unzip the `resin-myEdisonApp-0.1.0-0.0.9.zip` file that you downloaded and open the folder. In the folder, find the `flashall.bat` file and double-click it.
 
 __Note__: You need administrative privileges to successfully execute `flashall.bat`.
 
@@ -173,7 +173,7 @@ Now waiting for dfu device 8087:0a99
 Please plug and reboot the board
 ```
 
-At this point you can connect your Edison to your computer. 
+At this point you can connect your Edison to your computer.
 
 __Note__: Make sure you connect it to the USB-OTG port and **NOT** the USB-CONSOLE port.
 
