@@ -30,7 +30,7 @@
           </a>
 
           <ul class="menu__items nav navbar-nav navbar-left">
-            <li ng-repeat="menuItem in mainMenu" class="menu__item"><a ng-href="{{ menuItem.link }}">{{ menuItem.title }}</a></li>
+            <li ng-repeat="menuItem in mainMenu" class="menu__item" ng-cloak><a ng-href="{{ menuItem.link }}">{{ menuItem.title }}</a></li>
           </ul>
 
           <ul class="menu__items nav navbar-nav navbar-right">

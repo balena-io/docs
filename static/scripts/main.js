@@ -1,7 +1,19 @@
+var CurrentScroll = 0;
+
 $(window).scroll(function() {
-  var scroll = $(window).scrollTop();
-  $('[data-md-sticky-header]').toggleClass('sticky', scroll > 61);
+  var NextScroll = $(this).scrollTop();
+
+  if (NextScroll < CurrentScroll && CurrentScroll > 67){
+     //upscroll
+     $('[data-md-sticky-header]').addClass('sticky');
+  }
+  else {
+   // downscroll
+   $('[data-md-sticky-header]').removeClass('sticky');
+  }
+  CurrentScroll = NextScroll;
 });
+
 
 function updateLinksHref(links) {
   links.each(function() {
@@ -166,7 +178,7 @@ angular
     $timeout(function() {
       if (!$location.hash()) {
         window.scrollTo(0,0);
-      }
+      } 
 
       $scope.$emit('page-rendered', pageContent);
       angular.element('.colorbox-img-wrappper').colorbox({
