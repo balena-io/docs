@@ -42,12 +42,16 @@ angular
       "link": "https://resin.io/how-it-works"
     },
     {
-      "title": "Community",
+      "title": "Talk",
       "link": "http://talk.resin.io/"
     },
     {
       "title": "Blog",
       "link": "https://resin.io/blog/"
+    },
+    {
+      "title": "Pricing",
+      "link": "https://resin.io/pricing/"
     },
     {
       "title": "Team",
