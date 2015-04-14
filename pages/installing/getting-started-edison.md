@@ -250,18 +250,18 @@ So lets get on it!!!
 
 ![git pushing](/img/screenshots/git_pushing.png)
 
-A good little project to get you started is the [tty.js app][example_app] written in node.js. It will allow you to play around with terminal commands on the beaglebone from your web browser.
+A good little project to get you started is the [led blink example][example_app] written in node.js. It will allow you to blink the onboard led on the Intel Edison Arduino base board.
 To clone it, run the following in a terminal:-
 
 ```
-git clone https://github.com/resin-io/tty.js-resin.git
+git clone https://github.com/shaunmulligan/edison-blink-node.git
 ```
 
-Once the repo is cloned, cd into the newly created tty.js-resin directory and add the resin git endpoint by running the `git remote add` command shown in
+Once the repo is cloned, cd into the newly created edison-blink-node directory and add the resin git endpoint by running the `git remote add` command shown in
 the top-right corner of the application page, e.g.:-
 
 ```
-cd tty.js-resin
+cd edison-blink-node
 
 git remote add resin git@git.resin.io:joebloggs/skynet.git
 ```
@@ -274,7 +274,7 @@ friendly unicorn mascot:-
 
 ![git pushing](/img/screenshots/git_pushed.png)
 
-After the device has finished updating, you should be able to start playing around in the terminal and have a good base to start building and deploying awesome connected devices.
+After the device has finished updating, you should see a happily blinking green led on your board.
 
 If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
 
@@ -311,10 +311,10 @@ feedback and respond to any issues as soon as we can.
 [wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
 [wikihow]:http://www.wikihow.com/Main-Page
 [fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
-[example_app]:https://github.com/resin-io/tty.js-resin
+[example_app]:https://github.com/shaunmulligan/edison-blink-node
 [try-git]:https://www.codeschool.com/courses/try-git
 [code-school]:https://www.codeschool.com/
-[python-example]:https://github.com/alexandrosm/hello-python
+[python-example]:https://github.com/shaunmulligan/hello-python-edison
 
 [sparkfun-base-block]:https://learn.sparkfun.com/tutorials/sparkfun-blocks-for-intel-edison---base-block-?_ga=1.77763604.1671353836.1422802730
 [edison-arduino-breakout-board]:https://www.sparkfun.com/products/13097
