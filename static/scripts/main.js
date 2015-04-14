@@ -2,8 +2,8 @@ var CurrentScroll = 0;
 
 $(window).scroll(function() {
   var NextScroll = $(this).scrollTop();
-
-  if (NextScroll < CurrentScroll && CurrentScroll > 67){
+  console.log(CurrentScroll);
+  if (NextScroll < CurrentScroll && NextScroll > 67){
      //upscroll
      $('[data-md-sticky-header]').addClass('sticky');
   }
