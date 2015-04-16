@@ -60,7 +60,7 @@ Now you have access to all the commands referenced below.
 
 - Help
 
-	- [help [command...]](#/pages/using/cli.md#help-command...-)
+	- [help [command...]](#/pages/using/cli.md#help-command-)
 
 - Information
 
@@ -79,7 +79,7 @@ Now you have access to all the commands referenced below.
 
 - Notes
 
-	- [note &#60;|note&#62;](#/pages/using/cli.md#note-60-|note-62-)
+	- [note &#60;|note&#62;](#/pages/using/cli.md#note-60-note-62-)
 
 - OS
 
