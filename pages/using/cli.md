@@ -16,90 +16,90 @@ Now you have access to all the commands referenced below.
 
 - Application
 
-	- app create <name>
-	- apps
-	- app <name>
-	- app restart <name>
-	- app rm <name>
-	- app associate <name>
-	- init
+	- [app create <name>](#app-create-60-name-62-)
+	- [apps](#apps)
+	- [app <name>](#app-60-name-62-)
+	- [app restart <name>](#app-restart-60-name-62-)
+	- [app rm <name>](#app-rm-60-name-62-)
+	- [app associate <name>](#app-associate-60-name-62-)
+	- [init](#init)
 
 - Authentication
 
-	- whoami
-	- login [token]
-	- logout
-	- signup
+	- [whoami](#whoami)
+	- [login [token]](#login-token-)
+	- [logout](#logout)
+	- [signup](#signup)
 
 - Device
 
-	- devices
-	- device <name>
-	- device rm <name>
-	- device identify <uuid>
-	- device rename <name> [newName]
-	- devices supported
-	- device init [device]
+	- [devices](#devices)
+	- [device <name>](#device-60-name-62-)
+	- [device rm <name>](#device-rm-60-name-62-)
+	- [device identify <uuid>](#device-identify-60-uuid-62-)
+	- [device rename <name> [newName]](#device-rename-60-name-62-newName-)
+	- [devices supported](#devices-supported)
+	- [device init [device]](#device-init-device-)
 
 - Drive
 
-	- drives
+	- [drives](#drives)
 
 - Environment Variables
 
-	- envs
-	- env rm <id>
-	- env add <key> [value]
-	- env rename <id> <value>
+	- [envs](#envs)
+	- [env rm <id>](#env-rm-60-id-62-)
+	- [env add <key> [value]](#env-add-60-key-62-value-)
+	- [env rename <id> <value>](#env-rename-60-id-62-60-value-62-)
 
 - Examples
 
-	- examples
-	- example <id>
-	- example clone <id>
+	- [examples](#examples)
+	- [example <id>](#example-60-id-62-)
+	- [example clone <id>](#example-clone-60-id-62-)
 
 - Help
 
-	- help [command...]
+	- [help [command...]](#help-command...-)
 
 - Information
 
-	- version
+	- [version](#version)
 
 - Keys
 
-	- keys
-	- key <id>
-	- key rm <id>
-	- key add <name> [path]
+	- [keys](#keys)
+	- [key <id>](#key-60-id-62-)
+	- [key rm <id>](#key-rm-60-id-62-)
+	- [key add <name> [path]](#key-add-60-name-62-path-)
 
 - Logs
 
-	- logs <uuid>
+	- [logs <uuid>](#logs-60-uuid-62-)
 
 - Notes
 
-	- note <|note>
+	- [note <|note>](#note-60-|note-62-)
 
 - OS
 
-	- os download <id>
-	- os install <image> [device]
+	- [os download <id>](#os-download-60-id-62-)
+	- [os install <image> [device]](#os-install-60-image-62-device-)
 
 - Plugin
 
-	- plugins
-	- plugin install <name>
-	- plugin update <name>
-	- plugin rm <name>
+	- [plugins](#plugins)
+	- [plugin install <name>](#plugin-install-60-name-62-)
+	- [plugin update <name>](#plugin-update-60-name-62-)
+	- [plugin rm <name>](#plugin-rm-60-name-62-)
 
 - Preferences
 
-	- preferences
+	- [preferences](#preferences)
 
 - Update
 
-	- update
+	- [update](#update)
 
 # Application
 ## app create &#60;name&#62;
