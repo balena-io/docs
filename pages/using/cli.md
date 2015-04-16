@@ -16,12 +16,12 @@ Now you have access to all the commands referenced below.
 
 - Application
 
-	- [app create <name>](#/pages/using/cli.md#app-create-60-name-62-)
+	- [app create &#60;name&#62;](#/pages/using/cli.md#app-create-60-name-62-)
 	- [apps](#/pages/using/cli.md#apps)
-	- [app <name>](#/pages/using/cli.md#app-60-name-62-)
-	- [app restart <name>](#/pages/using/cli.md#app-restart-60-name-62-)
-	- [app rm <name>](#/pages/using/cli.md#app-rm-60-name-62-)
-	- [app associate <name>](#/pages/using/cli.md#app-associate-60-name-62-)
+	- [app &#60;name&#62;](#/pages/using/cli.md#app-60-name-62-)
+	- [app restart &#60;name&#62;](#/pages/using/cli.md#app-restart-60-name-62-)
+	- [app rm &#60;name&#62;](#/pages/using/cli.md#app-rm-60-name-62-)
+	- [app associate &#60;name&#62;](#/pages/using/cli.md#app-associate-60-name-62-)
 	- [init](#/pages/using/cli.md#init)
 
 - Authentication
@@ -34,10 +34,10 @@ Now you have access to all the commands referenced below.
 - Device
 
 	- [devices](#/pages/using/cli.md#devices)
-	- [device <name>](#/pages/using/cli.md#device-60-name-62-)
-	- [device rm <name>](#/pages/using/cli.md#device-rm-60-name-62-)
-	- [device identify <uuid>](#/pages/using/cli.md#device-identify-60-uuid-62-)
-	- [device rename <name> [newName]](#/pages/using/cli.md#device-rename-60-name-62-newName-)
+	- [device &#60;name&#62;](#/pages/using/cli.md#device-60-name-62-)
+	- [device rm &#60;name&#62;](#/pages/using/cli.md#device-rm-60-name-62-)
+	- [device identify &#60;uuid&#62;](#/pages/using/cli.md#device-identify-60-uuid-62-)
+	- [device rename &#60;name&#62; [newName]](#/pages/using/cli.md#device-rename-60-name-62-newname-)
 	- [devices supported](#/pages/using/cli.md#devices-supported)
 	- [device init [device]](#/pages/using/cli.md#device-init-device-)
 
@@ -48,15 +48,15 @@ Now you have access to all the commands referenced below.
 - Environment Variables
 
 	- [envs](#/pages/using/cli.md#envs)
-	- [env rm <id>](#/pages/using/cli.md#env-rm-60-id-62-)
-	- [env add <key> [value]](#/pages/using/cli.md#env-add-60-key-62-value-)
-	- [env rename <id> <value>](#/pages/using/cli.md#env-rename-60-id-62-60-value-62-)
+	- [env rm &#60;id&#62;](#/pages/using/cli.md#env-rm-60-id-62-)
+	- [env add &#60;key&#62; [value]](#/pages/using/cli.md#env-add-60-key-62-value-)
+	- [env rename &#60;id&#62; &#60;value&#62;](#/pages/using/cli.md#env-rename-60-id-62-60-value-62-)
 
 - Examples
 
 	- [examples](#/pages/using/cli.md#examples)
-	- [example <id>](#/pages/using/cli.md#example-60-id-62-)
-	- [example clone <id>](#/pages/using/cli.md#example-clone-60-id-62-)
+	- [example &#60;id&#62;](#/pages/using/cli.md#example-60-id-62-)
+	- [example clone &#60;id&#62;](#/pages/using/cli.md#example-clone-60-id-62-)
 
 - Help
 
@@ -69,29 +69,29 @@ Now you have access to all the commands referenced below.
 - Keys
 
 	- [keys](#/pages/using/cli.md#keys)
-	- [key <id>](#/pages/using/cli.md#key-60-id-62-)
-	- [key rm <id>](#/pages/using/cli.md#key-rm-60-id-62-)
-	- [key add <name> [path]](#/pages/using/cli.md#key-add-60-name-62-path-)
+	- [key &#60;id&#62;](#/pages/using/cli.md#key-60-id-62-)
+	- [key rm &#60;id&#62;](#/pages/using/cli.md#key-rm-60-id-62-)
+	- [key add &#60;name&#62; [path]](#/pages/using/cli.md#key-add-60-name-62-path-)
 
 - Logs
 
-	- [logs <uuid>](#/pages/using/cli.md#logs-60-uuid-62-)
+	- [logs &#60;uuid&#62;](#/pages/using/cli.md#logs-60-uuid-62-)
 
 - Notes
 
-	- [note <|note>](#/pages/using/cli.md#note-60-|note-62-)
+	- [note &#60;|note&#62;](#/pages/using/cli.md#note-60-|note-62-)
 
 - OS
 
-	- [os download <id>](#/pages/using/cli.md#os-download-60-id-62-)
-	- [os install <image> [device]](#/pages/using/cli.md#os-install-60-image-62-device-)
+	- [os download &#60;id&#62;](#/pages/using/cli.md#os-download-60-id-62-)
+	- [os install &#60;image&#62; [device]](#/pages/using/cli.md#os-install-60-image-62-device-)
 
 - Plugin
 
 	- [plugins](#/pages/using/cli.md#plugins)
-	- [plugin install <name>](#/pages/using/cli.md#plugin-install-60-name-62-)
-	- [plugin update <name>](#/pages/using/cli.md#plugin-update-60-name-62-)
-	- [plugin rm <name>](#/pages/using/cli.md#plugin-rm-60-name-62-)
+	- [plugin install &#60;name&#62;](#/pages/using/cli.md#plugin-install-60-name-62-)
+	- [plugin update &#60;name&#62;](#/pages/using/cli.md#plugin-update-60-name-62-)
+	- [plugin rm &#60;name&#62;](#/pages/using/cli.md#plugin-rm-60-name-62-)
 
 - Preferences
 
