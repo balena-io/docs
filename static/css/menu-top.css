@@ -481,3 +481,7 @@ fieldset[disabled] .menu__item--btn-group .btn.active {
     width: 100%;
   }
 }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
