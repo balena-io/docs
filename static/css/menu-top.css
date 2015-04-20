@@ -300,7 +300,7 @@ fieldset[disabled] .menu__item--btn-group .btn.active {
      padding: 15px 0;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .menu__logo {
     margin-left: -30px;
   }
@@ -474,4 +474,10 @@ fieldset[disabled] .menu__item--btn-group .btn.active {
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .container {
+    width: 100%;
+  }
 }

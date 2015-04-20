@@ -1,3 +1,13 @@
+window.onload = function () {
+    // fix first page load anchor issue
+    if (window.location.hash) {
+      var url = window.location.hash;
+      var divid = url.split('#');
+      var hash = document.getElementById(divid[2]);
+      hash.scrollIntoView()
+    }
+}
+
 var CurrentScroll = 0;
 
 $(window).scroll(function() {
