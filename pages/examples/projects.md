@@ -128,6 +128,12 @@ Resin.io offers you the flexibility to deploy your application from a custom Doc
 
 Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, resin.io allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
 
+### Safe-deposit box with Two-Factor Authentication
+
+[Repository][safebox]
+
+A safe-deposit box that requires 2FA to open (inputting a passcode and an SMS code). Powered by a resin.io Raspberry Pi 2, and using [Authy][authy] for 2FA. More information on [this blog post][safebox-blog].
+
 ##Community Built Projects
 
 These are just some of the awesome projects built by resin.io users.
@@ -182,7 +188,7 @@ visualisation at [123k.de](http://123k.de).
 [sonos-clone]:https://github.com/resin-io/music-player-device
 [clonos-frontend]:https://github.com/resin-io/music-player-web
 [grovepi-humidity]:https://github.com/shaunmulligan/grovePi
-
+[safebox]:https://github.com/resin-io/resin-safebox
 
 <!-- ###Community Project Links -->
 
@@ -240,3 +246,5 @@ visualisation at [123k.de](http://123k.de).
 [kiosk-post]:http://blogs.wcode.org/2013/09/howto-boot-your-raspberry-pi-into-a-fullscreen-browser-kiosk/
 [twillio]:https://www.twilio.com/
 [zettajs-website]:http://www.zettajs.org/
+[authy]:http://authy.com
+[safebox-blog]:https://resin.io/blog/two-factor-authentication-in-the-real-world/
