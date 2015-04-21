@@ -20,8 +20,10 @@
 * [Dockerfile Guide](/pages/using/dockerfile.md)
 * [Optimise your builds](/pages/using/build-optimisation.md)
 * [Runtime Environment](/pages/using/runtime.md)
+* [Environment variables](/pages/using/env-vars.md)
 * [Using the Web Terminal](/pages/using/terminal.md)
 * [Wifi Guide](/pages/using/wifi.md)
+* [CLI Reference](/pages/using/cli.md)
 
 ### [Managing Resin.io](/pages/managing/applications.md)
 
