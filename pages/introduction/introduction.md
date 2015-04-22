@@ -6,7 +6,7 @@ To get started with resin.io, first read [understanding resin.io][understanding]
 
 Have fun! 
 
-If you have any further questions drop us mail **hello at resin dot io**.
+If you have any further questions drop us a mail **hello@resin.io**.
 
 [resin]:http://resin.io
 [installing]:/pages/installing/gettingStarted.md
