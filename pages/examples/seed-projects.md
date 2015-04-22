@@ -81,6 +81,7 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [python]:https://www.python.org/
 [ruby]:https://www.ruby-lang.org/en/
 [dotnet-lib]:https://github.com/ResinIoDotNetExamples
+[node]:https://nodejs.org/
 
 [simple-nodejs]:https://github.com/resin-io/basic-resin-node-project
 [hello-dotnet]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld
