@@ -45,7 +45,7 @@ Sets up a samba share that you can use to send and receive files to your Raspber
 
 A simple application that makes your device speak out loud.
 
-### occupied
+### Occupied
 
 [Repository][occupied] by [Craig Mulligan][craig-mulligan]
 
