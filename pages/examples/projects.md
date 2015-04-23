@@ -109,9 +109,10 @@ Example application for interfacing with a temperature probe using
 
 ### SMS to Speech
 
-[Repository][sms2speech] by [Alexandros Marinos][alex]
+Node.js: [Repository][sms2speech] by [Alexandros Marinos][alex]
+Python: [Repository][sms2speech_python] by [Nikitas Chronas][nchronas]
 
-A simple tool which uses [Twillio][twillio] to read out incoming SMS messages.
+A simple tool which uses [Twillio][twillio] to read out incoming SMS messages. More information on [this blog post][sms2speech-blog].
 
 ### Simple Digitiser Kiosk
 
@@ -189,6 +190,7 @@ visualisation at [123k.de](http://123k.de).
 [clonos-frontend]:https://github.com/resin-io/music-player-web
 [grovepi-humidity]:https://github.com/shaunmulligan/grovePi
 [safebox]:https://github.com/resin-io/resin-safebox
+[sms2speech_python]:https://github.com/resin-io/sms2speech_python
 
 <!-- ###Community Project Links -->
 
@@ -216,6 +218,7 @@ visualisation at [123k.de](http://123k.de).
 [alex]:https://github.com/alexandrosm
 [petrosagg]:https://github.com/petrosagg
 [nghiant2710]:https://github.com/nghiant2710
+[nchronas]:https://github.com/nchronas
 
 <!-- ###Community Github name links -->
 
@@ -248,3 +251,4 @@ visualisation at [123k.de](http://123k.de).
 [zettajs-website]:http://www.zettajs.org/
 [authy]:http://authy.com
 [safebox-blog]:https://resin.io/blog/two-factor-authentication-in-the-real-world/
+[sms2speech-blog]:https://resin.io/blog/sms-to-speech/
