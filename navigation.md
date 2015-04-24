@@ -47,6 +47,7 @@
 * [Advanced Boot Configuration](/pages/configuration/advanced.md)
 * [Custom Network Configuration](/pages/configuration/custom-network.md)
 * [SSH Keys for Multiple Accounts](/pages/configuration/multi-account.md)
+* [Resin Base Images](/pages/configuration/resin-base-images.md)
 
 ### [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 
