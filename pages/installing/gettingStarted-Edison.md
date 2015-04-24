@@ -92,14 +92,9 @@ In order to put the new resinOS firmware on the Edison we need a special tool ca
 
 ##### dfu-util on Mac OSX
 
-For this step you will need either [Homebrew](homebrew-link) or [MacPorts](macports-link) to install dfu-util, coreutils, and gnu-getopt
-**Using Homebrew:**
-`brew install dfu-util gnu-getopt coreutils`
-**Using MacPorts:**
-`sudo port install dfu-util gnu-getopt coreutils`
+For this step you will need [MacPorts](macports-link) to install dfu-util, coreutils, and gnu-getopt
 
-if you get errors it may help to run the following:
-`brew update && brew tap jlhonora/lsusb && brew install lsusb`
+`sudo port install dfu-util gnu-getopt coreutils`
 
 ##### dfu-util on Windows
 
