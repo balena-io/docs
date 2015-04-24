@@ -94,7 +94,6 @@ In order to put the new resinOS firmware on the Edison we need a special tool ca
 
 For this step you will need [MacPorts](macports-link) to install dfu-util, coreutils, and gnu-getopt
 
-**Using MacPorts:**
 `sudo port install dfu-util gnu-getopt coreutils`
 
 ##### dfu-util on Windows
