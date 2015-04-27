@@ -1,6 +1,6 @@
 # Code Snippets
 
-This is just a small collection of base projects to get you started. The focus on specific functionality and are a nice base to start a project from.
+This is a small collection of base projects to get you started. The focus on specific functionality and are a nice base to start a project from.
 
 ## Installing a Project
 
@@ -67,6 +67,12 @@ library to interface with [GPIO][gpio].
 
 A simple application that shows you how to toggle the general purpose I/O pins on the raspberry pi using python.
 
+### Example servo motor control in node.js
+
+[Repository][servo-motor-node] by [Craig Mulligan][craig-mulligan]
+
+A simple application that shows you how to issue commands to a servo motor using pi-blaster.
+
 
 <!-- ###Code Snippets Links -->
 
@@ -80,8 +86,9 @@ A simple application that shows you how to toggle the general purpose I/O pins o
 [resin-ssh]:https://github.com/shaunmulligan/resin-ssh
 [resin-ssh-node]:https://github.com/craig-mulligan/resin-ssh-node
 [text2speech]:https://github.com/resin-io/text2speech
+[servo-motor-node]:https://github.com/craig-mulligan/resin-servo-node
 
-<!-- ###Team Github name links-->
+<!-- ###Team Github name links -->
 
 [shaun-mulligan]:https://github.com/shaunmulligan
 [craig-mulligan]:https://github.com/craig-mulligan
@@ -90,3 +97,8 @@ A simple application that shows you how to toggle the general purpose I/O pins o
 [alex]:https://github.com/alexandrosm
 [petrosagg]:https://github.com/petrosagg
 [nghiant2710]:https://github.com/nghiant2710
+
+<!-- ###general -->
+[deploy]:/pages/using/deployment.md
+[getting-started]:/pages/installing/gettingStarted.md
+[resin]:https://resin.io
