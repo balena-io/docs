@@ -95,3 +95,8 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [ruby-dockerfile]:https://github.com/resin-io/Hello-Ruby/blob/master/Dockerfile
 
 [martincalsyn]: https://github.com/martincalsyn
+
+<!-- ###general -->
+[deploy]:/pages/using/deployment.md
+[getting-started]:/pages/installing/gettingStarted.md
+[resin]:https://resin.io
