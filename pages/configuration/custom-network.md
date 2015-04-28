@@ -4,9 +4,11 @@
 
 ### Multiple WiFi Networks
 
-We hope to eventually implement the ability to use Multiple WiFi SSIDs in the resin.io user interface however for the time being you can add this functionality manually by editing a configuration file on your SD card.
+We hope to eventually implement the ability to use Multiple WiFi SSIDs in the resin.io user interface however for the time being you can add this functionality manually by editing a configuration file on your `img`.
 
-In order to add additional networks edit`/resin/network/network.config` on the SD card either prior to the first execution of the device or on the `RECOVERY` partition after first execution.
+On the Raspberry Pi and Beaglebone, it is possible to change your wifi SSID or Passphrase after downloading by changing a configuration file inside of the downloaded OS image (`.img`). 
+
+Currently this can be done using the small config [writer tool](https://github.com/petrosagg/resin-net-config). This is a temporary tool and will be phased out very soon.
 
 You will see an entry for the WiFi network you specified in the UI (if you did specify one) like this:-
 
