@@ -11,11 +11,11 @@ things should you configure them incorrectly - tread carefully!
 The Raspberry Pi exposes device configuration options via a text file on the
 boot medium, `config.txt` - you change boot options simply by editing this file.
 
-__Note:__ You will only find the `config.txt` file after first boot, it can then easily be found in the `BOOT` partition of the SD card.
+__Note:__ You will only find the `config.txt` file after first boot, it can then easily be found in the `boot-raspbe` partition of the SD card.
 
 #### Post-Boot
 
-The `config.txt` is located in the root of the `BOOT` partition.
+The `config.txt` is located in the root of the `boot-raspbe` partition.
 
 ### GPU Memory
 

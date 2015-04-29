@@ -41,6 +41,21 @@ before your start scripts in either your package.json or Dockerfile `CMD` comman
 
 An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-link] project.
 
+## Raspberry Pi camera module
+
+In order to work with the Raspberry Pi camera module you will need to do the following:
+
+* Edit the `config.txt` in `boot-raspbe` partition of the SD card and append the following lines.
+
+```
+gpu_mem=128
+start_file=start_x.elf
+fixup_file=fixup_x.dat
+```
+* Add `modprobe bcm2835-v4l2` before your start scripts in either your package.json or Dockerfile `CMD` command.
+
+An example of this is shown in our [Raspberry Pi python picamera][picamera-link] project.
+
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
 [i2c-example]:https://github.com/shaunmulligan/resin-rpi-py-ADC
@@ -48,3 +63,4 @@ An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-li
 [digitiser-link]:https://github.com/shaunmulligan/digitiser
 [firebaseTemp-link]:https://github.com/shaunmulligan/firebaseDTL
 [spi-npm]:https://www.npmjs.com/package/spi
+[picamera-link]:https://github.com/resin-projects/resin-rpi-python-picamera
