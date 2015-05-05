@@ -45,7 +45,7 @@ An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-li
 
 In order to work with the Raspberry Pi camera module you will need to do the following:
 
-* Edit the `config.txt` in `boot-raspbe` partition of the SD card and append the following lines.
+* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following lines.
 
 ```
 gpu_mem=128
