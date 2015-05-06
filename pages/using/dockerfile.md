@@ -97,17 +97,6 @@ CMD ["python", "/app/hello.py"]
 
 And finally we need to actually make our container do something great, so we do that by telling python to run our awesome hello.py script, which it can find at "/app/hello.py" because it was kindly placed there by the COPY command.
 
-__NOTE:__ From time to time you may see some older resin.io code that has /start in its dockerfile, as shown below. This is legacy code and should be avoided, however it will still work. 
-
-```
-RUN echo python app/hello.py > /start
-RUN chmod +x /start
-```
-
-In the old way of doing things, we create the `start` file which resin.io will run on our devices. We simply use `RUN` to `echo` the command to start our Python script then use `chmod` to mark it executable.
-
-At this point we're done - resin.io will build this container on the build server and automatically run `start` on all our devices!
-
 ## Dockerfiles for Other Programming Languages
 
 There are a number of example Dockerfiles available for different languages listed on the [projects page][starter-projects].
