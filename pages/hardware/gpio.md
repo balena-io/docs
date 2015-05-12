@@ -2,6 +2,8 @@
 
 ## Raspberry Pi
 
+__NOTE:__ The `GPIO4` and `GPIO5` ports (`GPIO5` is only available on the B+ and Raspberry Pi 2 devices) are currently reserved by us and therefore unavailable for use, attempts to use these pins will result in `EBUSY` error codes. We will soon remove this restriction, but for the time being avoid using these.
+
 The [Raspberry Pi][rpi]'s [General Purpose I/O][gpio] (GPIO) pins can be used to send and receive arbitrary data from external hardware. In the diagram shown below the GPIO pins are located in the top-right hand corner of the device:-
 
 ![Raspberry Pi](/img/rpi.svg)
@@ -61,7 +63,7 @@ __NOTE:__ If you have a 26-pin device, it's almost certainly a Raspberry Pi B re
 | 3.3v | 5v  |
 | 0    | 5v  |
 | 1    | GND |
-| 4    | 14  |
+| 4    | 14  | (IMPORTANT: GPIO4 unavailable)
 | GND  | 15  |
 | 17   | 18  |
 | 21   | GND |
@@ -79,7 +81,7 @@ __NOTE:__ If you have a 26-pin device, it's almost certainly a Raspberry Pi B re
 | 3.3v | 5v  |
 | 2    | 5v  |
 | 3    | GND |
-| 4    | 14  |
+| 4    | 14  | (IMPORTANT: GPIO4 unavailable)
 | GND  | 15  |
 | 17   | 18  |
 | 27   | GND |
@@ -90,14 +92,14 @@ __NOTE:__ If you have a 26-pin device, it's almost certainly a Raspberry Pi B re
 | 11   | 8   |
 | GND  | 7   |
 
-### Raspberry Pi B+
+### Raspberry Pi B+ / Raspberry Pi 2
 
 | Left |Right|
 |------|-----|
 | 3.3v | 5v  |
 | 2    | 5v  |
 | 3    | GND |
-| 4    | 14  |
+| 4    | 14  | (IMPORTANT: GPIO4 unavailable)
 | GND  | 15  |
 | 17   | 18  |
 | 27   | GND |
@@ -108,7 +110,7 @@ __NOTE:__ If you have a 26-pin device, it's almost certainly a Raspberry Pi B re
 | 11   | 8   |
 | GND  | 7   |
 | ---  | --- |
-| 5    | GND |
+| 5    | GND | (IMPORTANT: GPIO5 unavailable)
 | 6    | 12  |
 | 13   | GND |
 | 19   | 16  |
