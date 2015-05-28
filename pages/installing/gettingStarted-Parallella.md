@@ -65,13 +65,15 @@ To create your first application simply type in a name, select Parallella as you
 ![Creating an Application](/img/screenshots/create-app.png)
 
 ## Adding Your First Device
+
 <!-- TODO: add images for RPI2 specifically -->
-![Empty Application Page](/img/parallella/image-download-parallella.png)
+<!-- ![Empty Application Page](/img/parallella/image-download-parallella.png) -->
 
 This is the application dashboard where all of the devices connected to your
-application will be shown along with their statuses and logs. 
+application will be shown along with their statuses and logs.   
 
 Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify some configuration information for your parallella.
+
 You will need to select how your device connects to the internet - either via an ethernet cable or wifi, in which case you can specify your Wifi network's SSID and passphrase. You will additionally need to select your processor type, either **Z7010** or **Z7020** and the number of cores your co-processor has. Finally, you have the ability to enable HDMI on the board as well.
 
 Once you have selected your board configuration, click the `Download Device OS` button to get the resin.io operating system image for your application.
@@ -80,10 +82,12 @@ Once you have selected your board configuration, click the `Download Device OS` 
 
 While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
-<!-- TODO: change file download name if neccessary -->
-Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.14.img` where "myApp" is the name you gave your application on the dashboard. 
 
-Now we have to burn the downloaded `.img` file onto the SD card. There are a couple of ways to do this depending on your host computer's operating system. We have listed a few below.
+
+Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.14.img` where **myApp** is the name you gave your application on the dashboard.
+<!-- TODO: change file download name if neccessary -->
+Now we have to burn the downloaded `.img` file onto the SD card. There are a number of ways of doing this depending on your host operating system. We have listed a few below:
+
 
 ## Burning the OS image onto the SD card
 
@@ -186,6 +190,7 @@ The terminal will also say:
 -----> Uploading image..
        Image uploaded successfully!
 ```
+
 This means your code is safely on our servers and will be downloaded and executed by all the devices you have connected to your application. You may have to wait a little while for the code to start running on your devices. You can see the progress of the device code updates on the device dashboard:
 <!-- TODO: add images for Parallella specifically -->
 <!-- ![Code updating](/img/screenshots/rpi-app-updating.png) -->
