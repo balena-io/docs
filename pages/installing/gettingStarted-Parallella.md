@@ -66,9 +66,7 @@ To create your first application simply type in a name, select Parallella as you
 
 ## Adding Your First Device
 
-<!-- TODO: add images for RPI2 specifically -->
-<!-- ![Empty Application Page](/img/parallella/image-download-parallella.png) -->
-
+![Empty Application Page](/img/parallella/image-download-parallella.png)
 This is the application dashboard where all of the devices connected to your
 application will be shown along with their statuses and logs.   
 
@@ -79,13 +77,11 @@ You will need to select how your device connects to the internet - either via an
 Once you have selected your board configuration, click the `Download Device OS` button to get the resin.io operating system image for your application.
 
 ![Empty Application Page](/img/parallella/wifi-settings-parallella.png)
-
 While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
-
 Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.14.img` where **myApp** is the name you gave your application on the dashboard.
-<!-- TODO: change file download name if neccessary -->
+
 Now we have to burn the downloaded `.img` file onto the SD card. There are a number of ways of doing this depending on your host operating system. We have listed a few below:
 
 
