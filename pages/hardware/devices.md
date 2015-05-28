@@ -22,6 +22,12 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![Intel Edison](/img/edison.jpg)
 
+### Parallella Board
+
+[link](https://www.parallella.org/board/)
+
+![NUC](/img/parallella-board.jpg)
+
 ## To Be Supported Very Soon
 
 ### NUC
@@ -29,12 +35,6 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 [link](http://www.intel.com/content/www/us/en/nuc/overview.html)
 
 ![NUC](/img/nuc.jpg)
-
-### Parallella Board
-
-[link](https://www.parallella.org/board/)
-
-![NUC](/img/parallella-board.jpg)
 
 ### Freescale i.MX6 Sabre Lite
 
