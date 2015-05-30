@@ -216,7 +216,7 @@ feedback and respond to any issues as soon as we can.
 [managing_devices_apps]:/pages/managing/applications.md
 [wifi]:/pages/using/wifi.md
 [supported]:/pages/hardware/devices.md
-[dockerfile]:/pages/pages/using/dockerfile.md
+[dockerfile]:/pages/using/dockerfile.md
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
