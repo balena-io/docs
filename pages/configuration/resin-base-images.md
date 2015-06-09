@@ -2,7 +2,7 @@
 
 This wiki page contains all information about images on Resin registry.
 
-## Base Images:
+## <a name="base-images"></a>Base Images:
 
 These are base images for different arch: armv6, armv7, i386.
 
@@ -18,7 +18,7 @@ Detail of installed packages on each image are listed at the end.
 
 ## Resin-io-library Images:
 
-### buildpack-deps
+### <a name="buildpack-deps"></a>buildpack-deps
 
 A collection of common build dependencies used for installing various modules, e.g., gems. it has 2 variants which are:
 
@@ -37,7 +37,7 @@ There are specific buildpack-deps images for each arch:
 | scm | respective curl images | bzr, git, mercurial, openssh-client, subversion | scm, jessie-scm, wheezy-scm, sid-scm (only for armv7) |
 | buildpack-deps | respective scm images | autoconf, build-essential, imagemagick, libbz2-dev, libcurl4-openssl-dev, libevent-dev, libffi-dev, libglib2.0-dev, libjpeg-dev, libmagickcore-dev, libmagickwand-dev, libmysqlclient-dev, libncurses-dev, libpq-dev, libreadline-dev, libsqlite3-dev, libssl-dev, libxml2-dev, libxslt-dev, libyaml-dev, zlib1g-dev | latest, jessie, wheezy, sid (only for armv7) |
 
-### docker-node
+### <a name="node"></a>docker-node
 
 This is a set of images with node.js binary installed. The node images come in many flavors, each designed for a specific use case.
 
