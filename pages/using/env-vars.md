@@ -4,7 +4,7 @@ Environment variables allow you to provide runtime configuration to your applica
 
 You can use them to keep secrets and other sensitive values out of your code base.
 
-Resin provides two kinds of environment variablesL application-wide and per-device.
+Resin provides two kinds of environment variables application-wide and per-device.
 
 ## Application-wide Environment Variables
 
