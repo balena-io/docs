@@ -13,6 +13,7 @@
 * [Beaglebone Black](/pages/installing/gettingStarted-BBB.md)
 * [Intel Edison (EXPERIMENTAL)](/pages/installing/gettingStarted-Edison.md)
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
+* [Humming Board](/pages/installing/gettingStarted-Humming.md)
 * [Two Factor Authentication](/pages/installing/2fa.md)
 
 ### [Using Resin.io](/pages/using/deployment.md)

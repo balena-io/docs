@@ -26,7 +26,13 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 [link](https://www.parallella.org/board/)
 
-![NUC](/img/parallella-board.jpg)
+![Parallella](/img/parallella-board.jpg)
+
+### Humming Board
+
+[link](http://www.solid-run.com/products/hummingboard/)
+
+![Humming Board](/img/hummingBoard.png)
 
 ## To Be Supported Very Soon
 
