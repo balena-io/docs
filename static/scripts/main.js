@@ -214,7 +214,7 @@ angular
         var url = location.href;
         url = url.replace(/#\w.+/, '')
         url += '#' + el.attr('id')
-
+        
         el.append(' <a class="hash" href="' + url + '">#</a>')
       }
     }

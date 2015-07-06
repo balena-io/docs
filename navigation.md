@@ -25,6 +25,7 @@
 * [Using the Web Terminal](/pages/using/terminal.md)
 * [Wifi Guide](/pages/using/wifi.md)
 * [CLI Reference](/pages/using/cli.md)
+* [SDK Reference](/pages/using/sdk.md)
 
 ### [Managing Resin.io](/pages/managing/applications.md)
 
