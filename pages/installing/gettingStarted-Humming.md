@@ -51,7 +51,7 @@ corner ([we use][github_ssh_blogpost] GitHub's [public APIs][github_apis] to
 retrieve this data.)
 
 ## Creating Your First Application
-<!-- TODO: change this so (Preview) is not there! -->
+
 ![Creating an Application](/img/Humming/create_application_Humming.png)
 
 
