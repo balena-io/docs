@@ -8,9 +8,9 @@ These are base images for different arch: armv6, armv7, i386.
 
 | Image | Arch | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
-| resin/rpi-raspbian | armv6 | minbase, sudo | [dockerhub][rpi-dockerhub-link] | latest, jessie, wheezy |
-| resin/armv7hf-debian | armv7 | minbase, sudo | [dockerhub][armv7hf-dockerhub-link] | latest, jessie, wheezy, sid | 
-| resin/i386-debian | i386 | minbase, sudo | [dockerhub][i386-dockerhub-link] | latest, jessie, wheezy |
+| resin/rpi-raspbian | armv6 | minbase, sudo | [dockerhub][rpi-dockerhub-link], [github][rpi-github-link] | latest, jessie, wheezy |
+| resin/armv7hf-debian | armv7 | minbase, sudo | [dockerhub][armv7hf-dockerhub-link], [github][armv7hf-github-link] | latest, jessie, wheezy, sid | 
+| resin/i386-debian | i386 | minbase, sudo | [dockerhub][i386-dockerhub-link], [github][i386-github-link] | latest, jessie, wheezy |
 
 __Note:__ minbase is a variant of image built by debootstrap which means only essential packages and apt installed.
 
@@ -62,6 +62,9 @@ There are specific docker-node images for each arch. Available node versions can
 [rpi-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-raspbian/
 [armv7hf-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-debian/
 [i386-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-debian/
+[rpi-github-link]:https://github.com/resin-io-library/resin-rpi-raspbian/
+[armv7hf-github-link]:https://github.com/resin-io-library/resin-armhfv7-debian/
+[i386-github-link]:https://github.com/resin-io-library/resin-i386-debian/
 [rpi-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-buildpack-deps/
 [armv7hf-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-buildpack-deps/
 [i386-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-buildpack-deps/
