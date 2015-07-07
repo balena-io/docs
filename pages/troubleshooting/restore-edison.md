@@ -1,11 +1,11 @@
-## Help I bricked my Edison
+## Help, I bricked my Edison
 
-So your Edison is unresponsive or for some bazaar reason you want to restore your Edison
+So your Edison is unresponsive or for some bizarre reason you want to restore your Edison
 to its unresinified state.
 
-Its pretty easy to reflash the boring old Intel Yocto image onto the Edison. Just follow these steps.
+It's pretty easy to reflash the boring old Intel Yocto image onto the Edison. Just follow these steps.
 
-* Go to the [Intel Edison Downloads page][edison-dl-page] and download the latest version of Intel Edison® Board Firmware Software Release 2.1. At the time of writing it is [Release 2.1 Yocto* complete image][dl-link].
+* Go to the [Intel Edison Downloads page][edison-dl-page] and download the latest version of Intel Edison® Board Firmware Software Release. At the time of writing it is [Release 2.1 Yocto* complete image][dl-link].
 * While you are on the downloads page, also download and install Intel's Flash Tool Lite. The setup guide for this tool can be found [here][flash-tool-setup].
 * Once you have the Flash tool setup and your new edison image is downloaded, unzip the file.
 * Now start the Flash Tool Lite with the Edison disconnected from your computer. Select the blue browse button in the top right of the flash tool. In the file navigator, find your downloaded folder that contains the Edison OS and in that folder select the file `FlashEdison.json`.
@@ -22,7 +22,7 @@ You will notice that a small warning pops up noting that no device is connected.
 
 ![Flashing progress](/img/edison/flashtool-flashing.png)
 
-* After a few minutes you the flashing process should have completed successfully and you flash tool will look something like this:
+* After a few minutes the flashing process should have completed successfully and your flash tool will look something like this:
 
 ![Flashing complete](/img/edison/flashtool-complete.png)
 
