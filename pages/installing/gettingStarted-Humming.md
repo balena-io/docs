@@ -7,7 +7,7 @@
 * A [Humming Board i2][humming-link] from [Solid Run][solid-run]. Currently we only support the `i2` device type.
 
 * A 4GB or larger SD card.
-  The [Humming Board i2][humming-link] uses a Micro SD card. The [speed class][speed_class] of
+  The [Humming Board i2][humming-link] uses a microSD card. The [speed class][speed_class] of
   the card also matters - this determines its maximum transfer rate. We strongly
   recommend you get hold of a class 10 card or above.
 
@@ -75,7 +75,7 @@ While the file downloads, ensure your SD card is formatted in [FAT32][fat32] ([W
 
 Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.14.img` where myApp is the name you gave your application on the dashboard.
 
-Now we have to burn the downloaded image on to the SD card. There are a couple of ways to do this, depending on your host computer operating system. We have listed a few below.
+Now we have to burn the downloaded image on to the SD card. There are a couple of ways to do this, depending on your operating system. We have listed a few below.
 
 ## Burning the OS image onto the SD
 
@@ -114,7 +114,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write the SD card. This can 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Humming.md#setting-up-your-device)
+Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Humming.md#setting-up-your-device)
 
 ### Windows
 
@@ -122,7 +122,7 @@ To burn OS images to SD cards on windows, you will need to install [Win32 disk i
 
 Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your hummingBoard image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.14.img`.
 
-Next insert your SD card into your host computer and in the Win32DiskImager GUI, select your SD card when it appears.
+Next insert your SD card into your computer and in the Win32DiskImager GUI, select your SD card when it appears.
 
 __NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines harddisk.
 
@@ -153,7 +153,7 @@ A good little project to get you started is this [simple webserver][example_app_
 
 To clone it, run the following in a terminal:-
 ```
-git clone git@github.com:resin-projects/simple-server-node.git
+git clone https://github.com/resin-projects/simple-server-node.git
 ```
 
 Once the repo is cloned, change directory into the newly created `simple-server-node` directory and add the resin git remote endpoint by running the `git remote add` command shown in the top-right corner of the application page, e.g.:-

@@ -133,7 +133,7 @@ Click continue and piFiller will write to the SD card. This can take 5-25 minute
 
 To burn OS images to SD cards on Windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
-Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your beaglebone image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.4.img`.
+Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your Raspberry Pi image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.4.img`.
 
 Next insert your SD card into your host computer and in the Win32DiskImager GUI, select your SD card when it appears.
 
