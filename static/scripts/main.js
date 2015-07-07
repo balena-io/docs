@@ -31,6 +31,13 @@ function updateLinksHref(links) {
   });
 }
 
+function updateAnchorHref(links, route) {
+  links.each(function() {
+    var href = $(this).attr('href');
+    $(this).attr('href', '/#/pages/' + route + '/' + href);
+  });
+}
+
 var GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/gh-pages';
 
 angular
@@ -113,6 +120,7 @@ angular
         preparedHtmlEl.find('h2,h3,h4,h5,h6').attr('anchor', '');
 
         updateLinksHref(preparedHtmlEl.find('a[href^="/pages"]'));
+        updateAnchorHref(preparedHtmlEl.find('a[href^="#"]'), pageName);
 
         return preparedHtmlEl.html();
       });
