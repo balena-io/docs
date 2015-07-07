@@ -24,6 +24,12 @@ If you are presented with a 'recovery login' prompt this usually indicates an is
 ### I can't get my beaglebone to reprovision.
 In order to reprovison a beaglebone that has already been connected to the resin.io service, you need to remove a file named something like `REMOVE_TO_REPROVISION_54BE-BCEB` from the SD card. You should then be able to pop the SD card back into the beaglebone and power it up again, while holding down the small `s1` button like you did when you did the original provisioning.
 
+## Intel Edison
+
+### Help, I want to restore my Edison to factory Yocto
+
+If you are one of the unfortunate people who feel they want to return to the old Yocto build of the Edison you can have a look over here on our guide to [restore original Edison firmware](/pages/troubleshooting/restore-edison.md).
+
 ## General
 
 ### The 'Start the Terminal Session' Button Doesn't Appear
@@ -39,4 +45,3 @@ If a terminal window flashes up then disappears, this is usually due to your app
 ### Terminal Closes On Update
 
 When you push updates, the terminal session is automatically closed. To restart the terminal session, simply close the terminal session and restart it once the update is complete.
-
