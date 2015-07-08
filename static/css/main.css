@@ -297,3 +297,9 @@ ul.expand {
     color: #6b6d73 !important;
   }
 }
+
+/*SDK hacks FIX*/
+#resin-code-object-code- {
+  padding-top: 50px;
+  margin-top: 0;
+}
