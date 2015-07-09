@@ -151,10 +151,15 @@ article .sticky {
   margin-bottom: 27px;
 }
 
+.page-content h5 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
 .page-content h4 {
   margin-top: 33px;
-  margin-bottom: 15px;
-  font-size: 16px;
+  margin-bottom: 18px;
+  font-size: 18px;
   font-weight: 600;
 }
 
