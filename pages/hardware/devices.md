@@ -28,6 +28,11 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![NUC](/img/parallella-board.jpg)
 
+### Nitrogen6x by Boundary Devices
+[link](http://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/)
+
+![Nitrogen6x](/img/nitrogen6x.jpg)
+
 ## To Be Supported Very Soon
 
 ### NUC
