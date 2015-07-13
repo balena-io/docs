@@ -28,7 +28,7 @@ You will notice that a small warning pops up noting that no device is connected.
 
 * At this point your Edison will reboot and you may get a warning like this:
 
-![eject warning](/img/edison/edison-restart-warning.png)
+<img src="/img/edison/edison-restart-warning.png" alt="eject warning" style="width: 70%" />
 
 You can just click `ignore` and continue.
 
