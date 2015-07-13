@@ -42,6 +42,7 @@
 * [Supported Devices](/pages/hardware/devices.md)
 * [GPIO Interface](/pages/hardware/gpio.md)
 * [I2C and Other Interfaces](/pages/hardware/i2c-and-spi.md)
+* [meta-resin](/pages/hardware/meta-resin.md)
 
 ### [Configuration](/pages/configuration/custom-docker-base-images.md)
 
