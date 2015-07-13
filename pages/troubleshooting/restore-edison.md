@@ -1,4 +1,4 @@
-## Help, I bricked my Edison
+# Help, I bricked my Edison
 
 So your Edison is unresponsive or for some bizarre reason you want to restore your Edison
 to its unresinified state.
