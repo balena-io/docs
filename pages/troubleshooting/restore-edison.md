@@ -1,43 +1,44 @@
-# Help, I bricked my Edison
+# Help, I bricked my Edison!
 
-So your Edison is unresponsive or for some bizarre reason you want to restore your Edison
-to its unresinified state.
+If your Edison is unresponsive or for some bizarre reason, you want to restore your Edison to its unresinfied state, we've prepared a guide for you:
 
-It's pretty easy to reflash the boring old Intel Yocto image onto the Edison. Just follow these steps.
+## Tools
 
-Go to the [Intel Edison Downloads page][edison-dl-page] and download the latest version of Intel Edison® Board Firmware Software Release. At the time of writing it is [Release 2.1 Yocto* complete image][dl-link].
+Firstly visit the [Intel Edison Downloads page][edison-dl-page] and download the latest version of the 'Intel Edison® Board Firmware Software Release'. At the time of writing it is the [Release 2.1 Yocto* complete image][dl-link].
 
-While you are on the downloads page, also download and install Intel's Flash Tool Lite. The setup guide for this tool can be found [here][flash-tool-setup].
+While you are on this page, download and install Intel's Flash Tool Lite. The setup guide for this tool can be found [here][flash-tool-setup].
 
-Once you have the Flash tool setup and your new edison image is downloaded, unzip the file.
+## Re-Flashing the Edison
 
-Now start the Flash Tool Lite with the Edison disconnected from your computer. Select the blue browse button in the top right of the flash tool. In the file navigator, find your downloaded folder that contains the Edison OS and in that folder select the file `FlashEdison.json`.
+Once you have the Flash tool setup and your new Edison image is downloaded, unzip and start the Flash Tool Lite with the Edison *disconnected* from your computer.
+
+Select the blue browse button in the top right of the flash tool and find the folder that contains the extracted Edison OS files, select `FlashEdison.json` as the 'Flash file' and click __Start to Flash__ to kick off the process:
 
 ![Select FlashEdison.json](/img/edison/flashtool-file-selected.png)
 
-Once you have selected that file you are ready to flash your Edison, so click the `Start to Flash` button in the bottom left.
+A small warning wipp pop up indicating that no device is connected - fix this by connecting your Edison via micro usb cable:
 
 ![Start Flashing](/img/edison/flashtool-device-unconnected.png)
 
-You will notice that a small warning pops up noting that no device is connected. At this point, connect your Edison to your computer with the micro usb.
-
-Sit back and wait for the device to be detected and to start flashing. The tool will show its progress as it goes along.
+After a short delay your device will be detected and a progress bar will track the process of flashing your device, so sit back and relax:
 
 ![Flashing progress](/img/edison/flashtool-flashing.png)
 
-After a few minutes the flashing process should have completed successfully and your flash tool will look something like this:
+After a few minutes the flashing process will be complete and the flash tool will look something like this:
 
 ![Flashing complete](/img/edison/flashtool-complete.png)
 
-At this point your Edison will reboot and you may get a warning like this:
+At this point your Edison will reboot. Once it's rebooted you might get a warning like this:
 
 <img src="/img/edison/edison-restart-warning.png" alt="eject warning" style="width: 70%" />
 
-You can just click `ignore` and continue.
+If so, simply click __Ignore__ - it means that the file system applied to your Edison is not one your OS is familiar with.
 
-#### You should now have a Edison running the factory default yocto build from Intel.
+## You're Done!
 
-If you were one of the unhappy individuals that got to this point with resin.io, please let us know why you decided to reflash your Edison and how we can improve.
+You should now have a Edison running the factory default Yocto build from Intel.
+
+If you've had to follow this guide due to an issue with resin.io, please let us know so we can improve the experience!
 
 **Drop us a note at [resin.io/contact](https://resin.io/contact/)**
 
