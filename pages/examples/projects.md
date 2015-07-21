@@ -39,7 +39,7 @@ The audio stock ticker will verbally announce a list of your favourite stocks ev
 
 [Repository][pm2-repo-link]
 
-This is a simple example project for Resin.io which demonstrates how to use pm2 on your device to keep a process running forever and monitor your devices health. For the full story check our [blog post][pm2-blog-link] about it.
+This is a simple example project for resin.io which demonstrates how to use pm2 on your device to keep a process running forever and monitor your devices health. For the full story check our [blog post][pm2-blog-link] about it.
 
 ### Cloud Synchronised Streaming Radios
 
