@@ -40,7 +40,7 @@ configure your application.
 [Repository][simple-nodejs-server-link]
 
 This seed project runs a simple [Express.js][expressjs-link] server on port `:80`.
-It is slightly different from the simple-nodejs project as it includes a `Dockerfile`, this allows for more flexibility at build time and better caching of builds.
+It is slightly different from the simple-nodejs project as it includes a [Dockerfile][resin-dockerfile-guide], this allows for more flexibility at build time and better caching of builds.
 
 ### Python
 
@@ -125,3 +125,4 @@ this project will only work on the Intel Edison.
 [deploy]:/pages/using/deployment.md
 [getting-started]:/pages/installing/gettingStarted.md
 [resin]:https://resin.io
+[resin-dockerfile-guide]:http://docs.resin.io/#/pages/using/dockerfile.md
