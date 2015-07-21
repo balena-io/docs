@@ -21,8 +21,8 @@ git push resin master
 
 ### Resin-ssh
 
-[Repository][resin-ssh] by [Shaun Mulligan][shaun-mulligan]
-[Repository][resin-ssh-node] by [Craig Mulligan][craig-mulligan]
+[Repository][resin-ssh]
+[Repository][resin-ssh-node]
 
 This basic resin project allows you to have local ssh access to your running container on your device. It does this by starting dropbear, a light weight ssh daemon, in a background process. There is both a node and a python demo of this, so you can get up and running fast. Please note, both of these have small webservers running in the main app, but these could be replaced by an infinite loop. This is needed because in order to ssh into a container, it has to have a long running process in it. That way docker does not close/destroy the container.
 
@@ -77,14 +77,14 @@ A simple application that shows you how to issue commands to a servo motor using
 <!-- ###Code Snippets Links -->
 
 [py-gpio]:https://github.com/nghiant2710/resin-rpi-gpio-sample-with-python
-[picamera-node]:https://github.com/shaunmulligan/resin-rpi-nodejs-picamera
-[picamera-py]:https://github.com/shaunmulligan/resin-rpi-python-picamera
+[picamera-node]:https://github.com/resin-io-projects/resin-rpi-nodejs-picamera.git
+[picamera-py]:https://github.com/resin-io-projects/resin-rpi-python-picamera.git
 [ADC_py]:https://github.com/shaunmulligan/resin-rpi-py-ADC
 [resin-tether]:https://github.com/petrosagg/resin-tether
 [example-pi-pins]:https://github.com/shaunmulligan/basic-gpio
 [avahi-example]:https://github.com/nghiant2710/avahi-example
-[resin-ssh]:https://github.com/shaunmulligan/resin-ssh
-[resin-ssh-node]:https://github.com/craig-mulligan/resin-ssh-node
+[resin-ssh]:https://github.com/resin-io-projects/resin-ssh-python.git
+[resin-ssh-node]:https://github.com/resin-io-projects/ssh-node
 [text2speech]:https://github.com/resin-io/text2speech
 [servo-motor-node]:https://github.com/craig-mulligan/resin-servo-node
 
