@@ -27,6 +27,20 @@ These are some awesome projects built using resin.io and are a lot more fully fe
 A [Firebase][firebase]-backed Digital Temperature Logger, written in node.js, allowing you to connect
 devices with multiple temperature sensors to a central cloud-based datastore.
 
+### Audio Stock Ticker
+
+[Repository][audio-stock-ticker-link]
+
+This is a simple node.js project built on resin.io. It should work on all versions of the Raspberry Pi.
+
+The audio stock ticker will verbally announce a list of your favourite stocks every couple of minutes or hours, depending on how you configure it.
+
+### Process and Device Health Monitor
+
+[Repository][pm2-repo-link]
+
+This is a simple example project for resin.io which demonstrates how to use pm2 on your device to keep a process running forever and monitor your devices health. For the full story check our [blog post][pm2-blog-link] about it.
+
 ### Cloud Synchronised Streaming Radios
 
 [Repository][sonos-clone]
@@ -252,3 +266,6 @@ visualisation at [123k.de](http://123k.de).
 [authy]:http://authy.com
 [safebox-blog]:https://resin.io/blog/two-factor-authentication-in-the-real-world/
 [sms2speech-blog]:https://resin.io/blog/sms-to-speech/
+[audio-stock-ticker-link]:https://github.com/resin-io-projects/audio-stock-ticker
+[pm2-blog-link]:https://resin.io/blog/eternal-applications-with-pm2-and-resin-io/
+[pm2-repo-link]:https://github.com/resin-io-projects/resin-pm2-monitor.git

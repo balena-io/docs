@@ -37,11 +37,20 @@ This is a simple Hello, World project for [node.js][node] designed to act as a
 basis for future work. It demonstrates how to install native Linux packages and
 configure your application.
 
+[Repository][simple-nodejs-server-link]
+
+This seed project runs a simple [Express.js][expressjs-link] server on port `:80`.
+It is slightly different from the simple-nodejs project as it includes a [Dockerfile][resin-dockerfile-guide], this allows for more flexibility at build time and better caching of builds.
+
 ### Python
 
 [Repository][hello-python]
 
 Hello World written in [Python][python] using a [custom Dockerfile][python-dockerfile].
+
+[Repository][simple-python-server-link]
+
+This seed project runs a simple [Flask][flask-python-link] server on port `:80`.
 
 ### C♯
 
@@ -72,6 +81,17 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [dockerfile]:/pages/using/dockerfile.md
 [text2speech]:https://github.com/resin-io/text2speech
 
+### Golang
+
+[Repository][golang-seed-link]
+
+This is a simple seed project for getting started with Go on the Intel Edison.
+The project use [GB][gb-builder-link] to build the project and it's dependencies
+in the `Dockerfile`.
+
+__Note:__ This project will not build on any of the ARM architecture board. Currently,
+this project will only work on the Intel Edison.
+
 <!-- ###Language Demo Projects Links  -->
 
 [csharp]:http://msdn.microsoft.com/en-gb/vstudio/hh341490.aspx
@@ -82,12 +102,17 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [ruby]:https://www.ruby-lang.org/en/
 [dotnet-lib]:https://github.com/ResinIoDotNetExamples
 [node]:https://nodejs.org/
+[expressjs-link]:http://expressjs.com/
+[flask-python-link]:http://flask.pocoo.org/
 
 [simple-nodejs]:https://github.com/resin-io/basic-resin-node-project
+[simple-nodejs-server-link]:https://github.com/resin-io-projects/simple-server-node.git
 [hello-dotnet]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld
 [hello-java]:https://github.com/nghiant2710/Hello-Java
 [hello-python]:https://github.com/alexandrosm/hello-python
+[simple-python-server-link]:https://github.com/resin-io-projects/simple-server-python.git
 [hello-ruby]:https://github.com/nghiant2710/Hello-Ruby
+[golang-seed-link]:https://github.com/shaunmulligan/resin-golang-seed.git
 
 [csharp-dockerfile]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld/blob/master/Dockerfile
 [java-dockerfile]:https://github.com/resin-io/Hello-Java/blob/master/Dockerfile
@@ -100,3 +125,4 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [deploy]:/pages/using/deployment.md
 [getting-started]:/pages/installing/gettingStarted.md
 [resin]:https://resin.io
+[resin-dockerfile-guide]:http://docs.resin.io/#/pages/using/dockerfile.md
