@@ -1,6 +1,6 @@
 # Getting Started with the Intel Edison
 
-![Intel Edison](/img/edison.jpg)
+<!-- ![Intel Edison](/img/edison.jpg) -->
 
 ## What you will need
 
@@ -11,6 +11,7 @@
     - [Intel® Edison and Arduino Breakout Kit](edison-ardiuno-breakout-board)
 ![Edison Boards with OTG](/img/edison/edison-otg-ports.png)
 * A micro-usb cable
+* The [Intel Flash tool Lite][flash-tool-link] installed on your computer.
 * Some awesome ideas to hack on! If you need inspiration, check out our
   [projects][projects] page.
 
@@ -63,14 +64,14 @@ First things first, we need to start a new resin.io application. Choose a fancy 
 
 ![Creating an Application](/img/edison/create_application_edison.png)
 
-Next make sure you select `Intel Edison (EXPERIMENTAL)` from the device type drop down menu and click the big yellow create button. You should now be magically redirected to your new creatively named `myEdisonApp` and will see a couple of tabs notice saying "No devices are connected to this application", that isn't very exciting, so lets change that by adding a new device...
+Next make sure you select `Intel Edison (EXPERIMENTAL)` from the device type drop down menu and click the big yellow create button. You should now be magically redirected to your new creatively named `myEdisonApp` and will see a couple of tabs and a notice saying "No devices are connected to this application", that isn't very exciting, so lets change that by adding a new device...
 
 ![Empty Application Page](/img/edison/application_empty_edison.png)
 
 To connect a device to our newly created application, we need to first get the resinOS on the device. This involves downloading the new device image, burning it onto the device memory.
 
 ## Adding Your First Edison Device
-### download image
+### Download Resin OS Image
 
 To get the resin operating system (resinOS) you need to click on the "Download Device OS" button. You should then be directed to add your wifi network name (aka `SSID`) and your networks password (aka `passphrase`) .
 
@@ -78,13 +79,104 @@ __Note__: It is not possible to provision an Edison without adding your wifi cre
 
 ![Add your Wifi Credentials](/img/edison/add-wifi-credentials-edison.png)
 
-Once the download completes, you should have a `.zip` file with a name that looks something like this: `resin-myEdisonApp-0.1.0-0.0.9.zip`.
+Once the download completes, you should have a `.zip` file in your downloads folder with a name that looks something like this: `resin-myEdisonApp-0.1.0-0.0.14.zip`. Use an unzipping utility like [7-zip](http://www.7-zip.org/) to extract the download to a folder.
 
-### Burn the ResinOS onto the Edison
+### Burn the Resin OS onto the Edison
 
-In order to use resin to deploy code on the Edison it is necessary to flash new firmware (the resinOS) onto the device.
+In order to use resin to deploy code on the Edison it is necessary to flash new firmware (the resin OS) onto the device.
 
 __Note__: This will erase your current yocto OS system on your Edison and any data or configurations you have on it, but trust us, it's for the best ;) If for some terrible reason you have to revert to the old way of doing things, you can restore your Edison to it's factory default firmware by following the instructions in our [restore original Edison firmware guide](/pages/troubleshooting/restore-edison.md).
+
+#### Install Intel Flash Tool Lite
+
+First you will need the [firmware flashing tool][flash-tool-link] provided by Intel. So head over to this link and get it set up on your computer.
+
+#### Flash the Resin Firmware onto the Edison
+
+__Note:__ Before you start this step, ensure that your Edison is not plugged into your Computer.
+
+On your computer open the newly installed [Flash Tool Lite][flash-tool-link]. Select the blue browse button in the top right hand corner and browse to the folder where you had previously extracted the resin OS. This folder should be called something like `resin-myEdisonApp-0.1.0-0.0.14`. In this folder you should be able to find and select a file called `FlashEdison.json`.
+
+![browse to resin OS folder](/img/edison/browse-select-flash-tool.png)
+
+The flash tool will auto-detect the configurations for flashing, so you do not need to adjust any of the drop down menus. Your flash tool panel should look something like this:
+
+![flash tool configurations](/img/edison/flash-tool-cdc-config.png)
+
+Once you are satisfied you have selected the correct `FlashEdison.json` file from the correct folder, you can click the `Start to Flash` button in the bottom left of the flash tool. The flash tool will now try and detect if the Edison is plugged in.
+
+At this point, plug your Edison into your computer using the micro usb cable.
+
+__Note:__ It is important that your Edison is connected via the **OTG-USB** port on the base board. If you are unsure of which micro usb port this is, have a look at this image.
+
+![Edison Boards with OTG](/img/edison/edison-otg-ports.png)
+
+Once your Edison is connected to the computer, the flash tool should auto-detect it. A device will appear in the central pane of the flash tool and you should see the progress of your Edison Firmware flashing.
+
+![Edison flash progress](/img/edison/flash-edison-progress.png)
+
+__Note:__ If you get stuck at this point or your device never shows up on the resin dashboard, please let us know over [here][resin-support-help] or over at [talk.resin.io][resin-talk-link].
+
+Once your Edison has reached 100% on the progress bar, the flashing process has completed, but the device still needs to reboot. **Let your Edison sit for about 2 minutes**.
+
+After a successful firmware flash, you may get a warning pop-up. You can safely click `ignore`.
+
+![Edison reboot warning](/img/edison/edison-restart-warning.png)
+
+#### Check your Resin.io Dashboard
+After about a couple of minutes your freshly provisioned Edison should show up online on your dashboard. We can now start pushing code to this little chap using git.
+
+So lets get on it!!!
+
+## Running Code On Your Device
+
+![git pushing](/img/screenshots/git_pushing.png)
+
+A good little project to get you started is the [led blink example][example_app] written in node.js. It will allow you to blink the onboard led on the Intel Edison Arduino base board.
+To clone it, run the following in a terminal:-
+
+```
+git clone https://github.com/shaunmulligan/edison-blink-node.git
+```
+
+Once the repo is cloned, change directory into the newly created edison-blink-node directory and add the resin git endpoint by running the `git remote add` command shown in
+the top-right corner of the application page, e.g.:-
+
+```
+cd edison-blink-node
+
+git remote add resin git@git.resin.io:joebloggs/skynet.git
+```
+
+Now you can simply run `git push resin master` and push code to that remote, where it will get built and packaged. Then the final packaged up container will get downloaded to the Edison.
+
+You'll know your code has been successfully built and uploaded to our build server when you see  our friendly unicorn mascot:-
+
+![git pushing](/img/screenshots/git_pushed.png)
+
+Once the code has built and uploaded, you should see the status of your Edison on the resin dashboard change from `Idle` to `Downloading`. It should take a few minutes for the first update to download. Don't worry the first push is always the hardest. After the device has finished updating, you should see a happily blinking green led on your board.
+
+__Note:__ Only the Intel Edison Arduino base board has a built in Led, for other boards you will need to connect up an external Led to mraa pin 13.
+
+At this point you should have an Edison that you can remotely update.. Woohoo!!
+
+If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example] to get your feet wet.
+
+## Further Reading
+
+* For more details on deploying to your devices, see the [deployment guide][deploy].
+
+* If you need more details on managing your devices and applications, check out
+  our [device and application management guide][managing_devices_apps].
+
+## Feedback
+
+If you find any issues with the application, please let us know over [here][resin-support-help] or over at [talk.resin.io][resin-talk-link]. We are always open to
+feedback and respond to any issues as soon as we can.
+
+## Alternative Method of Flashing Edison firmware
+
+__Note:__ These methods are not recommended as there are peculiarities and instances where they are unreliable. We strongly recommend using the [Intel Flash Tool Lite][flash-tool-link].
 
 #### install dfu-util
 
@@ -95,6 +187,8 @@ In order to put the new resinOS firmware on the Edison we need a special tool ca
 For this step you will need [MacPorts](macports-link) to install dfu-util, coreutils, and gnu-getopt
 
 `sudo port install dfu-util gnu-getopt coreutils`
+
+__Note:__ **DO NOT** install DFU-util with [Homebrew][homebrew-link] as there is a known issue with the DFU-util version which Homebrew installs.
 
 ##### dfu-util on Windows
 
@@ -236,56 +330,6 @@ U-boot & Kernel System Flash Success...
 ```
 Leave your Edison plug in to your computer. It can take a while to completely flash the OS and dfu-util gives very little feedback.
 
-#### Check your Resin.io Dashboard
-After about 10 minutes your freshly provisoned Edison should show up online on your dashboard. We can now start pushing code to this little chap using git.
-
-So lets get on it!!!
-
-## Running Code On Your Device
-
-![git pushing](/img/screenshots/git_pushing.png)
-
-A good little project to get you started is the [led blink example][example_app] written in node.js. It will allow you to blink the onboard led on the Intel Edison Arduino base board.
-To clone it, run the following in a terminal:-
-
-```
-git clone https://github.com/shaunmulligan/edison-blink-node.git
-```
-
-Once the repo is cloned, cd into the newly created edison-blink-node directory and add the resin git endpoint by running the `git remote add` command shown in
-the top-right corner of the application page, e.g.:-
-
-```
-cd edison-blink-node
-
-git remote add resin git@git.resin.io:joebloggs/skynet.git
-```
-
-Now you can simply run `git push resin master` and push code direct to your
-device.
-
-You'll know your code has deployed successfully from the appearance of our
-friendly unicorn mascot:-
-
-![git pushing](/img/screenshots/git_pushed.png)
-
-After the device has finished updating, you should see a happily blinking green led on your board.
-
-If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
-
-## Further Reading
-
-* For more details on deploying to your devices, see the [deployment guide][deploy].
-
-* If you need more details on managing your devices and applications, check out
-  our [device and application management guide][managing_devices_apps].
-
-## Feedback
-
-If you find any issues with the application, please click the feedback label on
-the bottom right-hand side of the page and let us know! We are always open to
-feedback and respond to any issues as soon as we can.
-
 [deploy]:/pages/deployment.md
 [projects]:/pages/projects.md
 [managing_devices_apps]:/pages/managingDevicesApps.md
@@ -319,3 +363,6 @@ feedback and respond to any issues as soon as we can.
 [sparkfun-blog-link]:https://learn.sparkfun.com/tutorials/loading-debian-ubilinux-on-the-edison#install-ubilinux
 [homebrew-link]:http://brew.sh/
 [macports-link]:https://www.macports.org/
+[flash-tool-link]:https://software.intel.com/en-us/articles/flash-tool-lite-user-manual
+[resin-support-help]:https://resin.io/contact/#contact-form
+[resin-talk-link]:http://talk.resin.io/
