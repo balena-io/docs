@@ -15,21 +15,10 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | Image | Description | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
 | resin/rpi-raspbian | The base OS image for ARMv6 devices (Raspberry Pi 1 - RPI1) | minbase, sudo | [dockerhub][rpi-dockerhub-link] | latest, jessie, wheezy |
-<<<<<<< HEAD
 | resin/raspberrypi-systemd | The image with full systemd init system installed for ARMv6 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][rpi-systemd-dockerhub-link] | latest, jessie, wheezy | 
-| resin/raspberrypi-buildpack-deps | The buildpack-deps image for RPI1. Details about buildpack-deps can be found [here](#buildpack-deps) | Refer [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | [dockerhub][rpi-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/raspberrypi-node | The Node.js buildpack image for Node.js apps for RPI1. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][rpi-node-dockerhub-link] | For available image tags, refer [here][rpi-node-dockerhub-tag-link] |
-=======
-
-| resin/raspberrypi-systemd | The image with full systemd init system installed for ARMv6 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][rpi-systemd-dockerhub-link] | latest, jessie, wheezy | 
-| resin/raspberrypi-buildpack-deps | The buildpack-deps image for RPI1. Details about buildpack-deps can be found [here](#buildpack-deps) | Refer [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | [dockerhub][rpi-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/raspberrypi-node | The Node.js buildpack image for Node.js apps for RPI1. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][rpi-node-dockerhub-link] | For available image tags, refer [here][rpi-node-dockerhub-tag-link] |
-| resin/raspberrypi-systemd | The image with full systemd init system installed for ARMv6 | systemd | [dockerhub][rpi-systemd-dockerhub-link] | latest, jessie, wheezy | 
-| resin/raspberrypi-buildpack-deps | The buildpack-deps image for RPI1. Details about buildpack-deps can be found [here](#buildpack-deps) | Refer [here](#buildpack-deps) | [dockerhub][rpi-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/raspberrypi-node | The Node.js buildpack image for Node.js apps for RPI1. Details about the Node.js image can be found [here](#node) | Refer [here](#node) | [dockerhub][rpi-node-dockerhub-link] | For available image tags, refer [here][rpi-node-dockerhub-tag-link] |
->>>>>>> 488caaaa016fac53ecdaf15bb40f5858cfdedb97
->>>>>>> 719ddf7... a
-| resin/raspberrypi-python | The Python buildpack image for Python apps for RPI1 | python, python-pip, python-dev, python-dbus  | [dockerhub][rpi-python-dockerhub-link] | latest, jessie, wheezy |
+| resin/raspberrypi-buildpack-deps | The buildpack-deps image for RPI1. Details about buildpack-deps can be found [here](#buildpack-deps) | Refer [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | [dockerhub][rpi-systemd-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/raspberrypi-node | The Node.js buildpack image for Node.js apps for RPI1. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][rpi-systemd-node-dockerhub-link] | For available image tags, refer [here][rpi-systemd-node-dockerhub-tag-link] |
+| resin/raspberrypi-python | The Python buildpack image for Python apps for RPI1 | python, python-pip, python-dev, python-dbus  | [dockerhub][rpi-systemd-python-dockerhub-link] | latest, jessie, wheezy |
 
 __Note:__ minbase is a variant of image built by debootstrap which means only essential packages and apt installed.
 
@@ -134,30 +123,30 @@ There are specific docker-node images for each arch. Available node versions can
 
 [systemd-wiki]:https://wiki.debian.org/systemd
 
-[rpi-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-buildpack-deps/
-[rpi-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-node/
-[rpi-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/rpi-node/tags/manage/
-[rpi-systemd-dockerhub-link]:
-[rpi-python-dockerhub-link]:
+[rpi-systemd-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-buildpack-deps/
+[rpi-systemd-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-node/
+[rpi-systemd-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi-node/tags/manage/
+[rpi-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-systemd/
+[rpi-systemd-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-python/
 
-[armv7-systemd-dockerhub-link]:
-[armv7-bbb-dockerhub-link]:
-[armv7-bbb-buildpack-deps-dockerhub-link]:
-[armv7-bbb-node-dockerhub-link]:
-[armv7-bbb-node-dockerhub-tag-link]:
-[armv7-bbb-python-dockerhub-link]:
+[armv7-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-systemd/
+[armv7-bbb-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-debian/
+[armv7-bbb-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-buildpack-deps/
+[armv7-bbb-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-node/
+[armv7-bbb-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-node/tags/manage/
+[armv7-bbb-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-python/
 [armv7-bbb-sourceslist]:http://repos.rcn-ee.net/debian/
 [armv7-bbb-sourceslist1]:http://debian.beagleboard.org/
-[armv7-rpi2-dockerhub-link]:
-[armv7-rpi2-buildpack-deps-dockerhub-link]:
-[armv7-rpi2-node-dockerhub-link]:
-[armv7-rpi2-node-dockerhub-tag-link]:
-[armv7-rpi2-python-dockerhub-link]:
+[armv7-rpi2-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-debian/
+[armv7-rpi2-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-buildpack-deps/
+[armv7-rpi2-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-node/
+[armv7-rpi2-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-node/tags/manage/
+[armv7-rpi2-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-python/
 [armv7-rpi2-sourceslist]:http://archive.raspbian.org/raspbian/
 
-[i386-systemd-dockerhub-link]:
-[i386-edison-dockerhub-link]:
-[i386-edison-buildpack-deps-dockerhub-link]:
-[i386-edison-node-dockerhub-link]:
-[i386-edison-node-dockerhub-tag-link]:
-[i386-edison-python-dockerhub-link]:
+[i386-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-systemd/
+[i386-edison-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-debian/
+[i386-edison-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-buildpack-deps/
+[i386-edison-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-node/
+[i386-edison-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/edison-node/tags/manage/
+[i386-edison-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-python/
