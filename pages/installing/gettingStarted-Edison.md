@@ -294,7 +294,7 @@ feedback and respond to any issues as soon as we can.
 [dockerfile]:/pages/dockerfile.md
 
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
-[signup]:http://resin.io/signup
+[signup]:https://dashboard.resin.io/signup
 [git]:http://git-scm.com/
 [ssh_key]:http://en.wikipedia.org/wiki/Secure_Shell
 [pub_key_crypto]:http://en.wikipedia.org/wiki/Public-key_cryptography
