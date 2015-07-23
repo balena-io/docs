@@ -22,7 +22,7 @@ If you already have a resin.io account and just want to get started with your Ra
 
 ## Signing Up
 
-Enter your details on the [sign up page][signup]. There are a couple of
+Enter your details on the [sign up page](https://dashboard.resin.io/signup). There are a couple of
 restrictions:
 
 * The username can only contain letters and numbers.
