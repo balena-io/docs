@@ -6,7 +6,7 @@
 
 * A [Beaglebone Black][BBB-link].
 
-* A 4GB or larger SD card. 
+* A 4GB or larger SD card.
   The [Beaglebone Black][BBB-link] uses a Micro SD card. The [speed class][speed_class] of
   the card also matters - this determines its maximum transfer rate. We strongly
   recommend you get hold of a class 10 card or above.
@@ -81,7 +81,7 @@ Click the `Download Device OS` button to get the resin.io operating system image
 application. A dialog will appear prompting you to specify how your device
 connects to the internet, its recommended at this point to select ethernet. The download can take a little while to get started, so be patient.
 
-__NOTE:__ Wifi on the Beaglebone has not been thoroughly tested, and for the time being it is recommended to use an ethernet connection. 
+__NOTE:__ Wifi on the Beaglebone has not been thoroughly tested, and for the time being it is recommended to use an ethernet connection.
 
 While the file downloads, ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
@@ -104,7 +104,7 @@ Compare the two outputs, and find the newly added device. In my case, the microS
 
 Once you've got the name of the SD card, you'll want to unmount that disk using the following command, but replacing the specifics with your card details:
 `sudo diskutil unmount /dev/disk2s1`
-Now, you'll want to execute the command that actually copies the image onto the SD card. 
+Now, you'll want to execute the command that actually copies the image onto the SD card.
 
 > You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive, such as your master hard disk, and then you're gonna have a bad time. Double check everything!
 
@@ -113,7 +113,7 @@ Also, choose the right file location for your .img file in the input file field 
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-BBB.md#setting-up-your-device) 
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-BBB.md#setting-up-your-device)
 
 #### From a GUI
 
@@ -131,11 +131,11 @@ Click continue and piFiller will write the SD card. This can 5-25 minutes depend
 
 ### Windows
 
-To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to. 
+To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
 Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your beaglebone image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.4.img`.
 
-Next insert your SD card into your host computer and in the Win32DiskImager GUI, select you SD card when it appears. 
+Next insert your SD card into your host computer and in the Win32DiskImager GUI, select you SD card when it appears.
 
 __NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines harddisk.
 
@@ -145,7 +145,7 @@ Once it is completed, you can carry on setting up your beaglebone as shown below
 
 ## Setting Up Your Device
 
-Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now hold down the small black button marked s2 (located near the SD card slot) and power up the device by inserting the usb cable. 
+Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now hold down the small black button marked s2 (located near the SD card slot) and power up the device by inserting the usb cable.
 
 You should only need to hold the button down for about 5 seconds until the blue LEDs start flashing like crazy. Basically, by holding down the button, we are telling the beaglebone that we want to boot from the SD card instead of the onboard flash. From there, the OS which is on the SD card is flashed onto the internal memory. This can take a few minutes, so grab some tea while you wait for your beagle to appear on the application
 dashboard.
@@ -214,7 +214,7 @@ feedback and respond to any issues as soon as we can.
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
-[signup]:http://alpha.resin.io/signup
+[signup]:https://dashboard.resin.io/signup
 [git]:http://git-scm.com/
 [ssh_key]:http://en.wikipedia.org/wiki/Secure_Shell
 [pub_key_crypto]:http://en.wikipedia.org/wiki/Public-key_cryptography

@@ -6,7 +6,7 @@ This guide will walk you through getting a [Parallella][parallella-link] board h
 ## What You'll Need
 
 * Any one of the [Parallella][parallella-link] boards.
-* A 4GB or larger SD card. 
+* A 4GB or larger SD card.
   The [Parallella][parallella-link] uses a Micro SD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get ahold of a class 10 card or above.
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the
   internet. Note: At the time of writing, there is no easy way of changing the wifi `SSID` and `PASSWORD` after the download. This will be worked out pretty soon and some awesome new tools will help :D
@@ -68,7 +68,7 @@ To create your first application simply type in a name, select Parallella as you
 
 ![Empty Application Page](/img/parallella/image-download-parallella.png)
 This is the application dashboard where all of the devices connected to your
-application will be shown along with their statuses and logs.   
+application will be shown along with their statuses and logs.
 
 Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify some configuration information for your parallella.
 
@@ -100,7 +100,7 @@ Depending on your OS, this device can take different names, like '/dev/mmcblk0p1
 
 Once you've got the name of the SD card, you'll want to unmount that disk using the following command, replacing the specifics with your card details:
 `sudo diskutil unmount /dev/disk2s1`
-Now you'll want to execute the command that actually copies the image onto the SD card. 
+Now you'll want to execute the command that actually copies the image onto the SD card.
 
 > You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive (such as your master hard disk) and then you're gonna have a bad time. Double check everything!
 
@@ -129,11 +129,11 @@ Click continue and piFiller will write to the SD card. This can take 5-25 minute
 
 ### Windows
 
-To burn OS images to SD cards on Windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to. 
+To burn OS images to SD cards on Windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
 Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your beaglebone image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.14.img`.
 
-Next insert your SD card into your host computer and in the Win32DiskImager GUI, select your SD card when it appears. 
+Next insert your SD card into your host computer and in the Win32DiskImager GUI, select your SD card when it appears.
 
 __NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machine's harddisk.
 
@@ -143,7 +143,7 @@ Once it is completed, you can carry on setting up your raspberry pi as shown bel
 
 ## Setting Up Your Device
 
-Put the SD card into your device and connect either the ethernet cable or WiFi adapter. If you're connecting the cable to your computer, you'll need to enable connection sharing. Now power up the device by inserting the USB cable. 
+Put the SD card into your device and connect either the ethernet cable or WiFi adapter. If you're connecting the cable to your computer, you'll need to enable connection sharing. Now power up the device by inserting the USB cable.
 
 It will take a few minutes for the raspberry pi to appear on your resin.io dashboard, so take this time to grab some tea while you wait.
 
@@ -155,7 +155,7 @@ If you have a class 10 SD card and a fast internet connection your device should
 
 ![git pushing](/img/screenshots/git_pushing.png)
 
-To start with, we will just run the standard "Hello, World!" example from parallella which uses the epiphany sdk. This demo allows the epiphany C code to be cross-compiled in the cloud. 
+To start with, we will just run the standard "Hello, World!" example from parallella which uses the epiphany sdk. This demo allows the epiphany C code to be cross-compiled in the cloud.
 
 If you look at the code [here][parallella-demo-link], you will notice the code has a `Dockerfile` which is a recipe file that allows you to define your build and runtime environment. We recomment you have a look at how to effectively use [dockerfiles][dockerfile].
 
@@ -217,7 +217,7 @@ feedback and respond to any issues as soon as we can.
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
-[signup]:http://alpha.resin.io/signup
+[signup]:https://dashboard.resin.io/signup
 [git]:http://git-scm.com/
 [ssh_key]:http://en.wikipedia.org/wiki/Secure_Shell
 [pub_key_crypto]:http://en.wikipedia.org/wiki/Public-key_cryptography
