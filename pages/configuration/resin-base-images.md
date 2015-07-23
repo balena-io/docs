@@ -1,8 +1,65 @@
 # Resin Images Wiki
 
-This wiki page contains all information about images on Resin registry.
+This page contains all the information about the image maintained on the Resin.io docker hub registry. 
 
-## Base Images:
+## <a name="image-tree"></a>Resin Image Trees
+
+This section describes the Resin image trees (hierarchy of images). These image trees provide an overview of how all the resin base images fit together for each device type supported by Resin.
+
+__Note:__ In the tree diagram, from the bottom to the top, the lower level image is used as the base docker image to build the upper level one.
+
+### ARMv6: Raspberry Pi 1 (version B, A+ and B+)
+
+![ARMv6 Tree Diagram](/img/armv6-diagram.jpg)
+
+| Image | Description | Installed Packages | Repository | Available Tag|
+|:-----------|:------------|:------------|:------------|:------------|
+| resin/rpi-raspbian | The base OS image for ARMv6 devices (Raspberry Pi 1 - RPI1) | minbase, sudo | [dockerhub][rpi-dockerhub-link] | latest, jessie, wheezy |
+| resin/raspberrypi-systemd | The image with full systemd init system installed for ARMv6 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][rpi-systemd-dockerhub-link] | latest, jessie, wheezy | 
+| resin/raspberrypi-buildpack-deps | The buildpack-deps image for RPI1. Details about buildpack-deps can be found [here](#buildpack-deps) | Refer [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | [dockerhub][rpi-systemd-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/raspberrypi-node | The Node.js buildpack image for Node.js apps for RPI1. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][rpi-systemd-node-dockerhub-link] | For available image tags, refer [here][rpi-systemd-node-dockerhub-tag-link] |
+| resin/raspberrypi-python | The Python buildpack image for Python apps for RPI1 | python, python-pip, python-dev, python-dbus  | [dockerhub][rpi-systemd-python-dockerhub-link] | latest, jessie, wheezy |
+
+__Note:__ minbase is a variant of image built by debootstrap which means only essential packages and apt installed.
+
+__Note:__ all the node slim images use resin/rpi-systemd as the base os.
+
+### ARMv7: Raspberry Pi 2 and BeagleBone Black
+
+![ARMv7 Tree Diagram](/img/armv7-diagram.jpg)
+
+| Image | Description | Installed Packages | Repository | Available Tag|
+|:-----------|:------------|:------------|:------------|:------------|
+| resin/armv7hf-debian| The base OS image for ARMv7 devices (Raspberry Pi 2 - RPI2 and BeagleBone Black - BBB) | minbase, sudo | [dockerhub][armv7-dockerhub-link] | latest, jessie, wheezy, sid |
+| resin/armv7hf-systemd | The image with full systemd init system installed for ARMv7 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][armv7-systemd-dockerhub-link] | latest, jessie, wheezy, sid | 
+| resin/beaglebone-debian | The bare bones OS image for BBB. Apt sources.list from repositories: [http://repos.rcn-ee.net/debian/](armv7-bbb-sourceslist) and [http://debian.beagleboard.org](armv7-bbb-sourceslist1) added! See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-bbb-dockerhub-link] | latest, jessie, wheezy, sid |
+| resin/beaglebone-buildpack-deps | The buildpack-deps image for BBB. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-bbb-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl, sid-scm, sid-curl |
+| resin/beaglebone-node | The Node.js buildpack image for Node.js apps for BBB. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-bbb-node-dockerhub-link] | For available image tags, refer [here][armv7-bbb-node-dockerhub-tag-link] |
+| resin/beaglebone-python | The Python buildpack image for Python apps for BBB. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][armv7-bbb-python-dockerhub-link] | latest, jessie, wheezy, sid |
+| resin/raspberrypi2-debian | The bare bones OS image for RPI2. Apt sources.list from raspbian repository: [http://archive.raspbian.org/raspbian/](armv7-rpi2-sourceslist) added! See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libraspberrypi-bin | [dockerhub][armv7-rpi2-dockerhub-link] | latest, jessie, wheezy, sid |
+| resin/raspberrypi2-buildpack-deps | The buildpack-deps image for RPI2. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-rpi2-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl, sid-scm, sid-curl |
+| resin/raspberrypi2-node | The Node.js buildpack image for Node.js apps for RPI2. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-rpi2-node-dockerhub-link] | For available image tags, refer [here][armv7-rpi2-node-dockerhub-tag-link] |
+| resin/raspberrypi2-python | The Python buildpack image for Python apps for RPI2. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][armv7-rpi2-python-dockerhub-link] | latest, jessie, wheezy, sid |
+
+### i386: Intel Edison
+
+![i386 Tree Diagram](/img/i386-diagram.jpg)
+
+| Image | Description | Installed Packages | Repository | Available Tag|
+|:-----------|:------------|:------------|:------------|:------------|
+| resin/i386-debian| The base OS image for i386 devices (Intel Edison) | minbase, sudo | [dockerhub][i386-dockerhub-link] | latest, jessie, wheezy |
+| resin/i386-systemd | The image with full systemd init system installed for i386 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][i386-systemd-dockerhub-link] | latest, jessie, wheezy | 
+| resin/edison-debian | The bare bones OS image for Intel Edison. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libmraa | [dockerhub][i386-edison-dockerhub-link] | latest, jessie, wheezy |
+| resin/edison-buildpack-deps | The buildpack-deps image for Intel Edison. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][i386-edison-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/edison-node | The Node.js buildpack image for Node.js apps for Intel Edison. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][i386-edison-node-dockerhub-link] | For available image tags, refer [here][i386-edison-node-dockerhub-tag-link] |
+| resin/edison-python | The Python buildpack image for Python apps for Intel Edison. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][i386-edison-python-dockerhub-link] | latest, jessie, wheezy |
+
+#### <a name="tips"></a>Tips
+
+* For those images with systemd init system installed, the systemd init system is disabled by default. It can be enabled by adding `ENV INITSYSTEM on` to your Dockerfile below the `FROM <Docker image>` line. This will trigger systemd init system on the Docker image.
+* `systemd was included in Debian wheezy as a technology preview. Please make sure that you are using Debian testing or newer to get a recent version of systemd.` from [Systemd Debian Wiki Page][systemd-wiki]. Therefore, we highly recommend that user should be careful when using systemd init system on wheezy images.
+
+## <a name="base-images"></a>Base Images:
 
 These are base images for different arch: armv6, armv7, i386.
 
@@ -14,11 +71,9 @@ These are base images for different arch: armv6, armv7, i386.
 
 __Note:__ minbase is a variant of image built by debootstrap which means only essential packages and apt installed.
 
-Detail of installed packages on each image are listed at the end.
-
 ## Resin-io-library Images:
 
-### buildpack-deps
+### <a name="buildpack-deps"></a>buildpack-deps
 
 A collection of common build dependencies used for installing various modules, e.g., gems. it has 2 variants which are:
 
@@ -37,7 +92,7 @@ There are specific buildpack-deps images for each arch:
 | scm | respective curl images | bzr, git, mercurial, openssh-client, subversion | scm, jessie-scm, wheezy-scm, sid-scm (only for armv7) |
 | buildpack-deps | respective scm images | autoconf, build-essential, imagemagick, libbz2-dev, libcurl4-openssl-dev, libevent-dev, libffi-dev, libglib2.0-dev, libjpeg-dev, libmagickcore-dev, libmagickwand-dev, libmysqlclient-dev, libncurses-dev, libpq-dev, libreadline-dev, libsqlite3-dev, libssl-dev, libxml2-dev, libxslt-dev, libyaml-dev, zlib1g-dev | latest, jessie, wheezy, sid (only for armv7) |
 
-### docker-node
+### <a name="node"></a>docker-node
 
 This is a set of images with node.js binary installed. The node images come in many flavors, each designed for a specific use case.
 
@@ -53,12 +108,6 @@ There are specific docker-node images for each arch. Available node versions can
 * armv7: [resin/armv7hf-node][armv7hf-node-dockerhub-link]
 * i386: [resin/i386-node][i386-node-dockerhub-link]
 
-## Installed Packages in Base Images
-
-| Image | rpi-raspbian | armv7hf-debian | i386-debian |
-|:-----------|:------------|:------------|:------------|
-| Installed Packages | acl, adduser, apt, base-files, base-passwd, bash, bsdutils, coreutils, cpio, dash, debconf, debconf-i18n, debianutils, diffutils, dmsetup, dpkg, e2fslibs:armhf, e2fsprogs, findutils, gcc-4.6-base:armhf, gcc-4.7-base:armhf, gcc-4.8-base:armhf, gcc-4.9-base:armhf, gnupg, gpgv, grep, gzip, hostname, init, init-system-helpers, initramfs-tools, initscripts, insserv, klibc-utils, kmod, libacl1:armhf, libapt-pkg4.12:armhf, libattr1:armhf, libaudit-common, libaudit1:armhf, libblkid1:armhf, libbz2-1.0:armhf, libc-bin, libc6:armhf, libcap2:armhf, libcap2-bin, libcomerr2:armhf, libcryptsetup4:armhf, libdb5.3:armhf, libdbus-1-3:armhf, libdebconfclient0:armhf, libdevmapper1.02.1:armhf, libdrm2:armhf, libgcc1:armhf, libgcrypt20:armhf, libgpg-error0:armhf, libklibc, libkmod2:armhf, liblocale-gettext-perl, liblzma5:armhf, libmount1:armhf, libncurses5:armhf, libncursesw5:armhf, libnih-dbus1, libnih1, libpam-modules:armhf, libpam-modules-bin, libpam-runtime, libpam0g:armhf, libpcre3:armhf, libpng12-0:armhf, libprocps3:armhf, libreadline6:armhf, libselinux1:armhf, libsemanage-common, libsemanage1:armhf, libsepol1:armhf, libslang2:armhf, libsmartcols1:armhf, libss2:armhf, libstdc++6:armhf, libsystemd0:armhf, libtext-charwidth-perl, libtext-iconv-perl, libtext-wrapi18n-perl, libtinfo5:armhf, libudev1:armhf, libusb-0.1-4:armhf, libustr-1.0-1:armhf, libuuid1:armhf, login, lsb-base, makedev, mawk, mount, mountall, multiarch-support, ncurses-base, ncurses-bin, passwd, perl-base, plymouth, procps, raspbian-archive-keyring, readline-common, sed, sensible-utils, startpar, sudo, systemd, systemd-sysv, sysv-rc, sysvinit-utils, tar, tzdata, udev, util-linux, xz-utils, zlib1g:armhf | acl, adduser, apt, base-files, base-passwd, bash, bsdutils, coreutils, dash, debconf, debconf-i18n, debian-archive-keyring, debianutils, diffutils, dmsetup, dpkg, e2fslibs:armhf, e2fsprogs, findutils, gcc-4.8-base:armhf, gcc-4.9-base:armhf, gnupg, gpgv, grep, gzip, hostname, init, initscripts, insserv, libacl1:armhf, libapt-pkg4.12:armhf, libattr1:armhf, libaudit-common, libaudit1:armhf, libblkid1:armhf, libbz2-1.0:armhf, libc-bin, libc6:armhf, libcap2:armhf, libcap2-bin, libcomerr2:armhf, libcryptsetup4:armhf, libdb5.3:armhf, libdebconfclient0:armhf, libdevmapper1.02.1:armhf, libgcc1:armhf, libgcrypt20:armhf, libgpg-error0:armhf, libkmod2:armhf, liblocale-gettext-perl, liblzma5:armhf, libmount1:armhf, libncurses5:armhf, libncursesw5:armhf, libpam-modules:armhf, libpam-modules-bin, libpam-runtime, libpam0g:armhf, libpcre3:armhf, libprocps3:armhf, libreadline6:armhf, libselinux1:armhf, libsemanage-common, libsemanage1:armhf, libsepol1:armhf, libslang2:armhf, libsmartcols1:armhf, libss2:armhf, libstdc++6:armhf, libsystemd0:armhf, libtext-charwidth-perl, libtext-iconv-perl, libtext-wrapi18n-perl, libtinfo5:armhf, libudev1:armhf, libusb-0.1-4:armhf, libustr-1.0-1:armhf, libuuid1:armhf, login, lsb-base, mawk, mount, multiarch-support, ncurses-base, ncurses-bin, passwd, perl-base, procps, readline-common, sed, sensible-utils, startpar, sudo, systemd, systemd-sysv, sysv-rc, sysvinit-utils, tar, tzdata, udev, util-linux, zlib1g:armhf | acl, adduser, apt, base-files, base-passwd, bash, bsdutils, coreutils, dash, debconf, debconf-i18n, debian-archive-keyring, debianutils, diffutils, dmsetup, dpkg, e2fslibs:i386, e2fsprogs, findutils, gcc-4.8-base:i386, gcc-4.9-base:i386, gnupg, gpgv, grep, gzip, hostname, init, initscripts, insserv, libacl1:i386, libapt-pkg4.12:i386, libattr1:i386, libaudit-common, libaudit1:i386, libblkid1:i386, libbz2-1.0:i386, libc-bin, libc6:i386, libcap2:i386, libcap2-bin, libcomerr2:i386, libcryptsetup4:i386, libdb5.3:i386, libdebconfclient0:i386, libdevmapper1.02.1:i386, libgcc1:i386, libgcrypt20:i386, libgpg-error0:i386, libkmod2:i386, liblocale-gettext-perl, liblzma5:i386, libmount1:i386, libncurses5:i386, libncursesw5:i386, libpam-modules:i386, libpam-modules-bin, libpam-runtime, libpam0g:i386, libpcre3:i386, libprocps3:i386, libreadline6:i386, libselinux1:i386, libsemanage-common, libsemanage1:i386, libsepol1:i386, libslang2:i386, libsmartcols1:i386, libss2:i386, libstdc++6:i386, libsystemd0:i386, libtext-charwidth-perl, libtext-iconv-perl, libtext-wrapi18n-perl, libtinfo5:i386, libudev1:i386, libusb-0.1-4:i386, libustr-1.0-1:i386, libuuid1:i386, login, lsb-base, mawk, mount, multiarch-support, ncurses-base, ncurses-bin, passwd, perl-base, procps, readline-common, sed, sensible-utils, startpar, sudo, systemd, systemd-sysv, sysv-rc, sysvinit-utils, tar, tzdata, udev, util-linux, zlib1g:i386 |
-
 [rpi-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-raspbian/
 [armv7hf-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-debian/
 [i386-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-debian/
@@ -71,3 +120,33 @@ There are specific docker-node images for each arch. Available node versions can
 [rpi-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-node/
 [armv7hf-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-node/
 [i386-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-node/
+
+[systemd-wiki]:https://wiki.debian.org/systemd
+
+[rpi-systemd-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-buildpack-deps/
+[rpi-systemd-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-node/
+[rpi-systemd-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi-node/tags/manage/
+[rpi-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-systemd/
+[rpi-systemd-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-python/
+
+[armv7-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-systemd/
+[armv7-bbb-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-debian/
+[armv7-bbb-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-buildpack-deps/
+[armv7-bbb-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-node/
+[armv7-bbb-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-node/tags/manage/
+[armv7-bbb-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-python/
+[armv7-bbb-sourceslist]:http://repos.rcn-ee.net/debian/
+[armv7-bbb-sourceslist1]:http://debian.beagleboard.org/
+[armv7-rpi2-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-debian/
+[armv7-rpi2-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-buildpack-deps/
+[armv7-rpi2-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-node/
+[armv7-rpi2-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-node/tags/manage/
+[armv7-rpi2-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-python/
+[armv7-rpi2-sourceslist]:http://archive.raspbian.org/raspbian/
+
+[i386-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-systemd/
+[i386-edison-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-debian/
+[i386-edison-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-buildpack-deps/
+[i386-edison-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-node/
+[i386-edison-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/edison-node/tags/manage/
+[i386-edison-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-python/

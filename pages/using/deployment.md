@@ -80,6 +80,10 @@ uses [aptitude][aptitude] to install native packages before moving a script for
 our node code to use over to `/usr/bin` (the install scripts runs with root
 privileges within the container.)
 
+__Note:__ With plain Node.js project, our build server will automatically detect the specified node version in `package.json` file and build the container based on Docker image with satisfied node version installed. the default node version is `0.10.22` and it will be used if node version is not specified. There will be error if specified node version does not exist in our registry and you can try another version or contact us to be supported. More details about Docker node images in our registry can be found [here][resin-base-image].
+
+![terminal-builder-window](/img/terminal-builder-window.PNG)
+
 ### Dockerfile Deployment
 
 See the [Dockerfile][dockerfile] guide for custom application deployment using
@@ -114,3 +118,4 @@ which builds it, then ships the resultant environment to your devices.
 [node]:http://nodejs.org/
 [raspbian]:http://www.raspbian.org/
 [aptitude]:https://wiki.debian.org/Aptitude
+[resin-base-image]:/pages/configuration/resin-base-images.md
