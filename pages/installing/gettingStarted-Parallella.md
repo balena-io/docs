@@ -157,18 +157,18 @@ If you have a class 10 SD card and a fast internet connection your device should
 
 To start with, we will just run the standard "Hello, World!" example from parallella which uses the epiphany sdk. This demo allows the epiphany C code to be cross-compiled in the cloud.
 
-If you look at the code [here][parallella-demo-link], you will notice the code has a `Dockerfile` which is a recipe file that allows you to define your build and runtime environment. We recomment you have a look at how to effectively use [dockerfiles][dockerfile].
+If you look at the code [here][parallella-demo-link], you will notice the code has a `Dockerfile` which is a recipe file that allows you to define your build and runtime environment. We recommend you have a look at how to effectively use [dockerfiles][dockerfile].
 
 To clone it, run the following in a terminal:
 
 ```
-git clone git@bitbucket.org:lifeeth/resin-parallella-demo.git
+git clone https://github.com/resin-io-projects/parallella-demo.git
 ```
 
-Once the repo is cloned, cd into the newly created `resin-parallella-demo` directory and add the resin git endpoint by running the `git remote add` command shown in the top-right corner of the application dashboard page, e.g.:
+Once the repo is cloned, cd into the newly created `parallella-demo` directory and add the resin git endpoint by running the `git remote add` command shown in the top-right corner of the application dashboard page, e.g.:
 
 ```
-cd resin-parallella-demo
+cd parallella-demo
 
 git remote add resin git@git.resin.io:joebloggs/skynet.git
 ```
@@ -193,7 +193,7 @@ This means your code is safely on our servers and will be downloaded and execute
 <!-- TODO: add images for Parallella specifically -->
 <!-- ![Code updating](/img/screenshots/rpi-app-updating.png) -->
 
-You should now see the "Hello, World!" text printed in your parallella's dashboard on resin.io.
+You should now see the "Hello, World!" text printed in your Parallella's dashboard on resin.io.
 
 ## Further Reading
 
@@ -242,4 +242,4 @@ feedback and respond to any issues as soon as we can.
 [pifiller-download]:http://ivanx.com/raspberrypi/
 
 [parallella-link]:https://www.parallella.org/
-[parallella-demo-link]:https://bitbucket.org/lifeeth/resin-parallella-demo
+[parallella-demo-link]:https://github.com/resin-io-projects/parallella-demo.git
