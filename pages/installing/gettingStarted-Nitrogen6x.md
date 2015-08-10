@@ -132,7 +132,7 @@ Once it is completed, you can carry on setting up your device as shown below.
 
 ## Setting Up Your Device
 
-Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now power up the device by inserting the micro usb cable.
+Put the SD card into your device. Note the Nitrogen6x board has 2 mircoSD slots, you will want to insert your SD card into the slot on the **top side** of the board. Now connect either the ethernet cable or a WiFi adapter. Once you have all the bits in place, power up the device by inserting the barrel jack cable into the power port.
 
 It can take a few minutes for the device to boot up and appear on the dashboard, so grab some tea while you wait.
 
@@ -141,7 +141,7 @@ It can take a few minutes for the device to boot up and appear on the dashboard,
 
 While you wait resin.io is partitioning your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
-If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you
+If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 5 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you
 can find.
 
 ## Running Code On Your Device
