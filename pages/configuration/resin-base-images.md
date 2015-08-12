@@ -81,12 +81,6 @@ A collection of common build dependencies used for installing various modules, e
 * **curl**: This variant includes just the curl, wget, and ca-certificates packages. This is perfect for cases like the Java JRE, where downloading JARs is very common and necessary, but checking out code isn't.
 * **scm**: This variant is based on curl, but also adds various source control management tools. As of this writing, the current list of included tools is bzr, git, hg, and svn. Intentionally missing is cvs due to the dwindling relevance it has (sorry CVS). This image is perfect for cases like the Java JDK, where downloading JARs is very common (hence the curl base still), but checking out code also becomes more common as well (compared to the JRE).
 
-There are specific buildpack-deps images for each arch:
-
-* armv6: [resin/rpi-buildpack-deps][rpi-buildpack-deps-dockerhub-link]
-* armv7: [resin/armv7hf-buildpack-deps][armv7hf-buildpack-deps-dockerhub-link]
-* i386: [resin/i386-buildpack-deps][i386-buildpack-deps-dockerhub-link]
-
 | Variant | Base Image | Installed Packages | Available Tag |
 |:-----------|:------------|:------------|:------------|
 | curl | respective arch based images | ca-certificates, curl, wget | curl, jessie-curl, wheezy-curl, sid-curl (only for armv7) |
@@ -103,24 +97,12 @@ This is a set of images with node.js binary installed. The node images come in m
 * **node:<version>-onbuild**: This image makes building derivative images easier. For most use cases, creating a Dockerfile in the base of your project directory with the line FROM node:onbuild will be enough to create a stand-alone image for your project.
 * **node:<version>-slim**: This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run node. Unless you are working in an environment where only the node image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
 
-There are specific docker-node images for each arch. Available node versions can be found in the repository below
-
-* armv6: [resin/rpi-node][rpi-node-dockerhub-link]
-* armv7: [resin/armv7hf-node][armv7hf-node-dockerhub-link]
-* i386: [resin/i386-node][i386-node-dockerhub-link]
-
 [rpi-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-raspbian/
 [armv7hf-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-debian/
 [i386-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-debian/
 [rpi-github-link]:https://github.com/resin-io-library/resin-rpi-raspbian/
 [armv7hf-github-link]:https://github.com/resin-io-library/resin-armhfv7-debian/
 [i386-github-link]:https://github.com/resin-io-library/resin-i386-debian/
-[rpi-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-buildpack-deps/
-[armv7hf-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-buildpack-deps/
-[i386-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-buildpack-deps/
-[rpi-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-node/
-[armv7hf-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-node/
-[i386-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-node/
 
 [installed-pkg-rpi-wheezy]:https://resin-packages.s3.amazonaws.com/image_info/rpi-raspbian/wheezy/wheezy
 [installed-pkg-rpi-jessie]:https://resin-packages.s3.amazonaws.com/image_info/rpi-raspbian/jessie/jessie
