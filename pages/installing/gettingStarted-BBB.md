@@ -177,7 +177,7 @@ the top-right corner of the application page, e.g.:-
 ```
 cd tty.js-resin
 
-git remote add resin git@git.resin.io:joebloggs/skynet.git
+git remote add resin joebloggs@git.resin.io:joebloggs/skynet.git
 ```
 
 Now you can simply run `git push resin master` and push code direct to your

@@ -172,7 +172,7 @@ the top-right corner of the application page, e.g.:
 ```
 cd text2speech
 
-git remote add resin git@git.resin.io:joebloggs/skynet.git
+git remote add resin joebloggs@git.resin.io:joebloggs/skynet.git
 ```
 
 Now you can simply run `git push resin master` and push your code up to our servers where they will distribute it to your device(s). If this fails, you may need to force the push by running `git push resin master --force`.

@@ -11,7 +11,7 @@ Our git server authenticates you with the first valid key your SSH client provid
 
 If the first key provided to the server happens to be a key associated with a separate account, then unfortunately you will have all pushes to the curent account rejected.
 
-You can check whether you are able to connect to our git server at all via `ssh -T git@git.resin.io` - if you receive a welcome message then it's likely due to the aforementioned issue.
+You can check whether you are able to connect to our git server at all via `ssh -T joebloggs@git.resin.io` - if you receive a welcome message then it's likely due to the aforementioned issue.
 
 ## Workaround
 
