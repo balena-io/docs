@@ -2,10 +2,10 @@
 
 ## Connecting a Device to WiFi
 
-![Wifi Settings](/img/screenshots/wifi-settings.png)
-
-To connect your devices to a WiFi network choose 'Wireless LAN', put in your
+To connect your devices to a WiFi network select the `wifi` option, put in your
 network's SSID and, if the network is encrypted, enter a passphrase.
+
+![Wifi Settings](/img/screenshots/wifi-settings-new.png)
 
 __NOTE:__ The device will automatically determine your network's encryption (if
 any) and connect using the provided passphrase, there's no need to specify the
@@ -15,20 +15,30 @@ encryption type.
 
 On the Raspberry Pi and Beaglebone, it is possible to change your wifi SSID or Passphrase after downloading the `.img`. 
 
-Currently this can be done using the small config [writer tool](https://github.com/petrosagg/resin-net-config). This is a temporary tool and will be phased out very soon.
+Currently this can be done by editing the `config.json`. This file can be found in the `resin-conf` partition on the SD card for most devices, except the Beaglebone Black and the Intel Edison. For the Beaglebone Black it can be found in the `flash-conf` partition. For the Intel Edison it can be found in in `resin-conf` once you have mounted the `config.img`.
 
-Your `network.config` file should look something like this, but `[SSID]` and `[passphrase]` should be substituted for your network settings.
+__Note:__ For both the Beaglebone black and the Intel Edison, you can only change this the wifi configuration **before you provision** the device. Trying to change these settings after provisioning will have no affect.
+
+In the `config.json` file edit the section called `files` with whatever `SSID` and `passphrase` you need.
+
 ```
-[service_home_wifi]
-Type = wifi
-Name = [SSID]
-Passphrase = [passphrase]
+"files": {
+    "network/settings": "[global]\nOfflineMode=false\n\n[WiFi]\nEnable=true\nTethering=false\n\n[Wired]\nEnable=true\nTethering=false\n\n[Bluetooth]\nEnable=true\nTethering=false",
+    "network/network.config": "[service_home_ethernet]\nType = ethernet\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_home_wifi]\nType = wifi\nName = My_Wifi_Ssid\nPassphrase = my super secret wifi passphrase\nNameservers = 8.8.8.8,8.8.4.4"
+  }
 ```
+
 
 ### Multiple WiFi Connections
 
 Though we currently don't support multiple WiFi SSIDs through the user
-interface, this can be achieved by manually editing a configuration file on your SD card. See the [custom network guide][custom-network] for details on how to do this.
+interface, this can be achieved by manually editing the `config.json` file on your SD card. To add a second wifi network to the configuration simply append the following to `"network/network.config":`:
+```
+\n\n[service_secondNetwork_wifi]\nType = wifi\nName = My_2nd_Wifi_Ssid\nPassphrase = my super sexy wifi\nNameservers = 8.8.8.8,8.8.4.4
+```
+Make sure that you do not forget the trailing `"` for after you add this to the configuration.
+
+The network config follows the [ConnMan][connman] configuration file format. Follow the [official guide][connman-format] for details of how to configure your network if you have more complicated requirements than the standard configuration allows.
 
 ## Raspberry Pi
 
@@ -66,8 +76,6 @@ If you have issues connecting with the WiFi device, first check to ensure the
 SSID and passphrase are correct. If they are, try rebooting with an ethernet
 cable plugged in, then booting again with just WiFi.
 
-__NOTE:__ There is a known bug in the connection manager ConnMan, which makes it impossible for resin devices to connect to wifi routers that have no passphrase at all. For the time being please try use password protected wifi networks to connect your devices.
-
 If neither of these approaches work, please let us know!
 
 [custom-network]:/pages/configuration/custom-network.md
@@ -79,3 +87,5 @@ If neither of these approaches work, please let us know!
 [elinux]:http://elinux.org/RPi_USB_Wi-Fi_Adapters
 [pi-hut-usb]:http://thepihut.com/products/usb-wifi-adapter-for-the-raspberry-pi
 [bbb-wifi-list]:http://elinux.org/Beagleboard:BeagleBoneBlack#WIFI_Adapters
+[connman]:http://en.wikipedia.org/wiki/ConnMan
+[connman-format]:http://git.kernel.org/cgit/network/connman/connman.git/tree/doc/config-format.txt
