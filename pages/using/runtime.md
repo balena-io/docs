@@ -7,7 +7,7 @@ which listen on any port without issue. There is no need to have the docker `EXP
 
 ## Device URLS
 
-Resin.io currently exposes port 80 for web forwarding. To enable webforwarding on a specific device, navigate to the device's **actions** tab on the resin.io dashboard and select the `enable a public url for this device` checkbox. Resin will then generate a web accessable url for the device. The URL will be of the form `<RESIN_DEVICE_UUID>.resindevice.io`, where `<RESIN_DEVICE_UUID.` is the unique ID of the device which you can see on your dashboard.
+Resin.io currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the resin.io dashboard and select the `Enable a public url for this device` checkbox. Resin will then generate a web accessable url for the device. The URL will be of the form `<RESIN_DEVICE_UUID>.resindevice.io`, where `<RESIN_DEVICE_UUID.` is the unique ID of the device which you can see on your dashboard.
 
 ![Enable device url](/img/screenshots/device-url-new.png)
 
