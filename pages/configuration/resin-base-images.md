@@ -40,6 +40,15 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | resin/raspberrypi2-buildpack-deps | The buildpack-deps image for RPI2. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-rpi2-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
 | resin/raspberrypi2-node | The Node.js buildpack image for Node.js apps for RPI2. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-rpi2-node-dockerhub-link] | For available image tags, refer [here][armv7-rpi2-node-dockerhub-tag-link] |
 | resin/raspberrypi2-python | The Python buildpack image for Python apps for RPI2. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][armv7-rpi2-python-dockerhub-link] | latest, jessie, wheezy |
+| resin/zc702-zynq7-debian | The bare bones OS image for ZYNQ ZC702. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-zc702-zynq7-dockerhub-link] | latest, jessie, wheezy |
+| resin/zc702-zynq7-buildpack-deps | The buildpack-deps image for ZYNQ ZC702. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-zc702-zynq7-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/zc702-zynq7-node | The Node.js buildpack image for Node.js apps for ZYNQ ZC702. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-zc702-zynq7-node-dockerhub-link] | For available image tags, refer [here][armv7-zc702-zynq7-node-dockerhub-tag-link] |
+| resin/zc702-zynq7-python | The Python buildpack image for Python apps for ZYNQ ZC702. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][armv7-zc702-zynq7-python-dockerhub-link] | latest, jessie, wheezy |
+| resin/vab820-quad-debian | The bare bones OS image for VIA VAB 820-quad. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-zvab820-quad-dockerhub-link] | latest, jessie, wheezy |
+| resin/vab820-quad-buildpack-deps | The buildpack-deps image for VIA VAB 820-quad. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-zvab820-quad-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/vab820-quad-node | The Node.js buildpack image for Node.js apps for VIA VAB 820-quad. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-zvab820-quad-node-dockerhub-link] | For available image tags, refer [here][armv7-zvab820-quad-node-dockerhub-tag-link] |
+| resin/zvab820-quad-python | The Python buildpack image for Python apps for VIA VAB 820-quad. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][armv7-zvab820-quad-python-dockerhub-link] | latest, jessie, wheezy |
+
 
 ### i386: Intel Edison
 
@@ -53,6 +62,19 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | resin/edison-buildpack-deps | The buildpack-deps image for Intel Edison. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][i386-edison-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
 | resin/edison-node | The Node.js buildpack image for Node.js apps for Intel Edison. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][i386-edison-node-dockerhub-link] | For available image tags, refer [here][i386-edison-node-dockerhub-tag-link] |
 | resin/edison-python | The Python buildpack image for Python apps for Intel Edison. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][i386-edison-python-dockerhub-link] | latest, jessie, wheezy |
+
+### amd64: Intel NUC
+
+![amd64 Tree Diagram](/img/amd64-diagram.jpg)
+
+| Image | Description | Installed Packages | Repository | Available Tag|
+|:-----------|:------------|:------------|:------------|:------------|
+| resin/amd64-debian| The base OS image for amd64 devices (Intel NUC) | minbase, sudo | [dockerhub][amd64-dockerhub-link] | latest, jessie, wheezy |
+| resin/amd64-systemd | The image with full systemd init system installed for amd64 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][amd64-systemd-dockerhub-link] | latest, jessie, wheezy | 
+| resin/nuc-debian | The bare bones OS image for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libmraa | [dockerhub][nuc-edison-dockerhub-link] | latest, jessie, wheezy |
+| resin/nuc-buildpack-deps | The buildpack-deps image for Intel NUC. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][nuc-edison-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/nuc-node | The Node.js buildpack image for Node.js apps for Intel NUC. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][nuc-edison-node-dockerhub-link] | For available image tags, refer [here][nuc-edison-node-dockerhub-tag-link] |
+| resin/nuc-python | The Python buildpack image for Python apps for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][nuc-edison-python-dockerhub-link] | latest, jessie, wheezy |
 
 #### <a name="tips"></a>Tips
 
@@ -81,12 +103,6 @@ A collection of common build dependencies used for installing various modules, e
 * **curl**: This variant includes just the curl, wget, and ca-certificates packages. This is perfect for cases like the Java JRE, where downloading JARs is very common and necessary, but checking out code isn't.
 * **scm**: This variant is based on curl, but also adds various source control management tools. As of this writing, the current list of included tools is bzr, git, hg, and svn. Intentionally missing is cvs due to the dwindling relevance it has (sorry CVS). This image is perfect for cases like the Java JDK, where downloading JARs is very common (hence the curl base still), but checking out code also becomes more common as well (compared to the JRE).
 
-There are specific buildpack-deps images for each arch:
-
-* armv6: [resin/rpi-buildpack-deps][rpi-buildpack-deps-dockerhub-link]
-* armv7: [resin/armv7hf-buildpack-deps][armv7hf-buildpack-deps-dockerhub-link]
-* i386: [resin/i386-buildpack-deps][i386-buildpack-deps-dockerhub-link]
-
 | Variant | Base Image | Installed Packages | Available Tag |
 |:-----------|:------------|:------------|:------------|
 | curl | respective arch based images | ca-certificates, curl, wget | curl, jessie-curl, wheezy-curl, sid-curl (only for armv7) |
@@ -103,24 +119,13 @@ This is a set of images with node.js binary installed. The node images come in m
 * **node:<version>-onbuild**: This image makes building derivative images easier. For most use cases, creating a Dockerfile in the base of your project directory with the line FROM node:onbuild will be enough to create a stand-alone image for your project.
 * **node:<version>-slim**: This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run node. Unless you are working in an environment where only the node image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
 
-There are specific docker-node images for each arch. Available node versions can be found in the repository below
-
-* armv6: [resin/rpi-node][rpi-node-dockerhub-link]
-* armv7: [resin/armv7hf-node][armv7hf-node-dockerhub-link]
-* i386: [resin/i386-node][i386-node-dockerhub-link]
-
 [rpi-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-raspbian/
 [armv7hf-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-debian/
 [i386-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-debian/
 [rpi-github-link]:https://github.com/resin-io-library/resin-rpi-raspbian/
 [armv7hf-github-link]:https://github.com/resin-io-library/resin-armhfv7-debian/
 [i386-github-link]:https://github.com/resin-io-library/resin-i386-debian/
-[rpi-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-buildpack-deps/
-[armv7hf-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-buildpack-deps/
-[i386-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-buildpack-deps/
-[rpi-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-node/
-[armv7hf-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-node/
-[i386-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-node/
+[amd64-github-link]:https://github.com/resin-io-library/resin-amd64-debian/
 
 [installed-pkg-rpi-wheezy]:https://resin-packages.s3.amazonaws.com/image_info/rpi-raspbian/wheezy/wheezy
 [installed-pkg-rpi-jessie]:https://resin-packages.s3.amazonaws.com/image_info/rpi-raspbian/jessie/jessie
@@ -152,6 +157,17 @@ There are specific docker-node images for each arch. Available node versions can
 [armv7-rpi2-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-node/tags/manage/
 [armv7-rpi2-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-python/
 [armv7-rpi2-sourceslist]:http://archive.raspbian.org/raspbian/
+[armv7-zc702-zynq7-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-debian/
+[armv7-zc702-zynq7-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-buildpack-deps/
+[armv7-zc702-zynq7-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-node/
+[armv7-zc702-zynq7-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-node/tags/manage/
+[armv7-zc702-zynq7-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-python/
+[armv7-vab820-quad-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-debian/
+[armv7-vab820-quad-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-buildpack-deps/
+[armv7-vab820-quad-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-node/
+[armv7-vab820-quad-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/vab820-quad-node/tags/manage/
+[armv7-vab820-quad-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-python/
+
 
 [i386-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-systemd/
 [i386-edison-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-debian/
@@ -159,3 +175,10 @@ There are specific docker-node images for each arch. Available node versions can
 [i386-edison-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-node/
 [i386-edison-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/edison-node/tags/manage/
 [i386-edison-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-python/
+
+[amd64-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/amd64-systemd/
+[amd64-nuc-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-debian/
+[amd64-nuc-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-buildpack-deps/
+[amd64-nuc-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-node/
+[amd64-nuc-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-node/tags/manage/
+[amd64-nuc-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-python/
