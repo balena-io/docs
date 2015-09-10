@@ -1,34 +1,32 @@
-# Getting Started With the Humming Board
+# Getting Started With the Odroid XU4
 
-![Humming Board](/img/hummingBoard.png)
+![Odroid Board](/img/odroidBoard.jpg)
 
 ## What You'll Need
 
-* A [Humming Board i2][humming-link] from [Solid Run][solid-run]. Currently we only support the `i2` device type.
+* An [Odroid XU4][odroidXU4-link] Cortex-A7 quad core from [Hardkernel][hardkernel-link].
+* A 4GB or larger SD card.The [Odroid XU4][odroidXU4-link] uses a microSD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 
-* A 4GB or larger SD card.
-  The [Humming Board i2][humming-link] uses a microSD card. The [speed class][speed_class] of
-  the card also matters - this determines its maximum transfer rate. We strongly
-  recommend you get hold of a class 10 card or above.
+__Note:__ Currently booting from the [emmc][odroid-emmc] on the Odroid device is not supported.
 
+* A 5V, 4 Amp power supply unit from [Hardkernel][hardkernel-link] like this [one][XU4-PSU-link]
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the internet.
+* And finally you need some awesome ideas to hack on! If you need some inspiration, go over and check out our [projects][projects] page.
 
-  __Note__: Always run the board from 5VDC 1A minimum supply when using a Wifi Dongle.
-
-* Some awesome ideas to hack on! If you need inspiration, check out our [projects][projects] page.
+Okay, so now that we have our hardware, lets get to the code. Resin.io uses the [git][git] version control system to push your code updates. The code is then built once on the resin.io build servers and bundled into a container. This container is then delivered to all devices in your fleet.
 
 __NOTE:__ If you're not experienced with [git][git] version control, check out the excellent [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with the Humming Board, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Humming#creating-your-first-application).
+If you already have a resin.io account and just want to get started with the Odroid XU4, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Humming#creating-your-first-application).
 
 ## Signing Up
 
-Enter your details on the [sign up page][signup]. There are a couple of restrictions:-
+First things first, enter your details on the [sign up page][signup]. There are a couple of restrictions:-
 
 * The username can only contain letters and numbers.
 * The password has to be at least 8 characters long.
 
-Or just use one of your social logins to signup with resin.
+Or just use one of your social logins to signup with resin.io.
 
 ## SSH Key
 
@@ -52,19 +50,18 @@ retrieve this data.)
 
 ## Creating Your First Application
 
-![Creating an Application](/img/Humming/create_application_Humming.png)
+![Creating an Application](/img/OdroidXU4/create_application_OdroidXU4.png)
 
 
-The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and
-devices the actual hardware itself.
+The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
 
 You can have as many devices connected to an application as you like - when you push code it deploys to every device that application owns.
 
-To create your first application simply type in a name, select the `HummingBoard` as your device type and tap create which will take you to your new application's dashboard:-
+To create your first application simply type in a name, select the `Odroid XU4` as your device type in the drop down and tap create which will take you to your new application's dashboard:-
 
 ## Adding Your First Device
 
-![Empty Application Page](/img/Humming/application_empty_Humming.png)
+![Empty Application Page](/img/OdroidXU4/application_empty_OdroidXU4.png)
 
 This is the application dashboard where all of the devices connected to your application will be shown along with their status and logs.
 
@@ -114,7 +111,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Humming.md#setting-up-your-device)
+Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Odroid-XU4.md#setting-up-your-device)
 
 ### Windows
 
@@ -136,7 +133,7 @@ Put the SD card into your device, and connect either the ethernet cable or WiFi 
 
 It can take a few minutes for the device to boot up and appear on the dashboard, so grab some tea while you wait.
 
-<!-- TODO: get insert gif for hummingboard -->
+<!-- TODO: get insert gif for odroidboard -->
 <!-- ![insert SD](/img/BBB/sd_card_BBB.jpg) -->
 
 While you wait resin.io is partitioning your SD card, installing a custom linux environment and establishing a secure connection with our servers.
@@ -192,9 +189,8 @@ If you find any issues with the application, please click the feedback label on 
 [supported]:/pages/hardware/devices.md
 [dockerfile]:/pages/using/dockerfile.md
 
-[alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
-[signup]:http://alpha.resin.io/signup
+[signup]:https://dashboard.resin.io/signup
 [git]:http://git-scm.com/
 [ssh_key]:http://en.wikipedia.org/wiki/Secure_Shell
 [pub_key_crypto]:http://en.wikipedia.org/wiki/Public-key_cryptography
@@ -211,7 +207,9 @@ If you find any issues with the application, please click the feedback label on 
 [code-school]:https://www.codeschool.com/
 
 [python-example]:https://github.com/resin-projects/simple-server-python
-[humming-link]:http://www.solid-run.com/product/hummingboard-i2/
+[odroidXU4-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825&tab_idx=1
 [win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
 [pifiller-download]:http://ivanx.com/raspberrypi/
-[solid-run]:http://www.solid-run.com/
+[hardkernel-link]:http://www.hardkernel.com/main/main.php
+[odroid-emmc]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143538061522
+[XU4-PSU-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143652955378
