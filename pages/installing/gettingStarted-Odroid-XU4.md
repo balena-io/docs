@@ -1,6 +1,6 @@
 # Getting Started With the Odroid XU4
 
-![Odroid Board](/img/odroidBoard.jpg)
+![Odroid Board](/img/odroidXUBoard.jpg)
 
 ## What You'll Need
 
