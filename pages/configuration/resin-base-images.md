@@ -58,6 +58,18 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | resin/odroid-c1-buildpack-deps | The buildpack-deps image for ODROID-C1+. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-odroid-c1-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
 | resin/odroid-c1-node | The Node.js buildpack image for Node.js apps for ODROID-C1+. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-odroid-c1-node-dockerhub-link] | For available image tags, refer [here][armv7-odroid-c1-node-dockerhub-tag-link] |
 | resin/odroid-c1-python | The Python buildpack image for Python apps for ODROID-C1+. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][armv7-odroid-c1-python-dockerhub-link] | latest, jessie, wheezy |
+| resin/cubox-i-debian | The bare bones OS image for Hummingboard. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-cubox-i-dockerhub-link] | latest, jessie, wheezy |
+| resin/cubox-i-buildpack-deps | The buildpack-deps image for Hummingboard. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-cubox-i-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/cubox-i-node | The Node.js buildpack image for Node.js apps for Hummingboard. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-cubox-i-node-dockerhub-link] | For available image tags, refer [here][armv7-cubox-i-node-dockerhub-tag-link] |
+| resin/odroid-c1-python | The Python buildpack image for Python apps for Hummingboard. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][armv7-cubox-i-python-dockerhub-link] | latest, jessie, wheezy |
+| resin/nitrogen6x-debian | The bare bones OS image for Nitrogen 6X. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-nitrogen6x-dockerhub-link] | latest, jessie, wheezy |
+| resin/nitrogen6x-buildpack-deps | The buildpack-deps image for Nitrogen 6X. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-nitrogen6x-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/nitrogen6x-node | The Node.js buildpack image for Node.js apps for Nitrogen 6X. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-nitrogen6x-node-dockerhub-link] | For available image tags, refer [here][armv7-nitrogen6x-node-dockerhub-tag-link] |
+| resin/nitrogen6x-python | The Python buildpack image for Python apps for Nitrogen 6X. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][armv7-nitrogen6x-python-dockerhub-link] | latest, jessie, wheezy |
+| resin/parallella-hdmi-resin-debian | The bare bones OS image for Parallella. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-parallella-hdmi-resin-dockerhub-link] | latest, jessie, wheezy |
+| resin/parallella-hdmi-resin-buildpack-deps | The buildpack-deps image for Parallella. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-parallella-hdmi-resin-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/parallella-hdmi-resin-node | The Node.js buildpack image for Node.js apps for Parallella. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-parallella-hdmi-resin-node-dockerhub-link] | For available image tags, refer [here][armv7-parallella-hdmi-resin-node-dockerhub-tag-link] |
+| resin/parallella-hdmi-resin-python | The Python buildpack image for Python apps for Parallella. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus  | [dockerhub][armv7-parallella-hdmi-resin-python-dockerhub-link] | latest, jessie, wheezy |
 
 
 ### i386: Intel Edison
@@ -191,6 +203,21 @@ This is a set of images with node.js binary installed. The node images come in m
 [armv7-odroid-c1-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-node/
 [armv7-odroid-c1-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-c1-node/tags/manage/
 [armv7-odroid-c1-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-python/
+[armv7-cubox-i-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-debian/
+[armv7-cubox-i-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-buildpack-deps/
+[armv7-cubox-i-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-node/
+[armv7-cubox-i-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/cubox-i-node/tags/manage/
+[armv7-cubox-i-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-python/
+[armv7-nitrogen6x-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-debian/
+[armv7-nitrogen6x-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-buildpack-deps/
+[armv7-nitrogen6x-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-node/
+[armv7-nitrogen6x-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-node/tags/manage/
+[armv7-nitrogen6x-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-python/
+[armv7-parallella-hdmi-resin-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-debian/
+[armv7-parallella-hdmi-resin-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-buildpack-deps/
+[armv7-parallella-hdmi-resin-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-node/
+[armv7-parallella-hdmi-resin-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-node/tags/manage/
+[armv7-parallella-hdmi-resin-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-python/
 
 [i386-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-systemd/
 [i386-edison-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-debian/
