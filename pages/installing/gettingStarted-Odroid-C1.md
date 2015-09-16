@@ -1,6 +1,7 @@
 # Getting Started With the Odroid C1
 
 <!-- TODO: add this image -->
+
 ![Odroid Board](/img/odroidC1Board.jpg)
 
 ## What You'll Need
@@ -11,6 +12,7 @@
 __Note:__ Currently booting from the [emmc][odroid-emmc] on the Odroid device is not supported.
 
 <!-- TODO: fix link to correct PSU -->
+
 * A 5V, 4 Amp power supply unit from [Hardkernel][hardkernel-link] like this [one][XU4-PSU-link].
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the internet.
 * And finally you need some awesome ideas to hack on! If you need some inspiration, go over and check out our [projects][projects] page.
