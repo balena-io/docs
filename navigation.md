@@ -11,7 +11,7 @@
 
 * [Raspberry Pi](/pages/installing/gettingStarted.md)
 * [Beaglebone Black](/pages/installing/gettingStarted-BBB.md)
-* [Intel Edison (EXPERIMENTAL)](/pages/installing/gettingStarted-Edison.md)
+* [Intel Edison](/pages/installing/gettingStarted-Edison.md)
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
 * [Humming Board](/pages/installing/gettingStarted-Humming.md)
 * [Nitrogen6x](/pages/installing/gettingStarted-Nitrogen6x.md)
