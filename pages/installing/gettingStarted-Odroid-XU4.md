@@ -5,11 +5,11 @@
 ## What You'll Need
 
 * An [Odroid XU4][odroidXU4-link] Cortex-A7 quad core from [Hardkernel][hardkernel-link].
-* A 4GB or larger SD card.The [Odroid XU4][odroidXU4-link] uses a microSD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
+* A 4GB or larger SD card. The [Odroid XU4][odroidXU4-link] uses a microSD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 
 __Note:__ Currently booting from the [emmc][odroid-emmc] on the Odroid device is not supported.
 
-* A 5V, 4 Amp power supply unit from [Hardkernel][hardkernel-link] like this [one][XU4-PSU-link]
+* A 5V, 4 Amp power supply unit from [Hardkernel][hardkernel-link] like this [one][XU4-PSU-link].
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the internet.
 * And finally you need some awesome ideas to hack on! If you need some inspiration, go over and check out our [projects][projects] page.
 
@@ -129,7 +129,13 @@ Once it is completed, you can carry on setting up your device as shown below.
 
 ## Setting Up Your Device
 
-Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now power up the device by inserting the micro usb cable.
+Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Make sure the little toggle switch near the HDMI port is set to the `uSD` option.
+
+<!-- TODO: get insert image of boot select switch -->
+
+__Note:__ Currently booting from `emmc` is not supported.
+
+Now power up the device by connecting up the power supply.
 
 It can take a few minutes for the device to boot up and appear on the dashboard, so grab some tea while you wait.
 
