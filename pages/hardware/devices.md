@@ -39,6 +39,12 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![Nitrogen6x](/img/nitrogen6x.jpg)
 
+### Odroid XU4
+
+[link](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825&tab_idx=1)
+
+![The Odroid XU4 board](/img/odroidXUBoard.jpg)
+
 ## To Be Supported Very Soon
 
 ### NUC
