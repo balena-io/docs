@@ -2,6 +2,8 @@
 
 We use the familiar and popular [git][git] version control tool to push your code changes to a remote repository on our build servers. Each resin.io application has a unique remote repository associated to it and all code changes on the `master` branch of this repository will be built and delivered to your device fleet. When our servers receive your changes on `master` a chain reaction is set in motion in which you code is built for the specified target architecture, bundled into a Docker container and then systematically rolled out to your fleet of devices in the field.
 
+<!-- TODO: add image of git+resin workflow -->
+
 # Building Containers
 
 The method our builders use to build your code depends on the project you are pushing. If your project includes a Dockerfile, the builders will execute every command in the Dockerfile, from including the base OS you define, to installing packages, pulling git repositories, and running any other commands you specify.
