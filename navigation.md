@@ -58,3 +58,4 @@
 
 * [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 * [Error Notifications](/pages/troubleshooting/error.md)
+* [CLI](/pages/troubleshooting/cli-troubleshooting.md)
