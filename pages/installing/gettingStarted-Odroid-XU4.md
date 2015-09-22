@@ -1,10 +1,12 @@
 # Getting Started With the Odroid XU4
 
-![Odroid Board](/img/odroidXUBoard.jpg)
-
 ## What You'll Need
 
 * An [Odroid XU4][odroidXU4-link] Cortex-A7 quad core from [Hardkernel][hardkernel-link].
+![Odroid Board](/img/odroidXUBoard.jpg)
+
+__Note:__ The same process will work for the older [Odroid XU3][xu3-link].
+
 * A 4GB or larger SD card. The [Odroid XU4][odroidXU4-link] uses a microSD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 
 __Note:__ Currently booting from the [emmc][odroid-emmc] on the Odroid device is not supported.
@@ -52,7 +54,6 @@ retrieve this data.)
 
 ![Creating an Application](/img/OdroidXU4/create_application_OdroidXU4.png)
 
-
 The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
 
 You can have as many devices connected to an application as you like - when you push code it deploys to every device that application owns.
@@ -92,7 +93,7 @@ Now, you'll want to execute the command that actually copies the image onto the 
 
 > You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive, such as your master hard disk, and then you're gonna have a bad time. Double check everything!
 
-Also, choose the right file location for your .img file in the input file field (if=...).
+Also, be sure to choose the right file location for your `.img` file in the input file field (if=...).
 `sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2`
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
@@ -131,9 +132,7 @@ Once it is completed, you can carry on setting up your device as shown below.
 
 Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Make sure the little toggle switch near the HDMI port is set to the `uSD` option.
 
-<!-- TODO: get insert image of boot select switch -->
-
-__Note:__ Currently booting from `emmc` is not supported.
+__Note:__ Currently booting from [emmc][odroid-emmc] is not supported.
 
 Now power up the device by connecting up the power supply.
 
@@ -144,8 +143,7 @@ It can take a few minutes for the device to boot up and appear on the dashboard,
 
 While you wait resin.io is partitioning your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
-If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you
-can find.
+If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
 
 ## Running Code On Your Device
 
@@ -219,3 +217,4 @@ If you find any issues with the application, please click the feedback label on 
 [hardkernel-link]:http://www.hardkernel.com/main/main.php
 [odroid-emmc]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143538061522
 [XU4-PSU-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143652955378
+[xu3-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G140448267127
