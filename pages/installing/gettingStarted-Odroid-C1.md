@@ -1,19 +1,16 @@
 # Getting Started With the Odroid C1
 
-<!-- TODO: add this image -->
+## What You'll Need
+
+* An [Odroid C1][odroidC1-link] development board from [Hardkernel][hardkernel-link].
 
 ![Odroid Board](/img/odroidC1Board.jpg)
 
-## What You'll Need
-
-* An [Odroid C1][odroidC1-link] from [Hardkernel][hardkernel-link].
 * A 4GB or larger SD card. The [Odroid C1][odroidC1-link] uses a microSD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 
-__Note:__ Currently booting from the [emmc][odroid-emmc] on the Odroid device is not supported.
+__Note:__ The C1 can boot from both uSD and [eMMC][odroid-emmc], however currently booting from eMMC is not supported. By default the C1 will try first boot from eMMC and then try uSD if that failed. For this reason it is important you do **not** have any eMMC media installed on the board.
 
-<!-- TODO: fix link to correct PSU -->
-
-* A 5V, 4 Amp power supply unit from [Hardkernel][hardkernel-link] like this [one][XU4-PSU-link].
+* A 5V/2A round plug power supply unit from [Hardkernel][hardkernel-link] like this [one][C1-PSU-link].
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the internet.
 * And finally you need some awesome ideas to hack on! If you need some inspiration, go over and check out our [projects][projects] page.
 
@@ -21,7 +18,7 @@ Okay, so now that we have our hardware, lets get to the code. Resin.io uses the 
 
 __NOTE:__ If you're not experienced with [git][git] version control, check out the excellent [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with the Odroid C1, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Humming#creating-your-first-application).
+If you already have a resin.io account and just want to get started with the Odroid C1, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-ODROID-C1#creating-your-first-application).
 
 ## Signing Up
 
@@ -54,8 +51,9 @@ retrieve this data.)
 
 ## Creating Your First Application
 
-![Creating an Application](/img/OdroidC1/create_application_OdroidC1.png)
+<!-- ![Creating an Application](/img/OdroidC1/create_application_OdroidC1.png) -->
 
+<img src="/img/OdroidC1/create_application_OdroidC1.png" width="50%">
 
 The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
 
@@ -65,7 +63,9 @@ To create your first application simply type in a name, select the `Odroid C1` a
 
 ## Adding Your First Device
 
-![Empty Application Page](/img/OdroidC1/application_empty_OdroidC1.png)
+<!-- ![Empty Application Page](/img/OdroidC1/application_empty_OdroidC1.png) -->
+
+<img src="/img/OdroidC1/application_empty_OdroidC1.png" width="90%">
 
 This is the application dashboard where all of the devices connected to your application will be shown along with their status and logs.
 
@@ -101,7 +101,7 @@ Also, choose the right file location for your .img file in the input file field 
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Humming.md#setting-up-your-device)
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-ODROID-C1#setting-up-your-device)
 
 #### From a GUI
 
@@ -115,7 +115,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Odroid-C1.md#setting-up-your-device)
+Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-ODROID-C1#setting-up-your-device)
 
 ### Windows
 
@@ -125,7 +125,7 @@ Now in Win32DiskImager, click on the folder icon to select which `.img` file you
 
 Next insert your SD card into your computer and in the Win32DiskImager GUI, select your SD card when it appears.
 
-__NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines harddisk.
+__NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines hard disk.
 
 Once you have made your selections and are 100% sure you are writing to your SD card and nothing else, you can click write and wait for the SD card to be burnt.
 
@@ -137,14 +137,11 @@ Put the SD card into your device, and connect either the ethernet cable or WiFi 
 
 <!-- TODO: get insert image of boot select switch -->
 
-__Note:__ Currently booting from `emmc` is not supported.
+__Note:__ The C1 can boot from both uSD and eMMC, however currently booting from `eMMC` is not supported. By default the C1 will try first boot from eMMC and then try uSD if that failed. For this reason it is important you do **not** have any eMMC media installed on the board.
 
 Now power up the device by connecting up the power supply.
 
 It can take a few minutes for the device to boot up and appear on the dashboard, so grab some tea while you wait.
-
-<!-- TODO: get insert gif for odroidboard -->
-<!-- ![insert SD](/img/BBB/sd_card_BBB.jpg) -->
 
 While you wait resin.io is partitioning your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
@@ -217,9 +214,10 @@ If you find any issues with the application, please click the feedback label on 
 [code-school]:https://www.codeschool.com/
 
 [python-example]:https://github.com/resin-projects/simple-server-python
-[odroidXU4-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825&tab_idx=1
 [win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
 [pifiller-download]:http://ivanx.com/raspberrypi/
+
+[odroidC1-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573
 [hardkernel-link]:http://www.hardkernel.com/main/main.php
 [odroid-emmc]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143538061522
-[XU4-PSU-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143652955378
+[C1-PSU-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G134111972476
