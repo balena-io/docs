@@ -15,6 +15,7 @@
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
 * [Humming Board](/pages/installing/gettingStarted-Humming.md)
 * [Nitrogen6x](/pages/installing/gettingStarted-Nitrogen6x.md)
+* [Zynq ZC702](/pages/installing/gettingStarted-Zynq-ZC702.md)
 * [Two Factor Authentication](/pages/installing/2fa.md)
 
 ### [Using Resin.io](/pages/using/deployment.md)

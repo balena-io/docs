@@ -39,6 +39,11 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![Nitrogen6x](/img/nitrogen6x.jpg)
 
+### Zynq ZC702 from Xilinx
+[link](http://www.xilinx.com/products/boards-and-kits/ek-z7-zc702-g.html)
+
+![Zynq board](/img/zynq.jpg)
+
 ## To Be Supported Very Soon
 
 ### NUC
