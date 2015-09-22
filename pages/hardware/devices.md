@@ -39,6 +39,11 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![Nitrogen6x](/img/nitrogen6x.jpg)
 
+### VIA VAB-820
+[link](http://www.viatech.com/en/boards/pico-itx/vab-820/)
+
+![VIA VAB-820](/img/viaVab820.jpg)
+
 ## To Be Supported Very Soon
 
 ### NUC
