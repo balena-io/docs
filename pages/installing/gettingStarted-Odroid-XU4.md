@@ -19,7 +19,7 @@ Okay, so now that we have our hardware, lets get to the code. Resin.io uses the 
 
 __NOTE:__ If you're not experienced with [git][git] version control, check out the excellent [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with the Odroid XU4, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Humming#creating-your-first-application).
+If you already have a resin.io account and just want to get started with the Odroid XU4, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Odroid-XU4#creating-your-first-application).
 
 ## Signing Up
 
@@ -98,7 +98,7 @@ Also, be sure to choose the right file location for your `.img` file in the inpu
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Humming.md#setting-up-your-device)
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Odroid-XU4#setting-up-your-device)
 
 #### From a GUI
 
@@ -118,7 +118,7 @@ Click continue and piFiller will write the SD card. This can take 5-25 minutes d
 
 To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
-Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your hummingBoard image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.14.img`.
+Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your OS image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.14.img`.
 
 Next insert your SD card into your computer and in the Win32DiskImager GUI, select your SD card when it appears.
 
@@ -139,7 +139,6 @@ Now power up the device by connecting up the power supply.
 It can take a few minutes for the device to boot up and appear on the dashboard, so grab some tea while you wait.
 
 <!-- TODO: get insert gif for odroidboard -->
-<!-- ![insert SD](/img/BBB/sd_card_BBB.jpg) -->
 
 While you wait resin.io is partitioning your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
