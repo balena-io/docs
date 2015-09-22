@@ -13,11 +13,11 @@ encryption type.
 
 ###Changing your SSID and/or Passphrase
 
-On the Raspberry Pi and Beaglebone, it is possible to change your wifi SSID or Passphrase after downloading the `.img`. 
+On the Raspberry Pi and Beaglebone, it is possible to change your wifi SSID or Passphrase after downloading the `.img`.
 
 Currently this can be done by editing the `config.json`. This file can be found in the `resin-conf` partition on the SD card for most devices, except the Beaglebone Black and the Intel Edison. For the Beaglebone Black it can be found in the `flash-conf` partition. For the Intel Edison it can be found in in `resin-conf` once you have mounted the `config.img`.
 
-__Note:__ For both the Beaglebone black and the Intel Edison, you can only change this the wifi configuration **before you provision** the device. Trying to change these settings after provisioning will have no affect.
+__Note:__ For both the Beaglebone Black and the Intel Edison, you can only change the wifi configuration **before you provision** the device. Trying to change these settings after provisioning will have no effect.
 
 In the `config.json` file edit the section called `files` with whatever `SSID` and `passphrase` you need.
 
@@ -33,12 +33,15 @@ In the `config.json` file edit the section called `files` with whatever `SSID` a
 
 Though we currently don't support multiple WiFi SSIDs through the user
 interface, this can be achieved by manually editing the `config.json` file on your SD card. To add a second wifi network to the configuration simply append the following to `"network/network.config":`:
-```
-\n\n[service_secondNetwork_wifi]\nType = wifi\nName = My_2nd_Wifi_Ssid\nPassphrase = my super sexy wifi\nNameservers = 8.8.8.8,8.8.4.4
-```
-Make sure that you do not forget the trailing `"` for after you add this to the configuration.
 
-The network config follows the [ConnMan][connman] configuration file format. Follow the [official guide][connman-format] for details of how to configure your network if you have more complicated requirements than the standard configuration allows.
+```
+"files": {
+    "network/settings": "[global]\nOfflineMode=false\n\n[WiFi]\nEnable=true\nTethering=false\n\n[Wired]\nEnable=true\nTethering=false\n\n[Bluetooth]\nEnable=true\nTethering=false",
+    "network/network.config": "[service_home_ethernet]\nType = ethernet\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_home_wifi]\nType = wifi\nName = My_Wifi_Ssid\nPassphrase = my super secret wifi passphrase\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_office_wifi]\nType = wifi\nName = My_2nd_Wifi_Ssid\nPassphrase = my super sexy wifi\nNameservers = 8.8.8.8,8.8.4.4"
+  }
+```
+
+In general the network config follows the [ConnMan][connman] configuration file format, so you can configure your network in anyway connMan allows. Follow the [official guide][connman-format] for details of how to configure your network if you have more complicated requirements than the our standard configuration.
 
 ## Raspberry Pi
 
@@ -59,9 +62,9 @@ installing an adapter:-
 
 ### Beaglebone Black
 
-Always run the Beaglebone black from a 5VDC 1A minimum supply when using a Wifi Dongle. You may need to use an extension cable to move the dongle away from the planes of the PCB, as often times there is too much interference for the wifi dongles to work correctly. Sometimes standoffs will work. We also have had instances where when placed in a metal case, there can be Wifi issues as well. It will also help to use a dongle with a real antenna on it.
+Always run the Beaglebone Black from a 5VDC 1A minimum supply when using a Wifi Dongle. You may need to use an extension cable to move the dongle away from the planes of the PCB, as often times there is too much interference for the wifi dongles to work correctly. Sometimes standoffs will work. We also have had instances where when placed in a metal case, there can be Wifi issues as well. It will also help to use a dongle with a real antenna on it.
 
-Have a look at this list of [wifi dongles][bbb-wifi-list] that are known to be compatible with the beaglebone black.
+Have a look at this list of [wifi dongles][bbb-wifi-list] that are known to be compatible with the Beaglebone Black.
 
 ### Configuration
 

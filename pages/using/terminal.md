@@ -22,7 +22,7 @@ The terminal session is hosted inside your application's [container][docker-cont
 
 If you're running a custom `Dockerfile` the location of your code will be as specified by you in the file. The recommended file path for your code is `/usr/src/app`.
 
-To **copy** or **paste** in the web terminal you will need to use the `right click + paste` method since the short cuts keys of `ctrl+c` or `ctrl+v` do not work.
+To **copy** or **paste** in the web terminal you will need to use the `right click + paste` method since the shortcut keys of `ctrl+c` or `ctrl+v` do not work.
 
 ### Node Applications
 
@@ -40,7 +40,7 @@ If no window appears, wait a while or refresh, as sometimes the connection can t
 
 If a terminal window flashes up then disappears, this is usually due to your application exiting before the terminal session is established. Ensure your application continues running long enough after being started to enable a terminal session to be connected.
 
-If you are using one of the newer systemd base images such as [`resin/raspberrypi-python`][systemd-base-image-link], then you can enable systemd from your docker file using `ENV INITSYSTEM on` and this will keep your container process open even when your code fails, so you can use the web terminal to go in and test things. 
+If you are using one of the newer systemd base images such as [`resin/raspberrypi-python`][systemd-base-image-link], then you can enable `systemd` from your docker file using `ENV INITSYSTEM on` and this will keep your container process open even when your code fails, so you can use the web terminal to go in and test things.
 
 ### Terminal Closes On Update
 
