@@ -11,7 +11,7 @@
 
 * [Raspberry Pi](/pages/installing/gettingStarted.md)
 * [Beaglebone Black](/pages/installing/gettingStarted-BBB.md)
-* [Intel Edison (EXPERIMENTAL)](/pages/installing/gettingStarted-Edison.md)
+* [Intel Edison](/pages/installing/gettingStarted-Edison.md)
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
 * [Humming Board](/pages/installing/gettingStarted-Humming.md)
 * [Nitrogen6x](/pages/installing/gettingStarted-Nitrogen6x.md)
@@ -50,7 +50,7 @@
 
 * [Custom Base Docker Images](/pages/configuration/custom-docker-base-images.md)
 * [Advanced Boot Configuration](/pages/configuration/advanced.md)
-* [Custom Network Configuration](/pages/configuration/custom-network.md)
+<!-- * [Custom Network Configuration](/pages/configuration/custom-network.md) -->
 * [SSH Keys for Multiple Accounts](/pages/configuration/multi-account.md)
 * [Resin Base Images](/pages/configuration/resin-base-images.md)
 
