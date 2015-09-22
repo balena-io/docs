@@ -19,7 +19,7 @@ Okay, so now that we have our hardware, lets get to the code. Resin.io uses the 
 
 __NOTE:__ If you're not experienced with [git][git] version control, check out the excellent [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with the Odroid XU4, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Odroid-XU4#creating-your-first-application).
+If you already have a resin.io account and just want to get started with the Odroid XU4, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-ODROID-XU4.md#creating-your-first-application).
 
 ## Signing Up
 
@@ -98,7 +98,7 @@ Also, be sure to choose the right file location for your `.img` file in the inpu
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Odroid-XU4#setting-up-your-device)
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-ODROID-XU4.md#setting-up-your-device)
 
 #### From a GUI
 
@@ -112,7 +112,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Odroid-XU4.md#setting-up-your-device)
+Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-ODROID-XU4.md#setting-up-your-device)
 
 ### Windows
 
