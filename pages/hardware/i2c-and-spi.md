@@ -45,14 +45,14 @@ An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-li
 
 In order to work with the Raspberry Pi camera module you will need to do the following:
 
-* Edit the `config.txt` in `boot-raspbe` partition of the SD card and append the following lines.
+* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following lines.
 
 ```
 gpu_mem=128
 start_file=start_x.elf
 fixup_file=fixup_x.dat
 ```
-* Add `modprobe bcm2835-v4l2` before your start scripts in either your package.json or Dockerfile `CMD` command.
+* Add `modprobe bcm2835-v4l2` before your start scripts in either your package.json start command or Dockerfile `CMD` command.
 
 An example of this is shown in our [Raspberry Pi python picamera][picamera-link] project.
 
