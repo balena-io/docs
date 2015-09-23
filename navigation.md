@@ -54,6 +54,7 @@
 <!-- * [Custom Network Configuration](/pages/configuration/custom-network.md) -->
 * [SSH Keys for Multiple Accounts](/pages/configuration/multi-account.md)
 * [Resin Base Images](/pages/configuration/resin-base-images.md)
+* [Dockerfile Templates](/pages/configuration/docker-templates.md)
 
 ### [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 
