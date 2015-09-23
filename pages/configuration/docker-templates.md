@@ -21,9 +21,9 @@ CMD ["node", "/usr/src/app/main.js"]
 This template will build and deploy a node.js project for any of the devices supported by resin.io, regardless of whether the device architecture is [ARM][ARM-link] or [x86][x86-link].
 In this example you can see the build variable `%%RESIN_MACHINE_NAME%%` this will be replaced by the machine name (i.e.: raspberrypi) at build time. See below for a list of machine names.
 
- The device-type is inferred from what "device type" application you are pushing to. So if the resin remote you are pushing to is associated to an Intel Edison application, the machine name will be edison and an `i386` base image will be built.
+ The machine name is inferred from what "device type" application you are pushing to. So if the resin remote you are pushing to is associated to an Intel Edison application, the machine name will be `edison` and an `i386` architecture base image will be built.
 
-__Note:__ One caveat to this is that you need to ensure that your dependencies and node.js modules are also multi-architecture, otherwise you will have a bad time.
+__Warning:__ One caveat to this is that you need to ensure that your dependencies and node.js modules are also multi-architecture, otherwise you will have a bad time.
 
 Currently our builder supports the following build variables.
 
@@ -31,6 +31,8 @@ Currently our builder supports the following build variables.
 | ------------- |:-------------:|
 | RESIN_ARCH    | This is the CPU architecture of the fleet. This is defined when you select a device type in the dashboard while creating an application.|
 | RESIN_MACHINE_NAME    | This is the name of the yocto machine this board is base on. It is the name that you will see in most of the resin dockerhub base images.  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). |   
+
+If you want to see an example in action, you can have a look at this [basic openssh example](https://github.com/shaunmulligan/resin-openssh).
 
 Each of these build variables can evaluate to specific boards on our build servers, below is a non-exhaustive list some of these.
 
