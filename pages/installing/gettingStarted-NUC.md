@@ -48,7 +48,7 @@ retrieve this data.)
 
 ## Creating Your First Application
 
-![Creating an Application](/img/NUC/create_application_NUC.png)
+<img src="/img/NUC/create_application_NUC.png" width="40%">
 
 The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
 
@@ -57,8 +57,7 @@ You can have as many devices connected to an application as you like - when you 
 To create your first application simply type in a name, select the `Intel NUC` as your device type in the drop down and tap create which will take you to your new application's dashboard:-
 
 ## Adding Your First Device
-
-![Empty Application Page](/img/NUC/application_empty_NUC.png)
+<img src="/img/NUC/application_empty_NUC.png" width="80%">
 
 This is the application dashboard where all of the devices connected to your application will be shown along with their status and logs.
 

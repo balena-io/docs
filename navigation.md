@@ -15,6 +15,7 @@
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
 * [Humming Board](/pages/installing/gettingStarted-Humming.md)
 * [Nitrogen6x](/pages/installing/gettingStarted-Nitrogen6x.md)
+* [Intel NUC](/pages/installing/gettingStarted-NUC.md)
 * [Two Factor Authentication](/pages/installing/2fa.md)
 
 ### [Using Resin.io](/pages/using/deployment.md)
