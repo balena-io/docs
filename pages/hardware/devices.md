@@ -39,13 +39,13 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![Nitrogen6x](/img/nitrogen6x.jpg)
 
-## To Be Supported Very Soon
-
-### NUC
+### Intel NUC
 
 [link](http://www.intel.com/content/www/us/en/nuc/overview.html)
 
 ![NUC](/img/nuc.jpg)
+
+## To Be Supported Very Soon
 
 ### Freescale i.MX6 Sabre Lite
 
