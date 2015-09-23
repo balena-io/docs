@@ -42,15 +42,15 @@ Each of these build variables can evaluate to specific boards on our build serve
 |Raspberry Pi 2|armv7hf|raspberrypi2|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/raspberrypi2-debian](https://hub.docker.com/r/resin/raspberrypi2-debian/),  [resin/raspberrypi2-python](https://hub.docker.com/r/resin/raspberrypi2-python/), [resin/raspberrypi2-node](https://hub.docker.com/r/resin/raspberrypi2-node/)|It is also possible to push `rpi` architecture containers to the raspberry pi 2, so all the images from the entry above will also work on fleets of this type.|
 |Beaglebone (Black or Green)|armv7hf|beaglebone|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/beaglebone-debian](https://hub.docker.com/r/resin/beaglebone-debian/), [resin/beaglebone-python](https://hub.docker.com/r/resin/beaglebone-python/), [resin/beaglebone-node](https://hub.docker.com/r/resin/beaglebone-node/)|The pure armv7hf-debian images don't have board specific firmware added into them. |
 |Intel Edison|i386|edison|[resin/i386-debian](https://hub.docker.com/r/resin/i386-debian/), [resin/edison-debian](https://hub.docker.com/r/resin/edison-debian/), [resin/edison-python](https://hub.docker.com/r/resin/edison-python/), [resin/edison-node](https://hub.docker.com/r/resin/edison-node/)| All the `resin/edison-*` images have the [libmraa](https://github.com/intel-iot-devkit/mraa) installed.|
-|Odroid XU4/XU3|armv7hf|odroid-ux3|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/odroid-ux3-debian](https://hub.docker.com/r/resin/odroid-ux3-debian/), [resin/odroid-ux3-python](https://hub.docker.com/r/resin/odroid-ux3-python/), [resin/odroid-ux3-node](https://hub.docker.com/r/resin/odroid-ux3-node/)|**Important!**, the machine name is non-intuitive in this case.|
-|Intel NUC|amd64|nuc|||
-|Humming Board|armv7hf|cubox-i|||
-|Parallela Board|armv7hf|parallella-hdmi-resin|||  
-|Odroid C1|armv7hf|odroid-c1||Will also work with C1+ boards|
-|VIA VAB-820|armv7hf|vab820-quad|||
-|Nitrogen 6X|armv7hf|nitrogen6x|||  |
+|Intel NUC|amd64|nuc|[resin/amd64-debian](https://hub.docker.com/r/resin/amd64-debian/), [resin/nuc-debian](https://hub.docker.com/r/resin/nuc-debian/), [resin/nuc-python](https://hub.docker.com/r/resin/nuc-python/), [resin/nuc-node](https://hub.docker.com/r/resin/nuc-node/)||
+|Humming Board|armv7hf|cubox-i|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/cubox-i-debian](https://hub.docker.com/r/resin/cubox-i-debian/), [resin/cubox-i-python](https://hub.docker.com/r/resin/cubox-i-python/), [resin/cubox-i-node](https://hub.docker.com/r/resin/cubox-i-node/)||
+|Parallela Board|armv7hf|parallella-hdmi-resin|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/parallella-hdmi-resin-debian](https://hub.docker.com/r/resin/parallella-hdmi-resin-debian/), [resin/parallella-hdmi-resin-python](https://hub.docker.com/r/resin/parallella-hdmi-resin-python/), [resin/parallella-hdmi-resin-node](https://hub.docker.com/r/resin/parallella-hdmi-resin-node/)|| |
 
-<!-- TODO: add other supported boards to table -->
+<!-- |Odroid C1|armv7hf|odroid-c1||Will also work with C1+ boards|
+|VIA VAB-820|armv7hf|vab820-quad|||
+|Nitrogen 6X|armv7hf|nitrogen6x|||
+|Odroid XU4/XU3|armv7hf|odroid-ux3|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/odroid-ux3-debian](https://hub.docker.com/r/resin/odroid-ux3-debian/), [resin/odroid-ux3-python](https://hub.docker.com/r/resin/odroid-ux3-python/), [resin/odroid-ux3-node](https://hub.docker.com/r/resin/odroid-ux3-node/)|**Important!**, the machine name is non-intuitive in this case.| -->
+
 
 [x86-link]:https://en.wikipedia.org/wiki/X86
 [ARM-link]:https://en.wikipedia.org/wiki/ARM_architecture
