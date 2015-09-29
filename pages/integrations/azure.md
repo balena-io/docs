@@ -1,6 +1,6 @@
 # [Microsoft Azure IoT Suite][azure] integration
 
-[Resin.io][resin] makes it simple to deploy, update, and maintain code running on remote devices. Microsoft's new IoT Suite makes it easy manage and capture the data those devices generate. This tutorial will walk you through using the two in conjuction. 
+[Resin.io][resin] makes it simple to deploy, update, and maintain code running on remote devices. Microsoft's new IoT Suite makes it easy to manage and capture the data those devices generate. This tutorial will walk you through using the two in conjuction. 
 
 ## Connect your device to resin.io
 
@@ -10,11 +10,15 @@ Follow our [getting started guide][installing] or watch our screencast to get yo
 
 ## Create the resin.io API Key 
 
-Find your the Applications ID from the dashboard url: https://dashboard.resin.io/apps/NNNN/devices and your auth-token from the [preferences panel](https://dashboard.resin.io/preferences?tab=details). Then combine insert the two into the curl request below, it will return a permanent API key.
+Find your Application ID in the resin.io dashboard url: https://dashboard.resin.io/apps/NNNN/devices and your auth-token from the [preferences panel](https://dashboard.resin.io/preferences?tab=details). Then combine insert the two into the curl request below.
 
 ```
 curl -H 'Authorization: Bearer AUTH_TOKEN' -X POST https://api.resin.io/application/NNNN/generate-api-key
 ```
+
+This will return your new API key. 
+
+__NOTE:__ The key will be returned in quotation marks, but these should be stripped before using it in the following step.
 
 ## Add resin.io API key to IoT Hub Admin portal 
 
@@ -22,7 +26,7 @@ Go to the IoT Hub Admin portal select 'Resin.io Config' and set the `App ID` and
 
 ![IoT-hub-creds](/img/integrations/azure/iot-hub-creds.png)
 
-This will automatically create a new device on IoT Hub with every device you have on resin.io. 
+This will automatically create a new device on IoT Hub with every device you currently have on resin.io as well as every future device you may have, as it constantly polls for new devices.
 
 ![devices-pending](/img/integrations/azure/devices-pending.png)
 
@@ -39,10 +43,12 @@ When you push code to resin git endpoint several things happen, including:
 
 When you power on the device resin-agent connects to resin API server and fetches the application container. It also does it every time a new container is available (when you push the updated code).
 
-First clone the repository to your local machine
+First clone the the sample application to your local machine.
+
+__NOTE:__ Our integration will not be part of the code microsoft releases, instead it will stay as a separate fork that should be used instead of the official sample solution.
 
 ```
-git clone https://github.com/emirotin/resin-azure-iot-suite-c/tree/resin-sample-app && cd resin-sample-app
+git clone https://github.com/emirotin/resin-azure-iot-suite-c resin-sample-app && cd resin-sample-app && git checkout resin-sample-app
 ```
 
 Then add your resin.io applications remote endpoint to the git repository. It can be found in the top right hand corner of your resin applications dashboard.
@@ -51,17 +57,17 @@ Then add your resin.io applications remote endpoint to the git repository. It ca
 git remote add resin <your-applications-remote-endpoint>
 ```
 
-Then all thats left to do is push your the repository to your resin.io application.
+Then all that's left to do is push your the repository to your resin.io application endpoint we have just created.
 
 ```
-git push resin master
+git push resin resin-sample-app:master
 ```
 
-Once the container is successfully built(you'll see a unicorn), the container will begin to download to the device. 
+Once the container is successfully built (you'll see a unicorn), the container will begin to download to the device. 
 
 ![downloading](/img/integrations/azure/downloading.png)
 
-Once the download is complete, head to the device logs you'll notice that we are sending an integer to the IoT Hub. 
+Once the download is complete, head to the device logs you'll notice that we are sending telemetry data to the IoT Hub. 
 
 ![resin-logs](/img/integrations/azure/logs.png)
 
