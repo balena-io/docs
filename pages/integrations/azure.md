@@ -2,9 +2,10 @@
 
 [Resin.io][resin] makes it simple to deploy, update, and maintain code running on remote devices. Microsoft's new IoT Suite makes it easy to manage and capture the data those devices generate. This tutorial will walk you through using the two in conjuction. 
 
+
 ## Connect your device to resin.io
 
-Follow our [getting started guide][installing] or watch our screencast to get your device connect to your resin.io dashboard. Once your device shows up on the dashboard your ready for the next step.
+Follow our [getting started guide][installing] to get your device connect to your resin.io dashboard. Once your device shows up on the dashboard you're ready for the next step.
 
 ![factory-build](/img/integrations/azure/factory-build.png)
 
@@ -22,6 +23,8 @@ __NOTE:__ The key will be returned in quotation marks, but these should be strip
 
 ## Add resin.io API key to IoT Hub Admin portal 
 
+Signup and following the [Azure IoT Suite getting started guide](http://www.microsoft.com/en-us/server-cloud/internet-of-things/getting-started.aspx). Note you'll have to use the [special version](https://github.com/emirotin/azure-iot-solution/tree/resin-integration) with resin.io integration additions as our integration is not currently a part of the code microsoft releases. 
+
 Go to the IoT Hub Admin portal select 'Resin.io Config' and set the `App ID` and the newly generated `API Key`.
 
 ![IoT-hub-creds](/img/integrations/azure/iot-hub-creds.png)
@@ -30,7 +33,7 @@ This will automatically create a new device on IoT Hub with every device you cur
 
 ![devices-pending](/img/integrations/azure/devices-pending.png)
 
-This also automatically creates application wide and per device environment variables on resin.io that are accessible by your code. eg. `$IOT_HUB_DEVICE_IOT`. This obviously simplifies sending data to the IoT hub.
+This also automatically creates application wide and per device environment variables on resin.io that are accessible by your code. e.g. `$IOT_HUB_DEVICE_IOT`. This obviously simplifies sending data to the IoT hub.
 
 ![resin-envar](/img/integrations/azure/envar.png)
 
@@ -57,7 +60,7 @@ Then add your resin.io applications remote endpoint to the git repository. It ca
 git remote add resin <your-applications-remote-endpoint>
 ```
 
-Then all that's left to do is push your the repository to your resin.io application endpoint we have just created.
+Then all that's left to do is push your repository to your resin.io application endpoint we have just created.
 
 ```
 git push resin resin-sample-app:master
