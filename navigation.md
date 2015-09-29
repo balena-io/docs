@@ -56,6 +56,9 @@
 * [Resin Base Images](/pages/configuration/resin-base-images.md)
 * [Dockerfile Templates](/pages/configuration/docker-templates.md)
 
+### [Integrations](/pages/integrations/azure.md)
+* [Microsoft](/pages/integrations/azure.md)
+
 ### [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 
 * [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
