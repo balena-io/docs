@@ -9,9 +9,10 @@
 
 ### [Installing resin.io](/pages/installing/gettingStarted.md)
 
-* [Raspberry Pi](/pages/installing/gettingStarted.md)
-* [Beaglebone Black](/pages/installing/gettingStarted-BBB.md)
+* [Raspberry Pi (A/A+,B/B+,B 2)](/pages/installing/gettingStarted.md)
+* [Beaglebone Black/Green](/pages/installing/gettingStarted-BBB.md)
 * [Intel Edison](/pages/installing/gettingStarted-Edison.md)
+* [Intel NUC](/pages/installing/gettingStarted-NUC.md)
 * [Odroid C1/C1+](/pages/installing/gettingStarted-Odroid-C1.md)
 * [Odroid XU4/XU3](/pages/installing/gettingStarted-Odroid-XU4.md)
 * [Humming Board](/pages/installing/gettingStarted-Humming.md)
