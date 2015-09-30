@@ -45,6 +45,13 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![The Odroid XU4 board](/img/odroidXUBoard.jpg)
 
+### Odroid C1
+[link](TODO: add a link here)
+
+![Odroid Board](/img/odroidC1Board.jpg)
+
+## To Be Supported Very Soon
+
 ### Intel NUC
 
 [link](http://www.intel.com/content/www/us/en/nuc/overview.html)
