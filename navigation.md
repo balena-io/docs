@@ -11,9 +11,9 @@
 
 * [Raspberry Pi](/pages/installing/gettingStarted.md)
 * [Beaglebone Black](/pages/installing/gettingStarted-BBB.md)
-* [Intel Edison (EXPERIMENTAL)](/pages/installing/gettingStarted-Edison.md)
-* [Odroid C1](/pages/installing/gettingStarted-Odroid-C1.md)
-* [Odroid XU4](/pages/installing/gettingStarted-Odroid-XU4.md)
+* [Intel Edison](/pages/installing/gettingStarted-Edison.md)
+* [Odroid C1/C1+](/pages/installing/gettingStarted-Odroid-C1.md)
+* [Odroid XU4/XU3](/pages/installing/gettingStarted-Odroid-XU4.md)
 * [Humming Board](/pages/installing/gettingStarted-Humming.md)
 * [Nitrogen6x](/pages/installing/gettingStarted-Nitrogen6x.md)
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
