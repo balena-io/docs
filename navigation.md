@@ -15,6 +15,7 @@
 * [Odroid XU4](/pages/installing/gettingStarted-Odroid-XU4.md)
 * [Humming Board](/pages/installing/gettingStarted-Humming.md)
 * [Nitrogen6x](/pages/installing/gettingStarted-Nitrogen6x.md)
+* [Intel NUC](/pages/installing/gettingStarted-NUC.md)
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
 * [Two Factor Authentication](/pages/installing/2fa.md)
 
@@ -54,8 +55,13 @@
 <!-- * [Custom Network Configuration](/pages/configuration/custom-network.md) -->
 * [SSH Keys for Multiple Accounts](/pages/configuration/multi-account.md)
 * [Resin Base Images](/pages/configuration/resin-base-images.md)
+* [Dockerfile Templates](/pages/configuration/docker-templates.md)
+
+### [Integrations](/pages/integrations/azure.md)
+* [Microsoft](/pages/integrations/azure.md)
 
 ### [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 
 * [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 * [Error Notifications](/pages/troubleshooting/error.md)
+* [CLI](/pages/troubleshooting/cli-troubleshooting.md)
