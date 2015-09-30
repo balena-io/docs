@@ -50,6 +50,11 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![Odroid Board](/img/odroidC1Board.jpg)
 
+### Zynq ZC702 from Xilinx
+[link](http://www.xilinx.com/products/boards-and-kits/ek-z7-zc702-g.html)
+
+![Zynq board](/img/zynq.jpg)
+
 ### VIA VAB-820
 [link](http://www.viatech.com/en/boards/pico-itx/vab-820/)
 

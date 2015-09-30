@@ -17,6 +17,7 @@
 * [Humming Board](/pages/installing/gettingStarted-Humming.md)
 * [Nitrogen6x](/pages/installing/gettingStarted-Nitrogen6x.md)
 * [VIA VAB-820](/pages/installing/gettingStarted-Via-vab820.md)
+* [Zynq ZC702](/pages/installing/gettingStarted-Zynq-ZC702.md)
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
 * [Two Factor Authentication](/pages/installing/2fa.md)
 
