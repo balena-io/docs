@@ -1,17 +1,11 @@
-# Getting Started With the Odroid XU4
+# Getting Started with the Via VAB-820
 
 ## What You'll Need
 
-* An [Odroid XU4][odroidXU4-link] Cortex-A7 quad core from [Hardkernel][hardkernel-link].
-![Odroid Board](/img/odroidXUBoard.jpg)
-
-__Note:__ The same process will work for the older [Odroid XU3][xu3-link].
-
-* A 4GB or larger SD card. The [Odroid XU4][odroidXU4-link] uses a microSD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
-
-__Note:__ Currently booting from the [emmc][odroid-emmc] on the Odroid device is not supported.
-
-* A 5V, 4 Amp power supply unit from [Hardkernel][hardkernel-link] like this [one][XU4-PSU-link].
+* A [VIA VAB-820 board][via820-link] from [VIA technologies][via-link].
+![VIA VAB-820 board](/img/viaVab820.jpg)
+* A 4GB or larger SD card. The [VAB-820][via820-link] uses a microSD card as the boot medium. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
+* A 12Vdc power supply unit which is usually shipped with the board.
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the internet.
 * And finally you need some awesome ideas to hack on! If you need some inspiration, go over and check out our [projects][projects] page.
 
@@ -19,7 +13,7 @@ Okay, so now that we have our hardware, lets get to the code. Resin.io uses the 
 
 __NOTE:__ If you're not experienced with [git][git] version control, check out the excellent [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with the Odroid XU4, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-ODROID-XU4.md#creating-your-first-application).
+If you already have a resin.io account and just want to get started with the VAB-820, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Via-vab820#creating-your-first-application).
 
 ## Signing Up
 
@@ -52,17 +46,17 @@ retrieve this data.)
 
 ## Creating Your First Application
 
-![Creating an Application](/img/OdroidXU4/create_application_OdroidXU4.png)
+![Creating an Application](/img/viaVab820/create_application_ViaVab820.png)
 
 The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
 
 You can have as many devices connected to an application as you like - when you push code it deploys to every device that application owns.
 
-To create your first application simply type in a name, select the `Odroid XU4` as your device type in the drop down and tap create which will take you to your new application's dashboard:-
+To create your first application simply type in a name, select the `VIA VAB-820 quad` as your device type in the drop down and tap create which will take you to your new application's dashboard:-
 
 ## Adding Your First Device
 
-![Empty Application Page](/img/OdroidXU4/application_empty_OdroidXU4.png)
+![Empty Application Page](/img/viaVab820/application_empty_ViaVab820.png)
 
 This is the application dashboard where all of the devices connected to your application will be shown along with their status and logs.
 
@@ -98,7 +92,7 @@ Also, be sure to choose the right file location for your `.img` file in the inpu
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-ODROID-XU4.md#setting-up-your-device)
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Via-vab820#setting-up-your-device)
 
 #### From a GUI
 
@@ -112,7 +106,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-ODROID-XU4.md#setting-up-your-device)
+Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Via-vab820#setting-up-your-device)
 
 ### Windows
 
@@ -122,7 +116,7 @@ Now in Win32DiskImager, click on the folder icon to select which `.img` file you
 
 Next insert your SD card into your computer and in the Win32DiskImager GUI, select your SD card when it appears.
 
-__NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines harddisk.
+__NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines hard disk.
 
 Once you have made your selections and are 100% sure you are writing to your SD card and nothing else, you can click write and wait for the SD card to be burnt.
 
@@ -130,15 +124,9 @@ Once it is completed, you can carry on setting up your device as shown below.
 
 ## Setting Up Your Device
 
-Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Make sure the little toggle switch near the HDMI port is set to the `uSD` option.
-
-__Note:__ Currently booting from [emmc][odroid-emmc] is not supported.
-
-Now power up the device by connecting up the power supply.
+Put the SD card into your device, and connect either the ethernet cable or WiFi adapter.Now power up the device by connecting up the power supply.
 
 It can take a few minutes for the device to boot up and appear on the dashboard, so grab some tea while you wait.
-
-<!-- TODO: get insert gif for odroidboard -->
 
 While you wait resin.io is partitioning your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
@@ -208,12 +196,9 @@ If you find any issues with the application, please click the feedback label on 
 [example_app_node]:https://github.com/resin-projects/simple-server-node
 [try-git]:https://www.codeschool.com/courses/try-git
 [code-school]:https://www.codeschool.com/
-
 [python-example]:https://github.com/resin-projects/simple-server-python
-[odroidXU4-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825&tab_idx=1
 [win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
 [pifiller-download]:http://ivanx.com/raspberrypi/
-[hardkernel-link]:http://www.hardkernel.com/main/main.php
-[odroid-emmc]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143538061522
-[XU4-PSU-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143652955378
-[xu3-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G140448267127
+
+[via820-link]:http://www.viatech.com/en/boards/pico-itx/vab-820/
+[via-link]:http://www.viatech.com/en/

@@ -50,6 +50,11 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![Odroid Board](/img/odroidC1Board.jpg)
 
+### VIA VAB-820
+[link](http://www.viatech.com/en/boards/pico-itx/vab-820/)
+
+![VIA VAB-820](/img/viaVab820.jpg)
+
 ### Intel NUC
 
 [link](http://www.intel.com/content/www/us/en/nuc/overview.html)
