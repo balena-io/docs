@@ -67,8 +67,6 @@ To create your first application simply type in a name, select as your device ty
 
 <img src="/img/common/main_dashboard/select_fleet_type.png" class="shadow" width="80%">
 
-__Warning:__ Each Raspberry Pi model has its own device type, since they use slightly different CPU architectures.
-
 <!-- ========================== end section =================================   -->
 
 <!-- ========================== Device Specific =================================   -->
@@ -178,7 +176,7 @@ appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can
 take up to 3 times longer so it's well worth investing in the fastest card you
 can find.
 
-__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a black screen with a raspberry on it, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](http://localhost:3000/#/pages/installing/gettingStarted-BBB.md#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
+__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](http://localhost:3000/#/pages/installing/gettingStarted-BBB.md#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
 
 <!-- ========================== end section =================================   -->
 
@@ -188,7 +186,7 @@ __Note:__ If you have an HDMI screen attached, you should see `"Booted - Check y
 
 ## Running Code On Your Device
 
-A good first project is our [Analog Signal Logger][example_app] project. This simple node project reads analog signals from pin `P9_33` every 3 seconds and pulish it to your resin.io logs panel.
+A good first project is our [Analog Signal Logger][example_app] project. This simple node project reads analog signals from pin `P9_33` every 3 seconds and publish it to your resin.io logs panel.
 
 To clone the project, run the following in a terminal:
 
@@ -228,7 +226,7 @@ This means your code is safely on our servers and will be downloaded and execute
 
 You should now have a node.js app happily logging analog signals to your logs and a good base to start building and deploying awesome connected devices.
 
-<img src="/img/beaglebone/bbb_example_logs.png" class="shadow" width="80%">
+<img src="/img/beaglebone/bbb_example_logs.png" width="80%">
 
 If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
 
@@ -284,5 +282,5 @@ feedback and respond to any issues as soon as we can.
 
 <!-- Example code links -->
 
-[example_app]:https://github.com/resin-io/tty.js-resin
+[example_app]:https://github.com/shaunmulligan/beaglebone-adc-node
 [python-example]:https://github.com/alexandrosm/hello-python
