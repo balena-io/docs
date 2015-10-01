@@ -20,7 +20,7 @@ At the time of writing the A/A+, B/B+, RPI2 are supported.
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with your Raspberry Pi, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted.md#creating-your-first-application).
+If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted.md#creating-your-first-application).
 
 ## Signing Up
 
@@ -76,6 +76,10 @@ To create your first application simply type in a name, select as your device ty
 
 __Warning:__ Each Raspberry Pi model has its own device type, since they use slightly different CPU architectures.
 
+<!-- ========================== end section =================================   -->
+
+<!-- ========================== Device Specific =================================   -->
+
 ## Adding Your First Device
 
 This is the application dashboard where all of the devices connected to your
@@ -85,16 +89,16 @@ application will be shown along with their statuses and logs.
 
 Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify how your device connects to the internet - either via an ethernet cable or wifi, in which case you can specify your Wifi network's SSID and passphrase. Click the `Download Device OS` button to get the resin.io operating system image for your application.
 
-<!-- ========================== end section =================================   -->
-
 <img src="/img/common/network/network_selection_wifi_cropped.png" class="shadow" width="60%">
+
+<!-- ========================== end section =================================   -->
 
 <!-- ========================== Generic for SD devices =============================   -->
 
 While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
-<!-- TODO: change file download name if neccessary -->
-Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.4.img` where "myApp" is the name you gave your application on the dashboard.
+
+Once the download is finished you should have a `.img` file with a name like `resin-myFleet-0.1.0-0.0.16-b2854a2c7639.img` where "myFleet" is the name you gave your application on the dashboard.
 
 Now we have to burn the downloaded `.img` file onto the SD card. There are a couple of ways to do this depending on your host computer's operating system. We have listed a few below.
 
@@ -121,11 +125,11 @@ Now you'll want to execute the command that actually copies the image onto the S
 __Warning:__ You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive (such as your master hard disk) and then you're gonna have a bad time. Double check everything!
 
 Also, choose the right file location for your `.img` file in the input file field (if=...).
-`sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2`
+`sudo dd bs=1m if=~/Downloads/resin-myFleet-0.1.0-0.0.16-b2854a2c7639.img of=/dev/rdisk2`
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the above command, with the corresponding device name. If your device name is "/dev/mmcblk0p1", use "/dev/mmcblk0". If it's "/dev/sdb1", use "/dev/sdb". The idea is to use the device name for the whole SD card and not just a partition. If you're not sure, use `ls /dev` before and after inserting the card and note the difference.
 
-__NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/sdb` (uppercase M)
+__NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myFleet-0.1.0-0.0.16-b2854a2c7639.img of=/dev/sdb` (uppercase M)
 
 This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted.md#setting-up-your-device)
 
@@ -135,7 +139,7 @@ Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn 
 
 Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your `.img` file.
 
-Locate your raspberry pi `.img` file in your Downloads folder. It should be named something like `resin-myApp-0.1.0-0.0.4.img`. Now click "choose".
+Locate your resinOS `.img` file in your Downloads folder. It should be named something like `resin-myFleet-0.1.0-0.0.16-b2854a2c7639`. Now click "choose".
 
 You can now insert your microSD card into your host machine and click continue. PiFiller will look for your SD card and tell you when it finds it.
 
@@ -147,7 +151,7 @@ Click continue and piFiller will write to the SD card. This can take 5-25 minute
 
 To burn OS images to SD cards on Windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
-Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your Raspberry Pi image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.4.img`.
+Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your resinOS image from the Downloads folder. It should be the extracted version and named something like this `resin-myFleet-0.1.0-0.0.16-b2854a2c7639.img`.
 
 Next insert your SD card into your host computer and in the Win32DiskImager GUI, select your SD card when it appears.
 
@@ -155,7 +159,7 @@ __Warning:__ Be very careful to make sure that you have selected the right SD ca
 
 Once you have made your selections and are 100% sure you are writing to your SD card and nothing else, you can click write and wait for the SD card to be burned.
 
-Once it is completed, you can carry on setting up your raspberry pi as shown below.
+Once it is completed, you can carry on setting up your device as shown below.
 
 <!-- ========================== end section =================================   -->
 
@@ -167,7 +171,7 @@ Put the SD card into your device and connect either the ethernet cable or WiFi a
 
 ![insert SD](/img/gifs/insert-sd.gif)
 
-It will take a few minutes for the raspberry pi to appear on your resin.io dashboard, so take this time to grab some tea while you wait.
+It will take a few minutes for the Raspberry Pi to appear on your resin.io dashboard, so take this time to grab some tea while you wait.
 
 While you wait resin.io is expanding the partitioning on your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
@@ -181,7 +185,7 @@ __Note:__ If you have an HDMI screen attached, you should see `"Booted - Check y
 
 ## Running Code On Your Device
 
-A good first project is our [text to speech app][example_app]. This simple node project converts text to speech and plays it out of the raspberry pi's audio jack. You will need headphones or a speaker to hear the audio.
+A good first project is our [text to speech app][example_app]. This simple node project converts text to speech and plays it out of the device's audio jack. You will need headphones or a speaker to hear the audio.
 
 To clone the project, run the following in a terminal:
 
@@ -217,7 +221,7 @@ This means your code is safely on our servers and will be downloaded and execute
 
 <img src="/img/common/device/device_dashboard_during_update_generic.png" class="shadow" width="80%">
 
-You should now have a friendly talking raspberry pi and a good base to start building and deploying awesome connected devices.
+You should now have a friendly talking node.js app and a good base to start building and deploying awesome connected devices.
 
 If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
 
