@@ -10,7 +10,7 @@ At the time of writing the A/A+, B/B+, RPI2 are supported.
 * A 4GB or larger SD card.
   The [Raspberry Pi][rpi] uses a Micro SD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get ahold of a class 10 card or above.
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the
-  internet. Note: At the time of writing, there is no easy way of changing the wifi `SSID` and `PASSWORD` after the download. This will be worked out pretty soon and some awesome new tools will help :D
+  internet.
 * A micro USB cable.
 * Some awesome ideas to hack on! If you need inspiration, check out our
   [projects][projects] page.
@@ -74,9 +74,7 @@ To create your first application simply type in a name, select as your device ty
 
 <img src="/img/common/main_dashboard/select_fleet_type.png" class="shadow" width="80%">
 
-<!-- ========================== end section =================================   -->
-
-__Warning:__ Each Raspberry Pi model has its own device type, which you will need to select from the dropdown menu when creating your application.
+__Warning:__ Each Raspberry Pi model has its own device type, since they use slightly different CPU architectures.
 
 ## Adding Your First Device
 
@@ -87,7 +85,11 @@ application will be shown along with their statuses and logs.
 
 Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify how your device connects to the internet - either via an ethernet cable or wifi, in which case you can specify your Wifi network's SSID and passphrase. Click the `Download Device OS` button to get the resin.io operating system image for your application.
 
+<!-- ========================== end section =================================   -->
+
 <img src="/img/common/network/network_selection_wifi_cropped.png" class="shadow" width="60%">
+
+<!-- ========================== Generic for SD devices =============================   -->
 
 While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
@@ -95,8 +97,6 @@ While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.4.img` where "myApp" is the name you gave your application on the dashboard.
 
 Now we have to burn the downloaded `.img` file onto the SD card. There are a couple of ways to do this depending on your host computer's operating system. We have listed a few below.
-
-<!-- ========================== Generic for SD devices =============================   -->
 
 ## Burning the OS image onto the SD card
 
@@ -177,6 +177,8 @@ __Note:__ If you have an HDMI screen attached, you should see `"Booted - Check y
 
 <!-- ========================== end section =================================   -->
 
+<!-- ==================== Code Example (text2speech)==========================   -->
+
 ## Running Code On Your Device
 
 A good first project is our [text to speech app][example_app]. This simple node project converts text to speech and plays it out of the raspberry pi's audio jack. You will need headphones or a speaker to hear the audio.
@@ -219,6 +221,8 @@ You should now have a friendly talking raspberry pi and a good base to start bui
 
 If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
 
+<!-- ========================== end section =================================   -->
+
 ## Further Reading
 
 * For more details on deploying to your devices, see the [deployment guide][deploy].
@@ -228,9 +232,9 @@ If node.js isn't your thing, then don't worry, you can use any language you like
 
 ## Feedback
 
-If you find any issues with the application, please click the feedback label on
-the bottom right-hand side of the page and let us know! We are always open to
-feedback and respond to any issues as soon as we can.
+If you find any issues with the application or get stuck anywhere along the way, please click the small yellow ` ? ` on the bottom right-hand side of the resin.io dashboard and let us know! We are always open to feedback and respond to any issues as soon as we can.
+
+<!-- General Internal (docs) links -->
 
 [deploy]:/pages/using/deployment.md
 [projects]:/pages/examples/seed-projects.md
@@ -239,7 +243,8 @@ feedback and respond to any issues as soon as we can.
 [supported]:/pages/hardware/devices.md
 [dockerfile]:/pages/using/dockerfile.md
 
-[alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
+<!-- General External Links -->
+
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
 [signup]:https://dashboard.resin.io/signup
 [git]:http://git-scm.com/
@@ -249,18 +254,26 @@ feedback and respond to any issues as soon as we can.
 [github_apis]:https://developer.github.com/v3/
 [github_ssh]:https://help.github.com/articles/generating-ssh-keys
 [github_ssh_blogpost]:http://resin.io/blog/email-github-public-ssh-key/
-[login]:http://alpha.resin.io/login
 [wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
 [wikihow]:http://www.wikihow.com/Main-Page
-[fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
-[example_app]:https://github.com/resin-io/text2speech
 [try-git]:https://www.codeschool.com/courses/try-git
 [code-school]:https://www.codeschool.com/
+
+<!-- SD card specific links -->
+
+[fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
+[win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
+[pifiller-download]:http://ivanx.com/raspberrypi/
+
+<!-- Device specific links -->
+
 [rpi]:http://www.raspberrypi.org/
 [rpi-b-plus]:http://www.raspberrypi.org/products/model-b-plus/
 [rpi-b]:http://www.raspberrypi.org/products/model-b/
 [rpi-A-plus]:http://www.raspberrypi.org/products/model-a-plus/
-[python-example]:https://github.com/alexandrosm/hello-python
 [RPI2-link]:http://www.raspberrypi.org/products/raspberry-pi-2-model-b/
-[win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
-[pifiller-download]:http://ivanx.com/raspberrypi/
+
+<!-- Example code links -->
+
+[example_app]:https://github.com/resin-io/text2speech
+[python-example]:https://github.com/alexandrosm/hello-python
