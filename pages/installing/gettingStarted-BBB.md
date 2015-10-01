@@ -43,7 +43,7 @@ Simply paste your public key into the box provided on the UI and click `save`. A
 
 <img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" class="shadow" width="80%">
 
-Once generated, SSH keys are easy to use. In fact you generally don't have tothink about it at all. Once you're set up just `git push` your code to us andit's taken care of automatically and securely.
+Once generated, SSH keys are easy to use. In fact you generally don't have to think about it at all. Once you're set up just `git push` your code to us and it's taken care of automatically and securely.
 
 If you don't have your ssh key setup yet, but want to explore resin.io, just click `skip`. Note that you will not be able to push code to your devices until you have an ssh key saved. This can be done at anytime from the `Preferences` page on the dashboard.
 
@@ -188,33 +188,51 @@ __Note:__ If you have an HDMI screen attached, you should see `"Booted - Check y
 
 ## Running Code On Your Device
 
-A good little project to get you started is the [tty.js app][example_app] written in node.js. It will allow you to play around with terminal commands on the Beaglebone from your web browser.
-To clone it, run the following in a terminal:-
+A good first project is our [Analog Signal Logger][example_app] project. This simple node project reads analog signals from pin `P9_33` every 3 seconds and pulish it to your resin.io logs panel.
+
+To clone the project, run the following in a terminal:
 
 ```
-git clone https://github.com/resin-io/tty.js-resin.git
+git clone https://github.com/shaunmulligan/beaglebone-adc-node.git
 ```
 
-Once the repo is cloned, cd into the newly created tty.js-resin directory and add the resin git endpoint by running the `git remote add` command shown in
-the top-right corner of the application page, e.g.:-
+Once the repo is cloned, cd into the newly created `beaglebone-adc-node` directory and add the resin git endpoint by running the `git remote add` command shown in
+the top-right corner of the application page, e.g.:
 
 ```
-cd tty.js-resin
+cd beaglebone-adc-node
 
-git remote add resin joebloggs@git.resin.io:joebloggs/skynet.git
+git remote add resin charlie1@git.resin.io:charlie1/myfleet.git
 ```
 
-Now you can simply run `git push resin master` and push code direct to your
-device.
+Now you can simply run `git push resin master` and push your code up to our servers where they will distribute it to your device(s). If this fails, you may need to force the push by running `git push resin master --force`.
 
-You'll know your code has deployed successfully from the appearance of our
-friendly unicorn mascot:-
+__NOTE:__ On your very first push, git may ask you if you would like to add this host to your list of allowed hosts. Don't worry about this, just type 'yes' and carry on your merry way.
 
-<img src="/img/common/pushing/success_unicorn_text2speech.png" width="80%">
+You'll know your code has been successfully compiled and built when our
+friendly unicorn mascot appears in your terminal:
 
-After the device has finished updating, you should be able to start playing around in the terminal and have a good base to start building and deploying awesome connected devices.
+<img src="/img/beaglebone/git_push_success_unicorn_bbb_example.png" width="80%">
+
+The terminal will also say:
+
+```
+-----> Image created successfully!
+-----> Uploading image..
+       Image uploaded successfully!
+```
+
+This means your code is safely on our servers and will be downloaded and executed by all the devices you have connected to your application. You may have to wait a little while for the code to start running on your devices. You can see the progress of the device code updates on the device dashboard:
+
+<img src="/img/common/device/device_dashboard_during_update_generic.png" class="shadow" width="80%">
+
+You should now have a node.js app happily logging analog signals to your logs and a good base to start building and deploying awesome connected devices.
+
+<img src="/img/beaglebone/bbb_example_logs.png" class="shadow" width="80%">
 
 If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
+
+<!-- ========================== end section =================================   -->
 
 ## Further Reading
 
