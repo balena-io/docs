@@ -1,34 +1,30 @@
 # Applications
 
-![Applications Page](/img/screenshots/applications_empty.png)
-
 ### What is a Resin.io Application?
 
 A Resin.io __application__ contains both the code you want to run and the devices you want to run that code on.
 
-To create an application you simply tap in a descriptive name in the [applications dashboard](http://alpha.resin.io/dashboard/apps) and hit create.
+To create an application you simply tap in a descriptive name in the [applications dashboard](https://dashboard.resin.io/) and hit create.
 
-__Note__: Currently there are some restrictions on application names - they must be at least 4 characters long and can only contain letters and numbers. We hope to lift this limitation soon.
+<img src="/img/raspberrypi2/app_dashboard_fresh_device.png" class="shadow" width="80%">
+
+Here we have an application named "myFleet" and currently it only has one device ("dawn-wildflower") provisioned.
 
 ### Associating Devices with Applications
 
-When you create an application an install zip is generated specifically for that application.
+When you create an application a special resin.io operating system is generated specifically for that application and its associated device type.
 
 When you install this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can copy this one download to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name.
 
 ### Deploying Your Code to an Application
 
-The key thing to know about any application from your perspective as a developer is its git endpoint - this is visible in the applications list on the [applications dashboard](http://alpha.resin.io/dashboard/apps) and also in the top-right hand corner of each individual application dashboard.
+The key thing to know about any application from your perspective as a developer is it's git endpoint - this is visible in the applications list on the [applications dashboard](http://dashboar.resin.io) and also in the top-right hand corner of each individual application dashboard.
 
 To configure a git repo to be able to push code to resin, you need to add a [git remote](http://gitref.org/remotes/) - simply click the button to the right of the git endpoint to copy the command to the clipboard and run it in the folder where your local git repo is located.
 
 Alternatively, simply run `git remote add resin [git endpoint]`, and you're done. From then on in you can simply run `git push resin master` to push your master branch to your devices.
 
 For more details on deployment, check out our [deployment guide](/pages/using/deployment.md).
-
-### Application Settings
-
-![Application Settings](/img/screenshots/application_settings.png)
 
 ### Deleting the application
 
