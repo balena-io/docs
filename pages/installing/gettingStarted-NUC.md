@@ -172,12 +172,12 @@ After the device has finished updating, you should be able to see "Hello World!"
 
 If you find any issues with the application, please click the feedback label on the bottom right-hand side of the page and let us know! We are always open to feedback and respond to any issues as soon as we can.
 
-[deploy]:/pages/using/deployment.md
+[deploy]:/pages/deployment/deployment.md
 [projects]:/pages/examples/projects.md
-[managing_devices_apps]:/pages/applications.md
-[wifi]:/pages/using/wifi.md
+[managing_devices_apps]:/pages/management/applications.md
+[wifi]:/pages/deployment/wifi.md
 [supported]:/pages/hardware/devices.md
-[dockerfile]:/pages/using/dockerfile.md
+[dockerfile]:/pages/deployment/dockerfile.md
 
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
 [signup]:https://dashboard.resin.io/signup

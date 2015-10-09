@@ -64,6 +64,7 @@
 <!-- * [Python SDK](/pages/tools/python-sdk.md) -->
 
 ### [Integrations](/pages/integrations/azure.md)
+
 * [Microsoft](/pages/integrations/azure.md)
 
 ### [Configuration](/pages/configuration/advanced.md)

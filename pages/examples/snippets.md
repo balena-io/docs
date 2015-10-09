@@ -99,6 +99,6 @@ A simple application that shows you how to issue commands to a servo motor using
 [nghiant2710]:https://github.com/nghiant2710
 
 <!-- ###general -->
-[deploy]:/pages/using/deployment.md
+[deploy]:/pages/deployment/deployment.md
 [getting-started]:/pages/installing/gettingStarted.md
 [resin]:https://resin.io

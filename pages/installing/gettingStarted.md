@@ -240,12 +240,12 @@ If you find any issues with the application or get stuck anywhere along the way,
 
 <!-- General Internal (docs) links -->
 
-[deploy]:/pages/using/deployment.md
+[deploy]:/pages/deployment/deployment.md
 [projects]:/pages/examples/seed-projects.md
-[managing_devices_apps]:/pages/managing/applications.md
-[wifi]:/pages/using/wifi.md
+[managing_devices_apps]:/pages/management/applications.md
+[wifi]:/pages/deployment/wifi.md
 [supported]:/pages/hardware/devices.md
-[dockerfile]:/pages/using/dockerfile.md
+[dockerfile]:/pages/deployment/dockerfile.md
 
 <!-- General External Links -->
 

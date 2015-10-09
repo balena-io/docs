@@ -208,12 +208,12 @@ If you find any issues with the application, please click the feedback label on
 the bottom right-hand side of the page and let us know! We are always open to
 feedback and respond to any issues as soon as we can.
 
-[deploy]:/pages/using/deployment.md
+[deploy]:/pages/deployment/deployment.md
 [projects]:/pages/examples/seed-projects.md
-[managing_devices_apps]:/pages/managing/applications.md
-[wifi]:/pages/using/wifi.md
+[managing_devices_apps]:/pages/management/applications.md
+[wifi]:/pages/deployment/wifi.md
 [supported]:/pages/hardware/devices.md
-[dockerfile]:/pages/pages/using/dockerfile.md
+[dockerfile]:/pages/pages/deployment/dockerfile.md
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating

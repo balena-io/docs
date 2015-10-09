@@ -6,7 +6,7 @@
 
 We hope to eventually implement the ability to use Multiple WiFi SSIDs in the resin.io user interface however for the time being you can add this functionality manually by editing a configuration file on your `img`.
 
-On the Raspberry Pi and Beaglebone, it is possible to change your wifi SSID or Passphrase after downloading by changing a configuration file inside of the downloaded OS image (`.img`). 
+On the Raspberry Pi and Beaglebone, it is possible to change your wifi SSID or Passphrase after downloading by changing a configuration file inside of the downloaded OS image (`.img`).
 
 Currently this can be done using the small config [writer tool](https://github.com/petrosagg/resin-net-config). This is a temporary tool and will be phased out very soon.
 

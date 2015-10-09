@@ -24,7 +24,7 @@ To configure a git repo to be able to push code to resin, you need to add a [git
 
 Alternatively, simply run `git remote add resin [git endpoint]`, and you're done. From then on in you can simply run `git push resin master` to push your master branch to your devices.
 
-For more details on deployment, check out our [deployment guide](/pages/using/deployment.md).
+For more details on deployment, check out our [deployment guide](/pages/deployment/deployment.md).
 
 ### Deleting the application
 

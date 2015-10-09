@@ -286,12 +286,12 @@ If you find any issues with the application, please click the feedback label on
 the bottom right-hand side of the page and let us know! We are always open to
 feedback and respond to any issues as soon as we can.
 
-[deploy]:/pages/deployment.md
-[projects]:/pages/projects.md
-[managing_devices_apps]:/pages/managingDevicesApps.md
-[wifi]:/pages/wifi.md
-[supported]:/pages/devices.md
-[dockerfile]:/pages/dockerfile.md
+[deploy]:/pages/deployment/deployment.md
+[projects]:/pages/examples/projects.md
+[managing_devices_apps]:/pages/management/applications.md
+[wifi]:/pages/deployment/wifi.md
+[supported]:/pages/hardware/devices.md
+[dockerfile]:/pages/deployment/dockerfile.md
 
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
 [signup]:https://dashboard.resin.io/signup

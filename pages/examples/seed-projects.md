@@ -78,7 +78,7 @@ __NOTE:__ This project can be adapted to target any [JVM][jvm] language.
 
 Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile].
 
-[dockerfile]:/pages/using/dockerfile.md
+[dockerfile]:/pages/deployment/dockerfile.md
 [text2speech]:https://github.com/resin-io/text2speech
 
 ### Golang
@@ -122,7 +122,7 @@ this project will only work on the Intel Edison.
 [martincalsyn]: https://github.com/martincalsyn
 
 <!-- ###general -->
-[deploy]:/pages/using/deployment.md
+[deploy]:/pages/deployment/deployment.md
 [getting-started]:/pages/installing/gettingStarted.md
 [resin]:https://resin.io
-[resin-dockerfile-guide]:http://docs.resin.io/#/pages/using/dockerfile.md
+[resin-dockerfile-guide]:http://docs.resin.io/#/pages/deployment/dockerfile.md
