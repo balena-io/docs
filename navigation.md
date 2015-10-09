@@ -20,7 +20,7 @@
 * [VIA VAB-820](/pages/installing/gettingStarted-Via-vab820.md)
 * [Zynq ZC702](/pages/installing/gettingStarted-Zynq-ZC702.md)
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
-* [Two Factor Authentication](/pages/installing/2fa.md)
+<!-- * [Two Factor Authentication](/pages/installing/2fa.md) -->
 
 ### [Using Resin.io](/pages/using/deployment.md)
 
@@ -34,10 +34,11 @@
 * [CLI Reference](/pages/using/cli.md)
 * [SDK Reference](/pages/using/sdk.md)
 
-### [Managing Resin.io](/pages/managing/applications.md)
+### [Management](/pages/management/applications.md)
 
-* [Applications](/pages/managing/applications.md)
-* [Devices](/pages/managing/devices.md)
+* [Applications](/pages/management/applications.md)
+* [Devices](/pages/management/devices.md)
+* [Preferences](/pages/management/preferences.md)
 
 ### [Examples](/pages/examples/seed-projects.md)
 * [Seed Projects](/pages/examples/seed-projects.md)
