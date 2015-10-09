@@ -30,6 +30,10 @@ In order to reprovison a beaglebone that has already been connected to the resin
 
 If you are one of the unfortunate people who feel they want to return to the old Yocto build of the Edison you can have a look over here on our guide to [restore original Edison firmware](/pages/troubleshooting/restore-edison.md).
 
+### I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows
+
+Make sure you have [Intel Edison drivers](https://software.intel.com/en-us/iot/hardware/edison/downloads) installed in your computer.
+
 ## General
 
 ### The 'Start the Terminal Session' Button Doesn't Appear
