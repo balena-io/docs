@@ -7,7 +7,7 @@
 * [Code Deployment](/pages/understanding/understanding-code-deployment.md)
 * [What's Installed on a Resin.io Device?](/pages/understanding/understanding-devices.md)
 
-### [Installing resin.io](/pages/installing/gettingStarted.md)
+### [Getting Started](/pages/installing/gettingStarted.md)
 
 * [Raspberry Pi (A/A+,B/B+,B 2)](/pages/installing/gettingStarted.md)
 * [Beaglebone Black/Green](/pages/installing/gettingStarted-BBB.md)
@@ -20,19 +20,26 @@
 * [VIA VAB-820](/pages/installing/gettingStarted-Via-vab820.md)
 * [Zynq ZC702](/pages/installing/gettingStarted-Zynq-ZC702.md)
 * [Parallella (EXPERIMENTAL)](/pages/installing/gettingStarted-Parallella.md)
-<!-- * [Two Factor Authentication](/pages/installing/2fa.md) -->
 
-### [Using Resin.io](/pages/using/deployment.md)
+### [Examples](/pages/examples/seed-projects.md)
+* [Seed Projects](/pages/examples/seed-projects.md)
+* [Snippets](/pages/examples/snippets.md)
+* [Resin.io Projects](/pages/examples/projects.md)
 
-* [Deployment Guide](/pages/using/deployment.md)
-* [Dockerfile Guide](/pages/using/dockerfile.md)
-* [Optimise your builds](/pages/using/build-optimisation.md)
-* [Runtime Environment](/pages/using/runtime.md)
-* [Environment variables](/pages/using/env-vars.md)
-* [Using the Web Terminal](/pages/using/terminal.md)
-* [Wifi Guide](/pages/using/wifi.md)
-* [CLI Reference](/pages/using/cli.md)
-* [SDK Reference](/pages/using/sdk.md)
+### [Deployment](/pages/deployment/deployment.md)
+
+* [Deployment Guide](/pages/deployment/deployment.md)
+* [Dockerfile Guide](/pages/deployment/dockerfile.md)
+* [Optimise your Builds](/pages/deployment/build-optimisation.md)
+* [Dockerfile Templates](/pages/deployment/docker-templates.md)
+* [Wifi Guide](/pages/deployment/wifi.md)
+
+### [Device Runtime](/pages/runtime/runtime.md)
+
+* [Runtime Environment](/pages/runtime/runtime.md)
+* [Environment Variables](/pages/management/env-vars.md)
+* [Using the Web Terminal](/pages/runtime/terminal.md)
+* [Resin Base Images](/pages/runtime/resin-base-images.md)
 
 ### [Management](/pages/management/applications.md)
 
@@ -40,29 +47,34 @@
 * [Devices](/pages/management/devices.md)
 * [Preferences](/pages/management/preferences.md)
 
-### [Examples](/pages/examples/seed-projects.md)
-* [Seed Projects](/pages/examples/seed-projects.md)
-* [Snippets](/pages/examples/snippets.md)
-* [Resin.io Projects](/pages/examples/projects.md)
-
 ### [Hardware](/pages/hardware/devices.md)
 
 * [Supported Devices](/pages/hardware/devices.md)
+* [meta-resin](/pages/hardware/meta-resin.md)
 * [GPIO Interface](/pages/hardware/gpio.md)
 * [I2C and Other Interfaces](/pages/hardware/i2c-and-spi.md)
-* [meta-resin](/pages/hardware/meta-resin.md)
 
-### [Configuration](/pages/configuration/custom-docker-base-images.md)
+### [Tools](/pages/tools/cli.md)
 
-* [Custom Base Docker Images](/pages/configuration/custom-docker-base-images.md)
-* [Advanced Boot Configuration](/pages/configuration/advanced.md)
-<!-- * [Custom Network Configuration](/pages/configuration/custom-network.md) -->
-* [SSH Keys for Multiple Accounts](/pages/configuration/multi-account.md)
-* [Resin Base Images](/pages/configuration/resin-base-images.md)
-* [Dockerfile Templates](/pages/configuration/docker-templates.md)
+<!-- * [Supervisor API](/pages/tools/supervisor-api.md) -->
+
+* [CLI Reference](/pages/tools/cli.md)
+* [Node.js SDK](/pages/tools/sdk.md)
+
+<!-- * [Python SDK](/pages/tools/python-sdk.md) -->
 
 ### [Integrations](/pages/integrations/azure.md)
 * [Microsoft](/pages/integrations/azure.md)
+
+### [Configuration](/pages/configuration/advanced.md)
+
+<!-- * ["Beta" features](/pages/configuration/using-resin-staging.md) -->
+
+* [Advanced Boot settings](/pages/configuration/advanced.md)
+* [Custom Network](/pages/configuration/custom-network.md)
+* [Custom Base Docker Images](/pages/configuration/custom-docker-base-images.md)
+
+<!-- * [Bandwidth Control](/pages/configuration/bandwidth-control.md) -->
 
 ### [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 
