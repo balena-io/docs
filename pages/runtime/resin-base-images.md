@@ -96,12 +96,12 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 
 | Image | Description | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
-| resin/amd64-debian| The base OS image for amd64 devices (Intel NUC) | minbase, sudo | [dockerhub][amd64-dockerhub-link] | latest, jessie, wheezy |
-| resin/amd64-systemd | The image with full systemd init system installed for amd64 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][amd64-systemd-dockerhub-link] | latest, jessie, wheezy | 
-| resin/nuc-debian | The bare bones OS image for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libmraa | [dockerhub][amd64-nuc-dockerhub-link] | latest, jessie, wheezy |
-| resin/nuc-buildpack-deps | The buildpack-deps image for Intel NUC. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][amd64-nuc-buildpack-deps-dockerhub-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/nuc-node | The Node.js buildpack image for Node.js apps for Intel NUC. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][amd64-nuc-node-dockerhub-link] | For available image tags, refer [here][amd64-nuc-node-dockerhub-tag-link] |
-| resin/nuc-python | The Python buildpack image for Python apps for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][amd64-nuc-python-dockerhub-link] | latest, jessie, wheezy |
+| resin/amd64-debian| The base OS image for amd64 devices (Intel NUC) | minbase, sudo | [dockerhub][amd64-dockerhub-link], [github][amd64-github-link] | latest, jessie, wheezy |
+| resin/amd64-systemd | The image with full systemd init system installed for amd64 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][amd64-systemd-dockerhub-link], [github][amd64-systemd-github-link] | latest, jessie, wheezy | 
+| resin/nuc-debian | The bare bones OS image for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libmraa | [dockerhub][amd64-nuc-dockerhub-link], [github][amd64-nuc-github-link] | latest, jessie, wheezy |
+| resin/nuc-buildpack-deps | The buildpack-deps image for Intel NUC. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][amd64-nuc-buildpack-deps-dockerhub-link], [github][amd64-nuc-buildpack-deps-github-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/nuc-node | The Node.js buildpack image for Node.js apps for Intel NUC. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][amd64-nuc-node-dockerhub-link], [github][amd64-nuc-node-github-link] | For available image tags, refer [here][amd64-nuc-node-dockerhub-tag-link] |
+| resin/nuc-python | The Python buildpack image for Python apps for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][amd64-nuc-python-dockerhub-link], [github][amd64-nuc-python-github-link] | latest, jessie, wheezy |
 
 #### <a name="tips"></a>Tips
 
@@ -284,12 +284,17 @@ This is a set of images with node.js binary installed. The node images come in m
 [i386-edison-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-python/
 [i386-edison-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/edison
 [i386-edison-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/edison
-[i386-edison-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberrypi2
-[i386-edison-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberrypi2
+[i386-edison-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/edison
+[i386-edison-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/edison
 
 [amd64-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/amd64-systemd/
+[amd64-systemd-github-link]:https://github.com/resin-io-library/base-images/tree/master/systemd/amd64
 [amd64-nuc-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-debian/
 [amd64-nuc-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-buildpack-deps/
 [amd64-nuc-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-node/
 [amd64-nuc-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-node/tags/manage/
 [amd64-nuc-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-python/
+[amd64-nuc-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/nuc
+[amd64-nuc-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/nuc
+[amd64-nuc-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/nuc
+[amd64-nuc-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/nuc
