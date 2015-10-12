@@ -246,8 +246,8 @@ visualisation at [123k.de](http://123k.de).
 
 [resin]:https://resin.io
 [dropbox]:https://www.dropbox.com/
-[deploy]:/pages/using/deployment.md
-[dockerfile]:/pages/using/dockerfile.md
+[deploy]:/pages/deployment/deployment.md
+[dockerfile]:/pages/deployment/dockerfile.md
 [rpi]:http://www.raspberrypi.org/
 [firebase]:https://www.firebase.com/
 [getting-started]:/pages/installing/gettingStarted.md

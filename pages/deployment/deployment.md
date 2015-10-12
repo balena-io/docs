@@ -106,7 +106,7 @@ which builds it, then ships the resultant environment to your devices.
 \* correct at the time of writing.
 
 [getting-started]:/pages/installing/gettingStarted.md
-[dockerfile]:/pages/using/dockerfile.md
+[dockerfile]:/pages/deployment/dockerfile.md
 
 [docker-dockerfile]:https://docs.docker.com/reference/builder/
 
@@ -118,4 +118,4 @@ which builds it, then ships the resultant environment to your devices.
 [node]:http://nodejs.org/
 [raspbian]:http://www.raspbian.org/
 [aptitude]:https://wiki.debian.org/Aptitude
-[resin-base-image]:/pages/configuration/resin-base-images.md
+[resin-base-image]:/pages/runtime/resin-base-images.md

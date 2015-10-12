@@ -1,10 +1,12 @@
-# Two Factor Authentication
+# Preferences
+
+## Two Factor Authentication
 
 We offer the option to enable [Two Factor Authentication][2fa] - this is a feature that prompts you to input a code from your smartphone *in addition* to your password, providing an additional layer of security for your account.
 
 __Note:__ We use the industry standard [Time-based One-time Password Algorithm][totp] to implement this functionality.
 
-## Enabling Two-Factor Authentication
+### Enabling Two-Factor Authentication
 
 [Sign up][signup] for an account (or [log in][login] if you already have one) and go to your [preferences][prefs] page:-
 
