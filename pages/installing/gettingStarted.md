@@ -105,7 +105,7 @@ Now we have to burn the downloaded `.img` file onto the SD card. There are a cou
 ## Burning the OS image onto the SD card
 
 * [Mac and Linux Command Line](/pages/installing/gettingStarted.md#on-mac-and-linux)
-* [Windows](http://localhost:3000/#/pages/installing/gettingStarted.md#windows)
+* [Windows](/pages/installing/gettingStarted.md#windows)
 
 ### On Mac and Linux
 
@@ -177,7 +177,7 @@ While you wait resin.io is expanding the partitioning on your SD card, installin
 
 If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
 
-__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a black screen with a raspberry on it, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](http://localhost:3000/#/pages/installing/gettingStarted.md#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
+__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a black screen with a raspberry on it, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](/#/pages/installing/gettingStarted.md#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
 
 <!-- ========================== end section =================================   -->
 
