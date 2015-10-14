@@ -33,13 +33,18 @@ If you feel something is missing, not clear or could be improved, please don't h
       * [.identify(uuid)](#resin.models.device.identify) ⇒ <code>Promise</code>
       * [.rename(uuid, newName)](#resin.models.device.rename) ⇒ <code>Promise</code>
       * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
+      * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
       * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
       * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
       * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
       * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
       * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
-      * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>String</code>
+      * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
       * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
+      * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
+      * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
+      * [.enableDeviceUrl(uuid)](#resin.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
+      * [.disableDeviceUrl(uuid)](#resin.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
     * [.key](#resin.models.key) : <code>object</code>
       * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
       * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
@@ -60,8 +65,6 @@ If you feel something is missing, not clear or could be improved, please don't h
       * [.download(parameters)](#resin.models.os.download) ⇒ <code>Promise</code>
     * [.config](#resin.models.config) : <code>object</code>
       * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
-      * [.getPubNubKeys()](#resin.models.config.getPubNubKeys) ⇒ <code>Promise</code>
-      * [.getMixpanelToken()](#resin.models.config.getMixpanelToken) ⇒ <code>Promise</code>
       * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
       * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
   * [.auth](#resin.auth) : <code>object</code>
@@ -111,13 +114,18 @@ If you feel something is missing, not clear or could be improved, please don't h
     * [.identify(uuid)](#resin.models.device.identify) ⇒ <code>Promise</code>
     * [.rename(uuid, newName)](#resin.models.device.rename) ⇒ <code>Promise</code>
     * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
+    * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
     * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
     * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
     * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
     * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
     * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
-    * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>String</code>
+    * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
     * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
+    * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
+    * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
+    * [.enableDeviceUrl(uuid)](#resin.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
+    * [.disableDeviceUrl(uuid)](#resin.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
   * [.key](#resin.models.key) : <code>object</code>
     * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
     * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
@@ -138,8 +146,6 @@ If you feel something is missing, not clear or could be improved, please don't h
     * [.download(parameters)](#resin.models.os.download) ⇒ <code>Promise</code>
   * [.config](#resin.models.config) : <code>object</code>
     * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
-    * [.getPubNubKeys()](#resin.models.config.getPubNubKeys) ⇒ <code>Promise</code>
-    * [.getMixpanelToken()](#resin.models.config.getMixpanelToken) ⇒ <code>Promise</code>
     * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
     * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
 
@@ -359,13 +365,18 @@ resin.models.application.getApiKey 'MyApp', (error, apiKey) ->
   * [.identify(uuid)](#resin.models.device.identify) ⇒ <code>Promise</code>
   * [.rename(uuid, newName)](#resin.models.device.rename) ⇒ <code>Promise</code>
   * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
+  * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
   * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
   * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
   * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
   * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
   * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
-  * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>String</code>
+  * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
   * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
+  * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
+  * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
+  * [.enableDeviceUrl(uuid)](#resin.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
+  * [.disableDeviceUrl(uuid)](#resin.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
 
 <a name="resin.models.device.getAll"></a>
 ##### device.getAll() ⇒ <code>Promise</code>
@@ -641,6 +652,25 @@ resin.models.device.note('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4
 resin.models.device.note '7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', 'My useful note', (error) ->
 	throw error if error?
 ```
+<a name="resin.models.device.restart"></a>
+##### device.restart(uuid) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[device](#resin.models.device)</code>  
+**Summary**: Restart device  
+**Access:** public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuid | <code>String</code> | device uuid |
+
+**Example**  
+```js
+resin.models.device.restart('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9')
+```
+**Example**  
+```js
+resin.models.device.restart '7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', (error) ->
+	throw error if error?
+```
 <a name="resin.models.device.getDisplayName"></a>
 ##### device.getDisplayName(deviceTypeSlug) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
@@ -755,14 +785,15 @@ resin.models.device.getManifestByApplication 'MyApp', (error, manifest) ->
 	console.log(manifest)
 ```
 <a name="resin.models.device.generateUUID"></a>
-##### device.generateUUID() ⇒ <code>String</code>
+##### device.generateUUID() ⇒ <code>Promise</code>
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
 **Summary**: Generate a random device UUID  
-**Returns**: <code>String</code> - A generated UUID  
 **Access:** public  
+**Fulfil**: <code>String</code> - a generated UUID  
 **Example**  
 ```js
-uuid = resin.models.device.generateUUID()
+resin.models.device.generateUUID().then (uuid) ->
+	console.log(uuid)
 ```
 <a name="resin.models.device.register"></a>
 ##### device.register(applicationName, uuid) ⇒ <code>Promise</code>
@@ -778,16 +809,98 @@ uuid = resin.models.device.generateUUID()
 
 **Example**  
 ```js
-uuid = resin.models.device.generateUUID()
-resin.models.device.register('MyApp', uuid).then (device) ->
-	console.log(device)
+resin.models.device.generateUUID().then (uuid) ->
+	resin.models.device.register('MyApp', uuid).then (device) ->
+		console.log(device)
 ```
 **Example**  
 ```js
-uuid = resin.models.device.generateUUID()
-resin.models.device.register 'MyApp', uuid, (error, device) ->
+resin.models.device.generateUUID (error, uuid) ->
 	throw error if error?
-	console.log(device)
+
+	resin.models.device.register 'MyApp', uuid, (error, device) ->
+		throw error if error?
+		console.log(device)
+```
+<a name="resin.models.device.hasDeviceUrl"></a>
+##### device.hasDeviceUrl(uuid) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[device](#resin.models.device)</code>  
+**Summary**: Check if a device is web accessible with device utls  
+**Access:** public  
+**Fulfil**: <code>Boolean</code> - has device url  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuid | <code>String</code> | device uuid |
+
+**Example**  
+```js
+resin.models.device.hasDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9')
+```
+**Example**  
+```js
+resin.models.device.hasDeviceUrl '7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', (error) ->
+	throw error if error?
+```
+<a name="resin.models.device.getDeviceUrl"></a>
+##### device.getDeviceUrl(uuid) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[device](#resin.models.device)</code>  
+**Summary**: Get a device url  
+**Access:** public  
+**Fulfil**: <code>String</code> - device url  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuid | <code>String</code> | device uuid |
+
+**Example**  
+```js
+resin.models.device.getDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then (url) ->
+	console.log(url)
+```
+**Example**  
+```js
+resin.models.device.getDeviceUrl '7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', (error, url) ->
+	console.log(url)
+	throw error if error?
+```
+<a name="resin.models.device.enableDeviceUrl"></a>
+##### device.enableDeviceUrl(uuid) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[device](#resin.models.device)</code>  
+**Summary**: Enable device url for a device  
+**Access:** public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuid | <code>String</code> | device uuid |
+
+**Example**  
+```js
+resin.models.device.enableDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9')
+```
+**Example**  
+```js
+resin.models.device.enableDeviceUrl '7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', (error) ->
+	throw error if error?
+```
+<a name="resin.models.device.disableDeviceUrl"></a>
+##### device.disableDeviceUrl(uuid) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[device](#resin.models.device)</code>  
+**Summary**: Disable device url for a device  
+**Access:** public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuid | <code>String</code> | device uuid |
+
+**Example**  
+```js
+resin.models.device.disableDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9')
+```
+**Example**  
+```js
+resin.models.device.disableDeviceUrl '7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', (error) ->
+	throw error if error?
 ```
 <a name="resin.models.key"></a>
 #### models.key : <code>object</code>
@@ -1134,8 +1247,6 @@ resin.models.os.download parameters, (error, stream) ->
 
 * [.config](#resin.models.config) : <code>object</code>
   * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
-  * [.getPubNubKeys()](#resin.models.config.getPubNubKeys) ⇒ <code>Promise</code>
-  * [.getMixpanelToken()](#resin.models.config.getMixpanelToken) ⇒ <code>Promise</code>
   * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
   * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
 
@@ -1155,42 +1266,6 @@ resin.models.config.getAll().then (config) ->
 resin.models.config.getAll (error, config) ->
 	throw error if error?
 	console.log(config)
-```
-<a name="resin.models.config.getPubNubKeys"></a>
-##### config.getPubNubKeys() ⇒ <code>Promise</code>
-**Kind**: static method of <code>[config](#resin.models.config)</code>  
-**Summary**: Get PubNub keys  
-**Access:** public  
-**Fulfil**: <code>Object</code> - pubnub keys  
-**Example**  
-```js
-resin.models.config.getPubNubKeys().then (pubnubKeys) ->
-	console.log(pubnubKeys.subscribe_key)
-	console.log(pubnubKeys.publish_key)
-```
-**Example**  
-```js
-resin.models.config.getPubNubKeys (error, pubnubKeys) ->
-	throw error if error?
-	console.log(pubnubKeys.subscribe_key)
-	console.log(pubnubKeys.publish_key)
-```
-<a name="resin.models.config.getMixpanelToken"></a>
-##### config.getMixpanelToken() ⇒ <code>Promise</code>
-**Kind**: static method of <code>[config](#resin.models.config)</code>  
-**Summary**: Get Mixpanel token  
-**Access:** public  
-**Fulfil**: <code>String</code> - Mixpanel token  
-**Example**  
-```js
-resin.models.config.getMixpanelToken().then (mixpanelToken) ->
-	console.log(mixpanelToken)
-```
-**Example**  
-```js
-resin.models.config.getMixpanelToken (error, mixpanelToken) ->
-	throw error if error?
-	console.log(mixpanelToken)
 ```
 <a name="resin.models.config.getDeviceTypes"></a>
 ##### config.getDeviceTypes() ⇒ <code>Promise</code>
@@ -1552,14 +1627,14 @@ resin.logs.history '7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465
 
 **Example**  
 ```js
-resin.settings.get('remoteUrl').then (remoteUrl) ->
-	console.log(remoteUrl)
+resin.settings.get('apiUrl').then (apiUrl) ->
+	console.log(apiUrl)
 ```
 **Example**  
 ```js
-resin.settings.get 'remoteUrl', (error, remoteUrl) ->
+resin.settings.get 'apiUrl', (error, apiUrl) ->
 	throw error if error?
-	console.log(remoteUrl)
+	console.log(apiUrl)
 ```
 <a name="resin.settings.getAll"></a>
 #### settings.getAll() ⇒ <code>Promise</code>
