@@ -40,6 +40,7 @@
 * [Environment Variables](/pages/management/env-vars.md)
 * [Using the Web Terminal](/pages/runtime/terminal.md)
 * [Resin Base Images](/pages/runtime/resin-base-images.md)
+* [Interacting with the Resin Supervisor](/pages/runtime/supervisor-api.md)
 
 ### [Management](/pages/management/applications.md)
 
