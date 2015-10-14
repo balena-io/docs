@@ -1,3 +1,4 @@
+## Resin Python SDK
 
 Welcome to the Resin Python SDK documentation.
 This document aims to describe all the functions supported by the SDK, as well as
