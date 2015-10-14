@@ -187,7 +187,7 @@ If you find any issues with the application, please click the feedback label on 
 
 [deploy]:/pages/deployment/deployment.md
 [projects]:/pages/examples/projects.md
-[managing_devices_apps]:/pages/applications.md
+[managing_devices_apps]:/pages/management/applications.md
 [wifi]:/pages/deployment/wifi.md
 [supported]:/pages/hardware/devices.md
 [dockerfile]:/pages/deployment/dockerfile.md
