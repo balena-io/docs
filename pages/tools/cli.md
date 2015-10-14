@@ -34,10 +34,11 @@ Now you have access to all the commands referenced below.
 
 	- [devices](#devices)
 	- [device &#60;uuid&#62;](#device-60-uuid-62-)
+	- [device register &#60;application&#62;](#device-register-60-application-62-)
 	- [device rm &#60;uuid&#62;](#device-rm-60-uuid-62-)
 	- [device identify &#60;uuid&#62;](#device-identify-60-uuid-62-)
 	- [device rename &#60;uuid&#62; [newName]](#device-rename-60-uuid-62-newname-)
-	- [device init [device]](#device-init-device-)
+	- [device init](#device-init)
 
 - Environment Variables
 
@@ -68,6 +69,12 @@ Now you have access to all the commands referenced below.
 - Notes
 
 	- [note &#60;|note&#62;](#note-60-note-62-)
+
+- OS
+
+	- [os download &#60;type&#62;](#os-download-60-type-62-)
+	- [os configure &#60;image&#62; &#60;uuid&#62;](#os-configure-60-image-62-60-uuid-62-)
+	- [os initialize &#60;image&#62; &#60;type&#62;](#os-initialize-60-image-62-60-type-62-)
 
 - Wizard
 
@@ -167,9 +174,7 @@ confirm non interactively
 
 Use this command to login to your resin.io account.
 
-To login, you need your token, which is accesible from the preferences page:
-
-	https://dashboard.resin.io/preferences
+To login, you need your token, which is accesible from the preferences page.
 
 Examples:
 
@@ -237,6 +242,14 @@ Examples:
 
 	$ resin device 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9
 
+## device register &#60;application&#62;
+
+Use this command to register a device to an application.
+
+Examples:
+
+	$ resin device register MyApp
+
 ## device rm &#60;uuid&#62;
 
 Use this command to remove a device from resin.io.
@@ -276,36 +289,17 @@ Examples:
 	$ resin device rename 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9 MyPi
 	$ resin device rename 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9
 
-## device init [device]
+## device init
 
 Use this command to download the OS image of a certain application and write it to an SD Card.
 
-Note that this command requires admin privileges.
-
-If `device` is omitted, you will be prompted to select a device interactively.
-
-Notice this command asks for confirmation interactively.
+Notice this command may ask for confirmation interactively.
 You can avoid this by passing the `--yes` boolean option.
-
-You can quiet the progress bar and other logging information by passing the `--quiet` boolean option.
-
-You need to configure the network type and other settings:
-
-Ethernet:
-  You can setup the device OS to use ethernet by setting the `--network` option to "ethernet".
-
-Wifi:
-  You can setup the device OS to use wifi by setting the `--network` option to "wifi".
-  If you set "network" to "wifi", you will need to specify the `--ssid` and `--key` option as well.
-
-You can omit network related options to be asked about them interactively.
 
 Examples:
 
 	$ resin device init
 	$ resin device init --application MyApp
-	$ resin device init --application MyApp --network ethernet
-	$ resin device init /dev/disk2 --application MyApp --network wifi --ssid MyNetwork --key secret
 
 ### Options
 
@@ -313,17 +307,9 @@ Examples:
 
 application name
 
-#### --network, -n &#60;network&#62;
+#### --yes, -y
 
-network type
-
-#### --ssid, -s &#60;ssid&#62;
-
-wifi ssid, if network is wifi
-
-#### --key, -k &#60;key&#62;
-
-wifi key, if network is wifi
+confirm non interactively
 
 # Environment Variables
 
@@ -400,7 +386,7 @@ Examples:
 
 	$ resin env add EDITOR vim --application MyApp
 	$ resin env add TERM --application MyApp
-	$ resin env add EDITOR vim --device MyDevice
+	$ resin env add EDITOR vim --device 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9
 
 ### Options
 
@@ -539,6 +525,38 @@ Examples:
 #### --device, --d,dev, --d,dev &#60;device&#62;
 
 device uuid
+
+# OS
+
+## os download &#60;type&#62;
+
+Use this command to download an unconfigured os image for a certain device type.
+
+Examples:
+
+	$ resin os download parallella -o ../foo/bar/parallella.img
+
+### Options
+
+#### --output, -o &#60;output&#62;
+
+output path
+
+## os configure &#60;image&#62; &#60;uuid&#62;
+
+Use this command to configure a previously download operating system image with a device.
+
+Examples:
+
+	$ resin os configure ../path/rpi.img 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9
+
+## os initialize &#60;image&#62; &#60;type&#62;
+
+Use this command to initialize a previously configured operating system image.
+
+Examples:
+
+	$ resin os initialize ../path/rpi.img 'raspberry-pi'
 
 # Wizard
 

@@ -61,8 +61,7 @@
 
 * [CLI Reference](/pages/tools/cli.md)
 * [Node.js SDK](/pages/tools/sdk.md)
-
-<!-- * [Python SDK](/pages/tools/python-sdk.md) -->
+* [Python SDK](/pages/tools/python-sdk.md) 
 
 ### [Integrations](/pages/integrations/azure.md)
 
