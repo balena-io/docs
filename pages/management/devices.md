@@ -44,7 +44,13 @@ To see what your device is serving on port 80, just click on the URL. If your ap
 
 <img src="/img/common/device/device_url_404.png" class="shadow" width="80%">
 
+__Note:__ Currently websockets will not work over the device URLs, this should be resolved, keep an eye on the [github issue](https://github.com/resin-io/node-tunnel/issues/2) for an update of this feature.
+
 ### Restart Device Container
+
+The restart action is a per-device restart of the currently running application container. Your application (A.K.A it's running container) will be shutdown and a new one will be started.
+
+When the container is stopped, the application is politely asked to stop by sending a `SIGTERM` and after 10 seconds of wait time a `SIGKILL` is sent. 
 
 ### Move to Another Application
 
