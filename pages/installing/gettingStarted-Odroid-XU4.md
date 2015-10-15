@@ -23,7 +23,7 @@ If you already have a resin.io account and just want to get started with the Odr
 
 ## Signing Up
 
-First things first, enter your details on the [sign up page][signup]. There are a couple of restrictions:-
+First things first, enter your details on the [sign up page][signup]. There are a couple of restrictions:
 
 * The username can only contain letters and numbers.
 * The password has to be at least 8 characters long.
