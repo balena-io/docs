@@ -108,6 +108,7 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 * The `latest` tag points to jessie images. 
 * For those images with systemd init system installed, the systemd init system is disabled by default. It can be enabled by adding `ENV INITSYSTEM on` to your Dockerfile below the `FROM <Docker image>` line. This will trigger systemd init system on the Docker image.
 * `systemd was included in Debian wheezy as a technology preview. Please make sure that you are using Debian testing or newer to get a recent version of systemd.` from [Systemd Debian Wiki Page][systemd-wiki]. Therefore, we do not install systemd on wheezy images. `ENV INITSYSTEM` will only work on jessie and sid images.
+* In case, you have your own systemd service and you want your systemd service to use the environment variables you set in the dashboard. You need to add `EnvironmentFile=/etc/docker.env` to your systemd service unit file.
 
 ## <a name="base-images"></a>Base Images:
 
