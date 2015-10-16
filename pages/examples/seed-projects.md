@@ -92,6 +92,15 @@ in the `Dockerfile`.
 __Note:__ This project will not build on any of the ARM architecture board. Currently,
 this project will only work on the Intel Edison.
 
+[Resin Golang Image Example][golang-image-link]
+
+This project contains examples of how to use Resin Golang images on devices supported by Resin.io.
+This project will work on any devices, notice that it requires native ARM builders when building for ARM architecture devices.
+When pushing application to Resin, we select native ARM builders for the build by doing:
+```
+$ git push resin master:master-arm
+```
+
 <!-- ###Language Demo Projects Links  -->
 
 [csharp]:http://msdn.microsoft.com/en-gb/vstudio/hh341490.aspx
@@ -113,6 +122,7 @@ this project will only work on the Intel Edison.
 [simple-python-server-link]:https://github.com/resin-io-projects/simple-server-python.git
 [hello-ruby]:https://github.com/nghiant2710/Hello-Ruby
 [golang-seed-link]:https://github.com/shaunmulligan/resin-golang-seed.git
+[golang-image-link]:https://github.com/nghiant2710/resin-golang-example.git
 
 [csharp-dockerfile]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld/blob/master/Dockerfile
 [java-dockerfile]:https://github.com/resin-io/Hello-Java/blob/master/Dockerfile
