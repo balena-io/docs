@@ -1,8 +1,8 @@
-# Getting Started with the Via VAB-820
+# Getting Started with the VIA VAB-820
 
 ## What You'll Need
 
-* A [VIA VAB-820 board][via820-link] from [VIA technologies][via-link].
+* A [VIA VAB-820 board][vab820-link] or [AMOS-820 system][amos820-link] from [VIA technologies][via-link].
 ![VIA VAB-820 board](/img/viaVab820.jpg)
 * A 4GB or larger SD card. The [VAB-820][via820-link] uses a microSD card as the boot medium. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 * A 12Vdc power supply unit which is usually shipped with the board.
@@ -200,5 +200,6 @@ If you find any issues with the application, please click the feedback label on 
 [win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
 [pifiller-download]:http://ivanx.com/raspberrypi/
 
-[via820-link]:http://www.viatech.com/en/boards/pico-itx/vab-820/
+[vab820-link]:http://www.viatech.com/en/boards/pico-itx/vab-820/ "VIA VAB-820 product page"
+[amos820-link]:http://www.viatech.com/en/systems/industrial-fanless-pcs/amos-820/ "VIA AMOS-820 product page"
 [via-link]:http://www.viatech.com/en/
