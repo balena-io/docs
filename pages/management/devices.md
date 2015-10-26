@@ -52,6 +52,8 @@ The `Restart Device Conatiner` action is a per-device **restart** of the current
 
 When the container is stopped, the application is politely asked to stop by sending a `SIGTERM` and after 10 seconds of wait time a `SIGKILL` is sent. During a restart any data that is not stored in `/data` will be lost.
 
+It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
+
 __Note:__ Restart device container is not equivalent to a reboot of the device!
 
 ### Move to Another Application
@@ -73,6 +75,8 @@ To see a demonstration of moving devices between applications and a little more 
 ### Purge Data
 
 On all resin.io devices `/data` is a persistent data volume. This is useful for storing sensitive or non-volatile data that one would like to keep through out the update process. However, there are often times where it is necessary  to jettison all the persistent data. This can be done with the `Purge Data` action. Note that this is a dangerous action and that it is not possible to recover your data once you have purged the volume.
+
+It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
 
 ### Delete Device
 
