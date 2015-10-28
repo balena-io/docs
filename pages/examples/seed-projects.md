@@ -72,6 +72,13 @@ Hello World written in [Java][java] using a
 
 __NOTE:__ This project can be adapted to target any [JVM][jvm] language.
 
+### Scala
+
+[Repository][hello-scala]
+
+Hello World written in [Scala][scala] using a
+[custom Dockerfile][scala-dockerfile]. Uses SBT to fetch the Scala runtime.
+
 ### Ruby
 
 [Repository][hello-ruby]
@@ -98,6 +105,7 @@ this project will only work on the Intel Edison.
 [dotnet]:http://www.microsoft.com/net
 [jvm]:http://en.wikipedia.org/wiki/Java_virtual_machine
 [java]:https://www.java.com/en/
+[scala]:http://scala-lang.org/
 [python]:https://www.python.org/
 [ruby]:https://www.ruby-lang.org/en/
 [dotnet-lib]:https://github.com/ResinIoDotNetExamples
@@ -109,6 +117,7 @@ this project will only work on the Intel Edison.
 [simple-nodejs-server-link]:https://github.com/resin-io-projects/simple-server-node.git
 [hello-dotnet]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld
 [hello-java]:https://github.com/nghiant2710/Hello-Java
+[hello-scala]:https://github.com/elecnix/Hello-Scala
 [hello-python]:https://github.com/alexandrosm/hello-python
 [simple-python-server-link]:https://github.com/resin-io-projects/simple-server-python.git
 [hello-ruby]:https://github.com/nghiant2710/Hello-Ruby
@@ -116,6 +125,7 @@ this project will only work on the Intel Edison.
 
 [csharp-dockerfile]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld/blob/master/Dockerfile
 [java-dockerfile]:https://github.com/resin-io/Hello-Java/blob/master/Dockerfile
+[scala-dockerfile]:https://github.com/elecnix/Hello-Scala/blob/master/Dockerfile
 [python-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
 [ruby-dockerfile]:https://github.com/resin-io/Hello-Ruby/blob/master/Dockerfile
 
