@@ -16,6 +16,7 @@ When you create an application a special resin.io operating system is generated 
 
 When you install this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can copy this one download to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name.
 
+
 ### Deploying Your Code to an Application
 
 The key thing to know about any application from your perspective as a developer is it's git endpoint - this is visible in the applications list on the [applications dashboard](http://dashboar.resin.io) and also in the top-right hand corner of each individual application dashboard.
@@ -26,13 +27,25 @@ Alternatively, simply run `git remote add resin [git endpoint]`, and you're done
 
 For more details on deployment, check out our [deployment guide](/pages/deployment/deployment.md).
 
+## Application Actions
+
+### Restart Application (on all devices)
+
+The `Restart Application` action is a fleet wide action that will restart the application container on all the devices that are currently online. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
+
+## Dangerous Application Actions
+
+### Purge Data (on all devices)
+
+The purge data action operates on all devices in the application. It is used to delete all the data in `/data`. Note that this is a non-reversible action and should be carried out with extreme caution as once your data is purged, it is gone for good.
+
 ### Deleting the application
 
 Hidden behind the 'Dangerous' section is the option to delete your application.
 
-__Warning:__ All devices attached to the application will become orphaned and you will need to reconfigure them from scratch in another application.
+__Warning:__ All devices attached to the application will become orphaned and you will need to reconfigure them from scratch in another application. Their most recent code deployment will continue to function as before, but all the devices will not be able to receive code updates or device actions from resin.io. 
 
-### Environment Variables
+## Environment Variables
 
 Applications can be customised via environment variables - simply enter environment variable key/value pairs.
 
