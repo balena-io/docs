@@ -160,29 +160,25 @@ Once it is completed, you can carry on setting up your Beaglebone as shown below
 
 ## Setting Up Your Device
 
-Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now hold down the small black button marked `s2` (located near the SD card slot) and power up the device by inserting the usb cable.
+Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now hold down the small black button marked `s2` (located near the SD card slot) and power up the device by inserting the power or USB cable.
 
-You should only need to hold the button down for about 5 seconds until the blue LEDs start flashing like crazy. Basically, by holding down the button, we are telling the Beaglebone that we want to boot from the SD card instead of the onboard flash. From there, the OS which is on the SD card is flashed onto the internal memory. This can take a few minutes, so grab some tea while you wait for your Beaglebone to appear on the application dashboard.
+You should only need to hold the button down for about 5 seconds until the blue LEDs start flashing like crazy. Basically, by holding down the button, we are telling the Beaglebone that we want to boot from the SD card instead of the onboard flash. From there, the OS which is on the SD card is flashed onto the internal eMMC memory.
 
-<!-- TODO: add gif of flashing LEDs -->
+__Warning:__ This will completely overwrite any data on your devices' internal eMMC, so make sure to make a backup of any important data.
 
 <img src="/img/beaglebone/sd_card_BBB.jpg" width="40%">
 
-While you wait resin.io is partitioning your SD card, installing a custom linux
-environment and establishing a secure connection with our servers.
+After a short while you should see your device pop up in the dashboard. It will appear in a "configuring" state where it will say that it is flashing resin.io OS to the internal media. This step can take a little time, so perhaps go grab a cup of tea at this point.
 
-If you have a class 10 SD card and a fast internet connection your device should
-appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can
-take up to 3 times longer so it's well worth investing in the fastest card you
-can find.
+After the internal media has been flashed, your device will shut itself down. At this point you will see the device in a "post-provisioning" state. Before booting the device again, make sure to remove the SD card. You may then simply press the power button situated nearest to the ethernet port.
+
+In a minute or so you should have a happy Beaglebone device in the `Idle` state on your dashboard. From here on you can deploy code to your device with easy.
 
 __Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](http://localhost:3000/#/pages/installing/gettingStarted-BBB.md#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
 
 <!-- ========================== end section =================================   -->
 
 <!-- ==================== Code Example (beaglebone-adc-node)==========================   -->
-
-<!-- TODO: switch this to beaglebone-adc-node -->
 
 ## Running Code On Your Device
 
