@@ -6,7 +6,7 @@ This page contains all the information about the image maintained on the Resin.i
 
 This section describes the Resin image trees (hierarchy of images). These image trees provide an overview of how all the resin base images fit together for each device type supported by Resin.
 
-Repository for all images: refer [here][base-repository].
+Repository for all images: refer [here][base-repository]. Subscribe to changes [here][base-images-changelog].
 
 __Note:__ In the tree diagram, from the bottom to the top, the lower level image is used as the base docker image to build the upper level one.
 
@@ -87,6 +87,16 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | resin/ts4900-node | The Node.js buildpack image for Node.js apps for Technologic TS-4900. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-ts4900-node-dockerhub-link], [github][armv7-ts4900-node-github-link] | For available image tags, refer [here][armv7-ts4900-node-dockerhub-tag-link] |
 | resin/ts4900-python | The Python buildpack image for Python apps for Technologic TS-4900. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-ts4900-python-dockerhub-link], [github][armv7-ts4900-python-github-link] | latest, jessie, wheezy |
 | resin/ts4900-golang | The Go buildpack image for Go apps for Technologic TS-4900. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-ts4900-golang-dockerhub-link], [github][armv7-ts4900-golang-github-link] | For available image tags, refer [here][armv7-ts4900-golang-dockerhub-tag-link] |
+| resin/apalis-imx6-debian | The bare bones OS image for Apalis iMX6q. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-apalis-imx6-dockerhub-link], [github][armv7-apalis-imx6-github-link] | latest, jessie, wheezy |
+| resin/apalis-imx6-buildpack-deps | The buildpack-deps image for Apalis iMX6q. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-apalis-imx6-buildpack-deps-dockerhub-link], [github][armv7-apalis-imx6-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/apalis-imx6-node | The Node.js buildpack image for Node.js apps for Apalis iMX6q. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-apalis-imx6-node-dockerhub-link], [github][armv7-apalis-imx6-node-github-link] | For available image tags, refer [here][armv7-apalis-imx6-node-dockerhub-tag-link] |
+| resin/apalis-imx6-python | The Python buildpack image for Python apps for Apalis iMX6q. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-apalis-imx6-python-dockerhub-link], [github][armv7-apalis-imx6-python-github-link] | latest, jessie, wheezy |
+| resin/apalis-imx6-golang | The Go buildpack image for Go apps for Apalis iMX6q. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-apalis-imx6-golang-dockerhub-link], [github][armv7-apalis-imx6-golang-github-link] | For available image tags, refer [here][armv7-apalis-imx6-golang-dockerhub-tag-link] |
+| resin/colibri-imx6-debian | The bare bones OS image for Colibri iMX6dl. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-colibri-imx6-dockerhub-link], [github][armv7-colibri-imx6-github-link] | latest, jessie, wheezy |
+| resin/colibri-imx6-buildpack-deps | The buildpack-deps image for Colibri iMX6dl. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-colibri-imx6-buildpack-deps-dockerhub-link], [github][armv7-colibri-imx6-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/colibri-imx6-node | The Node.js buildpack image for Node.js apps for Colibri iMX6dl. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-colibri-imx6-node-dockerhub-link], [github][armv7-colibri-imx6-node-github-link] | For available image tags, refer [here][armv7-colibri-imx6-node-dockerhub-tag-link] |
+| resin/colibri-imx6-python | The Python buildpack image for Python apps for Colibri iMX6dl. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-colibri-imx6-python-dockerhub-link], [github][armv7-colibri-imx6-python-github-link] | latest, jessie, wheezy |
+| resin/colibri-imx6-golang | The Go buildpack image for Go apps for Colibri iMX6dl. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-colibri-imx6-golang-dockerhub-link], [github][armv7-colibri-imx6-golang-github-link] | For available image tags, refer [here][armv7-colibri-imx6-golang-dockerhub-tag-link] |
 
 ### i386: Intel Edison
 
@@ -189,6 +199,7 @@ This image does not contain the common packages contained in the default tag and
 
 
 [base-repository]:https://github.com/resin-io-library/base-images
+[base-images-changelog]:https://github.com/resin-io-library/base-images/blob/master/CHANGELOG.md
 [rpi-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-raspbian/
 [armv7hf-dockerhub-link]:https://registry.hub.docker.com/u/resin/armv7hf-debian/
 [i386-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-debian/
@@ -349,6 +360,30 @@ This image does not contain the common packages contained in the default tag and
 [armv7-ts4900-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-golang/
 [armv7-ts4900-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts4900-golang/tags/manage/
 [armv7-ts4900-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/ts4900
+[armv7-colibri-imx6-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-debian/
+[armv7-colibri-imx6-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-buildpack-deps/
+[armv7-colibri-imx6-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-node/
+[armv7-colibri-imx6-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-node/tags/manage/
+[armv7-colibri-imx6-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-python/
+[armv7-colibri-imx6-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/colibri-imx6
+[armv7-colibri-imx6-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/colibri-imx6
+[armv7-colibri-imx6-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/colibri-imx6
+[armv7-colibri-imx6-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/colibri-imx6
+[armv7-colibri-imx6-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-golang/
+[armv7-colibri-imx6-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-golang/tags/manage/
+[armv7-colibri-imx6-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/colibri-imx6
+[armv7-apalis-imx6-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-debian/
+[armv7-apalis-imx6-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-buildpack-deps/
+[armv7-apalis-imx6-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-node/
+[armv7-apalis-imx6-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-node/tags/manage/
+[armv7-apalis-imx6-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-python/
+[armv7-apalis-imx6-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/apalis-imx6
+[armv7-apalis-imx6-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/apalis-imx6
+[armv7-apalis-imx6-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/apalis-imx6
+[armv7-apalis-imx6-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/apalis-imx6
+[armv7-apalis-imx6-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-golang/
+[armv7-apalis-imx6-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-golang/tags/manage/
+[armv7-apalis-imx6-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/apalis-imx6
 
 [i386-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-systemd/
 [i386-systemd-github-link]:https://github.com/resin-io-library/base-images/tree/master/systemd/i386
