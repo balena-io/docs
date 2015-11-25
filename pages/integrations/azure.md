@@ -97,4 +97,4 @@ If you have any further questions drop us a mail at **azure@resin.io**.
 [azure]:http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx
 [screencast]:https://vimeo.com/136840643
 [integration]:https://github.com/emirotin/resin-azure-iot-remote-monitoring/tree/resin-integration
-[sampleApp]:https://github.com/emirotin/resin-azure-iot-suite-c/tree/resin-sample-app
+[sampleApp]:https://github.com/emirotin/resin-azure-iot-sample/tree/resin-node
