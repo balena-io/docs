@@ -23,7 +23,9 @@ __NOTE:__ The key will be returned in quotation marks, but these should be strip
 
 ## Add resin.io API key to IoT Hub Admin portal
 
-Signup and following the [Azure IoT Suite getting started guide](http://www.microsoft.com/en-us/server-cloud/internet-of-things/getting-started.aspx). _Note_ you'll have to use the [special version][integration] with resin.io integration additions as our integration is not currently a part of the code Microsoft releases.
+Signup and following the [Azure IoT Suite getting started guide](http://www.microsoft.com/en-us/server-cloud/internet-of-things/getting-started.aspx).
+
+__NOTE:__ you'll have to use the [special version][integration] with resin.io integration additions as our integration is not currently a part of the code Microsoft releases.
 
 Go to the IoT Hub Admin portal, select 'Resin.io Config' and set the `App ID` and the newly generated `API Key`.
 
