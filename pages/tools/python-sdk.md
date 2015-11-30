@@ -17,9 +17,11 @@ hesitate to open an issue in GitHub, we'll be happy to help.
             - [DeviceEnvVariable](#deviceenvvariable)
             - [ApplicationEnvVariable](#applicationenvvariable)
         - [Key](#key)
+        - [Supervisor](#supervisor)
     - [Auth](#auth)
     - [Logs](#logs)
     - [Settings](#settings)
+    - [TwoFactorAuth](#twofactorauth)
 
 ## Models
 
@@ -528,6 +530,120 @@ Remove a ssh key. This function only works if you log in using credentials or Au
 
 #### Args:
     id (str): key id.
+## Supervisor
+
+This class implements supervisor model for Resin Python SDK.
+
+#### Attributes:
+    SUPERVISOR_API_VERSION (str): supervisor API version.
+    RESIN_SUPERVISOR_ADDRESS (str): supervisor endpoint address on device.
+    RESIN_SUPERVISOR_API_KEY (str): supervisor API key on device.
+    _on_device (bool): API endpoint flag.
+        If True then all commands will be sent to the API on device.
+        If False then all command will be sent to the Resin API proxy endpoint (api.resin.io/supervisor/<url>).
+        If RESIN_SUPERVISOR_ADDRESS and RESIN_SUPERVISOR_API_KEY are available, _on_device will be set to True by default. Otherwise, it's False.
+### Function: blink(device_id, app_id)
+
+Start a blink pattern on a LED for 15 seconds. This is the same with `resin.models.device.identify()`.
+No need to set device_id and app_id if command is sent to the API on device.
+
+#### Args:
+    device_id (Optional[str]): device id.
+    app_id (Optional[str]): application id.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+### Function: force_api_endpoint(endpoint)
+
+Force all API commands to a specific endpoint.
+
+#### Args:
+    endpoint (bool): True if selecting the API on device. False if selecting the Resin API proxy endpoint.
+
+#### Raises:
+    InvalidOption: if endpoint value is not bool.
+### Function: ping(device_id, app_id)
+
+Check that the supervisor is alive and well.
+No need to set device_id and app_id if command is sent to the API on device.
+
+#### Args:
+    device_id (Optional[str]): device id.
+    app_id (Optional[str]): application id.
+
+#### Returns:
+    str: `OK` signals that the supervisor is alive and well.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not set.
+### Function: purge(app_id, device_id)
+
+Clears the user application's /data folder.
+No need to set device_id and app_id if command is sent to the API on device.
+
+#### Args:
+    app_id (str): application id.
+    device_id (Optional[str]): device id.
+
+#### Returns:
+    dict: when successful, this dictionary is returned `{ 'Data': 'OK', 'Error': '' }`.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+### Function: reboot(device_id, app_id)
+
+Reboot the device.
+No need to set device_id and app_id if command is sent to the API on device.
+
+#### Args:
+    device_id (Optional[str]): device id.
+    app_id (Optional[str]): application id.
+
+#### Returns:
+    dict: when successful, this dictionary is returned `{ 'Data': 'OK', 'Error': '' }`.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+### Function: restart(app_id, device_id)
+
+Restart user application container.
+No need to set device_id and app_id if command is sent to the API on device.
+
+#### Args:
+    app_id (str): application id.
+    device_id (Optional[str]): device id.
+
+#### Returns:
+    str: `OK` signals that the supervisor is alive and well.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+### Function: shutdown(device_id, app_id)
+
+Shut down the device.
+No need to set device_id and app_id if command is sent to the API on device.
+
+#### Args:
+    device_id (Optional[str]): device id.
+    app_id (Optional[str]): application id.
+
+#### Returns:
+    dict: when successful, this dictionary is returned `{ 'Data': 'OK', 'Error': '' }`.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+### Function: update(device_id, app_id, force)
+
+Triggers an update check on the supervisor. Optionally, forces an update when updates are locked.
+No need to set device_id and app_id if command is sent to the API on device.
+
+#### Args:
+    device_id (Optional[str]): device id.
+    app_id (Optional[str]): application id.
+    force (Optional[bool]): If force is True, the update lock will be overridden.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
 ## Auth
 
 This class implements all authentication functions for Resin Python SDK.
@@ -747,3 +863,41 @@ Set value for a setting.
 #### Args:
     key (str): setting.
     value (str): setting value.
+## TwoFactorAuth
+
+This class implements basic 2FA functionalities for Resin Python SDK.
+### Function: challenge(code)
+
+Challenge two-factor authentication.
+If your account has two-factor authentication enabled and logging in using credentials, you need to pass two-factor authentication before being allowed to use other functions.
+
+#### Args:
+    code (str): two-factor authentication code.
+### Function: generate_code(secret)
+
+Generate two-factor authentication code.
+
+#### Args:
+    secret (str): one time password authentication secret string.
+
+#### Returns:
+    str: 6 digit two-factor authentication code.
+### Function: get_otpauth_secret()
+
+Retrieve one time password authentication secret string.
+This function only works if you disable two-factor authentication or log in using Auth Token from dashboard.
+
+#### Returns:
+    str: one time password authentication secret string.
+### Function: is_enabled()
+
+Check if two-factor authentication is enabled.
+
+#### Returns:
+    bool: True if enabled. Otherwise False.
+### Function: is_passed()
+
+Check if two-factor authentication challenge was passed.
+
+#### Returns:
+    bool: True if enabled. Otherwise False.
