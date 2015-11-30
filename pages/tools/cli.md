@@ -21,11 +21,10 @@ Now you have access to all the commands referenced below.
 	- [app &#60;name&#62;](#app-60-name-62-)
 	- [app restart &#60;name&#62;](#app-restart-60-name-62-)
 	- [app rm &#60;name&#62;](#app-rm-60-name-62-)
-	- [app associate &#60;name&#62;](#app-associate-60-name-62-)
 
 - Authentication
 
-	- [login [token]](#login-token-)
+	- [login](#login)
 	- [logout](#logout)
 	- [signup](#signup)
 	- [whoami](#whoami)
@@ -38,6 +37,7 @@ Now you have access to all the commands referenced below.
 	- [device rm &#60;uuid&#62;](#device-rm-60-uuid-62-)
 	- [device identify &#60;uuid&#62;](#device-identify-60-uuid-62-)
 	- [device rename &#60;uuid&#62; [newName]](#device-rename-60-uuid-62-newname-)
+	- [device move &#60;uuid&#62;](#device-move-60-uuid-62-)
 	- [device init](#device-init)
 
 - Environment Variables
@@ -74,7 +74,17 @@ Now you have access to all the commands referenced below.
 
 	- [os download &#60;type&#62;](#os-download-60-type-62-)
 	- [os configure &#60;image&#62; &#60;uuid&#62;](#os-configure-60-image-62-60-uuid-62-)
-	- [os initialize &#60;image&#62; &#60;type&#62;](#os-initialize-60-image-62-60-type-62-)
+	- [os initialize &#60;image&#62;](#os-initialize-60-image-62-)
+
+- Config
+
+	- [config read](#config-read)
+	- [config write &#60;key&#62; &#60;value&#62;](#config-write-60-key-62-60-value-62-)
+	- [config reconfigure](#config-reconfigure)
+
+- Settings
+
+	- [settings](#settings)
 
 - Wizard
 
@@ -149,37 +159,25 @@ Examples:
 
 confirm non interactively
 
-## app associate &#60;name&#62;
-
-Use this command to associate a project directory with a resin application.
-
-This command adds a 'resin' git remote to the directory and runs git init if necessary.
-
-Notice this command asks for confirmation interactively.
-You can avoid this by passing the `--yes` boolean option.
-
-Examples:
-
-	$ resin app associate MyApp
-
-### Options
-
-#### --yes, -y
-
-confirm non interactively
-
 # Authentication
 
-## login [token]
+## login
 
 Use this command to login to your resin.io account.
-
-To login, you need your token, which is accesible from the preferences page.
 
 Examples:
 
 	$ resin login
-	$ resin login "eyJ0eXAiOiJKV1Qi..."
+
+### Options
+
+#### --email, --e,u, --e,u &#60;email&#62;
+
+email
+
+#### --password, -p &#60;password&#62;
+
+password
 
 ## logout
 
@@ -250,6 +248,12 @@ Examples:
 
 	$ resin device register MyApp
 
+### Options
+
+#### --uuid, -u &#60;uuid&#62;
+
+custom uuid
+
 ## device rm &#60;uuid&#62;
 
 Use this command to remove a device from resin.io.
@@ -289,6 +293,23 @@ Examples:
 	$ resin device rename 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9 MyPi
 	$ resin device rename 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9
 
+## device move &#60;uuid&#62;
+
+Use this command to move a device to another application you own.
+
+If you omit the application, you'll get asked for it interactively.
+
+Examples:
+
+	$ resin device move 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9
+	$ resin device move 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9 --application MyNewApp
+
+### Options
+
+#### --application, --a,app, --a,app &#60;application&#62;
+
+application name
+
 ## device init
 
 Use this command to download the OS image of a certain application and write it to an SD Card.
@@ -310,6 +331,10 @@ application name
 #### --yes, -y
 
 confirm non interactively
+
+#### --advanced, -v
+
+enable advanced configuration
 
 # Environment Variables
 
@@ -425,6 +450,12 @@ Examples:
 
 	$ resin help apps
 	$ resin help os download
+
+### Options
+
+#### --verbose, -v
+
+show additional commands
 
 # Information
 
@@ -550,13 +581,108 @@ Examples:
 
 	$ resin os configure ../path/rpi.img 7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9
 
-## os initialize &#60;image&#62; &#60;type&#62;
+### Options
+
+#### --advanced, -v
+
+show advanced commands
+
+## os initialize &#60;image&#62;
 
 Use this command to initialize a previously configured operating system image.
 
 Examples:
 
-	$ resin os initialize ../path/rpi.img 'raspberry-pi'
+	$ resin os initialize ../path/rpi.img --type 'raspberry-pi'
+
+### Options
+
+#### --yes, -y
+
+confirm non interactively
+
+#### --type, -t &#60;type&#62;
+
+device type
+
+#### --drive, -d &#60;drive&#62;
+
+drive
+
+# Config
+
+## config read
+
+Use this command to read the config.json file from a provisioned device
+
+Examples:
+
+	$ resin config read --type raspberry-pi
+	$ resin config read --type raspberry-pi --drive /dev/disk2
+
+### Options
+
+#### --type, -t &#60;type&#62;
+
+device type
+
+#### --drive, -d &#60;drive&#62;
+
+drive
+
+## config write &#60;key&#62; &#60;value&#62;
+
+Use this command to write the config.json file of a provisioned device
+
+Examples:
+
+	$ resin config write --type raspberry-pi username johndoe
+	$ resin config write --type raspberry-pi --drive /dev/disk2 username johndoe
+	$ resin config write --type raspberry-pi files.network/settings "..."
+
+### Options
+
+#### --type, -t &#60;type&#62;
+
+device type
+
+#### --drive, -d &#60;drive&#62;
+
+drive
+
+## config reconfigure
+
+Use this command to reconfigure a provisioned device
+
+Examples:
+
+	$ resin config reconfigure --type raspberry-pi
+	$ resin config reconfigure --type raspberry-pi --advanced
+	$ resin config reconfigure --type raspberry-pi --drive /dev/disk2
+
+### Options
+
+#### --type, -t &#60;type&#62;
+
+device type
+
+#### --drive, -d &#60;drive&#62;
+
+drive
+
+#### --advanced, -v
+
+show advanced commands
+
+# Settings
+
+## settings
+
+Use this command to display detected settings
+
+Examples:
+
+	$ resin settings
 
 # Wizard
 

@@ -56,6 +56,16 @@ fixup_file=fixup_x.dat
 
 An example of this is shown in our [Raspberry Pi python picamera][picamera-link] project.
 
+## Raspberry Pi 7” Touchscreen Display
+
+In order to work with the Raspberry Pi display you will need to do the following:
+
+* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following line.
+
+```
+device_tree_overlay=rpi-ft5406-overlay.dtb
+```
+
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
 [i2c-example]:https://github.com/shaunmulligan/resin-rpi-py-ADC
