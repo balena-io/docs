@@ -173,7 +173,7 @@ Put the SD card into your device and connect either the ethernet cable or WiFi a
 
 It will take a few minutes for the Raspberry Pi to appear on your resin.io dashboard, so take this time to grab some tea while you wait.
 
-While you wait resin.io is expanding the partitioning on your SD card, installing a custom linux environment and establishing a secure connection with our servers.
+While you wait resin.io is expanding the partitions on your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
 If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
 
