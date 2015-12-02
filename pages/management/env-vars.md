@@ -12,7 +12,7 @@ Environment variables defined on the application level are available to the code
 
 ## Per-device Environment Variables
 
-Per-device environment variables are availabe to the code running on the particular device. If both the application and the device have environment variable _of the same name_, the code on this device will see the value of the _per-device environment variables._ In other words, per-device environment variable redefines (or overrdides) application-wide environment variable of the same name.
+Per-device environment variables are availabe to the code running on the particular device. If both the application and the device have environment variable _of the same name_, the code on this device will see the value of the _per-device environment variables._ In other words, per-device environment variable redefines (or overrides) application-wide environment variable of the same name.
 
 It's important to understand that the device environment variable _doesn't have to_ correspond to some application-wide environment variable.
 
