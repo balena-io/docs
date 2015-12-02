@@ -10,7 +10,7 @@ cd pages/troubleshooting/ && { curl -L -o cli-troubleshooting.md https://github.
 cd pages/tools/ && { curl -O -L https://github.com/resin-io/resin-sdk/raw/master/DOCUMENTATION.md; tail -n +2 DOCUMENTATION.md > sdk.md ; cd -; }
 
 # get lastest SDK docs
-cd pages/tools/ && { curl -O -L https://github.com/resin-io/resin-sdk-python/raw/master/DOCUMENTATION.md; mv DOCUMENTATION.md python-sdk.md ; rm DOCUMENTATION.md ; cd -; }
+cd pages/tools/ && { curl -O -L https://github.com/resin-io/resin-sdk-python/raw/master/DOCUMENTATION.md; mv DOCUMENTATION.md python-sdk.md ; cd -; }
 
 # build search index
 node index-builder.js
