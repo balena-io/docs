@@ -56,6 +56,6 @@ The _second form_ (new variable) is straightforward as well, you type the name a
 
 The _third list_ (application variables) is pretty usable because it gives you comprehensive understanding of which variables are actually visible to the code on this device. It shows all the _remaining_ application-wide variables — those that are not redefined for this device. There's also a convenience Redefine button should you want to redefine some of them.
 
-The fourth list gives you an idea of specific variables defined for other application's devices. It's the same as the on on the application page.
+The fourth list gives you an idea of specific variables defined for other application's devices. It's the same as the one on the application page.
 
 > _Note_ that these variables **are not** visible to this device. We show them in case you want to define the same variable for the device.
