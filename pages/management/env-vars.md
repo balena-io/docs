@@ -50,7 +50,7 @@ The device page also has the "Environment variables" tab. It's slightly more com
 
 The _first list_ (device environment variables) is pretty straightforward. You can edit variables' values, or delete them.
 
-> _Note_ that redefines (the variables that match the application-wide variable by name) are identified and their deleton button reads "Reset". That's because when you delete the redefine the variable is still defined on the application level, and that value becomes unmasked and visible to the code running on your device.
+> _Note_ that redefines (the variables that match the application-wide variable by name) are identified and their deletion button reads "Reset". That's because when you delete the redefine the variable is still defined on the application level, and that value becomes unmasked and visible to the code running on your device.
 
 The _second form_ (new variable) is straightforward as well, you type the name and value and save it. The name field has autosuggest feature based on the variables from the third list.
 
