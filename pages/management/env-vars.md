@@ -30,7 +30,7 @@ Each variable row in the list has an expandable region where you see per-device 
 
 Below the list there's a form for creating a new environment variable.
 
-Finally, if there are ny device-specific variables that **are not** application-wide variables' redefines (i.e. don't have an application-wide variable of the same name) they will be shown at the bottom of the page.
+Finally, if there are any device-specific variables that **are not** application-wide variables' redefines (i.e. don't have an application-wide variable of the same name) they will be shown at the bottom of the page.
 
 > _Note_. These variables are _only_ visible to the devices where they are defined.
 
