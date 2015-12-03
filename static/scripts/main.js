@@ -6,23 +6,39 @@ window.onload = function () {
     if(hash) {
       hash.scrollIntoView()
     }
+    $('[data-md-sticky-header]').headroom({
+      offset: UnpinOffset,
+      tolerance: 0
+    });
 }
 
-var CurrentScroll = 0;
+var SearchbarTop = 61;
+var UnpinOffset = 400;
+var PrevScrollTop = 0;
 
 $(window).scroll(function() {
-  var NextScroll = $(this).scrollTop();
-  if (NextScroll < CurrentScroll && NextScroll > 67){
-     //upscroll
-     $('[data-md-sticky-header]').addClass('sticky');
+  function handleScrollUp() {
+    if (ScrollTop > SearchbarTop && ScrollTop <= UnpinOffset)
+      $('[data-md-sticky-header]').addClass('sticky');
+    else
+      $('[data-md-sticky-header]').removeClass('sticky');
   }
-  else {
-   // downscroll
-   $('[data-md-sticky-header]').removeClass('sticky');
+  function handleScrollDown() {
+    if (ScrollTop >= UnpinOffset)
+      $('[data-md-sticky-header]').removeClass('sticky');
+    else if (ScrollTop > SearchbarTop)
+      $('[data-md-sticky-header]').addClass('sticky');
   }
-  CurrentScroll = NextScroll;
-});
 
+  var ScrollTop = $(this).scrollTop();
+  var ScrollUpEvt = ScrollTop < PrevScrollTop;
+  if (ScrollUpEvt)
+    handleScrollUp();
+  else
+    handleScrollDown();
+
+  PrevScrollTop = ScrollTop;
+});
 
 function updateLinksHref(links) {
   links.each(function() {

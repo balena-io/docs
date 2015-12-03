@@ -11,6 +11,12 @@ body {
   background-color: white;
   border-right: 1px solid #E7E9EC;
 }
+.search-wrapper {
+  min-height: 67px;
+}
+.header-wrapper {
+  min-height: 57px;
+}
 
 #improve-docs {
   float: right;
@@ -29,6 +35,9 @@ article {
 }
 
 article .sticky {
+  width: 100%;
+}
+article .headroom {
   width: 100%;
 }
 
@@ -101,6 +110,9 @@ article .sticky {
 }
 
 .sidebar form.sticky {
+  width: 231px;
+}
+.sidebar form.headroom {
   width: 231px;
 }
 
@@ -247,6 +259,24 @@ h2:hover .hash, h3:hover .hash, h4:hover .hash, h5:hover .hash, h6:hover .hash {
 /* hidding google search ugly input */
 #___gcse_0 {
   visibility: hidden;
+}
+
+.headroom {
+  top: 0;
+  transition: all .3s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+.headroom--pinned {
+  top: 0;
+}
+.headroom--top {
+  position: relative;
+}
+.headroom--not-top {
+  position: fixed;
 }
 
 .sticky {
