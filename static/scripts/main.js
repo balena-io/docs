@@ -1,3 +1,5 @@
+var UnpinOffset = 400;
+
 window.onload = function () {
     // fix first page load anchor issue
     var url = window.location.hash;
@@ -12,30 +14,35 @@ window.onload = function () {
     });
 }
 
-var SearchbarTop = 61;
-var UnpinOffset = 400;
+var SearchbarTop;
+var StickyHeaderElements;
 var PrevScrollTop = 0;
 
 $(window).scroll(function() {
   function handleScrollUp() {
-    if (ScrollTop > SearchbarTop && ScrollTop <= UnpinOffset)
-      $('[data-md-sticky-header]').addClass('sticky');
-    else
-      $('[data-md-sticky-header]').removeClass('sticky');
+    if (ScrollTop > SearchbarTop && ScrollTop <= UnpinOffset) {
+      StickyHeaderElements.addClass('sticky');
+    } else {
+      StickyHeaderElements.removeClass('sticky');
+    }
   }
   function handleScrollDown() {
-    if (ScrollTop >= UnpinOffset)
-      $('[data-md-sticky-header]').removeClass('sticky');
-    else if (ScrollTop > SearchbarTop)
-      $('[data-md-sticky-header]').addClass('sticky');
+    if (ScrollTop >= UnpinOffset) {
+      StickyHeaderElements.removeClass('sticky');
+    } else if (ScrollTop > SearchbarTop) {
+      StickyHeaderElements.addClass('sticky');
+    }
   }
 
+  StickyHeaderElements = StickyHeaderElements || $('[data-md-sticky-header]');
+  SearchbarTop = SearchbarTop || $('.search-wrapper').offset().top;
   var ScrollTop = $(this).scrollTop();
   var ScrollUpEvt = ScrollTop < PrevScrollTop;
-  if (ScrollUpEvt)
+  if (ScrollUpEvt) {
     handleScrollUp();
-  else
+  } else {
     handleScrollDown();
+  }
 
   PrevScrollTop = ScrollTop;
 });
