@@ -1,3 +1,5 @@
+var UnpinOffset = 400;
+
 window.onload = function () {
     // fix first page load anchor issue
     var url = window.location.hash;
@@ -6,23 +8,44 @@ window.onload = function () {
     if(hash) {
       hash.scrollIntoView()
     }
+    $('[data-md-sticky-header]').headroom({
+      offset: UnpinOffset,
+      tolerance: 0
+    });
 }
 
-var CurrentScroll = 0;
+var SearchbarTop;
+var StickyHeaderElements;
+var PrevScrollTop = 0;
 
 $(window).scroll(function() {
-  var NextScroll = $(this).scrollTop();
-  if (NextScroll < CurrentScroll && NextScroll > 67){
-     //upscroll
-     $('[data-md-sticky-header]').addClass('sticky');
+  function handleScrollUp() {
+    if (ScrollTop > SearchbarTop && ScrollTop <= UnpinOffset) {
+      StickyHeaderElements.addClass('sticky');
+    } else {
+      StickyHeaderElements.removeClass('sticky');
+    }
   }
-  else {
-   // downscroll
-   $('[data-md-sticky-header]').removeClass('sticky');
+  function handleScrollDown() {
+    if (ScrollTop >= UnpinOffset) {
+      StickyHeaderElements.removeClass('sticky');
+    } else if (ScrollTop > SearchbarTop) {
+      StickyHeaderElements.addClass('sticky');
+    }
   }
-  CurrentScroll = NextScroll;
-});
 
+  StickyHeaderElements = StickyHeaderElements || $('[data-md-sticky-header]');
+  SearchbarTop = SearchbarTop || $('.search-wrapper').offset().top;
+  var ScrollTop = $(this).scrollTop();
+  var ScrollUpEvt = ScrollTop < PrevScrollTop;
+  if (ScrollUpEvt) {
+    handleScrollUp();
+  } else {
+    handleScrollDown();
+  }
+
+  PrevScrollTop = ScrollTop;
+});
 
 function updateLinksHref(links) {
   links.each(function() {

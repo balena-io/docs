@@ -51,16 +51,20 @@
     <div class="container-fluid">
         <div class="row">
             <div class="sidebar">
-                <form data-md-sticky-header ng-controller="SearchCtrl" ng-submit="search()">
-                    <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Docs...">
-                </form>
+                <div class="search-wrapper">
+                    <form data-md-sticky-header ng-controller="SearchCtrl" ng-submit="search()">
+                        <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Docs...">
+                    </form>
+                </div>
                 <navigation></navigation>
                 <gcse:search></gcse:search>
             </div>
             <article>
-                <header data-md-sticky-header>
-                    <breadcrumb></breadcrumb>
-                </header>
+                <div class="header-wrapper">
+                    <header data-md-sticky-header>
+                        <breadcrumb></breadcrumb>
+                    </header>
+                </div>
                 <div class="content-wrapper">
                     <a ng-show="improveDocsLink" target="_blank" id="improve-docs" ng-href="{{ improveDocsLink }}" class="btn btn-info">
                       <span class="glyphicon glyphicon-edit"></span>
@@ -80,6 +84,8 @@
     <script type="text/javascript" src="/static/lib/marked/lib/marked.js"></script>
     <script type="text/javascript" src="/static/lib/colorbox/jquery.colorbox-min.js"></script>
     <script type="text/javascript" src="/static/lib/lunr.js/lunr.min.js"></script>
+    <script type="text/javascript" src="/static/lib/headroom.js/dist/headroom.min.js"></script>
+    <script type="text/javascript" src="/static/lib/headroom.js/dist/jQuery.headroom.min.js"></script>
 
     <script type="text/javascript" src="/static/scripts/main.js"></script>
 
