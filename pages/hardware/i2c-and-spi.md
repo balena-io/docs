@@ -74,6 +74,23 @@ device_tree_overlay=rpi-ft5406-overlay.dtb
 
 If you want a quick example project to get you started with you new screen, you might want to checkout our [Raspberry Pi Electron starter App](https://github.com/resin-io-projects/electron-rpi-quick-start).
 
+If you find that you need to change the orientation of you LCD screen, you can easily achieve this by adding the following key/value to your `/boot/config.txt` on your SD card:
+```
+lcd_rotate = 0
+```
+And set the value to either 0, 90, 180 or 270, depending on your desired orientation.
+
+__Note:__ The 90 and 270 degrees rotation options require additional memory on GPU,
+so won't work with the 16M GPU split.
+
+## Beaglebone
+
+Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the Octalbonscript JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
+
+With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module [here](https://github.com/resin-io-projects/beaglebone-adc-node).
+
+__Note:__ The ADC voltage is only rated to 1.8V, if you apply more you risk frying the pin.
+
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
 [i2c-example]:https://github.com/shaunmulligan/resin-rpi-py-ADC

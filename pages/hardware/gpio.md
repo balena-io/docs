@@ -1,5 +1,11 @@
 # GPIO
 
+Recommended ways of interacting with GPIO on resin.io devices.
+
+* [Raspberry Pi](/pages/hardware/gpio.md#raspberry-pi)
+* [Beaglebone](/pages/hardware/gpio.md#beaglebone)
+* [Intel Edison](/pages/hardware/gpio.md#intel-edison)
+
 ## Raspberry Pi
 
 __NOTE:__ The `GPIO4` and `GPIO5` ports (`GPIO5` is only available on the B+ and Raspberry Pi 2 devices) are currently reserved by us and therefore unavailable for use, attempts to use these pins will result in `EBUSY` error codes. We will soon remove this restriction, but for the time being avoid using these.
@@ -8,7 +14,7 @@ The [Raspberry Pi][rpi]'s [General Purpose I/O][gpio] (GPIO) pins can be used to
 
 ![Raspberry Pi](/img/rpi.svg)
 
-### Library Access
+#### Library Access
 
 There are many libraries available for GPIO access, e.g. [Wiring Pi][wiring-pi]. For [node.js][node] users [npm][npm] has a number of [GPIO libraries][npm-gpio] available.
 
@@ -16,7 +22,7 @@ We recommend [Pi Pins][pi-pins] for node.js projects - we've found it works reli
 
 There are also specialist libraries available for powering particular classes of devices via GPIO, e.g. the [MAX7219 node library][max7219] for [MAX7219][max7219] LED displays.
 
-### File System Access
+#### File System Access
 
 You can use the file system directly to access GPIO pins using a [terminal][terminal] connection, scripts deployed to your Pi, or the file system interface of your programming environment.
 
@@ -48,7 +54,7 @@ ls: cannot access /sys/class/gpio/gpio17: No such file or directory
 
 For more details on sysfs GPIO access see the [official kernel documentation][kernel-gpio].
 
-### Pin Layout
+<!-- ### Pin Layout
 
 GPIO pin numberings are listed below for all released models of the Raspberry Pi:-
 
@@ -117,14 +123,29 @@ __NOTE:__ If you have a 26-pin device, it's almost certainly a Raspberry Pi B re
 | 26   | 20  |
 | GND  | 21  |
 
-__NOTE:__ The '---' pins between GND/7 and 5/GND are reserved for ID EEPROM and should not be used for GPIO ([reference][eeprom-diag])
+__NOTE:__ The '---' pins between GND/7 and 5/GND are reserved for ID EEPROM and should not be used for GPIO ([reference][eeprom-diag]) -->
 
-### Voltage
+#### Voltage
 
 All numbered data pins operate at 3.3v, however there are two 5v ports which output 5v DC output.
 
 Please note that these are operating at a different voltage from the data pins - if you need to drive a 5v (or higher) device, you will need to use a [level converter][level-converter] to step up the data pin's voltage or your device will not be able to correctly interpret high signals from the Pi.
 
+## Beaglebone
+
+Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the [Octalbonescript](https://github.com/theoctal/octalbonescript) JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
+
+With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module [here](https://github.com/resin-io-projects/beaglebone-adc-node).
+
+If you would prefer a python implementation, then look at this [github issue](https://github.com/adafruit/adafruit-beaglebone-io-python/issues/80#issuecomment-163073883) and get involved in making it happen.
+
+## Intel Edison
+
+All the Intel Edison base images on our [docker hub][edison-base-image-link] come pre-installed with [libmraa](https://github.com/intel-iot-devkit/mraa), which allows you to easily interact with the GPIO.
+
+To get started with GPIO on edison have a look at our ["Edison GPIO in node.js"](https://github.com/shaunmulligan/edison-blink-node.git) example, or if you prefer python check out our ["Simple Edison GPIO with python"](https://github.com/shaunmulligan/hello-python-edison).
+
+[edison-base-image-link]:https://hub.docker.com/search/?q=resin%2Fedison&page=1&isAutomated=0&isOfficial=0&starCount=0&pullCount=0
 [terminal]:/pages/runtime/terminal.md
 
 [resin]:https://resin.io
