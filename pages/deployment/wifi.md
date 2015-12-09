@@ -1,6 +1,60 @@
-# Wifi Guide
+# Network Setup
 
-## Connecting a Device to WiFi
+* [Introduction](/pages/deployment/wifi.md#introduction)
+* [Network Requirements](/pages/deployment/wifi.md#network-requirements)
+* [Ethernet Connections](/pages/deployment/wifi.md#ethernet-connections)
+* [Wifi Connections](/pages/deployment/wifi.md#wifi-connections)
+* [3G or Cellular Connections](/pages/deployment/wifi.md#3g-or-cellular-connections)
+* [Captive Portal Network Setup](/pages/deployment/wifi.md#captive-portal-network-setup)
+
+## Introduction
+
+In order to deploy code to your device(s), they will need to be connected to the internet in some shape or form. The resin.io HostOS manages your devices' network connection with [ConnMan][connman], an open source connection manager.
+
+Currently all resin.io devices are configured to favour [ethernet](/pages/deployment/wifi.md#ethernet-connections) and will automatically use this connection type if it is available. You can define all manner of network configurations using [Connman][connman], for example [setting a static IP](/pages/deployment/wifi.md#set-static-ip).
+
+## Network Requirements
+
+In order for a resin.io device to get outside of the local network and connect to the resin.io API, there are a few core network requirements.
+
+Resin.io makes use of the following ports:
+
+* `443` TCP - This is the most fundamental requirement - it is used to connect to the VPN and the web terminal, and many web endpoints using TLS (https://.)
+* `123` UDP - For NTP time synchronisation.
+* `53` UDP - For DNS name resolution.
+
+Each of these should work with outward only (and inward once outward connection established) firewall settings.
+
+Additionally, if the network your device is connecting to works with whitelisting, you should whitelist the following domains on Port `80` and `443`:
+* `*.resin.io`
+* `*.pubnub.com`
+* `*.ngrok.com`
+* `*.ngrok.io`
+
+## Ethernet Connections
+
+As mentioned earlier, resin.io HostOS defaults to using ethernet for internet connectivity, so if you connect an active ethernet cable to your device and all the [network requirements](/pages/deployment/wifi.md#network-requirements) are satisfied, your device should simply just connect to dashboard.resin.io and you should be able to push code to it.
+
+If this this is not the case, and your device is still not online 10 minutes after power up, then give us a shout at `support@resin.io` or click on the small **`?`** in the bottom right of your resin.io dashboard.
+
+### Set Static IP
+
+In order to configure static IP on a pre-provisioned SD card perform the following steps:-
+* Mount the FAT partitions of the OS image either directly from the `.img` file, or by burning the SD card and mounting it on your computer. The volume will be called `resin-conf`.
+* Inside `resin-conf` you will find a `config.json` file and in it you will see a network key/value pair which contains JSON string encoded [Connman][connman] settings. Now edit the value to include the following entry, replacing `<static IP>` with your desired static IP:-
+
+```
+[service_home_ethernet]
+Type = ethernet
+IPv4 = <static IP>/255.255.255.0/192.168.1.1
+Nameservers = 192.168.1.1,8.8.8.8
+```
+Note that this assumes your network gateway is 192.168.1.1, this can vary so adjust this according to your local network configuration.
+
+The image will now contain your static IP configuration, simply write it to your SD card as you usually would.
+If you're curious about further configurability, this `network.config` file is simply a Connman network configuration file (see [here](https://en.wikipedia.org/wiki/ConnMan) and [here](https://wiki.archlinux.org/index.php/Connman)). The [Connman Docs][connman-format] have more details on other configuration options.
+
+## WiFi Connections
 
 To connect your devices to a WiFi network select the `wifi` option, put in your
 network's SSID and, if the network is encrypted, enter a passphrase.
@@ -13,13 +67,13 @@ encryption type.
 
 ###Changing your SSID and/or Passphrase
 
-On the Raspberry Pi and Beaglebone, it is possible to change your wifi SSID or Passphrase after downloading the `.img`.
+On all devices excluding the [Intel Edison](/pages/installing/gettingStarted-Edison.md), it is possible to change your wifi SSID or Passphrase after downloading the `.img`.
 
-Currently this can be done by editing the `config.json`. This file can be found in the `resin-conf` partition on the SD card for most devices, except the Beaglebone Black and the Intel Edison. For the Beaglebone Black it can be found in the `flash-conf` partition. For the Intel Edison it can be found in in `resin-conf` once you have mounted the `config.img`.
+Currently this can be done by editing the `config.json`. This file can be found in a partition called `resin-conf` or `flash-conf` on the SD card for most devices, except the Intel Edison. For the Intel Edison it can be found in in `resin-conf` once you have mounted the `config.img`.
 
-__Note:__ For both the Beaglebone Black and the Intel Edison, you can only change the wifi configuration **before you provision** the device. Trying to change these settings after provisioning will have no effect.
+__Note:__ For the Beaglebone, VIA VAB-820, Intel NUC and the Intel Edison, you can only change the wifi configuration **before you provision** the device. Since these devices rely on burning the OS to internal media such as eMMC, trying to change these settings after provisioning will have no effect, you will need to reprovision the device.
 
-In the `config.json` file edit the section called `files` with whatever `SSID` and `passphrase` you need.
+In the `config.json` file you will need to edit the section called `files` with whatever `SSID` and `passphrase` you require.
 
 ```
 "files": {
@@ -27,7 +81,7 @@ In the `config.json` file edit the section called `files` with whatever `SSID` a
     "network/network.config": "[service_home_ethernet]\nType = ethernet\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_home_wifi]\nType = wifi\nName = My_Wifi_Ssid\nPassphrase = my super secret wifi passphrase\nNameservers = 8.8.8.8,8.8.4.4"
   }
 ```
-
+__Note:__ Unfortunately this file is not nicely formatted and it requires that you use the `\n` to signify a newline.
 
 ### Multiple WiFi Connections
 
@@ -43,35 +97,17 @@ interface, this can be achieved by manually editing the `config.json` file on yo
 
 In general the network config follows the [ConnMan][connman] configuration file format, so you can configure your network in anyway connMan allows. Follow the [official guide][connman-format] for details of how to configure your network if you have more complicated requirements than the our standard configuration.
 
-## Raspberry Pi
+## 3G or Cellular Connections
 
-The [Raspberry Pi][rpi] can be expanded to connect to a WiFi network by
-installing an adapter:-
+Currently 3G or Cellular modems are not supported out of the box, but they are easily setup on a resin.io device, but you will need an ethernet or wifi connection during the setup.
 
-### Known Working Devices
+To get started with a cellular connection have a look at our blog post ["A guide to cellular connectivity on resin.io devices"](https://resin.io/blog/cellular-connectivity/) and the corresponding [github repository](https://github.com/resin-io-projects/cellular-modem.git).
 
-* [Pi Hut USB WiFi Adapter][pi-hut-usb] - Small form-factor and works right out
-  of the box!
-* [TP-Link Nano Router][nano-router] - Though this isn't strictly a WiFi
-  adapter, it does enable you to connect to WiFi network using the ethernet port
-  of the Pi and is known to work correctly with Resin.io. As a result no further
-  configuration is required.
-* [Adafruit Miniature Wifi (802.11B/G/N) Module][adafruit]
-* [EP-N8531][epn8531]
-* Generally speaking, WiFi devices listed over at the [elinux rpi wifi page][elinux] or devices which use one of the `linux-firmware-ath9k`, `linux-firmware-ralink` and `linux-firmware-rtl8192cu` firmwares should work correctly.
+## Captive Portal Network Setup
 
-### Beaglebone Black
+In some cases devices will need to be provisioned and sent out to sites where the exact network or wifi configuration is unknown. In these circumstances its often nice for a device to serve up an [captive portal][captive-portal-link] which allows an onsite user to configure the wifi for a device.
 
-Always run the Beaglebone Black from a 5VDC 1A minimum supply when using a Wifi Dongle. You may need to use an extension cable to move the dongle away from the planes of the PCB, as often times there is too much interference for the wifi dongles to work correctly. Sometimes standoffs will work. We also have had instances where when placed in a metal case, there can be Wifi issues as well. It will also help to use a dongle with a real antenna on it.
-
-Have a look at this list of [wifi dongles][bbb-wifi-list] that are known to be compatible with the Beaglebone Black.
-
-### Configuration
-
-__Important Note:__ Wifi adapters drain a lot of power which unfortunately
-causes power issues with the Raspberry Pi if you try to *hotswap* them in
-(adding a WiFi adapter to your Pi *after* power-on), so __ensure__ you connect
-your WiFi device prior to switching on your Pi to avoid instability.
+If you require this functionality in your devices, you should have a look at our captive portal project called [Resin Wifi Connect][wifi-connect-link] and its associated [blog post][wifi-connect-blog]
 
 ### Troubleshooting
 
@@ -79,10 +115,9 @@ If you have issues connecting with the WiFi device, first check to ensure the
 SSID and passphrase are correct. If they are, try rebooting with an ethernet
 cable plugged in, then booting again with just WiFi.
 
-If neither of these approaches work, please let us know!
+If neither of these approaches work, drop us a line at support@resin.io !
 
 [custom-network]:/pages/configuration/custom-network.md
-
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
 [adafruit]:http://www.adafruit.com/products/814
@@ -92,3 +127,6 @@ If neither of these approaches work, please let us know!
 [bbb-wifi-list]:http://elinux.org/Beagleboard:BeagleBoneBlack#WIFI_Adapters
 [connman]:http://en.wikipedia.org/wiki/ConnMan
 [connman-format]:http://git.kernel.org/cgit/network/connman/connman.git/tree/doc/config-format.txt
+[wifi-connect-link]:https://github.com/resin-io/resin-wifi-connect
+[captive-portal-link]:https://en.wikipedia.org/wiki/Captive_portal
+[wifi-connect-blog]:https://resin.io/blog/resin-wifi-connect/
