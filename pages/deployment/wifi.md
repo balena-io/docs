@@ -31,6 +31,8 @@ Additionally, if the network your device is connecting to works with whitelistin
 * `*.ngrok.com`
 * `*.ngrok.io`
 
+Additionally make an outgoing connection to `mixpanel.com`, but this is not a functional requirement for resin.io, but rather allows us to track some useful metrics.
+
 ## Ethernet Connections
 
 As mentioned earlier, resin.io HostOS defaults to using ethernet for internet connectivity, so if you connect an active ethernet cable to your device and all the [network requirements](/pages/deployment/wifi.md#network-requirements) are satisfied, your device should simply just connect to dashboard.resin.io and you should be able to push code to it.
@@ -49,7 +51,7 @@ Type = ethernet
 IPv4 = <static IP>/255.255.255.0/192.168.1.1
 Nameservers = 192.168.1.1,8.8.8.8
 ```
-Note that this assumes your network gateway is 192.168.1.1, this can vary so adjust this according to your local network configuration.
+__Note:__ This assumes your network gateway/router is `192.168.1.1` and your DNS is `192.168.1.1,8.8.8.8`. Both of these can and will vary, so adjust this according to your local network configuration.
 
 The image will now contain your static IP configuration, simply write it to your SD card as you usually would.
 If you're curious about further configurability, this `network.config` file is simply a Connman network configuration file (see [here](https://en.wikipedia.org/wiki/ConnMan) and [here](https://wiki.archlinux.org/index.php/Connman)). The [Connman Docs][connman-format] have more details on other configuration options.
@@ -99,7 +101,7 @@ In general the network config follows the [ConnMan][connman] configuration file 
 
 ## 3G or Cellular Connections
 
-Currently 3G or Cellular modems are not supported out of the box, but they are easily setup on a resin.io device, but you will need an ethernet or wifi connection during the setup.
+Currently 3G or Cellular modems are not supported out of the box, but they are easily setup on a resin.io device. During the set up of you cellular connection, you will need an ethernet or wifi connection to the device so that it can correctly provision and download a container with the necessary configurations.
 
 To get started with a cellular connection have a look at our blog post ["A guide to cellular connectivity on resin.io devices"](https://resin.io/blog/cellular-connectivity/) and the corresponding [github repository](https://github.com/resin-io-projects/cellular-modem.git).
 
