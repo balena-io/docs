@@ -61,7 +61,7 @@
 
 * [CLI Reference](/pages/tools/cli.md)
 * [Node.js SDK](/pages/tools/sdk.md)
-* [Python SDK](/pages/tools/python-sdk.md) 
+* [Python SDK](/pages/tools/python-sdk.md)
 
 ### [Integrations](/pages/integrations/azure.md)
 
@@ -79,6 +79,7 @@
 
 ### [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 
+* [FAQs](/pages/troubleshooting/faq.md)
 * [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 * [Error Notifications](/pages/troubleshooting/error.md)
-* [CLI](/pages/troubleshooting/cli-troubleshooting.md)
+* [CLI issues](/pages/troubleshooting/cli-troubleshooting.md)
