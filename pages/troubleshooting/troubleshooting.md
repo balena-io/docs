@@ -49,3 +49,13 @@ If a terminal window flashes up then disappears, this is usually due to your app
 ### Terminal Closes On Update
 
 When you push updates, the terminal session is automatically closed. To restart the terminal session, simply close the terminal session and restart it once the update is complete.
+
+### Can't Login to dashboard.resin.io
+
+In some cases social logins can be disrupted or completely borked by Adblocker or browser extensions such as [BrowserShark](https://chrome.google.com/webstore/detail/browsershark/jhbjnipjccjloncefdoknhicbnbjaefh?hl=en). Make sure to disable these extensions or whitelist the `*.resin.io` domains.
+
+### I get `$'\r': command not found` when my device tries to run scripts
+Line endings differ between windows and the unix-y world (they used to be different again for mac but not for many years), which can result in issues. E.g. a user seeing something like:
+/usr/src/app/run.sh: line 2: $'\r': command not found
+
+To resolve this, you will need to configure git to auto convert line endings. In order to configure this for windows have a look here: https://help.github.com/articles/dealing-with-line-endings/#platform-windows.
