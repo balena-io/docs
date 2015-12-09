@@ -32,7 +32,7 @@
 * [Dockerfile Guide](/pages/deployment/dockerfile.md)
 * [Optimise your Builds](/pages/deployment/build-optimisation.md)
 * [Dockerfile Templates](/pages/deployment/docker-templates.md)
-* [Wifi Guide](/pages/deployment/wifi.md)
+* [Network Setup](/pages/deployment/wifi.md)
 
 ### [Device Runtime](/pages/runtime/runtime.md)
 
@@ -54,6 +54,7 @@
 * [meta-resin](/pages/hardware/meta-resin.md)
 * [GPIO Interface](/pages/hardware/gpio.md)
 * [I2C and Other Interfaces](/pages/hardware/i2c-and-spi.md)
+* [Supported Wifi Adapters](/pages/hardware/wifi-dongles.md)
 
 ### [Tools](/pages/tools/cli.md)
 
@@ -61,7 +62,7 @@
 
 * [CLI Reference](/pages/tools/cli.md)
 * [Node.js SDK](/pages/tools/sdk.md)
-* [Python SDK](/pages/tools/python-sdk.md) 
+* [Python SDK](/pages/tools/python-sdk.md)
 
 ### [Integrations](/pages/integrations/azure.md)
 

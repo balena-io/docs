@@ -2,7 +2,7 @@
 
 ## Currently Supported
 
-### Raspberry Pi B rev1 + rev2, A+, B+ and the newest Raspberry Pi 2
+### The Full Raspberry Pi family
 
 [link](https://www.raspberrypi.org/products/)
 
@@ -45,7 +45,7 @@ __Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previ
 
 ![The Odroid XU4 board](/img/odroidXUBoard.jpg)
 
-### Odroid C1
+### Odroid C1+
 [link](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573)
 
 ![Odroid Board](/img/odroidC1Board.jpg)
