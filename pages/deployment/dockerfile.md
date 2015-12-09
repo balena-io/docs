@@ -1,9 +1,9 @@
 # Dockerfile Guide
 
-Resin.io offers you the flexibility to deploy [Docker][docker] containers to devices. This enable you to define your own environment and use whatever tools you need.
+Resin.io offers you the flexibility to deploy [Docker][docker] containers to devices. This enables you to define your own environment and use whatever tools you need.
 
 ## Images and Containers
-To understand how this works we need to understand a bit about how [Docker][docker] works and what images and a containers are in this context. 
+To understand how this works we need to understand a bit about how [Docker][docker] works and what images and containers are in this context.
 Basically an image is a read-only template or blueprint and the container is a running system built from an image. (see [Docker's introduction][docker-images-containers] for more details on this.)
 
 ## Dockerfiles

@@ -12,7 +12,7 @@ Environment variables defined on the application level are available to the code
 
 ## Per-device Environment Variables
 
-Per-device environment variables are availabe to the code running on the particular device. If both the application and the device have environment variable _of the same name_, the code on this device will see the value of the _per-device environment variables._ In other words, per-device environment variable redefines (or overrdides) application-wide environment variable of the same name.
+Per-device environment variables are availabe to the code running on the particular device. If both the application and the device have environment variable _of the same name_, the code on this device will see the value of the _per-device environment variables._ In other words, per-device environment variable redefines (or overrides) application-wide environment variable of the same name.
 
 It's important to understand that the device environment variable _doesn't have to_ correspond to some application-wide environment variable.
 
@@ -30,7 +30,7 @@ Each variable row in the list has an expandable region where you see per-device 
 
 Below the list there's a form for creating a new environment variable.
 
-Finally, if there are ny device-specific variables that **are not** application-wide variables' redefines (i.e. don't have an application-wide variable of the same name) they will be shown at the bottom of the page.
+Finally, if there are any device-specific variables that **are not** application-wide variables' redefines (i.e. don't have an application-wide variable of the same name) they will be shown at the bottom of the page.
 
 > _Note_. These variables are _only_ visible to the devices where they are defined.
 
@@ -50,12 +50,12 @@ The device page also has the "Environment variables" tab. It's slightly more com
 
 The _first list_ (device environment variables) is pretty straightforward. You can edit variables' values, or delete them.
 
-> _Note_ that redefines (the variables that match the application-wide variable by name) are identified and their deleton button reads "Reset". That's because when you delete the redefine the variable is still defined on the application level, and that value becomes unmasked and visible to the code running on your device.
+> _Note_ that redefines (the variables that match the application-wide variable by name) are identified and their deletion button reads "Reset". That's because when you delete the redefine the variable is still defined on the application level, and that value becomes unmasked and visible to the code running on your device.
 
 The _second form_ (new variable) is straightforward as well, you type the name and value and save it. The name field has autosuggest feature based on the variables from the third list.
 
 The _third list_ (application variables) is pretty usable because it gives you comprehensive understanding of which variables are actually visible to the code on this device. It shows all the _remaining_ application-wide variables — those that are not redefined for this device. There's also a convenience Redefine button should you want to redefine some of them.
 
-The fourth list gives you an idea of specific variables defined for other application's devices. It's the same as the on on the application page.
+The fourth list gives you an idea of specific variables defined for other application's devices. It's the same as the one on the application page.
 
 > _Note_ that these variables **are not** visible to this device. We show them in case you want to define the same variable for the device.
