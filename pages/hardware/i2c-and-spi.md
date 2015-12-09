@@ -1,10 +1,16 @@
 #I2C and Other Interfaces
 
-Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2c-link] or the [SPI (Serial Peripheral Interface)][spi-link] to communicate with the CPU. In most linux enviroments, using this kind of low level communication requires enabling a kernel module.
+## Raspberry Pi
 
-##I2C
+* [I2C](/pages/hardware/i2c-and-spi.md#i2c)
+* [SPI](/pages/hardware/i2c-and-spi.md#spi)
+* [1-wire and Digital Temperature sensors](/pages/hardware/i2c-and-spi.md#1-wire-and-digital-temperature-sensors)
+* [Raspberry Pi camera module](/pages/hardware/i2c-and-spi.md#raspberry-pi-camera-module)
+* [Raspberry Pi 7” Touchscreen Display](/pages/hardware/i2c-and-spi.md#raspberry-pi-7-touchscreen-display)
 
-### Raspberry Pi
+Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2c-link] or the [SPI (Serial Peripheral Interface)][spi-link] to communicate with the CPU. In most linux environments, using this kind of low level communication requires enabling a kernel module. In resin.io containers this can be done in a similar way because the containers are run in `--priviledged` mode.
+
+### I2C
 
 To enable I2C communication in your projects you will need to add the command `modprobe i2c-dev` to your package.json or Dockerfile.
 
@@ -27,13 +33,13 @@ __NOTE:__ A few places will talk about adding the modules to the /etc/modules fi
 
 To get you started, here is an [example][i2c-example] that uses i2c to communicate with the [ADS1115][ads1115-link] analog-to-digital converter to allow the Raspberry Pi to read analog signals, which is useful for a bunch of sensor types.
 
-## SPI
+### SPI
 
 SPI is enabled by default and should work out of the box with the [spi node module][spi-npm].
 
 For an example of this, check our this project: [digitiser][digitiser-link].
 
-## 1-wire and Digital Temperature sensors
+### 1-wire and Digital Temperature sensors
 
 To enable the DS18x20 temperature sensors, you need to add:
 `modprobe w1-gpio && modprobe w1-therm `
@@ -41,7 +47,7 @@ before your start scripts in either your package.json or Dockerfile `CMD` comman
 
 An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-link] project.
 
-## Raspberry Pi camera module
+### Raspberry Pi camera module
 
 In order to work with the Raspberry Pi camera module you will need to do the following:
 
@@ -56,7 +62,7 @@ fixup_file=fixup_x.dat
 
 An example of this is shown in our [Raspberry Pi python picamera][picamera-link] project.
 
-## Raspberry Pi 7” Touchscreen Display
+### Raspberry Pi 7” Touchscreen Display
 
 In order to work with the Raspberry Pi display you will need to do the following:
 
@@ -65,6 +71,8 @@ In order to work with the Raspberry Pi display you will need to do the following
 ```
 device_tree_overlay=rpi-ft5406-overlay.dtb
 ```
+
+If you want a quick example project to get you started with you new screen, you might want to checkout our [Raspberry Pi Electron starter App](https://github.com/resin-io-projects/electron-rpi-quick-start).
 
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
