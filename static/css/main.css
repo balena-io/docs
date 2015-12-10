@@ -217,7 +217,7 @@ article .headroom {
 .alert {
   border-radius: 3px;
   font-size: 15px;
-  padding: 30px 28px;
+  padding: 10px 10px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.078);
 }
 
@@ -228,7 +228,7 @@ article .headroom {
 
 .alert-note {
   background: #f8f9fc;
-  background-image: url('/img/note-bg.png');
+  /*/background-image: url('/img/note-bg.png');*/
   background-repeat: repeat-x;
   background-position: top left;
   color: #a6a9ae;
