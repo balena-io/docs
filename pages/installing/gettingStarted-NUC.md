@@ -64,62 +64,62 @@ This is the application dashboard where all of the devices connected to your app
 Click the `Download Device OS` button to get the resin.io operating system image for your
 application. A dialog will appear prompting you to specify how your device connects to the internet, if you select wifi, make double sure to that your `SSID` and `passphrase` are correct for the wifi router you intend to connect to. The download can take a little while to get started, so be patient.
 
-While the file downloads, ensure your SD card is formatted in [FAT32][fat32] ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
+While the file downloads, ensure your USB key is formatted in [FAT32][fat32] ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
 Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.14.img` where myApp is the name you gave your application on the dashboard.
 
-Now we have to burn the downloaded image on to the SD card. There are a couple of ways to do this, depending on your operating system. We have listed a few below.
+Now we have to burn the downloaded image on to the USB key. There are a couple of ways to do this, depending on your operating system. We have listed a few below.
 
-## Burning the OS image onto the SD
+## Burning the OS image
 
 ### On Mac and Linux
 
 ####From the command line
 
-First we need to figure out what our SD card is called, to do this open a terminal and execute the following command to see the list of connected storage devices:
+First we need to figure out what our USB key is called, to do this open a terminal and execute the following command to see the list of connected storage devices:
 `df -h`
-Next, insert your microSD card, and then execute the following command again:
+Next, insert your USB key, and then execute the following command again:
 `df -h`
-Compare the two outputs, and find the newly added device. In my case, the microSD card was '/dev/disk2s1'.
+Compare the two outputs, and find the newly added device. In my case, the USB key was '/dev/disk2s1'.
 
-Once you've got the name of the SD card, you'll want to unmount that disk using the following command, but replacing the specifics with your card details:
+Once you've got the name of the USB key, you'll want to unmount that disk using the following command, but replacing the specifics with your card details:
 `sudo diskutil unmount /dev/disk2s1`
-Now, you'll want to execute the command that actually copies the image onto the SD card.
+Now, you'll want to execute the command that actually copies the image onto the USB key.
 
-> You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive, such as your master hard disk, and then you're gonna have a bad time. Double check everything!
+> You have to be really careful here, and make 100% sure you are entering the correct USB key details. You could end up copying over the wrong drive, such as your master hard disk, and then you're gonna have a bad time. Double check everything!
 
 Also, be sure to choose the right file location for your `.img` file in the input file field (if=...).
 `sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2`
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-NUC.md#setting-up-your-device)
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and USB key. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-NUC.md#setting-up-your-device)
 
 #### From a GUI
 
-Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn the SD card.
+Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn the USB key.
 
 Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your .img file. It mentions the Raspberry Pi, but you can ignore that, it doesn't make any difference.
 
 Locate the .img file in your Downloads folder. It should be named something like `resin-myApp-0.1.0-0.0.14.img`, now click "choose".
 
-You can now insert your microSD card into your host machine and click continue. PiFiller will look for your SD card and tell you when it finds it.
+You can now insert your USB key into your host machine and click continue. PiFiller will look for your USB key and tell you when it finds it.
 
-__NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
+__NOTE:__ make 100% sure that the USB key it finds is in fact the correct card.
 
-Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-NUC.md#setting-up-your-device)
+Click continue and piFiller will write the USB key. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-NUC.md#setting-up-your-device)
 
 ### Windows
 
-To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
+To burn OS images to USB keys on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
 Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your OS image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.14.img`.
 
-Next insert your SD card into your computer and in the Win32DiskImager GUI, select your SD card when it appears.
+Next insert your USB key into your computer and in the Win32DiskImager GUI, select your USB key when it appears.
 
-__NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines harddisk.
+__NOTE:__ Be very careful to make sure that you have selected the right USB key. Double check this!! Otherwise you could end up writing over your host machines harddisk.
 
-Once you have made your selections and are 100% sure you are writing to your SD card and nothing else, you can click write and wait for the SD card to be burnt.
+Once you have made your selections and are 100% sure you are writing to your USB key and nothing else, you can click write and wait for the USB key to be burnt.
 
 Once it is completed, you can carry on setting up your device as shown below.
 
@@ -179,7 +179,6 @@ If you find any issues with the application, please click the feedback label on 
 [supported]:/pages/hardware/devices.md
 [dockerfile]:/pages/deployment/dockerfile.md
 
-[speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
 [signup]:https://dashboard.resin.io/signup
 [git]:http://git-scm.com/
 [ssh_key]:http://en.wikipedia.org/wiki/Secure_Shell
