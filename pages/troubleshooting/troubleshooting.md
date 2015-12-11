@@ -1,5 +1,47 @@
 # Troubleshooting
 
+* [General](/pages/troubleshooting/troubleshooting.md#general)
+  * [The 'Start the Terminal Session' Button Doesn't Appear](/pages/troubleshooting/troubleshooting.md#the-start-the-terminal-session-button-doesn-t-appear)
+  * [Clicking 'Open Terminal' in the Session Does Nothing](/pages/troubleshooting/troubleshooting.md#clicking-open-terminal-in-the-session-does-nothing)
+  * [Terminal Closes On Update](/pages/troubleshooting/troubleshooting.md#terminal-closes-on-update)
+  * [Can't Login to dashboard.resin.io](/pages/troubleshooting/troubleshooting.md#can-t-login-to-dashboard-resin-io)
+  * [I get `$'\r': command not found` when my device tries to run scripts](/pages/troubleshooting/troubleshooting.md#i-get-r-command-not-found-when-my-device-tries-to-run-scripts)
+* [Raspberry Pi](/pages/troubleshooting/troubleshooting.md#raspberry-pi)
+  * [My Device Doesn't Boot](/pages/troubleshooting/troubleshooting.md#my-device-doesn-t-boot)
+  * [Connectivity](/pages/troubleshooting/troubleshooting.md#connectivity)
+  * [SD Card Corruption](/pages/troubleshooting/troubleshooting.md#sd-card-corruption)
+* [Beaglebone](/pages/troubleshooting/troubleshooting.md#beaglebone)
+  * [I can't get my beaglebone to reprovision](/pages/troubleshooting/troubleshooting.md#i-can-t-get-my-beaglebone-to-reprovision-)
+* [Intel Edison](/pages/troubleshooting/troubleshooting.md#intel-edison)
+  * [Help!!! I want to restore my Edison to factory Yocto](/pages/troubleshooting/troubleshooting.md#help-i-want-to-restore-my-edison-to-factory-yocto)
+  * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](/pages/troubleshooting/troubleshooting.md#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
+
+## General
+
+### The 'Start the Terminal Session' Button Doesn't Appear
+
+Ensure you application is online and code is deployed. If either of these criteria are not fulfilled then the button will not appear.
+
+### Clicking 'Open Terminal' in the Session Does Nothing
+
+If no window appears, wait a while or refresh, as sometimes the connection can take a while to be established.
+
+If a terminal window flashes up then disappears, this is usually due to your application exiting before the terminal session is established. Ensure your application continues running long enough after being started to enable a terminal session to be connected.
+
+### Terminal Closes On Update
+
+When you push updates, the terminal session is automatically closed. To restart the terminal session, simply close the terminal session and restart it once the update is complete.
+
+### Can't Login to dashboard.resin.io
+
+In some cases social logins can be disrupted or completely borked by Adblocker or browser extensions such as [BrowserShark](https://chrome.google.com/webstore/detail/browsershark/jhbjnipjccjloncefdoknhicbnbjaefh?hl=en). Make sure to disable these extensions or whitelist the `*.resin.io` domains.
+
+### I get `$'\r': command not found` when my device tries to run scripts
+Line endings differ between windows and the unix-y world (they used to be different again for mac but not for many years), which can result in issues. E.g. a user seeing something like:
+/usr/src/app/run.sh: line 2: $'\r': command not found
+
+To resolve this, you will need to configure git to auto convert line endings. In order to configure this for windows have a look here: https://help.github.com/articles/dealing-with-line-endings/#platform-windows.
+
 ## Raspberry Pi
 
 ### My Device Doesn't Boot
@@ -19,7 +61,7 @@ If you are presented with a 'recovery login' prompt this usually indicates an is
 * You've copied data onto the card but disconnected it from your computer without properly ejecting it - some data may have not finished being copied yet and thus the card is corrupted - reformat your SD card and copy files over to it and try again.
 * The SD card itself is faulty - older SD cards, especially ones which have been used a lot and thus may also be *physically* worn at the pins can be unreliable, resulting in data corruption. Try using a new SD card.
 
-## Beaglebone Black
+## Beaglebone
 
 ### I can't get my beaglebone to reprovision.
 In order to reprovison a beaglebone that has already been connected to the resin.io service, you need to remove a file named something like `REMOVE_TO_REPROVISION_54BE-BCEB` from the SD card. You should then be able to pop the SD card back into the beaglebone and power it up again, while holding down the small `s1` button like you did when you did the original provisioning.
@@ -34,18 +76,4 @@ If you are one of the unfortunate people who feel they want to return to the old
 
 Make sure you have [Intel Edison drivers](https://software.intel.com/en-us/iot/hardware/edison/downloads) installed in your computer.
 
-## General
-
-### The 'Start the Terminal Session' Button Doesn't Appear
-
-Ensure you application is online and code is deployed. If either of these criteria are not fulfilled then the button will not appear.
-
-### Clicking 'Open Terminal' in the Session Does Nothing
-
-If no window appears, wait a while or refresh, as sometimes the connection can take a while to be established.
-
-If a terminal window flashes up then disappears, this is usually due to your application exiting before the terminal session is established. Ensure your application continues running long enough after being started to enable a terminal session to be connected.
-
-### Terminal Closes On Update
-
-When you push updates, the terminal session is automatically closed. To restart the terminal session, simply close the terminal session and restart it once the update is complete.
+[error]:/pages/troubleshooting/error.md
