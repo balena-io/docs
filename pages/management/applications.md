@@ -6,6 +6,7 @@ A Resin.io __application__ contains both the code you want to run and the device
 
 To create an application you simply tap in a descriptive name in the [applications dashboard](https://dashboard.resin.io/) and hit create.
 
+<!-- TODO: update the image here -->
 <img src="/img/raspberrypi2/app_dashboard_fresh_device.png" class="shadow" width="80%">
 
 Here we have an application named "myFleet" and currently it only has one device ("dawn-wildflower") provisioned.
@@ -29,6 +30,10 @@ For more details on deployment, check out our [deployment guide](/pages/deployme
 
 ## Application Actions
 
+### Download Image
+
+This action will allow you to download a new device OS image so you can provision new devices into your fleet. It will also ask you to select and configure you network preferences before you download.
+
 ### Restart Application (on all devices)
 
 The `Restart Application` action is a fleet wide action that will restart the application container on all the devices that are currently online. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
@@ -39,11 +44,25 @@ The `Restart Application` action is a fleet wide action that will restart the ap
 
 The purge data action operates on all devices in the application. It is used to delete all the data in `/data`. Note that this is a non-reversible action and should be carried out with extreme caution as once your data is purged, it is gone for good.
 
+__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+
+### Reboot All Devices
+
+This action allows you to perform a reboot of all the devices in the fleet/application. This is different from the `Restart Application` action mentioned above, because in this action, the entire system, including the kernel will be reboot as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
+
+__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+
+### Shutdown All Devices
+
+The `Shutdown` action allows you to safely shutdown all your device. It should be noted that once you trigger this action there is no way for resin.io to start you device back up, so you will need physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible :P
+
+__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+
 ### Deleting the application
 
 Hidden behind the 'Dangerous' section is the option to delete your application.
 
-__Warning:__ All devices attached to the application will become orphaned and you will need to reconfigure them from scratch in another application. Their most recent code deployment will continue to function as before, but all the devices will not be able to receive code updates or device actions from resin.io. 
+__Warning:__ All devices attached to the application will become orphaned and you will need to reconfigure them from scratch in another application. Their most recent code deployment will continue to function as before, but all the devices will not be able to receive code updates or device actions from resin.io.
 
 ## Environment Variables
 
