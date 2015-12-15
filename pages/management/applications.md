@@ -48,13 +48,13 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ### Reboot All Devices
 
-This action allows you to perform a reboot of all the devices in the fleet/application. This is different from the `Restart Application` action mentioned above, because in this action, the entire system, including the kernel will be reboot as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
+This action allows you to perform a reboot of all the devices in the fleet/application. This is different from the `Restart Application` action mentioned above, because in this action, the entire device including the kernel will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
 ### Shutdown All Devices
 
-The `Shutdown` action allows you to safely shutdown all your device. It should be noted that once you trigger this action there is no way for resin.io to start you device back up, so you will need physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible :P
+The `Shutdown` action allows you to safely shutdown all your device. It should be noted that once you trigger this action there is no way for resin.io to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible :P
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
