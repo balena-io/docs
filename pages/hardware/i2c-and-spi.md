@@ -1,12 +1,20 @@
 #I2C and Other Interfaces
 
-## Raspberry Pi
 
-* [I2C](/pages/hardware/i2c-and-spi.md#i2c)
-* [SPI](/pages/hardware/i2c-and-spi.md#spi)
-* [1-wire and Digital Temperature sensors](/pages/hardware/i2c-and-spi.md#1-wire-and-digital-temperature-sensors)
-* [Raspberry Pi camera module](/pages/hardware/i2c-and-spi.md#raspberry-pi-camera-module)
-* [Raspberry Pi 7” Touchscreen Display](/pages/hardware/i2c-and-spi.md#raspberry-pi-7-touchscreen-display)
+* [Raspberry Pi Family](/pages/hardware/i2c-and-spi.md#raspberry-pi-family)
+  * [I2C](/pages/hardware/i2c-and-spi.md#i2c)
+  * [SPI](/pages/hardware/i2c-and-spi.md#spi)
+  * [1-wire and Digital Temperature sensors](/pages/hardware/i2c-and-spi.md#1-wire-and-digital-temperature-sensors)
+  * [Raspberry Pi camera module](/pages/hardware/i2c-and-spi.md#raspberry-pi-camera-module)
+  * [Raspberry Pi 7” Touchscreen Display](/pages/hardware/i2c-and-spi.md#raspberry-pi-7-touchscreen-display)
+  * [Customising config.txt](/pages/hardware/i2c-and-spi.md#customizing-config-txt)
+* [Beaglebone](/pages/hardware/i2c-and-spi.md#beaglebone)
+  * [Capemgr support](/pages/hardware/i2c-and-spi.md#capemgr-support-on-resin-io-devices)
+* [Intel Edison](/pages/hardware/i2c-and-spi.md#intel-edison)
+  * [MRAA for GPIO and hardware access](/pages/hardware/i2c-and-spi.md#mraa-for-gpio-and-hardware-access)
+  * [Edison in USB Host mode](/pages/hardware/i2c-and-spi.md#edison-in-usb-host-mode)
+
+## Raspberry Pi Family
 
 Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2c-link] or the [SPI (Serial Peripheral Interface)][spi-link] to communicate with the CPU. In most linux environments, using this kind of low level communication requires enabling a kernel module. In resin.io containers this can be done in a similar way because the containers are run in `--priviledged` mode.
 
@@ -83,6 +91,55 @@ And set the value to either 0, 90, 180 or 270, depending on your desired orienta
 __Note:__ The 90 and 270 degrees rotation options require additional memory on GPU,
 so won't work with the 16M GPU split.
 
+### Customising config.txt
+These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings the the config.txt file on the SD cards `boot` partition.
+
+##### Binary Blobs for GPU/vcore
+This is neccessary for any graphics acceleration or if you want to use the official raspberry pi camera module
+```
+gpu_mem=128
+start_file=start_x.elf
+fixup_file=fixup_x.dat
+```
+
+##### Increase USB current throughput:
+
+This can be useful if you are running a power hungry USB peripheral like a 3G dongle.
+```
+max_usb_current=1
+safe_mode_gpio=4
+```
+
+##### overclock RPI2:
+
+```
+arm_freq=1000
+core_freq=500
+sdram_freq=400
+over_voltage=0
+over_voltage_sdram_p=0
+over_voltage_sdram_i=0
+over_voltage_sdram_c=0
+```
+###### OR
+```
+arm_freq=1000
+sdram_freq=500
+core_freq=500
+over_voltage=2
+temp_limit=80 #Will throttle to default clock speed if hit.
+```
+
+##### Fill the screen to the edges
+
+```
+disable_overscan=1
+overscan_left=4
+overscan_right=4
+overscan_top=4
+overscan_bottom=4
+```
+
 ## Beaglebone
 
 Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the Octalbonscript JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
@@ -111,6 +168,47 @@ OCPDIR=/sys/devices/platform/ocp/ocp*
 SLOTS=/sys/devices/platform/bone_capemgr/slots
 ```
 
+## Intel Edison
+### MRAA for GPIO and hardware access
+The best and easiest way to interface with GPIO, I2C, SPI or UART on the Intel Edison is to use the
+[MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applcations that
+interact directly with the Edison hardware.
+
+If you use our [resin/edison-node][resin-dockerbase-node] or [resin/edison-python][resin-dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
+
+Have a look at this [python example](https://github.com/shaunmulligan/hello-python-edison) or this [node.js example](https://github.com/shaunmulligan/edison-blink-node) to get started.
+
+### Edison in USB Host mode
+
+The Edison needs a kernel module to be loaded to trigger the UBS HOST mode. This can be done in the following way.
+
+##### Hardware Pre-requisites:
+Your Edison will need to be powered externally for the USB host mode to be active - Either through the DC jack on the Arduino board or through the battery connector on the smaller Intel carrier board.
+
+##### Software Pre-requisites:
+The following code needs to be placed at the start before any device operations are run in your application container.
+```
+#!/bin/bash
+
+mount -t devtmpfs none /dev
+udevd --daemon
+
+# g_multi needs a file to be passed which shows up as USB storage if Edison is in device mode.
+# We are creating a blank file here.
+dd if=/dev/zero of=/data/blank.img bs=10M count=1
+
+# The following is needed to get the Edison to switch to host mode - If the power connections aren't made for the HOST mode this exposes the file above as USB storage, emulates a USB network card and USB serial connected to the Edison.
+sync && modprobe g_multi file=/data/blank.img stall=0 idVendor=0x8087 idProduct=0x0A9E iProduct=Edison iManufacturer=Intel
+
+udevadm trigger
+udevadm settle
+
+# Shutdown the unnecessary usb0 spawned by g_mutli
+sleep 5s && ifconfig usb0 down
+```
+
+After this you should be able to easily use your Intel Edison in USB host mode.
+
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
 [i2c-example]:https://github.com/shaunmulligan/resin-rpi-py-ADC
@@ -119,3 +217,6 @@ SLOTS=/sys/devices/platform/bone_capemgr/slots
 [firebaseTemp-link]:https://github.com/shaunmulligan/firebaseDTL
 [spi-npm]:https://www.npmjs.com/package/spi
 [picamera-link]:https://github.com/resin-io-projects/resin-rpi-python-picamera
+[mraa-link]:https://github.com/intel-iot-devkit/mraa
+[resin-dockerbase-node]:https://hub.docker.com/r/resin/edison-node/
+[resin-dockerbase-python]:https://hub.docker.com/r/resin/edison-python/
