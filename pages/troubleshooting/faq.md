@@ -10,6 +10,13 @@
 * [Which data is persisted on devices across updates/power cycles?](/pages/troubleshooting/faq.md#which-data-is-persisted-on-devices-across-updates-power-cycles-)
 * [Is the cache shared between build server for non-native and native ARM builds?](/pages/troubleshooting/faq.md#is-the-cache-shared-between-build-server-for-non-native-and-native-arm-builds-)
 * [Why does /data disappear when I move a device between applications?](/pages/troubleshooting/faq.md#why-does-data-disappear-when-i-move-a-device-between-applications-)
+* [It appears that there is a centralized Resin Master running (in cloud) and agents running on devices. Is that accurate?](/pages/troubleshooting/faq.md#it-appears-that-there-is-a-centralized-resin-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate-)
+* [What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?](/pages/troubleshooting/faq.md#what-type-of-encryption-do-you-use-over-openvpn-ssl-tls-aes-256-mutual-key-authentication-over-ssh-)
+* [What is the performance impact on the gateway device due to encryption?](/pages/troubleshooting/faq.md#what-is-the-performance-impact-on-the-gateway-device-due-to-encryption-)
+* [How long does the update process run typically? For now it appears to be quick for small updates.](/pages/troubleshooting/faq.md#how-long-does-the-update-process-run-typically-do-you-have-any-benchmark-data-for-now-it-appears-to-be-quick-for-small-updates-)
+* [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](/pages/troubleshooting/faq.md#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration-)
+* [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](/pages/troubleshooting/faq.md#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
+* [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](/pages/troubleshooting/faq.md#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
 
 ##### What NTP servers do resin.io devices use?
 Currently the servers used are:
@@ -87,5 +94,34 @@ Yes :)
 ##### Why does /data disappear when I move a device between applications?
 
 The `/data` is specific to a given app, so if you move the device back to the other app you'll find `/data` is there for that app again.  The reason for this is that if you move devices between applications running different code then keeping `/data` from the other would potentially cause issues. In future we plan to add the option to purge `/data` on device move (so it will be gone on moving back, without having to purge before moving). We also hope to add the option to transfer the data with the device as it moves between applications.
+
+##### It appears that there is a centralized Resin Master running (in cloud) and agents running on devices. Is that accurate?
+
+Yes. In fact there are multiple services running on the cloud and the devices communicate with some of them. On the device we run our agent in a docker container, like a user application.
+
+##### What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?
+
+The VPN connection is TLS with the default ciphersuite negotiation settings which today boil down to DHE-RSA-AES256-SHA. We use certificates to authenticate the server to the client and API keys to authenticate the client to the server.
+
+##### What is the performance impact on the gateway device due to encryption?
+There isn't any. The VPN connection is only used for short messages sent by our servers to the device and for device URL traffic.
+
+Internet traffic is routed normally, outside the VPN, therefore doesn't go through the encryption/decryption process.
+
+##### How long does the update process run typically? Do you have any benchmark data? For now it appears to be quick for small updates.
+
+The update process currently depends on the size of the update and the speed of the internet connection. The size of the update is currently the size of the docker layers that differ between the docker image on the device and the docker image of the newly pushed code. We currently have a beta feature delta-mechanism which calculates binary diffs between two images which will drop the update size significantly, even on cases where no docker layers are shared. If you are interested in testing this out, ask for access on support@resin.io
+
+##### How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?
+
+The OS image you download from the UI has embedded credentials that allow the device to register to your application without user input on boot. You should keep your downloaded images private.
+
+##### If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?
+
+The resin agent needs to be able to access our cloud services in order for you to be able to manage your device. When the device is disconnected from the internet it still runs the application it has installed.
+
+##### How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?
+Generally we try to follow good opsec practices for our systems. We support 2FA for user accounts and force all the connections to be over HTTPS.
+
 
 [connman-link]:http://en.wikipedia.org/wiki/ConnMan
