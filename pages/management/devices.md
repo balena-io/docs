@@ -51,9 +51,9 @@ __Note:__ Currently websockets will not work over the device URLs, this should b
 
 ### Update Locking
 
-In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we add the [update.lock functionality](/pages/runtime/supervisor-api.md#update-locking) in the resin supervisor agent. This allows your application to pick and choose when and where it would like to allow updates to happen.
+In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we added the [update.lock functionality](/pages/runtime/supervisor-api.md#update-locking) in the resin supervisor agent. This allows your application to pick and choose when and where it would like to allow updates to happen.
 
-Added to this functionality we provided a convenient to override the lock on the device and essentially force an update. This is a precautionary measure for those times when your application crashes and hasn't released the update lock. This gives you a nice safety net to ensure you can always push new updates.  
+Added to this functionality we provided a convenient button to override the lock on the device and essentially force an update. This is a precautionary measure for those times when your application crashes and hasn't released the update lock. This gives you a nice safety net to ensure you can always push new updates.  
 
 ### Restart Device Container
 
