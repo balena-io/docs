@@ -29,9 +29,12 @@ An extremely useful feature of the devices detail page is the log window. This i
 On the device's Actions page we give you access to a number of useful per-device actions.
 
 * [Enable Public URL](/pages/management/devices.md#enable-public-device-url)
-* [Restart Device Container](/pages/management/devices.md#restart-device-container)
+* [Update Locking](/pages/management/devices.md#update-locking)
+* [Restart Application](/pages/management/devices.md#restart-device-container)
 * [Move to Another Application](/pages/management/devices.md#move-to-another-application)
 * [Purge Data](/pages/management/devices.md#purge-data)
+* [Reboot](/pages/management/devices.md#reboot)
+* [Shutdown](/pages/management/devices.md#shutdown)
 * [Delete Device](/pages/management/devices.md#delete-device)
 
 ### Enable Public Device URL
@@ -46,6 +49,14 @@ To see what your device is serving on port 80, just click on the URL. If your ap
 
 __Note:__ Currently websockets will not work over the device URLs, this should be resolved, keep an eye on the [github issue](https://github.com/resin-io/node-tunnel/issues/2) for an update of this feature.
 
+### Update Locking
+
+In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we added the [update.lock functionality](/pages/runtime/supervisor-api.md#update-locking) in the resin supervisor agent. This allows your application to pick and choose when and where it would like to allow updates to happen.
+
+Added to this functionality we provided a convenient button to override the lock on the device and essentially force an update. This is a precautionary measure for those times when your application crashes and hasn't released the update lock. This gives you a nice safety net to ensure you can always push new updates.  
+
+__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+
 ### Restart Device Container
 
 The `Restart Device Conatiner` action is a per-device **restart** of the currently running **application container**. Your application (A.K.A it's running container) will be shutdown and restarted from scratch.
@@ -54,7 +65,7 @@ When the container is stopped, the application is politely asked to stop by send
 
 It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
 
-__Note:__ Restart device container is not equivalent to a reboot of the device!
+__Warning:__ Restart device container is not equivalent to a reboot of the device!
 
 ### Move to Another Application
 
@@ -77,6 +88,20 @@ To see a demonstration of moving devices between applications and a little more 
 On all resin.io devices `/data` is a persistent data volume. This is useful for storing sensitive or non-volatile data that one would like to keep through out the update process. However, there are often times where it is necessary  to jettison all the persistent data. This can be done with the `Purge Data` action. Note that this is a dangerous action and that it is not possible to recover your data once you have purged the volume.
 
 It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
+
+__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+
+### Reboot
+
+This action allows you to perform a reboot on a specific device. This is different from the `Restart Application` action mentioned above, because in this action, the entire device including the kernel will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
+
+__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+
+### Shutdown
+
+The `Shutdown` action allows you to safely shutdown a specific device. It should be noted that once you trigger this action there is no way for resin.io to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible :P
+
+__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
 ### Delete Device
 
