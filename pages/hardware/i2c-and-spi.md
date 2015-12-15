@@ -91,6 +91,26 @@ With this module you should be able to basic GPIO and analog-to-digital conversi
 
 __Note:__ The ADC voltage is only rated to 1.8V, if you apply more you risk frying the pin.
 
+### Capemgr support on Resin.io devices
+
+__Warning:__ Capemgr is only supported in resin.io BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a webterminal to your BBB and run `uname -a`.
+
+##### Loading a Cape
+```
+echo cape-universaln > /sys/devices/platform/bone_capemgr/slots              
+```
+##### Checking which Capes are loaded.
+```
+cat /sys/devices/platform/bone_capemgr/slots
+```
+
+```
+cat /sys/devices/platform/ocp/ocp:cape-universal/status
+
+OCPDIR=/sys/devices/platform/ocp/ocp*
+SLOTS=/sys/devices/platform/bone_capemgr/slots
+```
+
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
 [i2c-example]:https://github.com/shaunmulligan/resin-rpi-py-ADC
