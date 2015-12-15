@@ -45,4 +45,42 @@ This isn't so much of an optimisation tip, but more a guideline to ensure mainta
 
 * Avoid `RUN apt-get upgrade` or `dist-upgrade`, since many of the “essential” packages from the base images will fail to upgrade inside an unprivileged container. If a base package is out of date, you should contact its maintainers. If you know there’s a particular package, foo, that needs to be updated, use apt-get install -y foo and it will update automatically.
 
+## Pro Tips for slimming down your build
+
+These are just a few tips from our engineers on how to reduce your build size
+
+* npm install commands like `npm install --unsafe-perm -g @some/node-module` can have `&& npm cache clean && rm -rf /tmp/*` added in order to clean up the npm cache and the /tmp/npm-... folders it uses.
+
+* apt-get update commands should have a matching `rm -rf /var/lib/apt/lists` in order to clean up the package lists (or `rm -rf /var/lib/apt/*` which is equivalent).
+
+* You can combine the smaller layers together (each RUN/COPY/etc command creates a new layer) in order to reduce the metadata required for each layer and to speed up the updating process (each layer is downloaded individually), eg. you could change:
+```
+RUN mkdir /var/run/sshd
+RUN echo 'root:resin' | chpasswd
+RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+```
+into
+```
+RUN mkdir /var/run/sshd \
+  && echo 'root:resin' | chpasswd
+  && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+```
+in order to merge those three layers into just one, without losing any benefits of docker caching - this would also work well for combing the layers that add the apt mirrors.
+
+* You can potentially add `--no-install-recommends` in your apt-get installs in order to only install the packages you really care about, rather than all the recommended but non-essential packages.
+
+You can exclude docs/locales since they're not much use on the device, we do this via the command `COPY 01_nodoc /etc/dpkg/dpkg.cfg.d/` which has the contents:
+
+```
+path-exclude /usr/share/doc/*
+path-exclude /usr/share/man/*
+path-exclude /usr/share/groff/*
+path-exclude /usr/share/info/*
+path-exclude /usr/share/lintian/*
+path-exclude /usr/share/linda/*
+
+path-exclude /usr/share/locale/*
+path-include /usr/share/locale/en*
+```
+
 [docker-best-practices]:https://docs.docker.com/articles/dockerfile_best-practices/
