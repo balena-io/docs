@@ -55,6 +55,8 @@ In many uses cases devices are performing sensitive or critical functionality an
 
 Added to this functionality we provided a convenient button to override the lock on the device and essentially force an update. This is a precautionary measure for those times when your application crashes and hasn't released the update lock. This gives you a nice safety net to ensure you can always push new updates.  
 
+__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+
 ### Restart Device Container
 
 The `Restart Device Conatiner` action is a per-device **restart** of the currently running **application container**. Your application (A.K.A it's running container) will be shutdown and restarted from scratch.
@@ -86,6 +88,8 @@ To see a demonstration of moving devices between applications and a little more 
 On all resin.io devices `/data` is a persistent data volume. This is useful for storing sensitive or non-volatile data that one would like to keep through out the update process. However, there are often times where it is necessary  to jettison all the persistent data. This can be done with the `Purge Data` action. Note that this is a dangerous action and that it is not possible to recover your data once you have purged the volume.
 
 It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
+
+__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
 ### Reboot
 
