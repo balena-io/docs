@@ -4,7 +4,7 @@
 
 * A [VIA VAB-820 board][vab820-link] or [AMOS-820 system][amos820-link] from [VIA technologies][via-link].
 ![VIA VAB-820 board](/img/viaVab820.jpg)
-* A 4GB or larger SD card. The [VAB-820][via820-link] uses a microSD card as the boot medium. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
+* A 4GB or larger SD card. The [VAB-820][vab820-link] uses a microSD card as the boot medium. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 * A 12Vdc power supply unit which is usually shipped with the board.
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the internet.
 * And finally you need some awesome ideas to hack on! If you need some inspiration, go over and check out our [projects][projects] page.
@@ -124,13 +124,15 @@ Once it is completed, you can carry on setting up your device as shown below.
 
 ## Setting Up Your Device
 
-Put the SD card into your device, and connect either the ethernet cable or WiFi adapter.Now power up the device by connecting up the power supply.
+Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. You will also need to assure your device boots from the SD card. This is done by setting the `j11` jumper to position 2-3. Now power up the device by connecting up the power supply.
 
-It can take a few minutes for the device to boot up and appear on the dashboard, so grab some tea while you wait.
+About 30 seconds after boot up  you should see your device show up in your dashboard. It will immediately go into a "flashing internal media" state. This means that the SD card is flashing the resinOS into the devices internal eMMC.
 
-While you wait resin.io is partitioning your SD card, installing a custom linux environment and establishing a secure connection with our servers.
+__Warning:__ Since we are overwriting the internal eMMC, any data on this eMMC will be lost. So please be sure to make a back up of anything important before trying to provision your device on resin.io.
 
-If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
+After a few minute, the OS will be fully flashed to the internal eMMC, and the device will shut itself down and await a reboot. At this point you will see the dashboard device state say "Post-provisioning". Before rebooting the device, make sure to remove the SD card and set the `j11` to position 1-2. You can then re-apply the power to the board and resinOS will boot from the internal eMMC.
+
+After the device has booted up again, you will see it come online and will be in an "Idle" state until you deploy some code to it.
 
 ## Running Code On Your Device
 
@@ -200,6 +202,8 @@ If you find any issues with the application, please click the feedback label on 
 [win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
 [pifiller-download]:http://ivanx.com/raspberrypi/
 
-[vab820-link]:http://www.viatech.com/en/boards/pico-itx/vab-820/ "VIA VAB-820 product page"
-[amos820-link]:http://www.viatech.com/en/systems/industrial-fanless-pcs/amos-820/ "VIA AMOS-820 product page"
+<!-- "VIA VAB-820 product page" -->
+[vab820-link]:http://www.viatech.com/en/boards/pico-itx/vab-820/
+<!-- "VIA AMOS-820 product page" -->
+[amos820-link]:http://www.viatech.com/en/systems/industrial-fanless-pcs/amos-820/
 [via-link]:http://www.viatech.com/en/
