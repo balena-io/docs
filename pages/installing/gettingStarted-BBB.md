@@ -75,7 +75,7 @@ To create your first application simply type in a name, select as your device ty
 
 This is the application dashboard where all of the devices connected to your application will be shown along with their statuses and logs.
 
-<img src="/img/beaglebone/beaglebone_app_dashboard_empty.png" class="shadow" width="80%">
+<img src="/img/beaglebone/beaglebone_app_dashboard_one_device.png" width="80%">
 
 Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify how your device connects to the internet - either via an ethernet cable or wifi, in which case you can specify your Wifi network's SSID and passphrase. Click the `Download Device OS` button to get the resin.io operating system image for your application.
 
@@ -152,7 +152,7 @@ __Warning:__ Be very careful to make sure that you have selected the right SD ca
 
 Once you have made your selections and are 100% sure you are writing to your SD card and nothing else, you can click write and wait for the SD card to be burned.
 
-Once it is completed, you can carry on setting up your Beaglebone as shown below.
+Once it is completed, you can carry on setting up your device as shown below.
 
 <!-- ========================== end section =================================   -->
 
@@ -170,9 +170,11 @@ __Warning:__ This will completely overwrite any data on your devices' internal e
 
 After a short while you should see your device pop up in the dashboard. It will appear in a "configuring" state where it will say that it is flashing resin.io OS to the internal media. This step can take a little time, so perhaps go grab a cup of tea at this point.
 
-After the internal media has been flashed, your device will shut itself down. At this point you will see the device in a "post-provisioning" state. Before booting the device again, make sure to remove the SD card. You may then simply press the power button situated nearest to the ethernet port.
+After the internal media has been flashed, your device will shut itself down. At this point you will see the device in a "post-provisioning" state. Before booting the device again, make sure to **remove the SD card**. You may then simply press the power button situated nearest to the ethernet port or pull our and replug the power cable.
 
-In a minute or so you should have a happy Beaglebone device in the `Idle` state on your dashboard. From here on you can deploy code to your device with easy.
+<img src="/img/beaglebone/beaglebone_device_dash_post_provisioning.png" width="80%">
+
+Your device should now start booting from internal eMMC and in a minute or so you should have a happy Beaglebone device in the `Idle` state on your dashboard. From here on you can deploy code to your device with easy.
 
 __Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](http://localhost:3000/#/pages/installing/gettingStarted-BBB.md#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
 
