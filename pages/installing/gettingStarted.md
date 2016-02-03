@@ -74,11 +74,11 @@ To create your first application simply type in a name, select as your device ty
 
 <img src="/img/common/main_dashboard/select_fleet_type.png" class="shadow" width="80%">
 
-__Warning:__ Each Raspberry Pi model has its own device type, since they use slightly different CPU architectures.
-
 <!-- ========================== end section =================================   -->
 
 <!-- ========================== Device Specific =================================   -->
+
+__Warning:__ Each Raspberry Pi model has its own device type, since they use slightly different CPU architectures.
 
 ## Adding Your First Device
 
