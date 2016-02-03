@@ -88,7 +88,7 @@ application. A dialog will appear prompting you to specify how your device conne
 
 While the file downloads, ensure your SD card is formatted in [FAT32][fat32] ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
-Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.14.img` where myApp is the name you gave your application on the dashboard.
+Once the download is finished you should have a `.img` file with a name like `resin-myFleet-0.1.0-0.0.14.img` where myFleet is the name you gave your application on the dashboard.
 
 Now we have to burn the downloaded image on to the SD card. There are a couple of ways to do this, depending on your operating system. We have listed a few below.
 
@@ -111,7 +111,7 @@ Now, you'll want to execute the command that actually copies the image onto the 
 > You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive, such as your master hard disk, and then you're gonna have a bad time. Double check everything!
 
 Also, choose the right file location for your .img file in the input file field (if=...).
-`sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2`
+`sudo dd bs=1m if=~/Downloads/resin-myFleet-0.1.0-0.0.4.img of=/dev/rdisk2`
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
@@ -123,7 +123,7 @@ Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn 
 
 Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your .img file. It mentions the Raspberry Pi, but you can ignore that, it doesn't make any difference.
 
-Locate the .img file in your Downloads folder. It should be named something like `resin-myApp-0.1.0-0.0.14.img`, now click "choose".
+Locate the .img file in your Downloads folder. It should be named something like `resin-myFleet-0.1.0-0.0.14.img`, now click "choose".
 
 You can now insert your microSD card into your host machine and click continue. PiFiller will look for your SD card and tell you when it finds it.
 
@@ -135,7 +135,7 @@ Click continue and piFiller will write the SD card. This can take 5-25 minutes d
 
 To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
-Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your hummingBoard image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.14.img`.
+Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your hummingBoard image from the Downloads folder. It should be the extracted version and named something like this `resin-myFleet-0.1.0-0.0.14.img`.
 
 Next insert your SD card into your computer and in the Win32DiskImager GUI, select your SD card when it appears.
 

@@ -17,10 +17,12 @@ This guide will walk you through getting a [Parallella][parallella-link] board h
 * Some awesome ideas to hack on! If you need inspiration, check out our
   [projects][projects] page.
 
+<!-- ========================== Generic ALL devices =================================   -->
+
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with your Raspberry Pi, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted-Parallella.md#creating-your-first-application).
+If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted-Parallella.md#creating-your-first-application).
 
 ## Signing Up
 
@@ -30,45 +32,58 @@ restrictions:
 * The username can only contain letters and numbers.
 * The password has to be at least 8 characters long.
 
-## SSH Key
+<img src="/img/common/sign_up_flow/sign_up_cropped.png" class="shadow" width="80%">
 
-![Add SSH Key](/img/screenshots/add_ssh_key.png)
+## SSH Key
 
 SSH keys use the power of [public-key cryptography][pub_key_crypto] to secure
 your connection when sending your code to us. In order to secure your [git][git]
 connection, we need your __public__ [SSH Key][ssh_key] (you must never share
 your *private* key with anyone.)
 
+Simply paste your public key into the box provided on the UI and click `save`. Alternatively you can import your key from [Github][github]. If you don't have an ssh key or have never used one, we recommend you take a look at [Github][github]'s [excellent documentation][github_ssh] on the subject and how to generate a key pair for your platform.
+
+<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" class="shadow" width="80%">
+
 Once generated, SSH keys are easy to use. In fact you generally don't have to
 think about it at all. Once you're set up just `git push` your code to us and
-it's taken care of automatically.
+it's taken care of automatically and securely.
 
-In order to generate a key pair for your platform we recommend you take a look
-at [Github][github]'s [excellent documentation][github_ssh] on the subject.
+If you don't have your ssh key setup yet, but want to explore resin.io, just click `skip`. Note that you will not be able to push code to your devices until you have an ssh key saved. This can be done at anytime from the `Preferences` page on the dashboard.
 
-### Import From GitHub
+### Import SSH key From GitHub
 
 For convenience we provide the ability to import your public SSH key from
 [GitHub][github] - just click on the Octocat icon in the bottom right-hand
 corner ([we use][github_ssh_blogpost] GitHub's [public APIs][github_apis] to
 retrieve this data.)
 
+You will then have to enter your github username:
+
+<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" class="shadow" width="60%">
+
+
 ## Creating Your First Application
 
-The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices are the actual hardware itself.
+The two key components you will interact with in resin.io are *applications* and
+*devices* - applications represent the code you want to run on your devices, and
+devices are the actual hardware itself.
 
 You can have as many devices connected to an application as you like - when you
-push code it deploys to every device that application owns.
+push code, resin.io deploys to every device that is part of that application.
 
-To create your first application simply type in a name, select Parallella as your device type and click the create button. You should now be taken to the dashboard of your newly created application:
+To create your first application simply type in a name, select as your device type and click the create button. You should now be taken to the dashboard of your newly created application:
 
-![Creating an Application](/img/screenshots/create-app.png)
+<img src="/img/common/main_dashboard/select_fleet_type.png" class="shadow" width="80%">
+
+<!-- ========================== end section =================================   -->
 
 ## Adding Your First Device
 
-![Empty Application Page](/img/parallella/image-download-parallella.png)
 This is the application dashboard where all of the devices connected to your
-application will be shown along with their statuses and logs.
+application will be shown, along with their statuses and logs.
+
+<img src="/img/common/app/app_dashboard_empty.png" class="shadow" width="80%">
 
 Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify some configuration information for your parallella.
 
@@ -80,7 +95,7 @@ Once you have selected your board configuration, click the `Download Device OS` 
 While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
-Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.14.img` where **myApp** is the name you gave your application on the dashboard.
+Once the download is finished you should have a `.img` file with a name like `resin-myFleet-0.1.0-0.0.14.img` where **myFleet** is the name you gave your application on the dashboard.
 
 Now we have to burn the downloaded `.img` file onto the SD card. There are a number of ways of doing this depending on your host operating system. We have listed a few below:
 
@@ -105,11 +120,11 @@ Now you'll want to execute the command that actually copies the image onto the S
 > You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive (such as your master hard disk) and then you're gonna have a bad time. Double check everything!
 
 Also, choose the right file location for your `.img` file in the input file field (if=...).
-`sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.14.img of=/dev/rdisk2`
+`sudo dd bs=1m if=~/Downloads/resin-myFleet-0.1.0-0.0.14.img of=/dev/rdisk2`
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the above command, with the corresponding device name. If your device name is "/dev/mmcblk0p1", use "/dev/mmcblk0". If it's "/dev/sdb1", use "/dev/sdb". The idea is to use the device name for the whole SD card and not just a partition. If you're not sure, use `ls /dev` before and after inserting the card and note the difference.
 
-__NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myApp-0.1.0-0.0.14.img of=/dev/rdisk2` (uppercase M)
+__NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myFleet-0.1.0-0.0.14.img of=/dev/rdisk2` (uppercase M)
 
 This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Parallella.md#setting-up-your-device)
 
@@ -119,7 +134,7 @@ Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn 
 
 Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your `.img` file.
 
-Locate your Parallella `.img` file in your Downloads folder. It should be named something like `resin-myApp-0.1.0-0.0.14.img`. Now click "choose".
+Locate your Parallella `.img` file in your Downloads folder. It should be named something like `resin-myFleet-0.1.0-0.0.14.img`. Now click "choose".
 
 You can now insert your microSD card into your host machine and click continue. PiFiller will look for your SD card and tell you when it finds it.
 
@@ -131,7 +146,7 @@ Click continue and piFiller will write to the SD card. This can take 5-25 minute
 
 To burn OS images to SD cards on Windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
-Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your beaglebone image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.14.img`.
+Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your beaglebone image from the Downloads folder. It should be the extracted version and named something like this `resin-myFleet-0.1.0-0.0.14.img`.
 
 Next insert your SD card into your host computer and in the Win32DiskImager GUI, select your SD card when it appears.
 

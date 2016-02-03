@@ -83,7 +83,7 @@ __Note__: It is not possible to provision an Edison without adding your wifi cre
 
 <img src="/img/common/network/network_selection_wifi_cropped.png" class="shadow" width="60%">
 
-Once the download completes, you should have a `.zip` file in your downloads folder with a name that looks something like this: `resin-myEdisonApp-0.1.0-0.0.14.zip`. Use an unzipping utility like [7-zip](http://www.7-zip.org/) to extract the download to a folder.
+Once the download completes, you should have a `.zip` file in your downloads folder with a name that looks something like this: `resin-myFleet-0.1.0-0.0.14.zip`. Use an unzipping utility like [7-zip](http://www.7-zip.org/) to extract the download to a folder.
 
 ### Burn the Resin OS onto the Edison
 
@@ -106,7 +106,7 @@ __Warning:__ There is a known issue with the flash tool and OSX 10.11 - El Capti
 
 __Note:__ Before you start this step, ensure that your Edison is not plugged into your Computer.
 
-On your computer open the newly installed [Flash Tool Lite][flash-tool-link]. Select the blue browse button in the top right hand corner and browse to the folder where you had previously extracted the resin OS. This folder should be called something like `resin-myEdisonApp-0.1.0-0.0.14`. In this folder you should be able to find and select a file called `FlashEdison.json`.
+On your computer open the newly installed [Flash Tool Lite][flash-tool-link]. Select the blue browse button in the top right hand corner and browse to the folder where you had previously extracted the resin OS. This folder should be called something like `resin-myFleet-0.1.0-0.0.14`. In this folder you should be able to find and select a file called `FlashEdison.json`.
 
 ![browse to resin OS folder](/img/edison/browse-select-flash-tool.png)
 
@@ -223,7 +223,7 @@ Simply install using apt-get:
 ##### Using Mac OSX
 
 Extract the `.zip` and from your terminal cd into the into the newly extracted folder
-`cd resin-myEdisonApp-0.1.0-0.0.9`
+`cd resin-myFleet-0.1.0-0.0.9`
 Run the flashall script.
 `sudo ./flashall.sh`
 You should see an output like this:
@@ -262,7 +262,7 @@ U-boot & Kernel System Flash Success...
 
 **Before starting the flashing process, make sure you unplug the Edison from your computer.**
 
-Unzip the `resin-myEdisonApp-0.1.0-0.0.9.zip` file that you downloaded and open the folder. In the folder, find the `flashall.bat` file and double-click it.
+Unzip the `resin-myFleet-0.1.0-0.0.9.zip` file that you downloaded and open the folder. In the folder, find the `flashall.bat` file and double-click it.
 
 __Note__: You need administrative privileges to successfully execute `flashall.bat`.
 
@@ -304,7 +304,7 @@ U-boot & Kernel System Flash Success...
 **Before starting the flashing process, make sure you unplug the Edison from your computer.**
 
 Extract the previously downloaded `.zip` file , open a terminal and cd into the newly created folder.
-`cd resin-myEdisonApp-0.1.0-0.0.9`
+`cd resin-myFleet-0.1.0-0.0.9`
 From there execute the flashall script buy running
 `sudo ./flashall.sh`
 You should now see the following output in your terminal:
