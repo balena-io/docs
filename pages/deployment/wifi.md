@@ -119,7 +119,7 @@ cable plugged in, then booting again with just WiFi.
 
 If neither of these approaches work, drop us a line at support@resin.io !
 
-[custom-network]:/pages/configuration/custom-network.md
+
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
 [adafruit]:http://www.adafruit.com/products/814
