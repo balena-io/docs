@@ -83,7 +83,7 @@ __Warning:__ Each Raspberry Pi model has its own device type, since they use sli
 ## Adding Your First Device
 
 This is the application dashboard where all of the devices connected to your
-application will be shown along with their statuses and logs.
+application will be shown, along with their statuses and logs.
 
 <img src="/img/common/app/app_dashboard_empty.png" class="shadow" width="80%">
 
