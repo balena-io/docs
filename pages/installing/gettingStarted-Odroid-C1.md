@@ -19,7 +19,7 @@ __Note:__ The C1 can boot from both uSD and [eMMC][odroid-emmc], however current
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted.md#creating-your-first-application).
+If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted-Odroid-C1.md#creating-your-first-application).
 
 ## Signing Up
 
