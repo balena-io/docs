@@ -8,94 +8,162 @@ If you feel something is missing, not clear or could be improved, please don't h
 **Kind**: global namespace  
 
 * [resin](#resin) : <code>object</code>
-  * [.models](#resin.models) : <code>object</code>
-    * [.application](#resin.models.application) : <code>object</code>
-      * [.getAll()](#resin.models.application.getAll) ⇒ <code>Promise</code>
-      * [.get(name)](#resin.models.application.get) ⇒ <code>Promise</code>
-      * [.has(name)](#resin.models.application.has) ⇒ <code>Promise</code>
-      * [.hasAny()](#resin.models.application.hasAny) ⇒ <code>Promise</code>
-      * [.getById(id)](#resin.models.application.getById) ⇒ <code>Promise</code>
-      * [.create(name, deviceType)](#resin.models.application.create) ⇒ <code>Promise</code>
-      * [.remove(name)](#resin.models.application.remove) ⇒ <code>Promise</code>
-      * [.restart(name)](#resin.models.application.restart) ⇒ <code>Promise</code>
-      * [.getApiKey(name)](#resin.models.application.getApiKey) ⇒ <code>Promise</code>
-    * [.device](#resin.models.device) : <code>object</code>
-      * [.getAll()](#resin.models.device.getAll) ⇒ <code>Promise</code>
-      * [.getAllByApplication(name)](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
-      * [.get(uuid)](#resin.models.device.get) ⇒ <code>Promise</code>
-      * [.getByName(name)](#resin.models.device.getByName) ⇒ <code>Promise</code>
-      * [.getName(uuid)](#resin.models.device.getName) ⇒ <code>Promise</code>
-      * [.getApplicationName(uuid)](#resin.models.device.getApplicationName) ⇒ <code>Promise</code>
-      * [.has(uuid)](#resin.models.device.has) ⇒ <code>Promise</code>
-      * [.isOnline(uuid)](#resin.models.device.isOnline) ⇒ <code>Promise</code>
-      * [.getLocalIPAddresses(uuid)](#resin.models.device.getLocalIPAddresses) ⇒ <code>Promise</code>
-      * [.remove(uuid)](#resin.models.device.remove) ⇒ <code>Promise</code>
-      * [.identify(uuid)](#resin.models.device.identify) ⇒ <code>Promise</code>
-      * [.rename(uuid, newName)](#resin.models.device.rename) ⇒ <code>Promise</code>
-      * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
-      * [.move(uuid, application)](#resin.models.device.move) ⇒ <code>Promise</code>
-      * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
-      * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
-      * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
-      * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
-      * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
-      * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
-      * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
-      * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
-      * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
-      * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
-      * [.enableDeviceUrl(uuid)](#resin.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
-      * [.disableDeviceUrl(uuid)](#resin.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
-    * [.key](#resin.models.key) : <code>object</code>
-      * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
-      * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
-      * [.remove(id)](#resin.models.key.remove) ⇒ <code>Promise</code>
-      * [.create(title, key)](#resin.models.key.create) ⇒ <code>Promise</code>
-    * [.environment-variables](#resin.models.environment-variables) : <code>object</code>
-      * [.device](#resin.models.environment-variables.device) : <code>object</code>
-        * [.getAll(uuid)](#resin.models.environment-variables.device.getAll) ⇒ <code>Promise</code>
-        * [.create(uuid, name, value)](#resin.models.environment-variables.device.create) ⇒ <code>Promise</code>
-        * [.update(id, value)](#resin.models.environment-variables.device.update) ⇒ <code>Promise</code>
-        * [.remove(id)](#resin.models.environment-variables.device.remove) ⇒ <code>Promise</code>
-      * [.getAll(applicationName)](#resin.models.environment-variables.getAll) ⇒ <code>Promise</code>
-      * [.create(applicationName, name, value)](#resin.models.environment-variables.create) ⇒ <code>Promise</code>
-      * [.update(id, value)](#resin.models.environment-variables.update) ⇒ <code>Promise</code>
-      * [.remove(id)](#resin.models.environment-variables.remove) ⇒ <code>Promise</code>
-      * [.isSystemVariable(variable)](#resin.models.environment-variables.isSystemVariable) ⇒ <code>Boolean</code>
-    * [.os](#resin.models.os) : <code>object</code>
-      * [.download(parameters)](#resin.models.os.download) ⇒ <code>Promise</code>
-    * [.config](#resin.models.config) : <code>object</code>
-      * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
-      * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
-      * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
-  * [.auth](#resin.auth) : <code>object</code>
-    * [.twoFactor](#resin.auth.twoFactor) : <code>object</code>
-      * [.isEnabled()](#resin.auth.twoFactor.isEnabled) ⇒ <code>Promise</code>
-      * [.isPassed()](#resin.auth.twoFactor.isPassed) ⇒ <code>Promise</code>
-      * [.challenge(code)](#resin.auth.twoFactor.challenge) ⇒ <code>Promise</code>
-    * [.whoami()](#resin.auth.whoami) ⇒ <code>Promise</code>
-    * [.authenticate(credentials)](#resin.auth.authenticate) ⇒ <code>Promise</code>
-    * [.login(credentials)](#resin.auth.login) ⇒ <code>Promise</code>
-    * [.loginWithToken(token)](#resin.auth.loginWithToken) ⇒ <code>Promise</code>
-    * [.isLoggedIn()](#resin.auth.isLoggedIn) ⇒ <code>Promise</code>
-    * [.getToken()](#resin.auth.getToken) ⇒ <code>Promise</code>
-    * [.getUserId()](#resin.auth.getUserId) ⇒ <code>Promise</code>
-    * [.getEmail()](#resin.auth.getEmail) ⇒ <code>Promise</code>
-    * [.logout()](#resin.auth.logout) ⇒ <code>Promise</code>
-    * [.register([credentials])](#resin.auth.register) ⇒ <code>Promise</code>
-  * [.logs](#resin.logs) : <code>object</code>
-    * [.subscribe(uuid)](#resin.logs.subscribe) ⇒ <code>Promise</code>
-    * [.history(uuid)](#resin.logs.history) ⇒ <code>Promise</code>
-  * [.settings](#resin.settings) : <code>object</code>
-    * [.get([key])](#resin.settings.get) ⇒ <code>Promise</code>
-    * [.getAll()](#resin.settings.getAll) ⇒ <code>Promise</code>
+    * [.models](#resin.models) : <code>object</code>
+        * [.application](#resin.models.application) : <code>object</code>
+            * [.getAll()](#resin.models.application.getAll) ⇒ <code>Promise</code>
+            * [.get(name)](#resin.models.application.get) ⇒ <code>Promise</code>
+            * [.has(name)](#resin.models.application.has) ⇒ <code>Promise</code>
+            * [.hasAny()](#resin.models.application.hasAny) ⇒ <code>Promise</code>
+            * [.getById(id)](#resin.models.application.getById) ⇒ <code>Promise</code>
+            * [.create(name, deviceType)](#resin.models.application.create) ⇒ <code>Promise</code>
+            * [.remove(name)](#resin.models.application.remove) ⇒ <code>Promise</code>
+            * [.restart(name)](#resin.models.application.restart) ⇒ <code>Promise</code>
+            * [.getApiKey(name)](#resin.models.application.getApiKey) ⇒ <code>Promise</code>
+        * [.device](#resin.models.device) : <code>object</code>
+            * [.getAll()](#resin.models.device.getAll) ⇒ <code>Promise</code>
+            * [.getAllByApplication(name)](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
+            * [.get(uuid)](#resin.models.device.get) ⇒ <code>Promise</code>
+            * [.getByName(name)](#resin.models.device.getByName) ⇒ <code>Promise</code>
+            * [.getName(uuid)](#resin.models.device.getName) ⇒ <code>Promise</code>
+            * [.getApplicationName(uuid)](#resin.models.device.getApplicationName) ⇒ <code>Promise</code>
+            * [.has(uuid)](#resin.models.device.has) ⇒ <code>Promise</code>
+            * [.isOnline(uuid)](#resin.models.device.isOnline) ⇒ <code>Promise</code>
+            * [.getLocalIPAddresses(uuid)](#resin.models.device.getLocalIPAddresses) ⇒ <code>Promise</code>
+            * [.remove(uuid)](#resin.models.device.remove) ⇒ <code>Promise</code>
+            * [.identify(uuid)](#resin.models.device.identify) ⇒ <code>Promise</code>
+            * [.rename(uuid, newName)](#resin.models.device.rename) ⇒ <code>Promise</code>
+            * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
+            * [.move(uuid, application)](#resin.models.device.move) ⇒ <code>Promise</code>
+            * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
+            * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
+            * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
+            * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
+            * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
+            * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
+            * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
+            * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
+            * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
+            * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
+            * [.enableDeviceUrl(uuid)](#resin.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
+            * [.disableDeviceUrl(uuid)](#resin.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
+            * [.getStatus(uuid)](#resin.models.device.getStatus) ⇒ <code>Promise</code>
+        * [.key](#resin.models.key) : <code>object</code>
+            * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
+            * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
+            * [.remove(id)](#resin.models.key.remove) ⇒ <code>Promise</code>
+            * [.create(title, key)](#resin.models.key.create) ⇒ <code>Promise</code>
+        * [.environment-variables](#resin.models.environment-variables) : <code>object</code>
+            * [.device](#resin.models.environment-variables.device) : <code>object</code>
+                * [.getAll(uuid)](#resin.models.environment-variables.device.getAll) ⇒ <code>Promise</code>
+                * [.create(uuid, name, value)](#resin.models.environment-variables.device.create) ⇒ <code>Promise</code>
+                * [.update(id, value)](#resin.models.environment-variables.device.update) ⇒ <code>Promise</code>
+                * [.remove(id)](#resin.models.environment-variables.device.remove) ⇒ <code>Promise</code>
+            * [.getAll(applicationName)](#resin.models.environment-variables.getAll) ⇒ <code>Promise</code>
+            * [.create(applicationName, name, value)](#resin.models.environment-variables.create) ⇒ <code>Promise</code>
+            * [.update(id, value)](#resin.models.environment-variables.update) ⇒ <code>Promise</code>
+            * [.remove(id)](#resin.models.environment-variables.remove) ⇒ <code>Promise</code>
+            * [.isSystemVariable(variable)](#resin.models.environment-variables.isSystemVariable) ⇒ <code>Boolean</code>
+        * [.os](#resin.models.os) : <code>object</code>
+            * [.getLastModified(deviceType)](#resin.models.os.getLastModified) ⇒ <code>Promise</code>
+            * [.download(deviceType)](#resin.models.os.download) ⇒ <code>Promise</code>
+        * [.config](#resin.models.config) : <code>object</code>
+            * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
+            * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
+            * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
+    * [.auth](#resin.auth) : <code>object</code>
+        * [.twoFactor](#resin.auth.twoFactor) : <code>object</code>
+            * [.isEnabled()](#resin.auth.twoFactor.isEnabled) ⇒ <code>Promise</code>
+            * [.isPassed()](#resin.auth.twoFactor.isPassed) ⇒ <code>Promise</code>
+            * [.challenge(code)](#resin.auth.twoFactor.challenge) ⇒ <code>Promise</code>
+        * [.whoami()](#resin.auth.whoami) ⇒ <code>Promise</code>
+        * [.authenticate(credentials)](#resin.auth.authenticate) ⇒ <code>Promise</code>
+        * [.login(credentials)](#resin.auth.login) ⇒ <code>Promise</code>
+        * [.loginWithToken(token)](#resin.auth.loginWithToken) ⇒ <code>Promise</code>
+        * [.isLoggedIn()](#resin.auth.isLoggedIn) ⇒ <code>Promise</code>
+        * [.getToken()](#resin.auth.getToken) ⇒ <code>Promise</code>
+        * [.getUserId()](#resin.auth.getUserId) ⇒ <code>Promise</code>
+        * [.getEmail()](#resin.auth.getEmail) ⇒ <code>Promise</code>
+        * [.logout()](#resin.auth.logout) ⇒ <code>Promise</code>
+        * [.register([credentials])](#resin.auth.register) ⇒ <code>Promise</code>
+    * [.logs](#resin.logs) : <code>object</code>
+        * [.subscribe(uuid)](#resin.logs.subscribe) ⇒ <code>Promise</code>
+        * [.history(uuid)](#resin.logs.history) ⇒ <code>Promise</code>
+    * [.settings](#resin.settings) : <code>object</code>
+        * [.get([key])](#resin.settings.get) ⇒ <code>Promise</code>
+        * [.getAll()](#resin.settings.getAll) ⇒ <code>Promise</code>
 
 <a name="resin.models"></a>
 ### resin.models : <code>object</code>
 **Kind**: static namespace of <code>[resin](#resin)</code>  
 
 * [.models](#resin.models) : <code>object</code>
-  * [.application](#resin.models.application) : <code>object</code>
+    * [.application](#resin.models.application) : <code>object</code>
+        * [.getAll()](#resin.models.application.getAll) ⇒ <code>Promise</code>
+        * [.get(name)](#resin.models.application.get) ⇒ <code>Promise</code>
+        * [.has(name)](#resin.models.application.has) ⇒ <code>Promise</code>
+        * [.hasAny()](#resin.models.application.hasAny) ⇒ <code>Promise</code>
+        * [.getById(id)](#resin.models.application.getById) ⇒ <code>Promise</code>
+        * [.create(name, deviceType)](#resin.models.application.create) ⇒ <code>Promise</code>
+        * [.remove(name)](#resin.models.application.remove) ⇒ <code>Promise</code>
+        * [.restart(name)](#resin.models.application.restart) ⇒ <code>Promise</code>
+        * [.getApiKey(name)](#resin.models.application.getApiKey) ⇒ <code>Promise</code>
+    * [.device](#resin.models.device) : <code>object</code>
+        * [.getAll()](#resin.models.device.getAll) ⇒ <code>Promise</code>
+        * [.getAllByApplication(name)](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
+        * [.get(uuid)](#resin.models.device.get) ⇒ <code>Promise</code>
+        * [.getByName(name)](#resin.models.device.getByName) ⇒ <code>Promise</code>
+        * [.getName(uuid)](#resin.models.device.getName) ⇒ <code>Promise</code>
+        * [.getApplicationName(uuid)](#resin.models.device.getApplicationName) ⇒ <code>Promise</code>
+        * [.has(uuid)](#resin.models.device.has) ⇒ <code>Promise</code>
+        * [.isOnline(uuid)](#resin.models.device.isOnline) ⇒ <code>Promise</code>
+        * [.getLocalIPAddresses(uuid)](#resin.models.device.getLocalIPAddresses) ⇒ <code>Promise</code>
+        * [.remove(uuid)](#resin.models.device.remove) ⇒ <code>Promise</code>
+        * [.identify(uuid)](#resin.models.device.identify) ⇒ <code>Promise</code>
+        * [.rename(uuid, newName)](#resin.models.device.rename) ⇒ <code>Promise</code>
+        * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
+        * [.move(uuid, application)](#resin.models.device.move) ⇒ <code>Promise</code>
+        * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
+        * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
+        * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
+        * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
+        * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
+        * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
+        * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
+        * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
+        * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
+        * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
+        * [.enableDeviceUrl(uuid)](#resin.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
+        * [.disableDeviceUrl(uuid)](#resin.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
+        * [.getStatus(uuid)](#resin.models.device.getStatus) ⇒ <code>Promise</code>
+    * [.key](#resin.models.key) : <code>object</code>
+        * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
+        * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
+        * [.remove(id)](#resin.models.key.remove) ⇒ <code>Promise</code>
+        * [.create(title, key)](#resin.models.key.create) ⇒ <code>Promise</code>
+    * [.environment-variables](#resin.models.environment-variables) : <code>object</code>
+        * [.device](#resin.models.environment-variables.device) : <code>object</code>
+            * [.getAll(uuid)](#resin.models.environment-variables.device.getAll) ⇒ <code>Promise</code>
+            * [.create(uuid, name, value)](#resin.models.environment-variables.device.create) ⇒ <code>Promise</code>
+            * [.update(id, value)](#resin.models.environment-variables.device.update) ⇒ <code>Promise</code>
+            * [.remove(id)](#resin.models.environment-variables.device.remove) ⇒ <code>Promise</code>
+        * [.getAll(applicationName)](#resin.models.environment-variables.getAll) ⇒ <code>Promise</code>
+        * [.create(applicationName, name, value)](#resin.models.environment-variables.create) ⇒ <code>Promise</code>
+        * [.update(id, value)](#resin.models.environment-variables.update) ⇒ <code>Promise</code>
+        * [.remove(id)](#resin.models.environment-variables.remove) ⇒ <code>Promise</code>
+        * [.isSystemVariable(variable)](#resin.models.environment-variables.isSystemVariable) ⇒ <code>Boolean</code>
+    * [.os](#resin.models.os) : <code>object</code>
+        * [.getLastModified(deviceType)](#resin.models.os.getLastModified) ⇒ <code>Promise</code>
+        * [.download(deviceType)](#resin.models.os.download) ⇒ <code>Promise</code>
+    * [.config](#resin.models.config) : <code>object</code>
+        * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
+        * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
+        * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
+
+<a name="resin.models.application"></a>
+#### models.application : <code>object</code>
+**Kind**: static namespace of <code>[models](#resin.models)</code>  
+
+* [.application](#resin.models.application) : <code>object</code>
     * [.getAll()](#resin.models.application.getAll) ⇒ <code>Promise</code>
     * [.get(name)](#resin.models.application.get) ⇒ <code>Promise</code>
     * [.has(name)](#resin.models.application.has) ⇒ <code>Promise</code>
@@ -105,70 +173,6 @@ If you feel something is missing, not clear or could be improved, please don't h
     * [.remove(name)](#resin.models.application.remove) ⇒ <code>Promise</code>
     * [.restart(name)](#resin.models.application.restart) ⇒ <code>Promise</code>
     * [.getApiKey(name)](#resin.models.application.getApiKey) ⇒ <code>Promise</code>
-  * [.device](#resin.models.device) : <code>object</code>
-    * [.getAll()](#resin.models.device.getAll) ⇒ <code>Promise</code>
-    * [.getAllByApplication(name)](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
-    * [.get(uuid)](#resin.models.device.get) ⇒ <code>Promise</code>
-    * [.getByName(name)](#resin.models.device.getByName) ⇒ <code>Promise</code>
-    * [.getName(uuid)](#resin.models.device.getName) ⇒ <code>Promise</code>
-    * [.getApplicationName(uuid)](#resin.models.device.getApplicationName) ⇒ <code>Promise</code>
-    * [.has(uuid)](#resin.models.device.has) ⇒ <code>Promise</code>
-    * [.isOnline(uuid)](#resin.models.device.isOnline) ⇒ <code>Promise</code>
-    * [.getLocalIPAddresses(uuid)](#resin.models.device.getLocalIPAddresses) ⇒ <code>Promise</code>
-    * [.remove(uuid)](#resin.models.device.remove) ⇒ <code>Promise</code>
-    * [.identify(uuid)](#resin.models.device.identify) ⇒ <code>Promise</code>
-    * [.rename(uuid, newName)](#resin.models.device.rename) ⇒ <code>Promise</code>
-    * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
-    * [.move(uuid, application)](#resin.models.device.move) ⇒ <code>Promise</code>
-    * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
-    * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
-    * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
-    * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
-    * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
-    * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
-    * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
-    * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
-    * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
-    * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
-    * [.enableDeviceUrl(uuid)](#resin.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
-    * [.disableDeviceUrl(uuid)](#resin.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
-  * [.key](#resin.models.key) : <code>object</code>
-    * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
-    * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
-    * [.remove(id)](#resin.models.key.remove) ⇒ <code>Promise</code>
-    * [.create(title, key)](#resin.models.key.create) ⇒ <code>Promise</code>
-  * [.environment-variables](#resin.models.environment-variables) : <code>object</code>
-    * [.device](#resin.models.environment-variables.device) : <code>object</code>
-      * [.getAll(uuid)](#resin.models.environment-variables.device.getAll) ⇒ <code>Promise</code>
-      * [.create(uuid, name, value)](#resin.models.environment-variables.device.create) ⇒ <code>Promise</code>
-      * [.update(id, value)](#resin.models.environment-variables.device.update) ⇒ <code>Promise</code>
-      * [.remove(id)](#resin.models.environment-variables.device.remove) ⇒ <code>Promise</code>
-    * [.getAll(applicationName)](#resin.models.environment-variables.getAll) ⇒ <code>Promise</code>
-    * [.create(applicationName, name, value)](#resin.models.environment-variables.create) ⇒ <code>Promise</code>
-    * [.update(id, value)](#resin.models.environment-variables.update) ⇒ <code>Promise</code>
-    * [.remove(id)](#resin.models.environment-variables.remove) ⇒ <code>Promise</code>
-    * [.isSystemVariable(variable)](#resin.models.environment-variables.isSystemVariable) ⇒ <code>Boolean</code>
-  * [.os](#resin.models.os) : <code>object</code>
-    * [.download(parameters)](#resin.models.os.download) ⇒ <code>Promise</code>
-  * [.config](#resin.models.config) : <code>object</code>
-    * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
-    * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
-    * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
-
-<a name="resin.models.application"></a>
-#### models.application : <code>object</code>
-**Kind**: static namespace of <code>[models](#resin.models)</code>  
-
-* [.application](#resin.models.application) : <code>object</code>
-  * [.getAll()](#resin.models.application.getAll) ⇒ <code>Promise</code>
-  * [.get(name)](#resin.models.application.get) ⇒ <code>Promise</code>
-  * [.has(name)](#resin.models.application.has) ⇒ <code>Promise</code>
-  * [.hasAny()](#resin.models.application.hasAny) ⇒ <code>Promise</code>
-  * [.getById(id)](#resin.models.application.getById) ⇒ <code>Promise</code>
-  * [.create(name, deviceType)](#resin.models.application.create) ⇒ <code>Promise</code>
-  * [.remove(name)](#resin.models.application.remove) ⇒ <code>Promise</code>
-  * [.restart(name)](#resin.models.application.restart) ⇒ <code>Promise</code>
-  * [.getApiKey(name)](#resin.models.application.getApiKey) ⇒ <code>Promise</code>
 
 <a name="resin.models.application.getAll"></a>
 ##### application.getAll() ⇒ <code>Promise</code>
@@ -285,7 +289,7 @@ resin.models.application.getById(89, function(error, application) {
 **Kind**: static method of <code>[application](#resin.models.application)</code>  
 **Summary**: Create an application  
 **Access:** public  
-**Fulfil**: <code>Number</code> - application id  
+**Fulfil**: <code>Object</code> - application  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -294,15 +298,15 @@ resin.models.application.getById(89, function(error, application) {
 
 **Example**  
 ```js
-resin.models.application.create('My App', 'raspberry-pi').then(function(id) {
-	console.log(id);
+resin.models.application.create('My App', 'raspberry-pi').then(function(application) {
+	console.log(application);
 });
 ```
 **Example**  
 ```js
-resin.models.application.create('My App', 'raspberry-pi', function(error, id) {
+resin.models.application.create('My App', 'raspberry-pi', function(error, application) {
 	if (error) throw error;
-	console.log(id);
+	console.log(application);
 });
 ```
 <a name="resin.models.application.remove"></a>
@@ -374,32 +378,33 @@ resin.models.application.getApiKey('MyApp', function(error, apiKey) {
 **Kind**: static namespace of <code>[models](#resin.models)</code>  
 
 * [.device](#resin.models.device) : <code>object</code>
-  * [.getAll()](#resin.models.device.getAll) ⇒ <code>Promise</code>
-  * [.getAllByApplication(name)](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
-  * [.get(uuid)](#resin.models.device.get) ⇒ <code>Promise</code>
-  * [.getByName(name)](#resin.models.device.getByName) ⇒ <code>Promise</code>
-  * [.getName(uuid)](#resin.models.device.getName) ⇒ <code>Promise</code>
-  * [.getApplicationName(uuid)](#resin.models.device.getApplicationName) ⇒ <code>Promise</code>
-  * [.has(uuid)](#resin.models.device.has) ⇒ <code>Promise</code>
-  * [.isOnline(uuid)](#resin.models.device.isOnline) ⇒ <code>Promise</code>
-  * [.getLocalIPAddresses(uuid)](#resin.models.device.getLocalIPAddresses) ⇒ <code>Promise</code>
-  * [.remove(uuid)](#resin.models.device.remove) ⇒ <code>Promise</code>
-  * [.identify(uuid)](#resin.models.device.identify) ⇒ <code>Promise</code>
-  * [.rename(uuid, newName)](#resin.models.device.rename) ⇒ <code>Promise</code>
-  * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
-  * [.move(uuid, application)](#resin.models.device.move) ⇒ <code>Promise</code>
-  * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
-  * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
-  * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
-  * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
-  * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
-  * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
-  * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
-  * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
-  * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
-  * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
-  * [.enableDeviceUrl(uuid)](#resin.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
-  * [.disableDeviceUrl(uuid)](#resin.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
+    * [.getAll()](#resin.models.device.getAll) ⇒ <code>Promise</code>
+    * [.getAllByApplication(name)](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
+    * [.get(uuid)](#resin.models.device.get) ⇒ <code>Promise</code>
+    * [.getByName(name)](#resin.models.device.getByName) ⇒ <code>Promise</code>
+    * [.getName(uuid)](#resin.models.device.getName) ⇒ <code>Promise</code>
+    * [.getApplicationName(uuid)](#resin.models.device.getApplicationName) ⇒ <code>Promise</code>
+    * [.has(uuid)](#resin.models.device.has) ⇒ <code>Promise</code>
+    * [.isOnline(uuid)](#resin.models.device.isOnline) ⇒ <code>Promise</code>
+    * [.getLocalIPAddresses(uuid)](#resin.models.device.getLocalIPAddresses) ⇒ <code>Promise</code>
+    * [.remove(uuid)](#resin.models.device.remove) ⇒ <code>Promise</code>
+    * [.identify(uuid)](#resin.models.device.identify) ⇒ <code>Promise</code>
+    * [.rename(uuid, newName)](#resin.models.device.rename) ⇒ <code>Promise</code>
+    * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
+    * [.move(uuid, application)](#resin.models.device.move) ⇒ <code>Promise</code>
+    * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
+    * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
+    * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
+    * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
+    * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
+    * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
+    * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
+    * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
+    * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
+    * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
+    * [.enableDeviceUrl(uuid)](#resin.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
+    * [.disableDeviceUrl(uuid)](#resin.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
+    * [.getStatus(uuid)](#resin.models.device.getStatus) ⇒ <code>Promise</code>
 
 <a name="resin.models.device.getAll"></a>
 ##### device.getAll() ⇒ <code>Promise</code>
@@ -457,13 +462,13 @@ resin.models.device.getAllByApplication('MyApp', function(error, devices) {
 
 **Example**  
 ```js
-resin.models.device.get('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(device) {
+resin.models.device.get('7cf02a6').then(function(device) {
 	console.log(device);
 })
 ```
 **Example**  
 ```js
-resin.models.device.get('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, device) {
+resin.models.device.get('7cf02a6', function(error, device) {
 	if (error) throw error;
 	console.log(device);
 });
@@ -505,13 +510,13 @@ resin.models.device.getByName('MyDevice', function(error, devices) {
 
 **Example**  
 ```js
-resin.models.device.getName('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(deviceName) {
+resin.models.device.getName('7cf02a6').then(function(deviceName) {
 	console.log(deviceName);
 });
 ```
 **Example**  
 ```js
-resin.models.device.getName('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, deviceName) {
+resin.models.device.getName('7cf02a6', function(error, deviceName) {
 	if (error) throw error;
 	console.log(deviceName);
 });
@@ -529,13 +534,13 @@ resin.models.device.getName('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc
 
 **Example**  
 ```js
-resin.models.device.getApplicationName('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(applicationName) {
+resin.models.device.getApplicationName('7cf02a6').then(function(applicationName) {
 	console.log(applicationName);
 });
 ```
 **Example**  
 ```js
-resin.models.device.getApplicationName('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, applicationName) {
+resin.models.device.getApplicationName('7cf02a6', function(error, applicationName) {
 	if (error) throw error;
 	console.log(applicationName);
 });
@@ -553,13 +558,13 @@ resin.models.device.getApplicationName('7cf02a62a3a84440b1bb5579a3d5746914894327
 
 **Example**  
 ```js
-resin.models.device.has('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(hasDevice) {
+resin.models.device.has('7cf02a6').then(function(hasDevice) {
 	console.log(hasDevice);
 });
 ```
 **Example**  
 ```js
-resin.models.device.has('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, hasDevice) {
+resin.models.device.has('7cf02a6', function(error, hasDevice) {
 	if (error) throw error;
 	console.log(hasDevice);
 });
@@ -577,13 +582,13 @@ resin.models.device.has('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f
 
 **Example**  
 ```js
-resin.models.device.isOnline('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(isOnline) {
+resin.models.device.isOnline('7cf02a6').then(function(isOnline) {
 	console.log('Is device online?', isOnline);
 });
 ```
 **Example**  
 ```js
-resin.models.device.isOnline('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, isOnline) {
+resin.models.device.isOnline('7cf02a6', function(error, isOnline) {
 	if (error) throw error;
 	console.log('Is device online?', isOnline);
 });
@@ -602,7 +607,7 @@ resin.models.device.isOnline('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7f
 
 **Example**  
 ```js
-resin.models.device.getLocalIPAddresses('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(localIPAddresses) {
+resin.models.device.getLocalIPAddresses('7cf02a6').then(function(localIPAddresses) {
 	localIPAddresses.forEach(function(localIP) {
 		console.log(localIP);
 	});
@@ -610,7 +615,7 @@ resin.models.device.getLocalIPAddresses('7cf02a62a3a84440b1bb5579a3d574691489432
 ```
 **Example**  
 ```js
-resin.models.device.getLocalIPAddresses('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, localIPAddresses) {
+resin.models.device.getLocalIPAddresses('7cf02a6', function(error, localIPAddresses) {
 	if (error) throw error;
 
 	localIPAddresses.forEach(function(localIP) {
@@ -630,11 +635,11 @@ resin.models.device.getLocalIPAddresses('7cf02a62a3a84440b1bb5579a3d574691489432
 
 **Example**  
 ```js
-resin.models.device.remove('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9');
+resin.models.device.remove('7cf02a6');
 ```
 **Example**  
 ```js
-resin.models.device.remove('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error) {
+resin.models.device.remove('7cf02a6', function(error) {
 	if (error) throw error;
 });
 ```
@@ -650,11 +655,11 @@ resin.models.device.remove('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6
 
 **Example**  
 ```js
-resin.models.device.identify('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9');
+resin.models.device.identify('7cf02a6');
 ```
 **Example**  
 ```js
-resin.models.device.identify('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error) {
+resin.models.device.identify('7cf02a6', function(error) {
 	if (error) throw error;
 });
 ```
@@ -671,11 +676,11 @@ resin.models.device.identify('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7f
 
 **Example**  
 ```js
-resin.models.device.rename('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', 'NewName');
+resin.models.device.rename('7cf02a6', 'NewName');
 ```
 **Example**  
 ```js
-resin.models.device.rename('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', 'NewName', function(error) {
+resin.models.device.rename('7cf02a6', 'NewName', function(error) {
 	if (error) throw error;
 });
 ```
@@ -692,12 +697,12 @@ resin.models.device.rename('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6
 
 **Example**  
 ```js
-resin.models.device.note('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', 'My useful note');
+resin.models.device.note('7cf02a6', 'My useful note');
 ```
 **Example**  
 ```js
-resin.models.device.note('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', 'My useful note', function(error) {
-		if (error) throw error;
+resin.models.device.note('7cf02a6', 'My useful note', function(error) {
+	if (error) throw error;
 });
 ```
 <a name="resin.models.device.move"></a>
@@ -713,11 +718,11 @@ resin.models.device.note('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4
 
 **Example**  
 ```js
-resin.models.device.move('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', 'MyApp');
+resin.models.device.move('7cf02a6', 'MyApp');
 ```
 **Example**  
 ```js
-resin.models.device.move('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', 'MyApp', function(error) {
+resin.models.device.move('7cf02a6', 'MyApp', function(error) {
 	if (error) throw error;
 });
 ```
@@ -733,11 +738,11 @@ resin.models.device.move('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4
 
 **Example**  
 ```js
-resin.models.device.restart('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9');
+resin.models.device.restart('7cf02a6');
 ```
 **Example**  
 ```js
-resin.models.device.restart('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error) {
+resin.models.device.restart('7cf02a6', function(error) {
 	if (error) throw error;
 });
 ```
@@ -931,11 +936,11 @@ resin.models.device.generateUUID(function(error, uuid) {
 
 **Example**  
 ```js
-resin.models.device.hasDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9');
+resin.models.device.hasDeviceUrl('7cf02a6');
 ```
 **Example**  
 ```js
-resin.models.device.hasDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error) {
+resin.models.device.hasDeviceUrl('7cf02a6', function(error) {
 	if (error) throw error;
 });
 ```
@@ -952,13 +957,13 @@ resin.models.device.hasDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b1
 
 **Example**  
 ```js
-resin.models.device.getDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(url) {
+resin.models.device.getDeviceUrl('7cf02a6').then(function(url) {
 	console.log(url);
 });
 ```
 **Example**  
 ```js
-resin.models.device.getDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, url) {
+resin.models.device.getDeviceUrl('7cf02a6', function(error, url) {
 	if (error) throw error;
 	console.log(url);
 });
@@ -975,11 +980,11 @@ resin.models.device.getDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b1
 
 **Example**  
 ```js
-resin.models.device.enableDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9');
+resin.models.device.enableDeviceUrl('7cf02a6');
 ```
 **Example**  
 ```js
-resin.models.device.enableDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error) {
+resin.models.device.enableDeviceUrl('7cf02a6', function(error) {
 	if (error) throw error;
 });
 ```
@@ -995,12 +1000,36 @@ resin.models.device.enableDeviceUrl('7cf02a62a3a84440b1bb5579a3d5746914894327863
 
 **Example**  
 ```js
-resin.models.device.disableDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9');
+resin.models.device.disableDeviceUrl('7cf02a6');
 ```
 **Example**  
 ```js
-resin.models.device.disableDeviceUrl('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error) {
+resin.models.device.disableDeviceUrl('7cf02a6', function(error) {
 	if (error) throw error;
+});
+```
+<a name="resin.models.device.getStatus"></a>
+##### device.getStatus(uuid) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[device](#resin.models.device)</code>  
+**Summary**: Get the status of a device  
+**Access:** public  
+**Fulfil**: <code>String</code> - device statud  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuid | <code>String</code> | device uuid |
+
+**Example**  
+```js
+resin.models.device.getStatus('7cf02a6').then(function(status) {
+	console.log(status);
+});
+```
+**Example**  
+```js
+resin.models.device.getStatus('7cf02a6', function(error, status) {
+	if (error) throw error;
+	console.log(status);
 });
 ```
 <a name="resin.models.key"></a>
@@ -1008,10 +1037,10 @@ resin.models.device.disableDeviceUrl('7cf02a62a3a84440b1bb5579a3d574691489432786
 **Kind**: static namespace of <code>[models](#resin.models)</code>  
 
 * [.key](#resin.models.key) : <code>object</code>
-  * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
-  * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
-  * [.remove(id)](#resin.models.key.remove) ⇒ <code>Promise</code>
-  * [.create(title, key)](#resin.models.key.create) ⇒ <code>Promise</code>
+    * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
+    * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
+    * [.remove(id)](#resin.models.key.remove) ⇒ <code>Promise</code>
+    * [.create(title, key)](#resin.models.key.create) ⇒ <code>Promise</code>
 
 <a name="resin.models.key.getAll"></a>
 ##### key.getAll() ⇒ <code>Promise</code>
@@ -1081,7 +1110,7 @@ resin.models.key.remove(51, function(error) {
 **Kind**: static method of <code>[key](#resin.models.key)</code>  
 **Summary**: Create a ssh key  
 **Access:** public  
-**Fulfil**: <code>Number</code> - ssh key id  
+**Fulfil**: <code>Object</code> - ssh key  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -1090,15 +1119,15 @@ resin.models.key.remove(51, function(error) {
 
 **Example**  
 ```js
-resin.models.key.create('Main', 'ssh-rsa AAAAB....').then(function(id) {
-	console.log(id);
+resin.models.key.create('Main', 'ssh-rsa AAAAB....').then(function(key) {
+	console.log(key);
 });
 ```
 **Example**  
 ```js
-resin.models.key.create('Main', 'ssh-rsa AAAAB....', function(error, id) {
+resin.models.key.create('Main', 'ssh-rsa AAAAB....', function(error, key) {
 	if (error) throw error;
-	console.log(id);
+	console.log(key);
 });
 ```
 <a name="resin.models.environment-variables"></a>
@@ -1106,26 +1135,26 @@ resin.models.key.create('Main', 'ssh-rsa AAAAB....', function(error, id) {
 **Kind**: static namespace of <code>[models](#resin.models)</code>  
 
 * [.environment-variables](#resin.models.environment-variables) : <code>object</code>
-  * [.device](#resin.models.environment-variables.device) : <code>object</code>
-    * [.getAll(uuid)](#resin.models.environment-variables.device.getAll) ⇒ <code>Promise</code>
-    * [.create(uuid, name, value)](#resin.models.environment-variables.device.create) ⇒ <code>Promise</code>
-    * [.update(id, value)](#resin.models.environment-variables.device.update) ⇒ <code>Promise</code>
-    * [.remove(id)](#resin.models.environment-variables.device.remove) ⇒ <code>Promise</code>
-  * [.getAll(applicationName)](#resin.models.environment-variables.getAll) ⇒ <code>Promise</code>
-  * [.create(applicationName, name, value)](#resin.models.environment-variables.create) ⇒ <code>Promise</code>
-  * [.update(id, value)](#resin.models.environment-variables.update) ⇒ <code>Promise</code>
-  * [.remove(id)](#resin.models.environment-variables.remove) ⇒ <code>Promise</code>
-  * [.isSystemVariable(variable)](#resin.models.environment-variables.isSystemVariable) ⇒ <code>Boolean</code>
+    * [.device](#resin.models.environment-variables.device) : <code>object</code>
+        * [.getAll(uuid)](#resin.models.environment-variables.device.getAll) ⇒ <code>Promise</code>
+        * [.create(uuid, name, value)](#resin.models.environment-variables.device.create) ⇒ <code>Promise</code>
+        * [.update(id, value)](#resin.models.environment-variables.device.update) ⇒ <code>Promise</code>
+        * [.remove(id)](#resin.models.environment-variables.device.remove) ⇒ <code>Promise</code>
+    * [.getAll(applicationName)](#resin.models.environment-variables.getAll) ⇒ <code>Promise</code>
+    * [.create(applicationName, name, value)](#resin.models.environment-variables.create) ⇒ <code>Promise</code>
+    * [.update(id, value)](#resin.models.environment-variables.update) ⇒ <code>Promise</code>
+    * [.remove(id)](#resin.models.environment-variables.remove) ⇒ <code>Promise</code>
+    * [.isSystemVariable(variable)](#resin.models.environment-variables.isSystemVariable) ⇒ <code>Boolean</code>
 
 <a name="resin.models.environment-variables.device"></a>
 ##### environment-variables.device : <code>object</code>
 **Kind**: static namespace of <code>[environment-variables](#resin.models.environment-variables)</code>  
 
 * [.device](#resin.models.environment-variables.device) : <code>object</code>
-  * [.getAll(uuid)](#resin.models.environment-variables.device.getAll) ⇒ <code>Promise</code>
-  * [.create(uuid, name, value)](#resin.models.environment-variables.device.create) ⇒ <code>Promise</code>
-  * [.update(id, value)](#resin.models.environment-variables.device.update) ⇒ <code>Promise</code>
-  * [.remove(id)](#resin.models.environment-variables.device.remove) ⇒ <code>Promise</code>
+    * [.getAll(uuid)](#resin.models.environment-variables.device.getAll) ⇒ <code>Promise</code>
+    * [.create(uuid, name, value)](#resin.models.environment-variables.device.create) ⇒ <code>Promise</code>
+    * [.update(id, value)](#resin.models.environment-variables.device.update) ⇒ <code>Promise</code>
+    * [.remove(id)](#resin.models.environment-variables.device.remove) ⇒ <code>Promise</code>
 
 <a name="resin.models.environment-variables.device.getAll"></a>
 ###### device.getAll(uuid) ⇒ <code>Promise</code>
@@ -1140,13 +1169,13 @@ resin.models.key.create('Main', 'ssh-rsa AAAAB....', function(error, id) {
 
 **Example**  
 ```js
-resin.models.environmentVariables.device.getAll('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(environmentVariables) {
+resin.models.environmentVariables.device.getAll('7cf02a6').then(function(environmentVariables) {
 	console.log(environmentVariables);
 });
 ```
 **Example**  
 ```js
-resin.models.environmentVariables.device.getAll('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, environmentVariables) {
+resin.models.environmentVariables.device.getAll('7cf02a6', function(error, environmentVariables) {
 	if (error) throw error;
 	console.log(environmentVariables)
 });
@@ -1165,11 +1194,11 @@ resin.models.environmentVariables.device.getAll('7cf02a62a3a84440b1bb5579a3d5746
 
 **Example**  
 ```js
-resin.models.environmentVariables.device.create('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', 'EDITOR', 'vim');
+resin.models.environmentVariables.device.create('7cf02a6', 'EDITOR', 'vim');
 ```
 **Example**  
 ```js
-resin.models.environmentVariables.device.create('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', 'EDITOR', 'vim', function(error) {
+resin.models.environmentVariables.device.create('7cf02a6', 'EDITOR', 'vim', function(error) {
 	if (error) throw error;
 });
 ```
@@ -1329,40 +1358,51 @@ resin.models.environmentVariables.isSystemVariable({
 <a name="resin.models.os"></a>
 #### models.os : <code>object</code>
 **Kind**: static namespace of <code>[models](#resin.models)</code>  
+
+* [.os](#resin.models.os) : <code>object</code>
+    * [.getLastModified(deviceType)](#resin.models.os.getLastModified) ⇒ <code>Promise</code>
+    * [.download(deviceType)](#resin.models.os.download) ⇒ <code>Promise</code>
+
+<a name="resin.models.os.getLastModified"></a>
+##### os.getLastModified(deviceType) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[os](#resin.models.os)</code>  
+**Summary**: Get OS image last modified date  
+**Access:** public  
+**Fulfil**: <code>Date</code> - last modified date  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| deviceType | <code>String</code> | device type slug |
+
+**Example**  
+```js
+resin.models.os.getLastModified('raspberry-pi').then(function(date) {
+	console.log('The raspberry-pi image was last modified in ' + date);
+});
+
+resin.models.os.getLastModified('raspberry-pi', function(error, date) {
+	if (error) throw error;
+	console.log('The raspberry-pi image was last modified in ' + date);
+});
+```
 <a name="resin.models.os.download"></a>
-##### os.download(parameters) ⇒ <code>Promise</code>
+##### os.download(deviceType) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[os](#resin.models.os)</code>  
 **Summary**: Download an OS image  
 **Access:** public  
 **Fulfil**: <code>ReadableStream</code> - download stream  
-**Todo**
-
-- [ ] In the future this function should only require a device type slug.
-
 
 | Param | Type | Description |
 | --- | --- | --- |
-| parameters | <code>Object</code> | os parameters |
+| deviceType | <code>String</code> | device type slug |
 
 **Example**  
 ```js
-var parameters = {
-	network: 'ethernet',
-	appId: 91
-};
-
-resin.models.os.download(parameters).then(function(stream) {
+resin.models.os.download('raspberry-pi').then(function(stream) {
 	stream.pipe(fs.createWriteStream('foo/bar/image.img'));
 });
-```
-**Example**  
-```js
-var parameters = {
-	network: 'ethernet',
-	appId: 91
-};
 
-resin.models.os.download(parameters, function(error, stream) {
+resin.models.os.download('raspberry-pi', function(error, stream) {
 	if (error) throw error;
 	stream.pipe(fs.createWriteStream('foo/bar/image.img'));
 });
@@ -1372,9 +1412,9 @@ resin.models.os.download(parameters, function(error, stream) {
 **Kind**: static namespace of <code>[models](#resin.models)</code>  
 
 * [.config](#resin.models.config) : <code>object</code>
-  * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
-  * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
-  * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
+    * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
+    * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
+    * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
 
 <a name="resin.models.config.getAll"></a>
 ##### config.getAll() ⇒ <code>Promise</code>
@@ -1443,29 +1483,29 @@ resin.models.config.getDeviceOptions('raspberry-pi', function(error, options) {
 **Kind**: static namespace of <code>[resin](#resin)</code>  
 
 * [.auth](#resin.auth) : <code>object</code>
-  * [.twoFactor](#resin.auth.twoFactor) : <code>object</code>
-    * [.isEnabled()](#resin.auth.twoFactor.isEnabled) ⇒ <code>Promise</code>
-    * [.isPassed()](#resin.auth.twoFactor.isPassed) ⇒ <code>Promise</code>
-    * [.challenge(code)](#resin.auth.twoFactor.challenge) ⇒ <code>Promise</code>
-  * [.whoami()](#resin.auth.whoami) ⇒ <code>Promise</code>
-  * [.authenticate(credentials)](#resin.auth.authenticate) ⇒ <code>Promise</code>
-  * [.login(credentials)](#resin.auth.login) ⇒ <code>Promise</code>
-  * [.loginWithToken(token)](#resin.auth.loginWithToken) ⇒ <code>Promise</code>
-  * [.isLoggedIn()](#resin.auth.isLoggedIn) ⇒ <code>Promise</code>
-  * [.getToken()](#resin.auth.getToken) ⇒ <code>Promise</code>
-  * [.getUserId()](#resin.auth.getUserId) ⇒ <code>Promise</code>
-  * [.getEmail()](#resin.auth.getEmail) ⇒ <code>Promise</code>
-  * [.logout()](#resin.auth.logout) ⇒ <code>Promise</code>
-  * [.register([credentials])](#resin.auth.register) ⇒ <code>Promise</code>
+    * [.twoFactor](#resin.auth.twoFactor) : <code>object</code>
+        * [.isEnabled()](#resin.auth.twoFactor.isEnabled) ⇒ <code>Promise</code>
+        * [.isPassed()](#resin.auth.twoFactor.isPassed) ⇒ <code>Promise</code>
+        * [.challenge(code)](#resin.auth.twoFactor.challenge) ⇒ <code>Promise</code>
+    * [.whoami()](#resin.auth.whoami) ⇒ <code>Promise</code>
+    * [.authenticate(credentials)](#resin.auth.authenticate) ⇒ <code>Promise</code>
+    * [.login(credentials)](#resin.auth.login) ⇒ <code>Promise</code>
+    * [.loginWithToken(token)](#resin.auth.loginWithToken) ⇒ <code>Promise</code>
+    * [.isLoggedIn()](#resin.auth.isLoggedIn) ⇒ <code>Promise</code>
+    * [.getToken()](#resin.auth.getToken) ⇒ <code>Promise</code>
+    * [.getUserId()](#resin.auth.getUserId) ⇒ <code>Promise</code>
+    * [.getEmail()](#resin.auth.getEmail) ⇒ <code>Promise</code>
+    * [.logout()](#resin.auth.logout) ⇒ <code>Promise</code>
+    * [.register([credentials])](#resin.auth.register) ⇒ <code>Promise</code>
 
 <a name="resin.auth.twoFactor"></a>
 #### auth.twoFactor : <code>object</code>
 **Kind**: static namespace of <code>[auth](#resin.auth)</code>  
 
 * [.twoFactor](#resin.auth.twoFactor) : <code>object</code>
-  * [.isEnabled()](#resin.auth.twoFactor.isEnabled) ⇒ <code>Promise</code>
-  * [.isPassed()](#resin.auth.twoFactor.isPassed) ⇒ <code>Promise</code>
-  * [.challenge(code)](#resin.auth.twoFactor.challenge) ⇒ <code>Promise</code>
+    * [.isEnabled()](#resin.auth.twoFactor.isEnabled) ⇒ <code>Promise</code>
+    * [.isPassed()](#resin.auth.twoFactor.isPassed) ⇒ <code>Promise</code>
+    * [.challenge(code)](#resin.auth.twoFactor.challenge) ⇒ <code>Promise</code>
 
 <a name="resin.auth.twoFactor.isEnabled"></a>
 ##### twoFactor.isEnabled() ⇒ <code>Promise</code>
@@ -1546,11 +1586,11 @@ This will only work if you used [module:resin.auth.login](module:resin.auth.logi
 **Example**  
 ```js
 resin.auth.whoami().then(function(username) {
-		if (!username) {
+	if (!username) {
 		console.log('I\'m not logged in!');
-		} else {
+	} else {
 		console.log('My username is:', username);
-		}
+	}
 });
 ```
 **Example**  
@@ -1640,13 +1680,13 @@ resin.auth.loginWithToken(token);
 **Example**  
 ```js
 resin.auth.loginWithToken(token, function(error) {
-		if (error) throw error;
+	if (error) throw error;
 });
 ```
 <a name="resin.auth.isLoggedIn"></a>
 #### auth.isLoggedIn() ⇒ <code>Promise</code>
 **Kind**: static method of <code>[auth](#resin.auth)</code>  
-**Summary**: Check if you&#x27;re logged in  
+**Summary**: Check if you're logged in  
 **Access:** public  
 **Fulfil**: <code>Boolean</code> - is logged in  
 **Example**  
@@ -1676,7 +1716,7 @@ resin.auth.isLoggedIn(function(error, isLoggedIn) {
 This will only work if you used [module:resin.auth.login](module:resin.auth.login) to log in.
 
 **Kind**: static method of <code>[auth](#resin.auth)</code>  
-**Summary**: Get current logged in user&#x27;s token  
+**Summary**: Get current logged in user's token  
 **Access:** public  
 **Fulfil**: <code>String</code> - session token  
 **Example**  
@@ -1697,7 +1737,7 @@ resin.auth.getToken(function(error, token) {
 This will only work if you used [module:resin.auth.login](module:resin.auth.login) to log in.
 
 **Kind**: static method of <code>[auth](#resin.auth)</code>  
-**Summary**: Get current logged in user&#x27;s id  
+**Summary**: Get current logged in user's id  
 **Access:** public  
 **Fulfil**: <code>Number</code> - user id  
 **Example**  
@@ -1718,7 +1758,7 @@ resin.auth.getUserId(function(error, userId) {
 This will only work if you used [module:resin.auth.login](module:resin.auth.login) to log in.
 
 **Kind**: static method of <code>[auth](#resin.auth)</code>  
-**Summary**: Get current logged in user&#x27;s email  
+**Summary**: Get current logged in user's email  
 **Access:** public  
 **Fulfil**: <code>String</code> - user email  
 **Example**  
@@ -1786,8 +1826,8 @@ resin.auth.register({
 **Kind**: static namespace of <code>[resin](#resin)</code>  
 
 * [.logs](#resin.logs) : <code>object</code>
-  * [.subscribe(uuid)](#resin.logs.subscribe) ⇒ <code>Promise</code>
-  * [.history(uuid)](#resin.logs.history) ⇒ <code>Promise</code>
+    * [.subscribe(uuid)](#resin.logs.subscribe) ⇒ <code>Promise</code>
+    * [.history(uuid)](#resin.logs.history) ⇒ <code>Promise</code>
 
 <a name="resin.logs.subscribe"></a>
 #### logs.subscribe(uuid) ⇒ <code>Promise</code>
@@ -1811,7 +1851,7 @@ The `logs` object yielded by this function emits the following events:
 
 **Example**  
 ```js
-resin.logs.subscribe('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(logs) {
+resin.logs.subscribe('7cf02a6').then(function(logs) {
 	logs.on('line', function(line) {
 		console.log(line);
 	});
@@ -1819,7 +1859,7 @@ resin.logs.subscribe('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b4
 ```
 **Example**  
 ```js
-resin.logs.subscribe('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, logs) {
+resin.logs.subscribe('7cf02a6', function(error, logs) {
 	if (error) throw error;
 
 	logs.on('line', function(line) {
@@ -1840,7 +1880,7 @@ resin.logs.subscribe('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b4
 
 **Example**  
 ```js
-resin.logs.history('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9').then(function(lines) {
+resin.logs.history('7cf02a6').then(function(lines) {
 	lines.forEach(function(line) {
 		console.log(line);
 	});
@@ -1848,7 +1888,7 @@ resin.logs.history('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465
 ```
 **Example**  
 ```js
-resin.logs.history('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465c9', function(error, lines) {
+resin.logs.history('7cf02a6', function(error, lines) {
 	if (error) throw error;
 
 	lines.forEach(function(line) {
@@ -1861,8 +1901,8 @@ resin.logs.history('7cf02a62a3a84440b1bb5579a3d57469148943278630b17e7fc6c4f7b465
 **Kind**: static namespace of <code>[resin](#resin)</code>  
 
 * [.settings](#resin.settings) : <code>object</code>
-  * [.get([key])](#resin.settings.get) ⇒ <code>Promise</code>
-  * [.getAll()](#resin.settings.getAll) ⇒ <code>Promise</code>
+    * [.get([key])](#resin.settings.get) ⇒ <code>Promise</code>
+    * [.getAll()](#resin.settings.getAll) ⇒ <code>Promise</code>
 
 <a name="resin.settings.get"></a>
 #### settings.get([key]) ⇒ <code>Promise</code>
