@@ -4,6 +4,7 @@
 * [Network Requirements](/pages/deployment/wifi.md#network-requirements)
 * [Ethernet Connections](/pages/deployment/wifi.md#ethernet-connections)
 * [Wifi Connections](/pages/deployment/wifi.md#wifi-connections)
+* [Changing your network configuration](/pages/deployment/wifi.md#changing-your-network-configuration)
 * [3G or Cellular Connections](/pages/deployment/wifi.md#3g-or-cellular-connections)
 * [Captive Portal Network Setup](/pages/deployment/wifi.md#captive-portal-network-setup)
 
@@ -67,9 +68,47 @@ __NOTE:__ The device will automatically determine your network's encryption (if
 any) and connect using the provided passphrase, there's no need to specify the
 encryption type.
 
-###Changing your SSID and/or Passphrase
+### Multiple WiFi Connections
+
+Though we currently don't support multiple WiFi SSIDs through the user
+interface, this can be achieved by manually editing the `config.json` file on your SD card. To add a second wifi network to the configuration simply append the following to `"network/network.config":`:
+
+```
+"files": {
+    "network/settings": "[global]\nOfflineMode=false\n\n[WiFi]\nEnable=true\nTethering=false\n\n[Wired]\nEnable=true\nTethering=false\n\n[Bluetooth]\nEnable=true\nTethering=false",
+    "network/network.config": "[service_home_ethernet]\nType = ethernet\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_home_wifi]\nType = wifi\nName = My_Wifi_Ssid\nPassphrase = my super secret wifi passphrase\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_office_wifi]\nType = wifi\nName = My_2nd_Wifi_Ssid\nPassphrase = my super sexy wifi\nNameservers = 8.8.8.8,8.8.4.4"
+  }
+```
+
+In general the network config follows the [ConnMan][connman] configuration file format, so you can configure your network in anyway connMan allows. Follow the [official guide][connman-format] for details of how to configure your network if you have more complicated requirements than the our standard configuration.
+
+## Changing your Network Configuration
 
 On all devices excluding the [Intel Edison](/pages/installing/gettingStarted-Edison.md), it is possible to change your wifi SSID or Passphrase after downloading the `.img`.
+
+### Using the CLI
+
+The best way to do this is using the [resin CLI][resin-cli]. Install the CLI, plug your SD Card into your computer and run the following command, passing the correct device type associated with your image.
+
+Example for reconfiguring a Raspberry Pi image:
+``` shell
+$ sudo resin config reconfigure --type raspberry-pi
+```
+
+The command will ask a simple questions and will update the `config.json` file for you. You can also edit advanced settings by passing the `--advanced` flag.
+
+``` shell
+$ sudo resin config reconfigure --type raspberry-pi --advanced
+```
+
+To view an images current configuration run:
+```
+$ sudo resin config read --type raspberry-pi
+```
+
+If you'd like to reconfigure the image's network settings in an automated way you can use [`resin config write`](/pages/tools/resin-cli.md#config-write-60-key-62-60-value-62-).
+
+### Manually Editing Config.json
 
 Currently this can be done by editing the `config.json`. This file can be found in a partition called `resin-conf` or `flash-conf` on the SD card for most devices, except the Intel Edison. For the Intel Edison it can be found in in `resin-conf` once you have mounted the `config.img`.
 
@@ -84,20 +123,6 @@ In the `config.json` file you will need to edit the section called `files` with 
   }
 ```
 __Note:__ Unfortunately this file is not nicely formatted and it requires that you use the `\n` to signify a newline.
-
-### Multiple WiFi Connections
-
-Though we currently don't support multiple WiFi SSIDs through the user
-interface, this can be achieved by manually editing the `config.json` file on your SD card. To add a second wifi network to the configuration simply append the following to `"network/network.config":`:
-
-```
-"files": {
-    "network/settings": "[global]\nOfflineMode=false\n\n[WiFi]\nEnable=true\nTethering=false\n\n[Wired]\nEnable=true\nTethering=false\n\n[Bluetooth]\nEnable=true\nTethering=false",
-    "network/network.config": "[service_home_ethernet]\nType = ethernet\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_home_wifi]\nType = wifi\nName = My_Wifi_Ssid\nPassphrase = my super secret wifi passphrase\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_office_wifi]\nType = wifi\nName = My_2nd_Wifi_Ssid\nPassphrase = my super sexy wifi\nNameservers = 8.8.8.8,8.8.4.4"
-  }
-```
-
-In general the network config follows the [ConnMan][connman] configuration file format, so you can configure your network in anyway connMan allows. Follow the [official guide][connman-format] for details of how to configure your network if you have more complicated requirements than the our standard configuration.
 
 ## 3G or Cellular Connections
 
@@ -119,7 +144,7 @@ cable plugged in, then booting again with just WiFi.
 
 If neither of these approaches work, drop us a line at support@resin.io !
 
-
+[resin-cli]:/pages/tools/cli.md
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
 [adafruit]:http://www.adafruit.com/products/814
