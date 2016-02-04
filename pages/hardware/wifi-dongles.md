@@ -32,7 +32,7 @@ causes power issues with many devices if you try to *hotswap* the adapters in
 (adding a WiFi adapter to your Pi *after* power-on). Be __sure__ you connect
 your WiFi device prior to switching on your device to avoid instability.
 
-[custom-network]:/pages/configuration/custom-network.md
+
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
 [adafruit]:http://www.adafruit.com/products/814

@@ -73,7 +73,6 @@
 <!-- * ["Beta" features](/pages/configuration/using-resin-staging.md) -->
 
 * [Advanced Boot settings](/pages/configuration/advanced.md)
-* [Custom Network](/pages/configuration/custom-network.md)
 * [Custom Base Docker Images](/pages/configuration/custom-docker-base-images.md)
 
 <!-- * [Bandwidth Control](/pages/configuration/bandwidth-control.md) -->

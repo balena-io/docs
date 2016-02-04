@@ -42,18 +42,11 @@ By default we assign 16MB of memory to the GPU (specified by `gpu_mem`.) This
 may well be less than you require depending on your application (particularly
 applications which make heavy use of the Pi's graphics card.)
 
-### Custom Network Configuration
-
-See the [custom network configuration guide][custom-network] for details on
-configuring your network if you have specialist networking requirements or want
-to be able to connect to a one of multiple WiFi networks.
-
 ### Further Reading
 
 There are more details on the options available in `config.txt` over at
 [elinux's RPi Config page][elinux].
 
-[custom-network]:/pages/configuration/custom-network.md
 
 [dd]:http://en.wikipedia.org/wiki/Dd
 [elinux]:http://elinux.org/RPiconfig
