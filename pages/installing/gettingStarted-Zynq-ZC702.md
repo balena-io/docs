@@ -12,63 +12,79 @@ __Note:__ You will need a micro USB to USB-A adapter to connect a USB wifi dongl
 
 * And finally you need some awesome ideas to hack on! If you need some inspiration, go over and check out our [projects][projects] page.
 
-Okay, so now that we have our hardware, lets get to the code. Resin.io uses the [git][git] version control system to push your code updates. The code is then built once on the resin.io build servers and bundled into a container. This container is then delivered to all devices in your fleet.
+<!-- ========================== Generic ALL devices =================================   -->
 
-__NOTE:__ If you're not experienced with [git][git] version control, check out the excellent [Try Git][try-git] course at [Code School][code-school].
+__NOTE:__ If you're not experienced with [git][git], check out the excellent
+[Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with the VAB-820, then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Zynq-ZC702#creating-your-first-application).
+If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted-Zynq-ZC702.md#creating-your-first-application).
 
 ## Signing Up
 
-First things first, enter your details on the [sign up page][signup]. There are a couple of restrictions:-
+Enter your details on the [sign up page][signup]. There are a couple of
+restrictions:
 
 * The username can only contain letters and numbers.
 * The password has to be at least 8 characters long.
 
-Or just use one of your social logins to signup with resin.io.
+<img src="/img/common/sign_up_flow/sign_up_cropped.png" class="shadow" width="80%">
 
 ## SSH Key
-
-![Add SSH Key](/img/screenshots/add_ssh_key.png)
 
 SSH keys use the power of [public-key cryptography][pub_key_crypto] to secure
 your connection when sending your code to us. In order to secure your [git][git]
 connection, we need your __public__ [SSH Key][ssh_key] (you must never share
 your *private* key with anyone.)
 
-Once generated, SSH keys are easy to use. In fact you generally don't have to think about it at all, once you're set up just `git push` your code to us and it's taken care of automatically.
+Simply paste your public key into the box provided on the UI and click `save`. Alternatively you can import your key from [Github][github]. If you don't have an ssh key or have never used one, we recommend you take a look at [Github][github]'s [excellent documentation][github_ssh] on the subject and how to generate a key pair for your platform.
 
-In order to generate a key pair for your platform we recommend you take a look at [Github][github]'s [excellent documentation][github_ssh] on the subject.
+<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" class="shadow" width="80%">
 
-### Import From GitHub
+Once generated, SSH keys are easy to use. In fact you generally don't have to
+think about it at all. Once you're set up just `git push` your code to us and
+it's taken care of automatically and securely.
+
+If you don't have your ssh key setup yet, but want to explore resin.io, just click `skip`. Note that you will not be able to push code to your devices until you have an ssh key saved. This can be done at anytime from the `Preferences` page on the dashboard.
+
+### Import SSH key From GitHub
 
 For convenience we provide the ability to import your public SSH key from
 [GitHub][github] - just click on the Octocat icon in the bottom right-hand
 corner ([we use][github_ssh_blogpost] GitHub's [public APIs][github_apis] to
 retrieve this data.)
 
+You will then have to enter your github username:
+
+<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" class="shadow" width="60%">
+
+
 ## Creating Your First Application
 
-![Creating an Application](/img/zynq/create_application_zynq.png)
+The two key components you will interact with in resin.io are *applications* and
+*devices* - applications represent the code you want to run on your devices, and
+devices are the actual hardware itself.
 
-The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
+You can have as many devices connected to an application as you like - when you
+push code, resin.io deploys to every device that is part of that application.
 
-You can have as many devices connected to an application as you like - when you push code it deploys to every device that application owns.
+To create your first application simply type in a name, select as your device type and click the create button. You should now be taken to the dashboard of your newly created application:
 
-To create your first application simply type in a name, select the `Zynq ZC702` as your device type in the drop down and tap create which will take you to your new application's dashboard:-
+<img src="/img/common/main_dashboard/select_fleet_type.png" class="shadow" width="80%">
 
+<!-- ========================== end section =================================   -->
 ## Adding Your First Device
 
-![Empty Application Page](/img/zynq/application_empty_zynq.png)
+This is the application dashboard where all of the devices connected to your
+application will be shown, along with their statuses and logs.
 
-This is the application dashboard where all of the devices connected to your application will be shown along with their status and logs.
+<img src="/img/common/app/app_dashboard_empty.png" class="shadow" width="80%">
 
 Click the `Download Device OS` button to get the resin.io operating system image for your
 application. A dialog will appear prompting you to specify how your device connects to the internet, if you select wifi, make double sure to that your `SSID` and `passphrase` are correct for the wifi router you intend to connect to. The download can take a little while to get started, so be patient.
 
 While the file downloads, ensure your SD card is formatted in [FAT32][fat32] ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
-Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.14.img` where myApp is the name you gave your application on the dashboard.
+Once the download is finished you should have a `.img` file with a name like `resin-myFleet-0.1.0-0.0.14.img` where myFleet is the name you gave your application on the dashboard.
 
 Now we have to burn the downloaded image on to the SD card. There are a couple of ways to do this, depending on your operating system. We have listed a few below.
 
@@ -91,7 +107,7 @@ Now, you'll want to execute the command that actually copies the image onto the 
 > You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive, such as your master hard disk, and then you're gonna have a bad time. Double check everything!
 
 Also, be sure to choose the right file location for your `.img` file in the input file field (if=...).
-`sudo dd bs=1m if=~/Downloads/resin-myApp-0.1.0-0.0.4.img of=/dev/rdisk2`
+`sudo dd bs=1m if=~/Downloads/resin-myFleet-0.1.0-0.0.4.img of=/dev/rdisk2`
 
 __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
 
@@ -103,7 +119,7 @@ Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn 
 
 Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your .img file. It mentions the Raspberry Pi, but you can ignore that, it doesn't make any difference.
 
-Locate the .img file in your Downloads folder. It should be named something like `resin-myApp-0.1.0-0.0.14.img`, now click "choose".
+Locate the .img file in your Downloads folder. It should be named something like `resin-myFleet-0.1.0-0.0.14.img`, now click "choose".
 
 You can now insert your microSD card into your host machine and click continue. PiFiller will look for your SD card and tell you when it finds it.
 
@@ -115,7 +131,7 @@ Click continue and piFiller will write the SD card. This can take 5-25 minutes d
 
 To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
 
-Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your OS image from the Downloads folder. It should be the extracted version and named something like this `resin-myApp-0.1.0-0.0.14.img`.
+Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your OS image from the Downloads folder. It should be the extracted version and named something like this `resin-myFleet-0.1.0-0.0.14.img`.
 
 Next insert your SD card into your computer and in the Win32DiskImager GUI, select your SD card when it appears.
 

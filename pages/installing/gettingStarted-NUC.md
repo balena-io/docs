@@ -19,36 +19,45 @@ If you already have a resin.io account and just want to get started with the NUC
 
 ## Signing Up
 
-First things first, enter your details on the [sign up page][signup]. There are a couple of restrictions:-
+Enter your details on the [sign up page][signup]. There are a couple of
+restrictions:
 
 * The username can only contain letters and numbers.
 * The password has to be at least 8 characters long.
 
-Or just use one of your social logins to signup with resin.io.
+<img src="/img/common/sign_up_flow/sign_up_cropped.png" class="shadow" width="80%">
 
 ## SSH Key
-
-![Add SSH Key](/img/screenshots/add_ssh_key.png)
 
 SSH keys use the power of [public-key cryptography][pub_key_crypto] to secure
 your connection when sending your code to us. In order to secure your [git][git]
 connection, we need your __public__ [SSH Key][ssh_key] (you must never share
 your *private* key with anyone.)
 
-Once generated, SSH keys are easy to use. In fact you generally don't have to think about it at all, once you're set up just `git push` your code to us and it's taken care of automatically.
+Simply paste your public key into the box provided on the UI and click `save`. Alternatively you can import your key from [Github][github]. If you don't have an ssh key or have never used one, we recommend you take a look at [Github][github]'s [excellent documentation][github_ssh] on the subject and how to generate a key pair for your platform.
 
-In order to generate a key pair for your platform we recommend you take a look at [Github][github]'s [excellent documentation][github_ssh] on the subject.
+<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" class="shadow" width="80%">
 
-### Import From GitHub
+Once generated, SSH keys are easy to use. In fact you generally don't have to
+think about it at all. Once you're set up just `git push` your code to us and
+it's taken care of automatically and securely.
+
+If you don't have your ssh key setup yet, but want to explore resin.io, just click `skip`. Note that you will not be able to push code to your devices until you have an ssh key saved. This can be done at anytime from the `Preferences` page on the dashboard.
+
+### Import SSH key From GitHub
 
 For convenience we provide the ability to import your public SSH key from
 [GitHub][github] - just click on the Octocat icon in the bottom right-hand
 corner ([we use][github_ssh_blogpost] GitHub's [public APIs][github_apis] to
 retrieve this data.)
 
+You will then have to enter your github username:
+
+<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" class="shadow" width="60%">
+
 ## Creating Your First Application
 
-<img src="/img/NUC/create_application_NUC.png" width="40%">
+<img src="/img/NUC/create_application_NUC.png" class="shadow" width="80%">
 
 The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
 

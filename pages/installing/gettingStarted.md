@@ -74,16 +74,16 @@ To create your first application simply type in a name, select as your device ty
 
 <img src="/img/common/main_dashboard/select_fleet_type.png" class="shadow" width="80%">
 
-__Warning:__ Each Raspberry Pi model has its own device type, since they use slightly different CPU architectures.
-
 <!-- ========================== end section =================================   -->
 
 <!-- ========================== Device Specific =================================   -->
 
+__Warning:__ Each Raspberry Pi model has its own device type, since they use slightly different CPU architectures.
+
 ## Adding Your First Device
 
 This is the application dashboard where all of the devices connected to your
-application will be shown along with their statuses and logs.
+application will be shown, along with their statuses and logs.
 
 <img src="/img/common/app/app_dashboard_empty.png" class="shadow" width="80%">
 

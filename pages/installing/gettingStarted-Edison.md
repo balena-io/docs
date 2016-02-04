@@ -30,7 +30,7 @@ restrictions:-
 
 ## SSH Key
 
-![Add SSH Key](/img/screenshots/add_ssh_key.png)
+<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" class="shadow" width="80%">
 
 SSH keys use the power of [public-key cryptography][pub_key_crypto] to secure
 your connection when sending your code to us. In order to secure your [git][git]
@@ -51,6 +51,10 @@ For convenience we provide the ability to import your public SSH key from
 corner ([we use][github_ssh_blogpost] GitHub's [public APIs][github_apis] to
 retrieve this data.)
 
+You will then have to enter your github username:
+
+<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" class="shadow" width="60%">
+
 ## Start a new application
 
 The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
@@ -60,13 +64,13 @@ push code it deploys to every device that application owns.
 
 Okay, lets get started...
 
-First things first, we need to start a new resin.io application. Choose a fancy name for your new Intel Edison project. In this example, we were super creative and called it `myEdisonApp`.
+First things first, we need to start a new resin.io application. Choose a fancy name for your new Intel Edison project. In this example, we were super creative and called it `myFleet`.
 
-![Creating an Application](/img/edison/create_application_edison.png)
+<img src="/img/common/main_dashboard/select_fleet_type.png" class="shadow" width="80%">
 
-Next make sure you select `Intel Edison (EXPERIMENTAL)` from the device type drop down menu and click the big yellow create button. You should now be magically redirected to your new creatively named `myEdisonApp` and will see a couple of tabs and a notice saying "No devices are connected to this application", that isn't very exciting, so lets change that by adding a new device...
+Next make sure you select `Intel Edison` from the device type drop down menu and click the big yellow create button. You should now be magically redirected to your new creatively named `myFleet` and will see a couple of tabs and a notice saying "No devices are connected to this application", that isn't very exciting, so lets change that by adding a new device...
 
-![Empty Application Page](/img/edison/application_empty_edison.png)
+<img src="/img/common/app/app_dashboard_empty.png" class="shadow" width="80%">
 
 To connect a device to our newly created application, we need to first get the resinOS on the device. This involves downloading the new device image, burning it onto the device memory.
 
@@ -77,9 +81,9 @@ To get the resin operating system (resinOS) you need to click on the "Download D
 
 __Note__: It is not possible to provision an Edison without adding your wifi credentials as the device needs this to connect to the internet.
 
-![Add your Wifi Credentials](/img/edison/add-wifi-credentials-edison.png)
+<img src="/img/common/network/network_selection_wifi_cropped.png" class="shadow" width="60%">
 
-Once the download completes, you should have a `.zip` file in your downloads folder with a name that looks something like this: `resin-myEdisonApp-0.1.0-0.0.14.zip`. Use an unzipping utility like [7-zip](http://www.7-zip.org/) to extract the download to a folder.
+Once the download completes, you should have a `.zip` file in your downloads folder with a name that looks something like this: `resin-myFleet-0.1.0-0.0.14.zip`. Use an unzipping utility like [7-zip](http://www.7-zip.org/) to extract the download to a folder.
 
 ### Burn the Resin OS onto the Edison
 
@@ -96,11 +100,13 @@ There are two ways of burning the firmware to the Edison.
 
 First you will need the [firmware flashing tool][flash-tool-link] provided by Intel. So head over to this link and get it set up on your computer.
 
+__Warning:__ There is a known issue with the flash tool and OSX 10.11 - El Captitan, so we recommend [using the flashall scripts and dfu-util](/pages/installing/gettingStarted-Edison.md#alternative-method-of-flashing-edison-firmware) to flash the OS in this case.
+
 #### Flash the Resin Firmware onto the Edison
 
 __Note:__ Before you start this step, ensure that your Edison is not plugged into your Computer.
 
-On your computer open the newly installed [Flash Tool Lite][flash-tool-link]. Select the blue browse button in the top right hand corner and browse to the folder where you had previously extracted the resin OS. This folder should be called something like `resin-myEdisonApp-0.1.0-0.0.14`. In this folder you should be able to find and select a file called `FlashEdison.json`.
+On your computer open the newly installed [Flash Tool Lite][flash-tool-link]. Select the blue browse button in the top right hand corner and browse to the folder where you had previously extracted the resin OS. This folder should be called something like `resin-myFleet-0.1.0-0.0.14`. In this folder you should be able to find and select a file called `FlashEdison.json`.
 
 ![browse to resin OS folder](/img/edison/browse-select-flash-tool.png)
 
@@ -217,7 +223,7 @@ Simply install using apt-get:
 ##### Using Mac OSX
 
 Extract the `.zip` and from your terminal cd into the into the newly extracted folder
-`cd resin-myEdisonApp-0.1.0-0.0.9`
+`cd resin-myFleet-0.1.0-0.0.9`
 Run the flashall script.
 `sudo ./flashall.sh`
 You should see an output like this:
@@ -256,7 +262,7 @@ U-boot & Kernel System Flash Success...
 
 **Before starting the flashing process, make sure you unplug the Edison from your computer.**
 
-Unzip the `resin-myEdisonApp-0.1.0-0.0.9.zip` file that you downloaded and open the folder. In the folder, find the `flashall.bat` file and double-click it.
+Unzip the `resin-myFleet-0.1.0-0.0.9.zip` file that you downloaded and open the folder. In the folder, find the `flashall.bat` file and double-click it.
 
 __Note__: You need administrative privileges to successfully execute `flashall.bat`.
 
@@ -298,7 +304,7 @@ U-boot & Kernel System Flash Success...
 **Before starting the flashing process, make sure you unplug the Edison from your computer.**
 
 Extract the previously downloaded `.zip` file , open a terminal and cd into the newly created folder.
-`cd resin-myEdisonApp-0.1.0-0.0.9`
+`cd resin-myFleet-0.1.0-0.0.9`
 From there execute the flashall script buy running
 `sudo ./flashall.sh`
 You should now see the following output in your terminal:
@@ -372,3 +378,4 @@ Once you have burned the new firmware with this method you can carry on from the
 [flash-tool-link]:https://software.intel.com/en-us/articles/flash-tool-lite-user-manual
 [resin-support-help]:https://resin.io/contact/#contact-form
 [resin-talk-link]:http://talk.resin.io/
+[edison-ardiuno-breakout-board]:https://www.arduino.cc/en/ArduinoCertified/IntelEdison
