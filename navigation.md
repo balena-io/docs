@@ -83,3 +83,5 @@
 * [Troubleshooting](/pages/troubleshooting/troubleshooting.md)
 * [Error Notifications](/pages/troubleshooting/error.md)
 * [CLI issues](/pages/troubleshooting/cli-troubleshooting.md)
+
+### [Advanced](/pages/advanced/resources.md)
