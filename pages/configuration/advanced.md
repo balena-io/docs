@@ -13,9 +13,24 @@ boot medium, `config.txt` - you change boot options simply by editing this file.
 
 __Note:__ You will only find the `config.txt` file after first boot, it can then easily be found in the `resin-boot` partition of the SD card.
 
-#### Post-Boot
+#### Modifying `config.txt` locally after the first boot
 
-The `config.txt` is located in the root of the `resin-boot` partition.
+The `config.txt` is located in the root of the `resin-boot` partition, and you can modify it by mounting the SD card on a computer.
+
+#### Modifying `config.txt` **remotely**
+
+If your device has an Agent (Supervisor) version above 1.0.0 (which you can check on the "Agent version" entry in the device dashboard), it has support for modifying the values in `config.txt` remotely using [environment variables](/pages/management/env-vars).
+The variables that start with the `RESIN_HOST_CONFIG_` prefix will be added to the `config.txt` file, also replacing the preexisting values of such variables in the file.
+For example, setting the value of `RESIN_HOST_CONFIG_gpu_mem` to 16 will produce the following entry in `config.txt`:
+
+```
+gpu_mem=16
+```
+
+These variables can be set using the SDK or in the "Application config variables" of the application environment variables page, and "Device config variables" of the device environment variables page.
+As with other environment variables, you can set application-wide values (for all devices in an application) or device-specific ones.
+The device-specific variables, if defined, will override the application-wide variables of the same name.
+**After modifying a config.txt variable, the Supervisor will apply the changes and reboot the device.**
 
 ### GPU Memory
 
