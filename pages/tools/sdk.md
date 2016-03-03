@@ -35,6 +35,7 @@ If you feel something is missing, not clear or could be improved, please don't h
             * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
             * [.move(uuid, application)](#resin.models.device.move) ⇒ <code>Promise</code>
             * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
+            * [.reboot(uuid)](#resin.models.device.reboot) ⇒ <code>Promise</code>
             * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
             * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
             * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
@@ -70,6 +71,8 @@ If you feel something is missing, not clear or could be improved, please don't h
             * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
             * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
             * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
+        * [.build](#resin.models.build) : <code>object</code>
+            * [.getAllByApplication(name)](#resin.models.build.getAllByApplication) ⇒ <code>Promise</code>
     * [.auth](#resin.auth) : <code>object</code>
         * [.twoFactor](#resin.auth.twoFactor) : <code>object</code>
             * [.isEnabled()](#resin.auth.twoFactor.isEnabled) ⇒ <code>Promise</code>
@@ -123,6 +126,7 @@ If you feel something is missing, not clear or could be improved, please don't h
         * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
         * [.move(uuid, application)](#resin.models.device.move) ⇒ <code>Promise</code>
         * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
+        * [.reboot(uuid)](#resin.models.device.reboot) ⇒ <code>Promise</code>
         * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
         * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
         * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
@@ -158,6 +162,8 @@ If you feel something is missing, not clear or could be improved, please don't h
         * [.getAll()](#resin.models.config.getAll) ⇒ <code>Promise</code>
         * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
         * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
+    * [.build](#resin.models.build) : <code>object</code>
+        * [.getAllByApplication(name)](#resin.models.build.getAllByApplication) ⇒ <code>Promise</code>
 
 <a name="resin.models.application"></a>
 #### models.application : <code>object</code>
@@ -393,6 +399,7 @@ resin.models.application.getApiKey('MyApp', function(error, apiKey) {
     * [.note(uuid, note)](#resin.models.device.note) ⇒ <code>Promise</code>
     * [.move(uuid, application)](#resin.models.device.move) ⇒ <code>Promise</code>
     * [.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>
+    * [.reboot(uuid)](#resin.models.device.reboot) ⇒ <code>Promise</code>
     * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
     * [.getDeviceSlug(deviceTypeName)](#resin.models.device.getDeviceSlug) ⇒ <code>Promise</code>
     * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
@@ -728,8 +735,12 @@ resin.models.device.move('7cf02a6', 'MyApp', function(error) {
 ```
 <a name="resin.models.device.restart"></a>
 ##### device.restart(uuid) ⇒ <code>Promise</code>
+This function restarts the Docker container running
+the application on the device, but doesn't reboot
+the device itself.
+
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
-**Summary**: Restart device  
+**Summary**: Restart application on device  
 **Access:** public  
 
 | Param | Type | Description |
@@ -743,6 +754,26 @@ resin.models.device.restart('7cf02a6');
 **Example**  
 ```js
 resin.models.device.restart('7cf02a6', function(error) {
+	if (error) throw error;
+});
+```
+<a name="resin.models.device.reboot"></a>
+##### device.reboot(uuid) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[device](#resin.models.device)</code>  
+**Summary**: Reboot device  
+**Access:** public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuid | <code>String</code> | device uuid |
+
+**Example**  
+```js
+resin.models.device.reboot('7cf02a6');
+```
+**Example**  
+```js
+resin.models.device.reboot('7cf02a6', function(error) {
 	if (error) throw error;
 });
 ```
@@ -1476,6 +1507,33 @@ resin.models.config.getDeviceOptions('raspberry-pi').then(function(options) {
 resin.models.config.getDeviceOptions('raspberry-pi', function(error, options) {
 	if (error) throw error;
 	console.log(options);
+});
+```
+<a name="resin.models.build"></a>
+#### models.build : <code>object</code>
+**Kind**: static namespace of <code>[models](#resin.models)</code>  
+<a name="resin.models.build.getAllByApplication"></a>
+##### build.getAllByApplication(name) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[build](#resin.models.build)</code>  
+**Summary**: Get all builds from an application  
+**Access:** public  
+**Fulfil**: <code>Object[]</code> - builds  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>String</code> | application name |
+
+**Example**  
+```js
+resin.models.build.getAllByApplication('MyApp').then(function(builds) {
+		console.log(builds);
+});
+```
+**Example**  
+```js
+resin.models.build.getAllByApplication('MyApp', function(error, builds) {
+		if (error) throw error;
+		console.log(builds);
 });
 ```
 <a name="resin.auth"></a>
