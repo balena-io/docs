@@ -47,8 +47,6 @@ To see what your device is serving on port 80, just click on the URL. If your ap
 
 <img src="/img/common/device/device_url_404.png" class="shadow" width="80%">
 
-__Note:__ Currently websockets will not work over the device URLs, this should be resolved, keep an eye on the [github issue](https://github.com/resin-io/node-tunnel/issues/2) for an update of this feature.
-
 ### Update Locking
 
 In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we added the [update.lock functionality](/pages/runtime/supervisor-api.md#update-locking) in the resin supervisor agent. This allows your application to pick and choose when and where it would like to allow updates to happen.
