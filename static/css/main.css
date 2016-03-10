@@ -193,7 +193,6 @@ article .headroom {
   border-bottom: 1px solid #e6e8eb;
   padding-bottom: 17px;
   margin-top: 0;
-  /*padding-top: 50px;*/
 }
 
 .page-content h1 {
@@ -349,7 +348,3 @@ ul.expand {
   padding-top: 50px;
   margin-top: 0;
 }
-
-/**.shadow {
-  box-shadow: 1px 1px 1px #888888;
-}**/
