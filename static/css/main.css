@@ -1,6 +1,6 @@
 body {
   margin-top: 61px;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: "Open Sans", "Montserrat", Arial, sans-serif;
   background: url('/img/sidebar-bg.jpg') repeat-y;
   background-color: #F5F5F5;
 }
@@ -138,12 +138,17 @@ article .headroom {
   font-weight: 600;
 }
 
+
+.page-content p, ul, ol {
+  margin-bottom: 30px;
+}
+
 .page-content {
   padding-left: 55px;
   padding-right: 55px;
   font-size: 16px;
-  color: #898a8d;
-  line-height: 24px;
+  color: #606060;
+  line-height: 1.6;
   padding-bottom: 100px;
 }
 
@@ -153,13 +158,14 @@ article .headroom {
 
 .page-content img {
   max-width: 100%;
-  margin: 0 auto;
+  margin: 50px auto;
   display: block;
 }
 
 .page-content h1, .page-content h2, .page-content h3, .page-content h4, .page-content h5 {
+  font-family: 'Montserrat';
   color: #444547;
-  padding-top: 50px;
+  padding-top: 20px;
   margin-bottom: 27px;
 }
 
@@ -187,7 +193,7 @@ article .headroom {
   border-bottom: 1px solid #e6e8eb;
   padding-bottom: 17px;
   margin-top: 0;
-  padding-top: 50px;
+  /*padding-top: 50px;*/
 }
 
 .page-content h1 {
@@ -203,10 +209,11 @@ article .headroom {
 }
 
 .page-content pre {
-  background: #29292C;
+  background: #343434;
   color: white;
   border: none;
   padding: 15px;
+  margin-bottom: 30px;
 }
 
 .page-content pre code {
@@ -217,8 +224,9 @@ article .headroom {
 .alert {
   border-radius: 3px;
   font-size: 15px;
-  padding: 10px 10px;
+  padding: 20px 30px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.078);
+  margin-bottom: 50px;
 }
 
 .alert p {
@@ -227,21 +235,21 @@ article .headroom {
 }
 
 .alert-note {
-  background: #f8f9fc;
+  background: #F6F6F8;
   /*/background-image: url('/img/note-bg.png');*/
   background-repeat: repeat-x;
   background-position: top left;
   color: #a6a9ae;
-  border-color: #e1e3e6;
+  border-color: #D4D7DA;
 }
 
 .alert-warning {
-  color: #886c00;
-  background-image: url('/img/warning-bg.png');
+  color: #E4B400;
+  /*background-image: url('/img/warning-bg.png');*/
   background-repeat: no-repeat;
   background-position: 104% 19%;
-  background-color: #f8dc6b;
-  border-color: #edd160;
+  background-color: #FFFCDE;
+  border-color: #F8C400;
 }
 
 .colorbox-img-wrappper {
@@ -292,6 +300,7 @@ header.sticky {
 .btn-info {
   background-color: #3C9DD0;
   border-color: #3C9DD0;
+  border-radius: 3px;
 }
 .btn-info:hover {
   background-color: #2F8CBD;
@@ -341,6 +350,6 @@ ul.expand {
   margin-top: 0;
 }
 
-.shadow {
+/**.shadow {
   box-shadow: 1px 1px 1px #888888;
-}
+}**/
