@@ -97,6 +97,11 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | resin/colibri-imx6-node | The Node.js buildpack image for Node.js apps for Colibri iMX6dl. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-colibri-imx6-node-dockerhub-link], [github][armv7-colibri-imx6-node-github-link] | For available image tags, refer [here][armv7-colibri-imx6-node-dockerhub-tag-link] |
 | resin/colibri-imx6-python | The Python buildpack image for Python apps for Colibri iMX6dl. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-colibri-imx6-python-dockerhub-link], [github][armv7-colibri-imx6-python-github-link] | latest, jessie, wheezy |
 | resin/colibri-imx6-golang | The Go buildpack image for Go apps for Colibri iMX6dl. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-colibri-imx6-golang-dockerhub-link], [github][armv7-colibri-imx6-golang-github-link] | For available image tags, refer [here][armv7-colibri-imx6-golang-dockerhub-tag-link] |
+| resin/raspberrypi3-debian | The bare bones OS image for RPI3. Apt sources.list from raspbian repository: [http://archive.raspbian.org/raspbian/](armv7-rpi2-sourceslist) added! See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libraspberrypi-bin | [dockerhub][armv7-rpi3-dockerhub-link], [github][armv7-rpi3-github-link] | latest, jessie, wheezy |
+| resin/raspberrypi3-buildpack-deps | The buildpack-deps image for RPI3. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-rpi3-buildpack-deps-dockerhub-link], [github][armv7-rpi3-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/raspberrypi3-node | The Node.js buildpack image for Node.js apps for RPI3. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-rpi3-node-dockerhub-link], [github][armv7-rpi3-node-github-link] | For available image tags, refer [here][armv7-rpi3-node-dockerhub-tag-link] |
+| resin/raspberrypi3-python | The Python buildpack image for Python apps for RPI3. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-rpi3-python-dockerhub-link], [github][armv7-rpi3-python-github-link] | latest, jessie, wheezy |
+| resin/raspberrypi3-golang | The Go buildpack image for Go apps for RPI3. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-rpi3-golang-dockerhub-link], [github][armv7-rpi3-golang-github-link] | For available image tags, refer [here][armv7-rpi3-golang-dockerhub-tag-link] |
 
 ### i386: Intel Edison
 
@@ -120,11 +125,25 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 |:-----------|:------------|:------------|:------------|:------------|
 | resin/amd64-debian| The base OS image for amd64 devices (Intel NUC) | minbase, sudo | [dockerhub][amd64-dockerhub-link], [github][amd64-github-link] | latest, jessie, wheezy |
 | resin/amd64-systemd | The image with full systemd init system installed for amd64 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][amd64-systemd-dockerhub-link], [github][amd64-systemd-github-link] | latest, jessie, wheezy | 
-| resin/nuc-debian | The bare bones OS image for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libmraa | [dockerhub][amd64-nuc-dockerhub-link], [github][amd64-nuc-github-link] | latest, jessie, wheezy |
+| resin/nuc-debian | The bare bones OS image for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][amd64-nuc-dockerhub-link], [github][amd64-nuc-github-link] | latest, jessie, wheezy |
 | resin/nuc-buildpack-deps | The buildpack-deps image for Intel NUC. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][amd64-nuc-buildpack-deps-dockerhub-link], [github][amd64-nuc-buildpack-deps-github-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
 | resin/nuc-node | The Node.js buildpack image for Node.js apps for Intel NUC. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][amd64-nuc-node-dockerhub-link], [github][amd64-nuc-node-github-link] | For available image tags, refer [here][amd64-nuc-node-dockerhub-tag-link] |
 | resin/nuc-python | The Python buildpack image for Python apps for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][amd64-nuc-python-dockerhub-link], [github][amd64-nuc-python-github-link] | latest, jessie, wheezy |
 | resin/nuc-golang | The Go buildpack image for Go apps for Intel NUC. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][amd64-nuc-golang-dockerhub-link], [github][amd64-nuc-golang-github-link] | For available image tags, refer [here][amd64-nuc-golang-dockerhub-tag-link] |
+
+### ARMv5: Technologic TS-7700
+
+![ARMv5 Tree Diagram](/img/armel-diagram.jpg)
+
+| Image | Description | Installed Packages | Repository | Available Tag|
+|:-----------|:------------|:------------|:------------|:------------|
+| resin/armel-debian| The base OS image for ARMv5 devices (Technologic TS-7700) | minbase, sudo | [dockerhub][armel-dockerhub-link], [github][armel-github-link] | latest, jessie, wheezy |
+| resin/armel-systemd | The image with full systemd init system installed for ARMv5 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][armel-systemd-dockerhub-link], [github][armel-systemd-github-link] | latest, jessie, wheezy | 
+| resin/ts7700-debian | The bare bones OS image for Technologic TS-7700. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armel-ts7700-dockerhub-link], [github][armel-ts7700-github-link] | latest, jessie, wheezy |
+| resin/ts7700-buildpack-deps | The buildpack-deps image for Technologic TS-7700. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armel-ts7700-buildpack-deps-dockerhub-link], [github][armel-ts7700-buildpack-deps-github-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/ts7700-node | The Node.js buildpack image for Node.js apps for Technologic TS-7700. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armel-ts7700-node-dockerhub-link], [github][armel-ts7700-node-github-link] | For available image tags, refer [here][armel-ts7700-node-dockerhub-tag-link] |
+| resin/ts7700-python | The Python buildpack image for Python apps for Technologic TS-7700. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armel-ts7700-python-dockerhub-link], [github][armel-ts7700-python-github-link] | latest, jessie, wheezy |
+| resin/ts7700-golang | The Go buildpack image for Go apps for Technologic TS-7700. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armel-ts7700-golang-dockerhub-link], [github][armel-ts7700-golang-github-link] | For available image tags, refer [here][armel-ts7700-golang-dockerhub-tag-link] |
 
 #### <a name="tips"></a>Tips
 
@@ -136,7 +155,7 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 
 ## <a name="base-images"></a>Base Images:
 
-These are base images for different arch: armv6, armv7, i386, amd64.
+These are base images for different arch: armv6, armv7, i386, amd64 and armv5 (armel).
 
 | Image | Arch | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
@@ -144,6 +163,7 @@ These are base images for different arch: armv6, armv7, i386, amd64.
 | resin/armv7hf-debian | armv7 | [wheezy][installed-pkg-armv7-wheezy], [jessie][installed-pkg-armv7-jessie], [sid][installed-pkg-armv7-sid] | [dockerhub][armv7hf-dockerhub-link], [github][armv7hf-github-link] | latest, jessie, wheezy, sid | 
 | resin/i386-debian | i386 | [wheezy][installed-pkg-i386-wheezy], [jessie][installed-pkg-i386-jessie] | [dockerhub][i386-dockerhub-link], [github][i386-github-link] | latest, jessie, wheezy |
 | resin/amd64-debian | amd64 | [wheezy][installed-pkg-amd64-wheezy], [jessie][installed-pkg-amd64-jessie] | [dockerhub][amd64-dockerhub-link], [github][amd64-github-link] | latest, jessie, wheezy |
+| resin/armel-debian | armel | [wheezy][installed-pkg-armel-wheezy], [jessie][installed-pkg-armel-jessie] | [dockerhub][armel-dockerhub-link], [github][armel-github-link] | latest, jessie, wheezy |
 
 __Note:__ minbase is a variant of image built by debootstrap which means only essential packages and apt installed.
 
@@ -207,7 +227,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-github-link]:https://github.com/resin-io-library/resin-armhfv7-debian/
 [i386-github-link]:https://github.com/resin-io-library/resin-i386-debian/
 [amd64-github-link]:https://github.com/resin-io-library/resin-amd64-debian/
-[amd64-dockerhub-link]:https://registry.hub.docker.com/u/resin/amd64-debian/
+[amd64-dockerhub-link]:https://registry.hub.docker.com/u/resin/amd64-debian/#
+[armel-github-link]:https://github.com/resin-io-library/resin-armel-debian/
+[armel-dockerhub-link]:https://registry.hub.docker.com/u/resin/armel-debian/
 
 [installed-pkg-rpi-wheezy]:https://resin-packages.s3.amazonaws.com/image_info/rpi-raspbian/wheezy/wheezy
 [installed-pkg-rpi-jessie]:https://resin-packages.s3.amazonaws.com/image_info/rpi-raspbian/jessie/jessie
@@ -218,6 +240,8 @@ This image does not contain the common packages contained in the default tag and
 [installed-pkg-i386-jessie]:https://resin-packages.s3.amazonaws.com/image_info/i386-debian/jessie/jessie
 [installed-pkg-amd64-wheezy]:https://resin-packages.s3.amazonaws.com/image_info/amd64-debian/wheezy/wheezy
 [installed-pkg-amd64-jessie]:https://resin-packages.s3.amazonaws.com/image_info/amd64-debian/jessie/jessie
+[installed-pkg-armel-wheezy]:https://resin-packages.s3.amazonaws.com/image_info/amd64-debian/wheezy/wheezy
+[installed-pkg-armel-jessie]:https://resin-packages.s3.amazonaws.com/image_info/amd64-debian/jessie/jessie
 
 [systemd-wiki]:https://wiki.debian.org/systemd
 [golang-wiki]:https://en.wikipedia.org/wiki/Go_%28programming_language%29
@@ -384,6 +408,19 @@ This image does not contain the common packages contained in the default tag and
 [armv7-apalis-imx6-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-golang/
 [armv7-apalis-imx6-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-golang/tags/manage/
 [armv7-apalis-imx6-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/apalis-imx6
+[armv7-rpi3-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-debian/
+[armv7-rpi3-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-buildpack-deps/
+[armv7-rpi3-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-node/
+[armv7-rpi3-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-node/tags/manage/
+[armv7-rpi3-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-python/
+[armv7-rpi3-sourceslist]:http://archive.raspbian.org/raspbian/
+[armv7-rpi3-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/raspberrypi3
+[armv7-rpi3-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/raspberrypi3
+[armv7-rpi3-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberrypi3
+[armv7-rpi3-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberrypi3
+[armv7-rpi3-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-golang/
+[armv7-rpi3-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-golang/tags/manage/
+[armv7-rpi3-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi3
 
 [i386-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-systemd/
 [i386-systemd-github-link]:https://github.com/resin-io-library/base-images/tree/master/systemd/i386
@@ -414,3 +451,18 @@ This image does not contain the common packages contained in the default tag and
 [amd64-nuc-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-golang/
 [amd64-nuc-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-golang/tags/manage/
 [amd64-nuc-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/nuc
+
+[armel-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/armel-systemd/
+[armel-systemd-github-link]:https://github.com/resin-io-library/base-images/tree/master/systemd/armel
+[armel-ts7700-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-debian/
+[armel-ts7700-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-buildpack-deps/
+[armel-ts7700-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-node/
+[armel-ts7700-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts7700-node/tags/manage/
+[armel-ts7700-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-python/
+[armel-ts7700-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/ts7700
+[armel-ts7700-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/ts7700
+[armel-ts7700-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/ts7700
+[armel-ts7700-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/ts7700
+[armel-ts7700-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-golang/
+[armel-ts7700-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts7700-golang/tags/manage/
+[armel-ts7700-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/ts7700
