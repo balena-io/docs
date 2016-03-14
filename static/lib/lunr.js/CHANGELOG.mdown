@@ -1,5 +1,35 @@
 # Changelog
 
+## 0.5.12
+
+* Implement `lunr.stopWordFilter` with an object instead of using `lunr.SortedSet` [#170](https://github.com/olivernn/lunr.js/pull/170), resulting in a performance boost for the text processing pipeline, thanks to [Brian Vaughn](https://github.com/bvaughn).
+* Ensure that `lunr.trimmer` does not introduce empty tokens into the index, [#166](https://github.com/olivernn/lunr.js/pull/166), thanks to [janeisklar](https://github.com/janeisklar)
+
+## 0.5.11
+
+* Fix [bug](https://github.com/olivernn/lunr.js/issues/162) when using the unminified build of lunr in some project builds, thanks [Alessio Michelini](https://github.com/darkmavis1980)
+
+## 0.5.10
+
+* Fix bug in IDF calculation, thanks to [weixsong](https://github.com/weixsong) for discovering the issue.
+* Documentation fixes [#111](https://github.com/olivernn/lunr.js/pull/111) thanks [Chris Van](https://github.com/cvan).
+* Remove version from bower.json as it is not needed [#160](https://github.com/olivernn/lunr.js/pull/160), thanks [Kevin Kirsche](https://github.com/kkirsche)
+* Fix link to augment.js on the home page [#159](https://github.com/olivernn/lunr.js/issues/159), thanks [Gábor Nádai](https://github.com/mefiblogger)
+
+## 0.5.9
+
+* Remove recursion from SortedSet#indexOf and SortedSet#locationFor to gain small performance gains in Index#search and Index#add
+* Fix incorrect handling of non existant functions when adding/removing from a Pipeline [#146](https://github.com/olivernn/lunr.js/issues/146) thanks to [weixsong](https://github.com/weixsong)
+
+## 0.5.8
+
+* Fix typo when referencing Martin Porter's home page http://tartarus.org/~martin/ [#132](https://github.com/olivernn/lunr.js/pull/132) thanks [James Aylett](https://github.com/jaylett)
+* Performance improvement for tokenizer [#139](https://github.com/olivernn/lunr.js/pull/139) thanks [Arun Srinivasan](https://github.com/satchmorun)
+* Fix vector magnitude caching bug :flushed: [#142](https://github.com/olivernn/lunr.js/pull/142) thanks [Richard Poole](https://github.com/richardpoole)
+* Fix vector insertion bug that prevented lesser ordered nodes to be inserted into a vector [#143](https://github.com/olivernn/lunr.js/pull/143) thanks [Richard Poole](https://github.com/richardpoole)
+* Fix inefficient use of arguments in SortedSet add method, thanks to [Max Nordlund](https://github.com/maxnordlund).
+* Fix deprecated use of path.exists in test server [#141](https://github.com/olivernn/lunr.js/pull/141) thanks [wei song](https://github.com/weixsong)
+
 ## 0.5.7
 
 * Performance improvement for stemmer [#124](https://github.com/olivernn/lunr.js/pull/124) thanks [Tony Jacobs](https://github.com/tony-jacobs)

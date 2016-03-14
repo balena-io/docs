@@ -1,6 +1,7 @@
 body {
   margin-top: 61px;
   font-family: "Open Sans", "Montserrat", Arial, sans-serif;
+  font-weight: 400;
   background: url('/img/sidebar-bg.jpg') repeat-y;
   background-color: #F5F5F5;
 }
@@ -53,7 +54,7 @@ article .headroom {
   display: block;
 }
 
-.sidebar h3 a{
+.sidebar h3 a {
   padding-left: 30px;
   font-size: 11px;
   text-transform: uppercase;
@@ -162,44 +163,53 @@ article .headroom {
   display: block;
 }
 
-.page-content h1, .page-content h2, .page-content h3, .page-content h4, .page-content h5 {
-  font-family: 'Montserrat';
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6 {
+  font-family: "Montserrat";
+  font-weight: 600;
   color: #444547;
+}
+
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5 {
   padding-top: 20px;
   margin-bottom: 27px;
 }
 
-.page-content h5 {
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.page-content h4 {
-  margin-top: 33px;
-  margin-bottom: 18px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.page-content h3 {
-  font-weight: normal;
-  font-size: 20px;
-  color: #444547;
+.page-content h1 {
+  font-size: 36px;
+  margin-top: 0;
+  padding-top: 50px;
 }
 
 .page-content h2 {
-  font-weight: 600;
   font-size: 24px;
   border-bottom: 1px solid #e6e8eb;
   padding-bottom: 17px;
   margin-top: 0;
 }
 
-.page-content h1 {
-  font-weight: normal;
-  font-size: 36px;
-  margin-top: 0;
-  padding-top: 50px;
+.page-content h3 {
+  font-weight: 400;
+  font-size: 20px;
+  color: #444547;
+}
+
+.page-content h4 {
+  margin-top: 33px;
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+.page-content h5 {
+  font-size: 16px;
 }
 
 .page-content code {
