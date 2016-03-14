@@ -40,9 +40,15 @@ lunr.Vector.Node = function (idx, val, next) {
  * @memberOf Vector.
  */
 lunr.Vector.prototype.insert = function (idx, val) {
+  this._magnitude = undefined;
   var list = this.list
 
   if (!list) {
+    this.list = new lunr.Vector.Node (idx, val, list)
+    return this.length++
+  }
+
+  if (idx < list.idx) {
     this.list = new lunr.Vector.Node (idx, val, list)
     return this.length++
   }
@@ -70,7 +76,7 @@ lunr.Vector.prototype.insert = function (idx, val) {
  * @memberOf Vector
  */
 lunr.Vector.prototype.magnitude = function () {
-  if (this._magniture) return this._magnitude
+  if (this._magnitude) return this._magnitude
   var node = this.list,
       sumOfSquares = 0,
       val
