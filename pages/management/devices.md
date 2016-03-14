@@ -8,7 +8,7 @@ Devices represent your actual hardware and are exclusively owned by applications
 
 All code pushed to an application's git endpoint is automatically pushed to the devices it owns.
 
-<img src="/img/raspberrypi2/newly_provisioned_device_dash.png" class="shadow" width="80%">
+<img src="/img/raspberrypi2/newly_provisioned_device_dash.png" width="80%">
 
 ### Identifying Devices
 
@@ -22,7 +22,7 @@ We have also added a means of visually identifying devices that have an onboard 
 
 An extremely useful feature of the devices detail page is the log window. This is automatically synchronised with the application running on this device, showing both it's standard out and standard error output in real time. You can expand this log window to occupy the whole page if you need to view more log output at once.
 
-<img src="/img/common/device/device_dashboard_empty_logs.png" class="shadow" width="80%">
+<img src="/img/common/device/device_dashboard_empty_logs.png" width="80%">
 
 ## Device Actions
 
@@ -41,11 +41,11 @@ On the device's Actions page we give you access to a number of useful per-device
 
 Resin.io currently exposes **port 80** for web forwarding. To enable web forwarding on a specific device, select the `Enable a public url for this device` checkbox. Resin will then generate a web accessible url for the device. The URL will be of the form `<RESIN_DEVICE_UUID>.resindevice.io`, where `<RESIN_DEVICE_UUID.` is the unique ID of the device which you can see on your dashboard.
 
-<img src="/img/screenshots/device-url-new.png" class="shadow" width="80%">
+<img src="/img/screenshots/device-url-new.png" width="80%">
 
 To see what your device is serving on port 80, just click on the URL. If your application is not serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
-<img src="/img/common/device/device_url_404.png" class="shadow" width="80%">
+<img src="/img/common/device/device_url_404.png" width="80%">
 
 ### Update Locking
 
@@ -71,7 +71,7 @@ With the `Move Application` action it is possible to transfer a device from one 
 
 Note that currently you are only able to move devices between applications of the same device type. For example, in the screenshot below, I can only move the "little-brook" device to the list of `raspberry pi 1` applications. It is not possible to move it to an application with a device type of Raspberry pi 2 or Beaglebone.
 
-<img src="/img/common/device/device_action_move_app.png" class="shadow" width="80%">
+<img src="/img/common/device/device_action_move_app.png" width="80%">
 
 Obviously you may only select one application to transfer your device to. Once you select the appropriate radio button, you device will immediately appear in the selected application's device list. Note that it will take a while for the device to start the update process as it does not receive a push notification of a new code update from the API, so it has to wait for the update poll, which happens ever couple of minutes.
 

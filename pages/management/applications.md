@@ -7,7 +7,7 @@ A Resin.io __application__ contains both the code you want to run and the device
 To create an application you simply tap in a descriptive name in the [applications dashboard](https://dashboard.resin.io/) and hit create.
 
 <!-- TODO: update the image here -->
-<img src="/img/raspberrypi2/app_dashboard_fresh_device.png" class="shadow" width="80%">
+<img src="/img/raspberrypi2/app_dashboard_fresh_device.png" width="80%">
 
 Here we have an application named "myFleet" and currently it only has one device ("dawn-wildflower") provisioned.
 
