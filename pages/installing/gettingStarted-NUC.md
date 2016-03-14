@@ -25,7 +25,7 @@ restrictions:
 * The username can only contain letters and numbers.
 * The password has to be at least 8 characters long.
 
-<img src="/img/common/sign_up_flow/sign_up_cropped.png" class="shadow" width="80%">
+<img src="/img/common/sign_up_flow/sign_up_cropped.png" width="80%">
 
 ## SSH Key
 
@@ -36,7 +36,7 @@ your *private* key with anyone.)
 
 Simply paste your public key into the box provided on the UI and click `save`. Alternatively you can import your key from [Github][github]. If you don't have an ssh key or have never used one, we recommend you take a look at [Github][github]'s [excellent documentation][github_ssh] on the subject and how to generate a key pair for your platform.
 
-<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" class="shadow" width="80%">
+<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" width="80%">
 
 Once generated, SSH keys are easy to use. In fact you generally don't have to
 think about it at all. Once you're set up just `git push` your code to us and
@@ -53,11 +53,11 @@ retrieve this data.)
 
 You will then have to enter your github username:
 
-<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" class="shadow" width="60%">
+<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" width="60%">
 
 ## Creating Your First Application
 
-<img src="/img/NUC/create_application_NUC.png" class="shadow" width="80%">
+<img src="/img/NUC/create_application_NUC.png" width="80%">
 
 The two key components you will interact with in resin.io are *applications* and *devices* - applications represent the code you want to run on your devices, and devices the actual hardware itself.
 

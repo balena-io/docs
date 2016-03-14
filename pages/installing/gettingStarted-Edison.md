@@ -30,7 +30,7 @@ restrictions:-
 
 ## SSH Key
 
-<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" class="shadow" width="80%">
+<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" width="80%">
 
 SSH keys use the power of [public-key cryptography][pub_key_crypto] to secure
 your connection when sending your code to us. In order to secure your [git][git]
@@ -53,7 +53,7 @@ retrieve this data.)
 
 You will then have to enter your github username:
 
-<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" class="shadow" width="60%">
+<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" width="60%">
 
 ## Start a new application
 
@@ -66,11 +66,11 @@ Okay, lets get started...
 
 First things first, we need to start a new resin.io application. Choose a fancy name for your new Intel Edison project. In this example, we were super creative and called it `myFleet`.
 
-<img src="/img/common/main_dashboard/select_fleet_type.png" class="shadow" width="80%">
+<img src="/img/common/main_dashboard/select_fleet_type.png" width="80%">
 
 Next make sure you select `Intel Edison` from the device type drop down menu and click the big yellow create button. You should now be magically redirected to your new creatively named `myFleet` and will see a couple of tabs and a notice saying "No devices are connected to this application", that isn't very exciting, so lets change that by adding a new device...
 
-<img src="/img/common/app/app_dashboard_empty.png" class="shadow" width="80%">
+<img src="/img/common/app/app_dashboard_empty.png" width="80%">
 
 To connect a device to our newly created application, we need to first get the resinOS on the device. This involves downloading the new device image, burning it onto the device memory.
 
@@ -81,7 +81,7 @@ To get the resin operating system (resinOS) you need to click on the "Download D
 
 __Note__: It is not possible to provision an Edison without adding your wifi credentials as the device needs this to connect to the internet.
 
-<img src="/img/common/network/network_selection_wifi_cropped.png" class="shadow" width="60%">
+<img src="/img/common/network/network_selection_wifi_cropped.png" width="60%">
 
 Once the download completes, you should have a `.zip` file in your downloads folder with a name that looks something like this: `resin-myFleet-0.1.0-0.0.14.zip`. Use an unzipping utility like [7-zip](http://www.7-zip.org/) to extract the download to a folder.
 

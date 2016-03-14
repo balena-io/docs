@@ -27,7 +27,7 @@ restrictions:
 * The username can only contain letters and numbers.
 * The password has to be at least 8 characters long.
 
-<img src="/img/common/sign_up_flow/sign_up_cropped.png" class="shadow" width="80%">
+<img src="/img/common/sign_up_flow/sign_up_cropped.png" width="80%">
 
 ## SSH Key
 
@@ -38,7 +38,7 @@ your *private* key with anyone.)
 
 Simply paste your public key into the box provided on the UI and click `save`. Alternatively you can import your key from [Github][github]. If you don't have an ssh key or have never used one, we recommend you take a look at [Github][github]'s [excellent documentation][github_ssh] on the subject and how to generate a key pair for your platform.
 
-<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" class="shadow" width="80%">
+<img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" width="80%">
 
 Once generated, SSH keys are easy to use. In fact you generally don't have to
 think about it at all. Once you're set up just `git push` your code to us and
@@ -55,7 +55,7 @@ retrieve this data.)
 
 You will then have to enter your github username:
 
-<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" class="shadow" width="60%">
+<img src="/img/common/sign_up_flow/enter_github_username_cropped.png" width="60%">
 
 
 ## Creating Your First Application
@@ -69,7 +69,7 @@ push code, resin.io deploys to every device that is part of that application.
 
 To create your first application simply type in a name, select as your device type and click the create button. You should now be taken to the dashboard of your newly created application:
 
-<img src="/img/common/main_dashboard/select_fleet_type.png" class="shadow" width="80%">
+<img src="/img/common/main_dashboard/select_fleet_type.png" width="80%">
 
 <!-- ========================== end section =================================   -->
 ## Adding Your First Device
@@ -77,7 +77,7 @@ To create your first application simply type in a name, select as your device ty
 This is the application dashboard where all of the devices connected to your
 application will be shown, along with their statuses and logs.
 
-<img src="/img/common/app/app_dashboard_empty.png" class="shadow" width="80%">
+<img src="/img/common/app/app_dashboard_empty.png" width="80%">
 
 Click the `Download Device OS` button to get the resin.io operating system image for your
 application. A dialog will appear prompting you to specify how your device connects to the internet, if you select wifi, make double sure to that your `SSID` and `passphrase` are correct for the wifi router you intend to connect to. The download can take a little while to get started, so be patient.
