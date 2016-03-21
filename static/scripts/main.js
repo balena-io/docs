@@ -127,7 +127,12 @@ angular
 
       .otherwise('/pages/introduction/introduction.md');
   })
-
+  .config([
+     '$locationProvider',
+     function($locationProvider) {
+         $locationProvider.hashPrefix('!');
+     }
+  ])
   // services
   .service('PageRendererService', function($http) {
     this.getPageHtml = function(pageName) {
@@ -306,7 +311,7 @@ angular
       templateUrl: '/static/templates/directives/navigation.html',
       link: function(scope, el, attrs) {
         function addActiveClass() {
-          var activeEl = angular.element('.site-navigation ul a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+          var activeEl = angular.element('.site-navigation ul a[href="/#!/pages/'+ $routeParams.pageName +'"]').parent()
 
           el.find('.expand').removeClass('expand');
           activeEl.addClass('active');
@@ -342,10 +347,3 @@ angular
       }
     };
   })
-
-angular.module('resinDocs').config([
-  '$locationProvider',
-  function($locationProvider) {
-      $locationProvider.hashPrefix('!');
-  }
-]);
