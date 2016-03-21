@@ -222,7 +222,7 @@ angular
     $timeout(function() {
       if (!$location.hash()) {
         window.scrollTo(0,0);
-      } 
+      }
 
       $scope.$emit('page-rendered', pageContent);
       angular.element('.colorbox-img-wrappper').colorbox({
@@ -245,7 +245,7 @@ angular
         var url = location.href;
         url = url.replace(/#\w.+/, '')
         url += '#' + el.attr('id')
-        
+
         el.append(' <a class="hash" href="' + url + '">#</a>')
       }
     }
@@ -342,3 +342,10 @@ angular
       }
     };
   })
+
+angular.module('resinDocs').config([
+  '$locationProvider',
+  function($locationProvider) {
+      $locationProvider.hashPrefix('!');
+  }
+]);
