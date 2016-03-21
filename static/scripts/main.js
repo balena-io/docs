@@ -3,7 +3,7 @@ var UnpinOffset = 400;
 window.onload = function () {
     // fix first page load anchor issue
     var url = window.location.hash;
-    var divid = url.split('#');
+    var divid = url.split('#!');
     var hash = document.getElementById(divid[2]);
     if(hash) {
       hash.scrollIntoView()
@@ -50,14 +50,14 @@ $(window).scroll(function() {
 function updateLinksHref(links) {
   links.each(function() {
     var href = $(this).attr('href');
-    $(this).attr('href', '/#' + href);
+    $(this).attr('href', '/#!' + href);
   });
 }
 
 function updateAnchorHref(links, route) {
   links.each(function() {
     var href = $(this).attr('href');
-    $(this).attr('href', '/#/pages/' + route + '/' + href);
+    $(this).attr('href', '/#!/pages/' + route + '/' + href);
   });
 }
 
@@ -183,7 +183,7 @@ angular
         $scope.searchResults.push({
           id: result.ref,
           title: el.text(),
-          link: '/#/pages/' + result.ref
+          link: '/#!/pages/' + result.ref
         });
       });
 
