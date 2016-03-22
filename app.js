@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 
-app.use(express.static(__dirname));
 app.use(require('prerender-node').set('prerenderToken', 'KoM2A547jD1EZCnwbTCW'));
+app.use(express.static(__dirname));
 
 var port = process.env.PORT || 3000;
 
