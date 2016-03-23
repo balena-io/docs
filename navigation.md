@@ -42,6 +42,7 @@
 * [Resin Base Images](/pages/runtime/resin-base-images.md)
 * [Interacting with the Resin Supervisor](/pages/runtime/supervisor-api.md)
 * [Configuring the update strategy](/pages/runtime/update-strategies.md)
+* [Configuring for reduced Bandwidth / Data usage](/pages/runtime/bandwidth-reduction.md)
 
 ### [Management](/pages/management/applications.md)
 
