@@ -12,5 +12,8 @@ cd pages/tools/ && { curl -O -L https://github.com/resin-io/resin-sdk/raw/master
 # get lastest SDK docs
 cd pages/tools/ && { curl -O -L https://github.com/resin-io/resin-sdk-python/raw/master/DOCUMENTATION.md; mv DOCUMENTATION.md python-sdk.md ; cd -; }
 
+# get latest supervisor API docs
+cd pages/runtime/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/API.md; mv API.md supervisor-api.md ; cd -; }
+
 # build search index
 node index-builder.js

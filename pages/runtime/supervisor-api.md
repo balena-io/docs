@@ -4,38 +4,7 @@ The Resin Supervisor is resin.io's agent that runs on devices. Its main role is 
 
 The Supervisor itself has its own API, with means for user applications to communicate and execute some special actions that affect the host OS or the application itself. There are two main ways for the application to interact with the Supervisor: the update lockfile and the HTTP API.
 
-Only Supervisors after version 1.1.0 have all of this functionality. This corresponds to OS images downloaded after October 14th 2015.
-
-## Update locking
-
-Locking updates means that the Supervisor will not be able to kill your application. This is meant to be used at critical sections of your code where you don't want to be interrupted, or to control that updates are only installed at certain times.
-
-In order to do this, users can create a file called `/data/resin-updates.lock` that will prevent the Supervisor from killing and restarting the app. As any other lockfile, the Supervisor itself will create such file before killing the app, so you should only create it in exclusive mode. This means: only create the lockfile if it doesn't already exist. Several tools exist to simplify this process, for example [npm/lockfile](https://github.com/npm/lockfile).
-
-Using the above-mentioned library, the lock can be acquired like in this CoffeeScript example:
-```coffeescript
-	lockFile = require 'lockfile'
-
-	lockFile.lock '/data/resin-updates.lock', (err) ->
-		# A non-null err probably means the supervisor is about to kill us
-		throw new Error('Could not acquire lock: ', err) if err?
-
-		# Here we have the lock, so we can do critical stuff:
-		doTheHarlemShake()
-
-		# Now we release the lock, and we can be killed again
-		lockFile.unlock '/data/resin-updates.lock', (err) ->
-			# If err is not null here, something went really wrong
-			throw err if err?
-```
-
-There are other libraries you can use in different languages, for example [this Python library](http://pythonhosted.org/lockfile/lockfile.html#examples).
-
-### Overriding the lock
-
-The update lock can be overriden in case you need to force an update, for instance, if your app has hung in a critical section.
-
-The way to do this is hitting the `/v1/update` endpoint of the supervisor HTTP API, with `{ "force": true }` as body. See below for the full API reference. More interfaces to override this lock will be added soon.
+Only Supervisors after version 1.1.0 have this functionality, and some of the endpoints appeared in later versions (we've noted it down where this is the case). Supervisor version 1.1.0 corresponds to OS images downloaded after October 14th 2015.
 
 ## HTTP API reference
 
@@ -51,9 +20,7 @@ The API is versioned (currently at v1), except for `/ping`.
 
 You might notice that the formats of some responses differ. This is because they were implemented later, and in Go instead of node.js.
 
-Here's the list of endpoints implemented so far that are meant to be used by the apps. In all examples, replace everything between `< >` for the corresponding values.
-
-The full reference can be found in the [Supervisor's API docs](https://github.com/resin-io/resin-supervisor/blob/master/docs/API.md).
+Here's the full list of endpoints implemented so far. In all examples, replace everything between `< >` for the corresponding values.
 
 <hr>
 
@@ -136,6 +103,78 @@ $ curl -X POST --header "Content-Type:application/json" \
 	--data '{"deviceId": <deviceId>, "appId": <appId>, "data": {"force": true}}"' \
 	"https://api.resin.io/supervisor/v1/update"
 $
+```
+
+<hr>
+
+### POST /v1/spawn-tty
+
+Starts a web terminal session.
+
+When successful, responds with 200 and the URL of the terminal.
+
+#### Request body
+Has to be a JSON object with an `appId` property, corresponding to the ID of the application the device is running.
+Example:
+```json
+{
+	"appId": 2167
+}
+```
+
+#### Examples:
+From the app on the device:
+```bash
+$ curl -X POST --header "Content-Type:application/json" \
+	--data '{"appId": <appId>}' \
+	"$RESIN_SUPERVISOR_ADDRESS/v1/spawn-tty?apikey=$RESIN_SUPERVISOR_API_KEY"
+```
+Response:
+```none
+http://124135325.ngrok.com
+```
+
+Remotely via the API proxy:
+```bash
+$ curl -X POST --header "Content-Type:application/json" \
+	--header "Authorization: Bearer <auth token>" \
+	--data '{"deviceId": <deviceId>, "appId": <appId>, "data": {"appId": <appId>}}' \
+	"https://api.resin.io/supervisor/v1/spawn-tty"
+```
+
+<hr>
+
+### POST /v1/despawn-tty
+
+Stops a web terminal session.
+
+When successful, responds with an empty 200 response.
+
+#### Request body
+Has to be a JSON object with an `appId` property, corresponding to the ID of the application the device is running.
+Example:
+```json
+{
+	"appId": 2167
+}
+```
+
+#### Examples:
+From the app on the device:
+```bash
+$ curl -X POST --header "Content-Type:application/json" \
+	--data '{"appId": <appId>}' \
+	"$RESIN_SUPERVISOR_ADDRESS/v1/despawn-tty?apikey=$RESIN_SUPERVISOR_API_KEY"
+```
+
+(Empty response)
+
+Remotely via the API proxy:
+```bash
+$ curl -X POST --header "Content-Type:application/json" \
+	--header "Authorization: Bearer <auth token>" \
+	--data '{"deviceId": <deviceId>, "appId": <appId>, "data": {"appId": <appId>}}' \
+	"https://api.resin.io/supervisor/v1/despawn-tty"
 ```
 
 <hr>
@@ -348,4 +387,68 @@ $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"deviceId": <deviceId>, "appId": <appId>, "method": "DELETE"}' \
 	"https://api.resin.io/supervisor/v1/tcp-ping"
+```
+
+### POST /v1/regenerate-api-key
+
+Invalidates the current `RESIN_SUPERVISOR_API_KEY` and generates a new one. Responds with the new API key, but **the application will be restarted on the next update cycle** to update the API key environment variable.
+
+#### Examples:
+From the app on the device:
+```bash
+$ curl -X POST --header "Content-Type:application/json" \
+	"$RESIN_SUPERVISOR_ADDRESS/v1/regenerate-api-key?apikey=$RESIN_SUPERVISOR_API_KEY"
+```
+
+Response:
+
+```none
+480af7bb8a9cf56de8a1e295f0d50e6b3bb46676aaddbf4103aa43cb57039364
+```
+
+Remotely via the API proxy:
+```bash
+$ curl -X POST --header "Content-Type:application/json" \
+	--header "Authorization: Bearer <auth token>" \
+	--data '{"deviceId": <deviceId>, "appId": <appId>}' \
+	"https://api.resin.io/supervisor/v1/regenerate-api-key"
+```
+
+<hr>
+
+### GET /v1/device
+
+Introduced in supervisor v1.6.
+Returns the current device state, as reported to the Resin API and with some extra fields added to allow control over pending/locked updates.
+The state is a JSON object that contains some or all of the following:
+* `api_port`: Port on which the supervisor is listening.
+* `commit`: Hash of the current commit of the application that is running.
+* `ip_address`: Space-separated list of IP addresses of the device.
+* `status`: Status of the device regarding the app, as a string, i.e. "Stopping", "Starting", "Downloading", "Installing", "Idle".
+* `download_progress`: Amount of the application image that has been downloaded, expressed as a percentage. If the update has already been downloaded, this will be `null`.
+* `os_version`: Version of the host OS running on the device.
+* `supervisor_version`: Version of the supervisor running on the device.
+* `update_pending`: This one is not reported to the Resin API. It's a boolean that will be true if the supervisor has detected there is a pending update.
+* `update_downloaded`: Not reported to the Resin API either. Boolean that will be true if a pending update has already been downloaded.
+* `update_failed`: Not reported to the Resin API. Boolean that will be true if the supervisor has tried to apply a pending update but failed (i.e. if the app was locked, there was a network failure or anything else went wrong).
+
+Other attributes may be added in the future, and some may be missing or null if they haven't been set yet.
+
+#### Examples:
+From the app on the device:
+```bash
+$ curl -X GET --header "Content-Type:application/json" \
+	"$RESIN_SUPERVISOR_ADDRESS/v1/device?apikey=$RESIN_SUPERVISOR_API_KEY"
+```
+Response:
+```json
+{"api_port":48484,"ip_address":"192.168.0.114 10.42.0.3","commit":"414e65cd378a69a96f403b75f14b40b55856f860","status":"Downloading","download_progress":84,"os_version":"Resin OS 1.0.4 (fido)","supervisor_version":"1.6.0","update_pending":true,"update_downloaded":false,"update_failed":false}
+```
+
+Remotely via the API proxy:
+```bash
+$ curl -X POST --header "Content-Type:application/json" \
+	--header "Authorization: Bearer <auth token>" \
+	--data '{"deviceId": <deviceId>, "appId": <appId>, "method": "GET"}' \
+	"https://api.resin.io/supervisor/v1/device"
 ```
