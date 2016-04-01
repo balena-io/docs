@@ -3,7 +3,7 @@ var UnpinOffset = 400;
 window.onload = function () {
     // fix first page load anchor issue
     var url = window.location.hash;
-    var divid = url.split('#');
+    var divid = url.split('#!');
     var hash = document.getElementById(divid[2]);
     if(hash) {
       hash.scrollIntoView()
@@ -50,14 +50,14 @@ $(window).scroll(function() {
 function updateLinksHref(links) {
   links.each(function() {
     var href = $(this).attr('href');
-    $(this).attr('href', '/#' + href);
+    $(this).attr('href', '/#!' + href);
   });
 }
 
 function updateAnchorHref(links, route) {
   links.each(function() {
     var href = $(this).attr('href');
-    $(this).attr('href', '/#/pages/' + route + '/' + href);
+    $(this).attr('href', '/#!/pages/' + route + '/' + href);
   });
 }
 
@@ -124,10 +124,14 @@ angular
           }
         }
       })
-
       .otherwise('/pages/introduction/introduction.md');
   })
-
+  .config([
+     '$locationProvider',
+     function($locationProvider) {
+         $locationProvider.hashPrefix('!');
+     }
+  ])
   // services
   .service('PageRendererService', function($http) {
     this.getPageHtml = function(pageName) {
@@ -183,7 +187,7 @@ angular
         $scope.searchResults.push({
           id: result.ref,
           title: el.text(),
-          link: '/#/pages/' + result.ref
+          link: '/#!/pages/' + result.ref
         });
       });
 
@@ -222,7 +226,7 @@ angular
     $timeout(function() {
       if (!$location.hash()) {
         window.scrollTo(0,0);
-      } 
+      }
 
       $scope.$emit('page-rendered', pageContent);
       angular.element('.colorbox-img-wrappper').colorbox({
@@ -245,7 +249,7 @@ angular
         var url = location.href;
         url = url.replace(/#\w.+/, '')
         url += '#' + el.attr('id')
-        
+
         el.append(' <a class="hash" href="' + url + '">#</a>')
       }
     }
@@ -306,7 +310,7 @@ angular
       templateUrl: '/static/templates/directives/navigation.html',
       link: function(scope, el, attrs) {
         function addActiveClass() {
-          var activeEl = angular.element('.site-navigation ul a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+          var activeEl = angular.element('.site-navigation ul a[href="/#!/pages/'+ $routeParams.pageName +'"]').parent()
 
           el.find('.expand').removeClass('expand');
           activeEl.addClass('active');
