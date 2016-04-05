@@ -40,8 +40,10 @@ window.onload = function () {
   var hash = window.location.hash
   var elementId = hash && hash.substring(1).split('#')[1]
   var targetEl = elementId && document.getElementById(elementId)
-  if (targetEl) {
-    targetEl.scrollIntoView()
+  if (targetEl && typeof targetEl.scrollIntoView === 'function') {
+    setTimeout(function () {
+      targetEl.scrollIntoView()
+    }, 0)
   }
   $('[data-md-sticky-header]').headroom({
     offset: UNPIN_OFFSET,
@@ -104,10 +106,8 @@ function updateAnchorHref(links, route) {
 angular
   .module('resinDocs', [ 'ngRoute', 'ui.bootstrap' ])
 
-  .constant('MAIN_MENU', MAIN_MENU_LINKS)
-
-  .run(function($rootScope, MAIN_MENU) {
-    $rootScope.mainMenu = MAIN_MENU
+  .run(function($rootScope) {
+    $rootScope.mainMenu = MAIN_MENU_LINKS
     $rootScope.improveDocsLink = null
   })
 
