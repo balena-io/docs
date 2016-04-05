@@ -3,9 +3,10 @@
   <head>
     <title>Resin.io Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="fragment" content="!">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     <meta charset="UTF-8">
+
+    <base href="/">
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
     <link rel="stylesheet" href="/static/lib/bootstrap/dist/css/bootstrap.min.css">
@@ -52,7 +53,7 @@
       <div class="row">
         <div class="sidebar">
           <div class="search-wrapper">
-            <form data-md-sticky-header ng-controller="SearchCtrl" ng-submit="search()">
+            <form class="js-sticky-header" ng-controller="SearchCtrl" ng-submit="search()">
               <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Docs...">
             </form>
           </div>
@@ -61,7 +62,7 @@
         </div>
         <article>
           <div class="header-wrapper">
-            <header data-md-sticky-header>
+            <header class="js-sticky-header">
               <breadcrumb></breadcrumb>
             </header>
           </div>

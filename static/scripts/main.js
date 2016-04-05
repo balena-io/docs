@@ -35,25 +35,9 @@ var MAIN_MENU_LINKS = [
   }
 ]
 
-window.onload = function () {
-  // fix first page load anchor issue
-  var hash = window.location.hash
-  var elementId = hash && hash.substring(1).split('#')[1]
-  var targetEl = elementId && document.getElementById(elementId)
-  if (targetEl && typeof targetEl.scrollIntoView === 'function') {
-    setTimeout(function () {
-      targetEl.scrollIntoView()
-    }, 0)
-  }
-  $('[data-md-sticky-header]').headroom({
-    offset: UNPIN_OFFSET,
-    tolerance: 0
-  })
-}
-
-(function setupScroll() {
-  var searchbarTop
-  var stickyHeaderElements
+function setupScroll() {
+  var stickyHeaderElements = $('.js-sticky-header')
+  var searchbarTop = $('.search-wrapper').offset().top
   var prevScrollTop = 0
   var $window = $(window)
 
@@ -74,8 +58,6 @@ window.onload = function () {
   }
 
   $window.scroll(function() {
-    stickyHeaderElements = stickyHeaderElements || $('[data-md-sticky-header]')
-    searchbarTop = searchbarTop || $('.search-wrapper').offset().top
     var scrollTop = $window.scrollTop()
     var isScrollUp = scrollTop < prevScrollTop
 
@@ -87,19 +69,22 @@ window.onload = function () {
 
     prevScrollTop = scrollTop
   })
-}())
+}
+
+$(function () {
+  $('.js-sticky-header').headroom({
+    offset: UNPIN_OFFSET,
+    tolerance: 0
+  })
+  setupScroll()
+})
 
 function updateLinksHref(links) {
   links.each(function() {
     var href = $(this).attr('href')
-    $(this).attr('href', '/#' + href)
-  })
-}
-
-function updateAnchorHref(links, route) {
-  links.each(function() {
-    var href = $(this).attr('href')
-    $(this).attr('href', '/#/pages/' + route + '/' + href)
+      .replace('.md#', '#')
+      .replace(/\.md$/, '')
+    $(this).attr('href', href)
   })
 }
 
@@ -112,35 +97,43 @@ angular
   })
 
   // config
-  .config(function($routeProvider) {
+  .config(function($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/pages/:pageName*', {
-        controller: 'PageCtrl',
-        template: '<div class="page-content"></div>',
-        resolve: {
-          pageContent: function($route, PageRendererService) {
-            return PageRendererService.getPageHtml($route.current.params.pageName)
-          }
-        }
-      })
+    .when('/pages/:pageName*.md', {
+      redirectTo: function(params) {
+        return '/pages/' + params.pageName
+      }
+    })
 
-      .when('/search-results', {
-        controller: 'SearchResultsCtrl',
-        templateUrl: '/static/templates/search-results.html',
-        resolve: {
-          idxService: function(LunrService) {
-            return LunrService.getInstance()
-          }
+    .when('/pages/:pageName*', {
+      controller: 'PageCtrl',
+      template: '<div class="page-content"></div>',
+      resolve: {
+        pageContent: function($route, PageRendererService) {
+          return PageRendererService.getPageHtml($route.current.params.pageName)
         }
-      })
+      }
+    })
 
-      .otherwise('/pages/introduction/introduction.md')
+    .when('/search-results', {
+      controller: 'SearchResultsCtrl',
+      templateUrl: '/static/templates/search-results.html',
+      resolve: {
+        idxService: function(LunrService) {
+          return LunrService.getInstance()
+        }
+      }
+    })
+
+    .otherwise('/pages/introduction/introduction')
+
+    $locationProvider.html5Mode(true)
   })
 
   // services
   .service('PageRendererService', function($http) {
     this.getPageHtml = function(pageName) {
-      return $http.get('/pages/' + pageName).then(function(resp) {
+      return $http.get('/pages/' + pageName + '.md').then(function(resp) {
         var preparedHtmlEl = angular.element('<div>' + marked(resp.data) + '</div>')
 
         // add custom classess/directives
@@ -155,7 +148,6 @@ angular
         preparedHtmlEl.find('h2,h3,h4,h5,h6').attr('anchor', '')
 
         updateLinksHref(preparedHtmlEl.find('a[href^="/pages"]'))
-        updateAnchorHref(preparedHtmlEl.find('a[href^="#"]'), pageName)
 
         return preparedHtmlEl.html()
       })
@@ -348,7 +340,8 @@ angular
 
         $rootScope.$on('page-rendered', addActiveClass)
 
-        PageRendererService.getSidebarNavigation().then(function(nav) {
+        PageRendererService.getSidebarNavigation()
+        .then(function(nav) {
           scope.navigationContent = $sce.trustAsHtml(nav)
 
           $timeout(function() {
