@@ -49,38 +49,43 @@ window.onload = function () {
   })
 }
 
-var SearchbarTop
-var StickyHeaderElements
-var PrevScrollTop = 0
+(function setupScroll() {
+  var searchbarTop
+  var stickyHeaderElements
+  var prevScrollTop = 0
+  var $window = $(window)
 
-$(window).scroll(function() {
-  function handleScrollUp() {
-    if (ScrollTop > SearchbarTop && ScrollTop <= UNPIN_OFFSET) {
-      StickyHeaderElements.addClass('sticky')
+  function handleScrollUp(scrollTop) {
+    if (scrollTop > searchbarTop && scrollTop <= UNPIN_OFFSET) {
+      stickyHeaderElements.addClass('sticky')
     } else {
-      StickyHeaderElements.removeClass('sticky')
-    }
-  }
-  function handleScrollDown() {
-    if (ScrollTop >= UNPIN_OFFSET) {
-      StickyHeaderElements.removeClass('sticky')
-    } else if (ScrollTop > SearchbarTop) {
-      StickyHeaderElements.addClass('sticky')
+      stickyHeaderElements.removeClass('sticky')
     }
   }
 
-  StickyHeaderElements = StickyHeaderElements || $('[data-md-sticky-header]')
-  SearchbarTop = SearchbarTop || $('.search-wrapper').offset().top
-  var ScrollTop = $(this).scrollTop()
-  var ScrollUpEvt = ScrollTop < PrevScrollTop
-  if (ScrollUpEvt) {
-    handleScrollUp()
-  } else {
-    handleScrollDown()
+  function handleScrollDown(scrollTop) {
+    if (scrollTop >= UNPIN_OFFSET) {
+      stickyHeaderElements.removeClass('sticky')
+    } else if (scrollTop > searchbarTop) {
+      stickyHeaderElements.addClass('sticky')
+    }
   }
 
-  PrevScrollTop = ScrollTop
-})
+  $window.scroll(function() {
+    stickyHeaderElements = stickyHeaderElements || $('[data-md-sticky-header]')
+    searchbarTop = searchbarTop || $('.search-wrapper').offset().top
+    var scrollTop = $window.scrollTop()
+    var isScrollUp = scrollTop < prevScrollTop
+
+    if (isScrollUp) {
+      handleScrollUp(scrollTop)
+    } else {
+      handleScrollDown(scrollTop)
+    }
+
+    prevScrollTop = scrollTop
+  })
+}())
 
 function updateLinksHref(links) {
   links.each(function() {
