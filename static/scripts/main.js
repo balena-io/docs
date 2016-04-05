@@ -172,7 +172,11 @@ angular
       return $http.get('/lunr_index.json')
       .then(function(resp) {
         var indexDump = angular.fromJson(resp.data)
-        return cachedIndex = lunr.Index.load(indexDump)
+        cachedIndex = {
+          lunr: lunr.Index.load(indexDump.idx),
+          docs: indexDump.docsIdx
+        }
+        return cachedIndex
       })
     }
   })
@@ -180,28 +184,20 @@ angular
   // controllers
   .controller('SearchResultsCtrl', function($scope, $location, idxService, $rootScope) {
     var searchTerm = $location.search().searchTerm
-    var searchResults = idxService.search(searchTerm)
+    var searchResults = idxService.lunr.search(searchTerm)
 
     $rootScope.improveDocsLink = null
 
-    var processSearch = function() {
-      $scope.searchResults = []
-      searchResults.forEach(function(result) {
-        var pageName = result.ref.replace(/\.md$/, '')
-        var el = angular.element('.site-navigation a[href$="/pages/' + pageName + '"]').first()
+    $scope.searchResults = searchResults.map(function(result) {
+      var ref = result.ref
+      return {
+        id: ref,
+        title: idxService.docs[ref],
+        link: '/pages/' + ref
+      }
+    })
 
-        $scope.searchResults.push({
-          id: pageName,
-          title: el.text(),
-          link: '/pages/' + pageName
-        })
-      })
-
-      $rootScope.$emit('update-breadcrumb', { lvlOne: 'Search Results', lvlTwo: searchTerm })
-    }
-
-    processSearch()
-    $rootScope.$on('active-link-added', processSearch)
+    $rootScope.$emit('update-breadcrumb', { lvlOne: 'Search Results', lvlTwo: searchTerm })
 
     window.scrollTo(0,0)
   })
