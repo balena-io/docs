@@ -187,12 +187,13 @@ angular
     var processSearch = function() {
       $scope.searchResults = []
       searchResults.forEach(function(result) {
-        var el = angular.element('.site-navigation a[href$="/pages/' + result.ref + '"]').first()
+        var pageName = result.ref.replace(/\.md$/, '')
+        var el = angular.element('.site-navigation a[href$="/pages/' + pageName + '"]').first()
 
         $scope.searchResults.push({
-          id: result.ref,
+          id: pageName,
           title: el.text(),
-          link: '/#/pages/' + result.ref
+          link: '/pages/' + pageName
         })
       })
 
@@ -250,11 +251,7 @@ angular
     return {
       restrict: 'A',
       link: function(scope, el) {
-        var url = location.href
-        url = url.replace(/#\w.+/, '')
-        url += '#' + el.attr('id')
-
-        el.append(' <a class="hash" href="' + url + '">#</a>')
+        el.append(' <a class="hash" href="#' + el.attr('id') + '">#</a>')
       }
     }
   })
@@ -318,7 +315,7 @@ angular
       templateUrl: '/static/templates/directives/navigation.html',
       link: function(scope, el, attrs) {
         function addActiveClass() {
-          var activeEl = angular.element('.site-navigation ul a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+          var activeEl = angular.element('.site-navigation ul a[href="/pages/'+ $routeParams.pageName +'"]').parent()
 
           el.find('.expand').removeClass('expand')
           activeEl.addClass('active')
