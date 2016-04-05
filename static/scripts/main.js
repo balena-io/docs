@@ -1,6 +1,7 @@
-(function(){
+(function($, angular, lunr){
 
 var UNPIN_OFFSET = 400
+
 var GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/gh-pages'
 
 var MAIN_MENU_LINKS = [
@@ -36,11 +37,11 @@ var MAIN_MENU_LINKS = [
 
 window.onload = function () {
   // fix first page load anchor issue
-  var url = window.location.hash
-  var divid = url.split('#')
-  var hash = document.getElementById(divid[2])
-  if (hash) {
-    hash.scrollIntoView()
+  var hash = window.location.hash
+  var elementId = hash && hash.substring(1).split('#')[1]
+  var targetEl = elementId && document.getElementById(elementId)
+  if (targetEl) {
+    targetEl.scrollIntoView()
   }
   $('[data-md-sticky-header]').headroom({
     offset: UNPIN_OFFSET,
@@ -122,8 +123,8 @@ angular
         controller: 'SearchResultsCtrl',
         templateUrl: '/static/templates/search-results.html',
         resolve: {
-          idxService: function(LurnService) {
-            return LurnService.getInstance()
+          idxService: function(LunrService) {
+            return LunrService.getInstance()
           }
         }
       })
@@ -162,16 +163,19 @@ angular
       })
     }
   })
-  .service('LurnService', function($http) {
+
+  .service('LunrService', function($http) {
+    var cachedIndex = null
+
     this.getInstance = function() {
-      if (window.idx) {
-        return window.idx
+      if (cachedIndex) {
+        return cachedIndex
       }
 
       return $http.get('/lunr_index.json')
       .then(function(resp) {
         var indexDump = angular.fromJson(resp.data)
-        return window.idx = lunr.Index.load(indexDump)
+        return cachedIndex = lunr.Index.load(indexDump)
       })
     }
   })
@@ -203,6 +207,7 @@ angular
 
     window.scrollTo(0,0)
   })
+
   .controller('SearchCtrl', function($scope, $location) {
     $scope.searchTerm = $location.search().searchTerm
 
@@ -216,7 +221,8 @@ angular
       }
     })
   })
-  .controller('PageCtrl', function($rootScope, $scope, $sce, pageContent, $timeout, $compile, $location, LurnService) {
+
+  .controller('PageCtrl', function($rootScope, $scope, $sce, pageContent, $timeout, $compile, $location, LunrService) {
     // hacky way of replacing content
     var pageContentEl = angular.element('.page-content')
     pageContentEl.html(pageContent)
@@ -239,7 +245,7 @@ angular
     })
 
     // preload if needed
-    LurnService.getInstance()
+    LunrService.getInstance()
   })
 
   // directives
@@ -255,6 +261,7 @@ angular
       }
     }
   })
+
   .directive('colorbox', function() {
     return {
       restrict: 'A',
@@ -263,6 +270,7 @@ angular
       }
     }
   })
+
   .directive('mobileNav', function($rootScope, $location) {
     return {
       restrict: 'E',
@@ -285,6 +293,7 @@ angular
       }
     }
   })
+
   .directive('breadcrumb', function($routeParams, $timeout, $rootScope) {
     return {
       restrict: 'E',
@@ -304,6 +313,7 @@ angular
       }
     }
   })
+
   .directive('navigation', function($sce, $timeout, $routeParams, $rootScope, PageRendererService) {
     return {
       restrict: 'E',
@@ -346,4 +356,4 @@ angular
     }
   })
 
-}())
+}(window.jQuery, window.angular, window.lunr))
