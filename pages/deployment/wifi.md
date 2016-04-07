@@ -29,8 +29,6 @@ Each of these should work with outward only (and inward once outward connection 
 Additionally, if the network your device is connecting to works with whitelisting, you should whitelist the following domains on Port `80` and `443`:
 * `*.resin.io`
 * `*.pubnub.com`
-* `*.ngrok.com`
-* `*.ngrok.io`
 
 Additionally make an outgoing connection to `mixpanel.com`, but this is not a functional requirement for resin.io, but rather allows us to track some useful metrics.
 
