@@ -109,7 +109,7 @@ Now we have to burn the downloaded `.img` file onto the SD card. There are a cou
 
 ### On Mac and Linux
 
-####From the command line
+#### From the command line
 
 First we need to figure out what our SD card is called. To do this open a terminal and execute the following command to see the list of connected storage devices:
 `df -h`
