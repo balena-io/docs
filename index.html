@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html ng-app="resinDocs">
-<head>
+  <head>
     <title>Resin.io Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="fragment" content="!">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     <meta charset="UTF-8">
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/static/lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/lib/colorbox/example3/colorbox.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/menu-top.css">
-</head>
-<body>
+    <base href="/">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
+    <link rel="stylesheet" href="/static/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/lib/colorbox/example3/colorbox.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/menu-top.css">
+  </head>
+  <body>
     <noscript>
-        This website requires Javascript to be enabled. Please turn on Javascript
-        and reload the page.
+      This website requires Javascript to be enabled. Please turn on Javascript
+      and reload the page.
     </noscript>
 
     <div class="menu menu--top">
       <div class="container">
         <nav class="menu__nav navbar" role="navigation">
           <a class="menu__logo navbar-brand" href="https://resin.io">
-            <span class="logo">
-              <img class="logo__img" src="/img/logo.svg">
-              <span class="logo__text">resin.io</span>
-            </span>
+          <span class="logo">
+            <img class="logo__img" src="/img/logo.svg">
+            <span class="logo__text">resin.io</span>
+          </span>
           </a>
 
           <ul class="menu__items nav navbar-nav navbar-left">
-            <li ng-repeat="menuItem in mainMenu" class="menu__item"><a ng-href="{{ menuItem.link }}" ng-cloak class="ng-cloak">{{ menuItem.title }}</a></li>
+          <li ng-repeat="menuItem in mainMenu" class="menu__item"><a ng-href="{{ menuItem.link }}" ng-cloak class="ng-cloak">{{ menuItem.title }}</a></li>
           </ul>
 
           <ul class="menu__items nav navbar-nav navbar-right">
-            <li class="menu__item menu__item--btn-group">
-              <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                <a class="btn" href="https://dashboard.resin.io/signup">Sign up</a>
-                <a class="btn" href="https://dashboard.resin.io/login">Login</a>
-              </div>
-            </li>
+          <li class="menu__item menu__item--btn-group">
+            <div class="btn-group btn-group-sm" role="group" aria-label="...">
+            <a class="btn" href="https://dashboard.resin.io/signup">Sign up</a>
+            <a class="btn" href="https://dashboard.resin.io/login">Login</a>
+            </div>
+          </li>
           </ul>
-
         </nav>
       </div>
     </div>
@@ -49,31 +49,31 @@
     <mobile-nav></mobile-nav>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="sidebar">
-                <div class="search-wrapper">
-                    <form data-md-sticky-header ng-controller="SearchCtrl" ng-submit="search()">
-                        <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Docs...">
-                    </form>
-                </div>
-                <navigation></navigation>
-                <gcse:search></gcse:search>
-            </div>
-            <article>
-                <div class="header-wrapper">
-                    <header data-md-sticky-header>
-                        <breadcrumb></breadcrumb>
-                    </header>
-                </div>
-                <div class="content-wrapper">
-                    <a ng-show="improveDocsLink" target="_blank" id="improve-docs" ng-href="{{ improveDocsLink }}" class="btn btn-info">
-                      <span class="glyphicon glyphicon-edit"></span>
-                      Improve this doc
-                    </a>
-                    <section ng-view></section>
-                </div>
-            </article>
+      <div class="row">
+        <div class="sidebar">
+          <div class="search-wrapper">
+            <form class="js-sticky-header" ng-controller="SearchCtrl" ng-submit="search()">
+              <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Docs...">
+            </form>
+          </div>
+          <navigation></navigation>
+          <gcse:search></gcse:search>
         </div>
+        <article>
+          <div class="header-wrapper">
+            <header class="js-sticky-header">
+              <breadcrumb></breadcrumb>
+            </header>
+          </div>
+          <div class="content-wrapper">
+            <a ng-show="improveDocsLink" target="_blank" id="improve-docs" ng-href="{{ improveDocsLink }}" class="btn btn-info">
+              <span class="glyphicon glyphicon-edit"></span>
+              Improve this doc
+            </a>
+            <section ng-view></section>
+          </div>
+        </article>
+      </div>
     </div>
 
     <script type="text/javascript" src="/static/lib/jquery/dist/jquery.min.js"></script>
@@ -106,9 +106,9 @@
     mixpanel.init("99eec53325d4f45dd0633abd719e3ff1");</script><!-- end Mixpanel -->
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            mixpanel.track('Docs', { page: location.href });
-        });
+      $(document).ready(function() {
+        mixpanel.track('Docs', { page: location.href });
+      });
     </script>
 
     <!-- GoSquared -->
@@ -120,5 +120,5 @@
 
       _gs('GSN-831588-U');
     </script>
-</body>
+  </body>
 </html>

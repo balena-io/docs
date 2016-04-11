@@ -1,240 +1,245 @@
-var UnpinOffset = 400;
+(function($, angular, lunr){
 
-window.onload = function () {
-    // fix first page load anchor issue
-    var url = window.location.hash;
-    var divid = url.split('#');
-    var hash = document.getElementById(divid[2]);
-    if(hash) {
-      hash.scrollIntoView()
+var UNPIN_OFFSET = 400
+
+var GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/gh-pages'
+
+var MAIN_MENU_LINKS = [
+  {
+    "title": "What it's for",
+    "link": "https://resin.io/usecases"
+  },
+  {
+    "title": "How it works",
+    "link": "https://resin.io/how-it-works"
+  },
+  {
+    "title": "Talk",
+    "link": "http://talk.resin.io/"
+  },
+  {
+    "title": "Blog",
+    "link": "https://resin.io/blog/"
+  },
+  {
+    "title": "Pricing",
+    "link": "https://resin.io/pricing/"
+  },
+  {
+    "title": "Team",
+    "link": "https://resin.io/team"
+  },
+  {
+    "title": "Contact",
+    "link": "https://resin.io/contact"
+  }
+]
+
+function setupScroll() {
+  var stickyHeaderElements = $('.js-sticky-header')
+  var searchbarTop = $('.search-wrapper').offset().top
+  var prevScrollTop = 0
+  var $window = $(window)
+
+  function handleScrollUp(scrollTop) {
+    if (scrollTop > searchbarTop && scrollTop <= UNPIN_OFFSET) {
+      stickyHeaderElements.addClass('sticky')
+    } else {
+      stickyHeaderElements.removeClass('sticky')
     }
-    $('[data-md-sticky-header]').headroom({
-      offset: UnpinOffset,
-      tolerance: 0
-    });
+  }
+
+  function handleScrollDown(scrollTop) {
+    if (scrollTop >= UNPIN_OFFSET) {
+      stickyHeaderElements.removeClass('sticky')
+    } else if (scrollTop > searchbarTop) {
+      stickyHeaderElements.addClass('sticky')
+    }
+  }
+
+  $window.scroll(function() {
+    var scrollTop = $window.scrollTop()
+    var isScrollUp = scrollTop < prevScrollTop
+
+    if (isScrollUp) {
+      handleScrollUp(scrollTop)
+    } else {
+      handleScrollDown(scrollTop)
+    }
+
+    prevScrollTop = scrollTop
+  })
 }
 
-var SearchbarTop;
-var StickyHeaderElements;
-var PrevScrollTop = 0;
-
-$(window).scroll(function() {
-  function handleScrollUp() {
-    if (ScrollTop > SearchbarTop && ScrollTop <= UnpinOffset) {
-      StickyHeaderElements.addClass('sticky');
-    } else {
-      StickyHeaderElements.removeClass('sticky');
-    }
-  }
-  function handleScrollDown() {
-    if (ScrollTop >= UnpinOffset) {
-      StickyHeaderElements.removeClass('sticky');
-    } else if (ScrollTop > SearchbarTop) {
-      StickyHeaderElements.addClass('sticky');
-    }
-  }
-
-  StickyHeaderElements = StickyHeaderElements || $('[data-md-sticky-header]');
-  SearchbarTop = SearchbarTop || $('.search-wrapper').offset().top;
-  var ScrollTop = $(this).scrollTop();
-  var ScrollUpEvt = ScrollTop < PrevScrollTop;
-  if (ScrollUpEvt) {
-    handleScrollUp();
-  } else {
-    handleScrollDown();
-  }
-
-  PrevScrollTop = ScrollTop;
-});
+$(function () {
+  $('.js-sticky-header').headroom({
+    offset: UNPIN_OFFSET,
+    tolerance: 0
+  })
+  setupScroll()
+})
 
 function updateLinksHref(links) {
   links.each(function() {
-    var href = $(this).attr('href');
-    $(this).attr('href', '/#' + href);
-  });
+    var href = $(this).attr('href')
+      .replace('.md#', '#')
+      .replace(/\.md$/, '')
+    $(this).attr('href', href)
+  })
 }
-
-function updateAnchorHref(links, route) {
-  links.each(function() {
-    var href = $(this).attr('href');
-    $(this).attr('href', '/#/pages/' + route + '/' + href);
-  });
-}
-
-var GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/gh-pages';
 
 angular
   .module('resinDocs', [ 'ngRoute', 'ui.bootstrap' ])
 
-  .run(function($rootScope, MAIN_MENU) {
-    $rootScope.mainMenu = MAIN_MENU;
-    $rootScope.improveDocsLink = null;
+  .run(function($rootScope) {
+    $rootScope.mainMenu = MAIN_MENU_LINKS
+    $rootScope.improveDocsLink = null
   })
 
-  .constant('MAIN_MENU', [
-    {
-      "title": "What it's for",
-      "link": "https://resin.io/usecases"
-    },
-    {
-      "title": "How it works",
-      "link": "https://resin.io/how-it-works"
-    },
-    {
-      "title": "Talk",
-      "link": "http://talk.resin.io/"
-    },
-    {
-      "title": "Blog",
-      "link": "https://resin.io/blog/"
-    },
-    {
-      "title": "Pricing",
-      "link": "https://resin.io/pricing/"
-    },
-    {
-      "title": "Team",
-      "link": "https://resin.io/team"
-    },
-    {
-      "title": "Contact",
-      "link": "https://resin.io/contact"
-    }
-  ])
-
   // config
-  .config(function($routeProvider) {
+  .config(function($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/pages/:pageName*', {
-        controller: 'PageCtrl',
-        template: '<div class="page-content"></div>',
-        resolve: {
-          pageContent: function($route, PageRendererService) {
-            return PageRendererService.getPageHtml($route.current.params.pageName);
-          }
-        }
-      })
+    .when('/pages/:pageName*.md', {
+      redirectTo: function(params) {
+        return '/pages/' + params.pageName
+      }
+    })
 
-      .when('/search-results', {
-        controller: 'SearchResultsCtrl',
-        templateUrl: '/static/templates/search-results.html',
-        resolve: {
-          idxService: function(LurnService) {
-            return LurnService.getInstance();
-          }
+    .when('/pages/:pageName*', {
+      controller: 'PageCtrl',
+      template: '<div class="page-content"></div>',
+      resolve: {
+        pageContent: function($route, PageRendererService) {
+          return PageRendererService.getPageHtml($route.current.params.pageName)
         }
-      })
+      }
+    })
 
-      .otherwise('/pages/introduction/introduction.md');
+    .when('/search-results', {
+      controller: 'SearchResultsCtrl',
+      templateUrl: '/static/templates/search-results.html',
+      resolve: {
+        idxService: function(LunrService) {
+          return LunrService.getInstance()
+        }
+      }
+    })
+
+    .otherwise('/pages/introduction/introduction')
+
+    $locationProvider.html5Mode(true)
   })
 
   // services
   .service('PageRendererService', function($http) {
     this.getPageHtml = function(pageName) {
-      return $http.get('/pages/' + pageName).then(function(resp) {
-        var preparedHtmlEl = angular.element('<div>' + marked(resp.data) + '</div>');
+      return $http.get('/pages/' + pageName + '.md').then(function(resp) {
+        var preparedHtmlEl = angular.element('<div>' + marked(resp.data) + '</div>')
 
         // add custom classess/directives
-        preparedHtmlEl.find('table').addClass('table table-bordered');
-        preparedHtmlEl.find('p > strong:first-child:contains("Warning")').parent().wrap('<alert type="warning"></alert>');
-        preparedHtmlEl.find('p > strong:first-child:contains("Note")').parent().wrap('<alert type="note"></alert>');
-        preparedHtmlEl.find('p > strong:first-child:contains("NOTE")').parent().wrap('<alert type="note"></alert>');
-        preparedHtmlEl.find('img').attr('colorbox', '');
-        preparedHtmlEl.find('h2,h3,h4,h5,h6').attr('anchor', '');
+        preparedHtmlEl.find('table').addClass('table table-bordered')
+        preparedHtmlEl.find('p > strong:first-child:contains("Warning")')
+          .parent().wrap('<alert type="warning"></alert>')
+        preparedHtmlEl.find('p > strong:first-child:contains("Note")')
+          .parent().wrap('<alert type="note"></alert>')
+        preparedHtmlEl.find('p > strong:first-child:contains("NOTE")')
+          .parent().wrap('<alert type="note"></alert>')
+        preparedHtmlEl.find('img').attr('colorbox', '')
+        preparedHtmlEl.find('h2,h3,h4,h5,h6').attr('anchor', '')
 
-        updateLinksHref(preparedHtmlEl.find('a[href^="/pages"]'));
-        updateAnchorHref(preparedHtmlEl.find('a[href^="#"]'), pageName);
+        updateLinksHref(preparedHtmlEl.find('a[href^="/pages"]'))
 
-        return preparedHtmlEl.html();
-      });
-    };
+        return preparedHtmlEl.html()
+      })
+    }
 
     this.getSidebarNavigation = function() {
-      return $http.get('/navigation.md').then(function(resp) {
-        return marked(resp.data);
-      });
-    };
+      return $http.get('/navigation.md')
+      .then(function(resp) {
+        return marked(resp.data)
+      })
+    }
   })
-  .service('LurnService', function($http) {
+
+  .service('LunrService', function($http) {
+    var cachedIndex = null
+
     this.getInstance = function() {
-      if (window.idx) {
-        return window.idx;
+      if (cachedIndex) {
+        return cachedIndex
       }
 
-      return $http.get('/lunr_index.json').then(function(resp) {
-        var indexDump = angular.fromJson(resp.data);
-        return window.idx = lunr.Index.load(indexDump);
+      return $http.get('/lunr_index.json')
+      .then(function(resp) {
+        var indexDump = angular.fromJson(resp.data)
+        cachedIndex = {
+          lunr: lunr.Index.load(indexDump.idx),
+          docs: indexDump.docsIdx
+        }
+        return cachedIndex
       })
     }
   })
 
   // controllers
   .controller('SearchResultsCtrl', function($scope, $location, idxService, $rootScope) {
-    var searchTerm = $location.search().searchTerm;
-    var searchResults = idxService.search(searchTerm);
+    var searchTerm = $location.search().searchTerm
+    var searchResults = idxService.lunr.search(searchTerm)
 
-    $rootScope.improveDocsLink = null;
+    $rootScope.improveDocsLink = null
 
-    var processSearch = function() {
-      $scope.searchResults = [];
-      searchResults.forEach(function(result) {
-        var el = angular.element('.site-navigation a[href$="/pages/' + result.ref + '"]').first();
+    $scope.searchResults = searchResults.map(function(result) {
+      var ref = result.ref
+      return {
+        id: ref,
+        title: idxService.docs[ref],
+        link: '/pages/' + ref
+      }
+    })
 
-        $scope.searchResults.push({
-          id: result.ref,
-          title: el.text(),
-          link: '/#/pages/' + result.ref
-        });
-      });
+    $rootScope.$emit('update-breadcrumb', { lvlOne: 'Search Results', lvlTwo: searchTerm })
 
-      $rootScope.$emit('update-breadcrumb', { lvlOne: 'Search Results', lvlTwo: searchTerm });
-    }
-
-    processSearch();
-    $rootScope.$on('active-link-added', function() {
-      processSearch();
-    });
-
-    window.scrollTo(0,0);
-
+    window.scrollTo(0,0)
   })
+
   .controller('SearchCtrl', function($scope, $location) {
-    $scope.searchTerm = $location.search().searchTerm;
+    $scope.searchTerm = $location.search().searchTerm
 
     $scope.search = function() {
-      $location.path('/search-results').search({ searchTerm: $scope.searchTerm });
-    };
+      $location.path('/search-results').search({ searchTerm: $scope.searchTerm })
+    }
 
     $scope.$on('$routeChangeStart', function(next, current) {
       if (current.controller != 'SearchResultsCtrl') {
-        $scope.searchTerm = '';
+        $scope.searchTerm = ''
       }
-    });
+    })
   })
-  .controller('PageCtrl', function($rootScope, $scope, $sce, pageContent, $timeout, $compile, $location, LurnService) {
+
+  .controller('PageCtrl', function($rootScope, $scope, $sce, pageContent, $timeout, $compile, $location, LunrService) {
     // hacky way of replacing content
-    var pageContentEl = angular.element('.page-content');
-    pageContentEl.html(pageContent);
-    $compile(pageContentEl.contents())($scope);
+    var pageContentEl = angular.element('.page-content')
+    pageContentEl.html(pageContent)
+    $compile(pageContentEl.contents())($scope)
 
     $rootScope.improveDocsLink = GITHUB_EDIT_PAGE_LINK + $location.path()
 
     $timeout(function() {
       if (!$location.hash()) {
-        window.scrollTo(0,0);
-      } 
+        window.scrollTo(0,0)
+      }
 
-      $scope.$emit('page-rendered', pageContent);
+      $scope.$emit('page-rendered', pageContent)
       angular.element('.colorbox-img-wrappper').colorbox({
         maxWidth: '95%',
         maxHeight: '95%',
-        scalePhotos: !0,
-        photo: !0
-      });
-    });
+        scalePhotos: true,
+        photo: true
+      })
+    })
 
     // preload if needed
-    LurnService.getInstance();
+    LunrService.getInstance()
   })
 
   // directives
@@ -242,44 +247,43 @@ angular
     return {
       restrict: 'A',
       link: function(scope, el) {
-        var url = location.href;
-        url = url.replace(/#\w.+/, '')
-        url += '#' + el.attr('id')
-        
-        el.append(' <a class="hash" href="' + url + '">#</a>')
+        el.append(' <a class="hash" href="#' + el.attr('id') + '">#</a>')
       }
     }
   })
+
   .directive('colorbox', function() {
     return {
       restrict: 'A',
       link: function(scope, el) {
-        el.wrap('<a href="' + el.attr('src') + '" class="colorbox-img-wrappper"></a>');
+        el.wrap('<a href="' + el.attr('src') + '" class="colorbox-img-wrappper"></a>')
       }
     }
   })
+
   .directive('mobileNav', function($rootScope, $location) {
     return {
       restrict: 'E',
       replace: true,
       templateUrl: '/static/templates/directives/mobile-nav.html',
       link: function(scope, el) {
-        scope.subMenuCollapsed = false;
+        scope.subMenuCollapsed = false
 
         $rootScope.$on('active-link-added', function(event, data) {
-          scope.pageTitle = data.el.text();
-          angular.element('.navbar-submenu .site-navigation').height(angular.element(window).height() - 190);
-        });
+          scope.pageTitle = data.el.text()
+          angular.element('.navbar-submenu .site-navigation').height(angular.element(window).height() - 190)
+        })
 
         scope.$on('$routeChangeStart', function(next, current) {
           if (current.controller == 'SearchResultsCtrl') {
-            scope.pageTitle = 'Search results for "' + $location.search().searchTerm + '"';
+            scope.pageTitle = 'Search results for "' + $location.search().searchTerm + '"'
           }
-          scope.subMenuCollapsed = false;
-        });
+          scope.subMenuCollapsed = false
+        })
       }
     }
   })
+
   .directive('breadcrumb', function($routeParams, $timeout, $rootScope) {
     return {
       restrict: 'E',
@@ -287,18 +291,19 @@ angular
       templateUrl: '/static/templates/directives/breadcrumb.html',
       link: function(scope, el) {
         $rootScope.$on('active-link-added', function(event, data) {
-          scope.lvlOne = data.el.parent().prev().text();
-          scope.lvlTwo = data.el.text();
-        });
+          scope.lvlOne = data.el.parent().prev().text()
+          scope.lvlTwo = data.el.text()
+        })
 
         $rootScope.$on('update-breadcrumb', function(event, data) {
-          scope.lvlOne = data.lvlOne;
-          scope.lvlTwo = data.lvlTwo;
-        });
+          scope.lvlOne = data.lvlOne
+          scope.lvlTwo = data.lvlTwo
+        })
 
       }
     }
   })
+
   .directive('navigation', function($sce, $timeout, $routeParams, $rootScope, PageRendererService) {
     return {
       restrict: 'E',
@@ -306,39 +311,40 @@ angular
       templateUrl: '/static/templates/directives/navigation.html',
       link: function(scope, el, attrs) {
         function addActiveClass() {
-          var activeEl = angular.element('.site-navigation ul a[href="/#/pages/'+ $routeParams.pageName +'"]').parent()
+          var activeEl = angular.element('.site-navigation ul a[href="/pages/'+ $routeParams.pageName +'"]').parent()
 
-          el.find('.expand').removeClass('expand');
-          activeEl.addClass('active');
+          el.find('.expand').removeClass('expand')
+          activeEl.addClass('active')
 
           if ($(window).width() >= 767) {
-            var expandEl = activeEl.parents('ul');
-            expandEl.addClass('expand');
+            var expandEl = activeEl.parents('ul')
+            expandEl.addClass('expand')
           }
 
-          el.find('.active').removeClass('active');
+          el.find('.active').removeClass('active')
           $rootScope.$emit('active-link-added', { el: activeEl.first() })
         }
 
         function expand() {
-          child = $(this).child('ul');
-          child.addClass('expand');
+          child = $(this).child('ul')
+          child.addClass('expand')
           $rootScope.$emit('active-link-added', { el: activeEl.first() })
         }
 
-        $rootScope.$on('page-rendered', function(event, data) {
-          addActiveClass();
-        });
+        $rootScope.$on('page-rendered', addActiveClass)
 
-        PageRendererService.getSidebarNavigation().then(function(nav) {
-          scope.navigationContent = $sce.trustAsHtml(nav);
+        PageRendererService.getSidebarNavigation()
+        .then(function(nav) {
+          scope.navigationContent = $sce.trustAsHtml(nav)
 
           $timeout(function() {
             // update all links href
-            updateLinksHref(el.find('a'));
-            addActiveClass();
-          });
-        });
+            updateLinksHref(el.find('a'))
+            addActiveClass()
+          })
+        })
       }
-    };
+    }
   })
+
+}(window.jQuery, window.angular, window.lunr))
