@@ -222,10 +222,7 @@ angular
     pageContentEl.html(pageContent)
     $compile(pageContentEl.contents())($scope)
 
-    var pagePath = $location.path()
-    $rootScope.improveDocsLink = GITHUB_EDIT_PAGE_LINK +
-      pagePath +
-      (pagePath.match(/\.md$/) ? '' : '.md')
+    $rootScope.improveDocsLink = GITHUB_EDIT_PAGE_LINK + $location.path()
 
     $timeout(function() {
       if (!$location.hash()) {
