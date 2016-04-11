@@ -57,7 +57,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ### Restart Device Container
 
-The `Restart Device Conatiner` action is a per-device **restart** of the currently running **application container**. Your application (A.K.A it's running container) will be shutdown and restarted from scratch.
+The `Restart Device Container` action is a per-device **restart** of the currently running **application container**. Your application (A.K.A it's running container) will be shutdown and restarted from scratch.
 
 When the container is stopped, the application is politely asked to stop by sending a `SIGTERM` and after 10 seconds of wait time a `SIGKILL` is sent. During a restart any data that is not stored in `/data` will be lost.
 
