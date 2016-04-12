@@ -2,7 +2,7 @@
 
 var UNPIN_OFFSET = 400
 
-var GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/gh-pages'
+var GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/master'
 
 var MAIN_MENU_LINKS = [
   {
