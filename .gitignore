@@ -2,9 +2,7 @@
 
 .DS_Store
 
-# Ignore local scripts.
-run.sh
-
-
 node_modules/
 npm-debug.log
+
+lunr_index.json
