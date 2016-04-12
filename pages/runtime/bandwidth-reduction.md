@@ -4,12 +4,12 @@ In order to provide our users with a clear view of their devices, the resin devi
 
 In order to give our power users control over data flow we enabled a few RESIN [config environment variables](http://docs.resin.io/#/pages/management/env-vars.md).
 
-|Variable                    | Allowed Value    |   Action                                             | Default
-|----------------------------|------------------|--------------------------------------------------------------------
-| `RESIN_SUPERVISOR_VPN_CONTROL`        | true/false       |  Enable / Disable VPN                                |   true
-| `RESIN_SUPERVISOR_CONNECTIVITY_CHECK` | true/false       |  Enable / Disable connectivity check VPN is disabled |   true
-| `RESIN_SUPERVISOR_POLL_INTERVAL`      | 6000 to 86400000 |  Resin API Poll interval                             |   6000
-| `RESIN_SUPERVISOR_LOG_CONTROL`        | true/false       |  Enable / Disable logs from being sent to Resin      |   true
+|Variable                               | Allowed Value     |   Action                                             | Default
+|---------------------------------------|-------------------|----------------------------------------------------------------
+| `RESIN_SUPERVISOR_VPN_CONTROL`        | true/false        |  Enable / Disable VPN                                |   true
+| `RESIN_SUPERVISOR_CONNECTIVITY_CHECK` | true/false        |  Enable / Disable connectivity check VPN is disabled |   true
+| `RESIN_SUPERVISOR_POLL_INTERVAL`      | 60000 to 86400000 |  Resin API Poll interval in milliseconds             |   60000
+| `RESIN_SUPERVISOR_LOG_CONTROL`        | true/false        |  Enable / Disable logs from being sent to Resin      |   true
 
 Side-effect/Warning
 -------------------
