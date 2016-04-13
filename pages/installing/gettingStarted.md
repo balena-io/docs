@@ -5,7 +5,7 @@ At the time of writing the A/A+, B/B+, RPI2 are supported.
 
 ## What You'll Need
 
-* A Raspberry Pi model [B][rpi-b], [B+][rpi-b-plus], [A+][rpi-A-plus] or [Raspberry Pi 2][RPI2-link].
+* A Raspberry Pi model [B][rpi-b], [B+][rpi-b-plus], [A+][rpi-A-plus], [Raspberry Pi 2][RPI2-link] or [Raspberry Pi 3][RPI3-link].
   See our [supported devices][supported] for a full list of the boards we currently support.
 * A 4GB or larger SD card.
   The [Raspberry Pi][rpi] uses a Micro SD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get ahold of a class 10 card or above.
@@ -276,7 +276,7 @@ If you find any issues with the application or get stuck anywhere along the way,
 [rpi-b]:http://www.raspberrypi.org/products/model-b/
 [rpi-A-plus]:http://www.raspberrypi.org/products/model-a-plus/
 [RPI2-link]:http://www.raspberrypi.org/products/raspberry-pi-2-model-b/
-
+[RPI3-link]:https://www.raspberrypi.org/products/raspberry-pi-3-model-b/
 <!-- Example code links -->
 
 [example_app]:https://github.com/resin-io/text2speech
