@@ -9,7 +9,7 @@
 
 ### [Getting Started](/pages/installing/gettingStarted.md)
 
-* [Raspberry Pi (A/A+,B/B+,B 2)](/pages/installing/gettingStarted.md)
+* [Raspberry Pi (A/A+,B/B+, 2B, 3B)](/pages/installing/gettingStarted.md)
 * [Beaglebone Black/Green](/pages/installing/gettingStarted-BBB.md)
 * [Intel Edison](/pages/installing/gettingStarted-Edison.md)
 * [Intel NUC](/pages/installing/gettingStarted-NUC.md)
