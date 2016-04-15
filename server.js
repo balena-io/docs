@@ -1,6 +1,12 @@
 var express = require('express');
 var app = express();
 
+if (process.env.ACME_CHALLENGE && process.env.ACME_RESPONSE) {
+  app.use('/.well-known/acme-challenge/' + process.env.ACME_CHALLENGE, function (req, res) {
+    res.send(process.env.ACME_RESPONSE);
+  });
+}
+
 app.use(express.static(__dirname));
 
 app.use(function (req, res) {
