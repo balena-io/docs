@@ -7,6 +7,16 @@ if (process.env.ACME_CHALLENGE && process.env.ACME_RESPONSE) {
   });
 }
 
+if (process.env.GOOGLE_VERIFICATION) {
+  var verificationCode = process.env.GOOGLE_VERIFICATION
+  if (!verificationCode.match(/\.html$/)) {
+    verificationCode += '.html'
+  }
+  app.use('/' + verificationCode, function (req, res) {
+    res.send('google-site-verification: ' + verificationCode);
+  });
+}
+
 app.use(express.static(__dirname));
 
 app.use(function (req, res) {
