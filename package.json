@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "./index.sh"
+    "postinstall": "bower install && ./index.sh"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/resin-io/docs",
   "dependencies": {
-    "express": "~4.11.0",
-    "async": "~0.9.0"
+    "async": "~0.9.0",
+    "bower": "^1.7.9",
+    "express": "~4.11.0"
   }
 }

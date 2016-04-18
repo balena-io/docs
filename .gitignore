@@ -1,8 +1,8 @@
-.#*
-
-.DS_Store
-
+lunr_index.json
+bower_components
 node_modules/
 npm-debug.log
 
-lunr_index.json
+.#*
+
+.DS_Store

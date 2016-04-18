@@ -1,5 +1,5 @@
 var fs = require('fs')
-var lunr = require('./static/lib/lunr.js/lunr.js')
+var lunr = require('./bower_components/lunr.js/lunr.js')
 var async = require('async')
 
 var PAGES_PATH = './pages'

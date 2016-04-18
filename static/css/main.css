@@ -19,7 +19,7 @@ body {
   min-height: 57px;
 }
 
-#improve-docs {
+.improve-docs {
   float: right;
   text-transform: uppercase;
   font-size: 12px;
@@ -338,7 +338,7 @@ ul.expand {
 }
 
 @media (max-width: 767px) {
-  #improve-docs {
+  .improve-docs {
     float: none;
     margin-top: 10px;
     margin-bottom: -40px;

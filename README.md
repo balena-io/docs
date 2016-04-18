@@ -21,7 +21,7 @@ To run the docs web application locally you should do the following:
 ```sh
 git clone https://github.com/resin-io/docs
 cd docs
-npm install && bower install
+npm install
 npm start
 ```
 And then open [http://localhost:3000](http://localhost:3000).
