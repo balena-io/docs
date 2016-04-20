@@ -1,3 +1,7 @@
+---
+title: Supported Devices
+---
+
 # Supported Devices
 
 ## Currently Supported

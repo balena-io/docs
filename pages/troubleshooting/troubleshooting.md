@@ -1,20 +1,24 @@
+---
+title: Troubleshooting
+---
+
 # Troubleshooting
 
-* [General](/pages/troubleshooting/troubleshooting.md#general)
-  * [The 'Start the Terminal Session' Button Doesn't Appear](/pages/troubleshooting/troubleshooting.md#the-start-the-terminal-session-button-doesn-t-appear)
-  * [Clicking 'Open Terminal' in the Session Does Nothing](/pages/troubleshooting/troubleshooting.md#clicking-open-terminal-in-the-session-does-nothing)
-  * [Terminal Closes On Update](/pages/troubleshooting/troubleshooting.md#terminal-closes-on-update)
-  * [Can't Login to dashboard.resin.io](/pages/troubleshooting/troubleshooting.md#can-t-login-to-dashboard-resin-io)
-  * [I get `$'\r': command not found` when my device tries to run scripts](/pages/troubleshooting/troubleshooting.md#i-get-r-command-not-found-when-my-device-tries-to-run-scripts)
-* [Raspberry Pi](/pages/troubleshooting/troubleshooting.md#raspberry-pi)
-  * [My Device Doesn't Boot](/pages/troubleshooting/troubleshooting.md#my-device-doesn-t-boot)
-  * [Connectivity](/pages/troubleshooting/troubleshooting.md#connectivity)
-  * [SD Card Corruption](/pages/troubleshooting/troubleshooting.md#sd-card-corruption)
-* [Beaglebone](/pages/troubleshooting/troubleshooting.md#beaglebone)
-  * [I can't get my beaglebone to reprovision](/pages/troubleshooting/troubleshooting.md#i-can-t-get-my-beaglebone-to-reprovision-)
-* [Intel Edison](/pages/troubleshooting/troubleshooting.md#intel-edison)
-  * [Help!!! I want to restore my Edison to factory Yocto](/pages/troubleshooting/troubleshooting.md#help-i-want-to-restore-my-edison-to-factory-yocto)
-  * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](/pages/troubleshooting/troubleshooting.md#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
+* [General](/troubleshooting/troubleshooting#general)
+  * [The 'Start the Terminal Session' Button Doesn't Appear](/troubleshooting/troubleshooting#the-start-the-terminal-session-button-doesn-t-appear)
+  * [Clicking 'Open Terminal' in the Session Does Nothing](/troubleshooting/troubleshooting#clicking-open-terminal-in-the-session-does-nothing)
+  * [Terminal Closes On Update](/troubleshooting/troubleshooting#terminal-closes-on-update)
+  * [Can't Login to dashboard.resin.io](/troubleshooting/troubleshooting#can-t-login-to-dashboard-resin-io)
+  * [I get `$'\r': command not found` when my device tries to run scripts](/troubleshooting/troubleshooting#i-get-r-command-not-found-when-my-device-tries-to-run-scripts)
+* [Raspberry Pi](/troubleshooting/troubleshooting#raspberry-pi)
+  * [My Device Doesn't Boot](/troubleshooting/troubleshooting#my-device-doesn-t-boot)
+  * [Connectivity](/troubleshooting/troubleshooting#connectivity)
+  * [SD Card Corruption](/troubleshooting/troubleshooting#sd-card-corruption)
+* [Beaglebone](/troubleshooting/troubleshooting#beaglebone)
+  * [I can't get my beaglebone to reprovision](/troubleshooting/troubleshooting#i-can-t-get-my-beaglebone-to-reprovision-)
+* [Intel Edison](/troubleshooting/troubleshooting#intel-edison)
+  * [Help!!! I want to restore my Edison to factory Yocto](/troubleshooting/troubleshooting#help-i-want-to-restore-my-edison-to-factory-yocto)
+  * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](/troubleshooting/troubleshooting#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
 
 ## General
 
@@ -70,10 +74,10 @@ In order to reprovison a beaglebone that has already been connected to the resin
 
 ### Help, I want to restore my Edison to factory Yocto
 
-If you are one of the unfortunate people who feel they want to return to the old Yocto build of the Edison you can have a look over here on our guide to [restore original Edison firmware](/pages/troubleshooting/restore-edison.md).
+If you are one of the unfortunate people who feel they want to return to the old Yocto build of the Edison you can have a look over here on our guide to [restore original Edison firmware](/troubleshooting/restore-edison).
 
 ### I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows
 
 Make sure you have [Intel Edison drivers](https://software.intel.com/en-us/iot/hardware/edison/downloads) installed in your computer.
 
-[error]:/pages/troubleshooting/error.md
+[error]:/troubleshooting/error

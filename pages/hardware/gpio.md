@@ -1,10 +1,14 @@
+---
+title: GPIO Interface
+---
+
 # GPIO
 
 Recommended ways of interacting with GPIO on resin.io devices.
 
-* [Raspberry Pi](/pages/hardware/gpio.md#raspberry-pi)
-* [Beaglebone](/pages/hardware/gpio.md#beaglebone)
-* [Intel Edison](/pages/hardware/gpio.md#intel-edison)
+* [Raspberry Pi](/hardware/gpio#raspberry-pi)
+* [Beaglebone](/hardware/gpio#beaglebone)
+* [Intel Edison](/hardware/gpio#intel-edison)
 
 ## Raspberry Pi
 
@@ -146,7 +150,7 @@ All the Intel Edison base images on our [docker hub][edison-base-image-link] com
 To get started with GPIO on edison have a look at our ["Edison GPIO in node.js"](https://github.com/shaunmulligan/edison-blink-node.git) example, or if you prefer python check out our ["Simple Edison GPIO with python"](https://github.com/shaunmulligan/hello-python-edison).
 
 [edison-base-image-link]:https://hub.docker.com/search/?q=resin%2Fedison&page=1&isAutomated=0&isOfficial=0&starCount=0&pullCount=0
-[terminal]:/pages/runtime/terminal.md
+[terminal]:/runtime/terminal
 
 [resin]:https://resin.io
 

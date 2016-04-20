@@ -1,0 +1,89 @@
+<!-- regular nav -->
+<div class="menu menu--top">
+  <div class="container">
+    <nav class="menu__nav navbar" role="navigation">
+      <a class="menu__logo navbar-brand" href="{{ mainSiteUrl }}">
+        <span class="logo">
+          <img class="logo__img" src="/img/logo.svg">
+          <span class="logo__text">resin.io</span>
+        </span>
+      </a>
+
+      <ul class="menu__items nav navbar-nav navbar-left">
+        {% for menuItem in menuLinks %}
+          <li class="menu__item">
+            <a href="{{ menuItem.link }}">{{ menuItem.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <ul class="menu__items nav navbar-nav navbar-right">
+        <li class="menu__item menu__item--btn-group">
+          <div class="btn-group btn-group-sm" role="group">
+            <a class="btn" href="{{ dashboardUrl }}/signup">Sign up</a>
+            <a class="btn" href="{{ dashboardUrl }}/login">Login</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<!-- mobile nav -->
+
+<script id="tpl-mobile-top-menu" type="text/html">
+  <div class="navbar-header">
+    <a class="menu__logo navbar-brand" href="{{ mainSiteUrl }}">
+      <span class="logo">
+        <img class="logo__img" src="/img/logo.svg">
+        <span class="logo__text">resin.io</span>
+      </span>
+    </a>
+
+    <a class="btn btn-primary"
+      href="{{ dashboardUrl }}/signup">SIGN UP</a>
+
+    <button type="button" class="navbar-toggle"
+      on-click="toggle('collapsed')">
+      {% for i in [1,2,3] %}
+        <span class="icon-bar [[ !collapsed ? 'active' : '' ]]"></span>
+      {% endfor %}
+    </button>
+  </div>
+  [[^collapsed]]
+    <div class="navbar-collapse">
+      <ul>
+        {% for menuItem in menuLinks %}
+          <li>
+            <a href="{{ menuItem.link }}">{{ menuItem.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  [[/collapsed]]
+</script>
+
+<script id="tpl-mobile-sub-menu" type="text/html">
+  <div on-click="toggle('collapsed')" class="navbar-header">
+    <span class="navbar-submenu-title">{{ title }}</span>
+    <button type="button" class="navbar-toggle">
+      <span class="caret [[ !collapsed ? 'active' : '' ]]" ></span>
+    </button>
+  </div>
+  [[^collapsed]]
+    <div class="navbar-collapse">
+      <div class="sidebar sidebar-mobile">
+        <div class="search-wrapper">
+          {% include "_search-form.html" %}
+        </div>
+        {% include "_nav.html" %}
+      </div>
+    </div>
+  [[/collapsed]]
+</script>
+
+<nav class="navbar navbar-default navbar--mobile"
+  id="ract-mobile-top-menu"></nav>
+
+<nav class="navbar navbar-submenu navbar--mobile"
+  id="ract-mobile-sub-menu"></nav>

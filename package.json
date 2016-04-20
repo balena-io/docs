@@ -2,10 +2,11 @@
   "name": "resin-docs",
   "version": "0.0.0",
   "description": "This repo contains our public-facing documentation.",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower install && ./index.sh"
+    "postinstall": "bower install && ./tools/prepare.sh"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,16 @@
   "dependencies": {
     "async": "~0.9.0",
     "bower": "^1.7.9",
-    "express": "~4.11.0"
+    "coffee-script": "^1.10.0",
+    "consolidate": "^0.14.0",
+    "express": "~4.11.0",
+    "handlebars": "^4.0.5",
+    "lodash": "^4.11.1",
+    "lunr": "^0.7.0",
+    "metalsmith": "^2.1.0",
+    "metalsmith-layouts": "^1.6.4",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0",
+    "swig": "^1.4.2"
   }
 }

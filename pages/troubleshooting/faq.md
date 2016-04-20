@@ -1,22 +1,25 @@
+---
+title: FAQs
+---
 # Frequently Asked Questions
 
-* [What NTP servers do resin.io devices use?](/pages/troubleshooting/faq.md#what-ntp-servers-do-resin-io-devices-use-)
-* [What Network Ports are required by resin.io?](/pages/troubleshooting/faq.md#what-network-ports-are-required-by-resin-io)
-* [Can I access /dev and things like GPIO from the container?](/pages/troubleshooting/faq.md#can-i-access-dev-and-things-like-gpio-from-the-container-)
-* [Why is my device showing the incorrect time?](/pages/troubleshooting/faq.md#why-is-my-device-showing-the-incorrect-time-)
-* [Can I set a static IP address for my device?](/pages/troubleshooting/faq.md#can-i-set-a-static-ip-address-for-my-device-)
-* [Why can't I SSH into or run code in the HostOS?](/pages/troubleshooting/faq.md#why-can-t-i-ssh-into-or-run-code-in-the-hostos-)
-* [How can I forward my Container ports?](/pages/troubleshooting/faq.md#how-can-i-forward-my-container-ports-)
-* [Which data is persisted on devices across updates/power cycles?](/pages/troubleshooting/faq.md#which-data-is-persisted-on-devices-across-updates-power-cycles-)
-* [Is the cache shared between build server for non-native and native ARM builds?](/pages/troubleshooting/faq.md#is-the-cache-shared-between-build-server-for-non-native-and-native-arm-builds-)
-* [Why does /data disappear when I move a device between applications?](/pages/troubleshooting/faq.md#why-does-data-disappear-when-i-move-a-device-between-applications-)
-* [It appears that there is a centralized Resin Master running (in cloud) and agents running on devices. Is that accurate?](/pages/troubleshooting/faq.md#it-appears-that-there-is-a-centralized-resin-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate-)
-* [What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?](/pages/troubleshooting/faq.md#what-type-of-encryption-do-you-use-over-openvpn-ssl-tls-aes-256-mutual-key-authentication-over-ssh-)
-* [What is the performance impact on the gateway device due to encryption?](/pages/troubleshooting/faq.md#what-is-the-performance-impact-on-the-gateway-device-due-to-encryption-)
-* [How long does the update process run typically? For now it appears to be quick for small updates.](/pages/troubleshooting/faq.md#how-long-does-the-update-process-run-typically-do-you-have-any-benchmark-data-for-now-it-appears-to-be-quick-for-small-updates-)
-* [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](/pages/troubleshooting/faq.md#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration-)
-* [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](/pages/troubleshooting/faq.md#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
-* [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](/pages/troubleshooting/faq.md#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
+* [What NTP servers do resin.io devices use?](/troubleshooting/faq#what-ntp-servers-do-resin-io-devices-use-)
+* [What Network Ports are required by resin.io?](/troubleshooting/faq#what-network-ports-are-required-by-resin-io)
+* [Can I access /dev and things like GPIO from the container?](/troubleshooting/faq#can-i-access-dev-and-things-like-gpio-from-the-container-)
+* [Why is my device showing the incorrect time?](/troubleshooting/faq#why-is-my-device-showing-the-incorrect-time-)
+* [Can I set a static IP address for my device?](/troubleshooting/faq#can-i-set-a-static-ip-address-for-my-device-)
+* [Why can't I SSH into or run code in the HostOS?](/troubleshooting/faq#why-can-t-i-ssh-into-or-run-code-in-the-hostos-)
+* [How can I forward my Container ports?](/troubleshooting/faq#how-can-i-forward-my-container-ports-)
+* [Which data is persisted on devices across updates/power cycles?](/troubleshooting/faq#which-data-is-persisted-on-devices-across-updates-power-cycles-)
+* [Is the cache shared between build server for non-native and native ARM builds?](/troubleshooting/faq#is-the-cache-shared-between-build-server-for-non-native-and-native-arm-builds-)
+* [Why does /data disappear when I move a device between applications?](/troubleshooting/faq#why-does-data-disappear-when-i-move-a-device-between-applications-)
+* [It appears that there is a centralized Resin Master running (in cloud) and agents running on devices. Is that accurate?](/troubleshooting/faq#it-appears-that-there-is-a-centralized-resin-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate-)
+* [What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?](/troubleshooting/faq#what-type-of-encryption-do-you-use-over-openvpn-ssl-tls-aes-256-mutual-key-authentication-over-ssh-)
+* [What is the performance impact on the gateway device due to encryption?](/troubleshooting/faq#what-is-the-performance-impact-on-the-gateway-device-due-to-encryption-)
+* [How long does the update process run typically? For now it appears to be quick for small updates.](/troubleshooting/faq#how-long-does-the-update-process-run-typically-do-you-have-any-benchmark-data-for-now-it-appears-to-be-quick-for-small-updates-)
+* [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](/troubleshooting/faq#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration-)
+* [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](/troubleshooting/faq#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
+* [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](/troubleshooting/faq#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
 
 ##### What NTP servers do resin.io devices use?
 Currently the servers used are:
@@ -56,7 +59,7 @@ A potential cause is the NTP port (123 UDP) being blocked on the network the dev
 
 ##### Can I set a static IP address for my device?
 
-Yes! its actually pretty easy, have a look at the [ethernet network setup](/pages/deployment/wifi.md) section of our documentation. In general most network configurations can be achieved by changing the [Connman][connman-link] configuration file.
+Yes! its actually pretty easy, have a look at the [ethernet network setup](/deployment/wifi) section of our documentation. In general most network configurations can be achieved by changing the [Connman][connman-link] configuration file.
 
 ##### Why can't I SSH into or run code in the HostOS?
 

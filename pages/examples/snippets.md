@@ -1,3 +1,7 @@
+---
+title: Snippets
+---
+
 # Code Snippets
 
 This is a small collection of base projects to get you started. The focus on specific functionality and are a nice base to start a project from.
@@ -99,6 +103,6 @@ A simple application that shows you how to issue commands to a servo motor using
 [nghiant2710]:https://github.com/nghiant2710
 
 <!-- ###general -->
-[deploy]:/pages/deployment/deployment.md
-[getting-started]:/pages/installing/gettingStarted.md
+[deploy]:/deployment/deployment
+[getting-started]:/installing/gettingStarted
 [resin]:https://resin.io

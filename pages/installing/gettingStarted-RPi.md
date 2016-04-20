@@ -1,3 +1,7 @@
+---
+title: Raspberry Pi (all models)
+---
+
 # Getting Started With the Raspberry Pi
 
 This guide will walk you through setting up any of the Raspberry Pi devices on resin.io.
@@ -20,7 +24,7 @@ At the time of writing the A/A+, B/B+, RPI2 are supported.
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted.md#creating-your-first-application).
+If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/installing/gettingStarted#creating-your-first-application).
 
 ## Signing Up
 
@@ -104,8 +108,8 @@ Now we have to burn the downloaded `.img` file onto the SD card. There are a cou
 
 ## Burning the OS image onto the SD card
 
-* [Mac and Linux Command Line](/pages/installing/gettingStarted.md#on-mac-and-linux)
-* [Windows](/pages/installing/gettingStarted.md#windows)
+* [Mac and Linux Command Line](/installing/gettingStarted#on-mac-and-linux)
+* [Windows](/installing/gettingStarted#windows)
 
 ### On Mac and Linux
 
@@ -131,7 +135,7 @@ __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rd
 
 __NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myFleet-0.1.0-0.0.16-b2854a2c7639.img of=/dev/sdb` (uppercase M)
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted.md#setting-up-your-device)
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/installing/gettingStarted#setting-up-your-device)
 
 #### From a GUI
 
@@ -145,7 +149,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __Warning:__ Make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted.md#setting-up-your-device).
+Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/installing/gettingStarted#setting-up-your-device).
 
 ### Windows
 
@@ -177,7 +181,7 @@ While you wait resin.io is expanding the partitions on your SD card, installing 
 
 If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
 
-__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a black screen with a raspberry on it, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](/#/pages/installing/gettingStarted.md#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
+__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a black screen with a raspberry on it, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](/installing/gettingStarted#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
 
 <!-- ========================== end section =================================   -->
 
@@ -240,12 +244,12 @@ If you find any issues with the application or get stuck anywhere along the way,
 
 <!-- General Internal (docs) links -->
 
-[deploy]:/pages/deployment/deployment.md
-[projects]:/pages/examples/seed-projects.md
-[managing_devices_apps]:/pages/management/applications.md
-[wifi]:/pages/deployment/wifi.md
-[supported]:/pages/hardware/devices.md
-[dockerfile]:/pages/deployment/dockerfile.md
+[deploy]:/deployment/deployment
+[projects]:/examples/seed-projects
+[managing_devices_apps]:/management/applications
+[wifi]:/deployment/wifi
+[supported]:/hardware/devices
+[dockerfile]:/deployment/dockerfile
 
 <!-- General External Links -->
 

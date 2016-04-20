@@ -1,3 +1,7 @@
+---
+title: meta-resin
+---
+
 # How-to add new devices to resin.io
 
 ## The following are instructions to add a new board to resin.io using [meta-resin][meta-resin]

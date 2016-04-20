@@ -1,0 +1,91 @@
+# This doc defines the entire LHS navigation
+# _except of the in-page headings navigation (which is auto-built)_
+# The top-level items are titles of the tabs
+# What follows is a tree of pages
+# Lines *must* be indented with 2 spaces
+# Each node can be
+# * plain text `Some Text`
+# * plain link `[/some/link]`
+# * a link with custom title `Some Text[/some/link]`
+# Plain text works as a link to its first child
+# Plain link gets the title from the page's metainfo
+# Link with custom title gets title as defines in this file
+# Empty and commented lines are ignored
+
+Learn
+  [/introduction]
+
+  Understanding resin.io
+    [/understanding/understanding-code-deployment]
+    [/understanding/understanding-devices]
+
+  Getting Started
+    [/installing/gettingStarted-RPi]
+    [/installing/gettingStarted-BBB]
+    [/installing/gettingStarted-Edison]
+    [/installing/gettingStarted-NUC]
+    [/installing/gettingStarted-Odroid-C1]
+    [/installing/gettingStarted-Odroid-XU4]
+    [/installing/gettingStarted-Humming]
+    [/installing/gettingStarted-Nitrogen6x]
+    [/installing/gettingStarted-TS4900]
+    [/installing/gettingStarted-VIA-VAB820]
+    [/installing/gettingStarted-Zynq-ZC702]
+    [/installing/gettingStarted-Parallella]
+
+  Examples
+    [/examples/seed-projects]
+    [/examples/snippets]
+    [/examples/projects]
+
+  Deployment
+    [/deployment/deployment]
+    [/deployment/dockerfile]
+    [/deployment/build-optimisation]
+    [/deployment/docker-templates]
+    [/deployment/wifi]
+
+  Device Runtime
+    [/runtime/runtime]
+    [/management/env-vars]
+    [/runtime/terminal]
+    [/runtime/resin-base-images]
+    Interacting with the Resin Supervisor[/runtime/supervisor-api]
+    [/runtime/update-strategies]
+    [/runtime/bandwidth-reduction]
+
+  Management
+    [/management/applications]
+    [/management/devices]
+    [/management/preferences]
+
+  Hardware
+    [/hardware/devices]
+    [/hardware/meta-resin]
+    [/hardware/gpio]
+    [/hardware/i2c-and-spi]
+    [/hardware/wifi-dongles]
+
+  Integrations
+    Microsoft[/integrations/azure]
+
+  Configuration
+    [/configuration/advanced]
+    [/configuration/custom-docker-base-images]
+    # "Beta" features[/configuration/using-resin-staging]
+    # Bandwidth Control[/configuration/bandwidth-control]
+
+  Troubleshooting
+    [/troubleshooting/troubleshooting]
+    [/troubleshooting/error]
+    CLI issues[/troubleshooting/cli-troubleshooting]
+
+  Advanced[/advanced/resources]
+
+FAQ
+  [/troubleshooting/faq]
+
+Reference
+  CLI Reference[/tools/cli]
+  Node.js SDK[/tools/sdk]
+  Python SDK[/tools/python-sdk]

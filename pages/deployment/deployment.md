@@ -1,3 +1,7 @@
+---
+title: Deployment Guide
+---
+
 # Deployment Guide
 
 ## Basics
@@ -105,8 +109,8 @@ which builds it, then ships the resultant environment to your devices.
 
 \* correct at the time of writing.
 
-[getting-started]:/pages/installing/gettingStarted.md
-[dockerfile]:/pages/deployment/dockerfile.md
+[getting-started]:/installing/gettingStarted
+[dockerfile]:/deployment/dockerfile
 
 [docker-dockerfile]:https://docs.docker.com/reference/builder/
 
@@ -118,4 +122,4 @@ which builds it, then ships the resultant environment to your devices.
 [node]:http://nodejs.org/
 [raspbian]:http://www.raspbian.org/
 [aptitude]:https://wiki.debian.org/Aptitude
-[resin-base-image]:/pages/runtime/resin-base-images.md
+[resin-base-image]:/runtime/resin-base-images

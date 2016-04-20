@@ -1,3 +1,7 @@
+---
+title: Custom Base Docker Images
+---
+
 # Custom Base Images for your Fleet
 
 Raspbian and Debian are great, but sometimes you just want to let your hair loose and get crazy with Arch Linux or some other distro. With resin.io this is actually pretty easy and what follows are a few simple steps to get your own custom base image.

@@ -1,3 +1,7 @@
+---
+title: Parallella (EXPERIMENTAL)
+---
+
 # Getting Started with the Parallella Board
 
 This guide will walk you through getting a [Parallella][parallella-link] board hooked up to your resin.io application.
@@ -22,7 +26,7 @@ This guide will walk you through getting a [Parallella][parallella-link] board h
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted-Parallella.md#creating-your-first-application).
+If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/installing/gettingStarted-Parallella#creating-your-first-application).
 
 ## Signing Up
 
@@ -126,7 +130,7 @@ __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rd
 
 __NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myFleet-0.1.0-0.0.14.img of=/dev/rdisk2` (uppercase M)
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Parallella.md#setting-up-your-device)
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/installing/gettingStarted-Parallella#setting-up-your-device)
 
 #### From a GUI
 
@@ -140,7 +144,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-Parallella.md#setting-up-your-device).
+Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/installing/gettingStarted-Parallella#setting-up-your-device).
 
 ### Windows
 
@@ -223,12 +227,12 @@ If you find any issues with the application, please click the feedback label on
 the bottom right-hand side of the page and let us know! We are always open to
 feedback and respond to any issues as soon as we can.
 
-[deploy]:/pages/deployment/deployment.md
-[projects]:/pages/examples/seed-projects.md
-[managing_devices_apps]:/pages/management/applications.md
-[wifi]:/pages/deployment/wifi.md
-[supported]:/pages/hardware/devices.md
-[dockerfile]:/pages/pages/deployment/dockerfile.md
+[deploy]:/deployment/deployment
+[projects]:/examples/seed-projects
+[managing_devices_apps]:/management/applications
+[wifi]:/deployment/wifi
+[supported]:/hardware/devices
+[dockerfile]:/deployment/dockerfile
 
 [alpha]:http://en.wikipedia.org/wiki/Alpha_software#Alpha
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating

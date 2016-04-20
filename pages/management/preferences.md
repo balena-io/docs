@@ -1,3 +1,7 @@
+---
+title: Preferences
+---
+
 # Preferences
 
 ## Two Factor Authentication

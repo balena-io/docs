@@ -1,18 +1,22 @@
+---
+title: Network Setup
+---
+
 # Network Setup
 
-* [Introduction](/pages/deployment/wifi.md#introduction)
-* [Network Requirements](/pages/deployment/wifi.md#network-requirements)
-* [Ethernet Connections](/pages/deployment/wifi.md#ethernet-connections)
-* [Wifi Connections](/pages/deployment/wifi.md#wifi-connections)
-* [Changing your network configuration](/pages/deployment/wifi.md#changing-your-network-configuration)
-* [3G or Cellular Connections](/pages/deployment/wifi.md#3g-or-cellular-connections)
-* [Captive Portal Network Setup](/pages/deployment/wifi.md#captive-portal-network-setup)
+* [Introduction](/deployment/wifi#introduction)
+* [Network Requirements](/deployment/wifi#network-requirements)
+* [Ethernet Connections](/deployment/wifi#ethernet-connections)
+* [Wifi Connections](/deployment/wifi#wifi-connections)
+* [Changing your network configuration](/deployment/wifi#changing-your-network-configuration)
+* [3G or Cellular Connections](/deployment/wifi#3g-or-cellular-connections)
+* [Captive Portal Network Setup](/deployment/wifi#captive-portal-network-setup)
 
 ## Introduction
 
 In order to deploy code to your device(s), they will need to be connected to the internet in some shape or form. The resin.io HostOS manages your devices' network connection with [ConnMan][connman], an open source connection manager.
 
-Currently all resin.io devices are configured to favour [ethernet](/pages/deployment/wifi.md#ethernet-connections) and will automatically use this connection type if it is available. You can define all manner of network configurations using [Connman][connman], for example [setting a static IP](/pages/deployment/wifi.md#set-static-ip).
+Currently all resin.io devices are configured to favour [ethernet](/deployment/wifi#ethernet-connections) and will automatically use this connection type if it is available. You can define all manner of network configurations using [Connman][connman], for example [setting a static IP](/deployment/wifi#set-static-ip).
 
 ## Network Requirements
 
@@ -34,7 +38,7 @@ Additionally make an outgoing connection to `mixpanel.com`, but this is not a fu
 
 ## Ethernet Connections
 
-As mentioned earlier, resin.io HostOS defaults to using ethernet for internet connectivity, so if you connect an active ethernet cable to your device and all the [network requirements](/pages/deployment/wifi.md#network-requirements) are satisfied, your device should simply just connect to dashboard.resin.io and you should be able to push code to it.
+As mentioned earlier, resin.io HostOS defaults to using ethernet for internet connectivity, so if you connect an active ethernet cable to your device and all the [network requirements](/deployment/wifi#network-requirements) are satisfied, your device should simply just connect to dashboard.resin.io and you should be able to push code to it.
 
 If this this is not the case, and your device is still not online 10 minutes after power up, then give us a shout at `support@resin.io` or click on the small **`?`** in the bottom right of your resin.io dashboard.
 
@@ -82,7 +86,7 @@ In general the network config follows the [ConnMan][connman] configuration file 
 
 ## Changing your Network Configuration
 
-On all devices excluding the [Intel Edison](/pages/installing/gettingStarted-Edison.md), it is possible to change your wifi SSID or Passphrase after downloading the `.img`.
+On all devices excluding the [Intel Edison](/installing/gettingStarted-Edison), it is possible to change your wifi SSID or Passphrase after downloading the `.img`.
 
 ### Using the CLI
 
@@ -104,7 +108,7 @@ To view an images current configuration run:
 $ sudo resin config read --type raspberry-pi
 ```
 
-If you'd like to reconfigure the image's network settings in an automated way you can use [`resin config write`](/pages/tools/resin-cli.md#config-write-60-key-62-60-value-62-).
+If you'd like to reconfigure the image's network settings in an automated way you can use [`resin config write`](/tools/resin-cli#config-write-60-key-62-60-value-62-).
 
 ### Manually Editing Config.json
 
@@ -142,7 +146,7 @@ cable plugged in, then booting again with just WiFi.
 
 If neither of these approaches work, drop us a line at support@resin.io !
 
-[resin-cli]:/pages/tools/cli.md
+[resin-cli]:/tools/cli
 [rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
 [adafruit]:http://www.adafruit.com/products/814

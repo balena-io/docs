@@ -1,3 +1,7 @@
+---
+title: Devices
+---
+
 # Managing Your Devices and Applications
 
 ## Devices
@@ -28,14 +32,14 @@ An extremely useful feature of the devices detail page is the log window. This i
 
 On the device's Actions page we give you access to a number of useful per-device actions.
 
-* [Enable Public URL](/pages/management/devices.md#enable-public-device-url)
-* [Update Locking](/pages/management/devices.md#update-locking)
-* [Restart Application](/pages/management/devices.md#restart-device-container)
-* [Move to Another Application](/pages/management/devices.md#move-to-another-application)
-* [Purge Data](/pages/management/devices.md#purge-data)
-* [Reboot](/pages/management/devices.md#reboot)
-* [Shutdown](/pages/management/devices.md#shutdown)
-* [Delete Device](/pages/management/devices.md#delete-device)
+* [Enable Public URL](/management/devices#enable-public-device-url)
+* [Update Locking](/management/devices#update-locking)
+* [Restart Application](/management/devices#restart-device-container)
+* [Move to Another Application](/management/devices#move-to-another-application)
+* [Purge Data](/management/devices#purge-data)
+* [Reboot](/management/devices#reboot)
+* [Shutdown](/management/devices#shutdown)
+* [Delete Device](/management/devices#delete-device)
 
 ### Enable Public Device URL
 
@@ -49,7 +53,7 @@ To see what your device is serving on port 80, just click on the URL. If your ap
 
 ### Update Locking
 
-In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we added the [update.lock functionality](/pages/runtime/supervisor-api.md#update-locking) in the resin supervisor agent. This allows your application to pick and choose when and where it would like to allow updates to happen.
+In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we added the [update.lock functionality](/runtime/supervisor-api#update-locking) in the resin supervisor agent. This allows your application to pick and choose when and where it would like to allow updates to happen.
 
 Added to this functionality we provided a convenient button to override the lock on the device and essentially force an update. This is a precautionary measure for those times when your application crashes and hasn't released the update lock. This gives you a nice safety net to ensure you can always push new updates.  
 

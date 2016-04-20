@@ -1,3 +1,7 @@
+---
+title: Seed Projects
+---
+
 # Resin.io Seed Projects
 
 ## Programming Language Seed Projects
@@ -85,7 +89,7 @@ Hello World written in [Scala][scala] using a
 
 Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile].
 
-[dockerfile]:/pages/deployment/dockerfile.md
+[dockerfile]:/deployment/dockerfile
 [text2speech]:https://github.com/resin-io/text2speech
 
 ### Golang
@@ -142,7 +146,7 @@ $ git push resin master:master-arm
 [martincalsyn]: https://github.com/martincalsyn
 
 <!-- ###general -->
-[deploy]:/pages/deployment/deployment.md
-[getting-started]:/pages/installing/gettingStarted.md
+[deploy]:/deployment/deployment
+[getting-started]:/installing/gettingStarted
 [resin]:https://resin.io
-[resin-dockerfile-guide]:http://docs.resin.io/#/pages/deployment/dockerfile.md
+[resin-dockerfile-guide]:/deployment/dockerfile

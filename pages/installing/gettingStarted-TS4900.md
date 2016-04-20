@@ -1,3 +1,7 @@
+---
+title: Technologic TS-4900
+---
+
 # Getting Started With the TS-4900
 
 ## What You'll Need
@@ -22,7 +26,7 @@
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
   [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted-TS4900.md#creating-your-first-application).
+If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/installing/gettingStarted-TS4900#creating-your-first-application).
 
 ## Signing Up
 
@@ -94,8 +98,8 @@ Now we have to burn the downloaded `.img` file onto the SD card. There are a cou
 
 ## Burning the OS image onto the SD card
 
-* [Mac and Linux Command Line](/pages/installing/gettingStarted-TS4900.md#on-mac-and-linux)
-* [Windows](http://localhost:3000/#/pages/installing/gettingStarted-TS4900.md#windows)
+* [Mac and Linux Command Line](/installing/gettingStarted-TS4900#on-mac-and-linux)
+* [Windows](/installing/gettingStarted-TS4900#windows)
 
 ### On Mac and Linux
 
@@ -121,7 +125,7 @@ __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rd
 
 __NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myFleet-0.1.0-0.0.16-b2854a2c7639.img of=/dev/sdb` (uppercase M)
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-TS4900.md#setting-up-your-device).
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/installing/gettingStarted-TS4900#setting-up-your-device).
 
 #### From a GUI
 
@@ -135,7 +139,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __Warning:__ Make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-TS4900.md#setting-up-your-device).
+Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/installing/gettingStarted-TS4900#setting-up-your-device).
 
 ### Windows
 
@@ -170,7 +174,7 @@ environment and establishing a secure connection with our servers.
 After roughly 5-7 minutes (depending on you SD card speed) your board will shut down. Disable the SD-boot jumper that we have priorly talked about (optionally you can pull out the SD-card as well or leave it in) and power your board once again.
 Now you should see the device in your dashboard waiting to take over the world.
 
-__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](http://localhost:3000/#/pages/installing/gettingStarted-TS4900.md#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
+__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](/installing/gettingStarted-TS4900#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
 
 <!-- ========================== end section =================================   -->
 
@@ -189,12 +193,12 @@ feedback and respond to any issues as soon as we can.
 
 <!-- General Internal (docs) links -->
 
-[deploy]:/pages/deployment/deployment.md
-[projects]:/pages/examples/seed-projects.md
-[managing_devices_apps]:/pages/management/applications.md
-[wifi]:/pages/deployment/wifi.md
-[supported]:/pages/hardware/devices.md
-[dockerfile]:/pages/deployment/dockerfile.md
+[deploy]:/deployment/deployment
+[projects]:/examples/seed-projects
+[managing_devices_apps]:/management/applications
+[wifi]:/deployment/wifi
+[supported]:/hardware/devices
+[dockerfile]:/deployment/dockerfile
 
 <!-- General External Links -->
 

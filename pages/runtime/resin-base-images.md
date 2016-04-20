@@ -1,6 +1,6 @@
 # Resin Images Wiki
 
-This page contains all the information about the image maintained on the Resin.io docker hub registry. 
+This page contains all the information about the image maintained on the Resin.io docker hub registry.
 
 ## <a name="image-tree"></a>Resin Image Trees
 
@@ -17,7 +17,7 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | Image | Description | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
 | resin/rpi-raspbian | The base OS image for ARMv6 devices (Raspberry Pi 1 - RPI1) | minbase, sudo | [dockerhub][rpi-dockerhub-link], [github][rpi-github-link] | latest, jessie, wheezy |
-| resin/raspberrypi-systemd | The image with full systemd init system installed for ARMv6 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][rpi-systemd-dockerhub-link], [github][rpi-systemd-github-link] | latest, jessie, wheezy | 
+| resin/raspberrypi-systemd | The image with full systemd init system installed for ARMv6 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][rpi-systemd-dockerhub-link], [github][rpi-systemd-github-link] | latest, jessie, wheezy |
 | resin/raspberrypi-buildpack-deps | The buildpack-deps image for RPI1. Details about buildpack-deps can be found [here](#buildpack-deps) | Refer [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | [dockerhub][rpi-systemd-buildpack-deps-dockerhub-link], [github][rpi-systemd-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
 | resin/raspberrypi-node | The Node.js buildpack image for Node.js apps for RPI1. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][rpi-systemd-node-dockerhub-link], [github][rpi-systemd-node-github-link] | For available image tags, refer [here][rpi-systemd-node-dockerhub-tag-link] |
 | resin/raspberrypi-python | The Python buildpack image for Python apps for RPI1 | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][rpi-systemd-python-dockerhub-link], [github][rpi-systemd-python-github-link] | latest, jessie, wheezy |
@@ -36,7 +36,7 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | Image | Description | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
 | resin/armv7hf-debian| The base OS image for ARMv7 devices (Raspberry Pi 2 - RPI2, Raspberry Pi 3 - RPI3 and BeagleBone Black - BBB) | minbase, sudo | [dockerhub][armv7hf-dockerhub-link], [github][armv7hf-github-link] | latest, jessie, wheezy, sid |
-| resin/armv7hf-systemd | The image with full systemd init system installed for ARMv7 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][armv7-systemd-dockerhub-link], [github][armv7-systemd-github-link] | latest, jessie, wheezy, sid | 
+| resin/armv7hf-systemd | The image with full systemd init system installed for ARMv7 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][armv7-systemd-dockerhub-link], [github][armv7-systemd-github-link] | latest, jessie, wheezy, sid |
 | resin/beaglebone-debian | The bare bones OS image for BBB. Apt sources.list from repositories: [http://repos.rcn-ee.net/debian/](armv7-bbb-sourceslist) and [http://debian.beagleboard.org](armv7-bbb-sourceslist1) added! See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-bbb-dockerhub-link], [github][armv7-bbb-github-link] | latest, jessie, wheezy |
 | resin/beaglebone-buildpack-deps | The buildpack-deps image for BBB. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-bbb-buildpack-deps-dockerhub-link], [github][armv7-bbb-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
 | resin/beaglebone-node | The Node.js buildpack image for Node.js apps for BBB. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-bbb-node-dockerhub-link], [github][armv7-bbb-node-github-link] | For available image tags, refer [here][armv7-bbb-node-dockerhub-tag-link] |
@@ -110,7 +110,7 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | Image | Description | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
 | resin/i386-debian| The base OS image for i386 devices (Intel Edison) | minbase, sudo | [dockerhub][i386-dockerhub-link], [github][i386-github-link] | latest, jessie, wheezy |
-| resin/i386-systemd | The image with full systemd init system installed for i386 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][i386-systemd-dockerhub-link], [github][i386-systemd-github-link] | latest, jessie, wheezy | 
+| resin/i386-systemd | The image with full systemd init system installed for i386 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][i386-systemd-dockerhub-link], [github][i386-systemd-github-link] | latest, jessie, wheezy |
 | resin/edison-debian | The bare bones OS image for Intel Edison. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libmraa | [dockerhub][i386-edison-dockerhub-link], [github][i386-edison-github-link] | latest, jessie, wheezy |
 | resin/edison-buildpack-deps | The buildpack-deps image for Intel Edison. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][i386-edison-buildpack-deps-dockerhub-link], [github][i386-edison-buildpack-deps-github-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
 | resin/edison-node | The Node.js buildpack image for Node.js apps for Intel Edison. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][i386-edison-node-dockerhub-link], [github][i386-edison-node-github-link] | For available image tags, refer [here][i386-edison-node-dockerhub-tag-link] |
@@ -124,7 +124,7 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | Image | Description | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
 | resin/amd64-debian| The base OS image for amd64 devices (Intel NUC) | minbase, sudo | [dockerhub][amd64-dockerhub-link], [github][amd64-github-link] | latest, jessie, wheezy |
-| resin/amd64-systemd | The image with full systemd init system installed for amd64 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][amd64-systemd-dockerhub-link], [github][amd64-systemd-github-link] | latest, jessie, wheezy | 
+| resin/amd64-systemd | The image with full systemd init system installed for amd64 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][amd64-systemd-dockerhub-link], [github][amd64-systemd-github-link] | latest, jessie, wheezy |
 | resin/nuc-debian | The bare bones OS image for Intel NUC. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][amd64-nuc-dockerhub-link], [github][amd64-nuc-github-link] | latest, jessie, wheezy |
 | resin/nuc-buildpack-deps | The buildpack-deps image for Intel NUC. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][amd64-nuc-buildpack-deps-dockerhub-link], [github][amd64-nuc-buildpack-deps-github-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
 | resin/nuc-node | The Node.js buildpack image for Node.js apps for Intel NUC. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][amd64-nuc-node-dockerhub-link], [github][amd64-nuc-node-github-link] | For available image tags, refer [here][amd64-nuc-node-dockerhub-tag-link] |
@@ -138,7 +138,7 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | Image | Description | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
 | resin/armel-debian| The base OS image for ARMv5 devices (Technologic TS-7700) | minbase, sudo | [dockerhub][armel-dockerhub-link], [github][armel-github-link] | latest, jessie, wheezy |
-| resin/armel-systemd | The image with full systemd init system installed for ARMv5 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][armel-systemd-dockerhub-link], [github][armel-systemd-github-link] | latest, jessie, wheezy | 
+| resin/armel-systemd | The image with full systemd init system installed for ARMv5 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][armel-systemd-dockerhub-link], [github][armel-systemd-github-link] | latest, jessie, wheezy |
 | resin/ts7700-debian | The bare bones OS image for Technologic TS-7700. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armel-ts7700-dockerhub-link], [github][armel-ts7700-github-link] | latest, jessie, wheezy |
 | resin/ts7700-buildpack-deps | The buildpack-deps image for Technologic TS-7700. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armel-ts7700-buildpack-deps-dockerhub-link], [github][armel-ts7700-buildpack-deps-github-link] | latest, jessie, wheezy, sid, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
 | resin/ts7700-node | The Node.js buildpack image for Node.js apps for Technologic TS-7700. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armel-ts7700-node-dockerhub-link], [github][armel-ts7700-node-github-link] | For available image tags, refer [here][armel-ts7700-node-dockerhub-tag-link] |
@@ -147,7 +147,7 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 
 #### <a name="tips"></a>Tips
 
-* The `latest` tag points to jessie images. 
+* The `latest` tag points to jessie images.
 * For those images with systemd init system installed, the systemd init system is disabled by default. It can be enabled by adding `ENV INITSYSTEM on` to your Dockerfile below the `FROM <Docker image>` line. This will trigger systemd init system on the Docker image.
 * `systemd was included in Debian wheezy as a technology preview. Please make sure that you are using Debian testing or newer to get a recent version of systemd.` from [Systemd Debian Wiki Page][systemd-wiki]. Therefore, we do not install systemd on wheezy images. `ENV INITSYSTEM` will only work on jessie and sid images.
 * In case, you have your own systemd service and you want your systemd service to use the environment variables you set in the dashboard. You need to add `EnvironmentFile=/etc/docker.env` to your systemd service unit file.
@@ -160,7 +160,7 @@ These are base images for different arch: armv6, armv7, i386, amd64 and armv5 (a
 | Image | Arch | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
 | resin/rpi-raspbian | armv6 | [wheezy][installed-pkg-rpi-wheezy], [jessie][installed-pkg-rpi-jessie] | [dockerhub][rpi-dockerhub-link], [github][rpi-github-link] | latest, jessie, wheezy |
-| resin/armv7hf-debian | armv7 | [wheezy][installed-pkg-armv7-wheezy], [jessie][installed-pkg-armv7-jessie], [sid][installed-pkg-armv7-sid] | [dockerhub][armv7hf-dockerhub-link], [github][armv7hf-github-link] | latest, jessie, wheezy, sid | 
+| resin/armv7hf-debian | armv7 | [wheezy][installed-pkg-armv7-wheezy], [jessie][installed-pkg-armv7-jessie], [sid][installed-pkg-armv7-sid] | [dockerhub][armv7hf-dockerhub-link], [github][armv7hf-github-link] | latest, jessie, wheezy, sid |
 | resin/i386-debian | i386 | [wheezy][installed-pkg-i386-wheezy], [jessie][installed-pkg-i386-jessie] | [dockerhub][i386-dockerhub-link], [github][i386-github-link] | latest, jessie, wheezy |
 | resin/amd64-debian | amd64 | [wheezy][installed-pkg-amd64-wheezy], [jessie][installed-pkg-amd64-jessie] | [dockerhub][amd64-dockerhub-link], [github][amd64-github-link] | latest, jessie, wheezy |
 | resin/armel-debian | armel | [wheezy][installed-pkg-armel-wheezy], [jessie][installed-pkg-armel-jessie] | [dockerhub][armel-dockerhub-link], [github][armel-github-link] | latest, jessie, wheezy |

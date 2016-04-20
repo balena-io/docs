@@ -1,8 +1,12 @@
+---
+title: Configuring for reduced Bandwidth / Data usage
+---
+
 # Controlling device's Bandwidth / Data usage.
 
-In order to provide our users with a clear view of their devices, the resin device Agent constantly keeps our API informed about the devices' conditions and applies any changes, like downloading new application updates or environment variable changes by negotiating with our API. While a quick reflection of actions is great during development, it comes at a cost of increased data usage. 
+In order to provide our users with a clear view of their devices, the resin device Agent constantly keeps our API informed about the devices' conditions and applies any changes, like downloading new application updates or environment variable changes by negotiating with our API. While a quick reflection of actions is great during development, it comes at a cost of increased data usage.
 
-In order to give our power users control over data flow we enabled a few RESIN [config environment variables](http://docs.resin.io/#/pages/management/env-vars.md).
+In order to give our power users control over data flow we enabled a few RESIN [config environment variables](/management/env-vars).
 
 |Variable                               | Allowed Value     |   Action                                             | Default
 |---------------------------------------|-------------------|----------------------------------------------------------------
