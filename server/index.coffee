@@ -49,6 +49,7 @@ app.get '/search-results', (req, res) ->
       'Search Results'
       searchTerm
     ]
+    searchTerm: searchTerm
     searchResults: search.search(searchTerm)
 
 app.use(express.static(contentsDir))

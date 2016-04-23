@@ -3,7 +3,7 @@
 {% block "contents" %}
   <h1>Search results:</h1>
 
-  {% if searchResults && !searchResults.length%}
+  {% if searchResults and !searchResults.length %}
     <div class="alert alert-info">No results found</div>
   {% else %}
     <ul>
