@@ -1,3 +1,7 @@
+---
+title: Supported Wifi Adapters
+---
+
 # Supported Wifi Dongles
 
 The officially supported resin.io wifi dongle is the [Official Raspberry Pi Wifi][rpi-official-wifi] with the BCM43143 chipset.

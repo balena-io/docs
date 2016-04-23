@@ -1,0 +1,49 @@
+{% macro navSubtree(subtree, topLevelSubtree) %}
+  {% if subtree.children %}
+    <ul class="{% if navPath[topLevelSubtree.link] %}expand{% endif %}">
+      {% for child in subtree.children %}
+        <li class="{% if child.link == selfLink %}active{% endif %}">
+          <a href="{{ child.link }}">{{ child.title }}</a>
+        </li>
+        {{ navSubtree(child, topLevelSubtree) }}
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{% macro navTab(subtrees) %}
+  <div class="nav-menu">
+    {% for subtree in subtrees %}
+      <h3 class="
+        {% if subtree.children %}with-children{% endif %}
+        {% if navPath[subtree.link] %}active{% endif %}
+      ">
+        <a href="{{ subtree.link }}">
+          {{ subtree.title }}
+        </a>
+      </h3>
+      {{ navSubtree(subtree, subtree) }}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+<nav class="site-navigation">
+  <ul class="nav nav-tabs nav-justified">
+    {% for navTree in nav.children %}
+      <li class="{% if navPath[navTree.slug] %}active{% endif %}">
+        <a href="#tab-{{ navTree.slug }}" data-toggle="tab">
+          {{ navTree.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div class="tab-content">
+    {% for navTree in nav.children %}
+      <div class="tab-pane {% if navPath[navTree.slug] %}active{% endif %}"
+        id="tab-{{ navTree.slug }}">
+        {{ navTab(navTree.children) }}
+      </div>
+    {% endfor %}
+  </div>
+</nav>

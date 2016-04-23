@@ -1,3 +1,7 @@
+---
+title: Runtime Environment
+---
+
 # Runtime Environment
 
 ## Exposed Ports
@@ -12,7 +16,7 @@ Resin.io currently exposes port 80 for web forwarding. To enable web forwarding 
 ![Enable device url](/img/screenshots/device-url-new.png)
 
 
-Running a server listening on port 80 with public device url enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices url. 
+Running a server listening on port 80 with public device url enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices url.
 
 ```javascript
 var express = require('express')
@@ -33,15 +37,15 @@ var server = app.listen(80, function () {
 ```
 
 ## Persistent Storage		
-		
+
 If you want specific data or configurations to persist on the device through the update process, you will need to store them in `/data` . `/data` is a special folder on the device file system which is essentially a [docker data `VOLUME`][docker-volume-link].
 
 This folder is guaranteed to be maintained across updates and thus		
 files contained in it can act as persistent storage.		
-		
+
 Note that this folder is __not__ mounted when your project is building on our		
 build server, so you can't access it from your `Dockerfile`. It is only created once your project is deployed to the actual devices. 		
-		
+
 Additionally, it is worth mentioning that the `/data` folder is created per-device and it is not kept in sync between devices in your fleet, so ensure your application takes this into account.
 
 [expressjs-link]:http://expressjs.com/

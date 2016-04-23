@@ -1,18 +1,22 @@
+---
+title: I2C and Other Interfaces
+---
+
 #I2C and Other Interfaces
 
 
-* [Raspberry Pi Family](/pages/hardware/i2c-and-spi.md#raspberry-pi-family)
-  * [I2C](/pages/hardware/i2c-and-spi.md#i2c)
-  * [SPI](/pages/hardware/i2c-and-spi.md#spi)
-  * [1-wire and Digital Temperature sensors](/pages/hardware/i2c-and-spi.md#1-wire-and-digital-temperature-sensors)
-  * [Raspberry Pi camera module](/pages/hardware/i2c-and-spi.md#raspberry-pi-camera-module)
-  * [Raspberry Pi 7” Touchscreen Display](/pages/hardware/i2c-and-spi.md#raspberry-pi-7-touchscreen-display)
-  * [Customising config.txt](/pages/hardware/i2c-and-spi.md#customizing-config-txt)
-* [Beaglebone](/pages/hardware/i2c-and-spi.md#beaglebone)
-  * [Capemgr support](/pages/hardware/i2c-and-spi.md#capemgr-support-on-resin-io-devices)
-* [Intel Edison](/pages/hardware/i2c-and-spi.md#intel-edison)
-  * [MRAA for GPIO and hardware access](/pages/hardware/i2c-and-spi.md#mraa-for-gpio-and-hardware-access)
-  * [Edison in USB Host mode](/pages/hardware/i2c-and-spi.md#edison-in-usb-host-mode)
+* [Raspberry Pi Family](/hardware/i2c-and-spi#raspberry-pi-family)
+  * [I2C](/hardware/i2c-and-spi#i2c)
+  * [SPI](/hardware/i2c-and-spi#spi)
+  * [1-wire and Digital Temperature sensors](/hardware/i2c-and-spi#1-wire-and-digital-temperature-sensors)
+  * [Raspberry Pi camera module](/hardware/i2c-and-spi#raspberry-pi-camera-module)
+  * [Raspberry Pi 7” Touchscreen Display](/hardware/i2c-and-spi#raspberry-pi-7-touchscreen-display)
+  * [Customising config.txt](/hardware/i2c-and-spi#customizing-config-txt)
+* [Beaglebone](/hardware/i2c-and-spi#beaglebone)
+  * [Capemgr support](/hardware/i2c-and-spi#capemgr-support-on-resin-io-devices)
+* [Intel Edison](/hardware/i2c-and-spi#intel-edison)
+  * [MRAA for GPIO and hardware access](/hardware/i2c-and-spi#mraa-for-gpio-and-hardware-access)
+  * [Edison in USB Host mode](/hardware/i2c-and-spi#edison-in-usb-host-mode)
 
 ## Raspberry Pi Family
 

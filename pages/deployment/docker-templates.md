@@ -1,3 +1,7 @@
+---
+title: Dockerfile Templates
+---
+
 # Dockerfile Templates
 
 One of the goals of resin.io is code portability and ease of use, so you can

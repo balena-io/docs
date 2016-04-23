@@ -1,3 +1,7 @@
+---
+title: Intel Edison
+---
+
 # Getting Started with the Intel Edison
 
 <!-- ![Intel Edison](/img/edison.jpg) -->
@@ -18,7 +22,7 @@
 __Note:__ If you're not experienced with [git][git], check out the excellent
 [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with an Edison then skip ahead to [Creating Your First Application](/#/pages/gettingStarted-Edison#start-a-new-application).
+If you already have a resin.io account and just want to get started with an Edison then skip ahead to [Creating Your First Application](/gettingStarted-Edison#start-a-new-application).
 
 ## Signing Up
 
@@ -89,18 +93,18 @@ Once the download completes, you should have a `.zip` file in your downloads fol
 
 In order to use resin to deploy code on the Edison it is necessary to flash new firmware (the resin OS) onto the device.
 
-__Note__: This will erase your current yocto OS system on your Edison and any data or configurations you have on it, but trust us, it's for the best ;) If for some terrible reason you have to revert to the old way of doing things, you can restore your Edison to it's factory default firmware by following the instructions in our [restore original Edison firmware guide](/pages/troubleshooting/restore-edison.md).
+__Note__: This will erase your current yocto OS system on your Edison and any data or configurations you have on it, but trust us, it's for the best ;) If for some terrible reason you have to revert to the old way of doing things, you can restore your Edison to it's factory default firmware by following the instructions in our [restore original Edison firmware guide](/troubleshooting/restore-edison).
 
 There are two ways of burning the firmware to the Edison.
 
- * [Use Intel Flash Tool Lite (Recommended)](/pages/installing/gettingStarted-Edison.md#install-intel-flash-tool-lite)
- * [Using the flashall scripts and dfu-util](/pages/installing/gettingStarted-Edison.md#alternative-method-of-flashing-edison-firmware)
+ * [Use Intel Flash Tool Lite (Recommended)](/installing/gettingStarted-Edison#install-intel-flash-tool-lite)
+ * [Using the flashall scripts and dfu-util](/installing/gettingStarted-Edison#alternative-method-of-flashing-edison-firmware)
 
 #### Install Intel Flash Tool Lite
 
 First you will need the [firmware flashing tool][flash-tool-link] provided by Intel. So head over to this link and get it set up on your computer.
 
-__Warning:__ There is a known issue with the flash tool and OSX 10.11 - El Captitan, so we recommend [using the flashall scripts and dfu-util](/pages/installing/gettingStarted-Edison.md#alternative-method-of-flashing-edison-firmware) to flash the OS in this case.
+__Warning:__ There is a known issue with the flash tool and OSX 10.11 - El Captitan, so we recommend [using the flashall scripts and dfu-util](/installing/gettingStarted-Edison#alternative-method-of-flashing-edison-firmware) to flash the OS in this case.
 
 #### Flash the Resin Firmware onto the Edison
 
@@ -341,14 +345,14 @@ U-boot & Kernel System Flash Success...
 ```
 Leave your Edison plug in to your computer. It can take a while to completely flash the OS and dfu-util gives very little feedback.
 
-Once you have burned the new firmware with this method you can carry on from the [Check your dashboard step](/pages/installing/gettingStarted-Edison.md#check-your-resin-io-dashboard).
+Once you have burned the new firmware with this method you can carry on from the [Check your dashboard step](/installing/gettingStarted-Edison#check-your-resin-io-dashboard).
 
-[deploy]:/pages/deployment/deployment.md
-[projects]:/pages/examples/projects.md
-[managing_devices_apps]:/pages/management/applications.md
-[wifi]:/pages/deployment/wifi.md
-[supported]:/pages/hardware/devices.md
-[dockerfile]:/pages/deployment/dockerfile.md
+[deploy]:/deployment/deployment
+[projects]:/examples/projects
+[managing_devices_apps]:/management/applications
+[wifi]:/deployment/wifi
+[supported]:/hardware/devices
+[dockerfile]:/deployment/dockerfile
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
 [signup]:https://dashboard.resin.io/signup
 [git]:http://git-scm.com/

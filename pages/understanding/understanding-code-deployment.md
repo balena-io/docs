@@ -1,3 +1,7 @@
+---
+title: Code Deployment
+---
+
 # Code Deployment
 
 We use the familiar and popular [git][git] version control tool to push your code changes to a remote repository on our build servers. Each resin.io application has a unique remote repository associated to it and all code changes on the `master` branch of this repository will be built and delivered to your device fleet. When our servers receive your changes on `master` a chain reaction is set in motion in which your code is built for the specified target architecture, bundled into a Docker container and then systematically rolled out to your fleet of devices in the field.
@@ -12,7 +16,7 @@ Alternatively, if your project includes a package.json (i.e. a node.js project),
 
 A Dockerfile will always give you more power to fine-tune the build process, but it’s also good to start fast, and you can shift to a Dockerfile whenever you like. We will soon add more languages to the “first-class” support we give to node.js. Until then, any other language can be used by adding a Dockerfile. It’s important to note that the environment within which your code gets built will match the devices you use for your app. So if you’re pushing to an app containing BeagleBone Black devices, we’ll build your code in an ARMv7 environment. For Raspberry Pi B+, it's ARMv6.
 
-Now that you have a better view of the build and deployment process, you may want to read about how the resin.io device OS is composed and [what is installed on a device](/pages/understanding/understanding-devices.md).
+Now that you have a better view of the build and deployment process, you may want to read about how the resin.io device OS is composed and [what is installed on a device](/understanding/understanding-devices).
 
 
 [containers]:http://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization

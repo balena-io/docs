@@ -1,3 +1,7 @@
+---
+title: Advanced Resources
+---
+
 # Advanced
 A collection of advanced resin.io resources:
 

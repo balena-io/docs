@@ -1,3 +1,7 @@
+---
+title: What's Installed on a Resin.io Device?
+---
+
 # What's On The Device?
 
 The [Resin.io][resin] software running on your device leverages a number of powerful components to provide great functionality at a minimal performance cost:-

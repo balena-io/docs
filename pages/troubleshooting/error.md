@@ -1,3 +1,7 @@
+---
+title: Error Notifications
+---
+
 # Error Notifications
 
 When we are unable to notify you of problems with your device via the dashboard (e.g. the network is not available) we provide feedback through alternative means.

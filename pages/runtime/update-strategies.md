@@ -1,9 +1,13 @@
+---
+title: Configuring the update strategy
+---
+
 # Controlling the update strategy
 
 With the Resin Supervisor ("Agent") version 1.3, we added the ability to choose the update strategy on devices, that is, the order and way in which the steps to perform an update are executed. You can check whether your Supervisor has the appropriate version in the "Agent version" entry in the device dashboard page.
 These update strategies allow users to choose between three modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
 
-Update strategies are selected using [environment variables](/pages/management/env-vars.md). The two variables that are involved are `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`.
+Update strategies are selected using [environment variables](/management/env-vars). The two variables that are involved are `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`.
 Setting `RESIN_SUPERVISOR_UPDATE_STRATEGY` to a valid value selects the update strategy. The possible values are `download-then-kill`, `kill-then-download` and `hand-over`, which are explained below. `RESIN_SUPERVISOR_HANDOVER_TIMEOUT` is only used in the  `hand-over` strategy, and its use is explained in the strategy description.
 
 ## download-then-kill

@@ -1,3 +1,7 @@
+---
+title: Environment Variables
+---
+
 # Environment Variables
 
 Environment variables allow you to provide runtime configuration to your application which can be updated without having to modify your source code.

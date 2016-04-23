@@ -1,3 +1,7 @@
+---
+title: Using the Web Terminal
+---
+
 # Using the Web Terminal
 
 To help you debug and develop your application on resin.io, the dashboard provides a hand webterminal. This gives you console access to your running [container][docker-container] on the device and allows you to test out small snippets of code or check some system logs on your device. To use this feature, navigate your application and select the device you want access to. In that devices menu page you will find the `>_ Terminal` menu item.

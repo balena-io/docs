@@ -1,3 +1,7 @@
+---
+title: Microsoft Azure IoT Suite integration
+---
+
 # [Microsoft Azure IoT Suite][azure] integration
 
 [Resin.io][resin] makes it simple to deploy, update, and maintain code running on remote devices. Microsoft's new IoT Suite makes it easy to manage and capture the data those devices generate. This tutorial will walk you through using the two in conjunction.
@@ -95,7 +99,7 @@ Now you’re done. Provision as many devices as you need with resin (you can use
 If you have any further questions drop us a mail at **azure@resin.io**.
 
 [resin]:http://resin.io
-[installing]:/pages/installing/gettingStarted.md
+[installing]:/installing/gettingStarted
 [azure]:http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx
 [screencast]:https://vimeo.com/136840643
 [integration]:https://github.com/emirotin/resin-azure-iot-remote-monitoring/tree/resin-integration

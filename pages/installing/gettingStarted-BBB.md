@@ -1,3 +1,7 @@
+---
+title: Beaglebone Black/Green
+---
+
 # Getting Started With the Beaglebone Black
 
 ## What You'll Need
@@ -24,7 +28,7 @@ __Note__: Always run the board from 5VDC 1A minimum supply when using a Wifi Don
 __NOTE:__ If you're not experienced with [git][git], check out the excellent
   [Try Git][try-git] course at [Code School][code-school].
 
-If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/#/pages/installing/gettingStarted-BBB.md#creating-your-first-application).
+If you already have a resin.io account and just want to get started with your new device, then skip ahead to [Creating Your First Application](/installing/gettingStarted-BBB#creating-your-first-application).
 
 ## Signing Up
 
@@ -97,8 +101,8 @@ Now we have to burn the downloaded `.img` file onto the SD card. There are a cou
 
 ## Burning the OS image onto the SD card
 
-* [Mac and Linux Command Line](/pages/installing/gettingStarted-BBB.md#on-mac-and-linux)
-* [Windows](http://localhost:3000/#/pages/installing/gettingStarted-BBB.md#windows)
+* [Mac and Linux Command Line](/installing/gettingStarted-BBB#on-mac-and-linux)
+* [Windows](/installing/gettingStarted-BBB#windows)
 
 ### On Mac and Linux
 
@@ -124,7 +128,7 @@ __NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rd
 
 __NOTE:__ Linux users will need to run `sudo dd bs=1M if=~/Downloads/resin-myFleet-0.1.0-0.0.16-b2854a2c7639.img of=/dev/sdb` (uppercase M)
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-BBB.md#setting-up-your-device).
+This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/installing/gettingStarted-BBB#setting-up-your-device).
 
 #### From a GUI
 
@@ -138,7 +142,7 @@ You can now insert your microSD card into your host machine and click continue. 
 
 __Warning:__ Make 100% sure that the SD card it finds is in fact the correct card.
 
-Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/#/pages/installing/gettingStarted-BBB.md#setting-up-your-device).
+Click continue and piFiller will write to the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/installing/gettingStarted-BBB#setting-up-your-device).
 
 ### Windows
 
@@ -176,7 +180,7 @@ After the internal media has been flashed, your device will shut itself down. At
 
 Your device should now start booting from internal eMMC and in a minute or so you should have a happy Beaglebone device in the `Idle` state on your dashboard. From here on you can deploy code to your device with easy.
 
-__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](http://localhost:3000/#/pages/installing/gettingStarted-BBB.md#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
+__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](/installing/gettingStarted-BBB#burning-the-os-image-onto-the-sd-card) again. If the issue persists, click the little yellow ` ? ` on in the bottom right of the resin.io dashboard and speak to our support engineers.
 
 <!-- ========================== end section =================================   -->
 
@@ -245,12 +249,12 @@ feedback and respond to any issues as soon as we can.
 
 <!-- General Internal (docs) links -->
 
-[deploy]:/pages/deployment/deployment.md
-[projects]:/pages/examples/seed-projects.md
-[managing_devices_apps]:/pages/management/applications.md
-[wifi]:/pages/deployment/wifi.md
-[supported]:/pages/hardware/devices.md
-[dockerfile]:/pages/deployment/dockerfile.md
+[deploy]:/deployment/deployment
+[projects]:/examples/seed-projects
+[managing_devices_apps]:/management/applications
+[wifi]:/deployment/wifi
+[supported]:/hardware/devices
+[dockerfile]:/deployment/dockerfile
 
 <!-- General External Links -->
 
