@@ -10,7 +10,7 @@ Repository for all images: refer [here][base-repository]. Subscribe to changes [
 
 __Note:__ In the tree diagram, from the bottom to the top, the lower level image is used as the base docker image to build the upper level one.
 
-### ARMv6: Raspberry Pi 1 (version B, A+ and B+)
+### ARMv6: Raspberry Pi 1 (model B, A+ and B+)
 
 ![ARMv6 Tree Diagram](/img/armv6-diagram.jpg)
 
@@ -27,7 +27,7 @@ __Note:__ minbase is a variant of image built by debootstrap which means only es
 
 __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 
-### ARMv7: Raspberry Pi 2 and BeagleBone Black
+### ARMv7: Raspberry Pi 2 (model B), Raspberry Pi 3 (model B), and BeagleBone Black
 
 ![ARMv7 Tree Diagram](/img/armv7-diagram.jpg)
 
@@ -35,7 +35,7 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 
 | Image | Description | Installed Packages | Repository | Available Tag|
 |:-----------|:------------|:------------|:------------|:------------|
-| resin/armv7hf-debian| The base OS image for ARMv7 devices (Raspberry Pi 2 - RPI2 and BeagleBone Black - BBB) | minbase, sudo | [dockerhub][armv7hf-dockerhub-link], [github][armv7hf-github-link] | latest, jessie, wheezy, sid |
+| resin/armv7hf-debian| The base OS image for ARMv7 devices (Raspberry Pi 2 - RPI2, Raspberry Pi 3 - RPI3 and BeagleBone Black - BBB) | minbase, sudo | [dockerhub][armv7hf-dockerhub-link], [github][armv7hf-github-link] | latest, jessie, wheezy, sid |
 | resin/armv7hf-systemd | The image with full systemd init system installed for ARMv7 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][armv7-systemd-dockerhub-link], [github][armv7-systemd-github-link] | latest, jessie, wheezy, sid | 
 | resin/beaglebone-debian | The bare bones OS image for BBB. Apt sources.list from repositories: [http://repos.rcn-ee.net/debian/](armv7-bbb-sourceslist) and [http://debian.beagleboard.org](armv7-bbb-sourceslist1) added! See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-bbb-dockerhub-link], [github][armv7-bbb-github-link] | latest, jessie, wheezy |
 | resin/beaglebone-buildpack-deps | The buildpack-deps image for BBB. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-bbb-buildpack-deps-dockerhub-link], [github][armv7-bbb-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |

@@ -2,11 +2,11 @@
 
 ## Currently Supported
 
-### The Full Raspberry Pi family
+### The Full Raspberry Pi family (Raspberry Pi 1, 2 and 3)
 
 [link](https://www.raspberrypi.org/products/)
 
-__Note:__ The Raspberry Pi 2 (RPI2), has a different architecture from the previous versions of Raspberry Pis, so there is a different OS image for it. Be sure to select the right device type when downloading.
+__Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) have different architectures, so there is a different OS image for each generation. Be sure to select the right device type when downloading.
 
 ![Raspberry Pi](/img/rpi_b_plus.jpg)
 
