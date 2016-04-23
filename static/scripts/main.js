@@ -2,6 +2,7 @@
 
 function fixOldUrl(url) {
   return url
+    .replace('/#/', '/')
     .replace(/^\/pages\//, '/')
     .replace('.md#', '#')
     .replace(/\.md$/, '')
