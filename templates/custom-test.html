@@ -1,0 +1,7 @@
+{% extends "default.html" %}
+
+{% block "contents" %}
+  <h1>Working with {{ $device_details.name }} and {{ $lang_details.name }}</h1>
+
+  {{ contents|safe }}
+{% endblock %}

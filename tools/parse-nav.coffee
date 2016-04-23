@@ -1,27 +1,25 @@
 fs = require('fs')
 path = require('path')
+{ walkTree } = require('./util')
+
 root = path.resolve(__dirname, '..')
 
-fixLinks = (node) ->
-  if node.level and not node.link
-    if not node.children?.length
-      throw new Error("No link and no child lines. #{node.raw}")
-    node.link = node.children[0].link
-  if node.children?
-    for child in node.children
-      fixLinks(child)
+fixLinks = walkTree
+  visitNode: (node) ->
+    if node.level and not node.link
+      if not node.children?.length
+        throw new Error("No link and no child lines. #{node.raw}")
+      node.link = node.children[0].link
 
-calcRefs = (node) ->
-  if node.level
-    { link } = node
-    ref = if link[0] is '/' then link[1..] else null
-    node.ref = ref
+calcRefs = walkTree
+  visitNode: (node) ->
+    if node.level
+      { link } = node
+      ref = if link[0] is '/' then link[1..] else null
+      node.ref = ref
 
-  if node.level? and not node.ref and not node.title
-    throw new Error("No title for external link node. #{node.raw}")
-  if node.children?
-    for child in node.children
-      calcRefs(child)
+    if node.level? and not node.ref and not node.title
+      throw new Error("No title for external link node. #{node.raw}")
 
 exports.parse = ->
   lines = fs.readFileSync(path.join(root, 'navigation.txt'))
@@ -75,13 +73,13 @@ exports.parse = ->
 
   return result
 
-ppNode = (node, indent = '') ->
-  title = node.title or '(No title)'
-  link = if node.level then "[#{node.link}]" else ''
-  console.log "#{indent}|--#{title}#{link}"
-  if node.children?
-    for child in node.children
-      ppNode(child, indent + '|  ')
+ppNode = walkTree
+  visitNode: (node, indent = '') ->
+    title = node.title or '(No title)'
+    link = if node.level then "[#{node.link}]" else ''
+    console.log "#{indent}|--#{title}#{link}"
+  buildNextArgs: (node, indent = '') ->
+    [ indent + '|  ' ]
 
 exports.pp = (parsed) ->
   ppNode(parsed)
