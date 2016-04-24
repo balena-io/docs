@@ -1,10 +1,10 @@
 [
   {
-    "slug": "raspberry-pi",
+    "id": "raspberry-pi",
     "name": "Raspberry Pi (all models)"
   },
   {
-    "slug": "artik",
+    "id": "artik",
     "name": "Samsung ARTIK"
   }
 ]

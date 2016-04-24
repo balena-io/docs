@@ -1,10 +1,10 @@
 [
   {
-    "slug": "nodejs",
+    "id": "nodejs",
     "name": "Node.js"
   },
   {
-    "slug": "python",
+    "id": "python",
     "name": "Python"
   }
 ]

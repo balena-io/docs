@@ -5,15 +5,9 @@ layout: custom-test.html
 # this is dynamic page definition
 # hope it's self-explanatory
 dynamic_page:
-  axes:
-    $device:
-      dictionary: devices
-      key: slug
-    $lang:
-      dictionary: languages
-      key: slug
-  url_suffix: -$device-$lang
-  partials_search: [ $device+$lang, $device, $lang, _default ]
+  axes: [ $device, $language ]
+  url_suffix: -$device-$language
+  partials_search: [ $device+$language, $device, $language, _default ]
 
 ---
 

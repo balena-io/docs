@@ -42,11 +42,11 @@ buildPagesRec = (templateObj, dynamicMeta, axesNames, definedAxes, remainingAxes
   nextAxis = remainingAxes[0]
   remainingAxes = remainingAxes[1...]
 
-  nextAxisDef = dynamicMeta.axes[nextAxis]
-  nextAxisDict = dicts[nextAxisDef.dictionary]
+  dictName = nextAxis[1...]
+  nextAxisDict = dicts[dictName]
 
   for details in nextAxisDict
-    nextAxisValue = details[nextAxisDef.key]
+    nextAxisValue = details.id
     _.assign(result, buildPagesRec(
       _.assign({}, templateObj, {
         "#{nextAxis}": nextAxisValue
@@ -63,15 +63,16 @@ buildDynamicPages = (originalRef, templateObj) ->
   console.log("Expanding dynamic page #{originalRef}")
   templateObj = _.assign({ originalRef }, templateObj)
   dynamicMeta = templateObj.dynamic_page
-  { axes } = dynamicMeta
-  if not axes
+  { axes: axesNames } = dynamicMeta
+  if not axesNames
     throw new Error("No axes defined for the dynamic page #{originalRef}.")
-  axesNames = _.keys(axes)
   for axisName in axesNames
-    axis = axes[axisName]
-    dict = dicts[axis.dictionary]
+    if axisName[0] isnt '$'
+      throw new Error("Axis name must start with $ sign \"#{axisName}\".")
+    dictName = axisName[1...]
+    dict = dicts[dictName]
     if not dict
-      throw new Error("Unknown dictionary \"#{axis.dictionary}\".")
+      throw new Error("Unknown dictionary \"#{dictName}\".")
     templateObj["#{axisName}_dictionary"] = dict
   return buildPagesRec(templateObj, dynamicMeta, axesNames, [], axesNames)
 
