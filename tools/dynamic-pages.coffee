@@ -5,38 +5,40 @@ root = path.resolve(__dirname, '..')
 config = require(path.join(root, 'config'))
 dicts = require(path.join(root, 'dictionaries'))
 
-buildPagesFinal = (templateObj, dynamicMeta, axesNames, axesValues) ->
-  { url_suffix: urlSuffix, partials_search: partialsSearchOrder } = dynamicMeta
+buildSinglePage = (templateObj, dynamicMeta, axesContext) ->
+  { url, partials_search: partialsSearchOrder } = dynamicMeta
+
+  extRe = new RegExp("\\.#{config.docsExt}$")
+  baseUrl = templateObj.originalRef
+    .replace(extRe, '')
+  context = _.assign({}, axesContext, {
+    $baseUrl: baseUrl
+  })
 
   populate = (arg) ->
     return arg if not arg
+
     if _.isArray(arg)
       return _.map(arg, populate)
     else if _.isObject(arg)
       return _.mapValues(arg, populate)
     else if _.isString(arg)
-      for axis, i in axesNames
-        value = axesValues[i]
-        re = new RegExp(_.escapeRegExp(axis), 'ig')
+      for key, value of context
+        re = new RegExp(_.escapeRegExp(key), 'ig')
         arg = arg.replace(re, value)
       return arg
 
-  urlSuffix = populate(urlSuffix)
   obj = _.assign({}, templateObj, {
     title: populate(templateObj.title)
-    $url_suffix: urlSuffix
     $partials_search: populate(partialsSearchOrder)
   })
 
-  extRe = new RegExp("\\.#{config.docsExt}$")
-  key = templateObj.originalRef
-    .replace(extRe, "#{urlSuffix}.#{config.docsExt}")
-
+  key = "#{populate(url)}.#{config.docsExt}"
   return { "#{key}": obj }
 
-buildPagesRec = (templateObj, dynamicMeta, axesNames, definedAxes, remainingAxes) ->
+buildPagesRec = (templateObj, dynamicMeta, axesContext, remainingAxes) ->
   if not remainingAxes?.length
-    return buildPagesFinal(templateObj, dynamicMeta, axesNames, definedAxes)
+    return buildSinglePage(templateObj, dynamicMeta, axesContext)
 
   result = {}
   nextAxis = remainingAxes[0]
@@ -53,8 +55,7 @@ buildPagesRec = (templateObj, dynamicMeta, axesNames, definedAxes, remainingAxes
         "#{nextAxis}_details": details
       }),
       dynamicMeta,
-      axesNames,
-      definedAxes.concat(nextAxisValue),
+      _.extend({}, axesContext, { "#{nextAxis}": nextAxisValue}),
       remainingAxes
     ))
   return result
@@ -74,7 +75,7 @@ buildDynamicPages = (originalRef, templateObj) ->
     if not dict
       throw new Error("Unknown dictionary \"#{dictName}\".")
     templateObj["#{axisName}_dictionary"] = dict
-  return buildPagesRec(templateObj, dynamicMeta, axesNames, [], axesNames)
+  return buildPagesRec(templateObj, dynamicMeta, {}, axesNames)
 
 exports.expand = (files) ->
   for file of files

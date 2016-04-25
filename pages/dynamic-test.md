@@ -6,7 +6,7 @@ layout: custom-test.html
 # hope it's self-explanatory
 dynamic_page:
   axes: [ $device, $language ]
-  url_suffix: -$device-$language
+  url: $device/$language/$baseUrl
   partials_search: [ $device+$language, $device, $language, _default ]
 
 ---
