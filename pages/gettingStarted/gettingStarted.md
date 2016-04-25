@@ -1,20 +1,21 @@
 ---
-title: Dynamic page for {{ $device_details.name }} and {{ $language_details.name }}
+title: Getting Started with $device and $language
 layout: custom-test.html
 
 # this is dynamic page definition
 # hope it's self-explanatory
 dynamic_page:
   axes: [ $device, $language ]
-  url: $device/$language/$baseUrl
+  url_suffix: -$device-$language
   partials_search: [ $device+$language, $device, $language, _default ]
 
 ---
 
-**It works**
-
-Now let's try import:
-
-{{import "test"}}
 {{import "usingSupport"}}
+{{import "whatYouNeed"}}
+{{import "createAnApp"}}
 {{import "sshKey/add"}}
+{{import "getResinOS"}}
+{{import "getDeviceOnDash"}}
+{{import "selectNetworkConfig"}}
+{{import "deployingCode"}}
