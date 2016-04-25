@@ -31,6 +31,7 @@ buildSinglePage = (templateObj, dynamicMeta, axesContext) ->
   obj = _.assign({}, templateObj, {
     title: populate(templateObj.title)
     $partials_search: populate(partialsSearchOrder)
+    $axes_values: axesContext
   })
 
   key = "#{populate(url)}.#{config.docsExt}"

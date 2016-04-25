@@ -1,5 +1,6 @@
 _ = require('lodash')
 Handlebars = require('handlebars')
+{ stringifyPairs } = require('./util')
 
 exports.compileTemplate = compileTemplate = _.memoize (tpl) ->
   Handlebars.compile(tpl)
@@ -20,4 +21,7 @@ exports.importHelper = (prefix) ->
   partial = getBestPartial(prefix, this.$partials_search)
   if partial
     return new Handlebars.SafeString(partial(this))
-  throw new Error("Can't find any matching import for \"#{prefix}\".")
+  throw new Error("""Can't find any matching import for "#{prefix}".
+    Context: #{stringifyPairs(this.$axes_values)}.
+    Partials search: #{this.$partials_search?.join(', ')}.
+  """)
