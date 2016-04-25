@@ -18,9 +18,9 @@ cd simple-server-node
 
 git remote add resin charlie1@git.resin.io:charlie1/myfleet.git
 ```
-__Note:__ On other git client there may be an alternative way to add a remote repository.
+__Note:__ On other git clients there may be an alternative way to add a remote repository.
 
-So now we have set up a reference in our local git repository (the one on our development computer) to the resin.io application remote repository. So now when we push new changes to this remote repository it will get compiled and built on our servers and deployed to every device in the application fleet.
+So now we have set up a reference in our local git repository (the one on our development computer) to the resin.io application remote repository. So when we push new changes to this remote repository it will get compiled and built on our servers and deployed to every device in the application fleet.
 
 Now to deploy this code to all device(s) in the application just run the command:
 ```
@@ -34,7 +34,7 @@ __Note:__ On your very first push, git may ask you if you would like to add this
 You'll know your code has been successfully compiled and built when our
 friendly unicorn mascot appears in your terminal:
 
-<img src="/img/common/pushing/success_unicorn_nodejs.png" width="80%">
+<img src="/img/common/pushing/success_unicorn_simple_nodejs.png" width="80%">
 
 This means your code is safely built and stored on our image registry. It should only take about 2 minutes to build your code and subsequent builds will be quicker because of build caching.
 

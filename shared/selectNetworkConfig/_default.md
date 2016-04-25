@@ -2,7 +2,7 @@ Before your resinOS download begins, a prompt will appear asking you to specify 
  * Ethernet cable, this option requires no configuration.
  * Wifi, in which case you must specify the [network name or`SSID`][ssid-link] and `passphrase` for the network your device will connect to.
 
-Once you have selected you connectivity option, click the `Download Device OS` button to get the resin.io operating system image configured for your application and network.
+Once you have selected your connectivity option, click the `Download Device OS` button to get the resin.io operating system image configured for your application and network.
 
 <img src="/img/common/network/network_selection_wifi_cropped.png" width="60%">
 

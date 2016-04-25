@@ -36,8 +36,18 @@ Learn
     #Dynamic Page for Artik ~ Dynamic Page for Artik and {{ $language_details.name }}[/artik/$language/dynamic-test]
 
   Getting Started
-    [/gettingStarted/gettingStarted-artik-nodejs]
-
+    [/installing/gettingStarted-RPi]
+    [/installing/gettingStarted-BBB]
+    [/installing/gettingStarted-Edison]
+    [/installing/gettingStarted-NUC]
+    [/installing/gettingStarted-Odroid-C1]
+    [/installing/gettingStarted-Odroid-XU4]
+    [/installing/gettingStarted-Humming]
+    [/installing/gettingStarted-Nitrogen6x]
+    [/installing/gettingStarted-TS4900]
+    [/installing/gettingStarted-VIA-VAB820]
+    [/installing/gettingStarted-Zynq-ZC702]
+    [/installing/gettingStarted-Parallella]
 
   Examples
     [/examples/seed-projects]
