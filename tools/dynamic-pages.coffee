@@ -1,9 +1,12 @@
-_ = require('lodash')
 path = require('path')
+_ = require('lodash')
 
 root = path.resolve(__dirname, '..')
 config = require(path.join(root, 'config'))
-dicts = require(path.join(root, 'dictionaries'))
+dicts = require('./dictionaries')
+hbHelper = require('./hb-helper')
+
+{ replacePlaceholders } = require('./util')
 
 buildSinglePage = (templateObj, dynamicMeta, axesContext) ->
   { url, partials_search: partialsSearchOrder } = dynamicMeta
@@ -15,6 +18,8 @@ buildSinglePage = (templateObj, dynamicMeta, axesContext) ->
     $baseUrl: baseUrl
   })
 
+  refTemplate = url.replace('$baseUrl', baseUrl)
+
   populate = (arg) ->
     return arg if not arg
 
@@ -23,15 +28,13 @@ buildSinglePage = (templateObj, dynamicMeta, axesContext) ->
     else if _.isObject(arg)
       return _.mapValues(arg, populate)
     else if _.isString(arg)
-      for key, value of context
-        re = new RegExp(_.escapeRegExp(key), 'ig')
-        arg = arg.replace(re, value)
-      return arg
+      return replacePlaceholders(arg, context)
 
   obj = _.assign({}, templateObj, {
-    title: populate(templateObj.title)
+    title: hbHelper.render(templateObj.title, templateObj),
     $partials_search: populate(partialsSearchOrder)
     $axes_values: axesContext
+    $ref_template: refTemplate
   })
 
   key = "#{populate(url)}.#{config.docsExt}"
@@ -45,18 +48,19 @@ buildPagesRec = (templateObj, dynamicMeta, axesContext, remainingAxes) ->
   nextAxis = remainingAxes[0]
   remainingAxes = remainingAxes[1...]
 
-  dictName = nextAxis[1...]
-  nextAxisDict = dicts[dictName]
+  nextAxisDict = dicts.getDict(nextAxis)
 
   for details in nextAxisDict
     nextAxisValue = details.id
+    nextTemplateObj = _.assign({}, templateObj, {
+      "#{nextAxis}": nextAxisValue
+      "#{nextAxis}_details": details
+    })
+    nextContext = _.extend({}, axesContext, { "#{nextAxis}": nextAxisValue})
     _.assign(result, buildPagesRec(
-      _.assign({}, templateObj, {
-        "#{nextAxis}": nextAxisValue
-        "#{nextAxis}_details": details
-      }),
+      nextTemplateObj,
       dynamicMeta,
-      _.extend({}, axesContext, { "#{nextAxis}": nextAxisValue}),
+      nextContext,
       remainingAxes
     ))
   return result
@@ -71,8 +75,7 @@ buildDynamicPages = (originalRef, templateObj) ->
   for axisName in axesNames
     if axisName[0] isnt '$'
       throw new Error("Axis name must start with $ sign \"#{axisName}\".")
-    dictName = axisName[1...]
-    dict = dicts[dictName]
+    dict = dicts.getDict(axisName)
     if not dict
       throw new Error("Unknown dictionary \"#{dictName}\".")
     templateObj["#{axisName}_dictionary"] = dict

@@ -1,3 +1,5 @@
+_ = require('lodash')
+
 exports.extractTitleFromText = (body) ->
   headings = body
     .split('\n')
@@ -20,9 +22,17 @@ exports.slugify = (s) ->
   s.toLowerCase()
     .replace(/[^a-z0-9]/gi, '-')
     .replace(/-{2,}/g, '-')
+    .replace(/^-/, '')
+    .replace(/-$/, '')
 
 exports.stringifyPairs = (obj) ->
   s = []
   for key, value of obj
     s.push("#{key}: #{value}")
   return s.join(', ')
+
+exports.replacePlaceholders = (arg, context) ->
+  for key, value of context
+    re = new RegExp(_.escapeRegExp(key), 'ig')
+    arg = arg.replace(re, value)
+  return arg

@@ -1,5 +1,6 @@
 fs = require('fs')
 path = require('path')
+_ = require('lodash')
 { walkTree } = require('./util')
 
 root = path.resolve(__dirname, '..')
@@ -34,7 +35,17 @@ exports.parse = ->
     return { level: pad.length / 2, raw: line }
   .map ({ level, raw }) ->
     [ title, skip, link ] = raw.match(/^([^\[]+)?(\[(.+)\])?$/)[1..]
-    return { level, raw, title, link }
+    node = { level, raw, title, link }
+    if link?.match(/\$/)
+      node.isDynamic = true
+      linkReParts = link.split(/\$[\w_]+/).map(_.escapeRegExp)
+      node.linkRe = new RegExp('^' + linkReParts.join('.*') + '$')
+      if not title
+        throw new Error("Dynamic pages must specify the title. #{raw}")
+      titleParts = title.split(/\s*~\s*/)
+      node.title = titleParts[0]
+      node.titleTemplate = titleParts[1] or titleParts[0]
+    return node
 
   trees = []
   currentNode = null

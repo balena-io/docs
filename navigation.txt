@@ -12,12 +12,28 @@
 # Link with custom title gets title as defines in this file
 # Empty and commented lines are ignored
 
+# Dynamic page links are identified by referencing at least 1 $dictionary
+# in the link
+# Dynamic page links can have title interpolation
+# In this case they should also have default title when the page is not active
+# (and thus it doesn't make sense to have dynamic parts in the title)
+# The syntax is
+# `Default title ~ Title with {{ interpolation }}[/some/$dictionary/link]`
+# The axes-specific title is optional and can be omitted
+
 Learn
   [/introduction]
 
   Understanding resin.io
     [/understanding/understanding-code-deployment]
     [/understanding/understanding-devices]
+
+  # this URL is handles in redirects.txt
+  #Dynamic Page[/dynamic-test]
+    # these 2 URLs are for the _same_ dynamic page
+    # with $device axis predefined (for demo purposes) and $language part being dynamic
+    #Dynamic Page for RPi ~ Dynamic Page for RPi and {{ $language_details.name }}[/raspberry-pi/$language/dynamic-test]
+    #Dynamic Page for Artik ~ Dynamic Page for Artik and {{ $language_details.name }}[/artik/$language/dynamic-test]
 
   Getting Started
     [/installing/gettingStarted-RPi]

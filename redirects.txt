@@ -8,3 +8,5 @@
 ^\/introduction\/introduction(\/|$) -> /introduction
 ^\/$ -> /introduction
 ^\/installing\/gettingStarted(\/|$) -> /installing/gettingStarted-RPi
+
+^\/dynamic-test -> /raspberry-pi/nodejs/dynamic-test
