@@ -1,5 +1,5 @@
 ---
-title: Dynamic page for $device and $type
+title: Dynamic page for {{ $device_details.name }} and {{ $language_details.name }}
 layout: custom-test.html
 
 # this is dynamic page definition

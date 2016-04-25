@@ -5,9 +5,12 @@ _ = require('lodash')
 redirect = require('./redirect')
 search = require('./search')
 navTree = require('./nav.json')
+swigHelper = require('../tools/swig-helper')
 config = require('../config')
 
 app = express()
+
+consolidate.requires.swig = swigHelper.swig
 
 app.engine('html', consolidate.swig)
 app.set('view engine', 'html')

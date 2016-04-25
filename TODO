@@ -1,4 +1,4 @@
 1) if the current page doesn't match any tab activate the first tab by default
-2) dynamic pages matches in the sidebar
-3) custom template (drop-downs) for the gettingStarted page
-4) in-page subnav in the sidebar
+2) custom template (drop-downs) for the gettingStarted page
+3) in-page subnav in the sidebar
+4) DISCUSS: search will output _all_ dynamic pages variants

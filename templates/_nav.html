@@ -1,13 +1,15 @@
 {% spaceless %}
 
-{% macro navSubtree(subtree, topLevelSubtree) %}
+{% macro navNode(subtree) %}
   {% if subtree.children %}
-    <ul class="{% if navPath[topLevelSubtree.link] %}expand{% endif %}">
+    <ul class="{% if subtree|isCurrentTree(navPath) %}expand{% endif %}">
       {% for child in subtree.children %}
-        <li class="{% if child.link == selfLink %}active{% endif %}">
-          <a href="{{ child.link }}">{{ child.title }}</a>
+        <li class="{% if child|isCurrentPage(selfLink) %}active{% endif %}">
+          <a href="{{ child|getLink(selfLink) }}">
+            {{ child|getTitle(selfLink, breadcrumbs[breadcrumbs.length - 1]) }}
+          </a>
         </li>
-        {{ navSubtree(child, topLevelSubtree) }}
+        {{ navNode(child) }}
       {% endfor %}
     </ul>
   {% endif %}
@@ -20,11 +22,11 @@
         {% if subtree.children %}with-children{% endif %}
         {% if navPath[subtree.link] %}active{% endif %}
       ">
-        <a href="{{ subtree.link }}">
-          {{ subtree.title }}
+        <a href="{{ subtree|getLink(selfLink) }}">
+          {{ subtree|getTitle(selfLink, breadcrumbs[breadcrumbs.length - 1]) }}
         </a>
       </h3>
-      {{ navSubtree(subtree, subtree) }}
+      {{ navNode(subtree) }}
     {% endfor %}
   </div>
 {% endmacro %}

@@ -6,13 +6,14 @@ markdown = require('metalsmith-markdown')
 permalinks = require('metalsmith-permalinks')
 layouts = require('metalsmith-layouts')
 inplace = require('metalsmith-in-place')
-Handlebars = require('handlebars')
 consolidate = require('consolidate')
-{ extractTitleFromText, walkTree, slugify } = require('./util')
+{ extractTitleFromText, walkTree, slugify, replacePlaceholders } = require('./util')
 Index = require('./lunr-index')
 ParseNav = require('./parse-nav')
+swigHelper = require('./swig-helper')
 hbHelper = require('./hb-helper')
 dynamicPages = require('./dynamic-pages')
+dicts = require('./dictionaries')
 
 root = path.resolve(__dirname, '..')
 config = require(path.join(root, 'config'))
@@ -38,16 +39,17 @@ populateFileMeta = ->
     done()
 
 console.log('Building search index...')
-index = Index.create()
-buildIndex = ->
+searchIndex = Index.create()
+buildSearchIndex = ->
   return (files, metalsmith, done) ->
     for file of files
       obj = files[file]
-      index.add
+      searchIndex.add
         id: file
         title: obj.title
         body: obj.contents.toString()
-    index.write path.join(root, 'server', 'lunr_index.json'), (err) ->
+    indexFilePath = path.join(root, 'server', 'lunr_index.json')
+    searchIndex.write indexFilePath, (err) ->
       throw err if err
       console.log('Successfully finished indexing.')
       done()
@@ -57,37 +59,57 @@ navTree = ParseNav.parse()
 
 navByFile = do ->
   result = {}
-  setRef = walkTree
+
+  setRefRec = (ref, node, remainingAxes) ->
+    if not remainingAxes?.length
+      return setRef(ref, node)
+    nextAxis = remainingAxes[0]
+    remainingAxes = remainingAxes[1...]
+    for value in dicts.getValues(nextAxis)
+      setRefRec(
+        replacePlaceholders(ref, { "#{nextAxis}": value }),
+        node,
+        remainingAxes
+      )
+
+  setRef = (ref, node) ->
+    return if not ref
+    if ref.match(/\$/)
+      setRefRec(ref, node, dicts.dictNames)
+    else
+      result["#{ref}.#{config.docsExt}"] = node
+
+  setRefs = walkTree
     visitNode: (node) ->
-      if node.level? and node.ref
-        result["#{node.ref}.#{config.docsExt}"] = node
-  setRef(navTree)
+      if node.level?
+        setRef(node.ref, node)
+  setRefs(navTree)
   return result
 
 fixNavTitles = ->
   fixNavNodeTitle = walkTree
     visitNode: (node, files) ->
       if node.level?
-        node.title or= files["#{node.ref}.md"]?.title
+        node.title or= files["#{node.ref}.#{config.docsExt}"]?.title
         node.slug = slugify(node.title)
 
   return (files, metalsmith, done) ->
     fixNavNodeTitle(navTree, files)
     done()
 
-calcNavPaths = ->
-  addNavPath = walkTree
-    visitNode: (node, prevPath) ->
+calcNavParents = ->
+  addNavParents = walkTree
+    visitNode: (node, parents) ->
       if node.level?
-        node.path = prevPath.concat(node)
-    buildNextArgs: (node, prevPath) ->
+        node.parents = parents.concat(node)
+    buildNextArgs: (node, parents) ->
       if node.level?
-        [ prevPath.concat(node) ]
+        [ parents.concat(node) ]
       else
-        [ prevPath ]
+        [ parents ]
 
   return (files, metalsmith, done) ->
-    addNavPath(navTree, [])
+    addNavParents(navTree, [])
     done()
 
 # needed because of https://github.com/superwolff/metalsmith-layouts/issues/83
@@ -95,7 +117,7 @@ removeNavBackRefs = ->
   removeBackRefs = walkTree
     visitNode: (node) ->
       delete node.parent
-      delete node.path
+      delete node.parents
 
   return (files, metalsmith, done) ->
     removeBackRefs(navTree)
@@ -111,8 +133,13 @@ serializeNav = ->
 
 setBreadcrumbs = ->
   setBreadcrumbsForFile = (file, obj) ->
-    obj.breadcrumbs = navByFile[file]?.path
+    # TODO: this logic is twisted and should be improved
+    obj.breadcrumbs = navByFile[file]?.parents
       .map (node) -> node.title
+    navNode = navByFile[file]
+    if navNode?.isDynamic and obj.breadcrumbs?.length
+      obj.breadcrumbs[obj.breadcrumbs.length - 1] =
+        hbHelper.render(navNode.titleTemplate, obj)
   return (files, metalsmith, done) ->
     for file of files
       setBreadcrumbsForFile(file, files[file])
@@ -121,8 +148,8 @@ setBreadcrumbs = ->
 setNavPaths = ->
   setPathForFile = (file, obj) ->
     obj.navPath = {}
-    if navByFile[file]?.path
-      for node in navByFile[file]?.path
+    if navPath = navByFile[file]?.parents
+      for node in navPath
         obj.navPath[node.link] = true
         obj.navPath[node.slug] = true
   return (files, metalsmith, done) ->
@@ -135,8 +162,8 @@ expandDynamicPages = ->
     dynamicPages.expand(files)
     done()
 
-Handlebars.registerHelper 'import', hbHelper.importHelper
-consolidate.requires.handlebars = Handlebars
+consolidate.requires.handlebars = hbHelper.Handlebars
+consolidate.requires.swig = swigHelper.swig
 
 console.log('Building static HTML...')
 Metalsmith(root)
@@ -144,16 +171,16 @@ Metalsmith(root)
 .destination(config.docsDestDir)
 .use(skipPrivate())
 
-.use(populateFileMeta())
 .use(expandDynamicPages())
+.use(populateFileMeta())
 
 .use(fixNavTitles())
-.use(calcNavPaths())
+.use(calcNavParents())
 
 .use(setBreadcrumbs())
 .use(setNavPaths())
 
-.use(buildIndex())
+.use(buildSearchIndex())
 
 .use(inplace({
   engine: 'handlebars',
