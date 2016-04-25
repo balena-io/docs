@@ -16,7 +16,8 @@
 | Odroid XU4                 | odroid-xu4         |
 | Solid Run Humming Board i2 | hummingboard       |
 
-old-slug           |   machine 						|	 new-slug
+
+<!-- old-slug           |   machine 						|	 new-slug
 -------------     ------------           ------------
 artik10           artik10                artik10
 artik5            artik5                 artik5
@@ -34,4 +35,4 @@ raspberrypi3      raspberrypi3           raspberrypi3
 ts4900            ts4900                 ts4900
 ts7700            ts7700                 ts7700
 via-vab820-quad   vab820-quad            vab820-quad
-zynq-xz702        zc702-zynq7            zc702-zynq7
+zynq-xz702        zc702-zynq7            zc702-zynq7 -->

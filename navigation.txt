@@ -90,8 +90,12 @@ Learn
 
 FAQ
   [/troubleshooting/faq]
+  [/troubleshooting/troubleshooting]
+  [/troubleshooting/error]
+  CLI issues[/troubleshooting/cli-troubleshooting]
 
 Reference
+  Device Agent API[/runtime/supervisor-api]
   CLI Reference[/tools/cli]
   Node.js SDK[/tools/sdk]
   Python SDK[/tools/python-sdk]
