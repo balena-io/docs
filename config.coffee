@@ -38,6 +38,7 @@ MAIN_MENU_LINKS = [
 ]
 
 module.exports =
+  docsExt: 'md'
   docsSourceDir: DOCS_SOURCE_DIR
   docsDestDir: DOCS_DEST_DIR
   editPageLink: GITHUB_EDIT_PAGE_LINK

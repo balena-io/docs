@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {% macro navSubtree(subtree, topLevelSubtree) %}
   {% if subtree.children %}
     <ul class="{% if navPath[topLevelSubtree.link] %}expand{% endif %}">
@@ -47,3 +49,5 @@
     {% endfor %}
   </div>
 </nav>
+
+{% endspaceless %}

@@ -5,9 +5,14 @@ Metalsmith = require('metalsmith')
 markdown = require('metalsmith-markdown')
 permalinks = require('metalsmith-permalinks')
 layouts = require('metalsmith-layouts')
-{ extractTitleFromText } = require('./util')
+inplace = require('metalsmith-in-place')
+Handlebars = require('handlebars')
+consolidate = require('consolidate')
+{ extractTitleFromText, walkTree, slugify } = require('./util')
 Index = require('./lunr-index')
 ParseNav = require('./parse-nav')
+hbHelper = require('./hb-helper')
+dynamicPages = require('./dynamic-pages')
 
 root = path.resolve(__dirname, '..')
 config = require(path.join(root, 'config'))
@@ -19,18 +24,17 @@ skipPrivate = ->
         delete files[file]
     done()
 
-fixPageTitles = ->
+populateFileMeta = ->
+  extRe = new RegExp("\\.#{config.docsExt}$")
+
   return (files, metalsmith, done) ->
     for file of files
       obj = files[file]
       obj.title or= extractTitleFromText(obj.contents.toString())
-    done()
-
-addImproveDocsLink = ->
-  return (files, metalsmith, done) ->
-    for file of files
-      obj = files[file]
       obj.improveDocsLink = "#{config.editPageLink}/#{config.docsSourceDir}/#{file}"
+      obj.ref = file
+      obj.selfLink = '/' + file.replace(extRe, '')
+
     done()
 
 console.log('Building search index...')
@@ -53,53 +57,48 @@ navTree = ParseNav.parse()
 
 navByFile = do ->
   result = {}
-  setRef = (node) ->
-    if node.level? and node.ref
-      result["#{node.ref}.md"] = node
-    if node.children?
-      for child in node.children
-        setRef(child)
+  setRef = walkTree
+    visitNode: (node) ->
+      if node.level? and node.ref
+        result["#{node.ref}.#{config.docsExt}"] = node
   setRef(navTree)
   return result
 
 fixNavTitles = ->
-  fixNavNodeTitle = (node, files) ->
-    if node.level?
-      node.title or= files["#{node.ref}.md"]?.title
-      node.slug = node.title
-        .toLowerCase()
-        .replace(/[^a-z0-9]/gi, '-')
-        .replace(/-{2,}/g, '-')
-    if node.children?
-      for child in node.children
-        fixNavNodeTitle(child, files)
+  fixNavNodeTitle = walkTree
+    visitNode: (node, files) ->
+      if node.level?
+        node.title or= files["#{node.ref}.md"]?.title
+        node.slug = slugify(node.title)
 
   return (files, metalsmith, done) ->
     fixNavNodeTitle(navTree, files)
     done()
 
 calcNavPaths = ->
-  addNavPath = (node, prevPath) ->
-    if node.level?
-      prevPath = prevPath.concat(node)
-      node.path = prevPath
-    if node.children?
-      for child in node.children
-        addNavPath(child, prevPath)
+  addNavPath = walkTree
+    visitNode: (node, prevPath) ->
+      if node.level?
+        node.path = prevPath.concat(node)
+    buildNextArgs: (node, prevPath) ->
+      if node.level?
+        [ prevPath.concat(node) ]
+      else
+        [ prevPath ]
+
   return (files, metalsmith, done) ->
     addNavPath(navTree, [])
     done()
 
 # needed because of https://github.com/superwolff/metalsmith-layouts/issues/83
 removeNavBackRefs = ->
-  removeBackRef = (node) ->
-    delete node.parent
-    delete node.path
-    if node.children?
-      for child in node.children
-        removeBackRef(child)
+  removeBackRefs = walkTree
+    visitNode: (node) ->
+      delete node.parent
+      delete node.path
+
   return (files, metalsmith, done) ->
-    removeBackRef(navTree)
+    removeBackRefs(navTree)
     done()
 
 serializeNav = ->
@@ -119,13 +118,6 @@ setBreadcrumbs = ->
       setBreadcrumbsForFile(file, files[file])
     done()
 
-addRefs = ->
-  return (files, metalsmith, done) ->
-    for file of files
-      files[file].ref = file
-      files[file].selfLink = '/' + file.replace(/\.md$/, '')
-    done()
-
 setNavPaths = ->
   setPathForFile = (file, obj) ->
     obj.navPath = {}
@@ -138,23 +130,36 @@ setNavPaths = ->
       setPathForFile(file, files[file])
     done()
 
+expandDynamicPages = ->
+  return (files, metalsmith, done) ->
+    dynamicPages.expand(files)
+    done()
+
+Handlebars.registerHelper 'import', hbHelper.importHelper
+consolidate.requires.handlebars = Handlebars
+
 console.log('Building static HTML...')
 Metalsmith(root)
 .source(config.docsSourceDir)
 .destination(config.docsDestDir)
 .use(skipPrivate())
 
-.use(fixPageTitles())
-.use(addRefs())
+.use(populateFileMeta())
+.use(expandDynamicPages())
 
 .use(fixNavTitles())
 .use(calcNavPaths())
 
 .use(setBreadcrumbs())
 .use(setNavPaths())
-.use(addImproveDocsLink())
 
 .use(buildIndex())
+
+.use(inplace({
+  engine: 'handlebars',
+  pattern: '**/*.md',
+  partials: 'shared'
+}))
 
 .use(markdown())
 .use(permalinks())
