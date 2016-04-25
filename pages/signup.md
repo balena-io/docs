@@ -1,6 +1,6 @@
 ---
-title: Dynamic page for {{ $device_details.name }} and {{ $language_details.name }}
-layout: custom-test.html
+title: Creating an account on Resin.io
+
 
 # this is dynamic page definition
 # hope it's self-explanatory
@@ -11,8 +11,4 @@ dynamic_page:
 
 ---
 
-**It works**
-
-Now let's try import:
-
-{{import "test"}}
+{{import "signingUp"}}

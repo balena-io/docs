@@ -3,8 +3,20 @@
     "id": "raspberrypi",
     "name": "Raspberry Pi 1 or ZERO"
   },
+	{
+    "id": "raspberrypi2",
+    "name": "Raspberry Pi 2"
+  },
+	{
+    "id": "raspberrypi3",
+    "name": "Raspberry Pi 3"
+  },
   {
     "id": "artik5",
     "name": "Samsung ARTIK 5"
+  },
+  {
+    "id": "artik10",
+    "name": "Samsung ARTIK 10"
   }
 ]

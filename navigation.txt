@@ -29,25 +29,15 @@ Learn
     [/understanding/understanding-devices]
 
   # this URL is handles in redirects.txt
-  #Dynamic Page[/dynamic-test]
+  Getting Started[/gettingstarted]
     # these 2 URLs are for the _same_ dynamic page
     # with $device axis predefined (for demo purposes) and $language part being dynamic
-    #Dynamic Page for RPi ~ Dynamic Page for RPi and {{ $language_details.name }}[/raspberry-pi/$language/dynamic-test]
-    #Dynamic Page for Artik ~ Dynamic Page for Artik and {{ $language_details.name }}[/artik/$language/dynamic-test]
-
-  Getting Started
-    [/installing/gettingStarted-RPi]
-    [/installing/gettingStarted-BBB]
-    [/installing/gettingStarted-Edison]
-    [/installing/gettingStarted-NUC]
-    [/installing/gettingStarted-Odroid-C1]
-    [/installing/gettingStarted-Odroid-XU4]
-    [/installing/gettingStarted-Humming]
-    [/installing/gettingStarted-Nitrogen6x]
-    [/installing/gettingStarted-TS4900]
-    [/installing/gettingStarted-VIA-VAB820]
-    [/installing/gettingStarted-Zynq-ZC702]
-    [/installing/gettingStarted-Parallella]
+    Raspberry Pi 1 & (ZERO) ~ Raspberry Pi 1 & (ZERO) and {{ $language_details.name }}[/raspberrypi/$language/gettingstarted]
+    Raspberry Pi 2 ~ Raspberry Pi 2 and {{ $language_details.name }}[/raspberrypi2/$language/gettingstarted]
+    Raspberry Pi 3 ~ Raspberry Pi 3 and {{ $language_details.name }}[/raspberrypi3/$language/gettingstarted]
+    Artik 5 ~ Artik 5 and {{ $language_details.name }}[/artik5/$language/gettingstarted]
+    Artik 10 ~ Artik 10 and {{ $language_details.name }}[/artik10/$language/gettingstarted]
+    Other Boards[/installing/otherboards]
 
   Examples
     [/examples/seed-projects]
