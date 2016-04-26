@@ -1,5 +1,7 @@
-1) if the current page doesn't match any tab activate the first tab by default and show the page title in breadcrumbs
-2) custom template (drop-downs) for the gettingStarted page and a link "looking for other boards?"
-3) in-page subnav in the sidebar H2
-4) DISCUSS: search will output _all_ dynamic pages variants
-5) Implement collapsible sections for the content
+* if the current page doesn't match any tab activate the first tab by default and show the page title in breadcrumbs
+* custom template (drop-downs) for the gettingStarted page and a link "looking for other boards?"
+* in-page subnav in the sidebar H2 + scroll-spy
+* DISCUSS: search will output _all_ dynamic pages variants
+* Implement collapsible sections for the content
+* Dynamically collapsible sections in the navigation
+* minify HTML

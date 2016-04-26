@@ -9,5 +9,4 @@
 ^\/$ -> /introduction
 ^\/installing\/gettingStarted(\/|$) -> /installing/gettingStarted-RPi
 
-^\/dynamic-test -> /raspberrypi/nodejs/dynamic-test
 ^\/getting-started -> /raspberrypi/nodejs/getting-started
