@@ -1,6 +1,5 @@
 ---
-title: Getting Started with $device and $language
-layout: custom-test.html
+title: Getting Started with {{ $device_details.name }} and {{ $language_details.name }}
 
 # this is dynamic page definition
 # hope it's self-explanatory
@@ -10,6 +9,8 @@ dynamic_page:
   partials_search: [ $device+$language, $device, $language, _default ]
 
 ---
+# {{ title }}
+
 {{import "introduction"}}
 
 ## What you will Need
