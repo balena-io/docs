@@ -13,10 +13,13 @@ body {
 }
 
 .content-wrapper {
-  max-width: 1035px;
   min-height: 1371px;
   background-color: white;
   border-right: 1px solid #E7E9EC;
+}
+
+.page-content-wrapper {
+  max-width: 1035px;
 }
 
 .header-wrapper {
