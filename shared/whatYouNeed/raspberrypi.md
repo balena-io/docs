@@ -2,7 +2,8 @@
 * A 4GB or larger SD card. All the Raspberry Pi, except older model Bs, uses a microSD card. The [speed class][sdSpeed] of the card also matters - class 10 card or above is the way to go.
 * An ethernet cable or WiFi adapter. Check our [list of supported wifi adapters][wifiAdapters].
 * A micro USB cable.
-* A [2A USB micro power supply][psu][Optional]
+* **[Optional]** A [2A USB micro power supply][psu]
+* A [resin.io account][link-to-signup].
 
 [aplus]:https://www.raspberrypi.org/products/model-a-plus/
 [bplus]:https://www.raspberrypi.org/products/model-b-plus/
@@ -11,3 +12,5 @@
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [wifiAdapters]:
 [supportedDevicesList]:
+
+[link-to-signup]:dashboard.resin.io/signup
