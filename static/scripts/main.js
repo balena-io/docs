@@ -156,6 +156,8 @@ if ($dynamicSwitch.length) {
   var $dynamicSwitchSelects = $dynamicSwitch.find('select')
   var urlTemplate = $dynamicSwitch.data('url-template')
 
+  $dynamicSwitchSelects.selectpicker()
+
   function getDynamicContext() {
     var result = {}
     $dynamicSwitchSelects.each(function() {

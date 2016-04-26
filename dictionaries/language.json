@@ -1,10 +1,12 @@
 [
   {
     "id": "nodejs",
-    "name": "Node.js"
+    "name": "Node.js",
+    "icon": "/img/language/nodejs.svg"
   },
   {
     "id": "python",
-    "name": "Python"
+    "name": "Python",
+    "icon": "/img/language/python.svg"
   }
 ]

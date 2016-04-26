@@ -18,6 +18,7 @@
     "jquery": "~2.2.3",
     "colorbox": "~1.5.14",
     "headroom.js": "~0.7.0",
-    "ractive": "^0.7.3"
+    "ractive": "^0.7.3",
+    "bootstrap-select": "^1.10.0"
   }
 }
