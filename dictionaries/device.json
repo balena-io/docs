@@ -1,22 +1,27 @@
 [
   {
     "id": "raspberrypi",
-    "name": "Raspberry Pi 1 or ZERO"
+    "name": "Raspberry Pi 1 or ZERO",
+		"bootMedia": "SD card"
   },
 	{
     "id": "raspberrypi2",
-    "name": "Raspberry Pi 2"
+    "name": "Raspberry Pi 2",
+		"bootMedia": "SD card"
   },
 	{
     "id": "raspberrypi3",
-    "name": "Raspberry Pi 3"
+    "name": "Raspberry Pi 3",
+		"bootMedia": "SD card"
   },
   {
     "id": "artik5",
-    "name": "Samsung ARTIK 5"
+    "name": "Samsung ARTIK 5",
+		"bootMedia": "SD card"
   },
   {
     "id": "artik10",
-    "name": "Samsung ARTIK 10"
+    "name": "Samsung ARTIK 10",
+		"bootMedia": "SD card"
   }
 ]

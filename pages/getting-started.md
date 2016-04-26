@@ -22,7 +22,7 @@ dynamic_page:
 
 ## Getting Help
 
-Before we get started building something cool, lets just point out some places to get help if you need it.
+Before we get started building something cool, lets just point out some places to get help.
 {{import "usingSupport"}}
 
 To help us understand all the moving parts in resin.io, lets first define a few terms that will be used later in the guide.
@@ -42,6 +42,9 @@ If you don't already have a resin.io account head over to our [signup page][link
 
 {{import "selectNetworkConfig"}}
 
+### Create a bootable {{ $device_details.bootMedia }}
+{{import "flashingOsToBootMedia"}}
+
 {{import "getDeviceOnDash"}}
 
 ## Deploying Code
@@ -59,3 +62,5 @@ If you don't already have a resin.io account head over to our [signup page][link
 ## Example Projects to Build From
 
 {{import "exampleProjects"}}
+
+[link-to-signup]:https://dashboard.resin.io/signup

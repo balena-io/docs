@@ -1,5 +1,5 @@
 * **Application:**
->This is a group of devices or "fleet" that will all run the same application code. When you provision a device, it will automatically be associated to the application. You add as many devices to an application as you like, its also possible to migrate devices to other applications.
+>This is a group of devices or "fleet" that will all run the same application code. When you provision a device, it will automatically be associated to the application. You can add as many devices to an application as you like, its also possible to migrate devices to other applications.
 
 * **resin remote:**
 > A remote [git repository][git-repo] that is associated to your application. Any code pushed to the `master` branch of this repo will be built and deployed as a container on all devices in the application. This git repo uses SSH keys to secure it, so don't forget to set up your SSH key.

@@ -2,16 +2,17 @@
 
 SSH keys use the power of [public-key cryptography][pub_key_crypto] to secure
 your connection when sending your code to us. In order to secure your [git][git]
-connection, we need your __public__ [SSH Key][ssh_key] (you must never share
+connection, you need to add your __public__ [SSH Key][ssh_key] (you should never share
 your *private* key with anyone.)
 
 <img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" width="80%">
 
-Simply paste your public key into the box provided on the UI and click `save`. Alternatively you can import your key from [Github][github].
-#### Don't have a SSH key?
-If you don't have an ssh key or have never used one, we recommend you take a look at [Github][github]'s [excellent documentation][github_ssh] on the subject and how to generate a key pair for your platform.
+Simply paste your __public__ key into the box provided on the UI and click `save`. Alternatively you can import your key from [Github][github], just click on the Octocat icon.
 
-Once generated, SSH keys are easy to use. In fact you generally don't have to think about it at all. Once you're set up just `git push` your code to us and it's taken care of automatically and securely.
+#### Don't have a SSH key?
+If you don't have an ssh key or have never used one, we recommend you take a look at [Github][github]'s [excellent documentation][github_ssh] on the subject and how to generate a key pair for your OS.
+
+Once generated, SSH keys are easy to use. In fact you generally don't have to think about it at all. Once you're set up just `git push` your code to resin.io and it's taken care of automatically and securely.
 
 #### Import SSH key From GitHub
 
@@ -24,7 +25,7 @@ You will then have to enter your github username into the prompt:
 
 <img src="/img/common/sign_up_flow/enter_github_username_cropped.png" width="60%">
 
-If you don't have a ssh key setup yet, but want to explore resin.io, just click `skip`. Note that you will not be able to push code to your devices until you have an ssh key saved. This can be done at anytime from the [`Preferences`][prefsPage] page on the dashboard.
+If you don't have a ssh key setup yet, but want to explore resin.io, just click `skip`. Note that you will not be able to push code to your {{ $device_details.name }} until you have a ssh key saved. This can be done at anytime from the [`Preferences`][prefsPage] page on the dashboard.
 
 [pub_key_crypto]:http://en.wikipedia.org/wiki/Public-key_cryptography
 [git]:http://git-scm.com/
