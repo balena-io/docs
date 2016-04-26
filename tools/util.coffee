@@ -33,6 +33,6 @@ exports.stringifyPairs = (obj) ->
 
 exports.replacePlaceholders = (arg, context) ->
   for key, value of context
-    re = new RegExp(_.escapeRegExp(key), 'ig')
+    re = new RegExp(_.escapeRegExp(key), 'g')
     arg = arg.replace(re, value)
   return arg

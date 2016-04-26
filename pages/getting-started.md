@@ -1,14 +1,17 @@
 ---
 title: Getting Started with {{ $device_details.name }} and {{ $language_details.name }}
 
+layout: getting-started.html
+
 # this is dynamic page definition
 # hope it's self-explanatory
 dynamic_page:
   axes: [ $device, $language ]
   url: $device/$language/$baseUrl
   partials_search: [ $device+$language, $device, $language, _default ]
-
+  switch_text: Getting Started with $device and $language
 ---
+
 # {{ title }}
 
 {{import "introduction"}}

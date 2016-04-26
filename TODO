@@ -1,5 +1,5 @@
+* styling for tabs and drop-downs
 * if the current page doesn't match any tab activate the first tab by default and show the page title in breadcrumbs
-* custom template (drop-downs) for the gettingStarted page and a link "looking for other boards?"
 * in-page subnav in the sidebar H2 + scroll-spy
 * DISCUSS: search will output _all_ dynamic pages variants
 * Implement collapsible sections for the content

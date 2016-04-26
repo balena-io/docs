@@ -42,9 +42,15 @@
                 class="improve-docs btn btn-info">
                 <span class="glyphicon glyphicon-edit"></span>
                 Improve this doc</a>
-              {% endif %}
+            {% endif %}
             <section class="page-content">
               {% block "contents" %}
+                {% if dynamic_page and $switch_text %}
+                  <div class="dynamic-switch well">
+                    {% include "_dynamic-switch.html" %}
+                    {% block dynamicSwitchCustom %}{% endblock %}
+                  </div>
+                {% endif %}
                 {{ contents|safe }}
               {% endblock %}
             </section>
