@@ -1,22 +1,27 @@
 [
   {
     "id": "raspberrypi",
-    "name": "Raspberry Pi 1 or ZERO"
+    "name": "Raspberry Pi 1 or ZERO",
+    "icon": "/img/device/raspberry-pi.svg"
   },
 	{
     "id": "raspberrypi2",
-    "name": "Raspberry Pi 2"
+    "name": "Raspberry Pi 2",
+    "icon": "/img/device/raspberry-pi2.svg"
   },
 	{
     "id": "raspberrypi3",
-    "name": "Raspberry Pi 3"
+    "name": "Raspberry Pi 3",
+    "icon": "/img/device/raspberry-pi3.svg"
   },
   {
     "id": "artik5",
-    "name": "Samsung ARTIK 5"
+    "name": "Samsung ARTIK 5",
+    "icon": "/img/device/artik5.svg"
   },
   {
     "id": "artik10",
-    "name": "Samsung ARTIK 10"
+    "name": "Samsung ARTIK 10",
+    "icon": "/img/device/artik10.svg"
   }
 ]

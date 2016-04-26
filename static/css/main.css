@@ -2,8 +2,7 @@ body {
   margin-top: 61px;
   font-family: "Open Sans", "Montserrat", Arial, sans-serif;
   font-weight: 400;
-  background: url('/img/sidebar-bg.jpg') repeat-y;
-  background-color: #F5F5F5;
+  background-color: white;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -14,12 +13,15 @@ body {
 
 .content-wrapper {
   min-height: 1371px;
-  background-color: white;
   border-right: 1px solid #E7E9EC;
 }
 
 .page-content-wrapper {
   max-width: 1035px;
+  padding-top: 41px;
+  padding-bottom: 100px;
+  padding-left: 55px;
+  padding-right: 55px;
 }
 
 .header-wrapper {
@@ -34,8 +36,8 @@ body {
   line-height: 17px;
   margin-left: 20px;
   padding: 11px 18px;
-  margin-right: 55px;
-  margin-top: 50px;
+  margin-right: 1px;
+  margin-top: 1px;
 }
 
 @media (max-width: 767px) {
@@ -61,6 +63,29 @@ article .headroom {
   float: left;
   padding: 0;
   width: 231px;
+  background: #f7f7f9;
+}
+
+.sidebar .site-navigation .nav-tabs > li > a,
+.sidebar .site-navigation .nav-tabs > li > a:hover,
+.sidebar .site-navigation .nav-tabs > li > a:focus {
+  border-radius: 0;
+  background: #868583;
+  border: 0;
+  border-left: 1px solid #9e9e9d;
+  border-bottom: 1px solid transparent;
+  font-weight: bold;
+  color: white;
+}
+
+.sidebar .site-navigation .nav-tabs > li:first-child > a {
+  border-left: 0;
+}
+
+.sidebar .site-navigation .nav-tabs > li.active > a {
+  background: #f7f7f9;
+  border-bottom-color: #f7f7f9;
+  color: #5d5f62;
 }
 
 .sidebar .nav-menu {
@@ -180,10 +205,6 @@ article .headroom {
 }
 
 .page-content {
-  padding-top: 50px;
-  padding-bottom: 100px;
-  padding-left: 55px;
-  padding-right: 55px;
   font-size: 16px;
   line-height: 1.6;
   color: #606060;
@@ -365,6 +386,15 @@ header.sticky {
 
 
 /* dynamic-switch */
+.dynamic-switch {
+  background: #545252;
+  color: white;
+}
+
+.dynamic-switch a {
+  color: #429ece;
+}
+
 .dynamic-switch .dynamic-switch__append {
   margin-top: 10px;
   margin-bottom: 0;
@@ -374,7 +404,26 @@ header.sticky {
   font-weight: bold;
 }
 
-.dynamic-switch__select {
+.dynamic-switch__select,
+.form-group .bootstrap-select.dynamic-switch__select,
+.form-horizontal .bootstrap-select.dynamic-switch__select,
+.form-inline .bootstrap-select.dynamic-switch__select {
+  width: auto;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+  .dynamic-switch__select,
+  .form-group .bootstrap-select.dynamic-switch__select,
+  .form-horizontal .bootstrap-select.dynamic-switch__select,
+  .form-inline .bootstrap-select.dynamic-switch__select {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.dynamic-switch__select__icon {
+  display: inline-block;
+  height: 20px;
 }
