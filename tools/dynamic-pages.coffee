@@ -8,8 +8,20 @@ hbHelper = require('./hb-helper')
 
 { replacePlaceholders } = require('./util')
 
+tokenizeSwitchText = (text) ->
+  return if not text
+  result = []
+  start = 0
+  re = /\$[\w_]+/g
+  while match = re.exec(text)
+    result.push(text.substring(start, match.index).trim())
+    result.push(match[0])
+    start = match.index + match[0].length
+  result.push(text.substring(start).trim())
+  return result
+
 buildSinglePage = (templateObj, dynamicMeta, axesContext) ->
-  { url, partials_search: partialsSearchOrder } = dynamicMeta
+  { url, partials_search: partialsSearchOrder, switch_text: switchText } = dynamicMeta
 
   extRe = new RegExp("\\.#{config.docsExt}$")
   baseUrl = templateObj.originalRef
@@ -18,7 +30,7 @@ buildSinglePage = (templateObj, dynamicMeta, axesContext) ->
     $baseUrl: baseUrl
   })
 
-  refTemplate = url.replace('$baseUrl', baseUrl)
+  urlTemplate = '/' + url.replace('$baseUrl', baseUrl)
 
   populate = (arg) ->
     return arg if not arg
@@ -33,8 +45,10 @@ buildSinglePage = (templateObj, dynamicMeta, axesContext) ->
   obj = _.assign({}, templateObj, {
     title: hbHelper.render(templateObj.title, templateObj),
     $partials_search: populate(partialsSearchOrder)
+    $dictionaries: dicts
     $axes_values: axesContext
-    $ref_template: refTemplate
+    $url_template: urlTemplate
+    $switch_text: tokenizeSwitchText(switchText)
   })
 
   key = "#{populate(url)}.#{config.docsExt}"
