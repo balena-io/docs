@@ -90,9 +90,6 @@ Learn
 
 FAQ
   [/troubleshooting/faq]
-  [/troubleshooting/troubleshooting]
-  [/troubleshooting/error]
-  CLI issues[/troubleshooting/cli-troubleshooting]
 
 Reference
   Device Agent API[/runtime/supervisor-api]
