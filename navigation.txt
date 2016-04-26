@@ -29,7 +29,7 @@ Learn
     [/understanding/understanding-devices]
 
   # this URL is handles in redirects.txt
-  Getting Started[/gettingstarted]
+  Getting Started[/getting-started]
     # these 2 URLs are for the _same_ dynamic page
     # with $device axis predefined (for demo purposes) and $language part being dynamic
     Raspberry Pi 1 & (ZERO) ~ Raspberry Pi 1 & (ZERO) and {{ $language_details.name }}[/raspberrypi/$language/gettingstarted]
