@@ -389,7 +389,7 @@ fieldset[disabled] .menu__item--btn-group .btn.active {
   article {
     padding-left: 0;
   }
-  article header {
+  .header-wrapper {
     display: none;
   }
   body {
