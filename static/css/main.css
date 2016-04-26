@@ -18,6 +18,10 @@ body {
 
 .page-content-wrapper {
   max-width: 1035px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-left: 55px;
+  padding-right: 55px;
 }
 
 .header-wrapper {
@@ -32,8 +36,8 @@ body {
   line-height: 17px;
   margin-left: 20px;
   padding: 11px 18px;
-  margin-right: 55px;
-  margin-top: 50px;
+  margin-right: 1px;
+  margin-top: 1px;
 }
 
 @media (max-width: 767px) {
@@ -201,10 +205,6 @@ article .headroom {
 }
 
 .page-content {
-  padding-top: 50px;
-  padding-bottom: 100px;
-  padding-left: 55px;
-  padding-right: 55px;
   font-size: 16px;
   line-height: 1.6;
   color: #606060;
@@ -386,6 +386,15 @@ header.sticky {
 
 
 /* dynamic-switch */
+.dynamic-switch {
+  background: #545252;
+  color: white;
+}
+
+.dynamic-switch a {
+  color: #429ece;
+}
+
 .dynamic-switch .dynamic-switch__append {
   margin-top: 10px;
   margin-bottom: 0;
@@ -395,14 +404,26 @@ header.sticky {
   font-weight: bold;
 }
 
-.dynamic-switch__select {
+.dynamic-switch__select,
+.form-group .bootstrap-select.dynamic-switch__select,
+.form-horizontal .bootstrap-select.dynamic-switch__select,
+.form-inline .bootstrap-select.dynamic-switch__select {
+  width: auto;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 @media (max-width: 767px) {
-  .dynamic-switch__select {
+  .dynamic-switch__select,
+  .form-group .bootstrap-select.dynamic-switch__select,
+  .form-horizontal .bootstrap-select.dynamic-switch__select,
+  .form-inline .bootstrap-select.dynamic-switch__select {
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+.dynamic-switch__select__icon {
+  display: inline-block;
+  height: 20px;
 }
