@@ -7,6 +7,6 @@
 (.*)\.md(.*) -> $1$2
 ^\/introduction\/introduction(\/|$) -> /introduction
 ^\/$ -> /introduction
-^\/installing\/gettingStarted(\/|$) -> /installing/gettingStarted-RPi
+^\/installing\/gettingStarted(\/|$) -> /raspberrypi/nodejs/getting-started/
 
 ^\/getting-started -> /raspberrypi/nodejs/getting-started
