@@ -7,10 +7,19 @@ cd pages/tools/ && { curl -O -L https://github.com/resin-io/resin-cli/raw/master
 cd pages/troubleshooting/ && { curl -L -o cli-troubleshooting.md https://github.com/resin-io/resin-cli/raw/master/TROUBLESHOOTING.md ; cd -; }
 
 # get lastest node SDK docs
-cd pages/tools/ && { curl -O -L https://github.com/resin-io/resin-sdk/raw/master/DOCUMENTATION.md; tail -n +2 DOCUMENTATION.md > sdk.md ; cd -; }
+cd pages/tools/ && {
+  curl -O -L https://github.com/resin-io/resin-sdk/raw/master/DOCUMENTATION.md;
+  echo "# Resin Node.js SDK" > sdk.md
+  tail -n +2 DOCUMENTATION.md >> sdk.md;
+  cd -;
+}
 
 # get lastest SDK docs
-cd pages/tools/ && { curl -O -L https://github.com/resin-io/resin-sdk-python/raw/master/DOCUMENTATION.md; mv DOCUMENTATION.md python-sdk.md ; cd -; }
+cd pages/tools/ && {
+  curl -O -L https://github.com/resin-io/resin-sdk-python/raw/master/DOCUMENTATION.md;
+  mv DOCUMENTATION.md python-sdk.md;
+  cd -;
+}
 
 # get latest supervisor API docs
 cd pages/runtime/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/API.md; mv API.md supervisor-api.md ; cd -; }

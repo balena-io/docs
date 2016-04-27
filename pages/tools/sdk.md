@@ -1,3 +1,4 @@
+# Resin Node.js SDK
 
 ## resin : <code>object</code>
 Welcome to the Resin SDK documentation.
