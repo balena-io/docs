@@ -35,6 +35,7 @@ populateFileMeta = ->
       obj.improveDocsLink = "#{config.editPageLink}/#{config.docsSourceDir}/#{file}"
       obj.ref = file
       obj.selfLink = '/' + file.replace(extRe, '')
+      obj.$links = config.links
 
     done()
 
@@ -185,7 +186,7 @@ Metalsmith(root)
 .use(inplace({
   engine: 'handlebars',
   pattern: '**/*.md',
-  partials: 'shared'
+  partials: 'shared',
 }))
 
 .use(markdown())
