@@ -14,9 +14,9 @@ swigHelper = require('./swig-helper')
 hbHelper = require('./hb-helper')
 dynamicPages = require('./dynamic-pages')
 dicts = require('./dictionaries')
+config = require('../config')
 
 root = path.resolve(__dirname, '..')
-config = require(path.join(root, 'config'))
 
 skipPrivate = ->
   return (files, metalsmith, done) ->

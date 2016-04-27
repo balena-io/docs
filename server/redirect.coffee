@@ -1,7 +1,10 @@
+path = require('path')
 fs = require('fs')
 _ = require('lodash')
 
-redirects = fs.readFileSync(__dirname + '/../redirects.txt')
+root = path.resolve(__dirname, '..')
+
+redirects = fs.readFileSync(path.join(root, 'config', 'redirects.txt'))
 .toString()
 .split('\n')
 .map (s) -> s.trim()

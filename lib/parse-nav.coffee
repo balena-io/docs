@@ -23,7 +23,7 @@ calcRefs = walkTree
       throw new Error("No title for external link node. #{node.raw}")
 
 exports.parse = ->
-  lines = fs.readFileSync(path.join(root, 'navigation.txt'))
+  lines = fs.readFileSync(path.join(root, 'config', 'navigation.txt'))
   .toString()
   .split('\n')
   .map (s) -> s.trimRight()
