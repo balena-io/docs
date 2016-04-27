@@ -2,7 +2,7 @@
 title: I2C and Other Interfaces
 ---
 
-#I2C and Other Interfaces
+## I2C and Other Interfaces
 
 
 * [Raspberry Pi Family](/hardware/i2c-and-spi#raspberry-pi-family)
