@@ -45,7 +45,6 @@ body {
   .improve-docs {
     float: none;
     margin-top: 10px;
-    margin-bottom: -40px;
   }
 }
 
@@ -96,6 +95,7 @@ article .headroom {
   font-size: 13px;
   color: #429ece;
   display: block;
+  padding: 0;
 }
 
 .sidebar .nav-menu h3 {
@@ -166,6 +166,10 @@ article .headroom {
   font-weight: 600;
   /*color: #fff;*/
   text-decoration: none;
+}
+
+.sidebar .nav-menu .in-page-nav a {
+  padding-left: 10px;
 }
 
 .sidebar .nav-menu .in-page-nav li.active {

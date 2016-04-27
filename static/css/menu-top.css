@@ -439,9 +439,9 @@ fieldset[disabled] .menu__item--btn-group .btn.active {
   color: rgba(0, 0, 0, 0.3)!important;
   border-width: 6px;
 }
-.navbar-submenu li.active a {
+/*.navbar-submenu li.active a {
   color: white;
-}
+}*/
 .navbar-submenu .caret.active {
   border-top-width: 0;
   border-bottom: 6px solid rgba(0, 0, 0, 0.3);
@@ -497,4 +497,8 @@ fieldset[disabled] .menu__item--btn-group .btn.active {
 
 .sidebar-mobile .search-wrapper {
   width: 100%;
+}
+
+.sidebar-mobile .in-page-nav {
+  display: none;
 }
