@@ -1,1 +1,1 @@
-{{> "examples-generic/rpi-nodejs"}}
+{{> "exampleProjects/generic/rpi-nodejs"}}
