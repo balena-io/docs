@@ -1,8 +1,7 @@
 path = require('path')
 _ = require('lodash')
 
-root = path.resolve(__dirname, '..')
-config = require(path.join(root, 'config'))
+config = require('../config')
 dicts = require('./dictionaries')
 hbHelper = require('./hb-helper')
 

@@ -5,7 +5,7 @@ _ = require('lodash')
 redirect = require('./redirect')
 search = require('./search')
 navTree = require('./nav.json')
-swigHelper = require('../tools/swig-helper')
+swigHelper = require('../lib/swig-helper')
 config = require('../config')
 
 app = express()

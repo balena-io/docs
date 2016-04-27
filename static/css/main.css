@@ -2,7 +2,7 @@ body {
   margin-top: 61px;
   font-family: "Open Sans", "Montserrat", Arial, sans-serif;
   font-weight: 400;
-  background-color: white;
+  background: #f7f7f9;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -13,6 +13,7 @@ body {
 
 .content-wrapper {
   min-height: 1371px;
+  background: white;
   border-right: 1px solid #E7E9EC;
 }
 
@@ -63,7 +64,6 @@ article .headroom {
   float: left;
   padding: 0;
   width: 231px;
-  background: #f7f7f9;
 }
 
 .sidebar .site-navigation .nav-tabs > li > a,

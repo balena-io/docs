@@ -3,7 +3,7 @@ path = require('path')
 _ = require('lodash')
 
 
-DIR = "../dictionaries"
+DIR = "../config/dictionaries"
 
 files = fs.readdirSync(path.resolve(__dirname, DIR))
   .filter (file) -> file.match(/\.(js|coffee|json)$/)
