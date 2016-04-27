@@ -57,6 +57,11 @@ app.get '/search-results', (req, res) ->
 
 app.use(express.static(contentsDir))
 
+app.get '*', (req, res) ->
+  res.render 'not-found', getLocals
+    title: "We don't seem to have such page"
+    breadcrumbs: [ 'Page not found' ]
+
 port = process.env.PORT ? 3000
 
 app.listen port, ->
