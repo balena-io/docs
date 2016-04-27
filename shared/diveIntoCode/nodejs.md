@@ -17,7 +17,7 @@ FROM resin/{{ $device_details.id }}-node:slim
 ```
 Which tells the resin builder that this is the docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching dockerhub base images][resinDockerHub].
 
-We also have a `:slim` tag associated to the base image which denotes that we want the stripped down version only contains the minimal packages needed to run node, so no [`node-gyp`][node-gyp-link] and other build-essentials. If you need to build some native modules, say node-i2c, you should switch to `:latest` tag. We also have a number of pinned version tags, which should be used for production devices.
+We also have a `:slim` tag associated to the base image which denotes that we want the stripped down version only contains the minimal packages needed to run node, so no [`node-gyp`][node-gyp-link] and other build-essentials. If you need to build some native modules, say node-i2c, you should switch to `:latest` tag. We also have a number of pinned version tags, which should be used for production devices. Checkout the full [list of -node tags](https://hub.docker.com/r/resin/{{ $device_details.id }}-node/tags/), if you want to target a specify node.js version or a fixed date build.
 
 Next up we have 3 line which were commented out:
 ```
