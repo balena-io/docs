@@ -51,6 +51,8 @@ If you don't already have a resin.io account head over to our [signup page][link
 
 {{import "deployingCode"}}
 
+{{import "diveIntoCode"}}
+
 ## Using the Web Terminal
 
 {{import "usingWebTerminal"}}
@@ -59,8 +61,13 @@ If you don't already have a resin.io account head over to our [signup page][link
 
 {{import "usingResinSync"}}
 
-## Example Projects to Build From
+<!-- ## Example Projects to Build From
 
-{{import "exampleProjects"}}
+{{import "exampleProjects"}} -->
+
+There are even more hidden treasures in the resin.io platform and tools, but we will get into those a bit later.
+
+**Enjoy Resinifying all the things!**
+<img src="/img/common/resinify.jpg" width="80%">
 
 [link-to-signup]:https://dashboard.resin.io/signup

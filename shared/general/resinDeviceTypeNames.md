@@ -1,20 +1,18 @@
-## This document should describe the resin device names and resin device slugs
-
-| Official Board Name        | Resin Machine Name |
-|----------------------------|--------------------|
-| Samsung Artik 10           | artik10            |
-| Samsung Artik 5            | artik5             |
-| Raspberry Pi ZERO          | raspberrypi        |
-| Raspberry Pi 1 model A+    | raspberrypi        |
-| Raspberry Pi 1 model B/B+  | raspberrypi        |
-| Raspberry Pi 2 model B     | raspberrypi2       |
-| Raspberry Pi 3 model B     | raspberrypi3       |
-| Intel NUC                  | nuc                |
-| Intel Edison               | edison             |
-| Beaglebone Black           | beaglebone-black   |
-| Odroid C1/C1+              | odroid-c1          |
-| Odroid XU4                 | odroid-xu4         |
-| Solid Run Humming Board i2 | hummingboard       |
+| Official Board Name        | Resin Machine Name | Architecture
+|----------------------------|--------------------|--------------------|
+| Samsung Artik 10           | artik10            | ARMv7              |
+| Samsung Artik 5            | artik5             | ARMv7              |
+| Raspberry Pi ZERO          | raspberrypi        | ARMv6              |
+| Raspberry Pi 1 model A+    | raspberrypi        | ARMv6              |
+| Raspberry Pi 1 model B/B+  | raspberrypi        | ARMv6              |
+| Raspberry Pi 2 model B     | raspberrypi2       | ARMv7              |
+| Raspberry Pi 3 model B     | raspberrypi3       | ARMv7              |
+| Intel NUC                  | nuc                | x86_64             |
+| Intel Edison               | edison             | x86_32             |
+| Beaglebone Black           | beaglebone-black   | ARMv7              |
+| Odroid C1/C1+              | odroid-c1          | ARMv7              |
+| Odroid XU4                 | odroid-xu4         | ARMv7              |
+| Solid Run Humming Board i2 | hummingboard       | ARMv7              |
 
 
 <!-- old-slug           |   machine 						|	 new-slug

@@ -49,7 +49,7 @@ You should now have a node.js web server running on your device and see some log
 
 If you follow the URL, you will be served a page saying "Hello, World!". Alternatively you can point your browser to your devices IP address.
 
-You should now have a basic idea of how to deploy a node.js application on resin.io.
+You should now have a basic idea of how to deploy a node.js application on resin.io. If you feel like you have a handle on docker and {{ $device_details.bootMedia }} projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
 
 [simple-server-node-link]:https://github.com/resin-io-projects/simple-server-node
 
