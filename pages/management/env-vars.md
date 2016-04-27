@@ -24,7 +24,7 @@ It's important to understand that the device environment variable _doesn't have 
 
 ## Managing from the Application Page
 
-![Application Page](/img/env-vars/app.jpg)
+![Application Page](/img/env-vars/app.png)
 
 The application page has an "Environment variables" tab containing the list of all application-wide environment variables.
 
@@ -46,7 +46,7 @@ The counter next to the variable name shows the number of devices that have this
 
 ## Managing from the Device Page
 
-![Device Page](/img/env-vars/device.jpg)
+![Device Page](/img/env-vars/device.png)
 
 The device page also has the "Environment variables" tab. It's slightly more complicated than the application page and consists of 4 sections:
 1. the list of this particular device's environment variables
