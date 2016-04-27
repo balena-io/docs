@@ -1,4 +1,4 @@
-### Basic GPIO Control in Python on the {{ $device_details.name }}
+### Basic GPIO Control in Python on the Artik 10
 
 [Repository](https://github.com/resin-io-projects/artik-gpio-python)
 

@@ -1,4 +1,4 @@
-### Basic GPIO Control in {{ $language_details.name }} on the {{ $device_details.name }}
+### Basic GPIO Control in Python
 
 [Repository](https://github.com/resin-io-projects/resin-rpi-gpio-sample-with-python)
 
