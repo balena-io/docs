@@ -76,7 +76,7 @@ mv sound_start /usr/bin/sound_start
 These are shell commands that are run within the container on the build server
 which are configured such that dependencies are resolved for the target
 architecture not the build server's - this can be very useful for deploying
-[non-js][non-js] code or fulfilling package dependencies that your node code
+non-javascript code or fulfilling package dependencies that your node code
 might require.
 
 We use [Raspbian][raspbian] as our contained operating system, so this scripts
