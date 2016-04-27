@@ -4,9 +4,9 @@ title: meta-resin
 
 # How-to add new devices to resin.io
 
-## The following are instructions to add a new board to resin.io using [meta-resin][meta-resin]
+## Adding a custom board support
 
-### Its important to note that these instructions are still a draft, we still may have some detail to cover, if you have any feedback please let us know - hello@resin.io.
+### Its important to note that the instructions for [meta-resin][meta-resin] are still a draft, we still may have some detail to cover, if you have any feedback please let us know - hello@resin.io.
 
 __NOTE:__ Pre-requisites: yocto BSP layer for your particular board. Should be compatible to yocto fido release at the time of writing this howto.
 
