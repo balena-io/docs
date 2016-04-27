@@ -43,14 +43,15 @@ Your application will now be downloaded and executed by all the devices you have
 
 <img src="/img/common/device/device_dashboard_during_update_generic.png" width="80%">
 
-You should now have a node.js web server running on your device and see some logs on your dashboard. If you go to the `Actions` page for your device, you can enable a public URL.
+You should now have a node.js web server running on your device and see some logs on your dashboard. If you go to the `Actions` page for your device, you can enable a public URL, this URL is accessible from anywhere in the world.
 
 <img src="/img/common/enable-public-URLs.png" width="80%">
 
 If you follow the URL, you will be served a page saying "Hello, World!". Alternatively you can point your browser to your devices IP address.
 
-You should now have a basic idea of how to deploy a node.js application on resin.io. If you feel like you have a handle on docker and {{ $device_details.bootMedia }} projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
+You should now have a basic idea of how to deploy a node.js application on resin.io. If you feel like you have a handle on docker and Node.js projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
 
 [simple-server-node-link]:https://github.com/resin-io-projects/simple-server-node
 
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
+[expressjs]:http://expressjs.com/

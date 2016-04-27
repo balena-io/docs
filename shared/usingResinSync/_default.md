@@ -56,13 +56,18 @@ resin sync completed successfully!
 ```
 Your new code changes should be up an running in under 30 seconds, **Great success!!**
 
-__Note:__ If you have more than one Application you need to specify the app name, e.g.: `resin sync myApp` and then sync will let you interactively select the device you want to sync if there are more than one. Alternatively, if you know the device UUID you can just run: `resin sync <uuid>`
+##### Some Notes and Caveats on Resin Sync
 
-__Note:__ A caveat, if you are using a DSA key, some newer openSSH clients do not allow them by default. So you may have to add the following option to `~/.ssh/config` : `PubkeyAcceptedKeyTypes=+ssh-dss`
+* It is not possible(~easy) to install dependencies using resin sync. So if you need to do an `apt-get` or add something to either your `Dockerfile`, `package.json` or `requirements.txt`, then you will need to go through the standard `git push resin master` build pipeline.
 
-**But wait... there is more!**
+* Resin sync will try its best to infer which device you want to sync with, but if you have more than one Application you need to specify the app name, e.g.: `resin sync myApp` and then sync will let you interactively select the device you want to sync if there are more than one in the app. Alternatively, if you know the device UUID you can just run: `resin sync <uuid>`, this is useful for using resin sync programmatically, in say a [gulp][gulp-link] workflow.
+
+* A caveat, if you are using a DSA key, some newer openSSH clients do not allow them by default. So you may have to add the following option to `~/.ssh/config` : `PubkeyAcceptedKeyTypes=+ssh-dss`
+
+##### One last Tip!
 
 {{import "resinSsh"}}
 
 [cli-ref-link]:/tools/cli/
 [nodejs-link]:https://nodejs.org/en/
+[gulp-link]:http://gulpjs.com/

@@ -67,7 +67,7 @@ Learn
 
   Hardware
     [/hardware/devices]
-    [/hardware/meta-resin]
+    Custom Devices[/hardware/meta-resin]
     [/hardware/gpio]
     [/hardware/i2c-and-spi]
     [/hardware/wifi-dongles]

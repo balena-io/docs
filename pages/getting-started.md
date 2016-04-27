@@ -61,11 +61,12 @@ If you don't already have a resin.io account head over to our [signup page][link
 
 {{import "usingResinSync"}}
 
-<!-- ## Example Projects to Build From
+## Example Projects to Build From
+There are even more hidden treasures in the resin.io platform and tools, but we will get into those a bit later. For now why not fork one or two of our example projects and build something grand.
 
-{{import "exampleProjects"}} -->
+{{import "exampleProjects"}}
 
-There are even more hidden treasures in the resin.io platform and tools, but we will get into those a bit later.
+
 
 **Enjoy Resinifying all the things!**
 <img src="/img/common/resinify.jpg" width="80%">
