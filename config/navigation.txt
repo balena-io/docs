@@ -24,10 +24,6 @@
 Learn
   [/introduction]
 
-  Understanding resin.io
-    [/understanding/understanding-code-deployment]
-    [/understanding/understanding-devices]
-
   # this URL is handles in redirects.txt
   Getting Started[/getting-started]
     # these URLs are for the _same_ dynamic page
@@ -39,57 +35,52 @@ Learn
     Artik 10 ~ Artik 10 and {{ $language_details.name }}[/artik10/$language/getting-started]
     Other Boards[/installing/otherboards]
 
+  Resin.io Basics
+    Resin.io Concepts[/understanding/understanding-code-deployment]
+    Deployment Guide[/deployment/deployment]
+    Dockerfile Guide[/deployment/dockerfile.md]
+
+    Runtime Environment
+      [/runtime/runtime]
+      [/runtime/terminal]
+      [/management/env-vars]
+      [/runtime/resin-base-images]
+      [/runtime/update-strategies]
+      [/runtime/bandwidth-reduction]
+
+    Accessing Hardware & Peripherals
+      [/hardware/devices]
+      Creating Custom Resin.io Devices[/hardware/meta-resin]
+      [/hardware/gpio]
+      [/hardware/i2c-and-spi]
+      [/hardware/wifi-dongles]
+
+    Management
+      [/management/applications]
+      [/management/devices]
+      [/management/preferences]
+      [/configuration/advanced]
+
+    What's inside resinOS
+      [/understanding/understanding-devices]
+
+    Network Setup
+      [/deployment/wifi]
+
+    3rd Party Integrations
+      Microsoft[/integrations/azure]
+
+  Advanced[/advanced/resources]
   Examples
     [/examples/seed-projects]
     [/examples/snippets]
     [/examples/projects]
 
-  Deployment
-    [/deployment/deployment]
-    [/deployment/dockerfile]
-    [/deployment/build-optimisation]
-    [/deployment/docker-templates]
-    [/deployment/wifi]
-
-  Device Runtime
-    [/runtime/runtime]
-    [/management/env-vars]
-    [/runtime/terminal]
-    [/runtime/resin-base-images]
-    Interacting with the Resin Supervisor[/runtime/supervisor-api]
-    [/runtime/update-strategies]
-    [/runtime/bandwidth-reduction]
-
-  Management
-    [/management/applications]
-    [/management/devices]
-    [/management/preferences]
-
-  Hardware
-    [/hardware/devices]
-    Custom Devices[/hardware/meta-resin]
-    [/hardware/gpio]
-    [/hardware/i2c-and-spi]
-    [/hardware/wifi-dongles]
-
-  Integrations
-    Microsoft[/integrations/azure]
-
-  Configuration
-    [/configuration/advanced]
-    [/configuration/custom-docker-base-images]
-    # "Beta" features[/configuration/using-resin-staging]
-    # Bandwidth Control[/configuration/bandwidth-control]
-
-  Troubleshooting
-    [/troubleshooting/troubleshooting]
-    [/troubleshooting/error]
-    CLI issues[/troubleshooting/cli-troubleshooting]
-
-  Advanced[/advanced/resources]
-
 FAQ
   [/troubleshooting/faq]
+  [/troubleshooting/troubleshooting]
+  Error Notifications[/troubleshooting/error]
+  CLI issues[/troubleshooting/cli-troubleshooting]
 
 Reference
   Device Agent API[/runtime/supervisor-api]
