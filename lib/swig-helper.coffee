@@ -23,7 +23,7 @@ swig.setFilter 'getLink', (navNode, selfLink) ->
     return populateDynamic(navNode.link)
 
 swig.setFilter 'getTitle', (navNode, selfLink, title) ->
-  if isCurrentPage(navNode, selfLink)
+  if isCurrentPage(navNode, selfLink) && navNode.isDynamic
     return title
   else
     return navNode.title
