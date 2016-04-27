@@ -18,6 +18,6 @@ If you still can't get your device online, come on over and chat to us on our [s
 __Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colours or a black screen with 4 raspberries on it, it could mean that the SD card was not burned correctly or is corrupted.
 
 [resinDash]:https://dashboard.resin.io/
-[networkRequirements]:http://docs.resin.io/pages/deployment/wifi#network-requirements
-[usingSupport]:
-[errorNotifications]:
+[networkRequirements]:/deployment/wifi/#network-requirements
+[usingSupport]:/support/
+[errorNotifications]:/troubleshooting/error
