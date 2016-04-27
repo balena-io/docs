@@ -12,7 +12,7 @@
             {{ child|getTitle(selfLink, breadcrumbs[breadcrumbs.length - 1]) }}
           </a>
         </li>
-        {% if isCurrentLink and headings %}
+        {% if isCurrentLink and !child.isGateway and headings %}
           <div class="in-page-nav">
             <ul class="expand nav">
               {% for heading in headings %}

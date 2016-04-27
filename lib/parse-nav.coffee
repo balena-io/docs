@@ -10,6 +10,7 @@ fixLinks = walkTree
     if node.level and not node.link
       if not node.children?.length
         throw new Error("No link and no child lines. #{node.raw}")
+      node.isGateway = true
       node.link = node.children[0].link
 
 calcRefs = walkTree
