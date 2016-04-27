@@ -1,18 +1,22 @@
 fs = require('fs')
 path = require('path')
 _ = require('lodash')
+consolidate = require('consolidate')
+
 Metalsmith = require('metalsmith')
 markdown = require('metalsmith-markdown')
 permalinks = require('metalsmith-permalinks')
 layouts = require('metalsmith-layouts')
 inplace = require('metalsmith-in-place')
-consolidate = require('consolidate')
+headings = require('metalsmith-headings')
+
 { extractTitleFromText, walkTree, slugify, replacePlaceholders } = require('./util')
 Index = require('./lunr-index')
 ParseNav = require('./parse-nav')
 swigHelper = require('./swig-helper')
 hbHelper = require('./hb-helper')
 dynamicPages = require('./dynamic-pages')
+
 dicts = require('./dictionaries')
 config = require('../config')
 
@@ -134,10 +138,10 @@ serializeNav = ->
 
 setBreadcrumbs = ->
   setBreadcrumbsForFile = (file, obj) ->
-    # TODO: this logic is twisted and should be improved
-    obj.breadcrumbs = navByFile[file]?.parents
-      .map (node) -> node.title
     navNode = navByFile[file]
+    obj.breadcrumbs = navNode?.parents
+      .map (node) -> node.title
+    # TODO: this logic is twisted and should be improved
     if navNode?.isDynamic and obj.breadcrumbs?.length
       obj.breadcrumbs[obj.breadcrumbs.length - 1] =
         hbHelper.render(navNode.titleTemplate, obj)
@@ -148,11 +152,13 @@ setBreadcrumbs = ->
 
 setNavPaths = ->
   setPathForFile = (file, obj) ->
-    obj.navPath = {}
     if navPath = navByFile[file]?.parents
+      obj.navPath = {}
       for node in navPath
-        obj.navPath[node.link] = true
-        obj.navPath[node.slug] = true
+        if node.link
+          obj.navPath[node.link] = true
+        else
+          obj.navPath[node.slug] = true
   return (files, metalsmith, done) ->
     for file of files
       setPathForFile(file, files[file])
@@ -194,6 +200,8 @@ Metalsmith(root)
 
 .use(removeNavBackRefs())
 .use(serializeNav())
+
+.use(headings('h2'))
 
 .use(layouts({
   engine: 'swig',

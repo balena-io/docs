@@ -2,11 +2,25 @@
   {% if subtree.children %}
     <ul class="{% if subtree|isCurrentTree(navPath) %}expand{% endif %}">
       {% for child in subtree.children %}
-        <li class="{% if child|isCurrentPage(selfLink) %}active{% endif %}">
+        {% if child|isCurrentPage(selfLink) %}
+          {% set isCurrentLink = true %}
+        {% else %}
+          {% set isCurrentLink = false %}
+        {% endif %}
+        <li class="{% if isCurrentLink %}active{% endif %}">
           <a href="{{ child|getLink(selfLink) }}">
             {{ child|getTitle(selfLink, breadcrumbs[breadcrumbs.length - 1]) }}
           </a>
         </li>
+        {% if isCurrentLink and headings %}
+          <div class="in-page-nav">
+            <ul class="expand nav">
+              {% for heading in headings %}
+                <li><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
         {{ navNode(child) }}
       {% endfor %}
     </ul>
@@ -31,8 +45,14 @@
 
 <nav class="site-navigation">
   <ul class="nav nav-tabs nav-justified">
+    {# todo: remove duplication here and below #}
     {% for navTree in nav.children %}
-      <li class="{% if navPath[navTree.slug] %}active{% endif %}">
+      {% if (navPath && navPath[navTree.slug]) || (!navPath && loop.first) %}
+        {% set isActive = true %}
+      {% else %}
+        {% set isActive = false %}
+      {% endif %}
+      <li class="{% if isActive %}active{% endif %}">
         <a href="#tab-{{ navTree.slug }}" data-toggle="tab">
           {{ navTree.title }}
         </a>
@@ -42,7 +62,12 @@
 
   <div class="tab-content">
     {% for navTree in nav.children %}
-      <div class="tab-pane {% if navPath[navTree.slug] %}active{% endif %}"
+      {% if (navPath && navPath[navTree.slug]) || (!navPath && loop.first) %}
+        {% set isActive = true %}
+      {% else %}
+        {% set isActive = false %}
+      {% endif %}
+      <div class="tab-pane {% if isActive %}active{% endif %}"
         id="tab-{{ navTree.slug }}">
         {{ navTab(navTree.children) }}
       </div>
