@@ -38,7 +38,7 @@ Learn
   Resin.io Basics
     Resin.io Concepts[/understanding/understanding-code-deployment]
     Deployment Guide[/deployment/deployment]
-    Dockerfile Guide[/deployment/dockerfile.md]
+    Dockerfile Guide[/deployment/dockerfile]
 
     Runtime Environment
       [/runtime/runtime]
