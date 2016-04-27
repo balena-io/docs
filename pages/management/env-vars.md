@@ -8,21 +8,23 @@ Environment variables allow you to provide runtime configuration to your applica
 
 You can use them to keep secrets and other sensitive values out of your code base.
 
+> _Note_. Adding or modifying a environment will cause the application to restart on the affected device/s.
+
 Resin provides two kinds of environment variables application-wide and per-device.
 
-## Application-wide Environment Variables
+## Application-wide
 
 Environment variables defined on the application level are available to the code on any device running this application — unless they are _redefined_ with the per-device environment variable of the same name.
 
-## Per-device Environment Variables
+## Per-device
 
 Per-device environment variables are availabe to the code running on the particular device. If both the application and the device have environment variable _of the same name_, the code on this device will see the value of the _per-device environment variables._ In other words, per-device environment variable redefines (or overrides) application-wide environment variable of the same name.
 
 It's important to understand that the device environment variable _doesn't have to_ correspond to some application-wide environment variable.
 
-## Managing Environment Variable from the Application Page
+## Managing from the Application Page
 
-![Application Page](/img/env-vars/app.jpg)
+![Application Page](/img/env-vars/app.png)
 
 The application page has an "Environment variables" tab containing the list of all application-wide environment variables.
 
@@ -42,9 +44,9 @@ There's a convenience Define buton that will allow you creating the application-
 
 The counter next to the variable name shows the number of devices that have this variable defined. Clicking on it will reveal the full list of these devices.
 
-## Managing Environment Variable from the Device Page
+## Managing from the Device Page
 
-![Device Page](/img/env-vars/device.jpg)
+![Device Page](/img/env-vars/device.png)
 
 The device page also has the "Environment variables" tab. It's slightly more complicated than the application page and consists of 4 sections:
 1. the list of this particular device's environment variables
@@ -63,3 +65,11 @@ The _third list_ (application variables) is pretty usable because it gives you c
 The fourth list gives you an idea of specific variables defined for other application's devices. It's the same as the one on the application page.
 
 > _Note_ that these variables **are not** visible to this device. We show them in case you want to define the same variable for the device.
+
+## Managing with the CLI & SDK
+
+The resin.io CLI and SDKs all include methods to easily read, add or update environment variables. Consult the appropriate reference for code examples.
+
+* [CLI environment reference](/tools/cli/#envs)
+* [Node.js SDK environment reference](/tools/sdk/#resin.models.environment-variables)
+* [Python SDK environment reference](/tools/python-sdk/#environmentvariable)
