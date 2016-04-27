@@ -168,6 +168,15 @@ article .headroom {
   text-decoration: none;
 }
 
+.sidebar .nav-menu .in-page-nav li.active {
+  background: transparent;
+}
+
+.sidebar .nav-menu .in-page-nav li.active a {
+ font-weight: bold;
+ color: #6b6d73;
+}
+
 .sidebar .search-wrapper form {
   border-bottom: 1px solid #e6e8eb;
   border-right: 1px solid #e6e8eb;
