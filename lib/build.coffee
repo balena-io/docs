@@ -186,7 +186,7 @@ Metalsmith(root)
 .use(inplace({
   engine: 'handlebars',
   pattern: '**/*.md',
-  partials: 'shared',
+  partials: 'shared'
 }))
 
 .use(markdown())
