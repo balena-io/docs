@@ -179,12 +179,12 @@ article .headroom {
 .sidebar .search-wrapper {
   min-height: 57px;
   width: 231px;
+  z-index: 100;
 }
 
 .sidebar .search-wrapper input {
   height: 37px;
 }
-
 
 .breadcrumb {
   background: white;

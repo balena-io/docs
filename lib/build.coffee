@@ -1,18 +1,22 @@
 fs = require('fs')
 path = require('path')
 _ = require('lodash')
+consolidate = require('consolidate')
+
 Metalsmith = require('metalsmith')
 markdown = require('metalsmith-markdown')
 permalinks = require('metalsmith-permalinks')
 layouts = require('metalsmith-layouts')
 inplace = require('metalsmith-in-place')
-consolidate = require('consolidate')
+headings = require('metalsmith-headings')
+
 { extractTitleFromText, walkTree, slugify, replacePlaceholders } = require('./util')
 Index = require('./lunr-index')
 ParseNav = require('./parse-nav')
 swigHelper = require('./swig-helper')
 hbHelper = require('./hb-helper')
 dynamicPages = require('./dynamic-pages')
+
 dicts = require('./dictionaries')
 config = require('../config')
 
@@ -196,6 +200,8 @@ Metalsmith(root)
 
 .use(removeNavBackRefs())
 .use(serializeNav())
+
+.use(headings('h2'))
 
 .use(layouts({
   engine: 'swig',

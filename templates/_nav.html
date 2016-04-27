@@ -2,11 +2,25 @@
   {% if subtree.children %}
     <ul class="{% if subtree|isCurrentTree(navPath) %}expand{% endif %}">
       {% for child in subtree.children %}
-        <li class="{% if child|isCurrentPage(selfLink) %}active{% endif %}">
+        {% if child|isCurrentPage(selfLink) %}
+          {% set isCurrentLink = true %}
+        {% else %}
+          {% set isCurrentLink = false %}
+        {% endif %}
+        <li class="{% if isCurrentLink %}active{% endif %}">
           <a href="{{ child|getLink(selfLink) }}">
             {{ child|getTitle(selfLink, breadcrumbs[breadcrumbs.length - 1]) }}
           </a>
         </li>
+        {% if isCurrentLink and headings %}
+          <div class="in-page-nav">
+            <ul class="expand nav">
+              {% for heading in headings %}
+                <li><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
         {{ navNode(child) }}
       {% endfor %}
     </ul>
