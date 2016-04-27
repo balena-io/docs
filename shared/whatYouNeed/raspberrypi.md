@@ -6,8 +6,8 @@
 * **[Optional]** A [2A USB micro power supply][psu]
 * A [resin.io account][link-to-signup].
 
-[aplus]:https://www.raspberrypi.org/products/model-a-plus/
-[bplus]:https://www.raspberrypi.org/products/model-b-plus/
+[aplus]:{{ $links.raspberrypi.aplus }}
+[bplus]:{{ $links.raspberrypi.bplus }}
 [zero]:https://www.raspberrypi.org/products/pi-zero/
 [psu]:https://www.raspberrypi.org/products/universal-power-supply/
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
