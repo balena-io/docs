@@ -49,8 +49,6 @@ Learn
       [/runtime/bandwidth-reduction]
 
     Accessing Hardware & Peripherals
-      [/hardware/devices]
-      Creating Custom Resin.io Devices[/hardware/meta-resin]
       [/hardware/gpio]
       [/hardware/i2c-and-spi]
       [/hardware/wifi-dongles]
@@ -70,7 +68,10 @@ Learn
     3rd Party Integrations
       Microsoft[/integrations/azure]
 
-  Advanced[/advanced/resources]
+  Advanced
+    Creating Custom Resin.io Devices[/hardware/meta-resin]
+    Advanced resin.io topics[/advanced/resources]
+
   Examples
     [/examples/seed-projects]
     [/examples/snippets]
@@ -83,6 +84,7 @@ FAQ
   CLI issues[/troubleshooting/cli-troubleshooting]
 
 Reference
+  Supported Devices[/hardware/devices]
   Device Agent API[/runtime/supervisor-api]
   CLI Reference[/tools/cli]
   Node.js SDK[/tools/sdk]
