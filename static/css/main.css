@@ -155,16 +155,16 @@ article .headroom {
 }
 
 .sidebar .nav-menu li.active {
-  background: #429ece;
+  /*background: #429ece;*/
 }
 
 .sidebar .nav-menu li.active:hover {
-  background: #429ece;
+  /*background: #429ece;*/
 }
 
 .sidebar .nav-menu li.active a {
   font-weight: 600;
-  color: #fff;
+  /*color: #fff;*/
   text-decoration: none;
 }
 
