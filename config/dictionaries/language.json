@@ -1,0 +1,12 @@
+[
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "icon": "/img/language/nodejs.svg"
+  },
+  {
+    "id": "python",
+    "name": "Python",
+    "icon": "/img/language/python.svg"
+  }
+]

@@ -1,0 +1,98 @@
+# This doc defines the entire LHS navigation
+# _except of the in-page headings navigation (which is auto-built)_
+# The top-level items are titles of the tabs
+# What follows is a tree of pages
+# Lines *must* be indented with 2 spaces
+# Each node can be
+# * plain text `Some Text`
+# * plain link `[/some/link]`
+# * a link with custom title `Some Text[/some/link]`
+# Plain text works as a link to its first child
+# Plain link gets the title from the page's metainfo
+# Link with custom title gets title as defines in this file
+# Empty and commented lines are ignored
+
+# Dynamic page links are identified by referencing at least 1 $dictionary
+# in the link
+# Dynamic page links can have title interpolation
+# In this case they should also have default title when the page is not active
+# (and thus it doesn't make sense to have dynamic parts in the title)
+# The syntax is
+# `Default title ~ Title with {{ interpolation }}[/some/$dictionary/link]`
+# The axes-specific title is optional and can be omitted
+
+Learn
+  [/introduction]
+
+  Understanding resin.io
+    [/understanding/understanding-code-deployment]
+    [/understanding/understanding-devices]
+
+  # this URL is handles in redirects.txt
+  Getting Started[/getting-started]
+    # these URLs are for the _same_ dynamic page
+    # with $device axis predefined and $language part being dynamic
+    Raspberry Pi 1 & (ZERO) ~ Raspberry Pi 1 & (ZERO) and {{ $language_details.name }}[/raspberrypi/$language/getting-started]
+    Raspberry Pi 2 ~ Raspberry Pi 2 and {{ $language_details.name }}[/raspberrypi2/$language/getting-started]
+    Raspberry Pi 3 ~ Raspberry Pi 3 and {{ $language_details.name }}[/raspberrypi3/$language/getting-started]
+    Artik 5 ~ Artik 5 and {{ $language_details.name }}[/artik5/$language/getting-started]
+    Artik 10 ~ Artik 10 and {{ $language_details.name }}[/artik10/$language/getting-started]
+    Other Boards[/installing/otherboards]
+
+  Examples
+    [/examples/seed-projects]
+    [/examples/snippets]
+    [/examples/projects]
+
+  Deployment
+    [/deployment/deployment]
+    [/deployment/dockerfile]
+    [/deployment/build-optimisation]
+    [/deployment/docker-templates]
+    [/deployment/wifi]
+
+  Device Runtime
+    [/runtime/runtime]
+    [/management/env-vars]
+    [/runtime/terminal]
+    [/runtime/resin-base-images]
+    Interacting with the Resin Supervisor[/runtime/supervisor-api]
+    [/runtime/update-strategies]
+    [/runtime/bandwidth-reduction]
+
+  Management
+    [/management/applications]
+    [/management/devices]
+    [/management/preferences]
+
+  Hardware
+    [/hardware/devices]
+    Custom Devices[/hardware/meta-resin]
+    [/hardware/gpio]
+    [/hardware/i2c-and-spi]
+    [/hardware/wifi-dongles]
+
+  Integrations
+    Microsoft[/integrations/azure]
+
+  Configuration
+    [/configuration/advanced]
+    [/configuration/custom-docker-base-images]
+    # "Beta" features[/configuration/using-resin-staging]
+    # Bandwidth Control[/configuration/bandwidth-control]
+
+  Troubleshooting
+    [/troubleshooting/troubleshooting]
+    [/troubleshooting/error]
+    CLI issues[/troubleshooting/cli-troubleshooting]
+
+  Advanced[/advanced/resources]
+
+FAQ
+  [/troubleshooting/faq]
+
+Reference
+  Device Agent API[/runtime/supervisor-api]
+  CLI Reference[/tools/cli]
+  Node.js SDK[/tools/sdk]
+  Python SDK[/tools/python-sdk]

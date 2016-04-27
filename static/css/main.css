@@ -2,8 +2,7 @@ body {
   margin-top: 61px;
   font-family: "Open Sans", "Montserrat", Arial, sans-serif;
   font-weight: 400;
-  background: url('/img/sidebar-bg.jpg') repeat-y;
-  background-color: #F5F5F5;
+  background: #f7f7f9;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -13,10 +12,17 @@ body {
 }
 
 .content-wrapper {
-  max-width: 1035px;
   min-height: 1371px;
-  background-color: white;
+  background: white;
   border-right: 1px solid #E7E9EC;
+}
+
+.page-content-wrapper {
+  max-width: 1035px;
+  padding-top: 41px;
+  padding-bottom: 100px;
+  padding-left: 55px;
+  padding-right: 55px;
 }
 
 .header-wrapper {
@@ -31,8 +37,8 @@ body {
   line-height: 17px;
   margin-left: 20px;
   padding: 11px 18px;
-  margin-right: 55px;
-  margin-top: 55px;
+  margin-right: 1px;
+  margin-top: 1px;
 }
 
 @media (max-width: 767px) {
@@ -58,6 +64,28 @@ article .headroom {
   float: left;
   padding: 0;
   width: 231px;
+}
+
+.sidebar .site-navigation .nav-tabs > li > a,
+.sidebar .site-navigation .nav-tabs > li > a:hover,
+.sidebar .site-navigation .nav-tabs > li > a:focus {
+  border-radius: 0;
+  background: #868583;
+  border: 0;
+  border-left: 1px solid #9e9e9d;
+  border-bottom: 1px solid transparent;
+  font-weight: bold;
+  color: white;
+}
+
+.sidebar .site-navigation .nav-tabs > li:first-child > a {
+  border-left: 0;
+}
+
+.sidebar .site-navigation .nav-tabs > li.active > a {
+  background: #f7f7f9;
+  border-bottom-color: #f7f7f9;
+  color: #5d5f62;
 }
 
 .sidebar .nav-menu {
@@ -176,18 +204,14 @@ article .headroom {
   font-weight: 600;
 }
 
+.page-content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #606060;
+}
 
 .page-content p, ul, ol {
   margin-bottom: 30px;
-}
-
-.page-content {
-  padding-left: 55px;
-  padding-right: 55px;
-  font-size: 16px;
-  color: #606060;
-  line-height: 1.6;
-  padding-bottom: 100px;
 }
 
 .page-content a {
@@ -223,7 +247,7 @@ article .headroom {
 .page-content h1 {
   font-size: 36px;
   margin-top: 0;
-  padding-top: 50px;
+  padding-top: 0;
 }
 
 .page-content h2 {
@@ -332,6 +356,7 @@ h2:hover .hash, h3:hover .hash, h4:hover .hash, h5:hover .hash, h6:hover .hash {
   position: fixed!important;
   top: 0!important;
   box-shadow: 0px -1px 6px 0px rgba(194,194,194,1);
+  z-index: 100;
 }
 
 header.sticky {
@@ -359,8 +384,46 @@ header.sticky {
   border-color: #bf9200;
 }
 
-/*SDK hacks FIX*/
-#resin-code-object-code- {
-  padding-top: 50px;
-  margin-top: 0;
+
+/* dynamic-switch */
+.dynamic-switch {
+  background: #545252;
+  color: white;
+}
+
+.dynamic-switch a {
+  color: #429ece;
+}
+
+.dynamic-switch .dynamic-switch__append {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.dynamic-switch__form {
+  font-weight: bold;
+}
+
+.dynamic-switch__select,
+.form-group .bootstrap-select.dynamic-switch__select,
+.form-horizontal .bootstrap-select.dynamic-switch__select,
+.form-inline .bootstrap-select.dynamic-switch__select {
+  width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+  .dynamic-switch__select,
+  .form-group .bootstrap-select.dynamic-switch__select,
+  .form-horizontal .bootstrap-select.dynamic-switch__select,
+  .form-inline .bootstrap-select.dynamic-switch__select {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.dynamic-switch__select__icon {
+  display: inline-block;
+  height: 20px;
 }

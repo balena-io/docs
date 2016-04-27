@@ -1,0 +1,3 @@
+Signing up
+===
+{{> "general/signUp"}}
