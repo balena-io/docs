@@ -3,7 +3,7 @@ Okay, so now we know how to provision a device and push code. There is just one 
 
 Luckily, our nifty little command line tool `resin sync` is here to save the day. It allows you to quickly sync source code and file changes across to one of the devices in your fleet, so you can rapidly iterate code on this test device before releasing it to the whole fleet.
 
-__Note:__ Resin sync will only work on {{ $device_details.name }} with ResinOS v1.1.4+
+__Note:__ Resin sync will only work on ResinOS v1.1.4+
 and Agent v1.8.0+.
 
 #### Setting up resin sync.
