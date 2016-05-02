@@ -1,20 +1,15 @@
 path = require('path')
 express = require('express')
-consolidate = require('consolidate')
 _ = require('lodash')
+Doxx = require('@resin/doxx')
 redirect = require('./redirect')
-search = require('./search')
 navTree = require('./nav.json')
-swigHelper = require('../lib/swig-helper')
 config = require('../config')
+doxxConfig = require('../config/doxx')
 
 app = express()
-
-consolidate.requires.swig = swigHelper.swig
-
-app.engine('html', consolidate.swig)
-app.set('view engine', 'html')
-app.set('views', path.join(__dirname, '..', 'templates'))
+doxx = Doxx(doxxConfig)
+doxx.configureExpress(app)
 
 { ACME_CHALLENGE, ACME_RESPONSE } = process.env
 if ACME_CHALLENGE and ACME_RESPONSE
@@ -40,9 +35,10 @@ app.use (req, res, next) ->
     return res.redirect(url)
   next()
 
-templateLocals = _.assign({ nav: navTree }, config.templateLocals)
 getLocals = (extra) ->
-  _.assign {}, templateLocals, extra
+  doxx.getLocals({ nav: navTree }, extra)
+
+doxx.loadLunrIndex()
 
 app.get '/search-results', (req, res) ->
   { searchTerm } = req.query
@@ -53,7 +49,7 @@ app.get '/search-results', (req, res) ->
       searchTerm
     ]
     searchTerm: searchTerm
-    searchResults: search.search(searchTerm)
+    searchResults: doxx.lunrSearch(searchTerm)
 
 app.use(express.static(contentsDir))
 

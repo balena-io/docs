@@ -393,6 +393,24 @@ Get device name by device uuid.
 
 #### Raises:
     DeviceNotFound: if device couldn't be found.
+### Function: get_status(uuid)
+
+Get the status of a device.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+
+#### Returns:
+    str: status of a device. List of available statuses: Idle, Configuring, Updating, Offline and Post Provisioning.
+
+#### Examples:
+```python
+>>> resin.models.device.get_status('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
+'Offline'
+```
 ### Function: get_supported_device_types()
 
 Get device slug.
@@ -525,7 +543,7 @@ u'python-sdk-test-device'
 ```
 ### Function: restart(uuid)
 
-Restart a device. This function only works if you log in using credentials or Auth Token.
+Restart a user application container on device. This function only works if you log in using credentials or Auth Token.
 
 #### Args:
     uuid (str): device uuid.
@@ -804,22 +822,58 @@ This class implements supervisor model for Resin Python SDK.
         If True then all commands will be sent to the API on device.
         If False then all command will be sent to the Resin API proxy endpoint (api.resin.io/supervisor/<url>).
         If RESIN_SUPERVISOR_ADDRESS and RESIN_SUPERVISOR_API_KEY are available, _on_device will be set to True by default. Otherwise, it's False.
-### Function: blink(device_id, app_id)
+### Function: blink(device_uuid, app_id)
 
 Start a blink pattern on a LED for 15 seconds. This is the same with `resin.models.device.identify()`.
-No need to set device_id and app_id if command is sent to the API on device.
+No need to set device_uuid and app_id if command is sent to the API on device.
 
 #### Args:
-    device_id (Optional[str]): device id.
+    device_uuid (Optional[str]): device uuid.
     app_id (Optional[str]): application id.
 
 #### Raises:
-    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
 
 #### Examples:
 ```python
->>> resin.models.supervisor.blink(device_id='122950', app_id='9020')
+>>> resin.models.supervisor.blink(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 'OK'
+```
+### Function: disable_tcp_ping(app_id, device_uuid)
+
+Disable TCP ping.
+When the device's connection to the Resin VPN is down, by default the device performs a TCP ping heartbeat to check for connectivity.
+No need to set device_uuid and app_id if command is sent to the API on device.
+
+#### Args:
+    app_id (Optional[str]): application id.
+    device_uuid (Optional[str]): device uuid.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
+
+#### Examples:
+```python
+>>> resin.models.supervisor.disable_tcp_ping(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
+(Empty response)
+```
+### Function: enable_tcp_ping(app_id, device_uuid)
+
+Enable TCP ping in case it has been disabled.
+When the device's connection to the Resin VPN is down, by default the device performs a TCP ping heartbeat to check for connectivity.
+No need to set device_uuid and app_id if command is sent to the API on device.
+
+#### Args:
+    app_id (Optional[str]): application id.
+    device_uuid (Optional[str]): device uuid.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
+
+#### Examples:
+```python
+>>> resin.models.supervisor.enable_tcp_ping(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
+(Empty response)
 ```
 ### Function: force_api_endpoint(endpoint)
 
@@ -830,128 +884,230 @@ Force all API commands to a specific endpoint.
 
 #### Raises:
     InvalidOption: if endpoint value is not bool.
-### Function: ping(device_id, app_id)
+### Function: get_application_info(app_id, device_uuid)
+
+Return information about the application running on the device.
+This function requires supervisor v1.8 or higher.
+No need to set device_uuid if command is sent to the API on device.
+
+#### Args:
+    app_id (str): application id.
+    device_uuid (Optional[str]): device uuid.
+
+#### Returns:
+    dict: dictionary contains application information.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
+
+#### Examples:
+```python
+>>> resin.models.supervisor.get_application_info(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
+```
+### Function: get_device_state(app_id, device_uuid)
+
+Return the current device state, as reported to the Resin API and with some extra fields added to allow control over pending/locked updates.
+This function requires supervisor v1.6 or higher.
+No need to set device_uuid and app_id if command is sent to the API on device.
+
+#### Args:
+    app_id (Optional[str]): application id.
+    device_uuid (Optional[str]): device uuid.
+
+#### Returns:
+    dict: dictionary contains device state.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
+
+#### Examples:
+```python
+>>> resin.models.supervisor.get_device_state(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
+{u'status': u'Idle', u'update_failed': False, u'update_pending': False, u'download_progress': None, u'os_version': u'Resin OS 1.1.1', u'api_port': 48484, u'commit': u'ff812b9a5f82d9661fb23c24aa86dce9425f1112', u'update_downloaded': False, u'supervisor_version': u'1.7.0', u'ip_address': u'192.168.0.102'}
+```
+### Function: ping(device_uuid, app_id)
 
 Check that the supervisor is alive and well.
-No need to set device_id and app_id if command is sent to the API on device.
+No need to set device uuid and app_id if command is sent to the API on device.
 
 #### Args:
-    device_id (Optional[str]): device id.
+    device_uuid (Optional[str]): device uuid.
     app_id (Optional[str]): application id.
 
 #### Returns:
     str: `OK` signals that the supervisor is alive and well.
 
 #### Raises:
-    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not set.
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not set.
 
 #### Examples:
 ```python
->>> resin.models.supervisor.ping(device_id='122950', app_id='9020')
+>>> resin.models.supervisor.ping(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 'OK'
 ```
-### Function: purge(app_id, device_id)
+### Function: purge(app_id, device_uuid)
 
 Clears the user application's /data folder.
-No need to set device_id and app_id if command is sent to the API on device.
+No need to set device_uuid and app_id if command is sent to the API on device.
 
 #### Args:
     app_id (str): application id.
-    device_id (Optional[str]): device id.
+    device_uuid (Optional[str]): device uuid.
 
 #### Returns:
     dict: when successful, this dictionary is returned `{ 'Data': 'OK', 'Error': '' }`.
 
 #### Raises:
-    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
 
 #### Examples:
 ```python
->>> resin.models.supervisor.purge(device_id='122950', app_id='9020')
+>>> resin.models.supervisor.purge(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 {u'Data': u'OK', u'Error': u''}
 ```
-### Function: reboot(device_id, app_id)
+### Function: reboot(device_uuid, app_id)
 
 Reboot the device.
-No need to set device_id and app_id if command is sent to the API on device.
+No need to set device_uuid and app_id if command is sent to the API on device.
 
 #### Args:
-    device_id (Optional[str]): device id.
+    device_uuid (Optional[str]): device uuid.
     app_id (Optional[str]): application id.
 
 #### Returns:
     dict: when successful, this dictionary is returned `{ 'Data': 'OK', 'Error': '' }`.
 
 #### Raises:
-    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
 
 #### Examples:
 ```python
->>> resin.models.supervisor.reboot(device_id='122950', app_id='9020')
+>>> resin.models.supervisor.reboot(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 {u'Data': u'OK', u'Error': u''}
 ```
-### Function: restart(app_id, device_id)
+### Function: regenerate_supervisor_api_key(app_id, device_uuid)
+
+Invalidate the current RESIN_SUPERVISOR_API_KEY and generates a new one.
+The application will be restarted on the next update cycle to update the API key environment variable.
+No need to set device_uuid and app_id if command is sent to the API on device.
+
+#### Args:
+    app_id (Optional[str]): application id.
+    device_uuid (Optional[str]): device uuid.
+
+#### Returns:
+    str: new supervisor API key.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
+
+#### Examples:
+```python
+>>> resin.models.supervisor.regenerate_supervisor_api_key(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
+'480af7bb8a9cf56de8a1e295f0d50e6b3bb46676aaddbf4103aa43cb57039364'
+```
+### Function: restart(app_id, device_uuid)
 
 Restart user application container.
-No need to set device_id and app_id if command is sent to the API on device.
+No need to set device_uuid and app_id if command is sent to the API on device.
 
 #### Args:
     app_id (str): application id.
-    device_id (Optional[str]): device id.
+    device_uuid (Optional[str]): device uuid.
 
 #### Returns:
     str: `OK` signals that the supervisor is alive and well.
 
 #### Raises:
-    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
 
 #### Examples:
 ```python
->>> resin.models.supervisor.restart(device_id='122950', app_id='9020')
+>>> resin.models.supervisor.restart(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 'OK'
 ```
-### Function: shutdown(device_id, app_id)
+### Function: shutdown(device_uuid, app_id)
 
 Shut down the device.
-No need to set device_id and app_id if command is sent to the API on device.
+No need to set device_uuid and app_id if command is sent to the API on device.
 
 #### Args:
-    device_id (Optional[str]): device id.
+    device_uuid (Optional[str]): device uuid.
     app_id (Optional[str]): application id.
 
 #### Returns:
     dict: when successful, this dictionary is returned `{ 'Data': 'OK', 'Error': '' }`.
 
 #### Raises:
-    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
 
 #### Examples:
 ```python
->>> resin.models.supervisor.shutdown(device_id='121867', app_id='8362')
+>>> resin.models.supervisor.shutdown(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='8362')
 {u'Data': u'OK', u'Error': u''}
 ```
-### Function: update(device_id, app_id, force)
+### Function: start_application(app_id, device_uuid)
 
-Triggers an update check on the supervisor. Optionally, forces an update when updates are locked.
-No need to set device_id and app_id if command is sent to the API on device.
+Starts a user application container, usually after it has been stopped with `stop_application()`.
+This function requires supervisor v1.8 or higher.
+No need to set device_uuid if command is sent to the API on device.
 
 #### Args:
-    device_id (Optional[str]): device id.
+    app_id (str): application id.
+    device_uuid (Optional[str]): device uuid.
+
+#### Returns:
+    dict: dictionary contains started application container id.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
+
+#### Examples:
+```python
+>>> resin.models.supervisor.start_application(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
+```
+### Function: stop_application(app_id, device_uuid)
+
+Temporarily stops a user application container. Application container will not be removed after invoking this function and a reboot or supervisor restart will cause the container to start again.
+This function requires supervisor v1.8 or higher.
+No need to set device_uuid if command is sent to the API on device.
+
+#### Args:
+    app_id (str): application id.
+    device_uuid (Optional[str]): device uuid.
+
+#### Returns:
+    dict: dictionary contains stopped application container id.
+
+#### Raises:
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
+
+#### Examples:
+```python
+>>> resin.models.supervisor.stop_application(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
+```
+### Function: update(device_uuid, app_id, force)
+
+Triggers an update check on the supervisor. Optionally, forces an update when updates are locked.
+No need to set device_uuid and app_id if command is sent to the API on device.
+
+#### Args:
+    device_uuid (Optional[str]): device uuid.
     app_id (Optional[str]): application id.
     force (Optional[bool]): If force is True, the update lock will be overridden.
 
 #### Raises:
-    InvalidOption: if the endpoint is Resin API proxy endpoint and device_id or app_id is not specified.
+    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
 
 #### Examples:
 ```python
->>> resin.models.supervisor.update(device_id='122950', app_id='9020')
+>>> resin.models.supervisor.update(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 (Empty Response)
 ```
 
 ```python
 # Force an update
->>> resin.models.supervisor.update(device_id='122950', app_id='9020', force=True)
+>>> resin.models.supervisor.update(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020', force=True)
 (Empty Response)
 ```
 ## Auth
