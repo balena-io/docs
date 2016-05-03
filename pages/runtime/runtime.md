@@ -11,7 +11,7 @@ which listen on any port without issue. There is no need to have the docker `EXP
 
 ## Device URLS
 
-Resin.io currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the resin.io dashboard and select the `Enable a public url for this device` checkbox. Resin will then generate a web accessable url for the device. The URL will be of the form `<RESIN_DEVICE_UUID>.resindevice.io`, where `<RESIN_DEVICE_UUID.` is the unique ID of the device which you can see on your dashboard.
+Resin.io currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the resin.io dashboard and select the `Enable a public url for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
 
 ![Enable device url](/img/screenshots/device-url-new.png)
 
@@ -38,7 +38,7 @@ var server = app.listen(80, function () {
 
 ## Persistent Storage		
 
-If you want specific data or configurations to persist on the device through the update process, you will need to store them in `/data` . `/data` is a special folder on the device file system which is essentially a [docker data `VOLUME`][docker-volume-link].
+If you want specific data or configurations to persist on the device through the update process, you will need to store them in `/data` . This is a special folder on the device file system which is essentially a [docker data `VOLUME`][docker-volume-link].
 
 This folder is guaranteed to be maintained across updates and thus		
 files contained in it can act as persistent storage.		
