@@ -23,7 +23,7 @@ The `config.txt` is located in the root of the `resin-boot` partition, and you c
 
 #### Modifying `config.txt` **remotely**
 
-If your device has an Agent (Supervisor) version above 1.0.0 (which you can check on the "Agent version" entry in the device dashboard), it has support for modifying the values in `config.txt` remotely using config variables which behave similarly to [environment variables](/management/env-vars) in that you can set application-wide values (for all devices in an application) or device-specific ones.
+If your device has an Agent (Supervisor) version above 1.0.0 (which you can check on the "Agent version" entry in the [device dashboard](https://dashboard.resin.io)), it has support for modifying the values in `config.txt` remotely using config variables which behave similarly to [environment variables](/management/env-vars) in that you can set application-wide values (for all devices in an application) or device-specific ones.
 
 The variables that start with the `RESIN_HOST_CONFIG_` prefix will be added to the `config.txt` file, also replacing the preexisting values of such variables in the file.
 For example, setting the value of `RESIN_HOST_CONFIG_gpu_mem` to 16 will produce the following entry in `config.txt`:
@@ -40,7 +40,7 @@ The device-specific variables, if defined, will override the application-wide va
 ### GPU Memory
 
 You can configure the amount of memory shared with the GPU by adding entries to
-`config.txt` as follows:-
+`config.txt` as follows:
 
 ```
 gpu_mem=16
@@ -67,6 +67,6 @@ applications which make heavy use of the Pi's graphics card.)
 There are more details on the options available in `config.txt` over at
 [elinux's RPi Config page][elinux].
 
-
+<!-- NOTE: the dd link is probably legacy code since it isn't used anywhere on this page -->
 [dd]:http://en.wikipedia.org/wiki/Dd
 [elinux]:http://elinux.org/RPiconfig
