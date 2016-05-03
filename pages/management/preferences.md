@@ -6,7 +6,7 @@ title: Preferences
 
 ## Two Factor Authentication
 
-We offer the option to enable [Two Factor Authentication][2fa] - this is a feature that prompts you to input a code from your smartphone *in addition* to your password, providing an additional layer of security for your account.
+We offer the option to enable [Two Factor Authentication][2fa] - this is a feature that prompts you to input a code from your smartphone/computer *in addition* to your password, providing an additional layer of security for your account.
 
 __Note:__ We use the industry standard [Time-based One-time Password Algorithm][totp] to implement this functionality.
 
@@ -16,17 +16,17 @@ __Note:__ We use the industry standard [Time-based One-time Password Algorithm][
 
 ![Preferences Page](/img/screenshots/2fa1.png)
 
-From here, click on the 'Two factor authentication' tab then click ENABLE to switch it on:-
+From here, click on the 'Two factor authentication' tab then click `ENABLE` to switch it on:-
 
 ![Two Factor Authentication Tab, Disabled](/img/screenshots/2fa2.png)
 
 Once you've enabled two factor authentication you will be given a QR code and prompted for a pairing code as shown below:-
 
-__Note:__ Two factor authentication will only be enabled once you have finished configuring it against your mobile smartphone, so no need to worry about logging out before finishing the configuration then not having access to your account!
+__Note:__ Two factor authentication will only be enabled once you have finished configuring it against your smartphone/computer, so no need to worry about logging out before finishing the configuration then not having access to your account!
 
 ![Two Factor Authentication Tab, Configuring](/img/screenshots/2fa3.png)
 
-In order to use your phone as your added layer of security you will need to download a free authenticator application. There are many available, but one that works well and has been successfully tested against [resin.io][resin] is [Google Authenticator][google-auth] - download it for [Android][google-auth-android] or [iOS][google-auth-ios].
+In order to use your phone/computer as your added layer of security you will need to download a free authenticator application. There are many available, but one that works well and has been successfully tested against [resin.io][resin] is [Google Authenticator][google-auth] - download it for [Android][google-auth-android] or [iOS][google-auth-ios].
 
 Once installed, navigate to the barcode scanner:-
 
