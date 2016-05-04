@@ -31,77 +31,135 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 
 ![ARMv7 Tree Diagram](/img/armv7-diagram.jpg)
 
-![ARMv7 Device Diagram](/img/armv7-devices.jpg "ARMv7 Device Diagram")
-
-| Image | Description | Installed Packages | Repository | Available Tag|
+| Image | Description | Installed Packages | Repository | Available Tag |
 |:-----------|:------------|:------------|:------------|:------------|
 | resin/armv7hf-debian| The base OS image for ARMv7 devices (Raspberry Pi 2 - RPI2, Raspberry Pi 3 - RPI3 and BeagleBone Black - BBB) | minbase, sudo | [dockerhub][armv7hf-dockerhub-link], [github][armv7hf-github-link] | latest, jessie, wheezy, sid |
 | resin/armv7hf-systemd | The image with full systemd init system installed for ARMv7 devices. See our [tips](#tips) section on how to enable systemd in your image. | systemd | [dockerhub][armv7-systemd-dockerhub-link], [github][armv7-systemd-github-link] | latest, jessie, wheezy, sid |
-| resin/beaglebone-debian | The bare bones OS image for BBB. Apt sources.list from repositories: [http://repos.rcn-ee.net/debian/](armv7-bbb-sourceslist) and [http://debian.beagleboard.org](armv7-bbb-sourceslist1) added! See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-bbb-dockerhub-link], [github][armv7-bbb-github-link] | latest, jessie, wheezy |
-| resin/beaglebone-buildpack-deps | The buildpack-deps image for BBB. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-bbb-buildpack-deps-dockerhub-link], [github][armv7-bbb-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/beaglebone-node | The Node.js buildpack image for Node.js apps for BBB. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-bbb-node-dockerhub-link], [github][armv7-bbb-node-github-link] | For available image tags, refer [here][armv7-bbb-node-dockerhub-tag-link] |
-| resin/beaglebone-python | The Python buildpack image for Python apps for BBB. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-bbb-python-dockerhub-link], [github][armv7-bbb-python-github-link] | latest, jessie, wheezy |
-| resin/beaglebone-golang | The Go buildpack image for Go apps for BBB. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-bbb-golang-dockerhub-link], [github][armv7-bbb-golang-github-link] | For available image tags, refer [here][armv7-bbb-golang-dockerhub-tag-link] |
-| resin/raspberrypi2-debian | The bare bones OS image for RPI2. Apt sources.list from raspbian repository: [http://archive.raspbian.org/raspbian/](armv7-rpi2-sourceslist) added! See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libraspberrypi-bin | [dockerhub][armv7-rpi2-dockerhub-link], [github][armv7-rpi2-github-link] | latest, jessie, wheezy |
-| resin/raspberrypi2-buildpack-deps | The buildpack-deps image for RPI2. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-rpi2-buildpack-deps-dockerhub-link], [github][armv7-rpi2-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/raspberrypi2-node | The Node.js buildpack image for Node.js apps for RPI2. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-rpi2-node-dockerhub-link], [github][armv7-rpi2-node-github-link] | For available image tags, refer [here][armv7-rpi2-node-dockerhub-tag-link] |
-| resin/raspberrypi2-python | The Python buildpack image for Python apps for RPI2. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-rpi2-python-dockerhub-link], [github][armv7-rpi2-python-github-link] | latest, jessie, wheezy |
-| resin/raspberrypi2-golang | The Go buildpack image for Go apps for RPI2. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-rpi2-golang-dockerhub-link], [github][armv7-rpi2-golang-github-link] | For available image tags, refer [here][armv7-rpi2-golang-dockerhub-tag-link] |
-| resin/zc702-zynq7-debian | The bare bones OS image for ZYNQ ZC702. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-zc702-zynq7-dockerhub-link], [github][armv7-zc702-zynq7-github-link] | latest, jessie, wheezy |
-| resin/zc702-zynq7-buildpack-deps | The buildpack-deps image for ZYNQ ZC702. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-zc702-zynq7-buildpack-deps-dockerhub-link], [github][armv7-zc702-zynq7-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/zc702-zynq7-node | The Node.js buildpack image for Node.js apps for ZYNQ ZC702. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-zc702-zynq7-node-dockerhub-link], [github][armv7-zc702-zynq7-node-github-link] | For available image tags, refer [here][armv7-zc702-zynq7-node-dockerhub-tag-link] |
-| resin/zc702-zynq7-python | The Python buildpack image for Python apps for ZYNQ ZC702. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-zc702-zynq7-python-dockerhub-link], [github][armv7-zc702-zynq7-python-github-link] | latest, jessie, wheezy |
-| resin/zc702-zynq7-golang | The Go buildpack image for Go apps for ZYNQ ZC702. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-zc702-zynq7-golang-dockerhub-link], [github][armv7-zc702-zynq7-golang-github-link] | For available image tags, refer [here][armv7-zc702-zynq7-golang-dockerhub-tag-link] |
-| resin/vab820-quad-debian | The bare bones OS image for VIA VAB 820-quad. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-vab820-quad-dockerhub-link], [github][armv7-vab820-quad-github-link] | latest, jessie, wheezy |
-| resin/vab820-quad-buildpack-deps | The buildpack-deps image for VIA VAB 820-quad. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-vab820-quad-buildpack-deps-dockerhub-link], [github][armv7-vab820-quad-buildpack-deps-github-link]  | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/vab820-quad-node | The Node.js buildpack image for Node.js apps for VIA VAB 820-quad. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-vab820-quad-node-dockerhub-link], [github][armv7-vab820-quad-node-github-link]  | For available image tags, refer [here][armv7-vab820-quad-node-dockerhub-tag-link] |
-| resin/vab820-quad-python | The Python buildpack image for Python apps for VIA VAB 820-quad. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-vab820-quad-python-dockerhub-link], [github][armv7-vab820-quad-python-github-link]  | latest, jessie, wheezy |
-| resin/vab820-quad-golang | The Go buildpack image for Go apps for VIA VAB 820-quad. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-vab820-quad-golang-dockerhub-link], [github][armv7-vab820-quad-golang-github-link] | For available image tags, refer [here][armv7-vab820-quad-golang-dockerhub-tag-link] |
-| resin/odroid-ux3-debian | The bare bones OS image for ODROID-XU4. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-odroid-ux3-dockerhub-link], [github][armv7-odroid-ux3-github-link]  | latest, jessie, wheezy |
-| resin/odroid-ux3-buildpack-deps | The buildpack-deps image for ODROID-XU4. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-odroid-ux3-buildpack-deps-dockerhub-link], [github][armv7-odroid-ux3-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/odroid-ux3-node | The Node.js buildpack image for Node.js apps for ODROID-XU4. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-odroid-ux3-node-dockerhub-link], [github][armv7-odroid-ux3-node-github-link] | For available image tags, refer [here][armv7-odroid-ux3-node-dockerhub-tag-link] |
-| resin/odroid-ux3-python | The Python buildpack image for Python apps for ODROID-XU4. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-odroid-ux3-python-dockerhub-link], [github][armv7-odroid-ux3-python-github-link] | latest, jessie, wheezy |
-| resin/odroid-ux3-golang | The Go buildpack image for Go apps for ODROID-XU4. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-odroid-ux3-golang-dockerhub-link], [github][armv7-odroid-ux3-golang-github-link] | For available image tags, refer [here][armv7-odroid-ux3-golang-dockerhub-tag-link] |
-| resin/odroid-c1-debian | The bare bones OS image for ODROID-C1+. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-odroid-c1-dockerhub-link], [github][armv7-odroid-c1-github-link] | latest, jessie, wheezy |
-| resin/odroid-c1-buildpack-deps | The buildpack-deps image for ODROID-C1+. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-odroid-c1-buildpack-deps-dockerhub-link], [github][armv7-odroid-c1-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/odroid-c1-node | The Node.js buildpack image for Node.js apps for ODROID-C1+. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-odroid-c1-node-dockerhub-link], [github][armv7-odroid-c1-node-github-link] | For available image tags, refer [here][armv7-odroid-c1-node-dockerhub-tag-link] |
-| resin/odroid-c1-python | The Python buildpack image for Python apps for ODROID-C1+. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-odroid-c1-python-dockerhub-link], [github][armv7-odroid-c1-python-github-link] | latest, jessie, wheezy |
-| resin/odroid-c1-golang | The Go buildpack image for Go apps for ODROID-C1+. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-odroid-c1-golang-dockerhub-link], [github][armv7-odroid-c1-golang-github-link] | For available image tags, refer [here][armv7-odroid-c1-golang-dockerhub-tag-link] |
-| resin/cubox-i-debian | The bare bones OS image for Hummingboard. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-cubox-i-dockerhub-link], [github][armv7-cubox-i-github-link] | latest, jessie, wheezy |
-| resin/cubox-i-buildpack-deps | The buildpack-deps image for Hummingboard. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-cubox-i-buildpack-deps-dockerhub-link], [github][armv7-cubox-i-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/cubox-i-node | The Node.js buildpack image for Node.js apps for Hummingboard. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-cubox-i-node-dockerhub-link], [github][armv7-cubox-i-node-github-link] | For available image tags, refer [here][armv7-cubox-i-node-dockerhub-tag-link] |
-| resin/cubox-i-python | The Python buildpack image for Python apps for Hummingboard. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-cubox-i-python-dockerhub-link], [github][armv7-cubox-i-python-github-link] | latest, jessie, wheezy |
-| resin/cubox-i-golang | The Go buildpack image for Go apps for Hummingboard. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-cubox-i-golang-dockerhub-link], [github][armv7-cubox-i-golang-github-link] | For available image tags, refer [here][armv7-cubox-i-golang-dockerhub-tag-link] |
-| resin/nitrogen6x-debian | The bare bones OS image for Nitrogen 6X. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-nitrogen6x-dockerhub-link], [github][armv7-nitrogen6x-github-link] | latest, jessie, wheezy |
-| resin/nitrogen6x-buildpack-deps | The buildpack-deps image for Nitrogen 6X. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-nitrogen6x-buildpack-deps-dockerhub-link], [github][armv7-nitrogen6x-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/nitrogen6x-node | The Node.js buildpack image for Node.js apps for Nitrogen 6X. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-nitrogen6x-node-dockerhub-link], [github][armv7-nitrogen6x-node-github-link] | For available image tags, refer [here][armv7-nitrogen6x-node-dockerhub-tag-link] |
-| resin/nitrogen6x-python | The Python buildpack image for Python apps for Nitrogen 6X. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-nitrogen6x-python-dockerhub-link], [github][armv7-nitrogen6x-python-github-link] | latest, jessie, wheezy |
-| resin/nitrogen6x-golang | The Go buildpack image for Go apps for Nitrogen 6X. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-nitrogen6x-golang-dockerhub-link], [github][armv7-nitrogen6x-golang-github-link] | For available image tags, refer [here][armv7-nitrogen6x-golang-dockerhub-tag-link] |
-| resin/parallella-hdmi-resin-debian | The bare bones OS image for Parallella. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-parallella-hdmi-resin-dockerhub-link], [github][armv7-parallella-hdmi-resin-github-link] | latest, jessie, wheezy |
-| resin/parallella-hdmi-resin-buildpack-deps | The buildpack-deps image for Parallella. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-parallella-hdmi-resin-buildpack-deps-dockerhub-link], [github][armv7-parallella-hdmi-resin-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/parallella-hdmi-resin-node | The Node.js buildpack image for Node.js apps for Parallella. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-parallella-hdmi-resin-node-dockerhub-link], [github][armv7-parallella-hdmi-resin-node-github-link] | For available image tags, refer [here][armv7-parallella-hdmi-resin-node-dockerhub-tag-link] |
-| resin/parallella-hdmi-resin-python | The Python buildpack image for Python apps for Parallella. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-parallella-hdmi-resin-python-dockerhub-link], [github][armv7-parallella-hdmi-resin-python-github-link] | latest, jessie, wheezy |
-| resin/parallella-hdmi-resin-golang | The Go buildpack image for Go apps for Parallella. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-parallella-hdmi-resin-golang-dockerhub-link], [github][armv7-parallella-hdmi-resin-golang-github-link] | For available image tags, refer [here][armv7-parallella-hdmi-resin-golang-dockerhub-tag-link] |
-| resin/ts4900-debian | The bare bones OS image for Technologic TS-4900. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-ts4900-dockerhub-link], [github][armv7-ts4900-github-link] | latest, jessie, wheezy |
-| resin/ts4900-buildpack-deps | The buildpack-deps image for Technologic TS-4900. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-ts4900-buildpack-deps-dockerhub-link], [github][armv7-ts4900-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/ts4900-node | The Node.js buildpack image for Node.js apps for Technologic TS-4900. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-ts4900-node-dockerhub-link], [github][armv7-ts4900-node-github-link] | For available image tags, refer [here][armv7-ts4900-node-dockerhub-tag-link] |
-| resin/ts4900-python | The Python buildpack image for Python apps for Technologic TS-4900. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-ts4900-python-dockerhub-link], [github][armv7-ts4900-python-github-link] | latest, jessie, wheezy |
-| resin/ts4900-golang | The Go buildpack image for Go apps for Technologic TS-4900. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-ts4900-golang-dockerhub-link], [github][armv7-ts4900-golang-github-link] | For available image tags, refer [here][armv7-ts4900-golang-dockerhub-tag-link] |
-| resin/apalis-imx6-debian | The bare bones OS image for Apalis iMX6q. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-apalis-imx6-dockerhub-link], [github][armv7-apalis-imx6-github-link] | latest, jessie, wheezy |
-| resin/apalis-imx6-buildpack-deps | The buildpack-deps image for Apalis iMX6q. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-apalis-imx6-buildpack-deps-dockerhub-link], [github][armv7-apalis-imx6-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/apalis-imx6-node | The Node.js buildpack image for Node.js apps for Apalis iMX6q. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-apalis-imx6-node-dockerhub-link], [github][armv7-apalis-imx6-node-github-link] | For available image tags, refer [here][armv7-apalis-imx6-node-dockerhub-tag-link] |
-| resin/apalis-imx6-python | The Python buildpack image for Python apps for Apalis iMX6q. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-apalis-imx6-python-dockerhub-link], [github][armv7-apalis-imx6-python-github-link] | latest, jessie, wheezy |
-| resin/apalis-imx6-golang | The Go buildpack image for Go apps for Apalis iMX6q. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-apalis-imx6-golang-dockerhub-link], [github][armv7-apalis-imx6-golang-github-link] | For available image tags, refer [here][armv7-apalis-imx6-golang-dockerhub-tag-link] |
-| resin/colibri-imx6-debian | The bare bones OS image for Colibri iMX6dl. See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools | [dockerhub][armv7-colibri-imx6-dockerhub-link], [github][armv7-colibri-imx6-github-link] | latest, jessie, wheezy |
-| resin/colibri-imx6-buildpack-deps | The buildpack-deps image for Colibri iMX6dl. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-colibri-imx6-buildpack-deps-dockerhub-link], [github][armv7-colibri-imx6-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/colibri-imx6-node | The Node.js buildpack image for Node.js apps for Colibri iMX6dl. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-colibri-imx6-node-dockerhub-link], [github][armv7-colibri-imx6-node-github-link] | For available image tags, refer [here][armv7-colibri-imx6-node-dockerhub-tag-link] |
-| resin/colibri-imx6-python | The Python buildpack image for Python apps for Colibri iMX6dl. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-colibri-imx6-python-dockerhub-link], [github][armv7-colibri-imx6-python-github-link] | latest, jessie, wheezy |
-| resin/colibri-imx6-golang | The Go buildpack image for Go apps for Colibri iMX6dl. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-colibri-imx6-golang-dockerhub-link], [github][armv7-colibri-imx6-golang-github-link] | For available image tags, refer [here][armv7-colibri-imx6-golang-dockerhub-tag-link] |
-| resin/raspberrypi3-debian | The bare bones OS image for RPI3. Apt sources.list from raspbian repository: [http://archive.raspbian.org/raspbian/](armv7-rpi2-sourceslist) added! See our [tips](#tips) section on how to enable systemd in your image. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, libraspberrypi-bin | [dockerhub][armv7-rpi3-dockerhub-link], [github][armv7-rpi3-github-link] | latest, jessie, wheezy |
-| resin/raspberrypi3-buildpack-deps | The buildpack-deps image for RPI3. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | [dockerhub][armv7-rpi3-buildpack-deps-dockerhub-link], [github][armv7-rpi3-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/raspberrypi3-node | The Node.js buildpack image for Node.js apps for RPI3. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | [dockerhub][armv7-rpi3-node-dockerhub-link], [github][armv7-rpi3-node-github-link] | For available image tags, refer [here][armv7-rpi3-node-dockerhub-tag-link] |
-| resin/raspberrypi3-python | The Python buildpack image for Python apps for RPI3. See our [tips](#tips) section on how to enable systemd in your image. | python, python-pip, python-dev, python-dbus, python-virtualenv, python-setuptools  | [dockerhub][armv7-rpi3-python-dockerhub-link], [github][armv7-rpi3-python-github-link] | latest, jessie, wheezy |
-| resin/raspberrypi3-golang | The Go buildpack image for Go apps for RPI3. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | [dockerhub][armv7-rpi3-golang-dockerhub-link], [github][armv7-rpi3-golang-github-link] | For available image tags, refer [here][armv7-rpi3-golang-dockerhub-tag-link] |
+| resin/`device-name`-debian | The bare bones debian OS image for a supported device. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, ifupdown | | latest, jessie, wheezy |
+| resin/`device-name`-buildpack-deps | The buildpack-deps image for a supported device. Details about buildpack-deps can be found [here](#buildpack-deps). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#buildpack-deps) | | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/`device-name`-node | The Node.js buildpack image for Node.js apps for a supported device. Details about the Node.js image can be found [here](#node). See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#node) | | |
+| resin/`device-name`-python | The Python buildpack image for Python apps for a supported device. See our [tips](#tips) section on how to enable systemd in your image. | Refer [here](#python) | | |
+| resin/`device-name`-golang | The Go buildpack image for Go apps for a supported device. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | | |
+
+![ARMv7 Device Diagram](/img/armv7-devices.jpg "ARMv7 Device Diagram")
+
+##### Beaglebone
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/beaglebone-debian | [dockerhub][armv7-bbb-dockerhub-link], [github][armv7-bbb-github-link] | latest, jessie, wheezy |
+| resin/beaglebone-buildpack-deps | [dockerhub][armv7-bbb-buildpack-deps-dockerhub-link], [github][armv7-bbb-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/beaglebone-node | [dockerhub][armv7-bbb-node-dockerhub-link], [github][armv7-bbb-node-github-link] | For available image tags, refer [here][armv7-bbb-node-dockerhub-tag-link] |
+| resin/beaglebone-python | [dockerhub][armv7-bbb-python-dockerhub-link], [github][armv7-bbb-python-github-link] | latest, jessie, wheezy |
+| resin/beaglebone-golang | [dockerhub][armv7-bbb-golang-dockerhub-link], [github][armv7-bbb-golang-github-link] | For available image tags, refer [here][armv7-bbb-golang-dockerhub-tag-link] |
+
+##### Raspberry Pi 2
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/raspberrypi2-debian | [dockerhub][armv7-rpi2-dockerhub-link], [github][armv7-rpi2-github-link] | latest, jessie, wheezy |
+| resin/raspberrypi2-buildpack-deps | [dockerhub][armv7-rpi2-buildpack-deps-dockerhub-link], [github][armv7-rpi2-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/raspberrypi2-node | [dockerhub][armv7-rpi2-node-dockerhub-link], [github][armv7-rpi2-node-github-link] | For available image tags, refer [here][armv7-rpi2-node-dockerhub-tag-link] |
+| resin/raspberrypi2-python | [dockerhub][armv7-rpi2-python-dockerhub-link], [github][armv7-rpi2-python-github-link] | latest, jessie, wheezy |
+| resin/raspberrypi2-golang | [dockerhub][armv7-rpi2-golang-dockerhub-link], [github][armv7-rpi2-golang-github-link] | For available image tags, refer [here][armv7-rpi2-golang-dockerhub-tag-link] |
+
+##### Raspberry Pi 3
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/raspberrypi3-debian | [dockerhub][armv7-rpi3-dockerhub-link], [github][armv7-rpi3-github-link] | latest, jessie, wheezy |
+| resin/raspberrypi3-buildpack-deps | [dockerhub][armv7-rpi3-buildpack-deps-dockerhub-link], [github][armv7-rpi3-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/raspberrypi3-node | [dockerhub][armv7-rpi3-node-dockerhub-link], [github][armv7-rpi3-node-github-link] | For available image tags, refer [here][armv7-rpi3-node-dockerhub-tag-link] |
+| resin/raspberrypi3-python | [dockerhub][armv7-rpi3-python-dockerhub-link], [github][armv7-rpi3-python-github-link] | latest, jessie, wheezy |
+| resin/raspberrypi3-golang | [dockerhub][armv7-rpi3-golang-dockerhub-link], [github][armv7-rpi3-golang-github-link] | For available image tags, refer [here][armv7-rpi3-golang-dockerhub-tag-link] |
+
+##### ZYNQ ZC702
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/zc702-zynq7-debian | [dockerhub][armv7-zc702-zynq7-dockerhub-link], [github][armv7-zc702-zynq7-github-link] | latest, jessie, wheezy |
+| resin/zc702-zynq7-buildpack-deps | [dockerhub][armv7-zc702-zynq7-buildpack-deps-dockerhub-link], [github][armv7-zc702-zynq7-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/zc702-zynq7-node | [dockerhub][armv7-zc702-zynq7-node-dockerhub-link], [github][armv7-zc702-zynq7-node-github-link] | For available image tags, refer [here][armv7-zc702-zynq7-node-dockerhub-tag-link] |
+| resin/zc702-zynq7-python | [dockerhub][armv7-zc702-zynq7-python-dockerhub-link], [github][armv7-zc702-zynq7-python-github-link] | latest, jessie, wheezy |
+| resin/zc702-zynq7-golang | [dockerhub][armv7-zc702-zynq7-golang-dockerhub-link], [github][armv7-zc702-zynq7-golang-github-link] | For available image tags, refer [here][armv7-zc702-zynq7-golang-dockerhub-tag-link] |
+
+##### VIA VAB 820-quad
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/vab820-quad-debian | [dockerhub][armv7-vab820-quad-dockerhub-link], [github][armv7-vab820-quad-github-link] | latest, jessie, wheezy |
+| resin/vab820-quad-buildpack-deps | [dockerhub][armv7-vab820-quad-buildpack-deps-dockerhub-link], [github][armv7-vab820-quad-buildpack-deps-github-link]  | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/vab820-quad-node | [dockerhub][armv7-vab820-quad-node-dockerhub-link], [github][armv7-vab820-quad-node-github-link]  | For available image tags, refer [here][armv7-vab820-quad-node-dockerhub-tag-link] |
+| resin/vab820-quad-python | [dockerhub][armv7-vab820-quad-python-dockerhub-link], [github][armv7-vab820-quad-python-github-link]  | latest, jessie, wheezy |
+| resin/vab820-quad-golang | [dockerhub][armv7-vab820-quad-golang-dockerhub-link], [github][armv7-vab820-quad-golang-github-link] | For available image tags, refer [here][armv7-vab820-quad-golang-dockerhub-tag-link] |
+
+##### ODROID-XU4
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/odroid-ux3-debian | [dockerhub][armv7-odroid-ux3-dockerhub-link], [github][armv7-odroid-ux3-github-link]  | latest, jessie, wheezy |
+| resin/odroid-ux3-buildpack-deps | [dockerhub][armv7-odroid-ux3-buildpack-deps-dockerhub-link], [github][armv7-odroid-ux3-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/odroid-ux3-node | [dockerhub][armv7-odroid-ux3-node-dockerhub-link], [github][armv7-odroid-ux3-node-github-link] | For available image tags, refer [here][armv7-odroid-ux3-node-dockerhub-tag-link] |
+| resin/odroid-ux3-python | [dockerhub][armv7-odroid-ux3-python-dockerhub-link], [github][armv7-odroid-ux3-python-github-link] | latest, jessie, wheezy |
+| resin/odroid-ux3-golang | [dockerhub][armv7-odroid-ux3-golang-dockerhub-link], [github][armv7-odroid-ux3-golang-github-link] | For available image tags, refer [here][armv7-odroid-ux3-golang-dockerhub-tag-link] |
+
+##### ODROID-C1+
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/odroid-c1-debian | [dockerhub][armv7-odroid-c1-dockerhub-link], [github][armv7-odroid-c1-github-link] | latest, jessie, wheezy |
+| resin/odroid-c1-buildpack-deps | [dockerhub][armv7-odroid-c1-buildpack-deps-dockerhub-link], [github][armv7-odroid-c1-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/odroid-c1-node | [dockerhub][armv7-odroid-c1-node-dockerhub-link], [github][armv7-odroid-c1-node-github-link] | For available image tags, refer [here][armv7-odroid-c1-node-dockerhub-tag-link] |
+| resin/odroid-c1-python | [dockerhub][armv7-odroid-c1-python-dockerhub-link], [github][armv7-odroid-c1-python-github-link] | latest, jessie, wheezy |
+| resin/odroid-c1-golang | [dockerhub][armv7-odroid-c1-golang-dockerhub-link], [github][armv7-odroid-c1-golang-github-link] | For available image tags, refer [here][armv7-odroid-c1-golang-dockerhub-tag-link] |
+
+##### Hummingboard
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/cubox-i-debian | [dockerhub][armv7-cubox-i-dockerhub-link], [github][armv7-cubox-i-github-link] | latest, jessie, wheezy |
+| resin/cubox-i-buildpack-deps | [dockerhub][armv7-cubox-i-buildpack-deps-dockerhub-link], [github][armv7-cubox-i-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/cubox-i-node | [dockerhub][armv7-cubox-i-node-dockerhub-link], [github][armv7-cubox-i-node-github-link] | For available image tags, refer [here][armv7-cubox-i-node-dockerhub-tag-link] |
+| resin/cubox-i-python | [dockerhub][armv7-cubox-i-python-dockerhub-link], [github][armv7-cubox-i-python-github-link] | latest, jessie, wheezy |
+| resin/cubox-i-golang | [dockerhub][armv7-cubox-i-golang-dockerhub-link], [github][armv7-cubox-i-golang-github-link] | For available image tags, refer [here][armv7-cubox-i-golang-dockerhub-tag-link] |
+
+##### Nitrogen 6X
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/nitrogen6x-debian | [dockerhub][armv7-nitrogen6x-dockerhub-link], [github][armv7-nitrogen6x-github-link] | latest, jessie, wheezy |
+| resin/nitrogen6x-buildpack-deps | [dockerhub][armv7-nitrogen6x-buildpack-deps-dockerhub-link], [github][armv7-nitrogen6x-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/nitrogen6x-node | [dockerhub][armv7-nitrogen6x-node-dockerhub-link], [github][armv7-nitrogen6x-node-github-link] | For available image tags, refer [here][armv7-nitrogen6x-node-dockerhub-tag-link] |
+| resin/nitrogen6x-python | [dockerhub][armv7-nitrogen6x-python-dockerhub-link], [github][armv7-nitrogen6x-python-github-link] | latest, jessie, wheezy |
+| resin/nitrogen6x-golang | [dockerhub][armv7-nitrogen6x-golang-dockerhub-link], [github][armv7-nitrogen6x-golang-github-link] | For available image tags, refer [here][armv7-nitrogen6x-golang-dockerhub-tag-link] |
+
+##### Parallella
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/parallella-hdmi-resin-debian | [dockerhub][armv7-parallella-hdmi-resin-dockerhub-link], [github][armv7-parallella-hdmi-resin-github-link] | latest, jessie, wheezy |
+| resin/parallella-hdmi-resin-buildpack-deps | [dockerhub][armv7-parallella-hdmi-resin-buildpack-deps-dockerhub-link], [github][armv7-parallella-hdmi-resin-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/parallella-hdmi-resin-node | [dockerhub][armv7-parallella-hdmi-resin-node-dockerhub-link], [github][armv7-parallella-hdmi-resin-node-github-link] | For available image tags, refer [here][armv7-parallella-hdmi-resin-node-dockerhub-tag-link] |
+| resin/parallella-hdmi-resin-python | [dockerhub][armv7-parallella-hdmi-resin-python-dockerhub-link], [github][armv7-parallella-hdmi-resin-python-github-link] | latest, jessie, wheezy |
+| resin/parallella-hdmi-resin-golang | [dockerhub][armv7-parallella-hdmi-resin-golang-dockerhub-link], [github][armv7-parallella-hdmi-resin-golang-github-link] | For available image tags, refer [here][armv7-parallella-hdmi-resin-golang-dockerhub-tag-link] |
+
+##### Technologic TS-4900
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/ts4900-debian | [dockerhub][armv7-ts4900-dockerhub-link], [github][armv7-ts4900-github-link] | latest, jessie, wheezy |
+| resin/ts4900-buildpack-deps | [dockerhub][armv7-ts4900-buildpack-deps-dockerhub-link], [github][armv7-ts4900-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/ts4900-node | [dockerhub][armv7-ts4900-node-dockerhub-link], [github][armv7-ts4900-node-github-link] | For available image tags, refer [here][armv7-ts4900-node-dockerhub-tag-link] |
+| resin/ts4900-python | [dockerhub][armv7-ts4900-python-dockerhub-link], [github][armv7-ts4900-python-github-link] | latest, jessie, wheezy |
+| resin/ts4900-golang | [dockerhub][armv7-ts4900-golang-dockerhub-link], [github][armv7-ts4900-golang-github-link] | For available image tags, refer [here][armv7-ts4900-golang-dockerhub-tag-link] |
+
+##### Apalis iMX6q
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/apalis-imx6-debian | [dockerhub][armv7-apalis-imx6-dockerhub-link], [github][armv7-apalis-imx6-github-link] | latest, jessie, wheezy |
+| resin/apalis-imx6-buildpack-deps | [dockerhub][armv7-apalis-imx6-buildpack-deps-dockerhub-link], [github][armv7-apalis-imx6-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/apalis-imx6-node | [dockerhub][armv7-apalis-imx6-node-dockerhub-link], [github][armv7-apalis-imx6-node-github-link] | For available image tags, refer [here][armv7-apalis-imx6-node-dockerhub-tag-link] |
+| resin/apalis-imx6-python | [dockerhub][armv7-apalis-imx6-python-dockerhub-link], [github][armv7-apalis-imx6-python-github-link] | latest, jessie, wheezy |
+| resin/apalis-imx6-golang | [dockerhub][armv7-apalis-imx6-golang-dockerhub-link], [github][armv7-apalis-imx6-golang-github-link] | For available image tags, refer [here][armv7-apalis-imx6-golang-dockerhub-tag-link] |
+
+##### Colibri iMX6dl
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/colibri-imx6-debian | [dockerhub][armv7-colibri-imx6-dockerhub-link], [github][armv7-colibri-imx6-github-link] | latest, jessie, wheezy |
+| resin/colibri-imx6-buildpack-deps | [dockerhub][armv7-colibri-imx6-buildpack-deps-dockerhub-link], [github][armv7-colibri-imx6-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/colibri-imx6-node | [dockerhub][armv7-colibri-imx6-node-dockerhub-link], [github][armv7-colibri-imx6-node-github-link] | For available image tags, refer [here][armv7-colibri-imx6-node-dockerhub-tag-link] |
+| resin/colibri-imx6-python | [dockerhub][armv7-colibri-imx6-python-dockerhub-link], [github][armv7-colibri-imx6-python-github-link] | latest, jessie, wheezy |
+| resin/colibri-imx6-golang | [dockerhub][armv7-colibri-imx6-golang-dockerhub-link], [github][armv7-colibri-imx6-golang-github-link] | For available image tags, refer [here][armv7-colibri-imx6-golang-dockerhub-tag-link] |
+
 
 ### i386: Intel Edison
 
@@ -192,6 +250,35 @@ This is a set of images with node.js binary installed. The node images come in m
 * **node:<version>-onbuild**: This image makes building derivative images easier. For most use cases, creating a Dockerfile in the base of your project directory with the line FROM node:onbuild will be enough to create a stand-alone image for your project.
 * **node:<version>-slim**: This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run node. Unless you are working in an environment where only the node image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
 
+### <a name="python"></a>Python
+
+#### What is Python?
+
+Python is an interpreted, interactive, object-oriented, open-source programming language. It incorporates modules, exceptions, dynamic typing, very high level dynamic data types, and classes. Python combines remarkable power with very clear syntax. It has interfaces to many system calls and libraries, as well as to various window systems, and is extensible in C or C++. It is also usable as an extension language for applications that need a programmable interface. Finally, Python is portable: it runs on many Unix variants, on the Mac, and on Windows 2000 and later.
+[wikipedia.org/wiki/Python_(programming_language)][python-wiki]
+
+__Note:__ `pip, python-dbus, virtualenv, setuptools` are preinstalled in all python images.
+
+#### Variants:
+
+The `python` images come in many flavors, each designed for a specific use case.
+
+* `python:<version>`
+
+This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of. This tag is based off of `buildpack-deps`. `buildpack-deps` is designed for the average user of docker who has many images on their system. It, by design, has a large number of extremely common Debian packages. This reduces the number of packages that images that derive from it need to install, thus reducing the overall size of all images on your system.
+
+* `python:<version>-slim`
+
+This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run python. Unless you are working in an environment where only the python image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
+
+* `python:<version>-onbuild`
+
+This image feeds your `requirements.txt` file automatically to `pip` in order to make building derivative images easier. For most use cases, creating a Dockerfile in the base of your project directory with the line `FROM python:onbuild` will be enough to create a stand-alone image for your project.
+
+While the onbuild variant is really useful for "getting off the ground running" (zero to Dockerized in a short period of time), it's not recommended for long-term usage within a project due to the lack of control over when the ONBUILD triggers fire (see also docker/docker#5714, docker/docker#8240, docker/docker#11917).
+
+Once you've got a handle on how your project functions within Docker, you'll probably want to adjust your Dockerfile to inherit from a non-onbuild variant and copy the commands from the onbuild variant Dockerfile (moving the ONBUILD lines to the end and removing the ONBUILD keywords) into your own file so that you have tighter control over them and more transparency for yourself and others looking at your Dockerfile as to what it does. This also makes it easier to add additional requirements as time goes on (such as installing more packages before performing the previously-ONBUILD steps).
+
 ### <a name="golang"></a>Golang
 
 #### What is Go?
@@ -245,6 +332,7 @@ This image does not contain the common packages contained in the default tag and
 
 [systemd-wiki]:https://wiki.debian.org/systemd
 [golang-wiki]:https://en.wikipedia.org/wiki/Go_%28programming_language%29
+[python-wiki]:https://en.wikipedia.org/wiki/Python_%28programming_language%29
 
 [rpi-systemd-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-buildpack-deps/
 [rpi-systemd-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-node/
