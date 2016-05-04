@@ -160,6 +160,23 @@ __Note:__ all the node slim images use resin/raspberrypi-systemd as the base os.
 | resin/colibri-imx6-python | [dockerhub][armv7-colibri-imx6-python-dockerhub-link], [github][armv7-colibri-imx6-python-github-link] | latest, jessie, wheezy |
 | resin/colibri-imx6-golang | [dockerhub][armv7-colibri-imx6-golang-dockerhub-link], [github][armv7-colibri-imx6-golang-github-link] | For available image tags, refer [here][armv7-colibri-imx6-golang-dockerhub-tag-link] |
 
+##### Samsung Artik 5
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/artik5-debian | [dockerhub][armv7-artik5-dockerhub-link], [github][armv7-artik5-github-link] | latest, jessie, wheezy |
+| resin/artik5-buildpack-deps | [dockerhub][armv7-artik5-buildpack-deps-dockerhub-link], [github][armv7-artik5-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/artik5-node | [dockerhub][armv7-artik5-node-dockerhub-link], [github][armv7-artik5-node-github-link] | For available image tags, refer [here][armv7-artik5-node-dockerhub-tag-link] |
+| resin/artik5-python | [dockerhub][armv7-artik5-python-dockerhub-link], [github][armv7-artik5-python-github-link] | latest, jessie, wheezy |
+| resin/artik5-golang | [dockerhub][armv7-artik5-golang-dockerhub-link], [github][armv7-artik5-golang-github-link] | For available image tags, refer [here][armv7-artik5-golang-dockerhub-tag-link] |
+
+##### Samsung Artik 10
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/artik10-debian | [dockerhub][armv7-artik10-dockerhub-link], [github][armv7-artik10-github-link] | latest, jessie, wheezy |
+| resin/artik10-buildpack-deps | [dockerhub][armv7-artik10-buildpack-deps-dockerhub-link], [github][armv7-artik10-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/artik10-node | [dockerhub][armv7-artik10-node-dockerhub-link], [github][armv7-artik10-node-github-link] | For available image tags, refer [here][armv7-artik10-node-dockerhub-tag-link] |
+| resin/artik10-python | [dockerhub][armv7-artik10-python-dockerhub-link], [github][armv7-artik10-python-github-link] | latest, jessie, wheezy |
+| resin/artik10-golang | [dockerhub][armv7-artik10-golang-dockerhub-link], [github][armv7-artik10-golang-github-link] | For available image tags, refer [here][armv7-artik10-golang-dockerhub-tag-link] |
 
 ### i386: Intel Edison
 
@@ -509,6 +526,30 @@ This image does not contain the common packages contained in the default tag and
 [armv7-rpi3-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-golang/
 [armv7-rpi3-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-golang/tags/manage/
 [armv7-rpi3-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi3
+[armv7-artik5-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-debian/
+[armv7-artik5-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-buildpack-deps/
+[armv7-artik5-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-node/
+[armv7-artik5-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-node/tags/manage/
+[armv7-artik5-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-python/
+[armv7-artik5-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/artik5
+[armv7-artik5-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/artik5
+[armv7-artik5-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/artik5
+[armv7-artik5-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/artik5
+[armv7-artik5-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-golang/
+[armv7-artik5-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-golang/tags/manage/
+[armv7-artik5-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/artik5
+[armv7-artik10-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-debian/
+[armv7-artik10-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-buildpack-deps/
+[armv7-artik10-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-node/
+[armv7-artik10-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-node/tags/manage/
+[armv7-artik10-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-python/
+[armv7-artik10-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/artik10
+[armv7-artik10-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/artik10
+[armv7-artik10-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/artik10
+[armv7-artik10-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/artik10
+[armv7-artik10-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-golang/
+[armv7-artik10-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-golang/tags/manage/
+[armv7-artik10-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/artik10
 
 [i386-systemd-dockerhub-link]:https://registry.hub.docker.com/u/resin/i386-systemd/
 [i386-systemd-github-link]:https://github.com/resin-io-library/base-images/tree/master/systemd/i386
