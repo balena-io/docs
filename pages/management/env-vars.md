@@ -50,7 +50,7 @@ The counter next to the variable name shows the number of devices that have this
 
 The device page also has the "Environment variables" tab. It's slightly more complicated than the application page and consists of 4 sections:
 1. the list of this particular device's environment variables
-2. the field to create a new variable
+2. the form to create a new variable
 3. the list of other environment variables from the device's application
 4. the list of other environment variables defined for other devices of this application (but not for this device and not for the application).
 

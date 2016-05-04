@@ -50,6 +50,12 @@ __Note:__ It's best to wait for the countdown to show plenty of time remaining b
 
 Now when you log in you will be prompted for the code displayed in your authenticator app after you've input your username and password. Enjoy your added layer of security!
 
+### List of verified authenticator applications
+
+* [Google Authenticator](https://support.google.com/accounts/answer/1066447)
+* [Authy](https://www.authy.com)
+* [1Password](https://1password.com)
+
 [resin]:https://resin.io
 
 [signup]:https://dashboard.resin.io/signup

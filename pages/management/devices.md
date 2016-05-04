@@ -16,9 +16,9 @@ All code pushed to an application's git endpoint is automatically pushed to the 
 
 ### Identifying Devices
 
-Each device has a unique identifier or `UUID`, however you can assign a more meaningful name to each device, by either clicking on the name in its application dashboard to edit it or changing it in the device detail page
+Each device has a unique identifier or `UUID`, however you can assign a more meaningful name to each device, by either clicking on the name in its application dashboard to edit it or changing it in the device details page
 
-> _Note_: While you can change the device name, the `UUID` is used as part of the Resin OS and can't be modified.
+__Note__: While you can change the device name, the `UUID` is used internally by the Resin Agent and can't be modified.
 
 #### Blink to Identify
 
@@ -34,15 +34,14 @@ An extremely useful feature of the devices detail page is the log window. This i
 
 On the device's Actions page we give you access to a number of useful per-device actions.
 
-<!-- NOTE: is it really necessary to reload the page while the ID is located on the same page?-->
-* [Enable Public URL](/management/devices#enable-public-device-url)
-* [Update Locking](/management/devices#update-locking)
-* [Restart Application](/management/devices#restart-device-container)
-* [Move to Another Application](/management/devices#move-to-another-application)
-* [Purge Data](/management/devices#purge-data)
-* [Reboot](/management/devices#reboot)
-* [Shutdown](/management/devices#shutdown)
-* [Delete Device](/management/devices#delete-device)
+* [Enable Public URL](#enable-public-device-url)
+* [Update Locking](#update-locking)
+* [Restart Application](#restart-device-container)
+* [Move to Another Application](#move-to-another-application)
+* [Purge Data](#purge-data)
+* [Reboot](#reboot)
+* [Shutdown](#shutdown)
+* [Delete Device](#delete-device)
 
 ### Enable Public Device URL
 
@@ -101,7 +100,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ### Reboot
 
-This action allows you to perform a reboot on a specific device. This is different from the `Restart Application` action mentioned above, because in this action, the entire device including the kernel will be rebooted as if you were to manually replug it. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
+This action allows you to perform a reboot on a specific device. This is different from the `Restart Application` action mentioned above, because in this action, the entire device including the kernel will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
@@ -115,6 +114,4 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the application and remote endpoint. Once you have deleted a device from the application it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the resin.io dashboard or API.
 
-<!-- NOTE: the rpi link is probably legacy code since there is no reference to it on this page -->
-[rpi]:http://www.raspberrypi.org/
 [move-app-blog-post]:https://resin.io/blog/canary-rollouts-on-resin-io/

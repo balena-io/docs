@@ -19,7 +19,7 @@ Here we have an application named "myFleet" and currently it only has one device
 
 When you create an application a special resin.io operating system is generated specifically for that application and its associated device type.
 
-When you install this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can install this one downloaded image file to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name.
+When you burn this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can burn this one downloaded image file to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name.
 
 
 ### Deploying Your Code to an Application
@@ -52,7 +52,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ### Reboot All Devices
 
-This action allows you to perform a reboot of all the devices in the fleet/application. This is different from the `Restart Application` action mentioned above, because in this action, the entire device including the kernel will be rebooted as if you were to manually replug it. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
+This action allows you to perform a reboot of all the devices in the fleet/application. This is different from the `Restart Application` action mentioned above, because in this action, the entire device including the kernel will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
@@ -71,7 +71,7 @@ __Warning:__ All devices attached to the application will become orphaned and yo
 ## Environment Variables
 
 Applications can be customized via environment variables - simply enter environment variable key/value pairs.
-<!-- NOTE: Link to the docs page for envs here? -->
+You can read more about environment variables on the [documentation page](/management/env-vars/)
 
 __Warning:__ Changing an environment variable will, for the time being, result in your application restarting.
 
