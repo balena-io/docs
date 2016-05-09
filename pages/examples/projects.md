@@ -12,7 +12,7 @@ application set up ready to receive code. See the
 on how to do this.
 
 To deploy a project simply clone it and push it to your application's `resin`
-endpoint. E.g. for the [Text to Speech Converter project][text2speech]:-
+endpoint. E.g. for the [Text to Speech Converter project][text2speech]:
 
 ```
 git clone https://github.com/resin-io/text2speech.git
@@ -20,7 +20,7 @@ git remote add resin [endpoint]
 git push resin master
 ```
 
-##Projects
+## Projects
 
 These are some awesome projects built using resin.io and are a lot more fully featured and complete than the code snippets.
 
@@ -153,23 +153,30 @@ Freely constructing the environment gives you all the power but sometimes takes 
 
 A safe-deposit box that requires 2FA to open (inputting a passcode and an SMS code). Powered by a resin.io Raspberry Pi 2, and using [Authy][authy] for 2FA. More information on [this blog post][safebox-blog].
 
-##Community Built Projects
+### Slack Lunchbot
+[Repository][lunch-mutn] by [thibmaek][thibmaek]
+
+A Slack bot that picks a lunch place for a team.
+Written in Node.js using ES6 and Botkit to quickly assemble the bot and its responses.
+Read the writeup on [our blog](https://resin.io/blog/planning-lunch-with-a-slackbot-on-resin-io/)
+
+## Community Built Projects
 
 These are just some of the awesome projects built by resin.io users.
 
-###RPI Humidity and Temperature Logger
+### RPI Humidity and Temperature Logger
 
 [Repository][rpi-sensor-logger-user] by [joscha][joscha]
 
 This is project allows you to log humidity and temperature data from a simple sensor and stores that data in a [firebase][firebase] backend.
 
-###SmartBin
+### SmartBin
 
 [Repository][rpi-smartBin-user] by [faureh][faurehu]
 
 This is a fairly complex project that uses OpenCV and python to do facial recognition of users of an office rubbish bin. It can then be used to keep track of who is not behaving well and emptying the bins when they should be. It was submitted as part of a IoT hackathon in London, called Seedhack.
 
-###Zettajs Integration
+### Zettajs Integration
 
 [Repository][rpi-resin-io-zetta-user] by [zettajs][zettajs]
 
@@ -217,6 +224,7 @@ visualisation at [123k.de](http://123k.de).
 [rpi-resin-io-zetta-user]:https://github.com/zettajs/resin-io-zetta
 [rpiminer]:https://github.com/csquared/resin-piminer
 [cimon]:https://bitbucket.org/efwe/cimon
+[lunch-mutn]:https://github.com/thibmaek/lunch-mutn
 
 <!-- ###Code Snippets Links -->
 
@@ -237,6 +245,7 @@ visualisation at [123k.de](http://123k.de).
 [petrosagg]:https://github.com/petrosagg
 [nghiant2710]:https://github.com/nghiant2710
 [nchronas]:https://github.com/nchronas
+[thibmaek]:https://github.com/thibmaek
 
 <!-- ###Community Github name links -->
 
@@ -246,6 +255,7 @@ visualisation at [123k.de](http://123k.de).
 [faurehu]:https://github.com/faurehu/
 [zettajs]:https://github.com/zettajs/
 [martincalsyn]: https://github.com/martincalsyn
+
 <!-- ###Additional links -->
 
 [resin]:https://resin.io

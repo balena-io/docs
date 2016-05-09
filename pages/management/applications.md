@@ -8,7 +8,7 @@ title: Applications
 
 A Resin.io __application__ contains both the code you want to run and the devices you want to run that code on.
 
-To create an application you simply tap in a descriptive name in the [applications dashboard](https://dashboard.resin.io/) and hit create.
+To create an application you simply type in a descriptive name in the [applications dashboard](https://dashboard.resin.io/) and hit create.
 
 <!-- TODO: update the image here -->
 <img src="/img/raspberrypi2/app_dashboard_fresh_device.png" width="80%">
@@ -19,12 +19,12 @@ Here we have an application named "myFleet" and currently it only has one device
 
 When you create an application a special resin.io operating system is generated specifically for that application and its associated device type.
 
-When you install this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can copy this one download to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name.
+When you burn this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can burn this one downloaded image file to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name.
 
 
 ### Deploying Your Code to an Application
 
-The key thing to know about any application from your perspective as a developer is it's git endpoint - this is visible in the applications list on the [applications dashboard](http://dashboar.resin.io) and also in the top-right hand corner of each individual application dashboard.
+The key thing to know about any application from your perspective as a developer is it's git endpoint - this is visible in the applications list on the [applications dashboard](http://dashboard.resin.io) and also in the top-right hand corner of each individual application dashboard.
 
 To configure a git repo to be able to push code to resin, you need to add a [git remote](http://gitref.org/remotes/) - simply click the button to the right of the git endpoint to copy the command to the clipboard and run it in the folder where your local git repo is located.
 
@@ -58,7 +58,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ### Shutdown All Devices
 
-The `Shutdown` action allows you to safely shutdown all your device. It should be noted that once you trigger this action there is no way for resin.io to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible :P
+The `Shutdown` action allows you to safely shutdown all your devices. It should be noted that once you trigger this action there is no way for resin.io to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible.
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
@@ -70,7 +70,8 @@ __Warning:__ All devices attached to the application will become orphaned and yo
 
 ## Environment Variables
 
-Applications can be customised via environment variables - simply enter environment variable key/value pairs.
+Applications can be customized via environment variables - simply enter environment variable key/value pairs.
+You can read more about environment variables on the [documentation page](/management/env-vars/)
 
 __Warning:__ Changing an environment variable will, for the time being, result in your application restarting.
 

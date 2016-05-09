@@ -34,6 +34,10 @@ Contribute
 
 If you think something is not documented, or can be improved, don't hesitate in sending a PR!
 
+Conventions
+-----------
+- Notes/Warnings are formatted using CSS. Use the following syntax to make sure it's rendered correctly: `__Note:__`
+
 License
 -------
 

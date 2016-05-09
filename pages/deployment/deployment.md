@@ -37,9 +37,9 @@ specified, it defaults to running `node server.js`.)
 #### Node.js Example
 
 A good example of this is the [text-to-speech][text-to-speech] application -
-here's its `package.json` file*:-
+here's its `package.json` file*:
 
-```
+```json
 {
   "name": "resin-text2speech",
   "description": "Simple resin app that uses Google's TTS endpoint",
@@ -68,7 +68,7 @@ to running `server.js`.
 We execute a bash script called `deps.sh` before `npm install` tries to satisfy
 the code's dependencies. Let's have a look at that:-
 
-```
+```shell
 apt-get install -y alsa-utils libasound2-dev
 mv sound_start /usr/bin/sound_start
 ```
@@ -84,14 +84,14 @@ uses [aptitude][aptitude] to install native packages before moving a script for
 our node code to use over to `/usr/bin` (the install scripts runs with root
 privileges within the container.)
 
-__Note:__ With plain Node.js project, our build server will automatically detect the specified node version in `package.json` file and build the container based on Docker image with satisfied node version installed. the default node version is `0.10.22` and it will be used if node version is not specified. There will be error if specified node version does not exist in our registry and you can try another version or contact us to be supported. More details about Docker node images in our registry can be found [here][resin-base-image].
+__Note:__ With plain Node.js project, our build server will automatically detect the specified node version in `package.json` file and build the container based on Docker image with satisfied node version installed. The default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here][resin-base-image].
 
 ![terminal-builder-window](/img/terminal-builder-window.PNG)
 
 ### Dockerfile Deployment
 
 See the [Dockerfile][dockerfile] guide for custom application deployment using
-[Dockerfile][docker-dockerfile]s. This allows you to completely control the
+[Dockerfiles][docker-dockerfile]. This allows you to completely control the
 Linux environment you deploy to your devices and write your application in
 whatever programming language you prefer.
 
