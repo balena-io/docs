@@ -1,4 +1,4 @@
-Doxx = require('@resin/doxx')
+Doxx = require('@resin.io/doxx')
 doxxConfig = require('../config/doxx')
 
 doxx = Doxx(doxxConfig)
