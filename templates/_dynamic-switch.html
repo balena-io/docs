@@ -30,7 +30,7 @@
         {{ select(
           part,
           $dictionaries.getDict(part),
-          $axes_values[part] || $dictionaries.getDefault(part)
+          $variables[part] || $dictionaries.getDefault(part)
         ) }}
       {% endif %}
     {% endfor %}
