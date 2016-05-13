@@ -7,7 +7,7 @@ layout: getting-started.html
 # hope it's self-explanatory
 dynamic_page:
   variables: [ $device, $language ]
-  url: $device/$language/$baseUrl
+  ref: $device/$language/$originalRef
   switch_text: Getting Started with $device and $language
 ---
 
