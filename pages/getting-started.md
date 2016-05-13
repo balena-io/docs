@@ -3,12 +3,10 @@ title: Getting Started with {{ $device.name }} and {{ $language.name }}
 
 layout: getting-started.html
 
-# this is dynamic page definition
-# hope it's self-explanatory
-dynamic_page:
+dynamic:
   variables: [ $device, $language ]
-  ref: $device/$language/$originalRef
-  switch_text: Getting Started with $device and $language
+  ref: $device/$language/$original_ref
+  $switch_text: Getting Started with $device and $language
 ---
 
 # {{ title }}
