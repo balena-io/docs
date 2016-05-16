@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/resin-io/docs",
   "dependencies": {
-    "@resin.io/doxx": "^0.6.0",
+    "@resin.io/doxx": "^0.7.0",
     "bower": "^1.7.9",
     "coffee-script": "^1.10.0",
     "express": "^4.13.4",
