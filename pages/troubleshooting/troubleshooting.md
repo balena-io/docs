@@ -5,8 +5,6 @@ title: Troubleshooting
 # Troubleshooting
 
 * [General](/troubleshooting/troubleshooting#general)
-  * [The 'Start the Terminal Session' Button Doesn't Appear](/troubleshooting/troubleshooting#the-start-the-terminal-session-button-doesn-t-appear)
-  * [Clicking 'Open Terminal' in the Session Does Nothing](/troubleshooting/troubleshooting#clicking-open-terminal-in-the-session-does-nothing)
   * [Terminal Closes On Update](/troubleshooting/troubleshooting#terminal-closes-on-update)
   * [Can't Login to dashboard.resin.io](/troubleshooting/troubleshooting#can-t-login-to-dashboard-resin-io)
   * [I get `$'\r': command not found` when my device tries to run scripts](/troubleshooting/troubleshooting#i-get-r-command-not-found-when-my-device-tries-to-run-scripts)
@@ -19,16 +17,6 @@ title: Troubleshooting
   * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](/troubleshooting/troubleshooting#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
 
 ## General
-
-### The 'Start the Terminal Session' Button Doesn't Appear
-
-Ensure you application is online and code is deployed. If either of these criteria are not fulfilled then the button will not appear.
-
-### Clicking 'Open Terminal' in the Session Does Nothing
-
-If no window appears, wait a while or refresh, as sometimes the connection can take a while to be established.
-
-If a terminal window flashes up then disappears, this is usually due to your application exiting before the terminal session is established. Ensure your application continues running long enough after being started to enable a terminal session to be connected.
 
 ### Terminal Closes On Update
 
