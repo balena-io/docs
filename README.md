@@ -45,7 +45,7 @@ git clone https://github.com/resin-io/docs.git
 cd docs
 npm install
 ```
-Now to check that everything it working correctly, start the local server with:
+Now to check that everything is working correctly, start the local server with:
 ```
 npm start
 ```
@@ -67,7 +67,7 @@ Once you are happy with your changes, submit a pull request for you branch again
 
 ### Using Partials
 
-When creating new content or altering current pages, its recommended that you try keep thing D.R.Y (Don’t Repeat Yourself). This is made easy by using “partials”. If you look in the `/shared` folder you will see a number of folders, these keep snippets or partials of the docs that can be reused all over the place. They also allow you to cleverly override a partial for a particular board type and language type. So in general you will see most of them just contain a `_default.md` which means that this partial will be used for all board and language types, but for partials like `getDeviceOnDash` we have device specific overrides.
+When creating new content or altering current pages, its recommended that you try keep things D.R.Y (Don’t Repeat Yourself). This is made easy by using “partials”. If you look in the `/shared` folder you will see a number of folders, these keep snippets or partials of the docs that can be reused all over the place. They also allow you to cleverly override a partial for a particular board type and language type. So in general you will see most of them just contain a `_default.md` which means that this partial will be used for all board and language types, but for partials like `getDeviceOnDash` we have device specific overrides.
 
 ```
 ├── getDeviceOnDash
@@ -93,7 +93,7 @@ In the dynamically generated pages ( the ones with he device-type and language d
 ```
 Getting started with {{ $device_details.name }} using {{ $language_details.name }}
 ```
-Do add additional dynamic properties, see the files in `/config/dictionaries`.
+To add additional dynamic properties, see the files in `/config/dictionaries`.
 
 If you remove a page that may be linked to externally to the docs, remember to add it to the `redirects.txt` in the root of the docs, if you don’t, then links will break and people will have a bad time, m’kay.
 
