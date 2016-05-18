@@ -28,5 +28,11 @@
     "name": "Samsung ARTIK 10",
 		"bootMedia": "SD card",
     "icon": "/img/device/artik10.svg"
+  },
+  {
+    "id": "beaglebone",
+    "name": "Beaglebone",
+		"bootMedia": "SD card",
+    "icon": "/img/device/beaglebone-black.svg"
   }
 ]
