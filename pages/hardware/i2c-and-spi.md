@@ -53,9 +53,14 @@ For an example of this, check our this project: [digitiser][digitiser-link].
 
 ### 1-wire and Digital Temperature sensors
 
-To enable the DS18x20 temperature sensors, you need to add:
-`modprobe w1-gpio && modprobe w1-therm `
-before your start scripts in either your package.json or Dockerfile `CMD` command.
+In order to work work with 1-wire and digital temperature sensors you will need to do the following:
+
+* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following lines.
+
+```
+dtoverlay=w1-gpio
+```
+* Add `modprobe w1-gpio && modprobe w1-therm` before your start scripts in either your package.json start command or Dockerfile `CMD` command.
 
 An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-link] project.
 
