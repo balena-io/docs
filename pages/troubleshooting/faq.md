@@ -3,23 +3,35 @@ title: FAQs
 ---
 # Frequently Asked Questions
 
-* [What NTP servers do resin.io devices use?](/troubleshooting/faq#what-ntp-servers-do-resin-io-devices-use-)
-* [What Network Ports are required by resin.io?](/troubleshooting/faq#what-network-ports-are-required-by-resin-io)
-* [Can I access /dev and things like GPIO from the container?](/troubleshooting/faq#can-i-access-dev-and-things-like-gpio-from-the-container-)
-* [Why is my device showing the incorrect time?](/troubleshooting/faq#why-is-my-device-showing-the-incorrect-time-)
-* [Can I set a static IP address for my device?](/troubleshooting/faq#can-i-set-a-static-ip-address-for-my-device-)
-* [Why can't I SSH into or run code in the HostOS?](/troubleshooting/faq#why-can-t-i-ssh-into-or-run-code-in-the-hostos-)
-* [How can I forward my Container ports?](/troubleshooting/faq#how-can-i-forward-my-container-ports-)
-* [Which data is persisted on devices across updates/power cycles?](/troubleshooting/faq#which-data-is-persisted-on-devices-across-updates-power-cycles-)
-* [Is the cache shared between build server for non-native and native ARM builds?](/troubleshooting/faq#is-the-cache-shared-between-build-server-for-non-native-and-native-arm-builds-)
-* [Why does /data disappear when I move a device between applications?](/troubleshooting/faq#why-does-data-disappear-when-i-move-a-device-between-applications-)
-* [It appears that there is a centralized Resin Master running (in cloud) and agents running on devices. Is that accurate?](/troubleshooting/faq#it-appears-that-there-is-a-centralized-resin-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate-)
-* [What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?](/troubleshooting/faq#what-type-of-encryption-do-you-use-over-openvpn-ssl-tls-aes-256-mutual-key-authentication-over-ssh-)
-* [What is the performance impact on the gateway device due to encryption?](/troubleshooting/faq#what-is-the-performance-impact-on-the-gateway-device-due-to-encryption-)
-* [How long does the update process run typically? For now it appears to be quick for small updates.](/troubleshooting/faq#how-long-does-the-update-process-run-typically-do-you-have-any-benchmark-data-for-now-it-appears-to-be-quick-for-small-updates-)
-* [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](/troubleshooting/faq#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration-)
-* [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](/troubleshooting/faq#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
-* [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](/troubleshooting/faq#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
+* [Can I use Multiple containers?](#can-i-use-multiple-containers-)
+* [What version of Docker runs on the Devices?](#what-version-of-docker-runs-on-the-devices-)
+* [Why does `/data` report weird usage?](#why-does-data-report-weird-usage-)
+* [What NTP servers do resin.io devices use?](#what-ntp-servers-do-resin-io-devices-use-)
+* [What Network Ports are required by resin.io?](#what-network-ports-are-required-by-resin-io)
+* [Can I access /dev and things like GPIO from the container?](#can-i-access-dev-and-things-like-gpio-from-the-container-)
+* [Why is my device showing the incorrect time?](#why-is-my-device-showing-the-incorrect-time-)
+* [Can I set a static IP address for my device?](#can-i-set-a-static-ip-address-for-my-device-)
+* [Why can't I SSH into or run code in the HostOS?](#why-can-t-i-ssh-into-or-run-code-in-the-hostos-)
+* [How can I forward my Container ports?](#how-can-i-forward-my-container-ports-)
+* [Which data is persisted on devices across updates/power cycles?](#which-data-is-persisted-on-devices-across-updates-power-cycles-)
+* [Is the cache shared between build server for non-native and native ARM builds?](#is-the-cache-shared-between-build-server-for-non-native-and-native-arm-builds-)
+* [Why does /data disappear when I move a device between applications?](#why-does-data-disappear-when-i-move-a-device-between-applications-)
+* [It appears that there is a centralized Resin Master running (in cloud) and agents running on devices. Is that accurate?](#it-appears-that-there-is-a-centralized-resin-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate-)
+* [What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?](#what-type-of-encryption-do-you-use-over-openvpn-ssl-tls-aes-256-mutual-key-authentication-over-ssh-)
+* [What is the performance impact on the gateway device due to encryption?](#what-is-the-performance-impact-on-the-gateway-device-due-to-encryption-)
+* [How long does the update process run typically? For now it appears to be quick for small updates.](#how-long-does-the-update-process-run-typically-do-you-have-any-benchmark-data-for-now-it-appears-to-be-quick-for-small-updates-)
+* [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration-)
+* [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
+* [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
+
+##### Can I use Multiple containers?
+We are planning, and committed, to adding support for having multiple apps/containers running on a device. This is planned for release by the end of Q3 2016. As an interim solution, we do however  have a few users running multiple containers within an app via docker-compose ( https://resin.io/blog/multi-container-with-docker-compose-on-resin-io/ ) and have done work with kubernetes in the same fashion ( https://resin.io/engineering/our-first-experiments-with-multi-container-apps/ https://github.com/resin-io-projects/resin-kubernetes )
+
+##### What version of Docker runs on the Devices?
+Currently we're running v1.4.1, but we're working on updating to 1.10.3 - the PR is at https://github.com/resin-os/meta-resin/pull/44. Keep an eye on the [resin.io changelog](https://resin.io/engineering/tag/changelog/) for updates on this release.
+
+##### Why does /data report weird usage?
+On the device we have a writable data partition that uses all the free space remaining after reserving the required amount for the host os. This data partition contains the Docker images for the resin supervisor and the user applications so that they can be updated, along with containing the persistent `/data` for the application to use, this way it avoids reserving a specific amount of space for either images or data and then finding out that we have reserved too much or too little for one. So the space usage in `/data` being used but not accounted for will likely be due to the docker images. (As a side note if you want the most accurate usage stats you should use `btrfs fi df /data` as `df` is not accurate for btrfs partitions).
 
 ##### What NTP servers do resin.io devices use?
 Currently the servers used are:
