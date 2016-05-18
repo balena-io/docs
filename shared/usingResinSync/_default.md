@@ -66,6 +66,8 @@ Your new code changes should be up an running in under 30 seconds, **Great succe
 
 * A caveat, if you are using a DSA key, some newer openSSH clients do not allow them by default. So you may have to add the following option to `~/.ssh/config` : `PubkeyAcceptedKeyTypes=+ssh-dss`
 
+* Currently resin sync only works with RSA/DSA keys. So if you are using another type, it won't be able to sync correctly.
+
 ##### One last Tip!
 
 {{import "resinSsh"}}
