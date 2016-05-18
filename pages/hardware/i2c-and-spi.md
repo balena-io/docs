@@ -187,6 +187,9 @@ If you use our [resin/edison-node][resin-dockerbase-node] or [resin/edison-pytho
 
 Have a look at this [python example](https://github.com/shaunmulligan/hello-python-edison) or this [node.js example](https://github.com/shaunmulligan/edison-blink-node) to get started.
 
+### UPM for high level sensor and actuator libraries
+Intel provides the [UPM library][upm-link] which contains software drivers for a wide variety of commonly used sensors and actuators. These software drivers interact with the underlying hardware platform (or microcontroller), as well as with the attached sensors, through calls to [MRAA APIs][mraa-link].
+
 ### Edison in USB Host mode
 
 The Edison needs a kernel module to be loaded to trigger the UBS HOST mode. This can be done in the following way.
@@ -227,5 +230,6 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 [spi-npm]:https://www.npmjs.com/package/spi
 [picamera-link]:https://github.com/resin-io-projects/resin-rpi-python-picamera
 [mraa-link]:https://github.com/intel-iot-devkit/mraa
+[upm-link]:https://github.com/intel-iot-devkit/upm
 [resin-dockerbase-node]:https://hub.docker.com/r/resin/edison-node/
 [resin-dockerbase-python]:https://hub.docker.com/r/resin/edison-python/
