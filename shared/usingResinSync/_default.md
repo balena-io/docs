@@ -10,6 +10,8 @@ and Agent v1.8.0+.
 
 Resin sync is bundled in with our handy resin CLI. The CLI allows you to basically do all your resin.io management from the comfort of the command line. Read the [CLI reference][cli-ref-link] more info on all the cool things it can do.
 
+__Warning:__ Currently resin sync is **NOT** supported on Windows. Support is currently being worked on, you can check the progress on this [branch of the repo](https://github.com/resin-io-modules/resin-sync/blob/feat/windows-support/README.md#windows).
+
 To install resin CLI and sync you need at least [`node.js 4.0.0`][nodejs-link] on your development machine, then run:
 ```
 npm install --global --production resin-cli
