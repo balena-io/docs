@@ -4,19 +4,19 @@ title: Troubleshooting
 
 # Troubleshooting
 
-* [General](/troubleshooting/troubleshooting#general)
-  * [Terminal Closes On Update](/troubleshooting/troubleshooting#terminal-closes-on-update)
-  * [Can't Login to dashboard.resin.io](/troubleshooting/troubleshooting#can-t-login-to-dashboard-resin-io)
-  * [I get `$'\r': command not found` when my device tries to run scripts](/troubleshooting/troubleshooting#i-get-r-command-not-found-when-my-device-tries-to-run-scripts)
+* [General](#general)
+  * [Terminal Closes On Update](#terminal-closes-on-update)
+  * [Can't Login to dashboard.resin.io](#can-t-login-to-dashboard-resin-io)
+  * [I get `$'\r': command not found` when my device tries to run scripts](#i-get-r-command-not-found-when-my-device-tries-to-run-scripts)
   * [Device keeps dropping off wifi](#device-keeps-dropping-off-wifi)
-* [Raspberry Pi](/troubleshooting/troubleshooting#raspberry-pi)
-  * [My Device Doesn't Boot](/troubleshooting/troubleshooting#my-device-doesn-t-boot)
-  * [Connectivity](/troubleshooting/troubleshooting#connectivity)
-  * [SD Card Corruption](/troubleshooting/troubleshooting#sd-card-corruption)
+* [Raspberry Pi](#raspberry-pi)
+  * [My Device Doesn't Boot](#my-device-doesn-t-boot)
+  * [Connectivity](#connectivity)
+  * [SD Card Corruption](#sd-card-corruption)
   * [Wifi doesn't connect on RPI3](#wifi-connection-problems-on-rpi3)
-* [Intel Edison](/troubleshooting/troubleshooting#intel-edison)
-  * [Help!!! I want to restore my Edison to factory Yocto](/troubleshooting/troubleshooting#help-i-want-to-restore-my-edison-to-factory-yocto)
-  * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](/troubleshooting/troubleshooting#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
+* [Intel Edison](#intel-edison)
+  * [Help!!! I want to restore my Edison to factory Yocto](#help-i-want-to-restore-my-edison-to-factory-yocto)
+  * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
 
 ## General
 
