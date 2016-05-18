@@ -180,7 +180,7 @@ SLOTS=/sys/devices/platform/bone_capemgr/slots
 ## Intel Edison
 ### MRAA for GPIO and hardware access
 The best and easiest way to interface with GPIO, I2C, SPI or UART on the Intel Edison is to use the
-[MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applcations that
+[MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applications that
 interact directly with the Edison hardware.
 
 If you use our [resin/edison-node][resin-dockerbase-node] or [resin/edison-python][resin-dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
