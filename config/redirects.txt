@@ -8,5 +8,6 @@
 ^\/introduction\/introduction(\/|$) -> /introduction
 ^\/$ -> /introduction
 ^\/installing\/gettingStarted(\/|$) -> /raspberrypi/nodejs/getting-started/
+^\/installing\/gettingStarted-BBB(\/|$) -> /beaglebone/nodejs/getting-started/
 
 ^\/getting-started -> /raspberrypi/nodejs/getting-started

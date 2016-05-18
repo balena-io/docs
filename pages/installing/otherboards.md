@@ -7,7 +7,6 @@ Here you will find links to Getting Started guides for all the boards supported 
 * [Intel Edison](/installing/gettingStarted-Edison)
 
 ### ARMv7 Devices
-* [Beaglebone Black or Green](/installing/gettingStarted-BBB)
 * [Hardkernel Odroid C1/C1+](/installing/gettingStarted-Odroid-C1)
 * [Hardkernel Odroid XU4](/installing/gettingStarted-Odroid-XU4)
 * [Solid run Humming board i2](/installing/gettingStarted-Humming)
