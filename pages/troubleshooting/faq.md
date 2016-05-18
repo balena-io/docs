@@ -3,6 +3,9 @@ title: FAQs
 ---
 # Frequently Asked Questions
 
+* [Can I use Multiple containers?](#can-i-use-multiple-containers-)
+* [What version of Docker runs on the Devices?](#what-version-of-docker-runs-on-the-devices-)
+* [Why does `/data` report weird usage?](#why-does-data-report-weird-usage-)
 * [What NTP servers do resin.io devices use?](/troubleshooting/faq#what-ntp-servers-do-resin-io-devices-use-)
 * [What Network Ports are required by resin.io?](/troubleshooting/faq#what-network-ports-are-required-by-resin-io)
 * [Can I access /dev and things like GPIO from the container?](/troubleshooting/faq#can-i-access-dev-and-things-like-gpio-from-the-container-)
@@ -20,6 +23,15 @@ title: FAQs
 * [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](/troubleshooting/faq#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration-)
 * [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](/troubleshooting/faq#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
 * [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](/troubleshooting/faq#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
+
+##### Can I use Multiple containers?
+We are planning, and committed, to adding support for having multiple apps/containers running on a device. This is planned for release by the end of Q3 2016. As an interim solution, we do however  have a few users running multiple containers within an app via docker-compose ( https://resin.io/blog/multi-container-with-docker-compose-on-resin-io/ ) and have done work with kubernetes in the same fashion ( https://resin.io/engineering/our-first-experiments-with-multi-container-apps/ https://github.com/resin-io-projects/resin-kubernetes )
+
+##### What version of Docker runs on the Devices?
+Currently we're running v1.4.1, but we're working on updating to 1.10.3 - the PR is at https://github.com/resin-os/meta-resin/pull/44. Keep an eye on the [resin.io changelog](https://resin.io/engineering/tag/changelog/) for updates on this release.
+
+##### Why does /data report weird usage?
+On the device we have a writable data partition that uses all the free space remaining after reserving the required amount for the host os. This data partition contains the Docker images for the resin supervisor and the user applications so that they can be updated, along with containing the persistent `/data` for the application to use, this way it avoids reserving a specific amount of space for either images or data and then finding out that we have reserved too much or too little for one. So the space usage in `/data` being used but not accounted for will likely be due to the docker images. (As a side note if you want the most accurate usage stats you should use `btrfs fi df /data` as `df` is not accurate for btrfs partitions).
 
 ##### What NTP servers do resin.io devices use?
 Currently the servers used are:

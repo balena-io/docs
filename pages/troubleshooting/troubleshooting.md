@@ -37,6 +37,9 @@ To resolve this, you will need to configure git to auto convert line endings. In
 ### Device keeps dropping off wifi
 If your device keeps dropping offline, it may be worth switching to 5GHz band wifi dongle, as we have seen cases where 2.4GHz gets badly affected by surrounding noise.
 
+### Unsupported Syscall: 384 from qemu on builder
+The qemu: Unsupported syscall: 384 is a warning that the getrandom(2) system call is not implemented by our emulation layer, qemu. It can be safely ignored. Since it's a fairly new system call (introduced in kernel 3.17), apt and almost all programs automatically fall back to reading from `/dev/urandom` when this syscall fails.
+
 ## Raspberry Pi
 
 ### My Device Doesn't Boot
