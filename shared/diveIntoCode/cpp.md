@@ -21,7 +21,7 @@ The next line is used to enable the [systemd][systemd-link] init within the cont
 ENV INITSYSTEM=on
 ```
 
-Next up we have 3 lines which install all the dependencies needed by the container, in this case we need to install `build-essentials` so we can compile C++ code.
+Next up we have 3 lines which install all the dependencies needed by the container, in this case we need to install `build-essentials` so we can compile our C++ code.
 ```
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
   build-essential \
