@@ -2,19 +2,19 @@
 
 Now that we have a device or two connected to a resin.io application, lets deploy some code and actually start building something.
 
-A nice first project to get your feet wet is a simple [Flask][flask-link] web server which will serve a static page on port `:80`. All the project source code can be found [here on github] [simple-server-python-link].
+A nice first project to get your feet wet is a simple [C++][cpp] hello world program which will print a `Hello, world!` message to the logs on the dashboard. All the project source code can be found [here on github] [resin-cpp-hello-world-link].
 
 To clone the project, run the following command in a terminal or your preferred git client:
 
 ```
-git clone https://github.com/resin-io-projects/simple-server-python.git
+https://github.com/resin-io-projects/resin-cpp-hello-world.git
 ```
 
-Once the repo is cloned, change directory into the newly created `simple-server-python` directory and add the resin git remote endpoint by running the command `git remote add` shown in
+Once the repo is cloned, change directory into the newly created `resin-cpp-hello-world` directory and add the resin git remote endpoint by running the command `git remote add` shown in
 the top-right corner of your application page, here's an example:
 
 ```
-cd simple-server-python
+cd resin-cpp-hello-world
 
 git remote add resin charlie1@git.resin.io:charlie1/myfleet.git
 ```
@@ -34,7 +34,7 @@ __Note:__ On your very first push, git may ask you if you would like to add this
 You'll know your code has been successfully compiled and built when our
 friendly unicorn mascot appears in your terminal:
 
-<img src="/img/common/pushing/success_unicorn_simple_nodejs.png" width="80%">
+<img src="/img/common/pushing/success_unicorn_resin_cpp_hello_world.png" width="80%">
 
 This means your code is safely built and stored on our image registry. It should only take about 2 minutes to build your code and subsequent builds will be quicker because of build caching.
 
@@ -43,15 +43,10 @@ Your application will now be downloaded and executed by all the devices you have
 
 <img src="/img/common/device/device_dashboard_during_update_generic.png" width="80%">
 
-You should now have a Python web server running on your device and see some logs on your dashboard. If you go to the `Actions` page for your device, you can enable a public URL, this URL is accessible from anywhere in the world.
+You should now have the hello world program running on your device and see some logs, including the `Hello, world!` message, on your dashboard.
 
-<img src="/img/common/enable-public-URLs.png" width="80%">
+You should now have a basic idea of how to deploy a C++ application on resin.io. If you feel like you have a handle on Docker and C++ projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
 
-If you follow the URL, you will be served a page saying "Hello, World!". Alternatively you can point your browser to your devices IP address.
-
-You should now have a basic idea of how to deploy a Python application on resin.io. If you feel like you have a handle on docker and Python projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
-
-[simple-server-python-link]:https://github.com/resin-io-projects/simple-server-python
-
+[resin-cpp-hello-world-link]:https://github.com/resin-io-projects/resin-cpp-hello-world
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
-[flask-link]:http://flask.pocoo.org/
+[cpp]:http://www.cplusplus.com/
