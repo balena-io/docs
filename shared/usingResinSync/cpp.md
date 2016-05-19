@@ -6,7 +6,7 @@ Luckily, our nifty little command line tool `resin sync` is here to save the day
 __Note:__ Resin sync will only work on ResinOS v1.1.4+
 and Agent v1.8.0+.
 
-__Warning:__ Resin sync directly copies files from your local machine to the container. It does not run any of the commands in the Docker file. This means that any changes to `.cpp` files will not take effect as the code is not re-compiled.
+__Warning:__ Resin sync directly copies files from your local machine to the container. It does not run any of the commands in the Docker file. This means that any changes to `.cpp` files will **NOT** take effect as the code is not re-compiled.
 
 #### Setting up resin sync.
 
