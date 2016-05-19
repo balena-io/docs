@@ -19,8 +19,8 @@ MAIN_MENU_LINKS = [
     "link": "#{MAIN_SITE}/how-it-works"
   },
   {
-    "title": "Talk",
-    "link": "http://talk.resin.io/"
+    "title": "Community",
+    "link": "https://gitter.im/resin-io/chat"
   },
   {
     "title": "Blog",
