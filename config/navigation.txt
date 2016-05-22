@@ -24,7 +24,7 @@
 Learn
   [/introduction]
 
-  # this URL is handles in redirects.txt
+  # this URL is handled in redirects.txt
   Getting Started[/getting-started]
     # these URLs are for the _same_ dynamic page
     # with $device variable predefined and $language part being dynamic
