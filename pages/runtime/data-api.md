@@ -1,0 +1,676 @@
+# Data API Service
+
+## Introduction
+Resin's Data API Service constitutes a central node in resin architecture, since it provides interconnection between resin services and communication with the database. At the same time, it exposes an HTTP interface, based on Open Data (OData) format, that provides a means to the user to interact with resin resources and fetch or update information regarding their applications, devices and environment variables.
+
+This document aims to describe the endpoints that are provided by the Data API, as well as showing examples of their expected usage.
+
+The requests are expected to follow the OData format, and the responses are provided in JSON format. The authorization token that is required in each request can be found under 'Preferences' in the user's dashboard.
+
+## Interacting with resources
+
+### Resource: Application
+#### Get all applications
+* Summary: Get all applications along with the corresponding information (application name, id, device type, git repository, latest commit)
+* Endpoint: `https://api.resin.io/v1/application`
+* Method: `GET`
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/application"
+-H "Content-Type: application/json" 
+-H "Authorization: Bearer <auth token>"
+```
+
+#### Get application by ID
+* Summary: Get a single application by ID
+* Endpoint: `https://api.resin.io/v1/application(<ID>)`
+* Method: `GET`
+
+Param | Type | Description
+-------|------|------------:
+ID | `INTEGER` | application ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/application(<ID>)"
+-H "Content-Type: application/json"
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get application by name
+* Summary: Get application with the specified name
+* Endpoint: `https://api.resin.io/v1/application?$filter=app_name eq '<name>'`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+name | `STRING` | application name
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/application?\
+$filter=app_name%20eq%20'<name>'" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Create application
+* Summary: Create an application by specifying the name and the device type.
+* Endpoint: `https://api.resin.io/v1/application`
+* Method: `POST` 
+
+Param | Type | Description
+------|------|------------:
+app_name | `STRING` | application name
+device_type | `STRING` | device type
+
+* cURL Example:
+
+```
+curl -X POST 'https://api.resin.io/v1/application' 
+-H 'Content-Type: application/json' 
+-H 'Authorization: Bearer <auth_token>' 
+--data '{"app_name":"<name>", 
+		  "device_type":"<device type>"}'
+```
+
+*The available device types are:*
+
+Device name| Device type
+-------|-----:
+Samsung Artik 10 (BETA) | artik10
+Samsung Artik 5 (BETA) | artik5
+BeagleBone Black | beaglebone-black
+Hummingboard | hummingboard
+Intel Edison | intel-edison
+Intel NUC | intel-nuc
+Nitrogen 6X | nitrogen6x
+ODROID-C1+ | odroid-c1
+ODROID-XU4 | odroid-xu4
+Parallella | parallella
+Raspberry Pi (v1 and Zero) | raspberry-pi
+Raspberry Pi 2 | raspberry-pi2
+Raspberry Pi 3 | raspberrypi3
+Technologic TS-4900 (BETA) | ts4900
+Technologic TS-7700 (BETA) | ts7700
+VIA VAB 820-quad | via-vab820-quad
+Zynq ZC702 | zynq-xz702
+
+
+#### Delete application
+* Summary: Delete a specific application
+* Endpoint: `https://api.resin.io/v1/application(<ID>)`
+* Method: `DELETE`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | application ID
+
+* cURL Example:
+
+```
+curl -X DELETE 'https://api.resin.io/v1/application(<ID>)' 
+-H 'Content-Type: application/json' 
+-H 'Authorization: Bearer <auth_token>'
+```
+
+### Resource: Device
+#### Get all devices
+* Summary: Get all devices with the corresponding information for each device
+* Endpoint: `https://api.resin.io/v1/device`
+* Method: `GET`
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get all devices by application
+* Summary: Get all devices that belong to a specific application, given the application ID
+* Endpoint: `https://api.resin.io/v1/application(<ID>)?$expand=device`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | application ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/application(<ID>)?\$expand=device" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get device by ID
+* Summary: Get a single device by ID
+* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device(<ID)" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get device by name
+* Summary: Get device with the specified name
+* Endpoint: `https://api.resin.io/v1/device?$filter=name eq '<name>'`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+name | `STRING` | device display name
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device?\
+$filter=name%20eq%20'<name>'" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get name
+* Summary: Get device display name
+* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=name`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device(<ID>)?\
+$select=name" 
+-H "Content-Type:application/json"
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get type
+* Summary: Get the device type
+* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=device_type`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device(<ID>)?\
+$select=device_type" 
+-H "Content-Type:application/json"
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get application
+* Summary: Get the application that the device with the specified ID belongs to
+* Endpoint: `https://api.resin.io/v1/application?$filter=device/id eq <ID>`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/application?\
+$filter=device/id%20eq%20<ID>" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Check is_online
+* Summary: Check if the specified device is currently online
+* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=is_online`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device(<ID>)?\
+$select=is_online" 
+-H "Content-Type:application/json"
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get status
+* Summary: Get the current status of the specified device
+* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=status`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device(<ID>)?\
+$select=status" 
+-H "Content-Type:application/json"
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get local IP address
+* Summary: Get the local IP addresses of the specified device
+* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=ip_address`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device(<ID>)?\
+$select=ip_address" 
+-H "Content-Type:application/json"
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Check if web accessible
+* Summary: Check if the specified device is web accessible
+* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=is_web_accessible`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device(<ID>)?\
+$select=is_web_accessible" 
+-H "Content-Type:application/json"
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Identify device
+* Summary: Identify device (blink) given the device UUID
+* Endpoint: `https://api.resin.io/blink`
+* Method: `POST`
+
+Param | Type | Description
+------|------|------------:
+uuid | `STRING` | device UUID
+
+* cURL Example:
+
+```
+curl -X POST "https://api.resin.io/blink" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+--data '{"uuid": "<uuid>"}'
+```
+
+#### Rename device
+* Summary: Rename the device with the specified ID, with the given new name
+* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Method: `PATCH`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+name | `STRING` | device new name
+
+* cURL Example:
+
+```
+curl -X PATCH "https://api.resin.io/v1/device(<ID>)" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+--data '{"name": "<new_name>"}'
+```
+
+#### Delete device
+* Summary: Delete a specific device
+* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Method: `DELETE`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl -X DELETE 'https://api.resin.io/v1/device(<ID>)' 
+-H 'Content-Type: application/json' 
+-H 'Authorization: Bearer <auth_token>'
+```
+
+#### Add note
+* Summary: Add note to a specific device
+* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Method: `PATCH`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+note | `STRING` | device new note
+
+* cURL Example:
+
+```
+curl -X PATCH "https://api.resin.io/v1/device(<ID>)" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>" 
+--data '{"note": "<new note>"}'
+```
+
+#### Restart application
+* Summary: Restart application container on the specified device
+* Endpoint: `https://api.resin.io/device/<ID>/restart`
+* Method: `POST`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl -X POST "https://api.resin.io/device/<ID>/restart"
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Reboot
+* Summary: Reboot the device with the specified UUID
+* Endpoint: `https://api.resin.io/supervisor/v1/reboot`
+* Method: `POST`
+
+Param | Type | Description
+------|------|------------:
+uuid | `STRING` | device UUID
+
+* cURL Example:
+
+```
+curl -X POST "https://api.resin.io/supervisor/v1/reboot" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>" 
+--data '{"uuid": "<uuid>"}'
+```
+
+#### Shutdown
+* Summary: Shutdown the device with the specified UUID
+* Endpoint: `https://api.resin.io/supervisor/v1/shutdown`
+* Method: `POST`
+
+Param | Type | Description
+------|------|------------:
+uuid | `STRING` | device UUID
+
+* cURL Example:
+
+```
+curl -X POST "https://api.resin.io/supervisor/v1/shutdown" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>" 
+--data '{"uuid": "<uuid>"}'
+```
+
+#### Move device
+* Summary: Move the specified device to another application, given the application ID
+* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Method: `PATCH`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+application | `INTEGER` | application ID
+
+* cURL Example:
+
+```
+curl -X PATCH "https://api.resin.io/v1/device(<ID>)"
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>" 
+--data '{"application": <appID>}'
+```
+
+### Resource: Key
+#### Get all keys
+* Summary: Get all ssh keys
+* Endpoint: `https://api.resin.io/v1/user__has__public_key`
+* Method: `GET`
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/user__has__public_key" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get key by ID
+* Summary: Get a single ssh key by ID
+* Endpoint: `https://api.resin.io/v1/user__has__public_key(<ID>)`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | ssh key ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/user__has__public_key(<ID>)" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Create key
+* Summary: Add a new ssh key to the user's account
+* Endpoint: `https://api.resin.io/v1/user__has__public_key`
+* Method: `POST`
+
+Param | Type | Description
+------|------|------------:
+public_key | `STRING` | ssh key
+title | `STRING` | key title
+user | `INTEGER` | user ID
+
+* cURL Example:
+
+```
+curl -X POST "https://api.resin.io/v1/user__has__public_key" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>" 
+--data '{"public_key": "<new ssh key>", 
+         "title": "<key title>", 
+         "user": <userID>}'
+```
+
+#### Remove key
+* Summary: Delete a specific ssh key from user's account
+* Endpoint: `https://api.resin.io/v1/user__has__public_key(<ID>)`
+* Method: `DELETE`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | key ID
+
+* cURL Example:
+
+```
+curl -X DELETE "https://api.resin.io/v1/user__has__public_key(<ID>)" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+### Resource: Environment Variables
+
+#### Get all device variables
+* Summary: Get all environment variables of the device specified by the given id
+* Endpoint: `https://api.resin.io/v1/device_environment_variable?$filter=device eq <ID>`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | device ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/device_environment_variable?\
+$filter=device%20eq%20<ID>" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Create device variable
+* Summary: Create new environment variable with a given name and value, for the given device
+* Endpoint: `https://api.resin.io/v1/device_environment_variable`
+* Method: `POST`
+
+Param | Type | Description
+------|------|------------:
+device | `INTEGER` | device ID
+env_var_name | `STRING` | variable name
+value | `STRING` | variable value
+
+* cURL Example:
+
+```
+curl -X POST "https://api.resin.io/v1/device_environment_variable" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>" 
+--data '{"device": <deviceID>, 
+         "env_var_name": "<name>", 
+         "value": "<value>"}'
+```
+
+#### Update device variable
+* Summary: Update a device environment variable with a new value, given the ID of the variable
+* Endpoint: `https://api.resin.io/v1/device_environment_variable(<ID>)`
+* Method: `PATCH`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | environment variable ID
+value | `STRING` | new variable value
+
+* cURL Example:
+
+```
+curl -X PATCH "https://api.resin.io/v1/device_environment_variable(<ID>)" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+--data '{"value: "<new value>"}'
+```
+
+#### Delete device variable
+* Summary: Remove a device environment variable with a specified ID
+* Endpoint: `https://api.resin.io/v1/device_environment_variable(<ID>)`
+* Method: `DELETE`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | environment variable ID
+
+* cURL Example:
+
+```
+curl -X DELETE "https://api.resin.io/v1/device_environment_variable(<ID>)" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
+
+#### Get all application variables
+* Summary: Get all environment variables of the application specified by application ID
+* Endpoint: `https://api.resin.io/v1/environment_variable?$filter=application eq <ID>`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | application ID
+
+* cURL Example:
+
+```
+curl "https://api.resin.io/v1/environment_variable?\
+$filter=application%20eq%20<ID>" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>" 
+```
+
+#### Create application variable
+* Summary: Create new environment variable with a given name and value, for the given application
+* Endpoint: `https://api.resin.io/v1/environment_variable`
+* Method: `POST`
+
+Param | Type | Description
+------|------|------------:
+application | `INTEGER` | application ID
+name | `STRING` | variable name
+value | `STRING` | variable value
+
+* cURL Example:
+
+```
+curl -X POST "https://api.resin.io/v1/environment_variable" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>" 
+--data '{"application": <appID>, 
+         "name": "<name>", 
+         "value": "<value>"}'
+```
+
+#### Update application variable
+* Summary: Update an application environment variable with a new value, given the ID of the variable
+* Endpoint: `https://api.resin.io/v1/environment_variable(<ID>)`
+* Method: `PATCH`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | environment variable ID
+
+* cURL Example:
+
+```
+curl -X PATCH "https://api.resin.io/v1/environment_variable(<ID>)" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+--data '{"value: "<new value>"}'
+```
+
+#### Delete application variable
+* Summary: Remove an application environment variable with a specified ID
+* Endpoint: `https://api.resin.io/v1/environment_variable(<ID>)`
+* Method: `DELETE`
+
+Param | Type | Description
+------|------|------------:
+ID | `INTEGER` | environment variable ID
+
+* cURL Example:
+
+```
+curl -X DELETE "https://api.resin.io/v1/environment_variable(<ID>)" 
+-H "Content-Type:application/json" 
+-H "Authorization: Bearer <auth_token>"
+```
