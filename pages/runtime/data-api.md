@@ -1,7 +1,7 @@
 # Data API Service
 
 ## Introduction
-Resin's Data API Service constitutes a central node in resin architecture, since it provides interconnection between resin services and communication with the database. At the same time, it exposes an HTTP interface, based on Open Data (OData) format, that provides a means to the user to interact with resin resources and fetch or update information regarding their applications, devices and environment variables.
+Resin's Data API Service constitutes a central node in resin architecture, since it provides interconnection between resin services and communication with the database. At the same time, it exposes an HTTP interface, based on Open Data ([OData](http://www.odata.org)) format, that provides a means to the user to interact with resin resources and fetch or update information regarding their applications, devices and environment variables.
 
 This document aims to describe the endpoints that are provided by the Data API, as well as showing examples of their expected usage.
 
