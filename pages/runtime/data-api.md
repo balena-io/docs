@@ -51,9 +51,8 @@ name | `STRING` | application name
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/application?\
-$filter=app_name%20eq%20'<name>'" 
--H "Content-Type:application/json" 
+curl "https://api.resin.io/v1/application?\$filter=app_name%20eq%20'<name>'" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -126,7 +125,7 @@ curl -X DELETE 'https://api.resin.io/v1/application(<ID>)'
 
 ```
 curl "https://api.resin.io/v1/device" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -143,7 +142,7 @@ ID | `INTEGER` | application ID
 
 ```
 curl "https://api.resin.io/v1/application(<ID>)?\$expand=device" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -159,8 +158,8 @@ ID | `INTEGER` | device ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/device(<ID)" 
--H "Content-Type:application/json" 
+curl "https://api.resin.io/v1/device(<ID>)" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -176,9 +175,8 @@ name | `STRING` | device display name
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/device?\
-$filter=name%20eq%20'<name>'" 
--H "Content-Type:application/json" 
+curl "https://api.resin.io/v1/device?\$filter=name%20eq%20'<name>'" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -194,9 +192,8 @@ ID | `INTEGER` | device ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/device(<ID>)?\
-$select=name" 
--H "Content-Type:application/json"
+curl "https://api.resin.io/v1/device(<ID>)?\$select=name" 
+-H "Content-Type: application/json"
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -212,9 +209,8 @@ ID | `INTEGER` | device ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/device(<ID>)?\
-$select=device_type" 
--H "Content-Type:application/json"
+curl "https://api.resin.io/v1/device(<ID>)?\$select=device_type" 
+-H "Content-Type: application/json"
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -230,9 +226,8 @@ ID | `INTEGER` | device ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/application?\
-$filter=device/id%20eq%20<ID>" 
--H "Content-Type:application/json" 
+curl "https://api.resin.io/v1/application?\$filter=device/id%20eq%20<ID>" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -248,9 +243,8 @@ ID | `INTEGER` | device ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/device(<ID>)?\
-$select=is_online" 
--H "Content-Type:application/json"
+curl "https://api.resin.io/v1/device(<ID>)?\$select=is_online" 
+-H "Content-Type: application/json"
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -266,9 +260,8 @@ ID | `INTEGER` | device ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/device(<ID>)?\
-$select=status" 
--H "Content-Type:application/json"
+curl "https://api.resin.io/v1/device(<ID>)?\$select=status" 
+-H "Content-Type: application/json"
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -284,9 +277,8 @@ ID | `INTEGER` | device ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/device(<ID>)?\
-$select=ip_address" 
--H "Content-Type:application/json"
+curl "https://api.resin.io/v1/device(<ID>)?\$select=ip_address" 
+-H "Content-Type: application/json"
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -302,9 +294,8 @@ ID | `INTEGER` | device ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/device(<ID>)?\
-$select=is_web_accessible" 
--H "Content-Type:application/json"
+curl "https://api.resin.io/v1/device(<ID>)?\$select=is_web_accessible" 
+-H "Content-Type: application/json"
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -321,7 +312,7 @@ uuid | `STRING` | device UUID
 
 ```
 curl -X POST "https://api.resin.io/blink" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 --data '{"uuid": "<uuid>"}'
 ```
@@ -340,7 +331,7 @@ name | `STRING` | device new name
 
 ```
 curl -X PATCH "https://api.resin.io/v1/device(<ID>)" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 --data '{"name": "<new_name>"}'
 ```
@@ -376,7 +367,7 @@ note | `STRING` | device new note
 
 ```
 curl -X PATCH "https://api.resin.io/v1/device(<ID>)" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>" 
 --data '{"note": "<new note>"}'
 ```
@@ -394,7 +385,7 @@ ID | `INTEGER` | device ID
 
 ```
 curl -X POST "https://api.resin.io/device/<ID>/restart"
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -411,7 +402,7 @@ uuid | `STRING` | device UUID
 
 ```
 curl -X POST "https://api.resin.io/supervisor/v1/reboot" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>" 
 --data '{"uuid": "<uuid>"}'
 ```
@@ -429,7 +420,7 @@ uuid | `STRING` | device UUID
 
 ```
 curl -X POST "https://api.resin.io/supervisor/v1/shutdown" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>" 
 --data '{"uuid": "<uuid>"}'
 ```
@@ -448,7 +439,7 @@ application | `INTEGER` | application ID
 
 ```
 curl -X PATCH "https://api.resin.io/v1/device(<ID>)"
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>" 
 --data '{"application": <appID>}'
 ```
@@ -462,7 +453,7 @@ curl -X PATCH "https://api.resin.io/v1/device(<ID>)"
 
 ```
 curl "https://api.resin.io/v1/user__has__public_key" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -479,7 +470,7 @@ ID | `INTEGER` | ssh key ID
 
 ```
 curl "https://api.resin.io/v1/user__has__public_key(<ID>)" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -498,7 +489,7 @@ user | `INTEGER` | user ID
 
 ```
 curl -X POST "https://api.resin.io/v1/user__has__public_key" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>" 
 --data '{"public_key": "<new ssh key>", 
          "title": "<key title>", 
@@ -518,7 +509,7 @@ ID | `INTEGER` | key ID
 
 ```
 curl -X DELETE "https://api.resin.io/v1/user__has__public_key(<ID>)" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -536,9 +527,8 @@ ID | `INTEGER` | device ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/device_environment_variable?\
-$filter=device%20eq%20<ID>" 
--H "Content-Type:application/json" 
+curl "https://api.resin.io/v1/device_environment_variable?\$filter=device%20eq%20<ID>" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -557,7 +547,7 @@ value | `STRING` | variable value
 
 ```
 curl -X POST "https://api.resin.io/v1/device_environment_variable" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>" 
 --data '{"device": <deviceID>, 
          "env_var_name": "<name>", 
@@ -578,7 +568,7 @@ value | `STRING` | new variable value
 
 ```
 curl -X PATCH "https://api.resin.io/v1/device_environment_variable(<ID>)" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 --data '{"value: "<new value>"}'
 ```
@@ -596,7 +586,7 @@ ID | `INTEGER` | environment variable ID
 
 ```
 curl -X DELETE "https://api.resin.io/v1/device_environment_variable(<ID>)" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
 
@@ -612,9 +602,8 @@ ID | `INTEGER` | application ID
 * cURL Example:
 
 ```
-curl "https://api.resin.io/v1/environment_variable?\
-$filter=application%20eq%20<ID>" 
--H "Content-Type:application/json" 
+curl "https://api.resin.io/v1/environment_variable?\$filter=application%20eq%20<ID>" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>" 
 ```
 
@@ -633,7 +622,7 @@ value | `STRING` | variable value
 
 ```
 curl -X POST "https://api.resin.io/v1/environment_variable" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>" 
 --data '{"application": <appID>, 
          "name": "<name>", 
@@ -653,7 +642,7 @@ ID | `INTEGER` | environment variable ID
 
 ```
 curl -X PATCH "https://api.resin.io/v1/environment_variable(<ID>)" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 --data '{"value: "<new value>"}'
 ```
@@ -671,6 +660,6 @@ ID | `INTEGER` | environment variable ID
 
 ```
 curl -X DELETE "https://api.resin.io/v1/environment_variable(<ID>)" 
--H "Content-Type:application/json" 
+-H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
