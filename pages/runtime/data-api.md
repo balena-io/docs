@@ -7,12 +7,19 @@ This document aims to describe the endpoints that are provided by the Data API, 
 
 The requests are expected to follow the OData format, and the responses are provided in JSON format. The authorization token that is required in each request can be found under 'Preferences' in the user's dashboard.
 
+### Base URL
+The base URL for accessing the Data API is:
+
+`https://api.resin.io/v1/`
+
+Building the full URLs for accessing resources requires to append the corresponding endpoints to the base URL.
+
 ## Interacting with resources
 
 ### Resource: Application
 #### Get all applications
 * Summary: Get all applications along with the corresponding information (application name, id, device type, git repository, latest commit)
-* Endpoint: `https://api.resin.io/v1/application`
+* Endpoint: `/application`
 * Method: `GET`
 * cURL Example:
 
@@ -24,7 +31,7 @@ curl "https://api.resin.io/v1/application"
 
 #### Get application by ID
 * Summary: Get a single application by ID
-* Endpoint: `https://api.resin.io/v1/application(<ID>)`
+* Endpoint: `/application(<ID>)`
 * Method: `GET`
 
 Param | Type | Description
@@ -41,7 +48,7 @@ curl "https://api.resin.io/v1/application(<ID>)"
 
 #### Get application by name
 * Summary: Get application with the specified name
-* Endpoint: `https://api.resin.io/v1/application?$filter=app_name eq '<name>'`
+* Endpoint: `/application?$filter=app_name eq '<name>'`
 * Method: `GET`
 
 Param | Type | Description
@@ -58,7 +65,7 @@ curl "https://api.resin.io/v1/application?\$filter=app_name%20eq%20'<name>'"
 
 #### Create application
 * Summary: Create an application by specifying the name and the device type.
-* Endpoint: `https://api.resin.io/v1/application`
+* Endpoint: `/application`
 * Method: `POST` 
 
 Param | Type | Description
@@ -101,7 +108,7 @@ Zynq ZC702 | zynq-xz702
 
 #### Delete application
 * Summary: Delete a specific application
-* Endpoint: `https://api.resin.io/v1/application(<ID>)`
+* Endpoint: `/application(<ID>)`
 * Method: `DELETE`
 
 Param | Type | Description
@@ -119,7 +126,7 @@ curl -X DELETE 'https://api.resin.io/v1/application(<ID>)'
 ### Resource: Device
 #### Get all devices
 * Summary: Get all devices with the corresponding information for each device
-* Endpoint: `https://api.resin.io/v1/device`
+* Endpoint: `/device`
 * Method: `GET`
 * cURL Example:
 
@@ -131,7 +138,7 @@ curl "https://api.resin.io/v1/device"
 
 #### Get all devices by application
 * Summary: Get all devices that belong to a specific application, given the application ID
-* Endpoint: `https://api.resin.io/v1/application(<ID>)?$expand=device`
+* Endpoint: `/application(<ID>)?$expand=device`
 * Method: `GET`
 
 Param | Type | Description
@@ -148,7 +155,7 @@ curl "https://api.resin.io/v1/application(<ID>)?\$expand=device"
 
 #### Get device by ID
 * Summary: Get a single device by ID
-* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Endpoint: `/device(<ID>)`
 * Method: `GET`
 
 Param | Type | Description
@@ -165,7 +172,7 @@ curl "https://api.resin.io/v1/device(<ID>)"
 
 #### Get device by name
 * Summary: Get device with the specified name
-* Endpoint: `https://api.resin.io/v1/device?$filter=name eq '<name>'`
+* Endpoint: `/device?$filter=name eq '<name>'`
 * Method: `GET`
 
 Param | Type | Description
@@ -182,7 +189,7 @@ curl "https://api.resin.io/v1/device?\$filter=name%20eq%20'<name>'"
 
 #### Get name
 * Summary: Get device display name
-* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=name`
+* Endpoint: `/device(<ID>)?$select=name`
 * Method: `GET`
 
 Param | Type | Description
@@ -199,7 +206,7 @@ curl "https://api.resin.io/v1/device(<ID>)?\$select=name"
 
 #### Get type
 * Summary: Get the device type
-* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=device_type`
+* Endpoint: `/device(<ID>)?$select=device_type`
 * Method: `GET`
 
 Param | Type | Description
@@ -216,7 +223,7 @@ curl "https://api.resin.io/v1/device(<ID>)?\$select=device_type"
 
 #### Get application
 * Summary: Get the application that the device with the specified ID belongs to
-* Endpoint: `https://api.resin.io/v1/application?$filter=device/id eq <ID>`
+* Endpoint: `/application?$filter=device/id eq <ID>`
 * Method: `GET`
 
 Param | Type | Description
@@ -233,7 +240,7 @@ curl "https://api.resin.io/v1/application?\$filter=device/id%20eq%20<ID>"
 
 #### Check is_online
 * Summary: Check if the specified device is currently online
-* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=is_online`
+* Endpoint: `/device(<ID>)?$select=is_online`
 * Method: `GET`
 
 Param | Type | Description
@@ -250,7 +257,7 @@ curl "https://api.resin.io/v1/device(<ID>)?\$select=is_online"
 
 #### Get status
 * Summary: Get the current status of the specified device
-* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=status`
+* Endpoint: `/device(<ID>)?$select=status`
 * Method: `GET`
 
 Param | Type | Description
@@ -267,7 +274,7 @@ curl "https://api.resin.io/v1/device(<ID>)?\$select=status"
 
 #### Get local IP address
 * Summary: Get the local IP addresses of the specified device
-* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=ip_address`
+* Endpoint: `/device(<ID>)?$select=ip_address`
 * Method: `GET`
 
 Param | Type | Description
@@ -284,7 +291,7 @@ curl "https://api.resin.io/v1/device(<ID>)?\$select=ip_address"
 
 #### Check if web accessible
 * Summary: Check if the specified device is web accessible
-* Endpoint: `https://api.resin.io/v1/device(<ID>)?$select=is_web_accessible`
+* Endpoint: `/device(<ID>)?$select=is_web_accessible`
 * Method: `GET`
 
 Param | Type | Description
@@ -319,7 +326,7 @@ curl -X POST "https://api.resin.io/blink"
 
 #### Rename device
 * Summary: Rename the device with the specified ID, with the given new name
-* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Endpoint: `/device(<ID>)`
 * Method: `PATCH`
 
 Param | Type | Description
@@ -338,7 +345,7 @@ curl -X PATCH "https://api.resin.io/v1/device(<ID>)"
 
 #### Delete device
 * Summary: Delete a specific device
-* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Endpoint: `/device(<ID>)`
 * Method: `DELETE`
 
 Param | Type | Description
@@ -355,7 +362,7 @@ curl -X DELETE 'https://api.resin.io/v1/device(<ID>)'
 
 #### Add note
 * Summary: Add note to a specific device
-* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Endpoint: `/device(<ID>)`
 * Method: `PATCH`
 
 Param | Type | Description
@@ -427,7 +434,7 @@ curl -X POST "https://api.resin.io/supervisor/v1/shutdown"
 
 #### Move device
 * Summary: Move the specified device to another application, given the application ID
-* Endpoint: `https://api.resin.io/v1/device(<ID>)`
+* Endpoint: `/device(<ID>)`
 * Method: `PATCH`
 
 Param | Type | Description
@@ -447,7 +454,7 @@ curl -X PATCH "https://api.resin.io/v1/device(<ID>)"
 ### Resource: Key
 #### Get all keys
 * Summary: Get all ssh keys
-* Endpoint: `https://api.resin.io/v1/user__has__public_key`
+* Endpoint: `/user__has__public_key`
 * Method: `GET`
 * cURL Example:
 
@@ -459,7 +466,7 @@ curl "https://api.resin.io/v1/user__has__public_key"
 
 #### Get key by ID
 * Summary: Get a single ssh key by ID
-* Endpoint: `https://api.resin.io/v1/user__has__public_key(<ID>)`
+* Endpoint: `/user__has__public_key(<ID>)`
 * Method: `GET`
 
 Param | Type | Description
@@ -476,7 +483,7 @@ curl "https://api.resin.io/v1/user__has__public_key(<ID>)"
 
 #### Create key
 * Summary: Add a new ssh key to the user's account
-* Endpoint: `https://api.resin.io/v1/user__has__public_key`
+* Endpoint: `/user__has__public_key`
 * Method: `POST`
 
 Param | Type | Description
@@ -498,7 +505,7 @@ curl -X POST "https://api.resin.io/v1/user__has__public_key"
 
 #### Remove key
 * Summary: Delete a specific ssh key from user's account
-* Endpoint: `https://api.resin.io/v1/user__has__public_key(<ID>)`
+* Endpoint: `/user__has__public_key(<ID>)`
 * Method: `DELETE`
 
 Param | Type | Description
@@ -517,7 +524,7 @@ curl -X DELETE "https://api.resin.io/v1/user__has__public_key(<ID>)"
 
 #### Get all device variables
 * Summary: Get all environment variables of the device specified by the given id
-* Endpoint: `https://api.resin.io/v1/device_environment_variable?$filter=device eq <ID>`
+* Endpoint: `/device_environment_variable?$filter=device eq <ID>`
 * Method: `GET`
 
 Param | Type | Description
@@ -534,7 +541,7 @@ curl "https://api.resin.io/v1/device_environment_variable?\$filter=device%20eq%2
 
 #### Create device variable
 * Summary: Create new environment variable with a given name and value, for the given device
-* Endpoint: `https://api.resin.io/v1/device_environment_variable`
+* Endpoint: `/device_environment_variable`
 * Method: `POST`
 
 Param | Type | Description
@@ -556,7 +563,7 @@ curl -X POST "https://api.resin.io/v1/device_environment_variable"
 
 #### Update device variable
 * Summary: Update a device environment variable with a new value, given the ID of the variable
-* Endpoint: `https://api.resin.io/v1/device_environment_variable(<ID>)`
+* Endpoint: `/device_environment_variable(<ID>)`
 * Method: `PATCH`
 
 Param | Type | Description
@@ -575,7 +582,7 @@ curl -X PATCH "https://api.resin.io/v1/device_environment_variable(<ID>)"
 
 #### Delete device variable
 * Summary: Remove a device environment variable with a specified ID
-* Endpoint: `https://api.resin.io/v1/device_environment_variable(<ID>)`
+* Endpoint: `/device_environment_variable(<ID>)`
 * Method: `DELETE`
 
 Param | Type | Description
@@ -592,7 +599,7 @@ curl -X DELETE "https://api.resin.io/v1/device_environment_variable(<ID>)"
 
 #### Get all application variables
 * Summary: Get all environment variables of the application specified by application ID
-* Endpoint: `https://api.resin.io/v1/environment_variable?$filter=application eq <ID>`
+* Endpoint: `/environment_variable?$filter=application eq <ID>`
 * Method: `GET`
 
 Param | Type | Description
@@ -609,7 +616,7 @@ curl "https://api.resin.io/v1/environment_variable?\$filter=application%20eq%20<
 
 #### Create application variable
 * Summary: Create new environment variable with a given name and value, for the given application
-* Endpoint: `https://api.resin.io/v1/environment_variable`
+* Endpoint: `/environment_variable`
 * Method: `POST`
 
 Param | Type | Description
@@ -631,7 +638,7 @@ curl -X POST "https://api.resin.io/v1/environment_variable"
 
 #### Update application variable
 * Summary: Update an application environment variable with a new value, given the ID of the variable
-* Endpoint: `https://api.resin.io/v1/environment_variable(<ID>)`
+* Endpoint: `/environment_variable(<ID>)`
 * Method: `PATCH`
 
 Param | Type | Description
@@ -649,7 +656,7 @@ curl -X PATCH "https://api.resin.io/v1/environment_variable(<ID>)"
 
 #### Delete application variable
 * Summary: Remove an application environment variable with a specified ID
-* Endpoint: `https://api.resin.io/v1/environment_variable(<ID>)`
+* Endpoint: `/environment_variable(<ID>)`
 * Method: `DELETE`
 
 Param | Type | Description
