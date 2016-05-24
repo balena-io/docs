@@ -21,7 +21,7 @@
 {% endmacro %}
 
 <div class="form-inline dynamic-switch__form js-dynamic-switch"
-  data-url-template="{{ $url_template }}">
+  data-url-template="/{{ $ref_template }}">
   <div class="form-group">
     {% for part in $switch_text %}
       {% if loop.index % 2 %}
@@ -30,7 +30,7 @@
         {{ select(
           part,
           $dictionaries.getDict(part),
-          $axes_values[part] || $dictionaries.getDefault(part)
+          $variables[part] || $dictionaries.getDefault(part)
         ) }}
       {% endif %}
     {% endfor %}

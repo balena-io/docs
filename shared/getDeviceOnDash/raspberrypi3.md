@@ -1,10 +1,10 @@
 ## Setting Up Your Device
 
-Insert the SD card into the {{ $device_details.name }} and connect either the ethernet cable if necessary. Now power up the {{ $device_details.name }} by inserting the micro USB cable.
+Insert the SD card into the {{ $device.name }} and connect either the ethernet cable if necessary. Now power up the {{ $device.name }} by inserting the micro USB cable.
 
 ![insert SD](/img/gifs/insert-sd.gif)
 
-It will take a minute or two for the {{ $device_details.name }} to appear on your [resin.io dashboard][resinDash]. While you wait the resinOS is expanding the partitions on your SD card to use all available space, installing a custom linux environment and establishing a secure connection with our servers.
+It will take a minute or two for the {{ $device.name }} to appear on your [resin.io dashboard][resinDash]. While you wait the resinOS is expanding the partitions on your SD card to use all available space, installing a custom linux environment and establishing a secure connection with our servers.
 
 You should now be ready to deploy some code!
 

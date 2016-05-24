@@ -11,11 +11,11 @@ If we look at our `Dockerfile.template`, the first thing we see is:
 ```
 FROM resin/%%RESIN_MACHINE_NAME%%-python
 ```
-This line has quite a bit packed into it. The first thing that happens is that the `%%RESIN_MACHINE_NAME%%` place holder gets stripped and replaced with the resin device name. For example if your application type is a {{ $device_details.name }}, the line will be replaced with:
+This line has quite a bit packed into it. The first thing that happens is that the `%%RESIN_MACHINE_NAME%%` place holder gets stripped and replaced with the resin device name. For example if your application type is a {{ $device.name }}, the line will be replaced with:
 ```
-FROM resin/{{ $device_details.id }}-python
+FROM resin/{{ $device.id }}-python
 ```
-Which tells the resin builder that this is the docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching dockerhub base images][resinDockerHub]. For this image we don't define a tag, so `:latest` will be used, but there are [many other tags](https://hub.docker.com/r/resin/{{ $device_details.id }}-python/tags/), which allow you to specify the python version, etc.
+Which tells the resin builder that this is the docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching dockerhub base images][resinDockerHub]. For this image we don't define a tag, so `:latest` will be used, but there are [many other tags](https://hub.docker.com/r/resin/{{ $device.id }}-python/tags/), which allow you to specify the python version, etc.
 
 Next up we have 3 line which were commented out:
 ```
@@ -53,7 +53,7 @@ After the `pip install` we copy the rest of our source code into the working dir
 
 The last 2 commands are runtime directives. The `ENV INITSYSTEM on` is used to enable the [systemd][systemd-link] init within the container. This is useful for a number of reasons, like keeping the container open after application crash and handling `/dev` updates as new USB devices are plugged in. If you want don't want an init system, just set it to `off` or remove the line for the `Dockerfile`.
 
-The last command, `CMD` is perhaps one of the most important. This command defines what will run at container start on your {{ $device_details.name }}, in our example we have told python to run the `src/main.py` script. It should be noted that you can only have **one** `CMD` per `Dockerfile`.
+The last command, `CMD` is perhaps one of the most important. This command defines what will run at container start on your {{ $device.name }}, in our example we have told python to run the `src/main.py` script. It should be noted that you can only have **one** `CMD` per `Dockerfile`.
 
 In our `requirements.txt` we only have the one line that specifies a version of [Flask][flask-link] to use, its highly recommended to pin to specific dependency versions, so your builds are reproducible:
 ```
