@@ -307,22 +307,7 @@ curl "https://api.resin.io/v1/device(<ID>)?\$select=is_web_accessible"
 ```
 
 #### Identify device
-* Summary: Identify device (blink) given the device UUID
-* Endpoint: `https://api.resin.io/blink`
-* Method: `POST`
-
-Param | Type | Description
-------|------|------------:
-uuid | `STRING` | device UUID
-
-* cURL Example:
-
-```
-curl -X POST "https://api.resin.io/blink" 
--H "Content-Type: application/json" 
--H "Authorization: Bearer <auth_token>"
---data '{"uuid": "<uuid>"}'
-```
+* Summary: Starts a blink pattern on a LED for 15 seconds, if your device has one. Please refer to the [corresponding endpoint](/runtime/supervisor-api/#post-v1-blink) of the Agent API.
 
 #### Rename device
 * Summary: Rename the device with the specified ID, with the given new name
@@ -380,57 +365,14 @@ curl -X PATCH "https://api.resin.io/v1/device(<ID>)"
 ```
 
 #### Restart application
-* Summary: Restart application container on the specified device
-* Endpoint: `https://api.resin.io/device/<ID>/restart`
-* Method: `POST`
-
-Param | Type | Description
-------|------|------------:
-ID | `INTEGER` | device ID
-
-* cURL Example:
-
-```
-curl -X POST "https://api.resin.io/device/<ID>/restart"
--H "Content-Type: application/json" 
--H "Authorization: Bearer <auth_token>"
-```
+* Summary: Restart application container. Please refer to the [corresponding endpoint](/runtime/supervisor-api/#post-v1-restart) of the Agent API.
 
 #### Reboot
-* Summary: Reboot the device with the specified UUID
-* Endpoint: `https://api.resin.io/supervisor/v1/reboot`
-* Method: `POST`
+* Summary: Reboot the device. Please refer to the [corresponding endpoint](/runtime/supervisor-api/#post-v1-reboot) of the Agent API.
 
-Param | Type | Description
-------|------|------------:
-uuid | `STRING` | device UUID
-
-* cURL Example:
-
-```
-curl -X POST "https://api.resin.io/supervisor/v1/reboot" 
--H "Content-Type: application/json" 
--H "Authorization: Bearer <auth_token>" 
---data '{"uuid": "<uuid>"}'
-```
 
 #### Shutdown
-* Summary: Shutdown the device with the specified UUID
-* Endpoint: `https://api.resin.io/supervisor/v1/shutdown`
-* Method: `POST`
-
-Param | Type | Description
-------|------|------------:
-uuid | `STRING` | device UUID
-
-* cURL Example:
-
-```
-curl -X POST "https://api.resin.io/supervisor/v1/shutdown" 
--H "Content-Type: application/json" 
--H "Authorization: Bearer <auth_token>" 
---data '{"uuid": "<uuid>"}'
-```
+* Summary: Shut down the device. Please refer to the [corresponding endpoint](/runtime/supervisor-api/#post-v1-shutdown) of the Agent API.
 
 #### Move device
 * Summary: Move the specified device to another application, given the application ID
