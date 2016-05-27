@@ -87,6 +87,7 @@ FAQ
 Reference
   Supported Devices[/hardware/devices]
   Device Agent API[/runtime/supervisor-api]
+  API [/runtime/data-api]
   CLI Reference[/tools/cli]
   Node.js SDK[/tools/sdk]
   Python SDK[/tools/python-sdk]
