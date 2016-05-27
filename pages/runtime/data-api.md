@@ -238,8 +238,8 @@ curl "{{ $links.apiBase }}application?\$filter=device/id%20eq%20<ID>"
 -H "Authorization: Bearer <auth_token>"
 ```
 
-#### Check is_online
-* Summary: Check if the specified device is currently online
+#### Check if device is connected to VPN
+* Summary: Check if the specified device is currently online and connected to the VPN
 * Endpoint: `/device(<ID>)?$select=is_online`
 * Method: `GET`
 
