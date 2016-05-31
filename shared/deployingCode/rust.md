@@ -2,19 +2,19 @@
 
 Now that we have a device or two connected to a resin.io application, lets deploy some code and actually start building something.
 
-A nice first project to get your feet wet is a simple [C++][cpp] hello world program which will print a `Hello, world!` message to the logs on the dashboard. All the project source code can be found [here on github] [resin-cpp-hello-world-link].
+A nice first project to get your feet wet is a simple [Rust][rust] hello world program which will print a `Hello, world!` message to the logs on the dashboard. All the project source code can be found [here on github] [resin-rust-hello-world-link].
 
 To clone the project, run the following command in a terminal or your preferred git client:
 
 ```
-git clone https://github.com/resin-io-projects/resin-cpp-hello-world.git
+git clone https://github.com/resin-io-projects/resin-rust-hello-world
 ```
 
-Once the repo is cloned, change directory into the newly created `resin-cpp-hello-world` directory and add the resin git remote endpoint by running the command `git remote add` shown in
+Once the repo is cloned, change directory into the newly created `resin-rust-hello-world` directory and add the resin git remote endpoint by running the command `git remote add` shown in
 the top-right corner of your application page, here's an example:
 
 ```
-cd resin-cpp-hello-world
+cd resin-rust-hello-world
 
 git remote add resin charlie1@git.resin.io:charlie1/myfleet.git
 ```
@@ -45,8 +45,8 @@ Your application will now be downloaded and executed by all the devices you have
 
 You should now have the hello world program running on your device and see some logs, including the `Hello, world!` message, on your dashboard.
 
-You should now have a basic idea of how to deploy a C++ application on resin.io. If you feel like you have a handle on Docker and C++ projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
+You should now have a basic idea of how to deploy a Rust application on resin.io. If you feel like you have a handle on Docker and Rust projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
 
-[resin-cpp-hello-world-link]:https://github.com/resin-io-projects/resin-cpp-hello-world
+[resin-rust-hello-world-link]:https://github.com/resin-io-projects/resin-rust-hello-world
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
-[cpp]:http://www.cplusplus.com/
+[rust]:https://www.rust-lang.org/
