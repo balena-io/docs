@@ -7,16 +7,15 @@ A nice first project to get your feet wet is a simple [Flask][flask-link] web se
 To clone the project, run the following command in a terminal or your preferred git client:
 
 ```
-git clone https://github.com/resin-io-projects/simple-server-python.git
+$ git clone https://github.com/resin-io-projects/simple-server-python.git
 ```
 
 Once the repo is cloned, change directory into the newly created `simple-server-python` directory and add the resin git remote endpoint by running the command `git remote add` shown in
 the top-right corner of your application page, here's an example:
 
 ```
-cd simple-server-python
-
-git remote add resin charlie1@git.resin.io:charlie1/myfleet.git
+$ cd simple-server-python
+$ git remote add resin charlie1@git.resin.io:charlie1/myfleet.git
 ```
 __Note:__ On other git clients there may be an alternative way to add a remote repository.
 
@@ -24,7 +23,7 @@ So now we have set up a reference in our local git repository (the one on our de
 
 Now to deploy this code to all device(s) in the application just run the command:
 ```
-git push resin master
+$ git push resin master
 ```
 
 If this fails, you may need to force the push by running `git push resin master --force`.
