@@ -53,9 +53,14 @@ For an example of this, check our this project: [digitiser][digitiser-link].
 
 ### 1-wire and Digital Temperature sensors
 
-To enable the DS18x20 temperature sensors, you need to add:
-`modprobe w1-gpio && modprobe w1-therm `
-before your start scripts in either your package.json or Dockerfile `CMD` command.
+In order to work work with 1-wire and digital temperature sensors you will need to do the following:
+
+* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following lines.
+
+```
+dtoverlay=w1-gpio
+```
+* Add `modprobe w1-gpio && modprobe w1-therm` before your start scripts in either your package.json start command or Dockerfile `CMD` command.
 
 An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-link] project.
 
@@ -175,12 +180,15 @@ SLOTS=/sys/devices/platform/bone_capemgr/slots
 ## Intel Edison
 ### MRAA for GPIO and hardware access
 The best and easiest way to interface with GPIO, I2C, SPI or UART on the Intel Edison is to use the
-[MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applcations that
+[MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applications that
 interact directly with the Edison hardware.
 
 If you use our [resin/edison-node][resin-dockerbase-node] or [resin/edison-python][resin-dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
 
 Have a look at this [python example](https://github.com/shaunmulligan/hello-python-edison) or this [node.js example](https://github.com/shaunmulligan/edison-blink-node) to get started.
+
+### UPM for high level sensor and actuator libraries
+Intel provides the [UPM library][upm-link] which contains software drivers for a wide variety of commonly used sensors and actuators. These software drivers interact with the underlying hardware platform (or microcontroller), as well as with the attached sensors, through calls to [MRAA APIs][mraa-link].
 
 ### Edison in USB Host mode
 
@@ -222,5 +230,6 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 [spi-npm]:https://www.npmjs.com/package/spi
 [picamera-link]:https://github.com/resin-io-projects/resin-rpi-python-picamera
 [mraa-link]:https://github.com/intel-iot-devkit/mraa
+[upm-link]:https://github.com/intel-iot-devkit/upm
 [resin-dockerbase-node]:https://hub.docker.com/r/resin/edison-node/
 [resin-dockerbase-python]:https://hub.docker.com/r/resin/edison-python/

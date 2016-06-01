@@ -12,8 +12,6 @@ Recommended ways of interacting with GPIO on resin.io devices.
 
 ## Raspberry Pi
 
-__NOTE:__ The `GPIO4` and `GPIO5` ports (`GPIO5` is only available on the B+ and Raspberry Pi 2 devices) are currently reserved by us and therefore unavailable for use, attempts to use these pins will result in `EBUSY` error codes. We will soon remove this restriction, but for the time being avoid using these.
-
 The [Raspberry Pi][rpi]'s [General Purpose I/O][gpio] (GPIO) pins can be used to send and receive arbitrary data from external hardware. In the diagram shown below the GPIO pins are located in the top-right hand corner of the device:-
 
 ![Raspberry Pi](/img/rpi.svg)

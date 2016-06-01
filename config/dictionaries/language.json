@@ -8,5 +8,10 @@
     "id": "python",
     "name": "Python",
     "icon": "/img/language/python.svg"
+  },
+  {
+    "id": "cpp",
+    "name": "C++",
+    "icon": "/img/language/c++.svg"
   }
 ]

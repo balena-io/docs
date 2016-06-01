@@ -25,7 +25,7 @@ You will then have to enter your github username into the prompt:
 
 <img src="/img/common/sign_up_flow/enter_github_username_cropped.png" width="60%">
 
-If you don't have a ssh key setup yet, but want to explore resin.io, just click `skip`. Note that you will not be able to push code to your {{ $device_details.name }} until you have a ssh key saved. This can be done at anytime from the [`Preferences`][prefsPage] page on the dashboard.
+If you don't have a ssh key setup yet, but want to explore resin.io, just click `skip`. Note that you will not be able to push code to your {{ $device.name }} until you have a ssh key saved. This can be done at anytime from the [`Preferences`][prefsPage] page on the dashboard.
 
 [pub_key_crypto]:http://en.wikipedia.org/wiki/Public-key_cryptography
 [git]:http://git-scm.com/

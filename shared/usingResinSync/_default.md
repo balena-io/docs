@@ -10,6 +10,8 @@ and Agent v1.8.0+.
 
 Resin sync is bundled in with our handy resin CLI. The CLI allows you to basically do all your resin.io management from the comfort of the command line. Read the [CLI reference][cli-ref-link] more info on all the cool things it can do.
 
+__Warning:__ Currently resin sync is **NOT** supported on Windows. Support is currently being worked on, you can check the progress on this [branch of the repo](https://github.com/resin-io-modules/resin-sync/blob/feat/windows-support/README.md#windows).
+
 To install resin CLI and sync you need at least [`node.js 4.0.0`][nodejs-link] on your development machine, then run:
 ```
 npm install --global --production resin-cli
@@ -63,6 +65,8 @@ Your new code changes should be up an running in under 30 seconds, **Great succe
 * Resin sync will try its best to infer which device you want to sync with, but if you have more than one Application you need to specify the app name, e.g.: `resin sync myApp` and then sync will let you interactively select the device you want to sync if there are more than one in the app. Alternatively, if you know the device UUID you can just run: `resin sync <uuid>`, this is useful for using resin sync programmatically, in say a [gulp][gulp-link] workflow.
 
 * A caveat, if you are using a DSA key, some newer openSSH clients do not allow them by default. So you may have to add the following option to `~/.ssh/config` : `PubkeyAcceptedKeyTypes=+ssh-dss`
+
+* Currently resin sync only works with RSA/DSA keys. So if you are using another type, it won't be able to sync correctly.
 
 ##### One last Tip!
 

@@ -4,6 +4,6 @@
 * A method of reliably powering the device.
 * A [resin.io account][link-to-signup].
 
-[supportedDevicesList]:
+[supportedDevicesList]:/hardware/devices/
 
 [link-to-signup]:dashboard.resin.io/signup

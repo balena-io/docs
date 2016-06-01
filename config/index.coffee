@@ -1,6 +1,9 @@
 DOCS_SOURCE_DIR = 'pages'
 DOCS_DEST_DIR = 'contents'
 
+TEMPLATES_DIR = 'templates'
+PARTIALS_DIR = 'shared'
+
 GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/master'
 
 MAIN_SITE = 'https://resin.io'
@@ -16,8 +19,8 @@ MAIN_MENU_LINKS = [
     "link": "#{MAIN_SITE}/how-it-works"
   },
   {
-    "title": "Talk",
-    "link": "http://talk.resin.io/"
+    "title": "Community",
+    "link": "https://gitter.im/resin-io/chat"
   },
   {
     "title": "Blog",
@@ -41,9 +44,11 @@ module.exports =
   docsExt: 'md'
   docsSourceDir: DOCS_SOURCE_DIR
   docsDestDir: DOCS_DEST_DIR
+  templatesDir: TEMPLATES_DIR
+  partialsDir: PARTIALS_DIR
   editPageLink: GITHUB_EDIT_PAGE_LINK
   links: require('./links')
-  templateLocals:
+  layoutLocals:
     mainSiteUrl: MAIN_SITE
     dashboardUrl: DASHBOARD_SITE
     menuLinks: MAIN_MENU_LINKS

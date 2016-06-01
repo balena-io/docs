@@ -7,36 +7,27 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower install && ./tools/prepare.sh",
-    "watch-pages": "watch 'coffee ./lib/build.coffee' pages shared templates"
+    "build": "./tools/build.sh",
+    "watch-pages": "watch ./tools/build.sh pages shared templates config"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/resin-io/docs.git"
   },
-  "author": "",
-  "license": "BSD-2-Clause",
+  "author": "Resin.io <hello@resin.io>",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/resin-io/docs/issues"
   },
   "homepage": "https://github.com/resin-io/docs",
   "dependencies": {
-    "async": "~0.9.0",
+    "@resin.io/doxx": "^0.9.1",
     "bower": "^1.7.9",
     "coffee-script": "^1.10.0",
-    "consolidate": "^0.14.0",
-    "express": "~4.11.0",
-    "handlebars": "^4.0.5",
-    "lodash": "^4.11.1",
-    "lunr": "^0.7.0",
-    "metalsmith": "^2.1.0",
-    "metalsmith-headings": "^0.1.0",
-    "metalsmith-in-place": "^1.4.3",
-    "metalsmith-layouts": "^1.6.4",
-    "metalsmith-markdown": "^0.2.1",
-    "metalsmith-permalinks": "^0.5.0",
-    "swig": "^1.4.2"
+    "express": "^4.13.4",
+    "lodash": "^4.11.1"
   },
   "devDependencies": {
-    "watch": "^0.17.1"
+    "watch": "^0.18.0"
   }
 }
