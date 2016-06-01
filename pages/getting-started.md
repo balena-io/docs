@@ -56,6 +56,8 @@ If you don't already have a resin.io account head over to our [signup page][link
 
 ## Using resin sync to develop fast
 
+{{import "resinSync"}}
+{{import "crossCompilation"}}
 {{import "usingResinSync"}}
 
 ## Example Projects to Build From
