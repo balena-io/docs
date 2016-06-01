@@ -1,26 +1,25 @@
 {% macro navNode(subtree) %}
   {% if subtree.children %}
-    {% if subtree|isCurrentTree(navPath) %}
+    {% if subtree|navIsCurrentTree($nav) %}
       {% set isCurrentSubtree = true %}
     {% else %}
       {% set isCurrentSubtree = false %}
     {% endif %}
-    <ul class="{% if isCurrentSubtree %}expand{% endif %}">
+    <ul class="nav {% if isCurrentSubtree %}expand{% endif %}">
       {% for child in subtree.children %}
-        {% if child|isCurrentPage(selfLink, navPath) %}
+        {% if child|navIsCurrentPage($nav) %}
           {% set isCurrentLink = true %}
         {% else %}
           {% set isCurrentLink = false %}
         {% endif %}
         <li class="{% if isCurrentLink %}active{% endif %}">
-          <a href="{{ child|getLink(selfLink, navPath) }}">
-            {{ child|getTitle(selfLink, navPath,
-              breadcrumbs[breadcrumbs.length - 1]) }}
+          <a href="{{ child|navGetLink($nav) }}">
+            {{ child|navGetTitle($nav) }}
           </a>
         </li>
         {% if isCurrentLink and !child.isGateway and headings %}
           <div class="in-page-nav">
-            <ul class="expand nav">
+            <ul class="nav expand">
               {% for heading in headings %}
                 <li><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
               {% endfor %}
@@ -38,11 +37,10 @@
     {% for subtree in subtrees %}
       <h3 class="
         {% if subtree.children %}with-children{% endif %}
-        {% if navPath[subtree.$id] %}active{% endif %}
+        {% if subtree|navIsCurrentTree($nav) %}active{% endif %}
       ">
-        <a href="{{ subtree|getLink(selfLink, navPath) }}">
-          {{ subtree|getTitle(selfLink, navPath,
-            breadcrumbs[breadcrumbs.length - 1]) }}
+        <a href="{{ subtree|navGetLink($nav) }}">
+          {{ subtree|navGetTitle($nav) }}
         </a>
       </h3>
       {{ navNode(subtree) }}
@@ -54,7 +52,7 @@
   <ul class="nav nav-tabs nav-justified">
     {# todo: remove duplication here and below #}
     {% for navTree in nav.children %}
-      {% if (navPath && navPath[navTree.$id]) || (!navPath && loop.first) %}
+      {% if navTree|navIsCurrentTree($nav) || (!$nav.path && loop.first) %}
         {% set isActive = true %}
       {% else %}
         {% set isActive = false %}
@@ -69,7 +67,7 @@
 
   <div class="tab-content">
     {% for navTree in nav.children %}
-      {% if (navPath && navPath[navTree.$id]) || (!navPath && loop.first) %}
+      {% if navTree|navIsCurrentTree($nav) || (!$nav.path && loop.first) %}
         {% set isActive = true %}
       {% else %}
         {% set isActive = false %}

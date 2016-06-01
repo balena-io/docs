@@ -3,7 +3,7 @@
 {{> icon class="octicon octicon-mark-github" }}
 [Repository](https://github.com/resin-io-projects/resin-rpi-gpio-sample-with-python)
 
-This sample project will get you started blinking LEDs on the {{ $device_details.name }} using {{ $language_details.name }}. For this project you will need some additional hardware, namely a few LEDs, a breadboard and a 220 ohm resistor.
+This sample project will get you started blinking LEDs on the {{ $device.name }} using {{ $language.name }}. For this project you will need some additional hardware, namely a few LEDs, a breadboard and a 220 ohm resistor.
 
 ### I2C Accelerometer Example
 

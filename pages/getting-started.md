@@ -1,15 +1,12 @@
 ---
-title: Getting Started with {{ $device_details.name }} and {{ $language_details.name }}
+title: Getting Started with {{ $device.name }} and {{ $language.name }}
 
 layout: getting-started.html
 
-# this is dynamic page definition
-# hope it's self-explanatory
-dynamic_page:
-  axes: [ $device, $language ]
-  url: $device/$language/$baseUrl
-  partials_search: [ $device+$language, $device, $language, _default ]
-  switch_text: Getting Started with $device and $language
+dynamic:
+  variables: [ $device, $language ]
+  ref: $device/$language/$original_ref
+  $switch_text: Getting Started with $device and $language
 ---
 
 # {{ title }}
@@ -42,7 +39,7 @@ If you don't already have a resin.io account head over to our [signup page][link
 
 {{import "selectNetworkConfig"}}
 
-### Create a bootable {{ $device_details.bootMedia }}
+### Create a bootable {{ $device.bootMedia }}
 {{import "flashingOsToBootMedia"}}
 
 {{import "getDeviceOnDash"}}
