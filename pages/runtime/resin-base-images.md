@@ -1,6 +1,6 @@
 # Resin Images Wiki
 
-This page contains all the information about the image maintained on the Resin.io docker hub registry.
+This page contains all the information about the images maintained on the Resin.io docker hub registry.
 
 ## <a name="image-tree"></a>Resin Image Trees
 
