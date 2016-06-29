@@ -91,3 +91,4 @@ Reference
   CLI Reference[/tools/cli]
   Node.js SDK[/tools/sdk]
   Python SDK[/tools/python-sdk]
+  Base Images Wiki[/runtime/resin-base-images]
