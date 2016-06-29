@@ -600,6 +600,7 @@ by using the same option names as keys. For example:
 		- .git
 		- node_modules/
 	progress: true
+	verbose: false
 
 Notice that explicitly passed command options override the ones set in the configuration file.
 
@@ -609,6 +610,7 @@ Examples:
 	$ resin sync 7cf02a6
 	$ resin sync 7cf02a6 --port 8080
 	$ resin sync 7cf02a6 --ignore foo,bar
+	$ resin sync 7cf02a6 -v
 
 ### Options
 
@@ -632,6 +634,10 @@ show progress
 
 ssh port
 
+#### --verbose, -v
+
+increase verbosity
+
 # SSH
 
 ## ssh &#60;uuid&#62;
@@ -645,12 +651,17 @@ Examples:
 
 	$ resin ssh 7cf02a6
 	$ resin ssh 7cf02a6 --port 8080
+	$ resin ssh 7cf02a6 -v
 
 ### Options
 
 #### --port, -t &#60;port&#62;
 
 ssh gateway port
+
+#### --verbose, -v
+
+increase verbosity
 
 # Notes
 
@@ -729,7 +740,7 @@ drive
 
 ## config read
 
-Use this command to read the config.json file from a provisioned device
+Use this command to read the config.json file from the mounted filesystem (e.g. SD card) of a provisioned device"
 
 Examples:
 
@@ -748,7 +759,7 @@ drive
 
 ## config write &#60;key&#62; &#60;value&#62;
 
-Use this command to write the config.json file of a provisioned device
+Use this command to write the config.json file to the mounted filesystem (e.g. SD card) of a provisioned device
 
 Examples:
 
@@ -768,7 +779,7 @@ drive
 
 ## config inject &#60;file&#62;
 
-Use this command to inject a config.json file to a provisioned device
+Use this command to inject a config.json file to the mounted filesystem (e.g. SD card) of a provisioned device"
 
 Examples:
 
