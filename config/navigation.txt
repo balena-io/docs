@@ -44,7 +44,6 @@ Learn
     Runtime Environment
       [/runtime/runtime]
       [/runtime/terminal]
-      [/runtime/resin-base-images]
       [/runtime/update-strategies]
       [/runtime/bandwidth-reduction]
 
