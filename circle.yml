@@ -1,0 +1,33 @@
+---
+machine:
+  services:
+    - docker
+  environment:
+    DOCKER_USERNAME: travisciresin
+    DOCKER_EMAIL: accounts+travisci+docker@resin.io
+    DOCKER_IMAGE: resin/docs
+dependencies:
+  override:
+    - docker info
+    - env | sort
+    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" -e="${DOCKER_EMAIL}"
+compile:
+  override:
+    - docker pull ${DOCKER_IMAGE}:latest || true
+    - docker build --rm=false --pull --tag ${DOCKER_IMAGE}:${CIRCLE_SHA1} .
+test:
+  override:
+    - echo true
+deployment:
+  hub:
+    branch: /.*/
+    commands:
+      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" -e="${DOCKER_EMAIL}"
+      - docker push ${DOCKER_IMAGE}:${CIRCLE_SHA1}
+      - docker tag ${DOCKER_IMAGE}:${CIRCLE_SHA1} ${DOCKER_IMAGE}:${CIRCLE_BRANCH}
+      - docker push ${DOCKER_IMAGE}:${CIRCLE_BRANCH}
+      - docker tag -f ${DOCKER_IMAGE}:${CIRCLE_SHA1} ${DOCKER_IMAGE}:latest
+      - docker push ${DOCKER_IMAGE}:latest
+      - "[[ -z ${CIRCLE_TAG} ]] || docker tag ${DOCKER_IMAGE}:${CIRCLE_SHA1} ${DOCKER_IMAGE}:${CIRCLE_TAG}"
+      - "[[ -z ${CIRCLE_TAG} ]] || docker push ${DOCKER_IMAGE}:${CIRCLE_TAG}"
+
