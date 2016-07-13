@@ -16,3 +16,4 @@
 
 # Renamed pages
 ^\/deployment\/wifi\/?(#.+)?$ -> /deployment/network/$1
+^\/runtime/terminal -> /runtime/runtime#using-the-web-terminal
