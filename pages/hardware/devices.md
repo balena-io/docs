@@ -14,11 +14,11 @@ __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) ha
 
 ![Raspberry Pi](/img/rpi_b_plus.jpg)
 
-### Beaglebone Black
+### BeagleBone Black
 
 [link](http://beagleboard.org/black)
 
-![Beaglebone Black](/img/bbb.jpg)
+![BeagleBone Black](/img/bbb.jpg)
 
 ### Intel Edison
 
@@ -83,3 +83,41 @@ __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) ha
 [link](http://www.hardkernel.com/main/products/prdt_info.php?g_code=g138745696275)
 
 ![ODroid U3](/img/odroid-u3.jpg)
+
+## Beta Support
+
+### BeagleBone Green Wireless
+
+[link](http://www.seeedstudio.com/wiki/SeeedStudio_BeagleBone_Green_Wireless)
+
+![BeagleBone Gren Wireless](/img/beaglebone-green-wireless.jpg)
+
+### Samsung Artik 5
+
+[link](https://www.artik.io/modules/overview/artik-5/)
+
+![Samsung Artik 5](/img/artik5/samsung-artik-5.jpg)
+
+### Samsung Artik 10
+
+[link](https://www.artik.io/modules/overview/artik-10/)
+
+![Samsung Artik 10](/img/artik10/samsung-artik-10.jpg)
+
+### Toradex Colibri iMX6DL
+
+[link](http://developer.toradex.com/products/colibri-imx6)
+
+![Toradex Colibry iMX6DL](/img/toradex-colibri-imx6dl.jpg)
+
+### Technologic TS-4900
+
+[link](https://www.embeddedarm.com/products/TS-4900)
+
+![Technologic TS-4900](/img/ts-4900.jpg)
+
+### Technologic TS-7700
+
+[link](https://www.embeddedarm.com/products/TS-7700)
+
+![Technologic TS-7700](/img/ts-7700.jpg)
