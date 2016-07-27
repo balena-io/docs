@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
 
+    {% if fbAppId %}<meta property="fb:app_id" content="{{ fbAppId }}" />{% endif %}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ title }} - Resin.io Documentation" />
+    {% if excerpt %}<meta property="og:description" content="{{ excerpt }}" />{% endif %}
+    {% if thumbnail %}<meta property="og:image" content="{{ thumbnail }}" />{% endif %}
+
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css">
