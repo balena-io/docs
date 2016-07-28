@@ -70,11 +70,11 @@ There are advanced options available on that dashboard to manage the device type
 
 Next, need to create a new device with the above device type. This is done on the [My ARTIK Cloud dashboard](https://www.artik.cloud/my). When prompted to connect your first device, in the device type field you will be able to find the name, in this example "My Resin Device". You can use any convenient name for your device itself.
 
-![Device type set up](/img/integrations/artik/ARTIKCloud_new_device.png)
+![New device](/img/integrations/artik/ARTIKCloud_new_device.png)
 
 Once you save the settings, the dashboard will list the new device. Select the cog icon on device's tab, to bring up its settings:
 
-![Device type set up](/img/integrations/artik/ARTIKCloud_device_token.png)
+![Device token](/img/integrations/artik/ARTIKCloud_device_token.png)
 
 One important information to note is the Device ID, needed to authenticate with the actual device to the platform. The second piece of information required is the Device Token, generated on the same tab. Device Tokens can be revoked from the same tab if required.
 
@@ -86,7 +86,7 @@ Go to your [resin.io dashboard](https://dashboard.resin.io) and create a new app
 
 In the application dashboard define two application-wide environmental variables for the Device ID and Device Token values. For clarity you can choose `ARTIKCLOUD_DEVICE_ID` `ARTIKCLOUD_DEVICE_TOKEN`, though can use any other value you like. In the application-wise setting just use a placeholder value, such as `REDEFINE`.
 
-![Device type set up](/img/integrations/artik/ARTIKCloud_environment.png)
+![Environment variables](/img/integrations/artik/ARTIKCloud_environment.png)
 
 Set up your device and connect to resin. Then in the device's dashboard, redefine the environmenal variables (the Device ID and Device Token) saved from the previous step. If you have multiple devices, do these steps for all of them.
 
