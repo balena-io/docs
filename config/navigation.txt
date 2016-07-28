@@ -66,7 +66,8 @@ Learn
       [/deployment/wifi]
 
     3rd Party Integrations
-      Microsoft[/integrations/azure]
+      Microsoft Azure[/integrations/azure]
+      Samsung ARTIK Cloud[/integrations/artik]
 
   Advanced
     Creating Custom Resin.io Devices[/hardware/meta-resin]
