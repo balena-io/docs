@@ -101,7 +101,7 @@ There are multiple ways to connect to the ARTIK Cloud to send and receive data (
 Here are a few notes using the [Python SDK](https://github.com/artikcloud/artikcloud-python) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
 
 ```
-FROM resin/%%RESIN_MACHINE_NAME%%-python:2.7]
+FROM resin/%%RESIN_MACHINE_NAME%%-python:2.7
 ```
 
 Add the `artikcloud` dependency in your `requirements.txt` file:
@@ -152,7 +152,7 @@ print(response)
 Here are a few notes using the [Javascript/Node.js SDK](https://github.com/artikcloud/artikcloud-js) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
 
 ```
-FROM resin/%%RESIN_MACHINE_NAME%%-node:latest]
+FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 ```
 
 Add the `artikcloud-js` dependency in your `package.json` in your application's folder:
