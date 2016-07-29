@@ -6,8 +6,6 @@ thumbnail: /img/integrations/artik/ARTIKCloud_new_device.png
 
 # Samsung ARTIK Cloud integration
 
-__NOTE:__  This page is work in progress!
-
 The [Samsung ARTIK Cloud](https://artik.cloud/) is an open data exchange platform for the Internet of Things (IoT). It uses APIs for devices and services to interact with each other, to send, receive, and analyze data. This tutorial shows how to use ARTIK Cloud with devices deployed on resin.io.
 
 As a simple illustration use case, an example device is used which reads local ambient temperatures, and send the readings to the ARTIK Cloud for logging and analysis.
@@ -120,13 +118,14 @@ COPY requirements.txt ./
 RUN pip install -r ./requirements.txt
 ```
 
-Then in your application you can access the environmental variables through `os.getenv()`, and send messages through the SDK. A very simple example is as follows:
+Then in your application you can access the environmental variables through `os.getenv(VARIABLE)`, and send messages through the SDK. A very simple example is as follows:
 
 ```python
 import os
 import time
 import artikcloud
 
+# Setting credentials from the environmental variables
 DEVICE_ID = os.getenv('ARTIKCLOUD_DEVICE_ID')
 DEVICE_TOKEN = os.getenv('ARTIKCLOUD_DEVICE_TOKEN')
 
@@ -161,7 +160,7 @@ Add the `artikcloud-js` dependency in your `package.json` in your application's 
 npm install artikcloud-js --save
 ```
 
-Later in your `Dockerfile.template` you can then install it as:
+Later in your `Dockerfile.template` you can then configure the node modules installation as:
 
 ```
 COPY package.json ./
@@ -170,19 +169,37 @@ RUN JOBS=MAX npm i --unsafe-perm --production && npm cache clean
 
 Then in your application you can access the environmental variables through `process.env.VARIABLE`, and send messages through the SDK. A very simple example is as follows:
 
-__NOTE__: this code exmample is unfinished
-
 ```javascript
-const device_token = process.env.ARTIKCLOUD_DEVICE_TOKEN || null; // Required
+var ArtikCloud = require('artikcloud-js');
+
+// Setting credentials from environmental variables
 const device_id = process.env.ARTIKCLOUD_DEVICE_ID || null; // Required
+const device_token = process.env.ARTIKCLOUD_DEVICE_TOKEN || null; // Required
 
-var ArtikCloudApi = require('artikcloud-js');
-var defaultClient = ArtikCloudApi.ApiClient.instance;
+var apiClient = new ArtikCloud.ApiClient();
 
-var artikcloud_oauth = defaultClient.authentications['artikcloud_oauth'];
+// Setting up authentication
+var artikcloud_oauth = apiClient.authentications['artikcloud_oauth'];
 artikcloud_oauth.accessToken = device_token;
 
-// Messaging
+// Get a new MessagesAPI connection
+messagesapi = new ArtikCloud.MessagesApi(apiClient);
+
+// Create a new message
+var message = new ArtikCloud.MessageAction();
+message.sdid = device_id;
+message.type = 'message';
+message.ts = Date.now();  // timestamp, required
+message.data = { "Temperature": 25.4  };
+
+// Send message
+messagesapi.sendMessageAction(message, function(error, response) {
+    if (error) {
+        throw error;
+    } else {
+        console.log(response);
+    }
+});
 ```
 
 ## Further information
