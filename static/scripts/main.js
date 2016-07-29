@@ -1,4 +1,6 @@
-(function($, Ractive){
+(function($, Ractive, hljs){
+
+hljs.initHighlightingOnLoad()
 
 function fixOldUrl(url) {
   return url
@@ -181,4 +183,4 @@ if ($dynamicSwitch.length) {
   })
 }
 
-}(window.jQuery, window.Ractive))
+}(window.jQuery, window.Ractive, window.hljs))
