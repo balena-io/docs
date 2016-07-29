@@ -44,7 +44,6 @@ Learn
     Runtime Environment
       [/runtime/runtime]
       [/runtime/terminal]
-      [/runtime/resin-base-images]
       [/runtime/update-strategies]
       [/runtime/bandwidth-reduction]
 
@@ -67,7 +66,8 @@ Learn
       [/deployment/wifi]
 
     3rd Party Integrations
-      Microsoft[/integrations/azure]
+      Microsoft Azure[/integrations/azure]
+      Samsung ARTIK Cloud[/integrations/artik]
 
   Advanced
     Creating Custom Resin.io Devices[/hardware/meta-resin]
@@ -91,3 +91,4 @@ Reference
   CLI Reference[/tools/cli]
   Node.js SDK[/tools/sdk]
   Python SDK[/tools/python-sdk]
+  Base Images Wiki[/runtime/resin-base-images]

@@ -13,5 +13,10 @@
     "id": "cpp",
     "name": "C++",
     "icon": "/img/language/c++.svg"
+  },
+  {
+    "id": "rust",
+    "name": "Rust",
+    "icon": "/img/language/rust.svg"
   }
 ]

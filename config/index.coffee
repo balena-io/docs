@@ -8,6 +8,8 @@ GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/master'
 
 MAIN_SITE = 'https://resin.io'
 DASHBOARD_SITE  = 'https://dashboard.resin.io'
+BASE_URL = process.env.BASE_URL || 'https://docs.resin.io'
+FB_APP_ID = '221218511385682'
 
 MAIN_MENU_LINKS = [
   {
@@ -51,4 +53,6 @@ module.exports =
   layoutLocals:
     mainSiteUrl: MAIN_SITE
     dashboardUrl: DASHBOARD_SITE
+    baseUrl: BASE_URL
     menuLinks: MAIN_MENU_LINKS
+    fbAppId: FB_APP_ID
