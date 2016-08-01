@@ -11,3 +11,5 @@
 ^\/installing\/gettingStarted-BBB(\/|$) -> /beaglebone/nodejs/getting-started/
 
 ^\/getting-started -> /raspberrypi/nodejs/getting-started
+
+^\/configuration\/resin-base-images(\/|$) -> /runtime/resin-base-images
