@@ -10,7 +10,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ title }} - Resin.io Documentation" />
     {% if excerpt %}<meta property="og:description" content="{{ excerpt }}" />{% endif %}
-    {% if thumbnail %}<meta property="og:image" content="{{ baseUrl }}{{ thumbnail }}" />{% endif %}
+    <meta property="og:image" content="{{ baseUrl }}{% if thumbnail %}{{ thumbnail }}{% else %}{{ defaultThumbnail }}{% endif %}" />
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
