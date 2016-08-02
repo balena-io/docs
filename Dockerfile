@@ -8,7 +8,8 @@ COPY . .
 
 # npm install needs to run after the COPY because of postinstall deps.
 RUN npm install --unsafe-perm --allow-root \
-	&& npm cache clean
+	&& npm cache clean \
+	&& node_modules/bower/bin/bower --allow-root cache clean
 
 ENTRYPOINT ["/usr/local/bin/npm"]
 CMD ["start"]
