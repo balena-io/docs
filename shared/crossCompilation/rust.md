@@ -23,7 +23,7 @@ Finally {{ $language.name }} must be configured to enable cross-compilation for 
 $ mkdir -p ~/.cargo
 $ cat >>~/.cargo/config <<EOF
 > [target.{{ $device.rustTriple }}]
-> linker = "arm-linux-gnueabihf-gcc"
+> linker = "{{ $device.rustLinker }}"
 > EOF
 ```
 
