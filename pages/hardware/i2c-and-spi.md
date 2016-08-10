@@ -111,7 +111,7 @@ __Note:__ The 90 and 270 degrees rotation options require additional memory on G
 so won't work with the 16M GPU split.
 
 ### Customising config.txt
-These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings the the config.txt file on the SD cards `boot` partition. See [here](https://docs.resin.io/configuration/advanced/) for more details
+These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings the the config.txt file on the SD cards `boot` partition. See [here](/configuration/advanced/) for more details
 
 ##### Binary Blobs for GPU/vcore
 This is neccessary for any graphics acceleration or if you want to use the official raspberry pi camera module
