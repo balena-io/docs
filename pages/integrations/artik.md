@@ -30,7 +30,9 @@ After the new device type is created, you have to declare the its capabilities t
 
 ![Device type manifest](/img/integrations/artik/ARTIKCloud_manifest.png)
 
-Here you can list what data fields the should be accepted. This can be any kind of data: numbers, boolean values, strings, arrays of values. There are a number of other settings you can define for any data field, such as default units, description, use tags for later easy filtering of data groups, or can define field groups.
+There are two main tabs on the manifest creator, one is for Device Fields, and one is for Device Actions. Device Fields describe what kind of data the ARTIK Cloud may receive from the device (in form of "messages"), while Device Actions describe what kind of data the ARTIK Cloud may send to the device (in form of "actions").
+
+Device Fields can be any kind of data: numbers, boolean values, strings, arrays of values. There are a number of other settings you can define for any data field, such as default units, description, use tags for later easy filtering of data groups, or can define field groups.
 
 In this example above, a single data field is set, `Temperature`, with `Double` data type, default units if `℃`, a desciption, and some tags. If instead of using the online editor, you would want to upload a manifest file, the following is the equivalent setting:
 
@@ -54,9 +56,11 @@ In this example above, a single data field is set, `Temperature`, with `Double` 
 }
 ```
 
-I've got this file by explorting the manifest from the device type dashboard, once it is set up. This way you can save and use version control on your manifest files as well.
+I've got this file by exporting the manifest from the device type dashboard, once it is set up. This way you can save and use version control on your manifest files as well.
 
-The next step would be adding any actions that the device can take, but that is out of scope for this simple getting started tutorial and won't add any actions. For more advanced setup, you can consult the [device manifest documentation]([documentation](https://developer.artik.cloud/documentation/introduction/the-manifest.html)).
+The next step would be adding any actions that the device can take, but that is out of scope for this simple getting started tutorial and won't add any actions. As a general overview, actions have a "name" which is equivalent of a command sent to the device (e.g. "setText" to display a given text any way the device is capable of, or "turnOff" to turn off the the device). The actions may also have parameters (but don't have to), which act as arguments to the command (such as the "text" parameter of the "setText" action, to tell the device what to display). ARTIK Cloud has a number of default actions, but you can define any action name, and any parameter names.
+
+For more advanced set up, you can consult the [device manifest documentation]([documentation](https://developer.artik.cloud/documentation/introduction/the-manifest.html)).
 
 Once data fields and actions are set up, save and activate the manifest. Your new device type is ready to use:
 
@@ -78,6 +82,16 @@ One important information to note is the Device ID, needed to authenticate with 
 
 If you are planning to connect multiple physical devices to this application, you'll need to repeat these device creation steps for each of them.
 
+### Rules and Actions
+
+Actions are generally sent to the devices either by other devices, or through the rules set up either through the API, or the [Rules dashboard](https://artik.cloud/my/rules). The rules can be triggered by either values received by the ARTIK Cloud from the devices in messages, or scheduled by time. The output of the rules can be actions sent to devices, or emails sent to a given address.
+
+![Rules dashboard](/img/integrations/artik/ARTIKCloud_rules.png)
+
+One useful trick while developing actions is setting up your rule as a scheduled action, save it, then in the rules dashboard trigger it by the corresponding "test" button. Continue developing your application, and once the action is processed correctly, edit the action and set the device activity (i.e. reading value) you would like the action to be triggered by (if needed). The trick is used because because only scheduled actions can be manually triggered at the moment.
+
+For more information see the [Develop Rules for Devices](https://developer.artik.cloud/documentation/connect-the-data/develop-rules-for-devices.html) section of the ARTIK Cloud documentation.
+
 ## Configuring Resin.io
 
 Go to your [resin.io dashboard](https://dashboard.resin.io) and create a new application with the physical device type you are using (for example a Samsung ARTIK board, or any other). In the tutorial's example a BeagleBone Green Wifi is used (with a temperature sensor module).
@@ -92,9 +106,11 @@ After this, the credentials for the devices to talk to ARTIK Cloud will be avail
 
 ## Programming
 
-There are multiple ways to connect to the ARTIK Cloud to send and receive data (see the [API reference](https://developer.artik.cloud/documentation/api-reference/)), and there are also a number of [native SDKs](https://developer.artik.cloud/documentation/tools/native-sdks.html) that you can speed things up with. For most applications in resin.io the [Python](https://github.com/artikcloud/artikcloud-python) or the [Javascript/Node.js](https://github.com/artikcloud/artikcloud-js) SDK are probably the most useful. The following section highlights some language-specific notes for using resin.io and ARTIK Cloud. For more detailed information see the rest of the docs, and be sure to check out the SDKs documentation.
+There are multiple ways to connect to the ARTIK Cloud to send and receive data, including WebSockets, MQTT, CoAP, REST (see the [API reference](https://developer.artik.cloud/documentation/api-reference/)), and there are also a number of [native SDKs](https://developer.artik.cloud/documentation/tools/native-sdks.html) that you can speed things up with. For most applications on resin.io the [Python](https://github.com/artikcloud/artikcloud-python) or the [Javascript/Node.js](https://github.com/artikcloud/artikcloud-js) SDK are the simplest to start with, though they can only send message at this time. In case you are both sending messages and receiving actions, we recommend using WebSockets or MQTT. The following section highlights some language-specific notes for using resin.io and ARTIK Cloud. For more detailed information see the rest of the docs, and be sure to check out the SDKs documentation.
 
 ### Python
+
+#### Using the ARTIK Cloud Python SDK
 
 Here are a few notes using the [Python SDK](https://github.com/artikcloud/artikcloud-python) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
 
@@ -146,7 +162,21 @@ response = messages_api.send_message_action(message)
 print(response)
 ```
 
+#### Using WebSockets from Pyton
+
+You can use any Python WebSockets library to communicate with the ARTIK Cloud. Check the [WebSockets connection](https://developer.artik.cloud/documentation/connect-the-data/rest-and-websockets.html) and [WebSockets API](https://developer.artik.cloud/documentation/api-reference/websockets-api.html) pages on the ARTIK Cloud Documentation.
+
+The [artilcloud-resin-python](https://github.com/resin-io-projects/artikcloud-resin-python) project includes a example of how to connect to the ARTIK Cloud using WebSockets, send messages and receive actions.
+
+#### Using MQTT from Python
+
+The [artilcloud-resin-python](https://github.com/resin-io-projects/artikcloud-resin-python) project includes an example of how to connect to the ARTIK Cloud using MQTT, send messages and receive actions.
+
+You can use any Python MQTT library to communicate with the ARTIK Cloud. Check the [MQTT connection](https://developer.artik.cloud/documentation/connect-the-data/mqtt.html) and [MQTT API](https://developer.artik.cloud/documentation/api-reference/mqtt-api.html) pages on the ARTIK Cloud Documentation.
+
 ### Node.js
+
+#### Using the ARTIK Cloud Node.js SDK
 
 Here are a few notes using the [Javascript/Node.js SDK](https://github.com/artikcloud/artikcloud-js) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
 
@@ -222,6 +252,7 @@ If you have any questions, feel free to reach out to us at **hello@resin.io**, o
 A few sample apps to get started:
 
 * [Push events to the Artik cloud(sami)](https://github.com/resin-io-projects/resin-artik-cloud-publisher)
+* [Python application showing how to send messages and receive actions over MQTT and WebSockets in a resin.io application](https://github.com/resin-io-projects/artikcloud-resin-python)
 * [ARTIK Cloud documentation samples](https://developer.artik.cloud/documentation/samples/)
 
 ### Relevant Blogposts
