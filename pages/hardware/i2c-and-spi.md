@@ -51,6 +51,16 @@ SPI is enabled by default and should work out of the box with the [spi node modu
 
 For an example of this, check our this project: [digitiser][digitiser-link].
 
+### Serial
+
+Serial is disabled by default on the Raspberry Pi 3. To enable it you will need to do the following:
+
+* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following lines.
+
+```
+enable_uart=1
+```
+
 ### 1-wire and Digital Temperature sensors
 
 In order to work work with 1-wire and digital temperature sensors you will need to do the following:
@@ -101,7 +111,7 @@ __Note:__ The 90 and 270 degrees rotation options require additional memory on G
 so won't work with the 16M GPU split.
 
 ### Customising config.txt
-These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings the the config.txt file on the SD cards `boot` partition.
+These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings the the config.txt file on the SD cards `boot` partition. See [here](https://docs.resin.io/configuration/advanced/) for more details
 
 ##### Binary Blobs for GPU/vcore
 This is neccessary for any graphics acceleration or if you want to use the official raspberry pi camera module
