@@ -62,6 +62,29 @@ By default we assign 16MB of memory to the GPU (specified by `gpu_mem`.) This
 may well be less than you require depending on your application (particularly
 applications which make heavy use of the Pi's graphics card.)
 
+### Enable serial interface
+
+The BCM2837 on the Raspberry Pi3 has 2 UARTs (as did its predecessors), however to support the Bluetooth functionality the fully featured PL011 UART was moved from the header pins to the Bluetooth chip and the mini UART made available on header pins 8 & 10.
+
+This has a number of consequences for users of the serial interface.
+ - The /dev/ttyAMA0 previously used to access the UART now connects to Bluetooth.
+ - The miniUART is now available on /dev/ttyS0, disabled by default.
+ - The mini UART is a secondary low throughput UART intended to be used as a console. it supports the following functionality:
+    - 7 or 8 bit operation.
+    - 1 start and 1 stop bit.
+    - No parities.
+    - Break generation.
+    - 8 symbols deep FIFOs for receive and transmit.
+    - SW controlled RTS, SW readable CTS.
+    - Auto flow control with programmable FIFO level.
+    - 16550 like registers.
+    - Baudrate derived from system clock.
+
+To enable the miniUART an entry should be added to `config.txt` as follows:
+```
+enable_uart=1
+```
+
 ### Further Reading
 
 There are more details on the options available in `config.txt` over at
