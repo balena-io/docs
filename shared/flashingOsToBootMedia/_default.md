@@ -1,4 +1,4 @@
-Now we have to flash the downloaded `.img` file onto our {{ $device.bootMedia }}. We recommend using [Etcher][etcher-link], a simple, cross platform {{ $device.bootMedia }} writer and validator. Head over to [www.etcher.io][etcher-link] and get install it, it only takes a few seconds :)
+Now we have to extract and flash the downloaded `.zip` file onto our {{ $device.bootMedia }}. We recommend using [Etcher][etcher-link], a simple, cross platform {{ $device.bootMedia }} writer and validator. Head over to [www.etcher.io][etcher-link] and get install it, it only takes a few seconds :)
 
 You can of course use any other {{ $device.bootMedia }} writing software you like, some options are:
 * [win32diskimager][win32-disk-imager] for Windows.
@@ -11,7 +11,7 @@ For simplicity this tutorial will assume you are using [Etcher][etcher-link]. On
 
 To create a bootable resinOS {{ $device.bootMedia }} follow these 3 easy steps:
 
-1. Click "Select image" button and find your applications resinOS `.img` file.
+1. Click "Select image" button and find your applications resinOS `.zip` file. There is no need to extract it beforehand, etcher will do that for you.
 2. If you haven't already done so, insert your {{ $device.bootMedia }} into your computer. Etcher will automatically detect it. If you have more than one {{ $device.bootMedia }} inserted, you will need to select the appropriate one.
 3. Click the "Flash!" button.
 
@@ -21,7 +21,7 @@ Etcher will now prepare a bootable {{ $device.bootMedia }} and validate that it 
 
 Etcher will give you a little ping! when it's done, and safely eject the {{ $device.bootMedia }} for you.
 
-__Note:__ You can burn several {{ $device.bootMedia }}s with the same `.img` file and all the devices will boot and provision into your application's fleet. You can also disable the auto-ejecting or write validation steps from the Etcher settings panel.
+__Note:__ You can burn several {{ $device.bootMedia }}s with the same `.zip` file and all the devices will boot and provision into your application's fleet. You can also disable the auto-ejecting or write validation steps from the Etcher settings panel.
 
 [wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
 [wikihow]:http://www.wikihow.com/Main-Page

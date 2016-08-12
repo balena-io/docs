@@ -69,7 +69,7 @@ application. A dialog will appear prompting you to specify how your device conne
 
 While the file downloads, ensure your SD card is formatted in [FAT32][fat32] ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
-Once the download is finished you should have a `.img` file with a name like `resin-myApp-0.1.0-0.0.14.img` where myApp is the name you gave your application on the dashboard.
+Once the download is finished you should have a `.zip` file with a name like `resin-myApp-0.1.0-0.0.14.zip` where myApp is the name you gave your application on the dashboard. Extract the `.zip` to a folder and you should see a OS `.img` in the folder. We will use this in the next steps.
 
 Now we have to burn the downloaded image on to the SD card. There are a couple of ways to do this, depending on your operating system. We have listed a few below.
 

@@ -45,7 +45,7 @@ If this this is not the case, and your device is still not online 10 minutes aft
 ### Set Static IP
 
 In order to configure static IP on a pre-provisioned SD card perform the following steps:-
-* Mount the FAT partitions of the OS image either directly from the `.img` file, or by burning the SD card and mounting it on your computer. The volume will be called `resin-conf`.
+* Mount the FAT partitions of the OS image either directly from the `.img` file in the `.zip` you downloaded, or by burning the SD card and mounting it on your computer. The volume will be called `resin-conf`.
 * Inside `resin-conf` you will find a `config.json` file and in it you will see a network key/value pair which contains JSON string encoded [Connman][connman] settings. Now edit the value to include the following entry, replacing `<static IP>` with your desired static IP:-
 
 ```
@@ -86,7 +86,7 @@ In general the network config follows the [ConnMan][connman] configuration file 
 
 ## Changing your Network Configuration
 
-On all devices excluding the [Intel Edison](/installing/gettingStarted-Edison), it is possible to change your wifi SSID or Passphrase after downloading the `.img`.
+It is possible to change your wifi SSID or Passphrase after downloading the `.zip`, however it is not possible to change the wifi SSID and passphrase of devices that run from internal eMMC without reflashing the device.
 
 ### Using the CLI
 
