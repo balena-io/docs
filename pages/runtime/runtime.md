@@ -4,17 +4,67 @@ title: Runtime Environment
 
 # Runtime Environment
 
+## Persistent Storage		
+
+If you want specific data or configurations to persist on the device through the update process, you will need to store them in `/data` . This is a special folder on the device file system which is essentially a [docker data `VOLUME`][docker-volume-link].
+
+This folder is guaranteed to be maintained across updates and thus files contained in it can act as persistent storage.	This is a good place to write system logs, etc.
+
+Note that this folder is __not__ mounted when your project is building on our build server, so you can't access it from your `Dockerfile`. The `/data` volume only exists when the container is running on the deployed devices. 		
+
+Additionally, it is worth mentioning that the `/data` folder is created per-device and it is not kept in sync between devices in your fleet, so ensure your application takes this into account.
+
+## SSH Access
+
+To help you debug and develop your application in a resin.io container, we provided a browser based terminal or a command line tool called [resin ssh](/tools/cli/#ssh-60-uuid-62-). This gives you console access to your running [container][docker-container] on the device and allows you to test out small snippets of code or check some system logs on your device.
+
+In order for you to start a terminal session in your device [container][docker-container], you first need to ensure that your device is **online** and code is **pushed to it** and is running. If your container code crashes or ends quickly, it is not possible to attach a console to it. One option to keep your containers running is to enable the INITSYSTEM in your container. This can easily be done by creating a device environment variable called `INITSYSTEM` and setting its value to `on`.
+
+### Using the Dashboard Terminal
+
+To use this feature, navigate your application and select the device you want access to. In that devices menu page you will find the `>_ Terminal` menu item.
+
+If your device is **online** and has **a running container** then simply click the blue ">_ Start Terminal" button and a terminal session should be initiated for you in a second or two as shown below:
+
+![A running web Terminal Session](/img/common/device/running-webterminal-session.png)
+
+### Using Resin SSH from the cli
+
+If you don't want to use the dashboard web interface and prefer to stay in the commandline you can use [resin ssh](/tools/cli/#ssh-60-uuid-62-) to connect to your running application container. First you will need to go a head an install the [Resin Command Line Interface (CLI)](/tools/cli/), once thats set up all you need to do is run the following for your development machine's terminal.
+```
+$ resin ssh <device-uuid>
+```
+Where `<device-uuid>` is the unique identifier for the device you want to access, this can be found on the device summary dashboard.
+
+At the time of writing, `resin ssh` makes use of the resin VPN connection to access a device, this allows you to access and test on devices where ever they are. If you want to SSH only on the internal network, you can simply install an SSH server in your container as in this example: [resin-openssh](https://github.com/resin-io-projects/resin-openssh). On note is that if you run your own SSH in the container you won't automatically get your environment variables in the ssh session. To bring them in, simply run `export $(xargs -0 -n1 < /proc/1/environ)` after that any operations or code you run from the SSH session will be able to access the environment variables you set on your resin.io dashboard.
+
+### Exploring the container
+
+The terminal session is hosted inside your application's [container][docker-container] where you are granted root privileges. By default your working directory will be the `/` directory of the filesystem.
+
+If you're running a custom `Dockerfile` the location of your code will be as specified by you in the file. The recommended file path for your code is `/usr/src/app`. If you're running a pure node.js application (i.e. an application that has no `Dockerfile` or `Dockerfile.template` but rather a `package.json`), all your code will be automatically placed in `/app`, which has a symbolic link to `/usr/src/app`.
+
+
+### Terminal Closes On Update
+
+When you push updates or restart your container, the terminal session is automatically closed and you will see something like:
+```
+root@beaglebone-green-wifi-9b01ed:/# SSH session disconnected                                                   
+SSH reconnecting...                                                                                             
+Spawning shell...    
+```
+The session should automatically restart once your container is up and running again.
+
 ## Exposed Ports
 
 Resin.io devices expose all ports by default, meaning you can run applications
 which listen on any port without issue. There is no need to have the docker `EXPOSE` command in your `Dockerfile`.
 
-## Device URLS
+## Public Device URLS
 
 Resin.io currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the resin.io dashboard and select the `Enable a public url for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
 
 ![Enable device url](/img/screenshots/device-url-new.png)
-
 
 Running a server listening on port 80 with public device url enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices url.
 
@@ -36,53 +86,8 @@ var server = app.listen(80, function () {
 })
 ```
 
-## Persistent Storage		
-
-If you want specific data or configurations to persist on the device through the update process, you will need to store them in `/data` . This is a special folder on the device file system which is essentially a [docker data `VOLUME`][docker-volume-link].
-
-This folder is guaranteed to be maintained across updates and thus		
-files contained in it can act as persistent storage.		
-
-Note that this folder is __not__ mounted when your project is building on our		
-build server, so you can't access it from your `Dockerfile`. It is only created once your project is deployed to the actual devices. 		
-
-Additionally, it is worth mentioning that the `/data` folder is created per-device and it is not kept in sync between devices in your fleet, so ensure your application takes this into account.
-
 [expressjs-link]:http://expressjs.com/
 [docker-volume-link]:https://docs.docker.com/userguide/dockervolumes/
-
-## Using the Web Terminal
-
-To help you debug and develop your application on resin.io, the dashboard provides a browser based terminal. This gives you console access to your running [container][docker-container] on the device and allows you to test out small snippets of code or check some system logs on your device. To use this feature, navigate your application and select the device you want access to. In that devices menu page you will find the `>_ Terminal` menu item.
-
-### Establishing a Terminal Session
-
-In order for you to start a terminal session in your device [container][docker-container], you first need to ensure that your device is **online** and code is **pushed to it** and is running. If your container code crashes or ends quickly, it is not possible to attach a console to it. One option to keep your containers running is to enable the INITSYSTEM in your container. This can easily be done by creating a device environment variable called `INITSYSTEM` and setting its value to `on`.
-
-If your device is **online** and has **a running container** then simply click the blue ">_ Start Terminal" button and a terminal session should be initiated for you in a second or two as shown below:
-
-<!-- TODO: update screenshot of webterminal -->
-![A running web Terminal Session](/img/common/device/running-webterminal-session.png)
-
-### Using the Terminal
-
-The terminal session is hosted inside your application's [container][docker-container] where you are granted root privileges. By default your working directory will be the root directory of the filesystem.
-
-If you're running a custom `Dockerfile` the location of your code will be as specified by you in the file. The recommended file path for your code is `/usr/src/app`.
-
-#### Node Applications
-
-If you're running a node application (i.e. an application that has no `Dockerfile` but rather a `package.json`), all your code will be automatically placed in `/app`, which is symlinked to `/usr/src/app`.
-
-#### Terminal Closes On Update
-
-When you push updates or restart your container, the terminal session is automatically closed and you will see something like:
-```
-root@beaglebone-green-wifi-9b01ed:/# SSH session disconnected                                                   
-SSH reconnecting...                                                                                             
-Spawning shell...    
-```
-The session should automatically restart once your container is up and running again.
 
 [tty.js]:https://github.com/chjj/tty.js/
 [docker-container]:https://docs.docker.com/introduction/understanding-docker/#inside-docker
