@@ -6,6 +6,6 @@ Once you have selected your connectivity option, click the `Download Device OS` 
 
 <img src="/img/common/network/network_selection_wifi_cropped.png" width="60%">
 
-When the download completes you should have a `.img` file with a name like `resin-myFleet-1.1.1-1.7.0-dc6c40fe05aa.img` where "myFleet" is the name you gave your application on the dashboard.
+When the download completes you should have a `.zip` file with a name like `resin-myFleet-1.1.1-1.7.0-dc6c40fe05aa.zip` where "myFleet" is the name you gave your application on the dashboard.
 
 [ssid-link]:https://en.wikipedia.org/wiki/Service_set_(802.11_network)#Service_set_identification_.28SSID.29
