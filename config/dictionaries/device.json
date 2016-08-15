@@ -36,6 +36,15 @@
     "icon": "/img/device/artik5.svg"
   },
   {
+    "id": "artik710",
+    "name": "Samsung ARTIK 710",
+		"bootMedia": "SD card",
+    "rustTriple": "aarch64-unknown-linux-gnu",
+    "rustLinker": "arm-linux-gnueabihf-gcc",
+    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/artik5.svg"
+  },
+  {
     "id": "artik10",
     "name": "Samsung ARTIK 10",
 		"bootMedia": "SD card",
