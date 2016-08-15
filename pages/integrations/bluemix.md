@@ -1,0 +1,259 @@
+---
+title: IBM Bluemix Watson IoT integration
+excerpt: Getting started with IBM Bluemix Watson IoT platform and resin.io
+thumbnail: /img/integrations/bluemix/Bluemix_IoT_dashboard.png
+---
+
+# IBM Bluemix Watson IoT integration
+
+[IBM Bluemix](https://new-console.ng.bluemix.net/) is an open standards, hybrid cloud development platform for building, running, and managing apps and services. It includes and connects a large number of different services to enable the creation of complex application. This document provides an overview how to use the [Watson IoT](http://www.ibm.com/internet-of-things/) component with resin.io to deploy IoT devices on the Bluemix platform. Setting up an IoT device allows sending data from devices, such as telemetry and sensor readings, and receive commands to perform actions.
+
+## Configuring Bluemix Watson IoT
+
+At this time there are two Bluemix consoles available, the [new console](https://new-console.ng.bluemix.net/) and the [classic console](https://console.ng.bluemix.net/). In this guide the new console will be used as in the examples.
+
+If you have not signed up for Bluemix, register a new account. You will also be asked to set up a "Region", an "Organization", and a "Space". We recommend to choose the region closest to you, and set any values to the organization and space names that are meaningful for you. After logging in, you will be greeted by the IBM Bluemix Dasboard:
+
+![IBM Bluemix Dashboard](/img/integrations/bluemix/Bluemix_dashboard.png)
+
+### Creating an IoT Project and Device Types
+
+On the dashboard select "Internet of Things", which section will contain your IoT projects, while initially it lists the available IoT components on Bluemix:
+
+![IBM Bluemix Internet of Things projects](/img/integrations/bluemix/Bluemix_IoT.png)
+
+For details beyond this guide, you can also check the [Bluemix IoT documentation](https://new-console.ng.bluemix.net/docs/services/IoT/index.html).
+
+Start by adding a new project with the blue "+" sign, and selecting the **Internet of Things Platform** from the catalog:
+
+![IBM Bluemix Internet of Things catalog](/img/integrations/bluemix/Bluemix_IoT_catalog.png)
+
+This platform fulfills two of our aims, as highlighted on the page: "Connect your devices securely to the cloud" and "Build an app that talks to your devices". Fill out the service name, and continue with the button on the bottom of the page. When your new platform/service is set up, you'll be redirected to a new welcome page with a link to the control dashboard for this service, as well as a number of available documentation.
+
+![IBM Bluemix Internet of Things dashboard](/img/integrations/bluemix/Bluemix_IoT_dashboard.png)
+
+To continue connecting your devices, follow the "Launch dashboard" link. That brings up the Internet of Things dashboard, with a number of key control panels. You can navigate between those panels using the left sidebar, listing "Boards", "Devices", "Access", "Usage", "Rules", and "Settings". Select Devices for the next step:
+
+![IBM Bluemix Internet of Things devices dashboard](/img/integrations/bluemix/Bluemix_IoT_devices_dashboard.png)
+
+On Bluemix, "device types" tie together a set of devices, and configure what sort of data those devices will send to the platform through "schemas".
+
+To start create your first device type in the "Device Types" menu with "Create Type". Choose "Create device type", as opposed to "Create gateway type", meaning the the connecting machines of this type will be "devices", as opposed to "gateways", which pass on data from other machines. Add a name to the device (we suggest to use alpha-numerical characters only), and a description.
+
+![Create new device type](/img/integrations/bluemix/Bluemix_create_device_type.png)
+
+If you'd like, you can also define a template of common device attributes, but since they are mainly used to just search among devices, we'll ignore those at the moment.
+
+Once the device type is created, you can define a schema, describing what kind of data the devices of the given type will send to the platform. The devices can send any kind of data, not restricted by these setting. The schema only affects what data may be displayed in the devices overview on the appropriate Bluemix dashboards. Every device type may have only one schema. When defining the schema you can use data already received by the platform if you have set up devices and sent data to this type previously, and also combine reading values to calculate a display value from data received.
+
+### Creating Devices
+
+New devices need to be set up on the platform to get the appropriate API keys, and be able to send/receive data from Bluemix. On the Devices dashboard select "Browse" on the page header, and continue with "Add Device". There select the previously added device type, add any attributes you'd like (for later filtering between devices), finally chose whether you'd like to provide your own access token, or use the one auto-generated by the platform.
+
+![Create new device](/img/integrations/bluemix/Bluemix_new_device.png)
+
+Note down these five piece of information from the final page during device creation ("organization", "device type", "device name", "authentication method", and "authentication token"), these are the information needed to connect with the device to the Bluemix platform.
+
+Repeat this device creation for each of the physical devices you would like to connect with, and note their respective credentials.
+
+### Creating Applications
+
+Applications are code running on your own infrastructure (your laptop, or your own datacenter) with access to the same set of data on Bluemix than the devices created in the preceding steps. They can connect to Bluemix using API keys generated in the same dashboard.
+
+Select "Access" from the left sidebard, then "API Keys" in the top menu, and choose "Generate API Key":
+
+![API Key dashboard](/img/integrations/bluemix/Bluemix_application.png)
+
+The platform will provide you with a pair of "API Key" and "Authentication Token", that you need to note down. You can also add a meaningful comment to make it easier to recall what the key is used for.
+
+![Generated API key](/img/integrations/bluemix/Bluemix_app_api_key.png)
+
+## Configuring Resin.io
+
+Go to your [resin.io dashboard](https://dashboard.resin.io) and create a new application with the physical device type you are using.
+
+In the application dashboard define five application-wide environment variables to hold the credential values from for the devices. For clarity you can choose:
+
+* `BLUEMIX_ORG`
+* `BLUEMIX_DEVICE_TYPE`
+* `BLUEMIX_DEVICE_ID`
+* `BLUEMIX_AUTH_METHOD`
+* `BLUEMIX_AUTH_TOKEN`
+
+though can use any other value you like. Here `BLUEMIX_ORG`, `BLUEMIX_DEVICE_TYPE`, and `BLUEMIX_AUTH_METHOD` will likely be the same for all devices within a resin.io application, so set them to the correct values. `BLUEMIX_DEVICE_ID` and `BLUEMIX_AUTH_TOKEN` will be different for all devices, so set them application-wide to `REDEFINE` or something similar to remind you to redefine them in the device-level environmental variables!
+
+![Application Environment Variables](/img/integrations/bluemix/Bluemix_resin_env1.png)
+
+Set up your device and connect to resin. Then in the device's dashboard, redefine the environment variables (the Device ID and Auth Token). If you have multiple devices, repeat these steps for all.
+
+![Device Environment Variables](/img/integrations/bluemix/Bluemix_resin_env2.png)
+
+After this, the credentials for the devices to talk to IBM Bluemix will be available from within your application code as environment variables!
+
+## Programming
+
+Programming the IBM Bluemix Watson IoT platform has an [extensive documentation](https://docs.internetofthings.ibmcloud.com/index.html), detailing both device and application development. They provide HTTP, MQTT, Python, Node.js, Java, C#, Embedded C, mBed C++ documentation for devices and HTTP, MQTT, Python, Node.js, Java, and C# for applications. There are [Python](https://github.com/ibm-watson-iot/iot-python), [Node.js](https://github.com/ibm-watson-iot/iot-nodejs), [Java](https://github.com/ibm-watson-iot/iot-java), and [C#](https://github.com/ibm-watson-iot/iot-csharp) and other SDKs available on [GitHub](https://github.com/ibm-watson-iot/).
+
+For devices on resin.io, the most commonly used languages are Python and Node.js, so will showcase some information for these languages below.
+
+### Python
+
+#### Using the Python SDK
+
+For a complete Python example which includes a device and a command line application to interact with the device, you can check [bluemix-resin-python](https://github.com/resin-io-projects/bluemix-resin-python)).
+
+The following are a few notes using the [Python SDK](https://github.com/ibm-watson-iot/iot-python) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
+
+```dockerfile
+FROM resin/%%RESIN_MACHINE_NAME%%-python
+```
+
+Add the `ibmiotf` dependency in your `requirements.txt` file, either using the latest published version, or pulling the library directly from GitHub.:
+
+```
+# uncomment next line to use last published version
+ibmiotf
+# uncomment next line to use latest development version instead
+# -e git://github.com/ibm-watson-iot/iot-python.git#egg=ibmiotf
+```
+
+Later in your `Dockerfile.template` you can then install these dependencies as:
+
+```dockerfile
+COPY requirements.txt ./
+RUN pip install -r ./requirements.txt
+```
+
+Then in your application you can access the environmental variables through `os.getenv(VARIABLE)`, and send messages through the SDK. A very simple example is as follows:
+
+```python
+import ibmiotf.device
+
+# Authenticate
+try:
+    options = {"org": os.getenv("BLUEMIX_ORG"),
+               "type": os.getenv("BLUEMIX_DEVICE_TYPE"),
+               "id": os.getenv("BLUEMIX_DEVICE_ID"),
+               "auth-method": os.getenv("BLUEMIX_AUTH_METHOD"),
+               "auth-token": os.getenv("BLUEMIX_AUTH_TOKEN")
+              }
+    client = ibmiotf.device.Client(options)
+except ibmiotf.ConnectionException:
+    raise
+
+client.connect()
+readings = { "temperature": 25.4 }
+client.publishEvent("status", "json", readings)
+client.disconnect()
+```
+
+If your device needs to receive commands, it can be set up as follows:
+
+```python
+import ibmiotf.device
+
+# Authenticate
+try:
+    options = {"org": os.getenv("BLUEMIX_ORG"),
+               "type": os.getenv("BLUEMIX_DEVICE_TYPE"),
+               "id": os.getenv("BLUEMIX_DEVICE_ID"),
+               "auth-method": os.getenv("BLUEMIX_AUTH_METHOD"),
+               "auth-token": os.getenv("BLUEMIX_AUTH_TOKEN")
+              }
+    client = ibmiotf.device.Client(options)
+except ibmiotf.ConnectionException:
+    raise
+
+def command_callback(cmd):
+    """Handle incoming commands from Bluemix
+    """
+    print("Command received: %s" % cmd.command)
+    if cmd.command == "myCommand":
+        if 'variable' not in cmd.data:
+            print("Error - command is missing required information: 'variable'")
+        else:
+            # handle action, for example:
+            print("Variable = {}".format(cmd.data["variable"]))
+    else:
+        print("Error - unknown command")
+
+# Handle incoming commands
+client.commandCallback = command_callback
+client.connect()
+```
+
+Applications can then be used to subscribe to data sent from devices (through [subscribeToDeviceEvents](https://docs.internetofthings.ibmcloud.com/applications/libraries/python.html#/subscribing-to-device-events#subscribing-to-device-events)), and send commands to devices (with [publishCommand](https://docs.internetofthings.ibmcloud.com/applications/libraries/python.html#/publishing-commands-to-devices#publishing-commands-to-devices)).
+
+For further examples, you can check the [samples included in the Python SDK](https://github.com/ibm-watson-iot/iot-python/tree/master/samples).
+
+### Node.js
+
+#### Using the Node.js SDK
+
+Here are a few notes using the [Node.js SDK](https://github.com/ibm-watson-iot/iot-nodejs) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
+
+```dockerfile
+FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
+```
+
+Add the `ibmiotf` dependency in your `package.json` in your application's folder:
+
+```bash
+npm install ibmiotf --save
+```
+
+Later in your `Dockerfile.template` you can then configure the node modules installation as:
+
+```dockerfile
+COPY package.json ./
+RUN JOBS=MAX npm i --unsafe-perm --production && npm cache clean
+```
+
+Then in your application you can access the environmental variables through `process.env.VARIABLE`, and send messages through the SDK. A very simple example, which connects to Bluemix and sends a reading value is:
+
+```javascript
+var Client = require("ibmiotf");
+var config = {
+    "org" : process.env.BLUEMIX_ORG,
+    "id" : process.env.BLUEMIX_DEVICE_ID,
+    "domain": "internetofthings.ibmcloud.com",
+    "type" : process.env.BLUEMIX_DEVICE_TYPE,
+    "auth-method" : process.env.BLUEMIX_AUTH_METHOD,
+    "auth-token" : process.env.BLUEMIX_AUTH_TOKEN
+};
+
+var deviceClient = new Client.IotfDevice(config);
+
+deviceClient.connect();
+
+deviceClient.on("connect", function () {
+    //publishing event using the default quality of service
+    deviceClient.publish("status","json",'{"d" : { "Temperature" : 25.4 }}');
+});
+```
+
+For detailed description, check the [Node.js SDK's README](https://github.com/ibm-watson-iot/iot-nodejs/blob/master/README.md) or the [samples included in the SDK](https://github.com/ibm-watson-iot/iot-nodejs/tree/master/samples).
+
+#### Visualizing your data with Node.js
+
+There is an example how to [visualize your data](https://developer.ibm.com/recipes/tutorials/visualizing-your-data/) using Node.js on the IBM Developerworks Recipes site.
+
+## Further information
+
+If you have any questions, feel free to reach out to us at **hello@resin.io**, or chat with us on [Gitter](https://gitter.im/resin-io/chat)!
+
+### Shortcuts:
+
+* [New Bluemix Console](https://new-console.ng.bluemix.net/)
+* [New Bluemix Documentation](https://new-console.ng.bluemix.net/docs/)
+* [Create a new Internet of Things Project](https://new-console.ng.bluemix.net/catalog/services/internet-of-things-platform/)
+* [Classic Bluemix Console](https://console.ng.bluemix.net/)
+* [IBM Developerworks Recipes](https://developer.ibm.com/recipes/), [Internet of Things category](https://developer.ibm.com/recipes/tutorials/category/internet-of-things-iot/)
+* [IBM Watson IoT on Github](https://github.com/ibm-watson-iot)
+
+### Sample Apps
+
+A few sample apps to get started:
+
+* [bluemix-resin-python demo project](https://github.com/resin-io-projects/bluemix-resin-python)
+* [Resin-Bluemix boilerplate: automatically register your device and publishe data to your Bluemix app](https://github.com/craig-mulligan/resin-bluemix-boilerplate)
