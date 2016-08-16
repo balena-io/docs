@@ -13,7 +13,7 @@ Caching in Docker is done by comparing the instructions in the current `Dockerfi
 ## Minimize the number of layers
 
 Reducing the number of layers in your dockerfile can reduce the build and push time on resin.io. If we combine two instructions we avoid making another layer so we’re not storing intermediate (and maybe useless) states. Reducing the number of layers can be achieved by chaining multiple commands together with `&&` in `RUN` invocations. e.g. :
-```
+```Dockerfile
 RUN apt-get update && apt-get install -y python
 ```
 However, we recommend you find a balance between readability (and thus long-term maintainability) of the Dockerfile and minimizing the number of layers it uses.
@@ -25,7 +25,7 @@ In order to reduce complexity, dependencies, file sizes, and build times, you sh
 
 We can tidy up a bit by cleaning out the apt-cache and cleaning out tmp:
 
-```
+```Dockerfile
 RUN apt-get update && apt-get install -y \
     curl \
     git \
@@ -58,13 +58,13 @@ These are just a few tips from our engineers on how to reduce your build size
 * apt-get update commands should have a matching `rm -rf /var/lib/apt/lists` in order to clean up the package lists (or `rm -rf /var/lib/apt/*` which is equivalent).
 
 * You can combine the smaller layers together (each RUN/COPY/etc command creates a new layer) in order to reduce the metadata required for each layer and to speed up the updating process (each layer is downloaded individually), eg. you could change:
-```
+```Dockerfile
 RUN mkdir /var/run/sshd
 RUN echo 'root:resin' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 ```
 into
-```
+```Dockerfile
 RUN mkdir /var/run/sshd \
   && echo 'root:resin' | chpasswd
   && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config

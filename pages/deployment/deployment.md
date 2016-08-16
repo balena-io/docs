@@ -42,7 +42,7 @@ specified, it defaults to running `node server.js`.)
 A good example of this is the [text-to-speech][text-to-speech] application -
 here's its `package.json` file*:
 
-```json
+```JSON
 {
   "name": "resin-text2speech",
   "description": "Simple resin app that uses Google's TTS endpoint",

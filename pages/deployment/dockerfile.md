@@ -48,7 +48,7 @@ We provide a base [Raspbian][raspbian] Raspberry Pi image especially configured 
 
 To use this image prefix your `Dockerfile`s with:-
 
-```
+```Dockerfile
 FROM resin/rpi-raspbian:wheezy-2015-01-15
 ```
 
@@ -58,7 +58,7 @@ You will note that this image has a build date appended to it, we try to keep ou
 
 Let's take a look at an example `Dockerfile`. This comes from the [Hello Python][hello-python] project and executes a simple Hello World Python project:-
 
-```
+```Dockerfile
 FROM resin/rpi-raspbian:wheezy-2015-01-15
 
 # Install Python.
@@ -73,13 +73,13 @@ CMD ["python", "/app/hello.py"]
 
 Let's take a look at what's going on here, line-by-line:-
 
-```
+```Dockerfile
 FROM resin/rpi-raspbian:wheezy-2015-01-15
 ```
 
 Here we use the resin.io Raspberry Pi [Raspbian][raspbian] image as our base Docker image.
 
-```
+```Dockerfile
 # Install Python.
 RUN apt-get update && apt-get install -y python
 ```
@@ -89,13 +89,13 @@ prompts on the build server.)
 
 __NOTE:__ All the commands in docker RUN are executed on our build servers in a virtual qemu ARM device, so be careful not to run commands that require user intervention or try to access IO, because these will call the build to hang and you won't get a lovely container pushed to your devices.
 
-```
+```Dockerfile
 COPY . /app
 ```
 
 Now we need to get the files in our repository. This command *recursively* copies all the files in the local directory (on the build server this will be the files in the repository) into a new directory in the container, `/app`. This could also be done using ADD, but COPY is recommended by the folks over at docker.
 
-```
+```Dockerfile
 CMD ["python", "/app/hello.py"]
 ```
 

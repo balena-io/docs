@@ -38,7 +38,7 @@ From then on you can output raw data to `/sys/class/gpio/gpio[pin number]/value`
 
 E.g. accessing GPIO port 17 and sending some data:-
 
-```
+```Bash
 # ls /sys/class/gpio/gpio17
 ls: cannot access /sys/class/gpio/gpio17: No such file or directory
 # echo 17 > /sys/class/gpio/export
