@@ -66,6 +66,7 @@ Learn
       [/deployment/wifi]
 
     3rd Party Integrations
+      IBM Bluemix[/integrations/bluemix]
       Microsoft Azure[/integrations/azure]
       Samsung ARTIK Cloud[/integrations/artik]
 
