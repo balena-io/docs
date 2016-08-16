@@ -48,7 +48,7 @@ In order to configure static IP on a pre-provisioned SD card perform the followi
 * Mount the FAT partitions of the OS image either directly from the `.img` file, or by burning the SD card and mounting it on your computer. The volume will be called `resin-conf`.
 * Inside `resin-conf` you will find a `config.json` file and in it you will see a network key/value pair which contains JSON string encoded [Connman][connman] settings. Now edit the value to include the following entry, replacing `<static IP>` with your desired static IP:-
 
-```
+```Ini
 [service_home_ethernet]
 Type = ethernet
 IPv4 = <static IP>/255.255.255.0/192.168.1.1
@@ -75,7 +75,7 @@ encryption type.
 Though we currently don't support multiple WiFi SSIDs through the user
 interface, this can be achieved by manually editing the `config.json` file on your SD card. To add a second wifi network to the configuration simply append the following to `"network/network.config":`:
 
-```
+```JSON
 "files": {
     "network/settings": "[global]\nOfflineMode=false\n\n[WiFi]\nEnable=true\nTethering=false\n\n[Wired]\nEnable=true\nTethering=false\n\n[Bluetooth]\nEnable=true\nTethering=false",
     "network/network.config": "[service_home_ethernet]\nType = ethernet\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_home_wifi]\nType = wifi\nName = My_Wifi_Ssid\nPassphrase = my super secret wifi passphrase\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_office_wifi]\nType = wifi\nName = My_2nd_Wifi_Ssid\nPassphrase = my super sexy wifi\nNameservers = 8.8.8.8,8.8.4.4"
@@ -104,7 +104,7 @@ $ sudo resin config reconfigure --type raspberry-pi --advanced
 ```
 
 To view an images current configuration run:
-```
+```shell
 $ sudo resin config read --type raspberry-pi
 ```
 
@@ -118,7 +118,7 @@ __Note:__ For the Beaglebone, VIA VAB-820, Intel NUC and the Intel Edison, you c
 
 In the `config.json` file you will need to edit the section called `files` with whatever `SSID` and `passphrase` you require.
 
-```
+```JSON
 "files": {
     "network/settings": "[global]\nOfflineMode=false\n\n[WiFi]\nEnable=true\nTethering=false\n\n[Wired]\nEnable=true\nTethering=false\n\n[Bluetooth]\nEnable=true\nTethering=false",
     "network/network.config": "[service_home_ethernet]\nType = ethernet\nNameservers = 8.8.8.8,8.8.4.4\n\n[service_home_wifi]\nType = wifi\nName = My_Wifi_Ssid\nPassphrase = my super secret wifi passphrase\nNameservers = 8.8.8.8,8.8.4.4"

@@ -8,17 +8,17 @@ So in the root directory of our project we see a number of files, the most impor
 The most important part of a resin.io project repo is usually the `Dockerfile` or `Dockerfile.template`. The `.template` version allows you to define template variables like `%%RESIN_MACHINE_NAME%%` which enables you to push the same repository to multiple different architecture fleets.
 
 If we look at our `Dockerfile.template`, the first thing we see is:
-```
+```Dockerfile
 FROM resin/%%RESIN_MACHINE_NAME%%-python
 ```
 This line has quite a bit packed into it. The first thing that happens is that the `%%RESIN_MACHINE_NAME%%` place holder gets stripped and replaced with the resin device name. For example if your application type is a {{ $device.name }}, the line will be replaced with:
-```
+```Dockerfile
 FROM resin/{{ $device.id }}-python
 ```
 Which tells the resin builder that this is the docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching dockerhub base images][resinDockerHub]. For this image we don't define a tag, so `:latest` will be used, but there are [many other tags](https://hub.docker.com/r/resin/{{ $device.id }}-python/tags/), which allow you to specify the python version, etc.
 
 Next up we have 3 line which were commented out:
-```
+```Dockerfile
 RUN apt-get update && apt-get install -yq \
    alsa-utils libasound2-dev && \
    apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -yq \
 This is just a demonstration of how you can use `apt-get` to install dependencies in your container. In this case we would install some useful linux sound utilities.
 
 The next two directives are pretty straight forward and key parts of using docker.
-```
+```Dockerfile
 # Defines our working directory in container
 WORKDIR /usr/src/app
 
@@ -36,7 +36,7 @@ COPY ./requirements.txt /requirements.txt
 As the comments say, `WORKDIR` set our working directory for any `RUN`, `COPY` or `CMD` commands following it. So the next line would effectively `COPY` our `requirements.txt` in the root of our directory to `usr/src/app/requirements.txt`. Check out the [Docker reference][docker-ref] pages for more info on these commands.
 
 We can now build all our python modules and dependencies, this is done using the `RUN` command.
-```
+```Dockerfile
 # pip install python deps from requirements.txt on the resin.io build server
 RUN pip install -r /requirements.txt
 
