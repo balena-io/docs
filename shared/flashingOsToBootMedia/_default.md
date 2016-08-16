@@ -11,7 +11,7 @@ For simplicity this tutorial will assume you are using [Etcher][etcher-link]. On
 
 To create a bootable resinOS {{ $device.bootMedia }} follow these 3 easy steps:
 
-1. Click "Select image" button and find your applications resinOS `.zip` file. There is no need to extract it beforehand, etcher will do that for you.
+1. Click "Select image" button and find your applications resinOS `.zip` file. There is no need to extract it beforehand, Etcher will do that for you.
 2. If you haven't already done so, insert your {{ $device.bootMedia }} into your computer. Etcher will automatically detect it. If you have more than one {{ $device.bootMedia }} inserted, you will need to select the appropriate one.
 3. Click the "Flash!" button.
 
