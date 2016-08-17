@@ -37,7 +37,7 @@ If you think something is not documented, or can be improved, don't hesitate in 
 Conventions
 -----------
 - Notes/Warnings are formatted using CSS. Use the following syntax to make sure it's rendered correctly: `__Note:__`
-=======
+
 ### Get Setup
 
 ```sh

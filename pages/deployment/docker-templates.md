@@ -13,7 +13,7 @@ To allow our builders to build containers for multiple architectures from one co
 we implemented simple dockerfile templates.
 
 It is now possible to define a `Dockerfile.template` file that looks like this:
-```
+```Dockerfile
 FROM resin/%%RESIN_MACHINE_NAME%%-node
 
 COPY package.json /package.json

@@ -27,7 +27,7 @@ Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2
 To enable I2C communication in your projects you will need to add the command `modprobe i2c-dev` to your package.json or Dockerfile.
 
 The easiest way to add it so the package.json is to added to the "start" key. As shown here.
-```
+```JSON
  "scripts": {
     "preinstall": "bash deps.sh",
     "start": "modprobe i2c-dev && node app.js"
@@ -35,7 +35,7 @@ The easiest way to add it so the package.json is to added to the "start" key. As
 ```
 
 To add it to your Dockerfile, just add it before your entry script in the `CMD` command like so:
-```
+```Dockerfile
 CMD modprobe i2c-dev && python /app/demo.py
 ```
 
@@ -172,15 +172,15 @@ __Note:__ The ADC voltage is only rated to 1.8V, if you apply more you risk fryi
 __Warning:__ Capemgr is only supported in resin.io BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a webterminal to your BBB and run `uname -a`.
 
 ##### Loading a Cape
-```
+```Bash
 echo cape-universaln > /sys/devices/platform/bone_capemgr/slots              
 ```
 ##### Checking which Capes are loaded.
-```
+```Bash
 cat /sys/devices/platform/bone_capemgr/slots
 ```
 
-```
+```Bash
 cat /sys/devices/platform/ocp/ocp:cape-universal/status
 
 OCPDIR=/sys/devices/platform/ocp/ocp*
@@ -209,7 +209,7 @@ Your Edison will need to be powered externally for the USB host mode to be activ
 
 ##### Software Pre-requisites:
 The following code needs to be placed at the start before any device operations are run in your application container.
-```
+```Bash
 #!/bin/bash
 
 mount -t devtmpfs none /dev
