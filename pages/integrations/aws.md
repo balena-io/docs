@@ -14,7 +14,7 @@ Sign up for an AWS account or log into your account at the [AWS Console](https:/
 
 ![AWS services dashboard](/img/integrations/aws/AWS_IoT.png)
 
-For more details about the following steps, please check the [AWS Documentation](https://aws.amazon.com/documentation/), and in particular the [AWS IoT Documentation](https://aws.amazon.com/documentation/iot/). Most tasks are available both in the web interface, and through the [AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/).
+For more details about the following steps, please check the [AWS Documentation](https://aws.amazon.com/documentation/), and in particular the [AWS IoT Documentation](https://aws.amazon.com/documentation/iot/). Most tasks are available both in the web interface and through the [AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/).
 
 ### Creating Things
 
@@ -26,13 +26,13 @@ AWS IoT is available in [selected regions](http://docs.aws.amazon.com/general/la
 
 #### Manual Thing Creation
 
-Manual device creation involves setting up all relevant configuration either in the web console, or through the CLI. Select your a thing type (optionally), and create a new thing for each of the physical devices you would like to use (that is for each of the boards you will be provisioning on resin.io).
+Manual device creation involves setting up all relevant configuration either in the web console, or through the CLI. Select your thing type (optionally), and create a new thing for each of the physical devices you would like to use (that is for each of the boards you will be provisioning on resin.io).
 
 ![AWS IoT Resources](/img/integrations/aws/AWS_IoT_resources.png)
 
 Create and activate certificates for each of the devices, attach each to the corresponding thing, and save the "private key" and "certificate" files: those will provide authentication for the physical devices when they try to connect to AWS IoT. The private key can only be downloaded in this step, if lost it needs to be regenerated.
 
-Finally add some policies to let the devices communicate with the AWS platform. The simplest policy allowing all actions on all available resources (such as things, policies, MQTT channels for communication, and so on):
+Finally, add some policies to let the devices communicate with the AWS platform. The simplest policy allowing all actions on all available resources (such as things, policies, MQTT channels for communication, and so on):
 
 ![AWS IoT Simple Policy](/img/integrations/aws/AWS_IoT_policy_all_allowed.png)
 
@@ -40,9 +40,9 @@ After this steps, you'll have all information and setup required to connect a ph
 
 #### Automatic Thing Creation
 
-All of AWS can be controlled over API calls, and AWS itself can be used to automate creation of the things, certificates, policies, and other settings. Such automatic setups would tap into your resin.io resources, and when a new device is created, would automatically set up the required resources, and would notify the device of its credentials.
+All of AWS can be controlled over API calls, and AWS itself can be used to automate the creation of the things, certificates, policies, and other settings. Such automatic setups would tap into your resin.io resources, and when a new device is created, would automatically set up the required resources, and would notify the device of its credentials.
 
-One such possible automatic setup example, [resin-aws-lambda](https://github.com/craig-mulligan/resin-aws-lambda) uses the [AWS Lambda](https://aws.amazon.com/documentation/lambda/) platform to run "serverless" AWS provisioning.
+One such possible automatic setup example, [resin-aws-lambda](https://github.com/resin-io-projects/resin-aws-lambda) uses the [AWS Lambda](https://aws.amazon.com/documentation/lambda/) platform to run "serverless" AWS provisioning.
 
 All automatic provisioning method would use the [AWS IoT API](http://docs.aws.amazon.com/iot/latest/apireference/Welcome.html).
 
@@ -54,13 +54,13 @@ The next step depends on whether you are doing manual or automatic device creati
 
 ### Manual Device setup
 
-If you are using manual device creation, then you must have set up a corresponding thing and certificate for each resin.io device. In this case you will likely need a number of environment variables defined, some [application-wide environment variable](/management/env-vars/#application-wide) if the setting applies for all devices (such as AWS region), and some [per-device](/management/env-vars/#per-device) (such as authentication credentials). The environment varibles will be available from the code running on your device to correctly connect to AWS IoT.
+If you are using manual device creation, then you must have set up a corresponding thing and certificate for each resin.io device. In this case you will likely need a number of environment variables defined, some [application-wide environment variable](/management/env-vars/#application-wide) if the setting applies for all devices (such as AWS region), and some [per-device](/management/env-vars/#per-device) (such as authentication credentials). The environment variables will be available from the code running on your device to correctly connect to AWS IoT.
 
-The environment variables can not contain new-line characters (they can only be a single line), while the AWS IoT private key and certificates do use information in multiple lines. Some possible tricks are [base64 encoding](https://en.wikipedia.org/wiki/Base64) the credentials before adding them as an enviroment variable and decoding it within your application software, or replacing new-lines with a known placeholder (such as `#####`) and converting it back in software.
+The environment variables can not contain new-line characters (they can only be a single line), while the AWS IoT private key and certificates do use information in multiple lines. Some possible tricks are [base64 encoding](https://en.wikipedia.org/wiki/Base64) the credentials before adding them as an environment variable and decoding it within your application software.
 
 ### Automatic Device setup
 
-Automatic device setup would involve the newly provisioned resin.io device notifying your AWS IoT setup service (from the earlier steps), which in turns sets up the credentials, and for example sets them up as environment variables for the device. An example of this automatic setup, working with the "resin-aws-lambda" above, is [resin-aws-device](https://github.com/craig-mulligan/resin-aws-device). The automatic setup procedure generally depends on your device software and the service you use for AWS provisioning.
+Automatic device setup would involve the newly provisioned resin.io device notifying your AWS IoT setup service (from the earlier steps), which in turns sets up the credentials, and for example sets them up as environment variables for the device. An example of this automatic setup, working with the "resin-aws-lambda" above, is [resin-aws-device](https://github.com/resin-io-projects/resin-aws-device). The automatic setup procedure generally depends on your device software and the service you use for AWS provisioning.
 
 ## Programming
 
@@ -94,7 +94,7 @@ COPY requirements.txt ./
 RUN pip install -r ./requirements.txt
 ```
 
-Then in your application you can access the environmental variables through `os.getenv(VARIABLE)`, and send messages through the MQTT library. A very simple example is shown below:
+Then in your application, you can access the environmental variables through `os.getenv(VARIABLE)`, and send messages through the MQTT library. A very simple example is shown below:
 
 ```Python
 import base64
@@ -150,11 +150,11 @@ It sets up key files from the environment variables, as the MQTT library used re
 
 ### Using Node.js
 
-The [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) package is capable of both working with the [AWS IoT resources](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html) and the data communication on the [IoT Data Plane](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IotData.html). Thus it can be used to implement both the provisioning and the device side of the application.
+The [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) package is capable of both working with the [AWS IoT resources](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html) and the data communication on the [IoT Data Plane](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IotData.html). Thus it can be used to implement both the provisioning and the device side of the application. However for security reasons it isn't encouraged to use the [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) on devices in the field, it is better instead to just use the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) doesn't have resource management capabilities. Therefore for this example, we have split the code into two parts. `resin-aws-lambda` is responsible the resource provisioning and `resin-aws-device` only handles data communication.
 
-For a complete Node.js example, please see the pair of [resin-aws-lambda](https://github.com/craig-mulligan/resin-aws-lambda) and [resin-aws-device](https://github.com/craig-mulligan/resin-aws-device) repositories!
+For a complete Node.js example, please see the pair of [resin-aws-lambda](https://github.com/resin-io-projects/resin-aws-lambda) and [resin-aws-device](https://github.com/resin-io-projects/resin-aws-device) repositories!
 
-Here are a few notes using the [Node.js SDK](https://github.com/aws/aws-iot-device-sdk-js) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
+Here are a few notes using the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
 
 ```dockerfile
 FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
@@ -173,20 +173,17 @@ COPY package.json ./
 RUN JOBS=MAX npm i --unsafe-perm --production && npm cache clean
 ```
 
-Then in your application you can access the environmental variables through `process.env.VARIABLE`, and send messages through the SDK. A simple example is shown below (where new-lines in the relevant environment variables were escaped using `#####`):
+Then in your application you can access the environmental variables through `process.env.VARIABLE`, and send messages through the SDK. A simple example is shown below (where new-lines in the relevant environment variables were escaped base64 encoded strings):
 
 ```Javascript
 var awsIot = require('aws-iot-device-sdk');
-var Chance = require('chance'); // used to randomize bool values
+var Chance = require('chance'); // used to randomise bool values
 var chance = new Chance();
 
-// used to add linebreaks to cert strings
-var pattern = /#####/g;
-
 var device = awsIot.device({
-privateKey: new Buffer(process.env.AWS_PRIVATE_KEY.replace(pattern, '\n')),
-clientCert: new Buffer(process.env.AWS_CERT.replace(pattern, '\n')),
-    caCert: new Buffer(process.env.AWS_ROOT_CA.replace(pattern, '\r\n')),
+privateKey: new Buffer(process.env.AWS_PRIVATE_KEY, 'base64'),
+clientCert: new Buffer(process.env.AWS_CERT, 'base64'),
+    caCert: new Buffer(process.env.AWS_ROOT_CA, 'base64'),
   clientId: process.env.RESIN_DEVICE_UUID,
     region: process.env.AWS_REGION
 });
@@ -197,7 +194,7 @@ device.on('connect', function() {
   // publish data
   setInterval(function () {
     var reading = chance.floating({min: 0, max: 200});
-		device.publish('sensor', JSON.stringify({ reading: reading }));
+        device.publish('sensor', JSON.stringify({ reading: reading }));
   }, process.env.INTERVAL || 3000);
 });
 
@@ -223,5 +220,5 @@ If you have any questions, feel free to reach out to us at **hello@resin.io**, o
 
 A few sample apps to get started:
 
-* [resin-aws-lambda](https://github.com/craig-mulligan/resin-aws-lambda) and [resin-aws-device](https://github.com/craig-mulligan/resin-aws-device)
+* [resin-aws-lambda](https://github.com/resin-io-projects/resin-aws-lambda) and [resin-aws-device](https://github.com/resin-io-projects/resin-aws-device)
 * [Python and Paho for MQTT with AWS IoT project on Hackster.io](https://www.hackster.io/mariocannistra/python-and-paho-for-mqtt-with-aws-iot-921e41) and [its repository](https://github.com/mariocannistra/python-paho-mqtt-for-aws-iot)
