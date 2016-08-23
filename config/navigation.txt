@@ -66,6 +66,7 @@ Learn
       [/deployment/wifi]
 
     3rd Party Integrations
+      Amazon AWS IoT[/integrations/aws]
       IBM Bluemix[/integrations/bluemix]
       Microsoft Azure[/integrations/azure]
       Samsung ARTIK Cloud[/integrations/artik]
