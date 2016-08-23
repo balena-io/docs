@@ -1,0 +1,25 @@
+To help you debug and develop your application in a resin.io container, we provided a browser based terminal or a command line tool called [resin ssh](/tools/cli/#ssh-60-uuid-62-). This gives you console access to your running [container][container-link] on the device and allows you to test out small snippets of code or check some system logs on your device.
+
+In order for you to start a terminal session in your device [container][container-link], you first need to ensure that your device is **online** and code is **pushed to it** and is running. If your container code crashes or ends quickly, it is not possible to attach a console to it. One option to keep your containers running is to enable the INITSYSTEM in your container. This can easily be done by creating a device environment variable called `INITSYSTEM` and setting its value to `on`.
+
+### Using the Dashboard Web Terminal
+
+To use this feature, navigate your application and select the device you want access to. In that devices menu page you will find the `>_ Terminal` menu item.
+
+If your device is **online** and has **a running container** then simply click the blue ">_ Start Terminal" button and a terminal session should be initiated for you in a second or two as shown below:
+
+![A running web Terminal Session](/img/common/device/running-webterminal-session.png)
+
+### Using Resin SSH from the cli
+
+If you don't want to use the dashboard web interface and prefer to stay in the commandline you can use [resin ssh](/tools/cli/#ssh-60-uuid-62-) to connect to your running application container. First you will need to go a head an install the [Resin Command Line Interface (CLI)](/tools/cli/), once thats set up all you need to do is run the following for your development machine's terminal.
+```
+$ resin ssh <device-uuid>
+```
+Where `<device-uuid>` is the unique identifier for the device you want to access, this can be found on the device summary dashboard.
+
+At the time of writing, `resin ssh` makes use of the resin VPN connection to access a device, this allows you to access and test on devices where ever they are. If you want to SSH only on the internal network, you can simply install an SSH server in your container as in this example:
+
+{{> icon class="octicon octicon-mark-github" }} [**resin-openssh**](https://github.com/resin-io-projects/resin-openssh).
+
+One note is that if you run your own SSH in the container you won't automatically get your environment variables in the ssh session. To bring them in, simply run `export $(xargs -0 -n1 < /proc/1/environ)` after that any operations or code you run from the SSH session will be able to access the environment variables you set on your resin.io dashboard.

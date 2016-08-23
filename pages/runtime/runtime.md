@@ -1,59 +1,69 @@
 ---
-title: Runtime Environment
+title: Container Runtime
 ---
+# Container Runtime
 
-# Runtime Environment
+On resin.io devices all your application code runs a [ Docker container][container-link]. This means that whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process tree in your container. It also means that this PID 1 process needs to know how to properly process UNIX signals, reap orphan zombie processes [[1]][ref-one] and if it crashes your whole container crashes, losing logs and debug info.
 
-## Persistent Storage		
+## Init System
 
-If you want specific data or configurations to persist on the device through the update process, you will need to store them in `/data` . This is a special folder on the device file system which is essentially a [docker data `VOLUME`][docker-volume-link].
+For these reasons we have built an [init system][init-system-link] into most of the resin base images listed here: [Resin Base Images Wiki][base-image-wiki-link]. The init system will handle signals, reap zombies and also properly handle [udev][udev-link] hardware events correctly.
 
-This folder is guaranteed to be maintained across updates and thus files contained in it can act as persistent storage.	This is a good place to write system logs, etc.
+There are two ways of enabling the init system in your application. You can either add the following environment variable in your Dockerfile:
+```Dockerfile
+# enable container init system.
+ENV INITSYSTEM=on
+```
+or you can add an environment variable from the Dashboard by navigating to the `Environment Variables` menu item on the left and adding the variable as show below:
+![Enable init system](/img/common/app/app_initsystem_envvar.png)
 
-Note that this folder is __not__ mounted when your project is building on our build server, so you can't access it from your `Dockerfile`. The `/data` volume only exists when the container is running on the deployed devices. 		
+Once you have enabled your init system you should see something like this in your device logs:
+![init system enabled in logs](/img/common/device/device_logs_initsystem_enabled.png)
 
-Additionally, it is worth mentioning that the `/data` folder is created per-device and it is not kept in sync between devices in your fleet, so ensure your application takes this into account.
+You shouldn't need to make any adjustments to your code or `CMD` it should just work out of the box. Note that if you are using our Debian or Fedora based images, then you should have [systemd][systemd-link] in your containers, where as if you use one of our Alpine images you will have [OpenRC][openrc-link] as your init system.
 
 ## SSH Access
 
-To help you debug and develop your application in a resin.io container, we provided a browser based terminal or a command line tool called [resin ssh](/tools/cli/#ssh-60-uuid-62-). This gives you console access to your running [container][docker-container] on the device and allows you to test out small snippets of code or check some system logs on your device.
+{{> "general/container-ssh"}}
 
-In order for you to start a terminal session in your device [container][docker-container], you first need to ensure that your device is **online** and code is **pushed to it** and is running. If your container code crashes or ends quickly, it is not possible to attach a console to it. One option to keep your containers running is to enable the INITSYSTEM in your container. This can easily be done by creating a device environment variable called `INITSYSTEM` and setting its value to `on`.
+## The Container Environment
 
-### Using the Dashboard Terminal
+When you start a terminal session, either via the web terminal or the CLI, you are dropped into your applications running container. Its important to note that your container needs to be running for you to actually SSH into it, this is where the [init system](#init-system) helps a lot. By default you are the `root` user and granted root privileges in the container.
 
-To use this feature, navigate your application and select the device you want access to. In that devices menu page you will find the `>_ Terminal` menu item.
+If you're running a custom `Dockerfile` the location of your code will be as specified by you in the file. The recommended file path for your code is `/usr/src/app` as you will see in most of our demo projects. If you're running a pure node.js application (i.e. an application that has no `Dockerfile` or `Dockerfile.template` but rather a `package.json`), all your code will be automatically placed in `/app`, which has a symbolic link to `/usr/src/app`.
 
-If your device is **online** and has **a running container** then simply click the blue ">_ Start Terminal" button and a terminal session should be initiated for you in a second or two as shown below:
+Inside the container we provide a number of `RESIN_` namespaced environment variables. Below is a short description of some of these.
 
-![A running web Terminal Session](/img/common/device/running-webterminal-session.png)
+<!-- TODO: Add note about API key's permissions -->
+|    Variable   	| Description 	|
+|:----------:	    |:-----------:	|
+| `RESIN_SUPERVISOR_API_KEY` 	|  blah blah  	|
+| `RESIN_APP_ID` 	            |  blah blah  	|
+| `RESIN` 	                  |  blah blah  	|
+| `RESIN_SUPERVISOR_ADDRESS` 	|  blah blah  	|
+| `RESIN_DEVICE_RESTART` 	    |  blah blah  	|
+| `RESIN_SUPERVISOR_HOST` 	  |  blah blah  	|
+| `RESIN_DEVICE_UUID` 	      |  blah blah  	|
+| `RESIN_API_KEY` 	          |  blah blah  	|
+| `RESIN_SUPERVISOR_VERSION` 	|  blah blah  	|
+| `RESIN_SUPERVISOR_PORT` 	  |  blah blah  	|
 
-### Using Resin SSH from the cli
+root@raspberrypi3-cb6f09d:/# printenv | grep RESIN
+RESIN_SUPERVISOR_API_KEY=039cd2dc36a96503fd9f8de7aa7c747e1ca9cd615eb658a66c29baf598733e19
+RESIN_APP_ID=116522
+RESIN=1
+RESIN_SUPERVISOR_ADDRESS=http://127.0.0.1:48484
+RESIN_DEVICE_RESTART=3505733431986444
+RESIN_SUPERVISOR_HOST=127.0.0.1
+RESIN_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
+RESIN_API_KEY=Grzb2u8KqkHyXIXdCmwb0LuMjx6baYjW
+RESIN_SUPERVISOR_VERSION=1.13.0
+RESIN_SUPERVISOR_PORT=48484
 
-If you don't want to use the dashboard web interface and prefer to stay in the commandline you can use [resin ssh](/tools/cli/#ssh-60-uuid-62-) to connect to your running application container. First you will need to go a head an install the [Resin Command Line Interface (CLI)](/tools/cli/), once thats set up all you need to do is run the following for your development machine's terminal.
-```
-$ resin ssh <device-uuid>
-```
-Where `<device-uuid>` is the unique identifier for the device you want to access, this can be found on the device summary dashboard.
+## Persistent Storage		
 
-At the time of writing, `resin ssh` makes use of the resin VPN connection to access a device, this allows you to access and test on devices where ever they are. If you want to SSH only on the internal network, you can simply install an SSH server in your container as in this example: [resin-openssh](https://github.com/resin-io-projects/resin-openssh). On note is that if you run your own SSH in the container you won't automatically get your environment variables in the ssh session. To bring them in, simply run `export $(xargs -0 -n1 < /proc/1/environ)` after that any operations or code you run from the SSH session will be able to access the environment variables you set on your resin.io dashboard.
+{{> "general/persistent-storage"}}
 
-### Exploring the container
-
-The terminal session is hosted inside your application's [container][docker-container] where you are granted root privileges. By default your working directory will be the `/` directory of the filesystem.
-
-If you're running a custom `Dockerfile` the location of your code will be as specified by you in the file. The recommended file path for your code is `/usr/src/app`. If you're running a pure node.js application (i.e. an application that has no `Dockerfile` or `Dockerfile.template` but rather a `package.json`), all your code will be automatically placed in `/app`, which has a symbolic link to `/usr/src/app`.
-
-
-### Terminal Closes On Update
-
-When you push updates or restart your container, the terminal session is automatically closed and you will see something like:
-```
-root@beaglebone-green-wifi-9b01ed:/# SSH session disconnected                                                   
-SSH reconnecting...                                                                                             
-Spawning shell...    
-```
-The session should automatically restart once your container is up and running again.
 
 ## Exposed Ports
 
@@ -86,9 +96,48 @@ var server = app.listen(80, function () {
 })
 ```
 
-[expressjs-link]:http://expressjs.com/
-[docker-volume-link]:https://docs.docker.com/userguide/dockervolumes/
+## Tips, Tricks and Troubleshooting
 
-[tty.js]:https://github.com/chjj/tty.js/
-[docker-container]:https://docs.docker.com/introduction/understanding-docker/#inside-docker
+### Reboot from Inside the Container
+
+You may notice that if you issue a `reboot`, `halt`, or `shutdown` your container either gets into a weird zombie state or doesn't do anything. The reason for this is that these commands do not propagate down to the hostOS system. If you need to issue a `reboot` from your container you should use the supervisor API as shown:
+```
+curl -X POST --header "Content-Type:application/json" \
+    "$RESIN_SUPERVISOR_ADDRESS/v1/reboot?apikey=$RESIN_SUPERVISOR_API_KEY"
+```
+[Read more about the supervisor API](/runtime/supervisor-api/#post-v1-reboot)
+
+__Note:__ `RESIN_SUPERVISOR_API_KEY` and `RESIN_SUPERVISOR_ADDRESS` should already be in your environment by default. You will also **need** `curl` installed in your container.
+
+<!-- TODO: explain how to reboot from systemd -->
+<!-- Or you can use the following [DBUS][dbus-link] call to the hostOS systemd. -->
+
+
+### Failed to install release agent
+
+You may see the following weird warning when enabling your init system:
+```
+Failed to install release agent, ignoring: No such file or directory
+```
+This is a known issue and doesn't affect your code in any way. It was fixed in images deployed after 13-07-2016, so we recommend moving to a newer base image. You can see the fix here: [release agent fix](https://github.com/resin-io-library/base-images/commit/3a50ebad6db4259ec5753750ff67274ae8683add)
+
+### Terminal Closes On Update
+
+When you push updates or restart your container, the terminal session is automatically closed and you will see something like:
+```
+root@beaglebone-green-wifi-9b01ed:/# SSH session disconnected                                                   
+SSH reconnecting...                                                                                             
+Spawning shell...    
+```
+The session should automatically restart once your container is up and running again.
+
+
+[container-link]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
+[ref-one]:https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/
+[base-image-wiki-link]:/runtime/resin-base-images/
+[init-system-link]:https://en.wikipedia.org/wiki/Init
+[systemd-link]:https://en.wikipedia.org/wiki/Systemd
+[openrc-link]:https://en.wikipedia.org/wiki/OpenRC
+[expressjs-link]:http://expressjs.com/
+
 [systemd-base-image-link]:https://hub.docker.com/r/resin/raspberrypi-python/
