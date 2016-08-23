@@ -203,6 +203,28 @@ device.on('message', function(topic, payload) {
 });
 ```
 
+### General
+
+You can create base64 encoded strings from key files to be use with environment variables for example in Python as:
+
+```Python
+import base64
+
+filename = "KEYFILE"
+with open(filename, "rb") as key_file:
+    key = key_file.read()
+    encoded_key = base64.b64encode(key)
+    print(encoded_key.decode("ascii") )
+```
+
+or in Linux as:
+
+```Bash
+cat KEYFILE | base64 -w 0
+```
+
+where you need to replace `KEYFILE` with the relevant filename (such as `xxxxxxxxxx-certificate.pem.crt` or `xxxxxxxxxx-private.pem.key`).
+
 ## Further information
 
 If you have any questions, feel free to reach out to us at **hello@resin.io**, or chat with us on [Gitter](https://gitter.im/resin-io/chat)!
