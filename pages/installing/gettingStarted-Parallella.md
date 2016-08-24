@@ -99,7 +99,7 @@ Once you have selected your board configuration, click the `Download Device OS` 
 While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
-Once the download is finished you should have a `.img` file with a name like `resin-myFleet-0.1.0-0.0.14.img` where **myFleet** is the name you gave your application on the dashboard.
+Once the download is finished you should have a `.zip` file with a name like `resin-myFleet-0.1.0-0.0.14.zip` where **myFleet** is the name you gave your application on the dashboard. Extract the `.zip` to a folder and you should see a OS `.img` in the folder. We will use this in the next steps.
 
 Now we have to burn the downloaded `.img` file onto the SD card. There are a number of ways of doing this depending on your host operating system. We have listed a few below:
 

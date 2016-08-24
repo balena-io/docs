@@ -92,7 +92,7 @@ __NOTE:__ Internal Wifi on the TS-4900 is not stable, and for the time being it 
 While the file downloads ensure your SD card is formatted in [FAT32][fat32]
 ([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
-Once the download is finished you should have a `.img` file with a name like `resin-myFleet-0.1.0-0.0.16-b2854a2c7639.img` where "myFleet" is the name you gave your application on the dashboard.
+Once the download is finished you should have a `.zip` file with a name like `resin-myFleet-0.1.0-0.0.16-b2854a2c7639.zip` where "myFleet" is the name you gave your application on the dashboard. Extract the `.zip` to a folder and you should see a OS `.img` in the folder. We will use this in the next steps.
 
 Now we have to burn the downloaded `.img` file onto the SD card. There are a couple of ways to do this depending on your host computer's operating system. We have listed a few below.
 
