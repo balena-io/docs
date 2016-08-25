@@ -34,31 +34,33 @@ If you're running a custom `Dockerfile` the location of your code will be as spe
 
 Inside the container we provide a number of `RESIN_` namespaced environment variables. Below is a short description of some of these.
 
-<!-- TODO: Add note about API key's permissions -->
 |    Variable   	| Description 	|
 |:----------:	    |:-----------:	|
-| `RESIN_SUPERVISOR_API_KEY` 	|  blah blah  	|
-| `RESIN_APP_ID` 	            |  blah blah  	|
-| `RESIN` 	                  |  blah blah  	|
-| `RESIN_SUPERVISOR_ADDRESS` 	|  blah blah  	|
-| `RESIN_DEVICE_RESTART` 	    |  blah blah  	|
-| `RESIN_SUPERVISOR_HOST` 	  |  blah blah  	|
-| `RESIN_DEVICE_UUID` 	      |  blah blah  	|
-| `RESIN_API_KEY` 	          |  blah blah  	|
-| `RESIN_SUPERVISOR_VERSION` 	|  blah blah  	|
-| `RESIN_SUPERVISOR_PORT` 	  |  blah blah  	|
+| `RESIN_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on resin.io	|
+| `RESIN_APP_ID` 	            |  ID number of the resin.io application the device is associated. 	|
+| `RESIN` 	                  |  The `RESIN=1` variable can be used by your software to detect that it is running on a resin.io device. 	|
+| `RESIN_SUPERVISOR_VERSION` 	|  The current version of the supervisor agent running on the device.	|
+| `RESIN_SUPERVISOR_API_KEY` 	|  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link]	for detailed usage.|
+| `RESIN_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`	|
+| `RESIN_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`|
+| `RESIN_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`	|
+| `RESIN_API_KEY` 	          |  API key which can be used to authenticate requests to the resin.io backend. Can be used with resin SDK on the device. **WARNING** This API key gives the code full user permissions, so can be used to delete and update anything as you would on the Dashboard.  	|
+| `RESIN_DEVICE_RESTART` 	    |  This is a internal mechanism for restarting containers and can be ignored as its not very useful to application code.  Example: `1.13.0`	|
 
+Here's an example from a Raspberry Pi 3:
+```
 root@raspberrypi3-cb6f09d:/# printenv | grep RESIN
-RESIN_SUPERVISOR_API_KEY=039cd2dc36a96503fd9f8de7aa7c747e1ca9cd615eb658a66c29baf598733e19
+RESIN_SUPERVISOR_API_KEY=1111deadbeef2222
 RESIN_APP_ID=116522
 RESIN=1
 RESIN_SUPERVISOR_ADDRESS=http://127.0.0.1:48484
 RESIN_DEVICE_RESTART=3505733431986444
 RESIN_SUPERVISOR_HOST=127.0.0.1
 RESIN_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
-RESIN_API_KEY=Grzb2u8KqkHyXIXdCmwb0LuMjx6baYjW
+RESIN_API_KEY=deadbeef12345
 RESIN_SUPERVISOR_VERSION=1.13.0
 RESIN_SUPERVISOR_PORT=48484
+```
 
 ## Persistent Storage		
 
@@ -96,7 +98,17 @@ var server = app.listen(80, function () {
 })
 ```
 
+## Access to /dev
+
+In many projects you may need to control or have access to some external hardware via interfaces like GPIO, I2C or SPI. On resin.io your container application will automatically have access to `/dev` and these interfaces since the container is run in [**privileged** mode](https://docs.docker.com/engine/reference/commandline/run/#/full-container-capabilities-privileged). This means you should be able to use any hardware modules like you would in a vanilla linux environment.
+
+__Note:__ If you are not using one of the docker base images recommended in our [base images wiki][base-image-wiki-link], then its most likely you will need to handle the updating of `/dev` via [udev][udev-link] yourself. You can see an example of how our base images handle this [here](https://github.com/resin-io-library/base-images/blob/master/debian/armv7hf/jessie/entry.sh#L54).
+
 ## Tips, Tricks and Troubleshooting
+
+### Writing to logs on the Dashboard
+
+In general anything written from the application to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our [example projects][projects-github] on github to get an idea of how to do this.
 
 ### Reboot from Inside the Container
 
@@ -112,11 +124,20 @@ __Note:__ `RESIN_SUPERVISOR_API_KEY` and `RESIN_SUPERVISOR_ADDRESS` should alrea
 <!-- TODO: explain how to reboot from systemd -->
 <!-- Or you can use the following [DBUS][dbus-link] call to the hostOS systemd. -->
 
+### Dbus communication with hostOS
+
+In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket` for all dbus communication. Below you can see an example of how to change the device hostname via dbus.
+
+```Bash
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket dbus-send --system --print-reply --reply-timeout=2000 --type=method_call --dest=org.freedesktop.hostname1 /org/freedesktop/hostname1 org.freedesktop.hostname1.SetStaticHostname string:"YOUR-NEW-HOSTNAME" boolean:true
+```
+
+__Note:__ To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile.
 
 ### Failed to install release agent
 
 You may see the following weird warning when enabling your init system:
-```
+```Bash
 Failed to install release agent, ignoring: No such file or directory
 ```
 This is a known issue and doesn't affect your code in any way. It was fixed in images deployed after 13-07-2016, so we recommend moving to a newer base image. You can see the fix here: [release agent fix](https://github.com/resin-io-library/base-images/commit/3a50ebad6db4259ec5753750ff67274ae8683add)
@@ -124,12 +145,38 @@ This is a known issue and doesn't affect your code in any way. It was fixed in i
 ### Terminal Closes On Update
 
 When you push updates or restart your container, the terminal session is automatically closed and you will see something like:
-```
+```Bash
 root@beaglebone-green-wifi-9b01ed:/# SSH session disconnected                                                   
 SSH reconnecting...                                                                                             
 Spawning shell...    
 ```
 The session should automatically restart once your container is up and running again.
+
+### Blacklisting kernel modules won't work
+Since the `/etc/modules` you see in your container belongs to the container's filesystem and is not the same as `/etc/modules` in the hostOS, adding kernel modules to the modules blacklist in the container will have no effect. So in order to remove a module, you need to explicitly do a [`rmmod`](http://linux.die.net/man/8/rmmod).
+
+### Inconsistency in `/tmp` Directory
+At the time of writing there is an inconsistency in the behaviour of `/tmp` directory during reboot and application restart. With the current behaviour any thing in `/tmp` will persist over a reboot, but will **not** persist over an application restart.
+
+### Setting Up a systemd service
+
+In some cases its useful to set up a service that starts up when your container starts. To do this with systemd, make sure you have the initsystem enabled in your container as mentioned [above](#init-system). You can then create a basic service file in your code repository called `my_service.service` and add something like this:
+```
+[Unit] Description=My Super Sweet Service
+[Service] Type=OneShot ExecStart=/etc/init.d/my_super_sweet_service
+[Install] WantedBy=basic.target
+```
+Then by adding the following to your Dockerfile your service should be added/enabled on startup:
+```Dockerfile
+ENV INITSYSTEM on
+COPY my_service.service /etc/systemd/system/my_service.service
+RUN systemctl enable /etc/systemd/system/my_service.service
+```
+You may also need to check out https://www.freedesktop.org/software/systemd/man/systemd.service.html#Options in case you need a different service type (OneShot is for services that exit once they're finished starting, e.g. daemons)
+
+### Using DNSmasq in you container
+On the hostOS in resin.io we use [dnsmasq][dnsmasq-link] to manage DNS. This means that if you have dnsmasq running in your container it can potentially cause problems because it tries to bind to 0.0.0.0 which messes with the host dnsmasq. To get around this you need to add "bind-interfaces" to your dnsmasq configuration in your container, and it shouldnt have conflicts anymore.
+
 
 
 [container-link]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
@@ -138,6 +185,8 @@ The session should automatically restart once your container is up and running a
 [init-system-link]:https://en.wikipedia.org/wiki/Init
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
+[supervisor-api-link]:/runtime/supervisor-api/
 [expressjs-link]:http://expressjs.com/
-
+[projects-github]:https://github.com/resin-io-projects
 [systemd-base-image-link]:https://hub.docker.com/r/resin/raspberrypi-python/
+[dnsmasq-link]:http://www.thekelleys.org.uk/dnsmasq/doc.html
