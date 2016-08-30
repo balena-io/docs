@@ -45,6 +45,7 @@ Learn
       [/runtime/runtime]
       [/runtime/terminal]
       [/runtime/update-strategies]
+      [/runtime/delta]
       [/runtime/bandwidth-reduction]
 
     Accessing Hardware & Peripherals

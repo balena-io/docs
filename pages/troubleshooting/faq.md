@@ -123,7 +123,7 @@ Internet traffic is routed normally, outside the VPN, therefore doesn't go throu
 
 ##### How long does the update process run typically? Do you have any benchmark data? For now it appears to be quick for small updates.
 
-The update process currently depends on the size of the update and the speed of the internet connection. The size of the update is currently the size of the docker layers that differ between the docker image on the device and the docker image of the newly pushed code. We currently have a beta feature delta-mechanism which calculates binary diffs between two images which will drop the update size significantly, even on cases where no docker layers are shared. If you are interested in testing this out, ask for access on support@resin.io
+The update process currently depends on the size of the update and the speed of the internet connection. The size of the update is currently the size of the docker layers that differ between the docker image on the device and the docker image of the newly pushed code. We currently have [delta-mechanism](/runtime/delta/) which calculates binary diffs between two images which will drop the update size significantly, even on cases where no docker layers are shared. If you are interested in testing this out, ask for access on support@resin.io
 
 ##### How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?
 
