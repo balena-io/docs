@@ -15,4 +15,4 @@
 ^\/configuration\/resin-base-images(\/|$) -> /runtime/resin-base-images
 
 # Renamed pages
-^\/deployment\/wifi\/?(.*)? -> /deployment/network/$1
+^\/deployment\/wifi\/?(#.+)?$ -> /deployment/network/$1
