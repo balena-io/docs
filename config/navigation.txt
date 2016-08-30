@@ -63,8 +63,7 @@ Learn
     What's inside resinOS
       [/understanding/understanding-devices]
 
-    Network Setup
-      [/deployment/network/]
+    Network Setup[/deployment/network]
 
     3rd Party Integrations
       Amazon AWS IoT[/integrations/aws]
