@@ -247,7 +247,7 @@ If you find any issues with the application or get stuck anywhere along the way,
 [deploy]:/deployment/deployment
 [projects]:/examples/seed-projects
 [managing_devices_apps]:/management/applications
-[wifi]:/deployment/wifi
+[wifi]:/deployment/network
 [supported]:/hardware/devices
 [dockerfile]:/deployment/dockerfile
 

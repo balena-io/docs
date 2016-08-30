@@ -13,3 +13,6 @@
 ^\/getting-started -> /raspberrypi/nodejs/getting-started
 
 ^\/configuration\/resin-base-images(\/|$) -> /runtime/resin-base-images
+
+# Renamed pages
+^\/deployment\/wifi\/ -> /deployment/network/

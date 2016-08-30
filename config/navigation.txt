@@ -63,7 +63,7 @@ Learn
       [/understanding/understanding-devices]
 
     Network Setup
-      [/deployment/wifi]
+      [/deployment/network/]
 
     3rd Party Integrations
       Amazon AWS IoT[/integrations/aws]
