@@ -3,7 +3,7 @@ title: Container Runtime
 ---
 # Container Runtime
 
-On resin.io devices all your application code runs a [ Docker container][container-link]. This means that whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process tree in your container. It also means that this PID 1 process needs to know how to properly process UNIX signals, reap orphan zombie processes [[1]][ref-one] and if it crashes your whole container crashes, losing logs and debug info.
+On resin.io devices all your application code runs a [ Docker container][container-link]. This means that whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process tree in your container. It also means that this PID 1 process needs to know how to properly process UNIX signals, reap orphan zombie processes [[1]](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) and if it crashes your whole container crashes, losing logs and debug info.
 
 ## Init System
 
@@ -14,13 +14,13 @@ There are two ways of enabling the init system in your application. You can eith
 # enable container init system.
 ENV INITSYSTEM=on
 ```
-or you can add an environment variable from the Dashboard by navigating to the `Environment Variables` menu item on the left and adding the variable as show below:
+or you can add an environment variable from the Dashboard by navigating to the `Environment Variables` menu item on the left and adding the variable as shown below:
 ![Enable init system](/img/common/app/app_initsystem_envvar.png)
 
 Once you have enabled your init system you should see something like this in your device logs:
 ![init system enabled in logs](/img/common/device/device_logs_initsystem_enabled.png)
 
-You shouldn't need to make any adjustments to your code or `CMD` it should just work out of the box. Note that if you are using our Debian or Fedora based images, then you should have [systemd][systemd-link] in your containers, where as if you use one of our Alpine images you will have [OpenRC][openrc-link] as your init system.
+You shouldn't need to make any adjustments to your code or `CMD` it should just work out of the box. Note that if you are using our Debian or Fedora based images, then you should have [systemd][systemd-link] in your containers, whereas if you use one of our Alpine images you will have [OpenRC][openrc-link] as your init system.
 
 ## SSH Access
 
@@ -28,7 +28,7 @@ You shouldn't need to make any adjustments to your code or `CMD` it should just 
 
 ## The Container Environment
 
-When you start a terminal session, either via the web terminal or the CLI, you are dropped into your applications running container. Its important to note that your container needs to be running for you to actually SSH into it, this is where the [init system](#init-system) helps a lot. By default you are the `root` user and granted root privileges in the container.
+When you start a terminal session, either via the web terminal or the CLI, you are dropped into your applications running container. It's important to note that your container needs to be running for you to actually SSH into it, this is where the [init system](#init-system) helps a lot. By default you are the `root` user and granted root privileges in the container.
 
 If you're running a custom `Dockerfile` the location of your code will be as specified by you in the file. The recommended file path for your code is `/usr/src/app` as you will see in most of our demo projects. If you're running a pure node.js application (i.e. an application that has no `Dockerfile` or `Dockerfile.template` but rather a `package.json`), all your code will be automatically placed in `/app`, which has a symbolic link to `/usr/src/app`.
 
@@ -48,7 +48,7 @@ Inside the container we provide a number of `RESIN_` namespaced environment vari
 | `RESIN_DEVICE_RESTART` 	    |  This is a internal mechanism for restarting containers and can be ignored as its not very useful to application code.  Example: `1.13.0`	|
 
 Here's an example from a Raspberry Pi 3:
-```
+```Bash
 root@raspberrypi3-cb6f09d:/# printenv | grep RESIN
 RESIN_SUPERVISOR_API_KEY=1111deadbeef2222
 RESIN_APP_ID=116522
@@ -74,11 +74,11 @@ which listen on any port without issue. There is no need to have the docker `EXP
 
 ## Public Device URLS
 
-Resin.io currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the resin.io dashboard and select the `Enable a public url for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
+Resin.io currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the resin.io dashboard and select the `Enable a public URL for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
 
 ![Enable device url](/img/screenshots/device-url-new.png)
 
-Running a server listening on port 80 with public device url enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices url.
+Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices URL.
 
 ```javascript
 var express = require('express')
@@ -102,13 +102,13 @@ var server = app.listen(80, function () {
 
 In many projects you may need to control or have access to some external hardware via interfaces like GPIO, I2C or SPI. On resin.io your container application will automatically have access to `/dev` and these interfaces since the container is run in [**privileged** mode](https://docs.docker.com/engine/reference/commandline/run/#/full-container-capabilities-privileged). This means you should be able to use any hardware modules like you would in a vanilla linux environment.
 
-__Note:__ If you are not using one of the docker base images recommended in our [base images wiki][base-image-wiki-link], then its most likely you will need to handle the updating of `/dev` via [udev][udev-link] yourself. You can see an example of how our base images handle this [here](https://github.com/resin-io-library/base-images/blob/master/debian/armv7hf/jessie/entry.sh#L54).
+__Note:__ If you are not using one of the docker base images recommended in our [base images wiki][base-image-wiki-link], then it's most likely you will need to handle the updating of `/dev` via [udev][udev-link] yourself. You can see an example of how our base images handle this [here](https://github.com/resin-io-library/base-images/blob/master/debian/armv7hf/jessie/entry.sh#L54).
 
 ## Tips, Tricks and Troubleshooting
 
 ### Writing to logs on the Dashboard
 
-In general anything written from the application to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our [example projects][projects-github] on github to get an idea of how to do this.
+Anything written from the application to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our [example projects][projects-github] on github to get an idea of how to do this.
 
 ### Reboot from Inside the Container
 
@@ -162,9 +162,15 @@ At the time of writing there is an inconsistency in the behaviour of `/tmp` dire
 
 In some cases its useful to set up a service that starts up when your container starts. To do this with systemd, make sure you have the initsystem enabled in your container as mentioned [above](#init-system). You can then create a basic service file in your code repository called `my_service.service` and add something like this:
 ```
-[Unit] Description=My Super Sweet Service
-[Service] Type=OneShot ExecStart=/etc/init.d/my_super_sweet_service
-[Install] WantedBy=basic.target
+[Unit]
+Description=My Super Sweet Service
+
+[Service]
+Type=OneShot
+ExecStart=/etc/init.d/my_super_sweet_service
+
+[Install]
+WantedBy=basic.target
 ```
 Then by adding the following to your Dockerfile your service should be added/enabled on startup:
 ```Dockerfile
@@ -180,7 +186,6 @@ On the hostOS in resin.io we use [dnsmasq][dnsmasq-link] to manage DNS. This mea
 
 
 [container-link]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
-[ref-one]:https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/
 [base-image-wiki-link]:/runtime/resin-base-images/
 [init-system-link]:https://en.wikipedia.org/wiki/Init
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
@@ -190,3 +195,4 @@ On the hostOS in resin.io we use [dnsmasq][dnsmasq-link] to manage DNS. This mea
 [projects-github]:https://github.com/resin-io-projects
 [systemd-base-image-link]:https://hub.docker.com/r/resin/raspberrypi-python/
 [dnsmasq-link]:http://www.thekelleys.org.uk/dnsmasq/doc.html
+[udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html

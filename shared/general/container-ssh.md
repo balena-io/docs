@@ -1,6 +1,6 @@
 To help you debug and develop your application in a resin.io container, we provided a browser based terminal or a command line tool called [resin ssh](/tools/cli/#ssh-60-uuid-62-). This gives you console access to your running [container][container-link] on the device and allows you to test out small snippets of code or check some system logs on your device.
 
-In order for you to start a terminal session in your device [container][container-link], you first need to ensure that your device is **online** and code is **pushed to it** and is running. If your container code crashes or ends quickly, it is not possible to attach a console to it. One option to keep your containers running is to enable the INITSYSTEM in your container. This can easily be done by creating a device environment variable called `INITSYSTEM` and setting its value to `on`.
+In order for you to start a terminal session in your device [container][container-link], you first need to ensure that your device is **online** and code is **pushed to it** and is running. If your container code crashes or ends quickly, it is not possible to attach a console to it. One option to keep your containers running is to enable the `INITSYSTEM` in your container. This can easily be done by creating a device environment variable called `INITSYSTEM` and setting its value to `on`.
 
 ### Using the Dashboard Web Terminal
 
