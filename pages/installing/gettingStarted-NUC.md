@@ -196,7 +196,7 @@ If you find any issues with the application, please click the feedback label on 
 [deploy]:/deployment/deployment
 [projects]:/examples/projects
 [managing_devices_apps]:/management/applications
-[wifi]:/deployment/wifi
+[wifi]:/deployment/network
 [supported]:/hardware/devices
 [dockerfile]:/deployment/dockerfile
 

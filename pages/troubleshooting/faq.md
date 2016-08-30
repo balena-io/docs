@@ -71,7 +71,7 @@ A potential cause is the NTP port (123 UDP) being blocked on the network the dev
 
 ##### Can I set a static IP address for my device?
 
-Yes! its actually pretty easy, have a look at the [ethernet network setup](/deployment/wifi) section of our documentation. In general most network configurations can be achieved by changing the [Connman][connman-link] configuration file.
+Yes! its actually pretty easy, have a look at the [ethernet network setup](/deployment/network/#set-static-ip) section of our documentation. In general most network configurations can be achieved by changing the [Connman][connman-link] configuration file.
 
 ##### Why can't I SSH into or run code in the HostOS?
 

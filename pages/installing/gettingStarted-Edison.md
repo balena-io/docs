@@ -350,7 +350,7 @@ Once you have burned the new firmware with this method you can carry on from the
 [deploy]:/deployment/deployment
 [projects]:/examples/projects
 [managing_devices_apps]:/management/applications
-[wifi]:/deployment/wifi
+[wifi]:/deployment/network
 [supported]:/hardware/devices
 [dockerfile]:/deployment/dockerfile
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
