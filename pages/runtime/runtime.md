@@ -121,15 +121,22 @@ curl -X POST --header "Content-Type:application/json" \
 
 __Note:__ `RESIN_SUPERVISOR_API_KEY` and `RESIN_SUPERVISOR_ADDRESS` should already be in your environment by default. You will also **need** `curl` installed in your container.
 
+Alternatively, it is possible to reboot the device via the dbus interface as described in the next section.
 <!-- TODO: explain how to reboot from systemd -->
 <!-- Or you can use the following [DBUS][dbus-link] call to the hostOS systemd. -->
 
 ### Dbus communication with hostOS
 
-In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket` for all dbus communication. Below you can see an example of how to change the device hostname via dbus.
+In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket` for all dbus communication. Below you can see a couple of examples:
 
+**Change the Device hostname**
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket dbus-send --system --print-reply --reply-timeout=2000 --type=method_call --dest=org.freedesktop.hostname1 /org/freedesktop/hostname1 org.freedesktop.hostname1.SetStaticHostname string:"YOUR-NEW-HOSTNAME" boolean:true
+```
+
+**Rebooting the Device**
+```Bash
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket dbus-send --system --print-reply --dest=org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager.Reboot
 ```
 
 __Note:__ To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile.
