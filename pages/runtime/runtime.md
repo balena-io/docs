@@ -1,5 +1,7 @@
 ---
 title: Container Runtime
+excerpt: Detailed information on the container init system, environment, storage, and other relevant trips & tricks.
+thumbnail: /img/common/device/running-webterminal-session.png
 ---
 # Container Runtime
 
