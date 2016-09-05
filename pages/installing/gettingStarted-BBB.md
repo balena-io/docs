@@ -252,7 +252,7 @@ feedback and respond to any issues as soon as we can.
 [deploy]:/deployment/deployment
 [projects]:/examples/seed-projects
 [managing_devices_apps]:/management/applications
-[wifi]:/deployment/wifi
+[wifi]:/deployment/network
 [supported]:/hardware/devices
 [dockerfile]:/deployment/dockerfile
 

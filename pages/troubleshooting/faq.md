@@ -71,7 +71,7 @@ A potential cause is the NTP port (123 UDP) being blocked on the network the dev
 
 ##### Can I set a static IP address for my device?
 
-Yes! its actually pretty easy, have a look at the [ethernet network setup](/deployment/wifi) section of our documentation. In general most network configurations can be achieved by changing the [Connman][connman-link] configuration file.
+Yes! its actually pretty easy, have a look at the [ethernet network setup](/deployment/network/#set-static-ip) section of our documentation. In general most network configurations can be achieved by changing the [Connman][connman-link] configuration file.
 
 ##### Why can't I SSH into or run code in the HostOS?
 
@@ -123,7 +123,7 @@ Internet traffic is routed normally, outside the VPN, therefore doesn't go throu
 
 ##### How long does the update process run typically? Do you have any benchmark data? For now it appears to be quick for small updates.
 
-The update process currently depends on the size of the update and the speed of the internet connection. The size of the update is currently the size of the docker layers that differ between the docker image on the device and the docker image of the newly pushed code. We currently have a beta feature delta-mechanism which calculates binary diffs between two images which will drop the update size significantly, even on cases where no docker layers are shared. If you are interested in testing this out, ask for access on support@resin.io
+The update process currently depends on the size of the update and the speed of the internet connection. The size of the update is currently the size of the docker layers that differ between the docker image on the device and the docker image of the newly pushed code. We currently have a [delta-mechanism](/runtime/delta/), which calculates binary difference between two images, which will drop the update size significantly, even on cases where no docker layers are shared. If you are interested in testing this out, check out the the [delta updates](/runtime/delta/) documentation.
 
 ##### How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?
 

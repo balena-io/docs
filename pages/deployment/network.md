@@ -4,19 +4,19 @@ title: Network Setup
 
 # Network Setup
 
-* [Introduction](/deployment/wifi#introduction)
-* [Network Requirements](/deployment/wifi#network-requirements)
-* [Ethernet Connections](/deployment/wifi#ethernet-connections)
-* [Wifi Connections](/deployment/wifi#wifi-connections)
-* [Changing your network configuration](/deployment/wifi#changing-your-network-configuration)
-* [3G or Cellular Connections](/deployment/wifi#3g-or-cellular-connections)
-* [Captive Portal Network Setup](/deployment/wifi#captive-portal-network-setup)
+* [Introduction](#introduction)
+* [Network Requirements](#network-requirements)
+* [Ethernet Connections](#ethernet-connections)
+* [Wifi Connections](#wifi-connections)
+* [Changing your network configuration](#changing-your-network-configuration)
+* [3G or Cellular Connections](#3g-or-cellular-connections)
+* [Captive Portal Network Setup](#captive-portal-network-setup)
 
 ## Introduction
 
 In order to deploy code to your device(s), they will need to be connected to the internet in some shape or form. The resin.io HostOS manages your devices' network connection with [ConnMan][connman], an open source connection manager.
 
-Currently all resin.io devices are configured to favour [ethernet](/deployment/wifi#ethernet-connections) and will automatically use this connection type if it is available. You can define all manner of network configurations using [Connman][connman], for example [setting a static IP](/deployment/wifi#set-static-ip).
+Currently all resin.io devices are configured to favour [ethernet](#ethernet-connections) and will automatically use this connection type if it is available. You can define all manner of network configurations using [Connman][connman], for example [setting a static IP](#set-static-ip).
 
 ## Network Requirements
 
@@ -38,7 +38,7 @@ Additionally make an outgoing connection to `mixpanel.com`, but this is not a fu
 
 ## Ethernet Connections
 
-As mentioned earlier, resin.io HostOS defaults to using ethernet for internet connectivity, so if you connect an active ethernet cable to your device and all the [network requirements](/deployment/wifi#network-requirements) are satisfied, your device should simply just connect to dashboard.resin.io and you should be able to push code to it.
+As mentioned earlier, resin.io HostOS defaults to using ethernet for internet connectivity, so if you connect an active ethernet cable to your device and all the [network requirements](#network-requirements) are satisfied, your device should simply just connect to dashboard.resin.io and you should be able to push code to it.
 
 If this this is not the case, and your device is still not online 10 minutes after power up, then give us a shout at `support@resin.io` or click on the small **`?`** in the bottom right of your resin.io dashboard.
 

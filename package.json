@@ -23,7 +23,7 @@
   "dependencies": {
     "@resin.io/doxx": "^0.9.1",
     "bower": "^1.7.9",
-    "coffee-script": "^1.10.0",
+    "coffee-script": "~1.10.0",
     "express": "^4.13.4",
     "lodash": "^4.11.1"
   },

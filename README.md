@@ -59,11 +59,13 @@ Now you can make changes in this branch. Since our docs are static pages generat
 ```
 ./tools/prepare.sh
 ```
-However there is a handy watch functionality that will watch for changes in `/pages` and rebuild each time you save your changes. To use this, open a new tab in you terminal and run:
+However there is a handy watch functionality that will watch for changes in `/pages`, `/shared`, and `/templates` and rebuild each time you save your changes. To use this, open a new tab in you terminal and run:
 ```
 npm run watch-pages
 ```
 Once you are happy with your changes, submit a pull request for you branch against `master`.
+
+_Note_ that you have to restart the development server if you edit other things like `redirects.txt`.
 
 ### Using Partials
 
