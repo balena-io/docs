@@ -175,6 +175,7 @@ In some cases its useful to set up a service that starts up when your container 
 Description=My Super Sweet Service
 
 [Service]
+EnvironmentFile=/etc/docker.env
 Type=OneShot
 ExecStart=/etc/init.d/my_super_sweet_service
 
