@@ -133,12 +133,27 @@ In some cases its necessary to communicate with the hostOS systemd to perform ac
 
 **Change the Device hostname**
 ```Bash
-DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket dbus-send --system --print-reply --reply-timeout=2000 --type=method_call --dest=org.freedesktop.hostname1 /org/freedesktop/hostname1 org.freedesktop.hostname1.SetStaticHostname string:"YOUR-NEW-HOSTNAME" boolean:true
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
+  dbus-send \
+  --system \
+  --print-reply \
+  --reply-timeout=2000 \
+  --type=method_call \
+  --dest=org.freedesktop.hostname1 \
+  /org/freedesktop/hostname1 \
+  org.freedesktop.hostname1.SetStaticHostname \
+  string:"YOUR-NEW-HOSTNAME" boolean:true
 ```
 
 **Rebooting the Device**
 ```Bash
-DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket dbus-send --system --print-reply --dest=org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager.Reboot
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
+  dbus-send \
+  --system
+  --print-reply \
+  --dest=org.freedesktop.systemd1 \
+  /org/freedesktop/systemd1 \
+  org.freedesktop.systemd1.Manager.Reboot
 ```
 
 **Checking if device time NTP synchronized**
