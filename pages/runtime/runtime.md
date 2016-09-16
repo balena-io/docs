@@ -141,6 +141,55 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket dbus-send --s
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket dbus-send --system --print-reply --dest=org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager.Reboot
 ```
 
+**Checking if device time NTP synchronized**
+```Bash
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
+  dbus-send \
+  --system \
+  --print-reply \
+  --reply-timeout=2000 \
+  --type=method_call \
+  --dest=org.freedesktop.timedate1 \
+  /org/freedesktop/timedate1  \
+  org.freedesktop.DBus.Properties.GetAll \
+  string:"org.freedesktop.timedate1"
+```
+
+The reply would look like this:
+```variant
+method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 reply_serial=2
+   array [
+      dict entry(
+         string "Timezone"
+         variant             string "UTC"
+      )
+      dict entry(
+         string "LocalRTC"
+         variant             boolean false
+      )
+      dict entry(
+         string "CanNTP"
+         variant             boolean true
+      )
+      dict entry(
+         string "NTP"
+         variant             boolean true
+      )
+      dict entry(
+         string "NTPSynchronized"
+         variant             boolean true
+      )
+      dict entry(
+         string "TimeUSec"
+         variant             uint64 1474008856505839
+      )
+      dict entry(
+         string "RTCTimeUSec"
+         variant             uint64 1474008857000000
+      )
+   ]
+```
+
 __Note:__ To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile.
 
 ### Failed to install release agent
