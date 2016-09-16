@@ -156,7 +156,7 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   org.freedesktop.systemd1.Manager.Reboot
 ```
 
-**Checking if device time NTP synchronized**
+**Checking if device time is NTP synchronized**
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   dbus-send \
