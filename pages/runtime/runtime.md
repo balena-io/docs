@@ -270,3 +270,4 @@ On the hostOS in resin.io we use [dnsmasq][dnsmasq-link] to manage DNS. This mea
 [systemd-base-image-link]:https://hub.docker.com/r/resin/raspberrypi-python/
 [dnsmasq-link]:http://www.thekelleys.org.uk/dnsmasq/doc.html
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
+[dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/
