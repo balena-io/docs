@@ -207,24 +207,24 @@ var ArtikCloud = require('artikcloud-js');
 const device_id = process.env.ARTIKCLOUD_DEVICE_ID || null; // Required
 const device_token = process.env.ARTIKCLOUD_DEVICE_TOKEN || null; // Required
 
-var apiClient = new ArtikCloud.ApiClient();
+var defaultClient = ArtikCloud.ApiClient.default;
 
 // Setting up authentication
-var artikcloud_oauth = apiClient.authentications['artikcloud_oauth'];
+var artikcloud_oauth = defaultClient.authentications['artikcloud_oauth'];
 artikcloud_oauth.accessToken = device_token;
 
 // Get a new MessagesAPI connection
-messagesapi = new ArtikCloud.MessagesApi(apiClient);
+var messagesAPI = new ArtikCloud.MessagesApi()
 
 // Create a new message
-var message = new ArtikCloud.MessageAction();
+var message = new ArtikCloud.Message();
 message.sdid = device_id;
 message.type = 'message';
 message.ts = Date.now();  // timestamp, required
 message.data = { "Temperature": 25.4  };
 
 // Send message
-messagesapi.sendMessageAction(message, function(error, response) {
+messagesAPI.sendMessage(message, function(error, response) {
     if (error) {
         throw error;
     } else {
