@@ -193,7 +193,76 @@ You may also need to check out https://www.freedesktop.org/software/systemd/man/
 ### Using DNSmasq in you container
 On the hostOS in resin.io we use [dnsmasq][dnsmasq-link] to manage DNS. This means that if you have dnsmasq running in your container it can potentially cause problems because it tries to bind to 0.0.0.0 which messes with the host dnsmasq. To get around this you need to add "bind-interfaces" to your dnsmasq configuration in your container, and it shouldnt have conflicts anymore.
 
+### Mounting external storage media
 
+Mounting external storage media, such as SD cards or USB thumb drives, within your application (running inside Docker) works somewhat different compared to mounting devices directly in Linux. Here we include a set of recommendations that helps you can get started.
+
+**Without the init system**
+
+If you have not enabled an init system in your application or chose to mount manually, you can add the mount logic into your start script. This can be made simpler by adding the storage media settings to `/etc/fstab` in your Dockerfile:
+```Dockerfile
+RUN echo "LABEL=mysdcard /mnt/storage ext4 rw,relatime,discard,data=ordered 0 2" >> /etc/fstab
+```
+Modify your settings as apporopriate (device identification, mount endpoint, file system, mount options), and see more information about the possible settings at the [fstab man page](http://man7.org/linux/man-pages/man5/fstab.5.html).
+
+Then in your start script you need to create the mount directory and mount the device:
+```Bash
+mkdir -p /mnt/storage && mount /mnt/storage
+```
+
+**Using systemd**
+
+Normally systemd mounts entries from `/etc/fstab` on startup automatically, but running within Docker, it will only mount entries that are not block devices, such as `tempfs` entries. For non-block devices, adding entries `/etc/fstab` is sufficient, for example in your Dockerfile:
+```Dockerfile
+RUN echo "tmpfs  /cache  tmpfs  rw,size=200M,nosuid,nodev,noexec  0 0" >> /etc/fstab
+```
+
+For block devices (SD cards, USB sticks), `/etc/fstab` entries would result in this error at runtime: `Running in a container, ignoring fstab device entry for ...`. Instead, you have to use [systemd .mount files](https://www.freedesktop.org/software/systemd/man/systemd.mount.html). Let's assume you want to mount an external SD card to `/mnt/storage`. Then you have to create a file with the name `mnt-storage.mount` and the content such as:
+```
+[Unit]
+Description = External SD Card
+
+[Mount]
+What = LABEL=mysdcard
+Where = /mnt/storage
+Type = ext4
+Options = rw,relatime,data=ordered
+
+[Install]
+WantedBy = multi-user.target
+```
+
+Above you need to modify the options with the `[Unit]` and `[Mount]` sections as appropriate. For more information, see the [systemd.mount documentation](https://www.freedesktop.org/software/systemd/man/systemd.mount.html).
+
+Finally copy and enable these systemd settings in your Dockerfile:
+```Dockerfile
+COPY mnt-storage.mount /etc/systemd/system/
+RUN systemctl enable mnt-storage.mount
+```
+
+This way your storage media will be mounted on your application start. You can check the status of this job with the `systemctl is-active mnt-storage.mount` command.
+
+Systemd is the init system on our Debian and Fedora base images.
+
+**Using OpenRC**
+
+OpenRC is the init system on our Alpine Linux base images. Its `localmount` service mounts entries defined in `/etc/fstab`. Unfortunately in its current form the `localmount` service is explicitly filtered out and disabled by the `-lxc` keyword in `/etc/init.d/localmount` when running inside Docker. This setting modifies some of its behaviour.
+
+To use OpenRC to automount your media, add your `/etc/fstab` entries in your Dockerfile, such as:
+```Dockerfile
+RUN echo "LABEL=mysdcard /mnt/storage ext4 rw,relatime,discard,data=ordered 0 2" >> /etc/fstab
+```
+Then start the `localmount` service manually in your start script:
+```Bash
+rc-service localmount start
+```
+After running that command, the device should be mounted and ready to use in your application.
+
+Because of the keyword filter, `localmount` cannot be automatically started (using `rc-update add`) and won't appear in the output of `rc-status`, even when it works correctly.
+
+**General tips for external media**
+
+Devices can be selected in many ways, for example by `/dev` entry, labels, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices.
 
 [container-link]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
 [base-image-wiki-link]:/runtime/resin-base-images/
