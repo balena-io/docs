@@ -64,7 +64,7 @@ Learn
 
     Network Setup[/deployment/network]
 
-    3rd Party Integrations
+    3rd Party Integrations[/integrations]
       Amazon AWS IoT[/integrations/aws]
       IBM Bluemix[/integrations/bluemix]
       Microsoft Azure[/integrations/azure]
@@ -74,7 +74,7 @@ Learn
     Creating Custom Resin.io Devices[/hardware/meta-resin]
     Advanced resin.io topics[/advanced/resources]
 
-  Examples
+  Examples[/examples]
     [/examples/seed-projects]
     [/examples/snippets]
     [/examples/projects]

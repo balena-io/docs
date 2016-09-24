@@ -108,7 +108,7 @@ There are a number of example Dockerfiles available for different languages list
 [container]:https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
 [docker]:https://www.docker.com/
 [dockerfile]:https://docs.docker.com/reference/builder/
-[docker-images-containers]:https://docs.docker.com/introduction/understanding-docker/#inside-docker
+[docker-images-containers]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
 [hello-python]:https://github.com/alexandrosm/hello-python
 [raspbian]:http://www.raspbian.org/
 
