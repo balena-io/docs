@@ -18,5 +18,10 @@
     "id": "rust",
     "name": "Rust",
     "icon": "/img/language/rust.svg"
+  },
+  {
+    "id": "go",
+    "name": "Go",
+    "icon": "/img/language/go.svg"
   }
 ]
