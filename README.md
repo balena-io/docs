@@ -34,6 +34,19 @@ How to Contribute
 
 If you think something is not documented, or can be improved, don't hesitate in sending a PR!
 
+
+Style guide
+----------
+
+### Style manual: (TBD)
+
+### Resin-specific words
+For all, lower-case capitalization unless beginning a sentence (Ex. *I like resin.io. Resin.io is great.*)
+* **resin.io** 
+* **etcher** 
+* **resinOS** (note the capitalization of **OS**)
+* **resin** (used to refer to the company as a whole, not in place of resin.io or resinOS)
+
 Conventions
 -----------
 - Notes/Warnings are formatted using CSS. Use the following syntax to make sure it's rendered correctly: `__Note:__`
