@@ -35,10 +35,10 @@ How to Contribute
 If you think something is not documented, or can be improved, don't hesitate in sending a PR!
 
 
-Style guide
+Style manual
 ----------
 
-### Style manual: (TBD)
+### Default tyle manual: (TBD)
 
 ### Resin-specific words
 For all, lower-case capitalization unless beginning a sentence (Ex. *I like resin.io. Resin.io is great.*)
