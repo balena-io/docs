@@ -42,7 +42,7 @@
     "rustTriple": "aarch64-unknown-linux-gnu",
     "rustLinker": "arm-linux-gnueabihf-gcc",
     "cppTriple": "arm-unknown-linux-gnueabi",
-    "icon": "/img/device/artik5.svg"
+    "icon": "/img/device/artik710.svg"
   },
   {
     "id": "artik10",
