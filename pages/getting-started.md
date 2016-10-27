@@ -1,5 +1,5 @@
 ---
-title: Getting Started with {{ $device.name }} and {{ $language.name }}
+title: Getting Started With {{ $device.name }} and {{ $language.name }}
 
 layout: getting-started.html
 
@@ -13,7 +13,7 @@ dynamic:
 
 {{import "introduction"}}
 
-## What you will Need
+## What You Will Need
 
 {{import "whatYouNeed"}}
 
@@ -25,7 +25,7 @@ Before we get started building something cool, lets just point out some places t
 To help us understand all the moving parts in resin.io, lets first define a few terms that will be used later in the guide.
 {{import "basicConcepts"}}
 
-## Let's Jump in
+## Let's Jump In
 
 If you don't already have a resin.io account head over to our [signup page][link-to-signup], during the sign up process you will be asked to set up an SSH key so you can securely push code.
 {{import "sshKey/add"}}
@@ -33,13 +33,13 @@ If you don't already have a resin.io account head over to our [signup page][link
 ## Creating an Application
 {{import "createAnApp"}}
 
-## Adding your First Device
+## Adding Your First Device
 
 {{import "getResinOS"}}
 
 {{import "selectNetworkConfig"}}
 
-### Create a bootable {{ $device.bootMedia }}
+### Create a Bootable {{ $device.bootMedia }}
 {{import "flashingOsToBootMedia"}}
 
 {{import "getDeviceOnDash"}}
@@ -54,7 +54,7 @@ If you don't already have a resin.io account head over to our [signup page][link
 
 {{import "usingWebTerminal"}}
 
-## Using resin sync to develop fast
+## Using Resin Sync to Develop Fast
 
 {{import "resinSync"}}
 {{import "crossCompilation"}}
@@ -67,7 +67,7 @@ There are even more hidden treasures in the resin.io platform and tools, but we 
 
 
 
-**Enjoy Resinifying all the things!**
+**Enjoy Resinifying All the Things!**
 <img src="/img/common/resinify.jpg" width="80%">
 
 [link-to-signup]:https://dashboard.resin.io/signup

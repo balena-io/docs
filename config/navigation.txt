@@ -32,6 +32,7 @@ Learn
     Raspberry Pi 2 ~ Raspberry Pi 2 and {{ $language.name }}[/raspberrypi2/$language/getting-started]
     Raspberry Pi 3 ~ Raspberry Pi 3 and {{ $language.name }}[/raspberrypi3/$language/getting-started]
     Artik 5 ~ Artik 5 and {{ $language.name }}[/artik5/$language/getting-started]
+    Artik 710 ~ Artik 710 and {{ $language.name }}[/artik710/$language/getting-started]
     Artik 10 ~ Artik 10 and {{ $language.name }}[/artik10/$language/getting-started]
     Beaglebone ~ Beaglebone and {{ $language.name }}[/beaglebone/$language/getting-started]
     Other Boards[/installing/otherboards]
