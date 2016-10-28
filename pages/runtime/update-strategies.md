@@ -29,6 +29,17 @@ It works as follows:
 * After this, the Supervisor downloads the image for the new version.
 * Once the download is complete, the Supervisor creates and starts the new container, and deletes the old image from disk.
 
+## delete-then-download
+
+This strategy is meant for resource-constrained scenarios or when the images be pulled are particularly large, so we need to keep disk usage to the minimum, albeit at the cost of a extra downtime and higher bandwidth usage.
+It works as follows:
+
+* When an update is available, the Supervisor kills the container for the old versio, and then deletes the corresponding image.
+* After this, the Supervisor downloads the image for the new version.
+* Once the download is complete, the Supervisor creates and starts the new container.
+
+**Note: Requires supervisor >= v2.5.1**
+
 ## hand-over
 
 This strategy is suited for scenarios where there are enough resources and it is critical that the downtime is *zero*, that is, that the app runs continually even during an update.
