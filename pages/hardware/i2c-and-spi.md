@@ -76,16 +76,35 @@ An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-li
 
 ### Raspberry Pi camera module
 
-In order to work with the Raspberry Pi camera module you will need to do the following:
+Depending on the version of your ResinOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `RESIN_HOST_CONFIG_variablename` settings in your [fleet or device configuration](/management/env-vars/).
 
-* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following lines.
+**Resin OS 1.16.0 and newer**
 
+Set the following values in `config.txt`:
+```
+gpu_mem=128
+start_x=1
+```
+or for remote update
+* `RESIN_HOST_CONFIG_gpu_mem` to `128`
+* `RESIN_HOST_CONFIG_start_x` to `1`
+in the fleet or device configuration.
+
+**Resin OS 1.8.0 and earlier**
+
+Set the following values in `config.txt`:
 ```
 gpu_mem=128
 start_file=start_x.elf
 fixup_file=fixup_x.dat
 ```
-* Add `modprobe bcm2835-v4l2` before your start scripts in either your package.json start command or Dockerfile `CMD` command.
+or for remote update
+* `RESIN_HOST_CONFIG_gpu_mem` to `128`
+* `RESIN_HOST_CONFIG_start_file` to `start_x.elf`
+* `RESIN_HOST_CONFIG_fixup_file` to `fixup_x.elf`
+in the fleet or device configuration.
+
+You will also need to add `modprobe bcm2835-v4l2` before your start scripts in either your `package.json` start command or Dockerfile `CMD` command.
 
 An example of this is shown in our [Raspberry Pi python picamera][picamera-link] project.
 
