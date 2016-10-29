@@ -34,11 +34,11 @@ It works as follows:
 This strategy is meant for resource-constrained scenarios or when the images be pulled are particularly large, so we need to keep disk usage to the minimum, albeit at the cost of a extra downtime and higher bandwidth usage.
 It works as follows:
 
-* When an update is available, the Supervisor kills the container for the old versio, and then deletes the corresponding image.
+* When an update is available, the Supervisor kills the container for the old version, and then deletes the corresponding image.
 * After this, the Supervisor downloads the image for the new version.
 * Once the download is complete, the Supervisor creates and starts the new container.
 
-**Note: Requires supervisor >= v2.5.1**
+**Note: Requires Supervisor >= v2.5.1**
 
 ## hand-over
 
