@@ -7,8 +7,19 @@ title: Configuring the update strategy
 With the Resin Supervisor ("Agent") version 1.3, we added the ability to choose the update strategy on devices, that is, the order and way in which the steps to perform an update are executed. You can check whether your Supervisor has the appropriate version in the "Agent version" entry in the device dashboard page.
 These update strategies allow users to choose between three modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
 
-Update strategies are selected using [Fleet Configuration environment variables](/management/env-vars). The two variables that are involved are `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`.
-Setting `RESIN_SUPERVISOR_UPDATE_STRATEGY` to a valid value selects the update strategy. The possible values are `download-then-kill`, `kill-then-download` and `hand-over`, which are explained below. `RESIN_SUPERVISOR_HANDOVER_TIMEOUT` is only used in the  `hand-over` strategy, and its use is explained in the strategy description.
+Update strategies are selected using [Fleet Configuration environment variables](/management/env-vars). The two variables that are involved are
+
+* `RESIN_SUPERVISOR_UPDATE_STRATEGY` and
+* `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`.
+
+Setting `RESIN_SUPERVISOR_UPDATE_STRATEGY` to a valid value selects the update strategy. The possible values are:
+
+* [`download-then-kill`](#download-then-kill),
+* [`kill-then-download`](#kill-then-download),
+* [`delete-then-download`](#delete-then-download), and
+* [`hand-over`](#hand-over),
+
+which are explained below. `RESIN_SUPERVISOR_HANDOVER_TIMEOUT` is only used in the  `hand-over` strategy, and its use is explained in the [strategy's description](#hand-over).
 
 ## download-then-kill
 
@@ -28,6 +39,17 @@ It works as follows:
 * When an update is available, the Supervisor kills the container for the old version.
 * After this, the Supervisor downloads the image for the new version.
 * Once the download is complete, the Supervisor creates and starts the new container, and deletes the old image from disk.
+
+## delete-then-download
+
+This strategy is meant for resource-constrained scenarios or when the images be pulled are particularly large, so we need to keep disk usage to the minimum, albeit at the cost of a extra downtime and higher bandwidth usage.
+It works as follows:
+
+* When an update is available, the Supervisor kills the container for the old version, and then deletes the corresponding image.
+* After this, the Supervisor downloads the image for the new version.
+* Once the download is complete, the Supervisor creates and starts the new container.
+
+**Note: Requires Supervisor >= v2.5.1**
 
 ## hand-over
 
