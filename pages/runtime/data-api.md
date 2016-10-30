@@ -68,12 +68,10 @@ curl "{{ $links.apiBase }}application?\$filter=app_name%20eq%20'<name>'"
 * Endpoint: `/application`
 * Method: `POST` 
 
-Param | Type | Description
-------|------|------------:
-app_name | `STRING` | application name
 
 Payload | Type | Description
 ------|------|------------:
+app_name | `STRING` | application name
 device_type | `STRING` | device type
 
 * cURL Example:
