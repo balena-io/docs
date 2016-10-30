@@ -15,7 +15,7 @@ this starts the boot from the {{ $device.bootMedia }}. You should see the red `P
 
 After a few seconds you should see your {{ $device.name }} appear on the resin.io dashboard in a configuring state. 
 If it still hasn't appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the right wifi credentials at download time. 
-If you still can't get it online, [contact us on support](https://docs.resin.io/support/).
+If you still can't get it online, [contact us on support](/support/).
 
 Your {{ $device.name }} will now flash resinOS onto the internal eMMC so that you can remove the {{ $device.bootMedia }}. This will take 2 or 3 minutes, 
 so time for more tea! Once it has finished it will shut itself down and you will see the device on the dashboard in a `Post-Provisioning` state. 
