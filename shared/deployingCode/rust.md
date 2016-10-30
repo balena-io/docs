@@ -26,7 +26,7 @@ Now to deploy this code to all device(s) in the application just run the command
 $ git push resin master
 ```
 
-If this fails, you may need to force the push by running `git push resin master --force`.
+If you want to completely replace the source code of the application with a new source tree, you may need to force the push by running `git push resin master --force`, due to how git works.
 
 __Note:__ On your very first push, git may ask you if you would like to add this host to your list of allowed hosts. Don't worry about this, just type 'yes' and carry on your merry way.
 
