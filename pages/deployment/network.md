@@ -45,8 +45,10 @@ If this this is not the case, and your device is still not online 10 minutes aft
 ### Set Static IP
 
 In order to configure static IP on a pre-provisioned SD card perform the following steps:-
-* Mount the FAT partitions of the OS image either directly from the `.img` file, or by burning the SD card and mounting it on your computer. The volume will be called `resin-conf`.
-* Inside `resin-conf` you will find a `config.json` file and in it you will see a network key/value pair which contains JSON string encoded [Connman][connman] settings. Now edit the value to include the following entry, replacing `<static IP>` with your desired static IP:-
+* Mount the FAT partitions of the OS image either directly from the `.img` file, or by burning the SD card and mounting it on your computer. The volume will be called `resin-boot`.
+* Inside the `resin-boot` partition you will find a `config.json` file and in it you will see a network key/value pair which contains JSON string encoded [Connman][connman] settings. Now edit the value to include the following entry, replacing `<static IP>` with your desired static IP:-
+
+__NOTE:__ Before Resin OS 1.2, the `resin-conf` partition was used instead of `resin-boot`.
 
 ```Ini
 [service_home_ethernet]
@@ -112,7 +114,7 @@ If you'd like to reconfigure the image's network settings in an automated way yo
 
 ### Manually Editing Config.json
 
-Currently this can be done by editing the `config.json`. This file can be found in a partition called `resin-conf` or `flash-conf` on the SD card for most devices, except the Intel Edison. For the Intel Edison it can be found in in `resin-conf` once you have mounted the `config.img`.
+Currently this can be done by editing the `config.json`. This file can be found in a partition called `resin-boot` on the SD card for most devices (on Resin OS versions before 1.2 it was `resin-conf` or `flash-conf`), except the Intel Edison. For the Intel Edison it can be found in in `resin-conf` once you have mounted the `config.img`.
 
 __Note:__ For the Beaglebone, VIA VAB-820, Intel NUC and the Intel Edison, you can only change the wifi configuration **before you provision** the device. Since these devices rely on burning the OS to internal media such as eMMC, trying to change these settings after provisioning will have no effect, you will need to reprovision the device.
 
