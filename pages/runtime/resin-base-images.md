@@ -22,16 +22,19 @@ For each architecture supported by Resin, there are bare-bones base images which
 | resin/`device-name`-node | The Debian Node.js buildpack image for Node.js apps for a supported device. Details about the Node.js image can be found [here](#node) | Refer [here](#node) | |
 | resin/`device-name`-python | The Debian Python buildpack image for Python apps for a supported device | Refer [here](#python) | |
 | resin/`device-name`-golang | The Debian Go buildpack image for Go apps for a supported device. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | |
+| resin/`device-name`-openjdk | The Debian OpenJDK image is an open-source implementation of the Java Platform, Standard Edition for a supported device. Details about the OpenJDK image can be found [here](#OpenJDK) | Refer [here](#OpenJDK) | |
 | resin/`device-name`-alpine | The bare-bones Alpine Linux OS image for a supported device. | less, nano, net-tools, ifupdown, usbutils, gnupg | latest, 3.4, 3.3, 3.2, edge |
 | resin/`device-name`-alpine-buildpack-deps | The buildpack-deps image based on Alpine Linux for a supported device. Details about buildpack-deps can be found [here](#buildpack-deps) | Refer [here](#buildpack-deps) | latest, 3.4, edge, 3.4-scm, edge-scm, 3.4-curl, edge-curl |
 | resin/`device-name`-alpine-node | The Node.js buildpack image based on Alpine Linux for Node.js apps for a supported device. Details about the Node.js image can be found [here](#node) | Refer [here](#node) | |
 | resin/`device-name`-alpine-python | The Python buildpack image based on Alpine Linux for Python apps for a supported device | Refer [here](#python) | |
 | resin/`device-name`-alpine-golang | The Go buildpack image based on Alpine Linux for Go apps for a supported device. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | |
-| resin/`device-name`-fedora | The bare-bones Fedora OS image for a supported device. | less, nano, net-tools, ifupdown, usbutils, gnupg | latest, 24, 23 |
-| resin/`device-name`-fedora-buildpack-deps | The buildpack-deps image based on Fedora for a supported device. Details about buildpack-deps can be found [here](#buildpack-deps) | Refer [here](#buildpack-deps) | latest, 24, 23, 24-scm, 23-scm, 24-curl, 23-curl |
+| resin/`device-name`-alpine-openjdk | The Alpine Linux OpenJDK image is an open-source implementation of the Java Platform, Standard Edition for a supported device. Details about the OpenJDK image can be found [here](#OpenJDK) | Refer [here](#OpenJDK) | |
+| resin/`device-name`-fedora | The bare-bones Fedora OS image for a supported device. | less, nano, net-tools, ifupdown, usbutils, gnupg | latest, 24 |
+| resin/`device-name`-fedora-buildpack-deps | The buildpack-deps image based on Fedora for a supported device. Details about buildpack-deps can be found [here](#buildpack-deps) | Refer [here](#buildpack-deps) | latest, 24, 24-scm, 24-curl |
 | resin/`device-name`-fedora-node | The Node.js buildpack image based on Fedora for Node.js apps for a supported device. Details about the Node.js image can be found [here](#node) | Refer [here](#node) | |
 | resin/`device-name`-fedora-python | The Python buildpack image based on Fedora for Python apps for a supported device | Refer [here](#python) | |
 | resin/`device-name`-fedora-golang | The Go buildpack image based on Fedora for Go apps for a supported device. Details about the Go image can be found [here](#golang) | Refer [here](#golang) | |
+| resin/`device-name`-fedora-openjdk | The Fedora OpenJDK image is an open-source implementation of the Java Platform, Standard Edition for a supported device. Details about the OpenJDK image can be found [here](#OpenJDK) | Refer [here](#OpenJDK) | |
 
 ##### Notice:
 
@@ -63,6 +66,8 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 
 ![ARMv6 Tree Diagram](/img/armv6-devices.jpg)
 
+
+
 ##### Raspberry Pi v1 & ZERO
 
 | Image | Links | Available Tag |
@@ -72,17 +77,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/raspberrypi-node | [dockerhub][armv6hf-raspberrypi-node-dockerhub-link], [github][armv6hf-raspberrypi-node-github-link] | For available image tags, refer [here][armv6hf-raspberrypi-node-dockerhub-tag-link] |
 | resin/raspberrypi-python | [dockerhub][armv6hf-raspberrypi-python-dockerhub-link], [github][armv6hf-raspberrypi-python-github-link] | For available image tags, refer [here][armv6hf-raspberrypi-python-dockerhub-tag-link] |
 | resin/raspberrypi-golang | [dockerhub][armv6hf-raspberrypi-golang-dockerhub-link], [github][armv6hf-raspberrypi-golang-github-link] | For available image tags, refer [here][armv6hf-raspberrypi-golang-dockerhub-tag-link] |
+| resin/raspberrypi-openjdk | [dockerhub][armv6hf-raspberrypi-openjdk-dockerhub-link], [github][armv6hf-raspberrypi-openjdk-github-link] | For available image tags, refer [here][armv6hf-raspberrypi-openjdk-dockerhub-tag-link] |
 | resin/raspberrypi-alpine | [dockerhub][armv6hf-raspberrypi-alpine-dockerhub-link], [github][armv6hf-raspberrypi-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/raspberrypi-alpine-buildpack-deps | [dockerhub][armv6hf-raspberrypi-alpine-buildpack-deps-dockerhub-link], [github][armv6hf-raspberrypi-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/raspberrypi-alpine-node | [dockerhub][armv6hf-raspberrypi-alpine-node-dockerhub-link], [github][armv6hf-raspberrypi-alpine-node-github-link] | For available image tags, refer [here][armv6hf-raspberrypi-alpine-node-dockerhub-tag-link] |
 | resin/raspberrypi-alpine-python | [dockerhub][armv6hf-raspberrypi-alpine-python-dockerhub-link], [github][armv6hf-raspberrypi-alpine-python-github-link] | For available image tags, refer [here][armv6hf-raspberrypi-alpine-python-dockerhub-tag-link] |
 | resin/raspberrypi-alpine-golang | [dockerhub][armv6hf-raspberrypi-alpine-golang-dockerhub-link], [github][armv6hf-raspberrypi-alpine-golang-github-link] | For available image tags, refer [here][armv6hf-raspberrypi-alpine-golang-dockerhub-tag-link] |
-
-
+| resin/raspberrypi-alpine-openjdk | [dockerhub][armv6hf-raspberrypi-alpine-openjdk-dockerhub-link], [github][armv6hf-raspberrypi-alpine-openjdk-github-link] | For available image tags, refer [here][armv6hf-raspberrypi-alpine-openjdk-dockerhub-tag-link] |
 
 ### ARMv7hf:
 
 ![ARMv7 Tree Diagram](/img/armv7-devices.jpg)
+
+
 
 ##### Raspberry Pi 2
 
@@ -93,11 +100,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/raspberrypi2-node | [dockerhub][armv7hf-raspberrypi2-node-dockerhub-link], [github][armv7hf-raspberrypi2-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-node-dockerhub-tag-link] |
 | resin/raspberrypi2-python | [dockerhub][armv7hf-raspberrypi2-python-dockerhub-link], [github][armv7hf-raspberrypi2-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-python-dockerhub-tag-link] |
 | resin/raspberrypi2-golang | [dockerhub][armv7hf-raspberrypi2-golang-dockerhub-link], [github][armv7hf-raspberrypi2-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-golang-dockerhub-tag-link] |
+| resin/raspberrypi2-openjdk | [dockerhub][armv7hf-raspberrypi2-openjdk-dockerhub-link], [github][armv7hf-raspberrypi2-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-openjdk-dockerhub-tag-link] |
 | resin/raspberrypi2-alpine | [dockerhub][armv7hf-raspberrypi2-alpine-dockerhub-link], [github][armv7hf-raspberrypi2-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/raspberrypi2-alpine-buildpack-deps | [dockerhub][armv7hf-raspberrypi2-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-raspberrypi2-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/raspberrypi2-alpine-node | [dockerhub][armv7hf-raspberrypi2-alpine-node-dockerhub-link], [github][armv7hf-raspberrypi2-alpine-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-alpine-node-dockerhub-tag-link] |
 | resin/raspberrypi2-alpine-python | [dockerhub][armv7hf-raspberrypi2-alpine-python-dockerhub-link], [github][armv7hf-raspberrypi2-alpine-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-alpine-python-dockerhub-tag-link] |
 | resin/raspberrypi2-alpine-golang | [dockerhub][armv7hf-raspberrypi2-alpine-golang-dockerhub-link], [github][armv7hf-raspberrypi2-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-alpine-golang-dockerhub-tag-link] |
+| resin/raspberrypi2-alpine-openjdk | [dockerhub][armv7hf-raspberrypi2-alpine-openjdk-dockerhub-link], [github][armv7hf-raspberrypi2-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-alpine-openjdk-dockerhub-tag-link] |
+| resin/raspberrypi2-fedora | [dockerhub][armv7hf-raspberrypi2-fedora-node-dockerhub-link], [github][armv7hf-raspberrypi2-fedora-node-github-link] | latest, 24 |
+| resin/raspberrypi2-fedora-buildpack-deps | [dockerhub][armv7hf-raspberrypi2-fedora-node-dockerhub-link], [github][armv7hf-raspberrypi2-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/raspberrypi2-fedora-node | [dockerhub][armv7hf-raspberrypi2-fedora-node-dockerhub-link], [github][armv7hf-raspberrypi2-fedora-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-fedora-node-dockerhub-tag-link] |
+| resin/raspberrypi2-fedora-python | [dockerhub][armv7hf-raspberrypi2-fedora-python-dockerhub-link], [github][armv7hf-raspberrypi2-fedora-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-fedora-python-dockerhub-tag-link] |
+| resin/raspberrypi2-fedora-golang | [dockerhub][armv7hf-raspberrypi2-fedora-golang-dockerhub-link], [github][armv7hf-raspberrypi2-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-fedora-golang-dockerhub-tag-link] |
+| resin/raspberrypi2-fedora-openjdk | [dockerhub][armv7hf-raspberrypi2-fedora-openjdk-dockerhub-link], [github][armv7hf-raspberrypi2-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi2-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Raspberry Pi 3
 
@@ -108,11 +123,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/raspberrypi3-node | [dockerhub][armv7hf-raspberrypi3-node-dockerhub-link], [github][armv7hf-raspberrypi3-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-node-dockerhub-tag-link] |
 | resin/raspberrypi3-python | [dockerhub][armv7hf-raspberrypi3-python-dockerhub-link], [github][armv7hf-raspberrypi3-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-python-dockerhub-tag-link] |
 | resin/raspberrypi3-golang | [dockerhub][armv7hf-raspberrypi3-golang-dockerhub-link], [github][armv7hf-raspberrypi3-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-golang-dockerhub-tag-link] |
+| resin/raspberrypi3-openjdk | [dockerhub][armv7hf-raspberrypi3-openjdk-dockerhub-link], [github][armv7hf-raspberrypi3-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-openjdk-dockerhub-tag-link] |
 | resin/raspberrypi3-alpine | [dockerhub][armv7hf-raspberrypi3-alpine-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/raspberrypi3-alpine-buildpack-deps | [dockerhub][armv7hf-raspberrypi3-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/raspberrypi3-alpine-node | [dockerhub][armv7hf-raspberrypi3-alpine-node-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-alpine-node-dockerhub-tag-link] |
 | resin/raspberrypi3-alpine-python | [dockerhub][armv7hf-raspberrypi3-alpine-python-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-alpine-python-dockerhub-tag-link] |
 | resin/raspberrypi3-alpine-golang | [dockerhub][armv7hf-raspberrypi3-alpine-golang-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-alpine-golang-dockerhub-tag-link] |
+| resin/raspberrypi3-alpine-openjdk | [dockerhub][armv7hf-raspberrypi3-alpine-openjdk-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-alpine-openjdk-dockerhub-tag-link] |
+| resin/raspberrypi3-fedora | [dockerhub][armv7hf-raspberrypi3-fedora-node-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-node-github-link] | latest, 24 |
+| resin/raspberrypi3-fedora-buildpack-deps | [dockerhub][armv7hf-raspberrypi3-fedora-node-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/raspberrypi3-fedora-node | [dockerhub][armv7hf-raspberrypi3-fedora-node-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-fedora-node-dockerhub-tag-link] |
+| resin/raspberrypi3-fedora-python | [dockerhub][armv7hf-raspberrypi3-fedora-python-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-fedora-python-dockerhub-tag-link] |
+| resin/raspberrypi3-fedora-golang | [dockerhub][armv7hf-raspberrypi3-fedora-golang-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-fedora-golang-dockerhub-tag-link] |
+| resin/raspberrypi3-fedora-openjdk | [dockerhub][armv7hf-raspberrypi3-fedora-openjdk-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Beaglebone Black
 
@@ -123,11 +146,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/beaglebone-node | [dockerhub][armv7hf-beaglebone-node-dockerhub-link], [github][armv7hf-beaglebone-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-node-dockerhub-tag-link] |
 | resin/beaglebone-python | [dockerhub][armv7hf-beaglebone-python-dockerhub-link], [github][armv7hf-beaglebone-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-python-dockerhub-tag-link] |
 | resin/beaglebone-golang | [dockerhub][armv7hf-beaglebone-golang-dockerhub-link], [github][armv7hf-beaglebone-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-golang-dockerhub-tag-link] |
+| resin/beaglebone-openjdk | [dockerhub][armv7hf-beaglebone-openjdk-dockerhub-link], [github][armv7hf-beaglebone-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-openjdk-dockerhub-tag-link] |
 | resin/beaglebone-alpine | [dockerhub][armv7hf-beaglebone-alpine-dockerhub-link], [github][armv7hf-beaglebone-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/beaglebone-alpine-buildpack-deps | [dockerhub][armv7hf-beaglebone-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-beaglebone-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/beaglebone-alpine-node | [dockerhub][armv7hf-beaglebone-alpine-node-dockerhub-link], [github][armv7hf-beaglebone-alpine-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-alpine-node-dockerhub-tag-link] |
 | resin/beaglebone-alpine-python | [dockerhub][armv7hf-beaglebone-alpine-python-dockerhub-link], [github][armv7hf-beaglebone-alpine-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-alpine-python-dockerhub-tag-link] |
 | resin/beaglebone-alpine-golang | [dockerhub][armv7hf-beaglebone-alpine-golang-dockerhub-link], [github][armv7hf-beaglebone-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-alpine-golang-dockerhub-tag-link] |
+| resin/beaglebone-alpine-openjdk | [dockerhub][armv7hf-beaglebone-alpine-openjdk-dockerhub-link], [github][armv7hf-beaglebone-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-alpine-openjdk-dockerhub-tag-link] |
+| resin/beaglebone-fedora | [dockerhub][armv7hf-beaglebone-fedora-node-dockerhub-link], [github][armv7hf-beaglebone-fedora-node-github-link] | latest, 24 |
+| resin/beaglebone-fedora-buildpack-deps | [dockerhub][armv7hf-beaglebone-fedora-node-dockerhub-link], [github][armv7hf-beaglebone-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/beaglebone-fedora-node | [dockerhub][armv7hf-beaglebone-fedora-node-dockerhub-link], [github][armv7hf-beaglebone-fedora-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-fedora-node-dockerhub-tag-link] |
+| resin/beaglebone-fedora-python | [dockerhub][armv7hf-beaglebone-fedora-python-dockerhub-link], [github][armv7hf-beaglebone-fedora-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-fedora-python-dockerhub-tag-link] |
+| resin/beaglebone-fedora-golang | [dockerhub][armv7hf-beaglebone-fedora-golang-dockerhub-link], [github][armv7hf-beaglebone-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-fedora-golang-dockerhub-tag-link] |
+| resin/beaglebone-fedora-openjdk | [dockerhub][armv7hf-beaglebone-fedora-openjdk-dockerhub-link], [github][armv7hf-beaglebone-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Beaglebone Green
 
@@ -138,11 +169,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/beaglebone-green-node | [dockerhub][armv7hf-beaglebone-green-node-dockerhub-link], [github][armv7hf-beaglebone-green-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-node-dockerhub-tag-link] |
 | resin/beaglebone-green-python | [dockerhub][armv7hf-beaglebone-green-python-dockerhub-link], [github][armv7hf-beaglebone-green-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-python-dockerhub-tag-link] |
 | resin/beaglebone-green-golang | [dockerhub][armv7hf-beaglebone-green-golang-dockerhub-link], [github][armv7hf-beaglebone-green-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-golang-dockerhub-tag-link] |
+| resin/beaglebone-green-openjdk | [dockerhub][armv7hf-beaglebone-green-openjdk-dockerhub-link], [github][armv7hf-beaglebone-green-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-openjdk-dockerhub-tag-link] |
 | resin/beaglebone-green-alpine | [dockerhub][armv7hf-beaglebone-green-alpine-dockerhub-link], [github][armv7hf-beaglebone-green-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/beaglebone-green-alpine-buildpack-deps | [dockerhub][armv7hf-beaglebone-green-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-beaglebone-green-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/beaglebone-green-alpine-node | [dockerhub][armv7hf-beaglebone-green-alpine-node-dockerhub-link], [github][armv7hf-beaglebone-green-alpine-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-alpine-node-dockerhub-tag-link] |
 | resin/beaglebone-green-alpine-python | [dockerhub][armv7hf-beaglebone-green-alpine-python-dockerhub-link], [github][armv7hf-beaglebone-green-alpine-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-alpine-python-dockerhub-tag-link] |
 | resin/beaglebone-green-alpine-golang | [dockerhub][armv7hf-beaglebone-green-alpine-golang-dockerhub-link], [github][armv7hf-beaglebone-green-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-alpine-golang-dockerhub-tag-link] |
+| resin/beaglebone-green-alpine-openjdk | [dockerhub][armv7hf-beaglebone-green-alpine-openjdk-dockerhub-link], [github][armv7hf-beaglebone-green-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-alpine-openjdk-dockerhub-tag-link] |
+| resin/beaglebone-green-fedora | [dockerhub][armv7hf-beaglebone-green-fedora-node-dockerhub-link], [github][armv7hf-beaglebone-green-fedora-node-github-link] | latest, 24 |
+| resin/beaglebone-green-fedora-buildpack-deps | [dockerhub][armv7hf-beaglebone-green-fedora-node-dockerhub-link], [github][armv7hf-beaglebone-green-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/beaglebone-green-fedora-node | [dockerhub][armv7hf-beaglebone-green-fedora-node-dockerhub-link], [github][armv7hf-beaglebone-green-fedora-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-fedora-node-dockerhub-tag-link] |
+| resin/beaglebone-green-fedora-python | [dockerhub][armv7hf-beaglebone-green-fedora-python-dockerhub-link], [github][armv7hf-beaglebone-green-fedora-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-fedora-python-dockerhub-tag-link] |
+| resin/beaglebone-green-fedora-golang | [dockerhub][armv7hf-beaglebone-green-fedora-golang-dockerhub-link], [github][armv7hf-beaglebone-green-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-fedora-golang-dockerhub-tag-link] |
+| resin/beaglebone-green-fedora-openjdk | [dockerhub][armv7hf-beaglebone-green-fedora-openjdk-dockerhub-link], [github][armv7hf-beaglebone-green-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Beaglebone Green Wireless
 
@@ -153,11 +192,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/beaglebone-green-wifi-node | [dockerhub][armv7hf-beaglebone-green-wifi-node-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-node-dockerhub-tag-link] |
 | resin/beaglebone-green-wifi-python | [dockerhub][armv7hf-beaglebone-green-wifi-python-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-python-dockerhub-tag-link] |
 | resin/beaglebone-green-wifi-golang | [dockerhub][armv7hf-beaglebone-green-wifi-golang-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-golang-dockerhub-tag-link] |
+| resin/beaglebone-green-wifi-openjdk | [dockerhub][armv7hf-beaglebone-green-wifi-openjdk-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-openjdk-dockerhub-tag-link] |
 | resin/beaglebone-green-wifi-alpine | [dockerhub][armv7hf-beaglebone-green-wifi-alpine-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/beaglebone-green-wifi-alpine-buildpack-deps | [dockerhub][armv7hf-beaglebone-green-wifi-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/beaglebone-green-wifi-alpine-node | [dockerhub][armv7hf-beaglebone-green-wifi-alpine-node-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-alpine-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-alpine-node-dockerhub-tag-link] |
 | resin/beaglebone-green-wifi-alpine-python | [dockerhub][armv7hf-beaglebone-green-wifi-alpine-python-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-alpine-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-alpine-python-dockerhub-tag-link] |
 | resin/beaglebone-green-wifi-alpine-golang | [dockerhub][armv7hf-beaglebone-green-wifi-alpine-golang-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-alpine-golang-dockerhub-tag-link] |
+| resin/beaglebone-green-wifi-alpine-openjdk | [dockerhub][armv7hf-beaglebone-green-wifi-alpine-openjdk-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-alpine-openjdk-dockerhub-tag-link] |
+| resin/beaglebone-green-wifi-fedora | [dockerhub][armv7hf-beaglebone-green-wifi-fedora-node-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-fedora-node-github-link] | latest, 24 |
+| resin/beaglebone-green-wifi-fedora-buildpack-deps | [dockerhub][armv7hf-beaglebone-green-wifi-fedora-node-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/beaglebone-green-wifi-fedora-node | [dockerhub][armv7hf-beaglebone-green-wifi-fedora-node-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-fedora-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-fedora-node-dockerhub-tag-link] |
+| resin/beaglebone-green-wifi-fedora-python | [dockerhub][armv7hf-beaglebone-green-wifi-fedora-python-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-fedora-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-fedora-python-dockerhub-tag-link] |
+| resin/beaglebone-green-wifi-fedora-golang | [dockerhub][armv7hf-beaglebone-green-wifi-fedora-golang-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-fedora-golang-dockerhub-tag-link] |
+| resin/beaglebone-green-wifi-fedora-openjdk | [dockerhub][armv7hf-beaglebone-green-wifi-fedora-openjdk-dockerhub-link], [github][armv7hf-beaglebone-green-wifi-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-fedora-openjdk-dockerhub-tag-link] |
 
 ##### VIA VAB 820-quad
 
@@ -168,11 +215,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/vab820-quad-node | [dockerhub][armv7hf-vab820-quad-node-dockerhub-link], [github][armv7hf-vab820-quad-node-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-node-dockerhub-tag-link] |
 | resin/vab820-quad-python | [dockerhub][armv7hf-vab820-quad-python-dockerhub-link], [github][armv7hf-vab820-quad-python-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-python-dockerhub-tag-link] |
 | resin/vab820-quad-golang | [dockerhub][armv7hf-vab820-quad-golang-dockerhub-link], [github][armv7hf-vab820-quad-golang-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-golang-dockerhub-tag-link] |
+| resin/vab820-quad-openjdk | [dockerhub][armv7hf-vab820-quad-openjdk-dockerhub-link], [github][armv7hf-vab820-quad-openjdk-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-openjdk-dockerhub-tag-link] |
 | resin/vab820-quad-alpine | [dockerhub][armv7hf-vab820-quad-alpine-dockerhub-link], [github][armv7hf-vab820-quad-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/vab820-quad-alpine-buildpack-deps | [dockerhub][armv7hf-vab820-quad-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-vab820-quad-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/vab820-quad-alpine-node | [dockerhub][armv7hf-vab820-quad-alpine-node-dockerhub-link], [github][armv7hf-vab820-quad-alpine-node-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-alpine-node-dockerhub-tag-link] |
 | resin/vab820-quad-alpine-python | [dockerhub][armv7hf-vab820-quad-alpine-python-dockerhub-link], [github][armv7hf-vab820-quad-alpine-python-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-alpine-python-dockerhub-tag-link] |
 | resin/vab820-quad-alpine-golang | [dockerhub][armv7hf-vab820-quad-alpine-golang-dockerhub-link], [github][armv7hf-vab820-quad-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-alpine-golang-dockerhub-tag-link] |
+| resin/vab820-quad-alpine-openjdk | [dockerhub][armv7hf-vab820-quad-alpine-openjdk-dockerhub-link], [github][armv7hf-vab820-quad-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-alpine-openjdk-dockerhub-tag-link] |
+| resin/vab820-quad-fedora | [dockerhub][armv7hf-vab820-quad-fedora-node-dockerhub-link], [github][armv7hf-vab820-quad-fedora-node-github-link] | latest, 24 |
+| resin/vab820-quad-fedora-buildpack-deps | [dockerhub][armv7hf-vab820-quad-fedora-node-dockerhub-link], [github][armv7hf-vab820-quad-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/vab820-quad-fedora-node | [dockerhub][armv7hf-vab820-quad-fedora-node-dockerhub-link], [github][armv7hf-vab820-quad-fedora-node-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-fedora-node-dockerhub-tag-link] |
+| resin/vab820-quad-fedora-python | [dockerhub][armv7hf-vab820-quad-fedora-python-dockerhub-link], [github][armv7hf-vab820-quad-fedora-python-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-fedora-python-dockerhub-tag-link] |
+| resin/vab820-quad-fedora-golang | [dockerhub][armv7hf-vab820-quad-fedora-golang-dockerhub-link], [github][armv7hf-vab820-quad-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-fedora-golang-dockerhub-tag-link] |
+| resin/vab820-quad-fedora-openjdk | [dockerhub][armv7hf-vab820-quad-fedora-openjdk-dockerhub-link], [github][armv7hf-vab820-quad-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-vab820-quad-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Zynq ZC702
 
@@ -183,11 +238,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/zc702-zynq7-node | [dockerhub][armv7hf-zc702-zynq7-node-dockerhub-link], [github][armv7hf-zc702-zynq7-node-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-node-dockerhub-tag-link] |
 | resin/zc702-zynq7-python | [dockerhub][armv7hf-zc702-zynq7-python-dockerhub-link], [github][armv7hf-zc702-zynq7-python-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-python-dockerhub-tag-link] |
 | resin/zc702-zynq7-golang | [dockerhub][armv7hf-zc702-zynq7-golang-dockerhub-link], [github][armv7hf-zc702-zynq7-golang-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-golang-dockerhub-tag-link] |
+| resin/zc702-zynq7-openjdk | [dockerhub][armv7hf-zc702-zynq7-openjdk-dockerhub-link], [github][armv7hf-zc702-zynq7-openjdk-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-openjdk-dockerhub-tag-link] |
 | resin/zc702-zynq7-alpine | [dockerhub][armv7hf-zc702-zynq7-alpine-dockerhub-link], [github][armv7hf-zc702-zynq7-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/zc702-zynq7-alpine-buildpack-deps | [dockerhub][armv7hf-zc702-zynq7-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-zc702-zynq7-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/zc702-zynq7-alpine-node | [dockerhub][armv7hf-zc702-zynq7-alpine-node-dockerhub-link], [github][armv7hf-zc702-zynq7-alpine-node-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-alpine-node-dockerhub-tag-link] |
 | resin/zc702-zynq7-alpine-python | [dockerhub][armv7hf-zc702-zynq7-alpine-python-dockerhub-link], [github][armv7hf-zc702-zynq7-alpine-python-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-alpine-python-dockerhub-tag-link] |
 | resin/zc702-zynq7-alpine-golang | [dockerhub][armv7hf-zc702-zynq7-alpine-golang-dockerhub-link], [github][armv7hf-zc702-zynq7-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-alpine-golang-dockerhub-tag-link] |
+| resin/zc702-zynq7-alpine-openjdk | [dockerhub][armv7hf-zc702-zynq7-alpine-openjdk-dockerhub-link], [github][armv7hf-zc702-zynq7-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-alpine-openjdk-dockerhub-tag-link] |
+| resin/zc702-zynq7-fedora | [dockerhub][armv7hf-zc702-zynq7-fedora-node-dockerhub-link], [github][armv7hf-zc702-zynq7-fedora-node-github-link] | latest, 24 |
+| resin/zc702-zynq7-fedora-buildpack-deps | [dockerhub][armv7hf-zc702-zynq7-fedora-node-dockerhub-link], [github][armv7hf-zc702-zynq7-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/zc702-zynq7-fedora-node | [dockerhub][armv7hf-zc702-zynq7-fedora-node-dockerhub-link], [github][armv7hf-zc702-zynq7-fedora-node-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-fedora-node-dockerhub-tag-link] |
+| resin/zc702-zynq7-fedora-python | [dockerhub][armv7hf-zc702-zynq7-fedora-python-dockerhub-link], [github][armv7hf-zc702-zynq7-fedora-python-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-fedora-python-dockerhub-tag-link] |
+| resin/zc702-zynq7-fedora-golang | [dockerhub][armv7hf-zc702-zynq7-fedora-golang-dockerhub-link], [github][armv7hf-zc702-zynq7-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-fedora-golang-dockerhub-tag-link] |
+| resin/zc702-zynq7-fedora-openjdk | [dockerhub][armv7hf-zc702-zynq7-fedora-openjdk-dockerhub-link], [github][armv7hf-zc702-zynq7-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-zc702-zynq7-fedora-openjdk-dockerhub-tag-link] |
 
 ##### ODROID-C1+
 
@@ -198,11 +261,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/odroid-c1-node | [dockerhub][armv7hf-odroid-c1-node-dockerhub-link], [github][armv7hf-odroid-c1-node-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-node-dockerhub-tag-link] |
 | resin/odroid-c1-python | [dockerhub][armv7hf-odroid-c1-python-dockerhub-link], [github][armv7hf-odroid-c1-python-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-python-dockerhub-tag-link] |
 | resin/odroid-c1-golang | [dockerhub][armv7hf-odroid-c1-golang-dockerhub-link], [github][armv7hf-odroid-c1-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-golang-dockerhub-tag-link] |
+| resin/odroid-c1-openjdk | [dockerhub][armv7hf-odroid-c1-openjdk-dockerhub-link], [github][armv7hf-odroid-c1-openjdk-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-openjdk-dockerhub-tag-link] |
 | resin/odroid-c1-alpine | [dockerhub][armv7hf-odroid-c1-alpine-dockerhub-link], [github][armv7hf-odroid-c1-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/odroid-c1-alpine-buildpack-deps | [dockerhub][armv7hf-odroid-c1-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-odroid-c1-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/odroid-c1-alpine-node | [dockerhub][armv7hf-odroid-c1-alpine-node-dockerhub-link], [github][armv7hf-odroid-c1-alpine-node-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-alpine-node-dockerhub-tag-link] |
 | resin/odroid-c1-alpine-python | [dockerhub][armv7hf-odroid-c1-alpine-python-dockerhub-link], [github][armv7hf-odroid-c1-alpine-python-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-alpine-python-dockerhub-tag-link] |
 | resin/odroid-c1-alpine-golang | [dockerhub][armv7hf-odroid-c1-alpine-golang-dockerhub-link], [github][armv7hf-odroid-c1-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-alpine-golang-dockerhub-tag-link] |
+| resin/odroid-c1-alpine-openjdk | [dockerhub][armv7hf-odroid-c1-alpine-openjdk-dockerhub-link], [github][armv7hf-odroid-c1-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-alpine-openjdk-dockerhub-tag-link] |
+| resin/odroid-c1-fedora | [dockerhub][armv7hf-odroid-c1-fedora-node-dockerhub-link], [github][armv7hf-odroid-c1-fedora-node-github-link] | latest, 24 |
+| resin/odroid-c1-fedora-buildpack-deps | [dockerhub][armv7hf-odroid-c1-fedora-node-dockerhub-link], [github][armv7hf-odroid-c1-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/odroid-c1-fedora-node | [dockerhub][armv7hf-odroid-c1-fedora-node-dockerhub-link], [github][armv7hf-odroid-c1-fedora-node-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-fedora-node-dockerhub-tag-link] |
+| resin/odroid-c1-fedora-python | [dockerhub][armv7hf-odroid-c1-fedora-python-dockerhub-link], [github][armv7hf-odroid-c1-fedora-python-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-fedora-python-dockerhub-tag-link] |
+| resin/odroid-c1-fedora-golang | [dockerhub][armv7hf-odroid-c1-fedora-golang-dockerhub-link], [github][armv7hf-odroid-c1-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-fedora-golang-dockerhub-tag-link] |
+| resin/odroid-c1-fedora-openjdk | [dockerhub][armv7hf-odroid-c1-fedora-openjdk-dockerhub-link], [github][armv7hf-odroid-c1-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-fedora-openjdk-dockerhub-tag-link] |
 
 ##### ODROID-XU4
 
@@ -213,11 +284,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/odroid-ux3-node | [dockerhub][armv7hf-odroid-ux3-node-dockerhub-link], [github][armv7hf-odroid-ux3-node-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-node-dockerhub-tag-link] |
 | resin/odroid-ux3-python | [dockerhub][armv7hf-odroid-ux3-python-dockerhub-link], [github][armv7hf-odroid-ux3-python-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-python-dockerhub-tag-link] |
 | resin/odroid-ux3-golang | [dockerhub][armv7hf-odroid-ux3-golang-dockerhub-link], [github][armv7hf-odroid-ux3-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-golang-dockerhub-tag-link] |
+| resin/odroid-ux3-openjdk | [dockerhub][armv7hf-odroid-ux3-openjdk-dockerhub-link], [github][armv7hf-odroid-ux3-openjdk-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-openjdk-dockerhub-tag-link] |
 | resin/odroid-ux3-alpine | [dockerhub][armv7hf-odroid-ux3-alpine-dockerhub-link], [github][armv7hf-odroid-ux3-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/odroid-ux3-alpine-buildpack-deps | [dockerhub][armv7hf-odroid-ux3-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-odroid-ux3-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/odroid-ux3-alpine-node | [dockerhub][armv7hf-odroid-ux3-alpine-node-dockerhub-link], [github][armv7hf-odroid-ux3-alpine-node-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-alpine-node-dockerhub-tag-link] |
 | resin/odroid-ux3-alpine-python | [dockerhub][armv7hf-odroid-ux3-alpine-python-dockerhub-link], [github][armv7hf-odroid-ux3-alpine-python-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-alpine-python-dockerhub-tag-link] |
 | resin/odroid-ux3-alpine-golang | [dockerhub][armv7hf-odroid-ux3-alpine-golang-dockerhub-link], [github][armv7hf-odroid-ux3-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-alpine-golang-dockerhub-tag-link] |
+| resin/odroid-ux3-alpine-openjdk | [dockerhub][armv7hf-odroid-ux3-alpine-openjdk-dockerhub-link], [github][armv7hf-odroid-ux3-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-alpine-openjdk-dockerhub-tag-link] |
+| resin/odroid-ux3-fedora | [dockerhub][armv7hf-odroid-ux3-fedora-node-dockerhub-link], [github][armv7hf-odroid-ux3-fedora-node-github-link] | latest, 24 |
+| resin/odroid-ux3-fedora-buildpack-deps | [dockerhub][armv7hf-odroid-ux3-fedora-node-dockerhub-link], [github][armv7hf-odroid-ux3-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/odroid-ux3-fedora-node | [dockerhub][armv7hf-odroid-ux3-fedora-node-dockerhub-link], [github][armv7hf-odroid-ux3-fedora-node-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-fedora-node-dockerhub-tag-link] |
+| resin/odroid-ux3-fedora-python | [dockerhub][armv7hf-odroid-ux3-fedora-python-dockerhub-link], [github][armv7hf-odroid-ux3-fedora-python-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-fedora-python-dockerhub-tag-link] |
+| resin/odroid-ux3-fedora-golang | [dockerhub][armv7hf-odroid-ux3-fedora-golang-dockerhub-link], [github][armv7hf-odroid-ux3-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-fedora-golang-dockerhub-tag-link] |
+| resin/odroid-ux3-fedora-openjdk | [dockerhub][armv7hf-odroid-ux3-fedora-openjdk-dockerhub-link], [github][armv7hf-odroid-ux3-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-odroid-ux3-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Parallella
 
@@ -228,11 +307,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/parallella-hdmi-resin-node | [dockerhub][armv7hf-parallella-hdmi-resin-node-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-node-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-node-dockerhub-tag-link] |
 | resin/parallella-hdmi-resin-python | [dockerhub][armv7hf-parallella-hdmi-resin-python-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-python-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-python-dockerhub-tag-link] |
 | resin/parallella-hdmi-resin-golang | [dockerhub][armv7hf-parallella-hdmi-resin-golang-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-golang-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-golang-dockerhub-tag-link] |
+| resin/parallella-hdmi-resin-openjdk | [dockerhub][armv7hf-parallella-hdmi-resin-openjdk-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-openjdk-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-openjdk-dockerhub-tag-link] |
 | resin/parallella-hdmi-resin-alpine | [dockerhub][armv7hf-parallella-hdmi-resin-alpine-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/parallella-hdmi-resin-alpine-buildpack-deps | [dockerhub][armv7hf-parallella-hdmi-resin-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/parallella-hdmi-resin-alpine-node | [dockerhub][armv7hf-parallella-hdmi-resin-alpine-node-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-alpine-node-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-alpine-node-dockerhub-tag-link] |
 | resin/parallella-hdmi-resin-alpine-python | [dockerhub][armv7hf-parallella-hdmi-resin-alpine-python-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-alpine-python-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-alpine-python-dockerhub-tag-link] |
 | resin/parallella-hdmi-resin-alpine-golang | [dockerhub][armv7hf-parallella-hdmi-resin-alpine-golang-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-alpine-golang-dockerhub-tag-link] |
+| resin/parallella-hdmi-resin-alpine-openjdk | [dockerhub][armv7hf-parallella-hdmi-resin-alpine-openjdk-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-alpine-openjdk-dockerhub-tag-link] |
+| resin/parallella-hdmi-resin-fedora | [dockerhub][armv7hf-parallella-hdmi-resin-fedora-node-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-fedora-node-github-link] | latest, 24 |
+| resin/parallella-hdmi-resin-fedora-buildpack-deps | [dockerhub][armv7hf-parallella-hdmi-resin-fedora-node-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/parallella-hdmi-resin-fedora-node | [dockerhub][armv7hf-parallella-hdmi-resin-fedora-node-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-fedora-node-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-fedora-node-dockerhub-tag-link] |
+| resin/parallella-hdmi-resin-fedora-python | [dockerhub][armv7hf-parallella-hdmi-resin-fedora-python-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-fedora-python-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-fedora-python-dockerhub-tag-link] |
+| resin/parallella-hdmi-resin-fedora-golang | [dockerhub][armv7hf-parallella-hdmi-resin-fedora-golang-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-fedora-golang-dockerhub-tag-link] |
+| resin/parallella-hdmi-resin-fedora-openjdk | [dockerhub][armv7hf-parallella-hdmi-resin-fedora-openjdk-dockerhub-link], [github][armv7hf-parallella-hdmi-resin-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-parallella-hdmi-resin-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Nitrogen 6X
 
@@ -243,11 +330,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/nitrogen6x-node | [dockerhub][armv7hf-nitrogen6x-node-dockerhub-link], [github][armv7hf-nitrogen6x-node-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-node-dockerhub-tag-link] |
 | resin/nitrogen6x-python | [dockerhub][armv7hf-nitrogen6x-python-dockerhub-link], [github][armv7hf-nitrogen6x-python-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-python-dockerhub-tag-link] |
 | resin/nitrogen6x-golang | [dockerhub][armv7hf-nitrogen6x-golang-dockerhub-link], [github][armv7hf-nitrogen6x-golang-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-golang-dockerhub-tag-link] |
+| resin/nitrogen6x-openjdk | [dockerhub][armv7hf-nitrogen6x-openjdk-dockerhub-link], [github][armv7hf-nitrogen6x-openjdk-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-openjdk-dockerhub-tag-link] |
 | resin/nitrogen6x-alpine | [dockerhub][armv7hf-nitrogen6x-alpine-dockerhub-link], [github][armv7hf-nitrogen6x-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/nitrogen6x-alpine-buildpack-deps | [dockerhub][armv7hf-nitrogen6x-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-nitrogen6x-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/nitrogen6x-alpine-node | [dockerhub][armv7hf-nitrogen6x-alpine-node-dockerhub-link], [github][armv7hf-nitrogen6x-alpine-node-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-alpine-node-dockerhub-tag-link] |
 | resin/nitrogen6x-alpine-python | [dockerhub][armv7hf-nitrogen6x-alpine-python-dockerhub-link], [github][armv7hf-nitrogen6x-alpine-python-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-alpine-python-dockerhub-tag-link] |
 | resin/nitrogen6x-alpine-golang | [dockerhub][armv7hf-nitrogen6x-alpine-golang-dockerhub-link], [github][armv7hf-nitrogen6x-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-alpine-golang-dockerhub-tag-link] |
+| resin/nitrogen6x-alpine-openjdk | [dockerhub][armv7hf-nitrogen6x-alpine-openjdk-dockerhub-link], [github][armv7hf-nitrogen6x-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-alpine-openjdk-dockerhub-tag-link] |
+| resin/nitrogen6x-fedora | [dockerhub][armv7hf-nitrogen6x-fedora-node-dockerhub-link], [github][armv7hf-nitrogen6x-fedora-node-github-link] | latest, 24 |
+| resin/nitrogen6x-fedora-buildpack-deps | [dockerhub][armv7hf-nitrogen6x-fedora-node-dockerhub-link], [github][armv7hf-nitrogen6x-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/nitrogen6x-fedora-node | [dockerhub][armv7hf-nitrogen6x-fedora-node-dockerhub-link], [github][armv7hf-nitrogen6x-fedora-node-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-fedora-node-dockerhub-tag-link] |
+| resin/nitrogen6x-fedora-python | [dockerhub][armv7hf-nitrogen6x-fedora-python-dockerhub-link], [github][armv7hf-nitrogen6x-fedora-python-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-fedora-python-dockerhub-tag-link] |
+| resin/nitrogen6x-fedora-golang | [dockerhub][armv7hf-nitrogen6x-fedora-golang-dockerhub-link], [github][armv7hf-nitrogen6x-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-fedora-golang-dockerhub-tag-link] |
+| resin/nitrogen6x-fedora-openjdk | [dockerhub][armv7hf-nitrogen6x-fedora-openjdk-dockerhub-link], [github][armv7hf-nitrogen6x-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Hummingboard
 
@@ -258,11 +353,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/cubox-i-node | [dockerhub][armv7hf-cubox-i-node-dockerhub-link], [github][armv7hf-cubox-i-node-github-link] | For available image tags, refer [here][armv7hf-cubox-i-node-dockerhub-tag-link] |
 | resin/cubox-i-python | [dockerhub][armv7hf-cubox-i-python-dockerhub-link], [github][armv7hf-cubox-i-python-github-link] | For available image tags, refer [here][armv7hf-cubox-i-python-dockerhub-tag-link] |
 | resin/cubox-i-golang | [dockerhub][armv7hf-cubox-i-golang-dockerhub-link], [github][armv7hf-cubox-i-golang-github-link] | For available image tags, refer [here][armv7hf-cubox-i-golang-dockerhub-tag-link] |
+| resin/cubox-i-openjdk | [dockerhub][armv7hf-cubox-i-openjdk-dockerhub-link], [github][armv7hf-cubox-i-openjdk-github-link] | For available image tags, refer [here][armv7hf-cubox-i-openjdk-dockerhub-tag-link] |
 | resin/cubox-i-alpine | [dockerhub][armv7hf-cubox-i-alpine-dockerhub-link], [github][armv7hf-cubox-i-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/cubox-i-alpine-buildpack-deps | [dockerhub][armv7hf-cubox-i-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-cubox-i-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/cubox-i-alpine-node | [dockerhub][armv7hf-cubox-i-alpine-node-dockerhub-link], [github][armv7hf-cubox-i-alpine-node-github-link] | For available image tags, refer [here][armv7hf-cubox-i-alpine-node-dockerhub-tag-link] |
 | resin/cubox-i-alpine-python | [dockerhub][armv7hf-cubox-i-alpine-python-dockerhub-link], [github][armv7hf-cubox-i-alpine-python-github-link] | For available image tags, refer [here][armv7hf-cubox-i-alpine-python-dockerhub-tag-link] |
 | resin/cubox-i-alpine-golang | [dockerhub][armv7hf-cubox-i-alpine-golang-dockerhub-link], [github][armv7hf-cubox-i-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-cubox-i-alpine-golang-dockerhub-tag-link] |
+| resin/cubox-i-alpine-openjdk | [dockerhub][armv7hf-cubox-i-alpine-openjdk-dockerhub-link], [github][armv7hf-cubox-i-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-cubox-i-alpine-openjdk-dockerhub-tag-link] |
+| resin/cubox-i-fedora | [dockerhub][armv7hf-cubox-i-fedora-node-dockerhub-link], [github][armv7hf-cubox-i-fedora-node-github-link] | latest, 24 |
+| resin/cubox-i-fedora-buildpack-deps | [dockerhub][armv7hf-cubox-i-fedora-node-dockerhub-link], [github][armv7hf-cubox-i-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/cubox-i-fedora-node | [dockerhub][armv7hf-cubox-i-fedora-node-dockerhub-link], [github][armv7hf-cubox-i-fedora-node-github-link] | For available image tags, refer [here][armv7hf-cubox-i-fedora-node-dockerhub-tag-link] |
+| resin/cubox-i-fedora-python | [dockerhub][armv7hf-cubox-i-fedora-python-dockerhub-link], [github][armv7hf-cubox-i-fedora-python-github-link] | For available image tags, refer [here][armv7hf-cubox-i-fedora-python-dockerhub-tag-link] |
+| resin/cubox-i-fedora-golang | [dockerhub][armv7hf-cubox-i-fedora-golang-dockerhub-link], [github][armv7hf-cubox-i-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-cubox-i-fedora-golang-dockerhub-tag-link] |
+| resin/cubox-i-fedora-openjdk | [dockerhub][armv7hf-cubox-i-fedora-openjdk-dockerhub-link], [github][armv7hf-cubox-i-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-cubox-i-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Colibri iMX6dl
 
@@ -273,11 +376,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/colibri-imx6-node | [dockerhub][armv7hf-colibri-imx6-node-dockerhub-link], [github][armv7hf-colibri-imx6-node-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-node-dockerhub-tag-link] |
 | resin/colibri-imx6-python | [dockerhub][armv7hf-colibri-imx6-python-dockerhub-link], [github][armv7hf-colibri-imx6-python-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-python-dockerhub-tag-link] |
 | resin/colibri-imx6-golang | [dockerhub][armv7hf-colibri-imx6-golang-dockerhub-link], [github][armv7hf-colibri-imx6-golang-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-golang-dockerhub-tag-link] |
+| resin/colibri-imx6-openjdk | [dockerhub][armv7hf-colibri-imx6-openjdk-dockerhub-link], [github][armv7hf-colibri-imx6-openjdk-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-openjdk-dockerhub-tag-link] |
 | resin/colibri-imx6-alpine | [dockerhub][armv7hf-colibri-imx6-alpine-dockerhub-link], [github][armv7hf-colibri-imx6-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/colibri-imx6-alpine-buildpack-deps | [dockerhub][armv7hf-colibri-imx6-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-colibri-imx6-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/colibri-imx6-alpine-node | [dockerhub][armv7hf-colibri-imx6-alpine-node-dockerhub-link], [github][armv7hf-colibri-imx6-alpine-node-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-alpine-node-dockerhub-tag-link] |
 | resin/colibri-imx6-alpine-python | [dockerhub][armv7hf-colibri-imx6-alpine-python-dockerhub-link], [github][armv7hf-colibri-imx6-alpine-python-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-alpine-python-dockerhub-tag-link] |
 | resin/colibri-imx6-alpine-golang | [dockerhub][armv7hf-colibri-imx6-alpine-golang-dockerhub-link], [github][armv7hf-colibri-imx6-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-alpine-golang-dockerhub-tag-link] |
+| resin/colibri-imx6-alpine-openjdk | [dockerhub][armv7hf-colibri-imx6-alpine-openjdk-dockerhub-link], [github][armv7hf-colibri-imx6-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-alpine-openjdk-dockerhub-tag-link] |
+| resin/colibri-imx6-fedora | [dockerhub][armv7hf-colibri-imx6-fedora-node-dockerhub-link], [github][armv7hf-colibri-imx6-fedora-node-github-link] | latest, 24 |
+| resin/colibri-imx6-fedora-buildpack-deps | [dockerhub][armv7hf-colibri-imx6-fedora-node-dockerhub-link], [github][armv7hf-colibri-imx6-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/colibri-imx6-fedora-node | [dockerhub][armv7hf-colibri-imx6-fedora-node-dockerhub-link], [github][armv7hf-colibri-imx6-fedora-node-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-fedora-node-dockerhub-tag-link] |
+| resin/colibri-imx6-fedora-python | [dockerhub][armv7hf-colibri-imx6-fedora-python-dockerhub-link], [github][armv7hf-colibri-imx6-fedora-python-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-fedora-python-dockerhub-tag-link] |
+| resin/colibri-imx6-fedora-golang | [dockerhub][armv7hf-colibri-imx6-fedora-golang-dockerhub-link], [github][armv7hf-colibri-imx6-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-fedora-golang-dockerhub-tag-link] |
+| resin/colibri-imx6-fedora-openjdk | [dockerhub][armv7hf-colibri-imx6-fedora-openjdk-dockerhub-link], [github][armv7hf-colibri-imx6-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Apslis iMX6q
 
@@ -288,11 +399,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/apalis-imx6-node | [dockerhub][armv7hf-apalis-imx6-node-dockerhub-link], [github][armv7hf-apalis-imx6-node-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-node-dockerhub-tag-link] |
 | resin/apalis-imx6-python | [dockerhub][armv7hf-apalis-imx6-python-dockerhub-link], [github][armv7hf-apalis-imx6-python-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-python-dockerhub-tag-link] |
 | resin/apalis-imx6-golang | [dockerhub][armv7hf-apalis-imx6-golang-dockerhub-link], [github][armv7hf-apalis-imx6-golang-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-golang-dockerhub-tag-link] |
+| resin/apalis-imx6-openjdk | [dockerhub][armv7hf-apalis-imx6-openjdk-dockerhub-link], [github][armv7hf-apalis-imx6-openjdk-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-openjdk-dockerhub-tag-link] |
 | resin/apalis-imx6-alpine | [dockerhub][armv7hf-apalis-imx6-alpine-dockerhub-link], [github][armv7hf-apalis-imx6-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/apalis-imx6-alpine-buildpack-deps | [dockerhub][armv7hf-apalis-imx6-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-apalis-imx6-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/apalis-imx6-alpine-node | [dockerhub][armv7hf-apalis-imx6-alpine-node-dockerhub-link], [github][armv7hf-apalis-imx6-alpine-node-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-alpine-node-dockerhub-tag-link] |
 | resin/apalis-imx6-alpine-python | [dockerhub][armv7hf-apalis-imx6-alpine-python-dockerhub-link], [github][armv7hf-apalis-imx6-alpine-python-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-alpine-python-dockerhub-tag-link] |
 | resin/apalis-imx6-alpine-golang | [dockerhub][armv7hf-apalis-imx6-alpine-golang-dockerhub-link], [github][armv7hf-apalis-imx6-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-alpine-golang-dockerhub-tag-link] |
+| resin/apalis-imx6-alpine-openjdk | [dockerhub][armv7hf-apalis-imx6-alpine-openjdk-dockerhub-link], [github][armv7hf-apalis-imx6-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-alpine-openjdk-dockerhub-tag-link] |
+| resin/apalis-imx6-fedora | [dockerhub][armv7hf-apalis-imx6-fedora-node-dockerhub-link], [github][armv7hf-apalis-imx6-fedora-node-github-link] | latest, 24 |
+| resin/apalis-imx6-fedora-buildpack-deps | [dockerhub][armv7hf-apalis-imx6-fedora-node-dockerhub-link], [github][armv7hf-apalis-imx6-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/apalis-imx6-fedora-node | [dockerhub][armv7hf-apalis-imx6-fedora-node-dockerhub-link], [github][armv7hf-apalis-imx6-fedora-node-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-fedora-node-dockerhub-tag-link] |
+| resin/apalis-imx6-fedora-python | [dockerhub][armv7hf-apalis-imx6-fedora-python-dockerhub-link], [github][armv7hf-apalis-imx6-fedora-python-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-fedora-python-dockerhub-tag-link] |
+| resin/apalis-imx6-fedora-golang | [dockerhub][armv7hf-apalis-imx6-fedora-golang-dockerhub-link], [github][armv7hf-apalis-imx6-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-fedora-golang-dockerhub-tag-link] |
+| resin/apalis-imx6-fedora-openjdk | [dockerhub][armv7hf-apalis-imx6-fedora-openjdk-dockerhub-link], [github][armv7hf-apalis-imx6-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6-fedora-openjdk-dockerhub-tag-link] |
 
 ##### TS-4900
 
@@ -303,11 +422,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/ts4900-node | [dockerhub][armv7hf-ts4900-node-dockerhub-link], [github][armv7hf-ts4900-node-github-link] | For available image tags, refer [here][armv7hf-ts4900-node-dockerhub-tag-link] |
 | resin/ts4900-python | [dockerhub][armv7hf-ts4900-python-dockerhub-link], [github][armv7hf-ts4900-python-github-link] | For available image tags, refer [here][armv7hf-ts4900-python-dockerhub-tag-link] |
 | resin/ts4900-golang | [dockerhub][armv7hf-ts4900-golang-dockerhub-link], [github][armv7hf-ts4900-golang-github-link] | For available image tags, refer [here][armv7hf-ts4900-golang-dockerhub-tag-link] |
+| resin/ts4900-openjdk | [dockerhub][armv7hf-ts4900-openjdk-dockerhub-link], [github][armv7hf-ts4900-openjdk-github-link] | For available image tags, refer [here][armv7hf-ts4900-openjdk-dockerhub-tag-link] |
 | resin/ts4900-alpine | [dockerhub][armv7hf-ts4900-alpine-dockerhub-link], [github][armv7hf-ts4900-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/ts4900-alpine-buildpack-deps | [dockerhub][armv7hf-ts4900-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-ts4900-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/ts4900-alpine-node | [dockerhub][armv7hf-ts4900-alpine-node-dockerhub-link], [github][armv7hf-ts4900-alpine-node-github-link] | For available image tags, refer [here][armv7hf-ts4900-alpine-node-dockerhub-tag-link] |
 | resin/ts4900-alpine-python | [dockerhub][armv7hf-ts4900-alpine-python-dockerhub-link], [github][armv7hf-ts4900-alpine-python-github-link] | For available image tags, refer [here][armv7hf-ts4900-alpine-python-dockerhub-tag-link] |
 | resin/ts4900-alpine-golang | [dockerhub][armv7hf-ts4900-alpine-golang-dockerhub-link], [github][armv7hf-ts4900-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-ts4900-alpine-golang-dockerhub-tag-link] |
+| resin/ts4900-alpine-openjdk | [dockerhub][armv7hf-ts4900-alpine-openjdk-dockerhub-link], [github][armv7hf-ts4900-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-ts4900-alpine-openjdk-dockerhub-tag-link] |
+| resin/ts4900-fedora | [dockerhub][armv7hf-ts4900-fedora-node-dockerhub-link], [github][armv7hf-ts4900-fedora-node-github-link] | latest, 24 |
+| resin/ts4900-fedora-buildpack-deps | [dockerhub][armv7hf-ts4900-fedora-node-dockerhub-link], [github][armv7hf-ts4900-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/ts4900-fedora-node | [dockerhub][armv7hf-ts4900-fedora-node-dockerhub-link], [github][armv7hf-ts4900-fedora-node-github-link] | For available image tags, refer [here][armv7hf-ts4900-fedora-node-dockerhub-tag-link] |
+| resin/ts4900-fedora-python | [dockerhub][armv7hf-ts4900-fedora-python-dockerhub-link], [github][armv7hf-ts4900-fedora-python-github-link] | For available image tags, refer [here][armv7hf-ts4900-fedora-python-dockerhub-tag-link] |
+| resin/ts4900-fedora-golang | [dockerhub][armv7hf-ts4900-fedora-golang-dockerhub-link], [github][armv7hf-ts4900-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-ts4900-fedora-golang-dockerhub-tag-link] |
+| resin/ts4900-fedora-openjdk | [dockerhub][armv7hf-ts4900-fedora-openjdk-dockerhub-link], [github][armv7hf-ts4900-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-ts4900-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Samsung Artik 5
 
@@ -318,11 +445,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/artik5-node | [dockerhub][armv7hf-artik5-node-dockerhub-link], [github][armv7hf-artik5-node-github-link] | For available image tags, refer [here][armv7hf-artik5-node-dockerhub-tag-link] |
 | resin/artik5-python | [dockerhub][armv7hf-artik5-python-dockerhub-link], [github][armv7hf-artik5-python-github-link] | For available image tags, refer [here][armv7hf-artik5-python-dockerhub-tag-link] |
 | resin/artik5-golang | [dockerhub][armv7hf-artik5-golang-dockerhub-link], [github][armv7hf-artik5-golang-github-link] | For available image tags, refer [here][armv7hf-artik5-golang-dockerhub-tag-link] |
+| resin/artik5-openjdk | [dockerhub][armv7hf-artik5-openjdk-dockerhub-link], [github][armv7hf-artik5-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik5-openjdk-dockerhub-tag-link] |
 | resin/artik5-alpine | [dockerhub][armv7hf-artik5-alpine-dockerhub-link], [github][armv7hf-artik5-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/artik5-alpine-buildpack-deps | [dockerhub][armv7hf-artik5-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-artik5-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/artik5-alpine-node | [dockerhub][armv7hf-artik5-alpine-node-dockerhub-link], [github][armv7hf-artik5-alpine-node-github-link] | For available image tags, refer [here][armv7hf-artik5-alpine-node-dockerhub-tag-link] |
 | resin/artik5-alpine-python | [dockerhub][armv7hf-artik5-alpine-python-dockerhub-link], [github][armv7hf-artik5-alpine-python-github-link] | For available image tags, refer [here][armv7hf-artik5-alpine-python-dockerhub-tag-link] |
 | resin/artik5-alpine-golang | [dockerhub][armv7hf-artik5-alpine-golang-dockerhub-link], [github][armv7hf-artik5-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-artik5-alpine-golang-dockerhub-tag-link] |
+| resin/artik5-alpine-openjdk | [dockerhub][armv7hf-artik5-alpine-openjdk-dockerhub-link], [github][armv7hf-artik5-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik5-alpine-openjdk-dockerhub-tag-link] |
+| resin/artik5-fedora | [dockerhub][armv7hf-artik5-fedora-node-dockerhub-link], [github][armv7hf-artik5-fedora-node-github-link] | latest, 24 |
+| resin/artik5-fedora-buildpack-deps | [dockerhub][armv7hf-artik5-fedora-node-dockerhub-link], [github][armv7hf-artik5-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/artik5-fedora-node | [dockerhub][armv7hf-artik5-fedora-node-dockerhub-link], [github][armv7hf-artik5-fedora-node-github-link] | For available image tags, refer [here][armv7hf-artik5-fedora-node-dockerhub-tag-link] |
+| resin/artik5-fedora-python | [dockerhub][armv7hf-artik5-fedora-python-dockerhub-link], [github][armv7hf-artik5-fedora-python-github-link] | For available image tags, refer [here][armv7hf-artik5-fedora-python-dockerhub-tag-link] |
+| resin/artik5-fedora-golang | [dockerhub][armv7hf-artik5-fedora-golang-dockerhub-link], [github][armv7hf-artik5-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-artik5-fedora-golang-dockerhub-tag-link] |
+| resin/artik5-fedora-openjdk | [dockerhub][armv7hf-artik5-fedora-openjdk-dockerhub-link], [github][armv7hf-artik5-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik5-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Samsung Artik 10
 
@@ -333,17 +468,25 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/artik10-node | [dockerhub][armv7hf-artik10-node-dockerhub-link], [github][armv7hf-artik10-node-github-link] | For available image tags, refer [here][armv7hf-artik10-node-dockerhub-tag-link] |
 | resin/artik10-python | [dockerhub][armv7hf-artik10-python-dockerhub-link], [github][armv7hf-artik10-python-github-link] | For available image tags, refer [here][armv7hf-artik10-python-dockerhub-tag-link] |
 | resin/artik10-golang | [dockerhub][armv7hf-artik10-golang-dockerhub-link], [github][armv7hf-artik10-golang-github-link] | For available image tags, refer [here][armv7hf-artik10-golang-dockerhub-tag-link] |
+| resin/artik10-openjdk | [dockerhub][armv7hf-artik10-openjdk-dockerhub-link], [github][armv7hf-artik10-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik10-openjdk-dockerhub-tag-link] |
 | resin/artik10-alpine | [dockerhub][armv7hf-artik10-alpine-dockerhub-link], [github][armv7hf-artik10-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/artik10-alpine-buildpack-deps | [dockerhub][armv7hf-artik10-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-artik10-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/artik10-alpine-node | [dockerhub][armv7hf-artik10-alpine-node-dockerhub-link], [github][armv7hf-artik10-alpine-node-github-link] | For available image tags, refer [here][armv7hf-artik10-alpine-node-dockerhub-tag-link] |
 | resin/artik10-alpine-python | [dockerhub][armv7hf-artik10-alpine-python-dockerhub-link], [github][armv7hf-artik10-alpine-python-github-link] | For available image tags, refer [here][armv7hf-artik10-alpine-python-dockerhub-tag-link] |
 | resin/artik10-alpine-golang | [dockerhub][armv7hf-artik10-alpine-golang-dockerhub-link], [github][armv7hf-artik10-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-artik10-alpine-golang-dockerhub-tag-link] |
-
-
+| resin/artik10-alpine-openjdk | [dockerhub][armv7hf-artik10-alpine-openjdk-dockerhub-link], [github][armv7hf-artik10-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik10-alpine-openjdk-dockerhub-tag-link] |
+| resin/artik10-fedora | [dockerhub][armv7hf-artik10-fedora-node-dockerhub-link], [github][armv7hf-artik10-fedora-node-github-link] | latest, 24 |
+| resin/artik10-fedora-buildpack-deps | [dockerhub][armv7hf-artik10-fedora-node-dockerhub-link], [github][armv7hf-artik10-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/artik10-fedora-node | [dockerhub][armv7hf-artik10-fedora-node-dockerhub-link], [github][armv7hf-artik10-fedora-node-github-link] | For available image tags, refer [here][armv7hf-artik10-fedora-node-dockerhub-tag-link] |
+| resin/artik10-fedora-python | [dockerhub][armv7hf-artik10-fedora-python-dockerhub-link], [github][armv7hf-artik10-fedora-python-github-link] | For available image tags, refer [here][armv7hf-artik10-fedora-python-dockerhub-tag-link] |
+| resin/artik10-fedora-golang | [dockerhub][armv7hf-artik10-fedora-golang-dockerhub-link], [github][armv7hf-artik10-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-artik10-fedora-golang-dockerhub-tag-link] |
+| resin/artik10-fedora-openjdk | [dockerhub][armv7hf-artik10-fedora-openjdk-dockerhub-link], [github][armv7hf-artik10-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik10-fedora-openjdk-dockerhub-tag-link] |
 
 ### i386
 
 ![i386 Tree Diagram](/img/i386-devices.jpg)
+
+
 
 ##### Intel Edison
 
@@ -354,11 +497,13 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/edison-node | [dockerhub][i386-edison-node-dockerhub-link], [github][i386-edison-node-github-link] | For available image tags, refer [here][i386-edison-node-dockerhub-tag-link] |
 | resin/edison-python | [dockerhub][i386-edison-python-dockerhub-link], [github][i386-edison-python-github-link] | For available image tags, refer [here][i386-edison-python-dockerhub-tag-link] |
 | resin/edison-golang | [dockerhub][i386-edison-golang-dockerhub-link], [github][i386-edison-golang-github-link] | For available image tags, refer [here][i386-edison-golang-dockerhub-tag-link] |
+| resin/edison-openjdk | [dockerhub][i386-edison-openjdk-dockerhub-link], [github][i386-edison-openjdk-github-link] | For available image tags, refer [here][i386-edison-openjdk-dockerhub-tag-link] |
 | resin/edison-alpine | [dockerhub][i386-edison-alpine-dockerhub-link], [github][i386-edison-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/edison-alpine-buildpack-deps | [dockerhub][i386-edison-alpine-buildpack-deps-dockerhub-link], [github][i386-edison-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/edison-alpine-node | [dockerhub][i386-edison-alpine-node-dockerhub-link], [github][i386-edison-alpine-node-github-link] | For available image tags, refer [here][i386-edison-alpine-node-dockerhub-tag-link] |
 | resin/edison-alpine-python | [dockerhub][i386-edison-alpine-python-dockerhub-link], [github][i386-edison-alpine-python-github-link] | For available image tags, refer [here][i386-edison-alpine-python-dockerhub-tag-link] |
 | resin/edison-alpine-golang | [dockerhub][i386-edison-alpine-golang-dockerhub-link], [github][i386-edison-alpine-golang-github-link] | For available image tags, refer [here][i386-edison-alpine-golang-dockerhub-tag-link] |
+| resin/edison-alpine-openjdk | [dockerhub][i386-edison-alpine-openjdk-dockerhub-link], [github][i386-edison-alpine-openjdk-github-link] | For available image tags, refer [here][i386-edison-alpine-openjdk-dockerhub-tag-link] |
 
 ##### QEMU x86
 
@@ -369,17 +514,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/qemux86-node | [dockerhub][i386-qemux86-node-dockerhub-link], [github][i386-qemux86-node-github-link] | For available image tags, refer [here][i386-qemux86-node-dockerhub-tag-link] |
 | resin/qemux86-python | [dockerhub][i386-qemux86-python-dockerhub-link], [github][i386-qemux86-python-github-link] | For available image tags, refer [here][i386-qemux86-python-dockerhub-tag-link] |
 | resin/qemux86-golang | [dockerhub][i386-qemux86-golang-dockerhub-link], [github][i386-qemux86-golang-github-link] | For available image tags, refer [here][i386-qemux86-golang-dockerhub-tag-link] |
+| resin/qemux86-openjdk | [dockerhub][i386-qemux86-openjdk-dockerhub-link], [github][i386-qemux86-openjdk-github-link] | For available image tags, refer [here][i386-qemux86-openjdk-dockerhub-tag-link] |
 | resin/qemux86-alpine | [dockerhub][i386-qemux86-alpine-dockerhub-link], [github][i386-qemux86-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/qemux86-alpine-buildpack-deps | [dockerhub][i386-qemux86-alpine-buildpack-deps-dockerhub-link], [github][i386-qemux86-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/qemux86-alpine-node | [dockerhub][i386-qemux86-alpine-node-dockerhub-link], [github][i386-qemux86-alpine-node-github-link] | For available image tags, refer [here][i386-qemux86-alpine-node-dockerhub-tag-link] |
 | resin/qemux86-alpine-python | [dockerhub][i386-qemux86-alpine-python-dockerhub-link], [github][i386-qemux86-alpine-python-github-link] | For available image tags, refer [here][i386-qemux86-alpine-python-dockerhub-tag-link] |
 | resin/qemux86-alpine-golang | [dockerhub][i386-qemux86-alpine-golang-dockerhub-link], [github][i386-qemux86-alpine-golang-github-link] | For available image tags, refer [here][i386-qemux86-alpine-golang-dockerhub-tag-link] |
-
-
+| resin/qemux86-alpine-openjdk | [dockerhub][i386-qemux86-alpine-openjdk-dockerhub-link], [github][i386-qemux86-alpine-openjdk-github-link] | For available image tags, refer [here][i386-qemux86-alpine-openjdk-dockerhub-tag-link] |
 
 ### amd64
 
 ![amd64 Tree Diagram](/img/amd64-devices.jpg)
+
+
 
 ##### Intel NUC
 
@@ -390,11 +537,19 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/nuc-node | [dockerhub][amd64-nuc-node-dockerhub-link], [github][amd64-nuc-node-github-link] | For available image tags, refer [here][amd64-nuc-node-dockerhub-tag-link] |
 | resin/nuc-python | [dockerhub][amd64-nuc-python-dockerhub-link], [github][amd64-nuc-python-github-link] | For available image tags, refer [here][amd64-nuc-python-dockerhub-tag-link] |
 | resin/nuc-golang | [dockerhub][amd64-nuc-golang-dockerhub-link], [github][amd64-nuc-golang-github-link] | For available image tags, refer [here][amd64-nuc-golang-dockerhub-tag-link] |
+| resin/nuc-openjdk | [dockerhub][amd64-nuc-openjdk-dockerhub-link], [github][amd64-nuc-openjdk-github-link] | For available image tags, refer [here][amd64-nuc-openjdk-dockerhub-tag-link] |
 | resin/nuc-alpine | [dockerhub][amd64-nuc-alpine-dockerhub-link], [github][amd64-nuc-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/nuc-alpine-buildpack-deps | [dockerhub][amd64-nuc-alpine-buildpack-deps-dockerhub-link], [github][amd64-nuc-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/nuc-alpine-node | [dockerhub][amd64-nuc-alpine-node-dockerhub-link], [github][amd64-nuc-alpine-node-github-link] | For available image tags, refer [here][amd64-nuc-alpine-node-dockerhub-tag-link] |
 | resin/nuc-alpine-python | [dockerhub][amd64-nuc-alpine-python-dockerhub-link], [github][amd64-nuc-alpine-python-github-link] | For available image tags, refer [here][amd64-nuc-alpine-python-dockerhub-tag-link] |
 | resin/nuc-alpine-golang | [dockerhub][amd64-nuc-alpine-golang-dockerhub-link], [github][amd64-nuc-alpine-golang-github-link] | For available image tags, refer [here][amd64-nuc-alpine-golang-dockerhub-tag-link] |
+| resin/nuc-alpine-openjdk | [dockerhub][amd64-nuc-alpine-openjdk-dockerhub-link], [github][amd64-nuc-alpine-openjdk-github-link] | For available image tags, refer [here][amd64-nuc-alpine-openjdk-dockerhub-tag-link] |
+| resin/nuc-fedora | [dockerhub][amd64-nuc-fedora-node-dockerhub-link], [github][amd64-nuc-fedora-node-github-link] | latest, 24 |
+| resin/nuc-fedora-buildpack-deps | [dockerhub][amd64-nuc-fedora-node-dockerhub-link], [github][amd64-nuc-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/nuc-fedora-node | [dockerhub][amd64-nuc-fedora-node-dockerhub-link], [github][amd64-nuc-fedora-node-github-link] | For available image tags, refer [here][amd64-nuc-fedora-node-dockerhub-tag-link] |
+| resin/nuc-fedora-python | [dockerhub][amd64-nuc-fedora-python-dockerhub-link], [github][amd64-nuc-fedora-python-github-link] | For available image tags, refer [here][amd64-nuc-fedora-python-dockerhub-tag-link] |
+| resin/nuc-fedora-golang | [dockerhub][amd64-nuc-fedora-golang-dockerhub-link], [github][amd64-nuc-fedora-golang-github-link] | For available image tags, refer [here][amd64-nuc-fedora-golang-dockerhub-tag-link] |
+| resin/nuc-fedora-openjdk | [dockerhub][amd64-nuc-fedora-openjdk-dockerhub-link], [github][amd64-nuc-fedora-openjdk-github-link] | For available image tags, refer [here][amd64-nuc-fedora-openjdk-dockerhub-tag-link] |
 
 ##### QEMU x86-64
 
@@ -405,17 +560,25 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/qemux86-64-node | [dockerhub][amd64-qemux86-64-node-dockerhub-link], [github][amd64-qemux86-64-node-github-link] | For available image tags, refer [here][amd64-qemux86-64-node-dockerhub-tag-link] |
 | resin/qemux86-64-python | [dockerhub][amd64-qemux86-64-python-dockerhub-link], [github][amd64-qemux86-64-python-github-link] | For available image tags, refer [here][amd64-qemux86-64-python-dockerhub-tag-link] |
 | resin/qemux86-64-golang | [dockerhub][amd64-qemux86-64-golang-dockerhub-link], [github][amd64-qemux86-64-golang-github-link] | For available image tags, refer [here][amd64-qemux86-64-golang-dockerhub-tag-link] |
+| resin/qemux86-64-openjdk | [dockerhub][amd64-qemux86-64-openjdk-dockerhub-link], [github][amd64-qemux86-64-openjdk-github-link] | For available image tags, refer [here][amd64-qemux86-64-openjdk-dockerhub-tag-link] |
 | resin/qemux86-64-alpine | [dockerhub][amd64-qemux86-64-alpine-dockerhub-link], [github][amd64-qemux86-64-alpine-github-link] | latest, 3.3, 3.2, edge |
 | resin/qemux86-64-alpine-buildpack-deps | [dockerhub][amd64-qemux86-64-alpine-buildpack-deps-dockerhub-link], [github][amd64-qemux86-64-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
 | resin/qemux86-64-alpine-node | [dockerhub][amd64-qemux86-64-alpine-node-dockerhub-link], [github][amd64-qemux86-64-alpine-node-github-link] | For available image tags, refer [here][amd64-qemux86-64-alpine-node-dockerhub-tag-link] |
 | resin/qemux86-64-alpine-python | [dockerhub][amd64-qemux86-64-alpine-python-dockerhub-link], [github][amd64-qemux86-64-alpine-python-github-link] | For available image tags, refer [here][amd64-qemux86-64-alpine-python-dockerhub-tag-link] |
 | resin/qemux86-64-alpine-golang | [dockerhub][amd64-qemux86-64-alpine-golang-dockerhub-link], [github][amd64-qemux86-64-alpine-golang-github-link] | For available image tags, refer [here][amd64-qemux86-64-alpine-golang-dockerhub-tag-link] |
-
-
+| resin/qemux86-64-alpine-openjdk | [dockerhub][amd64-qemux86-64-alpine-openjdk-dockerhub-link], [github][amd64-qemux86-64-alpine-openjdk-github-link] | For available image tags, refer [here][amd64-qemux86-64-alpine-openjdk-dockerhub-tag-link] |
+| resin/qemux86-64-fedora | [dockerhub][amd64-qemux86-64-fedora-node-dockerhub-link], [github][amd64-qemux86-64-fedora-node-github-link] | latest, 24 |
+| resin/qemux86-64-fedora-buildpack-deps | [dockerhub][amd64-qemux86-64-fedora-node-dockerhub-link], [github][amd64-qemux86-64-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/qemux86-64-fedora-node | [dockerhub][amd64-qemux86-64-fedora-node-dockerhub-link], [github][amd64-qemux86-64-fedora-node-github-link] | For available image tags, refer [here][amd64-qemux86-64-fedora-node-dockerhub-tag-link] |
+| resin/qemux86-64-fedora-python | [dockerhub][amd64-qemux86-64-fedora-python-dockerhub-link], [github][amd64-qemux86-64-fedora-python-github-link] | For available image tags, refer [here][amd64-qemux86-64-fedora-python-dockerhub-tag-link] |
+| resin/qemux86-64-fedora-golang | [dockerhub][amd64-qemux86-64-fedora-golang-dockerhub-link], [github][amd64-qemux86-64-fedora-golang-github-link] | For available image tags, refer [here][amd64-qemux86-64-fedora-golang-dockerhub-tag-link] |
+| resin/qemux86-64-fedora-openjdk | [dockerhub][amd64-qemux86-64-fedora-openjdk-dockerhub-link], [github][amd64-qemux86-64-fedora-openjdk-github-link] | For available image tags, refer [here][amd64-qemux86-64-fedora-openjdk-dockerhub-tag-link] |
 
 ### armel
 
 ![ARMv5 Tree Diagram](/img/armel-devices.jpg)
+
+
 
 ##### TS-7700
 
@@ -426,13 +589,7 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/ts7700-node | [dockerhub][armel-ts7700-node-dockerhub-link], [github][armel-ts7700-node-github-link] | For available image tags, refer [here][armel-ts7700-node-dockerhub-tag-link] |
 | resin/ts7700-python | [dockerhub][armel-ts7700-python-dockerhub-link], [github][armel-ts7700-python-github-link] | For available image tags, refer [here][armel-ts7700-python-dockerhub-tag-link] |
 | resin/ts7700-golang | [dockerhub][armel-ts7700-golang-dockerhub-link], [github][armel-ts7700-golang-github-link] | For available image tags, refer [here][armel-ts7700-golang-dockerhub-tag-link] |
-| resin/ts7700-alpine | [dockerhub][armel-ts7700-alpine-dockerhub-link], [github][armel-ts7700-alpine-github-link] | latest, 3.3, 3.2, edge |
-| resin/ts7700-alpine-buildpack-deps | [dockerhub][armel-ts7700-alpine-buildpack-deps-dockerhub-link], [github][armel-ts7700-alpine-buildpack-deps-github-link] | latest, 3.3, edge, 3.3-scm, edge-scm, 3.3-curl, edge-curl |
-| resin/ts7700-alpine-node | [dockerhub][armel-ts7700-alpine-node-dockerhub-link], [github][armel-ts7700-alpine-node-github-link] | For available image tags, refer [here][armel-ts7700-alpine-node-dockerhub-tag-link] |
-| resin/ts7700-alpine-python | [dockerhub][armel-ts7700-alpine-python-dockerhub-link], [github][armel-ts7700-alpine-python-github-link] | For available image tags, refer [here][armel-ts7700-alpine-python-dockerhub-tag-link] |
-| resin/ts7700-alpine-golang | [dockerhub][armel-ts7700-alpine-golang-dockerhub-link], [github][armel-ts7700-alpine-golang-github-link] | For available image tags, refer [here][armel-ts7700-alpine-golang-dockerhub-tag-link] |
-
-
+| resin/ts7700-openjdk | [dockerhub][armel-ts7700-openjdk-dockerhub-link], [github][armel-ts7700-openjdk-github-link] | For available image tags, refer [here][armel-ts7700-openjdk-dockerhub-tag-link] |
 
 #### <a name="tips"></a>Tips
 
@@ -522,6 +679,24 @@ This image does not contain the common packages contained in the default tag and
 
 * ARM Qemu and Go don't work together properly, so we highly recommend our users to build your Go projects on the device (only ARM devices, you do not need to do this for other platforms), not during build time. Otherwise, the build will potentially fail. You can have a script to build and run Go projects and use Docker CMD command to run it.
 
+### <a name="OpenJDK"></a>OpenJDK
+
+#### What is OpenJDK?
+
+OpenJDK (Open Java Development Kit) is a free and open source implementation of the Java Platform, Standard Edition (Java SE). OpenJDK is the official reference implementation of Java SE since version 7.
+
+> [wikipedia.org/wiki/OpenJDK](http://en.wikipedia.org/wiki/OpenJDK)
+
+Java is a registered trademark of Oracle and/or its affiliates.
+
+![logo](https://raw.githubusercontent.com/docker-library/docs/a3439b66b7980d1811f6b3835a3c541747172970/openjdk/logo.png)
+
+#### Notes:
+
+* There are two variants (jdk and jre) for each Java version.
+
+* Debian OpenJDK images support both version 7 and 8 while Alpine Linux OpenJDK images only support version 7 and Fedora OpenJDK images only support version 8.
+
 [base-repository]:https://github.com/resin-io-library/base-images
 [base-images-changelog]:https://github.com/resin-io-library/base-images/blob/master/CHANGELOG.md
 [rpi-dockerhub-link]:https://registry.hub.docker.com/u/resin/rpi-raspbian/
@@ -549,6 +724,8 @@ This image does not contain the common packages contained in the default tag and
 [golang-wiki]:https://en.wikipedia.org/wiki/Go_%28programming_language%29
 [python-wiki]:https://en.wikipedia.org/wiki/Python_%28programming_language%29
 
+
+
 [armv6hf-raspberrypi-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-debian/
 [armv6hf-raspberrypi-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-buildpack-deps/
 [armv6hf-raspberrypi-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-node/
@@ -562,6 +739,9 @@ This image does not contain the common packages contained in the default tag and
 [armv6hf-raspberrypi-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-golang/
 [armv6hf-raspberrypi-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi-golang/tags/manage/
 [armv6hf-raspberrypi-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi
+[armv6hf-raspberrypi-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-openjdk/
+[armv6hf-raspberrypi-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi-openjdk/tags/manage/
+[armv6hf-raspberrypi-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi
 [armv6hf-raspberrypi-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-alpine/
 [armv6hf-raspberrypi-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-alpine-buildpack-deps/
 [armv6hf-raspberrypi-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-alpine-node/
@@ -575,6 +755,9 @@ This image does not contain the common packages contained in the default tag and
 [armv6hf-raspberrypi-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-alpine-golang/
 [armv6hf-raspberrypi-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi-alpine-golang/tags/manage/
 [armv6hf-raspberrypi-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi
+[armv6hf-raspberrypi-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi-alpine-openjdk/
+[armv6hf-raspberrypi-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi-alpine-openjdk/tags/manage/
+[armv6hf-raspberrypi-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi
 
 [armv7hf-raspberrypi2-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-debian/
 [armv7hf-raspberrypi2-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-buildpack-deps/
@@ -589,6 +772,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-raspberrypi2-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-golang/
 [armv7hf-raspberrypi2-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-golang/tags/manage/
 [armv7hf-raspberrypi2-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi2
+[armv7hf-raspberrypi2-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-openjdk/
+[armv7hf-raspberrypi2-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-openjdk/tags/manage/
+[armv7hf-raspberrypi2-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi2
 [armv7hf-raspberrypi2-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-alpine/
 [armv7hf-raspberrypi2-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-alpine-buildpack-deps/
 [armv7hf-raspberrypi2-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-alpine-node/
@@ -602,6 +788,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-raspberrypi2-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-alpine-golang/
 [armv7hf-raspberrypi2-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-alpine-golang/tags/manage/
 [armv7hf-raspberrypi2-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi2
+[armv7hf-raspberrypi2-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-alpine-openjdk/
+[armv7hf-raspberrypi2-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-alpine-openjdk/tags/manage/
+[armv7hf-raspberrypi2-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi2
+[armv7hf-raspberrypi2-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora/
+[armv7hf-raspberrypi2-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora-buildpack-deps/
+[armv7hf-raspberrypi2-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora-node/
+[armv7hf-raspberrypi2-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora-node/tags/manage/
+[armv7hf-raspberrypi2-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora-python/
+[armv7hf-raspberrypi2-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora-python/tags/manage/
+[armv7hf-raspberrypi2-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/raspberrypi2
+[armv7hf-raspberrypi2-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/raspberrypi2
+[armv7hf-raspberrypi2-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberrypi2
+[armv7hf-raspberrypi2-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberrypi2
+[armv7hf-raspberrypi2-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora-golang/
+[armv7hf-raspberrypi2-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora-golang/tags/manage/
+[armv7hf-raspberrypi2-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi2
+[armv7hf-raspberrypi2-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora-openjdk/
+[armv7hf-raspberrypi2-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi2-fedora-openjdk/tags/manage/
+[armv7hf-raspberrypi2-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi2
 
 [armv7hf-raspberrypi3-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-debian/
 [armv7hf-raspberrypi3-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-buildpack-deps/
@@ -616,6 +821,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-raspberrypi3-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-golang/
 [armv7hf-raspberrypi3-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-golang/tags/manage/
 [armv7hf-raspberrypi3-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi3
+[armv7hf-raspberrypi3-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-openjdk/
+[armv7hf-raspberrypi3-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-openjdk/tags/manage/
+[armv7hf-raspberrypi3-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi3
 [armv7hf-raspberrypi3-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine/
 [armv7hf-raspberrypi3-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-buildpack-deps/
 [armv7hf-raspberrypi3-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-node/
@@ -629,6 +837,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-raspberrypi3-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-golang/
 [armv7hf-raspberrypi3-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-golang/tags/manage/
 [armv7hf-raspberrypi3-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi3
+[armv7hf-raspberrypi3-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-openjdk/
+[armv7hf-raspberrypi3-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-openjdk/tags/manage/
+[armv7hf-raspberrypi3-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi3
+[armv7hf-raspberrypi3-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora/
+[armv7hf-raspberrypi3-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-buildpack-deps/
+[armv7hf-raspberrypi3-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-node/
+[armv7hf-raspberrypi3-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-node/tags/manage/
+[armv7hf-raspberrypi3-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-python/
+[armv7hf-raspberrypi3-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-python/tags/manage/
+[armv7hf-raspberrypi3-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/raspberrypi3
+[armv7hf-raspberrypi3-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/raspberrypi3
+[armv7hf-raspberrypi3-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberrypi3
+[armv7hf-raspberrypi3-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberrypi3
+[armv7hf-raspberrypi3-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-golang/
+[armv7hf-raspberrypi3-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-golang/tags/manage/
+[armv7hf-raspberrypi3-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi3
+[armv7hf-raspberrypi3-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-openjdk/
+[armv7hf-raspberrypi3-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-openjdk/tags/manage/
+[armv7hf-raspberrypi3-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi3
 
 [armv7hf-beaglebone-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-debian/
 [armv7hf-beaglebone-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-buildpack-deps/
@@ -643,6 +870,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-beaglebone-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-golang/
 [armv7hf-beaglebone-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-golang/tags/manage/
 [armv7hf-beaglebone-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/beaglebone
+[armv7hf-beaglebone-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-openjdk/
+[armv7hf-beaglebone-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-openjdk/tags/manage/
+[armv7hf-beaglebone-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/beaglebone
 [armv7hf-beaglebone-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-alpine/
 [armv7hf-beaglebone-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-alpine-buildpack-deps/
 [armv7hf-beaglebone-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-alpine-node/
@@ -656,6 +886,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-beaglebone-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-alpine-golang/
 [armv7hf-beaglebone-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-alpine-golang/tags/manage/
 [armv7hf-beaglebone-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/beaglebone
+[armv7hf-beaglebone-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-alpine-openjdk/
+[armv7hf-beaglebone-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-alpine-openjdk/tags/manage/
+[armv7hf-beaglebone-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/beaglebone
+[armv7hf-beaglebone-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora/
+[armv7hf-beaglebone-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora-buildpack-deps/
+[armv7hf-beaglebone-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora-node/
+[armv7hf-beaglebone-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora-node/tags/manage/
+[armv7hf-beaglebone-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora-python/
+[armv7hf-beaglebone-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora-python/tags/manage/
+[armv7hf-beaglebone-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/beaglebone
+[armv7hf-beaglebone-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/beaglebone
+[armv7hf-beaglebone-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/beaglebone
+[armv7hf-beaglebone-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/beaglebone
+[armv7hf-beaglebone-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora-golang/
+[armv7hf-beaglebone-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora-golang/tags/manage/
+[armv7hf-beaglebone-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/beaglebone
+[armv7hf-beaglebone-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora-openjdk/
+[armv7hf-beaglebone-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-fedora-openjdk/tags/manage/
+[armv7hf-beaglebone-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/beaglebone
 
 [armv7hf-beaglebone-green-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-debian/
 [armv7hf-beaglebone-green-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-buildpack-deps/
@@ -670,6 +919,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-beaglebone-green-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-golang/
 [armv7hf-beaglebone-green-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-golang/tags/manage/
 [armv7hf-beaglebone-green-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/beaglebone-green
+[armv7hf-beaglebone-green-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-openjdk/
+[armv7hf-beaglebone-green-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-openjdk/tags/manage/
+[armv7hf-beaglebone-green-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/beaglebone-green
 [armv7hf-beaglebone-green-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-alpine/
 [armv7hf-beaglebone-green-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-alpine-buildpack-deps/
 [armv7hf-beaglebone-green-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-alpine-node/
@@ -683,6 +935,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-beaglebone-green-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-alpine-golang/
 [armv7hf-beaglebone-green-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-alpine-golang/tags/manage/
 [armv7hf-beaglebone-green-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/beaglebone-green
+[armv7hf-beaglebone-green-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-alpine-openjdk/
+[armv7hf-beaglebone-green-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-alpine-openjdk/tags/manage/
+[armv7hf-beaglebone-green-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/beaglebone-green
+[armv7hf-beaglebone-green-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora/
+[armv7hf-beaglebone-green-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora-buildpack-deps/
+[armv7hf-beaglebone-green-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora-node/
+[armv7hf-beaglebone-green-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora-node/tags/manage/
+[armv7hf-beaglebone-green-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora-python/
+[armv7hf-beaglebone-green-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora-python/tags/manage/
+[armv7hf-beaglebone-green-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/beaglebone-green
+[armv7hf-beaglebone-green-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/beaglebone-green
+[armv7hf-beaglebone-green-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/beaglebone-green
+[armv7hf-beaglebone-green-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/beaglebone-green
+[armv7hf-beaglebone-green-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora-golang/
+[armv7hf-beaglebone-green-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora-golang/tags/manage/
+[armv7hf-beaglebone-green-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/beaglebone-green
+[armv7hf-beaglebone-green-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora-openjdk/
+[armv7hf-beaglebone-green-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-fedora-openjdk/tags/manage/
+[armv7hf-beaglebone-green-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/beaglebone-green
 
 [armv7hf-beaglebone-green-wifi-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-debian/
 [armv7hf-beaglebone-green-wifi-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-buildpack-deps/
@@ -697,6 +968,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-beaglebone-green-wifi-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-golang/
 [armv7hf-beaglebone-green-wifi-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-golang/tags/manage/
 [armv7hf-beaglebone-green-wifi-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/beaglebone-green-wifi
+[armv7hf-beaglebone-green-wifi-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-openjdk/
+[armv7hf-beaglebone-green-wifi-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-openjdk/tags/manage/
+[armv7hf-beaglebone-green-wifi-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/beaglebone-green-wifi
 [armv7hf-beaglebone-green-wifi-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-alpine/
 [armv7hf-beaglebone-green-wifi-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-alpine-buildpack-deps/
 [armv7hf-beaglebone-green-wifi-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-alpine-node/
@@ -710,6 +984,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-beaglebone-green-wifi-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-alpine-golang/
 [armv7hf-beaglebone-green-wifi-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-alpine-golang/tags/manage/
 [armv7hf-beaglebone-green-wifi-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/beaglebone-green-wifi
+[armv7hf-beaglebone-green-wifi-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-alpine-openjdk/
+[armv7hf-beaglebone-green-wifi-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-alpine-openjdk/tags/manage/
+[armv7hf-beaglebone-green-wifi-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/beaglebone-green-wifi
+[armv7hf-beaglebone-green-wifi-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora/
+[armv7hf-beaglebone-green-wifi-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora-buildpack-deps/
+[armv7hf-beaglebone-green-wifi-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora-node/
+[armv7hf-beaglebone-green-wifi-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora-node/tags/manage/
+[armv7hf-beaglebone-green-wifi-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora-python/
+[armv7hf-beaglebone-green-wifi-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora-python/tags/manage/
+[armv7hf-beaglebone-green-wifi-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/beaglebone-green-wifi
+[armv7hf-beaglebone-green-wifi-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/beaglebone-green-wifi
+[armv7hf-beaglebone-green-wifi-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/beaglebone-green-wifi
+[armv7hf-beaglebone-green-wifi-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/beaglebone-green-wifi
+[armv7hf-beaglebone-green-wifi-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora-golang/
+[armv7hf-beaglebone-green-wifi-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora-golang/tags/manage/
+[armv7hf-beaglebone-green-wifi-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/beaglebone-green-wifi
+[armv7hf-beaglebone-green-wifi-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora-openjdk/
+[armv7hf-beaglebone-green-wifi-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/beaglebone-green-wifi-fedora-openjdk/tags/manage/
+[armv7hf-beaglebone-green-wifi-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/beaglebone-green-wifi
 
 [armv7hf-vab820-quad-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-debian/
 [armv7hf-vab820-quad-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-buildpack-deps/
@@ -724,6 +1017,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-vab820-quad-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-golang/
 [armv7hf-vab820-quad-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/vab820-quad-golang/tags/manage/
 [armv7hf-vab820-quad-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/vab820-quad
+[armv7hf-vab820-quad-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-openjdk/
+[armv7hf-vab820-quad-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/vab820-quad-openjdk/tags/manage/
+[armv7hf-vab820-quad-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/vab820-quad
 [armv7hf-vab820-quad-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-alpine/
 [armv7hf-vab820-quad-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-alpine-buildpack-deps/
 [armv7hf-vab820-quad-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-alpine-node/
@@ -737,6 +1033,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-vab820-quad-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-alpine-golang/
 [armv7hf-vab820-quad-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/vab820-quad-alpine-golang/tags/manage/
 [armv7hf-vab820-quad-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/vab820-quad
+[armv7hf-vab820-quad-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-alpine-openjdk/
+[armv7hf-vab820-quad-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/vab820-quad-alpine-openjdk/tags/manage/
+[armv7hf-vab820-quad-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/vab820-quad
+[armv7hf-vab820-quad-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora/
+[armv7hf-vab820-quad-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora-buildpack-deps/
+[armv7hf-vab820-quad-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora-node/
+[armv7hf-vab820-quad-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora-node/tags/manage/
+[armv7hf-vab820-quad-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora-python/
+[armv7hf-vab820-quad-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora-python/tags/manage/
+[armv7hf-vab820-quad-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/vab820-quad
+[armv7hf-vab820-quad-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/vab820-quad
+[armv7hf-vab820-quad-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/vab820-quad
+[armv7hf-vab820-quad-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/vab820-quad
+[armv7hf-vab820-quad-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora-golang/
+[armv7hf-vab820-quad-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora-golang/tags/manage/
+[armv7hf-vab820-quad-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/vab820-quad
+[armv7hf-vab820-quad-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora-openjdk/
+[armv7hf-vab820-quad-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/vab820-quad-fedora-openjdk/tags/manage/
+[armv7hf-vab820-quad-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/vab820-quad
 
 [armv7hf-zc702-zynq7-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-debian/
 [armv7hf-zc702-zynq7-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-buildpack-deps/
@@ -751,6 +1066,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-zc702-zynq7-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-golang/
 [armv7hf-zc702-zynq7-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-golang/tags/manage/
 [armv7hf-zc702-zynq7-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/zc702-zynq7
+[armv7hf-zc702-zynq7-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-openjdk/
+[armv7hf-zc702-zynq7-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-openjdk/tags/manage/
+[armv7hf-zc702-zynq7-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/zc702-zynq7
 [armv7hf-zc702-zynq7-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-alpine/
 [armv7hf-zc702-zynq7-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-alpine-buildpack-deps/
 [armv7hf-zc702-zynq7-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-alpine-node/
@@ -764,6 +1082,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-zc702-zynq7-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-alpine-golang/
 [armv7hf-zc702-zynq7-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-alpine-golang/tags/manage/
 [armv7hf-zc702-zynq7-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/zc702-zynq7
+[armv7hf-zc702-zynq7-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-alpine-openjdk/
+[armv7hf-zc702-zynq7-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-alpine-openjdk/tags/manage/
+[armv7hf-zc702-zynq7-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/zc702-zynq7
+[armv7hf-zc702-zynq7-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora/
+[armv7hf-zc702-zynq7-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora-buildpack-deps/
+[armv7hf-zc702-zynq7-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora-node/
+[armv7hf-zc702-zynq7-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora-node/tags/manage/
+[armv7hf-zc702-zynq7-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora-python/
+[armv7hf-zc702-zynq7-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora-python/tags/manage/
+[armv7hf-zc702-zynq7-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/zc702-zynq7
+[armv7hf-zc702-zynq7-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/zc702-zynq7
+[armv7hf-zc702-zynq7-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/zc702-zynq7
+[armv7hf-zc702-zynq7-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/zc702-zynq7
+[armv7hf-zc702-zynq7-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora-golang/
+[armv7hf-zc702-zynq7-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora-golang/tags/manage/
+[armv7hf-zc702-zynq7-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/zc702-zynq7
+[armv7hf-zc702-zynq7-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora-openjdk/
+[armv7hf-zc702-zynq7-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/zc702-zynq7-fedora-openjdk/tags/manage/
+[armv7hf-zc702-zynq7-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/zc702-zynq7
 
 [armv7hf-odroid-c1-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-debian/
 [armv7hf-odroid-c1-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-buildpack-deps/
@@ -778,6 +1115,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-odroid-c1-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-golang/
 [armv7hf-odroid-c1-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-c1-golang/tags/manage/
 [armv7hf-odroid-c1-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/odroid-c1
+[armv7hf-odroid-c1-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-openjdk/
+[armv7hf-odroid-c1-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-c1-openjdk/tags/manage/
+[armv7hf-odroid-c1-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/odroid-c1
 [armv7hf-odroid-c1-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-alpine/
 [armv7hf-odroid-c1-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-alpine-buildpack-deps/
 [armv7hf-odroid-c1-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-alpine-node/
@@ -791,6 +1131,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-odroid-c1-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-alpine-golang/
 [armv7hf-odroid-c1-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-c1-alpine-golang/tags/manage/
 [armv7hf-odroid-c1-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/odroid-c1
+[armv7hf-odroid-c1-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-alpine-openjdk/
+[armv7hf-odroid-c1-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-c1-alpine-openjdk/tags/manage/
+[armv7hf-odroid-c1-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/odroid-c1
+[armv7hf-odroid-c1-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora/
+[armv7hf-odroid-c1-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora-buildpack-deps/
+[armv7hf-odroid-c1-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora-node/
+[armv7hf-odroid-c1-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora-node/tags/manage/
+[armv7hf-odroid-c1-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora-python/
+[armv7hf-odroid-c1-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora-python/tags/manage/
+[armv7hf-odroid-c1-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/odroid-c1
+[armv7hf-odroid-c1-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/odroid-c1
+[armv7hf-odroid-c1-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/odroid-c1
+[armv7hf-odroid-c1-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/odroid-c1
+[armv7hf-odroid-c1-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora-golang/
+[armv7hf-odroid-c1-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora-golang/tags/manage/
+[armv7hf-odroid-c1-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/odroid-c1
+[armv7hf-odroid-c1-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora-openjdk/
+[armv7hf-odroid-c1-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-c1-fedora-openjdk/tags/manage/
+[armv7hf-odroid-c1-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/odroid-c1
 
 [armv7hf-odroid-ux3-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-debian/
 [armv7hf-odroid-ux3-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-buildpack-deps/
@@ -805,6 +1164,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-odroid-ux3-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-golang/
 [armv7hf-odroid-ux3-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-golang/tags/manage/
 [armv7hf-odroid-ux3-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/odroid-ux3
+[armv7hf-odroid-ux3-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-openjdk/
+[armv7hf-odroid-ux3-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-openjdk/tags/manage/
+[armv7hf-odroid-ux3-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/odroid-ux3
 [armv7hf-odroid-ux3-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-alpine/
 [armv7hf-odroid-ux3-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-alpine-buildpack-deps/
 [armv7hf-odroid-ux3-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-alpine-node/
@@ -818,6 +1180,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-odroid-ux3-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-alpine-golang/
 [armv7hf-odroid-ux3-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-alpine-golang/tags/manage/
 [armv7hf-odroid-ux3-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/odroid-ux3
+[armv7hf-odroid-ux3-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-alpine-openjdk/
+[armv7hf-odroid-ux3-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-alpine-openjdk/tags/manage/
+[armv7hf-odroid-ux3-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/odroid-ux3
+[armv7hf-odroid-ux3-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora/
+[armv7hf-odroid-ux3-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora-buildpack-deps/
+[armv7hf-odroid-ux3-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora-node/
+[armv7hf-odroid-ux3-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora-node/tags/manage/
+[armv7hf-odroid-ux3-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora-python/
+[armv7hf-odroid-ux3-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora-python/tags/manage/
+[armv7hf-odroid-ux3-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/odroid-ux3
+[armv7hf-odroid-ux3-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/odroid-ux3
+[armv7hf-odroid-ux3-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/odroid-ux3
+[armv7hf-odroid-ux3-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/odroid-ux3
+[armv7hf-odroid-ux3-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora-golang/
+[armv7hf-odroid-ux3-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora-golang/tags/manage/
+[armv7hf-odroid-ux3-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/odroid-ux3
+[armv7hf-odroid-ux3-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora-openjdk/
+[armv7hf-odroid-ux3-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/odroid-ux3-fedora-openjdk/tags/manage/
+[armv7hf-odroid-ux3-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/odroid-ux3
 
 [armv7hf-parallella-hdmi-resin-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-debian/
 [armv7hf-parallella-hdmi-resin-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-buildpack-deps/
@@ -832,6 +1213,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-parallella-hdmi-resin-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-golang/
 [armv7hf-parallella-hdmi-resin-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-golang/tags/manage/
 [armv7hf-parallella-hdmi-resin-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/parallella-hdmi-resin
+[armv7hf-parallella-hdmi-resin-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-openjdk/
+[armv7hf-parallella-hdmi-resin-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-openjdk/tags/manage/
+[armv7hf-parallella-hdmi-resin-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/parallella-hdmi-resin
 [armv7hf-parallella-hdmi-resin-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-alpine/
 [armv7hf-parallella-hdmi-resin-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-alpine-buildpack-deps/
 [armv7hf-parallella-hdmi-resin-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-alpine-node/
@@ -845,6 +1229,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-parallella-hdmi-resin-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-alpine-golang/
 [armv7hf-parallella-hdmi-resin-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-alpine-golang/tags/manage/
 [armv7hf-parallella-hdmi-resin-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/parallella-hdmi-resin
+[armv7hf-parallella-hdmi-resin-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-alpine-openjdk/
+[armv7hf-parallella-hdmi-resin-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-alpine-openjdk/tags/manage/
+[armv7hf-parallella-hdmi-resin-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/parallella-hdmi-resin
+[armv7hf-parallella-hdmi-resin-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora/
+[armv7hf-parallella-hdmi-resin-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora-buildpack-deps/
+[armv7hf-parallella-hdmi-resin-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora-node/
+[armv7hf-parallella-hdmi-resin-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora-node/tags/manage/
+[armv7hf-parallella-hdmi-resin-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora-python/
+[armv7hf-parallella-hdmi-resin-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora-python/tags/manage/
+[armv7hf-parallella-hdmi-resin-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/parallella-hdmi-resin
+[armv7hf-parallella-hdmi-resin-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/parallella-hdmi-resin
+[armv7hf-parallella-hdmi-resin-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/parallella-hdmi-resin
+[armv7hf-parallella-hdmi-resin-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/parallella-hdmi-resin
+[armv7hf-parallella-hdmi-resin-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora-golang/
+[armv7hf-parallella-hdmi-resin-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora-golang/tags/manage/
+[armv7hf-parallella-hdmi-resin-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/parallella-hdmi-resin
+[armv7hf-parallella-hdmi-resin-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora-openjdk/
+[armv7hf-parallella-hdmi-resin-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/parallella-hdmi-resin-fedora-openjdk/tags/manage/
+[armv7hf-parallella-hdmi-resin-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/parallella-hdmi-resin
 
 [armv7hf-nitrogen6x-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-debian/
 [armv7hf-nitrogen6x-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-buildpack-deps/
@@ -859,6 +1262,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-nitrogen6x-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-golang/
 [armv7hf-nitrogen6x-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-golang/tags/manage/
 [armv7hf-nitrogen6x-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/nitrogen6x
+[armv7hf-nitrogen6x-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-openjdk/
+[armv7hf-nitrogen6x-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-openjdk/tags/manage/
+[armv7hf-nitrogen6x-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/nitrogen6x
 [armv7hf-nitrogen6x-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-alpine/
 [armv7hf-nitrogen6x-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-alpine-buildpack-deps/
 [armv7hf-nitrogen6x-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-alpine-node/
@@ -872,6 +1278,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-nitrogen6x-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-alpine-golang/
 [armv7hf-nitrogen6x-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-alpine-golang/tags/manage/
 [armv7hf-nitrogen6x-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/nitrogen6x
+[armv7hf-nitrogen6x-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-alpine-openjdk/
+[armv7hf-nitrogen6x-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-alpine-openjdk/tags/manage/
+[armv7hf-nitrogen6x-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/nitrogen6x
+[armv7hf-nitrogen6x-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora/
+[armv7hf-nitrogen6x-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora-buildpack-deps/
+[armv7hf-nitrogen6x-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora-node/
+[armv7hf-nitrogen6x-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora-node/tags/manage/
+[armv7hf-nitrogen6x-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora-python/
+[armv7hf-nitrogen6x-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora-python/tags/manage/
+[armv7hf-nitrogen6x-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/nitrogen6x
+[armv7hf-nitrogen6x-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/nitrogen6x
+[armv7hf-nitrogen6x-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/nitrogen6x
+[armv7hf-nitrogen6x-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/nitrogen6x
+[armv7hf-nitrogen6x-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora-golang/
+[armv7hf-nitrogen6x-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora-golang/tags/manage/
+[armv7hf-nitrogen6x-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/nitrogen6x
+[armv7hf-nitrogen6x-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora-openjdk/
+[armv7hf-nitrogen6x-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nitrogen6x-fedora-openjdk/tags/manage/
+[armv7hf-nitrogen6x-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/nitrogen6x
 
 [armv7hf-cubox-i-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-debian/
 [armv7hf-cubox-i-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-buildpack-deps/
@@ -886,6 +1311,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-cubox-i-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-golang/
 [armv7hf-cubox-i-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/cubox-i-golang/tags/manage/
 [armv7hf-cubox-i-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/cubox-i
+[armv7hf-cubox-i-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-openjdk/
+[armv7hf-cubox-i-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/cubox-i-openjdk/tags/manage/
+[armv7hf-cubox-i-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/cubox-i
 [armv7hf-cubox-i-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-alpine/
 [armv7hf-cubox-i-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-alpine-buildpack-deps/
 [armv7hf-cubox-i-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-alpine-node/
@@ -899,6 +1327,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-cubox-i-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-alpine-golang/
 [armv7hf-cubox-i-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/cubox-i-alpine-golang/tags/manage/
 [armv7hf-cubox-i-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/cubox-i
+[armv7hf-cubox-i-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-alpine-openjdk/
+[armv7hf-cubox-i-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/cubox-i-alpine-openjdk/tags/manage/
+[armv7hf-cubox-i-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/cubox-i
+[armv7hf-cubox-i-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora/
+[armv7hf-cubox-i-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora-buildpack-deps/
+[armv7hf-cubox-i-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora-node/
+[armv7hf-cubox-i-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora-node/tags/manage/
+[armv7hf-cubox-i-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora-python/
+[armv7hf-cubox-i-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora-python/tags/manage/
+[armv7hf-cubox-i-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/cubox-i
+[armv7hf-cubox-i-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/cubox-i
+[armv7hf-cubox-i-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/cubox-i
+[armv7hf-cubox-i-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/cubox-i
+[armv7hf-cubox-i-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora-golang/
+[armv7hf-cubox-i-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora-golang/tags/manage/
+[armv7hf-cubox-i-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/cubox-i
+[armv7hf-cubox-i-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora-openjdk/
+[armv7hf-cubox-i-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/cubox-i-fedora-openjdk/tags/manage/
+[armv7hf-cubox-i-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/cubox-i
 
 [armv7hf-colibri-imx6-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-debian/
 [armv7hf-colibri-imx6-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-buildpack-deps/
@@ -913,6 +1360,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-colibri-imx6-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-golang/
 [armv7hf-colibri-imx6-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-golang/tags/manage/
 [armv7hf-colibri-imx6-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/colibri-imx6
+[armv7hf-colibri-imx6-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-openjdk/
+[armv7hf-colibri-imx6-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-openjdk/tags/manage/
+[armv7hf-colibri-imx6-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/colibri-imx6
 [armv7hf-colibri-imx6-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-alpine/
 [armv7hf-colibri-imx6-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-alpine-buildpack-deps/
 [armv7hf-colibri-imx6-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-alpine-node/
@@ -926,6 +1376,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-colibri-imx6-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-alpine-golang/
 [armv7hf-colibri-imx6-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-alpine-golang/tags/manage/
 [armv7hf-colibri-imx6-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/colibri-imx6
+[armv7hf-colibri-imx6-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-alpine-openjdk/
+[armv7hf-colibri-imx6-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-alpine-openjdk/tags/manage/
+[armv7hf-colibri-imx6-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/colibri-imx6
+[armv7hf-colibri-imx6-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora/
+[armv7hf-colibri-imx6-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora-buildpack-deps/
+[armv7hf-colibri-imx6-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora-node/
+[armv7hf-colibri-imx6-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora-node/tags/manage/
+[armv7hf-colibri-imx6-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora-python/
+[armv7hf-colibri-imx6-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora-python/tags/manage/
+[armv7hf-colibri-imx6-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/colibri-imx6
+[armv7hf-colibri-imx6-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/colibri-imx6
+[armv7hf-colibri-imx6-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/colibri-imx6
+[armv7hf-colibri-imx6-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/colibri-imx6
+[armv7hf-colibri-imx6-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora-golang/
+[armv7hf-colibri-imx6-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora-golang/tags/manage/
+[armv7hf-colibri-imx6-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/colibri-imx6
+[armv7hf-colibri-imx6-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora-openjdk/
+[armv7hf-colibri-imx6-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/colibri-imx6-fedora-openjdk/tags/manage/
+[armv7hf-colibri-imx6-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/colibri-imx6
 
 [armv7hf-apalis-imx6-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-debian/
 [armv7hf-apalis-imx6-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-buildpack-deps/
@@ -940,6 +1409,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-apalis-imx6-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-golang/
 [armv7hf-apalis-imx6-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-golang/tags/manage/
 [armv7hf-apalis-imx6-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/apalis-imx6
+[armv7hf-apalis-imx6-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-openjdk/
+[armv7hf-apalis-imx6-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-openjdk/tags/manage/
+[armv7hf-apalis-imx6-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/apalis-imx6
 [armv7hf-apalis-imx6-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-alpine/
 [armv7hf-apalis-imx6-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-alpine-buildpack-deps/
 [armv7hf-apalis-imx6-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-alpine-node/
@@ -953,6 +1425,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-apalis-imx6-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-alpine-golang/
 [armv7hf-apalis-imx6-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-alpine-golang/tags/manage/
 [armv7hf-apalis-imx6-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/apalis-imx6
+[armv7hf-apalis-imx6-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-alpine-openjdk/
+[armv7hf-apalis-imx6-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-alpine-openjdk/tags/manage/
+[armv7hf-apalis-imx6-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/apalis-imx6
+[armv7hf-apalis-imx6-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora/
+[armv7hf-apalis-imx6-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora-buildpack-deps/
+[armv7hf-apalis-imx6-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora-node/
+[armv7hf-apalis-imx6-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora-node/tags/manage/
+[armv7hf-apalis-imx6-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora-python/
+[armv7hf-apalis-imx6-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora-python/tags/manage/
+[armv7hf-apalis-imx6-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/apalis-imx6
+[armv7hf-apalis-imx6-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/apalis-imx6
+[armv7hf-apalis-imx6-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/apalis-imx6
+[armv7hf-apalis-imx6-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/apalis-imx6
+[armv7hf-apalis-imx6-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora-golang/
+[armv7hf-apalis-imx6-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora-golang/tags/manage/
+[armv7hf-apalis-imx6-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/apalis-imx6
+[armv7hf-apalis-imx6-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora-openjdk/
+[armv7hf-apalis-imx6-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/apalis-imx6-fedora-openjdk/tags/manage/
+[armv7hf-apalis-imx6-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/apalis-imx6
 
 [i386-edison-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-debian/
 [i386-edison-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-buildpack-deps/
@@ -967,6 +1458,9 @@ This image does not contain the common packages contained in the default tag and
 [i386-edison-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-golang/
 [i386-edison-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/edison-golang/tags/manage/
 [i386-edison-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/edison
+[i386-edison-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-openjdk/
+[i386-edison-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/edison-openjdk/tags/manage/
+[i386-edison-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/edison
 [i386-edison-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-alpine/
 [i386-edison-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-alpine-buildpack-deps/
 [i386-edison-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-alpine-node/
@@ -980,6 +1474,9 @@ This image does not contain the common packages contained in the default tag and
 [i386-edison-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-alpine-golang/
 [i386-edison-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/edison-alpine-golang/tags/manage/
 [i386-edison-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/edison
+[i386-edison-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/edison-alpine-openjdk/
+[i386-edison-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/edison-alpine-openjdk/tags/manage/
+[i386-edison-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/edison
 
 [i386-qemux86-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-debian/
 [i386-qemux86-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-buildpack-deps/
@@ -994,6 +1491,9 @@ This image does not contain the common packages contained in the default tag and
 [i386-qemux86-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-golang/
 [i386-qemux86-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-golang/tags/manage/
 [i386-qemux86-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/qemux86
+[i386-qemux86-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-openjdk/
+[i386-qemux86-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-openjdk/tags/manage/
+[i386-qemux86-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/qemux86
 [i386-qemux86-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-alpine/
 [i386-qemux86-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-alpine-buildpack-deps/
 [i386-qemux86-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-alpine-node/
@@ -1007,6 +1507,9 @@ This image does not contain the common packages contained in the default tag and
 [i386-qemux86-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-alpine-golang/
 [i386-qemux86-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-alpine-golang/tags/manage/
 [i386-qemux86-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/qemux86
+[i386-qemux86-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-alpine-openjdk/
+[i386-qemux86-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-alpine-openjdk/tags/manage/
+[i386-qemux86-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/qemux86
 
 [amd64-nuc-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-debian/
 [amd64-nuc-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-buildpack-deps/
@@ -1021,6 +1524,9 @@ This image does not contain the common packages contained in the default tag and
 [amd64-nuc-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-golang/
 [amd64-nuc-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-golang/tags/manage/
 [amd64-nuc-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/nuc
+[amd64-nuc-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-openjdk/
+[amd64-nuc-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-openjdk/tags/manage/
+[amd64-nuc-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/nuc
 [amd64-nuc-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-alpine/
 [amd64-nuc-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-alpine-buildpack-deps/
 [amd64-nuc-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-alpine-node/
@@ -1034,6 +1540,25 @@ This image does not contain the common packages contained in the default tag and
 [amd64-nuc-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-alpine-golang/
 [amd64-nuc-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-alpine-golang/tags/manage/
 [amd64-nuc-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/nuc
+[amd64-nuc-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-alpine-openjdk/
+[amd64-nuc-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-alpine-openjdk/tags/manage/
+[amd64-nuc-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/nuc
+[amd64-nuc-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-fedora/
+[amd64-nuc-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-fedora-buildpack-deps/
+[amd64-nuc-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-fedora-node/
+[amd64-nuc-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-fedora-node/tags/manage/
+[amd64-nuc-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-fedora-python/
+[amd64-nuc-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-fedora-python/tags/manage/
+[amd64-nuc-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/nuc
+[amd64-nuc-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/nuc
+[amd64-nuc-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/nuc
+[amd64-nuc-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/nuc
+[amd64-nuc-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-fedora-golang/
+[amd64-nuc-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-fedora-golang/tags/manage/
+[amd64-nuc-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/nuc
+[amd64-nuc-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/nuc-fedora-openjdk/
+[amd64-nuc-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/nuc-fedora-openjdk/tags/manage/
+[amd64-nuc-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/nuc
 
 [amd64-qemux86-64-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-debian/
 [amd64-qemux86-64-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-buildpack-deps/
@@ -1048,6 +1573,9 @@ This image does not contain the common packages contained in the default tag and
 [amd64-qemux86-64-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-golang/
 [amd64-qemux86-64-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-64-golang/tags/manage/
 [amd64-qemux86-64-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/qemux86-64
+[amd64-qemux86-64-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-openjdk/
+[amd64-qemux86-64-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-64-openjdk/tags/manage/
+[amd64-qemux86-64-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/qemux86-64
 [amd64-qemux86-64-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-alpine/
 [amd64-qemux86-64-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-alpine-buildpack-deps/
 [amd64-qemux86-64-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-alpine-node/
@@ -1061,6 +1589,25 @@ This image does not contain the common packages contained in the default tag and
 [amd64-qemux86-64-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-alpine-golang/
 [amd64-qemux86-64-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-64-alpine-golang/tags/manage/
 [amd64-qemux86-64-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/qemux86-64
+[amd64-qemux86-64-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-alpine-openjdk/
+[amd64-qemux86-64-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-64-alpine-openjdk/tags/manage/
+[amd64-qemux86-64-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/qemux86-64
+[amd64-qemux86-64-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora/
+[amd64-qemux86-64-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora-buildpack-deps/
+[amd64-qemux86-64-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora-node/
+[amd64-qemux86-64-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora-node/tags/manage/
+[amd64-qemux86-64-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora-python/
+[amd64-qemux86-64-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora-python/tags/manage/
+[amd64-qemux86-64-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/qemux86-64
+[amd64-qemux86-64-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/qemux86-64
+[amd64-qemux86-64-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/qemux86-64
+[amd64-qemux86-64-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/qemux86-64
+[amd64-qemux86-64-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora-golang/
+[amd64-qemux86-64-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora-golang/tags/manage/
+[amd64-qemux86-64-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/qemux86-64
+[amd64-qemux86-64-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora-openjdk/
+[amd64-qemux86-64-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/qemux86-64-fedora-openjdk/tags/manage/
+[amd64-qemux86-64-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/qemux86-64
 
 [armv7hf-ts4900-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-debian/
 [armv7hf-ts4900-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-buildpack-deps/
@@ -1075,6 +1622,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-ts4900-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-golang/
 [armv7hf-ts4900-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts4900-golang/tags/manage/
 [armv7hf-ts4900-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/ts4900
+[armv7hf-ts4900-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-openjdk/
+[armv7hf-ts4900-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts4900-openjdk/tags/manage/
+[armv7hf-ts4900-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/ts4900
 [armv7hf-ts4900-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-alpine/
 [armv7hf-ts4900-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-alpine-buildpack-deps/
 [armv7hf-ts4900-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-alpine-node/
@@ -1088,6 +1638,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-ts4900-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-alpine-golang/
 [armv7hf-ts4900-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts4900-alpine-golang/tags/manage/
 [armv7hf-ts4900-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/ts4900
+[armv7hf-ts4900-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-alpine-openjdk/
+[armv7hf-ts4900-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts4900-alpine-openjdk/tags/manage/
+[armv7hf-ts4900-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/ts4900
+[armv7hf-ts4900-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora/
+[armv7hf-ts4900-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora-buildpack-deps/
+[armv7hf-ts4900-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora-node/
+[armv7hf-ts4900-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora-node/tags/manage/
+[armv7hf-ts4900-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora-python/
+[armv7hf-ts4900-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora-python/tags/manage/
+[armv7hf-ts4900-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/ts4900
+[armv7hf-ts4900-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/ts4900
+[armv7hf-ts4900-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/ts4900
+[armv7hf-ts4900-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/ts4900
+[armv7hf-ts4900-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora-golang/
+[armv7hf-ts4900-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora-golang/tags/manage/
+[armv7hf-ts4900-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/ts4900
+[armv7hf-ts4900-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora-openjdk/
+[armv7hf-ts4900-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts4900-fedora-openjdk/tags/manage/
+[armv7hf-ts4900-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/ts4900
 
 [armel-ts7700-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-debian/
 [armel-ts7700-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-buildpack-deps/
@@ -1102,19 +1671,9 @@ This image does not contain the common packages contained in the default tag and
 [armel-ts7700-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-golang/
 [armel-ts7700-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts7700-golang/tags/manage/
 [armel-ts7700-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/ts7700
-[armel-ts7700-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-alpine/
-[armel-ts7700-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-alpine-buildpack-deps/
-[armel-ts7700-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-alpine-node/
-[armel-ts7700-alpine-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts7700-alpine-node/tags/manage/
-[armel-ts7700-alpine-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-alpine-python/
-[armel-ts7700-alpine-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts7700-alpine-python/tags/manage/
-[armel-ts7700-alpine-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/ts7700
-[armel-ts7700-alpine-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/ts7700
-[armel-ts7700-alpine-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/ts7700
-[armel-ts7700-alpine-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/ts7700
-[armel-ts7700-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-alpine-golang/
-[armel-ts7700-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts7700-alpine-golang/tags/manage/
-[armel-ts7700-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/ts7700
+[armel-ts7700-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/ts7700-openjdk/
+[armel-ts7700-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/ts7700-openjdk/tags/manage/
+[armel-ts7700-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/ts7700
 
 [armv7hf-artik5-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-debian/
 [armv7hf-artik5-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-buildpack-deps/
@@ -1129,6 +1688,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-artik5-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-golang/
 [armv7hf-artik5-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-golang/tags/manage/
 [armv7hf-artik5-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/artik5
+[armv7hf-artik5-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-openjdk/
+[armv7hf-artik5-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-openjdk/tags/manage/
+[armv7hf-artik5-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/artik5
 [armv7hf-artik5-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-alpine/
 [armv7hf-artik5-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-alpine-buildpack-deps/
 [armv7hf-artik5-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-alpine-node/
@@ -1142,6 +1704,25 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-artik5-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-alpine-golang/
 [armv7hf-artik5-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-alpine-golang/tags/manage/
 [armv7hf-artik5-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/artik5
+[armv7hf-artik5-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-alpine-openjdk/
+[armv7hf-artik5-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-alpine-openjdk/tags/manage/
+[armv7hf-artik5-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/artik5
+[armv7hf-artik5-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-fedora/
+[armv7hf-artik5-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-buildpack-deps/
+[armv7hf-artik5-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-node/
+[armv7hf-artik5-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-node/tags/manage/
+[armv7hf-artik5-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-python/
+[armv7hf-artik5-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-python/tags/manage/
+[armv7hf-artik5-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/artik5
+[armv7hf-artik5-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/artik5
+[armv7hf-artik5-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/artik5
+[armv7hf-artik5-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/artik5
+[armv7hf-artik5-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-golang/
+[armv7hf-artik5-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-golang/tags/manage/
+[armv7hf-artik5-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/artik5
+[armv7hf-artik5-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-openjdk/
+[armv7hf-artik5-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-openjdk/tags/manage/
+[armv7hf-artik5-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/artik5
 
 [armv7hf-artik10-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-debian/
 [armv7hf-artik10-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-buildpack-deps/
@@ -1156,6 +1737,9 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-artik10-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-golang/
 [armv7hf-artik10-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-golang/tags/manage/
 [armv7hf-artik10-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/artik10
+[armv7hf-artik10-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-openjdk/
+[armv7hf-artik10-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-openjdk/tags/manage/
+[armv7hf-artik10-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/artik10
 [armv7hf-artik10-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-alpine/
 [armv7hf-artik10-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-alpine-buildpack-deps/
 [armv7hf-artik10-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-alpine-node/
@@ -1169,3 +1753,22 @@ This image does not contain the common packages contained in the default tag and
 [armv7hf-artik10-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-alpine-golang/
 [armv7hf-artik10-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-alpine-golang/tags/manage/
 [armv7hf-artik10-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/artik10
+[armv7hf-artik10-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-alpine-openjdk/
+[armv7hf-artik10-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-alpine-openjdk/tags/manage/
+[armv7hf-artik10-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/artik10
+[armv7hf-artik10-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-fedora/
+[armv7hf-artik10-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-fedora-buildpack-deps/
+[armv7hf-artik10-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-fedora-node/
+[armv7hf-artik10-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-fedora-node/tags/manage/
+[armv7hf-artik10-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-fedora-python/
+[armv7hf-artik10-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-fedora-python/tags/manage/
+[armv7hf-artik10-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/artik10
+[armv7hf-artik10-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/artik10
+[armv7hf-artik10-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/artik10
+[armv7hf-artik10-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/artik10
+[armv7hf-artik10-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-fedora-golang/
+[armv7hf-artik10-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-fedora-golang/tags/manage/
+[armv7hf-artik10-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/artik10
+[armv7hf-artik10-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik10-fedora-openjdk/
+[armv7hf-artik10-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik10-fedora-openjdk/tags/manage/
+[armv7hf-artik10-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/artik10
