@@ -88,6 +88,7 @@ curl -X POST '{{ $links.apiBase }}application'
 Device name| Device type
 -------|-----:
 Samsung Artik 10 (BETA) | [artik10](https://github.com/resin-os/resin-artik)
+Samsung ARTIK 710 (BETA) | [artik710](https://github.com/resin-os/resin-artik710)
 Samsung Artik 5 (BETA) | [artik5](https://github.com/resin-os/resin-artik)
 BeagleBone Black | [beaglebone-black](https://github.com/resin-os/resin-beaglebone)
 Hummingboard | [hummingboard](https://github.com/resin-os/resin-fsl-arm)
