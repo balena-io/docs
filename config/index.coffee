@@ -23,7 +23,7 @@ MAIN_MENU_LINKS = [
   },
   {
     "title": "Community",
-    "link": "https://gitter.im/resin-io/chat"
+    "link": "https://resin.io/community"
   },
   {
     "title": "Blog",
