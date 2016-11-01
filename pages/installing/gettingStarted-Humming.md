@@ -100,54 +100,30 @@ Now we have to burn the downloaded image on to the SD card. There are a couple o
 
 ## Burning the OS image onto the SD
 
-### On Mac and Linux
+Now we have to flash the downloaded `.img` file onto our SD card. We recommend using [Etcher][etcher-link], a simple, cross platform SD card writer and validator. Head over to [etcher.io][etcher-link] and get install it, it only takes a few seconds :)
 
-####From the command line
+You can of course use any other SD card writing software you like, some options are:
+* [win32diskimager][win32-disk-imager] for Windows.
+* [piFiller][pifiller-download] for osx.
+* [dd or "Disk Destroyer"][dd-link] for Linux.
 
-First we need to figure out what our SD card is called, to do this open a terminal and execute the following command to see the list of connected storage devices:
-`df -h`
-Next, insert your microSD card, and then execute the following command again:
-`df -h`
-Compare the two outputs, and find the newly added device. In my case, the microSD card was '/dev/disk2s1'.
+__Note:__ Before you flash resinOS to your SD card you may need to formatted it as [FAT32][fat32]. [WikiHow][wikihow] has great [instructions][wikihow_format] on how to do this.
 
-Once you've got the name of the SD card, you'll want to unmount that disk using the following command, but replacing the specifics with your card details:
-`sudo diskutil unmount /dev/disk2s1`
-Now, you'll want to execute the command that actually copies the image onto the SD card.
+For simplicity this tutorial will assume you are using [Etcher][etcher-link]. Once you have Etcher installed, start it up. You may be asked to allow Etcher administrative privileges. This is just so Etcher can access your SD card.
 
-> You have to be really careful here, and make 100% sure you are entering the correct SD card details. You could end up copying over the wrong drive, such as your master hard disk, and then you're gonna have a bad time. Double check everything!
+To create a bootable resinOS SD card follow these 3 easy steps:
 
-Also, choose the right file location for your .img file in the input file field (if=...).
-`sudo dd bs=1m if=~/Downloads/resin-myFleet-0.1.0-0.0.4.img of=/dev/rdisk2`
+1. Click "Select image" button and find your applications resinOS `.img` file.
+2. If you haven't already done so, insert your SD card into your computer. Etcher will automatically detect it. If you have more than one SD card inserted, you will need to select the appropriate one.
+3. Click the "Flash!" button.
 
-__NOTE:__ that we subtly changed the device name from "/dev/disk2s1" to "/dev/rdisk2". You'll want to do the same when you execute the below command.
+<img src="/img/common/etcher/etcher.gif" width="60%">
 
-This process can take anywhere from 5-30 minutes depending on the speed of your computer and microSD card. Once this is done, skip down to [setting up your device](/installing/gettingStarted-Humming#setting-up-your-device)
+Etcher will now prepare a bootable SD card and validate that it was flashed correctly. Right! time for a spot of tea as flashing the SD card can take roughly 3 or more minutes depending on the quality of your SD card.
 
-#### From a GUI
+Etcher will give you a little ping! when it's done, and safely eject the SD card for you.
 
-Alternatively you can use the GUI program [PiFiller][pifiller-download] to burn the SD card.
-
-Once downloaded, launch Pi Filler, and follow the on-screen prompts. The first thing it will ask is for you to locate your .img file. It mentions the Raspberry Pi, but you can ignore that, it doesn't make any difference.
-
-Locate the .img file in your Downloads folder. It should be named something like `resin-myFleet-0.1.0-0.0.14.img`, now click "choose".
-
-You can now insert your microSD card into your host machine and click continue. PiFiller will look for your SD card and tell you when it finds it.
-
-__NOTE:__ make 100% sure that the SD card it finds is in fact the correct card.
-
-Click continue and piFiller will write the SD card. This can take 5-25 minutes depending on your machine. Once this is done, skip down to [setting up your device](/installing/gettingStarted-Humming#setting-up-your-device)
-
-### Windows
-
-To burn OS images to SD cards on windows, you will need to install [Win32 disk imager][win32-disk-imager]. Once you download it, you can launch win32 disk imager by clicking on the "Win32DiskImager" file in the folder that you extracted it to.
-
-Now in Win32DiskImager, click on the folder icon to select which `.img` file you wish to burn. A file browser window will open and you will need to select your hummingBoard image from the Downloads folder. It should be the extracted version and named something like this `resin-myFleet-0.1.0-0.0.14.img`.
-
-Next insert your SD card into your computer and in the Win32DiskImager GUI, select your SD card when it appears.
-
-__NOTE:__ Be very careful to make sure that you have selected the right SD card. Double check this!! Otherwise you could end up writing over your host machines harddisk.
-
-Once you have made your selections and are 100% sure you are writing to your SD card and nothing else, you can click write and wait for the SD card to be burnt.
+__Note:__ You can burn several SD cards with the same `.img` file and all the devices will boot and provision into your application's fleet. You can also disable the auto-ejecting or write validation steps from the Etcher settings panel.
 
 Once it is completed, you can carry on setting up your device as shown below.
 
@@ -236,3 +212,11 @@ If you find any issues with the application, please click the feedback label on 
 [win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
 [pifiller-download]:http://ivanx.com/raspberrypi/
 [solid-run]:http://www.solid-run.com/
+
+[wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
+[wikihow]:http://www.wikihow.com/Main-Page
+[fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
+[win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
+[pifiller-download]:http://ivanx.com/raspberrypi/
+[etcher-link]:https://etcher.io/
+[dd-link]:http://man7.org/linux/man-pages/man1/dd.1.html
