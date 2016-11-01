@@ -14,7 +14,7 @@ For these reasons we have built an [init system][init-system-link] into most of 
 There are two ways of enabling the init system in your application. You can either add the following environment variable in your Dockerfile:
 ```Dockerfile
 # enable container init system.
-ENV INITSYSTEM=on
+ENV INITSYSTEM on
 ```
 or you can add an environment variable from the Dashboard by navigating to the `Environment Variables` menu item on the left and adding the variable as shown below:
 ![Enable init system](/img/common/app/app_initsystem_envvar.png)

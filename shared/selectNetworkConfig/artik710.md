@@ -5,7 +5,7 @@ Currently there are two connectivity options:
  * Ethernet cable, this option requires *NO* configuration as is the default.
  * Wifi, in which case you must specify the [network name or`SSID`][ssid-link] and `passphrase` for the network your device will connect to.
 
-Once you have selected your connectivity option, click the `Download Device OS` button to get the resin.io operating system image configured for your application and network.
+Once you have selected your connectivity option, click the `Download resinOS` button to get the resin.io operating system image configured for your application and network.
 
 <img src="/img/artik710/download-version-modal.png" width="60%">
 

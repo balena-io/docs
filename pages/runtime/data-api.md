@@ -68,7 +68,8 @@ curl "{{ $links.apiBase }}application?\$filter=app_name%20eq%20'<name>'"
 * Endpoint: `/application`
 * Method: `POST` 
 
-Param | Type | Description
+
+Payload | Type | Description
 ------|------|------------:
 app_name | `STRING` | application name
 device_type | `STRING` | device type
@@ -88,6 +89,7 @@ curl -X POST '{{ $links.apiBase }}application'
 Device name| Device type
 -------|-----:
 Samsung Artik 10 (BETA) | [artik10](https://github.com/resin-os/resin-artik)
+Samsung ARTIK 710 (BETA) | [artik710](https://github.com/resin-os/resin-artik710)
 Samsung Artik 5 (BETA) | [artik5](https://github.com/resin-os/resin-artik)
 BeagleBone Black | [beaglebone-black](https://github.com/resin-os/resin-beaglebone)
 Hummingboard | [hummingboard](https://github.com/resin-os/resin-fsl-arm)
@@ -317,6 +319,9 @@ curl "{{ $links.apiBase }}device(<ID>)?\$select=is_web_accessible"
 Param | Type | Description
 ------|------|------------:
 ID | `INTEGER` | device ID
+
+Payload | Type | Description
+------|------|------------:
 name | `STRING` | device new name
 
 * cURL Example:
@@ -353,6 +358,9 @@ curl -X DELETE '{{ $links.apiBase }}device(<ID>)'
 Param | Type | Description
 ------|------|------------:
 ID | `INTEGER` | device ID
+
+Payload | Type | Description
+------|------|------------:
 note | `STRING` | device new note
 
 * cURL Example:
@@ -382,6 +390,9 @@ curl -X PATCH "{{ $links.apiBase }}device(<ID>)"
 Param | Type | Description
 ------|------|------------:
 ID | `INTEGER` | device ID
+
+Payload | Type | Description
+------|------|------------:
 application | `INTEGER` | application ID
 
 * cURL Example:
@@ -428,7 +439,8 @@ curl "{{ $links.apiBase}}user__has__public_key(<ID>)"
 * Endpoint: `/user__has__public_key`
 * Method: `POST`
 
-Param | Type | Description
+
+Payload | Type | Description
 ------|------|------------:
 public_key | `STRING` | ssh key
 title | `STRING` | key title
@@ -486,7 +498,8 @@ curl "{{ $links.apiBase }}device_environment_variable?\$filter=device%20eq%20<ID
 * Endpoint: `/device_environment_variable`
 * Method: `POST`
 
-Param | Type | Description
+
+Payload | Type | Description
 ------|------|------------:
 device | `INTEGER` | device ID
 env_var_name | `STRING` | variable name
@@ -511,6 +524,9 @@ curl -X POST "{{ $links.apiBase }}device_environment_variable"
 Param | Type | Description
 ------|------|------------:
 ID | `INTEGER` | environment variable ID
+
+Payload | Type | Description
+------|------|------------:
 value | `STRING` | new variable value
 
 * cURL Example:
@@ -561,7 +577,8 @@ curl "{{ $links.apiBase }}environment_variable?\$filter=application%20eq%20<ID>"
 * Endpoint: `/environment_variable`
 * Method: `POST`
 
-Param | Type | Description
+
+Payload | Type | Description
 ------|------|------------:
 application | `INTEGER` | application ID
 name | `STRING` | variable name
