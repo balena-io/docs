@@ -96,8 +96,6 @@ While the file downloads, ensure your SD card is formatted in [FAT32][fat32] ([W
 
 Once the download is finished you should have a `.img` file with a name like `resin-myFleet-0.1.0-0.0.14.img` where myFleet is the name you gave your application on the dashboard.
 
-Now we have to burn the downloaded image on to the SD card. There are a couple of ways to do this, depending on your operating system. We have listed a few below.
-
 ## Burning the OS image onto the SD
 
 Now we have to flash the downloaded `.img` file onto our SD card. We recommend using [Etcher][etcher-link], a simple, cross platform SD card writer and validator. Head over to [etcher.io][etcher-link] and get install it, it only takes a few seconds :)
@@ -121,7 +119,7 @@ To create a bootable resinOS SD card follow these 3 easy steps:
 
 Etcher will now prepare a bootable SD card and validate that it was flashed correctly. Right! time for a spot of tea as flashing the SD card can take roughly 3 or more minutes depending on the quality of your SD card.
 
-Etcher will give you a little ping! when it's done, and safely eject the SD card for you.
+Etcher will give you a little _ping!_ when it's done, and safely eject the SD card for you.
 
 __Note:__ You can burn several SD cards with the same `.img` file and all the devices will boot and provision into your application's fleet. You can also disable the auto-ejecting or write validation steps from the Etcher settings panel.
 
