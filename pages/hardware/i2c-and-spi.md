@@ -76,9 +76,9 @@ An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-li
 
 ### Raspberry Pi camera module
 
-Depending on the version of your ResinOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `RESIN_HOST_CONFIG_variablename` settings in your [fleet or device configuration](/management/env-vars/).
+Depending on the version of your resinOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `RESIN_HOST_CONFIG_variablename` settings in your [fleet or device configuration](/management/env-vars/).
 
-**Resin OS 1.16.0 and newer**
+**resinOS 1.16.0 and newer**
 
 Set the following values in `config.txt`:
 ```
@@ -90,7 +90,7 @@ or for remote update
 * `RESIN_HOST_CONFIG_start_x` to `1`
 in the fleet or device configuration.
 
-**Resin OS 1.8.0 and earlier**
+**resinOS 1.8.0 and earlier**
 
 Set the following values in `config.txt`:
 ```
