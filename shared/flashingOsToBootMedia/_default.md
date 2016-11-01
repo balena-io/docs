@@ -1,4 +1,4 @@
-Now we have to flash the downloaded `.img` file onto our {{ $device.bootMedia }}. We recommend using [Etcher][etcher-link], a simple, cross platform {{ $device.bootMedia }} writer and validator. Head over to [www.etcher.io][etcher-link] and get install it, it only takes a few seconds :)
+Now we have to flash the downloaded `.img` file onto our {{ $device.bootMedia }}. We recommend using [Etcher][etcher-link], a simple, cross platform {{ $device.bootMedia }} writer and validator. Head over to the [Etcher homepage][etcher-link] and get install it, it only takes a few seconds :)
 
 You can of course use any other {{ $device.bootMedia }} writing software you like, some options are:
 * [win32diskimager][win32-disk-imager] for Windows.
@@ -28,5 +28,5 @@ __Note:__ You can burn several {{ $device.bootMedia }}s with the same `.img` fil
 [fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
 [win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
 [pifiller-download]:http://ivanx.com/raspberrypi/
-[etcher-link]:http://www.etcher.io/
+[etcher-link]:https://etcher.io/
 [dd-link]:http://man7.org/linux/man-pages/man1/dd.1.html
