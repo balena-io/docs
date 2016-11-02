@@ -77,7 +77,7 @@ To create your first application simply type in a name, select as your device ty
 
 This is the application dashboard where all of the devices connected to your application will be shown along with their statuses and logs.
 
-<img src="/img/beaglebone/ts-4900-empty-dashboard.png" width="80%">
+<img src="/img/ts-4900/ts-4900-empty-dashboard.png" width="80%">
 
 Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify how your device connects to the internet - either via an ethernet cable or wifi, in which case you can specify your Wifi network's SSID and passphrase. Click the `Download Device OS` button to get the resin.io operating system image for your application.
 
