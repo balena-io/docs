@@ -31,7 +31,7 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 The next line is pretty straight forward and a key part of using docker.
 ```Dockerfile
 # This sets the working directory
-WORKDIR /go/src/github.com/josephroberts/resin-go-hello-world
+WORKDIR /go/src/github.com/resin-io-projects/resin-go-hello-world
 ```
 As the comments say, `WORKDIR` set our working directory for any `RUN`, `COPY` or `CMD` commands following it. Check out the [Docker reference][docker-ref] pages for more info on these commands.
 
