@@ -15,7 +15,7 @@ $ echo export PATH=$PATH:/usr/local/go/bin >> ~/.profile
 
 Now that we have `resin sync` and cross-compilation setup there is one more step needed to link them both together. This comes in the form of a `.resin-sync.yml` file that needs to be created in the root of the application directory.
 ```
-destination: /go/src/github.com/josephroberts/resin-go-hello-world
+destination: /go/src/github.com/resin-io-projects/resin-go-hello-world
 port: 22
 before: env GOOS=linux GOARCH=arm go build
 ```
