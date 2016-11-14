@@ -5,7 +5,6 @@ title: Advanced Resources
 # Advanced
 A collection of advanced resin.io resources:
 
-* [Protect your resin.io devices with a watchdog](https://resin.io/blog/protect-your-resin-io-devices-with-a-watchdog/) - Using a hardware watchdog to reset your device incase of system failure.
 * [Updating an Arduino with resin.io](https://resin.io/blog/updating-an-arduino-with-resin-io/) - Creating an update mechanism for Arduino binaries within the resin ecosystem.
 * [Preloaded Containers](https://resin.io/blog/preloaded-containers/) - Provision your devices with an application's code preloaded up and ready to run on the very first boot.
 * [A Guide to Cellular Connectivity on resin.io Devices](https://resin.io/blog/cellular-connectivity/) - A guide to using 3g modems in resin.io applications
