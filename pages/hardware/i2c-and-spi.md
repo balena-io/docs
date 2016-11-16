@@ -216,7 +216,7 @@ fdtfile=am335x-boneblack-emmc-overlay.dtb
 ```
 
 You should now be able to use any of the pins that used to be occupied by the HDMI. To test this you can run the following from your webterminal:
-```
+```bash
 echo 74 > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio74/direction
 echo 1 > /sys/class/gpio/gpio74/value
