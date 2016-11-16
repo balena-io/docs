@@ -209,8 +209,8 @@ SLOTS=/sys/devices/platform/bone_capemgr/slots
 
 ### Disable HDMI
 
-before provisioning, mount the `.img`, in the `flash-boot` partition you should see a file named `uEnv.txt_internal` open that up with your favourite text editor and add
-the following line to the bottome of the file:
+Before provisioning, mount the `.img`, in the `flash-boot` partition you should see a file named `uEnv.txt_internal` open that up with your favourite text editor and add
+the following line to the bottom of the file:
 ```
 fdtfile=am335x-boneblack-emmc-overlay.dtb
 ```
