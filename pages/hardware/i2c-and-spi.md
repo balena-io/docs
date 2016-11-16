@@ -14,6 +14,7 @@ title: I2C and Other Interfaces
   * [Customising config.txt](/hardware/i2c-and-spi#customizing-config-txt)
 * [Beaglebone](/hardware/i2c-and-spi#beaglebone)
   * [Capemgr support](/hardware/i2c-and-spi#capemgr-support-on-resin-io-devices)
+  * [Disable HDMI](/hardware/i2c-and-spi#disable-hdmi)
 * [Intel Edison](/hardware/i2c-and-spi#intel-edison)
   * [MRAA for GPIO and hardware access](/hardware/i2c-and-spi#mraa-for-gpio-and-hardware-access)
   * [Edison in USB Host mode](/hardware/i2c-and-spi#edison-in-usb-host-mode)
@@ -205,6 +206,22 @@ cat /sys/devices/platform/ocp/ocp:cape-universal/status
 OCPDIR=/sys/devices/platform/ocp/ocp*
 SLOTS=/sys/devices/platform/bone_capemgr/slots
 ```
+
+### Disable HDMI
+
+before provisioning, mount the `.img`, in the `flash-boot` partition you should see a file named `uEnv.txt_internal` open that up with your favourite text editor and add
+the following line to the bottome of the file:
+```
+fdtfile=am335x-boneblack-emmc-overlay.dtb
+```
+
+You should now be able to use any of the pins that used to be occupied by the HDMI. To test this you can run the following from your webterminal:
+```
+echo 74 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio74/direction
+echo 1 > /sys/class/gpio/gpio74/value
+```
+Pin 41 of Header P8 should go high.
 
 ## Intel Edison
 ### MRAA for GPIO and hardware access
