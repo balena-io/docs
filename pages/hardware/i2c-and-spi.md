@@ -9,11 +9,13 @@ title: I2C and Other Interfaces
   * [I2C](/hardware/i2c-and-spi#i2c)
   * [SPI](/hardware/i2c-and-spi#spi)
   * [1-wire and Digital Temperature sensors](/hardware/i2c-and-spi#1-wire-and-digital-temperature-sensors)
+  * [Using UART or Serial on Raspberry Pi 3](/hardware/i2c-and-spi#using-uart-or-serial-on-raspberry-pi-3)
   * [Raspberry Pi camera module](/hardware/i2c-and-spi#raspberry-pi-camera-module)
   * [Raspberry Pi 7” Touchscreen Display](/hardware/i2c-and-spi#raspberry-pi-7-touchscreen-display)
   * [Customising config.txt](/hardware/i2c-and-spi#customizing-config-txt)
 * [Beaglebone](/hardware/i2c-and-spi#beaglebone)
   * [Capemgr support](/hardware/i2c-and-spi#capemgr-support-on-resin-io-devices)
+  * [Disable HDMI](/hardware/i2c-and-spi#disable-hdmi)
 * [Intel Edison](/hardware/i2c-and-spi#intel-edison)
   * [MRAA for GPIO and hardware access](/hardware/i2c-and-spi#mraa-for-gpio-and-hardware-access)
   * [Edison in USB Host mode](/hardware/i2c-and-spi#edison-in-usb-host-mode)
@@ -73,6 +75,25 @@ dtoverlay=w1-gpio
 * Add `modprobe w1-gpio && modprobe w1-therm` before your start scripts in either your package.json start command or Dockerfile `CMD` command.
 
 An example of this is shown in our [Firebase Temperature Logger][firebaseTemp-link] project.
+
+### Using UART or Serial on Raspberry Pi 3
+
+To enable UART on `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX` , you will need to apply the `pi3-miniuart-bt` device tree overlay.
+This can be done in two ways:
+1. Add the following Device (or Fleet) Configuration variable to your device (or Fleet).
+```
+RESIN_HOST_CONFIG_dtoverlay = pi3-miniuart-bt
+```
+If you can't find the where to add this configuration go to this page on your dashboard: dashboard.resinstaging.io/apps/`APP_ID`/config but replace `APP_ID` with the number of your application.
+
+2. The second, more manual way to enable this configuration is to mount the SD card on your development machine. Find the `resin-boot` partition and in there you should see the Raspberry Pi's boot files, one of which is called `config.txt`. Open this file up and add the following line to the end of the file:
+```
+dtoverlay=pi3-miniuart-bt
+```
+
+Now eject the SD card and pop it back into the RPI3, and you can boot the device up again.
+
+To demonstrate this functionality, you can push this project (https://github.com/resin-io-playground/rpi3-uart) to your RPI3. You will also need to add a small jumper wire between `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX`, so that the data sent out of the UART is read back in and displayed in the logs.
 
 ### Raspberry Pi camera module
 
@@ -205,6 +226,22 @@ cat /sys/devices/platform/ocp/ocp:cape-universal/status
 OCPDIR=/sys/devices/platform/ocp/ocp*
 SLOTS=/sys/devices/platform/bone_capemgr/slots
 ```
+
+### Disable HDMI
+
+Before provisioning, mount the `.img`, in the `flash-boot` partition you should see a file named `uEnv.txt_internal` open that up with your favourite text editor and add
+the following line to the bottom of the file:
+```
+fdtfile=am335x-boneblack-emmc-overlay.dtb
+```
+
+You should now be able to use any of the pins that used to be occupied by the HDMI. To test this you can run the following from your webterminal:
+```bash
+echo 74 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio74/direction
+echo 1 > /sys/class/gpio/gpio74/value
+```
+Pin 41 of Header P8 should go high.
 
 ## Intel Edison
 ### MRAA for GPIO and hardware access
