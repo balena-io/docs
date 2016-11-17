@@ -49,6 +49,17 @@ This isn't so much of an optimisation tip, but more a guideline to ensure mainta
 
 * Avoid `RUN apt-get upgrade` or `dist-upgrade`, since many of the “essential” packages from the base images will fail to upgrade inside an unprivileged container. If a base package is out of date, you should contact its maintainers. If you know there’s a particular package, foo, that needs to be updated, use apt-get install -y foo and it will update automatically.
 
+## Starting long running tasks together
+If you have commands that do not depend on each other, they can be started in the background at the same time to decrease build time. An example of this could be two downloads of unrelated sources:
+
+``` 
+RUN wget my-source-1.tar.gz & \
+    && wget my-source-2.tar.gz & \
+    && wait
+```
+
+This will start downloading both files and wait for them to complete. The next layer could then start the build on one or both of them.
+
 ## Pro Tips for slimming down your build
 
 These are just a few tips from our engineers on how to reduce your build size
