@@ -38,7 +38,7 @@ If you think something is not documented, or can be improved, don't hesitate in 
 Style manual
 ----------
 
-### Default tyle manual: (TBD)
+### Default style manual: (TBD)
 
 ### Resin-specific words
 For all, lower-case capitalization unless beginning a sentence (Ex. *I like resin.io. Resin.io is great.*)
