@@ -106,11 +106,6 @@ this project will only work on the Intel Edison.
 [Resin Golang Image Example][golang-image-link]
 
 This project contains examples of how to use Resin Golang images on devices supported by Resin.io.
-This project will work on any devices, notice that it requires native ARM builders when building for ARM architecture devices.
-When pushing application to Resin, we select native ARM builders for the build by doing:
-```
-$ git push resin master:master-arm
-```
 
 <!-- ###Language Demo Projects Links  -->
 
