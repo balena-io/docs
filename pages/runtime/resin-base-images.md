@@ -14,7 +14,7 @@ For each architecture supported by Resin, there are bare-bones base images which
 
 | Image | Description | Installed Packages | Available Tag |
 |:-----------|:------------|:------------|:------------|
-| resin/`arch`-debian | The base OS image based on Debian for a specific architecture. Systend init system is installed in this base image, see our [tips](#tips) section on how to enable systemd in your image. | minbase, sudo, systemd | latest, jessie, wheezy, sid |
+| resin/`arch`-debian | The base OS image based on Debian for a specific architecture. Systemd init system is installed in this base image, see our [tips](#tips) section on how to enable systemd in your image. | minbase, sudo, systemd | latest, jessie, wheezy, sid |
 | resin/`arch`-alpine | The base OS image based on Alpine Linux for a specific architecture. OpenRC init system is installed in this base image, see our [tips](#tips) section on how to enable OpenRC in your image. | minbase, bash, udev, dbus, tar, ca-certificates, openrc | latest, 3.4, edge, 3.3, 3.2 |
 | resin/`arch`-fedora | The base OS image based on Fedora for a specific architecture. Systemd init system is installed in this base image, see our [tips](#tips) section on how to enable systemd in your image. | minbase, systemd | latest, 24, 23 |
 | resin/`device-name`-debian | The bare bones Debian OS image for a supported device. | usbutils, net-tools, iputils-ping, module-init-tools, less, nano, i2c-tools, ifupdown | latest, jessie, wheezy |
