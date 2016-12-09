@@ -129,9 +129,9 @@ Alternatively, it is possible to reboot the device via the dbus interface as des
 
 ### Dbus communication with hostOS
 
-In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket` for all dbus communication. Below you can see a couple of examples:
+In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket` for all dbus communication. Below you can find a couple of examples.
 
-**Change the Device hostname**
+#### Change the Device hostname
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   dbus-send \
@@ -145,7 +145,7 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   string:"YOUR-NEW-HOSTNAME" boolean:true
 ```
 
-**Rebooting the Device**
+#### Rebooting the Device
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   dbus-send \
@@ -156,7 +156,7 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   org.freedesktop.systemd1.Manager.Reboot
 ```
 
-**Checking if device time is NTP synchronized**
+#### Checking if device time is NTP synchronized
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   dbus-send \
