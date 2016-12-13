@@ -40,6 +40,10 @@ Inside the container we provide a number of `RESIN_` namespaced environment vari
 |:----------:	    |:-----------:	|
 | `RESIN_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on resin.io	|
 | `RESIN_APP_ID` 	            |  ID number of the resin.io application the device is associated. 	|
+| `RESIN_APP_NAME`            |  The name of the resin.io application the device is associated with. |
+| `RESIN_APP_RELEASE`         |  The commit hash of the deployed application version. |
+| `RESIN_DEVICE_NAME_AT_INIT` |  The name of the device on first initialisation. |
+| `RESIN_DEVICE_TYPE`         |  The type of device the application is running on. |
 | `RESIN` 	                  |  The `RESIN=1` variable can be used by your software to detect that it is running on a resin.io device. 	|
 | `RESIN_SUPERVISOR_VERSION` 	|  The current version of the supervisor agent running on the device.	|
 | `RESIN_SUPERVISOR_API_KEY` 	|  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link]	for detailed usage.|
@@ -47,21 +51,27 @@ Inside the container we provide a number of `RESIN_` namespaced environment vari
 | `RESIN_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`|
 | `RESIN_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`	|
 | `RESIN_API_KEY` 	          |  API key which can be used to authenticate requests to the resin.io backend. Can be used with resin SDK on the device. **WARNING** This API key gives the code full user permissions, so can be used to delete and update anything as you would on the Dashboard.  	|
+| `RESIN_HOST_OS_VERSION`     |  The version of the resin host OS. |
 | `RESIN_DEVICE_RESTART` 	    |  This is a internal mechanism for restarting containers and can be ignored as its not very useful to application code.  Example: `1.13.0`	|
 
 Here's an example from a Raspberry Pi 3:
+
 ```Bash
-root@raspberrypi3-cb6f09d:/# printenv | grep RESIN
-RESIN_SUPERVISOR_API_KEY=1111deadbeef2222
-RESIN_APP_ID=116522
-RESIN=1
-RESIN_SUPERVISOR_ADDRESS=http://127.0.0.1:48484
-RESIN_DEVICE_RESTART=3505733431986444
-RESIN_SUPERVISOR_HOST=127.0.0.1
-RESIN_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
-RESIN_API_KEY=deadbeef12345
-RESIN_SUPERVISOR_VERSION=1.13.0
-RESIN_SUPERVISOR_PORT=48484
+root@raspberrypi3-cc723d7:/# printenv | grep RESIN
+RESIN_SUPERVISOR_API_KEY=1111deadbeef2222                    
+RESIN_APP_ID=157270                                                                                          
+RESIN_DEVICE_TYPE=raspberrypi3                                                                               
+RESIN=1                                                                                                      
+RESIN_SUPERVISOR_ADDRESS=http://127.0.0.1:48484                                                              
+RESIN_SUPERVISOR_HOST=127.0.0.1                                                                              
+RESIN_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee                             
+RESIN_API_KEY=deadbeef12345                                                               
+RESIN_APP_RELEASE=667153acf91a58886c1bc30fe4320c864471e23a                                                  
+RESIN_SUPERVISOR_VERSION=2.8.3                                                                               
+RESIN_APP_NAME=Example                                                                                      
+RESIN_DEVICE_NAME_AT_INIT=damp-haze                                                                          
+RESIN_HOST_OS_VERSION=Resin OS 1.24.0                                    
+RESIN_SUPERVISOR_PORT=48484  
 ```
 
 ## Persistent Storage		
@@ -129,9 +139,9 @@ Alternatively, it is possible to reboot the device via the dbus interface as des
 
 ### Dbus communication with hostOS
 
-In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket` for all dbus communication. Below you can see a couple of examples:
+In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket` for all dbus communication. Below you can find a couple of examples.
 
-**Change the Device hostname**
+#### Change the Device hostname
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   dbus-send \
@@ -145,7 +155,7 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   string:"YOUR-NEW-HOSTNAME" boolean:true
 ```
 
-**Rebooting the Device**
+#### Rebooting the Device
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   dbus-send \
@@ -156,7 +166,7 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   org.freedesktop.systemd1.Manager.Reboot
 ```
 
-**Checking if device time is NTP synchronized**
+#### Checking if device time is NTP synchronized
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket \
   dbus-send \
