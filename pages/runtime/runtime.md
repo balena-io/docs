@@ -264,8 +264,8 @@ RUN systemctl enable /etc/systemd/system/my_service.service
 ```
 You may also need to check out https://www.freedesktop.org/software/systemd/man/systemd.service.html#Options in case you need a different service type (OneShot is for services that exit once they're finished starting, e.g. daemons)
 
-### Using DNS resolvers in you container
-On the hostOS in resin.io we use [dnsmasq][dnsmasq-link] to manage DNS. This means that if you have dnsmasq or other DNS resolvers such as [bind9](http://www.bind9.org/) running in your container, it can potentially cause problems because the usually try to bind to `0.0.0.0` which interferes with the host dnsmasq. To get around this you need to add `bind-interfaces` to your dnsmasq configuration in your container, or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
+### Using DNS resolvers in your container
+On the hostOS in resin.io we use [dnsmasq][dnsmasq-link] to manage DNS. This means that if you have dnsmasq or other DNS resolvers such as [bind9](http://www.bind9.org/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0` which interferes with the host dnsmasq. To get around this you need to add `bind-interfaces` to your dnsmasq configuration in your container, or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
 
 ### Mounting external storage media
 
