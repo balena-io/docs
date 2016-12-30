@@ -160,10 +160,10 @@ Here are a few notes using the [AWS IoT device SDK](https://github.com/aws/aws-i
 FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 ```
 
-Add the `aws-iot-device-sdk-js` dependency in your `package.json` in your application's folder:
+Add the `aws-iot-device-sdk` dependency in your `package.json` in your application's folder:
 
 ```bash
-npm install aws-iot-device-sdk-js --save
+npm install --save aws-iot-device-sdk
 ```
 
 Later in your `Dockerfile.template` you can then configure the node modules installation as:
