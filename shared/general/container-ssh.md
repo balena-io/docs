@@ -22,4 +22,7 @@ At the time of writing, `resin ssh` makes use of the resin VPN connection to acc
 
 {{> icon class="octicon octicon-mark-github" }} [**resin-openssh**](https://github.com/resin-io-projects/resin-openssh).
 
-One note is that if you run your own SSH in the container you won't automatically get your environment variables in the ssh session. To bring them in, simply run `export $(xargs -0 -n1 < /proc/1/environ)` after that any operations or code you run from the SSH session will be able to access the environment variables you set on your resin.io dashboard.
+One note is that if you run your own SSH in the container you won't automatically get your environment variables in the ssh session. To bring them in, simply run `. <(xargs -0 bash -c 'printf \"export %q\n\" \"\$@\"' -- < /proc/1/environ)`. Now any operations or code you run from the SSH session will be able to access the environment variables you set on your resin.io dashboard ([see gitter discussion for more info](https://gitter.im/resin-io/chat?at=57be336fce157d1b57a19e82)). Alternatively, use the following command in a Dockerfile to update the root's `.profile` so resin variables are sourced at each tty/ssh login:
+```
+echo ". <(xargs -0 bash -c 'printf \"export %q\n\" \"\$@\"' -- < /proc/1/environ)" >> /root/.profile
+```
