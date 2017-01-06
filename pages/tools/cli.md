@@ -826,7 +826,7 @@ Examples:
 
 ### Options
 
-#### --type, -t &#60;type&#62;
+#### --type, -t &#60;type&#62; (Check available types with _$ resin devices supported_)
 
 device type
 
