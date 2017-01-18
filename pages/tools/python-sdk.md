@@ -965,7 +965,7 @@ No need to set device_uuid and app_id if command is sent to the API on device.
 >>> resin.models.supervisor.purge(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 {u'Data': u'OK', u'Error': u''}
 ```
-### Function: reboot(device_uuid, app_id)
+### Function: reboot(device_uuid, app_id, force)
 
 Reboot the device.
 No need to set device_uuid and app_id if command is sent to the API on device.
@@ -973,6 +973,7 @@ No need to set device_uuid and app_id if command is sent to the API on device.
 #### Args:
     device_uuid (Optional[str]): device uuid.
     app_id (Optional[str]): application id.
+    force (Optional[bool]): If force is True, the update lock will be overridden.
 
 #### Returns:
     dict: when successful, this dictionary is returned `{ 'Data': 'OK', 'Error': '' }`.
@@ -1026,7 +1027,7 @@ No need to set device_uuid and app_id if command is sent to the API on device.
 >>> resin.models.supervisor.restart(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 'OK'
 ```
-### Function: shutdown(device_uuid, app_id)
+### Function: shutdown(device_uuid, app_id, force)
 
 Shut down the device.
 No need to set device_uuid and app_id if command is sent to the API on device.
@@ -1034,6 +1035,7 @@ No need to set device_uuid and app_id if command is sent to the API on device.
 #### Args:
     device_uuid (Optional[str]): device uuid.
     app_id (Optional[str]): application id.
+    force (Optional[bool]): If force is True, the update lock will be overridden.
 
 #### Returns:
     dict: when successful, this dictionary is returned `{ 'Data': 'OK', 'Error': '' }`.
@@ -1298,6 +1300,15 @@ This class implements functions that allow processing logs from device.
 This class is implemented using pubnub python sdk.
 
 For more details about pubnub, please visit: https://www.pubnub.com/docs/python/pubnub-python-sdk
+### Function: get_channel(uuid)
+
+This function returns pubnub channel for a specific device.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    str: device channel.
 ### Function: history()
 
 This function allows fetching historical device logs.
