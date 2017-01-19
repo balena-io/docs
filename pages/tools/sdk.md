@@ -41,8 +41,8 @@ If you feel something is missing, not clear or could be improved, please don't h
             * [.stopApplication(uuid)](#resin.models.device.stopApplication) ⇒ <code>Promise</code>
             * [.restartApplication(uuid)](#resin.models.device.restartApplication) ⇒ <code>Promise</code>
             * ~~[.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>~~
-            * [.reboot(uuid)](#resin.models.device.reboot) ⇒ <code>Promise</code>
-            * [.shutdown(uuid)](#resin.models.device.shutdown) ⇒ <code>Promise</code>
+            * [.reboot(uuid, [options])](#resin.models.device.reboot) ⇒ <code>Promise</code>
+            * [.shutdown(uuid, [options])](#resin.models.device.shutdown) ⇒ <code>Promise</code>
             * [.purge(uuid)](#resin.models.device.purge) ⇒ <code>Promise</code>
             * [.update(uuid, options)](#resin.models.device.update) ⇒ <code>Promise</code>
             * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
@@ -50,7 +50,7 @@ If you feel something is missing, not clear or could be improved, please don't h
             * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
             * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
             * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
-            * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
+            * [.generateUniqueKey()](#resin.models.device.generateUniqueKey) ⇒ <code>String</code>
             * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
             * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
             * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
@@ -143,8 +143,8 @@ If you feel something is missing, not clear or could be improved, please don't h
         * [.stopApplication(uuid)](#resin.models.device.stopApplication) ⇒ <code>Promise</code>
         * [.restartApplication(uuid)](#resin.models.device.restartApplication) ⇒ <code>Promise</code>
         * ~~[.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>~~
-        * [.reboot(uuid)](#resin.models.device.reboot) ⇒ <code>Promise</code>
-        * [.shutdown(uuid)](#resin.models.device.shutdown) ⇒ <code>Promise</code>
+        * [.reboot(uuid, [options])](#resin.models.device.reboot) ⇒ <code>Promise</code>
+        * [.shutdown(uuid, [options])](#resin.models.device.shutdown) ⇒ <code>Promise</code>
         * [.purge(uuid)](#resin.models.device.purge) ⇒ <code>Promise</code>
         * [.update(uuid, options)](#resin.models.device.update) ⇒ <code>Promise</code>
         * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
@@ -152,7 +152,7 @@ If you feel something is missing, not clear or could be improved, please don't h
         * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
         * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
         * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
-        * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
+        * [.generateUniqueKey()](#resin.models.device.generateUniqueKey) ⇒ <code>String</code>
         * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
         * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
         * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
@@ -437,8 +437,8 @@ resin.models.application.getApiKey('MyApp', function(error, apiKey) {
     * [.stopApplication(uuid)](#resin.models.device.stopApplication) ⇒ <code>Promise</code>
     * [.restartApplication(uuid)](#resin.models.device.restartApplication) ⇒ <code>Promise</code>
     * ~~[.restart(uuid)](#resin.models.device.restart) ⇒ <code>Promise</code>~~
-    * [.reboot(uuid)](#resin.models.device.reboot) ⇒ <code>Promise</code>
-    * [.shutdown(uuid)](#resin.models.device.shutdown) ⇒ <code>Promise</code>
+    * [.reboot(uuid, [options])](#resin.models.device.reboot) ⇒ <code>Promise</code>
+    * [.shutdown(uuid, [options])](#resin.models.device.shutdown) ⇒ <code>Promise</code>
     * [.purge(uuid)](#resin.models.device.purge) ⇒ <code>Promise</code>
     * [.update(uuid, options)](#resin.models.device.update) ⇒ <code>Promise</code>
     * [.getDisplayName(deviceTypeSlug)](#resin.models.device.getDisplayName) ⇒ <code>Promise</code>
@@ -446,7 +446,7 @@ resin.models.application.getApiKey('MyApp', function(error, apiKey) {
     * [.getSupportedDeviceTypes()](#resin.models.device.getSupportedDeviceTypes) ⇒ <code>Promise</code>
     * [.getManifestBySlug(slug)](#resin.models.device.getManifestBySlug) ⇒ <code>Promise</code>
     * [.getManifestByApplication(applicationName)](#resin.models.device.getManifestByApplication) ⇒ <code>Promise</code>
-    * [.generateUUID()](#resin.models.device.generateUUID) ⇒ <code>Promise</code>
+    * [.generateUniqueKey()](#resin.models.device.generateUniqueKey) ⇒ <code>String</code>
     * [.register(applicationName, uuid)](#resin.models.device.register) ⇒ <code>Promise</code>
     * [.hasDeviceUrl(uuid)](#resin.models.device.hasDeviceUrl) ⇒ <code>Promise</code>
     * [.getDeviceUrl(uuid)](#resin.models.device.getDeviceUrl) ⇒ <code>Promise</code>
@@ -907,14 +907,16 @@ resin.models.device.restartApplication('7cf02a6', function(error) {
 
 <a name="resin.models.device.reboot"></a>
 
-##### device.reboot(uuid) ⇒ <code>Promise</code>
+##### device.reboot(uuid, [options]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
 **Summary**: Reboot device  
 **Access:** public  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| uuid | <code>String</code> | device uuid |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| uuid | <code>String</code> |  | device uuid |
+| [options] | <code>Object</code> |  | options |
+| [options.force] | <code>Boolean</code> | <code>false</code> | override update lock |
 
 **Example**  
 ```js
@@ -928,14 +930,16 @@ resin.models.device.reboot('7cf02a6', function(error) {
 ```
 <a name="resin.models.device.shutdown"></a>
 
-##### device.shutdown(uuid) ⇒ <code>Promise</code>
+##### device.shutdown(uuid, [options]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
-**Summary**: Shuwdown device  
+**Summary**: Shutdown device  
 **Access:** public  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| uuid | <code>String</code> | device uuid |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| uuid | <code>String</code> |  | device uuid |
+| [options] | <code>Object</code> |  | options |
+| [options.force] | <code>Boolean</code> | <code>false</code> | override update lock |
 
 **Example**  
 ```js
@@ -1128,33 +1132,26 @@ resin.models.device.getManifestByApplication('MyApp', function(error, manifest) 
 	console.log(manifest);
 });
 ```
-<a name="resin.models.device.generateUUID"></a>
+<a name="resin.models.device.generateUniqueKey"></a>
 
-##### device.generateUUID() ⇒ <code>Promise</code>
+##### device.generateUniqueKey() ⇒ <code>String</code>
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
-**Summary**: Generate a random device UUID  
+**Summary**: Generate a random key, useful for both uuid and api key.  
+**Returns**: <code>String</code> - A generated key  
 **Access:** public  
-**Fulfil**: <code>String</code> - a generated UUID  
 **Example**  
 ```js
-resin.models.device.generateUUID().then(function(uuid) {
-	console.log(uuid);
-});
-```
-**Example**  
-```js
-resin.models.device.generateUUID(function(error, uuid) {
-	if (error) throw error;
-	console.log(uuid);
-});
+randomKey = resin.models.device.generateUniqueKey();
+// randomKey is a randomly generated key that can be used as either a uuid or an api key
+console.log(randomKey);
 ```
 <a name="resin.models.device.register"></a>
 
 ##### device.register(applicationName, uuid) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
-**Summary**: Register a new device with a Resin.io application  
+**Summary**: Register a new device with a Resin.io application.  
 **Access:** public  
-**Fulfil**: <code>Object</code> - device  
+**Fulfil**: <code>Object</code> Device registration info ({ id: "...", uuid: "...", api_key: "..." })  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -1163,22 +1160,17 @@ resin.models.device.generateUUID(function(error, uuid) {
 
 **Example**  
 ```js
-resin.models.device.generateUUID().then(function(uuid) {
-	resin.models.device.register('MyApp', uuid).then(function(device) {
-		console.log(device);
-	});
+var uuid = resin.models.device.generateUniqueKey();
+resin.models.device.register('MyApp', uuid).then(function(registrationInfo) {
+	console.log(registrationInfo);
 });
 ```
 **Example**  
 ```js
-resin.models.device.generateUUID(function(error, uuid) {
+var uuid = resin.models.device.generateUniqueKey();
+resin.models.device.register('MyApp', uuid, function(error, registrationInfo) {
 	if (error) throw error;
-
-	resin.models.device.register('MyApp', uuid, function(error, device) {
-		if (error) throw error;
-
-		console.log(device);
-	});
+	console.log(registrationInfo);
 });
 ```
 <a name="resin.models.device.hasDeviceUrl"></a>
@@ -2322,7 +2314,7 @@ resin.logs.history('7cf02a6', function(error, lines) {
 
 #### settings.get([key]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[settings](#resin.settings)</code>  
-**Summary**: Get a single setting  
+**Summary**: Get a single setting. **Only implemented in Node.js**  
 **Access:** public  
 **Fulfil**: <code>\*</code> - setting value  
 
@@ -2347,7 +2339,7 @@ resin.settings.get('apiUrl', function(error, apiUrl) {
 
 #### settings.getAll() ⇒ <code>Promise</code>
 **Kind**: static method of <code>[settings](#resin.settings)</code>  
-**Summary**: Get all settings  
+**Summary**: Get all settings **Only implemented in Node.js**  
 **Access:** public  
 **Fulfil**: <code>Object</code> - settings  
 **Example**  
