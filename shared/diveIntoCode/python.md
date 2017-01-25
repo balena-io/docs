@@ -51,7 +51,7 @@ CMD ["python","src/main.py"]
 ```
 After the `pip install` we copy the rest of our source code into the working directory, we do this after the install so that later builds can benefit from build caching. So we will only trigger a full pip install if we change something in `requirements.txt`.
 
-The last 2 commands are runtime directives. The `ENV INITSYSTEM on` is used to enable the [systemd][systemd-link] init within the container. This is useful for a number of reasons, like keeping the container open after application crash and handling `/dev` updates as new USB devices are plugged in. If you want don't want an init system, just set it to `off` or remove the line for the `Dockerfile`.
+The last 2 commands are runtime directives. The `ENV INITSYSTEM on` is used to enable the [systemd][systemd-link] init within the container. This is useful for a number of reasons, like keeping the container open after application crash and handling `/dev` updates as new USB devices are plugged in. If you don't want an init system, just set it to `off` or remove the line for the `Dockerfile`.
 
 The last command, `CMD` is perhaps one of the most important. This command defines what will run at container start on your {{ $device.name }}, in our example we have told python to run the `src/main.py` script. It should be noted that you can only have **one** `CMD` per `Dockerfile`.
 
