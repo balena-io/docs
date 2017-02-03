@@ -48,6 +48,7 @@ Learn
       [/runtime/update-strategies]
       [/runtime/delta]
       [/runtime/bandwidth-reduction]
+      [/runtime/update-locking]
 
     Accessing Hardware & Peripherals
       [/hardware/gpio]
