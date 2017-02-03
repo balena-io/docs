@@ -4,6 +4,7 @@ title: FAQs
 # Frequently Asked Questions
 
 * [Can I use Multiple containers?](#can-i-use-multiple-containers-)
+* [How do I push a new git repo to an Application](#how-do-i-push-a-new-git-repo-to-an-application-)
 * [What version of Docker runs on the Devices?](#what-version-of-docker-runs-on-the-devices-)
 * [Why does `/data` report weird usage?](#why-does-data-report-weird-usage-)
 * [What NTP servers do resin.io devices use?](#what-ntp-servers-do-resin-io-devices-use-)
@@ -25,6 +26,9 @@ title: FAQs
 
 ##### Can I use multiple containers?
 We are planning, and committed, to adding support for having multiple apps/containers running on a device. While the work towards multiple apps is in progress, as an interim solution, we do however  have a few users running [multiple containers within an app via docker-compose](https://resin.io/blog/multi-container-with-docker-compose-on-resin-io/) and [have done work with kubernetes](https://resin.io/blog/our-first-experiments-with-multi-container-apps/) in the same fashion.
+
+##### How do I push a new git repo to an Application?
+If you have pushed a repository called `project-A` to your application (called `myapp`) and at a later stage you would like to push a new project called `project-B`, you can do this by adding the application remote (`git remote add resin joesoap@git.resin.io:joesoap/myapp.git`) to `project-B`'s local repository. You can then easily push `project-B` to `myapp` by just doing `git push resin master -f`. The extra `-f` on the command forces the push and resets the git history on the git remote on resin.io's backend. You should now have `project-B` running on all the devices in the `myapp` fleet.
 
 ##### What version of Docker runs on the devices?
 Currently we're running v1.10.3, but continuously updating it as the versions are tested and verified on resin.io. Keep an eye on the [Announcements in the forums](https://talk.resin.io/c/resinio/announcements-releases) for updates.
