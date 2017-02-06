@@ -23,3 +23,6 @@ cd pages/tools/ && {
 
 # get latest supervisor API docs
 cd pages/runtime/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/API.md; mv API.md supervisor-api.md ; cd -; }
+
+# get latest supervisor update-lock docs
+cd pages/runtime/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/update-locking.md; cd -; }
