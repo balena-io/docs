@@ -151,7 +151,15 @@ __Note:__ The 90 and 270 degrees rotation options require additional memory on G
 so won't work with the 16M GPU split.
 
 ### Customising config.txt
-These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings the the config.txt file on the SD cards `boot` partition. See [here](/configuration/advanced/) for more details.
+These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings the the `config.txt` file on the SD cards `boot` partition. See [here](/configuration/advanced/) for more details.
+
+You can also set all of these variables remotely in the Device Configuration (for a single device) or Fleet Configuration (for all devices within an application) menu. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `RESIN_HOST_CONFIG_variable` set to the value `value`. For example:
+
+![Setting the fleet configuration for Raspberry Pi config.txt variables](/img/hardware/resin_host_config.png)
+
+For simplicity, below all examples are using the `config.txt` formatting, but all of them are available to set remotely as outlined above.
+
+For further details and explanation regarding the settings below you may check the official [`config.txt` documentation](https://www.raspberrypi.org/documentation/configuration/config-txt.md).
 
 ##### Binary Blobs for GPU/vcore
 This is neccessary for any graphics acceleration or if you want to use the official raspberry pi camera module
