@@ -139,6 +139,8 @@ Alternatively, it is possible to reboot the device via the dbus interface as des
 
 ### Dbus communication with hostOS
 
+__Note:__ If you are using resinOS greater than `v2` the mount point has changed to `/host/run/dbus/system_bus_socket`. 
+
 In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket` for all dbus communication. Below you can find a couple of examples.
 
 #### Change the Device hostname
