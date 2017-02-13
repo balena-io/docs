@@ -17,7 +17,7 @@ This is either because it is not connected to the network or because the network
 
 * The first things to check in this case is that your device is correctly connected to ethernet or that you correctly entered the wifi credentials. To check that the wifi credentials are correct, you can check the `config.json` file on the `resin-boot` partition of the SD card (since Resin OS 1.2, or `resin-conf` for earlier versions).
 * Secondly check that your network is not restricting or blocking the ports specified in the [resin.io network requirements](/deployment/network/#network-requirements).
-* If you still aren't able to get your device online, reach out to us at our [community](https://gitter.im/resin-io/chat).
+* If you still aren't able to get your device online, reach out to us at in the community [forums](https://forums.resin.io/) or [chat](https://gitter.im/resin-io/chat).
 
 #### Can't Boot the Kernel.img
 If the `ACT` LED blinks with the repeated pattern of 7 quick flashes and a pause (`*_*_*_*_*_*_*____*_*_*_*_*_*_*____`), this means that the raspberry pi boot loader is not able to load the correct kernel.img.
