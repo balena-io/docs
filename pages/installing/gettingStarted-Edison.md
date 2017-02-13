@@ -10,9 +10,9 @@ title: Intel Edison
 
 * an Intel Edison
 * A base board for the edison that has an USB-OTG port, any of the following boards will do the trick:
-    - [The official Intel development board][official-dev-board]
-    - [Sparkfun Base Block][sparkfun-base-block]
-    - [Intel® Edison and Arduino Breakout Kit][edison-ardiuno-breakout-board]
+    - [Intel® Edison and Mini Breakout Kit](https://www.sparkfun.com/products/13025)
+    - [Intel® Edison and Arduino Breakout Kit](https://www.sparkfun.com/products/13097)
+    - [SparkFun Block for Intel® Edison](https://www.sparkfun.com/products/13045)
 ![Edison Boards with OTG](/img/edison/edison-otg-ports.png)
 * A micro-usb cable
 * The [Intel Flash tool Lite][flash-tool-link] installed on your computer.
