@@ -8,7 +8,7 @@ title: Welcome to Resin.io
 
 To get started with resin.io, first read [understanding resin.io][understanding] or you can jump right in with [installing resin.io][installing] to start provisioning some devices and pushing code.
 
-If you need to work out which base image to use, check out our [base images wiki][base-images-wiki] which lists all of our base images including many specialised ones for e.g. node, python, go, smaller images, etc.
+If you need to work out which base image to use, check out our [base images documentation](/runtime/resin-base-images) which lists all of our base images including many specialised ones for e.g. node, python, go, smaller images, etc.
 
 Have fun!
 
@@ -17,4 +17,3 @@ If you have any further questions drop us a mail at **hello@resin.io**.
 [resin]:http://resin.io
 [installing]:/installing/gettingStarted
 [understanding]:/understanding/understanding-code-deployment
-[base-images-wiki]:/runtime/resin-base-images
