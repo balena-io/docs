@@ -10,9 +10,9 @@ title: Intel Edison
 
 * an Intel Edison
 * A base board for the edison that has an USB-OTG port, any of the following boards will do the trick:
-    - [The official Intel development board][official-dev-board]
-    - [Sparkfun Base Block][sparkfun-base-block]
-    - [Intel® Edison and Arduino Breakout Kit][edison-ardiuno-breakout-board]
+    - [Intel® Edison and Mini Breakout Kit](https://www.sparkfun.com/products/13025)
+    - [Intel® Edison and Arduino Breakout Kit](https://www.sparkfun.com/products/13097)
+    - [SparkFun Block for Intel® Edison](https://www.sparkfun.com/products/13045)
 ![Edison Boards with OTG](/img/edison/edison-otg-ports.png)
 * A micro-usb cable
 * The [Intel Flash tool Lite][flash-tool-link] installed on your computer.
@@ -371,9 +371,6 @@ Once you have burned the new firmware with this method you can carry on from the
 [code-school]:https://www.codeschool.com/
 [python-example]:https://github.com/shaunmulligan/hello-python-edison
 
-[sparkfun-base-block]:https://learn.sparkfun.com/tutorials/sparkfun-blocks-for-intel-edison---base-block-?_ga=1.77763604.1671353836.1422802730
-[edison-arduino-breakout-board]:https://www.sparkfun.com/products/13097
-[official-dev-board]:http://www.makershed.com/products/intel-edison-breakout-board-kit
 [7-zip-link]:http://www.7-zip.org/
 [dfu-util-for-windows-link]:https://cdn.sparkfun.com/assets/learn_tutorials/3/3/4/dfu-util-0.8-binaries.tar.xz
 [sparkfun-blog-link]:https://learn.sparkfun.com/tutorials/loading-debian-ubilinux-on-the-edison#install-ubilinux
