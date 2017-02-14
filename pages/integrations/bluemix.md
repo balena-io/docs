@@ -273,8 +273,6 @@ There is an example how to [visualize your data](https://developer.ibm.com/recip
 
 ## Further information
 
-If you have any questions, feel free to reach out to us at **hello@resin.io**, or chat with us on [Gitter](https://gitter.im/resin-io/chat)!
-
 ### Shortcuts:
 
 * [New Bluemix Console](https://new-console.ng.bluemix.net/)

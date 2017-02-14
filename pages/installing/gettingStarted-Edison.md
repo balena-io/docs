@@ -130,7 +130,7 @@ Once your Edison is connected to the computer, the flash tool should auto-detect
 
 ![Edison flash progress](/img/edison/flash-edison-progress.png)
 
-__Note:__ If you get stuck at this point or your device never shows up on the resin dashboard, please let us know over [here][resin-support-help] or over at [talk.resin.io][resin-talk-link].
+__Note:__ If you get stuck at this point or your device never shows up on the resin dashboard, please let us know over [here][resin-support-help] or over at [forums.resin.io][resin-forums-link].
 
 Once your Edison has reached 100% on the progress bar, the flashing process has completed, but the device still needs to reboot. **Let your Edison sit for about 2 minutes**.
 
@@ -186,7 +186,7 @@ If node.js isn't your thing, then don't worry, you can use any language you like
 
 ## Feedback
 
-If you find any issues with the application, please let us know over [here][resin-support-help] or over at [talk.resin.io][resin-talk-link]. We are always open to
+If you find any issues with the application, please let us know over [here][resin-support-help] or over at [forums.resin.io][resin-forums-link]. We are always open to
 feedback and respond to any issues as soon as we can.
 
 ## Alternative Method of Flashing Edison firmware
@@ -378,5 +378,5 @@ Once you have burned the new firmware with this method you can carry on from the
 [macports-link]:https://www.macports.org/
 [flash-tool-link]:https://software.intel.com/en-us/articles/flash-tool-lite-user-manual
 [resin-support-help]:https://resin.io/contact/#contact-form
-[resin-talk-link]:http://talk.resin.io/
+[resin-forums-link]:https://forums.resin.io/
 [edison-ardiuno-breakout-board]:https://www.arduino.cc/en/ArduinoCertified/IntelEdison

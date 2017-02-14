@@ -227,10 +227,7 @@ where you need to replace `KEYFILE` with the relevant filename (such as `xxxxxxx
 
 ## Further information
 
-If you have any questions, feel free to reach out to us at **hello@resin.io**, or chat with us on [Gitter](https://gitter.im/resin-io/chat)!
-
 ### Shortcuts:
-
 
 * [AWS IoT console](https://console.aws.amazon.com/iot/home)
 * [AWS IoT Documentation](https://aws.amazon.com/documentation/iot/)
