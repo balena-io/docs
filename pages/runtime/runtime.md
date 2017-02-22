@@ -139,20 +139,23 @@ Alternatively, it is possible to reboot the device via the dbus interface as des
 
 ### Dbus communication with hostOS
 
-In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for resinOS 1.x and 2.x devices, choose the line that is correct for your device's OS version (can be found in your device dashboard):
+In some cases its necessary to communicate with the hostOS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the hostOS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the resin.io supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
 ```
-# for resinOS 1.x use this version:
-DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket
-
-# for resinOS 2.x use this version:
+# for resin.io supervisor versions 1.7.0 and newer (both resinOS 1.x and 2.x) use this version:
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+```
+
+```
+# for resin.io supervisor before 1.7.0 use this version:
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket
 ```
 
 Below you can find a couple of examples. All of them requires either prepending the command with the above `DBUS_SYSTEM_BUS_ADDRESS=...` or setting the variable for all commands by running `export DBUS_SYSTEM_BUS_ADDRESS=...` with the correct environment variable value from above.
 
 #### Change the Device hostname
 ```Bash
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
   dbus-send \
   --system \
   --print-reply \
@@ -166,6 +169,7 @@ Below you can find a couple of examples. All of them requires either prepending 
 
 #### Rebooting the Device
 ```Bash
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
   dbus-send \
   --system
   --print-reply \
@@ -176,6 +180,7 @@ Below you can find a couple of examples. All of them requires either prepending 
 
 #### Checking if device time is NTP synchronized
 ```Bash
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
   dbus-send \
   --system \
   --print-reply \
