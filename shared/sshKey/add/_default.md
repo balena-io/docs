@@ -31,7 +31,7 @@ If you don't have a ssh key setup yet, but want to explore resin.io, just click 
 [git]:http://git-scm.com/
 [ssh_key]:http://en.wikipedia.org/wiki/Secure_Shell
 [github]:http://github.com/
-[github_ssh]:https://help.github.com/articles/generating-ssh-keys
+[github_ssh]:https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 [github_ssh_blogpost]:http://resin.io/blog/email-github-public-ssh-key/
 [github_apis]:https://developer.github.com/v3/
 [prefsPage]:https://dashboard.resin.io/preferences?tab=sshkeys

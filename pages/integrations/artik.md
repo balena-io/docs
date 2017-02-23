@@ -241,8 +241,6 @@ Once your code is deployed and data is sent succcessfully from your devices to t
 
 Once it is working, you can go to more advanced features, such as [setting rules](https://artik.cloud/my/rules) to act on the data received, or you [exporting](https://artik.cloud/my/exports) your data log.
 
-If you have any questions, feel free to reach out to us at **hello@resin.io**, or chat with us on [Gitter](https://gitter.im/resin-io/chat)!
-
 ### Shortcuts:
 
 * [Developers dashboard](https://developer.artik.cloud/dashboard)

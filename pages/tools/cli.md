@@ -2,6 +2,8 @@
 
 This tool allows you to interact with the resin.io api from the comfort of your command line.
 
+Please make sure your system meets the requirements as specified in the [README](https://github.com/resin-io/resin-cli).
+
 To get started download the CLI from npm.
 
 	$ npm install resin-cli -g
@@ -33,10 +35,16 @@ Now you have access to all the commands referenced below.
 
 	- [devices](#devices)
 	- [device &#60;uuid&#62;](#device-60-uuid-62-)
+	- [devices supported](#devices-supported)
 	- [device register &#60;application&#62;](#device-register-60-application-62-)
 	- [device rm &#60;uuid&#62;](#device-rm-60-uuid-62-)
 	- [device identify &#60;uuid&#62;](#device-identify-60-uuid-62-)
 	- [device reboot &#60;uuid&#62;](#device-reboot-60-uuid-62-)
+	- [device shutdown &#60;uuid&#62;](#device-shutdown-60-uuid-62-)
+	- [device public-url enable &#60;uuid&#62;](#device-public-url-enable-60-uuid-62-)
+	- [device public-url disable &#60;uuid&#62;](#device-public-url-disable-60-uuid-62-)
+	- [device public-url &#60;uuid&#62;](#device-public-url-60-uuid-62-)
+	- [device public-url status &#60;uuid&#62;](#device-public-url-status-60-uuid-62-)
 	- [device rename &#60;uuid&#62; [newName]](#device-rename-60-uuid-62-newname-)
 	- [device move &#60;uuid&#62;](#device-move-60-uuid-62-)
 	- [device init](#device-init)
@@ -276,6 +284,14 @@ Examples:
 
 	$ resin device 7cf02a6
 
+## devices supported
+
+Use this command to get the list of all supported devices
+
+Examples:
+
+	$ resin devices supported
+
 ## device register &#60;application&#62;
 
 Use this command to register a device to an application.
@@ -325,6 +341,58 @@ Use this command to remotely reboot a device
 Examples:
 
 	$ resin device reboot 23c73a1
+
+### Options
+
+#### --force, -f
+
+force action if the update lock is set
+
+## device shutdown &#60;uuid&#62;
+
+Use this command to remotely shutdown a device
+
+Examples:
+
+	$ resin device shutdown 23c73a1
+
+### Options
+
+#### --force, -f
+
+force action if the update lock is set
+
+## device public-url enable &#60;uuid&#62;
+
+Use this command to enable public URL for a device
+
+Examples:
+
+	$ resin device public-url enable 23c73a1
+
+## device public-url disable &#60;uuid&#62;
+
+Use this command to disable public URL for a device
+
+Examples:
+
+	$ resin device public-url disable 23c73a1
+
+## device public-url &#60;uuid&#62;
+
+Use this command to get the public URL of a device
+
+Examples:
+
+	$ resin device public-url 23c73a1
+
+## device public-url status &#60;uuid&#62;
+
+Use this command to determine if public URL is enabled for a device
+
+Examples:
+
+	$ resin device public-url status 23c73a1
 
 ## device rename &#60;uuid&#62; [newName]
 
@@ -584,7 +652,9 @@ continuously stream output
 
 ## sync [uuid]
 
-WARNING: If you're running Windows, this command only supports `cmd.exe`.
+Warning: 'resin sync' requires an openssh-compatible client and 'rsync' to
+be correctly installed in your shell environment. For more information (including
+Windows support) please check the README here: https://github.com/resin-io/resin-cli
 
 Use this command to sync your local changes to a certain device on the fly.
 
@@ -659,7 +729,9 @@ increase verbosity
 
 ## ssh [uuid]
 
-WARNING: If you're running Windows, this command only supports `cmd.exe`.
+Warning: 'resin ssh' requires an openssh-compatible client to be correctly
+installed in your shell environment. For more information (including Windows
+support) please check the README here: https://github.com/resin-io/resin-cli
 
 Use this command to get a shell into the running application container of
 your device.

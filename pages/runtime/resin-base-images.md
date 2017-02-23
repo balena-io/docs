@@ -1,4 +1,4 @@
-# Resin Base Images Wiki
+# Resin Base Images Docs
 
 This page contains all the information about the images maintained on the Resin.io docker hub registry.
 

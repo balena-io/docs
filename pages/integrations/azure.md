@@ -96,8 +96,6 @@ Now you’re done. Provision as many devices as you need with resin (you can use
 
 ![devices-running](/img/integrations/azure/devices-running.png)
 
-If you have any further questions drop us a mail at **azure@resin.io**.
-
 [resin]:http://resin.io
 [installing]:/installing/gettingStarted
 [azure]:http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx
