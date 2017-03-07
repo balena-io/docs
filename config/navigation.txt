@@ -35,6 +35,7 @@ Learn
     Artik 710 ~ Artik 710 and {{ $language.name }}[/artik710/$language/getting-started]
     Artik 10 ~ Artik 10 and {{ $language.name }}[/artik10/$language/getting-started]
     Beaglebone ~ Beaglebone and {{ $language.name }}[/beaglebone/$language/getting-started]
+    UPboard ~ UPboard and {{ $language.name }}[/up-board/$language/getting-started]
     Other Boards[/installing/otherboards]
 
   Resin.io Basics
