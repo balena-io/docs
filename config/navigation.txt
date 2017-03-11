@@ -50,6 +50,9 @@ Learn
       [/runtime/bandwidth-reduction]
       [/runtime/update-locking]
 
+    Developing with resin.io
+      [/development/local-mode]
+
     Accessing Hardware & Peripherals
       [/hardware/gpio]
       [/hardware/i2c-and-spi]
