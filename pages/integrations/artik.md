@@ -14,7 +14,7 @@ As a simple illustration use case, an example device is used which reads local a
 
 You need to create a Samsung account to [sign up](https://artik.cloud/account/signup) for the ARTIK Cloud. If you already have an account you can [log in](https://artik.cloud/account/login) to the portal.
 
-ARTIK Cloud has two main dashboard. The [developers dashboard](https://developer.artik.cloud/dashboard) provides an interface to create and manage device types and applications. [My ARTIK Cloud](https://artik.cloud/my) allows manage devices, data, and automated actions.
+ARTIK Cloud has two main dashboards. The [developers dashboard](https://developer.artik.cloud/dashboard) provides an interface to create and manage device types and applications. [My ARTIK Cloud](https://artik.cloud/my) allows management of devices, data, and automated actions.
 
 ### Device type creation
 
@@ -24,9 +24,9 @@ To create your first device type, on the developer dashboard navigate to device 
 
 ![New ARTIK Cloud device type](/img/integrations/artik/ARTIKCloud_new_devicetype.png)
 
-Set a suitable _display name_, and a _unique name_ for the device type. In my example the display name is "My Resin Device", and the unique name is `my.resin.v1`. Unique names can, but do not have to follow the patter of reversed Internet domain name format, for example `io.resin.aircon`.
+Set a suitable _display name_, and a _unique name_ for the device type. In my example the display name is "My Resin Device", and the unique name is `my.resin.v1`. Unique names can, but do not have to follow the pattern of reversed Internet domain name format, for example `io.resin.aircon`.
 
-After the new device type is created, you have to declare the its capabilities through a manifest file. A manifest file is a specially formatted JSON file (see the [documentation](https://developer.artik.cloud/documentation/introduction/the-manifest.html)), which can be either manually created, or you can use the online manifest creator from the device type's dashboard:
+After the new device type is created, you have to declare its capabilities through a manifest file. A manifest file is a specially formatted JSON file (see the [documentation](https://developer.artik.cloud/documentation/introduction/the-manifest.html)), which can be either manually created, or you can use the online manifest creator from the device type's dashboard:
 
 ![Device type manifest](/img/integrations/artik/ARTIKCloud_manifest.png)
 
@@ -34,7 +34,7 @@ There are two main tabs on the manifest creator, one is for Device Fields, and o
 
 Device Fields can be any kind of data: numbers, boolean values, strings, arrays of values. There are a number of other settings you can define for any data field, such as default units, description, use tags for later easy filtering of data groups, or can define field groups.
 
-In this example above, a single data field is set, `Temperature`, with `Double` data type, default units if `℃`, a desciption, and some tags. If instead of using the online editor, you would want to upload a manifest file, the following is the equivalent setting:
+In this example above, a single data field is set, `Temperature`, with `Double` data type, default units of `℃`, a description, and some tags. If instead of using the online editor, you would want to upload a manifest file, the following is the equivalent setting:
 
 ```json
 {
@@ -58,7 +58,7 @@ In this example above, a single data field is set, `Temperature`, with `Double` 
 
 I've got this file by exporting the manifest from the device type dashboard, once it is set up. This way you can save and use version control on your manifest files as well.
 
-The next step would be adding any actions that the device can take, but that is out of scope for this simple getting started tutorial and won't add any actions. As a general overview, actions have a "name" which is equivalent of a command sent to the device (e.g. "setText" to display a given text any way the device is capable of, or "turnOff" to turn off the the device). The actions may also have parameters (but don't have to), which act as arguments to the command (such as the "text" parameter of the "setText" action, to tell the device what to display). ARTIK Cloud has a number of default actions, but you can define any action name, and any parameter names.
+The next step would be adding any actions that the device can take, but that is out of scope for this simple getting started tutorial and we won't add any actions. As a general overview, actions have a "name" which is equivalent of a command sent to the device (e.g. "setText" to display a given text any way the device is capable of, or "turnOff" to turn off the the device). The actions may also have parameters (but don't have to), which act as arguments to the command (such as the "text" parameter of the "setText" action, to tell the device what to display). ARTIK Cloud has a number of default actions, but you can define any action name, and any parameter names.
 
 For more advanced set up, you can consult the [device manifest documentation]([documentation](https://developer.artik.cloud/documentation/introduction/the-manifest.html)).
 
@@ -70,7 +70,7 @@ There are advanced options available on that dashboard to manage the device type
 
 ### Device creation
 
-Next, need to create a new device with the above device type. This is done on the [My ARTIK Cloud dashboard](https://www.artik.cloud/my). When prompted to connect your first device, in the device type field you will be able to find the name, in this example "My Resin Device". You can use any convenient name for your device itself.
+Next, we need to create a new device with the above device type. This is done on the [My ARTIK Cloud dashboard](https://www.artik.cloud/my). When prompted to connect your first device, in the device type field you will be able to find the name, in this example "My Resin Device". You can use any convenient name for your device itself.
 
 ![New device](/img/integrations/artik/ARTIKCloud_new_device.png)
 
@@ -88,7 +88,7 @@ Actions are generally sent to the devices either by other devices, or through th
 
 ![Rules dashboard](/img/integrations/artik/ARTIKCloud_rules.png)
 
-One useful trick while developing actions is setting up your rule as a scheduled action, save it, then in the rules dashboard trigger it by the corresponding "test" button. Continue developing your application, and once the action is processed correctly, edit the action and set the device activity (i.e. reading value) you would like the action to be triggered by (if needed). The trick is used because because only scheduled actions can be manually triggered at the moment.
+One useful trick while developing actions is setting up your rule as a scheduled action, save it, then in the rules dashboard trigger it by the corresponding "test" button. Continue developing your application, and once the action is processed correctly, edit the action and set the device activity (i.e. reading value) you would like the action to be triggered by (if needed). The trick is used because only scheduled actions can be manually triggered at the moment.
 
 For more information see the [Develop Rules for Devices](https://developer.artik.cloud/documentation/connect-the-data/develop-rules-for-devices.html) section of the ARTIK Cloud documentation.
 
@@ -96,11 +96,11 @@ For more information see the [Develop Rules for Devices](https://developer.artik
 
 Go to your [resin.io dashboard](https://dashboard.resin.io) and create a new application with the physical device type you are using (for example a Samsung ARTIK board, or any other). In the tutorial's example a BeagleBone Green Wifi is used (with a temperature sensor module).
 
-In the application dashboard define two application-wide environmental variables for the Device ID and Device Token values. For clarity you can choose `ARTIKCLOUD_DEVICE_ID` `ARTIKCLOUD_DEVICE_TOKEN`, though can use any other value you like. In the application-wise setting just use a placeholder value, such as `REDEFINE`.
+In the application dashboard define two application-wide environmental variables for the Device ID and Device Token values. For clarity you can choose `ARTIKCLOUD_DEVICE_ID` `ARTIKCLOUD_DEVICE_TOKEN`, though can use any other value you like. In the application-wide setting just use a placeholder value, such as `REDEFINE`.
 
 ![Environment variables](/img/integrations/artik/ARTIKCloud_environment.png)
 
-Set up your device and connect to resin. Then in the device's dashboard, redefine the environmenal variables (the Device ID and Device Token) saved from the previous step. If you have multiple devices, do these steps for all of them.
+Set up your device and connect to resin. Then in the device's dashboard, redefine the environmental variables (the Device ID and Device Token) saved from the previous step. If you have multiple devices, do these steps for all of them.
 
 After this, the credentials for the devices to talk to ARTIK Cloud will be available from within your application code as environmental variables!
 
