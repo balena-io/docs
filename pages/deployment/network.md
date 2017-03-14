@@ -130,7 +130,7 @@ __Note:__ Unfortunately this file is not nicely formatted and it requires that y
 
 ## 3G or Cellular Connections
 
-Currently 3G or Cellular modems are not supported out of the box, but they are easily setup on a resin.io device. During the set up of you cellular connection, you will need an ethernet or wifi connection to the device so that it can correctly provision and download a container with the necessary configurations.
+Currently 3G or Cellular modems are not supported out of the box, but they are easily setup on a resin.io device. During the setup of your cellular connection, you will need an ethernet or wifi connection to the device so that it can correctly provision and download a container with the necessary configurations.
 
 To get started with a cellular connection have a look at our blog post ["A guide to cellular connectivity on resin.io devices"](https://resin.io/blog/cellular-connectivity/) and the corresponding [github repository](https://github.com/resin-io-projects/cellular-modem.git).
 
