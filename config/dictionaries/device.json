@@ -78,5 +78,14 @@
     "rustLinker": "x86_64-linux-gnu-gcc",
     "cppTriple": "x86_64-unknown-linux-gnu",
     "icon": "/img/device/up-board.svg"
+  },
+  {
+    "id": "kitra710",
+    "name": "Kitra 710",
+    "bootMedia": "SD card",
+    "rustTriple": "aarch64-unknown-linux-gnu",
+    "rustLinker": "arm-linux-gnueabihf-gcc",
+    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/kitra710.svg"
   }
 ]
