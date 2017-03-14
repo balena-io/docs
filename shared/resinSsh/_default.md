@@ -5,7 +5,7 @@ Provided you are already logged in on the CLI and you have a device online, you 
 resin:simple-server-node shaun$ resin ssh 5dc2c87
 Connecting with: 5dc2c87
 root@{{ $device.id }}-5dc2c8:/# uname -a
-Linux {{ $device.name }}-5dc2c8 3.10.93 #1 SMP PREEMPT Wed Apr 20 10:25:12 CEST 2016 armv7l GNU/Linux
+Linux {{ $device.name }}-5dc2c8 3.10.93 #1 SMP PREEMPT Wed Apr 20 10:25:12 CEST 2016 {{ $device.arch }} GNU/Linux
 ```
 
 [resin-cli-link]:/tools/cli/

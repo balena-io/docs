@@ -33,7 +33,7 @@ __Note:__ On your very first push, git may ask you if you would like to add this
 You'll know your code has been successfully compiled and built when our
 friendly unicorn mascot appears in your terminal:
 
-<img src="/img/common/pushing/success_unicorn_resin_cpp_hello_world.png" width="80%">
+<img src="/img/common/pushing/success_unicorn_resin_rust_hello_world.png" width="80%">
 
 This means your code is safely built and stored on our image registry. It should only take about 2 minutes to build your code and subsequent builds will be quicker because of build caching.
 

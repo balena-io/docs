@@ -2,6 +2,7 @@
   {
     "id": "raspberrypi",
     "name": "Raspberry Pi 1 or ZERO",
+    "arch": "armv6",
 		"bootMedia": "SD card",
     "rustTriple": "arm-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -11,6 +12,7 @@
 	{
     "id": "raspberrypi2",
     "name": "Raspberry Pi 2",
+    "arch": "armv7l",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -20,6 +22,7 @@
 	{
     "id": "raspberrypi3",
     "name": "Raspberry Pi 3",
+    "arch": "armv7l",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -29,6 +32,7 @@
   {
     "id": "artik5",
     "name": "Samsung ARTIK 5",
+    "arch": "armv7l",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -38,6 +42,7 @@
   {
     "id": "artik710",
     "name": "Samsung ARTIK 710",
+    "arch": "armv7l",
 		"bootMedia": "SD card",
     "rustTriple": "aarch64-unknown-linux-gnu",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -47,6 +52,7 @@
   {
     "id": "artik10",
     "name": "Samsung ARTIK 10",
+    "arch": "armv7l",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -56,10 +62,21 @@
   {
     "id": "beaglebone",
     "name": "Beaglebone",
+    "arch": "armv7l",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
     "cppTriple": "arm-unknown-linux-gnueabi",
     "icon": "/img/device/beaglebone-black.svg"
+  },
+  {
+    "id": "up-board",
+    "name": "UPboard",
+    "arch": "x86_64",
+		"bootMedia": "USB drive",
+    "rustTriple": "x86_64-unknown-linux-gnu",
+    "rustLinker": "x86_64-linux-gnu-gcc",
+    "cppTriple": "x86_64-unknown-linux-gnu",
+    "icon": "/img/device/up-board.svg"
   }
 ]
