@@ -33,12 +33,12 @@ __Note:__ On your very first push, git may ask you if you would like to add this
 You'll know your code has been successfully compiled and built when our
 friendly unicorn mascot appears in your terminal:
 
-<img src="/img/common/pushing/success_unicorn_resin_cpp_hello_world.png" width="80%">
+<img src="/img/common/pushing/success_unicorn_resin_rust_hello_world.png" width="80%">
 
 This means your code is safely built and stored on our image registry. It should only take about 2 minutes to build your code and subsequent builds will be quicker because of build caching.
 
 
-Your application will now be downloaded and executed by all the devices you have connected in you application fleet. You may have to wait about 6 minutes for the first push... So time for more tea, but don't worry, all subsequent pushes are much, much faster due to [Docker layer sharing][dockerLayerDocs]. You can see the progress of the device code updates on the device dashboard:
+Your application will now be downloaded and executed by all the devices you have connected in your application fleet. You may have to wait about 6 minutes for the first push... So time for more tea, but don't worry, all subsequent pushes are much, much faster due to [Docker layer sharing][dockerLayerDocs]. You can see the progress of the device code updates on the device dashboard:
 
 <img src="/img/common/device/device_dashboard_during_update_generic.png" width="80%">
 
