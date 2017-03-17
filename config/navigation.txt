@@ -79,6 +79,7 @@ Learn
 
   Advanced
     Creating Custom Resin.io Devices[/hardware/meta-resin]
+    Dependendent Devices[/advanced/dependent-devices]
     Advanced resin.io topics[/advanced/resources]
 
   Examples[/examples]
