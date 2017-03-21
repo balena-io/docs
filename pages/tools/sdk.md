@@ -16,20 +16,21 @@ If you feel something is missing, not clear or could be improved, please don't h
     * [.token](#resin.token) : <code>Object</code>
     * [.models](#resin.models) : <code>object</code>
         * [.application](#resin.models.application) : <code>object</code>
-            * [.getAll()](#resin.models.application.getAll) ⇒ <code>Promise</code>
-            * [.get(nameOrId)](#resin.models.application.get) ⇒ <code>Promise</code>
+            * [.getAll([options])](#resin.models.application.getAll) ⇒ <code>Promise</code>
+            * [.get(nameOrId, [options])](#resin.models.application.get) ⇒ <code>Promise</code>
             * [.has(nameOrId)](#resin.models.application.has) ⇒ <code>Promise</code>
             * [.hasAny()](#resin.models.application.hasAny) ⇒ <code>Promise</code>
             * ~~[.getById(id)](#resin.models.application.getById) ⇒ <code>Promise</code>~~
-            * [.create(name, deviceType)](#resin.models.application.create) ⇒ <code>Promise</code>
+            * [.create(name, deviceType, [parentNameOrId])](#resin.models.application.create) ⇒ <code>Promise</code>
             * [.remove(nameOrId)](#resin.models.application.remove) ⇒ <code>Promise</code>
             * [.restart(nameOrId)](#resin.models.application.restart) ⇒ <code>Promise</code>
             * [.generateApiKey(nameOrId)](#resin.models.application.generateApiKey) ⇒ <code>Promise</code>
             * ~~[.getApiKey(nameOrId)](#resin.models.application.getApiKey) ⇒ <code>Promise</code>~~
         * [.device](#resin.models.device) : <code>object</code>
-            * [.getAll()](#resin.models.device.getAll) ⇒ <code>Promise</code>
-            * [.getAllByApplication(nameOrId)](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
-            * [.get(uuidOrId)](#resin.models.device.get) ⇒ <code>Promise</code>
+            * [.getAll([options])](#resin.models.device.getAll) ⇒ <code>Promise</code>
+            * [.getAllByApplication(nameOrId, [options])](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
+            * [.getAllByParentDevice(parentUuidOrId, [options])](#resin.models.device.getAllByParentDevice) ⇒ <code>Promise</code>
+            * [.get(uuidOrId, [options])](#resin.models.device.get) ⇒ <code>Promise</code>
             * [.getByName(name)](#resin.models.device.getByName) ⇒ <code>Promise</code>
             * [.getName(uuidOrId)](#resin.models.device.getName) ⇒ <code>Promise</code>
             * [.getApplicationName(uuidOrId)](#resin.models.device.getApplicationName) ⇒ <code>Promise</code>
@@ -65,7 +66,7 @@ If you feel something is missing, not clear or could be improved, please don't h
             * [.ping(uuidOrId)](#resin.models.device.ping) ⇒ <code>Promise</code>
             * [.getStatus(device)](#resin.models.device.getStatus) ⇒ <code>Promise</code>
         * [.key](#resin.models.key) : <code>object</code>
-            * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
+            * [.getAll([options])](#resin.models.key.getAll) ⇒ <code>Promise</code>
             * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
             * [.remove(id)](#resin.models.key.remove) ⇒ <code>Promise</code>
             * [.create(title, key)](#resin.models.key.create) ⇒ <code>Promise</code>
@@ -89,7 +90,8 @@ If you feel something is missing, not clear or could be improved, please don't h
             * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
             * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
         * [.build](#resin.models.build) : <code>object</code>
-            * [.getAllByApplication(nameOrId)](#resin.models.build.getAllByApplication) ⇒ <code>Promise</code>
+            * [.get(id, [options])](#resin.models.build.get) ⇒ <code>Promise</code>
+            * [.getAllByApplication(nameOrId, [options])](#resin.models.build.getAllByApplication) ⇒ <code>Promise</code>
     * [.auth](#resin.auth) : <code>object</code>
         * [.twoFactor](#resin.auth.twoFactor) : <code>object</code>
             * [.isEnabled()](#resin.auth.twoFactor.isEnabled) ⇒ <code>Promise</code>
@@ -107,7 +109,9 @@ If you feel something is missing, not clear or could be improved, please don't h
         * [.register([credentials])](#resin.auth.register) ⇒ <code>Promise</code>
     * [.logs](#resin.logs) : <code>object</code>
         * [.subscribe(uuidOrId)](#resin.logs.subscribe) ⇒ <code>Promise</code>
-        * [.history(uuidOrId)](#resin.logs.history) ⇒ <code>Promise</code>
+        * [.history(uuidOrId, [options])](#resin.logs.history) ⇒ <code>Promise</code>
+        * [.historySinceLastClear(uuidOrId, [options])](#resin.logs.historySinceLastClear) ⇒ <code>Promise</code>
+        * [.clear(uuidOrId)](#resin.logs.clear) ⇒ <code>Promise</code>
     * [.settings](#resin.settings) : <code>object</code>
         * [.get([key])](#resin.settings.get) ⇒ <code>Promise</code>
         * [.getAll()](#resin.settings.getAll) ⇒ <code>Promise</code>
@@ -186,20 +190,21 @@ resin.token.set('abcdef...');
 
 * [.models](#resin.models) : <code>object</code>
     * [.application](#resin.models.application) : <code>object</code>
-        * [.getAll()](#resin.models.application.getAll) ⇒ <code>Promise</code>
-        * [.get(nameOrId)](#resin.models.application.get) ⇒ <code>Promise</code>
+        * [.getAll([options])](#resin.models.application.getAll) ⇒ <code>Promise</code>
+        * [.get(nameOrId, [options])](#resin.models.application.get) ⇒ <code>Promise</code>
         * [.has(nameOrId)](#resin.models.application.has) ⇒ <code>Promise</code>
         * [.hasAny()](#resin.models.application.hasAny) ⇒ <code>Promise</code>
         * ~~[.getById(id)](#resin.models.application.getById) ⇒ <code>Promise</code>~~
-        * [.create(name, deviceType)](#resin.models.application.create) ⇒ <code>Promise</code>
+        * [.create(name, deviceType, [parentNameOrId])](#resin.models.application.create) ⇒ <code>Promise</code>
         * [.remove(nameOrId)](#resin.models.application.remove) ⇒ <code>Promise</code>
         * [.restart(nameOrId)](#resin.models.application.restart) ⇒ <code>Promise</code>
         * [.generateApiKey(nameOrId)](#resin.models.application.generateApiKey) ⇒ <code>Promise</code>
         * ~~[.getApiKey(nameOrId)](#resin.models.application.getApiKey) ⇒ <code>Promise</code>~~
     * [.device](#resin.models.device) : <code>object</code>
-        * [.getAll()](#resin.models.device.getAll) ⇒ <code>Promise</code>
-        * [.getAllByApplication(nameOrId)](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
-        * [.get(uuidOrId)](#resin.models.device.get) ⇒ <code>Promise</code>
+        * [.getAll([options])](#resin.models.device.getAll) ⇒ <code>Promise</code>
+        * [.getAllByApplication(nameOrId, [options])](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
+        * [.getAllByParentDevice(parentUuidOrId, [options])](#resin.models.device.getAllByParentDevice) ⇒ <code>Promise</code>
+        * [.get(uuidOrId, [options])](#resin.models.device.get) ⇒ <code>Promise</code>
         * [.getByName(name)](#resin.models.device.getByName) ⇒ <code>Promise</code>
         * [.getName(uuidOrId)](#resin.models.device.getName) ⇒ <code>Promise</code>
         * [.getApplicationName(uuidOrId)](#resin.models.device.getApplicationName) ⇒ <code>Promise</code>
@@ -235,7 +240,7 @@ resin.token.set('abcdef...');
         * [.ping(uuidOrId)](#resin.models.device.ping) ⇒ <code>Promise</code>
         * [.getStatus(device)](#resin.models.device.getStatus) ⇒ <code>Promise</code>
     * [.key](#resin.models.key) : <code>object</code>
-        * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
+        * [.getAll([options])](#resin.models.key.getAll) ⇒ <code>Promise</code>
         * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
         * [.remove(id)](#resin.models.key.remove) ⇒ <code>Promise</code>
         * [.create(title, key)](#resin.models.key.create) ⇒ <code>Promise</code>
@@ -259,7 +264,8 @@ resin.token.set('abcdef...');
         * [.getDeviceTypes()](#resin.models.config.getDeviceTypes) ⇒ <code>Promise</code>
         * [.getDeviceOptions(deviceType)](#resin.models.config.getDeviceOptions) ⇒ <code>Promise</code>
     * [.build](#resin.models.build) : <code>object</code>
-        * [.getAllByApplication(nameOrId)](#resin.models.build.getAllByApplication) ⇒ <code>Promise</code>
+        * [.get(id, [options])](#resin.models.build.get) ⇒ <code>Promise</code>
+        * [.getAllByApplication(nameOrId, [options])](#resin.models.build.getAllByApplication) ⇒ <code>Promise</code>
 
 <a name="resin.models.application"></a>
 
@@ -267,12 +273,12 @@ resin.token.set('abcdef...');
 **Kind**: static namespace of <code>[models](#resin.models)</code>  
 
 * [.application](#resin.models.application) : <code>object</code>
-    * [.getAll()](#resin.models.application.getAll) ⇒ <code>Promise</code>
-    * [.get(nameOrId)](#resin.models.application.get) ⇒ <code>Promise</code>
+    * [.getAll([options])](#resin.models.application.getAll) ⇒ <code>Promise</code>
+    * [.get(nameOrId, [options])](#resin.models.application.get) ⇒ <code>Promise</code>
     * [.has(nameOrId)](#resin.models.application.has) ⇒ <code>Promise</code>
     * [.hasAny()](#resin.models.application.hasAny) ⇒ <code>Promise</code>
     * ~~[.getById(id)](#resin.models.application.getById) ⇒ <code>Promise</code>~~
-    * [.create(name, deviceType)](#resin.models.application.create) ⇒ <code>Promise</code>
+    * [.create(name, deviceType, [parentNameOrId])](#resin.models.application.create) ⇒ <code>Promise</code>
     * [.remove(nameOrId)](#resin.models.application.remove) ⇒ <code>Promise</code>
     * [.restart(nameOrId)](#resin.models.application.restart) ⇒ <code>Promise</code>
     * [.generateApiKey(nameOrId)](#resin.models.application.generateApiKey) ⇒ <code>Promise</code>
@@ -280,11 +286,16 @@ resin.token.set('abcdef...');
 
 <a name="resin.models.application.getAll"></a>
 
-##### application.getAll() ⇒ <code>Promise</code>
+##### application.getAll([options]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[application](#resin.models.application)</code>  
 **Summary**: Get all applications  
 **Access:** public  
 **Fulfil**: <code>Object[]</code> - applications  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
+
 **Example**  
 ```js
 resin.models.application.getAll().then(function(applications) {
@@ -300,15 +311,16 @@ resin.models.application.getAll(function(error, applications) {
 ```
 <a name="resin.models.application.get"></a>
 
-##### application.get(nameOrId) ⇒ <code>Promise</code>
+##### application.get(nameOrId, [options]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[application](#resin.models.application)</code>  
 **Summary**: Get a single application  
 **Access:** public  
 **Fulfil**: <code>Object</code> - application  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| nameOrId | <code>String</code> &#124; <code>Number</code> | application name (string) or id (number) |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| nameOrId | <code>String</code> &#124; <code>Number</code> |  | application name (string) or id (number) |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
 **Example**  
 ```js
@@ -409,7 +421,7 @@ resin.models.application.getById(89, function(error, application) {
 ```
 <a name="resin.models.application.create"></a>
 
-##### application.create(name, deviceType) ⇒ <code>Promise</code>
+##### application.create(name, deviceType, [parentNameOrId]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[application](#resin.models.application)</code>  
 **Summary**: Create an application  
 **Access:** public  
@@ -419,10 +431,17 @@ resin.models.application.getById(89, function(error, application) {
 | --- | --- | --- |
 | name | <code>String</code> | application name |
 | deviceType | <code>String</code> | device type slug |
+| [parentNameOrId] | <code>Number</code> &#124; <code>String</code> | parent application name or id |
 
 **Example**  
 ```js
 resin.models.application.create('My App', 'raspberry-pi').then(function(application) {
+	console.log(application);
+});
+```
+**Example**  
+```js
+resin.models.application.create('My App', 'raspberry-pi', 'ParentApp').then(function(application) {
 	console.log(application);
 });
 ```
@@ -535,9 +554,10 @@ resin.models.application.generateApiKey('MyApp', function(error, apiKey) {
 **Kind**: static namespace of <code>[models](#resin.models)</code>  
 
 * [.device](#resin.models.device) : <code>object</code>
-    * [.getAll()](#resin.models.device.getAll) ⇒ <code>Promise</code>
-    * [.getAllByApplication(nameOrId)](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
-    * [.get(uuidOrId)](#resin.models.device.get) ⇒ <code>Promise</code>
+    * [.getAll([options])](#resin.models.device.getAll) ⇒ <code>Promise</code>
+    * [.getAllByApplication(nameOrId, [options])](#resin.models.device.getAllByApplication) ⇒ <code>Promise</code>
+    * [.getAllByParentDevice(parentUuidOrId, [options])](#resin.models.device.getAllByParentDevice) ⇒ <code>Promise</code>
+    * [.get(uuidOrId, [options])](#resin.models.device.get) ⇒ <code>Promise</code>
     * [.getByName(name)](#resin.models.device.getByName) ⇒ <code>Promise</code>
     * [.getName(uuidOrId)](#resin.models.device.getName) ⇒ <code>Promise</code>
     * [.getApplicationName(uuidOrId)](#resin.models.device.getApplicationName) ⇒ <code>Promise</code>
@@ -575,11 +595,16 @@ resin.models.application.generateApiKey('MyApp', function(error, apiKey) {
 
 <a name="resin.models.device.getAll"></a>
 
-##### device.getAll() ⇒ <code>Promise</code>
+##### device.getAll([options]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
 **Summary**: Get all devices  
 **Access:** public  
 **Fulfil**: <code>Object[]</code> - devices  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
+
 **Example**  
 ```js
 resin.models.device.getAll().then(function(devices) {
@@ -595,15 +620,16 @@ resin.models.device.getAll(function(error, devices) {
 ```
 <a name="resin.models.device.getAllByApplication"></a>
 
-##### device.getAllByApplication(nameOrId) ⇒ <code>Promise</code>
+##### device.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
 **Summary**: Get all devices by application  
 **Access:** public  
 **Fulfil**: <code>Object[]</code> - devices  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| nameOrId | <code>String</code> &#124; <code>Number</code> | application name (string) or id (number) |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| nameOrId | <code>String</code> &#124; <code>Number</code> |  | application name (string) or id (number) |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
 **Example**  
 ```js
@@ -624,17 +650,50 @@ resin.models.device.getAllByApplication('MyApp', function(error, devices) {
 	console.log(devices);
 });
 ```
+<a name="resin.models.device.getAllByParentDevice"></a>
+
+##### device.getAllByParentDevice(parentUuidOrId, [options]) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[device](#resin.models.device)</code>  
+**Summary**: Get all devices by parent device  
+**Access:** public  
+**Fulfil**: <code>Object[]</code> - devices  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| parentUuidOrId | <code>String</code> &#124; <code>Number</code> |  | parent device uuid (string) or id (number) |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
+
+**Example**  
+```js
+resin.models.device.getAllByParentDevice('7cf02a6').then(function(devices) {
+	console.log(devices);
+});
+```
+**Example**  
+```js
+resin.models.device.getAllByParentDevice(123).then(function(devices) {
+	console.log(devices);
+});
+```
+**Example**  
+```js
+resin.models.device.getAllByParentDevice('7cf02a6', function(error, devices) {
+	if (error) throw error;
+	console.log(devices);
+});
+```
 <a name="resin.models.device.get"></a>
 
-##### device.get(uuidOrId) ⇒ <code>Promise</code>
+##### device.get(uuidOrId, [options]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[device](#resin.models.device)</code>  
 **Summary**: Get a single device  
 **Access:** public  
 **Fulfil**: <code>Object</code> - device  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| uuidOrId | <code>String</code> &#124; <code>Number</code> | device uuid (string) or id (number) |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| uuidOrId | <code>String</code> &#124; <code>Number</code> |  | device uuid (string) or id (number) |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
 **Example**  
 ```js
@@ -1630,18 +1689,23 @@ resin.models.device.getStatus(device, function(error, status) {
 **Kind**: static namespace of <code>[models](#resin.models)</code>  
 
 * [.key](#resin.models.key) : <code>object</code>
-    * [.getAll()](#resin.models.key.getAll) ⇒ <code>Promise</code>
+    * [.getAll([options])](#resin.models.key.getAll) ⇒ <code>Promise</code>
     * [.get(id)](#resin.models.key.get) ⇒ <code>Promise</code>
     * [.remove(id)](#resin.models.key.remove) ⇒ <code>Promise</code>
     * [.create(title, key)](#resin.models.key.create) ⇒ <code>Promise</code>
 
 <a name="resin.models.key.getAll"></a>
 
-##### key.getAll() ⇒ <code>Promise</code>
+##### key.getAll([options]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[key](#resin.models.key)</code>  
 **Summary**: Get all ssh keys  
 **Access:** public  
 **Fulfil**: <code>Object[]</code> - ssh keys  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
+
 **Example**  
 ```js
 resin.models.key.getAll().then(function(keys) {
@@ -2150,17 +2214,49 @@ resin.models.config.getDeviceOptions('raspberry-pi', function(error, options) {
 
 #### models.build : <code>object</code>
 **Kind**: static namespace of <code>[models](#resin.models)</code>  
+
+* [.build](#resin.models.build) : <code>object</code>
+    * [.get(id, [options])](#resin.models.build.get) ⇒ <code>Promise</code>
+    * [.getAllByApplication(nameOrId, [options])](#resin.models.build.getAllByApplication) ⇒ <code>Promise</code>
+
+<a name="resin.models.build.get"></a>
+
+##### build.get(id, [options]) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[build](#resin.models.build)</code>  
+**Summary**: Get a specific build  
+**Access:** public  
+**Fulfil**: <code>Object</code> - build  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| id | <code>Number</code> |  | build id |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
+
+**Example**  
+```js
+resin.models.build.get(123).then(function(build) {
+		console.log(build);
+});
+```
+**Example**  
+```js
+resin.models.build.get(123, function(error, build) {
+		if (error) throw error;
+		console.log(build);
+});
+```
 <a name="resin.models.build.getAllByApplication"></a>
 
-##### build.getAllByApplication(nameOrId) ⇒ <code>Promise</code>
+##### build.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[build](#resin.models.build)</code>  
 **Summary**: Get all builds from an application  
 **Access:** public  
 **Fulfil**: <code>Object[]</code> - builds  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| nameOrId | <code>String</code> &#124; <code>Number</code> | application name (string) or id (number) |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| nameOrId | <code>String</code> &#124; <code>Number</code> |  | application name (string) or id (number) |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
 **Example**  
 ```js
@@ -2546,7 +2642,9 @@ resin.auth.register({
 
 * [.logs](#resin.logs) : <code>object</code>
     * [.subscribe(uuidOrId)](#resin.logs.subscribe) ⇒ <code>Promise</code>
-    * [.history(uuidOrId)](#resin.logs.history) ⇒ <code>Promise</code>
+    * [.history(uuidOrId, [options])](#resin.logs.history) ⇒ <code>Promise</code>
+    * [.historySinceLastClear(uuidOrId, [options])](#resin.logs.historySinceLastClear) ⇒ <code>Promise</code>
+    * [.clear(uuidOrId)](#resin.logs.clear) ⇒ <code>Promise</code>
 
 <a name="resin.logs.subscribe"></a>
 
@@ -2554,7 +2652,8 @@ resin.auth.register({
 The `logs` object yielded by this function emits the following events:
 
 - `line`: when a log line is received.
-- `error`: when an error happens.
+- `clear`: when the logs are cleared.
+- `error`: when an error has happened.
 
 **Kind**: static method of <code>[logs](#resin.logs)</code>  
 **Summary**: Subscribe to device logs  
@@ -2575,6 +2674,9 @@ resin.logs.subscribe('7cf02a6').then(function(logs) {
 	logs.on('line', function(line) {
 		console.log(line);
 	});
+	logs.on('clear', function() {
+		console.clear();
+	});
 });
 ```
 **Example**  
@@ -2582,6 +2684,9 @@ resin.logs.subscribe('7cf02a6').then(function(logs) {
 resin.logs.subscribe(123).then(function(logs) {
 	logs.on('line', function(line) {
 		console.log(line);
+	});
+	logs.on('clear', function() {
+		console.clear();
 	});
 });
 ```
@@ -2597,15 +2702,21 @@ resin.logs.subscribe('7cf02a6', function(error, logs) {
 ```
 <a name="resin.logs.history"></a>
 
-#### logs.history(uuidOrId) ⇒ <code>Promise</code>
+#### logs.history(uuidOrId, [options]) ⇒ <code>Promise</code>
+**Note**: the default number of logs retrieved is 100.
+To get a different number pass the `{ count: N }` to the options param.
+Also note that the actual number of log lines can be bigger as the
+Resin.io supervisor can combine lines sent in a short time interval
+
 **Kind**: static method of <code>[logs](#resin.logs)</code>  
 **Summary**: Get device logs history  
 **Access:** public  
-**Fulfil**: <code>String[]</code> - history lines  
+**Fulfil**: <code>Object[]</code> - history lines  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> &#124; <code>Number</code> | device uuid (string) or id (number) |
+| [options] | <code>Object</code> | any options supported by https://www.pubnub.com/docs/nodejs-javascript/api-reference#history |
 
 **Example**  
 ```js
@@ -2625,12 +2736,79 @@ resin.logs.history(123).then(function(lines) {
 ```
 **Example**  
 ```js
-resin.logs.history('7cf02a6', function(error, lines) {
+resin.logs.history('7cf02a6', { count: 20 }, function(error, lines) {
 	if (error) throw error;
 
 	lines.forEach(function(line) {
 		console.log(line);
 	});
+});
+```
+<a name="resin.logs.historySinceLastClear"></a>
+
+#### logs.historySinceLastClear(uuidOrId, [options]) ⇒ <code>Promise</code>
+**Note**: the default number of logs retrieved is 200.
+To get a different number pass the `{ count: N }` to the options param.
+Also note that the actual number of log lines can be bigger as the
+Resin.io supervisor can combine lines sent in a short time interval
+
+**Kind**: static method of <code>[logs](#resin.logs)</code>  
+**Summary**: Get device logs history after the most recent clear request  
+**Access:** public  
+**Fulfil**: <code>Object[]</code> - history lines  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuidOrId | <code>String</code> &#124; <code>Number</code> | device uuid (string) or id (number) |
+| [options] | <code>Object</code> | any options supported by https://www.pubnub.com/docs/nodejs-javascript/api-reference#history |
+
+**Example**  
+```js
+resin.logs.historySinceLastClear('7cf02a6', { count: 20 }).then(function(lines) {
+	lines.forEach(function(line) {
+		console.log(line);
+	});
+});
+```
+**Example**  
+```js
+resin.logs.historySinceLastClear(123).then(function(lines) {
+	lines.forEach(function(line) {
+		console.log(line);
+	});
+});
+```
+**Example**  
+```js
+resin.logs.historySinceLastClear('7cf02a6', function(error, lines) {
+	if (error) throw error;
+
+	lines.forEach(function(line) {
+		console.log(line);
+	});
+});
+```
+<a name="resin.logs.clear"></a>
+
+#### logs.clear(uuidOrId) ⇒ <code>Promise</code>
+**Kind**: static method of <code>[logs](#resin.logs)</code>  
+**Summary**: Clear device logs history  
+**Access:** public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuidOrId | <code>String</code> &#124; <code>Number</code> | device uuid (string) or id (number) |
+
+**Example**  
+```js
+resin.logs.clear('7cf02a6').then(function() {
+	console.log('OK');
+});
+```
+**Example**  
+```js
+resin.logs.clear(123).then(function() {
+	console.log('OK');
 });
 ```
 <a name="resin.settings"></a>
