@@ -1,15 +1,17 @@
 FROM library/node:6.3
 
-EXPOSE 3000
+RUN mkdir /src
+WORKDIR /src
 
-WORKDIR /usr/src/app
+COPY package.json .
+RUN npm install
 
 COPY . .
+RUN node_modules/bower/bin/bower --allow-root install \
+	&& tools/prepare.sh
 
-# npm install needs to run after the COPY because of postinstall deps.
-RUN npm install --unsafe-perm --allow-root \
-	&& npm cache clean \
-	&& node_modules/bower/bin/bower --allow-root cache clean
+EXPOSE 3000
 
 ENTRYPOINT ["/usr/local/bin/npm"]
 CMD ["start"]
+
