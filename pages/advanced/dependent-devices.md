@@ -112,7 +112,7 @@ Your application will now be downloaded and executed by all the devices you have
 
 <img src="/img/common/device/device_dashboard_during_update_generic.png" width="80%">
 
-You should now have the edge-node-manager running on your device and see some logs on your dashboard.
+You should now have the [edge-node-manager](edge-node-manager-link) gateway application running on your device and see some logs on your dashboard.
 
 ## Creating a dependent application
 To create a dependent application navigate to the Dependent Applications tab and simply type in a name, and click the create button. You should now be taken to the dashboard of your newly created dependent application:
@@ -154,9 +154,9 @@ Finally run the provisioning script using the example command below:
 ./provision.sh
 ```
 
-This will compile the initial firmware and generate a `micro-bit-combined.hex` file in the `micro-bit` directory. Connect the micro:bit to your computer and copy the `micro-bit-combined.hex` file to the micro:bit.
+This will compile the initial firmware inside a docker container which includes all the required tools and dependencies. Once the initial firmware has been compiled the docker container will output a `micro-bit-combined.hex` file in the `micro-bit` directory. Next, connect the micro:bit to your computer with a USB cable and copy the `micro-bit-combined.hex` file to the micro:bit, the orange light on the micro:bit will blink whilst the flashing process is ongoing and you will know once its finished because a "Hello World!" message will scroll across the micro:bit display.
 
-Once the firmware has flashed the micro:bit will appear in the dashboard after a couple of minutes.
+Now that the initial firmware has been flashed the micro:bit will start advertising the ID of the dependent application it belongs to, allowing the [edge-node-manager](edge-node-manager-link) gateway application to discover and provision the micro:bit onto resin. You will know once this has happened because the micro:bit will appear in the dashboard under the dependent application.
 
 ## Deploying dependent device code
 
@@ -182,6 +182,43 @@ Your dependent application will now be pushed over-the-air via Bluetooth to all 
 
 You should now have the dependent device code running on your micro:bit, see some logs on your dashboard and have a nice `Hello world!` message scrolling on the micro:bit display.
 
+## Update locks and the API
+The [edge-node-manager](edge-node-manager-link) gateway application holds the [update lock](https://docs.resin.io/management/devices/#update-locking) whilst interacting with the dependent devices, this prevents the user container from updating or being restarted mid way through an over-air-update. You don't need to worry about this as the update lock is released whenever the [edge-node-manager](edge-node-manager-link) gateway application is not interacting with the dependent devices.
+
+A final point is that the [edge-node-manager](edge-node-manager-link) gateway application provides an API that allows the you to set the target status of the main process. This is useful to free up the on-board radios allowing user code to interact directly with the dependent devices e.g. to collect sensor data.
+
+**Warning** - Do not try and interact with the on-board radios whilst the edge-node-manager is running (this leads to inconsistent, unexpected behaviour).
+
+### SET /v1/enm/status
+Set the edge-node-manager process status.
+
+#### Example
+```
+curl -i -H "Content-Type: application/json" -X PUT --data '{"targetStatus":"Paused"}' localhost:1337/v1/enm/status
+curl -i -H "Content-Type: application/json" -X PUT --data '{"targetStatus":"Running"}' localhost:1337/v1/enm/status
+```
+
+#### Response
+```
+HTTP/1.1 200 OK
+```
+
+### GET /v1/enm/status
+Get the edge-node-manager process status.
+
+#### Example
+```
+curl -i -X GET localhost:1337/v1/enm/status
+```
+
+#### Response
+```
+HTTP/1.1 200 OK
+{
+    "currentStatus":"Running",
+    "targetStatus":"Paused",
+}
+```
 
 **Enjoy Resinifying All the Things!**
 <img src="/img/common/resinify.jpg" width="80%">
