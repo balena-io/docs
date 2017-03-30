@@ -78,6 +78,9 @@ Learn
       Microsoft Azure[/integrations/azure]
       Samsung ARTIK Cloud[/integrations/artik]
 
+    Moving to resinOS 2.0
+      Migrating Your Code[/runtime/migrate-to-2.0.md]
+
   Advanced
     Creating Custom Resin.io Devices[/hardware/meta-resin]
     Advanced resin.io topics[/advanced/resources]
