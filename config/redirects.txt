@@ -18,3 +18,5 @@
 ^\/deployment\/wifi\/?(#.+)?$ -> /deployment/network/$1
 ^\/runtime/terminal -> /runtime/runtime#using-the-web-terminal
 ^\/using/cli -> /tools/cli
+
+^\/deployment\/network\/?$ -> /deployment/network/2.0
