@@ -22,3 +22,4 @@
 ^\/using/cli -> /tools/cli
 
 ^\/deployment\/network\/?$ -> /deployment/network/2.0
+^\/understanding/understanding-devices\/?$ -> /understanding/understanding-devices/2.0

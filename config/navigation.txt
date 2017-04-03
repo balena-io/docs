@@ -55,6 +55,9 @@ Learn
     Developing with resin.io
       [/development/local-mode]
 
+    What is resinOS
+      [/understanding/understanding-devices]
+
     Accessing Hardware & Peripherals
       [/hardware/gpio]
       [/hardware/i2c-and-spi]
@@ -66,9 +69,6 @@ Learn
       [/management/devices]
       [/management/preferences]
       [/configuration/advanced]
-
-    What's inside resinOS
-      [/understanding/understanding-devices]
 
     Network Setup[/deployment/network/$os_version]
 
