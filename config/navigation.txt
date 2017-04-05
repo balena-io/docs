@@ -55,6 +55,9 @@ Learn
     Developing with resin.io
       [/development/local-mode]
 
+    What is resinOS
+      [/understanding/understanding-devices]
+
     Accessing Hardware & Peripherals
       [/hardware/gpio]
       [/hardware/i2c-and-spi]
@@ -67,16 +70,16 @@ Learn
       [/management/preferences]
       [/configuration/advanced]
 
-    What's inside resinOS
-      [/understanding/understanding-devices]
-
-    Network Setup[/deployment/network]
+    Network Setup[/deployment/network/$os_version]
 
     3rd Party Integrations[/integrations]
       Amazon AWS IoT[/integrations/aws]
       IBM Bluemix[/integrations/bluemix]
       Microsoft Azure[/integrations/azure]
       Samsung ARTIK Cloud[/integrations/artik]
+
+    Moving to resinOS 2.0
+      Migrating Your Code[/runtime/migrate-to-2.0.md]
 
   Advanced
     Creating Custom Resin.io Devices[/hardware/meta-resin]
