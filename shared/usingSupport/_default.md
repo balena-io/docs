@@ -4,5 +4,5 @@ The best place to chat with us is in the [resin.io forums](https://forums.resin.
 
 We also love to meet users in our community chat at [gitter.im](https://gitter.im/resin-io/chat).
 
-And there's always good ol' fashioned email, at hello@resin.io.
+Read more about our approach to support at resin.io/support(https://resin.io/support).
 
