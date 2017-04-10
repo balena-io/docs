@@ -36,7 +36,7 @@ $ file hello
 hello: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, for GNU/Linux 4.4.3, not stripped
 ```
 
-Now that we have `resin sync` and cross-compilation setup there is one more step needed to link them both together. This comes in the form of a `resin-sync.yml` file that needs to be created in the root of the application directory.
+Now that we have `resin sync` and cross-compilation setup there is one more step needed to link them both together. This comes in the form of a `.resin-sync.yml` file that needs to be created in the root of the application directory.
 ```
 before: '{{ $device.cppTriple }}-g++ -o hello hello.cpp'
 ```
