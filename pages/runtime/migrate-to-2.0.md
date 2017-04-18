@@ -18,7 +18,7 @@ Another significant change is in the way the container [update locking mechanism
 To prevent this case from happening, the lock is now written to a `tmpfs` which means its automatically cleared when the power is cut. What this means for your code is that it will need to always take the lock as soon as its container is started up. In this way it can ensure it will never be updated until the lock is [overridden from the dashboard](https://docs.resin.io/management/devices/#update-locking) or your code.
 
 Other smaller, but important changes to note are the following:
-- `/host_run/dbus` is now deprecated in favour of `/host/run/dbus`, this newer path was actually introduced in devices that are running resin supervisor `1.7.0` or greater, so in most case you should be able to just update the path and your code will work for both 1.X and 2.0 devices.
+- `/host_run/dbus` has now been moved to `/host/run/dbus`. This newer path was actually introduced in devices that are running resin supervisor `1.7.0` or greater, so in most case you should be able to just update the path and your code will work for both 1.X and 2.0 devices.
 
 - The device `UUID` has been shortened from 31-bytes to 16-bytes to be a bit more standards compliant. This can cause some issues with external scripts or regex which rely on a set `UUID` length.
 
