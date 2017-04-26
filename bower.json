@@ -19,7 +19,6 @@
     "colorbox": "~1.5.14",
     "ractive": "^0.7.3",
     "bootstrap-select": "^1.10.0",
-    "octicons": "^3.5.0",
-    "headroom.js": "https://npmcdn.com/headroom.js/bower.zip"
+    "octicons": "^3.5.0"
   }
 }
