@@ -1,4 +1,26 @@
-(function($, Ractive, hljs){
+var Ractive = require('ractive')
+var Headroom = require('headroom.js')
+var hljs = require('highlight.js/lib/highlight')
+var languages = require('./langs.js')
+
+// TODO use import and tree shake instead of whitelisting lang modules
+// https://bjacobel.com/2016/12/04/highlight-bundle-size/
+languages.forEach(function(langName) {
+  const langModule = require('highlight.js/lib/languages/' + langName)
+  hljs.registerLanguage(langName, langModule)
+})
+
+require('bootstrap')
+require('jquery-colorbox')
+require('bootstrap-select')
+
+require('../css/Montserrat.css')
+require('bootstrap/dist/css/bootstrap.min.css')
+require('jquery-colorbox/example3/colorbox.css')
+require('bootstrap-select/dist/css/bootstrap-select.min.css')
+require('highlight.js/styles/obsidian.css');
+require('../css/main.css')
+require('../css/menu-top.css')
 
 hljs.initHighlightingOnLoad()
 
@@ -10,7 +32,7 @@ function fixOldUrl(url) {
     .replace(/\.md$/, '')
 }
 
-// odl URLs compatibility:
+// old URLs compatibility:
 if (location.hash && location.hash.substring(0, 2) === '#/') {
   location.href = fixOldUrl(location.hash.substring(1))
 }
@@ -18,8 +40,8 @@ if (location.hash && location.hash.substring(0, 2) === '#/') {
 var UNPIN_OFFSET = 400
 
 // setup sticky header
-var stickyHeaderElements = $('.js-sticky-header');
-stickyHeaderElements.headroom({
+var stickyHeaderElements = $('.js-sticky-header')
+new Headroom(stickyHeaderElements, {
   offset: UNPIN_OFFSET,
   tolerance: 0
 })
@@ -182,5 +204,3 @@ if ($dynamicSwitch.length) {
     location.href = populateTemplate(urlTemplate, getDynamicContext())
   })
 }
-
-}(window.jQuery, window.Ractive, window.hljs))

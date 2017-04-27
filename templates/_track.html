@@ -16,7 +16,7 @@ mixpanel.init("99eec53325d4f45dd0633abd719e3ff1");</script>
 <!-- end Mixpanel -->
 
 <script type="text/javascript">
-  $(document).ready(function() {
+  document.addEventListener("DOMContentLoaded", function(event) {
     mixpanel.track('Docs', { page: location.href });
   });
 </script>
