@@ -80,3 +80,9 @@ __Warning:__ Changing an environment variable will, for the time being, result i
 __Note:__ Environment variables that are set by the system are prefixed with `RESIN_`; as a consequence you cannot define environment variables for an application with this prefix in their name.
 
 * `RESIN_DEVICE_UUID` - The value of this variable is the current device's unique identifier.
+
+## Best Practices
+
+### Collaboration management
+
+Organizations should use accounts, that are bound to the organization itself and not to a specific employee. These main accounts should be the owners of all applications that the organization care about. To give employees access to applications the employee accounts are setup as collaborators for these applications. This allows a strict separation, between organization applications and employee applications. It also allows to revoke access to an application again.
