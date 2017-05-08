@@ -11,15 +11,7 @@
     <meta property="og:title" content="{{ title }} - Resin.io Documentation" />
     {% if excerpt %}<meta property="og:description" content="{{ excerpt }}" />{% endif %}
     <meta property="og:image" content="{{ baseUrl }}{% if thumbnail %}{{ thumbnail }}{% else %}{{ defaultThumbnail }}{% endif %}" />
-
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/obsidian.min.css">
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="/bower_components/colorbox/example3/colorbox.css">
-    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/menu-top.css">
+    <link rel="stylesheet" href="/dist/style.css">
   </head>
   <body data-spy="scroll" data-target=".in-page-nav">
     <noscript>
@@ -69,17 +61,7 @@
         </article>
       </div>
     </div>
-
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="/bower_components/ractive/ractive.min.js"></script>
-    <script src="/bower_components/colorbox/jquery.colorbox-min.js"></script>
-    <script src="/bower_components/headroom.js/dist/headroom.min.js"></script>
-    <script src="/bower_components/headroom.js/dist/jQuery.headroom.min.js"></script>
-    <script src="/scripts/highlight.pack.js"></script>
-    <script src="/scripts/main.js"></script>
-
+    <script src="/dist/main.js"></script>
     {% include "_track.html" %}
   </body>
 </html>

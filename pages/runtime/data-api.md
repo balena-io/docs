@@ -14,7 +14,23 @@ The base URL for accessing the Data API is:
 
 Building the full URLs for accessing resources requires to append the corresponding endpoints to the base URL.
 
+### Authentication
+
+All requests are authenticated with a [JSON web token](https://jwt.io/). The token can be retrieved from the [dashboard](https://dashboard.resin.io/preferences/details) and refreshed via the [API](#refresh-token).
+
 ## Interacting with resources
+
+### Resource: Whoami
+#### Refresh token
+* Summary: Get a new JWT token. The token is valid for 7 days.
+* Endpoint: `/whoami`
+* Method: `GET`
+* cURL Example:
+```
+curl "https://api.resin.io/whoami"
+-H "Content-Type: application/json"
+-H "Authorization: Bearer <auth token>"
+```
 
 ### Resource: Application
 #### Get all applications

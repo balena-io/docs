@@ -6,9 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower install --allow-root && ./tools/prepare.sh",
-    "build": "./tools/build.sh",
-    "watch-pages": "watch ./tools/build.sh pages shared templates config"
+    "postinstall": "./tools/prepare.sh",
+    "build": "./tools/build.sh && webpack -p",
+    "watch-pages": "watch ./tools/build.sh pages shared templates config",
+    "watch-assets": "webpack -w",
+    "watch": "npm run watch-pages & npm run watch-assets"
   },
   "repository": {
     "type": "git",
@@ -22,12 +24,23 @@
   "homepage": "https://github.com/resin-io/docs",
   "dependencies": {
     "@resin.io/doxx": "^0.10.0",
-    "bower": "^1.7.9",
+    "bootstrap": "3.3.7",
+    "bootstrap-select": "1.12.2",
     "coffee-script": "~1.10.0",
     "express": "^4.13.4",
-    "lodash": "^4.11.1"
+    "headroom.js": "0.9.3",
+    "highlight.js": "9.11.0",
+    "jquery": "3.2.1",
+    "jquery-colorbox": "1.6.4",
+    "lodash": "^4.11.1",
+    "ractive": "0.8.12"
   },
   "devDependencies": {
-    "watch": "^0.18.0"
+    "css-loader": "0.28.0",
+    "extract-text-webpack-plugin": "2.1.0",
+    "file-loader": "0.11.1",
+    "url-loader": "0.5.8",
+    "watch": "^0.18.0",
+    "webpack": "2.4.1"
   }
 }

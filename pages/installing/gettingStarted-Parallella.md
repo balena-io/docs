@@ -89,17 +89,15 @@ application will be shown, along with their statuses and logs.
 
 <img src="/img/common/app/app_dashboard_empty.png" width="80%">
 
-Click the `Download Device OS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify some configuration information for your parallella.
+Click the `Download resinOS` button to get the resin.io operating system image for your application. A dialog will appear prompting you to specify some configuration information for your parallella.
 
-You will need to select how your device connects to the internet - either via an ethernet cable or wifi, in which case you can specify your Wifi network's SSID and passphrase. You will additionally need to select your processor type, either **Z7010** or **Z7020** and the number of cores your co-processor has. Finally, you have the ability to enable HDMI on the board as well.
+You will need to select how your device connects to the internet - either via an ethernet cable or wifi, in which case you can specify your Wifi network's SSID and passphrase. You will additionally need to select your processor type, either **Z7010** or **Z7020** and the number of cores your co-processor has.
 
-Once you have selected your board configuration, click the `Download Device OS` button to get the resin.io operating system image for your application.
+Once you have selected your board configuration, click the `Download resinOS` button to get the resin.io operating system image for your application.
 
 ![Empty Application Page](/img/parallella/wifi-settings-parallella.png)
-While the file downloads ensure your SD card is formatted in [FAT32][fat32]
-([WikiHow][wikihow] has [instructions][wikihow_format] on how to do this).
 
-Once the download is finished you should have a `.img` file with a name like `resin-myFleet-0.1.0-0.0.14.img` where **myFleet** is the name you gave your application on the dashboard.
+Once the download is finished you should have a `.img` file with a name like `resin-myFleet-1.6.0-1.12.2-8a1418091202.img` where **myFleet** is the name you gave your application on the dashboard.
 
 Now we have to burn the downloaded `.img` file onto the SD card. There are a number of ways of doing this depending on your host operating system. We have listed a few below:
 
@@ -164,9 +162,9 @@ Once it is completed, you can carry on setting up your raspberry pi as shown bel
 
 Put the SD card into your device and connect either the ethernet cable or WiFi adapter. If you're connecting the cable to your computer, you'll need to enable connection sharing. Now power up the device by inserting the USB cable.
 
-It will take a few minutes for the raspberry pi to appear on your resin.io dashboard, so take this time to grab some tea while you wait.
+It will take a few minutes for the Parallella to appear on your resin.io dashboard, so take this time to grab some tea while you wait.
 
-While you wait resin.io is expanding the partitioning on your SD card, installing a custom linux environment and establishing a secure connection with our servers.
+While you wait resin.io is expanding the partitions on your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
 If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
 
