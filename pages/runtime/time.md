@@ -8,9 +8,9 @@ Resin.io devices make use of the `systemd-timesyncd` service to keep the system 
 
 If you want to query the current time, you can do so by using the `date` utility or the datetime related functions of the standard library of your language.
 
-Resin.io devices use [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) as their standard time zone. If you want to use a timezone other than UTC inside your application container, you have to explicitly set the timezone in there using the tools available for the operating system running within your container. For en example to do that in the case of Debian, you can check the [resin-timezone](https://github.com/resin-io-playground/resin-timezone) example. The resin.io dashboard shows your log timestamps in local time of the computer you are checking it from, and you can switch it to display the timestamps in UTC by using the controls available at the log view.
+Resin.io devices use [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) as their standard time zone. If you want to use a timezone other than UTC, you have to explicitly set the timezone using the tools available for the operating system running within your container. [resin-timezone](https://github.com/resin-io-playground/resin-timezone) is an example of how to do this in Debian. The resin.io dashboard shows log timestamps using the local time for the computer you are viewing it on, and you can switch it to display the timestamps in UTC by using the controls available at the log view.
 
-If you want to learn if the system has completed at least one successful NTP synchronization since boot you can use DBUS from your container to query that information. Check the "[Checking if device time is NTP synchronized](/runtime/runtime/#checking-if-device-time-is-ntp-synchronized)" example. The `NTPSynchronized` property will tell you if you're running with a potentially stale clock or if the system is synced.
+If you want to learn if the system has completed at least one successful NTP synchronization since boot, you can use DBUS from your container. Check the "[Checking if device time is NTP synchronized](/runtime/runtime/#checking-if-device-time-is-ntp-synchronized)" example. The `NTPSynchronized` property will tell you if you're running with a potentially stale clock or if the system is synced.
 
 ## Technical Details
 
