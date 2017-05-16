@@ -194,16 +194,15 @@ A good first project is our [text to speech app][example_app]. This simple node 
 To clone the project, run the following in a terminal:
 
 ```
-git clone https://github.com/resin-io/text2speech.git
+$ git clone https://github.com/resin-io/text2speech.git
 ```
 
 Once the repo is cloned, cd into the newly created `text2speech` directory and add the resin git endpoint by running the `git remote add` command shown in
-the top-right corner of the application page, e.g.:
+the top-right corner of the application page:
 
 ```
-cd text2speech
-
-git remote add resin charlie1@git.resin.io:charlie1/myfleet.git
+$ cd text2speech
+$ git remote add resin <USERNAME>@git.resin.io:<USERNAME>/<APPNAME>.git
 ```
 
 Now you can simply run `git push resin master` and push your code up to our servers where they will distribute it to your device(s). If this fails, you may need to force the push by running `git push resin master --force`.
