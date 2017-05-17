@@ -151,16 +151,15 @@ A good little project to get you started is the [led blink example][example_app]
 To clone it, run the following in a terminal:-
 
 ```
-git clone https://github.com/shaunmulligan/edison-blink-node.git
+$ git clone https://github.com/shaunmulligan/edison-blink-node.git
 ```
 
 Once the repo is cloned, change directory into the newly created edison-blink-node directory and add the resin git endpoint by running the `git remote add` command shown in
-the top-right corner of the application page, e.g.:-
+the top-right corner of the application page:
 
 ```
-cd edison-blink-node
-
-git remote add resin git@git.resin.io:joebloggs/skynet.git
+$ cd edison-blink-node
+$ git remote add resin <USERNAME>@git.resin.io:<USERNAME>/<APPNAME>.git
 ```
 
 Now you can simply run `git push resin master` and push code to that remote, where it will get built and packaged. Then the final packaged up container will get downloaded to the Edison.

@@ -163,15 +163,14 @@ A good little project to get you started is this [simple webserver][python-examp
 
 To clone it, run the following in a terminal:-
 ```
-git clone https://github.com/shaunmulligan/x86-64-example.git
+$ git clone https://github.com/shaunmulligan/x86-64-example.git
 ```
 
-Once the repo is cloned, change directory into the newly created `x86-64-example` directory and add the resin git remote endpoint by running the `git remote add` command shown in the top-right corner of the application page, e.g.:-
+Once the repo is cloned, change directory into the newly created `x86-64-example` directory and add the resin git remote endpoint by running the `git remote add` command shown in the top-right corner of the application page:
 
 ```
-cd x86-64-example
-
-git remote add resin joebloggs@git.resin.io:joebloggs/skynet.git
+$ cd x86-64-example
+$ git remote add resin <USERNAME>@git.resin.io:<USERNAME>/<APPNAME>.git
 ```
 
 Now you can simply run `git push resin master` and push code direct to your device.
