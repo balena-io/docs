@@ -3,6 +3,7 @@
 | Samsung Artik 10           | artik10            | ARMv7              |
 | Samsung Artik 5            | artik5             | ARMv7              |
 | Raspberry Pi ZERO          | raspberrypi        | ARMv6              |
+| Raspberry Pi ZERO W        | raspberrypi        | ARMv6              |
 | Raspberry Pi 1 model A+    | raspberrypi        | ARMv6              |
 | Raspberry Pi 1 model B/B+  | raspberrypi        | ARMv6              |
 | Raspberry Pi 2 model B     | raspberrypi2       | ARMv7              |
