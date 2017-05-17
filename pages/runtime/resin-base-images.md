@@ -118,24 +118,24 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| resin/raspberry-pi3-debian | [dockerhub][armv7hf-raspberry-pi3-dockerhub-link], [github][armv7hf-raspberry-pi3-github-link] | latest, jessie, wheezy |
-| resin/raspberry-pi3-buildpack-deps | [dockerhub][armv7hf-raspberry-pi3-buildpack-deps-dockerhub-link], [github][armv7hf-raspberry-pi3-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| resin/raspberry-pi3-node | [dockerhub][armv7hf-raspberry-pi3-node-dockerhub-link], [github][armv7hf-raspberry-pi3-node-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-node-dockerhub-tag-link] |
-| resin/raspberry-pi3-python | [dockerhub][armv7hf-raspberry-pi3-python-dockerhub-link], [github][armv7hf-raspberry-pi3-python-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-python-dockerhub-tag-link] |
-| resin/raspberry-pi3-golang | [dockerhub][armv7hf-raspberry-pi3-golang-dockerhub-link], [github][armv7hf-raspberry-pi3-golang-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-golang-dockerhub-tag-link] |
-| resin/raspberry-pi3-openjdk | [dockerhub][armv7hf-raspberry-pi3-openjdk-dockerhub-link], [github][armv7hf-raspberry-pi3-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-openjdk-dockerhub-tag-link] |
-| resin/raspberry-pi3-alpine | [dockerhub][armv7hf-raspberry-pi3-alpine-dockerhub-link], [github][armv7hf-raspberry-pi3-alpine-github-link] | latest, 3.5, 3.4, 3.3, 3.2, edge |
-| resin/raspberry-pi3-alpine-buildpack-deps | [dockerhub][armv7hf-raspberry-pi3-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-raspberry-pi3-alpine-buildpack-deps-github-link] | latest, 3.5, edge, 3.5-scm, edge-scm, 3.5-curl, edge-curl |
-| resin/raspberry-pi3-alpine-node | [dockerhub][armv7hf-raspberry-pi3-alpine-node-dockerhub-link], [github][armv7hf-raspberry-pi3-alpine-node-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-alpine-node-dockerhub-tag-link] |
-| resin/raspberry-pi3-alpine-python | [dockerhub][armv7hf-raspberry-pi3-alpine-python-dockerhub-link], [github][armv7hf-raspberry-pi3-alpine-python-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-alpine-python-dockerhub-tag-link] |
-| resin/raspberry-pi3-alpine-golang | [dockerhub][armv7hf-raspberry-pi3-alpine-golang-dockerhub-link], [github][armv7hf-raspberry-pi3-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-alpine-golang-dockerhub-tag-link] |
-| resin/raspberry-pi3-alpine-openjdk | [dockerhub][armv7hf-raspberry-pi3-alpine-openjdk-dockerhub-link], [github][armv7hf-raspberry-pi3-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-alpine-openjdk-dockerhub-tag-link] |
-| resin/raspberry-pi3-fedora | [dockerhub][armv7hf-raspberry-pi3-fedora-node-dockerhub-link], [github][armv7hf-raspberry-pi3-fedora-node-github-link] | latest, 24 |
-| resin/raspberry-pi3-fedora-buildpack-deps | [dockerhub][armv7hf-raspberry-pi3-fedora-node-dockerhub-link], [github][armv7hf-raspberry-pi3-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
-| resin/raspberry-pi3-fedora-node | [dockerhub][armv7hf-raspberry-pi3-fedora-node-dockerhub-link], [github][armv7hf-raspberry-pi3-fedora-node-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-fedora-node-dockerhub-tag-link] |
-| resin/raspberry-pi3-fedora-python | [dockerhub][armv7hf-raspberry-pi3-fedora-python-dockerhub-link], [github][armv7hf-raspberry-pi3-fedora-python-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-fedora-python-dockerhub-tag-link] |
-| resin/raspberry-pi3-fedora-golang | [dockerhub][armv7hf-raspberry-pi3-fedora-golang-dockerhub-link], [github][armv7hf-raspberry-pi3-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-fedora-golang-dockerhub-tag-link] |
-| resin/raspberry-pi3-fedora-openjdk | [dockerhub][armv7hf-raspberry-pi3-fedora-openjdk-dockerhub-link], [github][armv7hf-raspberry-pi3-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi3-fedora-openjdk-dockerhub-tag-link] |
+| resin/raspberrypi3-debian | [dockerhub][armv7hf-raspberrypi3-dockerhub-link], [github][armv7hf-raspberrypi3-github-link] | latest, jessie, wheezy |
+| resin/raspberrypi3-buildpack-deps | [dockerhub][armv7hf-raspberrypi3-buildpack-deps-dockerhub-link], [github][armv7hf-raspberrypi3-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/raspberrypi3-node | [dockerhub][armv7hf-raspberrypi3-node-dockerhub-link], [github][armv7hf-raspberrypi3-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-node-dockerhub-tag-link] |
+| resin/raspberrypi3-python | [dockerhub][armv7hf-raspberrypi3-python-dockerhub-link], [github][armv7hf-raspberrypi3-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-python-dockerhub-tag-link] |
+| resin/raspberrypi3-golang | [dockerhub][armv7hf-raspberrypi3-golang-dockerhub-link], [github][armv7hf-raspberrypi3-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-golang-dockerhub-tag-link] |
+| resin/raspberrypi3-openjdk | [dockerhub][armv7hf-raspberrypi3-openjdk-dockerhub-link], [github][armv7hf-raspberrypi3-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-openjdk-dockerhub-tag-link] |
+| resin/raspberrypi3-alpine | [dockerhub][armv7hf-raspberrypi3-alpine-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-github-link] | latest, 3.5, 3.4, 3.3, 3.2, edge |
+| resin/raspberrypi3-alpine-buildpack-deps | [dockerhub][armv7hf-raspberrypi3-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-buildpack-deps-github-link] | latest, 3.5, edge, 3.5-scm, edge-scm, 3.5-curl, edge-curl |
+| resin/raspberrypi3-alpine-node | [dockerhub][armv7hf-raspberrypi3-alpine-node-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-alpine-node-dockerhub-tag-link] |
+| resin/raspberrypi3-alpine-python | [dockerhub][armv7hf-raspberrypi3-alpine-python-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-alpine-python-dockerhub-tag-link] |
+| resin/raspberrypi3-alpine-golang | [dockerhub][armv7hf-raspberrypi3-alpine-golang-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-alpine-golang-dockerhub-tag-link] |
+| resin/raspberrypi3-alpine-openjdk | [dockerhub][armv7hf-raspberrypi3-alpine-openjdk-dockerhub-link], [github][armv7hf-raspberrypi3-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-alpine-openjdk-dockerhub-tag-link] |
+| resin/raspberrypi3-fedora | [dockerhub][armv7hf-raspberrypi3-fedora-node-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-node-github-link] | latest, 24 |
+| resin/raspberrypi3-fedora-buildpack-deps | [dockerhub][armv7hf-raspberrypi3-fedora-node-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/raspberrypi3-fedora-node | [dockerhub][armv7hf-raspberrypi3-fedora-node-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-fedora-node-dockerhub-tag-link] |
+| resin/raspberrypi3-fedora-python | [dockerhub][armv7hf-raspberrypi3-fedora-python-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-fedora-python-dockerhub-tag-link] |
+| resin/raspberrypi3-fedora-golang | [dockerhub][armv7hf-raspberrypi3-fedora-golang-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-fedora-golang-dockerhub-tag-link] |
+| resin/raspberrypi3-fedora-openjdk | [dockerhub][armv7hf-raspberrypi3-fedora-openjdk-dockerhub-link], [github][armv7hf-raspberrypi3-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-fedora-openjdk-dockerhub-tag-link] |
 
 ##### Beaglebone Black
 
@@ -917,54 +917,54 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [armv7hf-raspberry-pi2-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi2-fedora-openjdk/tags/manage/
 [armv7hf-raspberry-pi2-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberry-pi2
 
-[armv7hf-raspberry-pi3-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-debian/
-[armv7hf-raspberry-pi3-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-buildpack-deps/
-[armv7hf-raspberry-pi3-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-node/
-[armv7hf-raspberry-pi3-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-node/tags/manage/
-[armv7hf-raspberry-pi3-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-python/
-[armv7hf-raspberry-pi3-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-python/tags/manage/
-[armv7hf-raspberry-pi3-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/raspberry-pi3
-[armv7hf-raspberry-pi3-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/raspberry-pi3
-[armv7hf-raspberry-pi3-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberry-pi3
-[armv7hf-raspberry-pi3-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberry-pi3
-[armv7hf-raspberry-pi3-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-golang/
-[armv7hf-raspberry-pi3-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-golang/tags/manage/
-[armv7hf-raspberry-pi3-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberry-pi3
-[armv7hf-raspberry-pi3-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-openjdk/
-[armv7hf-raspberry-pi3-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-openjdk/tags/manage/
-[armv7hf-raspberry-pi3-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberry-pi3
-[armv7hf-raspberry-pi3-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine/
-[armv7hf-raspberry-pi3-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine-buildpack-deps/
-[armv7hf-raspberry-pi3-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine-node/
-[armv7hf-raspberry-pi3-alpine-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine-node/tags/manage/
-[armv7hf-raspberry-pi3-alpine-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine-python/
-[armv7hf-raspberry-pi3-alpine-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine-python/tags/manage/
-[armv7hf-raspberry-pi3-alpine-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/raspberry-pi3
-[armv7hf-raspberry-pi3-alpine-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/raspberry-pi3
-[armv7hf-raspberry-pi3-alpine-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberry-pi3
-[armv7hf-raspberry-pi3-alpine-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberry-pi3
-[armv7hf-raspberry-pi3-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine-golang/
-[armv7hf-raspberry-pi3-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine-golang/tags/manage/
-[armv7hf-raspberry-pi3-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberry-pi3
-[armv7hf-raspberry-pi3-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine-openjdk/
-[armv7hf-raspberry-pi3-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-alpine-openjdk/tags/manage/
-[armv7hf-raspberry-pi3-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberry-pi3
-[armv7hf-raspberry-pi3-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora/
-[armv7hf-raspberry-pi3-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora-buildpack-deps/
-[armv7hf-raspberry-pi3-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora-node/
-[armv7hf-raspberry-pi3-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora-node/tags/manage/
-[armv7hf-raspberry-pi3-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora-python/
-[armv7hf-raspberry-pi3-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora-python/tags/manage/
-[armv7hf-raspberry-pi3-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/raspberry-pi3
-[armv7hf-raspberry-pi3-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/raspberry-pi3
-[armv7hf-raspberry-pi3-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberry-pi3
-[armv7hf-raspberry-pi3-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberry-pi3
-[armv7hf-raspberry-pi3-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora-golang/
-[armv7hf-raspberry-pi3-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora-golang/tags/manage/
-[armv7hf-raspberry-pi3-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberry-pi3
-[armv7hf-raspberry-pi3-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora-openjdk/
-[armv7hf-raspberry-pi3-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberry-pi3-fedora-openjdk/tags/manage/
-[armv7hf-raspberry-pi3-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberry-pi3
+[armv7hf-raspberrypi3-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-debian/
+[armv7hf-raspberrypi3-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-buildpack-deps/
+[armv7hf-raspberrypi3-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-node/
+[armv7hf-raspberrypi3-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-node/tags/manage/
+[armv7hf-raspberrypi3-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-python/
+[armv7hf-raspberrypi3-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-python/tags/manage/
+[armv7hf-raspberrypi3-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/raspberrypi3
+[armv7hf-raspberrypi3-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/raspberrypi3
+[armv7hf-raspberrypi3-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberrypi3
+[armv7hf-raspberrypi3-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberrypi3
+[armv7hf-raspberrypi3-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-golang/
+[armv7hf-raspberrypi3-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-golang/tags/manage/
+[armv7hf-raspberrypi3-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi3
+[armv7hf-raspberrypi3-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-openjdk/
+[armv7hf-raspberrypi3-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-openjdk/tags/manage/
+[armv7hf-raspberrypi3-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi3
+[armv7hf-raspberrypi3-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine/
+[armv7hf-raspberrypi3-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-buildpack-deps/
+[armv7hf-raspberrypi3-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-node/
+[armv7hf-raspberrypi3-alpine-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-node/tags/manage/
+[armv7hf-raspberrypi3-alpine-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-python/
+[armv7hf-raspberrypi3-alpine-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-python/tags/manage/
+[armv7hf-raspberrypi3-alpine-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/raspberrypi3
+[armv7hf-raspberrypi3-alpine-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/raspberrypi3
+[armv7hf-raspberrypi3-alpine-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberrypi3
+[armv7hf-raspberrypi3-alpine-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberrypi3
+[armv7hf-raspberrypi3-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-golang/
+[armv7hf-raspberrypi3-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-golang/tags/manage/
+[armv7hf-raspberrypi3-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi3
+[armv7hf-raspberrypi3-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-openjdk/
+[armv7hf-raspberrypi3-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-alpine-openjdk/tags/manage/
+[armv7hf-raspberrypi3-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi3
+[armv7hf-raspberrypi3-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora/
+[armv7hf-raspberrypi3-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-buildpack-deps/
+[armv7hf-raspberrypi3-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-node/
+[armv7hf-raspberrypi3-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-node/tags/manage/
+[armv7hf-raspberrypi3-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-python/
+[armv7hf-raspberrypi3-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-python/tags/manage/
+[armv7hf-raspberrypi3-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/raspberrypi3
+[armv7hf-raspberrypi3-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/raspberrypi3
+[armv7hf-raspberrypi3-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/raspberrypi3
+[armv7hf-raspberrypi3-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/raspberrypi3
+[armv7hf-raspberrypi3-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-golang/
+[armv7hf-raspberrypi3-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-golang/tags/manage/
+[armv7hf-raspberrypi3-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/raspberrypi3
+[armv7hf-raspberrypi3-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-openjdk/
+[armv7hf-raspberrypi3-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/raspberrypi3-fedora-openjdk/tags/manage/
+[armv7hf-raspberrypi3-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/raspberrypi3
 
 [armv7hf-beaglebone-black-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-black-debian/
 [armv7hf-beaglebone-black-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/beaglebone-black-buildpack-deps/
