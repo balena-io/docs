@@ -179,15 +179,14 @@ If you look at the code [here][parallella-demo-link], you will notice the code h
 To clone it, run the following in a terminal:
 
 ```
-git clone https://github.com/resin-io-projects/parallella-demo.git
+$ git clone https://github.com/resin-io-projects/parallella-demo.git
 ```
 
-Once the repo is cloned, cd into the newly created `parallella-demo` directory and add the resin git endpoint by running the `git remote add` command shown in the top-right corner of the application dashboard page, e.g.:
+Once the repo is cloned, cd into the newly created `parallella-demo` directory and add the resin git endpoint by running the `git remote add` command shown in the top-right corner of the application dashboard page:
 
 ```
-cd parallella-demo
-
-git remote add resin joebloggs@git.resin.io:joebloggs/skynet.git
+$ cd parallella-demo
+$ git remote add resin <USERNAME>@git.resin.io:<USERNAME>/<APPNAME>.git
 ```
 
 Now you can simply run `git push resin master` and push your code up to our servers where they will distribute it to your device(s). If this fails, you may need to force the push by running `git push resin master --force`.

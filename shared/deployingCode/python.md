@@ -11,11 +11,11 @@ $ git clone https://github.com/resin-io-projects/simple-server-python.git
 ```
 
 Once the repo is cloned, change directory into the newly created `simple-server-python` directory and add the resin git remote endpoint by running the command `git remote add` shown in
-the top-right corner of your application page, here's an example:
+the top-right corner of your application page:
 
 ```
 $ cd simple-server-python
-$ git remote add resin charlie1@git.resin.io:charlie1/myfleet.git
+$ git remote add resin <USERNAME>@git.resin.io:<USERNAME>/<APPNAME>.git
 ```
 __Note:__ On other git clients there may be an alternative way to add a remote repository.
 
