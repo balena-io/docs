@@ -38,11 +38,11 @@ If you think something is not documented, or can be improved, don't hesitate in 
 Deploying
 ----------
 
-After a PR has been reviewed by a member of the resin team, it should be merged into `master`.
+After a PR has been created, a member of the resin team will review and merge into `master`.
 
 Shortly after merging to `master` it'll automatically be deployed to our [staging environment](https://docs.resinstaging.io/) (This should only take a few minutes).
 
-Once deployed to staging, preview your changes. If everything looks good, make another PR from `master` into the `production` branch, merging this will automatically deploy the changes to [production](https://docs.resin.io/)
+Once deployed to staging, we will preview your changes. If everything looks good, a member of the resin team will make another PR from `master` into the `production` branch. When this is merged, the changes will automatically deploy to [production](https://docs.resin.io/)
 
 Style manual
 ----------
