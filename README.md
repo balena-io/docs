@@ -35,6 +35,15 @@ How to Contribute
 If you think something is not documented, or can be improved, don't hesitate in sending a PR!
 
 
+Deploying
+----------
+
+After a PR has been created, a member of the resin team will review and merge into `master`.
+
+Shortly after merging to `master` it'll automatically be deployed to our [staging environment](https://docs.resinstaging.io/) (This should only take a few minutes).
+
+Once deployed to staging, we will preview your changes. If everything looks good, a member of the resin team will make another PR from `master` into the `production` branch. When this is merged, the changes will automatically deploy to [production](https://docs.resin.io/)
+
 Style manual
 ----------
 
@@ -42,8 +51,8 @@ Style manual
 
 ### Resin-specific words
 For all, lower-case capitalization unless beginning a sentence (Ex. *I like resin.io. Resin.io is great.*)
-* **resin.io** 
-* **etcher** 
+* **resin.io**
+* **etcher**
 * **resinOS** (note the capitalization of **OS**)
 * **resin** (used to refer to the company as a whole, not in place of resin.io or resinOS)
 
