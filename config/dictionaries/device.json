@@ -97,5 +97,5 @@
     "rustLinker": "arm-linux-gnueabihf-gcc",
     "cppTriple": "arm-unknown-linux-gnueabi",
     "icon": "/img/device/kitra520.svg"
-  },
+  }
 ]
