@@ -31,8 +31,6 @@ Your new code changes should be up an running in under 30 seconds, **Great succe
 
 * A caveat, if you are using a DSA key, some newer openSSH clients do not allow them by default. So you may have to add the following option to `~/.ssh/config` : `PubkeyAcceptedKeyTypes=+ssh-dss`
 
-* Currently resin sync works with RSA/DSA/ECDSA keys. So if you are using an ED25519 key, it won't be able to sync correctly.
-
 * Resin sync is currently permitted to device owners only. The owner of a device is the user who provisioned it, so you will not be able to use resin sync on devices of shared applications that you did not provision.
 
 ##### One last Tip!
