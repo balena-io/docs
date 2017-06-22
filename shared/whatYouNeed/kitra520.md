@@ -5,7 +5,7 @@
 * A micro USB cable.
 * **[Optional]** A [2A USB micro power supply][psu]
 * At least one of Wireless communication antennas, the kit should contain 1 antenna.
-* [Samsung ARTIK 5][artik5-spec-link] development board. We recommended either version 3.0-3.3 or version 0.5.
+* [Samsung ARTIK 5][artik5-spec-link] development carrier board. We recommended either version 3.0-3.3 or version 0.5. This development carrier board is required only for flashing the artik520 module, since the kitra520 carrier board offers only Fastboot flashing, which is currently unsupported on resin.io.
 * A 5VDC power supply (100-240V input) with a 5mm DC barrel jack connector.
 * **[optional]** Ethernet cable, if you prefer to **not** connect over wifi during provisioning.
 * A 4GB or larger SD card to create a boot disk. The [speed class][sdSpeed] of the card is important, a class 10 card or above is the way to go.
