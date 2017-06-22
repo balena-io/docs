@@ -39,7 +39,7 @@ For each architecture supported by Resin, there are bare-bones base images which
 ##### Notice:
 
 * Currently, we support 6 architectures: amd64, i386, aarch64, armv7hf, armv6hf and armel; however, not all supported Linux distros support these architectures, only Debian does. We don't have Resin Alpine Linux base images for aarch64 and armel and only armv7hf Fedora base images supported at the moment.
-* Depends on available packages on each Linux distribution, specific packages for each device are pre-installed in `device-distro` combination base images e.g., `libraspberrypi-bin` preinstalled in Debian based images for Raspberry Pi family or `http://repos.rcn-ee.net/debian/` - a Debian package repository for only Beaglebone family will be added into base images for them. 
+* Depends on available packages on each Linux distribution, specific packages for each device are pre-installed in `device-distro` combination base images e.g., `libraspberrypi-bin` preinstalled in Debian based images for Raspberry Pi family or `http://repos.rcn-ee.net/debian/` - a Debian package repository for only Beaglebone family will be added into base images for them.
 
 ### <a name="base-images"></a>Base Images:
 
@@ -551,6 +551,29 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/kitra710-fedora-golang | [dockerhub][armv7hf-kitra710-fedora-golang-dockerhub-link], [github][armv7hf-kitra710-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-kitra710-fedora-golang-dockerhub-tag-link] |
 | resin/kitra710-fedora-openjdk | [dockerhub][armv7hf-kitra710-fedora-openjdk-dockerhub-link], [github][armv7hf-kitra710-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-kitra710-fedora-openjdk-dockerhub-tag-link] |
 
+##### RushUp Kitra 520
+
+| Image | Links | Available Tag |
+|:-----------|:------------|:------------|
+| resin/kitra520-debian | [dockerhub][armv7hf-kitra520-dockerhub-link], [github][armv7hf-kitra520-github-link] | latest, jessie, wheezy |
+| resin/kitra520-buildpack-deps | [dockerhub][armv7hf-kitra520-buildpack-deps-dockerhub-link], [github][armv7hf-kitra520-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
+| resin/kitra520-node | [dockerhub][armv7hf-kitra520-node-dockerhub-link], [github][armv7hf-kitra520-node-github-link] | For available image tags, refer [here][armv7hf-kitra520-node-dockerhub-tag-link] |
+| resin/kitra520-python | [dockerhub][armv7hf-kitra520-python-dockerhub-link], [github][armv7hf-kitra520-python-github-link] | For available image tags, refer [here][armv7hf-kitra520-python-dockerhub-tag-link] |
+| resin/kitra520-golang | [dockerhub][armv7hf-kitra520-golang-dockerhub-link], [github][armv7hf-kitra520-golang-github-link] | For available image tags, refer [here][armv7hf-kitra520-golang-dockerhub-tag-link] |
+| resin/kitra520-openjdk | [dockerhub][armv7hf-kitra520-openjdk-dockerhub-link], [github][armv7hf-kitra520-openjdk-github-link] | For available image tags, refer [here][armv7hf-kitra520-openjdk-dockerhub-tag-link] |
+| resin/kitra520-alpine | [dockerhub][armv7hf-kitra520-alpine-dockerhub-link], [github][armv7hf-kitra520-alpine-github-link] | latest, 3.5, 3.4, 3.3, 3.2, edge |
+| resin/kitra520-alpine-buildpack-deps | [dockerhub][armv7hf-kitra520-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-kitra520-alpine-buildpack-deps-github-link] | latest, 3.5, edge, 3.5-scm, edge-scm, 3.5-curl, edge-curl |
+| resin/kitra520-alpine-node | [dockerhub][armv7hf-kitra520-alpine-node-dockerhub-link], [github][armv7hf-kitra520-alpine-node-github-link] | For available image tags, refer [here][armv7hf-kitra520-alpine-node-dockerhub-tag-link] |
+| resin/kitra520-alpine-python | [dockerhub][armv7hf-kitra520-alpine-python-dockerhub-link], [github][armv7hf-kitra520-alpine-python-github-link] | For available image tags, refer [here][armv7hf-kitra520-alpine-python-dockerhub-tag-link] |
+| resin/kitra520-alpine-golang | [dockerhub][armv7hf-kitra520-alpine-golang-dockerhub-link], [github][armv7hf-kitra520-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-kitra520-alpine-golang-dockerhub-tag-link] |
+| resin/kitra520-alpine-openjdk | [dockerhub][armv7hf-kitra520-alpine-openjdk-dockerhub-link], [github][armv7hf-kitra520-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-kitra520-alpine-openjdk-dockerhub-tag-link] |
+| resin/kitra520-fedora | [dockerhub][armv7hf-kitra520-fedora-node-dockerhub-link], [github][armv7hf-kitra520-fedora-node-github-link] | latest, 24 |
+| resin/kitra520-fedora-buildpack-deps | [dockerhub][armv7hf-kitra520-fedora-node-dockerhub-link], [github][armv7hf-kitra520-fedora-node-github-link] | latest, 24, 24-scm, 24-curl |
+| resin/kitra520-fedora-node | [dockerhub][armv7hf-kitra520-fedora-node-dockerhub-link], [github][armv7hf-kitra520-fedora-node-github-link] | For available image tags, refer [here][armv7hf-kitra520-fedora-node-dockerhub-tag-link] |
+| resin/kitra520-fedora-python | [dockerhub][armv7hf-kitra520-fedora-python-dockerhub-link], [github][armv7hf-kitra520-fedora-python-github-link] | For available image tags, refer [here][armv7hf-kitra520-fedora-python-dockerhub-tag-link] |
+| resin/kitra520-fedora-golang | [dockerhub][armv7hf-kitra520-fedora-golang-dockerhub-link], [github][armv7hf-kitra520-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-kitra520-fedora-golang-dockerhub-tag-link] |
+| resin/kitra520-fedora-openjdk | [dockerhub][armv7hf-kitra520-fedora-openjdk-dockerhub-link], [github][armv7hf-kitra520-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-kitra520-fedora-openjdk-dockerhub-tag-link] |
+
 ### i386
 
 ![i386 Tree Diagram](/img/i386-devices.jpg)
@@ -707,7 +730,7 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 * For those images with OpenRC init system installed (Alpine Linux based base images), the OpenRC init system is disabled by default. It can be enabled by adding `ENV INITSYSTEM on` to your Dockerfile below the `FROM <Docker image>` line. This will trigger OpenRC init system on the Docker image.
 * `systemd was included in Debian wheezy as a technology preview. Please make sure that you are using Debian testing or newer to get a recent version of systemd.` from [Systemd Debian Wiki Page][systemd-wiki]. Therefore, we do not install systemd on wheezy images. `ENV INITSYSTEM` will only work on jessie and sid images.
 * In case, you have your own systemd service and you want your systemd service to use the environment variables you set in the dashboard. You need to add `EnvironmentFile=/etc/docker.env` to your systemd service unit file.
-* To keep Resin base images fresh, we re-build all base images every week and update version of language specific base images with the latest version in official repository. Sometimes, the newly built base images can accidentally break your build and we don't want that issue happens to our users. Therefore, we introduce the date fixed tag such as `jessie-20160510`, the date fixed tag images will never change so you can use them to have a stable build and never need to worry about broken build. 
+* To keep Resin base images fresh, we re-build all base images every week and update version of language specific base images with the latest version in official repository. Sometimes, the newly built base images can accidentally break your build and we don't want that issue happens to our users. Therefore, we introduce the date fixed tag such as `jessie-20160510`, the date fixed tag images will never change so you can use them to have a stable build and never need to worry about broken build.
 
 ## Resin-io-library Images:
 
@@ -2061,6 +2084,55 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [armv7hf-kitra710-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra710-fedora-openjdk/
 [armv7hf-kitra710-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra710-fedora-openjdk/tags/manage/
 [armv7hf-kitra710-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/kitra710
+
+[armv7hf-kitra520-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-debian/
+[armv7hf-kitra520-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-buildpack-deps/
+[armv7hf-kitra520-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-node/
+[armv7hf-kitra520-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-node/tags/manage/
+[armv7hf-kitra520-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-python/
+[armv7hf-kitra520-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-python/tags/manage/
+[armv7hf-kitra520-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/kitra520
+[armv7hf-kitra520-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/kitra520
+[armv7hf-kitra520-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/kitra520
+[armv7hf-kitra520-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/kitra520
+[armv7hf-kitra520-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-golang/
+[armv7hf-kitra520-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-golang/tags/manage/
+[armv7hf-kitra520-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/kitra520
+[armv7hf-kitra520-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-openjdk/
+[armv7hf-kitra520-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-openjdk/tags/manage/
+[armv7hf-kitra520-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/kitra520
+[armv7hf-kitra520-alpine-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine/
+[armv7hf-kitra520-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine-buildpack-deps/
+[armv7hf-kitra520-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine-node/
+[armv7hf-kitra520-alpine-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine-node/tags/manage/
+[armv7hf-kitra520-alpine-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine-python/
+[armv7hf-kitra520-alpine-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine-python/tags/manage/
+[armv7hf-kitra520-alpine-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/kitra520
+[armv7hf-kitra520-alpine-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/kitra520
+[armv7hf-kitra520-alpine-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/kitra520
+[armv7hf-kitra520-alpine-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/kitra520
+[armv7hf-kitra520-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine-golang/
+[armv7hf-kitra520-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine-golang/tags/manage/
+[armv7hf-kitra520-alpine-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/kitra520
+[armv7hf-kitra520-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine-openjdk/
+[armv7hf-kitra520-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-alpine-openjdk/tags/manage/
+[armv7hf-kitra520-alpine-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/kitra520
+[armv7hf-kitra520-fedora-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora/
+[armv7hf-kitra520-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-buildpack-deps/
+[armv7hf-kitra520-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-node/
+[armv7hf-kitra520-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-node/tags/manage/
+[armv7hf-kitra520-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-python/
+[armv7hf-kitra520-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-python/tags/manage/
+[armv7hf-kitra520-fedora-github-link]:https://github.com/resin-io-library/base-images/tree/master/device-base/kitra520
+[armv7hf-kitra520-fedora-buildpack-deps-github-link]:https://github.com/resin-io-library/base-images/tree/master/buildpack-deps/kitra520
+[armv7hf-kitra520-fedora-node-github-link]:https://github.com/resin-io-library/base-images/tree/master/node/kitra520
+[armv7hf-kitra520-fedora-python-github-link]:https://github.com/resin-io-library/base-images/tree/master/python/kitra520
+[armv7hf-kitra520-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-golang/
+[armv7hf-kitra520-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-golang/tags/manage/
+[armv7hf-kitra520-fedora-golang-github-link]:https://github.com/resin-io-library/base-images/tree/master/golang/kitra520
+[armv7hf-kitra520-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-openjdk/
+[armv7hf-kitra520-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-openjdk/tags/manage/
+[armv7hf-kitra520-fedora-openjdk-github-link]:https://github.com/resin-io-library/base-images/tree/master/openjdk/kitra520
 
 [amd64-up-board-dockerhub-link]:https://registry.hub.docker.com/u/resin/up-board-debian/
 [amd64-up-board-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/up-board-buildpack-deps/
