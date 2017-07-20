@@ -37,6 +37,7 @@ Learn
     Beaglebone ~ Beaglebone and {{ $language.name }}[/beaglebone/$language/getting-started]
     UPboard ~ UPboard and {{ $language.name }}[/up-board/$language/getting-started]
     Kitra 710 ~ Kitra 710 and {{ $language.name }}[/kitra710/$language/getting-started]
+    Kitra 520 ~ Kitra 520 and {{ $language.name }}[/kitra520/$language/getting-started]
     Other Boards[/installing/otherboards]
 
   Resin.io Basics

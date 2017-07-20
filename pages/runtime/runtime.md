@@ -5,7 +5,7 @@ thumbnail: /img/common/device/running-webterminal-session.png
 ---
 # Container Runtime
 
-On resin.io devices all your application code runs a [ Docker container][container-link]. This means that whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process tree in your container. It also means that this PID 1 process needs to know how to properly process UNIX signals, reap orphan zombie processes [[1]](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) and if it crashes your whole container crashes, losing logs and debug info.
+On resin.io devices all your application code runs within a [ Docker container][container-link]. This means that whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process tree in your container. It also means that this PID 1 process needs to know how to properly process UNIX signals, reap orphan zombie processes [[1]](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) and if it crashes your whole container crashes, losing logs and debug info.
 
 ## Init System
 

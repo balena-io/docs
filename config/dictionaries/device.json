@@ -87,5 +87,15 @@
     "rustLinker": "arm-linux-gnueabihf-gcc",
     "cppTriple": "arm-unknown-linux-gnueabi",
     "icon": "/img/device/kitra710.svg"
+  },
+  {
+    "id": "kitra520",
+    "name": "Kitra 520",
+    "arch": "armv7l",
+		"bootMedia": "SD card",
+    "rustTriple": "armv7-unknown-linux-gnueabihf",
+    "rustLinker": "arm-linux-gnueabihf-gcc",
+    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/kitra520.svg"
   }
 ]
