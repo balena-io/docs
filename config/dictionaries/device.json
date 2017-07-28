@@ -82,6 +82,7 @@
   {
     "id": "kitra710",
     "name": "Kitra 710",
+    "arch": "aarch64",
     "bootMedia": "SD card",
     "rustTriple": "aarch64-unknown-linux-gnu",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -97,5 +98,45 @@
     "rustLinker": "arm-linux-gnueabihf-gcc",
     "cppTriple": "arm-unknown-linux-gnueabi",
     "icon": "/img/device/kitra520.svg"
+  },
+  {
+    "id": "dart6ul",
+    "name": "DART-6UL",
+    "arch": "armv7l",
+    "bootMedia": "SD card",
+    "rustTriple": "armv7-unknown-linux-gnueabihf",
+    "rustLinker": "arm-linux-gnueabihf-gcc",
+    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/dart6ul.svg"
+  },
+  {
+    "id": "nuc",
+    "name": "Intel NUC",
+    "arch": "x86_64",
+    "bootMedia": "USB drive",
+    "rustTriple": "x86_64-unknown-linux-gnu",
+    "rustLinker": "x86_64-linux-gnu-gcc",
+    "cppTriple": "x86_64-unknown-linux-gnu",
+    "icon": "/img/device/intel-nuc.svg"
+  },
+  {
+    "id": "nitrogen6x",
+    "name": "Nitrogen 6X",
+    "arch": "armv7l",
+    "bootMedia": "SD card",
+    "rustTriple": "armv7-unknown-linux-gnueabihf",
+    "rustLinker": "arm-linux-gnueabihf-gcc",
+    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/nitrogen6x.svg"
+  },
+  {
+    "id": "hummingboard",
+    "name": "Hummingboard",
+    "arch": "armv7l",
+    "bootMedia": "SD card",
+    "rustTriple": "armv7-unknown-linux-gnueabihf",
+    "rustLinker": "arm-linux-gnueabihf-gcc",
+    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/hummingboard.svg"
   }
 ]

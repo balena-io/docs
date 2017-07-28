@@ -28,7 +28,7 @@ Learn
   Getting Started[/getting-started]
     # these URLs are for the _same_ dynamic page
     # with $device variable predefined and $language part being dynamic
-    Raspberry Pi 1 & (ZERO) ~ Raspberry Pi 1 & (ZERO) and {{ $language.name }}[/raspberrypi/$language/getting-started]
+    Raspberry Pi 1, Zero, or Zero W ~ Raspberry Pi 1, Zero, or Zero W and {{ $language.name }}[/raspberrypi/$language/getting-started]
     Raspberry Pi 2 ~ Raspberry Pi 2 and {{ $language.name }}[/raspberrypi2/$language/getting-started]
     Raspberry Pi 3 ~ Raspberry Pi 3 and {{ $language.name }}[/raspberrypi3/$language/getting-started]
     Artik 5 ~ Artik 5 and {{ $language.name }}[/artik5/$language/getting-started]
@@ -38,6 +38,10 @@ Learn
     UPboard ~ UPboard and {{ $language.name }}[/up-board/$language/getting-started]
     Kitra 710 ~ Kitra 710 and {{ $language.name }}[/kitra710/$language/getting-started]
     Kitra 520 ~ Kitra 520 and {{ $language.name }}[/kitra520/$language/getting-started]
+    DART-6UL ~ DART-6UL and {{ $language.name }}[/dart6ul/$language/getting-started]
+    Intel NUC ~ Intel NUC and {{ $language.name }}[/nuc/$language/getting-started]
+    Nitrogen 6X ~ Nitrogen 6X and {{ $language.name }}[/nitrogen6x/$language/getting-started]
+    Hummingboard ~ Hummingboard and {{ $language.name }}[/hummingboard/$language/getting-started]
     Other Boards[/installing/otherboards]
 
   Resin.io Basics

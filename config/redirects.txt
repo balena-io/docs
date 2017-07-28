@@ -10,6 +10,10 @@
 ^\/$ -> /introduction
 ^\/installing\/gettingStarted(\/|$) -> /raspberrypi/nodejs/getting-started/
 ^\/installing\/gettingStarted-BBB(\/|$) -> /beaglebone/nodejs/getting-started/
+^\/installing\/gettingStarted-Humming(\/|$) -> /hummingboard/nodejs/getting-started/
+^\/installing\/gettingStarted-NUC(\/|$) -> /nuc/nodejs/getting-started/
+^\/installing\/gettingStarted-Nitrogen6x(\/|$) -> /nitrogen6x/nodejs/getting-started/
+
 
 # Default redirects
 ^\/getting-started -> /raspberrypi/nodejs/getting-started
