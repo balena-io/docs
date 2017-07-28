@@ -110,16 +110,6 @@
     "icon": "/img/device/dart6ul.svg"
   },
   {
-    "id": "jetson-tx2",
-    "name": "Jetson TX2",
-    "arch": "aarch64",
-    "bootMedia": "SD card",
-    "rustTriple": "aarch64-unknown-linux-gnu",
-    "rustLinker": "arm-linux-gnueabihf-gcc",
-    "cppTriple": "arm-unknown-linux-gnueabi",
-    "icon": "/img/device/jetson-tx2.svg"
-  },
-  {
     "id": "nuc",
     "name": "Intel NUC",
     "arch": "x86_64",
