@@ -1,6 +1,6 @@
 ## Setting Up Your Device
 
-Insert the SD card into the {{ $device.name }} and connect either the ethernet cable if necessary. Now power up the {{ $device.name }} by inserting the micro USB cable.
+Insert the SD card into the {{ $device.name }} and connect the ethernet cable if necessary. Now power up the {{ $device.name }} by inserting the micro USB cable.
 
 ![insert SD](/img/gifs/insert-sd.gif)
 
