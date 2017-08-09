@@ -1,6 +1,6 @@
 # Resin Base Images Docs
 
-This page contains all the information about the images maintained on the Resin.io docker hub registry.
+This page contains all the information about the images maintained on the resin.io docker hub registry.
 
 ## <a name="image-tree"></a>Resin Image Trees
 
@@ -40,7 +40,7 @@ For each architecture supported by Resin, there are bare bones base images, whic
 
 Based on the official Docker images, the Resin base images offer a number of unique features:
 
-##### INIT SYSTEM
+##### Init system
 
 [Tini](https://github.com/krallin/tini) is integrated as the default init system. This cleans up zombie processes which can consume excess resources and performs signal forwarding to make sure the correct stop signal is sent to your application on exit. We also pre-install another init system which can be triggered using the `INITSYSTEM` environment variable.
 
@@ -50,7 +50,7 @@ Based on the official Docker images, the Resin base images offer a number of uni
 
 ##### Resin-xbuild & QEMU
 
-This is an unique feature of Resin ARM base images that allows you to run them anywhere (running ARM image on x86/x86_64 machines). A tool called `resin-xbuild` and QEMU are installed inside any Resin ARM base images and can be triggered by `RUN [ "cross-build-start" ]` and `RUN [ "cross-build-end" ]`. QEMU will emulate any instructions between `cross-build-start` and `cross-build-end`. So this Dockerfile
+This is an unique feature of Resin ARM base images that allows you to run them anywhere (running ARM image on x86/x86_64 machines). A tool called `resin-xbuild` and QEMU are installed inside any Resin ARM base images and can be triggered by `RUN [ "cross-build-start" ]` and `RUN [ "cross-build-end" ]`. QEMU will emulate any instructions between `cross-build-start` and `cross-build-end`. So this Dockerfile:
 
 ```
 FROM resin/armv7hf-debian
@@ -64,7 +64,7 @@ RUN pip install virtualenv
 RUN [ "cross-build-end" ]
 ```
 
-can be run on your machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. More details can be found in our [blog post here](https://resin.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/)
+can be run on your machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. More details can be found in our [blog post here](https://resin.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/).
 
 ##### Entry script
 
