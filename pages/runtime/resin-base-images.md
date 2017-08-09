@@ -10,7 +10,7 @@ Repository for all images: refer [here][base-repository]. Subscribe to changes [
 
 ### Introduction
 
-For each architecture supported by Resin, there are bare-bones base images which is a minimal variant of Linux distributions (currently we support Debian, Alpine Linux and Fedora). On top of the architecture-based images, we build specific base images for each supported device. The below table will describe full description with details about pre-installed packages on each base images.
+For each architecture supported by Resin, there are bare-bones base images, which are minimal variants of Linux distributions (currently we support Debian, Alpine Linux and Fedora). On top of the architecture-based images, we build specific base images for each supported device. The below table will describe full description with details about pre-installed packages on each base images.
 
 | Image | Description | Installed Packages | Available Tag |
 |:-----------|:------------|:------------|:------------|
@@ -38,13 +38,13 @@ For each architecture supported by Resin, there are bare-bones base images which
 
 #### <a name="what-is-inside"></a>What's inside a Resin base image
 
-Basing on the official Docker images, there are bunch of cool stuff inside the Resin base images offer unique features that you would love.
+Based on the official Docker images, the Resin base images a number of unique features:
 
 ###### INIT SYSTEM
 
-[Tini](https://github.com/krallin/tini) is integrated as the default init system, it will clean up the zombie processes which can starve the entire system and perform signal forwarding to make sure the correct stop signal sent to your application on exit. We also pre-install another init system which can be triggered using the `INITSYSTEM` environment variable.
+[Tini](https://github.com/krallin/tini) is integrated as the default init system. This cleans up zombie processes which can consume excess resources and performs signal forwarding to make sure the correct stop signal is sent to your application on exit. We also pre-install another init system which can be triggered using the `INITSYSTEM` environment variable.
 
-* For those images with Systemd init system installed (Debian and Fedora based base images), the systemd init system is disabled by default. It can be enabled by adding `ENV INITSYSTEM on` to your Dockerfile below the `FROM <Docker image>` line. This will trigger systemd init system on the Docker image.
+* For those images with the systemd init system installed (Debian and Fedora based base images), the systemd init system is disabled by default. It can be enabled by adding `ENV INITSYSTEM on` to your Dockerfile below the `FROM <Docker image>` line. 
 * For those images with OpenRC init system installed (Alpine Linux based base images), the OpenRC init system is disabled by default. It can be enabled by adding `ENV INITSYSTEM on` to your Dockerfile below the `FROM <Docker image>` line. This will trigger OpenRC init system on the Docker image.
 * `systemd was included in Debian wheezy as a technology preview. Please make sure that you are using Debian testing or newer to get a recent version of systemd.` from [Systemd Debian Wiki Page][systemd-wiki]. Therefore, we do not install systemd on wheezy images. `ENV INITSYSTEM` will only work on jessie and sid images.
 
@@ -64,19 +64,19 @@ RUN pip install virtualenv
 RUN [ "cross-build-end" ]
 ```
 
-can be run on you machine and there will be no `Exec format error` which is the error when you run ARM binary on x86. More details can be found in our [blog post here](https://resin.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/)
+can be run on your machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. More details can be found in our [blog post here](https://resin.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/)
 
 ###### Entry script
 
-There is an entry script (`/usr/bin/entry.sh`) as the ENTRYPOINT in every Resin base images. It will perform few tasks like: start udev, set the hostname (ResinOS 1.x devices only), mount `/dev/` and trigger the init system before starting your application. Here is an example of [the entry script](https://github.com/resin-io-library/base-images/blob/master/debian/entry.sh), you can specify your own entrypoint if needed by adding `ENTRYPOINT` to the Dockerfile.
+There is an entry script (`/usr/bin/entry.sh`) as the ENTRYPOINT in every Resin base images. It will perform tasks such as: start udev, set the hostname (ResinOS 1.x devices only), mount `/dev/` and trigger the init system before starting your application. Here is an example of [the entry script](https://github.com/resin-io-library/base-images/blob/master/debian/entry.sh). You can specify your own entrypoint if needed by adding `ENTRYPOINT` to the Dockerfile.
 
 ##### Notice:
 
 * Currently, we support 6 architectures: amd64, i386, aarch64, armv7hf, armv6hf and armel; however, not all supported Linux distros support these architectures, only Debian does. We don't have Resin Alpine Linux base images for aarch64 and armel and only armv7hf Fedora base images supported at the moment.
 * The `latest` tag points to Jessie (Debian), 25 (Fedora) and 3.6 (Alpine Linux).
-* In case, you have your own systemd service and you want your systemd service to use the environment variables you set in the dashboard. You need to add `EnvironmentFile=/etc/docker.env` to your systemd service unit file.
-* To keep Resin base images fresh, we re-build all base images every week and update version of language specific base images with the latest version in official repository. Sometimes, the newly built base images can accidentally break your build and we don't want that issue happens to our users. Therefore, we introduce the date fixed tag such as `jessie-20160510`, the date fixed tag images will never change so you can use them to have a stable build and never need to worry about broken build.
-* Depends on available packages on each Linux distribution, specific packages for each device are pre-installed in `device-distro` combination base images e.g., `libraspberrypi-bin` preinstalled in Debian based images for Raspberry Pi family or `http://repos.rcn-ee.net/debian/` - a Debian package repository for only Beaglebone family will be added into base images for them. 
+* If you have your own systemd service and you want your systemd service to use the environment variables you set in the dashboard, you need to add `EnvironmentFile=/etc/docker.env` to your systemd service unit file.
+* To keep Resin base images fresh, we re-build all base images every week and update version of language specific base images with the latest version in official repository. There are times when the newly built base images could accidentally break your build. To prevent this, we've introduced the date fixed tag, e.g. `jessie-20160510`. The date fixed tag images will never change, so they can be used for a stable build.
+* Depending on the Linux distribution, specific packages for each device are pre-installed in `device-distro` combination base images, e.g. `libraspberrypi-bin` preinstalled in Debian based images for Raspberry Pi family or `http://repos.rcn-ee.net/debian/`, a Debian package repository for the Beaglebone family. 
 
 ### <a name="base-images"></a>Base Images:
 
