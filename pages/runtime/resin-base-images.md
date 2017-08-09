@@ -4,13 +4,13 @@ This page contains all the information about the images maintained on the Resin.
 
 ## <a name="image-tree"></a>Resin Image Trees
 
-This section describes the Resin image trees (hierarchy of images). These image trees provide an overview of how all the resin base images fit together for each device type supported by Resin.
+This section describes the Resin image trees (hierarchy of images). These image trees provide an overview of how all the Resin base images fit together for each device type supported by Resin.
 
 Repository for all images: refer [here][base-repository]. Subscribe to changes [here][base-images-changelog].
 
 ### Introduction
 
-For each architecture supported by Resin, there are bare-bones base images, which are minimal variants of Linux distributions (currently we support Debian, Alpine Linux and Fedora). On top of the architecture-based images, we build specific base images for each supported device. The below table will describe full description with details about pre-installed packages on each base images.
+For each architecture supported by Resin, there are bare bones base images, which are minimal variants of Linux distributions (currently we support Debian, Alpine Linux and Fedora). On top of the architecture-based images, we build specific base images for each supported device. The below table will describe full description with details about pre-installed packages on each base images.
 
 | Image | Description | Installed Packages | Available Tag |
 |:-----------|:------------|:------------|:------------|
@@ -38,9 +38,9 @@ For each architecture supported by Resin, there are bare-bones base images, whic
 
 #### <a name="what-is-inside"></a>What's inside a Resin base image
 
-Based on the official Docker images, the Resin base images a number of unique features:
+Based on the official Docker images, the Resin base images offer a number of unique features:
 
-###### INIT SYSTEM
+##### INIT SYSTEM
 
 [Tini](https://github.com/krallin/tini) is integrated as the default init system. This cleans up zombie processes which can consume excess resources and performs signal forwarding to make sure the correct stop signal is sent to your application on exit. We also pre-install another init system which can be triggered using the `INITSYSTEM` environment variable.
 
@@ -48,7 +48,7 @@ Based on the official Docker images, the Resin base images a number of unique fe
 * For those images with OpenRC init system installed (Alpine Linux based base images), the OpenRC init system is disabled by default. It can be enabled by adding `ENV INITSYSTEM on` to your Dockerfile below the `FROM <Docker image>` line. This will trigger OpenRC init system on the Docker image.
 * `systemd was included in Debian wheezy as a technology preview. Please make sure that you are using Debian testing or newer to get a recent version of systemd.` from [Systemd Debian Wiki Page][systemd-wiki]. Therefore, we do not install systemd on wheezy images. `ENV INITSYSTEM` will only work on jessie and sid images.
 
-###### Resin-xbuild & QEMU
+##### Resin-xbuild & QEMU
 
 This is an unique feature of Resin ARM base images that allows you to run them anywhere (running ARM image on x86/x86_64 machines). A tool called `resin-xbuild` and QEMU are installed inside any Resin ARM base images and can be triggered by `RUN [ "cross-build-start" ]` and `RUN [ "cross-build-end" ]`. QEMU will emulate any instructions between `cross-build-start` and `cross-build-end`. So this Dockerfile
 
@@ -66,7 +66,7 @@ RUN [ "cross-build-end" ]
 
 can be run on your machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. More details can be found in our [blog post here](https://resin.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/)
 
-###### Entry script
+##### Entry script
 
 There is an entry script (`/usr/bin/entry.sh`) as the ENTRYPOINT in every Resin base images. It will perform tasks such as: start udev, set the hostname (ResinOS 1.x devices only), mount `/dev/` and trigger the init system before starting your application. Here is an example of [the entry script](https://github.com/resin-io-library/base-images/blob/master/debian/entry.sh). You can specify your own entrypoint if needed by adding `ENTRYPOINT` to the Dockerfile.
 
