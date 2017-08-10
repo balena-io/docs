@@ -15,7 +15,7 @@ If the Raspberry pi is unable to connect to the resin.io servers, the `ACT` LED 
 
 This is either because it is not connected to the network or because the network ports which resin.io relies on are blocked in some way.
 
-* The first things to check in this case is that your device is correctly connected to ethernet or that you correctly entered the wifi credentials. To check that the wifi credentials are correct, you can check the `config.json` file on the `resin-boot` partition of the SD card (since Resin OS 1.2, or `resin-conf` for earlier versions).
+* The first things to check in this case is that your device is correctly connected to ethernet or that you correctly entered the wifi credentials. To check wifi credentials, power your device down, remove the SD card, and mount the SD card on your personal computer. If your device is running resinOS version 2.0 or greater, wifi credentials are listed in `system-connections/resin-wifi`, found in the `resin-boot` partition of the SD card. Otherwise, check the `config.json` file (in the `resin-boot` partition for versions 1.2 and greater, or `resin-conf` for earlier versions).
 * Secondly check that your network is not restricting or blocking the ports specified in the [resin.io network requirements](/deployment/network/#network-requirements).
 * If you still aren't able to get your device online, reach out to us in the [forums](https://forums.resin.io/) or [chat](https://gitter.im/resin-io/chat).
 
