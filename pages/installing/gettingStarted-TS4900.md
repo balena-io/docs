@@ -16,7 +16,7 @@ title: Technologic TS-4900
   recommend you get hold of a class 10 card or above.
 
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the
-  internet. The the internal wifi for the TS-4900 is unstable at moment and there is no easy way of changing the wifi `SSID` and `PASSWORD`, so for the time being, it is recommended that you connect via ethernet.
+  internet. The internal wifi for the TS-4900 is unstable at moment and there is no easy way of changing the wifi `SSID` and `PASSWORD`, so for the time being, it is recommended that you connect via ethernet.
 
 * Some awesome ideas to hack on! If you need inspiration, check out our
   [projects][projects] page.
@@ -103,7 +103,7 @@ Now we have to burn the downloaded `.img` file onto the SD card. There are a cou
 
 ### On Mac and Linux
 
-####From the command line
+#### From the command line
 
 First we need to figure out what our SD card is called. To do this open a terminal and execute the following command to see the list of connected storage devices:
 `df -h`
@@ -164,7 +164,7 @@ Once it is completed, you can carry on setting up your Beaglebone as shown below
 Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. At this point you need to make sure that your device will boot from the SD. This can be achived by enabling the SD-boot jumper present on most of the base boards.
 For example we have been using the TS-8550 base board. On this particular base board you can find the SD-boot jumper highlighted in the picture below.
 
-<img src="/img/ts4900/ts-8550-jumper-location.jpg" width="80%">
+<img src="/img/ts-4900/ts-8550-jumper-location.jpg" width="80%">
 
 Please ensure that this jumper is enabled before you provision your device and power-up your device.
 
