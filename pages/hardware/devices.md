@@ -6,125 +6,85 @@ title: Supported Devices
 
 ## Currently Supported
 
-### The Full Raspberry Pi family (Raspberry Pi 1, 2 and 3)
-
-[link](https://www.raspberrypi.org/products/)
+### [The Full Raspberry Pi family (Raspberry Pi Zero, Zero W, 1, 2 and 3)](https://www.raspberrypi.org/products/)
 
 __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) have different architectures, so there is a different OS image for each generation. Be sure to select the right device type when downloading.
 
 ![Raspberry Pi](/img/rpi_b_plus.jpg)
 
-### BeagleBone Black
-
-[link](http://beagleboard.org/black)
+### [BeagleBone Black](http://beagleboard.org/black)
 
 ![BeagleBone Black](/img/bbb.jpg)
 
-### Intel Edison
+### [BeagleBone Blue](http://beagleboard.org/blue)
 
-[link](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
+![BeagleBone Blue](/img/beaglebone/beagle-blue.png)
 
-![Intel Edison](/img/edison.jpg)
+### [BeagleBone Green and Green Wireless](http://www.seeedstudio.com/wiki/SeeedStudio_BeagleBone_Green_Wireless)
 
-### Parallella Board
+![BeagleBone Green Wireless](/img/beaglebone-green-wireless.jpg)
 
-[link](https://www.parallella.org/board/)
+### [Samsung Artik 520](https://www.artik.io/modules/artik-520/)
 
-![Parallella](/img/parallella-board.jpg)
+![Samsung Artik 520](/img/artik5/samsung-artik-5.jpg)
 
-### Humming Board
-
-[link](http://www.solid-run.com/products/hummingboard/)
-
-![Humming Board](/img/hummingBoard.png)
-
-### Nitrogen6x by Boundary Devices
-
-[link](http://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/)
-
-![Nitrogen6x](/img/nitrogen6x.jpg)
-
-### NXP/Freescale i.MX6 Sabre Lite
-
-[link](http://boundarydevices.com/product/sabre-lite-imx6-sbc/)
-
-![i.MX6 Sabre](/img/iMX6-sabre-lite.jpg)
-
-### Odroid C1+
-
-[link](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573)
-
-![Odroid C1+](/img/odroidC1Board.jpg)
-
-### ODROID XU4
-
-[link](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825&tab_idx=1)
-
-![ODROID XU4](/img/odroidXUBoard.jpg)
-
-### Zynq ZC702 from Xilinx
-
-[link](http://www.xilinx.com/products/boards-and-kits/ek-z7-zc702-g.html)
-
-![Zynq board](/img/zynq.jpg)
-
-### VIA VAB-820
-
-[link](http://www.viatech.com/en/boards/pico-itx/vab-820/)
-
-![VIA VAB-820](/img/viaVab820.jpg)
-
-### Intel NUC
-
-[link](http://www.intel.com/content/www/us/en/nuc/overview.html)
-
-![NUC](/img/nuc.jpg)
-
-## Beta Support
-
-### BeagleBone Green Wireless
-
-[link](http://www.seeedstudio.com/wiki/SeeedStudio_BeagleBone_Green_Wireless)
-
-![BeagleBone Gren Wireless](/img/beaglebone-green-wireless.jpg)
-
-### Samsung Artik 5
-
-[link](https://www.artik.io/modules/overview/artik-5/)
-
-![Samsung Artik 5](/img/artik5/samsung-artik-5.jpg)
-
-### Samsung Artik 10
-
-[link](https://www.artik.io/modules/overview/artik-10/)
+### [Samsung Artik 10](https://www.artik.io/modules/overview/artik-10/)
 
 ![Samsung Artik 10](/img/artik10/samsung-artik-10.jpg)
 
-### Toradex Colibri iMX6DL
+### [Hummingboard](http://www.solid-run.com/products/hummingboard/)
 
-[link](http://developer.toradex.com/products/colibri-imx6)
+![Humming Board](/img/hummingBoard.png)
 
-![Toradex Colibry iMX6DL](/img/toradex-colibri-imx6dl.jpg)
+### [Nitrogen6x by Boundary Devices](http://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/)
 
-### Technologic TS-4900
+![Nitrogen6x](/img/nitrogen6x.jpg)
 
-[link](https://www.embeddedarm.com/products/TS-4900)
+### [ODROID-C1+](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573)
+
+![ODROID-C1+](/img/odroidC1Board.jpg)
+
+### [ODROID-XU4](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825&tab_idx=1)
+
+![ODROID XU4](/img/odroidXUBoard.jpg)
+
+### [Intel NUC](http://www.intel.com/content/www/us/en/nuc/overview.html)
+
+![NUC](/img/nuc.jpg)
+
+### [Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
+
+![Intel Edison](/img/edison.jpg)
+
+### [Technologic TS-4900](https://www.embeddedarm.com/products/TS-4900)
 
 ![Technologic TS-4900](/img/ts-4900.jpg)
 
-### Technologic TS-7700
+## Beta Support
 
-[link](https://www.embeddedarm.com/products/TS-7700)
+### [Variscite DART-6UL](http://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul)
 
-![Technologic TS-7700](/img/ts-7700.jpg)
+![DART-6UL](/img/dart6ul.jpg)
 
-## To Be Supported Very Soon
+### [NVIDIA Jetson TX2](https://developer.nvidia.com/embedded/buy/jetson-tx2)
 
-### ODROID U3
+![Jetson TX2](/img/jetson-tx2.png)
 
-[link](http://www.hardkernel.com/main/products/prdt_info.php?g_code=g138745696275)
+### [UP board](http://www.up-board.org/up/)
 
-![ODROID U3](/img/odroid-u3.jpg)
+![UP board](/img/up-board/up-board.png)
+
+### [Rushup Kitra 520](https://www.rushup.tech/kitra520/)
+
+![Kitra 520](/img/kitra/520.png)
+
+### [Rushup Kitra 710](https://www.rushup.tech/kitra710/)
+
+![Kitra 710](/img/kitra/710.png)
+
+### [Samsung Artik 710](https://www.artik.io/modules/artik-710/)
+
+![Samsung Artik 5](/img/artik710/A710.jpg)
 
 ### Other Devices
 
