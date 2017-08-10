@@ -56,6 +56,10 @@ __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) ha
 
 ![Intel Edison](/img/edison.jpg)
 
+### [Technologic TS-4900](https://www.embeddedarm.com/products/TS-4900)
+
+![Technologic TS-4900](/img/ts-4900.jpg)
+
 ## Beta Support
 
 ### [Variscite DART-6UL](http://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul)
@@ -81,10 +85,6 @@ __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) ha
 ### [Samsung Artik 710](https://www.artik.io/modules/artik-710/)
 
 ![Samsung Artik 5](/img/artik710/A710.jpg)
-
-### [Technologic TS-4900](https://www.embeddedarm.com/products/TS-4900)
-
-![Technologic TS-4900](/img/ts-4900.jpg)
 
 ### Other Devices
 
