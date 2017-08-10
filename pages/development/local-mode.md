@@ -8,9 +8,9 @@ Local mode is the new experimental development mode for resin.io. It allows you 
 
 <img src="/img/local-mode/local-mode-diagram.png" width="100%">
 
-Local mode will only work on a device running `resin OS 2.0.0-RC.rev1 (development)` and needs to have a supervisor version of 4.0+. If you try to use a `production` variant of the OS, you will not be able to use local mode as the production devices have ssh and the docker socket locked down, both of which are needed by the local mode feature.
+Local mode will only work on devices running resinOS v2.0 or higher with supervisor v4.0 or higher. It will only work on `development` variants of the OS—if you try to use a `production` variant, you will not be able to use local mode. The production devices have ssh and the docker socket locked down, both of which are needed by the local mode feature.
 
-To start using local mode one of your development devices, simply click on the small "Actions" dropdown at the top right of the devices page and select "enable"
+To start using local mode on one of your development devices, simply click on the small *Actions* dropdown at the top right of the device page and select *Enable Local Mode*.
 
 <img src="/img/local-mode/device-in-local-mode.png" width="80%">
 
