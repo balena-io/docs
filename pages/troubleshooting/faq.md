@@ -23,6 +23,7 @@ title: FAQs
 * [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration-)
 * [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
 * [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
+* [What does it mean when a device type is discontinued?](#what-does-it-mean-when-a-device-type-is-discontinued-)
 
 ##### Can I use multiple containers?
 We are planning, and committed, to adding support for having multiple apps/containers running on a device. While the work towards multiple apps is in progress, as an interim solution, we do however  have a few users running [multiple containers within an app via docker-compose](https://resin.io/blog/multi-container-with-docker-compose-on-resin-io/) and [have done work with kubernetes](https://resin.io/blog/our-first-experiments-with-multi-container-apps/) in the same fashion.
@@ -120,3 +121,6 @@ The resin.io agent needs to be able to access our cloud services in order for yo
 
 ##### How do you secure your own "cloud" to prevent malicious attack which may allow attacker to break-in our systems?
 Generally we try to follow good OPSEC practices for our systems. We support 2FA for user accounts and force all the connections to be over HTTPS.
+
+##### What does it mean when a device type is discontinued?
+Discontinued devices will no longer be actively supported by resin.io. This means we will no longer provide prebuilt versions of resinOS for these devices, and we will not be resolving any issues related to these boards. Please contact sales@resin.io with any questions regarding continued device support.
