@@ -4,7 +4,7 @@ This tool allows you to interact with the resin.io api from the comfort of your 
 
 Please make sure your system meets the requirements as specified in the [README](https://github.com/resin-io/resin-cli).
 
-To get started download the CLI from npm.
+To get started, download the CLI from npm:
 
 	$ npm install resin-cli -g
 
