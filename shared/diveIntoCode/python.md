@@ -15,7 +15,7 @@ This line has quite a bit packed into it. The first thing that happens is that t
 ```Dockerfile
 FROM resin/{{ $device.id }}-python
 ```
-Which tells the resin builder that this is the docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching dockerhub base images][resinDockerHub]. For this image we don't define a tag, so `:latest` will be used, but there are [many other tags](https://hub.docker.com/r/resin/{{ $device.id }}-python/tags/), which allow you to specify the python version, etc.
+Which tells the resin builder that this is the Docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching Docker Hub base images][resinDockerHub]. For this image we don't define a tag, so `:latest` will be used, but there are [many other tags](https://hub.docker.com/r/resin/{{ $device.id }}-python/tags/), which allow you to specify the Python version, etc.
 
 Next up we have 3 line which were commented out:
 ```Dockerfile
@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -yq \
 ```
 This is just a demonstration of how you can use `apt-get` to install dependencies in your container. In this case we would install some useful linux sound utilities.
 
-The next two directives are pretty straight forward and key parts of using docker.
+The next two directives are pretty straight forward and key parts of using Docker.
 ```Dockerfile
 # Defines our working directory in container
 WORKDIR /usr/src/app

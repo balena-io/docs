@@ -4,11 +4,11 @@ excerpt: Developing locally on a resin.io device
 thumbnail: /img/common/device/running-webterminal-session.png
 ---
 
-Local mode is the new experimental development mode for resin.io. It allows you to build and sync code to a single development device in your local network without having to go through the whole git push, build, deployment pipeline. It uses the docker daemon on the device to do the builds and starts the container up in very much the same way as the resin-supervisor would.
+Local mode is the new experimental development mode for resin.io. It allows you to build and sync code to a single development device in your local network without having to go through the whole git push, build, deployment pipeline. It uses the Docker daemon on the device to do the builds and starts the container up in very much the same way as the resin-supervisor would.
 
 <img src="/img/local-mode/local-mode-diagram.png" width="100%">
 
-Local mode will only work on devices running resinOS v2.0 or higher with supervisor v4.0 or higher. It will only work on `development` variants of the OS—if you try to use a `production` variant, you will not be able to use local mode. The production devices have ssh and the docker socket locked down, both of which are needed by the local mode feature.
+Local mode will only work on devices running resinOS v2.0 or higher with supervisor v4.0 or higher. It will only work on `development` variants of the OS—if you try to use a `production` variant, you will not be able to use local mode. The production devices have ssh and the Docker socket locked down, both of which are needed by the local mode feature.
 
 To start using local mode on one of your development devices, simply click on the small *Actions* dropdown at the top right of the device page and select *Enable Local Mode*.
 
@@ -46,7 +46,7 @@ Reporting scan results
 ```
 
 ### Push over a new project
-Now that we know where our device is on the network we can start pushing some code to it. To do this we use the `resin local push` command. This command instructs the device to do a docker build and then runs your container in the same configuration as the resin supervisor would. You can either pass the command your devices IP addess or `<short-uuid>.local` name. If you are feeling lazy you can even leave it out and you will be presented with a list of devices to choose from.
+Now that we know where our device is on the network we can start pushing some code to it. To do this we use the `resin local push` command. This command instructs the device to do a Docker build and then runs your container in the same configuration as the resin supervisor would. You can either pass the command your devices IP addess or `<short-uuid>.local` name. If you are feeling lazy you can even leave it out and you will be presented with a list of devices to choose from.
 
 **Command**
 ```
@@ -114,7 +114,7 @@ If we can to run some test commands in our app container, we can do this easily 
 ```
 sudo resin local ssh f340127.local
 ```
-If we want to rather check whats going on in the hostOS, to perhaps check logs or something else, we can add the `--host` option and we will land up in the devices hostOS and be able to run the usual docker commands, etc.
+If we want to rather check whats going on in the hostOS, to perhaps check logs or something else, we can add the `--host` option and we will land up in the devices hostOS and be able to run the usual Docker commands, etc.
 
 ```
 sudo resin local ssh f340127.local --host

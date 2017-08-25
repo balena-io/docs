@@ -459,8 +459,8 @@ Returns the application running on the device
 The app is a JSON object that contains the following:
 * `appId`: The id of the app as per the Resin API.
 * `commit`: Application commit that is running.
-* `imageId`: The docker image of the current application build.
-* `containerId`: ID of the docker container of the running app.
+* `imageId`: The Docker image of the current application build.
+* `containerId`: ID of the Docker container of the running app.
 * `env`: A key-value store of the app's environment variables.
 
 The appId must be specified in the URL.

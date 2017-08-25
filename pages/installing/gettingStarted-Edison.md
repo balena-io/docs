@@ -174,7 +174,7 @@ __Note:__ Only the Intel Edison Arduino base board has a built in Led, for other
 
 At this point you should have an Edison that you can remotely update.. Woohoo!!
 
-If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example] to get your feet wet.
+If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [Dockerfiles][dockerfile] and play around with our python example over [here][python-example] to get your feet wet.
 
 ## Further Reading
 

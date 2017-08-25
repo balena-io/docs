@@ -1264,7 +1264,7 @@ name of container to stop
 
 ## build [source]
 
-Use this command to build a container with a provided docker daemon.
+Use this command to build a container with a provided Docker daemon.
 
 You must provide either an application or a device-type/architecture
 pair to use the resin Dockerfile pre-processor
@@ -1295,15 +1295,15 @@ The target resin.io application this build is for
 
 #### --docker, -P &#60;docker&#62;
 
-Path to a local docker socket
+Path to a local Docker socket
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the docker daemon
+The address of the host containing the Docker daemon
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
-The port on which the host docker daemon is listening
+The port on which the host Docker daemon is listening
 
 #### --ca &#60;ca&#62;
 
@@ -1323,7 +1323,7 @@ The alias to the generated image
 
 #### --nocache
 
-Don't use docker layer caching when building
+Don't use Docker layer caching when building
 
 ## deploy &#60;appName&#62; [image]
 
@@ -1350,15 +1350,15 @@ The source directory to use when building the image
 
 #### --docker, -P &#60;docker&#62;
 
-Path to a local docker socket
+Path to a local Docker socket
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the docker daemon
+The address of the host containing the Docker daemon
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
-The port on which the host docker daemon is listening
+The port on which the host Docker daemon is listening
 
 #### --ca &#60;ca&#62;
 
@@ -1378,5 +1378,5 @@ The alias to the generated image
 
 #### --nocache
 
-Don't use docker layer caching when building
+Don't use Docker layer caching when building
 

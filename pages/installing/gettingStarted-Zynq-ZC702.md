@@ -186,7 +186,7 @@ You'll know your code has been built on our servers successfully from the appear
 
 After the device has finished updating, you should be able to see "Hello World!" printed when you type your device IP address in the browser. You can now start playing around in the web terminal on the dashboard and have a good base to start building and deploying awesome connected devices.
 
-If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
+If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [Dockerfiles][dockerfile] and play around with our python example over [here][python-example].
 
 ## Further Reading
 

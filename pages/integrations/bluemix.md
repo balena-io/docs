@@ -137,7 +137,7 @@ For a complete Python example which includes a device and a command line applica
 
 The following are a few notes using the [Python SDK](https://github.com/ibm-watson-iot/iot-python) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
 
-```dockerfile
+```Dockerfile
 FROM resin/%%RESIN_MACHINE_NAME%%-python
 ```
 
@@ -152,7 +152,7 @@ ibmiotf
 
 Later in your `Dockerfile.template` you can then install these dependencies as:
 
-```dockerfile
+```Dockerfile
 COPY requirements.txt ./
 RUN pip install -r ./requirements.txt
 ```
@@ -225,7 +225,7 @@ For further examples, you can check the [samples included in the Python SDK](htt
 
 Here are a few notes using the [Node.js SDK](https://github.com/ibm-watson-iot/iot-nodejs) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
 
-```dockerfile
+```Dockerfile
 FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 ```
 
@@ -237,7 +237,7 @@ npm install ibmiotf --save
 
 Later in your `Dockerfile.template` you can then configure the node modules installation as:
 
-```dockerfile
+```Dockerfile
 COPY package.json ./
 RUN JOBS=MAX npm i --unsafe-perm --production && npm cache clean
 ```

@@ -229,7 +229,7 @@ You should now have a node.js app happily logging analog signals to your logs an
 
 <img src="/img/beaglebone/bbb_example_logs.png" width="80%">
 
-If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
+If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [Dockerfiles][dockerfile] and play around with our python example over [here][python-example].
 
 <!-- ========================== end section =================================   -->
 

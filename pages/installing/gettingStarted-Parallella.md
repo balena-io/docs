@@ -174,7 +174,7 @@ If you have a class 10 SD card and a fast internet connection your device should
 
 To start with, we will just run the standard "Hello, World!" example from parallella which uses the epiphany sdk. This demo allows the epiphany C code to be cross-compiled in the cloud.
 
-If you look at the code [here][parallella-demo-link], you will notice the code has a `Dockerfile` which is a recipe file that allows you to define your build and runtime environment. We recommend you have a look at how to effectively use [dockerfiles][dockerfile].
+If you look at the code [here][parallella-demo-link], you will notice the code has a `Dockerfile` which is a recipe file that allows you to define your build and runtime environment. We recommend you have a look at how to effectively use [Dockerfiles][dockerfile].
 
 To clone it, run the following in a terminal:
 

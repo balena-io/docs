@@ -156,7 +156,7 @@ For a complete Node.js example, please see the pair of [resin-aws-lambda](https:
 
 Here are a few notes using the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
 
-```dockerfile
+```Dockerfile
 FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 ```
 
@@ -168,7 +168,7 @@ npm install --save aws-iot-device-sdk
 
 Later in your `Dockerfile.template` you can then configure the node modules installation as:
 
-```dockerfile
+```Dockerfile
 COPY package.json ./
 RUN JOBS=MAX npm i --unsafe-perm --production && npm cache clean
 ```
