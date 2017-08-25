@@ -14,7 +14,7 @@ This line has quite a bit packed into it. The first thing that happens is that t
 ```Dockerfile
 FROM resin/{{ $device.id }}-debian
 ```
-Which tells the resin builder that this is the docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching dockerhub base images][resinDockerHub].
+Which tells the resin builder that this is the Docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching Docker Hub base images][resinDockerHub].
 
 The next line is used to enable the [systemd][systemd-link] init within the container. This is useful for a number of reasons, like keeping the container open after application crash and handling `/dev` updates as new USB devices are plugged in. If you don't want an init system, just set it to `off` or remove the line for the `Dockerfile`.
 ```Dockerfile
@@ -28,7 +28,7 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 ```
 
-The next two directives are pretty straight forward and key parts of using docker.
+The next two directives are pretty straight forward and key parts of using Docker.
 ```Dockerfile
 # This will copy all files in root to the working directory in the container
 COPY . /usr/src/app

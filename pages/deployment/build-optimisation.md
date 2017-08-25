@@ -8,11 +8,11 @@ These are just a few tips and tricks to optimise your resin.io container build a
 
 ## Move `ADD` and `COPY` Commands
 
-Caching in Docker is done by comparing the instructions in the current `Dockerfile` with the ones in the previous build. If the instructions have changed, the cache is invalidated. This however, is slightly different for the `ADD` and `COPY`, for these commands the contents of the files being put into the image are examined. If there are any changes, even in the file metadata, then the cache is invalidated. So we recommend you place your `ADD` or `COPY` statements near the end of your dockerfiles, after all your package installs and source compilation steps have been completed.
+Caching in Docker is done by comparing the instructions in the current `Dockerfile` with the ones in the previous build. If the instructions have changed, the cache is invalidated. This however, is slightly different for the `ADD` and `COPY`, for these commands the contents of the files being put into the image are examined. If there are any changes, even in the file metadata, then the cache is invalidated. So we recommend you place your `ADD` or `COPY` statements near the end of your Dockerfiles, after all your package installs and source compilation steps have been completed.
 
 ## Minimize the number of layers
 
-Reducing the number of layers in your dockerfile can reduce the build and push time on resin.io. If we combine two instructions we avoid making another layer so we’re not storing intermediate (and maybe useless) states. Reducing the number of layers can be achieved by chaining multiple commands together with `&&` in `RUN` invocations. e.g. :
+Reducing the number of layers in your Dockerfile can reduce the build and push time on resin.io. If we combine two instructions we avoid making another layer so we’re not storing intermediate (and maybe useless) states. Reducing the number of layers can be achieved by chaining multiple commands together with `&&` in `RUN` invocations. e.g. :
 ```Dockerfile
 RUN apt-get update && apt-get install -y python
 ```
@@ -80,7 +80,7 @@ RUN mkdir /var/run/sshd \
   && echo 'root:resin' | chpasswd
   && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 ```
-in order to merge those three layers into just one, without losing any benefits of docker caching - this would also work well for combing the layers that add the apt mirrors.
+in order to merge those three layers into just one, without losing any benefits of Docker caching - this would also work well for combing the layers that add the apt mirrors.
 
 * You can potentially add `--no-install-recommends` in your apt-get installs in order to only install the packages you really care about, rather than all the recommended but non-essential packages.
 

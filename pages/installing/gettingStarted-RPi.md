@@ -226,7 +226,7 @@ This means your code is safely on our servers and will be downloaded and execute
 
 You should now have a friendly talking node.js app and a good base to start building and deploying awesome connected devices.
 
-If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [dockerfiles][dockerfile] and play around with our python example over [here][python-example].
+If node.js isn't your thing, then don't worry, you can use any language you like. Have a look at how to use [Dockerfiles][dockerfile] and play around with our python example over [here][python-example].
 
 <!-- ========================== end section =================================   -->
 
