@@ -15,7 +15,7 @@ This line has quite a bit packed into it. The first thing that happens is that t
 ```Dockerfile
 FROM resin/{{ $device.id }}-node:slim
 ```
-Which tells the resin builder that this is the docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching dockerhub base images][resinDockerHub].
+Which tells the resin builder that this is the Docker image we want as our base. Checkout the full [list of official resin device names][listOfResinNames] and the [matching Docker Hub base images][resinDockerHub].
 
 We also have a `:slim` tag associated to the base image which denotes that we want the stripped down version only contains the minimal packages needed to run node, so no [`node-gyp`][node-gyp-link] and other build-essentials. If you need to build some native modules, say node-i2c, you should switch to `:latest` tag. We also have a number of pinned version tags, which should be used for production devices. Checkout the full [list of -node tags](https://hub.docker.com/r/resin/{{ $device.id }}-node/tags/), if you want to target a specify node.js version or a fixed date build.
 
@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -yq \
 ```
 This is just a demonstration of how you can use `apt-get` to install dependencies in your container. In this case we would install some useful linux sound utilities.
 
-The next two directives are pretty straight forward and key parts of using docker.
+The next two directives are pretty straight forward and key parts of using Docker.
 ```Dockerfile
 # Defines our working directory in container
 WORKDIR /usr/src/app

@@ -48,7 +48,7 @@ You should now have a Python web server running on your device and see some logs
 
 If you follow the URL, you will be served a page saying "Hello, World!". Alternatively you can point your browser to your devices IP address.
 
-You should now have a basic idea of how to deploy a Python application on resin.io. If you feel like you have a handle on docker and Python projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
+You should now have a basic idea of how to deploy a Python application on resin.io. If you feel like you have a handle on Docker and Python projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
 
 [simple-server-python-link]:https://github.com/resin-io-projects/simple-server-python
 

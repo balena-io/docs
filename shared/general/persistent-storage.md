@@ -1,5 +1,5 @@
 
-If you want specific data or configurations to persist on the device through the update process, you will need to store them in `/data` . This is a special folder on the device file system which is essentially a [docker data `VOLUME`][docker-volume-link].
+If you want specific data or configurations to persist on the device through the update process, you will need to store them in `/data` . This is a special folder on the device file system which is essentially a [Docker data `VOLUME`][docker-volume-link].
 
 This folder is guaranteed to be maintained across updates and thus files contained in it can act as persistent storage.	This is a good place to write system logs, etc.
 

@@ -143,7 +143,7 @@ If you would prefer a python implementation, then look at this [github issue](ht
 
 ## Intel Edison
 
-All the Intel Edison base images on our [docker hub][edison-base-image-link] come pre-installed with [libmraa](https://github.com/intel-iot-devkit/mraa), which allows you to easily interact with the GPIO.
+All the Intel Edison base images on our [Docker Hub][edison-base-image-link] come pre-installed with [libmraa](https://github.com/intel-iot-devkit/mraa), which allows you to easily interact with the GPIO.
 
 To get started with GPIO on edison have a look at our ["Edison GPIO in node.js"](https://github.com/shaunmulligan/edison-blink-node.git) example, or if you prefer python check out our ["Simple Edison GPIO with python"](https://github.com/shaunmulligan/hello-python-edison).
 

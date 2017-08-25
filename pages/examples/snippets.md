@@ -28,7 +28,7 @@ git push resin master
 [Repository][resin-ssh]
 [Repository][resin-ssh-node]
 
-This basic resin project allows you to have local ssh access to your running container on your device. It does this by starting dropbear, a light weight ssh daemon, in a background process. There is both a node and a python demo of this, so you can get up and running fast. Please note, both of these have small webservers running in the main app, but these could be replaced by an infinite loop. This is needed because in order to ssh into a container, it has to have a long running process in it. That way docker does not close/destroy the container.
+This basic resin project allows you to have local ssh access to your running container on your device. It does this by starting dropbear, a light weight ssh daemon, in a background process. There is both a node and a python demo of this, so you can get up and running fast. Please note, both of these have small webservers running in the main app, but these could be replaced by an infinite loop. This is needed because in order to ssh into a container, it has to have a long running process in it. That way Docker does not close/destroy the container.
 
 ### Node.js and the RPI camera module
 [Repository][picamera-node]
