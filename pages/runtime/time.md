@@ -24,10 +24,23 @@ There are certain networking requirements to ensure that the NTP service can pro
 
 The NTP service requires UDP port `123` to be open, see more at our [network requirements page](/deployment/network/2.0.0/#network-requirements).
 
-The NTP service connects to the following time servers by default and these need to be accessible to the device:
+Up to resinOS 2.0.6 the NTP service connects to the following time servers by default and these need to be accessible to the device:
 
 * pool.ntp.org
 * time1.google.com
 * time2.google.com
 * time3.google.com
 * time4.google.com
+
+Starting from resinOS 2.0.7, the devices connect the following NTP servers:
+
+* 0.resinio.pool.ntp.org
+* 1.resinio.pool.ntp.org
+* 2.resinio.pool.ntp.org
+* 3.resinio.pool.ntp.org
+
+Starting from resinOS 2.1.0, you can configure your own NTP servers in the `config.json` on the boot partition, example:
+
+```
+"ntpServers": "0.resinio.pool.ntp.org 1.resinio.pool.ntp.org"
+```
