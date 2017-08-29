@@ -1,3 +1,5 @@
+__Warning__: Support for the Nvidia Jetson TX2 is temporarily unavailable. Please contact hello@resin.io with any questions.
+
 <img height=150px style="float: right;padding-left: 10px;" src="/img/jetson-tx2.png">
 
 * An [Nvidia Jetson TX2][tx2], along with the baseboard that allows flashing from an SD card. 
