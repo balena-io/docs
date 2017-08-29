@@ -66,10 +66,6 @@ __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) ha
 
 ![DART-6UL](/img/dart6ul.jpg)
 
-### [NVIDIA Jetson TX2](https://developer.nvidia.com/embedded/buy/jetson-tx2)
-
-![Jetson TX2](/img/jetson-tx2.png)
-
 ### [UP board](http://www.up-board.org/up/)
 
 ![UP board](/img/up-board/up-board.png)
@@ -85,6 +81,12 @@ __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) ha
 ### [Samsung Artik 710](https://www.artik.io/modules/artik-710/)
 
 ![Samsung Artik 5](/img/artik710/A710.jpg)
+
+### [NVIDIA Jetson TX2](https://developer.nvidia.com/embedded/buy/jetson-tx2)
+
+__Warning:__ Support for the Nvidia Jetson TX2 is temporarily unavailable. Please contact hello@resin.io with any questions.
+
+![Jetson TX2](/img/jetson-tx2.png)
 
 ### Other Devices
 
