@@ -66,7 +66,7 @@ First clone the the [sample application][sampleApp] to your local machine.
 __NOTE:__ Our integration is not part of the code Microsoft releases, instead it will stay as a separate fork that should be used instead of the official sample solution.
 
 ```
-git clone https://github.com/emirotin/resin-azure-iot-sample && cd resin-azure-iot-sample && git checkout resin-node
+git clone https://github.com/resin-io-projects/resin-azure-iot-sample && cd resin-azure-iot-sample && git checkout resin-node
 ```
 
 Then add your resin.io applications remote endpoint to the git repository. It can be found in the top right hand corner of your resin applications dashboard.
@@ -100,5 +100,5 @@ Now you’re done. Provision as many devices as you need with resin (you can use
 [installing]:/installing/gettingStarted
 [azure]:http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx
 [screencast]:https://vimeo.com/136840643
-[integration]:https://github.com/emirotin/resin-azure-iot-remote-monitoring/tree/resin-integration
-[sampleApp]:https://github.com/emirotin/resin-azure-iot-sample/tree/resin-node
+[integration]:https://github.com/resin-io-projects/resin-azure-iot-remote-monitoring
+[sampleApp]:https://github.com/resin-io-projects/resin-azure-iot-sample
