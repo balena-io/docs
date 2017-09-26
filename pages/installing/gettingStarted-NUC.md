@@ -15,6 +15,8 @@ title: Intel NUC
 * An ethernet cable or [WiFi adapter][wifi] to connect your device to the internet.
 * And finally you need some awesome ideas to hack on! If you need some inspiration, go over and check out our [projects][projects] page.
 
+Warning: The resinOS will completely overwrite the internal media of your NUC, so if you have important data on the device, we recommend that you make a backup before you attempt provisioning the NUC on resin.io.
+
 Okay, so now that we have our hardware, lets get to the code. Resin.io uses the [git][git] version control system to push your code updates. The code is then built once on the resin.io build servers and bundled into a container. This container is then delivered to all devices in your fleet.
 
 __NOTE:__ If you're not experienced with [git][git] version control, check out the excellent [Try Git][try-git] course at [Code School][code-school].
