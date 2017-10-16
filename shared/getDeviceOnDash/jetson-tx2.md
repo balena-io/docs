@@ -1,4 +1,3 @@
-## Setting Up Your Device
 Make sure your {{ $device.name }} development board is powered off. Insert the SD card from the previous step and plug in the power cord. Press and hold the power button for one second to turn the device on. 
 
 __Note:__ This will also completely erase internal storage media, so please make a backup first.

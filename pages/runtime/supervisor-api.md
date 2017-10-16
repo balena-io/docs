@@ -77,7 +77,7 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 Triggers an update check on the supervisor. Optionally, forces an update when updates are locked.
 
-Responds with an empty 204 (Accepted) response.
+Responds with an empty 204 (No Content) response.
 
 #### Request body
 Can be a JSON object with a `force` property. If this property is true, the update lock will be overridden.
@@ -110,7 +110,7 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 Reboots the device
 
-When successful, responds with 204 accepted and a JSON object:
+When successful, responds with 202 accepted and a JSON object:
 ```json
 {
 	"Data": "OK",
@@ -144,7 +144,7 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 **Dangerous**. Shuts down the device.
 
-When successful, responds with 204 accepted and a JSON object:
+When successful, responds with 202 accepted and a JSON object:
 ```json
 {
 	"Data": "OK",
@@ -459,8 +459,8 @@ Returns the application running on the device
 The app is a JSON object that contains the following:
 * `appId`: The id of the app as per the Resin API.
 * `commit`: Application commit that is running.
-* `imageId`: The Docker image of the current application build.
-* `containerId`: ID of the Docker container of the running app.
+* `imageId`: The docker image of the current application build.
+* `containerId`: ID of the docker container of the running app.
 * `env`: A key-value store of the app's environment variables.
 
 The appId must be specified in the URL.

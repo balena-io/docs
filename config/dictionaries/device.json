@@ -1,7 +1,7 @@
 [
   {
     "id": "raspberrypi",
-    "name": "Raspberry Pi 1, Zero, or Zero W",
+    "name": "Raspberry Pi (v1 or Zero)",
     "arch": "armv6",
 		"bootMedia": "SD card",
     "rustTriple": "arm-unknown-linux-gnueabihf",

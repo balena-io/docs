@@ -6,14 +6,14 @@ A nice first project to get your feet wet is a simple [Go][go] hello world progr
 
 To clone the project, run the following command in a terminal or your preferred git client:
 
-```
+```shell
 $ git clone https://github.com/resin-io-projects/resin-go-hello-world
 ```
 
 Once the repo is cloned, change directory into the newly created `resin-go-hello-world` directory and add the resin git remote endpoint by running the command `git remote add` shown in
 the top-right corner of your application page:
 
-```
+```shell
 $ cd resin-go-hello-world
 $ git remote add resin <USERNAME>@git.resin.io:<USERNAME>/<APPNAME>.git
 ```
@@ -22,7 +22,7 @@ __Note:__ On other git clients there may be an alternative way to add a remote r
 So now we have set up a reference in our local git repository (the one on our development computer) to the resin.io application remote repository. So when we push new changes to this remote repository it will get compiled and built on our servers and deployed to every device in the application fleet.
 
 Now to deploy this code to all device(s) in the application just run the command:
-```
+```shell
 $ git push resin master
 ```
 

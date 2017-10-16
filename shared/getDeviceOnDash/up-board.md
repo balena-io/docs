@@ -1,5 +1,3 @@
-## Setting Up Your Device
-
 In order to get the resinOS up and running on our {{ $device.name }} we need to first set it up to boot from our {{ $device.bootMedia }} rather than its
 internal [eMMC memory][emmc-link]. To do this we will need to interrupt the boot process and direct the device to boot from  our {{ $device.bootMedia }}.
 

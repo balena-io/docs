@@ -3,7 +3,7 @@
 * A 4GB or larger SD card. All the Raspberry Pi, except older model Bs, uses a microSD card. The [speed class][sdSpeed] of the card also matters - class 10 card or above is the way to go.
 * An ethernet cable or WiFi adapter (not needed for the Zero W). Check our [list of supported wifi adapters][wifiAdapters].
 * A micro USB cable.
-* **[Optional]** A [2A USB micro power supply][psu]
+* **[Optional]** A [2A USB micro power supply][psu].
 * A [resin.io account][link-to-signup].
 
 [aplus]:{{ $links.raspberrypi.aplus }}
