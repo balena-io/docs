@@ -47,5 +47,5 @@ your WiFi adapter prior to switching on your device to avoid instability.
 [connman]:http://en.wikipedia.org/wiki/ConnMan
 [connman-format]:http://git.kernel.org/cgit/network/connman/connman.git/tree/doc/config-format.txt
 
-[rpi-official-wifi]:https://www.raspberrypi.org/products/usb-wifi-dongle/
+[rpi-official-wifi]:https://www.raspberrypi.org/products/raspberry-pi-usb-wifi-dongle/
 [beaglebone-green-link]:http://www.seeed.cc/beaglebone_green/
