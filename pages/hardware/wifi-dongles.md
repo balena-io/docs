@@ -32,9 +32,9 @@ stability overall.
 ### Configuration
 
 __Important Note:__ Wifi adapters drain a lot of power which unfortunately
-causes power issues with many devices if you try to *hotswap* the adapters in
-(adding a WiFi adapter to your Pi *after* power-on). Be __sure__ you connect
-your WiFi device prior to switching on your device to avoid instability.
+causes power issues with many devices if you try to *hotswap* the adapters
+(adding a WiFi adapter to your device *after* power-on). Be __sure__ you connect
+your WiFi adapter prior to switching on your device to avoid instability.
 
 
 [rpi]:http://www.raspberrypi.org/
