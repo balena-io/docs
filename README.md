@@ -16,7 +16,7 @@ The intention of this repo is to provide our public-facing documentation.
 Running locally
 ---------------
 
-To run the docs web application locally you should do the following:
+To run the docs web application locally, you should do the following:
 
 ```sh
 git clone https://github.com/resin-io/docs
