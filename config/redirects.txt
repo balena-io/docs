@@ -21,6 +21,7 @@
 ^\/understanding/understanding-devices\/?$ -> /understanding/understanding-devices/2.0.0
 
 # Renamed pages
+^\/runtime/migrate-to-2.0 -> /updates/migrate-to-2.0
 ^\/configuration\/resin-base-images(\/|$) -> /runtime/resin-base-images
 ^\/deployment\/wifi\/?(#.+)?$ -> /deployment/network/$1
 ^\/runtime/terminal -> /runtime/runtime/#using-the-dashboard-web-terminal

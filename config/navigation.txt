@@ -47,6 +47,11 @@ Learn
 
     What is resinOS?[/understanding/understanding-devices/$os_version]
 
+    Updating resinOS
+      [/updates/self-service]
+      [/updates/update-process]
+      [/updates/migrate-to-2.0]
+
     Accessing Hardware & Peripherals
       [/hardware/gpio]
       [/hardware/i2c-and-spi]
@@ -66,9 +71,6 @@ Learn
       IBM Bluemix[/integrations/bluemix]
       Microsoft Azure[/integrations/azure]
       Samsung ARTIK Cloud[/integrations/artik]
-
-    Moving to resinOS 2.0
-      Migrating Your Code[/runtime/migrate-to-2.0.md]
 
   Advanced
     Creating Custom Resin.io Devices[/hardware/meta-resin]
