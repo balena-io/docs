@@ -1,6 +1,6 @@
 Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now power up the device by inserting the micro usb cable.
 
-It can take a few minutes for the device to boot up and appear on the dashboard, so grab some tea while you wait.
+It can take a few minutes for the device to boot up and appear on the dashboard.
 
 <!-- TODO: get insert gif for hummingboard -->
 <!-- ![insert SD](/img/BBB/sd_card_BBB.jpg) -->

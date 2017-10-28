@@ -13,7 +13,8 @@ You can also import your key from **GitHub**. If you choose this option, you wil
 <img src="/img/common/sign_up_flow/enter_github_username_cropped.png" width="60%">
 
 #### Don't have an SSH key?
-If you are unfamiliar with SSH keys, we recommend you take a look at **GitHub's** [excellent documentation][github_ssh]. This will walk you through everything you need to create a key pair.
+If you are unfamiliar with SSH keys, we recommend you take a look at **GitHub's** [excellent documentation][github_ssh]. This will walk you through everything you need to create a key pair. Window's user? Be sure to check out [these instructions][github_windows].
 
 [github_ssh]:https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+[github_windows]:https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#platform-windows
 [prefsPage]:https://dashboard.resin.io/preferences?tab=sshkeys

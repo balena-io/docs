@@ -8,14 +8,9 @@ To create a bootable **resinOS** {{ $device.bootMedia }} follow these steps:
 
 <img src="/img/common/etcher/etcher.gif" width="60%">
 
-**Etcher** will now prepare a bootable {{ $device.bootMedia }} and validate that it was flashed correctly. This can take roughly 3 or more minutes depending on the quality of your {{ $device.bootMedia }}. You'll a little ping when it's done, and **Etcher** will safely eject the {{ $device.bootMedia }} for you.
+**Etcher** will now prepare a bootable {{ $device.bootMedia }} and validate that it was flashed correctly. This can take roughly 3 or more minutes depending on the quality of your {{ $device.bootMedia }}. You'll get a little ping when it's done, and **Etcher** will safely eject the {{ $device.bootMedia }} for you.
 
 __Note:__ You can burn several {{ $device.bootMedia }}s with the same image file and all the devices will boot and provision into your application's fleet. You can also disable the auto-ejecting or validation steps from the **Etcher** settings panel.
 
-[wikihow_format]:http://www.wikihow.com/Format-an-SD-Card
-[wikihow]:http://www.wikihow.com/Main-Page
-[fat32]:http://en.wikipedia.org/wiki/Fat32#FAT32
-[win32-disk-imager]:http://sourceforge.net/projects/win32diskimager/
-[pifiller-download]:http://ivanx.com/raspberrypi/
 [etcher-link]:https://etcher.io/
-[dd-link]:http://man7.org/linux/man-pages/man1/dd.1.html
+

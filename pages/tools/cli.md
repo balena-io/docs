@@ -493,7 +493,7 @@ or 'menu' (will show the interactive menu)
 
 #### --drive, -d &#60;drive&#62;
 
-the drive to write the image to, like `/dev/sdb` or `/dev/mmcblk0`. Careful with this as you can erase your hard drive. Check `resin util available-drives` for available options.
+the drive to write the image to, like `/dev/sdb` or `/dev/mmcblk0`. Be careful with this as you can erase your hard drive. Check `resin util available-drives` for available options.
 
 #### --config &#60;config&#62;
 
