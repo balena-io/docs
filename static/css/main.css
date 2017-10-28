@@ -287,7 +287,7 @@ article .headroom {
 }
 
 .page-content code {
-  color:#f04949;
+  color: #f04949;
   background: #ffefef;
 }
 
@@ -318,21 +318,21 @@ article .headroom {
 }
 
 .alert-note {
-  background: #F6F6F8;
+  background: #fcf8e3;
   /*/background-image: url('/img/note-bg.png');*/
   background-repeat: repeat-x;
   background-position: top left;
-  color: #a6a9ae;
-  border-color: #D4D7DA;
+  color: #8a6d3b;
+  border-color: #faebcc;
 }
 
 .alert-warning {
-  color: #E4B400;
+  color: #a94445;
   /*background-image: url('/img/warning-bg.png');*/
   background-repeat: no-repeat;
   background-position: 104% 19%;
-  background-color: #FFFCDE;
-  border-color: #F8C400;
+  background-color: #f2dede;
+  border-color: #ebccd1;
 }
 
 .colorbox-img-wrappper {

@@ -16,7 +16,7 @@
 
 
 # Default redirects
-^\/getting-started -> /raspberrypi/nodejs/getting-started
+^\/getting-started -> /raspberrypi3/nodejs/getting-started
 ^\/deployment\/network\/?$ -> /deployment/network/2.0.0
 ^\/understanding/understanding-devices\/?$ -> /understanding/understanding-devices/2.0.0
 
@@ -24,5 +24,5 @@
 ^\/runtime/migrate-to-2.0 -> /updates/migrate-to-2.0
 ^\/configuration\/resin-base-images(\/|$) -> /runtime/resin-base-images
 ^\/deployment\/wifi\/?(#.+)?$ -> /deployment/network/$1
-^\/runtime/terminal -> /runtime/runtime#using-the-web-terminal
+^\/runtime/terminal -> /runtime/runtime/#using-the-dashboard-web-terminal
 ^\/using/cli -> /tools/cli

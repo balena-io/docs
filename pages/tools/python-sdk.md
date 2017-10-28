@@ -60,6 +60,7 @@ Get a single application.
 
 #### Raises:
     ApplicationNotFound: if application couldn't be found.
+    AmbiguousApplication: when more than one application is returned.
 
 #### Examples:
 ```python
@@ -77,24 +78,6 @@ Get all applications.
 ```python
 >>> resin.models.application.get_all()
 [{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.resin.io:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}, {u'app_name': u'RPI2', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9019)'}, u'git_repository': u'g_trong_nghia_nguyen@git.resin.io:g_trong_nghia_nguyen/rpi2.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi2', u'commit': None, u'id': 9019}]
-```
-### Function: get_api_key(name)
-
-Get the API key for a specific application. This function only works if you log in using credentials or Auth Token.
-
-#### Args:
-    name (str): application name.
-
-#### Returns:
-    str: API key.
-
-#### Raises:
-    ApplicationNotFound: if application couldn't be found.
-
-#### Examples:
-```python
->>> resin.models.application.get_api_key('RPI1')
-u'XbKn5GhK4YieOLpX4KjQTqjqo1moRWmP'
 ```
 ### Function: get_by_id(app_id)
 
@@ -114,6 +97,41 @@ Get a single application by application id.
 >>> resin.models.application.get_by_id(9020)
 {u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.resin.io:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}
 ```
+### Function: get_config(app_id)
+
+        Download application config.json.
+
+####         Args:
+            name (str): application name.
+
+####         Returns:
+            dict: application config.json content.
+
+####         Raises:
+            ApplicationNotFound: if application couldn't be found.
+
+####         Examples:
+```python
+            >>> resin.models.application.get_config('106640')
+            {u'applicationName': u'RPI3', u'username': u'nghiant2710', u'apiKey': u'kIaqS6ZLOoxkFzpzqSYhWtr2lj6m8KZi', u'vpnPort': 443, u'listenPort': 48484, u'pubnubSubscribeKey': u'sub-c-bbc12eba-ce4a-11e3-9782-02ee2ddab7fe', u'vpnEndpoint': u'vpn.resin.io', u'userId': 189, u'files': {u'network/network.config': u'[service_home_ethernet]
+Type = ethernet
+Nameservers = 8.8.8.8,8.8.4.4', u'network/settings': u'[global]
+OfflineMode=false
+TimeUpdates=manual
+```
+
+[WiFi]
+Enable=true
+Tethering=false
+
+[Wired]
+Enable=true
+Tethering=false
+
+[Bluetooth]
+Enable=true
+Tethering=false'}, u'pubnubPublishKey': u'pub-c-6cbce8db-bfd1-4fdf-a8c8-53671ae2b226', u'apiEndpoint': u'https://api.resin.io', u'connectivity': u'connman', u'deviceType': u'raspberrypi3', u'mixpanelToken': u'99eec53325d4f45dd0633abd719e3ff1', u'deltaEndpoint': u'https://delta.resin.io', u'appUpdatePollInterval': 60000, u'applicationId': 106640, u'registryEndpoint': u'registry.resin.io'}
+        
 ### Function: has(name)
 
 Check if an application exists.
@@ -207,6 +225,21 @@ False
 # Check device url again.
 >>> resin.models.device.has_device_url('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
 True
+```
+### Function: generate_device_key(uuid)
+
+Generate a device key.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+
+#### Examples:
+```python
+>>> resin.models.device.generate_device_key('df09262c283b1dc1462d0e82caa7a88e52588b8c5d7475dd22210edec1c50a')
+2UrtMWeLqYXfTznZo1xNuZQXmEE6cOZk
 ```
 ### Function: generate_uuid()
 
@@ -556,6 +589,41 @@ Restart a user application container on device. This function only works if you 
 >>> resin.models.device.restart('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
 'OK'
 ```
+### Function: set_custom_location(uuid, location)
+
+Set a custom location for a device.
+
+#### Args:
+    uuid (str): device uuid.
+    location (dict): device custom location, format: { 'latitude': <latitude>, 'longitude': <longitude> }.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+
+#### Examples:
+```python
+>>> location = {
+    'latitude': '21.032777',
+    'longitude': '105.831586'
+}
+>>> resin.models.device.set_custom_location('df09262c283b1dc1462d0e82caa7a88e52588b8c5d7475dd22210edec1c50a',location)
+OK
+```
+### Function: unset_custom_location(uuid)
+
+clear custom location for a device.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+
+#### Examples:
+```python
+>>> resin.models.device.unset_custom_location('df09262c283b1dc1462d0e82caa7a88e52588b8c5d7475dd22210edec1c50a')
+OK
+```
 ## Config
 
 This class implements configuration model for Resin Python SDK.
@@ -726,12 +794,12 @@ Create a device environment variable.
     value (str): environment variable value.
 
 #### Returns:
-    str: new device environment variable info.
+    dict: new device environment variable info.
 
 #### Examples:
 ```python
->>> resin.models.environment_variables.device.create('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143','tmp-env-var', 'test')
-'{"id":2184,"device":{"__deferred":{"uri":"/ewa/device(122950)"},"__id":122950},"env_var_name":"tmp-env-var","value":"test","__metadata":{"uri":"/ewa/device_environment_variable(2184)","type":""}}'
+>>> resin.models.environment_variables.device.create('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143','test_env4', 'testing1')
+{'name': u'test_env4', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(42166)'}, u'value': u'testing1', u'device': {u'__deferred': {u'uri': u'/resin/device(115792)'}, u'__id': 115792}, u'id': 42166}
 ```
 ### Function: get_all(uuid)
 
@@ -747,6 +815,21 @@ Get all device environment variables.
 ```python
 >>> resin.models.environment_variables.device.get_all('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
 [{u'device': {u'__deferred': {u'uri': u'/ewa/device(122950)'}, u'__id': 122950}, u'__metadata': {u'type': u'', u'uri': u'/ewa/device_environment_variable(2173)'}, u'id': 2173, u'value': u'1322944771964103', u'env_var_name': u'RESIN_DEVICE_RESTART'}]
+```
+### Function: get_all_by_application(app_id)
+
+Get all device environment variables for an application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    list: list of device environment variables.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device.get_all_by_application('5780')
+[{'name': u'device1', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(40794)'}, u'value': u'test', u'device': {u'__deferred': {u'uri': u'/resin/device(115792)'}, u'__id': 115792}, u'id': 40794}, {'name': u'RESIN_DEVICE_RESTART', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(1524)'}, u'value': u'961506585823372', u'device': {u'__deferred': {u'uri': u'/resin/device(121794)'}, u'__id': 121794}, u'id': 1524}]
 ```
 ### Function: remove(var_id)
 
