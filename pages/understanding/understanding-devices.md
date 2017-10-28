@@ -1,5 +1,5 @@
 ---
-title: What is resinOS
+title: What is resinOS?
 
 layout: os-version-specific.html
 

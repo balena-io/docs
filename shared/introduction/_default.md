@@ -1,5 +1,8 @@
-## Introduction
+In this guide we will build a simple **{{ $language.name }}** web server project on a {{ $device.name }}. At its most basic, the process for deploying code to a {{ $device.name }} consists of two major steps:
 
-In this guide we will build a simple {{ $language.name }} web server project on a {{ $device.name }}. Along the way you will learn the basics of resin.io. We will walk through getting a {{ $device.name }} online and deploying some {{ $language.name }} code to it.
+- Setting up your {{ $device.name }} with **resinOS**, the host OS that manages communication with **resin.io** and runs the core device operations.
+- Pushing your **{{ $language.name }}** project to the resin.io image builder, which pulls in all necessary dependencies and creates the container image for your application.
 
-We will also look into using the built in web terminal to run test commands and debug issues. Once you have a handle on the resin.io deployment workflow, we will introduce you to resin sync and our CLI which will allow you to increase your development speed on resin.io.
+Once these steps are finished, your {{ $device.name }} will download the container image, kick off your application, and begin sending logs to your resin.io dashboard!
+
+

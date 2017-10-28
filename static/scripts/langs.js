@@ -1,1 +1,1 @@
-module.exports = [ 'javascript', 'python', 'bash', 'javascript' , 'json' , 'dockerfile' ]
+module.exports = [ 'javascript', 'python', 'bash', 'javascript' , 'json' , 'dockerfile', 'shell' ]
