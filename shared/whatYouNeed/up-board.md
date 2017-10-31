@@ -1,7 +1,7 @@
 <img style="float: right;padding-left: 10px;" src="/img/up-board/up-board.png" width="25%">
 * A [UP][up-board], currently we only support the first generation of the UPboard, but we will support the [UP2 board][up2] in the future. See our [supported devices list][supportedDevicesList] for other supported boards.
 * A 4GB or larger {{ $device.bootMedia }}.
-* An ethernet cable or WiFi adapter. Check our [list of supported wifi adapters][wifiAdapters].
+* An ethernet cable or WiFi adapter. Check our [list of supported WiFi adapters][wifiAdapters].
 * A [5V @4A UPboard power supply][psu].
 * A USB keyboard.
 * A HDMI LCD screen.

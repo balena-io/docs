@@ -11,56 +11,57 @@ dynamic:
 
 # {{ title }}
 
+## Introduction
+
 {{import "introduction"}}
 
-## What You Will Need
+## What you will need
 
 {{import "whatYouNeed"}}
 
-## Getting Help
+## Need help?
 
-Before we get started building something cool, lets just point out some places to get help.
 {{import "usingSupport"}}
 
-To help us understand all the moving parts in resin.io, lets first define a few terms that will be used later in the guide.
-{{import "basicConcepts"}}
+## Account setup
 
-## Let's Jump In
+If you don't already have a resin.io account, make sure to [sign up][link-to-signup].
 
-If you don't already have a resin.io account head over to our [signup page][link-to-signup], during the sign up process you will be asked to set up an SSH key so you can securely push code.
 {{import "sshKey/add"}}
 
-## Creating an Application
+## Create an application
+
 {{import "createAnApp"}}
 
-## Adding Your First Device
+## Download resinOS
 
 {{import "getResinOS"}}
 
 {{import "selectNetworkConfig"}}
 
-### Create a Bootable {{ $device.bootMedia }}
+## Create a bootable {{ $device.bootMedia }}
 {{import "flashingOsToBootMedia"}}
 
+## Provision your device
 {{import "getDeviceOnDash"}}
 
-## Deploying Code
+## Deploy code
 
 {{import "deployingCode"}}
 
 {{import "diveIntoCode"}}
 
-## Using the Web Terminal
+## Use the web terminal
 
 {{import "usingWebTerminal"}}
 
-## Using Resin Sync to Develop Fast
+## Use resin sync to develop quickly
 
 {{import "resinSync"}}
 {{import "crossCompilation"}}
 {{import "usingResinSync"}}
 
-## Example Projects to Build From
+## Example projects
 There are even more hidden treasures in the resin.io platform and tools, but we will get into those a bit later. For now why not fork one or two of our example projects and build something grand.
 
 {{import "exampleProjects"}}

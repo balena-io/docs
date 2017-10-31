@@ -28,7 +28,7 @@ Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2
 
 To enable I2C communication in your projects you will need to add the command `modprobe i2c-dev` to your package.json or Dockerfile.
 
-The easiest way to add it so the package.json is to added to the "start" key. As shown here.
+The easiest way to add it to the package.json is to add it to the "start" key. As shown here.
 ```JSON
  "scripts": {
     "preinstall": "bash deps.sh",

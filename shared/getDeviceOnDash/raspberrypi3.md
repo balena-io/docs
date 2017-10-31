@@ -1,17 +1,15 @@
-## Setting Up Your Device
-
-Insert the SD card into the {{ $device.name }} and connect the ethernet cable if necessary. Now power up the {{ $device.name }} by inserting the micro USB cable.
+Insert the SD card into your {{ $device.name }} and connect the ethernet cable if necessary. Now power up the {{ $device.name }} by inserting the micro USB cable.
 
 ![insert SD](/img/gifs/insert-sd.gif)
 
-It will take a minute or two for the {{ $device.name }} to appear on your [resin.io dashboard][resinDash]. While you wait the resinOS is expanding the partitions on your SD card to use all available space, installing a custom linux environment and establishing a secure connection with our servers.
+It will take a minute or two for the {{ $device.name }} to appear on your **resin.io** [dashboard][resinDash]. While you wait, the **resinOS** is expanding the partitions on your SD card to use all available space, installing a custom Linux environment, and establishing a secure connection with the **resin.io** servers.
 
 You should now be ready to deploy some code!
 
 __Note:__ Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
 
 ##### Help! My device won't show up.
-If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. First check that you entered the wifi credentials correctly and ensure that your network meets these [basic requirements][networkRequirements]. It may also be worth checking the [LED error notifications][errorNotifications]
+If your device still hasn't shown up on your dashboard after a few minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly and ensure that your network meets these [basic requirements][networkRequirements]. It may also be worth checking the [LED error notifications][errorNotifications]
 
 If you still can't get your device online, come on over and chat to us on our [support channel][usingSupport].
 
