@@ -4,76 +4,121 @@ title: Applications
 
 # Applications
 
-### What is a Resin.io Application?
+## What is a resin.io application?
 
-A Resin.io __application__ contains both the code you want to run and the devices you want to run that code on.
+An application is a group of devices of the same type that all run the same code. When you provision a device, it is added to a specific application, but can be migrated to another application at any time.
 
-To create an application you simply type in a descriptive name in the [applications dashboard](https://dashboard.resin.io/) and hit create.
+To create an application, simply type in a descriptive name in the [applications dashboard](https://dashboard.resin.io/) and click *Create New Application*.
 
-<!-- TODO: update the image here -->
-<img src="/img/raspberrypi2/app_dashboard_fresh_device.png" width="80%">
+Here we have an application with five devices provisioned:
 
-Here we have an application named "myFleet" and currently it only has one device ("dawn-wildflower") provisioned.
+<img src="/img/common/app/device-list-expanded.png" width="80%">
 
-### Associating Devices with Applications
+### Associate devices with an application
 
-When you create an application a special resin.io operating system is generated specifically for that application and its associated device type.
+When you create an application, a resinOS image is generated specifically for that application and its associated device type.
 
-When you burn this image onto your device it will automatically appear in your application dashboard, no manual intervention is required. You can burn this one downloaded image file to multiple SD cards and resin.io will associate all these devices with their own unique ID and fancy name.
+When you flash this image onto your device, the device will automatically appear in your application dashboard—no manual intervention is required. You can use this image file for multiple devices, and resin.io will create a unique ID and name for each one.
 
 
-### Deploying Your Code to an Application
+### Deploy code to an application
 
-The key thing to know about any application from your perspective as a developer is it's git endpoint - this is visible in the applications list on the [applications dashboard](http://dashboard.resin.io) and also in the top-right hand corner of each individual application dashboard.
+Each application has an associated **git** endpoint, which follows the syntax `<USERNAME>@git.resin.io:<USERNAME>/<APPNAME>.git`. In the top-right corner of your application page, you'll find the command to add this endpoint as a **git** remote:
 
-To configure a git repo to be able to push code to resin, you need to add a [git remote](http://gitref.org/remotes/) - simply click the button to the right of the git endpoint to copy the command to the clipboard and run it in the folder where your local git repo is located.
+<img src="/img/common/app/remote-repo.png" width="80%">
 
-Alternatively, simply run `git remote add resin [git endpoint]`, and you're done. From then on in you can simply run `git push resin master` to push your master branch to your devices.
+When you are ready to deploy your code, navigate to your project directory, copy and paste the command from your application page, and push your master branch to the `resin` remote:
+
+```shell 
+$ cd FirstApp
+$ git remote add resin <USERNAME>@git.resin.io:<USERNAME>/<APPNAME>.git
+$ git push resin master
+```
+__Note:__ If you have made local changes to your code, make sure to `git add` and `git commit` as necessary before pushing to the remote.
+
+Once you push the code to your resin.io application, a **Docker** container will be built on our servers and downloaded to any online devices.
 
 For more details on deployment, check out our [deployment guide](/deployment/deployment).
 
-## Application Actions
+## Device filters
 
-### Download Image
+As the number of devices in your application grows, the device list will become increasingly busy. Filters provide a convenient way to quickly find specific devices based on shared characteristics. 
 
-This action will allow you to download a new device OS image so you can provision new devices into your fleet. It will also ask you to select and configure you network preferences before you download.
+### Add and update filters
 
-### Restart Application (on all devices)
+To add a filter, click the *Add filter* button near the top-left corner of your application page. You'll be presented with a window to configure your filter:
 
-The `Restart Application` action is a fleet wide action that will restart the application container on all the devices that are currently online. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
+<img src="/img/common/app/add-filter.png" width="80%">
 
-## Dangerous Application Actions
+The first dropdown lists the device characteristics you can filter on. These characteristics correspond to the columns in your device list. The second dropdown contains comparison operators appropriate to the device characteristic, such as `is`, `is before`, `contains`, and `matches RegEx`. The third field is where you specify a value to filter on. Click *Add filter* to apply your configuration.
 
-### Purge Data (on all devices)
+When your filter has been added, you will see it in a box above the device list. The device list will now only show devices that match your filter:
 
-The purge data action operates on all devices in the application. It is used to delete all the data in `/data`. Note that this is a non-reversible action and should be carried out with extreme caution as once your data is purged, it is gone for good.
+<img src="/img/common/app/filter-applied.png" width="80%">
 
-__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+If you need to update your filter, simply click it and a new configuration window will appear. To remove, click the `x` to the filter's right. You can add any number of additional filters with the *Add filter* button.
 
-### Reboot All Devices
+### Create a view
 
-This action allows you to perform a reboot of all the devices in the fleet/application. This is different from the `Restart Application` action mentioned above, because in this action, the entire device including the kernel will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
+When you create a view, you are saving a specific set of filters that you may want to use again. To do this, click *Save view* on the right side of the filter box:
 
-__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+<img src="/img/common/app/save-view.png" width="80%">
 
-### Shutdown All Devices
+You will be asked to choose a name for the saved view. This view can then be selected at any time by clicking the *Views* button above the filter box.
 
-The `Shutdown` action allows you to safely shutdown all your devices. It should be noted that once you trigger this action there is no way for resin.io to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible.
+## Application actions
 
-__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+Actions let you change the state of some or all of the devices in your application. They can be applied in two ways:
 
-### Deleting the application
+1. The *Actions* menu, located on the left side of the application page, allows you to apply state changes to all devices in the application.
+2. *Group Actions*, found at the top-right of the device list, are applied to a subset of the devices in your fleet. You can specify which devices will be affected by clicking the check boxes on the left of the device list.
 
-Hidden behind the 'Dangerous' section is the option to delete your application.
+<img src="/img/common/app/actions.png" width="80%">
 
-__Warning:__ All devices attached to the application will become orphaned and you will need to reconfigure them from scratch in another application. Their most recent code deployment will continue to function as before, but all the devices will not be able to receive code updates or device actions from resin.io.
+### Public URL
+
+This option enables a public URL for all devices in the application. For more details on public URLs, please refer to the [device page][device-page].
+
+### Restart Application
+
+The *Restart Application* action will restart the application container on selected devices that are currently online. It should be noted that these action notifications are not queued up, so if a device is offline when the action is triggered the application not be restarted when it comes back online.
+
+### Grant Support Access
+
+Clicking *Grant Support Access* gives resin.io support staff the ability to access all the devices in your application for troubleshooting purposes. You will be asked to specify a time window for which support access is allowed.
+
+## Dangerous application actions
+
+### Purge Data
+
+The *Purge Data* action operates on all selected devices. It is used to delete all the data in `/data`. Note that this is a non-reversible action and should be carried out with extreme caution. Purged data cannot be recovered.
+
+__Note:__ This action is only supported on devices with a supervisor version >= 1.1.0
+
+### Reboot
+
+This action allows you to perform a reboot on all selected devices. This is different from the *Restart Application* action mentioned above. When you reboot, the entire device, including the kernel, will be rebooted as if there was a power cycle. It should be noted that these action notifications are not queued up, so if a device is offline when the action is triggered the device will not be rebooted when it comes back online.
+
+__Note:__ This action is only supported on devices with a supervisor version >= 1.1.0
+
+### Shutdown
+
+The *Shutdown* action allows you to safely shutdown all selected devices. It should be noted that once you trigger this action, there is no way for resin.io to start your device back up, so you will need to physically restart your device. Do not perform this action if your device is somewhere remote and inaccessible.
+
+__Note:__ This action is only supported on devices with a supervisor version >= 1.1.0
+
+### Delete Application
+
+This option permanently deletes your application.
+
+__Warning:__ It is a good idea to [move your devices to another application][move-devices] before deleting your current application. If you do not, **all devices attached to the application will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device actions from resin.io.
 
 ## Environment Variables
 
 Applications can be customized via environment variables - simply enter environment variable key/value pairs.
-You can read more about environment variables on the [documentation page](/management/env-vars/)
+You can read more about environment variables on the [documentation page][env-vars].
 
-__Warning:__ Changing an environment variable will, for the time being, result in your application restarting.
+__Warning:__ Changing an environment variable will result in your application restarting.
 
 ### System-Defined Environment Variables
 
@@ -86,3 +131,7 @@ __Note:__ Environment variables that are set by the system are prefixed with `RE
 ### Collaboration management
 
 An organization should create a main account to host all applications that the organization owns. This allows a strict separation between applications the organization owns and employee applications created via their accounts. The main account is bound to the organization itself—the organization should have a well defined process to manage the credentials for its main account. Employees are granted access to the organization applications as collaborators. When an employee should no longer have access to the organization applications, access can be revoked by removing them as a collaborator.
+
+[device-page]:/management/devices/#enable-public-device-url
+[move-devices]:/management/devices/#move-to-another-application
+[env-vars]:/management/env-vars/
