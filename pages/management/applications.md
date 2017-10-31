@@ -81,7 +81,7 @@ This option enables a public URL for all devices in the application. For more de
 
 ### Restart Application
 
-The *Restart Application* action will restart the application container on selected devices that are currently online. It should be noted that these action notifications are not queued up, so if a device is offline when the action is triggered the application not be restarted when it comes back online.
+The *Restart Application* action will restart the application container on selected devices that are currently online. It should be noted that these action notifications are not queued up, so if a device is offline when the action is triggered the application will not be restarted when it comes back online.
 
 ### Grant Support Access
 
