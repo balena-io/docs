@@ -32,9 +32,9 @@ stability overall.
 ### Configuration
 
 __Important Note:__ Wifi adapters drain a lot of power which unfortunately
-causes power issues with many devices if you try to *hotswap* the adapters in
-(adding a WiFi adapter to your Pi *after* power-on). Be __sure__ you connect
-your WiFi device prior to switching on your device to avoid instability.
+causes power issues with many devices if you try to *hotswap* the adapters
+(adding a WiFi adapter to your device *after* power-on). Be __sure__ you connect
+your WiFi adapter prior to switching on your device to avoid instability.
 
 
 [rpi]:http://www.raspberrypi.org/
@@ -47,5 +47,5 @@ your WiFi device prior to switching on your device to avoid instability.
 [connman]:http://en.wikipedia.org/wiki/ConnMan
 [connman-format]:http://git.kernel.org/cgit/network/connman/connman.git/tree/doc/config-format.txt
 
-[rpi-official-wifi]:https://www.raspberrypi.org/products/usb-wifi-dongle/
+[rpi-official-wifi]:https://www.raspberrypi.org/products/raspberry-pi-usb-wifi-dongle/
 [beaglebone-green-link]:http://www.seeed.cc/beaglebone_green/

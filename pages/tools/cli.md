@@ -4,7 +4,7 @@ This tool allows you to interact with the resin.io api from the comfort of your 
 
 Please make sure your system meets the requirements as specified in the [README](https://github.com/resin-io/resin-cli).
 
-To get started, download the CLI from npm:
+To get started download the CLI from npm.
 
 	$ npm install resin-cli -g
 
@@ -13,6 +13,20 @@ Then authenticate yourself:
 	$ resin login
 
 Now you have access to all the commands referenced below.
+
+## Proxy support
+
+The CLI does support HTTP(S) proxies.
+
+You can configure the proxy using several methods (in order of their precedence):
+
+* set the `RESINRC_PROXY` environment variable in the URL format (with protocol, host, port, and optionally the basic auth),
+* use the [resin config file](https://www.npmjs.com/package/resin-settings-client#documentation) (project-specific or user-level)
+and set the `proxy` setting. This can be:
+	* a string in the URL format,
+	* or an object following [this format](https://www.npmjs.com/package/global-tunnel-ng#options), which allows more control,
+* or set the conventional `https_proxy` / `HTTPS_PROXY` / `http_proxy` / `HTTP_PROXY`
+environment variable (in the same standard URL format).
 
 # Table of contents
 
@@ -89,7 +103,9 @@ Now you have access to all the commands referenced below.
 
 - OS
 
+	- [os versions &#60;type&#62;](#os-versions-60-type-62-)
 	- [os download &#60;type&#62;](#os-download-60-type-62-)
+	- [os build-config &#60;image&#62; &#60;device-type&#62;](#os-build-config-60-image-62-60-device-type-62-)
 	- [os configure &#60;image&#62; &#60;uuid&#62;](#os-configure-60-image-62-60-uuid-62-)
 	- [os initialize &#60;image&#62;](#os-initialize-60-image-62-)
 
@@ -125,13 +141,17 @@ Now you have access to all the commands referenced below.
 	- [build [source]](#build-source-)
 	- [deploy &#60;appName&#62; [image]](#deploy-60-appname-62-image-)
 
+- Utilities
+
+	- [util available-drives](#util-available-drives)
+
 # Application
 
 ## app create &#60;name&#62;
 
 Use this command to create a new resin.io application.
 
-You can specify the application type with the `--type` option.
+You can specify the application device type with the `--type` option.
 Otherwise, an interactive dropdown will be shown for you to select from.
 
 You can see a list of supported device types with
@@ -147,7 +167,7 @@ Examples:
 
 #### --type, -t &#60;type&#62;
 
-application type
+application device type (Check available types with `resin devices supported`)
 
 ## apps
 
@@ -461,7 +481,23 @@ confirm non interactively
 
 #### --advanced, -v
 
-enable advanced configuration
+show advanced configuration options
+
+#### --os-version &#60;os-version&#62;
+
+exact version number, or a valid semver range,
+or 'latest' (includes pre-releases),
+or 'default' (excludes pre-releases if at least one stable version is available),
+or 'recommended' (excludes pre-releases, will fail if only pre-release versions are available),
+or 'menu' (will show the interactive menu)
+
+#### --drive, -d &#60;drive&#62;
+
+the drive to write the image to, like `/dev/sdb` or `/dev/mmcblk0`. Be careful with this as you can erase your hard drive. Check `resin util available-drives` for available options.
+
+#### --config &#60;config&#62;
+
+path to the config JSON file, see `resin os build-config`
 
 # Environment Variables
 
@@ -772,6 +808,10 @@ ssh gateway port
 
 increase verbosity
 
+#### --noproxy
+
+don't use the proxy configuration for this connection. Only makes sense if you've configured proxy globally.
+
 # Notes
 
 ## note &#60;|note&#62;
@@ -795,9 +835,19 @@ device uuid
 
 # OS
 
+## os versions &#60;type&#62;
+
+Use this command to show the available resinOS versions for a certain device type.
+Check available types with `resin devices supported`
+
+Example:
+
+	$ resin os versions raspberrypi3
+
 ## os download &#60;type&#62;
 
 Use this command to download an unconfigured os image for a certain device type.
+Check available types with `resin devices supported`
 
 If version is not specified the newest stable (non-pre-release) version of OS
 is downloaded if available, or the newest version otherwise (if all existing
@@ -829,9 +879,28 @@ or 'default' (excludes pre-releases if at least one stable version is available)
 or 'recommended' (excludes pre-releases, will fail if only pre-release versions are available),
 or 'menu' (will show the interactive menu)
 
+## os build-config &#60;image&#62; &#60;device-type&#62;
+
+Use this command to prebuild the OS config once and skip the interactive part of `resin os configure`.
+
+Examples:
+
+	$ resin os build-config ../path/rpi3.img raspberrypi3 --output rpi3-config.json
+	$ resin os configure ../path/rpi3.img 7cf02a6 --config "$(cat rpi3-config.json)"
+
+### Options
+
+#### --advanced, -v
+
+show advanced configuration options
+
+#### --output, -o &#60;output&#62;
+
+the path to the output JSON file
+
 ## os configure &#60;image&#62; &#60;uuid&#62;
 
-Use this command to configure a previously download operating system image with a device.
+Use this command to configure a previously downloaded operating system image for the specific device.
 
 Examples:
 
@@ -841,7 +910,11 @@ Examples:
 
 #### --advanced, -v
 
-show advanced commands
+show advanced configuration options
+
+#### --config &#60;config&#62;
+
+path to the config JSON file, see `resin os build-config`
 
 ## os initialize &#60;image&#62;
 
@@ -862,17 +935,17 @@ confirm non interactively
 
 #### --type, -t &#60;type&#62;
 
-device type
+device type (Check available types with `resin devices supported`)
 
 #### --drive, -d &#60;drive&#62;
 
-drive
+the drive to write the image to, like `/dev/sdb` or `/dev/mmcblk0`. Careful with this as you can erase your hard drive. Check `resin util available-drives` for available options.
 
 # Config
 
 ## config read
 
-Use this command to read the config.json file from the mounted filesystem (e.g. SD card) of a provisioned device
+Use this command to read the config.json file from the mounted filesystem (e.g. SD card) of a provisioned device"
 
 Examples:
 
@@ -883,7 +956,7 @@ Examples:
 
 #### --type, -t &#60;type&#62;
 
-device type
+device type (Check available types with `resin devices supported`)
 
 #### --drive, -d &#60;drive&#62;
 
@@ -903,7 +976,7 @@ Examples:
 
 #### --type, -t &#60;type&#62;
 
-device type
+device type (Check available types with `resin devices supported`)
 
 #### --drive, -d &#60;drive&#62;
 
@@ -911,7 +984,7 @@ drive
 
 ## config inject &#60;file&#62;
 
-Use this command to inject a config.json file to the mounted filesystem (e.g. SD card) of a provisioned device
+Use this command to inject a config.json file to the mounted filesystem (e.g. SD card) of a provisioned device"
 
 Examples:
 
@@ -922,7 +995,7 @@ Examples:
 
 #### --type, -t &#60;type&#62;
 
-device type
+device type (Check available types with `resin devices supported`)
 
 #### --drive, -d &#60;drive&#62;
 
@@ -942,7 +1015,7 @@ Examples:
 
 #### --type, -t &#60;type&#62;
 
-device type
+device type (Check available types with `resin devices supported`)
 
 #### --drive, -d &#60;drive&#62;
 
@@ -1264,7 +1337,7 @@ name of container to stop
 
 ## build [source]
 
-Use this command to build a container with a provided Docker daemon.
+Use this command to build a container with a provided docker daemon.
 
 You must provide either an application or a device-type/architecture
 pair to use the resin Dockerfile pre-processor
@@ -1285,7 +1358,7 @@ Examples:
 
 The architecture to build for
 
-#### --devicetype, -d &#60;deviceType&#62;
+#### --deviceType, -d &#60;deviceType&#62;
 
 The type of device this build is for
 
@@ -1295,15 +1368,15 @@ The target resin.io application this build is for
 
 #### --docker, -P &#60;docker&#62;
 
-Path to a local Docker socket
+Path to a local docker socket
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the Docker daemon
+The address of the host containing the docker daemon
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
-The port on which the host Docker daemon is listening
+The port on which the host docker daemon is listening
 
 #### --ca &#60;ca&#62;
 
@@ -1321,15 +1394,30 @@ Docker host TLS key file
 
 The alias to the generated image
 
+#### --buildArg, -B &#60;arg&#62;
+
+Set a build-time variable (eg. "-B 'ARG=value'"). Can be specified multiple times.
+
 #### --nocache
 
-Don't use Docker layer caching when building
+Don't use docker layer caching when building
+
+#### --emulated, -e
+
+Run an emulated build using Qemu
+
+#### --squash
+
+Squash newly built layers into a single new layer
 
 ## deploy &#60;appName&#62; [image]
 
-Use this command to deploy and optionally build an image to an application.
+Use this command to deploy an image to an application, optionally building it first.
 
-Usage: deploy <appName> ([image] | --build [--source build-dir])
+Usage: `deploy <appName> ([image] | --build [--source build-dir])`
+
+To deploy to an app on which you're a collaborator, use
+`resin deploy <appOwnerUsername>/<appName>`.
 
 Note: If building with this command, all options supported by `resin build`
 are also supported with this command.
@@ -1348,17 +1436,21 @@ Build image then deploy
 
 The source directory to use when building the image
 
+#### --nologupload
+
+Don't upload build logs to the dashboard with image (if building)
+
 #### --docker, -P &#60;docker&#62;
 
-Path to a local Docker socket
+Path to a local docker socket
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the Docker daemon
+The address of the host containing the docker daemon
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
-The port on which the host Docker daemon is listening
+The port on which the host docker daemon is listening
 
 #### --ca &#60;ca&#62;
 
@@ -1376,7 +1468,26 @@ Docker host TLS key file
 
 The alias to the generated image
 
+#### --buildArg, -B &#60;arg&#62;
+
+Set a build-time variable (eg. "-B 'ARG=value'"). Can be specified multiple times.
+
 #### --nocache
 
-Don't use Docker layer caching when building
+Don't use docker layer caching when building
+
+#### --emulated, -e
+
+Run an emulated build using Qemu
+
+#### --squash
+
+Squash newly built layers into a single new layer
+
+# Utilities
+
+## util available-drives
+
+Use this command to list your machine's drives usable for writing the OS image to.
+Skips the system drives.
 

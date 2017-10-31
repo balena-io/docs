@@ -7,7 +7,7 @@
 * A 4GB or larger SD card to create a boot disk. The [speed class][sdSpeed] of the card is important—a class 10 card or above is the way to go.
 * A micro USB cable.
 * **[Optional]** A [2A+ micro USB 5V power supply][psu]
-* **[Optional]** Ethernet cable, if you prefer to **not** connect over wifi during provisioning.
+* **[Optional]** Ethernet cable, if you prefer to **not** connect over WiFi during provisioning.
 * **[Optional]** A tooth pick or small screw driver to set the tiny boot switches on the development board.
 
 [kitra520-link]:http://www.rushup.tech/kitra520/
