@@ -71,7 +71,7 @@ You will be asked to choose a name for the saved view. This view can then be sel
 Actions let you change the state of some or all of the devices in your application. They can be applied in two ways:
 
 1. The *Actions* menu, located on the left side of the application page, allows you to apply state changes to all devices in the application.
-2. *Group Actions*, found at the top-right of the device list, are applied to a subset of the devices in your fleet. You can specify which devices will be affected by clicking the check boxes on the left of the device list.
+2. *Group Actions*, found at the top-right of the device list, are applied to a subset of the devices in your fleet. You can specify which devices will be affected by clicking the check boxes on the left of the device list. If you apply any filters or a saved view, clicking the check box at the top of the device list will select only the devices that appear in the list. If no filters are applied, this check box will select all devices in the application.
 
 <img src="/img/common/app/actions.png" width="80%">
 
