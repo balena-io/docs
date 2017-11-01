@@ -84,8 +84,6 @@ __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) ha
 
 ### [NVIDIA Jetson TX2](https://developer.nvidia.com/embedded/buy/jetson-tx2)
 
-__Warning:__ Support for the Nvidia Jetson TX2 is temporarily unavailable. Please contact hello@resin.io with any questions.
-
 ![Jetson TX2](/img/jetson-tx2.png)
 
 ### Other Devices
