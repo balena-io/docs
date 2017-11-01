@@ -31,7 +31,6 @@ Learn
 
   Resin.io Basics
     Resin.io Concepts[/understanding/understanding-code-deployment]
-    Security[/security/security-white-paper]
     Deployment Guide[/deployment/deployment]
     Dockerfile Guide[/deployment/dockerfile]
 
@@ -66,6 +65,8 @@ Learn
       [/configuration/advanced]
 
     Network Setup[/deployment/network/$os_version]
+
+    Security[/security]
 
     3rd Party Integrations[/integrations]
       Amazon AWS IoT[/integrations/aws]
