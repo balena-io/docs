@@ -10,7 +10,7 @@ If we look at our `Dockerfile.template`, the first thing we see is:
 ```Dockerfile
 FROM resin/%%RESIN_MACHINE_NAME%%-debian
 ```
-This line has quite a bit packed into it. The first thing that happens is that the `%%RESIN_MACHINE_NAME%%` place holder gets stripped and replaced with the resin device name. For example if your application type is a {{ $device.name }}, the line will be replaced with:
+This line has quite a bit packed into it. The first thing that happens is that the `%%RESIN_MACHINE_NAME%%` place holder gets stripped and replaced with the resin device name. For example if your application type is a **{{ $device.name }}**, the line will be replaced with:
 ```Dockerfile
 FROM resin/{{ $device.id }}-debian
 ```
@@ -43,7 +43,7 @@ We can now compile our C++ code, this is done using the `RUN` command. `g++` com
 RUN g++ -o hello hello.cpp
 ```
 
-The last command, `CMD` is perhaps one of the most important. This command defines what will run at container start on your {{ $device.name }}, in our example we have told the container to run our `hello` executable. It should be noted that you can only have **one** `CMD` per `Dockerfile`.
+The last command, `CMD` is perhaps one of the most important. This command defines what will run at container start on your **{{ $device.name }}**, in our example we have told the container to run our `hello` executable. It should be noted that you can only have **one** `CMD` per `Dockerfile`.
 ```Dockerfile
 CMD ./hello
 ```

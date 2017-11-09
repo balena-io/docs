@@ -1,4 +1,7 @@
-To connect with **resin.io**, your {{ $device.name }} will need a **resinOS** image that is configured for your application and your network. Start by clicking *DOWNLOAD RESINOS* in your application dashboard:
+<!--add an anchor here to redirect old links-->
+<a name="adding-your-first-device"></a>
+
+To connect with resin.io, your **{{ $device.name }}** will need a resinOS image that is configured for your application and your network. Start by clicking *Download resinOS* in your application dashboard:
 
 <img src="/img/common/app/app_dashboard_empty.png" width="80%">
 
