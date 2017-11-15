@@ -23,9 +23,11 @@ For device types and resinOS versions that are not yet supported, please contact
 
 ## Running an update
 
-To run an update, navigate to your device's *Actions* tab, click *Update ResinOS*, and select the version of resinOS you would like to update to.
+To run an update, navigate to your device's *Actions* tab, click *Update ResinOS*, and select the version of resinOS you would like to update to:
 
 <img src="/img/common/updates/update-resinos.png" width="80%">
+
+__Note:__ Updates to the supervisor, resin.io's agent on the device, are handled in conjuction with host OS updates. If you need to update the supervisor separately from the host OS, please [contact us][troubleshooting] for assistance.
 
 You will see a progress bar that marks the steps completed for the update. Some steps that take longer, such as the device downloading the new OS image, may make the progress bar appear stuck. This doesn't mean anything has gone wrong with your update. We are working on making the update process more informative.
 

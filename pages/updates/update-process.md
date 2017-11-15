@@ -44,7 +44,7 @@ Finally, the device is rebooted. On the first boot it will necessarily come onli
 
 The process for upgrading between 1.x versions mirrors the process used for 2.x versions, though the tooling is somewhat different.
 
-The updater script first does a couple of cross-checks, stops the supervisor and user containers, and if everything looks okay,  starts by checking if any supervisor updates are needed.
+The updater script first does a couple of cross-checks, stops the supervisor and user containers, and if everything looks okay, starts by checking if any supervisor updates are needed.
 
 Then a `resinhup` **Docker** image is pulled, which contains all the tools and the secondary Python updater scripts for the main migration. Since the resinOS 1.x root filesystem is read-write, the `resinhup` updater scripts start with a fingerprint check to see if any files have been modified. If there have been any modifications, it will stop the update as not to unexpectedly overwrite any modifications.
 
