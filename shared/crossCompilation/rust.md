@@ -1,10 +1,10 @@
 #### Setting up {{ $language.name }} cross-compilation
 
-Cross-compilation is needed when using `resin sync` and {{ $language.name }} as it is a compiled language. Compiled languages are programming languages in which source code must be compiled into an executable form before it can be run.
+Cross-compilation is needed when using `resin sync` and **{{ $language.name }}** as it is a compiled language. Compiled languages are programming languages in which source code must be compiled into an executable form before it can be run.
 
 __Warning:__ This guide is for Linux and will not work on Windows or OSX!
 
-Luckily {{ $language.name }} cross-compilation is fairly easy to get setup using [rust-cross][rust-cross] and even easier to use.
+Luckily **{{ $language.name }}** cross-compilation is fairly easy to get setup using [rust-cross][rust-cross] and even easier to use.
 
 To get started we first install {{ $language.name }} on our development machine. [rustup.rs][rustup.rs] makes this a lot easier and is highly recommended.
 ```
@@ -14,11 +14,11 @@ Next up is the C cross-compilation toolchain.
 ```
 $ sudo apt-get install -qq gcc-arm-linux-gnueabihf
 ```
-Now we need to install a standard set of crates that have been cross-compiled for the {{ $device.name }}. A crate is synonymous with a ‘library’ or ‘package’ in other languages.
+Now we need to install a standard set of crates that have been cross-compiled for the **{{ $device.name }}**. A crate is synonymous with a ‘library’ or ‘package’ in other languages.
 ```
 $ rustup target add {{ $device.rustTriple }}
 ```
-Finally {{ $language.name }} must be configured to enable cross-compilation for the {{ $device.name }}.
+Finally {{ $language.name }} must be configured to enable cross-compilation for the **{{ $device.name }}**.
 ```
 $ mkdir -p ~/.cargo
 $ cat >>~/.cargo/config <<EOF
@@ -27,7 +27,7 @@ $ cat >>~/.cargo/config <<EOF
 > EOF
 ```
 
-Now that cross-compilation is set up it would be wise to test everything works before moving on to configuring `resin sync`. The commands below will create a new {{ $language.name }} project and cross-compile it for your {{ $device.name }}.
+Now that cross-compilation is set up it would be wise to test everything works before moving on to configuring `resin sync`. The commands below will create a new **{{ $language.name }}** project and cross-compile it for your **{{ $device.name }}**.
 ```
 $ cargo new --bin hello
 $ cd hello

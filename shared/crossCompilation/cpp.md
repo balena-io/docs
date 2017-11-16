@@ -1,10 +1,10 @@
 #### Setting up {{ $language.name }} cross-compilation
 
-Cross-compilation is needed when using `resin sync` and {{ $language.name }} as it is a compiled language. Compiled languages are programming languages in which source code must be compiled into an executable form before it can be run.
+Cross-compilation is needed when using `resin sync` and **{{ $language.name }}** as it is a compiled language. Compiled languages are programming languages in which source code must be compiled into an executable form before it can be run.
 
 __Warning:__ This guide is for Linux and will not work on Windows or OSX!
 
-Luckily {{ $language.name }} cross-compilation is fairly easy to get setup using [crosstool-ng][crosstool-ng] and even easier to use.
+Luckily **{{ $language.name }}** cross-compilation is fairly easy to get setup using [crosstool-ng][crosstool-ng] and even easier to use.
 
 To get started we first install crosstool-ng on our development machine.
 ```
@@ -20,7 +20,7 @@ Next we need to create a directory to hold the cross-compilation tool chains.
 $ mkdir ~/toolchains/{{ $device.cppTriple }}
 $ cd ~/toochains/{{ $device.cppTriple }}
 ```
-Then we can run `ct-ng list-samples` to show a list of build targets that we can choose from. We need to target `{{ $device.cppTriple }}` for the {{ $device.name }}.
+Then we can run `ct-ng list-samples` to show a list of build targets that we can choose from. We need to target `{{ $device.cppTriple }}` for the **{{ $device.name }}**.
 ```
 $ ct-ng list-samples
 $ ct-ng {{ $device.cppTriple }}
@@ -28,7 +28,7 @@ $ ct-ng build
 ```
 Enjoy a cup of tea whilst crosstool-ng is working, this step can take up to an hour.
 
-Now that cross-compilation is set up it would be wise to test everything works before moving on to configuring `resin sync`. The commands below will cross-compile `hello.cpp` for your {{ $device.name }}.
+Now that cross-compilation is set up it would be wise to test everything works before moving on to configuring `resin sync`. The commands below will cross-compile `hello.cpp` for your **{{ $device.name }}**.
 ```
 $ export PATH="${PATH}:${HOME}/x-tools/{{ $device.cppTriple }}/bin"
 $ {{ $device.cppTriple }}-g++ -o hello hello.cpp

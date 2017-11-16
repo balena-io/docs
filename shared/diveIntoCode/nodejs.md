@@ -11,7 +11,7 @@ If we look at our `Dockerfile.template`, the first thing we see is:
 ```Dockerfile
 FROM resin/%%RESIN_MACHINE_NAME%%-node:slim
 ```
-This line has quite a bit packed into it. The first thing that happens is that the `%%RESIN_MACHINE_NAME%%` place holder gets stripped and replaced with the resin device name. For example if your application type is a {{ $device.name }}, the line will be replaced with:
+This line has quite a bit packed into it. The first thing that happens is that the `%%RESIN_MACHINE_NAME%%` place holder gets stripped and replaced with the resin device name. For example if your application type is a **{{ $device.name }}**, the line will be replaced with:
 ```Dockerfile
 FROM resin/{{ $device.id }}-node:slim
 ```
@@ -56,7 +56,7 @@ After the `npm install` we copy the rest of our source code into the working dir
 
 The last 2 commands are runtime directives. The `ENV INITSYSTEM on` is used to enable the [systemd][systemd-link] init within the container. This is useful for a number of reasons, like keeping the container open after application crash and handling `/dev` updates as new USB devices are plugged in. If you don't want an init system, just set it to `off` or remove the line for the `Dockerfile`.
 
-The last command, `CMD` is perhaps one of the most important. This command defines what will run at container start on your {{ $device.name }}, in our example we have told npm to start a process. It should be noted that you can only have **one** `CMD` per `Dockerfile`.
+The last command, `CMD` is perhaps one of the most important. This command defines what will run at container start on your **{{ $device.name }}**, in our example we have told npm to start a process. It should be noted that you can only have **one** `CMD` per `Dockerfile`.
 
 In our `package.json` the parts to focus on are our "scripts" and "dependencies":
 ```JSON
