@@ -6,7 +6,7 @@ __Warning:__ This will completely overwrite any data on your devices' internal e
 
 <img src="/img/beaglebone/sd_card_BBB.jpg" width="40%">
 
-After a short while you should see your device pop up in the dashboard. It will appear in a configuring state as it flashes **resinOS** to the internal media. This step can take a little time.
+After a short while you should see your device pop up in the dashboard. It will appear in a configuring state as it flashes resinOS to the internal media. This step can take a little time.
 
 After the internal media has been flashed, your device will shut itself down. At this point you will see the device in a `Post-Provisioning` state and all its LEDs should be off. Before booting the device again, *make sure to remove the SD card*. You may then simply press the power button situated nearest to the ethernet port or pull out and replug the power cable.
 
