@@ -1,18 +1,18 @@
-To help you debug and develop your application in a resin.io container, we provided a browser based terminal or a command line tool called [resin ssh](/tools/cli/#ssh-60-uuid-62-). This gives you console access to your running [container][container-link] on the device and allows you to test out small snippets of code or check some system logs on your device.
+To help you debug and develop your application in a resin.io container, we've provided a browser based terminal and a command line tool called [`resin ssh`](/tools/cli/#ssh-60-uuid-62-). This gives you console access to your running [container][container-link] on the device and allows you to test out small snippets of code or check some system logs on your device.
 
-In order for you to start a terminal session in your device [container][container-link], you first need to ensure that your device is **online** and code is **pushed to it** and is running. If your container code crashes or ends quickly, it is not possible to attach a console to it. One option to keep your containers running is to enable the `INITSYSTEM` in your container. This can easily be done by creating a device environment variable called `INITSYSTEM` and setting its value to `on`.
+In order for you to start a terminal session for your device [container][container-link], you first need to ensure that your device is online and that it has a running application container. If your container code crashes or ends quickly, it is not possible to attach a console to it. One option to keep your containers running is to enable the `INITSYSTEM` in your container. This can easily be done by creating a device environment variable called `INITSYSTEM` and setting its value to `on`.
 
-### Using the Dashboard Web Terminal
+### Using the dashboard web terminal
 
-To use this feature, navigate your application and select the device you want access to. In that devices menu page you will find the `>_ Terminal` menu item.
+To use this feature, navigate to your application and select the device you want to access. You will see a *Terminal* window below the *Logs* window:
 
-If your device is **online** and has **a running container** then simply click the blue ">_ Start Terminal" button and a terminal session should be initiated for you in a second or two as shown below:
+<img src="/img/common/device/terminal.png" width="60%">
 
-![A running web Terminal Session](/img/common/device/running-webterminal-session.png)
+If your device is online and has a running container, then simply click the blue *>_ Start Terminal session* button and a terminal session should be initiated for you in a second or two. If you would like a bigger window for the terminal, you can click the *Expand* button in the upper-right corner.
 
-### Using Resin SSH from the cli
+### Using `resin ssh` from the CLI
 
-If you don't want to use the dashboard web interface and prefer to stay in the commandline you can use [resin ssh](/tools/cli/#ssh-60-uuid-62-) to connect to your running application container. First you will need to go a head an install the [Resin Command Line Interface (CLI)](/tools/cli/), once thats set up all you need to do is run the following for your development machine's terminal.
+If you don't want to use the dashboard web interface and prefer to stay in the commandline you can use [`resin ssh`](/tools/cli/#ssh-60-uuid-62-) to connect to your running application container. First you will need to go a head an install the [Resin Command Line Interface (CLI)](/tools/cli/), once thats set up all you need to do is run the following for your development machine's terminal.
 ```
 $ resin ssh <device-uuid>
 ```
