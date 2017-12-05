@@ -171,6 +171,23 @@ curl "{{ $links.apiBase }}application(<ID>)?\$expand=device"
 -H "Authorization: Bearer <auth_token>"
 ```
 
+#### Get device by UUID
+* Summary: Get device with the specified UUID
+* Endpoint: `/device?$filter=uuid eq '<uuid>'`
+* Method: `GET`
+
+Param | Type | Description
+------|------|------------:
+uuid | `STRING` | device universal unique ID (UUID)
+
+* cURL Example:
+
+```
+curl "{{ $links.apiBase }}device?\$filter=uuid%20eq%20'<uuid>'"
+-H "Content-Type: application/json"
+-H "Authorization: Bearer <auth_token>"
+```
+
 #### Get device by ID
 * Summary: Get a single device by ID
 * Endpoint: `/device(<ID>)`
