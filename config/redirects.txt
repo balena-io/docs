@@ -21,6 +21,7 @@
 ^\/understanding/understanding-devices\/?$ -> /understanding/understanding-devices/2.0.0
 
 # Renamed pages
+^\/using/dockerfile -> /deployment/dockerfile
 ^\/runtime/migrate-to-2.0 -> /updates/migrate-to-2.0
 ^\/configuration\/resin-base-images(\/|$) -> /runtime/resin-base-images
 ^\/deployment\/wifi\/?(#.+)?$ -> /deployment/network/$1
