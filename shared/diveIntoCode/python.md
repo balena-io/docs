@@ -11,7 +11,7 @@ If we look at our `Dockerfile.template`, the first thing we see is:
 ```Dockerfile
 FROM resin/%%RESIN_MACHINE_NAME%%-python
 ```
-This line has quite a bit packed into it. The first thing that happens is that the `%%RESIN_MACHINE_NAME%%` place holder gets stripped and replaced with the resin device name. For example if your application type is a {{ $device.name }}, the line will be replaced with:
+This line has quite a bit packed into it. The first thing that happens is that the `%%RESIN_MACHINE_NAME%%` place holder gets stripped and replaced with the resin device name. For example if your application type is a **{{ $device.name }}**, the line will be replaced with:
 ```Dockerfile
 FROM resin/{{ $device.id }}-python
 ```
@@ -53,7 +53,7 @@ After the `pip install` we copy the rest of our source code into the working dir
 
 The last 2 commands are runtime directives. The `ENV INITSYSTEM on` is used to enable the [systemd][systemd-link] init within the container. This is useful for a number of reasons, like keeping the container open after application crash and handling `/dev` updates as new USB devices are plugged in. If you don't want an init system, just set it to `off` or remove the line for the `Dockerfile`.
 
-The last command, `CMD` is perhaps one of the most important. This command defines what will run at container start on your {{ $device.name }}, in our example we have told python to run the `src/main.py` script. It should be noted that you can only have **one** `CMD` per `Dockerfile`.
+The last command, `CMD` is perhaps one of the most important. This command defines what will run at container start on your **{{ $device.name }}**, in our example we have told python to run the `src/main.py` script. It should be noted that you can only have **one** `CMD` per `Dockerfile`.
 
 In our `requirements.txt` we only have the one line that specifies a version of [Flask][flask-link] to use, its highly recommended to pin to specific dependency versions, so your builds are reproducible:
 ```
