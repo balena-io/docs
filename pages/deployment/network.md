@@ -1,5 +1,5 @@
 ---
-title: Network Setup
+title: Network Setup on {{ $os_version.name }}
 
 layout: os-version-specific.html
 
