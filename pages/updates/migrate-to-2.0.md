@@ -6,7 +6,7 @@ excerpt: How to migrate code from resinOS 1.x to 2.0 and what to watch out for
 
 In resinOS 2.x, a number of changes were introduced to improve reliability and connectivity. This guide will highlight some of the major changes and how those changes may affect your code.
 
-Perhaps one of the largest changes in 2.x is the change in the connection manager. ResinOS now uses [**NetworkManager**][networkmanager-link] and [**ModemManager**][modemmanager-link] to provide a robust and flexible networking stack. This change has enabled much more simple and effective [GSM/cellular connectivity](/deployment/network/2.0/#cellular-modem-setup) and overall [simpler network configuration](/deployment/network/2.0/#introduction) process. However, this change has meant we had to remove the old connection manager [**ConnMan**][connman-link] and deprecate its interfaces.
+Perhaps one of the largest changes in 2.x is the change in the connection manager. **ResinOS** now uses [**NetworkManager**][networkmanager-link] and [**ModemManager**][modemmanager-link] to provide a robust and flexible networking stack. This change has enabled much more simple and effective [GSM/cellular connectivity](/deployment/network/2.0.0/#cellular-modem-setup) and overall [simpler network configuration](/deployment/network/2.0.0/#introduction) process. However, this change has meant we had to remove the old connection manager [**ConnMan**][connman-link] and deprecate its interfaces.
 
 What this means for your code is:
 1. The `/var/lib/connman` directory will no longer be available in your app container.
