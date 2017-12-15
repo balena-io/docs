@@ -1,10 +1,10 @@
 [
   {
-    "id": "2.0.0",
-    "name": "resinOS 2.0.x"
+    "id": "2.x",
+    "name": "resinOS 2.x"
   },
   {
-    "id": "1.x.x",
-    "name": "resinOS 1.X"
+    "id": "1.x",
+    "name": "resinOS 1.x"
   }
 ]
