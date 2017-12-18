@@ -24,7 +24,7 @@ Typically you will only need to use 4 instructions - [FROM][from], [RUN][run] an
 
 * [ADD][add] copies files from the current directory into the container, e.g. `ADD <src> <dest>`. Note that if `<dest>` doesn't exist, it will be created for you, e.g. if you specify a folder. It also allows the <src> to be a url, and if the <src> is a recognised compression format, it will unpack it for you.
 
-* [COPY][copy] is very similar to [ADD][add], but with out the compression and url functionality. According to [docker best practise][docker-best-practise] you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
+* [COPY][copy] is very similar to [ADD][add], but without the compression and url functionality. According to [docker best practise][docker-best-practise] you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
 
 * [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, where as RUN commands will be executed on our build servers. In a resin.io application, this is typically used to execute a start script or entrypoint for the users application. [CMD][cmd] should always be the last command in your Dockerfile. The only processes that will be running inside the container is the [CMD][cmd] command, and all processes that it spawns.
 
@@ -87,7 +87,7 @@ RUN apt-get update && apt-get install -y python
 Next we update Raspbian's packages and install Python (using the `-y` switch to prevent any
 prompts on the build server.)
 
-__NOTE:__ All the commands in Docker RUN are executed on our build servers in a virtual qemu ARM device, so be careful not to run commands that require user intervention or try to access IO, because these will call the build to hang and you won't get a lovely container pushed to your devices.
+__NOTE:__ All the commands in Docker RUN are executed on our build servers in a virtual qemu ARM device, so be careful not to run commands that require user intervention or try to access IO, because these will cause the build to hang and you won't get a lovely container pushed to your devices.
 
 ```Dockerfile
 COPY . /app
