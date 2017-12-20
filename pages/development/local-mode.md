@@ -132,5 +132,5 @@ local ssh [deviceIp]                Get a shell into a resinOS device
 local stop [deviceIp]               Stop a running container on a resinOS device   
 ```
 
-[development]:/understanding/understanding-devices/2.0.0/#dev-vs-prod-images
+[development]:/understanding/understanding-devices/2.x/#dev-vs-prod-images
 [supervisor API]:/runtime/supervisor-api/
