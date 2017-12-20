@@ -28,6 +28,8 @@ You shouldn't need to make any adjustments to your code or `CMD` it should just 
 
 {{> "general/container-ssh"}}
 
+{{> "general/host-ssh"}}
+
 ## The Container Environment
 
 When you start a terminal session, either via the web terminal or the CLI, you are dropped into your applications running container. It's important to note that your container needs to be running for you to actually SSH into it, this is where the [init system](#init-system) helps a lot. By default you are the `root` user and granted root privileges in the container.
