@@ -19,7 +19,7 @@
 ^\/getting-started -> /raspberrypi3/nodejs/getting-started
 ^\/deployment\/network\/(2\.0.*|$) -> /deployment/network/2.x
 ^\/deployment\/network\/1.x.x -> /deployment/network/1.x
-^\/understanding/understanding-devices(2\.0.*|$) -> /understanding/understanding-devices/2.x
+^\/understanding/understanding-devices\/(2\.0.*|$) -> /understanding/understanding-devices/2.x
 ^\/understanding/understanding-devices\/1.x.x -> /understanding/undderstanding-devices/1.x
 
 # Renamed pages
