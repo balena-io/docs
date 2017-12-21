@@ -83,8 +83,8 @@ There is an entry script (`/usr/bin/entry.sh`) as the ENTRYPOINT in every Resin 
 These are base images for different architectures:
 
 | Image | Arch | Repository | Available Tag|
-|:-----------|:------------|:------------|:------------|:------------|
-| `resin/rpi-raspbian` (alias `resin/raspberrypi-debian`) | armv6hf | [Docker Hub][rpi-dockerhub-link], [github][rpi-github-link] | latest, jessie, wheezy |
+|:-----------|:------------|:------------|:------------|
+| `resin/rpi-raspbian` (alias `resin/raspberry-pi-debian`) | armv6hf | [Docker Hub][rpi-dockerhub-link], [github][rpi-github-link] | latest, jessie, wheezy |
 | `resin/armv7hf-debian` | armv7hf | [Docker Hub][armv7hf-dockerhub-link], [github][armv7hf-github-link] | latest, jessie, wheezy, sid |
 | `resin/i386-debian` | i386 | [Docker Hub][i386-dockerhub-link], [github][i386-github-link] | latest, jessie, wheezy |
 | `resin/amd64-debian` | amd64 | [Docker Hub][amd64-dockerhub-link], [github][amd64-github-link] | latest, jessie, wheezy |
