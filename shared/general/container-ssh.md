@@ -12,13 +12,15 @@ If your device is online and has a running container, then simply click the blue
 
 ### Using `resin ssh` from the CLI
 
-If you don't want to use the dashboard web interface and prefer to stay in the commandline you can use [`resin ssh`](/tools/cli/#ssh-60-uuid-62-) to connect to your running application container. First you will need to go a head an install the [Resin Command Line Interface (CLI)](/tools/cli/), once thats set up all you need to do is run the following for your development machine's terminal.
-```
+If you prefer to work from the command line, you can use [`resin ssh`](/tools/cli/#ssh-60-uuid-62-) to connect to your running application container. First, you will need to install the [resin Command Line Interface (CLI)](/tools/cli/). Once that is set up, run the following in your development machine's terminal:
+
+```shell
 $ resin ssh <device-uuid>
 ```
-Where `<device-uuid>` is the unique identifier for the device you want to access, this can be found on the device summary dashboard.
 
-At the time of writing, `resin ssh` makes use of the resin VPN connection to access a device, this allows you to access and test on devices where ever they are. If you want to SSH only on the internal network, you can simply install an SSH server in your container as in this example:
+`<device-uuid>` is the unique identifier for the device you want to access, which can be found on the dashboard.
+
+`resin ssh` makes use of the resin VPN connection to access a device. This allows you to access and test devices wherever they are. If you want to SSH only on the internal network, you can simply install an SSH server in your container as in this example:
 
 {{> icon class="octicon octicon-mark-github" }} [**resin-openssh**](https://github.com/resin-io-projects/resin-openssh).
 
