@@ -65,7 +65,7 @@ All communication between devices and the resin.io service are outbound from the
 Port | Protocol | Status | Description
 --- | --- | --- | ---
 53 | UDP | Required | DNS: used by devices to resolve resin.io hostnames for connection to the resin.io service
-123 | UDP | Optional (recommended) | NTP: used by devices to synchronize time
+123 | UDP | Required | NTP: used by devices to synchronize time
 443 | TCP | Required | HTTPS: used by devices to poll resin.io for updates and to download application and host OS updates.<br><br>OpenVPN: used by devices to connect to resin.io to provide real-status, control, and an interactive terminal (optional service)
 
 ### Device metadata
