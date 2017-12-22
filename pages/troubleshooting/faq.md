@@ -73,13 +73,18 @@ A potential cause is the NTP port (123 UDP) being blocked on the network the dev
 ##### Can I set a static IP address for my device?
 Yes! its actually pretty easy, have a look at the [ethernet network setup](/deployment/network/#set-static-ip) section of our documentation. In general most network configurations can be achieved by changing the [Connman](http://en.wikipedia.org/wiki/ConnMan) configuration file.
 
-##### Why can't I SSH into or run code in the HostOS?
-While you’ve always been able to SSH into your container, we had previously restricted SSH access to the host OS. This was mainly to protect users from accidentally losing access to their device or inadvertently degrading performance. We also figured that almost everything you might need to accomplish could be done via the container, so having access to the host was not as useful.
+##### Why can't I SSH into or run code in older versions of the host OS?
+While you’ve always been able to SSH into your container, we had previously restricted SSH access to the host OS. We had a number of reasons for doing this:
 
-We heard from users, however, that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability, starting with resinOS version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your application container, such as NetworkManager, Docker, the VPN, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
+- Code in the host OS currently isn't kept inside a container, so we are unable to track or update it at all.
+- If code run in the host OS inadvertently kills our supervisor or overwrites critical data (such as data used to identify it), the device could become inaccessible and no longer updateable.
+- Configuration of network device drivers, mount points, security provisions, and many other details have been carefully chosen to serve the resin.io ecosystem and your containers. Rogue code running in the host OS might interfere with this, leading to issues or degradation of performance which we would likely not be able to help you with.
+- When troubleshooting issues we base our assumptions on the host OS behaving as we expect it to. If you have made changes here, there's a good chance we won't be able to reproduce the issues locally and therefore won't be able to help you.
+
+However,  we've heard from users that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability starting with resinOS version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your application container, such as NetworkManager, Docker, the VPN, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
 
 ##### How can I forward my container ports?
-It's usually not necessarily to forward ports within the container because the container is bound to the host networking. However if you do need to do something like `docker run -p [host port]:[container port]`, it can be achieved with `iptables`.
+It's usually not necessary to forward ports within the container because the container is bound to the host networking. However if you do need to do something like `docker run -p [host port]:[container port]`, it can be achieved with `iptables`.
 
 For example, mapping port 80 to 8080 can be achieved with the following:-
 ```
