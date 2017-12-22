@@ -12,6 +12,8 @@
     {% if excerpt %}<meta property="og:description" content="{{ excerpt }}" />{% endif %}
     <meta property="og:image" content="{{ baseUrl }}{% if thumbnail %}{{ thumbnail }}{% else %}{{ defaultThumbnail }}{% endif %}" />
     <link rel="stylesheet" href="/dist/style.css">
+    <!-- Algolia search styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
   </head>
   <body data-spy="scroll" data-target=".in-page-nav">
     <noscript>
@@ -63,5 +65,6 @@
     </div>
     <script src="/dist/main.js"></script>
     {% include "_track.html" %}
+    {% include "_algolia.html" %}
   </body>
 </html>
