@@ -68,25 +68,23 @@ Yes! All resin.io containers run in privileged mode, which means you can access 
 Sometime you may notice the date/time on the device is incorrect, usually via logs.
 
 There seems to be some flakiness with NTP, in theory, it ought to update on connection to the internet (via connman), and then every 2 hours, but appears to fail to do so sometimes altogether.
-A potential cause is the NTP port (123 UDP) being blocked on the network the device belongs to, if this is not the case, the send us a message on support@resin.io
+A potential cause is the NTP port (123 UDP) being blocked on the network the device belongs to, if this is not the case, the send us a message on the [forums][forums].
 
 ##### Can I set a static IP address for my device?
 Yes! its actually pretty easy, have a look at the [ethernet network setup](/deployment/network/#set-static-ip) section of our documentation. In general most network configurations can be achieved by changing the [Connman](http://en.wikipedia.org/wiki/ConnMan) configuration file.
 
-##### Why can't I SSH into or run code in the HostOS?
-The containers in which resin.io applications run are extremely powerful, nearly any code you run will have no idea it's not being run in the host OS. We map devices, network and persistent storage (located at `/data`) to provide applications with more than a typical container-run application would have access to.
+##### Why can't I SSH into or run code in older versions of the host OS?
+While you’ve always been able to SSH into your container, we had previously restricted SSH access to the host OS. We had a number of reasons for doing this:
 
-While we provide a lot of power to these applications, we disallow access to the host OS for a number of reasons:-
-* A core feature of resin.io is that we keep track of your code and make it updateable. Code in the host OS currently isn't kept inside a container so we are unable to track or update it at all.
-* If code run in the host OS inadvertently (or otherwise :) kills our supervisor or overwrites critical data such as data used to identify it, the device could become inaccessible and no longer updateable.
-* Configuration of network device drivers, mount points, security provisions, and many other details have been carefully chosen to serve the resin.io ecosystem and your containers - rogue code running in the host OS might interfere with this leading to issues or degradation of performance which we would likely not be able to help you with.
-* When troubleshooting issues we base our assumptions on the host OS behaving as we expect it to - if you have made changes here, there's a good chance we won't be able to reproduce the issues locally and therefore won't be able to help you.
-* The whole purpose of a container is to give you complete control over the environment your code operates in and allow you to configure it exactly as you wish - the host OS has to have things configured a certain way and is extremely minimal in what it provides to code running inside of it (enough to allow resin containers to run), why throw all of that away?
+- Code in the host OS currently isn't kept inside a container, so we are unable to track or update it at all.
+- If code run in the host OS inadvertently kills our supervisor or overwrites critical data (such as data used to identify it), the device could become inaccessible and no longer updateable.
+- Configuration of network device drivers, mount points, security provisions, and many other details have been carefully chosen to serve the resin.io ecosystem and your containers. Rogue code running in the host OS might interfere with this, leading to issues or degradation of performance which we would likely not be able to help you with.
+- When troubleshooting issues we base our assumptions on the host OS behaving as we expect it to. If you have made changes here, there's a good chance we won't be able to reproduce the issues locally and therefore won't be able to help you.
 
-If there's something you need to do or inspect that resin.io doesn't provide you within your application container, let us know at support@resin.io and we will do all we can to help. There is a surprisingly little that requires host OS access and very soon we hope to reduce this to virtually zero.
+However,  we've heard from users that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability starting with resinOS version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your application container, such as NetworkManager, Docker, the VPN, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
 
 ##### How can I forward my container ports?
-It's usually not necessarily to forward ports within the container because the container is bound to the host networking.   However if you do need to do something like `docker run -p [host port]:[container port]`, it can be achieved with `iptables`.
+It's usually not necessary to forward ports within the container because the container is bound to the host networking. However if you do need to do something like `docker run -p [host port]:[container port]`, it can be achieved with `iptables`.
 
 For example, mapping port 80 to 8080 can be achieved with the following:-
 ```
@@ -124,3 +122,5 @@ Generally we try to follow good OPSEC practices for our systems. We support 2FA 
 
 ##### What does it mean when a device type is discontinued?
 Discontinued devices will no longer be actively supported by resin.io. This means we will no longer provide prebuilt versions of resinOS for these devices, and we will not be resolving any issues related to these boards. In addition, it will no longer be possible to create applications for these device types, although existing applications and their devices will still function. If you would like to keep your discontinued devices updated with the latest resinOS changes, you can [build your own](https://github.com/resin-os/meta-resin/blob/master/contributing-device-support.md) board-specific versions using our [open source repos](https://github.com/resin-os). Please contact sales@resin.io with any questions regarding continued device support.
+
+[forums]:https://forums.resin.io/c/troubleshooting

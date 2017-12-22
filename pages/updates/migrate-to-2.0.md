@@ -6,12 +6,13 @@ excerpt: How to migrate code from resinOS 1.x to 2.0 and what to watch out for
 
 In resinOS 2.x, a number of changes were introduced to improve reliability and connectivity. This guide will highlight some of the major changes and how those changes may affect your code.
 
-Perhaps one of the largest changes in 2.x is the change in the connection manager. ResinOS now uses [**NetworkManager**][networkmanager-link] and [**ModemManager**][modemmanager-link] to provide a robust and flexible networking stack. This change has enabled much more simple and effective [GSM/cellular connectivity](/deployment/network/2.0/#cellular-modem-setup) and overall [simpler network configuration](/deployment/network/2.0/#introduction) process. However, this change has meant we had to remove the old connection manager [**ConnMan**][connman-link] and deprecate its interfaces.
+Perhaps one of the largest changes in 2.x is the change in the connection manager. ResinOS now uses [**NetworkManager**][networkmanager-link] and [**ModemManager**][modemmanager-link] to provide a robust and flexible networking stack. This change has enabled much more simple and effective [GSM/cellular connectivity](/deployment/network/2.0/#cellular-modem-setup) and overall [simpler network configuration](/deployment/network/2.0/#introduction) process. However, this change has meant we had to remove the old connection manager [**ConnMan**][connman-link] and deprecate its interfaces. 
 
-What this means for your code is:
-1. The `/var/lib/connman` directory will no longer be available in your app container.
-2. Any dbus calls to **ConnMan** will fail as the service no longer exists on the hostOS.
-3. If your application makes use of [**WiFi Connect**][wifi-connect-link] then you will need to update version [2.0.5](https://github.com/resin-io/resin-wifi-connect/releases/tag/v2.0.5). Note that this version is backward compatible, so will run on both 1.x and 2.x versions of resinOS.
+What this means for you:
+1. Your WiFi credentials will be preserved when you migrate from **ConnMan** to **NetworkManager**, so you will not lose your network connection.
+2. The `/var/lib/connman` directory will no longer be available in your app container.
+3. Any dbus calls to **ConnMan** will fail as the service no longer exists on the host OS.
+4. If your application makes use of [**WiFi Connect**][wifi-connect-link] then you will need to update to version [2.0.5](https://github.com/resin-io/resin-wifi-connect/releases/tag/v2.0.5). Note that this version is backward compatible, so will run on both 1.x and 2.x versions of resinOS.
 
 Another significant change is in the way the container [update locking mechanism][update-locks-link] behaves. In resinOS 2.x update lock now needs to be created in `/tmp/resin/`. The reason for this change is to fix an issue in the locking mechanism over device power cycle where the resin.io supervisor would not be able to determine if the lock was originally taken by itself or a user container before the power was pulled. So in this case the supervisor would remove the lock and erroneously update the container that should have been locked.
 
