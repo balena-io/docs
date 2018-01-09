@@ -12,11 +12,11 @@ title: FAQs
 * [Can I access /dev and things like GPIO from the container?](#can-i-access-dev-and-things-like-gpio-from-the-container-)
 * [Why is my device showing the incorrect time?](#why-is-my-device-showing-the-incorrect-time-)
 * [Can I set a static IP address for my device?](#can-i-set-a-static-ip-address-for-my-device-)
-* [Why can't I SSH into or run code in the HostOS?](#why-can-t-i-ssh-into-or-run-code-in-the-hostos-)
+* [Why can't I SSH into or run code in older versions of the host OS?](#why-can-t-i-ssh-into-or-run-code-in-older-versions-of-the-host-os-)
 * [How can I forward my Container ports?](#how-can-i-forward-my-container-ports-)
 * [Which data is persisted on devices across updates/power cycles?](#which-data-is-persisted-on-devices-across-updates-power-cycles-)
 * [Why does /data disappear when I move a device between applications?](#why-does-data-disappear-when-i-move-a-device-between-applications-)
-* [It appears that there is a centralized Resin Master running (in cloud) and agents running on devices. Is that accurate?](#it-appears-that-there-is-a-centralized-resin-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate-)
+* [It appears that there is a centralized Resin.io Master running (in cloud) and agents running on devices. Is that accurate?](#it-appears-that-there-is-a-centralized-resin-io-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate-)
 * [What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?](#what-type-of-encryption-do-you-use-over-openvpn-ssl-tls-aes-256-mutual-key-authentication-over-ssh-)
 * [What is the performance impact on the gateway device due to encryption?](#what-is-the-performance-impact-on-the-gateway-device-due-to-encryption-)
 * [How long does the update process run typically? For now it appears to be quick for small updates.](#how-long-does-the-update-process-run-typically-do-you-have-any-benchmark-data-for-now-it-appears-to-be-quick-for-small-updates-)
@@ -37,7 +37,7 @@ Currently we're running v1.10.3, but continuously updating it as the versions ar
 ##### Why does /data report weird usage?
 On the device we have a writable data partition that uses all the free space remaining after reserving the required amount for the host os. This data partition contains the Docker images for the resin supervisor and the user applications so that they can be updated, along with containing the persistent `/data` for the application to use, this way it avoids reserving a specific amount of space for either images or data and then finding out that we have reserved too much or too little for one. So the space usage in `/data` being used but not accounted for will likely be due to the Docker images. (As a side note if you want the most accurate usage stats you should use `btrfs fi df /data` as `df` is not accurate for btrfs partitions).
 
-##### What NTP servers do resin.io devices use?
+##### What NTP servers do resin.io devices use?
 Currently the servers used are:
 * time1.google.com
 * time2.google.com
