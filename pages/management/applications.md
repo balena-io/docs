@@ -66,6 +66,40 @@ When you create a view, you are saving a specific set of filters that you may wa
 
 You will be asked to choose a name for the saved view. This view can then be selected at any time by clicking the *Views* button above the filter box.
 
+## Device tags
+
+Tags provide an easy way to include more information about your devices than what is already provided in the dashboard. A device can be given multiple tags, and the tags can be used when you create filters.
+
+### Create and edit tags
+
+To add a tag from the device summary page, click the checkbox to the left of the devices you wish to tag, followed by the *Tags* button on the right side of the dashboard:
+
+<img src="/img/common/app/tags.png" width="80%">
+
+This opens the tag management window. From here you can define a name for your tag and a value for this specific device. For example, you could create a tag to keep track of device location:
+
+<img src="/img/common/app/add_tag.png" width="80%">
+
+Tags you add to your device will appear in a list in the management window. They can be edited or removed from here:
+
+<img src="/img/common/app/tag_list.png" width="80%">
+
+When you are finished creating and editing tags, click *Apply* to keep the changes.
+
+### Tag columns
+
+Once tags have been added to at least one device, a new *All Tags* column will appear on the right side of the device table:
+
+<img src="/img/common/app/all_tags.png" width="80%">
+
+This column can be hidden by clicking the arrow on the far right of the device table header. You can also add columns for specific tags by selecting *Add Tag Column*:
+
+<img src="/img/common/app/add_tag_column.png" width="25%">
+
+A new column will be created. You can then select which tag it should display:
+
+<img src="/img/common/app/tag_column.png" width="25%">
+
 ## Application actions
 
 Actions let you change the state of some or all of the devices in your application. They can be applied in two ways:
