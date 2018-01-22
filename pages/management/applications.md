@@ -72,7 +72,7 @@ Tags provide an easy way to include more information about your devices than wha
 
 ### Create and edit tags
 
-To add a tag from the device summary page, click the checkbox to the left of the devices you wish to tag, followed by the *Tags* button on the right side of the dashboard:
+To add a tag from the device list, click the checkbox to the left of the devices you wish to tag, followed by the *Tags* button on the right side of the dashboard:
 
 <img src="/img/common/app/tags.png" width="80%">
 
