@@ -52,7 +52,7 @@ To add a filter, click the *Add filter* button near the top-left corner of your 
 
 The first dropdown lists the device characteristics you can filter on. These characteristics correspond to the columns in your device list. The second dropdown contains comparison operators appropriate to the device characteristic, such as `is`, `is before`, `contains`, and `matches RegEx`. The third field is where you specify a value to filter on. 
 
-__Note:__ When filtering by [device tags](/management/applications/#device-tags), you can filter by name, value, or both
+__Note:__ When filtering by [device tags][tags], you can filter by name, value, or both.
 
 Click *Add filter* to apply your configuration.
 
@@ -72,7 +72,7 @@ You will be asked to choose a name for the saved view. This view can then be sel
 
 ## Device tags
 
-Tags provide an easy way to include more information about your devices than what is already provided in the dashboard. With tags, you have the option to create key:value pairs that extend the available metadata for your devices. A device can be given multiple tags, and the tags can be used when you create [filters](/management/applications/#device-filters).
+Tags provide an easy way to include more information about your devices than what is already provided in the dashboard. With tags, you have the option to create key:value pairs that extend the available metadata for your devices. A device can be given multiple tags, and the tags can be used when you create [filters][filters].
 
 ### Create and edit tags
 
@@ -97,6 +97,8 @@ Tags you add to your device will appear in a list in the management window. They
 <img src="/img/common/app/tag_list.png" width="80%">
 
 When you are finished creating and editing tags, click *Apply* to keep the changes.
+
+__Note:__ Device tags can also be created and managed programatically [via the API][api-example].
 
 ### Tag columns
 
@@ -181,3 +183,7 @@ An organization should create a main account to host all applications that the o
 [device-page]:/management/devices/#enable-public-device-url
 [move-devices]:/management/devices/#move-to-another-application
 [env-vars]:/management/env-vars/
+[api-example]:https://github.com/resin-io-playground/device-tags
+[filters]:/management/applications/#device-filters
+[tags]:/management/applications/#device-tags
+
