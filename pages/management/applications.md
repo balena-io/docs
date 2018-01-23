@@ -50,7 +50,11 @@ To add a filter, click the *Add filter* button near the top-left corner of your 
 
 <img src="/img/common/app/add-filter.png" width="80%">
 
-The first dropdown lists the device characteristics you can filter on. These characteristics correspond to the columns in your device list. The second dropdown contains comparison operators appropriate to the device characteristic, such as `is`, `is before`, `contains`, and `matches RegEx`. The third field is where you specify a value to filter on. Click *Add filter* to apply your configuration.
+The first dropdown lists the device characteristics you can filter on. These characteristics correspond to the columns in your device list. The second dropdown contains comparison operators appropriate to the device characteristic, such as `is`, `is before`, `contains`, and `matches RegEx`. The third field is where you specify a value to filter on. 
+
+__Note:__ When filtering by [device tags](/management/applications/#device-tags), you can filter by name, value, or both
+
+Click *Add filter* to apply your configuration.
 
 When your filter has been added, you will see it in a box above the device list. The device list will now only show devices that match your filter:
 
@@ -68,7 +72,7 @@ You will be asked to choose a name for the saved view. This view can then be sel
 
 ## Device tags
 
-Tags provide an easy way to include more information about your devices than what is already provided in the dashboard. A device can be given multiple tags, and the tags can be used when you create filters.
+Tags provide an easy way to include more information about your devices than what is already provided in the dashboard. With tags, you have the option to create key:value pairs that extend the available metadata for your devices. A device can be given multiple tags, and the tags can be used when you create [filters](/management/applications/#device-filters).
 
 ### Create and edit tags
 
@@ -76,7 +80,15 @@ To add a tag from the device list, click the checkbox to the left of the devices
 
 <img src="/img/common/app/tags.png" width="80%">
 
-This opens the tag management window. From here you can define a name for your tag and a value for this specific device. For example, you could create a tag to keep track of device location:
+You can also manage tags from a device's summary page. The *Manage Tags* option is available in the action dropdown to the right of the *Reboot* and *Restart* buttons:
+
+<img src="/img/common/app/device_manage_tags.png" width="40%">
+
+Both of these options will open the tag management window, from which you can define a name for your tag. You can also define a value for this specific device or set of devices, although this is optional. 
+
+__Note:__ A device cannot have more than one tag with the same name, even if the values are different. If you create a new tag with the same name as an existing tag, the existing tag will be replaced.
+
+This example shows how you could create a tag to keep track of device location:
 
 <img src="/img/common/app/add_tag.png" width="80%">
 
