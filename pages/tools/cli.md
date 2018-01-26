@@ -106,7 +106,7 @@ environment variable (in the same standard URL format).
 	- [os versions &#60;type&#62;](#os-versions-60-type-62-)
 	- [os download &#60;type&#62;](#os-download-60-type-62-)
 	- [os build-config &#60;image&#62; &#60;device-type&#62;](#os-build-config-60-image-62-60-device-type-62-)
-	- [os configure &#60;image&#62; &#60;uuid&#62;](#os-configure-60-image-62-60-uuid-62-)
+	- [os configure &#60;image&#62; [uuid] [deviceApiKey]](#os-configure-60-image-62-uuid-deviceapikey-)
 	- [os initialize &#60;image&#62;](#os-initialize-60-image-62-)
 
 - Config
@@ -116,6 +116,10 @@ environment variable (in the same standard URL format).
 	- [config inject &#60;file&#62;](#config-inject-60-file-62-)
 	- [config reconfigure](#config-reconfigure)
 	- [config generate](#config-generate)
+
+- Preload
+
+	- [preload &#60;image&#62;](#preload-60-image-62-)
 
 - Settings
 
@@ -130,7 +134,6 @@ environment variable (in the same standard URL format).
 	- [local configure &#60;target&#62;](#local-configure-60-target-62-)
 	- [local flash &#60;image&#62;](#local-flash-60-image-62-)
 	- [local logs [deviceIp]](#local-logs-deviceip-)
-	- [local promote [deviceIp]](#local-promote-deviceip-)
 	- [local scan](#local-scan)
 	- [local ssh [deviceIp]](#local-ssh-deviceip-)
 	- [local push [deviceIp]](#local-push-deviceip-)
@@ -251,7 +254,7 @@ web-based login
 
 credential-based login
 
-#### --email, --e,u, --e,u &#60;email&#62;
+#### --email, -e, -u &#60;email&#62;
 
 email
 
@@ -307,7 +310,7 @@ Examples:
 
 ### Options
 
-#### --application, --a,app, --a,app &#60;application&#62;
+#### --application, -a, --app &#60;application&#62;
 
 application name
 
@@ -331,15 +334,23 @@ Examples:
 
 Use this command to register a device to an application.
 
+Note that device api keys are only supported on ResinOS 2.0.3+
+
 Examples:
 
 	$ resin device register MyApp
+	$ resin device register MyApp --uuid <uuid>
+	$ resin device register MyApp --uuid <uuid> --device-api-key <existingDeviceKey>
 
 ### Options
 
 #### --uuid, -u &#60;uuid&#62;
 
 custom uuid
+
+#### --deviceApiKey, -k &#60;device-api-key&#62;
+
+custom device key - note that this is only supported on ResinOS 2.0.3+
 
 ## device rm &#60;uuid&#62;
 
@@ -453,7 +464,7 @@ Examples:
 
 ### Options
 
-#### --application, --a,app, --a,app &#60;application&#62;
+#### --application, -a, --app &#60;application&#62;
 
 application name
 
@@ -471,7 +482,7 @@ Examples:
 
 ### Options
 
-#### --application, --a,app, --a,app &#60;application&#62;
+#### --application, -a, --app &#60;application&#62;
 
 application name
 
@@ -493,7 +504,7 @@ or 'menu' (will show the interactive menu)
 
 #### --drive, -d &#60;drive&#62;
 
-the drive to write the image to, like `/dev/sdb` or `/dev/mmcblk0`. Be careful with this as you can erase your hard drive. Check `resin util available-drives` for available options.
+the drive to write the image to, like `/dev/sdb` or `/dev/mmcblk0`. Careful with this as you can erase your hard drive. Check `resin util available-drives` for available options.
 
 #### --config &#60;config&#62;
 
@@ -518,7 +529,7 @@ Example:
 
 ### Options
 
-#### --application, --a,app, --a,app &#60;application&#62;
+#### --application, -a, --app &#60;application&#62;
 
 application name
 
@@ -578,7 +589,7 @@ Examples:
 
 ### Options
 
-#### --application, --a,app, --a,app &#60;application&#62;
+#### --application, -a, --app &#60;application&#62;
 
 application name
 
@@ -797,6 +808,7 @@ Examples:
 	$ resin ssh 7cf02a6
 	$ resin ssh 7cf02a6 --port 8080
 	$ resin ssh 7cf02a6 -v
+	$ resin ssh 7cf02a6 -s
 
 ### Options
 
@@ -807,6 +819,10 @@ ssh gateway port
 #### --verbose, -v
 
 increase verbosity
+
+#### --host, -s
+
+access host OS (for devices with Resin OS >= 2.7.5)
 
 #### --noproxy
 
@@ -829,7 +845,7 @@ Examples:
 
 ### Options
 
-#### --device, --d,dev, --d,dev &#60;device&#62;
+#### --device, -d, --dev &#60;device&#62;
 
 device uuid
 
@@ -883,7 +899,7 @@ or 'menu' (will show the interactive menu)
 
 Use this command to prebuild the OS config once and skip the interactive part of `resin os configure`.
 
-Examples:
+Example:
 
 	$ resin os build-config ../path/rpi3.img raspberrypi3 --output rpi3-config.json
 	$ resin os configure ../path/rpi3.img 7cf02a6 --config "$(cat rpi3-config.json)"
@@ -898,19 +914,40 @@ show advanced configuration options
 
 the path to the output JSON file
 
-## os configure &#60;image&#62; &#60;uuid&#62;
+## os configure &#60;image&#62; [uuid] [deviceApiKey]
 
-Use this command to configure a previously downloaded operating system image for the specific device.
+Use this command to configure a previously downloaded operating system image for
+the specific device or for an application generally.
+
+Note that device api keys are only supported on ResinOS 2.0.3+.
+
+This comand still supports the *deprecated* format where the UUID and optionally device key
+are passed directly on the command line, but the recommended way is to pass either an --app or
+--device argument. The deprecated format will be remove in a future release.
 
 Examples:
 
-	$ resin os configure ../path/rpi.img 7cf02a6
+	$ resin os configure ../path/rpi.img --device 7cf02a6
+	$ resin os configure ../path/rpi.img --device 7cf02a6 --deviceApiKey <existingDeviceKey>
+	$ resin os configure ../path/rpi.img --app MyApp
 
 ### Options
 
 #### --advanced, -v
 
 show advanced configuration options
+
+#### --application, -a, --app &#60;application&#62;
+
+application name
+
+#### --device, -d &#60;device&#62;
+
+device uuid
+
+#### --deviceApiKey, -k &#60;device-api-key&#62;
+
+custom device key - note that this is only supported on ResinOS 2.0.3+
 
 #### --config &#60;config&#62;
 
@@ -984,7 +1021,7 @@ drive
 
 ## config inject &#60;file&#62;
 
-Use this command to inject a config.json file to the mounted filesystem (e.g. SD card) of a provisioned device"
+Use this command to inject a config.json file to the mounted filesystem (e.g. SD card or mounted resinOS image) of a provisioned device"
 
 Examples:
 
@@ -1027,18 +1064,24 @@ show advanced commands
 
 ## config generate
 
-Use this command to generate a config.json for a device or application
+Use this command to generate a config.json for a device or application.
+
+This is interactive by default, but you can do this automatically without interactivity
+by specifying an option for each question on the command line, if you know the questions
+that will be asked for the relevant device type.
 
 Examples:
 
 	$ resin config generate --device 7cf02a6
+	$ resin config generate --device 7cf02a6 --device-api-key <existingDeviceKey>
 	$ resin config generate --device 7cf02a6 --output config.json
 	$ resin config generate --app MyApp
 	$ resin config generate --app MyApp --output config.json
+	$ resin config generate --app MyApp --network wifi --wifiSsid mySsid --wifiKey abcdefgh --appUpdatePollInterval 1
 
 ### Options
 
-#### --application, --a,app, --a,app &#60;application&#62;
+#### --application, -a, --app &#60;application&#62;
 
 application name
 
@@ -1046,9 +1089,88 @@ application name
 
 device uuid
 
+#### --deviceApiKey, -k &#60;device-api-key&#62;
+
+custom device key - note that this is only supported on ResinOS 2.0.3+
+
 #### --output, -o &#60;output&#62;
 
 output
+
+#### --network &#60;network&#62;
+
+the network type to use: ethernet or wifi
+
+#### --wifiSsid &#60;wifiSsid&#62;
+
+the wifi ssid to use (used only if --network is set to wifi)
+
+#### --wifiKey &#60;wifiKey&#62;
+
+the wifi key to use (used only if --network is set to wifi)
+
+#### --appUpdatePollInterval &#60;appUpdatePollInterval&#62;
+
+how frequently (in minutes) to poll for application updates
+
+# Preload
+
+## preload &#60;image&#62;
+
+Warning: "resin preload" requires Docker to be correctly installed in
+your shell environment. For more information (including Windows support)
+please check the README here: https://github.com/resin-io/resin-cli .
+
+Use this command to preload an application to a local disk image (or
+Edison zip archive) with a built commit from Resin.io.
+This can be used with cloud builds, or images deployed with resin deploy.
+
+Examples:
+  $ resin preload resin.img --app 1234 --commit e1f2592fc6ee949e68756d4f4a48e49bff8d72a0 --splash-image some-image.png
+  $ resin preload resin.img
+
+### Options
+
+#### --app, -a &#60;appId&#62;
+
+id of the application to preload
+
+#### --commit, -c &#60;hash&#62;
+
+a specific application commit to preload, use "latest" to specify the latest commit
+(ignored if no appId is given)
+
+#### --splash-image, -s &#60;splashImage.png&#62;
+
+path to a png image to replace the splash screen
+
+#### --dont-check-device-type
+
+Disables check for matching device types in image and application
+
+#### --docker, -P &#60;docker&#62;
+
+Path to a local docker socket
+
+#### --dockerHost, -h &#60;dockerHost&#62;
+
+The address of the host containing the docker daemon
+
+#### --dockerPort, -p &#60;dockerPort&#62;
+
+The port on which the host docker daemon is listening
+
+#### --ca &#60;ca&#62;
+
+Docker host TLS certificate authority file
+
+#### --cert &#60;cert&#62;
+
+Docker host TLS certificate file
+
+#### --key &#60;key&#62;
+
+Docker host TLS key file
 
 # Settings
 
@@ -1129,33 +1251,6 @@ follow log
 #### --app-name, -a &#60;name&#62;
 
 name of container to get logs from
-
-## local promote [deviceIp]
-
-Warning: 'resin promote' requires an openssh-compatible client to be correctly
-installed in your shell environment. For more information (including Windows
-support) please check the README here: https://github.com/resin-io/resin-cli
-
-Use this command to promote your device.
-
-Promoting a device will provision it onto the Resin platform,
-converting it from an unmanaged device to a managed device.
-
-Examples:
-
-	$ resin local promote
-	$ resin local promote --port 22222
-	$ resin local promote --verbose
-
-### Options
-
-#### --verbose, -v
-
-increase verbosity
-
-#### --port, -p &#60;port&#62;
-
-ssh port number (default: 22222)
 
 ## local scan
 
