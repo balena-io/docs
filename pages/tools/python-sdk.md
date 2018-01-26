@@ -10,12 +10,13 @@ hesitate to open an issue in GitHub, we'll be happy to help.
 - [Resin](#resin)
     - [Models](#models)
         - [Application](#application)
+        - [Build](#build)
         - [Config](#config)
         - [Device](#device)
         - [DeviceOs](#deviceos)
         - [EnvironmentVariable](#environmentvariable)
-            - [DeviceEnvVariable](#deviceenvvariable)
             - [ApplicationEnvVariable](#applicationenvvariable)
+            - [DeviceEnvVariable](#deviceenvvariable)
         - [Key](#key)
         - [Supervisor](#supervisor)
     - [Auth](#auth)
@@ -29,6 +30,12 @@ This module implements all models for Resin Python SDK.
 ## Application
 
 This class implements application model for Resin Python SDK.
+
+Due to API changes, the returned Application object schema has changed. Here are the formats of the old and new returned objects.
+
+The old returned object's properties: `__metadata, actor, app_name, application, commit, device_type, git_repository, id, should_track_latest_release, support_expiry_date, user, version`.
+
+The new returned object's properties (since Python SDK v2.0.0): `__metadata, actor, app_name, commit, depends_on__application, device_type, git_repository, id, is_accessible_by_support_until__date, should_track_latest_release, user, version`.
 ### Function: create(name, device_type)
 
 Create an application. This function only works if you log in using credentials or Auth Token.
@@ -48,6 +55,77 @@ Create an application. This function only works if you log in using credentials 
 >>> resin.models.application.create('Edison','Intel Edison')
 '{"id":9021,"user":{"__deferred":{"uri":"/ewa/user(5397)"},"__id":5397},"app_name":"Edison","git_repository":"g_trong_nghia_nguyen@git.resin.io:g_trong_nghia_nguyen/edison.git","commit":null,"device_type":"intel-edison","__metadata":{"uri":"/ewa/application(9021)","type":""}}'
 ```
+### Function: disable_device_urls(app_id)
+
+Disable device urls for all devices that belong to an application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    OK/error.
+
+#### Examples:
+    >> > resin.models.application.disable_device_urls('5685')
+    'OK'
+### Function: disable_rolling_updates(app_id)
+
+Disable Rolling update on application.
+
+#### Args:
+    name (str): application id.
+
+#### Returns:
+    OK/error.
+
+#### Raises:
+    ApplicationNotFound: if application couldn't be found.
+
+#### Examples:
+    >> > resin.models.application.disable_rolling_updates('106640')
+    'OK'
+### Function: enable_device_urls(app_id)
+
+Enable device urls for all devices that belong to an application
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    OK/error.
+
+#### Examples:
+    >> > resin.models.application.enable_device_urls('5685')
+    'OK'
+### Function: enable_rolling_updates(app_id)
+
+Enable Rolling update on application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    OK/error.
+
+#### Raises:
+    ApplicationNotFound: if application couldn't be found.
+
+#### Examples:
+    >> > resin.models.application.enable_rolling_updates('106640')
+    'OK'
+### Function: generate_provisioning_key(app_id)
+
+Generate a device provisioning key for a specific application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    str: device provisioning key.
+
+#### Examples:
+    >> > resin.models.application.generate_provisioning_key('5685')
+    'GThZJps91PoJCdzfYqF7glHXzBDGrkr9'
 ### Function: get(name)
 
 Get a single application.
@@ -102,7 +180,7 @@ Get a single application by application id.
         Download application config.json.
 
 ####         Args:
-            name (str): application name.
+            app_id (str): application id.
 
 ####         Returns:
             dict: application config.json content.
@@ -132,6 +210,20 @@ Tethering=false
 Enable=true
 Tethering=false'}, u'pubnubPublishKey': u'pub-c-6cbce8db-bfd1-4fdf-a8c8-53671ae2b226', u'apiEndpoint': u'https://api.resin.io', u'connectivity': u'connman', u'deviceType': u'raspberrypi3', u'mixpanelToken': u'99eec53325d4f45dd0633abd719e3ff1', u'deltaEndpoint': u'https://delta.resin.io', u'appUpdatePollInterval': 60000, u'applicationId': 106640, u'registryEndpoint': u'registry.resin.io'}
         
+### Function: grant_support_access(app_id, expiry_timestamp)
+
+Grant support access to an application until a specified time.
+
+#### Args:
+    app_id (str): application id.
+    expiry_timestamp (int): a timestamp in ms for when the support access will expire.
+
+#### Returns:
+    OK/error.
+
+#### Examples:
+    >> > resin.models.application.grant_support_access('5685', 1511974999000)
+    'OK'
 ### Function: has(name)
 
 Check if an application exists.
@@ -186,9 +278,83 @@ Restart application. This function only works if you log in using credentials or
 >>> resin.models.application.restart('RPI1')
 'OK'
 ```
+### Function: revoke_support_access(app_id)
+
+Revoke support access to an application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    OK/error.
+
+#### Examples:
+    >> > resin.models.application.revoke_support_access('5685')
+    'OK'
+## Build
+
+This class implements build model for Resin Python SDK.
+### Function: get(id)
+
+Get a specific build.
+
+#### Args:
+    id (str): build id.
+
+#### Returns:
+    dict: build info.
+
+#### Raises:
+    BuildNotFound: if build couldn't be found.
+### Function: get_all_by_application(app_id, include_logs)
+
+Get list of builds belonging to an application.
+
+#### Args:
+    app_id (str): application id.
+    include_logs (Optional[bool]): Defaults to False since these may be very large. True if user wants to include build logs in build info.
+
+#### Returns:
+    list: list of build info.
+## Config
+
+This class implements configuration model for Resin Python SDK.
+
+#### Attributes:
+    _config (dict): caching configuration.
+### Function: get_all()
+
+Get all configuration.
+
+#### Returns:
+    dict: configuration information.
+
+#### Examples:
+```python
+>>> resin.models.config.get_all()
+{ all configuration details }
+```
+### Function: get_device_types()
+
+Get device types configuration.
+
+#### Returns:
+    list: device types information.
+
+#### Examples:
+```python
+>>> resin.models.config.get_device_types()
+[ all configuration details ]
+```
 ## Device
 
 This class implements device model for Resin Python SDK.
+
+Due to API changes, the returned Device object schema has changed. Here are the formats of the old and new returned objects.
+
+The old returned object's properties: `__metadata, actor, application, build, commit, created_at, custom_latitude, custom_longitude, device, device_type, download_progress, id, ip_address, is_connected_to_vpn, is_online, is_web_accessible, last_connectivity_event, last_vpn_event, latitude, local_id, location, lock_expiry_date, logs_channel, longitude, name, note, os_variant, os_version, provisioning_progress, provisioning_state, public_address, service_instance, status, supervisor_release, supervisor_version, support_expiry_date, user, uuid, vpn_address`.
+
+The new returned object's properties (since Python SDK v2.0.0): `__metadata, actor, belongs_to__application, belongs_to__user, created_at, custom_latitude, custom_longitude, device_type, download_progress, id, ip_address, is_accessible_by_support_until__date, is_connected_to_vpn, is_locked_until__date, is_managed_by__device, is_managed_by__service_instance, is_on__commit, is_online, is_web_accessible, last_connectivity_event, last_vpn_event, latitude, local_id, location, logs_channel, longitude, name, note, os_variant, os_version, provisioning_progress, provisioning_state, public_address, should_be_managed_by__supervisor_release, should_be_running__build, status, supervisor_version, uuid, vpn_address`.
 ### Function: disable_device_url(uuid)
 
 Disable device url for a device.
@@ -298,6 +464,21 @@ Get devices by application name.
 >>> resin.models.device.get_all_by_application('RPI1')
 [{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_seen_time': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
 ```
+### Function: get_all_by_application_id(appid)
+
+Get devices by application name.
+
+#### Args:
+    appid (str): application id.
+
+#### Returns:
+    list: list contains info of devices.
+
+#### Examples:
+```python
+>>> resin.models.device.get_all_by_application_id(1234)
+[{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_seen_time': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
+```
 ### Function: get_application_name(uuid)
 
 Get application name by device uuid.
@@ -324,6 +505,18 @@ Get devices by device name.
 ```python
 >>> resin.models.device.get_by_name('floral-mountain')
 [{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_seen_time': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
+```
+### Function: get_dashboard_url(uuid)
+
+Get Resin Dashboard URL for a specific device.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Examples:
+```python
+>>> resin.models.device.get_dashboard_url('19619a6317072b65a240b451f45f855d')
+https://dashboard.resin.io/devices/19619a6317072b65a240b451f45f855d/summary
 ```
 ### Function: get_device_slug(device_type_name)
 
@@ -450,6 +643,20 @@ Get device slug.
 
 #### Returns:
     list: list of supported device types.
+### Function: grant_support_access(uuid, expiry_timestamp)
+
+Grant support access to a device until a specified time.
+
+#### Args:
+    uuid (str): device uuid.
+    expiry_timestamp (int): a timestamp in ms for when the support access will expire.
+
+#### Returns:
+    OK.
+
+#### Examples:
+    >> > resin.models.device.grant_support_access('49b2a76b7f188c1d6f781e67c8f34adb4a7bfd2eec3f91d40b1efb75fe413d', 1511974999000)
+    'OK'
 ### Function: has(uuid)
 
 Check if a device exists.
@@ -532,12 +739,12 @@ Note a device.
 >>> resin.models.device.note('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', 'test device')
 'OK'
 ```
-### Function: register(app_name, uuid)
+### Function: register(app_id, uuid)
 
 Register a new device with a Resin.io application. This function only works if you log in using credentials or Auth Token.
 
 #### Args:
-    app_name (str): application name.
+    app_id (str): application id.
     uuid (str): device uuid.
 
 #### Returns:
@@ -589,6 +796,19 @@ Restart a user application container on device. This function only works if you 
 >>> resin.models.device.restart('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
 'OK'
 ```
+### Function: revoke_support_access(uuid)
+
+Revoke support access to a device.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    OK.
+
+#### Examples:
+    >> > resin.models.device.revoke_support_access('49b2a76b7f188c1d6f781e67c8f34adb4a7bfd2eec3f91d40b1efb75fe413d')
+    'OK'
 ### Function: set_custom_location(uuid, location)
 
 Set a custom location for a device.
@@ -609,6 +829,22 @@ Set a custom location for a device.
 >>> resin.models.device.set_custom_location('df09262c283b1dc1462d0e82caa7a88e52588b8c5d7475dd22210edec1c50a',location)
 OK
 ```
+### Function: set_to_build(uuid, build)
+
+Set a device to specific build id.
+
+#### Args:
+    uuid (str): device uuid.
+    build (str): build id.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+    ApplicationNotFound: if application couldn't be found.
+    IncompatibleApplication: if moving a device to an application with different device-type.
+
+#### Examples:
+    >> > resin.models.device.set_to_build('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', '123098')
+    'OK'
 ### Function: unset_custom_location(uuid)
 
 clear custom location for a device.
@@ -623,36 +859,6 @@ clear custom location for a device.
 ```python
 >>> resin.models.device.unset_custom_location('df09262c283b1dc1462d0e82caa7a88e52588b8c5d7475dd22210edec1c50a')
 OK
-```
-## Config
-
-This class implements configuration model for Resin Python SDK.
-
-#### Attributes:
-    _config (dict): caching configuration.
-### Function: get_all()
-
-Get all configuration.
-
-#### Returns:
-    dict: configuration information.
-
-#### Examples:
-```python
->>> resin.models.config.get_all()
-{ all configuration details }
-```
-### Function: get_device_types()
-
-Get device types configuration.
-
-#### Returns:
-    list: device types information.
-
-#### Examples:
-```python
->>> resin.models.config.get_device_types()
-[ all configuration details ]
 ```
 ## DeviceOs
 
@@ -684,6 +890,15 @@ Download an OS image. This function only works if you log in using credentials o
 >>> response.headers
 {'access-control-allow-methods': 'GET, PUT, POST, PATCH, DELETE, OPTIONS, HEAD', 'content-disposition': 'attachment; filename="resin-RPI1-0.1.0-1.1.0-7588720e0262.img"', 'content-encoding': 'gzip', 'transfer-encoding': 'chunked', 'x-powered-by': 'Express', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'date': 'Mon, 23 Nov 2015 15:13:39 GMT', 'access-control-allow-origin': '*', 'access-control-allow-headers': 'Content-Type, Authorization, Application-Record-Count, MaxDataServiceVersion, X-Requested-With', 'content-type': 'application/octet-stream', 'x-frame-options': 'DENY'}
 ```
+### Function: get_config(app_id)
+
+Get an application config.json
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    dict: application config.json
 ### Function: parse_params()
 
 Validate parameters for downloading device OS image.
@@ -707,13 +922,13 @@ This class implements application environment variable model for Resin Python SD
 #### Attributes:
     SYSTEM_VARIABLE_RESERVED_NAMES (list): list of reserved system variable names.
     OTHER_RESERVED_NAMES_START (list): list of prefix for system variable.
-### Function: create(app_id, name, value)
+### Function: create(app_id, env_var_name, value)
 
 Create an environment variable for application.
 
 #### Args:
     app_id (str): application id.
-    name (str): environment variable name.
+    env_var_name (str): environment variable name.
     value (str): environment variable value.
 
 #### Returns:
@@ -784,13 +999,13 @@ Update an environment variable value for application.
 ## DeviceEnvVariable
 
 This class implements device environment variable model for Resin Python SDK.
-### Function: create(uuid, name, value)
+### Function: create(uuid, env_var_name, value)
 
 Create a device environment variable.
 
 #### Args:
     uuid (str): device uuid.
-    name (str): environment variable name.
+    env_var_name (str): environment variable name.
     value (str): environment variable value.
 
 #### Returns:
