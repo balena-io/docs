@@ -4,16 +4,16 @@ excerpt: Developing locally on a resin.io device
 thumbnail: /img/common/device/running-webterminal-session.png
 ---
 
-Local mode is the new experimental development mode for resin.io. It allows you to build and sync code to a single development device in your local network without having to go through the whole git push, build, deployment pipeline. It uses the Docker daemon on the device to do the builds and starts the container up in very much the same way as the resin-supervisor would.
+# Local Mode
 
-<img src="/img/local-mode/local-mode-diagram.png" width="100%">
+Local mode is the development mode for resin.io. It allows you to build and sync code to a single development device in your local network without having to go through the whole git push, build, deployment pipeline. It uses the Docker daemon on the device to build containers and starts them up in very much the same way the supervisor would.
 
 In order to use local mode on a device:
 * The device must be running resinOS v2.0 or higher with supervisor v4.0 or higher.
 * The device must be running a [development][development] variant of the OS. If you try to use a production variant, you will not be able to use local mode. The production devices have SSH and the Docker socket locked down, both of which are needed for the local mode feature.
-* Local mode must be enabled through the dashboard. To use local mode on a development device, click on the small *Actions* dropdown at the top right of the device page and select *Enable Local Mode*.
+* Local mode must be enabled through the dashboard. To use local mode on a development device, click on the small *action dropdown at the top right of the *Restart* button and select *Enable Local Mode*. Your dashboard view will change to reflect that the device is in local mode:
 
-<img src="/img/local-mode/device-in-local-mode.png" width="80%">
+<img src="/img/local-mode/device-in-local-mode.png" width="100%">
 
 ### Scan the Network and Find your Device
 Before we can get any code running, we first have to find our device. To do this we can use `resin local scan`.

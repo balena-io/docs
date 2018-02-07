@@ -33,6 +33,7 @@ Learn
     Resin.io Concepts[/understanding/understanding-code-deployment]
     Deployment Guide[/deployment/deployment]
     Dockerfile Guide[/deployment/dockerfile]
+    Multicontainer Guide[/deployment/multicontainer]
 
     Runtime Environment
       [/runtime/runtime]
@@ -58,6 +59,7 @@ Learn
       [/hardware/wifi-dongles]
 
     Management
+      [/management/configuration]
       [/management/env-vars]
       [/management/applications]
       [/management/devices]
