@@ -28,7 +28,7 @@ RESIN_SUPERVISOR_POLL_INTERVAL | true | |
 
 In addition to these values, there may be some configuration specific to your device type that is automatically populated. For example, these values appear by default for a Raspberry Pi 3, reflecting the contents of the `config.txt` file:
 
-Name | Default | Description 
+Name | Default | Description
 --- | --- | ---
 RESIN_HOST_CONFIG_disable_splash | 1 |
 RESIN_HOST_CONFIG_dtparam | "i2c_arm=on","spi=on","audio=on" |
