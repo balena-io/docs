@@ -12,7 +12,7 @@ Configuration variables can be managed at the fleet and device levels.
 
 This list contains the configuration variables that appear automatically in your dashboard, including the default values. As not all variables apply to all supervisor versions, be sure to check the *Valid for* column to see where the variables apply:
 
-Name | Default | Description | Valid for |
+Name | Default | Description | Valid for 
 --- | --- | ---
 RESIN_HOST_LOG_TO_DISPLAY | true | |
 RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | |
