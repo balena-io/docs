@@ -4,16 +4,16 @@ title: Configuration Variables
 
 # Configuration Variables
 
-Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `RESIN_`, and a number of them appear automatically in your dashboard when your device is provisioned.
+Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `RESIN_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
 
 Configuration variables can be managed at the fleet and device levels.
 
 ## Variable List
 
-This list contains the configuration variables that appear automatically in your dashboard, including the default values. As not all variables apply to all supervisor versions, be sure to check the *Valid for* column to see where the variables apply:
+This list contains the configuration variables that automatically appear for devices with supervisor v7.0.0 and greater. including the default values. While they may not automatically populate on older supervisor versions, some of these variables can still be used, so be sure to check the *Valid for* column:
 
-Name | Default | Description | Valid for |
---- | --- | ---
+Name | Default | Description | Valid for
+--- | --- | --- | ---
 RESIN_HOST_LOG_TO_DISPLAY | true | |
 RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | |
 RESIN_SUPERVISOR_DELTA | true | |
