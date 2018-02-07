@@ -1,3 +1,0 @@
-Signing up
-===
-{{> "general/signUp"}}
