@@ -10,21 +10,22 @@ Configuration variables can be managed at the fleet and device levels.
 
 ## Variable List
 
-This list contains the configuration variables that automatically appear for devices with supervisor v7.0.0 and greater. including the default values. While they may not automatically populate on older supervisor versions, some of these variables can still be used, so be sure to check the *Valid for* column:
+This list contains configuration variables that can be used with resin.io devices, some of which will automatically appear for devices with supervisor v7.0.0 and greater. While they may not automatically populate in the dashboard, most of these variables can still be used with older supervisor versions, so be sure to check the *Valid for* column:
 
 Name | Default | Description | Valid for
 --- | --- | --- | ---
-RESIN_HOST_LOG_TO_DISPLAY | true | |
-RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | |
-RESIN_SUPERVISOR_DELTA | true | |
-RESIN_SUPERVISOR_DELTA_APPLY_TIMEOUT | | |
-RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT | | |
-RESIN_SUPERVISOR_DELTA_RETRY_COUNT | | |
-RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL | | |
-RESIN_SUPERVISOR_LOCAL_MODE | false | |
-RESIN_SUPERVISOR_LOG_CONTROL | true | |
-RESIN_SUPERVISOR_POLL_INTERVAL | 60000 | |
-RESIN_SUPERVISOR_POLL_INTERVAL | true | |
+RESIN_HOST_LOG_TO_DISPLAY | true | | v1.7.0 and up
+RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | | v1.3.0 and up
+RESIN_SUPERVISOR_DELTA | true | | v1.7.0 and up
+RESIN_SUPERVISOR_DELTA_APPLY_TIMEOUT | | | v6.2.0 and up
+RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT | | | v3.0.0 and up
+RESIN_SUPERVISOR_DELTA_RETRY_COUNT | | | v6.2.0 and up
+RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL | | | v6.2.0 and up
+RESIN_SUPERVISOR_LOCAL_MODE | false | | v4.0.0 and up
+RESIN_SUPERVISOR_LOG_CONTROL | true | | v1.3.0 and up
+RESIN_SUPERVISOR_OVERRIDE_LOCK | false | | v1.3.0 and up
+RESIN_SUPERVISOR_POLL_INTERVAL | 60000 | | v1.3.0 and up
+RESIN_SUPERVISOR_VPN_CONTROL | true | | v1.3.0 and up
 
 In addition to these values, there may be some configuration specific to your device type that is automatically populated. For example, these values appear by default for a Raspberry Pi 3, reflecting the contents of the `config.txt` file:
 
