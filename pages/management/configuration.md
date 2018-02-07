@@ -15,26 +15,28 @@ This list contains configuration variables that can be used with resin.io device
 Name | Default | Description | Valid for
 --- | --- | --- | ---
 RESIN_HOST_LOG_TO_DISPLAY | true | | v1.7.0 and up
-RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | | v1.3.0 and up
-RESIN_SUPERVISOR_DELTA | true | | v1.7.0 and up
+RESIN_SUPERVISOR_DELTA | true | If true, enable [delta updates][deltas] | v1.7.0 and up
 RESIN_SUPERVISOR_DELTA_APPLY_TIMEOUT | | | v6.2.0 and up
 RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT | | | v3.0.0 and up
 RESIN_SUPERVISOR_DELTA_RETRY_COUNT | | | v6.2.0 and up
 RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL | | | v6.2.0 and up
-RESIN_SUPERVISOR_LOCAL_MODE | false | | v4.0.0 and up
-RESIN_SUPERVISOR_LOG_CONTROL | true | | v1.3.0 and up
-RESIN_SUPERVISOR_OVERRIDE_LOCK | false | | v1.3.0 and up
-RESIN_SUPERVISOR_POLL_INTERVAL | 60000 | | v1.3.0 and up
-RESIN_SUPERVISOR_VPN_CONTROL | true | | v1.3.0 and up
+RESIN_SUPERVISOR_LOCAL_MODE | false | If true, put device in [local development mode][local-mode] | v4.0.0 and up
+RESIN_SUPERVISOR_OVERRIDE_LOCK | false | If true, override [update locking][update-locking] | v1.3.0 and up
+RESIN_SUPERVISOR_LOG_CONTROL | true | If true, send logs to resin.io dashboard | v1.3.0 and up
+RESIN_SUPERVISOR_POLL_INTERVAL | 60000 | API poll interval in milliseconds | v1.3.0 and up
+RESIN_SUPERVISOR_VPN_CONTROL | true | If true, enable VPN | v1.3.0 and up
+RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | If true, check to see if supervisor can connect | v1.3.0 and up
 
-In addition to these values, there may be some configuration specific to your device type that is automatically populated. For example, these values appear by default for a Raspberry Pi 3, reflecting the contents of the `config.txt` file:
+In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these values apply to Raspberry Pi devices, reflecting the contents of the `config.txt` file:
 
 Name | Default | Description
 --- | --- | ---
-RESIN_HOST_CONFIG_disable_splash | 1 |
-RESIN_HOST_CONFIG_dtparam | "i2c_arm=on","spi=on","audio=on" |
-RESIN_HOST_CONFIG_enable_uart | 1 |
-RESIN_HOST_CONFIG_gpu_mem | 16 |
+RESIN_HOST_CONFIG_disable_splash | 1 | Avoids the rainbow splash screen on boot
+RESIN_HOST_CONFIG_dtparam | "i2c_arm=on","spi=on","audio=on" | Device tree parameters
+RESIN_HOST_CONFIG_enable_uart | 1 | Enable the miniUART interface
+RESIN_HOST_CONFIG_gpu_mem | 16 | GPU memory allocation in MB
+
+You can find more information on updating `config.txt` through configuration variables in our [Advanced Boot Configuration Guide][boot-config-guide].
 
 ## Managing Fleet Configuration Variables
 
@@ -65,3 +67,8 @@ The device configuration variable list will include both values defined for that
 You can override the value of a fleet configuration variable by clicking *override* in the far-right column. This will pop up the variable editing window, where you can change the value:
 
 <img src="/img/configuration/override_config.png" width="60%">
+
+[deltas]:/runtime/delta
+[local-mode]:/development/local-mode
+[update-locking]:/runtime/update-locking
+[boot-config-guide]:/configuration/advanced/#modifying-config-txt-remotely-
