@@ -58,6 +58,7 @@ Learn
       [/hardware/wifi-dongles]
 
     Management
+      [/management/configuration]
       [/management/env-vars]
       [/management/applications]
       [/management/devices]
