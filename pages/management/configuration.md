@@ -12,20 +12,19 @@ Configuration variables can be managed at the fleet and device levels.
 
 This list contains configuration variables that can be used with resin.io devices, some of which will automatically appear for devices with supervisor v7.0.0 and greater. While they may not automatically populate in the dashboard, most of these variables can still be used with older supervisor versions, so be sure to check the *Valid for* column:
 
-Name | Default | Description | Valid for
+Name | Default | Description | Valid from
 --- | --- | --- | ---
-RESIN_HOST_LOG_TO_DISPLAY | true | | v1.7.0 and up
-RESIN_SUPERVISOR_DELTA | true | If true, enable [delta updates][deltas] | v1.7.0 and up
-RESIN_SUPERVISOR_DELTA_APPLY_TIMEOUT | | | v6.2.0 and up
-RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT | | | v3.0.0 and up
-RESIN_SUPERVISOR_DELTA_RETRY_COUNT | | | v6.2.0 and up
-RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL | | | v6.2.0 and up
-RESIN_SUPERVISOR_LOCAL_MODE | false | If true, put device in [local development mode][local-mode] | v4.0.0 and up
-RESIN_SUPERVISOR_OVERRIDE_LOCK | false | If true, override [update locking][update-locking] | v1.3.0 and up
-RESIN_SUPERVISOR_LOG_CONTROL | true | If true, send logs to resin.io dashboard | v1.3.0 and up
-RESIN_SUPERVISOR_POLL_INTERVAL | 60000 | API poll interval in milliseconds | v1.3.0 and up
-RESIN_SUPERVISOR_VPN_CONTROL | true | If true, enable VPN | v1.3.0 and up
-RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | If true, check to see if supervisor can connect | v1.3.0 and up
+RESIN_HOST_LOG_TO_DISPLAY | | If true, enable the host OS logging to display during boot | v1.7.0
+RESIN_SUPERVISOR_DELTA | true | If true, enable [delta updates][deltas] | v1.7.0
+RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT | 30000| Time to wait before the delta is considered stalled and should be retried, in milliseconds | v3.0.0
+RESIN_SUPERVISOR_DELTA_RETRY_COUNT | 30 | Number of consecutive times the delta must time out before retrying from the beginning | v6.2.0
+RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL | 1000 | The interval to wait between retries, in milliseconds | v6.2.0
+RESIN_SUPERVISOR_LOCAL_MODE | false | If true, put device in [local development mode][local-mode] | v4.0.0
+RESIN_SUPERVISOR_OVERRIDE_LOCK | false | If true, override [update locking][update-locking] | v1.3.0
+RESIN_SUPERVISOR_LOG_CONTROL | true | If true, send logs to resin.io dashboard | v1.3.0
+RESIN_SUPERVISOR_POLL_INTERVAL | 60000 | API poll interval, in milliseconds | v1.3.0
+RESIN_SUPERVISOR_VPN_CONTROL | true | If true, enable VPN | v1.3.0
+RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | If true, check to see if supervisor can connect | v1.3.0
 
 In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these values apply to Raspberry Pi devices, reflecting the contents of the `config.txt` file:
 
