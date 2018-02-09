@@ -8,7 +8,9 @@ To use this feature, navigate to your application and select the device you want
 
 <img src="/img/common/device/terminal.png" width="60%">
 
-If your device is online and has a running container, then simply click the blue *>_ Start Terminal session* button and a terminal session should be initiated for you in a second or two. If you would like a bigger window for the terminal, you can click the *Expand* button in the upper-right corner.
+If your device is online and has a running container, then simply select a target and click the blue *>_ Start Terminal session* button. A terminal session should be initiated for you in a second or two. If you would like a bigger window for the terminal, you can click the *Expand* button in the upper-right corner.
+
+__Note:__ To copy and paste in the terminal window,  you cannot use the normal Ctrl + C and Ctrl + V shortcuts. You can either select Copy and Paste from a menu, or use Ctrl + Insert for copy and Shift + Insert for Paste. For MacOS users, ⌘ + C and ⌘ + V work as expected.
 
 ### Using `resin ssh` from the CLI
 
