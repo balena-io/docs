@@ -11,13 +11,17 @@ Since we periodically release updates and improvements to resinOS (the host OS r
 
 __Note__: ResinOS 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
 
-For the **Raspberry Pi** series, self-service updates are available from resinOS versions 1.8.0 and upwards (including 2.x versions) to any versions after resinOS 2.2.0.
+Supported device types:
 
-For **BeagleBone** devices, you can update resinOS 1.8.0 through 1.26.0 to the transitional 1.30.1 version, and from 1.30.1 and upwards (including 2.x versions) to versions after 2.2.0.
+* For the **Raspberry Pi** series, self-service updates are available from resinOS versions 1.8.0 and upwards (including 2.x versions) to any versions after resinOS 2.2.0.
+* For **BeagleBone** devices, you can update resinOS 1.8.0 through 1.26.0 to the transitional 1.30.1 version, and from 1.30.1 and upwards (including 2.x versions) to version 2.2.0 and newer.
+* For **Intel NUC** and **UP Boards**, you can update all 2.x versions to 2.2.0 and newer.
+* **IOT2000** can be updated from all available versions to all newer versions.
+* **Jetson TX2** can be updated starting from resinOS 2.7.4+rev1 to all newer versions.
+* **QEMU** devices (both 32 and 64-bit versions) can be updated starting from resinOS 2.9.3+rev1 to all newer versions.
+* **TS-4900** can be updated starting from resinOS 2.4.1+rev1 to all newer versions.
 
-For **Intel NUC** and **UP Boards**, you can update 2.x versions to versions after 2.2.0.
-
-At the moment, only production and release candidate resinOS versions can be updated. Development and beta versions cannot.
+At the moment, self-service updates are only available for production resinOS versions. If you need updates for development and beta versions, please contact support or start a thread on the [forums][forums].
 
 For device types and resinOS versions that are not yet supported, please contact us on the [forums][forums]. We are continuously expanding the range of versions and types that can be updated.
 
