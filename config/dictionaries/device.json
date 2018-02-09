@@ -142,6 +142,15 @@
     "type": "beta"
   },
   {
+    "id": "jetson-tx1",
+    "name": "Jetson TX1",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/jetson-tx1.svg",
+    "link": "https://developer.nvidia.com/embedded/buy/jetson-tx1",
+    "type": "beta"
+  },
+  {
     "id": "intel-nuc",
     "name": "Intel NUC",
     "arch": "amd64",
