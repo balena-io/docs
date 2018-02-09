@@ -130,7 +130,7 @@
     "icon": "/img/device/intel-nuc.svg"
   },
   {
-    "id": "edison",
+    "id": "intel-edison",
     "name": "Intel Edison",
     "arch": "i386",
     "bootMedia": "eMMC",
