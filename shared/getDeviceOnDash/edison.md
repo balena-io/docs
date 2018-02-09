@@ -50,7 +50,7 @@ sudo port install dfu-util usbutils coreutils && sudo port activate dfu-util
 Make sure the Intel Edison is unplugged from your system, then unzip the downloaded resinOS image. Navigate to the unzipped directory and run the following:
 
 ```shell
-sudo chmod 755 ./flashall.sh
+sudo chmod +x ./flashall.sh
 sudo ./flashall.sh
 ```
 Plug in the Intel Edison, as per the instructions on your terminal. You can check the progress of the flash on your terminal. Once the flashing is complete, your Edison will need to reboot.
