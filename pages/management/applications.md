@@ -84,7 +84,7 @@ You can also manage tags from a device's summary page. The *Manage Tags* option 
 
 <img src="/img/common/app/device_manage_tags.png" width="40%">
 
-Both of these options will open the tag management window, from which you can define a name for your tag. Note that tag name cannot be empty, cannot contain spaces, and cannot use the reserved `io.resin` prefix. In addition to a name, you can define a value, although this is optional. 
+Both of these options will open the tag management window, from which you can define a name for your tag. Note that tag names cannot be empty, cannot contain spaces, and cannot use the reserved `io.resin` prefix. In addition to a name, you can define a value, although this is optional. 
 
 __Note:__ A device cannot have more than one tag with the same name, even if the values are different. If you create a new tag with the same name as an existing tag, the existing tag will be replaced.
 
