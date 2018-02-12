@@ -26,12 +26,12 @@ To enable this behaviour on a per-device basis, set the above variable at **Devi
 
 ## Delta Behaviour
 
-When you are using delta updates, you might notice the following changes in resin.io behaviour.
+If you are using delta updates, you might notice the following changes in resin.io behaviour:
 
-The **download progress bar** on the dashboard might show only for a very short time, much shorter than it takes in a normal application update. This is because in the most common development patterns there are usually very small changes between one version of the application image and the next (e.g. fixing typos, adding a new source file, or installing an extra OS package), and using deltas these changes are downloaded much quicker than before.
+The *Download progress* bar on the dashboard might show for only a short time—much shorter than in a normal application update. This is because in the most common development patterns, there are usually very small changes between one version of the application image and the next (e.g. fixing typos, adding a new source file, or installing an extra OS package), and when using deltas these changes are downloaded much quicker than before.
 
-You might still observe the application **downloading the full application image**. This happens if there was an issue during the delta download, and in that case the supervisor will fall back to the original Docker pull approach to recover.
+Delta updates are resumable, so if the connection drops or otherwise stalls, the update will resume from the last byte received. A user can configure the number of times a delta is retried before it bails out and signals failure to the supervisor. This is set by the `RESIN_SUPERVISOR_DELTA_RETRY_COUNT` configuration variable.
 
-## Further Information
+In addition, the wait time before a connection is considered stalled and the time between retries are configurable, using `RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT` and `RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL`. These are both specified in milliseconds. The defaults for these options allow for a 20 minute time frame where no byte is received before giving up, after which the supervisor retries the delta from the beginning.
 
-* [Feature announcement](https://resin.io/blog/the-next-resin/#deltaupdates) on the resin.io blog
+The only case where the deltas fall back to pulling the entire image is if corruption is detected.
