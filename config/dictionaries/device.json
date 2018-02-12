@@ -1,8 +1,8 @@
 [
   {
-    "id": "raspberrypi",
+    "id": "raspberry-pi",
     "name": "Raspberry Pi 1, Zero, or Zero W",
-    "arch": "armv6",
+    "arch": "rpi",
 		"bootMedia": "SD card",
     "rustTriple": "arm-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -10,9 +10,9 @@
     "icon": "/img/device/raspberry-pi.svg"
   },
 	{
-    "id": "raspberrypi2",
+    "id": "raspberry-pi2",
     "name": "Raspberry Pi 2",
-    "arch": "armv7l",
+    "arch": "armv7hf",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -22,7 +22,7 @@
 	{
     "id": "raspberrypi3",
     "name": "Raspberry Pi 3",
-    "arch": "armv7l",
+    "arch": "armv7hf",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -32,7 +32,7 @@
   {
     "id": "artik5",
     "name": "Samsung ARTIK 5",
-    "arch": "armv7l",
+    "arch": "armv7hf",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -42,7 +42,7 @@
   {
     "id": "artik710",
     "name": "Samsung ARTIK 710",
-    "arch": "armv7l",
+    "arch": "armv7hf",
 		"bootMedia": "SD card",
     "rustTriple": "aarch64-unknown-linux-gnu",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -52,7 +52,7 @@
   {
     "id": "artik10",
     "name": "Samsung ARTIK 10",
-    "arch": "armv7l",
+    "arch": "armv7hf",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -60,9 +60,9 @@
     "icon": "/img/device/artik10.svg"
   },
   {
-    "id": "beaglebone",
+    "id": "beaglebone-black",
     "name": "Beaglebone",
-    "arch": "armv7l",
+    "arch": "armv7hf",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -72,7 +72,7 @@
   {
     "id": "up-board",
     "name": "UPboard",
-    "arch": "x86_64",
+    "arch": "amd64",
 		"bootMedia": "USB drive",
     "rustTriple": "x86_64-unknown-linux-gnu",
     "rustLinker": "x86_64-linux-gnu-gcc",
@@ -92,7 +92,7 @@
   {
     "id": "kitra520",
     "name": "Kitra 520",
-    "arch": "armv7l",
+    "arch": "armv7hf",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -100,9 +100,9 @@
     "icon": "/img/device/kitra520.svg"
   },
   {
-    "id": "dart6ul",
+    "id": "imx6ul-var-dart",
     "name": "DART-6UL",
-    "arch": "armv7l",
+    "arch": "armv7hf",
     "bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -120,9 +120,9 @@
     "icon": "/img/device/jetson-tx2.svg"
   },
   {
-    "id": "nuc",
+    "id": "intel-nuc",
     "name": "Intel NUC",
-    "arch": "x86_64",
+    "arch": "amd64",
     "bootMedia": "USB drive",
     "rustTriple": "x86_64-unknown-linux-gnu",
     "rustLinker": "x86_64-linux-gnu-gcc",
@@ -142,7 +142,7 @@
   {
     "id": "nitrogen6x",
     "name": "Nitrogen 6X",
-    "arch": "armv7l",
+    "arch": "armv7hf",
     "bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",
@@ -152,7 +152,7 @@
   {
     "id": "hummingboard",
     "name": "Hummingboard",
-    "arch": "armv7l",
+    "arch": "armv7hf",
     "bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
     "rustLinker": "arm-linux-gnueabihf-gcc",

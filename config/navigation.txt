@@ -103,6 +103,7 @@ Reference
 
   Base images
     [/reference/base-images/resin-base-images]
+    [/reference/base-images/devicetypes]
     [/reference/base-images/custom-docker-base-images]  
 
   API[/reference/data-api]
