@@ -13,7 +13,7 @@ module.exports = {
   templatesDir: config.templatesDir
   partialsDir: config.partialsDir
   metaExtra: (fileName) ->
-    improveDocsLink: "#{config.editPageLink}/#{config.docsSourceDir}/#{fileName}"
+    improveDocsLink: if fileName.match(config.dynamicDocs) then "#{config.editPageLink}/#{config.partialsDir}" else "#{config.editPageLink}/#{config.docsSourceDir}/#{fileName}"
     $links: links
   layoutLocals: config.layoutLocals
   parseNav: true
