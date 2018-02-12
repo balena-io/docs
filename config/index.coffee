@@ -4,6 +4,8 @@ DOCS_DEST_DIR = 'contents'
 TEMPLATES_DIR = 'templates'
 PARTIALS_DIR = 'shared'
 
+DYNAMIC_DOCS = /.*(getting-started|deployment\/network|understanding\/understanding-devices).*/
+
 GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/master'
 
 MAIN_SITE = 'https://resin.io'
@@ -49,6 +51,7 @@ module.exports =
   docsDestDir: DOCS_DEST_DIR
   templatesDir: TEMPLATES_DIR
   partialsDir: PARTIALS_DIR
+  dynamicDocs: DYNAMIC_DOCS
   editPageLink: GITHUB_EDIT_PAGE_LINK
   links: require('./links')
   layoutLocals:
