@@ -21,6 +21,8 @@ __Note:__ On other git clients there may be an alternative way to add a remote r
 
 So now we have set up a reference in our local git repository (the one on our development computer) to the resin.io application remote repository. So when we push new changes to this remote repository it will get compiled and built on our servers and deployed to every device in the application fleet.
 
+__Warning:__ The resin.io git repository **is not** intended as a code hosting solution, and we cannot guarantee the persistence of data in resin.io git remotes.
+
 Now to deploy this code to all device(s) in the application just run the command:
 ```shell
 $ git push resin master
