@@ -8,19 +8,21 @@
 (.*)\.md(.*) -> $1$2
 ^\/introduction\/introduction(\/|$) -> /introduction
 ^\/$ -> /introduction
-^\/installing\/gettingStarted(\/|$) -> /raspberrypi/nodejs/getting-started/
-^\/installing\/gettingStarted-BBB(\/|$) -> /beaglebone/nodejs/getting-started/
-^\/installing\/gettingStarted-Humming(\/|$) -> /hummingboard/nodejs/getting-started/
-^\/installing\/gettingStarted-NUC(\/|$) -> /nuc/nodejs/getting-started/
-^\/installing\/gettingStarted-Nitrogen6x(\/|$) -> /nitrogen6x/nodejs/getting-started/
+^\/installing\/gettingStarted(\/|$) -> /getting-started/raspberrypi3/nodejs/
+^\/installing\/gettingStarted-BBB(\/|$) -> /getting-started/beaglebone/nodejs/
+^\/installing\/gettingStarted-Humming(\/|$) -> /getting-started/hummingboard/nodejs/
+^\/installing\/gettingStarted-NUC(\/|$) -> /getting-started/nuc/nodejs/
+^\/installing\/gettingStarted-Nitrogen6x(\/|$) -> /getting-started/nitrogen6x/nodejs/
 
 
 # Default redirects
-^\/getting-started -> /raspberrypi3/nodejs/getting-started
+^\/getting-started($) -> /getting-started/raspberrypi3/nodejs/
 ^\/deployment\/network\/(2\.0.*|$) -> /deployment/network/2.x
 ^\/deployment\/network\/1.x.x -> /deployment/network/1.x
 ^\/understanding/understanding-devices\/(2\.0.*|$) -> /understanding/understanding-devices/2.x
-^\/understanding/understanding-devices\/1.x.x -> /understanding/undderstanding-devices/1.x
+^\/understanding/understanding-devices\/1.x.x -> /understanding/understanding-devices/1.x
+^\/(.*)\/getting-started -> /getting-started/$1
+
 
 # Renamed pages
 ^\/using/dockerfile -> /deployment/dockerfile
