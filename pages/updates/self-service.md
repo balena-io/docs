@@ -37,7 +37,7 @@ You will see a progress bar that marks the steps completed for the update. Some 
 
 Update time can vary significantly, depending on the speed of your network, the speed of your SD card (or other storage medium), and your device performance.
 
-If your resinOS update fails for any reason, the device should still be recoverable. If you have any issues, please contact us on the [troubleshooting section of the forums][troubleshooting].
+If your resinOS update fails for any reason, the device should still be recoverable. For devices running resinOS 2.x, the user application should still be running normally, and the reasons for failure can be examined throught the update logs at `mnt/data/resinhup/`. If you have any issues, please contact us on the [troubleshooting section of the forums][troubleshooting].
 
 You can learn more about what exactly goes on during the update process [here][update-process].
 
