@@ -13,7 +13,11 @@
 ^\/installing\/gettingStarted-Humming(\/|$) -> /getting-started/hummingboard/nodejs/
 ^\/installing\/gettingStarted-NUC(\/|$) -> /getting-started/nuc/nodejs/
 ^\/installing\/gettingStarted-Nitrogen6x(\/|$) -> /getting-started/nitrogen6x/nodejs/
-
+^\/installing\/gettingStarted-Edison(\/|$) -> /getting-started/edison/nodejs/
+^\/installing\/gettingStarted-Odroid-C1(\/|$) -> /getting-started/odroid-c1/nodejs/
+^\/installing\/gettingStarted-Odroid-XU4(\/|$) -> /getting-started/odroid-XU4/nodejs/
+^\/installing\/gettingStarted-TS4900(\/|$) -> /getting-started/ts4900/nodejs/
+^\/installing\/otherboards(\/|$) -> /getting-started/raspberrypi3/nodejs/
 
 # Default redirects
 ^\/getting-started($) -> /getting-started/raspberrypi3/nodejs/
