@@ -33,7 +33,7 @@ Learn
     Resin.io Concepts[/understanding/understanding-code-deployment]
     Deployment Guide[/deployment/deployment]
     Dockerfile Guide[/deployment/dockerfile]
-    Multicontainer Guide[/deployment/multicontainer]
+    [/deployment/multicontainer]
 
     Runtime Environment
       [/runtime/runtime]
@@ -94,6 +94,7 @@ FAQ
 Reference
   Supported Devices[/hardware/devices]
   Device Agent API[/runtime/supervisor-api]
+  Docker Compose[/deployment/docker-compose]
   API [/runtime/data-api]
   CLI Reference[/tools/cli]
   Node.js SDK[/tools/sdk]
