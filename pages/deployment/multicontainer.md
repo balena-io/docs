@@ -56,13 +56,14 @@ gpio:
 
 ## Resin.io settings
 
-There are a few settings and considerations specific to resin.io that need to be taken into account when building multicontainer applications. First, using the `INITSYSTEM=on` [setting][init-system] in the `Dockerfile` of a service is only supported if the container is run as privileged, as **systemd** does not run correctly in unprivileged containers. Second, if you want to ensure your container is always kept running, set `restart` to `always`. Finally, to take advantage of the host OS networking stack, you'll want to set `network_mode` to `host`:
+There are a few settings and considerations specific to resin.io that need to be taken into account when building multicontainer applications. For one, using the `INITSYSTEM=on` [setting][init-system] in the `Dockerfile` of a service is only supported if the container is run as privileged, as **systemd** does not run correctly in unprivileged containers. In addition, if you want to ensure your container is always kept running, set `restart` to `always`: 
 
 ```
 privileged: true
 restart: always
-network_mode: host
 ```
+
+Setting `network_mode` to `host` allows the to container to share the same network namespace as the host OS. When this is set, any ports exposed on the container will be exposed locally on the device. This is necessary for features such as bluetooth.
 
 To store data in [persistent storage][persistent-storage], you'll want to make sure to use the `volumes` field to link a directory in your container to the `resin-data` volume:
 
