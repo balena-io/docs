@@ -5,7 +5,11 @@ excerpt: Details of the self-service update process
 
 # What happens during a resin host OS update?
 
-The ability to remotely update the entire host operating system (OS) of your device, rather than just the user application, is a core feature of resin.io. Performing updates may feel like an opaque process, so we thought it would be useful to break it down. 
+The ability to remotely update the entire host operating system (OS) of your device, rather than just the user application, is a core feature of resin.io. Performing updates may feel like an opaque process, so we thought it would be useful to break it down.
+
+__Note:__ Once a successful host OS update has been made, it is not possible to roll back to a previous OS version.
+
+In general, host OS updates are meant to be atomic: if an update is run, it either finishes correctly or it fails and leaves the system in its previous, usable state. If deploying the new root file system is unsuccessful, the boot settings are not switched over to the new parition. This means the device can be rebooted with the previous OS version and no noticable changes. For failures related to the boot partition, the latest versions of resinOS have a rollback feature that will the leave the partition in a good state.
 
 Since resinOS 1.x and 2.x behave somewhat differently in how they manage updates, we'll examine the three main use cases. In all three cases, an updater script gets transferred to the device to handle the update process, as described in detail below.
 
@@ -18,6 +22,8 @@ Next, the supervisor is stopped so it does not inadvertently interfere with the 
 The updater script checks to see if the new resinOS version ships with a newer supervisor version than what the device currently runs, and, if so, the supervisor is updated.
 
 Finally, the boot settings are modified so that on the next reboot the new root file system is used. As a last step, the device is rebooted.
+
+For devices running resinOS 2.x, a status of `OS update failed` means the user application should still be running normally, and the reasons for failure can be examined throught the update logs at `mnt/data/resinhup/`. The device may have some reduced functionality, for instance if the supervisor was stopped for the update, but we are working on ways to automatically restore full functionality whenever possible.
 
 ## Upgrading from resinOS 1.x to 2.x
 

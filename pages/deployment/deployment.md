@@ -16,6 +16,8 @@ remote add resin [application endpoint]`.
 Whenever you subsequently need to push code to your devices, simply run
 `git push resin master`.
 
+__Warning:__ The resin.io git repository **is not** intended as a code hosting solution, and we cannot guarantee the persistence of data in resin.io git remotes.
+
 If you want to push a different local git branch to your resin.io fleet all you need to do is:
 `git push resin my-local-branch:master`
 

@@ -5,7 +5,7 @@ layout: getting-started.html
 
 dynamic:
   variables: [ $device, $language ]
-  ref: $device/$language/$original_ref
+  ref: $original_ref/$device/$language
   $switch_text: Getting Started with $device and $language
 ---
 

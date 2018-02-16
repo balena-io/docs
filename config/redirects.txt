@@ -8,23 +8,25 @@
 (.*)\.md(.*) -> $1$2
 ^\/introduction\/introduction(\/|$) -> /introduction
 ^\/$ -> /introduction
-^\/installing\/gettingStarted(\/|$) -> /raspberrypi/nodejs/getting-started/
-^\/installing\/gettingStarted-BBB(\/|$) -> /beaglebone/nodejs/getting-started/
-^\/installing\/gettingStarted-Humming(\/|$) -> /hummingboard/nodejs/getting-started/
-^\/installing\/gettingStarted-NUC(\/|$) -> /nuc/nodejs/getting-started/
-^\/installing\/gettingStarted-Nitrogen6x(\/|$) -> /nitrogen6x/nodejs/getting-started/
-^\/installing\/gettingStarted-Edison(\/|$) -> /edison/nodejs/getting-started/
-^\/installing\/gettingStarted-Odroid-C1(\/|$) -> /odroid-c1/nodejs/getting-started/
-^\/installing\/gettingStarted-Odroid-XU4(\/|$) -> /odroid-XU4/nodejs/getting-started/
-^\/installing\/gettingStarted-TS4900(\/|$) -> /ts4900/nodejs/getting-started/
-^\/installing\/otherboards(\/|$) -> /raspberrypi/nodejs/getting-started/
+^\/installing\/gettingStarted(\/|$) -> /getting-started/raspberrypi3/nodejs/
+^\/installing\/gettingStarted-BBB(\/|$) -> /getting-started/beaglebone/nodejs/
+^\/installing\/gettingStarted-Humming(\/|$) -> /getting-started/hummingboard/nodejs/
+^\/installing\/gettingStarted-NUC(\/|$) -> /getting-started/nuc/nodejs/
+^\/installing\/gettingStarted-Nitrogen6x(\/|$) -> /getting-started/nitrogen6x/nodejs/
+^\/installing\/gettingStarted-Edison(\/|$) -> /getting-started/edison/nodejs/
+^\/installing\/gettingStarted-Odroid-C1(\/|$) -> /getting-started/odroid-c1/nodejs/
+^\/installing\/gettingStarted-Odroid-XU4(\/|$) -> /getting-started/odroid-XU4/nodejs/
+^\/installing\/gettingStarted-TS4900(\/|$) -> /getting-started/ts4900/nodejs/
+^\/installing\/otherboards(\/|$) -> /getting-started/raspberrypi3/nodejs/
 
 # Default redirects
-^\/getting-started -> /raspberrypi3/nodejs/getting-started
+^\/getting-started($) -> /getting-started/raspberrypi3/nodejs/
 ^\/deployment\/network\/(2\.0.*|$) -> /deployment/network/2.x
 ^\/deployment\/network\/1.x.x -> /deployment/network/1.x
 ^\/understanding/understanding-devices\/(2\.0.*|$) -> /understanding/understanding-devices/2.x
-^\/understanding/understanding-devices\/1.x.x -> /understanding/undderstanding-devices/1.x
+^\/understanding/understanding-devices\/1.x.x -> /understanding/understanding-devices/1.x
+^\/(.*)\/getting-started -> /getting-started/$1
+
 
 # Renamed pages
 ^\/using/dockerfile -> /deployment/dockerfile
