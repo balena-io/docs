@@ -27,7 +27,7 @@ Learn
   # this URL is handled in redirects.txt
   Getting Started[/getting-started]
     # with $device and $language being dynamic
-    {{ $device.name }} and {{ $language.name }}[/$device/$language/getting-started]
+    {{ $device.name }} and {{ $language.name }}[/getting-started/$device/$language]
 
   Resin.io Basics
     Resin.io Concepts[/understanding/understanding-code-deployment]
