@@ -16,19 +16,26 @@ The multicontainer functionality provided by resin.io is built around **[Docker 
 
 At the root of your multicontainer application, you'll use a `docker-compose.yml` file to specify the configuration of your containers. The `docker-compose.yml` defines the services you'll be building, as well as how the services interact with each other and the host OS.
 
-Here's an example `docker-compose.yml` for a [simple web server][simple-web-server]:
+Here's an example `docker-compose.yml` for a [simple multicontainer application][simple-app], composed of a static site server, a websocket server, and a proxy:
 
 ```
- version: '2'
- services:
-   web:
-     build: ./web
-     ports:
-      - "80:5000"
-     depends_on:
-      - redis
-   redis:
-    build: ./redis
+version: '2'
+services:
+  frontend:
+    build: ./frontend
+    expose:
+      - "80"
+  proxy:
+    build: ./haproxy
+    depends_on:
+      - frontend
+      - data
+    ports:
+      - "80:80"
+  data:
+    build: ./data
+    expose:
+      - "8080"
 ```
 
 Each service can either be built from a directory containing a `Dockerfile`, as shown here, or can use a **Docker** image that has already been built, by replacing `build:` with `image:`. If your containers need to started in a specific order, make sure to use the `depends_on:` [setting][depends-on].
@@ -49,26 +56,36 @@ gpio:
 
 ## Resin.io settings
 
-There are a few settings and considerations specific to resin.io that need to be taken into account when building multicontainer applications. First, using the `INITSYSTEM=on` setting in the `Dockerfile` of a service is only supported if the container is run as privileged, as **systemd** does not run correctly in unprivileged containers.
+There are a few settings and considerations specific to resin.io that need to be taken into account when building multicontainer applications. First, using the `INITSYSTEM=on` [setting][init-system] in the `Dockerfile` of a service is only supported if the container is run as privileged, as **systemd** does not run correctly in unprivileged containers. Second, if you want to ensure your container is always kept running, set `restart` to `always`. Finally, to take advantage of the host OS networking stack, you'll want to set `network_mode` to `host`:
+
+```
+privileged: true
+restart: always
+network_mode: host
+```
+
+To store data in [persistent storage][persistent-storage], you'll want to make sure to use the `volumes` field to link a directory in your container to the `resin-data` volume:
+
+```
+volumes:
+      - 'resin-data:/data'
+```
 
 In addition, there are some resin.io specific labels that can be defined in the `docker-compose.yml` file. These provide access to certain bind mounts and environment variables without requiring you to run the container as privileged.
 
-Label | Default | Description
---- | --- | ---
-io.resin.features.dbus | false | Bind mounts the host OS dbus into the container using “/run/dbus:/host/run/dbus”
-io.resin.features.kernel-modules | false | Bind mounts the host OS /lib/modules into the container. (i.e. “/lib/modules:/lib/modules”)
-io.resin.features.firmware | false | Bind mounts the host OS /lib/firmware into the container
-io.resin.features.supervisor-api | false | Ensures that RESIN_SUPERVISOR_HOST, RESIN_SUPERVISOR_PORT, RESIN_SUPERVISOR_ADDRESS, and RESIN_SUPERVISOR_API_KEY are added to the container environment variables, so the supervisor API can be used. (Currently will only work for services that have network_mode = “host” or “bridge” )
-io.resin.features.resin-api | false | When enabled, it will make sure that RESIN_API_KEY is added to the container environment variables
+{{> "general/labels" }}
 
-These labels are applied to a specific service with the `labels:` setting
+These labels are applied to a specific service with the `labels:` setting:
 
 ```
 labels:
-      io.resin.features.dbus: "true"
-      io.resin.features.kernel-modules: "true"
-      io.resin.features.firmware: "true"
-      io.resin.features.supervisor-api: "true"
+      io.resin.features.kernel-modules: '1'
+      io.resin.features.firmware: '1'
+      io.resin.features.dbus: '1'
+      io.resin.features.supervisor-api: '1'
+      io.resin.features.resin-api: '1'
+      io.resin.update.strategy: download-then-kill
+      io.resin.update.handover-timeout: ''
 ```
 
 ## Single-container applications 
@@ -103,11 +120,11 @@ services:
       io.resin.update.handover-timeout: ''
 ```
 
-
-
 [docker-compose]:https://docs.docker.com/compose/overview/
-[simple-web-server]:https://github.com/resin-io-playground/multicontainer-python-redis
+[simple-app]:https://github.com/resin-io-projects/multicontainer-getting-started
 [compose-features]:https://docs.docker.com/compose/compose-file/compose-file-v2/
 [compose-support]:/deployment/docker-compose
 [depends-on]:https://docs.docker.com/compose/compose-file/compose-file-v2/#depends_on
+[persistent-storage]:/runtime/runtime/#persistent-storage
+[init-system]:/runtime/runtime/#init-system
 
