@@ -46,6 +46,8 @@ __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) ha
 
 ### [ODROID-XU4](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825&tab_idx=1)
 
+__Warning:__ HDMI is currently not supported on the Odroid XU4.
+
 ![ODROID XU4](/img/odroidXUBoard.jpg)
 
 ### [Intel NUC](http://www.intel.com/content/www/us/en/nuc/overview.html)

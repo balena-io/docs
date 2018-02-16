@@ -5,7 +5,7 @@ layout: getting-started.html
 
 dynamic:
   variables: [ $device, $language ]
-  ref: $device/$language/$original_ref
+  ref: $original_ref/$device/$language
   $switch_text: Getting Started with $device and $language
 ---
 
@@ -39,7 +39,6 @@ If you don't already have a resin.io account, make sure to [sign up][link-to-sig
 
 {{import "selectNetworkConfig"}}
 
-## Create a bootable {{ $device.bootMedia }}
 {{import "flashingOsToBootMedia"}}
 
 ## Provision your device
