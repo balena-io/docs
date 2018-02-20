@@ -59,6 +59,7 @@ Learn
     [/learn/manage/account]
     [/learn/manage/configuration]
     [/learn/manage/serv-vars]
+    [/learn/manage/ssh-access]
     [/learn/manage/applications]
     [/learn/manage/devices]
   

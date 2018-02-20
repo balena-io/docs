@@ -7,59 +7,80 @@ excerpt: Docker Compose fields supported by resin.io
 
 ## Supported Compose fields
 
-- `image`
-- `expose`
-- `ports` - but no port ranges yet
-- `network_mode`
-- `privileged`
-- `environment`
-- `command`
-- `entrypoint`
-- `labels`
-- `volumes` (bind mounting to the host OS is not supported)
-- `depends_on`
-- `cap_add`
-- `cap_drop`
-- `devices`
-- `networks` - i.e. several networks per service  - but with no support for configuration like setting static IPs for those networks yet
-- `cpu_shares`
-- `cpu_quota`
-- `cpus`
-- `cpuset`
-- `domainname`
-- `oom_score_adj`
-- `read_only`
-- `shm_size`
-- `healthcheck`
-- `stop_grace_period`
-- `stop_signal`
-- `ulimits`
-- `dns`
-- `dns_search`
-- `dns_opt`
-- `tmpfs`
-- `extra_hosts`
-- `init`
-- `healthcheck`
-- `sysctls`
+Field | Details
+--- | ---
+build |
+cap_add | 
+cap_drop |
+cgroup_parent |
+command |
+cpu_shares |
+cpu_quota |
+cpus |
+cpuset |
+devices |
+depends_on | Only array form is supported 
+dns |
+dns_opt |
+dns_search |
+domainname |
+entrypoint | 
+environment |
+expose |
+extra_hosts |
+group_add |
+healthcheck |
+hostname |
+image |
+init | 
+ipc |
+labels |
+mac_address |
+mem_limit |
+mem_reservation |
+network_mode | Only support `bridge`, `host`, or none
+networks | Only support specifiying network names
+oom_kill_disable |
+oom_score_adj |
+pid | Only support `host` or none
+pids_limit |
+ports |
+privileged |
+read_only |
+restart |
+security_opt |
+shm_size |
+stop_grace_period |
+stop_signal |
+sysctls |
+tmpfs |
+ulimits |
+user |
+userns_mode |
+volumes | Only support short syntax. Bind mounts are not supported, except for as allowed by resin.io specific [labels](#labels)
+working_dir |
+
 
 ## Known unsupported fields
 
-- `container_name` is not supported, as this field is used by the supervisor internally.
-- `cpu_count`, 
-- `cpu_percent`
-- `hostname`
-- `ipc`
-- `mac_address`
-- `mem_limit`
-- `memswap_limit`
-- `mem_swappiness`
-- `mem_reservation`
-- `stdin_open`
-- `tty`
-- `user`
-- `working_dir`
-- Volume bind-mounts to the underlying host OS. Currently bind-mounting volumes to the host OS is unsupported. We have a number of special labels to mount common things (see labels table in the section below), but allowing arbitrary bind-mounts makes it difficult to maintain a good host OS/container interface and makes it much easier for a user to accidentally brick a device.
+Field | Details
+--- | ---
+blkio_config |
+container_name | Used by the device supervisor
+cpu_count |
+cpu_percent |
+external_links |
+isolation |
+links |
+logging |
+memswap_limit |
+mem_swappiness |
+runtime |
+scale |
+stdin_open |
+tty |
+volume_driver |
+volumes_from |
 
 ## Labels
 

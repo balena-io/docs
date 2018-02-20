@@ -95,7 +95,7 @@ If you push a project with only a `Dockerfile` or `Dockerfile.template`, rather 
 
 __Note:__ Code that ran on resin.io before multicontainer support should still seamlessly build and run on the multicontainer instance.
 
-The auto-generated Docker Compose file built for this service can be found be navigating from the device list to the `Releases` page and selecting the release you would like to examine. It will look something like this:
+The auto-generated Docker Compose file built for this service can be found be navigating from the device list to the *Releases* page and selecting the release you would like to examine. It will look something like this:
 
 ```
 version: '2.1'
