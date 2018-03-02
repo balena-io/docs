@@ -1,74 +1,56 @@
 ---
-title: Environment Variables
+title: Service Variables
 ---
 
-# Environment Variables
+# Service Variables 
 
-Environment variables allow you to provide runtime configuration to your application which can be updated without having to modify your source code.
+Service variables allow you to provide runtime configuration to a running service without having to modify your source code. You can use them to keep secrets and other sensitive values out of your code base.
 
-You can use them to keep secrets and other sensitive values like database credentials out of your code base.
+__Note:__ Adding or modifying a service variable will cause the service to restart on any devices where the new setting is applied.
 
-__Note:__ Adding or modifying a environment will cause the application to restart on the affected device/s.
+Resin.io allows you to set service variables at two levels: fleet and device.
 
-Resin provides two kinds of environment variables: application-wide and per-device.
+## Fleet Service Variables
 
-## Application-wide
+Service variables defined on the fleet level are available to the specified service on any device in that fleet, unless they are redefined with a device service variable of the same name.
 
-Environment variables defined on the application level are available to the code on any device running this application — unless they are _redefined_ with the per-device environment variable of the same name.
+The application dashboard has a *Service Variables* tab containing a list of all fleet service variables.
 
-## Per-device
+To define a new fleet service variable, make sure you are in the *Service Variables* tab, then click the *Add variable* button in the upper-left corner:
 
-Per-device environment variables are available to the code running on the particular device. If both the application and the device have an environment variable _of the same name_, the code on this device will see the value of the _per-device environment variables._ In other words, per-device environment variables redefine (or override) application-wide environment variables of the same name.
+<img src="/img/env-vars/add_application_variable.png" width="40%">
 
-It's important to understand that the device environment variable _doesn't have to_ correspond to some application-wide environment variable.
+A new window will pop up, asking you to select a service from the drop down menu. Once you have selected the service, you can define the name and value for your service variable. Click *Add* to apply to all devices in your fleet that do not already have an identical device service variable defined:
 
-## Managing from the Application Page
+<img src="/img/env-vars/variable_editor.png" width="60%">
 
-![Application Page](/img/env-vars/app.png)
+Your new service variable will show up in the list, where it can easily be edited or removed:
 
-The application page has an "Environment variables" tab containing the list of all application-wide environment variables.
+<img src="/img/env-vars/variable_list.png" width="100%">
 
-Here you can modify or delete any variable. Changes are saved automatically, so you just have to edit the value.
+__Note:__ Deleting a fleet service variable will not delete a device variable of the same name.
 
-Each variable row in the list has an expandable region where you see per-device redefines of this variable, can edit, reset them (the Reset button deletes the redefining per-device variable which automatically makes the application-wide variable seen by the device), or add a new redefine by choosing one of the remaining devices from the drop-down selector.
+If you have already defined service variables at the device level, they will appear in a list below your fleet service variables. You can easily apply a device value to the entire fleet by clicking *Define app-wide*:
 
-__Note:__ Deleting an application-wide variable **will not** delete any of its device-specific redefines.
+<img src="/img/env-vars/define_app_wide.png" width="100%">
 
-Below the list you have the option to create a new environment variable.
+## Device Service Variables
 
-Finally, if there are any device-specific variables that **are not** application-wide variables' redefines (i.e. don't have an application-wide variable of the same name) they will be shown at the bottom of the page.
+Device service variables are available to the service container running on that particular device. If both the fleet and the device have a service variable of the same name, the code on the device will use the value of the device service variable. In other words, device service variables redefine (or override) fleet service variables.
 
-__Note:__ These variables are _only_ visible to the devices where they are defined.
+Adding a device service variable is very similar to adding a fleet service variable. From the device summary page, select the *Device Service Variables* tab, click *Add variable*, select the appropriate service from the drop down, add a name and value, and click *Add*.
 
-There's a convenience Define button that will allow you creating the application-wide variable of the same name that will serve as default for all the devices of this application.
+The service variable list will include both values defined for that specific device, as well as any fleet service variables: 
 
-The counter next to the variable name shows the number of devices that have this variable defined. Clicking on it will reveal the full list of these devices.
+<img src="/img/env-vars/device_variables.png" width="100%">
 
-## Managing from the Device Page
+You can override the value of a fleet variable by clicking *override* in the far-right column. This will pop up the variable editing window, where you can change the value:
 
-![Device Page](/img/env-vars/device.png)
-
-The device page also has the "Environment variables" tab. It's slightly more complicated than the application page and consists of 4 sections:
-1. the list of this particular device's environment variables
-2. the form to create a new variable
-3. the list of other environment variables from the device's application
-4. the list of other environment variables defined for other devices of this application (but not for this device and not for the application).
-
-The _first list_ (device environment variables) is pretty straightforward. You can edit variables' values, or delete them.
-
-__Note:__ Redefines (the variables that match the application-wide variable by name) are identified and their deletion button reads "Reset". That's because when you delete the redefine the variable is still defined on the application level, and that value becomes unmasked and visible to the code running on your device.
-
-The _second form_ (new variable) is straightforward as well, you type the name and value and save it. The name field has autosuggest feature based on the variables from the third list.
-
-The _third list_ (application variables) is pretty usable because it gives you comprehensive understanding of which variables are actually visible to the code running on this device. It shows all the _remaining_ application-wide variables — those that are not redefined for this device. There's also a convenience Redefine button should you want to redefine some of them.
-
-The fourth list gives you an idea of specific variables defined for other application's devices. It's the same as the one on the application page.
-
-__Note:__ The variables from the fourth list **are not** visible to this device. We show them in case you want to define the same variable for the device.
+<img src="/img/env-vars/override.png" width="60%">
 
 ## Managing with the CLI & SDK
 
-The resin.io CLI and SDKs all include methods to easily read, add or update environment variables. Consult the appropriate reference for code examples.
+The resin.io CLI and SDKs all include methods to easily read, add or update service variables. Consult the appropriate reference for code examples.
 
 * [CLI environment reference](/tools/cli/#envs)
 * [Node.js SDK environment reference](/tools/sdk/#resin.models.environment-variables)

@@ -42,12 +42,12 @@ specified, it defaults to running `node server.js`.)
 #### Node.js Example
 
 A good example of this is the [text-to-speech][text-to-speech] application -
-here's its `package.json` file*:
+here's its `package.json` file:
 
 ```JSON
 {
   "name": "resin-text2speech",
-  "description": "Simple resin app that uses Google's TTS endpoint",
+  "description": "Simple resin app that uses Festival to do text 2 speech",
   "repository": {
     "type": "git",
     "url": "https://github.com/resin-io/text2speech.git"
@@ -55,14 +55,12 @@ here's its `package.json` file*:
   "scripts": {
     "preinstall": "bash deps.sh"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "dependencies": {
-    "speaker": "~0.0.10",
-    "request": "~2.22.0",
-    "lame": "~1.0.2"
+    "say" : "^0.6.0"
   },
   "engines": {
-      "node": "0.10.22"
+    "node": "0.10.22"
   }
 }
 ```
@@ -110,9 +108,21 @@ or even hours to build on your device.
 All code that is pushed to your resin.io devices is sent to the build server
 which builds it, then ships the resultant environment to your devices.
 
----
+## Release Logs
 
-\* correct at the time of writing.
+All releases that are pushed to the resin.io build servers are tracked in their own dashboard page. You can access this page by clicking *Releases* from the application dashboard:
+
+<img src="/img/common/app/release_list.png" width="100%">
+
+The releases page includes a list of all attempted and deployed releases, with information on the status of the release, when it was completed, how long it took, and how many devices are on that particular release. Clicking any row will open up a summary page specifically for that release, with windows showing the Docker Compose file and Build Logs:
+
+<img src="/img/common/app/release_summary.png" width="100%">
+
+Much like with the device list, [filters][filters] can be added to the release list by clicking *Add filter* and filling in the appropriate fields:
+
+<img src="/img/common/app/release_filter.png" width="60%">
+
+[Saved views][saved-views] can also be created to return to a specific collection of filters.
 
 [getting-started]:/installing/gettingStarted
 [dockerfile]:/deployment/dockerfile
@@ -128,3 +138,5 @@ which builds it, then ships the resultant environment to your devices.
 [raspbian]:http://www.raspbian.org/
 [aptitude]:https://wiki.debian.org/Aptitude
 [resin-base-image]:/runtime/resin-base-images
+[filters]:/management/applications/#device-filters
+[saved-views]:/managment/applications/#create-a-view

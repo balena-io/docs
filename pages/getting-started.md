@@ -48,20 +48,15 @@ If you don't already have a resin.io account, make sure to [sign up][link-to-sig
 
 {{import "deployingCode"}}
 
-{{import "diveIntoCode"}}
+## Next steps
 
-## Use the web terminal
-
-{{import "usingWebTerminal"}}
-
-## Use resin sync to develop quickly
-
-{{import "resinSync"}}
-{{import "crossCompilation"}}
-{{import "usingResinSync"}}
+- Learn more about the [Dockerfile][dockerfile] that is used to build your application.
+- Get to know the [web terminal][terminal], which can be used to SSH into your application containers and the host OS.
+- Try out [local mode][local-mode], the most efficient way to rapidly develop and test your resin.io application.
 
 ## Example projects
-There are even more hidden treasures in the resin.io platform and tools, but we will get into those a bit later. For now why not fork one or two of our example projects and build something grand.
+
+These example projects will give you an idea of more things that can be done with resin.io:
 
 {{import "exampleProjects"}}
 
@@ -71,3 +66,6 @@ There are even more hidden treasures in the resin.io platform and tools, but we 
 <img src="/img/common/resinify.jpg" width="80%">
 
 [link-to-signup]:https://dashboard.resin.io/signup
+[dockerfile]:/deployment/dockerfile
+[terminal]:/runtime/runtime/#ssh-access
+[local-mode]:/development/local-mode
