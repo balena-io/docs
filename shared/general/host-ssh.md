@@ -1,19 +1,83 @@
-### Accessing the host OS
-
-For devices running resinOS versions 2.7.5 and above, it is possible to SSH into the host OS as well as the application container. This gives you access to logs and tools for services that operate outside the scope of your application, such as **NetworkManager**, **Docker**, the VPN, and the supervisor. Like container SSH access, it requires the VPN to be active and connected.
+## Troubleshooting with host OS access
 
 __Warning:__ Making changes to running services and network configurations carries the risk of losing access to your device. Before making changes to the host OS of a remote device, it is best to test locally. Changes made to the host OS will not be maintained when the OS is updated, and some changes could break the updating process. When in doubt, [reach out][forums] to us for guidance. 
 
-Host OS SSH access is available via the dashboard. To start a session, click *Select a target* in the *Terminal* window, and then select *Host OS*:
+Host OS SSH access gives you a handful of tools that can help you gather more information about potential issues on your device. Here are some tips for troubleshooting common issues:
 
-<img src="/img/common/device/host_terminal.png" width="60%">
+### Check logs
 
-To use this option in the CLI, add the `--host` or `-s` option to the `resin ssh` command:
+#### journalctl
 
-```shell
-$ resin ssh <device-uuid> -s
+Information from a variety of services can be found using the **journalctl** utility. As the number of **journalctl** messages can be quite large, it is good to know how to narrow your search.
+
+To find messages from a specific service, use the `-u` flag:
+```
+journalctl -u systemd-timesyncd
+```
+To return the last *x* messages, use `-fn x`:
+```
+journalctl -fn 100 -u resin-supervisor
 ```
 
-Host OS access via the CLI requires version 6.12.0 or above. 
+#### dmesg
+
+For displaying messages from the kernel, you can use **dmesg**. Similar to **journalctl**, **dmesg** may have an unmanageable output without some additional commands:
+```
+dmesg | tail -n 100
+```
+
+### Monitor balena
+
+ResinOS, beginning with version 2.9.0, includes the lightweight container engine **[balena][balena]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to do use **balena** for debugging. 
+
+This command will show the status of all containers:
+```
+balena ps -a
+```
+You can also check the **journalctl** logs for messages related to **balena**:
+```
+journalctl -fn 100 -u balena
+```
+For devices with resinOS versions earlier than 2.9.0, you can replace `balena` in these commands with `docker`.
+
+### Inspect network settings
+
+#### NetworkManager
+
+**NetworkManager** includes a [CLI][nmcli] that can be useful for debugging your ethernet and WiFi connections. The `nmcli` command, on its own, will show all interfaces and the connections they have. `nmcli c` provides a connection summary, showing all known connection files with the connected ones highlighted. `nmcli d` displays all network interfaces (devices).
+
+Another useful place to look for **NetworkManager** information is in the **journalctl** logs:
+```
+journalctl -fn 100 -u NetworkManager
+```
+
+#### ModemManager
+
+Similar to **NetworkManager**, **ModemManager** includes a [CLI][mmcli], `mmcli`, to manage cellular connections. `mmcli -L` provides a list of available modems.
+
+### Look up version information
+
+Knowing what version of a specific service is being run on your device can help you troubleshoot compatibility issues, known bugs, and supported features.
+
+Many services provide a direct option for displaying their version:
+```
+udevadm --version
+systemd --version
+openssl version
+```
+
+### Understand the file system
+
+In some cases, you may need to examine the contents of certain directories or files directly. One location that is useful for troubleshooting purposes is the `/data` directory, which contains your device's Docker images, [persistent application data][persistent-storage], and host OS update logs. The `/boot` directory includes configuration files, such as [config.txt][config-txt] and [**NetworkManager** connections][network]. 
+
+Note that the [filesystem layout][filesystem] may look slightly different from what you’d expect—for example the two locations mentioned above are found at `/mnt/data` and `/mnt/boot`, respectively.
+
 
 [forums]:https://forums.resin.io/c/troubleshooting
+[balena]:https://www.balena.io/
+[nmcli]:https://fedoraproject.org/wiki/Networking/CLI
+[mmcli]:https://www.freedesktop.org/software/ModemManager/man/1.0.0/mmcli.8.html
+[persistent-storage]:/learn/develop/runtime/#persistent-storage
+[config-txt]:/reference/resinOS/advanced/#config-txt
+[network]:/reference/resinOS/network/2.x
+[filesystem]:/reference/resinOS/overview/2.x/#stateless-and-read-only-rootfs

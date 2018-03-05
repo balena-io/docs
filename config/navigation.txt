@@ -22,78 +22,94 @@
 # The variable-specific title is optional and can be omitted
 
 Learn
-  [/introduction]
+
+  WELCOME
+    [/learn/welcome/introduction]
+    [/learn/welcome/primer]
+    [/learn/welcome/concepts]
+    [/learn/welcome/production-plan]
+    [/learn/welcome/security]
+    [/learn/welcome/support]
 
   # this URL is handled in redirects.txt
-  Getting Started[/getting-started]
+  GET STARTED[/learn/getting-started]
     # with $device and $language being dynamic
-    {{ $device.name }} and {{ $language.name }}[/getting-started/$device/$language]
+    {{ $device.name }} and {{ $language.name }}[/learn/getting-started/$device/$language]
 
-  Resin.io Basics
-    Resin.io Concepts[/understanding/understanding-code-deployment]
-    Deployment Guide[/deployment/deployment]
-    Dockerfile Guide[/deployment/dockerfile]
+  DEVELOP
+    [/learn/develop/local-mode]
+    [/learn/develop/dockerfile]
+    [/learn/develop/multicontainer]
+    [/learn/develop/runtime]
+    [/learn/develop/hardware]
+      [/learn/develop/hardware/gpio]
+      [/learn/develop/hardware/i2c-and-spi]
+    [/learn/develop/integrations]
+      Amazon AWS IoT[/learn/develop/integrations/aws]
+      IBM Bluemix[/learn/develop/integrations/bluemix]
+      Microsoft Azure[/learn/develop/integrations/azure]
+      Samsung ARTIK Cloud[/learn/develop/integrations/artik]
 
-    Runtime Environment
-      [/runtime/runtime]
-      [/runtime/time]
-      [/runtime/update-strategies]
-      [/runtime/delta]
-      [/runtime/bandwidth-reduction]
-      [/runtime/update-locking]
+  DEPLOY
+    [/learn/deploy/deployment]
+    Release strategy
+      [/learn/deploy/release-strategy/update-locking]
+      [/learn/deploy/release-strategy/update-strategies]
+    [/learn/deploy/delta]
+    [/learn/deploy/build-optimisation]
 
-    Developing with resin.io
-      [/development/local-mode]
-
-    What is resinOS?[/understanding/understanding-devices/$os_version]
-
-    Updating resinOS
-      [/updates/self-service]
-      [/updates/update-process]
-      [/updates/migrate-to-2.0]
-
-    Accessing Hardware & Peripherals
-      [/hardware/gpio]
-      [/hardware/i2c-and-spi]
-      [/hardware/wifi-dongles]
-
-    Management
-      [/management/env-vars]
-      [/management/applications]
-      [/management/devices]
-      [/management/preferences]
-      [/configuration/advanced]
-
-    Network Setup[/deployment/network/$os_version]
-
-    Security[/security]
-
-    3rd Party Integrations[/integrations]
-      Amazon AWS IoT[/integrations/aws]
-      IBM Bluemix[/integrations/bluemix]
-      Microsoft Azure[/integrations/azure]
-      Samsung ARTIK Cloud[/integrations/artik]
-
-  Advanced
-    Creating Custom Resin.io Devices[/hardware/meta-resin]
-    Advanced resin.io topics[/advanced/resources]
-
-  Examples[/examples]
-    [/examples/seed-projects]
-    [/examples/snippets]
-    [/examples/projects]
+  MANAGE
+    [/learn/manage/account]
+    [/learn/manage/filters-tags]
+    [/learn/manage/ssh-access]
+    [/learn/manage/configuration]
+    [/learn/manage/serv-vars]
+    [/learn/manage/actions]
+  
+  MORE RESOURCES
+    [/learn/more/examples]
+      [/learn/more/examples/projects]
+      [/learn/more/examples/seed-projects]
+      [/learn/more/examples/snippets]
+    [/learn/more/resources]
 
 FAQ
-  [/troubleshooting/faq]
-  [/troubleshooting/troubleshooting]
-  Error Notifications[/troubleshooting/error]
-  CLI issues[/troubleshooting/cli-troubleshooting]
+
+  [/faq/troubleshooting/faq]
+  [/faq/troubleshooting/troubleshooting]
+  Error Notifications[/faq/troubleshooting/error]
+  CLI issues[/faq/troubleshooting/cli-troubleshooting]
 
 Reference
-  Supported Devices[/hardware/devices]
-  Device Agent API[/runtime/supervisor-api]
-  API [/runtime/data-api]
-  CLI Reference[/tools/cli]
-  Node.js SDK[/tools/sdk]
-  Python SDK[/tools/python-sdk]
-  [/runtime/resin-base-images]
+
+  Supported devices
+    Single board computers[/reference/hardware/devices]
+    Peripheral devices[/reference/hardware/wifi-dongles]
+
+  resinOS
+    What is resinOS?[/reference/resinOS/overview/$os_version]
+    Host OS updates
+      [/reference/resinOS/updates/self-service]
+      [/reference/resinOS/updates/update-process]
+      [/reference/resinOS/updates/migrate-to-2.0]
+    Network[/reference/resinOS/network/$os_version]
+    [/reference/resinOS/time]
+    [/reference/resinOS/advanced]
+    [/reference/resinOS/meta-resin]
+    
+  Device supervisor
+    Supervisor API[/reference/supervisor/supervisor-api]
+    [/reference/supervisor/bandwidth-reduction]
+    [/reference/supervisor/docker-compose]
+
+  Base images
+    [/reference/base-images/resin-base-images]
+    [/reference/base-images/custom-docker-base-images]  
+
+  API[/reference/data-api]
+
+  CLI[/reference/cli]
+  SDKs
+    Node.js SDK[/reference/sdk/node-sdk]
+    Python SDK[/reference/sdk/python-sdk]
+
