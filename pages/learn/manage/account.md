@@ -8,6 +8,10 @@ title: Account management
 
 {{> "general/signUp"}}
 
+## Collaboration management
+
+An organization should create a main account to host all applications that the organization owns. This allows a strict separation between applications the organization owns and employee applications created via their accounts. The main account is bound to the organization itself—the organization should have a well defined process to manage the credentials for its main account. Employees are granted access to the organization applications as collaborators. When an employee should no longer have access to the organization applications, access can be revoked by removing them as a collaborator.
+
 ## Two Factor Authentication
 
 We offer the option to enable [Two Factor Authentication][2fa] - this is a feature that prompts you to input a code from your smartphone/computer *in addition* to your password, providing an additional layer of security for your account.

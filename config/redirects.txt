@@ -21,6 +21,11 @@
 
 # Default redirects
 ^\/learn\/getting-started(\/$|$) -> /learn/getting-started/raspberrypi3/nodejs/
+^\/learn\/develop(\/$|$) -> /learn/develop/local-mode
+^\/learn\/deploy(\/$|$) -> /learn/deploy/deployment
+^\/learn\/manage(\/$|$) -> /learn/manage/account
+^\/faq(\/$|$) -> /faq/troubleshooting/faq
+^\/reference(\/$|$) -> /reference/hardware/devices
 ^\/deployment\/network\/(2\.0.*|$) -> /reference/resinOS/network/2.x
 ^\/deployment\/network\/1.x.x -> /reference/resinOS/network/1.x
 ^\/understanding/understanding-devices\/(2\.0.*|$) -> /reference/resinOS/overview/2.x
@@ -56,8 +61,8 @@
 ^\/hardware\/i2c-and-spi -> /learn/develop/hardware/i2c-and-spi
 ^\/hardware\/wifi-dongles -> /reference/hardware/wifi-dongles
 ^\/management\/env-vars -> /learn/manage/serv-vars
-^\/management\/applications -> /learn/manage/applications
-^\/management\/devices -> /learn/manage/devices
+^\/management\/applications -> /learn/manage/actions
+^\/management\/devices -> /learn/manage/actions
 ^\/management\/preferences -> /learn/manage/account
 ^\/configuration\/advanced -> /reference/resinOS/advanced
 ^\/deployment\/network\/(.*) -> /reference/resinOS/network/$1

@@ -25,6 +25,9 @@ Learn
 
   WELCOME
     [/learn/welcome/introduction]
+    [/learn/welcome/primer]
+    [/learn/welcome/concepts]
+    [/learn/welcome/production-plan]
     [/learn/welcome/security]
     [/learn/welcome/support]
 
@@ -57,11 +60,11 @@ Learn
 
   MANAGE
     [/learn/manage/account]
+    [/learn/manage/filters-tags]
+    [/learn/manage/ssh-access]
     [/learn/manage/configuration]
     [/learn/manage/serv-vars]
-    [/learn/manage/ssh-access]
-    [/learn/manage/applications]
-    [/learn/manage/devices]
+    [/learn/manage/actions]
   
   MORE RESOURCES
     [/learn/more/examples]

@@ -1,19 +1,46 @@
 ---
-title: Introduction
+title: Welcome to resin.io
 ---
 
-# Introduction
+# Welcome
 
-[Resin.io][resin] makes it simple to deploy, update, and maintain code running on remote devices. We are bringing the web development and deployment workflow to hardware, using tools like git and Docker to allow you to seamlessly update all your embedded linux devices in the wild. We handle cross-compilation, device monitoring, VPNs, and log collection, so you can focus on your product and not the infrastructure.
+[Resin.io][resin] makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've chosen tools already familiar to web developers—including [git][git] and [Docker][docker]—so that the applications and workflows you've built for the cloud can be transferred seamlessly to internet-connected single-board computers, such as the [Raspberry Pi][rasppi] and [Intel NUC][nuc]. Our platform is a reliable, powerful, and intuitive solution for updating, maintaining, and monitoring the code running on your remote devices.
 
-To get started with resin.io, first read [understanding resin.io][understanding] or you can jump right in with [installing resin.io][installing] to start provisioning some devices and pushing code.
+Our [resin.io primer][primer] covers the platform from end to end, walking through all the pieces and how they fit together. We've also defined some [core concepts][concepts] you'll see throughout the documentation.
 
-If you need to work out which base image to use, check out our [base images documentation](/runtime/resin-base-images) which lists all of our base images including many specialised ones for e.g. node, python, go, smaller images, etc.
+Ready to dive in? The [getting started guides][getting-started] take you step-by-step through provisioning your first device and deploying your first application.
 
-Have fun!
+Once you're up on the basics, we've got all the info you need to build even the most advanced applications and manage larger fleets:
 
-If you have any further questions drop us a mail at **hello@resin.io**.
+### [Develop][develop]
 
-[resin]:http://resin.io
-[installing]:/installing/gettingStarted
-[understanding]:/understanding/understanding-code-deployment
+As you develop your application, these guides will help you configure and package your services, ensuring you have the proper container setup and that you can interact with hardware and system resources.
+
+### [Deploy][deploy]
+
+When you're ready to bring your application from one to device to a fleet, read up on the basics of the resin.io build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
+
+### [Manage][manage]
+
+Check here for details on all the tools we provide for managing your device fleet, including configuration variables, service variables, SSH access, and device logs.
+
+Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][reference] sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help][help] is always available!
+
+
+
+[resin]:https://resin.io
+[git]:https://git-scm.com/
+[docker]:https://www.docker.com/
+[rasppi]:https://www.raspberrypi.org/
+[nuc]:https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html
+[primer]:/learn/welcome/primer
+[concepts]:/learn/welcome/concepts
+[getting-started]:/learn/getting-started
+[develop]:/learn/develop
+[deploy]:/learn/deploy
+[manage]:/learn/manage
+[faq]:/faq
+[reference]:/reference
+[help]:/learn/welcome/support
+
+
