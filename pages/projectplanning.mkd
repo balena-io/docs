@@ -1,0 +1,119 @@
+Phase 1: Design
+===============
+
+The first step in designing a solution is to determine how and where it will run.  Your use case will drive the selection of the **hardware** and the **environment** you need to successfully deploy your application.
+
+Hardware
+--------
+Regardless of what hardware platform you choose, there are common considerations that apply to all of them.
+
+* CPU - do you have software components that require the x86 architecture?  ARM chips are often cheaper and consume less power but x86 can often provide more processing capability.
+* RAM - you should ensure that you have a comfortable buffer of memory.  Software must be able to evolve with changing business needs and you may find yourself deploying new features beyond what you originally scoped.  Having plenty of available memory will save you time and effort (and possibly an expensive upgrade cycle) later.
+* Peripherals - are there special hardware devices that will need custom drivers?
+* Storage - SD cards are common in embedded devices, but are slower and *much* less reliable than onboard flash storage.  Especially if your application will be performing many read/write cycles you should avoid SD storage.
+
+Of course, the single biggest choice you have to make is to use off-the-shelf hardware or a custom device.  An off-the-shelf device has many advantages, including cheaper cost, faster availability, and broader industry support.  But it's possible that no existing device fully meets your needs.  In this case it's crucial to think about your operating environment -- you have to be sure that it works with your hardware and that it can be kept up to date with the latest security patches.
+
+
+Environment
+-----------
+Using containers allows a great deal of flexibility.  You are free to develop your application in the way that you are most comfortable with and bring that environment along to your device without worrying about the underlying hardware support.  This includes your various dependencies like libraries, runtime environment, etc.
+
+The biggest question here is whether to use one container or many.  Each has its advantages.  A single container is the simplest to manage -- there's no inter-container communication or resource contention to worry about.  But it does mean that you will need to manage all the components of your application in one place.
+
+Multiple containers allow you to separate components and even development teams.  One team could be working on the frontend components of your application while another is working on the backend and each can update on their own schedule.  They could even use completely different environments, for example, one could be Debian and another Fedora.  This does mean that you need to assign devices needed by each container via a Docker compose file, however.
+
+
+Phase 2: Prototype
+==================
+
+THe prototyping phase is where some of the developer-focused features of resin.io start to come into play.  There are a number of ways to access both your device and your application container(s) as well as some features to make rapid development and testing even faster and easier.
+
+The prototyping stage should be done in a local lab under your control.  At this stage of development, your application is incomplete and not fully tested, so you want to have a safe environment to quickly develop in without risk of customer data or external attack.
+
+Development images
+------------------
+When developing an application, you should consider using a development image of resinOS.  These images have a number of additional features that for security reasons are not present in the production releases of resinOS.  A few of these include:
+
+* passwordless ssh access to the host OS
+* access to the Docker socket
+* serial and console logging and interactive login
+* **local mode** functionality
+
+Local mode
+----------
+Local mode in resinOS is the ability to do builds and deployment to a device on the local network without involving the resin.io cloud builder.  This allows you to very quickly iterate and test functionality -- in many cases where you are changing configuration or data, or if you are using an interpreted language, this can be done without a build at all.  A local deployment can mirror your development environment on a test device directly.
+
+Connectivity
+------------
+While prototyping, you should start thinking about how your devices will be connected in the "real world".  If they'll be preconfigured or expected to have everything done by DHCP, this is easy.  But most devices will need on-site configuration.
+
+Resin.io provides the ability to configure networking from inside your application container, and exposes a great deal of functionality to make this easier.  An example is the [resin-wifi-connect](https://github.com/resin-io/resin-wifi-connect) project which causes the device to create its own WiFi access point that users can connect to and configure proper credentials.
+
+It's also possible to configure more advanced networking parameters such as IP addresses, bridged networks, proxies, etc.
+
+Multiple developers
+-------------------
+At the prototyping phase, it's also often useful to allow multiple developers to share resources.  You can add other developers as "collaborators" to an application to enable them to manage your devices and push code updates.
+
+As your project grows and you need more fine-grained control, you might consider using a resin.io organization account which allows more specific permissions to be assigned.
+
+Phase 3: Test
+=============
+
+Now that you have your application development mostly complete, it's time to do some more "real world" testing.  Resin.io exposes functionality to make this easy as well, moving easily from the protoype phase toward a full production environment.
+
+Production images
+-----------------
+At this point it makes sense to move from development resinOS images to full production images.  This will enable you to be sure that your application will run properly without full local console access.  You can still access the host OS or the application container(s) via the resin.io dashboard or the resin.io CLI tool (using the `resin ssh` command).  But the production resinOS image will close all open inbound ports from the development image.
+
+Test outside the lab
+--------------------
+Now you want to start seeing how your application behaves in networks that are not fully under your control.  Ideally this should be done in an environment that mimics where your devices will be when they are in production, but is still at least somewhat accessible.  For example, if you are building a consumer device, your employees' or families' homes would be a good option.  Or look for some customers that are willing to be alpha testers and provide feedback about your application while understanding that it's not quite done yet.
+
+Log collection
+--------------
+It's crucial that you are able to get logs and telemetry from these devices once they're out of the lab.  If your application is fairly "quiet" and generates few enough messages that you can read them all, you can just use the console logging functionality exposed in the resin.io dashboard.  Each device's logs are shown there.
+
+If your application generates enough log data that you need an analytics platform to make sense of it all, consider adding a log collection agent to your application container(s) just as you would in any other environment.
+
+Update testing
+--------------
+It makes sense to test all the update functionality you can before your devices are out "in the wild" and inaccessible.  Specifically, think about testing:
+
+* loss of power during update
+* loss of network during update
+* pushing a new update while another is in progress
+
+Having confidence that the update process is bulletproof will let you be sure that you can always fix any software issues that are found even after your devices are fully in production.
+
+
+Phase 4: Production
+===================
+
+Now that your testing is wrapping up, it's time to get your devices out into the world and have them do their job!  At this point you'll be moving from a primarily development-focused perspective to a primarily operations-focused perspective, at least for the current release of your application.  Of course, you may want to continue development on the next version, knowing that you can safely roll out updates to your fleet at any point!
+
+Preloading images
+-----------------
+While a device will provision itself and download your application as soon as it's turned on and connected to the Internet, this might not be the experience you want your users to have.  It would be nice to have something that works right away rather than having to wait for a potentially slow download to finish!
+
+You can "preload" your application into a resinOS image as a one-time process.  Then when that image is flashed onto your devices in the factory, it will have the application already installed and ready.  Any updates made since the preloading process will still be applied when the device is provisioned, so there's no need to worry about devices that have been sitting in a warehouse or on store shelves -- they'll still be brought up to the latest version.  More information about preloading applications with the resin.io CLI can be found in the [Preload section of the CLI manual](https://docs.resin.io/tools/cli/#preload).
+
+Canary deployments
+------------------
+When updating software on production devices, it still makes sense to be cautious and start with a few devices to make sure nothing goes wrong.  A common practice is to start with a few "canary" devices and then slowly roll the update out to larger and larger numbers of devices.
+
+Resin.io provides functionality to allow fine-grained control of updates.
+
+**TODO: We need more documentation on this to link to :) **
+
+New hardware revisions
+----------------------
+It's possible that you'll want to issue a hardware update eventually.  But this doesn't mean you have to add a lot of complexity to your existing application to deal with this!
+
+The simplest way to handle a major hardware change is to create an entirely new resin.io application and copy your existing project in, making changes as necessary.  Since these devices will be provisioned with a separate image, they will always download only the code that is targeted at their hardware -- no need to have separate paths in your update process or hardware detection in your application.
+
+Conclusion
+==========
+
+Developing a new device can be a challenging process, but using good engineering practices makes it much easier.  The guidelines above are what we at resin.io have seen the most successful organizations follow.  And we're always here to help!  Come ask questions in [our forum](https://forums.resin.io) or [contact us](mailto:hello@resin.io) and we'll be happy to help!
