@@ -4,7 +4,7 @@ title: Welcome to resin.io
 
 # Welcome
 
-[Resin.io][resin] makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've chosen tools already familiar to web developers—including [git][git] and [Docker][docker]—so that the applications and workflows you've built for the cloud can be transferred seamlessly to internet-connected single-board computers, such as the [Raspberry Pi][rasppi] and [Intel NUC][nuc]. Our platform is a reliable, powerful, and intuitive solution for updating, maintaining, and monitoring the code running on your remote devices.
+[Resin.io][resin] makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
 
 Our [resin.io primer][primer] covers the platform from end to end, walking through all the pieces and how they fit together. We've also defined some [core concepts][concepts] you'll see throughout the documentation.
 

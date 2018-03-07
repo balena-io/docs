@@ -8,9 +8,7 @@ A collection of advanced resin.io resources:
 * [Updating an Arduino with resin.io](https://resin.io/blog/updating-an-arduino-with-resin-io/) - Creating an update mechanism for Arduino binaries within the resin ecosystem.
 * [Preloaded Containers](https://resin.io/blog/preloaded-containers/) - Provision your devices with an application's code preloaded up and ready to run on the very first boot.
 * [A Guide to Cellular Connectivity on resin.io Devices](https://resin.io/blog/cellular-connectivity/) - A guide to using 3g modems in resin.io applications
-* [Multiple Container Experiments](https://resin.io/engineering/our-first-experiments-with-multi-container-apps/) - Experiments with Docker-in-Docker and running Multiple apps on a resin.io device as well as our plans for first class support.
 * [Creating a Custom logging system](https://resin.io/blog/how-to-create-a-custom-logging-system-for-longer-log-retention/) - Building a custom system that facilitates log-levels, longer log retention, log rotation, and better search functionality. (All logs are stored locally on the device)
-* [How to configure a static IP address with resin.io](https://resin.io/blog/how-to-configure-a-static-ip-address-with-resin-io) - Using our network manager, connMan, to configure static IP addresses.
 * [Scheduling updates with resin.io](https://resin.io/blog/scheduling-updates-with-resin-io/) - Using a simple cron-job and resin.io's update lock feature to schedule updates at specific times.
 * [Canary rollouts](https://resin.io/blog/canary-rollouts-on-resin-io/) - Using resin.io's ability to transfer devices seamlessly between your applications to create canary style deployment workflow.
 * [Continuous integration on your devices](https://resin.io/blog/travis-ci/) - Deploy to resin.io from GitHub using Travis CI.

@@ -93,6 +93,10 @@ The `Delete Device` action is an extremely dangerous action and results in disas
 
 ## Application-specific actions
 
+### Change Application Type
+
+This option allows you to convert your application to [another type][app-types], as long as the devices in the application meet the resinOS version requirements and your account has the appropriate privileges.
+
 ### Delete Application
 
 This option permanently deletes your application.
@@ -104,3 +108,4 @@ __Warning:__ It is a good idea to [move your devices to another application][mov
 [updates]:/reference/resinOS/updates/self-service
 [local-mode]:/learn/develop/local-mode
 [move-devices]:#move-to-another-application
+[app-types]:/learn/manage/app-types

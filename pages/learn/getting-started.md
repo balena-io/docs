@@ -51,6 +51,7 @@ If you don't already have a resin.io account, make sure to [sign up][link-to-sig
 ## Next steps
 
 - Learn more about the [Dockerfile][dockerfile] that is used to build your application.
+- Build an application that uses [multiple containers][multicontainer].
 - Get to know the [web terminal][terminal], which can be used to SSH into your application containers and the host OS.
 - Try out [local mode][local-mode], the most efficient way to rapidly develop and test your resin.io application.
 
@@ -69,3 +70,4 @@ These example projects will give you an idea of more things that can be done wit
 [dockerfile]:/learn/develop/dockerfile
 [terminal]:/learn/manage/ssh-access
 [local-mode]:/learn/develop/local-mode
+[multicontainer]:/learn/develop/multicontainer

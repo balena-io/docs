@@ -1,8 +1,8 @@
 ---
-title: Filters and Tags
+title: Filters and tags
 ---
 
-# Filters and Tags
+# Filters and tags
 
 ## Device filters
 

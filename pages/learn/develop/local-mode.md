@@ -16,6 +16,8 @@ In order to use local mode on a device:
 - You must have the resin.io CLI installed on your workstation.
 - Local mode must be enabled through the dashboard. To use local mode on a development device, click on the small *Actions* dropdown at the top right of the device page and select *Enable Local Mode*.
 
+__Note:__ At the moment, `resin local push` will not work for multicontainer applications. The recommended development workflow is to put the device in local mode and use the [Docker Compose remote API][compose-remote].
+
 <img src="/img/local-mode/device-in-local-mode.png" width="100%">
 
 ## Scan the network and find your device
@@ -138,3 +140,5 @@ local stop [deviceIp]               Stop a running container on a resinOS device
 
 [development]:/understanding/understanding-devices/2.0.0/#dev-vs-prod-images
 [supervisor API]:/runtime/supervisor-api/
+[resin-sync]:/reference/cli/#sync-uuid-
+[compose-remote]:https://github.com/resin-io-playground/resinos-compose

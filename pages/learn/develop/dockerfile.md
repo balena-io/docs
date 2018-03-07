@@ -31,7 +31,33 @@ For details on other instructions, consult the official [Dockerfile documentatio
 
 ### Using Dockerfiles with resin.io
 
-To use a `Dockerfile` to deploy to resin.io, simply place it at the root of your repository. When you push your code to resin.io it will automatically recognise it and use that to deploy code to your device.
+To deploy a single-container application to resin.io, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
+
+```
+version: '2.1'
+networks: {}
+volumes:
+  resin-data: {}
+services:
+  main:
+    build:
+      context: .
+    privileged: true
+    restart: always
+    network_mode: host
+    volumes:
+      - 'resin-data:/data'
+    labels:
+      io.resin.features.kernel-modules: '1'
+      io.resin.features.firmware: '1'
+      io.resin.features.dbus: '1'
+      io.resin.features.supervisor-api: '1'
+      io.resin.features.resin-api: '1'
+      io.resin.update.strategy: download-then-kill
+      io.resin.update.handover-timeout: ''
+```
+
+Applications with multiple containers should include a `Dockerfile` or `package.json` in each service directory. A `docker-compose.yml` file will need to be defined at the root of the repository, as discussed in our [multicontainer documentation][multicontainer].
 
 You can also include a `.dockerignore` file with your project if you wish the builder to ignore certain files.
 
@@ -276,3 +302,4 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [local-mode]:/learn/develop/local-mode
 [builders]:/learn/deploy/deployment
 [local-build]:/reference/cli/#build-source-
+[multicontainer]:/learn/develop/multicontainer

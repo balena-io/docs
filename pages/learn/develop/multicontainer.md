@@ -1,18 +1,20 @@
 ---
-title: Coordinate services
+title: Multiple containers
 excerpt: A guide to running multiple containers with Docker Compose and resin.io
 ---
 
-# Coordinate services
+# Multiple containers
 
 As your applications grow more complex, you may find significant benefit in running some services in separate containers. Splitting your application into multiple containers allows you to better isolate and maintain key services, providing a more modular and secure approach to application management. Each service can be packaged with the operating environment and tools it specifically needs to run, and each service can be limited to the minimum system resources necessary to perform its task. The benefits of multicontainer applications compound as the complexity of the application grows. Because each service can be updated independently, larger applications can be developed and maintained by separate teams, each free to work in a way that best supports their service. 
 
 
-For devices with supervisor version greater than 7.0.0, resin.io provides multicontainer application support, built around the **[Docker Compose][docker-compose]** tool. This guide will cover the considerations you need to take into account when using a multicontainer instance, including **Docker Compose** configuration, important resin.io specific settings, and single container applications.
+For devices running resinOS v2.12.0 and greater, resin.io provides multicontainer application support, This guide will cover the considerations you need to take into account when running multiple containers, including `docker-compose.yml` configuration and some important resin.io specific settings.
 
-## Docker Compose
+__Note:__ Only applications with a microservices or starter [application type][app-types] can run multiple containers.
 
-The multicontainer functionality provided by resin.io is built around **[Docker Compose][docker-compose]**, an open-source tool for running multiple **Docker** containers and coordinating resources between services. The resin.io device supervisor implements a subset of the [Compose v2.1 feature set][compose-features]. You can find a full list of supported and known unsupported features in our [device supervisor reference docs][compose-support].
+## docker-compose.yml file
+
+The multicontainer functionality provided by resin.io is built around the **[Docker Compose][docker-compose]** file format. The resin.io device supervisor implements a subset of the [Compose v2.1 feature set][compose-features]. You can find a full list of supported and known unsupported features in our [device supervisor reference docs][compose-support].
 
 At the root of your multicontainer application, you'll use a `docker-compose.yml` file to specify the configuration of your containers. The `docker-compose.yml` defines the services you'll be building, as well as how the services interact with each other and the host OS.
 
@@ -63,7 +65,7 @@ privileged: true
 restart: always
 ```
 
-Setting `network_mode` to `host` allows the to container to share the same network namespace as the host OS. When this is set, any ports exposed on the container will be exposed locally on the device. This is necessary for features such as bluetooth.
+Setting `network_mode` to `host` allows the container to share the same network namespace as the host OS. When this is set, any ports exposed on the container will be exposed locally on the device. This is necessary for features such as bluetooth.
 
 To store data in [persistent storage][persistent-storage], you'll want to make sure to use the `volumes` field to link a directory in your container to the `resin-data` volume:
 
@@ -89,43 +91,11 @@ labels:
       io.resin.update.handover-timeout: ''
 ```
 
-## Single-container applications 
-
-If you push a project with only a `Dockerfile` or `Dockerfile.template`, rather than a `docker-compose.yml`, a single container will be built and downloaded, and the experience will be very similar to using resin.io with multiple containers. The single container will show up on the device dashboard as a service with the name `main`. This service will have host networking, be privileged, and have `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container automatically. 
-
-__Note:__ Code that ran on resin.io before multicontainer support should still seamlessly build and run on the multicontainer instance.
-
-The auto-generated Docker Compose file built for this service can be found be navigating from the device list to the *Releases* page and selecting the release you would like to examine. It will look something like this:
-
-```
-version: '2.1'
-networks: {}
-volumes:
-  resin-data: {}
-services:
-  main:
-    build:
-      context: .
-    privileged: true
-    restart: always
-    network_mode: host
-    volumes:
-      - 'resin-data:/data'
-    labels:
-      io.resin.features.kernel-modules: '1'
-      io.resin.features.firmware: '1'
-      io.resin.features.dbus: '1'
-      io.resin.features.supervisor-api: '1'
-      io.resin.features.resin-api: '1'
-      io.resin.update.strategy: download-then-kill
-      io.resin.update.handover-timeout: ''
-```
-
 [docker-compose]:https://docs.docker.com/compose/overview/
 [simple-app]:https://github.com/resin-io-projects/multicontainer-getting-started
 [compose-features]:https://docs.docker.com/compose/compose-file/compose-file-v2/
-[compose-support]:/deployment/docker-compose
+[compose-support]:/reference/supervisor/docker-compose
 [depends-on]:https://docs.docker.com/compose/compose-file/compose-file-v2/#depends_on
-[persistent-storage]:/runtime/runtime/#persistent-storage
-[init-system]:/runtime/runtime/#init-system
-
+[persistent-storage]:/learn/develop/runtime/#persistent-storage
+[init-system]:/learn/develop/runtime/#init-system
+[app-types]:/learn/manage/app-types
