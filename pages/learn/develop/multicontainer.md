@@ -7,10 +7,9 @@ excerpt: A guide to running multiple containers with Docker Compose and resin.io
 
 As your applications grow more complex, you may find significant benefit in running some services in separate containers. Splitting your application into multiple containers allows you to better isolate and maintain key services, providing a more modular and secure approach to application management. Each service can be packaged with the operating environment and tools it specifically needs to run, and each service can be limited to the minimum system resources necessary to perform its task. The benefits of multicontainer applications compound as the complexity of the application grows. Because each service can be updated independently, larger applications can be developed and maintained by separate teams, each free to work in a way that best supports their service. 
 
+This guide will cover the considerations you need to take into account when running multiple containers, including `docker-compose.yml` configuration and some important resin.io specific settings.
 
-For devices running resinOS v2.12.0 and greater, resin.io provides multicontainer application support, This guide will cover the considerations you need to take into account when running multiple containers, including `docker-compose.yml` configuration and some important resin.io specific settings.
-
-__Note:__ Only applications with a microservices or starter [application type][app-types] can run multiple containers.
+__Note:__ Multicontainer functionality requires resinOS v2.12.0 or higher, and it is only available to microservices and starter [application types][app-types]. If you are creating an application and do not see microservices or starter as available application types, a multicontainer compatible OS version has not yet been released for the selected device type. 
 
 ## docker-compose.yml file
 

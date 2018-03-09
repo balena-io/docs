@@ -4,7 +4,7 @@ title: Application types
 
 # Application types
 
-When you first create an application, in addition to selecting a Device Type, you'll be asked to select an Application Type:
+When you first create an application, in addition to selecting a Device Type, you may be asked to select an Application Type:
 
 <img src="/img/common/app/app-type.png" width="40%">
 
@@ -28,14 +28,13 @@ Essentials applications allow you to run a single container and do not permit pu
 
 The prototype and pilot pricing plans include 20 and 50 full-featured (microservices) devices, respectively. You can choose any combination of microservices and essentials devices within those limits, with no price difference until you scale up to a production plan. At the production level, 100 devices are included, with additional devices available for $1.50 for the microservices type, and $1 for the essentials type.
 
-__Note:__ All devices provisioned to new applications must run resinOS v2.12.0 or higher.
-
+__Note:__ All devices in starter, microservices, and essentials applications must run resinOS v2.12.0 or higher. If you do not have the option to choose one of these application types, the selected device type does not yet have a high enough resinOS version available. A [classic][classic] application type will be assigned by default.
 
 ## Classic and legacy applications
 
-The classic and legacy application types allow for pre-existing applications that don't meet the requirements for new applications. Classic applications support devices with resinOS v2.0.3 and above, and legacy applications support all earlier resinOS versions. Classic applications use Docker Registry V2, whereas legacy applications use the slower and less reliable Registry V1.
+The classic and legacy application types allow for applications that don't meet the requirements for new applications. Classic applications support devices with resinOS v2.0.3 and above, and legacy applications support all earlier resinOS versions. Classic applications use Docker Registry V2, whereas legacy applications use the slower and less reliable Registry V1.
 
-While it is possible to provision new devices to these applications, it is not possible to create new classic and legacy applications. It is also not possible to run multiple containers with these application types. You can, however, convert a classic or legacy application to a microservices or essentials application, as described below.
+While it is possible to provision new devices to these applications, it is not possible to create new legacy applications, and new classic applications can only be created for device types that do not yet have resinOS v2.12.0 or higher available. It is important to note that you cannot run multiple containers with these application types. However, for supported device types, you can convert a classic or legacy application to a microservices or essentials application, as described below.
 
 ## Convert between application types
 
@@ -51,3 +50,4 @@ Select the application type you would like to convert to. If your application ca
 [multicontainer]:/learn/develop/multicontainer
 [public-url]:/learn/manage/actions/#enable-public-device-url
 [update]:/reference/resinOS/updates/self-service
+[classic]:#classic-and-legacy-applications

@@ -26,6 +26,8 @@ title: FAQs
 ##### Can I use multiple containers?
 Multiple container applications are supported, beginning with resinOS v2.12.0. To run multiple containers, you will need to create or upgrade to a [starter or microservices type application][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
 
+__Note:__ If you do not see an option to choose a starter or microservices application type, a multicontainer compatible OS version has not yet been released for the selected device type.
+
 If you are running a Docker-in-Docker setup, which builds a single application container on the resin.io servers but has a `docker-compose.yml` file at the root of the project, you'll want to rename the file to something like `dind-compose.yml`. Then when you run Docker Compose in your container, you can use the `-f` flag with the new file name: `docker-compose -f dind-compose.yml up`.
 
 ##### How do I push a new git repo to an application?
