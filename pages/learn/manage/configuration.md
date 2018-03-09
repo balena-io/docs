@@ -1,22 +1,22 @@
 ---
-title: Configuration Variables
+title: Configuration variables
 ---
 
-# Configuration Variables
+# Configuration variables
 
 Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `RESIN_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
 
-Configuration variables can be managed at the fleet and device levels.
+Configuration variables can be managed at both the fleet and device level.
 
-## Variable List
+## Variable list
 
-This list contains configuration variables that can be used with resin.io devices, some of which will automatically appear for devices with supervisor v7.0.0 and greater. While they may not automatically populate in the dashboard, most of these variables can still be used with older supervisor versions, so be sure to check the *Valid for* column:
+This list contains configuration variables that can be used with resin.io devices, some of which will automatically appear for devices with supervisor v7.0.0 and greater. While they may not automatically populate in the dashboard, most of these variables can still be used with older supervisor versions, so be sure to check the *Valid from* column:
 
 Name | Default | Description | Valid from
 --- | --- | --- | ---
 RESIN_HOST_LOG_TO_DISPLAY | | Enable / Disable logs on the HDMI display | v1.7.0
 RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
-RESIN_SUPERVISOR_DELTA | true | Enable / Disable [delta updates][deltas] | v1.7.0
+RESIN_SUPERVISOR_DELTA | false | Enable / Disable [delta updates][deltas] | v1.7.0
 RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT | 30000| Define the timeout when requesting a delta, in milliseconds | v3.0.0
 RESIN_SUPERVISOR_DELTA_RETRY_COUNT | 30 | Define the number of times a delta download should be retried | v6.2.0
 RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL | 1000 | Define the wait time between delta download attempts, in milliseconds | v6.2.0
@@ -37,7 +37,7 @@ RESIN_HOST_CONFIG_gpu_mem | 16 | Define device GPU memory in megabytes
 
 You can find more information on updating `config.txt` through configuration variables in our [Advanced Boot Configuration Guide][boot-config-guide].
 
-## Managing Fleet Configuration Variables
+## Managing fleet configuration variables
 
 Configuration variables defined on the fleet level control the behavior of any devices running in that fleet, unless they are redefined with a device configuration variable of the same name.
 
@@ -45,7 +45,7 @@ If you want to change the default value for one of the prepopulated configuratio
 
 <img src="/img/configuration/activate_default_config.png" width="100%">
 
-A new window will pop up, allowing you to define the value for your configuration variable. Click *Add* to apply to all devices in your fleet that do not already have an identical device configuration variable defined:
+A new dialog will pop up, allowing you to define the value for your configuration variable. Click *Add* to apply to all devices in your fleet that do not already have an identical device configuration variable defined:
 
 <img src="/img/configuration/editor_default_config.png" width="60%">
 
@@ -53,25 +53,29 @@ To define a custom fleet configuration variable, scroll past the automatically p
 
 <img src="/img/configuration/add_fleet_configuration.png" width="100%">
 
-As before, a window pops up giving you the option to define a name and value (remember, all config variable names must begin with `RESIN_`). Click *Add* to apply:
+As before, a dialog pops up giving you the option to define a name and value (remember, all config variable names must begin with `RESIN_`). Click *Add* to apply:
 
 <img src="/img/configuration/variable_editor_config.png" width="60%">
 
-## Managing Device Configuration Variables
+If you have already defined configuration variables at the device level, they will appear in a list below your fleet configuration variables. You can easily apply a device value to the entire fleet by clicking *Define fleet-wide*:
 
-Device configuration variables define the behavior of one device. If both the fleet and the device have a configuration variable of the same name, the code on the device will use the value of the device configuration variable. In other words, device configuration variables redefine (or override) fleet configuration variables.
+<img src="/img/configuration/define_app_wide.png" width="100%">
+
+## Managing device configuration variables
+
+Device configuration variables define the behavior of a single device. If both the fleet and the device have a configuration variable of the same name, the code on the device will use the value of the device configuration variable. In other words, device configuration variables redefine (or override) fleet configuration variables.
 
 The device configuration variable list includes the prepopulated default values. Binary (true/false) variables can be easily switched with the provided toggles. Other values can be edited by clicking the small pencil icon:
 
 <img src="/img/configuration/device_config_variables.png" width="100%">
 
-This will pop up a small window for editing the value:
+This will pop up a small dialog for editing the value:
 
 <img src="/img/configuration/edit_device_config.png" width="60%">
 
 Adding a custom device configuration variable is very similar to adding a custom fleet configuration variable: scroll past the prepopulated variables, click *Add custom variable*, define a name and value, and click *Add*.
 
-You can override the value of a custom fleet configuration variable by clicking *override* in the far-right column. This will pop up the variable editing window, where you can change the value:
+You can override the value of a custom fleet configuration variable by clicking *override* in the far-right column. This will pop up the variable editing dialog, where you can change the value:
 
 <img src="/img/configuration/override_config.png" width="60%">
 

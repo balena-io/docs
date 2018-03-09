@@ -16,7 +16,7 @@ These binary deltas save on the amount of data needed to be downloaded, reduce t
 
 ## Enabling delta updates
 
-The resin.io [supervisor](/understanding/understanding-devices/#resin-io-supervisor) is responsible to manage your applications on the device, and the delta update behaviour is enabled through setting a supervisor configuration variable: defining `RESIN_SUPERVISOR_DELTA` as `1`.
+Delta update behaviour is enabled with the `RESIN_SUPERVISOR_DELTA` configuration variable:
 
 ![Setting the fleet configuration to enable delta behaviour](/img/runtime/ResinSupervisorDelta.png)
 

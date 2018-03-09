@@ -20,6 +20,7 @@
 ^\/installing\/otherboards(\/|$) -> /learn/getting-started/raspberrypi3/nodejs/
 
 # Default redirects
+^\/getting-started$ -> /learn/getting-started/raspberrypi3/nodejs/
 ^\/learn\/getting-started(\/$|$) -> /learn/getting-started/raspberrypi3/nodejs/
 ^\/learn\/develop(\/$|$) -> /learn/develop/local-mode
 ^\/learn\/deploy(\/$|$) -> /learn/deploy/deployment
@@ -73,8 +74,8 @@
 ^\/examples($|\/.*) -> /learn/more/examples$1
 ^\/troubleshooting\/faq -> /faq/troubleshooting/faq
 ^\/troubleshooting\/troubleshooting -> /faq/troubleshooting/troubleshooting
-^\/troubleshooting\/error -> /faq/troubleshooting/error
-^\/troubleshooting\/cli-troubleshooting -> /faq/troubleshooting/cli-troubleshooting
+^\/troubleshooting\/error -> /faq/troubleshooting/troubleshooting
+^\/troubleshooting\/cli-troubleshooting -> /faq/troubleshooting/troubleshooting
 ^\/hardware\/devices -> /reference/hardware/devices
 ^\/runtime\supervisor-api -> /reference/supervisor/supervisor-api
 ^\/runtime\/data-api -> /reference/data-api

@@ -5,7 +5,7 @@ excerpt: Locking application updates on your resin.io devices
 
 # Application update locks
 
-Locking updates means that the resin.io device supervisor will not be able to kill your application. This is meant to be used at critical sections of your code where you don't want to be interrupted, or to control that updates are only installed at certain times.
+Locking updates means that the resin.io device supervisor will not kill your application. This is meant to be used at critical sections of your code where you don't want to be interrupted, or to control that updates are only installed at certain times.
 
 In order to do this, users can create a file called `resin-updates.lock` that will prevent the supervisor from killing and restarting the app. As any other lockfile, the supervisor itself will create such file before killing the app, so you should only create it in exclusive mode. This means: only create the lockfile if it doesn't already exist. Several tools exist to simplify this process, for example [npm/lockfile](https://github.com/npm/lockfile).
 

@@ -60,6 +60,7 @@ Learn
 
   MANAGE
     [/learn/manage/account]
+    [/learn/manage/app-types]
     [/learn/manage/filters-tags]
     [/learn/manage/ssh-access]
     [/learn/manage/configuration]
@@ -77,8 +78,6 @@ FAQ
 
   [/faq/troubleshooting/faq]
   [/faq/troubleshooting/troubleshooting]
-  Error Notifications[/faq/troubleshooting/error]
-  CLI issues[/faq/troubleshooting/cli-troubleshooting]
 
 Reference
 

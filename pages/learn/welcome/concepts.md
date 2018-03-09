@@ -5,18 +5,34 @@ excerpt: Definitions for concepts mentioned throughout the resin.io documentatio
 
 # Core concepts
 
-**Device:** an internet-connected, single-board computer running resinOS and provisioned with the resin.io platform.
+### Device 
 
-**Release:** a specific code commit, built by the resin.io servers into one or more Docker images.
+An internet-connected, single-board computer running resinOS and provisioned with the resin.io platform.
 
-**Application:** a set of releases and a set of devices, encompassing the code and history of the code that applies to a fleet.
+### Release 
 
-**Fleet:** the set of devices belonging to an application.
+A snapshot of code collected into one or more Docker images.
 
-**Service:** an independently deployable component of an application, packaged into a Docker image and run as a container.
+### Application 
 
-**Device supervisor:** resin.io's agent on the device, responsible for managing application updates and reporting device status.
+A set of releases and a set of devices, encompassing the code and history of the code that applies to a fleet.
 
-**resinOS image:** a versioned build of the host OS, specific to an application and device type.
+### Fleet 
 
-**Base image:** a specific combination of a Linux distribution and additional packages, used as the base operating environment for a service.
+The set of devices belonging to an application.
+
+### Service 
+
+An independently deployable component of an application, packaged into a Docker image and run as a container.
+
+### Device supervisor
+
+Resin.io's agent on the device, responsible for managing application updates and reporting device status.
+
+### ResinOS image
+
+A versioned build of the host OS, specific to an application and device type.
+
+### Base image
+
+A specific combination of a Linux distribution and additional packages, used as the base operating environment for a service.

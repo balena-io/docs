@@ -1,11 +1,11 @@
 ---
-title: Docker Compose
-excerpt: Docker Compose fields supported by resin.io
+title: docker-compose.yml fields
+excerpt: docker-compose.yml fields supported by resin.io
 ---
 
-# Docker Compose
+# docker-compose.yml fields
 
-## Supported Compose fields
+## Supported fields
 
 Field | Details
 --- | ---
