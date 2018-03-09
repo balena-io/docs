@@ -53,7 +53,7 @@ __Warning:__ HDMI is currently not supported on the Odroid XU4.
 
 ### [Intel NUC](http://www.intel.com/content/www/us/en/nuc/overview.html)
 
-![NUC](/img/nuc.jpg)
+![NUC](/img/NUC/nuc.jpg)
 
 ### [Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
 
@@ -87,7 +87,7 @@ __Warning:__ HDMI is currently not supported on the Odroid XU4.
 
 ### [NVIDIA Jetson TX2](https://developer.nvidia.com/embedded/buy/jetson-tx2)
 
-![Jetson TX2](/img/jetson-tx2.png)
+![Jetson TX2](/img/jetson/jetson-tx2.png)
 
 ### Other Devices
 

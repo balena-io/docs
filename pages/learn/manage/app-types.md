@@ -6,7 +6,7 @@ title: Application types
 
 When you first create an application, in addition to selecting a Device Type, you may be asked to select an Application Type:
 
-<img src="/img/common/app/app-type.png" width="40%">
+<img src="/img/raspberrypi3/app-type.png" width="40%">
 
 The type of an application defines the capabilities of the devices provisioned to that application and is tied closely to [pricing plans][pricing].
 
