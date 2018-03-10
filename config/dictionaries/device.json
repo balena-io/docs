@@ -130,6 +130,16 @@
     "icon": "/img/device/intel-nuc.svg"
   },
   {
+    "id": "intel-edison",
+    "name": "Intel Edison",
+    "arch": "i386",
+    "bootMedia": "eMMC",
+    "rustTriple": "x86_64-unknown-linux-gnu",
+    "rustLinker": "x86_64-linux-gnu-gcc",
+    "cppTriple": "x86_64-unknown-linux-gnu",
+    "icon": "/img/device/intel-edison.svg"
+  },
+  {
     "id": "nitrogen6x",
     "name": "Nitrogen 6X",
     "arch": "armv7l",
@@ -148,5 +158,35 @@
     "rustLinker": "arm-linux-gnueabihf-gcc",
     "cppTriple": "arm-unknown-linux-gnueabi",
     "icon": "/img/device/hummingboard.svg"
+  },
+  {
+    "id": "odroid-c1",
+    "name": "Odroid C1/C1+",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "rustTriple": "armv7-unknown-linux-gnueabihf",
+    "rustLinker": "arm-linux-gnueabihf-gcc",
+    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/odroid-c1.svg"
+  },
+  {
+    "id": "odroid-xu4",
+    "name": "Odroid XU4",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "rustTriple": "armv7-unknown-linux-gnueabihf",
+    "rustLinker": "arm-linux-gnueabihf-gcc",
+    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/odroid-xu4.svg"
+  },
+  {
+    "id": "ts4900",
+    "name": "Technologic TS-4900",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "rustTriple": "armv7-unknown-linux-gnueabihf",
+    "rustLinker": "arm-linux-gnueabihf-gcc",
+    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/ts4900.svg"
   }
 ]
