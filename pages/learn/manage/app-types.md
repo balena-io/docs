@@ -26,7 +26,7 @@ Microservices applications, like starter applications, are full-featured, and ar
 
 Essentials applications allow you to run a single container and do not permit public device URLs. Like microservices applications, they are only available to paid plans. 
 
-The prototype plan includes 20 full-featured (microservices) devices, in addition to the 10 starter devices included with all plans. The pilot plan includes 50, and the production plan includes 100. You can choose any combination of microservices and essentials devices within these limits. With the pilot and production plans, you can add additional devices at $1.50 for the microservices type, and $1 for the essentials type.
+The prototype pricing plan includes 20 devices, in addition to the 10 starter devices included with all plans. The pilot plan includes 50, and the production plan includes 100. You can choose any combination of microservices and essentials devices within these limits. With the pilot and production plans, you can add additional devices at $1.50 for the microservices type, and $1 for the essentials type.
 
 __Note:__ All devices in starter, microservices, and essentials applications must run resinOS v2.12.0 or higher. If you do not have the option to choose one of these application types, the selected device type does not yet have a high enough resinOS version available. A [classic][classic] application type will be assigned by default.
 
