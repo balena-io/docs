@@ -86,4 +86,5 @@
 ^\/configuration\/custom-docker-base-images -> /reference/base-images/customer-docker-base-images
 ^\/deployment/docker-templates -> /learn/develop/dockerfile
 ^\/support -> /learn/welcome/support
+^\/deployment/build-optimisation -> /learn/deploy/build-optimization
 

@@ -1,11 +1,11 @@
 ---
-title: Optimise your builds
+title: Optimize your builds
 excerpt: Tips for reducing the time to build your resin.io container builds
 ---
 
-# Optimise your builds
+# Optimize your builds
 
-These are just a few tips and tricks to optimise your resin.io container builds and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the Docker container builders on our servers. If you want to read more about how Docker caches layers and Docker best practices, head over here - [Docker best practices][docker-best-practices].
+These are just a few tips and tricks to optimize your resin.io container builds and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the Docker container builders on our servers. If you want to read more about how Docker caches layers and Docker best practices, head over here - [Docker best practices][docker-best-practices].
 
 ## Move `ADD` and `COPY` Commands
 
