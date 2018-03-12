@@ -25,7 +25,7 @@ Alternatively, if your project includes a package.json (i.e. a Node.js project),
 
 A Dockerfile will always give you more power to fine-tune the build process, but it’s also good to start fast without one, since you can shift to a Dockerfile whenever you like. We will soon add more languages to the “first-class” support we give to Node.js. Until then, any other language can be used by adding a Dockerfile. It’s important to note that the environment within which your code gets built will match the devices you use for your app. So if you’re for example pushing to an app containing BeagleBone Black devices, we’ll build your code in an ARMv7 environment, while for the Raspberry Pi B+ it would be ARMv6.
 
-If you push a project with only a `Dockerfile`, `Dockerfile.template`, or `package.json`, a single container image will be built and sent to your device. The single container will show up on the device dashboard as a service with the name `main`. 
+If you push a project with only a `Dockerfile`, `Dockerfile.template`, or `package.json`, a single container image will be built and sent to your device. The single container will show up on the device dashboard as a service with the name `service1`. 
 
 For [multicontainer][multicontainer] applications (Microservices and Starter [application types][app-types]), a `docker-compose.yml` file at the root of the project directory will kick off multiple simultaneous image builds, each with their own [build logs][logs].
 
