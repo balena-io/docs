@@ -66,11 +66,17 @@ restart: always
 
 Setting `network_mode` to `host` allows the container to share the same network namespace as the host OS. When this is set, any ports exposed on the container will be exposed locally on the device. This is necessary for features such as bluetooth.
 
-To store data in [persistent storage][persistent-storage], you'll want to make sure to use the `volumes` field to link a directory in your container to the `resin-data` volume:
+To store data in [persistent storage][persistent-storage], you'll want to make sure to use the `volumes` field to link a directory in your container to the `resin-data` volume. Your named volume should be specified at the top-level of the `docker-compose.yml`, with the container path defined in the service:
 
 ```
-volumes:
-      - 'resin-data:/data'
+version: '2'
+volumes: 
+    resin-data:
+services:
+    example:
+        build: ./example
+        volumes: 
+            - 'resin-data:/data'
 ```
 
 In addition, there are some resin.io specific labels that can be defined in the `docker-compose.yml` file. These provide access to certain bind mounts and environment variables without requiring you to run the container as privileged.
