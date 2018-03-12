@@ -38,7 +38,7 @@ While it is possible to provision new devices to these applications, it is not p
 
 ## Convert between application types
 
-Existing applications can be converted to any of the types available for new applications, as long as all devices belonging to that application meet the OS version requirements and the account has appropriate privileges. Paid users with at least one classic or legacy application can also convert applications of any type to classic.
+Existing applications can be converted to any of the types available for new applications, as long as all devices belonging to that application meet the OS version requirements and the account has appropriate privileges. Users can convert any application to classic if they have an existing classic or legacy application, and to legacy if they have an existing legacy application.
 
 To convert your application, first be sure all devices meet the resinOS version requirements for the desired application type, [updating][update] if necessary. Then, from the application summary page, click *Actions*, followed by *Change Application Type*. A dialog will appear with the available application types:
 
