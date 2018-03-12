@@ -39,7 +39,7 @@ networks: {}
 volumes:
   resin-data: {}
 services:
-  main:
+  service1:
     build:
       context: .
     privileged: true
