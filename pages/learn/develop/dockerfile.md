@@ -23,9 +23,9 @@ Typically you will only need to use 4 instructions - [FROM][from], [RUN][run] an
 
 * [ADD][add] copies files from the current directory into the container, e.g. `ADD <src> <dest>`. Note that if `<dest>` doesn't exist, it will be created for you, e.g. if you specify a folder. It also allows the <src> to be a url, and if the <src> is a recognised compression format, it will unpack it for you.
 
-* [COPY][copy] is very similar to [ADD][add], but without the compression and url functionality. According to [docker best practise][docker-best-practise] you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
+* [COPY][copy] is very similar to [ADD][add], but without the compression and url functionality. According to [the Dockerfile best practices][dockerfile-best-practices], you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
 
-* [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, where as RUN commands will be executed on our build servers. In a resin.io application, this is typically used to execute a start script or entrypoint for the users application. [CMD][cmd] should always be the last command in your Dockerfile. The only processes that will be running inside the container is the [CMD][cmd] command, and all processes that it spawns.
+* [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a resin.io application, this is typically used to execute a start script or entrypoint for the users application. [CMD][cmd] should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD][cmd] command and all processes that it spawns.
 
 For details on other instructions, consult the official [Dockerfile documentation][dockerfile].
 
@@ -63,55 +63,6 @@ You can also include a `.dockerignore` file with your project if you wish the bu
 
 __NOTE:__ You *don't* need to worry about ignoring `.git` as the builders already do this by default.  
 
-### Example Dockerfile
-
-Let's take a look at an example `Dockerfile`. This comes from the [Hello Python][hello-python] project and executes a simple Hello World Python project:-
-
-```Dockerfile
-FROM resin/rpi-raspbian:wheezy-2015-01-15
-
-# Install Python.
-RUN apt-get update && apt-get install -y python
-
-COPY . /app
-
-CMD ["python", "/app/hello.py"]
-```
-
-Let's take a look at what's going on here, line-by-line:-
-
-```Dockerfile
-FROM resin/rpi-raspbian:wheezy-2015-01-15
-```
-
-Here we use the resin.io Raspberry Pi [Raspbian][raspbian] image as our base Docker image.
-
-```Dockerfile
-# Install Python.
-RUN apt-get update && apt-get install -y python
-```
-
-Next we update Raspbian's packages and install Python (using the `-y` switch to prevent any
-prompts on the build server.)
-
-__NOTE:__ All the commands in Docker RUN are executed on our build servers in a virtual qemu ARM device, so be careful not to run commands that require user intervention or try to access IO, because these will cause the build to hang and you won't get a lovely container pushed to your devices.
-
-```Dockerfile
-COPY . /app
-```
-
-Now we need to get the files in our repository. This command *recursively* copies all the files in the local directory (on the build server this will be the files in the repository) into a new directory in the container, `/app`. This could also be done using ADD, but COPY is recommended by the folks over at docker.
-
-```Dockerfile
-CMD ["python", "/app/hello.py"]
-```
-
-And finally we need to actually make our container do something great, so we do that by telling python to run our awesome hello.py script, which it can find at "/app/hello.py" because it was kindly placed there by the COPY command.
-
-### Dockerfiles for other programming languages
-
-There are a number of example Dockerfiles available for different languages listed on the [projects page][starter-projects].
-
 ## Dockerfile templates
 
 One of the goals of resin.io is code portability and ease of use, so you can easily manage and deploy a whole fleet of different devices. This is why Docker containers were such a natural choice. However, there are cases where Dockerfiles fall short and can't easily target multiple different device architectures.
@@ -128,34 +79,25 @@ RUN npm install
 COPY src/ /usr/src/app
 CMD ["node", "/usr/src/app/main.js"]
 ```
-This template will build and deploy a node.js project for any of the devices supported by resin.io, regardless of whether the device architecture is [ARM][ARM-link] or [x86][x86-link].
-In this example you can see the build variable `%%RESIN_MACHINE_NAME%%` this will be replaced by the machine name (i.e.: raspberrypi) at build time. See below for a list of machine names.
+This template will build and deploy a Node.js project for any of the devices supported by resin.io, regardless of whether the device architecture is [ARM][ARM-link] or [x86][x86-link].
+In this example, you can see the build variable `%%RESIN_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. See below for a list of machine names.
 
- The machine name is inferred from what "device type" application you are pushing to. So if the resin remote you are pushing to is associated to an Intel Edison application, the machine name will be `edison` and an `i386` architecture base image will be built.
+ The machine name is inferred from the device type of the application you are pushing to. So if you have an Intel Edison application, the machine name will be `intel-edison` and an `i386` architecture base image will be built.
 
-__Warning:__ One caveat to this is that you need to ensure that your dependencies and node.js modules are also multi-architecture, otherwise you will have a bad time.
+__Note:__ You need to ensure that your dependencies and Node.js modules are also multi-architecture, otherwise you will have a bad time.
 
 Currently our builder supports the following build variables.
 
 | Variable Name        | Description          |
-| ------------- |:-------------:|
-| RESIN_ARCH    | This is the CPU architecture of the fleet. This is defined when you select a device type in the dashboard while creating an application.|
-| RESIN_MACHINE_NAME    | This is the name of the yocto machine this board is base on. It is the name that you will see in most of the resin Docker Hubbase images.  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). |   
-
+| ------------- |-------------|
+| RESIN_MACHINE_NAME    | The name of the yocto machine this board is base on. It is the name that you will see in most of the resin.io [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). | 
+| RESIN_ARCH    | The instruction set architecture for the base images associated with this device.|
+  
 If you want to see an example in action, you can have a look at this [basic openssh example](https://github.com/shaunmulligan/resin-openssh).
 
-Each of these build variables can evaluate to specific boards on our build servers, below is a non-exhaustive list some of these.
+Here are the supported machine names and architectures:
 
-| Device Name | RESIN_ARCH | RESIN_MACHINE_NAME | Docker Hub | Notes |
-|---|:---:|:---:|:---:|:---:|
-|Raspberry Pi (A,B, A+, B+)| rpi | raspberrypi | [resin/rpi-raspbian](https://hub.docker.com/r/resin/rpi-raspbian/),  [resin/raspberrypi-python](https://hub.docker.com/r/resin/raspberrypi-python/), [resin/raspberrypi-node](https://hub.docker.com/r/resin/raspberrypi-node/) | There is **NO** `RESIN_ARCH` = armv6. For legacy reasons this is called `rpi` instead.|
-|Raspberry Pi 2|armv7hf|raspberrypi2|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/raspberrypi2-debian](https://hub.docker.com/r/resin/raspberrypi2-debian/),  [resin/raspberrypi2-python](https://hub.docker.com/r/resin/raspberrypi2-python/), [resin/raspberrypi2-node](https://hub.docker.com/r/resin/raspberrypi2-node/)|It is also possible to push `rpi` architecture containers to the raspberry pi 2, so all the images from the entry above will also work on fleets of this type.|
-|Raspberry Pi 3|armv8hf|raspberrypi3|[resin/raspberrypi3-debian](https://hub.docker.com/r/resin/raspberrypi3-debian/),  [resin/raspberrypi3-python](https://hub.docker.com/r/resin/raspberrypi3-python/), [resin/raspberrypi3-node](https://hub.docker.com/r/resin/raspberrypi3-node/)||
-|Beaglebone (Black or Green)|armv7hf|beaglebone|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/beaglebone-debian](https://hub.docker.com/r/resin/beaglebone-debian/), [resin/beaglebone-python](https://hub.docker.com/r/resin/beaglebone-python/), [resin/beaglebone-node](https://hub.docker.com/r/resin/beaglebone-node/)|The pure armv7hf-debian images don't have board specific firmware added into them. |
-|Intel Edison|i386|edison|[resin/i386-debian](https://hub.docker.com/r/resin/i386-debian/), [resin/edison-debian](https://hub.docker.com/r/resin/edison-debian/), [resin/edison-python](https://hub.docker.com/r/resin/edison-python/), [resin/edison-node](https://hub.docker.com/r/resin/edison-node/)| All the `resin/edison-*` images have the [libmraa](https://github.com/intel-iot-devkit/mraa) installed.|
-|Intel NUC|amd64|nuc|[resin/amd64-debian](https://hub.docker.com/r/resin/amd64-debian/), [resin/nuc-debian](https://hub.docker.com/r/resin/nuc-debian/), [resin/nuc-python](https://hub.docker.com/r/resin/nuc-python/), [resin/nuc-node](https://hub.docker.com/r/resin/nuc-node/)||
-|Humming Board|armv7hf|cubox-i|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/cubox-i-debian](https://hub.docker.com/r/resin/cubox-i-debian/), [resin/cubox-i-python](https://hub.docker.com/r/resin/cubox-i-python/), [resin/cubox-i-node](https://hub.docker.com/r/resin/cubox-i-node/)||
-|Parallela Board|armv7hf|parallella-hdmi-resin|[resin/armv7hf-debian](https://hub.docker.com/r/resin/armv7hf-debian/), [resin/parallella-hdmi-resin-debian](https://hub.docker.com/r/resin/parallella-hdmi-resin-debian/), [resin/parallella-hdmi-resin-python](https://hub.docker.com/r/resin/parallella-hdmi-resin-python/), [resin/parallella-hdmi-resin-node](https://hub.docker.com/r/resin/parallella-hdmi-resin-node/)|| |
+{{> "general/resinDeviceTypeNames"}}
 
 ## Init system
 
@@ -287,7 +229,7 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [cmd]:https://docs.docker.com/reference/builder/#cmd
 
 [starter-projects]:/examples/projects#Programming_Language_Starter_Projects
-[docker-best-practise]:https://docs.docker.com/articles/dockerfile_best-practices/#add-or-copy
+[dockerfile-best-practices]:https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy
 [docker-registry]:https://registry.hub.docker.com/u/resin/rpi-raspbian/tags/manage/
 [resin-docker-blog]:https://resin.io/blog/docker-on-raspberry-pi/
 [dockerhub-link]:https://registry.hub.docker.com/search?q=rpi
@@ -303,3 +245,4 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [builders]:/learn/deploy/deployment
 [local-build]:/reference/cli/#build-source-
 [multicontainer]:/learn/develop/multicontainer
+[base-images]:/reference/base-images/resin-base-images

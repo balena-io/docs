@@ -56,7 +56,7 @@ Learn
       [/learn/deploy/release-strategy/update-locking]
       [/learn/deploy/release-strategy/update-strategies]
     [/learn/deploy/delta]
-    [/learn/deploy/build-optimisation]
+    [/learn/deploy/build-optimization]
 
   MANAGE
     [/learn/manage/account]
@@ -103,6 +103,7 @@ Reference
 
   Base images
     [/reference/base-images/resin-base-images]
+    [/reference/base-images/devicetypes]
     [/reference/base-images/custom-docker-base-images]  
 
   API[/reference/data-api]
