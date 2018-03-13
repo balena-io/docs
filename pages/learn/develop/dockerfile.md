@@ -23,7 +23,7 @@ Typically you will only need to use 4 instructions - [FROM][from], [RUN][run] an
 
 * [ADD][add] copies files from the current directory into the container, e.g. `ADD <src> <dest>`. Note that if `<dest>` doesn't exist, it will be created for you, e.g. if you specify a folder. It also allows the <src> to be a url, and if the <src> is a recognised compression format, it will unpack it for you.
 
-* [COPY][copy] is very similar to [ADD][add], but without the compression and url functionality. According to [Docker best practices][docker-best-practise], you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
+* [COPY][copy] is very similar to [ADD][add], but without the compression and url functionality. According to [the Dockerfile best practices][dockerfile-best-practices], you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
 
 * [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a resin.io application, this is typically used to execute a start script or entrypoint for the users application. [CMD][cmd] should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD][cmd] command and all processes that it spawns.
 
@@ -89,9 +89,9 @@ __Note:__ You need to ensure that your dependencies and Node.js modules are also
 Currently our builder supports the following build variables.
 
 | Variable Name        | Description          |
-| ------------- |:-------------:|
-| RESIN_MACHINE_NAME    | This is the name of the yocto machine this board is base on. It is the name that you will see in most of the resin.io [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). | 
-| RESIN_ARCH    | This is the CPU architecture associated with the device type.|
+| ------------- |-------------|
+| RESIN_MACHINE_NAME    | The name of the yocto machine this board is base on. It is the name that you will see in most of the resin.io [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). | 
+| RESIN_ARCH    | The instruction set architecture for the base images associated with this device.|
   
 If you want to see an example in action, you can have a look at this [basic openssh example](https://github.com/shaunmulligan/resin-openssh).
 
@@ -229,7 +229,7 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [cmd]:https://docs.docker.com/reference/builder/#cmd
 
 [starter-projects]:/examples/projects#Programming_Language_Starter_Projects
-[docker-best-practices]:https://docs.docker.com/articles/dockerfile_best-practices/#add-or-copy
+[dockerfile-best-practices]:https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy
 [docker-registry]:https://registry.hub.docker.com/u/resin/rpi-raspbian/tags/manage/
 [resin-docker-blog]:https://resin.io/blog/docker-on-raspberry-pi/
 [dockerhub-link]:https://registry.hub.docker.com/search?q=rpi
