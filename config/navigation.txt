@@ -56,7 +56,7 @@ Learn
       [/learn/deploy/release-strategy/update-locking]
       [/learn/deploy/release-strategy/update-strategies]
     [/learn/deploy/delta]
-    [/learn/deploy/build-optimisation]
+    [/learn/deploy/build-optimization]
 
   MANAGE
     [/learn/manage/account]
