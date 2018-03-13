@@ -24,6 +24,7 @@
 ^\/learn\/getting-started(\/$|$) -> /learn/getting-started/raspberrypi3/nodejs/
 ^\/learn\/develop(\/$|$) -> /learn/develop/local-mode
 ^\/learn\/deploy(\/$|$) -> /learn/deploy/deployment
+^\/learn\/deploy\/build-optimisation(\/$|$) -> /learn/deploy/build-optimization
 ^\/learn\/manage(\/$|$) -> /learn/manage/account
 ^\/faq(\/$|$) -> /faq/troubleshooting/faq
 ^\/reference(\/$|$) -> /reference/hardware/devices
@@ -87,4 +88,6 @@
 ^\/deployment/docker-templates(\/$|$) -> /learn/develop/dockerfile
 ^\/support(\/$|$) -> /learn/welcome/support
 ^\/devicetypes(\/$|$) -> /reference/base-images/devicetypes
+^\/deployment\/build-optimisation(\/$|$) -> /learn/deploy/build-optimization
+
 
