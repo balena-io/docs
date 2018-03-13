@@ -44,7 +44,7 @@ Make use of `.dockerignore` to ignore anything that is in the git repo, but is n
 
 ## Don't do apt-get update or upgrade
 
-This isn't so much of an optimisation tip, but more a guideline to ensure maintainable Docker images. Note the below tips were kindly borrowed from [Docker Best Practices][docker-best-practices].
+This isn't so much of an optimization tip, but more a guideline to ensure maintainable Docker images. Note the below tips were kindly borrowed from [Docker Best Practices][docker-best-practices].
 
 * Don’t do `RUN apt-get update` on a single line. This will cause caching issues if the referenced archive gets updated, which will make your subsequent apt-get install fail without comment.
 
