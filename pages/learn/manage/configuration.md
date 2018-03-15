@@ -8,6 +8,8 @@ Configuration variables allow you to provide runtime configuration to the host O
 
 Configuration variables can be managed at both the fleet and device level.
 
+__Note:__ Configuration variables defined in the dashboard will not apply to devices in [local mode][local-mode]. You will need to define them in your `resin-sync.yml`.
+
 ## Variable list
 
 This list contains configuration variables that can be used with resin.io devices, some of which will automatically appear for devices with supervisor v7.0.0 and greater. While they may not automatically populate in the dashboard, most of these variables can still be used with older supervisor versions, so be sure to check the *Valid from* column:
@@ -79,7 +81,7 @@ You can override the value of a custom fleet configuration variable by clicking 
 
 <img src="/img/configuration/override_config.png" width="60%">
 
-[deltas]:/runtime/delta
-[local-mode]:/development/local-mode
-[update-locking]:/runtime/update-locking
-[boot-config-guide]:/configuration/advanced/#modifying-config-txt-remotely-
+[deltas]:/learn/deploy/delta
+[local-mode]:/learn/develop/local-mode
+[update-locking]:/learn/deploy/release-strategy/update-locking
+[boot-config-guide]:/reference/resinOS/advanced/#modifying-config-txt-remotely-
