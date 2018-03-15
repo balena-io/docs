@@ -10,6 +10,8 @@ __Note:__ Adding or modifying a service variable will cause the service to resta
 
 Resin.io allows you to set service variables at both the fleet and device level.
 
+__Note:__ Service variables defined in the dashboard will not apply to devices in [local mode][local-mode]. You will need to define them in your `resin-sync.yml`.
+
 ## Fleet service variables
 
 Service variables defined on the fleet level are available to the specified service on all devices in that fleet, unless they are redefined with a device service variable of the same name.
@@ -55,3 +57,5 @@ The resin.io CLI and SDKs all include methods to easily read, add or update serv
 * [CLI environment reference](/tools/cli/#envs)
 * [Node.js SDK environment reference](/tools/sdk/#resin.models.environment-variables)
 * [Python SDK environment reference](/tools/python-sdk/#environmentvariable)
+
+[local-mode]:/learn/develop/local-mode
