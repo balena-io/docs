@@ -24,19 +24,21 @@ The `config.txt` is located in the root of the `resin-boot` partition, and you c
 
 #### Modifying `config.txt` **remotely**
 
-If your device has an Agent (Supervisor) version above 1.0.0 (which you can check on the "Agent version" entry in the [device dashboard]({{$links.dashboard}})), it has support for modifying the values in `config.txt` remotely using config variables which behave similarly to [environment variables](/management/env-vars) in that you can set application-wide values (for all devices in an application) or device-specific ones.
+If your device has a supervisor version above 1.0.0, it has support for modifying the values in `config.txt` remotely using [configuration variables][config-vars]. These can be set as fleet-wide values (for all devices in an application) or device-specific ones.
 
 The variables that start with the `RESIN_HOST_CONFIG_` prefix will be added to the `config.txt` file, also replacing the preexisting values of such variables in the file.
+
 For example, setting the value of `RESIN_HOST_CONFIG_gpu_mem` to 16 will produce the following entry in `config.txt`:
 
 ```
 gpu_mem=16
 ```
 
-These variables can be set using the [SDK](/tools/sdk) or the dashboard. To configure via the dashboard add variables to the "Fleet Config Variables" page for application-wide config variables and to "Device Config Variables" for device specific variables.
+These variables can be set using the API or any of its clients, including the [SDK][sdk], the [CLI][cli], and the dashboard. To configure via the dashboard, add variables to the *Fleet Configuration* page for fleet-wide config variables and to *Device Configuration* for device specific variables. The device-specific variables, if defined, will override the fleet-wide variables of the same name.
 
-The device-specific variables, if defined, will override the application-wide variables of the same name.
-**After modifying a config.txt variable, the Supervisor will apply the changes and reboot the device.**
+**After modifying a config.txt variable, the device supervisor will apply the changes and reboot the device.**
+
+__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode]. You will need to define them in your `resin-sync.yml`.
 
 ### GPU Memory
 
@@ -92,3 +94,7 @@ There are more details on the options available in `config.txt` over at
 [elinux's RPi Config page][elinux].
 
 [elinux]:http://elinux.org/RPiconfig
+[config-vars]:/learn/manage/configuration
+[sdk]:/reference/sdk/node-sdk
+[cli]:/reference/cli
+[local-mode]:/learn/develop/local-mode

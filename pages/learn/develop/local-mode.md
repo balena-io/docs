@@ -13,7 +13,7 @@ Local mode is the development mode for resin.io. It allows you to build and sync
 In order to use local mode on a device:
 - The device must be running resinOS v2.0 or higher with supervisor v4.0 or higher.
 - The device must be running a [development][development] variant of the OS. If you try to use a production variant, you will not be able to use local mode. The production devices have SSH and the Docker socket locked down, both of which are needed for the local mode feature.
-- You must have the resin.io CLI installed on your workstation.
+- You must have the [resin.io CLI][cli] installed on your workstation.
 - Local mode must be enabled through the dashboard. To use local mode on a development device, click on the small *Actions* dropdown at the top right of the device page and select *Enable Local Mode*.
 
 __Note:__ At the moment, `resin local push` will not work for multicontainer applications. The recommended development workflow is to put the device in local mode and use the [Docker Compose remote API][compose-remote].
@@ -53,7 +53,8 @@ Reporting scan results
 ```
 
 ## Push over a new project
-Now that we know where our device is on the network we can start pushing some code to it. To do this we use the `resin local push` command. This command instructs the device to do a Docker build and then runs your container in the same configuration as the resin supervisor would. You can either pass the command your devices IP addess or `<short-uuid>.local` name. If you are feeling lazy you can even leave it out and you will be presented with a list of devices to choose from.
+
+Now that we know where our device is on the network we can start pushing some code to it. To do this, we use the `resin local push` command. This command instructs the device to do a Docker build and then runs your container in the same configuration as the resin.io device supervisor supervisor would. You can either pass the command your device's IP address or `<short-uuid>.local` name. If you leave this out, you will be presented with a list of devices to choose from.
 
 **Command**
 ```
@@ -113,21 +114,21 @@ rdt push completed successfully!
 52.4.252.97 - - [10/Mar/2017 21:53:22] "GET / HTTP/1.1" 200 -
 ```
 
-In your code you will still have access to most of the regular resin.io device features. For example, you will still be able to query and use the [supervisor API][supervisor API]. However, you will notice that your local mode device will not push logs back to the resin.io dashboard and you won't be able to set environment variables from the dashboard, but you can set them in you `.resin-sync.yml`.
+In your code you will still have access to most of the regular resin.io device features. For example, you will still be able to query and use the [supervisor API][supervisor API]. However, you will notice that your local mode device will not push logs back to the resin.io dashboard. You also won't be able to set environment or configuration variables from the dashboard, but you can set them in your `.resin-sync.yml`.
 
 ## SSH into the running app container or host OS
 
-If we can to run some test commands in our app container, we can do this easily using `resin local ssh`, this command drops us directly into the selected container.
+If we want to run some test commands in our app container, we can do this easily using `resin local ssh`. This command drops us directly into the selected container:
 ```
 sudo resin local ssh f340127.local
 ```
-If we want to rather check whats going on in the hostOS, to perhaps check logs or something else, we can add the `--host` option and we will land up in the devices hostOS and be able to run the usual Docker commands, etc.
+To connect to the host OS, we can add the `--host` option. From here, we can check system logs and [perform other troubleshooting tasks][troubleshooting]:
 
 ```
 sudo resin local ssh f340127.local --host
 ```
 ## Other useful local commands
-There are many other resin local commands, which can be used to stop containers, reconfigure device wifi and a few other useful things.
+There are many other resin local commands, which can be used to stop containers, reconfigure device WiFi and a few other useful things.
 
 ```
 local configure <target>            (Re)configure a resinOS drive or image                          
@@ -138,7 +139,9 @@ local ssh [deviceIp]                Get a shell into a resinOS device
 local stop [deviceIp]               Stop a running container on a resinOS device   
 ```
 
-[development]:/understanding/understanding-devices/2.0.0/#dev-vs-prod-images
-[supervisor API]:/runtime/supervisor-api/
+[development]:/reference/resinOS/overview/2.x/#dev-vs-prod-images
+[cli]:/reference/cli
+[supervisor API]:/reference/supervisor/supervisor-api/
 [resin-sync]:/reference/cli/#sync-uuid-
 [compose-remote]:https://github.com/resin-io-playground/resinos-compose
+[troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access
