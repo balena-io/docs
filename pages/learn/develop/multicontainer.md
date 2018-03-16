@@ -57,16 +57,26 @@ gpio:
 
 ## Resin.io settings
 
-There are a few settings and considerations specific to resin.io that need to be taken into account when building multicontainer applications. For one, using the `INITSYSTEM=on` [setting][init-system] in the `Dockerfile` of a service is only supported if the container is run as privileged, as **systemd** does not run correctly in unprivileged containers. In addition, if you want to ensure your container is always kept running, set `restart` to `always`: 
+There are a few settings and considerations specific to resin.io that need to be taken into account when building multicontainer applications. 
+
+### Init system
+
+Using the `INITSYSTEM=on` [setting][init-system] in the `Dockerfile` of a service is only supported if the container is run as privileged, as **systemd** does not run correctly in unprivileged containers. In addition, if you want to ensure your container is always kept running, set `restart` to `always`: 
 
 ```
 privileged: true
 restart: always
 ```
 
+### Network mode
+
 Setting `network_mode` to `host` allows the container to share the same network namespace as the host OS. When this is set, any ports exposed on the container will be exposed locally on the device. This is necessary for features such as bluetooth.
 
-To store data in [persistent storage][persistent-storage], you'll want to make sure to use the `volumes` field to link a directory in your container to the `resin-data` volume. Your named volume should be specified at the top-level of the `docker-compose.yml`, with the container path defined in the service:
+### Named volumes
+
+With multicontainer applications, resin.io supports the use of named volumes, a feature that expands on the [persistent storage][persistent-storage] functionality used by older versions of resinOS. Named volumes can be given arbitrary names and can be linked to a directory in one or more containers. As long as every release of the application includes a `docker-compose.yml` and the volume name does not change, the data in the volume will persist across updates. 
+
+Use the `volumes` field of the service to link a directory in your container to your named volume. The named volume should also be specified at the top level of the `docker-compose.yml`:
 
 ```
 version: '2'
@@ -79,7 +89,11 @@ services:
             - 'resin-data:/data'
 ```
 
-In addition, there are some resin.io specific labels that can be defined in the `docker-compose.yml` file. These provide access to certain bind mounts and environment variables without requiring you to run the container as privileged.
+For devices upgraded from older versions of resinOS to v2.12.0 or higher, a link will automatically be created from the `/data` directory of the container to the `resin-data` named volume (similar to above). This ensures application behavior will remain consistent across host OS versions. One notable difference is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<APP ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<APP ID>` location used with earlier host OS versions. 
+
+### Labels 
+
+In addition to the settings above, there are some resin.io specific labels that can be defined in the `docker-compose.yml` file. These provide access to certain bind mounts and environment variables without requiring you to run the container as privileged:
 
 {{> "general/labels" }}
 

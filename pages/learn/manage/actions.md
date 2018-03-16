@@ -36,7 +36,7 @@ __Warning:__ Restart device container is not equivalent to a reboot of the devic
 
 ### Purge Data
 
-On all resin.io devices `/data` is a persistent data volume. This is useful for storing sensitive or non-volatile data that one would like to keep through out the update process. However, there are often times where it is necessary to remove all the persistent data. This can be done with the `Purge Data` action. Note that this is a dangerous action and that it is not possible to recover your data once you have purged the volume.
+This action clears [persistent storage][persistent-storage] on any applicable devices. For devices running resinOS versions before 2.12.0, this means clearing the `/data` folder in the container (and the associated volume at `/mnt/data/resin-data`). On newer resinOS versions, this action deletes all named volumes and recreates them as empty.
 
 It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
 
@@ -109,3 +109,4 @@ __Warning:__ It is a good idea to [move your devices to another application][mov
 [local-mode]:/learn/develop/local-mode
 [move-devices]:#move-to-another-application
 [app-types]:/learn/manage/app-types
+[persistent-storage]:/learn/develop/runtime/#persistent-storage
