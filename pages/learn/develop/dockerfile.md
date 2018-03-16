@@ -105,7 +105,7 @@ Here are the supported machine names and architectures:
 
 Whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process tree in your container. It also means that this PID 1 process needs to know how to properly process UNIX signals, reap orphan zombie processes [[1]](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) and if it crashes, your whole container crashes, meaning you lose logs and debug info.
 
-For these reasons we have built an [init system][init-system-link] into most of the resin base images listed here: [Resin Base Images Wiki][base-image-wiki-link]. The init system will handle signals, reap zombies and also properly handle [udev][udev-link] hardware events correctly.
+For these reasons we have built an [init system][init-system-link] into most of the resin base images listed here: [Resin Base Images Wiki][base-images]. The init system will handle signals, reap zombies and also properly handle [udev][udev-link] hardware events correctly.
 
 There are two ways of enabling the init system in your application. You add can the following environment variable in your Dockerfile:
 ```Dockerfile
@@ -147,7 +147,7 @@ Check out https://www.freedesktop.org/software/systemd/man/systemd.service.html#
 
 ## Node applications
 
-Resin.io supports [node.js][node] natively using the [package.json][package]
+Resin.io supports [Node.js][node] natively using the [package.json][package]
 file located in the root of the repository to determine how to build and execute
 node applications.
 
@@ -211,7 +211,7 @@ uses [aptitude][aptitude] to install native packages before moving a script for
 our node code to use over to `/usr/bin` (the install scripts runs with root
 privileges within the container.)
 
-__Note:__ With plain Node.js project, our build server will automatically detect the specified node version in `package.json` file and build the container based on Docker image with satisfied node version installed. The default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here][resin-base-image].
+__Note:__ With plain Node.js project, our build server will automatically detect the specified node version in `package.json` file and build the container based on Docker image with satisfied node version installed. The default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here][base-images].
 
 ![terminal-builder-window](/img/terminal-builder-window.PNG)
 
@@ -246,3 +246,16 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [local-build]:/reference/cli/#build-source-
 [multicontainer]:/learn/develop/multicontainer
 [base-images]:/reference/base-images/resin-base-images
+
+[init-system-link]:https://en.wikipedia.org/wiki/Init
+[systemd-link]:https://en.wikipedia.org/wiki/Systemd
+[openrc-link]:https://en.wikipedia.org/wiki/OpenRC
+[udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
+
+[package]:https://www.npmjs.org/doc/package.json.html
+[container]:https://wiki.archlinux.org/index.php/Linux_Containers
+[npm]:https://www.npmjs.org/
+[text-to-speech]:https://github.com/resin-io/text2speech
+[node]:http://nodejs.org/
+[raspbian]:http://www.raspbian.org/
+[aptitude]:https://wiki.debian.org/Aptitude
