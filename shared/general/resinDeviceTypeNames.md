@@ -12,8 +12,8 @@ Jetson TX2 | jetson-tx2 | aarch64 | https://github.com/resin-os/resin-jetson-tx2
 Hummingboard | hummingboard | armv7hf | https://github.com/resin-os/resin-fsl-arm
 Nitrogen 6X | nitrogen6x | armv7hf | -
 Parallella | parallella | armv7hf | https://github.com/resin-os/resin-parallella
-Samsung Artik 10 | artik10 | armv7hf | https://github.com/resin-os/resin-artik
-Samsung Artik 5 | artik5 | armv7hf | -
+Samsung Artik 1020 | artik10 | armv7hf | https://github.com/resin-os/resin-artik
+Samsung Artik 520 | artik5 | armv7hf | -
 RushUp Kitra 520 | kitra520 | armv7hf | -
 Samsung Artik 710 | artik710 | aarch64 | https://github.com/resin-os/resin-artik710
 RushUp Kitra 710 | kitra710 | aarch64 | -

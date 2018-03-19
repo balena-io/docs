@@ -491,7 +491,7 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/ts4900-fedora-openjdk | [Docker Hub][armv7hf-ts4900-fedora-openjdk-dockerhub-link], [github][armv7hf-ts4900-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-ts4900-fedora-openjdk-dockerhub-tag-link] |
 
 
-##### Samsung Artik 5
+##### Samsung Artik 520
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
@@ -515,7 +515,7 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/artik5-fedora-openjdk | [Docker Hub][armv7hf-artik5-fedora-openjdk-dockerhub-link], [github][armv7hf-artik5-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik5-fedora-openjdk-dockerhub-tag-link] |
 
 
-##### Samsung Artik 10
+##### Samsung Artik 1020
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|

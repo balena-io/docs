@@ -1,4 +1,4 @@
-### Basic GPIO Control in Node.js on the Artik 10
+### Basic GPIO Control in Node.js on the Artik 1020
 
 {{> icon class="octicon octicon-mark-github" }}
 [Repository](https://github.com/resin-io-projects/artik-gpio-node)
