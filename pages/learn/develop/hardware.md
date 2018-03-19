@@ -29,3 +29,5 @@ For more details on interacting with external hardware, check out these guides:
 
 [gpio]:/learn/develop/hardware/gpio
 [i2c-spi]:/learn/develop/hardware/i2c-and-spi
+[base-image-wiki-link]:/runtime/resin-base-images/
+[udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html

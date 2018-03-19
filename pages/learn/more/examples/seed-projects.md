@@ -131,6 +131,7 @@ This project contains examples of how to use Resin Golang images on devices supp
 [hello-ruby]:https://github.com/nghiant2710/Hello-Ruby
 [golang-seed-link]:https://github.com/shaunmulligan/resin-golang-seed.git
 [golang-image-link]:https://github.com/nghiant2710/resin-golang-example.git
+[gb-builder-link]:https://getgb.io/
 
 [csharp-dockerfile]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld/blob/master/Dockerfile
 [java-dockerfile]:https://github.com/resin-io/Hello-Java/blob/master/Dockerfile
@@ -138,9 +139,8 @@ This project contains examples of how to use Resin Golang images on devices supp
 [python-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
 [ruby-dockerfile]:https://github.com/resin-io/Hello-Ruby/blob/master/Dockerfile
 
-[martincalsyn]: https://github.com/martincalsyn
+[martincalsyn]:https://github.com/martincalsyn
 
-<!-- ###general -->
 [deploy]:/deployment/deployment
 [getting-started]:/installing/gettingStarted
 [resin]:https://resin.io

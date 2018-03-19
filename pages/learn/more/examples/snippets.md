@@ -44,7 +44,7 @@ A basic skeleton application to get you up and running with the raspberry pi cam
 
 [Repository][ADC_py] by [Shaun Mulligan][shaun-mulligan]
 
-This is a simple project so show to read analog sensor values into the raspberry pi using python. It uses the [ADS1x15][ADC_adafruit] family of I2C analog-to-digital converters to read in analog signals between 0 and 3.3V.
+This is a simple project so show to read analog sensor values into the raspberry pi using python. It uses the ADS1x15 family of I2C analog-to-digital converters to read in analog signals between 0 and 3.3V.
 
 ### resin-tether
 
@@ -63,7 +63,7 @@ This simple example demonstrates how to get the avahi daemon running on your res
 [Repository][example-pi-pins]
 
 A simple application which demonstrates the use of the [Pi Pins][pi-pins]
-library to interface with [GPIO][gpio].
+library to interface with GPIO.
 
 ### Example GPIO control in python
 
@@ -91,6 +91,7 @@ A simple application that shows you how to issue commands to a servo motor using
 [resin-ssh-node]:https://github.com/resin-io-projects/ssh-node
 [text2speech]:https://github.com/resin-io/text2speech
 [servo-motor-node]:https://github.com/craig-mulligan/resin-servo-node
+[pi-pins]:https://www.npmjs.com/package/pi-pins
 
 <!-- ###Team Github name links -->
 
@@ -102,7 +103,6 @@ A simple application that shows you how to issue commands to a servo motor using
 [petrosagg]:https://github.com/petrosagg
 [nghiant2710]:https://github.com/nghiant2710
 
-<!-- ###general -->
 [deploy]:/deployment/deployment
 [getting-started]:/installing/gettingStarted
 [resin]:https://resin.io
