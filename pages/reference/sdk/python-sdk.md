@@ -10,13 +10,18 @@ hesitate to open an issue in GitHub, we'll be happy to help.
 - [Resin](#resin)
     - [Models](#models)
         - [Application](#application)
-        - [Build](#build)
         - [Config](#config)
+        - [ConfigVariable](#configvariable)
+            - [ApplicationConfigVariable](#applicationconfigvariable)
+            - [DeviceConfigVariable](#deviceconfigvariable)
         - [Device](#device)
         - [DeviceOs](#deviceos)
         - [EnvironmentVariable](#environmentvariable)
-            - [ApplicationEnvVariable](#applicationenvvariable)
-            - [DeviceEnvVariable](#deviceenvvariable)
+            - [ServiceEnvVariable](#serviceenvvariable)
+            - [DeviceServiceEnvVariable](#deviceserviceenvvariable)
+        - [Image](#image)
+        - [Release](#release)
+        - [Service](#service)
         - [Key](#key)
         - [Supervisor](#supervisor)
     - [Auth](#auth)
@@ -36,24 +41,26 @@ Due to API changes, the returned Application object schema has changed. Here are
 The old returned object's properties: `__metadata, actor, app_name, application, commit, device_type, git_repository, id, should_track_latest_release, support_expiry_date, user, version`.
 
 The new returned object's properties (since Python SDK v2.0.0): `__metadata, actor, app_name, commit, depends_on__application, device_type, git_repository, id, is_accessible_by_support_until__date, should_track_latest_release, user, version`.
-### Function: create(name, device_type)
+### Function: create(name, device_type, app_type)
 
 Create an application. This function only works if you log in using credentials or Auth Token.
 
 #### Args:
     name (str): application name.
     device_type (str): device type (display form).
+    app_type (Optional[str]): application type.
 
 #### Returns:
     dict: application info.
 
 #### Raises:
     InvalidDeviceType: if device type is not supported.
+    InvalidApplicationType: if app type is not supported.
 
 #### Examples:
 ```python
->>> resin.models.application.create('Edison','Intel Edison')
-'{"id":9021,"user":{"__deferred":{"uri":"/ewa/user(5397)"},"__id":5397},"app_name":"Edison","git_repository":"g_trong_nghia_nguyen@git.resin.io:g_trong_nghia_nguyen/edison.git","commit":null,"device_type":"intel-edison","__metadata":{"uri":"/ewa/application(9021)","type":""}}'
+>>> resin.models.application.create('Foobar', 'Raspberry Pi 3', 'microservices-starter')
+'{"id":1005767,"user":{"__deferred":{"uri":"/resin/user(32986)"},"__id":32986},"depends_on__application":null,"actor":2630233,"app_name":"Foobar","git_repository":"pythonsdk_test_resin/foobar","commit":null,"application_type":{"__deferred":{"uri":"/resin/application_type(5)"},"__id":5},"device_type":"raspberrypi3","should_track_latest_release":true,"is_accessible_by_support_until__date":null,"__metadata":{"uri":"/resin/application(1005767)","type":""}}'
 ```
 ### Function: disable_device_urls(app_id)
 
@@ -291,31 +298,6 @@ Revoke support access to an application.
 #### Examples:
     >> > resin.models.application.revoke_support_access('5685')
     'OK'
-## Build
-
-This class implements build model for Resin Python SDK.
-### Function: get(id)
-
-Get a specific build.
-
-#### Args:
-    id (str): build id.
-
-#### Returns:
-    dict: build info.
-
-#### Raises:
-    BuildNotFound: if build couldn't be found.
-### Function: get_all_by_application(app_id, include_logs)
-
-Get list of builds belonging to an application.
-
-#### Args:
-    app_id (str): application id.
-    include_logs (Optional[bool]): Defaults to False since these may be very large. True if user wants to include build logs in build info.
-
-#### Returns:
-    list: list of build info.
 ## Config
 
 This class implements configuration model for Resin Python SDK.
@@ -345,6 +327,129 @@ Get device types configuration.
 ```python
 >>> resin.models.config.get_device_types()
 [ all configuration details ]
+```
+## ConfigVariable
+
+This class is a wrapper for config variable models.
+## ApplicationConfigVariable
+
+This class implements application config variable model for Resin Python SDK.
+### Function: create(app_id, config_var_name, value)
+
+Create an application config variable.
+
+#### Args:
+    app_id (str): application id.
+    config_var_name (str): application config variable name.
+    value (str): application config variable value.
+
+#### Returns:
+    dict: new application config variable info.
+
+#### Examples:
+```python
+>>> print(resin.models.config_variable.application_config_variable.create('1005160', 'RESIN_TEST_APP_CONFIG_VAR', 'test value'))
+{"id":117738,"application":{"__deferred":{"uri":"/resin/application(1005160)"},"__id":1005160},"name":"RESIN_TEST_APP_CONFIG_VAR","value":"test value","__metadata":{"uri":"/resin/application_config_variable(117738)","type":""}}
+```
+### Function: get_all(app_id)
+
+Get all application config variables belong to an application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    list: application config variables.
+
+#### Examples:
+```python
+>>> resin.models.config_variable.application_config_variable.get_all('1005160')
+[{u'application': {u'__deferred': {u'uri': u'/resin/application(1005160)'}, u'__id': 1005160}, u'__metadata': {u'type': u'', u'uri': u'/resin/application_config_variable(116965)'}, u'id': 116965, u'value': u'false', u'name': u'RESIN_SUPERVISOR_NATIVE_LOGGER'}]
+```
+### Function: remove(var_id)
+
+Remove a application config environment variable.
+
+#### Args:
+    var_id (str): application config environment variable id.
+
+#### Examples:
+```python
+>>> resin.models.config_variable.application_config_variable.remove('117738')
+'OK'
+```
+### Function: update(var_id, value)
+
+Update an application config variable.
+
+#### Args:
+    var_id (str): application config variable id.
+    value (str): new application config variable value.
+
+#### Examples:
+```python
+>>> resin.models.config_variable.application_config_variable.update('117738', 'new test value')
+'OK'
+```
+## DeviceConfigVariable
+
+This class implements device config variable model for Resin Python SDK.
+### Function: create(uuid, config_var_name, value)
+
+Create a device config variable.
+
+#### Args:
+    uuid (str): device uuid.
+    config_var_name (str): device config variable name.
+    value (str): device config variable value.
+
+#### Returns:
+    dict: new device config variable info.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device_service_environment_variable.create('f5213eac0d63ac47721b037a7406d306', 'data', 'dev_data_sdk', 'test1')
+{"id":28970,"created_at":"2018-03-17T10:13:14.184Z","service_install":{"__deferred":{"uri":"/resin/service_install(30789)"},"__id":30789},"value":"test1","name":"dev_data_sdk","__metadata":{"uri":"/resin/device_service_environment_variable(28970)","type":""}}
+```
+### Function: get_all(uuid)
+
+Get all device config variables belong to a device.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    list: device config variables.
+
+#### Examples:
+```python
+>>> resin.models.config_variable.device_config_variable.get_all('f5213eac0d63ac47721b037a7406d306')
+[{u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id74}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_variab8)'}, u'id': 130598, u'value': u'1', u'name': u'RESIN_HOST_CONFIG_avoid_'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'_36574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_var0597)'}, u'id': 130597, u'value': u'1', u'name': u'RESIN_HOST_CONFIG_disash'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'},  1036574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_(130596)'}, u'id': 130596, u'value': u'"i2c_arm=on","spi=on","audio=on"'': u'RESIN_HOST_CONFIG_dtparam'}, {u'device': {u'__deferred': {u'uri': udevice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uresin/device_config_variable(130595)'}, u'id': 130595, u'value': u'16', uu'RESIN_HOST_CONFIG_gpu_mem'}, {u'device': {u'__deferred': {u'uri': u'/rice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uri':n/device_config_variable(130594)'}, u'id': 130594, u'value': u'false', uu'RESIN_HOST_LOG_TO_DISPLAY'}]
+```
+### Function: remove(var_id)
+
+Remove a device config environment variable.
+
+#### Args:
+    var_id (str): device config environment variable id.
+
+#### Examples:
+```python
+>>> resin.models.config_variable.device_config_variable.remove('132715')
+'OK'
+```
+### Function: update(var_id, value)
+
+Update a device config variable.
+
+#### Args:
+    var_id (str): device config variable id.
+    value (str): new device config variable value.
+
+#### Examples:
+```python
+>>> resin.models.config_variable.device_config_variable.update('132715', 'new test value')
+'OK'
 ```
 ## Device
 
@@ -748,13 +853,13 @@ Register a new device with a Resin.io application. This function only works if y
     uuid (str): device uuid.
 
 #### Returns:
-    str: dictionary contains device info (can be parsed to dict).
+    dict: dictionary contains device info.
 
 #### Examples:
 ```python
 >>> device_uuid = resin.models.device.generate_uuid()
 >>> resin.models.device.register('RPI1',device_uuid)
-'{"id":122950,"application":{"__deferred":{"uri":"/ewa/application(9020)"},"__id":9020},"user":{"__deferred":{"uri":"/ewa/user(5397)"},"__id":5397},"name":"floral-mountain","device_type":"raspberry-pi","uuid":"8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143","commit":null,"note":null,"status":null,"is_online":false,"last_seen_time":"1970-01-01T00:00:00.000Z","ip_address":null,"vpn_address":null,"public_address":"","os_version":null,"supervisor_version":null,"supervisor_release":null,"provisioning_progress":null,"provisioning_state":null,"download_progress":null,"is_web_accessible":false,"longitude":"","latitude":"","location":"","logs_channel":null,"__metadata":{"uri":"/ewa/device(122950)","type":""}}'
+{'id':122950,'application':{'__deferred':{'uri':'/ewa/application(9020)'},'__id':9020},'user':{'__deferred':{'uri':'/ewa/user(5397)'},'__id':5397},'name':'floral-mountain','device_type':'raspberry-pi','uuid':'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143','commit':null,'note':null,'status':null,'is_online':false,'last_seen_time':'1970-01-01T00:00:00.000Z','ip_address':null,'vpn_address':null,'public_address':'','os_version':null,'supervisor_version':null,'supervisor_release':null,'provisioning_progress':null,'provisioning_state':null,'download_progress':null,'is_web_accessible':false,'longitude':'','latitude':'','location':'','logs_channel':null,'__metadata':{'uri':'/ewa/device(122950)','type':''}}
 ```
 ### Function: remove(uuid)
 
@@ -829,22 +934,6 @@ Set a custom location for a device.
 >>> resin.models.device.set_custom_location('df09262c283b1dc1462d0e82caa7a88e52588b8c5d7475dd22210edec1c50a',location)
 OK
 ```
-### Function: set_to_build(uuid, build)
-
-Set a device to specific build id.
-
-#### Args:
-    uuid (str): device uuid.
-    build (str): build id.
-
-#### Raises:
-    DeviceNotFound: if device couldn't be found.
-    ApplicationNotFound: if application couldn't be found.
-    IncompatibleApplication: if moving a device to an application with different device-type.
-
-#### Examples:
-    >> > resin.models.device.set_to_build('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', '123098')
-    'OK'
 ### Function: unset_custom_location(uuid)
 
 clear custom location for a device.
@@ -914,163 +1003,204 @@ Validate parameters for downloading device OS image.
     InvalidOption: if appId or network are invalid (appId is not a number or parseable string. network is not in NETWORK_TYPES)
 ## EnvironmentVariable
 
-This class is a wrapper for device and application environment variable models.
-## ApplicationEnvVariable
+This class is a wrapper for environment variable models.
+## ServiceEnvVariable
 
-This class implements application environment variable model for Resin Python SDK.
+This class implements service environment variable model for Resin Python SDK.
+### Function: create(app_id, service_name, env_var_name, value)
 
-#### Attributes:
-    SYSTEM_VARIABLE_RESERVED_NAMES (list): list of reserved system variable names.
-    OTHER_RESERVED_NAMES_START (list): list of prefix for system variable.
-### Function: create(app_id, env_var_name, value)
-
-Create an environment variable for application.
+Create a service environment variable for application.
 
 #### Args:
     app_id (str): application id.
+    service_name(str): service name.
     env_var_name (str): environment variable name.
     value (str): environment variable value.
 
 #### Returns:
-    str: new application environment info.
+    str: new service environment variable info.
 
 #### Examples:
 ```python
->>> resin.models.environment_variables.application.create(9020, 'app-test-env', 'test')
-'{"id":5652,"application":{"__deferred":{"uri":"/ewa/application(9020)"},"__id":9020},"name":"app-test-env","value":"test","__metadata":{"uri":"/ewa/environment_variable(5652)","type":""}}'
+>>> resin.models.environment_variables.service_environment_variable.create('1005160', 'proxy', 'app_proxy', 'test value')
+{"id":12444,"created_at":"2018-03-18T09:34:09.144Z","service":{"__deferred":{"uri":"/resin/service(21668)"},"__id":21668},"name":"app_proxy","value":"test value","__metadata":{"uri":"/resin/service_environment_variable(12444)","type":""}}
 ```
 ### Function: get_all(app_id)
 
-Get all environment variables by application.
+Get all service environment variables by application.
 
 #### Args:
     app_id (str): application id.
 
 #### Returns:
-    list: application environment variables.
+    list: service application environment variables.
 
 #### Examples:
 ```python
->>> resin.models.environment_variables.application.get_all(9020)
-[{u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'__metadata': {u'type': u'', u'uri': u'/ewa/environment_variable(5650)'}, u'id': 5650, u'value': u'7330634368117899', u'name': u'RESIN_RESTART'}]
-```
-### Function: is_system_variable(variable)
-
-Check if a variable is system specific.
-
-#### Args:
-    variable (str): environment variable name.
-
-#### Returns:
-    bool: True if system variable, False otherwise.
-
-#### Examples:
-```python
->>> resin.models.environment_variables.application.is_system_variable('RESIN_API_KEY')
-True
->>> resin.models.environment_variables.application.is_system_variable('APPLICATION_API_KEY')
-False
+>>> resin.models.environment_variables.service_environment_variable.get_all('1005160')
+[{u'name': u'app_data', u'service': {u'__deferred': {u'uri': u'/resin/service(21667)'}, u'__id': 21667}, u'created_at': u'2018-03-16T19:21:21.087Z', u'__metadata': {u'type': u'', u'uri': u'/resin/service_environment_variable(12365)'}, u'value': u'app_data_value', u'id': 12365}, {u'name': u'app_data1', u'service': {u'__deferred': {u'uri': u'/resin/service(21667)'}, u'__id': 21667}, u'created_at': u'2018-03-16T19:21:49.662Z', u'__metadata': {u'type': u'', u'uri': u'/resin/service_environment_variable(12366)'}, u'value': u'app_data_value', u'id': 12366}, {u'name': u'app_front', u'service': {u'__deferred': {u'uri': u'/resin/service(21669)'}, u'__id': 21669}, u'created_at': u'2018-03-16T19:22:06.955Z', u'__metadata': {u'type': u'', u'uri': u'/resin/service_environment_variable(12367)'}, u'value': u'front_value', u'id': 12367}]
 ```
 ### Function: remove(var_id)
 
-Remove application environment variable.
+Remove service environment variable.
 
 #### Args:
-    var_id (str): environment variable id.
+    var_id (str): service environment variable id.
 
 #### Examples:
 ```python
->>> resin.models.environment_variables.application.remove(5652)
+>>> resin.models.environment_variables.service_environment_variable.remove('12444')
 'OK'
 ```
 ### Function: update(var_id, value)
 
-Update an environment variable value for application.
+Update a service environment variable value for application.
 
 #### Args:
-    var_id (str): environment variable id.
-    value (str): new environment variable value.
+    var_id (str): service environment variable id.
+    value (str): new service environment variable value.
 
 #### Examples:
 ```python
->>> resin.models.environment_variables.application.update(5652, 'new value')
+>>> resin.models.environment_variables.service_environment_variable.update('12444', 'new test value')
 'OK'
 ```
-## DeviceEnvVariable
+## DeviceServiceEnvVariable
 
-This class implements device environment variable model for Resin Python SDK.
-### Function: create(uuid, env_var_name, value)
+This class implements device service variable model for Resin Python SDK.
+### Function: create(uuid, service_name, env_var_name, value)
 
-Create a device environment variable.
+Create a device service environment variable.
 
 #### Args:
     uuid (str): device uuid.
-    env_var_name (str): environment variable name.
-    value (str): environment variable value.
+    service_name (str): service name.
+    env_var_name (str): device service environment variable name.
+    value (str): device service environment variable value.
 
 #### Returns:
-    dict: new device environment variable info.
+    dict: new device service environment variable info.
 
 #### Examples:
 ```python
->>> resin.models.environment_variables.device.create('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143','test_env4', 'testing1')
-{'name': u'test_env4', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(42166)'}, u'value': u'testing1', u'device': {u'__deferred': {u'uri': u'/resin/device(115792)'}, u'__id': 115792}, u'id': 42166}
+>>> resin.models.environment_variables.device_service_environment_variable.create('f5213eac0d63ac47721b037a7406d306', 'data', 'dev_data_sdk', 'test1')
+{"id":28970,"created_at":"2018-03-17T10:13:14.184Z","service_install":{"__deferred":{"uri":"/resin/service_install(30789)"},"__id":30789},"value":"test1","name":"dev_data_sdk","__metadata":{"uri":"/resin/device_service_environment_variable(28970)","type":""}}
 ```
 ### Function: get_all(uuid)
 
-Get all device environment variables.
+Get all device service environment variables belong to a device.
 
 #### Args:
     uuid (str): device uuid.
 
 #### Returns:
-    list: device environment variables.
+    list: device service environment variables.
 
 #### Examples:
 ```python
->>> resin.models.environment_variables.device.get_all('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
-[{u'device': {u'__deferred': {u'uri': u'/ewa/device(122950)'}, u'__id': 122950}, u'__metadata': {u'type': u'', u'uri': u'/ewa/device_environment_variable(2173)'}, u'id': 2173, u'value': u'1322944771964103', u'env_var_name': u'RESIN_DEVICE_RESTART'}]
+>>> resin.models.environment_variables.device_service_environment_variable.get_all('f5213eac0d63ac47721b037a7406d306')
+[{u'name': u'dev_proxy', u'created_at': u'2018-03-16T19:23:21.727Z', u'__metadata': {u'type': u'', u'uri': u'/resin/device_service_environment_variable(28888)'}, u'value': u'value', u'service_install': [{u'__metadata': {u'type': u'', u'uri': u'/resin/service_install(30788)'}, u'id': 30788, u'service': [{u'service_name': u'proxy', u'__metadata': {u'type': u'', u'uri': u'/resin/service(NaN)'}}]}], u'id': 28888}, {u'name': u'dev_data', u'created_at': u'2018-03-16T19:23:11.614Z', u'__metadata': {u'type': u'', u'uri': u'/resin/device_service_environment_variable(28887)'}, u'value': u'dev_data_value', u'service_install': [{u'__metadata': {u'type': u'', u'uri': u'/resin/service_install(30789)'}, u'id': 30789, u'service': [{u'service_name': u'data', u'__metadata': {u'type': u'', u'uri': u'/resin/service(NaN)'}}]}], u'id': 28887}, {u'name': u'dev_data1', u'created_at': u'2018-03-17T05:53:19.257Z', u'__metadata': {u'type': u'', u'uri': u'/resin/device_service_environment_variable(28964)'}, u'value': u'aaaa', u'service_install': [{u'__metadata': {u'type': u'', u'uri': u'/resin/service_install(30789)'}, u'id': 30789, u'service': [{u'service_name': u'data', u'__metadata': {u'type': u'', u'uri': u'/resin/service(NaN)'}}]}], u'id': 28964}]
 ```
+### Function: remove(var_id)
+
+Remove a device service environment variable.
+
+#### Args:
+    var_id (str): device service environment variable id.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device_service_environment_variable.remove('28970')
+'OK'
+```
+### Function: update(var_id, value)
+
+Update a device service environment variable.
+
+#### Args:
+    var_id (str): device environment variable id.
+    value (str): new device environment variable value.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device_service_environment_variable.update('28970', 'test1 new value')
+'OK'
+```
+## Image
+
+This class implements image model for Resin Python SDK.
+### Function: get(id)
+
+Get a specific image.
+
+#### Args:
+    id (str): image id.
+
+#### Returns:
+    dict: image info.
+
+#### Raises:
+    ImageNotFound: if image couldn't be found.
+### Function: get_log(id)
+
+Get the build log from an image.
+
+#### Args:
+    id (str): image id.
+
+#### Returns:
+    str: build log.
+
+#### Raises:
+    ImageNotFound: if image couldn't be found.
+## Release
+
+This class implements release model for Resin Python SDK.
+### Function: get(id)
+
+Get a specific release.
+
+#### Args:
+    id (str): release id.
+
+#### Returns:
+    dict: release info.
+
+#### Raises:
+    ReleaseNotFound: if release couldn't be found.
 ### Function: get_all_by_application(app_id)
 
-Get all device environment variables for an application.
+Get all releases from an application.
+
+#### Args:
+    app_id (str): applicaiton id.
+
+#### Returns:
+    list: release info.
+### Function: get_with_image_details(id)
+
+Get a specific release with the details of the images built.
+
+#### Args:
+    id (str): release id.
+
+#### Returns:
+    dict: release info.
+
+#### Raises:
+    ReleaseNotFound: if release couldn't be found.
+## Service
+
+This class implements service model for Resin Python SDK.
+### Function: get_all_by_application(app_id)
+
+Get all services from an application.
 
 #### Args:
     app_id (str): application id.
 
 #### Returns:
-    list: list of device environment variables.
-
-#### Examples:
-```python
->>> resin.models.environment_variables.device.get_all_by_application('5780')
-[{'name': u'device1', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(40794)'}, u'value': u'test', u'device': {u'__deferred': {u'uri': u'/resin/device(115792)'}, u'__id': 115792}, u'id': 40794}, {'name': u'RESIN_DEVICE_RESTART', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(1524)'}, u'value': u'961506585823372', u'device': {u'__deferred': {u'uri': u'/resin/device(121794)'}, u'__id': 121794}, u'id': 1524}]
-```
-### Function: remove(var_id)
-
-Remove a device environment variable.
-
-#### Args:
-    var_id (str): environment variable id.
-
-#### Examples:
-```python
->>> resin.models.environment_variables.device.remove(2184)
-'OK'
-```
-### Function: update(var_id, value)
-
-Update a device environment variable.
-
-#### Args:
-    var_id (str): environment variable id.
-    value (str): new environment variable value.
-
-#### Examples:
-```python
->>> resin.models.environment_variables.device.update(2184, 'new value')
-'OK'
-```
+    list: service info.
 ## Key
 
 This class implements ssh key model for Resin Python SDK.

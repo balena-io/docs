@@ -1,6 +1,6 @@
-# Interacting with the resin.io device supervisor
+# Interacting with the Resin Supervisor
 
-The device supervisor is resin.io's agent that runs on devices. Its main role is to ensure your app is running, and keep communications with the Resin API server.
+The Resin Supervisor is resin.io's agent that runs on devices. Its main role is to ensure your app is running, and keep communications with the Resin API server.
 
 The Supervisor itself has its own API, with means for user applications to communicate and execute some special actions that affect the host OS or the application itself. There are two main ways for the application to interact with the Supervisor: the update lockfile and the HTTP API.
 
@@ -18,7 +18,7 @@ Alternatively, the Resin API (api.resin.io) has a proxy endpoint at `POST /super
 
 The API is versioned (currently at v1), except for `/ping`.
 
-You might notice that the formats of some responses differ. This is because they were implemented later, and in Go instead of node.js.
+You might notice that the formats of some responses differ. This is because they were implemented later, and in Go instead of node.js - even if the Go pieces were later removed, so we kept the response format for backwards compatibility.
 
 Here's the full list of endpoints implemented so far. In all examples, replace everything between `< >` for the corresponding values.
 
@@ -108,7 +108,9 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/reboot
 
-Reboots the device
+Reboots the device. This will first try to stop applications, and fail if there is an update lock.
+An optional "force" parameter in the body overrides the lock when true (and the lock can also be overridden from
+the dashboard).
 
 When successful, responds with 202 accepted and a JSON object:
 ```json
@@ -117,7 +119,9 @@ When successful, responds with 202 accepted and a JSON object:
 	"Error": ""
 }
 ```
-(This is implemented in Go)
+
+#### Request body
+Can contain a `force` property, which if set to `true` will cause the update lock to be overridden.
 
 #### Examples:
 From the app on the device:
@@ -142,7 +146,9 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/shutdown
 
-**Dangerous**. Shuts down the device.
+**Dangerous**. Shuts down the device. This will first try to stop applications, and fail if there is an update lock.
+An optional "force" parameter in the body overrides the lock when true (and the lock can also be overridden from
+the dashboard).
 
 When successful, responds with 202 accepted and a JSON object:
 ```json
@@ -151,7 +157,9 @@ When successful, responds with 202 accepted and a JSON object:
 	"Error": ""
 }
 ```
-(This is implemented in Go)
+
+#### Request body
+Can contain a `force` property, which if set to `true` will cause the update lock to be overridden.
 
 #### Examples:
 From the app on the device:
@@ -186,8 +194,6 @@ When successful, responds with 200 and a JSON object:
 	"Error": ""
 }
 ```
-
-(This is implemented in Go)
 
 #### Request body
 Has to be a JSON object with an `appId` property, corresponding to the ID of the application the device is running.
