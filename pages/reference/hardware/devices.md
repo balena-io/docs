@@ -29,9 +29,9 @@ __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) ha
 
 ![Samsung Artik 520](/img/artik5/samsung-artik-5.jpg)
 
-### [Samsung Artik 10](https://www.artik.io/modules/overview/artik-10/)
+### [Samsung Artik 1020](https://www.artik.io/modules/overview/artik-10/)
 
-![Samsung Artik 10](/img/artik10/samsung-artik-10.jpg)
+![Samsung Artik 1020](/img/artik10/samsung-artik-10.jpg)
 
 ### [Hummingboard](http://www.solid-run.com/products/hummingboard/)
 

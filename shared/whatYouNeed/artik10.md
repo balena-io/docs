@@ -1,5 +1,5 @@
 <img style="float: right;padding-left: 10px;" src="/img/artik10/artik10.png">
-* [**Samsung ARTIK 10**][artik10-spec-link] module mounted on a development board. We recommended either version 3.0-3.3 or version 0.5.
+* [**Samsung ARTIK 1020**][artik10-spec-link] module mounted on a development board. We recommended either version 3.0-3.3 or version 0.5.
 * A 5VDC power supply (100-240V input), if you purchased the development kit you should have one included.
 * At least one of Wireless communication antennas, also provided as part of the development kit.
 * **[optional]** Ethernet cable, if you prefer to **not** connect over wifi.
