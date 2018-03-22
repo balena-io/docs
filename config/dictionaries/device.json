@@ -31,7 +31,7 @@
   },
   {
     "id": "artik5",
-    "name": "Samsung ARTIK 5",
+    "name": "Samsung ARTIK 520",
     "arch": "armv7hf",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",
@@ -51,7 +51,7 @@
   },
   {
     "id": "artik10",
-    "name": "Samsung ARTIK 10",
+    "name": "Samsung ARTIK 1020",
     "arch": "armv7hf",
 		"bootMedia": "SD card",
     "rustTriple": "armv7-unknown-linux-gnueabihf",

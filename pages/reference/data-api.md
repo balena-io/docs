@@ -102,26 +102,7 @@ curl -X POST '{{ $links.apiBase }}application'
 
 *The available device types are:*
 
-Device name| Device type
--------|-----:
-Samsung Artik 10 (BETA) | [artik10](https://github.com/resin-os/resin-artik)
-Samsung ARTIK 710 (BETA) | [artik710](https://github.com/resin-os/resin-artik710)
-Samsung Artik 5 (BETA) | [artik5](https://github.com/resin-os/resin-artik)
-BeagleBone Black | [beaglebone-black](https://github.com/resin-os/resin-beaglebone)
-Hummingboard | [hummingboard](https://github.com/resin-os/resin-fsl-arm)
-Intel Edison | [intel-edison](https://github.com/resin-os/resin-edison)
-Intel NUC | [intel-nuc](https://github.com/resin-os/resin-intel)
-Nitrogen 6X | [nitrogen6x](https://github.com/resin-os/resin-fsl-arm)
-ODROID-C1+ | [odroid-c1](https://github.com/resin-os/resin-odroid)
-ODROID-XU4 | [odroid-xu4](https://github.com/resin-os/resin-odroid)
-Parallella | [parallella](https://github.com/resin-os/resin-parallella)
-Raspberry Pi (v1 and Zero) | [raspberry-pi](https://github.com/resin-os/resin-raspberrypi)
-Raspberry Pi 2 | [raspberry-pi2](https://github.com/resin-os/resin-raspberrypi)
-Raspberry Pi 3 | [raspberrypi3](https://github.com/resin-os/resin-raspberrypi)
-Technologic TS-4900 (BETA) | [ts4900](https://github.com/resin-os/resin-ts)
-Technologic TS-7700 (BETA) | [ts7700](https://github.com/resin-os/resin-ts)
-VIA VAB 820-quad | [via-vab820-quad](https://github.com/resin-os/resin-via-arm)
-Zynq ZC702 | [zynq-xz702](https://github.com/resin-os/resin-zc702)
+{{> "general/resinDeviceTypeNames"}}
 
 
 #### Delete application
