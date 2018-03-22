@@ -9,5 +9,5 @@
 [nitrogen6x-link]:http://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/
 [boundary-devices-link]:http://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
-[link-to-signup]:dashboard.resin.io/signup
+[link-to-signup]:https://dashboard.resin.io/signup
 [wifi]:/deployment/network

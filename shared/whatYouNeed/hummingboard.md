@@ -10,5 +10,5 @@
 [humming-link]:http://www.solid-run.com/product/hummingboard-i2/
 [solid-run]:http://www.solid-run.com/
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
-[link-to-signup]:dashboard.resin.io/signup
+[link-to-signup]:https://dashboard.resin.io/signup
 [wifi]:/deployment/network

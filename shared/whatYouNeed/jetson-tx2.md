@@ -8,4 +8,4 @@
 
 [tx2]:https://developer.nvidia.com/embedded/buy/jetson-tx2
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
-[link-to-signup]:dashboard.resin.io/signup
+[link-to-signup]:https://dashboard.resin.io/signup
