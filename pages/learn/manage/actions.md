@@ -75,7 +75,7 @@ Note that currently you are only able to move devices between applications of th
 
 Obviously you may only select one application to transfer your device to. Once you select the appropriate radio button, your device will immediately appear in the selected application's device list. Note that it will take a while for the device to start the update process as it does not receive a push notification of a new code update from the API, so it has to wait for the update poll, which happens every couple of minutes.
 
-__Note:__ When moving between applications, the data stored in `/data` will persist, but will not be accessible to the new application. However, upon switching back to the original application, the `/data` store will be available once more. It is recommended that if one does not intend on reverting back to the original application, then a purge of `/data` is needed.
+__Warning:__ For devices running resinOS version 2.12.0 and above, data in [persistent storage][persistent-storage] (named volumes) is automatically purged when a device is moved to a new application. On older host OS versions, the `/data` folder in the new application will not contain any of the old application data, but it can still be accessed via the host OS and if the device is switched back to the original application. Unless you plan to revert back to the original application, be sure to [purge][purge-data] the `/data` folder.
 
 To see a demonstration of moving devices between applications and a little more on the motivation behind the feature have a look at our blog post: [Canary Rollouts with resin.io][move-app-blog-post]
 
@@ -110,3 +110,4 @@ __Warning:__ It is a good idea to [move your devices to another application][mov
 [move-devices]:#move-to-another-application
 [app-types]:/learn/manage/app-types
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
+[purge-data]:#purge-data
