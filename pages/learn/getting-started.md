@@ -66,8 +66,8 @@ These example projects will give you an idea of more things that can be done wit
 **Enjoy Resinifying All the Things!**
 <img src="/img/common/resinify.jpg" width="80%">
 
-[link-to-signup]:https://dashboard.resin.io/signup
 [dockerfile]:/learn/develop/dockerfile
 [terminal]:/learn/manage/ssh-access
 [local-mode]:/learn/develop/local-mode
 [multicontainer]:/learn/develop/multicontainer
+[link-to-signup]:https://dashboard.resin.io/signup

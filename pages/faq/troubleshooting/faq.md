@@ -94,12 +94,14 @@ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 80
 ```
 
 ##### Which data is persisted on devices across updates/power cycles?
-The only data we guarantee to be persisted across reboot, shutdown and device update/container restart is the contents of the `/data` folder.
+The only data we [guarantee to be persisted][persistent-storage] across reboot, shutdown and device update/container restart is the contents of the `/data` folder, or any [named volumes][named-volumes] on devices running resinOS v2.12.0 and above.
 However, when a device is restarted or power cycled the container is not recreated, meaning all the data that was present in the container's filesystem before, remains.
 It's very important not to rely on this behaviour, as containers are recreated on application updates, when environment variables are changed in the UI or API, or when an application restart is requested.
 
 ##### Why does /data disappear when I move a device between applications?
-The `/data` is specific to a given app, so if you move the device back to the other app you'll find `/data` is there for that app again.  The reason for this is that if you move devices between applications running different code then keeping `/data` from the other would potentially cause issues. In future we plan to add the option to purge `/data` on device move (so it will be gone on moving back, without having to purge before moving). We also hope to add the option to transfer the data with the device as it moves between applications.
+Persistent data is specific to an application. If you move devices between applications running different code, then keeping persistent data from the old application could potentially cause issues.
+
+On devices running resinOS versions before 2.12.0, if you move the device back to the old application you'll find `/data` remains intact. Newer resinOS versions automatically purge named volumes when a device is moved to a new application.
 
 ##### It appears that there is a centralized resin.io master running (in cloud) and agents running on devices. Is that accurate?
 Yes. In fact there are multiple services running on the cloud and the devices communicate with some of them. On the device we run our agent in a Docker container, like a user application.
@@ -130,3 +132,5 @@ Discontinued devices will no longer be actively supported by resin.io. This mean
 [app-types]:/learn/manage/app-types
 [static-ip]:/reference/resinOS/network/2.x/#setting-a-static-ip
 [security]:/learn/welcome/security
+[persistent-storage]:/learn/develop/runtime/#persistent-storage
+[named-volumes]:/learn/develop/multicontainer/#named-volumes
