@@ -11,4 +11,4 @@
 [nuc-link]:http://www.intel.co.uk/content/www/uk/en/nuc/products-overview.html
 [hdmi-link]:https://en.wikipedia.org/wiki/HDMI
 [wifi]:/deployment/network
-[link-to-signup]:dashboard.resin.io/signup
+[link-to-signup]:https://dashboard.resin.io/signup

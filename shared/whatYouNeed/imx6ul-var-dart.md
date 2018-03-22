@@ -8,4 +8,4 @@
 
 [dart]:http://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
-[link-to-signup]:dashboard.resin.io/signup
+[link-to-signup]:https://dashboard.resin.io/signup
