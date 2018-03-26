@@ -3,9 +3,6 @@
 # get latest CLI docs
 cd pages/reference/ && { curl -O -L https://github.com/resin-io/resin-cli/raw/master/doc/cli.markdown ; mv cli.markdown cli.md ; cd -; }
 
-# get latest node CLI troubleshooting
-cd pages/faq/troubleshooting/ && { curl -L -o cli-troubleshooting.md https://github.com/resin-io/resin-cli/raw/master/TROUBLESHOOTING.md ; cd -; }
-
 # get lastest node SDK docs
 cd pages/reference/sdk/ && {
   curl -O -L https://github.com/resin-io/resin-sdk/raw/master/DOCUMENTATION.md;
@@ -25,4 +22,4 @@ cd pages/reference/sdk/ && {
 cd pages/reference/supervisor/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/API.md; mv API.md supervisor-api.md ; cd -; }
 
 # get latest supervisor update-lock docs
-cd pages/learn/release-strategy/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/update-locking.md; cd -; }
+cd pages/learn/deploy/release-strategy/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/update-locking.md; cd -; }

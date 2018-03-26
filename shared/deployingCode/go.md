@@ -1,6 +1,6 @@
 <!-- deploying Code to devices -->
 
-Now that we have a device or two connected to a resin.io application, lets deploy some code and actually start building something.
+Now that we have a device or two connected to a resin.io application, let's deploy some code and actually start building something.
 
 A nice first project to get your feet wet is a simple [Go][go] hello world program which will print a `Hello, world!` message to the logs on the dashboard. All the project source code can be found [here][resin-go-hello-world-link].
 
