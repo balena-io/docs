@@ -33,8 +33,6 @@ If you don't already have a resin.io account, make sure to [sign up][link-to-sig
 
 {{import "createAnApp"}}
 
-## Add your first device
-
 {{import "getResinOS"}}
 
 {{import "selectNetworkConfig"}}
