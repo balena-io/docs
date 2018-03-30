@@ -2,7 +2,7 @@ An application is a group of devices of the same type that all run the same code
 
 To create an application, select the **{{ $device.name }}** device type, select an [application type][app-types], enter a name, and click *Create new application*:
 
-<img src="/img/intel-nuc/app-type.png" width="40%">
+<img src="/img/beaglebone-black/app-type.png" width="40%">
 
 __Note:__ To create an application with multiple containers, you'll want to use the starter or microservices application type. The starter applications are full-featured and free for all users, with a limit of up to ten total devices across all starter applications.
 
