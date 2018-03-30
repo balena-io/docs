@@ -1,4 +1,4 @@
-<img height=150px style="float: right;padding-left: 10px;" src="/img/NUC/nuc.jpg">
+<img height=150px style="float: right;padding-left: 10px;" src="/img/intel-nuc/intel-nuc.jpg">
 
 * An [Intel NUC][nuc-link] mini PC from Intel.
 * A 4GB or larger USB thumb drive.

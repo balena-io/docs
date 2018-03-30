@@ -11,19 +11,19 @@ excerpt: List of single-board computers supported by resin.io
 
 __Note:__ Some Raspberry Pi generations (1, 2 and 3, aka RPI1, RPI2 and RPI3) have different architectures, so there is a different OS image for each generation. Be sure to select the right device type when downloading.
 
-![Raspberry Pi](/img/rpi_b_plus.jpg)
+![Raspberry Pi](/img/raspberrypi3/raspberrypi3.jpg)
 
 ### [BeagleBone Black](http://beagleboard.org/black)
 
-![BeagleBone Black](/img/bbb.jpg)
+![BeagleBone Black](/img/beaglebone-black/beaglebone-black.jpg)
 
 ### [BeagleBone Blue](http://beagleboard.org/blue)
 
-![BeagleBone Blue](/img/beaglebone/beagle-blue.png)
+![BeagleBone Blue](/img/beaglebone-black/beagle-blue.png)
 
 ### [BeagleBone Green and Green Wireless](http://www.seeedstudio.com/wiki/SeeedStudio_BeagleBone_Green_Wireless)
 
-![BeagleBone Green Wireless](/img/beaglebone-green-wireless.jpg)
+![BeagleBone Green Wireless](/img/beaglebone-black/beaglebone-green-wireless.jpg)
 
 ### [Samsung Artik 520](https://www.artik.io/modules/artik-520/)
 
@@ -53,7 +53,7 @@ __Warning:__ HDMI is currently not supported on the Odroid XU4.
 
 ### [Intel NUC](http://www.intel.com/content/www/us/en/nuc/overview.html)
 
-![NUC](/img/NUC/nuc.jpg)
+![NUC](/img/intel-nuc/intel-nuc.jpg)
 
 ### [Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
 
