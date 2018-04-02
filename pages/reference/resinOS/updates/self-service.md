@@ -16,6 +16,7 @@ Supported device types:
 * For the **Raspberry Pi** series, self-service updates are available from resinOS versions 1.8.0 and upwards (including 2.x versions) to any versions after resinOS 2.2.0.
 * For **BeagleBone** devices, you can update resinOS 1.8.0 through 1.26.0 to the transitional 1.30.1 version, and from 1.30.1 and upwards (including 2.x versions) to version 2.2.0 and newer.
 * For **Intel NUC** and **UP Boards**, you can update all 2.x versions to 2.2.0 and newer.
+* **Intel Edison** can be updated from all 2.x versions to 2.9.7+rev2 and above.
 * **IOT2000** can be updated from all available versions to all newer versions.
 * **Jetson TX2** can be updated starting from resinOS 2.7.4+rev1 to all newer versions.
 * **QEMU** devices (both 32 and 64-bit versions) can be updated starting from resinOS 2.9.3+rev1 to all newer versions.
