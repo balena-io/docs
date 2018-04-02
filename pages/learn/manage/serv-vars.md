@@ -1,48 +1,52 @@
 ---
-title: Service variables
+title: Environment and service variables
 ---
 
-# Service variables 
+# Environment and service variables 
 
-Service variables allow you to provide runtime configuration to a running service without having to modify your source code. You can use them to keep secrets and other sensitive values out of your codebase.
+Environment and service variables allow you to provide runtime configuration to one or more running services without having to modify your source code. You can use them to keep secrets and other sensitive values out of your codebase.
 
-__Note:__ Adding or modifying a service variable will cause the service to restart on any devices where the new setting is applied.
+__Note:__ Adding or modifying an environment variable will restart all services on a device. Service variables only restart the affected service.
 
-Resin.io allows you to set service variables at both the fleet and device level.
+Environment variables are accessible to all services running on a device, whereas service variables are assigned to a specific service. Both environment and service variables can be applied at the fleet or the individual device level. 
 
-__Note:__ Service variables defined in the dashboard will not apply to devices in [local mode][local-mode]. You will need to define them in your `resin-sync.yml`.
+Values defined for individual devices always override those defined for the fleet. Values defined for services override environment variables defined at the same level. So for any given variable, the **device service variable** will always have top priority, followed by the **device environment variable**, then the **fleet service variable**, and finally the **fleet environment variable**.
 
-## Fleet service variables
+__Note:__ Environment and service variables defined in the dashboard will not apply to devices in [local mode][local-mode]. You will need to define them in your `resin-sync.yml`.
 
-Service variables defined on the fleet level are available to the specified service on all devices in that fleet, unless they are redefined with a device service variable of the same name.
+## Fleet environment and service variables
 
-The application dashboard has a *Service Variables* tab containing a list of all fleet service variables.
+Environment and service variables defined on the fleet level are available to all devices in that fleet, unless they are redefined with a variable of the same name on the device level.
 
-To define a new fleet service variable, make sure you are in the *Service Variables* tab, then click the *Add variable* button in the upper-left corner:
+They can be found from the application summary page under the *Environment Variables* and *Service Variables* tabs.
+
+To define a new variable, click the *Add variable* button in the upper-left corner:
 
 <img src="/img/env-vars/add_application_variable.png" width="40%">
 
-A new dialog will pop up, asking you to select a service from the drop down menu. Once you have selected the service, you can define the name and value for your service variable. Click *Add* to apply to all devices in your fleet that do not already have an identical device service variable defined:
+For service variables, you will be asked to select a service from the drop down menu. 
+
+Define a name and value for your variable. Click *Add* to apply to all devices in your fleet that do not have their own values defined:
 
 <img src="/img/env-vars/variable_editor.png" width="60%">
 
-Your new service variable will show up in the list, where it can easily be edited or removed:
+Your new environment or service variable will show up in the list, where it can easily be edited or removed:
 
 <img src="/img/env-vars/variable_list.png" width="100%">
 
-__Note:__ Deleting a fleet service variable will not delete a device service variable of the same name.
+__Note:__ Deleting a fleet-level variable will not delete a device-level variable of the same name.
 
-If you have already defined service variables at the device level, they will appear in a list below your fleet service variables. You can easily apply a device value to the entire fleet by clicking *Define fleet-wide*:
+If you have already defined environment or service variables at the device level, they will appear below the fleet variables of the same type. You can easily apply a device value to the entire fleet by clicking *Define fleet-wide*:
 
 <img src="/img/env-vars/define_app_wide.png" width="100%">
 
-## Device service variables
+## Device environment and service variables
 
-Device service variables are available to the service running on that particular device. If both the fleet and the device have a service variable of the same name, the code on the device will use the value of the device service variable. In other words, device service variables redefine (or override) fleet service variables.
+Device environment and service variables are applied to only one device. Device service variables override device environment variables of the same name, and all device variables override fleet variables.
 
-Adding a device service variable is very similar to adding a fleet service variable. From the device summary page, select the *Device Service Variables* tab, click *Add variable*, select the appropriate service from the drop down, add a name and value, and click *Add*.
+Adding a device variable is very similar to adding a fleet variable. From the device summary page, select *Device Variables* for environment variables or *Device Service Variables* for service variables. Click *Add variable*, select the appropriate service if necessary, add a name and and a value, and click *Add*.
 
-The service variable list will include both values defined for that specific device, as well as any fleet service variables: 
+The variable list will include both values defined for that specific device, as well as any fleet variables of the same type: 
 
 <img src="/img/env-vars/device_variables.png" width="100%">
 
@@ -52,7 +56,7 @@ You can override the value of a fleet variable by clicking *override* in the far
 
 ## Managing with the CLI & SDK
 
-The resin.io CLI and SDKs all include methods to easily read, add or update service variables. Consult the appropriate reference for code examples.
+The resin.io CLI and SDKs all include methods to easily read, add or update environment and service variables. Consult the appropriate reference for code examples.
 
 * [CLI environment reference](/tools/cli/#envs)
 * [Node.js SDK environment reference](/tools/sdk/#resin.models.environment-variables)
