@@ -1,21 +1,21 @@
 ---
 title: Supported WiFi adapters
-excerpt: WiFi adapters known to work with resin.io devices
+excerpt: WiFi adapters known to work with {{ $names.company.lower }} devices
 ---
 
 # Supported Wifi Dongles
 
-The officially supported resin.io wifi dongle is the [Official Raspberry Pi Wifi][rpi-official-wifi] with the BCM43143 chipset.
-This chipset is guaranteed to work across all the device types supported by resin.io.
+The officially supported {{ $names.company.lower }} wifi dongle is the [Official Raspberry Pi Wifi][rpi-official-wifi] with the BCM43143 chipset.
+This chipset is guaranteed to work across all the device types supported by {{ $names.company.lower }}.
 
-There are however many other USB wifi adapters that will work out of the box with resin.io devices.
+There are however many other USB wifi adapters that will work out of the box with {{ $names.company.lower }} devices.
 ## Known Working Devices
 
 * [Pi Hut USB WiFi Adapter][pi-hut-usb] - Small form-factor and works right out
   of the box!
 * [TP-Link Nano Router][nano-router] - Though this isn't strictly a WiFi
   adapter, it does enable you to connect to WiFi network using the ethernet port
-  of the Pi and is known to work correctly with Resin.io. As a result no further
+  of the Pi and is known to work correctly with {{ $names.company.upper }}. As a result no further
   configuration is required.
 * [Adafruit Miniature Wifi (802.11B/G/N) Module][adafruit]
 * [EP-N8531][epn8531]

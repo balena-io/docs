@@ -1,11 +1,11 @@
 ---
 title: Application update locks
-excerpt: Locking application updates on your resin.io devices
+excerpt: Locking application updates on your {{ $names.company.lower }} devices
 ---
 
 # Application update locks
 
-Locking updates means that the resin.io device supervisor will not be able to kill your application. This is meant to be used at critical sections of your code where you don't want to be interrupted, or to ensure that updates are only installed at certain times.
+Locking updates means that the {{ $names.company.lower }} device supervisor will not be able to kill your application. This is meant to be used at critical sections of your code where you don't want to be interrupted, or to ensure that updates are only installed at certain times.
 
 In order to do this, users can create a lockfile called `resin-updates.lock` in a way that it has exclusive access, which will prevent the device supervisor from killing and restarting the app. As with any other lockfile, the supervisor itself will create such a file before killing the app, so you should only create it in exclusive mode. This means that the lockfile should only be created if it doesn't already exist. The exclusive access is achieved by opening the lockfile with the [O_EXCL and O_CREAT flags](https://linux.die.net/man/3/open), and several tools exist to simplify this process with examples given [below](#creating-the-lockfile).
 
@@ -19,7 +19,7 @@ Older supervisors have the lock at `/data/resin-updates.lock`. This lock is stil
 
 The old lock has the problem that the supervisor has to clear whenever it starts up to avoid deadlocks. If the user app
 has taken the lock before the supervisor starts up, the lock will be cleared and the app can operate under the false
-assumption that updates are locked (see [issue #20](https://github.com/resin-io/resin-supervisor/issues/20)). We therefore strongly recommend switching to the new lock location as soon as possible.
+assumption that updates are locked (see [issue #20]({{ $links.githubMain }}/resin-supervisor/issues/20)). We therefore strongly recommend switching to the new lock location as soon as possible.
 
 For supervisors >= v4.0.0 and any OS that is not resinOS 1.x, the old lock location is completely ignored.
 
@@ -83,4 +83,4 @@ The update lock can be overriden in case you need to force an update, for instan
 
 The way to do this is hitting the `/v1/update` endpoint of the [supervisor HTTP API](./API.md), with `{ "force": true }` as body.
 
-The lock can also be overriden by setting the app's `RESIN_SUPERVISOR_OVERRIDE_LOCK` configuration variable to "1".
+The lock can also be overriden by setting the app's `{{ $names.company.allCaps }}_SUPERVISOR_OVERRIDE_LOCK` configuration variable to "1".

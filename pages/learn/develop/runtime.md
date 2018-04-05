@@ -1,6 +1,6 @@
 ---
 title: Communicate outside the container
-excerpt: Talk to the host OS, supervisor, and network from within a resin.io container
+excerpt: Talk to the host OS, supervisor, and network from within a {{ $names.company.lower }} container
 thumbnail: /img/common/device/running-webterminal-session.png
 ---
 
@@ -12,57 +12,57 @@ For many applications, the code running in your container will need some way to 
 
 ### Environment variables
 
-Inside your running container, you'll have access to a number of `RESIN_` namespaced environment variables, which provide information from the system outside the container:
+Inside your running container, you'll have access to a number of `{{ $names.company.allCaps }}_` namespaced environment variables, which provide information from the system outside the container:
 
 |    Variable   	| Description 	|
 |:----------:	    |:-----------:	|
-| `RESIN_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on resin.io	|
-| `RESIN_APP_ID` 	            |  ID number of the resin.io application the device is associated. 	|
-| `RESIN_APP_NAME`            |  The name of the resin.io application the device is associated with. |
-| `RESIN_APP_RELEASE`         |  The commit hash of the deployed application version. |
-| `RESIN_DEVICE_NAME_AT_INIT` |  The name of the device on first initialisation. |
-| `RESIN_DEVICE_TYPE`         |  The type of device the application is running on. |
-| `RESIN` 	                  |  The `RESIN=1` variable can be used by your software to detect that it is running on a resin.io device. 	|
-| `RESIN_SUPERVISOR_VERSION` 	|  The current version of the supervisor agent running on the device.	|
-| `RESIN_SUPERVISOR_API_KEY` 	|  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link]	for detailed usage.|
-| `RESIN_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`	|
-| `RESIN_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`|
-| `RESIN_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`	|
-| `RESIN_API_KEY` 	          |  API key which can be used to authenticate requests to the resin.io backend. Can be used with resin SDK on the device. **WARNING** This API key gives the code full user permissions, so can be used to delete and update anything as you would on the Dashboard.  	|
-| `RESIN_HOST_OS_VERSION`     |  The version of the resin host OS. |
-| `RESIN_DEVICE_RESTART` 	    |  This is a internal mechanism for restarting containers and can be ignored as its not very useful to application code.  Example: `1.13.0`	|
+| `{{ $names.company.allCaps }}_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on {{ $names.company.lower }}	|
+| `{{ $names.company.allCaps }}_APP_ID` 	            |  ID number of the {{ $names.company.lower }} application the device is associated. 	|
+| `{{ $names.company.allCaps }}_APP_NAME`            |  The name of the {{ $names.company.lower }} application the device is associated with. |
+| `{{ $names.company.allCaps }}_APP_RELEASE`         |  The commit hash of the deployed application version. |
+| `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |  The name of the device on first initialisation. |
+| `{{ $names.company.allCaps }}_DEVICE_TYPE`         |  The type of device the application is running on. |
+| `{{ $names.company.allCaps }}` 	                  |  The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a {{ $names.company.lower }} device. 	|
+| `{{ $names.company.allCaps }}_SUPERVISOR_VERSION` 	|  The current version of the supervisor agent running on the device.	|
+| `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` 	|  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link]	for detailed usage.|
+| `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`	|
+| `{{ $names.company.allCaps }}_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`|
+| `{{ $names.company.allCaps }}_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`	|
+| `{{ $names.company.allCaps }}_API_KEY` 	          |  API key which can be used to authenticate requests to the {{ $names.company.lower }} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code full user permissions, so can be used to delete and update anything as you would on the Dashboard.  	|
+| `{{ $names.company.allCaps }}_HOST_OS_VERSION`     |  The version of the host OS. |
+| `{{ $names.company.allCaps }}_DEVICE_RESTART` 	    |  This is a internal mechanism for restarting containers and can be ignored as its not very useful to application code.  Example: `1.13.0`	|
 
 Here's an example from a Raspberry Pi 3:
 
 ```Bash
-root@raspberrypi3-cc723d7:/# printenv | grep RESIN
-RESIN_SUPERVISOR_API_KEY=1111deadbeef2222                    
-RESIN_APP_ID=157270                                                                                          
-RESIN_DEVICE_TYPE=raspberrypi3                                                                               
+root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
+{{ $names.company.allCaps }}_SUPERVISOR_API_KEY=1111deadbeef2222                    
+{{ $names.company.allCaps }}_APP_ID=157270                                                                                          
+{{ $names.company.allCaps }}_DEVICE_TYPE=raspberrypi3                                                                               
 RESIN=1                                                                                                      
-RESIN_SUPERVISOR_ADDRESS=http://127.0.0.1:48484                                                              
-RESIN_SUPERVISOR_HOST=127.0.0.1                                                                              
-RESIN_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee                             
-RESIN_API_KEY=deadbeef12345                                                               
-RESIN_APP_RELEASE=667153acf91a58886c1bc30fe4320c864471e23a                                                  
-RESIN_SUPERVISOR_VERSION=2.8.3                                                                               
-RESIN_APP_NAME=Example                                                                                      
-RESIN_DEVICE_NAME_AT_INIT=damp-haze                                                                          
-RESIN_HOST_OS_VERSION=Resin OS 1.24.0                                    
-RESIN_SUPERVISOR_PORT=48484  
+{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS=http://127.0.0.1:48484                                                              
+{{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1                                                                              
+{{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee                             
+{{ $names.company.allCaps }}_API_KEY=deadbeef12345                                                               
+{{ $names.company.allCaps }}_APP_RELEASE=667153acf91a58886c1bc30fe4320c864471e23a                                                  
+{{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3                                                                               
+{{ $names.company.allCaps }}_APP_NAME=Example                                                                                      
+{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze                                                                          
+{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.upper }} 1.24.0                          
+{{ $names.company.allCaps }}_SUPERVISOR_PORT=48484  
 ```
 
 ### Dbus communication with host OS
 
-In some cases its necessary to communicate with the host OS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the resin.io supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
+In some cases its necessary to communicate with the host OS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
 ```
-# for resin.io supervisor versions 1.7.0 and newer (both resinOS 1.x and 2.x) use this version:
+# for {{ $names.company.lower }} supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 ```
 
 ```
-# for resin.io supervisor before 1.7.0 use this version:
+# for {{ $names.company.lower }} supervisor before 1.7.0 use this version:
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket
 ```
 
@@ -154,11 +154,11 @@ Since the `/etc/modules` you see in your container belongs to the container's fi
 You may notice that if you issue a `reboot`, `halt`, or `shutdown` your container either gets into a weird zombie state or doesn't do anything. The reason for this is that these commands do not propagate down to the hostOS system. If you need to issue a `reboot` from your container you should use the supervisor API as shown:
 ```
 curl -X POST --header "Content-Type:application/json" \
-    "$RESIN_SUPERVISOR_ADDRESS/v1/reboot?apikey=$RESIN_SUPERVISOR_API_KEY"
+    "${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/reboot?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
 ```
 [Read more about the supervisor API](/runtime/supervisor-api/#post-v1-reboot)
 
-__Note:__ `RESIN_SUPERVISOR_API_KEY` and `RESIN_SUPERVISOR_ADDRESS` should already be in your environment by default. You will also **need** `curl` installed in your container.
+__Note:__ `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` and `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` should already be in your environment by default. You will also **need** `curl` installed in your container.
 
 Alternatively, it is possible to reboot the device via the dbus interface as described above.
 
@@ -170,12 +170,12 @@ Anything written from the application to `stdout` and `stderr` should appear on 
 
 ### Exposed ports
 
-Resin.io devices expose all ports by default, meaning you can run applications
+{{ $names.company.upper }} devices expose all ports by default, meaning you can run applications
 which listen on any port without issue. There is no need to have the Docker `EXPOSE` command in your `Dockerfile`.
 
 ### Public device URLS
 
-Resin.io currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the resin.io dashboard and select the `Enable a public URL for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
+{{ $names.company.upper }} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the {{ $names.company.lower }} dashboard and select the `Enable a public URL for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
 
 ![Enable device url](/img/screenshots/device-url-new.png)
 
@@ -200,7 +200,7 @@ var server = app.listen(80, function () {
 ```
 
 ### Using DNS resolvers in your container
-In the resin.io host OS [dnsmasq][dnsmasq-link] is used to manage DNS since resinOS 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](http://www.bind9.org/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0` which interferes with the host dnsmasq. To get around this you need to add `bind-interfaces` to your dnsmasq configuration in your container, or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
+In the {{ $names.company.lower }} host OS [dnsmasq][dnsmasq-link] is used to manage DNS since {{ $names.os.lower }} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](http://www.bind9.org/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0` which interferes with the host dnsmasq. To get around this you need to add `bind-interfaces` to your dnsmasq configuration in your container, or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
 
 ## Storage
 
@@ -283,14 +283,14 @@ Because of the keyword filter, `localmount` cannot be automatically started (usi
 Devices can be selected in many ways, for example by `/dev` entry, labels, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices.
 
 [container-link]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
-[base-image-wiki-link]:/runtime/resin-base-images/
+[base-image-wiki-link]:/runtime/base-images/
 [init-system-link]:https://en.wikipedia.org/wiki/Init
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [supervisor-api-link]:/runtime/supervisor-api/
 [expressjs-link]:http://expressjs.com/
-[projects-github]:https://github.com/resin-io-projects
-[systemd-base-image-link]:https://hub.docker.com/r/resin/raspberrypi-python/
+[projects-github]:{{ $links.githubProjects }}
+[systemd-base-image-link]:https://hub.docker.com/r/{{ $names.company.short }}/raspberrypi-python/
 [dnsmasq-link]:http://www.thekelleys.org.uk/dnsmasq/doc.html
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
 [dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/

@@ -1,12 +1,12 @@
 ---
-title: Welcome to resin.io
+title: Welcome
 ---
 
 # Welcome
 
-[Resin.io][resin] makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
+[{{ $names.company.upper }}][resin] makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
 
-Our [resin.io primer][primer] covers the platform from end to end, walking through all the pieces and how they fit together. We've also defined some [core concepts][concepts] you'll see throughout the documentation.
+Our [{{ $names.company.lower }} primer][primer] covers the platform from end to end, walking through all the pieces and how they fit together. We've also defined some [core concepts][concepts] you'll see throughout the documentation.
 
 Ready to dive in? The [getting started guides][getting-started] take you step-by-step through provisioning your first device and deploying your first application.
 
@@ -18,7 +18,7 @@ As you develop your application, these guides will help you configure and packag
 
 ### [Deploy][deploy]
 
-When you're ready to bring your application from one to device to a fleet, read up on the basics of the resin.io build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
+When you're ready to bring your application from one to device to a fleet, read up on the basics of the {{ $names.company.lower }} build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
 
 ### [Manage][manage]
 
@@ -26,7 +26,7 @@ Check here for details on all the tools we provide for managing your device flee
 
 Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][reference] sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help][help] is always available!
 
-[resin]:https://resin.io
+[resin]:{{ $links.mainSiteUrl }}/
 [git]:https://git-scm.com/
 [docker]:https://www.docker.com/
 [rasppi]:https://www.raspberrypi.org/

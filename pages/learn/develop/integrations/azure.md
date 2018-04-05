@@ -1,46 +1,46 @@
 ---
 title: Microsoft Azure IoT Suite integration
-excerpt: Get started with the Microsoft Azure IoT Suire and resin.io
+excerpt: Get started with the Microsoft Azure IoT Suire and {{ $names.company.lower }}
 ---
 
 # [Microsoft Azure IoT Suite][azure] integration
 
-[Resin.io][resin] makes it simple to deploy, update, and maintain code running on remote devices. Microsoft's new IoT Suite makes it easy to manage and capture the data those devices generate. This tutorial will walk you through using the two in conjunction.
+[{{ $names.company.upper }}][resin] makes it simple to deploy, update, and maintain code running on remote devices. Microsoft's new IoT Suite makes it easy to manage and capture the data those devices generate. This tutorial will walk you through using the two in conjunction.
 
 
-## Connect your device to resin.io
+## Connect your device to {{ $names.company.lower }}
 
-Follow our [getting started guide][installing] to get your device connect to your resin.io dashboard. Once your device shows up on the dashboard you're ready for the next step.
+Follow our [getting started guide][installing] to get your device connect to your {{ $names.company.lower }} dashboard. Once your device shows up on the dashboard you're ready for the next step.
 
 ![factory-build](/img/integrations/azure/factory-build.png)
 
-## Create the resin.io API Key
+## Create the {{ $names.company.lower }} API Key
 
-Find your Application ID in the resin.io dashboard url: https://dashboard.resin.io/apps/NNNN/devices and your auth-token from the [preferences panel](https://dashboard.resin.io/preferences?tab=details). Then combine insert the two into the curl request below.
+Find your Application ID in the {{ $names.company.lower }} dashboard url: {{ $links.dashboardUrl }}/apps/NNNN/devices and your auth-token from the [preferences panel]({{ $links.dashboardUrl }}/preferences?tab=details). Then combine insert the two into the curl request below.
 
 ```
-curl -H 'Authorization: Bearer AUTH_TOKEN' -X POST https://api.resin.io/application/NNNN/generate-api-key
+curl -H 'Authorization: Bearer AUTH_TOKEN' -X POST https://api.{{ $names.domain }}/application/NNNN/generate-api-key
 ```
 
 This will return your new API key.
 
 __NOTE:__ The key will be returned in quotation marks, but these should be stripped before using it in the following step.
 
-## Add resin.io API key to IoT Hub Admin portal
+## Add {{ $names.company.lower }} API key to IoT Hub Admin portal
 
 Signup and following the [Azure IoT Suite getting started guide](http://www.microsoft.com/en-us/server-cloud/internet-of-things/getting-started.aspx).
 
-__NOTE:__ you'll have to use the [special version][integration] with resin.io integration additions as our integration is not currently a part of the code Microsoft releases.
+__NOTE:__ you'll have to use the [special version][integration] with {{ $names.company.lower }} integration additions as our integration is not currently a part of the code Microsoft releases.
 
-Go to the IoT Hub Admin portal, select 'Resin.io Config' and set the `App ID` and the newly generated `API Key`.
+Go to the IoT Hub Admin portal, select '{{ $names.company.upper }} Config' and set the `App ID` and the newly generated `API Key`.
 
 ![IoT-hub-creds](/img/integrations/azure/iot-hub-creds.png)
 
-This will automatically create a new device on IoT Hub with every device you currently have on resin.io as well as every future device you may have, as it constantly polls for new devices.
+This will automatically create a new device on IoT Hub with every device you currently have on {{ $names.company.lower }} as well as every future device you may have, as it constantly polls for new devices.
 
 ![devices-pending](/img/integrations/azure/devices-pending.png)
 
-This also automatically creates application wide and per device environment variables on resin.io that are accessible by your code. e.g. `$IOT_HUB_DEVICE_ID`. This obviously simplifies sending data to the IoT hub.
+This also automatically creates application wide and per device environment variables on {{ $names.company.lower }} that are accessible by your code. e.g. `$IOT_HUB_DEVICE_ID`. This obviously simplifies sending data to the IoT hub.
 
 The variables are:
 * Application-wide
@@ -67,19 +67,19 @@ First clone the the [sample application][sampleApp] to your local machine.
 __NOTE:__ Our integration is not part of the code Microsoft releases, instead it will stay as a separate fork that should be used instead of the official sample solution.
 
 ```
-git clone https://github.com/resin-io-projects/resin-azure-iot-sample && cd resin-azure-iot-sample && git checkout resin-node
+git clone {{ $links.githubProjects }}/resin-azure-iot-sample && cd resin-azure-iot-sample && git checkout resin-node
 ```
 
-Then add your resin.io applications remote endpoint to the git repository. It can be found in the top right hand corner of your resin applications dashboard.
+Then add your {{ $names.company.lower }} applications remote endpoint to the git repository. It can be found in the top right hand corner of your resin applications dashboard.
 
 ```
-git remote add resin <your-applications-remote-endpoint>
+git remote add {{ $names.company.short }} <your-applications-remote-endpoint>
 ```
 
-Then all that's left to do is push your repository to your resin.io application endpoint we have just created.
+Then all that's left to do is push your repository to your {{ $names.company.lower }} application endpoint we have just created.
 
 ```
-git push resin resin-node:master
+git push {{ $names.company.short }} resin-node:master
 ```
 
 Once the container is successfully built (you'll see a unicorn), the container will begin to download to the device.
@@ -97,9 +97,9 @@ Now you’re done. Provision as many devices as you need with resin (you can use
 
 ![devices-running](/img/integrations/azure/devices-running.png)
 
-[resin]:http://resin.io
+[resin]:{{ $links.mainSiteUrl }}
 [installing]:/installing/gettingStarted
 [azure]:http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx
 [screencast]:https://vimeo.com/136840643
-[integration]:https://github.com/resin-io-projects/resin-azure-iot-remote-monitoring
-[sampleApp]:https://github.com/resin-io-projects/resin-azure-iot-sample
+[integration]:{{ $links.githubProjects }}/resin-azure-iot-remote-monitoring
+[sampleApp]:{{ $links.githubProjects }}/resin-azure-iot-sample

@@ -3,7 +3,7 @@
 
 * [A Kitra 520][kitra520-link] product accelerator development board from [RushUp](http://www.rushup.tech/).
 * At least one wireless antenna (included in the kit).
-* [Samsung ARTIK 520][artik5-eval-link] development carrier board. We recommended either version 3.0-3.3 or version 0.5. This development carrier board is required only for flashing the ARTIK 520 module. The Kitra 520 carrier board offers only Fastboot flashing, which is currently unsupported on resin.io.
+* [Samsung ARTIK 520][artik5-eval-link] development carrier board. We recommended either version 3.0-3.3 or version 0.5. This development carrier board is required only for flashing the ARTIK 520 module. The Kitra 520 carrier board offers only Fastboot flashing, which is currently unsupported on {{ $names.company.lower }}.
 * A 4GB or larger SD card to create a boot disk. The [speed class][sdSpeed] of the card is important—a class 10 card or above is the way to go.
 * A micro USB cable.
 * **[Optional]** A [2A+ micro USB 5V power supply][psu]

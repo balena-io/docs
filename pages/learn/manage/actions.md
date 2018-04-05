@@ -14,7 +14,7 @@ Actions allow you to control the status of your applications and devices during 
 
 ### Enable Public Device URL
 
-Resin.io currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<RESIN_DEVICE_UUID>.resindevice.io`, where `<RESIN_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard.
+{{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.resindevice.io`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard.
 
 <img src="/img/screenshots/device-url-new.png" width="80%">
 
@@ -36,7 +36,7 @@ __Warning:__ Restart device container is not equivalent to a reboot of the devic
 
 ### Purge Data
 
-This action clears [persistent storage][persistent-storage] on any applicable devices. For devices running resinOS versions before 2.12.0, this means clearing the `/data` folder in the container (and the associated volume at `/mnt/data/resin-data`). On newer resinOS versions, this action deletes all named volumes and recreates them as empty.
+This action clears [persistent storage][persistent-storage] on any applicable devices. For devices running {{ $names.os.lower }} versions before 2.12.0, this means clearing the `/data` folder in the container (and the associated volume at `/mnt/data/resin-data`). On newer {{ $names.os.lower }} versions, this action deletes all named volumes and recreates them as empty.
 
 It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
 
@@ -50,7 +50,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ### Shutdown
 
-The `Shutdown` action allows you to safely shut down your devices. It should be noted that once you trigger this action, there is no way for resin.io to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible
+The `Shutdown` action allows you to safely shut down your devices. It should be noted that once you trigger this action, there is no way for {{ $names.company.lower }} to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
@@ -58,7 +58,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ### Update Locking
 
-In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we added the [update lock functionality][update-locks] in the resin.io device supervisor. This allows your application to pick and choose when and where it would like to allow updates to happen.
+In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we added the [update lock functionality][update-locks] in the {{ $names.company.lower }} device supervisor. This allows your application to pick and choose when and where it would like to allow updates to happen.
 
 Added to this functionality we provided a convenient button to override the lock on the device and essentially force an update. This is a precautionary measure for those times when your application crashes and hasn't released the update lock. This gives you a nice safety net to ensure you can always push new updates.  
 
@@ -72,37 +72,37 @@ Note that you are only able to move devices between applications with device typ
 
 Obviously you may only select one application to transfer your device to. Once you select the appropriate radio button, your device will immediately appear in the selected application's device list. Note that it will take a while for the device to start the update process as it does not receive a push notification of a new code update from the API, so it has to wait for the update poll, which happens every couple of minutes.
 
-__Warning:__ For devices running resinOS version 2.12.0 and above, data in [persistent storage][persistent-storage] (named volumes) is automatically purged when a device is moved to a new application. On older host OS versions, the `/data` folder in the new application will not contain any of the old application data, but it can still be accessed via the host OS and if the device is switched back to the original application. Unless you plan to revert back to the original application, be sure to [purge][purge-data] the `/data` folder.
+__Warning:__ For devices running {{ $names.os.lower }} version 2.12.0 and above, data in [persistent storage][persistent-storage] (named volumes) is automatically purged when a device is moved to a new application. On older host OS versions, the `/data` folder in the new application will not contain any of the old application data, but it can still be accessed via the host OS and if the device is switched back to the original application. Unless you plan to revert back to the original application, be sure to [purge][purge-data] the `/data` folder.
 
-To see a demonstration of moving devices between applications and a little more on the motivation behind the feature have a look at our blog post: [Canary Rollouts with resin.io][move-app-blog-post]
+To see a demonstration of moving devices between applications and a little more on the motivation behind the feature have a look at our blog post: [Canary Rollouts with {{ $names.company.lower }}][move-app-blog-post]
 
-### ResinOS Update
+### {{ $names.os.upper }} Update
 
-This action allows you to remotely update the host OS running on your device. For more details on supported devices and the update process, check out our resinOS [update documentation][updates].
+This action allows you to remotely update the host OS running on your device. For more details on supported devices and the update process, check out our {{ $names.os.lower }} [update documentation][updates].
 
 ### Local Mode
 
-Turning on local mode is useful when you are prototyping your application, as it allows you to push changes to your device over the local network without relying on the resin.io build pipeline. You can find more information in our [development guide][local-mode].
+Turning on local mode is useful when you are prototyping your application, as it allows you to push changes to your device over the local network without relying on the {{ $names.company.lower }} build pipeline. You can find more information in our [development guide][local-mode].
 
 ### Delete Device
 
-The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the application and remote endpoint. Once you have deleted a device from the application it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the resin.io dashboard or API.
+The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the application and remote endpoint. Once you have deleted a device from the application it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the {{ $names.company.lower }} dashboard or API.
 
 ## Application-specific actions
 
 ### Change Application Type
 
-This option allows you to convert your application to [another type][app-types], as long as the devices in the application meet the resinOS version requirements and your account has the appropriate privileges.
+This option allows you to convert your application to [another type][app-types], as long as the devices in the application meet the {{ $names.os.lower }} version requirements and your account has the appropriate privileges.
 
 ### Delete Application
 
 This option permanently deletes your application.
 
-__Warning:__ It is a good idea to [move your devices to another application][move-devices] before deleting your current application. If you do not, **all devices attached to the application will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device actions from resin.io.
+__Warning:__ It is a good idea to [move your devices to another application][move-devices] before deleting your current application. If you do not, **all devices attached to the application will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device actions from {{ $names.company.lower }}.
 
 [update-locks]:/learn/deploy/release-strategy/update-locking
-[move-app-blog-post]:https://resin.io/blog/canary-rollouts-on-resin-io/
-[updates]:/reference/resinOS/updates/self-service
+[move-app-blog-post]:{{ $links.mainSiteUrl }}/blog/canary-rollouts-on-resin-io/
+[updates]:/reference/OS/updates/self-service
 [local-mode]:/learn/develop/local-mode
 [move-devices]:#move-to-another-application
 [app-types]:/learn/manage/app-types

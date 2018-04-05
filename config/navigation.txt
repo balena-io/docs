@@ -86,16 +86,16 @@ Reference
     [/reference/hardware/devices]
     [/reference/hardware/wifi-dongles]
 
-  resinOS
-    What is resinOS?[/reference/resinOS/overview/$os_version]
+  Host OS
+    What is {{ $names.os.lower }}?[/reference/OS/overview/$os_version]
     Host OS updates
-      [/reference/resinOS/updates/self-service]
-      [/reference/resinOS/updates/update-process]
-      [/reference/resinOS/updates/migrate-to-2.0]
-    Network[/reference/resinOS/network/$os_version]
-    [/reference/resinOS/time]
-    [/reference/resinOS/advanced]
-    [/reference/resinOS/meta-resin]
+      [/reference/OS/updates/self-service]
+      [/reference/OS/updates/update-process]
+      [/reference/OS/updates/migrate-to-2.0]
+    Network[/reference/OS/network/$os_version]
+    [/reference/OS/time]
+    [/reference/OS/advanced]
+    [/reference/OS/meta-resin]
     
   Device supervisor
     Supervisor API[/reference/supervisor/supervisor-api]

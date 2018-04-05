@@ -35,17 +35,17 @@
 ^\/learn\/manage\/?(\?.+)?(#.+)?$ -> /learn/manage/account/$1$2
 ^\/faq\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/faq/$1$2
 ^\/reference\/?(\?.+)?(#.+)?$ -> /reference/hardware/devices/$1$2
-^\/deployment\/network\/2\.0.*\/?(\?.+)?(#.+)?$ -> /reference/resinOS/network/2.x/$1$2
-^\/deployment\/network\/1.x.x\/?(\?.+)?(#.+)?$-> /reference/resinOS/network/1.x/$1$2
-^\/understanding/understanding-devices\/2\.0.*\/?(\?.+)?(#.+)?$ -> /reference/resinOS/overview/2.x/$1$2
-^\/understanding/understanding-devices\/1.x.x\/?(\?.+)?(#.+)?$ -> /reference/resinOS/overview/1.x/$1$2
+^\/deployment\/network\/2\.0.*\/?(\?.+)?(#.+)?$ -> /reference/OS/network/2.x/$1$2
+^\/deployment\/network\/1.x.x\/?(\?.+)?(#.+)?$-> /reference/OS/network/1.x/$1$2
+^\/understanding/understanding-devices\/2\.0.*\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/2.x/$1$2
+^\/understanding/understanding-devices\/1.x.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/1.x/$1$2
 ^\/reference\/api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
 
 # Renamed pages
 ^\/using\/dockerfile\/?(\?.+)?(#.+)?$ -> /learn/develop/dockerfile/$1$2
-^\/runtime\/migrate-to-2.0\/?(\?.+)?(#.+)?$ -> /reference/resinOS/updates/migrate-to-2.0/$1$2
+^\/runtime\/migrate-to-2.0\/?(\?.+)?(#.+)?$ -> /reference/OS/updates/migrate-to-2.0/$1$2
 ^\/configuration\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/resin-base-images/$1$2
-^\/deployment\/wifi\/?(\?.+)?(#.+)?$ -> /reference/resinOS/network/2.x/$1$2
+^\/deployment\/wifi\/?(\?.+)?(#.+)?$ -> /reference/OS/network/2.x/$1$2
 ^\/runtime\/terminal\/?(\?.+)?(#.+)?$ -> /learn/manage/ssh-access/$1$2
 ^\/using\/cli\/?(\?.+)?(#.+)?$ -> /reference/cli/$1$2
 
@@ -57,16 +57,16 @@
 ^\/deployment\/deployment\/?(\?.+)?(#.+)?$  -> /learn/deploy/deployment/$1$2
 ^\/deployment\/dockerfile\/?(\?.+)?(#.+)?$  -> /learn/develop/dockerfile/$1$2
 ^\/runtime\/runtime\/?(\?.+)?(#.+)?$  -> /learn/develop/runtime/$1$2
-^\/runtime\/time\/?(\?.+)?(#.+)?$  -> /reference/resinOS/time/$1$2
+^\/runtime\/time\/?(\?.+)?(#.+)?$  -> /reference/OS/time/$1$2
 ^\/runtime\/update-strategies\/?(\?.+)?(#.+)?$  -> /learn/deploy/release-strategy/update-strategies/$1$2
 ^\/runtime\/delta\/?(\?.+)?(#.+)?$  -> /learn/deploy/delta/$1$2
 ^\/runtime\/bandwidth-reduction\/?(\?.+)?(#.+)?$  -> /reference/supervisor/bandwidth-reduction/$1$2
 ^\/runtime\/update-locking\/?(\?.+)?(#.+)?$  -> /learn/deploy/release-strategy/update-locking/$1$2
 ^\/development\/local-mode\/?(\?.+)?(#.+)?$  -> /learn/develop/local-mode/$1$2
-^\/understanding\/understanding-devices\/?(.*)  -> /reference/resinOS/overview/$1
-^\/updates\/self-service\/?(\?.+)?(#.+)?$  -> /reference/resinOS/updates/self-service/$1$2
-^\/updates\/update-process\/?(\?.+)?(#.+)?$  -> /reference/resinOS/updates/update-process/$1$2
-^\/update\/migrate-to-2.0\/?(\?.+)?(#.+)?$  -> /reference/resinOS/updates/migrate-to-2.0/$1$2
+^\/understanding\/understanding-devices\/?(.*)  -> /reference/OS/overview/$1
+^\/updates\/self-service\/?(\?.+)?(#.+)?$  -> /reference/OS/updates/self-service/$1$2
+^\/updates\/update-process\/?(\?.+)?(#.+)?$  -> /reference/OS/updates/update-process/$1$2
+^\/update\/migrate-to-2.0\/?(\?.+)?(#.+)?$  -> /reference/OS/updates/migrate-to-2.0/$1$2
 ^\/hardware\/gpio\/?(\?.+)?(#.+)?$  -> /learn/develop/hardware/gpio/$1$2
 ^\/hardware\/i2c-and-spi\/?(\?.+)?(#.+)?$  -> /learn/develop/hardware/i2c-and-spi/$1$2
 ^\/hardware\/wifi-dongles\/?(\?.+)?(#.+)?$  -> /reference/hardware/wifi-dongles/$1$2
@@ -74,11 +74,11 @@
 ^\/management\/applications\/?(\?.+)?(#.+)?$  -> /learn/manage/actions/$1$2
 ^\/management\/devices\/?(\?.+)?(#.+)?$  -> /learn/manage/actions/$1$2
 ^\/management\/preferences\/?(\?.+)?(#.+)?$  -> /learn/manage/account/$1$2
-^\/configuration\/advanced\/?(\?.+)?(#.+)?$  -> /reference/resinOS/advanced/$1$2
-^\/deployment\/network\/?(.*) -> /reference/resinOS/network/$1
+^\/configuration\/advanced\/?(\?.+)?(#.+)?$  -> /reference/OS/advanced/$1$2
+^\/deployment\/network\/?(.*) -> /reference/OS/network/$1
 ^\/security\/?(\?.+)?(#.+)?$  -> /learn/welcome/security/$1$2
 ^\/integrations\/?(.*) -> /learn/develop/integrations/$1
-^\/hardware\/meta-resin\/?(\?.+)?(#.+)?$ -> /reference/resinOS/meta-resin/$1$2
+^\/hardware\/meta-resin\/?(\?.+)?(#.+)?$ -> /reference/OS/meta-resin/$1$2
 ^\/advanced\/resources\/?(\?.+)?(#.+)?$ -> /learn/more/resources/$1$2
 ^\/examples\/?(.*) -> /learn/more/examples/$1
 ^\/troubleshooting\/faq\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/faq/$1$2
@@ -98,3 +98,4 @@
 ^\/devicetypes\/?(\?.+)?(#.+)?$ -> /reference/base-images/devicetypes/$1$2
 ^\/deployment\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2
 ^\/reference/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
+^\/reference/resinOS\/?(.*) -> /reference/OS/$1

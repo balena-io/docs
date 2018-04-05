@@ -1,12 +1,12 @@
 ---
 title: IBM Bluemix Watson IoT integration
-excerpt: Getting started with IBM Bluemix Watson IoT platform and resin.io
+excerpt: Getting started with IBM Bluemix Watson IoT platform and {{ $names.company.lower }}
 thumbnail: /img/integrations/bluemix/Bluemix_IoT_dashboard.png
 ---
 
 # IBM Bluemix Watson IoT integration
 
-[IBM Bluemix](https://new-console.ng.bluemix.net/) is an open standards, hybrid cloud development platform for building, running, and managing apps and services. It includes and connects a large number of different services to enable the creation of complex application. This document provides an overview how to use the [Watson IoT](http://www.ibm.com/internet-of-things/) component with resin.io to deploy IoT devices on the Bluemix platform. Setting up an IoT device allows sending data from devices, such as telemetry and sensor readings, and receive commands to perform actions.
+[IBM Bluemix](https://new-console.ng.bluemix.net/) is an open standards, hybrid cloud development platform for building, running, and managing apps and services. It includes and connects a large number of different services to enable the creation of complex application. This document provides an overview how to use the [Watson IoT](http://www.ibm.com/internet-of-things/) component with {{ $names.company.lower }} to deploy IoT devices on the Bluemix platform. Setting up an IoT device allows sending data from devices, such as telemetry and sensor readings, and receive commands to perform actions.
 
 ## Configuring Bluemix Watson IoT
 
@@ -80,9 +80,9 @@ The platform will provide you with a pair of "API Key" and "Authentication Token
 
 ![Generated API key](/img/integrations/bluemix/Bluemix_app_api_key.png)
 
-## Configuring Resin.io
+## Configuring {{ $names.company.upper }}
 
-Go to your [resin.io dashboard](https://dashboard.resin.io) and create a new application with the physical device type you are using.
+Go to your [{{ $names.company.lower }} dashboard]({{ $links.dashboardUrl }}/) and create a new application with the physical device type you are using.
 
 The next step depends on whether you are doing manual or automatic device creation on Bluemix.
 
@@ -96,7 +96,7 @@ In the application dashboard define five [application-wide environment variables
 * `BLUEMIX_AUTH_METHOD`: this usually has the value `token`
 * `BLUEMIX_DEVICE_TOKEN`: auth token for the particular device
 
-though can use any other value you like. Here `BLUEMIX_ORG`, `BLUEMIX_DEVICE_TYPE`, and `BLUEMIX_AUTH_METHOD` will likely be the same for all devices within a resin.io application, so set them to the correct values. `BLUEMIX_DEVICE_ID` and `BLUEMIX_DEVICE_TOKEN` will be different for all devices, so set them application-wide to `REDEFINE` or something similar to remind you to redefine them in the [device-level environment variables](/management/env-vars/#per-device)!
+though can use any other value you like. Here `BLUEMIX_ORG`, `BLUEMIX_DEVICE_TYPE`, and `BLUEMIX_AUTH_METHOD` will likely be the same for all devices within a {{ $names.company.lower }} application, so set them to the correct values. `BLUEMIX_DEVICE_ID` and `BLUEMIX_DEVICE_TOKEN` will be different for all devices, so set them application-wide to `REDEFINE` or something similar to remind you to redefine them in the [device-level environment variables](/management/env-vars/#per-device)!
 
 ![Application Environment Variables](/img/integrations/bluemix/Bluemix_resin_env1.png)
 
@@ -117,9 +117,9 @@ If using automatic device setup, you must have created a set of application API 
 
 Your code then can interact with Bluemix to set up new devices as it fits your use case.
 
-One common use case is setting up a device on Bluemix with the same device ID (name) as on resin.io. For this, at the moment you need to use the resin SDK ([Python](/tools/python-sdk/), [Node.js](/tools/sdk/)) to get the device's name. You can also use the SDK to create the relevant `BLUEMIX_DEVICE_ID` and `BLUEMIX_DEVICE_TOKEN` environment variables, if you device code uses them for authenticating to Bluemix (for example reusing code that can either manually or automatically register to Bluemix).
+One common use case is setting up a device on Bluemix with the same device ID (name) as on {{ $names.company.lower }}. For this, at the moment you need to use the resin SDK ([Python](/tools/python-sdk/), [Node.js](/tools/sdk/)) to get the device's name. You can also use the SDK to create the relevant `BLUEMIX_DEVICE_ID` and `BLUEMIX_DEVICE_TOKEN` environment variables, if you device code uses them for authenticating to Bluemix (for example reusing code that can either manually or automatically register to Bluemix).
 
-To use the resin SDK from a device, at the moment you have to pass your resin.io API key (found in the Dashboard / Preferences section) to the device, for example through environment variables.
+To use the resin SDK from a device, at the moment you have to pass your {{ $names.company.lower }} API key (found in the Dashboard / Preferences section) to the device, for example through environment variables.
 
 For example projects implementing automatic device setup, see the [sample apps](#sample-apps) section below.
 
@@ -127,18 +127,18 @@ For example projects implementing automatic device setup, see the [sample apps](
 
 Programming the IBM Bluemix Watson IoT platform has an [extensive documentation](https://docs.internetofthings.ibmcloud.com/index.html), detailing both device and application development. They provide HTTP, MQTT, Python, Node.js, Java, C#, Embedded C, mBed C++ documentation for devices and HTTP, MQTT, Python, Node.js, Java, and C# for applications. There are [Python](https://github.com/ibm-watson-iot/iot-python), [Node.js](https://github.com/ibm-watson-iot/iot-nodejs), [Java](https://github.com/ibm-watson-iot/iot-java), and [C#](https://github.com/ibm-watson-iot/iot-csharp) and other SDKs available on [GitHub](https://github.com/ibm-watson-iot/).
 
-For devices on resin.io, the most commonly used languages are Python and Node.js, so will showcase some information for these languages below.
+For devices on {{ $names.company.lower }}, the most commonly used languages are Python and Node.js, so will showcase some information for these languages below.
 
 ### Python
 
 #### Using the Python SDK
 
-For a complete Python example which includes a device and a command line application to interact with the device, you can check [bluemix-resin-python](https://github.com/resin-io-projects/bluemix-resin-python)).
+For a complete Python example which includes a device and a command line application to interact with the device, you can check [bluemix-resin-python]({{ $links.githubProjects }}/bluemix-resin-python)).
 
-The following are a few notes using the [Python SDK](https://github.com/ibm-watson-iot/iot-python) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
+The following are a few notes using the [Python SDK](https://github.com/ibm-watson-iot/iot-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
 
 ```Dockerfile
-FROM resin/%%RESIN_MACHINE_NAME%%-python
+FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
 ```
 
 Add the `ibmiotf` dependency in your `requirements.txt` file, either using the latest published version, or pulling the library directly from GitHub.:
@@ -223,10 +223,10 @@ For further examples, you can check the [samples included in the Python SDK](htt
 
 #### Using the Node.js SDK
 
-Here are a few notes using the [Node.js SDK](https://github.com/ibm-watson-iot/iot-nodejs) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
+Here are a few notes using the [Node.js SDK](https://github.com/ibm-watson-iot/iot-nodejs) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
 
 ```Dockerfile
-FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
+FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
 ```
 
 Add the `ibmiotf` dependency in your `package.json` in your application's folder:
@@ -287,5 +287,5 @@ There is an example how to [visualize your data](https://developer.ibm.com/recip
 
 A few sample apps to get started:
 
-* [bluemix-resin-python demo project](https://github.com/resin-io-projects/bluemix-resin-python): automatic or manual device registration, send data and receive actions
+* [bluemix-resin-python demo project]({{ $links.githubProjects }}/bluemix-resin-python): automatic or manual device registration, send data and receive actions
 * [Resin-Bluemix boilerplate](https://github.com/craig-mulligan/resin-bluemix-boilerplate): automatically register your device and publish data to your Bluemix app

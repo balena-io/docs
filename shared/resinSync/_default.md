@@ -3,12 +3,12 @@ Okay, so now we know how to provision a device and push code. There is just one 
 
 Luckily, our nifty little command line tool `resin sync` is here to save the day. It allows you to quickly sync source code and file changes across to one of the devices in your fleet, so you can rapidly iterate code on this test device before releasing it to the whole fleet.
 
-__Note:__ Resin sync will only work on ResinOS v1.1.4+
+__Note:__ Resin sync will only work on {{ $names.os.upper }} v1.1.4+
 and Agent v1.8.0+.
 
 #### Setting up resin sync.
 
-Resin sync is bundled in with our handy resin CLI. The CLI allows you to basically do all your resin.io management from the comfort of the command line. Read the [CLI reference][cli-ref-link] more info on all the cool things it can do.
+Resin sync is bundled in with our handy resin CLI. The CLI allows you to basically do all your {{ $names.company.lower }} management from the comfort of the command line. Read the [CLI reference][cli-ref-link] more info on all the cool things it can do.
 
 __Warning:__ Currently resin sync is **NOT** supported on Windows. Support is currently being worked on, you can check the progress on this on the [git repository][windows-support].
 
@@ -34,7 +34,7 @@ ______          _         _
 | |\ \  __/\__ \ | | | |_| | (_) |
 \_| \_\___||___/_|_| |_(_)_|\___/
 
-Logging in to resin.io
+Logging in to {{ $names.company.lower }}
 ? How would you like to login? (Use arrow keys)
 ❯ Web authorisation (recommended)
   Credentials
@@ -43,5 +43,5 @@ Logging in to resin.io
 ```
 
 [cli-ref-link]:/tools/cli/
-[windows-support]:https://github.com/resin-io-modules/resin-sync/blob/feat/windows-support/README.md#windows
+[windows-support]:{{ $links.githubMain }}-modules/resin-sync/blob/feat/windows-support/README.md#windows
 [nodejs-link]:https://nodejs.org/en/

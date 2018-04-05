@@ -5,7 +5,7 @@ Welcome to the Resin SDK documentation.
 
 This document aims to describe all the functions supported by the SDK, as well as showing examples of their expected usage.
 
-If you feel something is missing, not clear or could be improved, please don't hesitate to open an [issue in GitHub](https://github.com/resin-io/resin-sdk/issues/new), we'll be happy to help.
+If you feel something is missing, not clear or could be improved, please don't hesitate to open an [issue in GitHub]({{ $links.githubMain }}/resin-sdk/issues/new), we'll be happy to help.
 
 **Kind**: global namespace  
 
@@ -210,7 +210,7 @@ using the same token and hooks as the SDK.
 **Access**: public  
 **Example**  
 ```js
-resin.request.send({ url: 'http://api.resin.io/ping' });
+resin.request.send({ url: 'http://api.{{ $names.domain }}/ping' });
 ```
 <a name="resin.pine"></a>
 
@@ -2847,7 +2847,7 @@ resin.models.environmentVariables.remove(51, function(error) {
 **Example**  
 ```js
 resin.models.environmentVariables.isSystemVariable({
-	name: 'RESIN_SUPERVISOR'
+	name: '{{ $names.company.allCaps }}_SUPERVISOR'
 });
 > true
 ```
@@ -3930,8 +3930,8 @@ startup and before any calls to `fromSharedOptions()` are made.
 **Example**  
 ```js
 resin.setSharedOptions({
-	apiUrl: 'https://api.resin.io/',
-	imageMakerUrl: 'https://img.resin.io/',
+	apiUrl: 'https://api.{{ $names.domain }}/',
+	imageMakerUrl: 'https://img.{{ $names.domain }}/',
 	isBrowser: true,
 });
 ```

@@ -14,7 +14,7 @@ title: I2C and Other Interfaces
   * [Raspberry Pi 7” Touchscreen Display](/hardware/i2c-and-spi#raspberry-pi-7-touchscreen-display)
   * [Customising config.txt](/hardware/i2c-and-spi#customizing-config-txt)
 * [Beaglebone](/hardware/i2c-and-spi#beaglebone)
-  * [Capemgr support](/hardware/i2c-and-spi#capemgr-support-on-resin-io-devices)
+  * [Capemgr support](/hardware/i2c-and-spi#capemgr-support)
   * [Disable HDMI](/hardware/i2c-and-spi#disable-hdmi)
 * [Intel Edison](/hardware/i2c-and-spi#intel-edison)
   * [MRAA for GPIO and hardware access](/hardware/i2c-and-spi#mraa-for-gpio-and-hardware-access)
@@ -22,7 +22,7 @@ title: I2C and Other Interfaces
 
 ## Raspberry Pi Family
 
-Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2c-link] or the [SPI (Serial Peripheral Interface)][spi-link] to communicate with the CPU. In most linux environments, using this kind of low level communication requires enabling a kernel module. In resin.io containers this can be done in a similar way because the containers are run in `--priviledged` mode.
+Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2c-link] or the [SPI (Serial Peripheral Interface)][spi-link] to communicate with the CPU. In most linux environments, using this kind of low level communication requires enabling a kernel module. In {{ $names.company.lower }} containers this can be done in a similar way because the containers are run in `--priviledged` mode.
 
 ### I2C
 
@@ -43,7 +43,7 @@ CMD modprobe i2c-dev && python /app/demo.py
 
 After your first push, the code will most likely throw an error caused by the modules not being loaded. If this is the case, simply reboot the pi and the modules should be loaded.
 
-__NOTE:__ A few places will talk about adding the modules to the /etc/modules file so that they are there on boot. This will not work on the resin.io system because that file is not mapped to the host OS.
+__NOTE:__ A few places will talk about adding the modules to the /etc/modules file so that they are there on boot. This will not work on the {{ $names.company.lower }} system because that file is not mapped to the host OS.
 
 To get you started, here is an [example][i2c-example] that uses i2c to communicate with the [ADS1115][ads1115-link] analog-to-digital converter to allow the Raspberry Pi to read analog signals, which is useful for a bunch of sensor types.
 
@@ -57,7 +57,7 @@ For an example of this, check our this project: [digitiser][digitiser-link].
 
 Serial is disabled by default on the Raspberry Pi 3. To enable it you will need to do the following:
 
-* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following lines.
+* Edit the `config.txt` in `{{ $names.company.short }}-boot` partition of the SD card and append the following lines.
 
 ```
 enable_uart=1
@@ -67,7 +67,7 @@ enable_uart=1
 
 In order to work work with 1-wire and digital temperature sensors you will need to do the following:
 
-* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following lines.
+* Edit the `config.txt` in `{{ $names.company.short }}-boot` partition of the SD card and append the following lines.
 
 ```
 dtoverlay=w1-gpio
@@ -82,24 +82,24 @@ To enable UART on `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX` , you will need to
 This can be done in two ways:
 1. Add the following Device (or Fleet) Configuration variable to your device (or Fleet).
 ```
-RESIN_HOST_CONFIG_dtoverlay = pi3-miniuart-bt
+{{ $names.company.allCaps }}_HOST_CONFIG_dtoverlay = pi3-miniuart-bt
 ```
-If you can't find the where to add this configuration go to this page on your dashboard: dashboard.resinstaging.io/apps/`APP_ID`/config but replace `APP_ID` with the number of your application.
+If you can't find the where to add this configuration go to this page on your dashboard: dashboard.r{{ $names.company.short }}staging.io/apps/`APP_ID`/config but replace `APP_ID` with the number of your application.
 
-2. The second, more manual way to enable this configuration is to mount the SD card on your development machine. Find the `resin-boot` partition and in there you should see the Raspberry Pi's boot files, one of which is called `config.txt`. Open this file up and add the following line to the end of the file:
+2. The second, more manual way to enable this configuration is to mount the SD card on your development machine. Find the `{{ $names.company.short }}-boot` partition and in there you should see the Raspberry Pi's boot files, one of which is called `config.txt`. Open this file up and add the following line to the end of the file:
 ```
 dtoverlay=pi3-miniuart-bt
 ```
 
 Now eject the SD card and pop it back into the RPI3, and you can boot the device up again.
 
-To demonstrate this functionality, you can push this project (https://github.com/resin-io-playground/rpi3-uart) to your RPI3. You will also need to add a small jumper wire between `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX`, so that the data sent out of the UART is read back in and displayed in the logs.
+To demonstrate this functionality, you can push this project ({{ $links.githubMain }}-playground/rpi3-uart) to your RPI3. You will also need to add a small jumper wire between `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX`, so that the data sent out of the UART is read back in and displayed in the logs.
 
 ### Raspberry Pi camera module
 
-Depending on the version of your resinOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `RESIN_HOST_CONFIG_variablename` settings in your [fleet or device configuration](/management/env-vars/).
+Depending on the version of your {{ $names.os.lower }}, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `{{ $names.company.short }}-boot` partition of your SD card, or add the settings remotely by using `{{ $names.company.allCaps }}_HOST_CONFIG_variablename` settings in your [fleet or device configuration](/management/env-vars/).
 
-**resinOS 1.16.0 and newer**
+**{{ $names.os.upper }} 1.16.0 and newer**
 
 Set the following values in `config.txt`:
 ```
@@ -107,11 +107,11 @@ gpu_mem=128
 start_x=1
 ```
 or for remote update
-* `RESIN_HOST_CONFIG_gpu_mem` to `128`
-* `RESIN_HOST_CONFIG_start_x` to `1`
+* `{{ $names.company.allCaps }}_HOST_CONFIG_gpu_mem` to `128`
+* `{{ $names.company.allCaps }}_HOST_CONFIG_start_x` to `1`
 in the fleet or device configuration.
 
-**resinOS 1.8.0 and earlier**
+**{{ $names.os.upper }} 1.8.0 and earlier**
 
 Set the following values in `config.txt`:
 ```
@@ -120,9 +120,9 @@ start_file=start_x.elf
 fixup_file=fixup_x.dat
 ```
 or for remote update
-* `RESIN_HOST_CONFIG_gpu_mem` to `128`
-* `RESIN_HOST_CONFIG_start_file` to `start_x.elf`
-* `RESIN_HOST_CONFIG_fixup_file` to `fixup_x.elf`
+* `{{ $names.company.allCaps }}_HOST_CONFIG_gpu_mem` to `128`
+* `{{ $names.company.allCaps }}_HOST_CONFIG_start_file` to `start_x.elf`
+* `{{ $names.company.allCaps }}_HOST_CONFIG_fixup_file` to `fixup_x.elf`
 in the fleet or device configuration.
 
 You will also need to add `modprobe bcm2835-v4l2` before your start scripts in either your `package.json` start command or Dockerfile `CMD` command.
@@ -133,13 +133,13 @@ An example of this is shown in our [Raspberry Pi python picamera][picamera-link]
 
 In order to work with the Raspberry Pi display you will need to do the following:
 
-* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following line.
+* Edit the `config.txt` in `{{ $names.company.short }}-boot` partition of the SD card and append the following line.
 
 ```
 device_tree_overlay=rpi-ft5406-overlay.dtb
 ```
 
-If you want a quick example project to get you started with you new screen, you might want to checkout our [Raspberry Pi Electron starter App](https://github.com/resin-io-projects/electron-rpi-quick-start).
+If you want a quick example project to get you started with you new screen, you might want to checkout our [Raspberry Pi Electron starter App]({{ $links.githubProjects }}/electron-rpi-quick-start).
 
 If you find that you need to change the orientation of you LCD screen, you can easily achieve this by adding the following key/value to your `/boot/config.txt` on your SD card:
 ```
@@ -153,9 +153,9 @@ so won't work with the 16M GPU split.
 ### Customising config.txt
 These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings in the `config.txt` file on the SD cards `boot` partition. See [here](/configuration/advanced/) for more details.
 
-You can also set all of these variables remotely in the Device Configuration (for a single device) or Fleet Configuration (for all devices within an application) menu. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `RESIN_HOST_CONFIG_variable` set to the value `value`. For example:
+You can also set all of these variables remotely in the Device Configuration (for a single device) or Fleet Configuration (for all devices within an application) menu. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `{{ $names.company.allCaps }}_HOST_CONFIG_variable` set to the value `value`. For example:
 
-![Setting the device configuration for Raspberry Pi config.txt variables](/img/hardware/resin_host_config.png)
+![Setting the device configuration for Raspberry Pi config.txt variables](/img/hardware/host_config.png)
 
 For simplicity, below all examples are using the `config.txt` formatting, but all of them are available to set remotely as outlined above.
 
@@ -211,13 +211,13 @@ overscan_bottom=4
 
 Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the Octalbonscript JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
 
-With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module [here](https://github.com/resin-io-projects/beaglebone-adc-node).
+With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module [here]({{ $links.githubProjects }}/beaglebone-adc-node).
 
 __Note:__ The ADC voltage is only rated to 1.8V, if you apply more you risk frying the pin.
 
-### Capemgr support on Resin.io devices
+### Capemgr support
 
-__Warning:__ Capemgr is only supported in resin.io BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a webterminal to your BBB and run `uname -a`.
+__Warning:__ Capemgr is only supported in {{ $names.company.lower }} BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a webterminal to your BBB and run `uname -a`.
 
 ##### Loading a Cape
 ```Bash
@@ -257,7 +257,7 @@ The best and easiest way to interface with GPIO, I2C, SPI or UART on the Intel E
 [MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applications that
 interact directly with the Edison hardware.
 
-If you use our [resin/edison-node][resin-dockerbase-node] or [resin/edison-python][resin-dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
+If you use our [{{ $names.company.short }}/edison-node][{{ $names.company.short }}-dockerbase-node] or [{{ $names.company.short }}/edison-python][{{ $names.company.short }}-dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
 
 Have a look at this [python example](https://github.com/shaunmulligan/hello-python-edison) or this [node.js example](https://github.com/shaunmulligan/edison-blink-node) to get started.
 
@@ -302,8 +302,8 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 [digitiser-link]:https://github.com/shaunmulligan/digitiser
 [firebaseTemp-link]:https://github.com/shaunmulligan/firebaseDTL
 [spi-npm]:https://www.npmjs.com/package/spi
-[picamera-link]:https://github.com/resin-io-projects/resin-rpi-python-picamera
+[picamera-link]:{{ $links.githubProjects }}/resin-rpi-python-picamera
 [mraa-link]:https://github.com/intel-iot-devkit/mraa
 [upm-link]:https://github.com/intel-iot-devkit/upm
-[resin-dockerbase-node]:https://hub.docker.com/r/resin/edison-node/
-[resin-dockerbase-python]:https://hub.docker.com/r/resin/edison-python/
+[{{ $names.company.short }}-dockerbase-node]:https://hub.docker.com/r/{{ $names.company.short }}/edison-node/
+[{{ $names.company.short }}-dockerbase-python]:https://hub.docker.com/r/{{ $names.company.short }}/edison-python/
