@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/kitra/520.png" width="35%">
+<img style="float: right;padding-left: 10px;" src="/img/kitra520/kitra520.jpg" width="35%">
 
 
 * [A Kitra 520][kitra520-link] product accelerator development board from [RushUp](http://www.rushup.tech/).
