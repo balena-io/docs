@@ -440,3 +440,20 @@ header.sticky {
   display: inline-block;
   height: 20px;
 }
+
+.image-row {
+  display: inline-block;
+}
+
+.image-row figure {
+  float: left;
+  text-align: center;
+  margin: 0px 10px;
+}
+
+.image-row img {
+  margin: 0;
+  height: 120px;
+}
+
+

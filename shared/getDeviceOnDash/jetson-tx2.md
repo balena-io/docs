@@ -2,7 +2,7 @@ Make sure your **{{ $device.name }}** development board is powered off. Insert t
 
 __Note:__ This will also completely erase internal storage media, so please make a backup first.
 
-<img src="/img/tx2devboard.png" width="40%">
+<img src="/img/jetson-tx2/tx2devboard.png" width="40%">
 
 At this point your device will attempt to connect to the internet. If you selected WiFi as your connectivity type, remember to attach the WiFi antennas before booting the board. If you selected ethernet, make sure your ethernet cable is plugged in. Your device should show up on the dashboard in 10 minutes or less.
 

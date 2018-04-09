@@ -82,8 +82,8 @@ FAQ
 Reference
 
   Supported devices
-    Single board computers[/reference/hardware/devices]
-    Peripheral devices[/reference/hardware/wifi-dongles]
+    [/reference/hardware/devices]
+    [/reference/hardware/wifi-dongles]
 
   resinOS
     What is resinOS?[/reference/resinOS/overview/$os_version]
