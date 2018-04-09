@@ -1,4 +1,4 @@
-<img height=150px style="float: right;padding-left: 10px;" src="/img/nitrogen6x.jpg">
+<img height=150px style="float: right;padding-left: 10px;" src="/img/nitrogen6x/nitrogen6x.jpg">
 
 
 * A [Nitrogen6x Board i2][nitrogen6x-link] from [Boundary Devices][boundary-devices-link]. Currently we only support the `i2` device type.

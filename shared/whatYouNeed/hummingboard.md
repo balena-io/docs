@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/hummingBoard.png">
+<img style="float: right;padding-left: 10px;" src="/img/hummingboard/hummingboard.jpg">
 
 * A [Humming Board i2][humming-link] from [Solid Run][solid-run]. Currently we only support the `i2` device type.
 * A 4GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - a class 10 card or above is the way to go.

@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/odroidC1Board.jpg">
+<img style="float: right;padding-left: 10px;" src="/img/odroid-c1/odroid-c1.jpg">
 
 * An [Odroid C1][odroidC1-link] development board from [Hardkernel][hardkernel-link].
 
