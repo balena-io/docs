@@ -20,6 +20,7 @@ Supported device types:
 * **IOT2000** can be updated from all available versions to all newer versions.
 * **Jetson TX2** can be updated starting from resinOS 2.7.4+rev1 to all newer versions.
 * **QEMU** devices (both 32 and 64-bit versions) can be updated starting from resinOS 2.9.3+rev1 to all newer versions.
+* **Samsung ARTIK 710** can be updated for all available versions.
 * **TS-4900** can be updated starting from resinOS 2.4.1+rev1 to all newer versions.
 
 At the moment, self-service updates are only available for production resinOS versions. If you need updates for development and beta versions, please contact support or start a thread on the [forums][forums].
