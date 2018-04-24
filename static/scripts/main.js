@@ -108,7 +108,9 @@ $.fn.applyColorbox = function() {
 $.fn.addAnchor = function() {
   this.each(function () {
     var $el = $(this)
-    $el.append(' <a class="hash" href="#' + $el.attr('id') + '">#</a>')
+    if ($el.attr('id')) {
+      $el.append(' <a class="hash" href="#' + $el.attr('id') + '">#</a>')
+    }
   })
   return this
 }
