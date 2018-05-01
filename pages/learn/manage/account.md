@@ -8,6 +8,44 @@ title: Account management
 
 {{> "general/signUp"}}
 
+## Access tokens
+
+Access tokens are used for authentication in the resin.io [API][api], [CLI][cli], and [Node.js][node-sdk] and [Python][python-sdk] SDKs. They are managed in the *Access tokens* tab of the [*Preferences*][prefs] page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
+
+<img src="/img/common/preferences/access_tokens.png" width="80%">
+
+There are two types of access tokens: session tokens and API keys. Both authentication types provide user-level permissions, meaning any user or application with one of these tokens can make changes across devices, applications, and the user account.
+
+### Session tokens
+
+Session tokens are retrieved from the *Preferences* page, and they can be refreshed with the [API][api-refresh]. These tokens expire after seven days, and they cannot be revoked.
+
+### API keys
+
+API keys are named tokens that do not expire and can be revoked as needed. To create a new API key, make sure you are in the *Access tokens* tab of the *Preferences* page, then select *Create API key*:
+
+<img src="/img/common/preferences/create_api_key.png" width="80%">
+
+You'll see a required field for *Token name*, as well as an optional field for *Token description*:
+
+<img src="/img/common/preferences/api_key_name.png" width="40%"> 
+
+When you click *Create token*, you will see a dialog with the new API key: 
+
+<img src="/img/common/preferences/api_key_warning.png" width="60%">
+
+__Warning__: This is your **only** opportunity to see the key, so make sure to download or copy to a secure location!
+
+After you close the dialog, you'll see your API key in the list, complete with name, date of creation, and description:
+
+<img src="/img/common/preferences/api_key_list.png" width="80%">
+
+To revoke one or more API keys, select the boxes to the left of the tokens you wish to remove, then click *Delete selected*:
+
+<img src="/img/common/preferences/api_key_delete.png" width="80%">
+
+API keys can also be generated using the API, [CLI][cli-keys], and [Node.js][node-sdk-keys] and [Python][python-sdk-keys] SDKs.
+
 ## Collaboration management
 
 An organization should create a main account to host all applications that the organization owns. This allows a strict separation between applications the organization owns and employee applications created via their accounts. The main account is bound to the organization itself—the organization should have a well defined process to manage the credentials for its main account. Employees are granted access to the organization applications as collaborators. When an employee should no longer have access to the organization applications, access can be revoked by removing them as a collaborator.
@@ -69,6 +107,17 @@ Now when you log in you will be prompted for the code displayed in your authenti
 [signup]:https://dashboard.resin.io/signup
 [login]:https://dashboard.resin.io/login
 [prefs]:https://dashboard.resin.io/preferences?tab=details
+
+[api]:/reference/data-api
+[cli]:/reference/cli
+[node-sdk]:/reference/sdk/node-sdk
+[python-sdk]:/reference/sdk/python-sdk
+
+[api-refresh]:/reference/data-api/#refresh-token
+
+[cli-keys]:/reference/cli/#api-key-generate-name-
+[node-sdk-keys]:/reference/sdk/node-sdk/#auth-createapikey-name-code-promise-code-
+[python-sdk-keys]:/reference/sdk/python-sdk/#function-create_api_key-name-description-
 
 [2fa]:https://en.wikipedia.org/wiki/Two_factor_authentication
 [totp]:https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm

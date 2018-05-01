@@ -16,7 +16,7 @@ Building the full URLs for accessing resources requires to append the correspond
 
 ### Authentication
 
-All requests are authenticated with a [JSON web token](https://jwt.io/). The token can be retrieved from the [dashboard](https://dashboard.resin.io/preferences/details) and refreshed via the [API](#refresh-token).
+API requests are authorized using [session tokens][tokens] or [named API keys][api-keys]. To authenticate with either type of authentication token, make sure to include `Authorization: Bearer <auth token>` as a header in your API call.
 
 ## Interacting with resources
 
@@ -643,3 +643,6 @@ curl -X DELETE "{{ $links.apiBase }}environment_variable(<ID>)"
 -H "Content-Type: application/json" 
 -H "Authorization: Bearer <auth_token>"
 ```
+
+[tokens]:/learn/manage/account/#session-tokens
+[api-keys]:/learn/manage/account/#api-keys
