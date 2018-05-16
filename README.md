@@ -3,7 +3,7 @@ Resin.io Documentation
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qbsivehgnq0vyrrb?svg=true)](https://ci.appveyor.com/project/fedealconada/resin-docs)
 
-Join our [Forums](https://forums.resin.io/), or online chat at [![Gitter chat](https://badges.gitter.im/resin-io/chat.png)](https://gitter.im/resin-io/chat)
+Join us on our [Forums](https://forums.resin.io/).
 
 Documentation for the [Resin.io](https://resin.io/) platform.
 
