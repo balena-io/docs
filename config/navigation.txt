@@ -106,7 +106,9 @@ Reference
     [/reference/base-images/devicetypes]
     [/reference/base-images/custom-docker-base-images]  
 
-  API[/reference/data-api]
+  API
+    [/reference/api/overview]
+    Resources[/reference/api/resources/$resource]
 
   CLI[/reference/cli]
   SDKs
