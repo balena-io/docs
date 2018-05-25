@@ -109,7 +109,7 @@ This project contains examples of how to use Resin Golang images on devices supp
 
 ### Flogo
 
-You can use Project Flogo to develop IoT Edge application with no code using a Graphical development web UI.
+You can use Project Flogo to develop IoT edge applications with no code using a graphical development web UI.
 
 This hello world for Flogo helps you to get started.
 
