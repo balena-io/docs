@@ -21,7 +21,7 @@ Supported device types:
 * **Jetson TX1** can be updated for all available versions.
 * **Jetson TX2** can be updated starting from resinOS 2.7.4+rev1 to all newer versions.
 * **Odroid C1** can be updated beginning with the available 2.x versions.
-* **Odroid XU4** can updated beginning with the available 2.x versions.
+* **Odroid XU4** can be updated beginning with the available 2.x versions.
 * **Orange Pi Plus2** can be updated for all available versions.
 * **QEMU** devices (both 32 and 64-bit versions) can be updated starting from resinOS 2.9.3+rev1 to all newer versions.
 * **Samsung ARTIK 710** can be updated for all available versions.
