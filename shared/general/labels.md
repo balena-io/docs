@@ -1,5 +1,6 @@
 Label | Default | Description
 --- | --- | ---
+io.resin.features.balena-socket | false | Bind mounts the balena container engine socket into the container
 io.resin.features.dbus | false | Bind mounts the host OS dbus into the container using `/run/dbus:/host/run/dbus`
 io.resin.features.kernel-modules | false | Bind mounts the host OS `/lib/modules` into the container. (i.e. `/lib/modules:/lib/modules`)
 io.resin.features.firmware | false | Bind mounts the host OS `/lib/firmware` into the container
