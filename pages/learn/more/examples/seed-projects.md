@@ -107,6 +107,15 @@ this project will only work on the Intel Edison.
 
 This project contains examples of how to use Resin Golang images on devices supported by Resin.io.
 
+### Flogo
+
+You can use Project Flogo to develop IoT edge applications with no code using a graphical development web UI.
+
+This hello world for Flogo helps you to get started.
+
+[Repository][hello-flogo]
+
+
 <!-- ###Language Demo Projects Links  -->
 
 [csharp]:http://msdn.microsoft.com/en-gb/vstudio/hh341490.aspx
@@ -132,6 +141,7 @@ This project contains examples of how to use Resin Golang images on devices supp
 [golang-seed-link]:https://github.com/shaunmulligan/resin-golang-seed.git
 [golang-image-link]:https://github.com/nghiant2710/resin-golang-example.git
 [gb-builder-link]:https://getgb.io/
+[hello-flogo]:https://github.com/ecarlier-tibco/flogo-resin.io
 
 [csharp-dockerfile]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld/blob/master/Dockerfile
 [java-dockerfile]:https://github.com/resin-io/Hello-Java/blob/master/Dockerfile
