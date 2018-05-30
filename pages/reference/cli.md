@@ -553,6 +553,8 @@ This command lists all custom environment variables.
 If you want to see all environment variables, including private
 ones used by resin, use the verbose option.
 
+> At the moment, the CLI doesn't fully support multi-container setups yet, so the following commands will only show service variables without showing which service they belong to.
+
 Example:
 
 	$ resin envs --application MyApp
@@ -603,6 +605,8 @@ device
 ## env add &#60;key&#62; [value]
 
 Use this command to add an enviroment variable to an application.
+
+> At the moment, the CLI doesn't fully support multi-container setups yet, so the following commands will only set service variables for the first service in your application.
 
 If value is omitted, the tool will attempt to use the variable's value
 as defined in your host machine.
