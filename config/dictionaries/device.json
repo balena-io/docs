@@ -160,6 +160,24 @@
     "type": "released"
   },
   {
+    "id": "orangepi-plus2",
+    "name": "Orange Pi Plus2",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/orangepi-plus2.svg",
+    "link": "http://www.orangepi.org/orangepiplus2/",
+    "type": "beta"
+  },
+  {
+    "id": "bananapi-m1-plus",
+    "name": "Banana Pi M1+",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/bananapi-m1-plus.svg",
+    "link": "http://www.banana-pi.org/m1plus.html",
+    "type": "beta"
+  },
+  {
     "id": "artik5",
     "name": "Samsung ARTIK 520",
     "arch": "armv7hf",
