@@ -142,6 +142,15 @@
     "type": "beta"
   },
   {
+    "id": "jetson-tx1",
+    "name": "Jetson TX1",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/jetson-tx1.svg",
+    "link": "https://developer.nvidia.com/embedded/buy/jetson-tx1",
+    "type": "beta"
+  },
+  {
     "id": "intel-nuc",
     "name": "Intel NUC",
     "arch": "amd64",
@@ -149,6 +158,24 @@
     "icon": "/img/device/intel-nuc.svg",
     "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html",
     "type": "released"
+  },
+  {
+    "id": "orangepi-plus2",
+    "name": "Orange Pi Plus2",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/orangepi-plus2.svg",
+    "link": "http://www.orangepi.org/orangepiplus2/",
+    "type": "beta"
+  },
+  {
+    "id": "bananapi-m1-plus",
+    "name": "Banana Pi M1+",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/bananapi-m1-plus.svg",
+    "link": "http://www.banana-pi.org/m1plus.html",
+    "type": "beta"
   },
   {
     "id": "artik5",
