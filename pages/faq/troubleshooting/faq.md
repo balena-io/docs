@@ -4,6 +4,7 @@ title: FAQs
 # Frequently Asked Questions
 
 * [Can I use multiple containers?](#can-i-use-multiple-containers-)
+* [Can I mix device types in an application?](#can-i-mix-device-types-in-an-application-)
 * [How do I push a new git repo to an Application](#how-do-i-push-a-new-git-repo-to-an-application-)
 * [Why does `/data` report weird usage?](#why-does-data-report-weird-usage-)
 * [What NTP servers do resin.io devices use?](#what-ntp-servers-do-resin-io-devices-use-)
@@ -29,6 +30,12 @@ Multiple container applications are supported, beginning with resinOS v2.12.0. T
 __Note:__ If you do not see an option to choose a starter or microservices application type, a multicontainer compatible OS version has not yet been released for the selected device type.
 
 If you are running a Docker-in-Docker setup, which builds a single application container on the resin.io servers but has a `docker-compose.yml` file at the root of the project, you'll want to rename the file to something like `dind-compose.yml`. Then when you run Docker Compose in your container, you can use the `-f` flag with the new file name: `docker-compose -f dind-compose.yml up`.
+
+##### Can I mix device types in an application?
+
+It is possible to have devices of [different types][device-types] in the same application, as long as the devices share the same architecture. For example, you could have an application with both Raspberry Pi 3 and BeagleBone Black devices, as they both use an ARMv7 processor. However, you could not have any Intel NUC devices as part of the same application, as those devices have x86-64 processors.
+
+Regardless of type, all devices in your application will get the same container images. This means that if you have mixed device types you'll need to use an architecture-specific [base image][base-image] in your [Dockerfile][dockerfile], rather than one based on device type.
 
 ##### How do I push a new git repo to an application?
 If you have pushed a repository called `project-A` to your application and at a later stage you would like to push a new project called `project-B`, you can do this by adding the application remote (`git remote add resin <USERNAME>@git.resin.io:<USERNAME>/<APPNAME>.git`) to `project-B`'s local repository. You can then easily push `project-B` to your application by just doing `git push resin master -f`. The extra `-f` on the command forces the push and resets the git history on the git remote on resin.io's backend. You should now have `project-B` running on all the devices in the application fleet. Note that once you have successfully switched to `project-B` you no longer need to add the `-f` on every push, for more info check out the docs on [forced git pushes](https://git-scm.com/docs/git-push#git-push--f).
@@ -128,6 +135,9 @@ Generally, we try to follow good OPSEC practices for our systems. We support 2FA
 Discontinued devices will no longer be actively supported by resin.io. This means we will no longer provide prebuilt versions of resinOS for these devices, and we will not be resolving any issues related to these boards. In addition, it will no longer be possible to create applications for these device types, although existing applications and their devices will still function. If you would like to keep your discontinued devices updated with the latest resinOS changes, you can [build your own](https://github.com/resin-os/meta-resin/blob/master/contributing-device-support.md) board-specific versions using our [open source repos](https://github.com/resin-os). Please contact sales@resin.io with any questions regarding continued device support.
 
 [forums]:https://forums.resin.io/c/troubleshooting
+[device-types]:/reference/base-images/devicetypes
+[base-image]:/reference/base-images/resin-base-images
+[dockerfile]:/learn/develop/dockerfile
 [multicontainer]:/learn/develop/multicontainer
 [app-types]:/learn/manage/app-types
 [static-ip]:/reference/resinOS/network/2.x/#setting-a-static-ip

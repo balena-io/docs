@@ -15,9 +15,9 @@ __Note:__ The resin.io git repository is not intended as a code hosting solution
 
 ## The build server
 
-The build server is an incredibly powerful tool which cross-compiles code for the target device on our (far more powerful) server. This gives you the ability to compile a gnarly dependency tree in seconds on the server rather than minutes or even hours to build on your device.
+The build server is a powerful tool which compiles code specifically for your device's architecture. With our build servers, compiling a gnarly dependency tree can be done in seconds, as compared to the minutes or even hours it may take to build on your device.
 
-All code that is pushed to your resin.io devices is sent to the build server and then, after it is built, the image is shipped to your devices.
+All code that is pushed to your resin.io devices is sent to a build server and then, after it is built, the image is shipped to your devices.
 
 The method our builders use to build your code depends on the project you are pushing. If your project includes a Dockerfile, the builders will execute every command in the Dockerfile, from including the base OS you define, to installing packages, pulling git repositories, and running any other commands you specify.
 
