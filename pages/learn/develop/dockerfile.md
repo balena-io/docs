@@ -109,7 +109,7 @@ Whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process t
 
 For these reasons we have built an [init system][init-system-link] into most of the resin base images listed here: [Resin Base Images Wiki][base-images]. The init system will handle signals, reap zombies and also properly handle [udev][udev-link] hardware events correctly.
 
-There are two ways of enabling the init system in your application. You add can the following environment variable in your Dockerfile:
+There are two ways of enabling the init system in your application. You can add the following environment variable in your Dockerfile:
 ```Dockerfile
 # enable container init system.
 ENV INITSYSTEM on
