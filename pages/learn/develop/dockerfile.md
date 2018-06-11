@@ -82,18 +82,20 @@ CMD ["node", "/usr/src/app/main.js"]
 This template will build and deploy a Node.js project for any of the devices supported by resin.io, regardless of whether the device architecture is [ARM][ARM-link] or [x86][x86-link].
 In this example, you can see the build variable `%%RESIN_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. See below for a list of machine names.
 
- The machine name is inferred from the device type of the application you are pushing to. So if you have an Intel Edison application, the machine name will be `intel-edison` and an `i386` architecture base image will be built.
+The machine name is inferred from the device type of the application you are pushing to. So if you have an Intel Edison application, the machine name will be `intel-edison` and an `i386` architecture base image will be built.
 
 __Note:__ You need to ensure that your dependencies and Node.js modules are also multi-architecture, otherwise you will have a bad time.
 
-Currently our builder supports the following build variables.
+Currently our builder supports the following build variables:
 
 | Variable Name        | Description          |
 | ------------- |-------------|
-| RESIN_MACHINE_NAME    | The name of the yocto machine this board is base on. It is the name that you will see in most of the resin.io [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). | 
+| RESIN_MACHINE_NAME    | The name of the yocto machine this board is based on. It is the name that you will see in most of the resin.io [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). | 
 | RESIN_ARCH    | The instruction set architecture for the base images associated with this device.|
   
-If you want to see an example in action, you can have a look at this [basic openssh example](https://github.com/shaunmulligan/resin-openssh).
+__Note:__ If your application contains devices of different types, the `%%RESIN_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%RESIN_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%RESIN_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application.
+
+If you want to see an example of build variables in action, have a look at this [basic openssh example](https://github.com/shaunmulligan/resin-openssh).
 
 Here are the supported machine names and architectures:
 
