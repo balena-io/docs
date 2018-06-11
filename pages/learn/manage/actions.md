@@ -68,10 +68,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 With the `Move Device` action it is possible to transfer a device from one application to another. This allows you incrementally rollout devices or move certain devices to specific branches of functionality. To move a device from one application to another, simply click the `Move to another application…` button and you will be presented with a list of applications that you can move your device to.
 
-Note that currently you are only able to move devices between applications of the same device type. For example, in the screenshot below, I can only move the "little-brook" device to the list of `raspberry pi 1` applications. It is not possible to move it to an application with a device type of Raspberry pi 2 or Beaglebone.
-
-<!-- TODO: screenshot doesn't match the text above -->
-<img src="/img/common/device/device_action_move_app.png" width="80%">
+Note that you are only able to move devices between applications with device types that share the same architecture. For example, a Raspberry Pi 3 device could be moved to a BeagleBone Black application, but not to an Intel NUC application.
 
 Obviously you may only select one application to transfer your device to. Once you select the appropriate radio button, your device will immediately appear in the selected application's device list. Note that it will take a while for the device to start the update process as it does not receive a push notification of a new code update from the API, so it has to wait for the update poll, which happens every couple of minutes.
 

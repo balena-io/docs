@@ -1,4 +1,4 @@
-An application is a group of devices of the same type that all run the same code. When you provision a device, it is added to a specific application, but can be migrated to another application at any time.
+An application is a group of devices that share the same architecture and run the same code. When you provision a device, it is added to a specific application, but can be migrated to another application at any time.
 
 To create an application, select the **{{ $device.name }}** device type, select an [application type][app-types], enter a name, and click *Create new application*:
 
