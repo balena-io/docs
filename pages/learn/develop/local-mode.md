@@ -54,11 +54,11 @@ Reporting scan results
 
 ## Push over a new project
 
-Now that we know where our device is on the network we can start pushing some code to it. To do this, we use the `resin local push` command. This command instructs the device to do a Docker build and then runs your container in the same configuration as the resin.io device supervisor supervisor would. You can either pass the command your device's IP address or `<short-uuid>.local` name. If you leave this out, you will be presented with a list of devices to choose from.
+Now that we know where our device is on the network we can start pushing some code to it. To do this, we use the `resin local push` command. This command instructs the device to do a Docker build and then runs your container in the same configuration as the resin.io device supervisor supervisor would. You can either pass the command your device's IP address or `<short-uuid>` name. If you leave this out, you will be presented with a list of devices to choose from.
 
 **Command**
 ```
-sudo resin local push f340127.local -s .
+sudo resin local push f340127 -s .
 ```
 **Output**
 ```
