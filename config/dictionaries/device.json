@@ -187,6 +187,24 @@
     "type": "released"
   },
   {
+    "id": "artik530",
+    "name": "Samsung ARTIK 530",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/artik530.svg",
+    "link": "https://www.artik.io/modules/artik-530/",
+    "type": "beta"
+  },
+  {
+    "id": "artik533",
+    "name": "Samsung ARTIK 530s 1G",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/artik533.svg",
+    "link": "https://www.artik.io/modules/artik-530/",
+    "type": "beta"
+  },
+  {
     "id": "artik710",
     "name": "Samsung ARTIK 710",
     "arch": "armv7hf",
