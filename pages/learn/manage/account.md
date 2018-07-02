@@ -12,7 +12,7 @@ title: Account management
 
 Access tokens are used for authentication in the resin.io [API][api], [CLI][cli], and [Node.js][node-sdk] and [Python][python-sdk] SDKs. They are managed in the *Access tokens* tab of the [*Preferences*][prefs] page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
 
-<img src="/img/common/preferences/access_tokens.png" width="80%">
+<img src="/img/common/preferences/access_tokens.png" width="100%">
 
 There are two types of access tokens: session tokens and API keys. Both authentication types provide user-level permissions, meaning any user or application with one of these tokens can make changes across devices, applications, and the user account.
 
@@ -24,11 +24,11 @@ Session tokens are retrieved from the *Preferences* page, and they can be refres
 
 API keys are named tokens that do not expire and can be revoked as needed. To create a new API key, make sure you are in the *Access tokens* tab of the *Preferences* page, then select *Create API key*:
 
-<img src="/img/common/preferences/create_api_key.png" width="80%">
+<img src="/img/common/preferences/create_api_key.png" width="100%">
 
 You'll see a required field for *Token name*, as well as an optional field for *Token description*:
 
-<img src="/img/common/preferences/api_key_name.png" width="40%"> 
+<img src="/img/common/preferences/api_key_name.png" width="60%"> 
 
 When you click *Create token*, you will see a dialog with the new API key: 
 
@@ -38,17 +38,69 @@ __Warning__: This is your **only** opportunity to see the key, so make sure to d
 
 After you close the dialog, you'll see your API key in the list, complete with name, date of creation, and description:
 
-<img src="/img/common/preferences/api_key_list.png" width="80%">
+<img src="/img/common/preferences/api_key_list.png" width="100%">
 
 To revoke one or more API keys, select the boxes to the left of the tokens you wish to remove, then click *Delete selected*:
 
-<img src="/img/common/preferences/api_key_delete.png" width="80%">
+<img src="/img/common/preferences/api_key_delete.png" width="100%">
 
 API keys can also be generated using the API, [CLI][cli-keys], and [Node.js][node-sdk-keys] and [Python][python-sdk-keys] SDKs.
 
-## Collaboration management
+## Application members
 
-An organization should create a main account to host all applications that the organization owns. This allows a strict separation between applications the organization owns and employee applications created via their accounts. The main account is bound to the organization itself—the organization should have a well defined process to manage the credentials for its main account. Employees are granted access to the organization applications as collaborators. When an employee should no longer have access to the organization applications, access can be revoked by removing them as a collaborator.
+When an application needs to be shared with more than one user, the application owner can add new members. With paid accounts, it's possible to assign a level of access for a new member, based on the following types:
+
+### Member types
+
+#### Owner
+
+The application owner is the user who first creates an application. The owner is the only user who can add other application members or delete the application.
+
+#### Observer
+
+Observers are given read-only access to the application and its devices. They are not able to modify, add, or remove any devices, nor are they able to perform device actions. This role can only be assigned by application owners on paid plans.
+
+#### Operator
+
+Operators have all the access given to observers, plus the ability to manage an application's devices. This means operators can add new devices, remove devices, perform device actions, and modify device tags, metadata, and environment variables. Operators also have full [SSH access][ssh] to the application's devices. This role can only be assigned by application owners on paid plans.
+
+#### Developer
+
+Developers are given, in addition to the access provided to operators, the ability to manage an application. This includes pushing new code, modifying fleet-wide environment variables, running application actions, and downloading application images. This role is the closest to an application owner—developers can do everything owners can except for deleting the application or adding new members. The Developer role can be assigned by application owners on free or paid accounts, and it is the only role available for [Starter][starter] applications.
+
+### Add an application member
+
+To add a new member to your application, click on the *Members* tab of the application summary page:
+
+<img src="/img/common/app/members_tab.png" width="15%">
+
+This brings up a list of all application members, if any have been assigned. Click on the *Add member* button in the top left:
+
+<img src="/img/common/app/add_member.png" width="100%">
+
+The *Add application member* dialog has a dropdown with descriptions of the member types, as well as information about which types are available based on your billing plan. Choose a level of access, then enter the username or email address of the new application member:
+
+<img src="/img/common/app/member_dialog.png" width="60%">
+
+__Note__: Application members must have already [signed up][signup] for a resin.io account before they can be added to an application.
+
+After you click *Add*, you will see the username of the new application member in the list. From here, you can edit access levels or remove the user if necessary:
+
+<img src="/img/common/app/member_list.png" width="100%">
+
+All users that have been added to an application will see that application in their dashboard, with an indicator to designate it has been shared by the application owner:
+
+<img src="/img/common/app/shared_app.png" width="40%">
+
+The shared application will also have a header with the application owner and the member's role:
+
+<img src="/img/common/app/app_header.png" width="40%">
+
+In addition to the application actions permitted by the assigned member role, application members will have the option to remove themselves from an application. This is done by clicking the *Actions* tab from the application summary page, then clicking *Remove Member Access*:
+
+<img src="/img/common/app/remove_access.png" width="100%">
+
+__Warning__: If you remove your member access to an application, you will not be able to undo the action. Only the application owner will be able to restore your access.
 
 ## Two Factor Authentication
 
@@ -103,6 +155,9 @@ Now when you log in you will be prompted for the code displayed in your authenti
 * [1Password](https://1password.com)
 
 [resin]:https://resin.io
+
+[ssh]:/learn/manage/ssh-access
+[starter]:/learn/manage/app-types#starter
 
 [signup]:https://dashboard.resin.io/signup
 [login]:https://dashboard.resin.io/login
