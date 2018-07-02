@@ -62,6 +62,10 @@ environment variable (in the same standard URL format).
 
 # Table of contents
 
+- Api keys
+
+	- [api-key generate &#60;name&#62;](#api-key-generate-name-)
+
 - Application
 
 	- [app create &#60;name&#62;](#app-create-name-)
@@ -153,6 +157,10 @@ environment variable (in the same standard URL format).
 
 	- [preload &#60;image&#62;](#preload-image-)
 
+- Push
+
+	- [push &#60;application&#62;](#push-application-)
+
 - Settings
 
 	- [settings](#settings)
@@ -179,6 +187,20 @@ environment variable (in the same standard URL format).
 - Utilities
 
 	- [util available-drives](#util-available-drives)
+
+# Api keys
+
+## api-key generate &#60;name&#62;
+
+This command generates a new API key for the current user, with the given
+name. The key will be logged to the console.
+
+This key can be used to log into the CLI using 'resin login --token <key>',
+or to authenticate requests to the API with an 'Authorization: Bearer <key>' header.
+
+Examples:
+
+	$ resin api-key generate "Jenkins Key"
 
 # Application
 
@@ -262,7 +284,7 @@ from the dashboard.
 
 - Credentials: using email/password and 2FA.
 
-- Token: using the authentication token from the preferences page.
+- Token: using a session token or API key (experimental) from the preferences page.
 
 Examples:
 
@@ -276,7 +298,7 @@ Examples:
 
 #### --token, -t &#60;token&#62;
 
-auth token
+session token or API key (experimental)
 
 #### --web, -w
 
@@ -553,6 +575,10 @@ This command lists all custom environment variables.
 If you want to see all environment variables, including private
 ones used by resin, use the verbose option.
 
+At the moment the CLI doesn't fully support multi-container applications,
+so the following commands will only show service variables,
+without showing which service they belong to.
+
 Example:
 
 	$ resin envs --application MyApp
@@ -603,6 +629,10 @@ device
 ## env add &#60;key&#62; [value]
 
 Use this command to add an enviroment variable to an application.
+
+At the moment the CLI doesn't fully support multi-container applications,
+so the following commands will only set service variables for the first
+service in your application.
 
 If value is omitted, the tool will attempt to use the variable's value
 as defined in your host machine.
@@ -1180,6 +1210,10 @@ path to a png image to replace the splash screen
 
 Disables check for matching device types in image and application
 
+#### --pin-device-to-release, -p
+
+Pin the preloaded device to the preloaded release on provision
+
 #### --docker, -P &#60;docker&#62;
 
 Path to a local docker socket
@@ -1203,6 +1237,27 @@ Docker host TLS certificate file
 #### --key &#60;key&#62;
 
 Docker host TLS key file
+
+# Push
+
+## push &#60;application&#62;
+
+This command can be used to start a build on the remote
+resin.io cloud builders. The given source directory will be sent to the
+resin.io builder, and the build will proceed. This can be used as a drop-in
+replacement for git push to deploy.
+
+Examples:
+
+	$ resin push myApp
+	$ resin push myApp --source <source directory>
+	$ resin push myApp -s <source directory>
+
+### Options
+
+#### --source, -s &#60;source&#62;
+
+The source that should be sent to the resin builder to be built (defaults to the current directory)
 
 # Settings
 

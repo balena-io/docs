@@ -3,13 +3,37 @@
 Welcome to the Resin Python SDK documentation.
 This document aims to describe all the functions supported by the SDK, as well as
 showing examples of their expected usage.
-If you feel something is missing, not clear or could be improved, please don't
-hesitate to open an issue in GitHub, we'll be happy to help.
+
+Install the Resin SDK:
+
+From Pip:
+```
+pip install resin-sdk
+```
+
+From Source (In case, you want to test a development branch):
+```
+https://github.com/resin-io/resin-sdk-python
+```
+
+Getting started:
+
+```python
+>>> from resin import Resin
+>>> resin = Resin()
+>>> credentials = {'username':<your email>, 'password':<your password>}
+>>> resin.auth.login(**credentials)
+...
+```
+
+If you feel something is missing, not clear or could be improved, [please don't
+hesitate to open an issue in GitHub](https://github.com/resin-io/resin-sdk-python/issues), we'll be happy to help.
 
 ## Table of Contents
 - [Resin](#resin)
     - [Models](#models)
         - [Application](#application)
+        - [ApiKey](#apikey)
         - [Config](#config)
         - [ConfigVariable](#configvariable)
             - [ApplicationConfigVariable](#applicationconfigvariable)
@@ -17,11 +41,17 @@ hesitate to open an issue in GitHub, we'll be happy to help.
         - [Device](#device)
         - [DeviceOs](#deviceos)
         - [EnvironmentVariable](#environmentvariable)
+            - [ApplicationEnvVariable](#applicationenvvariable)
             - [ServiceEnvVariable](#serviceenvvariable)
+            - [DeviceEnvVariable](#deviceenvvariable)
             - [DeviceServiceEnvVariable](#deviceserviceenvvariable)
         - [Image](#image)
         - [Release](#release)
         - [Service](#service)
+        - [Tag](#tag)
+            - [ApplicationTag](#applicationtag)
+            - [DeviceTag](#devicetag)
+            - [ReleaseTag](#releasetag)
         - [Key](#key)
         - [Supervisor](#supervisor)
     - [Auth](#auth)
@@ -298,6 +328,79 @@ Revoke support access to an application.
 #### Examples:
     >> > resin.models.application.revoke_support_access('5685')
     'OK'
+### Function: set_to_release(app_id, commit_id)
+
+Set an application to a specific commit.
+The commit will get updated on the next push unless rolling updates are disabled (there is a dedicated method for that which is resin.models.applicaion.disable_rolling_updates())
+
+#### Args:
+    app_id (str): application id.
+    commit_id (str) : commit id.
+
+#### Returns:
+    OK/error.
+
+#### Examples:
+    >> > resin.models.application.set_to_release('5685', '7dba4e0c461215374edad74a5b78f470b894b5b7')
+    'OK'
+## ApiKey
+
+This class implements user API key model for Resin Python SDK.
+### Function: create_api_key(name, description)
+
+This function registers a new api key for the current user with the name given.
+
+#### Args:
+    name (str): user API key name.
+    description (Optional[str]): API key description.
+
+#### Returns:
+    str: user API key.
+
+#### Examples:
+```python
+>>> resin.models.api_key.create_api_key('myApiKey')
+3YHD9DVPLe6LbjEgQb7FEFXYdtPEMkV9
+```
+### Function: get_all()
+
+This function gets all API keys.
+
+#### Returns:
+    list: user API key.
+
+#### Examples:
+```python
+>>> resin.models.api_key.get_all()
+[{u'description': None, u'created_at': u'2018-04-06T03:53:34.189Z', u'__metadata': {u'type': u'', u'uri': u'/resin/api_key(1296047)'}, u'is_of__actor': {u'__deferred': {u'uri': u'/resin/actor(2454095)'}, u'__id': 2454095}, u'id': 1296047, u'name': u'myApiKey'}]
+```
+### Function: revoke(id)
+
+This function revokes an API key.
+
+#### Args:
+    id (str): API key id.
+
+#### Examples:
+```python
+>>> resin.models.api_key.revoke(1296047)
+OK
+```
+### Function: update(id, api_key_info)
+
+This function updates details of an API key.
+
+#### Args:
+    id (str): API key id.
+    api_key_info: new API key info.
+        name (str): new API key name.
+        description (Optional[str]): new API key description.
+
+#### Examples:
+```python
+>>> resin.models.api_key.update(1296047, {'name':'new name')
+OK
+```
 ## Config
 
 This class implements configuration model for Resin Python SDK.
@@ -408,8 +511,8 @@ Create a device config variable.
 
 #### Examples:
 ```python
->>> resin.models.environment_variables.device_service_environment_variable.create('f5213eac0d63ac47721b037a7406d306', 'data', 'dev_data_sdk', 'test1')
-{"id":28970,"created_at":"2018-03-17T10:13:14.184Z","service_install":{"__deferred":{"uri":"/resin/service_install(30789)"},"__id":30789},"value":"test1","name":"dev_data_sdk","__metadata":{"uri":"/resin/device_service_environment_variable(28970)","type":""}}
+>>> resin.models.config_variable.device_config_variable.create('f14a73b3a762396f7bfeacf5d530c316aa8cfeff307bea93422f71a106c344','RESIN_TEST_DEVICE_CONFIG_VAR','test value')
+{u'device': {u'__deferred': {u'uri': u'/resin/device(1083716)'}, u'__id': 1083716}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_variable(163985)'}, u'id': 163985, u'value': u'test value', u'name': u'RESIN_TEST_DEVICE_CONFIG_VAR'}
 ```
 ### Function: get_all(uuid)
 
@@ -748,6 +851,24 @@ Get device slug.
 
 #### Returns:
     list: list of supported device types.
+### Function: get_with_service_details(uuid)
+
+Get a single device along with its associated services' essential details.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    dict: device info with associated services details.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+
+#### Examples:
+```python
+>>> resin.models.device.get_with_service_details('0fcd753af396247e035de53b4e43eec3')
+{u'os_variant': u'prod', u'__metadata': {u'type': u'', u'uri': u'/resin/device(1136312)'}, u'is_managed_by__service_instance': {u'__deferred': {u'uri': u'/resin/service_instance(182)'}, u'__id': 182}, u'should_be_running__release': None, u'belongs_to__user': {u'__deferred': {u'uri': u'/resin/user(32986)'}, u'__id': 32986}, u'is_web_accessible': False, u'device_type': u'raspberrypi3', u'belongs_to__application': {u'__deferred': {u'uri': u'/resin/application(1116729)'}, u'__id': 1116729}, u'id': 1136312, u'is_locked_until__date': None, u'logs_channel': u'1da2f8db7c5edbf268ba6c34d91974de8e910eef0033a1172386ad27807552', u'uuid': u'0fcd753af396247e035de53b4e43eec3', u'is_managed_by__device': None, u'should_be_managed_by__supervisor_release': None, u'is_accessible_by_support_until__date': None, u'actor': 2895243, u'note': None, u'os_version': u'Resin OS 2.12.7+rev1', u'longitude': u'105.85', u'last_connectivity_event': u'2018-05-27T05:43:54.027Z', u'is_on__commit': u'01defe8bbd1b5b832b32c6e1d35890317671cbb5', u'location': u'Hanoi, Thanh Pho Ha Noi, Vietnam', u'status': u'Idle', u'public_address': u'14.231.243.124', u'is_connected_to_vpn': False, u'custom_latitude': u'', u'is_active': True, u'provisioning_state': u'', u'latitude': u'21.0333', u'custom_longitude': u'', 'current_services': {u'frontend': [{u'status': u'Running', u'download_progress': None, u'__metadata': {u'type': u'', u'uri': u'/resin/image_install(8952657)'}, u'install_date': u'2018-05-25T19:00:12.989Z', 'image_id': 296863, 'commit': u'01defe8bbd1b5b832b32c6e1d35890317671cbb5', 'service_id': 52327, u'id': 8952657}], u'data': [{u'status': u'Running', u'download_progress': None, u'__metadata': {u'type': u'', u'uri': u'/resin/image_install(8952656)'}, u'install_date': u'2018-05-25T19:00:12.989Z', 'image_id': 296864, 'commit': u'01defe8bbd1b5b832b32c6e1d35890317671cbb5', 'service_id': 52329, u'id': 8952656}], u'proxy': [{u'status': u'Running', u'download_progress': None, u'__metadata': {u'type': u'', u'uri': u'/resin/image_install(8952655)'}, u'install_date': u'2018-05-25T19:00:12.985Z', 'image_id': 296862, 'commit': u'01defe8bbd1b5b832b32c6e1d35890317671cbb5', 'service_id': 52328, u'id': 8952655}]}, u'is_online': False, u'supervisor_version': u'7.4.3', u'ip_address': u'192.168.0.102', u'provisioning_progress': None, u'owns__device_log': {u'__deferred': {u'uri': u'/resin/device_log(1136312)'}, u'__id': 1136312}, u'created_at': u'2018-05-25T10:55:47.825Z', u'download_progress': None, u'last_vpn_event': u'2018-05-27T05:43:54.027Z', u'device_name': u'billowing-night', u'local_id': None, u'vpn_address': None, 'current_gateway_downloads': []}
+```
 ### Function: grant_support_access(uuid, expiry_timestamp)
 
 Grant support access to a device until a specified time.
@@ -934,6 +1055,21 @@ Set a custom location for a device.
 >>> resin.models.device.set_custom_location('df09262c283b1dc1462d0e82caa7a88e52588b8c5d7475dd22210edec1c50a',location)
 OK
 ```
+### Function: set_to_release(uuid, commit_id)
+
+Set device to a specific release.
+Set an empty commit_id will restore rolling releases to the device.
+
+#### Args:
+    uuid (str): device uuid.
+    commit_id (str) : commit id.
+
+#### Returns:
+    OK.
+
+#### Examples:
+    >> > resin.models.device.set_to_release('49b2a76b7f188c1d6f781e67c8f34adb4a7bfd2eec3f91d40b1efb75fe413d', '45c90004de73557ded7274d4896a6db90ea61e36')
+    'OK'
 ### Function: unset_custom_location(uuid)
 
 clear custom location for a device.
@@ -1004,6 +1140,87 @@ Validate parameters for downloading device OS image.
 ## EnvironmentVariable
 
 This class is a wrapper for environment variable models.
+## ApplicationEnvVariable
+
+This class implements application environment variable model for Resin Python SDK.
+
+#### Attributes:
+    SYSTEM_VARIABLE_RESERVED_NAMES (list): list of reserved system variable names.
+    OTHER_RESERVED_NAMES_START (list): list of prefix for system variable.
+### Function: create(app_id, env_var_name, value)
+
+Create an environment variable for application.
+
+#### Args:
+    app_id (str): application id.
+    env_var_name (str): environment variable name.
+    value (str): environment variable value.
+
+#### Returns:
+    dict: new application environment info.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.application.create('978062', 'test2', '123')
+{'id': 91138, 'application': {'__deferred': {'uri': '/resin/application(978062)'}, '__id': 978062}, 'name': 'test2', 'value': '123', '__metadata': {'uri': '/resin/environment_variable(91138)', 'type': ''}}
+```
+### Function: get_all(app_id)
+
+Get all environment variables by application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    list: application environment variables.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.application.get_all(9020)
+[{u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'__metadata': {u'type': u'', u'uri': u'/ewa/environment_variable(5650)'}, u'id': 5650, u'value': u'7330634368117899', u'name': u'RESIN_RESTART'}]
+```
+### Function: is_system_variable(variable)
+
+Check if a variable is system specific.
+
+#### Args:
+    variable (str): environment variable name.
+
+#### Returns:
+    bool: True if system variable, False otherwise.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.application.is_system_variable('RESIN_API_KEY')
+True
+>>> resin.models.environment_variables.application.is_system_variable('APPLICATION_API_KEY')
+False
+```
+### Function: remove(var_id)
+
+Remove application environment variable.
+
+#### Args:
+    var_id (str): environment variable id.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.application.remove(5652)
+'OK'
+```
+### Function: update(var_id, value)
+
+Update an environment variable value for application.
+
+#### Args:
+    var_id (str): environment variable id.
+    value (str): new environment variable value.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.application.update(5652, 'new value')
+'OK'
+```
 ## ServiceEnvVariable
 
 This class implements service environment variable model for Resin Python SDK.
@@ -1063,6 +1280,81 @@ Update a service environment variable value for application.
 #### Examples:
 ```python
 >>> resin.models.environment_variables.service_environment_variable.update('12444', 'new test value')
+'OK'
+```
+## DeviceEnvVariable
+
+This class implements device environment variable model for Resin Python SDK.
+### Function: create(uuid, env_var_name, value)
+
+Create a device environment variable.
+
+#### Args:
+    uuid (str): device uuid.
+    env_var_name (str): environment variable name.
+    value (str): environment variable value.
+
+#### Returns:
+    dict: new device environment variable info.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device.create('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143','test_env4', 'testing1')
+{'name': u'test_env4', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(42166)'}, u'value': u'testing1', u'device': {u'__deferred': {u'uri': u'/resin/device(115792)'}, u'__id': 115792}, u'id': 42166}
+```
+### Function: get_all(uuid)
+
+Get all device environment variables.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    list: device environment variables.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device.get_all('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
+[{u'device': {u'__deferred': {u'uri': u'/ewa/device(122950)'}, u'__id': 122950}, u'__metadata': {u'type': u'', u'uri': u'/ewa/device_environment_variable(2173)'}, u'id': 2173, u'value': u'1322944771964103', u'env_var_name': u'RESIN_DEVICE_RESTART'}]
+```
+### Function: get_all_by_application(app_id)
+
+Get all device environment variables for an application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    list: list of device environment variables.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device.get_all_by_application('5780')
+[{'name': u'device1', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(40794)'}, u'value': u'test', u'device': {u'__deferred': {u'uri': u'/resin/device(115792)'}, u'__id': 115792}, u'id': 40794}, {'name': u'RESIN_DEVICE_RESTART', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(1524)'}, u'value': u'961506585823372', u'device': {u'__deferred': {u'uri': u'/resin/device(121794)'}, u'__id': 121794}, u'id': 1524}]
+```
+### Function: remove(var_id)
+
+Remove a device environment variable.
+
+#### Args:
+    var_id (str): environment variable id.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device.remove(2184)
+'OK'
+```
+### Function: update(var_id, value)
+
+Update a device environment variable.
+
+#### Args:
+    var_id (str): environment variable id.
+    value (str): new environment variable value.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device.update(2184, 'new value')
 'OK'
 ```
 ## DeviceServiceEnvVariable
@@ -1201,6 +1493,237 @@ Get all services from an application.
 
 #### Returns:
     list: service info.
+## Tag
+
+This class is a wrapper for Tag models.
+## DeviceTag
+
+This class implements device tag model for Resin Python SDK.
+### Function: get_all()
+
+Get all device tags.
+
+#### Returns:
+    list: list contains device tags.
+
+#### Examples:
+```python
+>>> resin.models.tag.device.get_all()
+[{u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id': 1036574}, u'tag_key': u'db_tag', u'id': 20157, u'value': u'rpi3', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20157)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1055117)'}, u'__id': 1055117}, u'tag_key': u'group1', u'id': 20158, u'value': u'aaa', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20158)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1055116)'}, u'__id': 1055116}, u'tag_key': u'group1', u'id': 20159, u'value': u'bbb', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20159)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1055116)'}, u'__id': 1055116}, u'tag_key': u'db_tag', u'id': 20160, u'value': u'aaa', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20160)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id': 1036574}, u'tag_key': u'newtag', u'id': 20161, u'value': u'test1', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20161)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id': 1036574}, u'tag_key': u'newtag1', u'id': 20162, u'value': u'test1', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20162)'}}]
+```
+### Function: get_all_by_application(app_id)
+
+Get all device tags for an application.
+
+#### Args:
+    app_id (str): application id .
+
+#### Returns:
+    list: list contains device tags.
+
+#### Examples:
+```python
+>>> resin.models.tag.device.get_all_by_application('1005160')
+[{u'device': {u'__deferred': {u'uri': u'/resin/device(1055117)'}, u'__id': 1055117}, u'tag_key': u'group1', u'id': 20158, u'value': u'aaa', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20158)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1055116)'}, u'__id': 1055116}, u'tag_key': u'group1', u'id': 20159, u'value': u'bbb', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20159)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1055116)'}, u'__id': 1055116}, u'tag_key': u'db_tag', u'id': 20160, u'value': u'aaa', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20160)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id': 1036574}, u'tag_key': u'db_tag', u'id': 20157, u'value': u'rpi3', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20157)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id': 1036574}, u'tag_key': u'newtag', u'id': 20161, u'value': u'test1', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20161)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id': 1036574}, u'tag_key': u'newtag1', u'id': 20162, u'value': u'test1', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20162)'}}]
+```
+### Function: get_all_by_device(uuid)
+
+Get all device tags for a device.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    list: list contains device tags.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+
+#### Examples:
+```python
+>>> resin.models.tag.device.get_all_by_device('a03ab646c01f39e39a1e3deb7fce76b93075c6d599fd5be4a889b8145e2f8f')
+[{u'device': {u'__deferred': {u'uri': u'/resin/device(1055116)'}, u'__id': 1055116}, u'tag_key': u'group1', u'id': 20159, u'value': u'bbb', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20159)'}}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1055116)'}, u'__id': 1055116}, u'tag_key': u'db_tag', u'id': 20160, u'value': u'aaa', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20160)'}}]
+```
+### Function: remove(uuid, tag_key)
+
+Remove a device tag.
+
+#### Args:
+    uuid (str): device uuid.
+    tag_key (str): tag key.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+
+#### Examples:
+```python
+>>> resin.models.tag.device.remove('f5213eac0d63ac47721b037a7406d306', 'testtag'))
+OK
+```
+### Function: set(uuid, tag_key, value)
+
+Set a device tag (update tag value if it exists).
+
+#### Args:
+    uuid (str): device uuid.
+    tag_key (str): tag key.
+    value (str): tag value.
+
+#### Returns:
+    dict: dict contains device tag info if tag doesn't exist.
+    OK: if tag exists.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+
+#### Examples:
+```python
+>>> resin.models.tag.device.set('f5213eac0d63ac47721b037a7406d306', 'testtag','test1')
+{u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id': 1036574}, u'tag_key': u'testtag', u'id': 20163, u'value': u'test1', u'__metadata': {u'type': u'', u'uri': u'/resin/device_tag(20163)'}}
+>>> resin.models.tag.device.set('f5213eac0d63ac47721b037a7406d306', 'testtag','test2')
+OK
+```
+## ApplicationTag
+
+This class implements application tag model for Resin Python SDK.
+### Function: get_all()
+
+Get all application tags.
+
+#### Returns:
+    list: list contains application tags.
+
+#### Examples:
+```python
+>>> resin.models.tag.application.get_all()
+[{u'application': {u'__deferred': {u'uri': u'/resin/application(1005160)'}, u'__id': 1005160}, u'tag_key': u'appTag', u'id': 12886, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/application_tag(12886)'}}, {u'application': {u'__deferred': {u'uri': u'/resin/application(1005767)'}, u'__id': 1005767}, u'tag_key': u'appTa1', u'id': 12887, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/application_tag(12887)'}}, {u'application': {u'__deferred': {u'uri': u'/resin/application(1005767)'}, u'__id': 1005767}, u'tag_key': u'appTag2', u'id': 12888, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/application_tag(12888)'}}]
+```
+### Function: get_all_by_application(app_id)
+
+Get all application tags for an application.
+
+#### Args:
+    app_id (str): application id .
+
+#### Returns:
+    list: list contains application tags.
+
+#### Examples:
+```python
+>>> resin.models.tag.application.get_all_by_application('1005767')
+[{u'application': {u'__deferred': {u'uri': u'/resin/application(1005767)'}, u'__id': 1005767}, u'tag_key': u'appTa1', u'id': 12887, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/application_tag(12887)'}}, {u'application': {u'__deferred': {u'uri': u'/resin/application(1005767)'}, u'__id': 1005767}, u'tag_key': u'appTag2', u'id': 12888, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/application_tag(12888)'}}]
+```
+### Function: remove(app_id, tag_key)
+
+Remove an application tag.
+
+#### Args:
+    app_id (str): application id.
+    tag_key (str): tag key.
+
+#### Examples:
+```python
+>>> resin.models.tag.application.remove('1005767', 'tag1')
+OK
+```
+### Function: set(app_id, tag_key, value)
+
+Set an application tag (update tag value if it exists).
+
+#### Args:
+    app_id (str): application id.
+    tag_key (str): tag key.
+    value (str): tag value.
+
+#### Returns:
+    dict: dict contains application tag info if tag doesn't exist.
+    OK: if tag exists.
+
+#### Examples:
+```python
+>>> resin.models.tag.application.set('1005767', 'tag1', 'Python SDK')
+{u'application': {u'__deferred': {u'uri': u'/resin/application(1005767)'}, u'__id': 1005767}, u'tag_key': u'tag1', u'id': 12889, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/application_tag(12889)'}}
+>>> resin.models.tag.application.set('1005767', 'tag1','Resin Python SDK')
+OK
+```
+## ReleaseTag
+
+This class implements release tag model for Resin Python SDK.
+### Function: get_all()
+
+Get all release tags.
+
+#### Returns:
+    list: list contains release tags.
+
+#### Examples:
+```python
+>>> resin.models.tag.release.get_all()
+[{u'release': {u'__deferred': {u'uri': u'/resin/release(465307)'}, u'__id': 465307}, u'tag_key': u'releaseTag1', u'id': 135, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/release_tag(135)'}}]
+```
+### Function: get_all_by_application(app_id)
+
+Get all release tags for an application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    list: list contains release tags.
+
+#### Examples:
+```python
+>>> resin.models.tag.release.get_all_by_application('1043050')
+[{u'release': {u'__deferred': {u'uri': u'/resin/release(465307)'}, u'__id': 465307}, u'tag_key': u'releaseTag1', u'id': 135, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/release_tag(135)'}}]
+```
+### Function: get_all_by_release(release_id)
+
+Get all release tags for a release.
+
+#### Args:
+    release_id (str): release id.
+
+#### Returns:
+    list: list contains release tags.
+
+#### Examples:
+```python
+>>> resin.models.tag.release.get_all_by_release('135')
+[{u'release': {u'__deferred': {u'uri': u'/resin/release(465307)'}, u'__id': 465307}, u'tag_key': u'releaseTag1', u'id': 135, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/release_tag(135)'}}]
+```
+### Function: remove(release_id, tag_key)
+
+Remove a release tag.
+
+#### Args:
+    release_id (str): release id.
+    tag_key (str): tag key.
+
+#### Examples:
+```python
+>>> resin.models.tag.release.remove('135', 'releaseTag1')
+OK
+```
+### Function: set(release_id, tag_key, value)
+
+Set a release tag (update tag value if it exists).
+
+#### Args:
+    release_id (str): release id.
+    tag_key (str): tag key.
+    value (str): tag value.
+
+#### Returns:
+    dict: dict contains release tag info if tag doesn't exist.
+    OK: if tag exists.
+
+#### Examples:
+```python
+>>> resin.models.tag.release.set('465307', 'releaseTag1', 'Python SDK')
+{u'release': {u'__deferred': {u'uri': u'/resin/release(465307)'}, u'__id': 465307}, u'tag_key': u'releaseTag1', u'id': 135, u'value': u'Python SDK', u'__metadata': {u'type': u'', u'uri': u'/resin/release_tag(135)'}}
+>>> resin.models.tag.release.set('465307', 'releaseTag1', 'Python SDK 1')
+OK
+```
 ## Key
 
 This class implements ssh key model for Resin Python SDK.
@@ -1759,7 +2282,11 @@ Logs.history(uuid=uuid, callback=callback, error=error)
 ### Function: subscribe()
 
 This function allows subscribing to device logs.
-Testing
+There are fields (`m`, `t`, `s`, `c`) in the output which can be unclear. They stand for:
+    m - The log message itself.
+    t - The log timestamp.
+    s - Is this a system message?
+    c - The id of the service which produced this log (or null if the device does not support multiple containers).
 
 #### Args:
     uuid (str): device uuid.
