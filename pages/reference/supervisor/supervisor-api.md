@@ -6,6 +6,21 @@ The Supervisor itself has its own API, with means for user applications to commu
 
 Only Supervisors after version 1.1.0 have this functionality, and some of the endpoints appeared in later versions (we've noted it down where this is the case). Supervisor version 1.1.0 corresponds to OS images downloaded after October 14th 2015.
 
+## Enabling the API
+
+The Supervisor API is not enabled by default, and must be enabled via a docker container label. Add the `io.resin.features.supervisor-api` to your container. For multicontainer applications, a `docker-compose.yml` file might look like this:
+
+```yaml
+services:
+  bringup:
+    # ...
+    network_mode: host
+    labels:
+      io.resin.features.supervisor-api: '1'
+```
+
+Note that the Supervisor API also only works for `network_mode` values of `bridge` and `host` at the moment.
+
 ## HTTP API reference
 
 The supervisor exposes an HTTP API on port 48484 (`RESIN_SUPERVISOR_PORT`).
