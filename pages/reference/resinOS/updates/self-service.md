@@ -16,10 +16,18 @@ Supported device types:
 * For the **Raspberry Pi** series, self-service updates are available from resinOS versions 1.8.0 and upwards (including 2.x versions) to any versions after resinOS 2.2.0.
 * For **BeagleBone** devices, you can update resinOS 1.8.0 through 1.26.0 to the transitional 1.30.1 version, and from 1.30.1 and upwards (including 2.x versions) to version 2.2.0 and newer.
 * For **Intel NUC** and **UP Boards**, you can update all 2.x versions to 2.2.0 and newer.
+* **Banana Pi M1+** can be updated for all available versions.
+* **Intel Edison** can be updated from all 2.x versions to 2.9.7+rev2 and above.
 * **IOT2000** can be updated from all available versions to all newer versions.
+* **Jetson TX1** can be updated for all available versions.
 * **Jetson TX2** can be updated starting from resinOS 2.7.4+rev1 to all newer versions.
+* **Odroid C1** can be updated beginning with the available 2.x versions.
+* **Odroid XU4** can be updated beginning with the available 2.x versions.
+* **Orange Pi Plus2** can be updated for all available versions.
 * **QEMU** devices (both 32 and 64-bit versions) can be updated starting from resinOS 2.9.3+rev1 to all newer versions.
+* **Samsung ARTIK 710** can be updated for all available versions.
 * **TS-4900** can be updated starting from resinOS 2.4.1+rev1 to all newer versions.
+* **Variscite DART-6UL** can be updated for all available versions.
 
 At the moment, self-service updates are only available for production resinOS versions. If you need updates for development and beta versions, please contact support or start a thread on the [forums][forums].
 

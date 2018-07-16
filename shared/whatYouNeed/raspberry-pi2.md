@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/raspberrypi/raspberrypi.jpg" width="25%">
+<img style="float: right;padding-left: 10px;" src="/img/raspberry-pi2/raspberry-pi2.jpg" width="25%">
 * A [Raspberry Pi 2 model B][rpi2B]. See our [supported devices list][supportedDevicesList] for other boards.
 * A 4GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - class 10 card or above is the way to go.
 * An ethernet cable or WiFi adapter. Check our [list of supported WiFi adapters][wifiAdapters].

@@ -1,0 +1,25 @@
+{% extends "default.html" %}
+ 
+{% block "contents" %}
+	<div style="display: flex;">
+		<div style="float: left; width: 40%; padding-right: 10px;">
+			<h2>Available fields</h2>
+			<pre><code class="json">{% for field in $resource.fields %}{{ field }}
+{% endfor %}</code></pre>
+		</div>
+		<div style="float: right; width: 60%; padding-left: 10px;">
+			<h2>Examples</h2>
+			{% for example in $resource.examples %}
+				<h3 id="{{ example.id }}">{{ example.summary}}</h3>
+				<pre><code>curl -X {{ example.method }} \
+"{{ $links.apiBase }}{{ example.endpoint }}{{ example.filters }}" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer &lt;AUTH_TOKEN&gt;" {% if example.data %}\
+--data '{{ example.data }}'{% endif %}</code></pre>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
+
+
+

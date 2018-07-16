@@ -13,4 +13,4 @@ module.exports =
   beaglebone:
     black: "#{BB_PRODUCTS}/black"
     green: "#{BB_PRODUCTS}/green"
-  apiBase: "https://api.resin.io/v1/"
+  apiBase: "https://api.resin.io"

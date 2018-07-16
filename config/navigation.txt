@@ -60,6 +60,7 @@ Learn
 
   MANAGE
     [/learn/manage/account]
+    [/learn/manage/billing]
     [/learn/manage/app-types]
     [/learn/manage/filters-tags]
     [/learn/manage/ssh-access]
@@ -82,8 +83,8 @@ FAQ
 Reference
 
   Supported devices
-    Single board computers[/reference/hardware/devices]
-    Peripheral devices[/reference/hardware/wifi-dongles]
+    [/reference/hardware/devices]
+    [/reference/hardware/wifi-dongles]
 
   resinOS
     What is resinOS?[/reference/resinOS/overview/$os_version]
@@ -106,7 +107,9 @@ Reference
     [/reference/base-images/devicetypes]
     [/reference/base-images/custom-docker-base-images]  
 
-  API[/reference/data-api]
+  API
+    [/reference/api/overview]
+    Resources[/reference/api/resources/$resource]
 
   CLI[/reference/cli]
   SDKs

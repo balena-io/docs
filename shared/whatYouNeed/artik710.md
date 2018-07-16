@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/artik710/A710.jpg">
+<img style="float: right;padding-left: 10px;" src="/img/artik710/artik710.jpg">
 
 * [**Samsung ARTIK 710**][artik710-spec-link] module mounted on a development board.
 * A 5VDC power supply (100-240V input), if you purchased the development kit you should have one included.
