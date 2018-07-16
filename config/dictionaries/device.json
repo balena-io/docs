@@ -142,6 +142,15 @@
     "type": "beta"
   },
   {
+    "id": "jetson-tx1",
+    "name": "Jetson TX1",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/jetson-tx1.svg",
+    "link": "https://developer.nvidia.com/embedded/buy/jetson-tx1",
+    "type": "beta"
+  },
+  {
     "id": "intel-nuc",
     "name": "Intel NUC",
     "arch": "amd64",
@@ -151,6 +160,24 @@
     "type": "released"
   },
   {
+    "id": "orangepi-plus2",
+    "name": "Orange Pi Plus2",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/orangepi-plus2.svg",
+    "link": "http://www.orangepi.org/orangepiplus2/",
+    "type": "beta"
+  },
+  {
+    "id": "bananapi-m1-plus",
+    "name": "Banana Pi M1+",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/bananapi-m1-plus.svg",
+    "link": "http://www.banana-pi.org/m1plus.html",
+    "type": "beta"
+  },
+  {
     "id": "artik5",
     "name": "Samsung ARTIK 520",
     "arch": "armv7hf",
@@ -158,6 +185,24 @@
     "icon": "/img/device/artik5.svg",
     "link": "https://www.artik.io/modules/artik-520/",
     "type": "released"
+  },
+  {
+    "id": "artik530",
+    "name": "Samsung ARTIK 530",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/artik530.svg",
+    "link": "https://www.artik.io/modules/artik-530/",
+    "type": "beta"
+  },
+  {
+    "id": "artik533s",
+    "name": "Samsung ARTIK 530s 1G",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/artik533s.svg",
+    "link": "https://www.artik.io/modules/artik-530/",
+    "type": "beta"
   },
   {
     "id": "artik710",
