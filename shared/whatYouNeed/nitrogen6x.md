@@ -1,4 +1,4 @@
-<img height=150px style="float: right;padding-left: 10px;" src="/img/nitrogen6x.jpg">
+<img height=150px style="float: right;padding-left: 10px;" src="/img/nitrogen6x/nitrogen6x.jpg">
 
 
 * A [Nitrogen6x Board i2][nitrogen6x-link] from [Boundary Devices][boundary-devices-link]. Currently we only support the `i2` device type.
@@ -9,5 +9,5 @@
 [nitrogen6x-link]:http://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/
 [boundary-devices-link]:http://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
-[link-to-signup]:dashboard.resin.io/signup
+[link-to-signup]:https://dashboard.resin.io/signup
 [wifi]:/deployment/network

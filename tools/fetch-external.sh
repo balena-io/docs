@@ -1,28 +1,25 @@
 #!/bin/bash
 
 # get latest CLI docs
-cd pages/tools/ && { curl -O -L https://github.com/resin-io/resin-cli/raw/master/doc/cli.markdown ; mv cli.markdown cli.md ; cd -; }
-
-# get latest node CLI troubleshooting
-cd pages/troubleshooting/ && { curl -L -o cli-troubleshooting.md https://github.com/resin-io/resin-cli/raw/master/TROUBLESHOOTING.md ; cd -; }
+cd pages/reference/ && { curl -O -L https://github.com/resin-io/resin-cli/raw/master/doc/cli.markdown ; mv cli.markdown cli.md ; cd -; }
 
 # get lastest node SDK docs
-cd pages/tools/ && {
+cd pages/reference/sdk/ && {
   curl -O -L https://github.com/resin-io/resin-sdk/raw/master/DOCUMENTATION.md;
-  echo "# Resin Node.js SDK" > sdk.md
-  tail -n +2 DOCUMENTATION.md >> sdk.md;
+  echo "# Resin Node.js SDK" > node-sdk.md
+  tail -n +2 DOCUMENTATION.md >> node-sdk.md;
   cd -;
 }
 
 # get lastest SDK docs
-cd pages/tools/ && {
+cd pages/reference/sdk/ && {
   curl -O -L https://github.com/resin-io/resin-sdk-python/raw/master/DOCUMENTATION.md;
   mv DOCUMENTATION.md python-sdk.md;
   cd -;
 }
 
 # get latest supervisor API docs
-cd pages/runtime/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/API.md; mv API.md supervisor-api.md ; cd -; }
+cd pages/reference/supervisor/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/API.md; mv API.md supervisor-api.md ; cd -; }
 
 # get latest supervisor update-lock docs
-cd pages/runtime/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/update-locking.md; cd -; }
+cd pages/learn/deploy/release-strategy/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/update-locking.md; cd -; }

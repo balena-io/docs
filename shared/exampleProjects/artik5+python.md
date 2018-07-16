@@ -1,4 +1,4 @@
-### Basic GPIO Control in Python on the Artik 5
+### Basic GPIO Control in Python on the Artik 520
 
 {{> icon class="octicon octicon-mark-github" }}
 [Repository](https://github.com/resin-io-projects/artik-gpio-python)

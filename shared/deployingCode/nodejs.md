@@ -1,6 +1,6 @@
 <!-- deploying Code to devices -->
 
-Now that we have a device or two connected to a resin.io application, lets deploy some code and actually start building something.
+Now that we have a device or two connected to a resin.io application, let's deploy some code and actually start building something.
 
 A nice first project to get your feet wet is a simple [Express.js][expressjs] web server which will serve a static page on port `:80`. All the project source code can be found [here on github] [simple-server-node-link].
 
@@ -9,6 +9,8 @@ To clone the project, run the following command in a terminal or your preferred 
 ```shell
 $ git clone https://github.com/resin-io-projects/simple-server-node.git
 ```
+
+__Note:__ This project runs an application in a single container. If you would like to start with a [multicontainer project][multi-project], run `git clone git@github.com:resin-io-projects/multicontainer-getting-started.git`.
 
 Once the repo is cloned, change directory into the newly created `simple-server-node` directory and add the resin git remote endpoint by running the command `git remote add` shown in
 the top-right corner of your application page:
@@ -30,7 +32,7 @@ $ git push resin master
 
 If you want to completely replace the source code of the application with a new source tree, you may need to force the push by running `git push resin master --force`, due to how git works.
 
-__Note:__ On your very first push, git may ask you if you would like to add this host to your list of allowed hosts. Don't worry about this, just type 'yes' and carry on your merry way.
+__Note:__ On your very first push, git may ask you if you would like to add this host to your list of allowed hosts. If the ECDSA key fingerprint matches `SHA256:NfwmqnKId5cx1RWpebbEuuM87bCJbdyhzRnqFES9Nnw`, you are pushing to the right place. Type 'yes' to continue.
 
 You'll know your code has been successfully compiled and built when our
 friendly unicorn mascot appears in your terminal:
@@ -46,13 +48,12 @@ Your application will now be downloaded and executed by all the devices you have
 
 You should now have a node.js web server running on your device and see some logs on your dashboard. If you go to the `Actions` page for your device, you can enable a public URL, this URL is accessible from anywhere in the world.
 
-<img src="/img/common/enable-public-URLs.png" width="80%">
+<img src="/img/common/enable-public-URLs.png" width="60%">
 
 If you follow the URL, you will be served a page saying "Hello, World!". Alternatively you can point your browser to your devices IP address.
-
-You should now have a basic idea of how to deploy a node.js application on resin.io. If you feel like you have a handle on Docker and Node.js projects, then skip over the next section and go straight to ["Using the web terminal"](#using-the-web-terminal).
 
 [simple-server-node-link]:https://github.com/resin-io-projects/simple-server-node
 
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
 [expressjs]:http://expressjs.com/
+[multi-project]:https://github.com/resin-io-projects/multicontainer-getting-started

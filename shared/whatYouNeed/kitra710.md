@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/kitra/710.png" width="35%">
+<img style="float: right;padding-left: 10px;" src="/img/kitra710/kitra710.jpg" width="35%">
 
 
 * [A Kitra710][kitra710-link] product accelerator development board from [RushUp](http://www.rushup.tech/).
