@@ -8,4 +8,4 @@ dynamic:
   ref: $original_ref/$os_version
   $switch_text: Select a version $os_version
 ---
-{{import "insideResinOS"}}
+{{import "overview"}}

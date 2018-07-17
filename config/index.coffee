@@ -4,7 +4,7 @@ DOCS_DEST_DIR = 'contents'
 TEMPLATES_DIR = 'templates'
 PARTIALS_DIR = 'shared'
 
-DYNAMIC_DOCS = /.*(getting-started|deployment\/network|understanding\/understanding-devices).*/
+DYNAMIC_DOCS = /.*(getting-started|overview|network).*/
 
 GITHUB_EDIT_PAGE_LINK = 'https://github.com/resin-io/docs/edit/master'
 
