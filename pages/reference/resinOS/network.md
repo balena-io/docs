@@ -8,4 +8,4 @@ dynamic:
   ref: $original_ref/$os_version
   $switch_text: Network Setup on $os_version
 ---
-{{import "networking"}}
+{{import "network"}}

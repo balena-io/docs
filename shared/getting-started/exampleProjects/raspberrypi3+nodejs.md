@@ -1,4 +1,4 @@
-{{> "exampleProjects/generic/rpi-nodejs"}}
+{{> "getting-started/exampleProjects/generic/rpi-nodejs"}}
 
 ### RPI camera module example in Node.js
 

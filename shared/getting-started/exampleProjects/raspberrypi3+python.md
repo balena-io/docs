@@ -1,4 +1,4 @@
-{{> "exampleProjects/generic/rpi-python"}}
+{{> "getting-started/exampleProjects/generic/rpi-python"}}
 
 ### RPI camera module example in Python
 

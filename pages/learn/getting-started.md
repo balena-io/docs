@@ -13,38 +13,38 @@ dynamic:
 
 ## Introduction
 
-{{import "introduction"}}
+{{import "getting-started/introduction"}}
 
 ## What you will need
 
-{{import "whatYouNeed"}}
+{{import "getting-started/whatYouNeed"}}
 
 ## Need help?
 
-{{import "usingSupport"}}
+{{import "getting-started/usingSupport"}}
 
 ## Account setup
 
 If you don't already have a resin.io account, make sure to [sign up][link-to-signup].
 
-{{import "sshKey/add"}}
+{{import "getting-started/sshKey"}}
 
 ## Create an application
 
-{{import "createAnApp"}}
+{{import "getting-started/createAnApp"}}
 
-{{import "getResinOS"}}
+{{import "getting-started/getResinOS"}}
 
-{{import "selectNetworkConfig"}}
+{{import "getting-started/selectNetworkConfig"}}
 
-{{import "flashingOsToBootMedia"}}
+{{import "getting-started/flashingOsToBootMedia"}}
 
 ## Provision your device
-{{import "getDeviceOnDash"}}
+{{import "getting-started/getDeviceOnDash"}}
 
 ## Deploy code
 
-{{import "deployingCode"}}
+{{import "getting-started/deployingCode"}}
 
 ## Next steps
 
@@ -57,7 +57,7 @@ If you don't already have a resin.io account, make sure to [sign up][link-to-sig
 
 These example projects will give you an idea of more things that can be done with resin.io:
 
-{{import "exampleProjects"}}
+{{import "getting-started/exampleProjects"}}
 
 
 

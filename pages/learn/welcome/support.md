@@ -5,4 +5,4 @@ excerpt: Additional resources in case you get stuck
 
 Getting Help
 ===
-{{> "usingSupport/_default"}}
+{{> "getting-started/usingSupport/_default"}}
