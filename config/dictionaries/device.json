@@ -153,6 +153,19 @@
   {
     "id": "intel-nuc",
     "name": "Intel NUC",
+    "variants": 
+    [
+      {
+        "name": "Intel NUC",
+        "image": "/img/intel-nuc/intel-nuc.jpg",
+        "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html"
+      },
+      {
+        "name": "Generic x86 devices",
+        "image": "/img/intel-nuc/x86.png",
+        "link": "/learn/getting-started/intel-nuc/nodejs/"
+      }
+    ],
     "arch": "amd64",
     "bootMedia": "USB drive",
     "icon": "/img/device/intel-nuc.svg",
