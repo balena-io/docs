@@ -24,10 +24,10 @@ Inside your running container, you'll have access to a number of `RESIN_` namesp
 | `RESIN_DEVICE_TYPE`         |  The type of device the application is running on. |
 | `RESIN` 	                  |  The `RESIN=1` variable can be used by your software to detect that it is running on a resin.io device. 	|
 | `RESIN_SUPERVISOR_VERSION` 	|  The current version of the supervisor agent running on the device.	|
-| `RESIN_SUPERVISOR_API_KEY` 	|  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link]	for detailed usage.|
-| `RESIN_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`	|
-| `RESIN_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`|
-| `RESIN_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`	|
+| `RESIN_SUPERVISOR_API_KEY` 	|  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. . Note: this is not available by default and must be enabled with the `io.resin.features.supervisor-api` container label. See the [Supervisor API reference][supervisor-api-link]	for detailed usage. |
+| `RESIN_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`. Note: this is not available by default and must be enabled with the `io.resin.features.supervisor-api` container label. See the [Supervisor API reference][supervisor-api-link]	for detailed usage.	|
+| `RESIN_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`. Note: this is not available by default and must be enabled with the `io.resin.features.supervisor-api` container label. See the [Supervisor API reference][supervisor-api-link]	for detailed usage.|
+| `RESIN_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`. Note: this is not available by default and must be enabled with the `io.resin.features.supervisor-api` container label. See the [Supervisor API reference][supervisor-api-link]	for detailed usage.	|
 | `RESIN_API_KEY` 	          |  API key which can be used to authenticate requests to the resin.io backend. Can be used with resin SDK on the device. **WARNING** This API key gives the code full user permissions, so can be used to delete and update anything as you would on the Dashboard.  	|
 | `RESIN_HOST_OS_VERSION`     |  The version of the resin host OS. |
 | `RESIN_DEVICE_RESTART` 	    |  This is a internal mechanism for restarting containers and can be ignored as its not very useful to application code.  Example: `1.13.0`	|
