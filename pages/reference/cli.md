@@ -1,8 +1,8 @@
 # Resin CLI Documentation
 
-This tool allows you to interact with the {{ $names.domain }} api from the comfort of your command line.
+This tool allows you to interact with the resin.io api from the comfort of your command line.
 
-Please make sure your system meets the requirements as specified in the [README]({{ $links.githubMain }}/resin-cli).
+Please make sure your system meets the requirements as specified in the [README](https://github.com/resin-io/resin-cli).
 
 ## Install the CLI
 
@@ -24,7 +24,7 @@ initial cross-platform testing, so it may be useful, and we'd love your feedback
 
 To install the CLI as a standalone binary:
 
-* Download the latest zip for your OS from {{ $links.githubMain }}/resin-cli/releases.
+* Download the latest zip for your OS from https://github.com/resin-io/resin-cli/releases.
 * Extract the contents, putting the `resin-cli` folder somewhere appropriate for your system (e.g. `C:/resin-cli`, `/usr/local/lib/resin-cli`, etc).
 * Add the `resin-cli` folder to your `PATH`. (
 [Windows instructions](https://www.computerhope.com/issues/ch000549.htm),
@@ -38,7 +38,7 @@ Have any problems, or see any unexpected behaviour? Please file an issue!
 
 ## Getting started
 
-Once you have the CLI installed, you'll need to log in, so it can access everything in your {{ $names.domain }} account.
+Once you have the CLI installed, you'll need to log in, so it can access everything in your resin.io account.
 
 To authenticate yourself, run:
 
@@ -206,7 +206,7 @@ Examples:
 
 ## app create &#60;name&#62;
 
-Use this command to create a new {{ $names.domain }} application.
+Use this command to create a new resin.io application.
 
 You can specify the application device type with the `--type` option.
 Otherwise, an interactive dropdown will be shown for you to select from.
@@ -255,7 +255,7 @@ Examples:
 
 ## app rm &#60;name&#62;
 
-Use this command to remove a {{ $names.domain }} application.
+Use this command to remove a resin.io application.
 
 Notice this command asks for confirmation interactively.
 You can avoid this by passing the `--yes` boolean option.
@@ -275,7 +275,7 @@ confirm non interactively
 
 ## login
 
-Use this command to login to your {{ $names.domain }} account.
+Use this command to login to your resin.io account.
 
 This command will prompt you to login using the following login types:
 
@@ -318,7 +318,7 @@ password
 
 ## logout
 
-Use this command to logout from your {{ $names.domain }} account.o
+Use this command to logout from your resin.io account.o
 
 Examples:
 
@@ -326,7 +326,7 @@ Examples:
 
 ## signup
 
-Use this command to signup for a {{ $names.domain }} account.
+Use this command to signup for a resin.io account.
 
 If signup is successful, you'll be logged in to your new user automatically.
 
@@ -408,7 +408,7 @@ custom device key - note that this is only supported on ResinOS 2.0.3+
 
 ## device rm &#60;uuid&#62;
 
-Use this command to remove a device from {{ $names.domain }}.
+Use this command to remove a device from resin.io.
 
 Notice this command asks for confirmation interactively.
 You can avoid this by passing the `--yes` boolean option.
@@ -719,7 +719,7 @@ Examples:
 
 ## key rm &#60;id&#62;
 
-Use this command to remove a SSH key from {{ $names.domain }}.
+Use this command to remove a SSH key from resin.io.
 
 Notice this command asks for confirmation interactively.
 You can avoid this by passing the `--yes` boolean option.
@@ -774,7 +774,7 @@ continuously stream output
 
 Warning: 'resin sync' requires an openssh-compatible client and 'rsync' to
 be correctly installed in your shell environment. For more information (including
-Windows support) please check the README here: {{ $links.githubMain }}/resin-cli
+Windows support) please check the README here: https://github.com/resin-io/resin-cli
 
 Use this command to sync your local changes to a certain device on the fly.
 
@@ -855,7 +855,7 @@ increase verbosity
 
 Warning: 'resin ssh' requires an openssh-compatible client to be correctly
 installed in your shell environment. For more information (including Windows
-support) please check the README here: {{ $links.githubMain }}/resin-cli
+support) please check the README here: https://github.com/resin-io/resin-cli
 
 Use this command to get a shell into the running application container of
 your device.
@@ -1197,7 +1197,7 @@ how frequently (in minutes) to poll for application updates
 
 Warning: "resin preload" requires Docker to be correctly installed in
 your shell environment. For more information (including Windows support)
-please check the README here: {{ $links.githubMain }}/resin-cli .
+please check the README here: https://github.com/resin-io/resin-cli .
 
 Use this command to preload an application to a local disk image (or
 Edison zip archive) with a built release from Resin.io.
@@ -1288,13 +1288,13 @@ Examples:
 
 ## quickstart [name]
 
-Use this command to run a friendly wizard to get started with {{ $names.domain }}.
+Use this command to run a friendly wizard to get started with resin.io.
 
 The wizard will guide you through:
 
 	- Create an application.
-	- Initialise an SDCard with the {{ $names.domain }} operating system.
-	- Associate an existing project directory with your {{ $names.domain }} application.
+	- Initialise an SDCard with the resin.io operating system.
+	- Associate an existing project directory with your resin.io application.
 	- Push your project to your devices.
 
 Examples:
@@ -1377,7 +1377,7 @@ Scan timeout in seconds
 
 Warning: 'resin local ssh' requires an openssh-compatible client to be correctly
 installed in your shell environment. For more information (including Windows
-support) please check the README here: {{ $links.githubMain }}/resin-cli
+support) please check the README here: https://github.com/resin-io/resin-cli
 
 Use this command to get a shell into the running application container of
 your device.
@@ -1416,7 +1416,7 @@ ssh port number (default: 22222)
 
 Warning: 'resin local push' requires an openssh-compatible client and 'rsync' to
 be correctly installed in your shell environment. For more information (including
-Windows support) please check the README here: {{ $links.githubMain }}/resin-cli
+Windows support) please check the README here: https://github.com/resin-io/resin-cli
 
 Use this command to push your local changes to a container on a LAN-accessible resinOS device on the fly.
 
@@ -1568,7 +1568,7 @@ The type of device this build is for
 
 #### --application, -a &#60;application&#62;
 
-The target {{ $names.domain }} application this build is for
+The target resin.io application this build is for
 
 #### --projectName, -n &#60;projectName&#62;
 

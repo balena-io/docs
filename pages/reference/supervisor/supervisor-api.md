@@ -1,6 +1,6 @@
 # Interacting with the Resin Supervisor
 
-The Resin Supervisor is {{ $names.domain }}'s agent that runs on devices. Its main role is to ensure your app is running, and keep communications with the Resin API server.
+The Resin Supervisor is resin.io's agent that runs on devices. Its main role is to ensure your app is running, and keep communications with the Resin API server.
 
 The Supervisor itself has its own API, with means for user applications to communicate and execute some special actions that affect the host OS or the application itself. There are two main ways for the application to interact with the Supervisor: the update lockfile and the HTTP API.
 
@@ -8,13 +8,13 @@ Only Supervisors after version 1.1.0 have this functionality, and some of the en
 
 ## HTTP API reference
 
-The supervisor exposes an HTTP API on port 48484 (`{{ $names.company.allCaps }}_SUPERVISOR_PORT`).
+The supervisor exposes an HTTP API on port 48484 (`RESIN_SUPERVISOR_PORT`).
 
-**All endpoints require an apikey parameter, which is exposed to the application as `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY`.**
+**All endpoints require an apikey parameter, which is exposed to the application as `RESIN_SUPERVISOR_API_KEY`.**
 
-The full address for the API, i.e. `"http://127.0.0.1:48484"`, is available as `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS`. **Always use these variables when communicating via the API, since address and port could change**.
+The full address for the API, i.e. `"http://127.0.0.1:48484"`, is available as `RESIN_SUPERVISOR_ADDRESS`. **Always use these variables when communicating via the API, since address and port could change**.
 
-Alternatively, the Resin API (api.{{ $names.domain }}) has a proxy endpoint at `POST /supervisor/<url>` (where `<url>` is one of the API URLs described below) from which you can send API commands to the supervisor remotely, using your Auth Token instead of your API key. Commands sent through the proxy can specify either an `appId` to send the request to all devices in an application, or a `deviceId` or `uuid` to send to a particular device. These requests default to POST unless you specify a `method` parameter (e.g. "GET"). In the examples below, we show how to use a uuid to specify a device, but in any of those you can replace `uuid` for a `deviceId` or `appId`.
+Alternatively, the Resin API (api.resin.io) has a proxy endpoint at `POST /supervisor/<url>` (where `<url>` is one of the API URLs described below) from which you can send API commands to the supervisor remotely, using your Auth Token instead of your API key. Commands sent through the proxy can specify either an `appId` to send the request to all devices in an application, or a `deviceId` or `uuid` to send to a particular device. These requests default to POST unless you specify a `method` parameter (e.g. "GET"). In the examples below, we show how to use a uuid to specify a device, but in any of those you can replace `uuid` for a `deviceId` or `appId`.
 
 The API is versioned (currently at v1), except for `/ping`.
 
@@ -32,7 +32,7 @@ Responds with a simple "OK", signaling that the supervisor is alive and well.
 From the app on the device:
 ```bash
 $ curl -X GET --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/ping?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/ping?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 Response:
 ```none
@@ -44,7 +44,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>, "method": "GET"}' \
-	"https://api.{{ $names.domain }}/supervisor/ping"
+	"https://api.resin.io/supervisor/ping"
 ```
 
 <hr>
@@ -58,7 +58,7 @@ Responds with an empty 200 response. It implements the "identify device" feature
 From the app on the device:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/blink?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/blink?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 
 (Empty response)
@@ -68,7 +68,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/blink"
+	"https://api.resin.io/supervisor/v1/blink"
 ```
 
 <hr>
@@ -92,7 +92,7 @@ From the app on the device:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
 	--data '{"force": true}' \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/update?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/update?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 (Empty response)
 
@@ -101,7 +101,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>, "data": {"force": true}}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/update"
+	"https://api.resin.io/supervisor/v1/update"
 ```
 
 <hr>
@@ -127,7 +127,7 @@ Can contain a `force` property, which if set to `true` will cause the update loc
 From the app on the device:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/reboot?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/reboot?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 Response:
 ```json
@@ -139,7 +139,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/reboot"
+	"https://api.resin.io/supervisor/v1/reboot"
 ```
 
 <hr>
@@ -165,7 +165,7 @@ Can contain a `force` property, which if set to `true` will cause the update loc
 From the app on the device:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/shutdown?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/shutdown?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 Response:
 
@@ -178,7 +178,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/shutdown"
+	"https://api.resin.io/supervisor/v1/shutdown"
 ```
 
 <hr>
@@ -211,7 +211,7 @@ From the app on the device:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
 	--data '{"appId": <appId>}' \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/purge?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/purge?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 Response:
 
@@ -224,7 +224,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>, "data": {"appId": <appId>}}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/purge"
+	"https://api.resin.io/supervisor/v1/purge"
 ```
 
 <hr>
@@ -252,7 +252,7 @@ From the app on the device:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
 	--data '{"appId": <appId>}' \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/restart?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/restart?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 
 Response:
@@ -267,68 +267,18 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>, "data": {"appId": <appId>}}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/restart"
-```
-
-<hr>
-
-### POST /v1/tcp-ping
-
-When the device's connection to the Resin VPN is down, by default the device performs a TCP ping heartbeat to check for connectivity. This endpoint enables such TCP ping in case it has been disabled (see DELETE /v1/tcp-ping).
-
-When successful, responds with an empty 204:
-
-#### Examples:
-From the app on the device:
-```bash
-$ curl -X POST --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/tcp-ping?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
-```
-
-(Empty response)
-
-Remotely via the API proxy:
-```bash
-$ curl -X POST --header "Content-Type:application/json" \
-	--header "Authorization: Bearer <auth token>" \
-	--data '{"uuid": <uuid>}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/tcp-ping"
-```
-
-<hr>
-
-### DELETE /v1/tcp-ping
-
-When the device's connection to the Resin VPN is down, by default the device performs a TCP ping heartbeat to check for connectivity. This endpoint disables such TCP ping.
-
-When successful, responds with an empty 204:
-
-#### Examples:
-From the app on the device:
-```bash
-$ curl -X DELETE --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/tcp-ping?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
-```
-
-(Empty response)
-
-Remotely via the API proxy:
-```bash
-$ curl -X POST --header "Content-Type:application/json" \
-	--header "Authorization: Bearer <auth token>" \
-	--data '{"uuid": <uuid>, "method": "DELETE"}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/tcp-ping"
+	"https://api.resin.io/supervisor/v1/restart"
 ```
 
 ### POST /v1/regenerate-api-key
 
-Invalidates the current `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` and generates a new one. Responds with the new API key, but **the application will be restarted on the next update cycle** to update the API key environment variable.
+Invalidates the current `RESIN_SUPERVISOR_API_KEY` and generates a new one. Responds with the new API key, but **the application will be restarted on the next update cycle** to update the API key environment variable.
 
 #### Examples:
 From the app on the device:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/regenerate-api-key?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/regenerate-api-key?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 
 Response:
@@ -342,7 +292,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/regenerate-api-key"
+	"https://api.resin.io/supervisor/v1/regenerate-api-key"
 ```
 
 <hr>
@@ -369,7 +319,7 @@ Other attributes may be added in the future, and some may be missing or null if 
 From the app on the device:
 ```bash
 $ curl -X GET --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/device?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/device?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 Response:
 ```json
@@ -381,7 +331,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>, "method": "GET"}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/device"
+	"https://api.resin.io/supervisor/v1/device"
 ```
 
 <hr>
@@ -406,7 +356,7 @@ From the app on the device:
 
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/apps/<appId>/stop?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/apps/<appId>/stop?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 
 Response:
@@ -421,7 +371,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/apps/<appId>/stop"
+	"https://api.resin.io/supervisor/v1/apps/<appId>/stop"
 ```
 
 <hr>
@@ -442,7 +392,7 @@ From the app on the device:
 
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/apps/<appId>/start?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/apps/<appId>/start?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 
 Response:
@@ -457,7 +407,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/apps/<appId>/start"
+	"https://api.resin.io/supervisor/v1/apps/<appId>/start"
 ```
 
 <hr>
@@ -481,11 +431,11 @@ This is only supported on single-container devices, and will return 400 on devic
 From the app on the device:
 ```bash
 $ curl -X GET --header "Content-Type:application/json" \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/apps/<appId>?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/apps/<appId>?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 Response:
 ```json
-{"appId": 3134,"commit":"414e65cd378a69a96f403b75f14b40b55856f860","imageId":"registry.{{ $names.domain }}/superapp/414e65cd378a69a96f403b75f14b40b55856f860","containerId":"e5c1eace8b4e","env":{"FOO":"bar"}}
+{"appId": 3134,"commit":"414e65cd378a69a96f403b75f14b40b55856f860","imageId":"registry.resin.io/superapp/414e65cd378a69a96f403b75f14b40b55856f860","containerId":"e5c1eace8b4e","env":{"FOO":"bar"}}
 ```
 
 Remotely via the API proxy:
@@ -493,7 +443,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>, "method": "GET"}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/apps/<appId>"
+	"https://api.resin.io/supervisor/v1/apps/<appId>"
 ```
 
 <hr>
@@ -511,7 +461,7 @@ correctly.
 #### Examples:
 From the app on the device:
 ```bash
-$ curl "${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/healthy"
+$ curl "$RESIN_SUPERVISOR_ADDRESS/v1/healthy"
 ```
 (Empty response)
 
@@ -520,7 +470,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>, "method": "GET"}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/healthy"
+	"https://api.resin.io/supervisor/v1/healthy"
 ```
 
 <hr>
@@ -563,7 +513,7 @@ guaranteed to work, especially if they block connections that the resin services
 Keep in mind that, even if transparent proxy redirection will take effect immediately after the API call (i.e. all new connections will go through the proxy), open connections will not be closed. So, if for example, the device has managed to connect to the resin VPN without the proxy, it will stay connected directly without trying to reconnect through the proxy, unless the connection breaks - any reconnection attempts will then go through the proxy. To force *all* connections to go through the proxy, the best way is to reboot the device (see the /v1/reboot endpoint). In most networks were no connections to the Internet can be made if not through a proxy, this should not be necessary (as there will be no open connections before configuring the proxy settings).
 
 The "noProxy" setting for the proxy is an optional array of IP addresses/subnets that should not be routed through the
-proxy. Keep in mind that local/reserved subnets are already [excluded by resinOS automatically]({{ $links.githubOS }}/meta-resin/blob/master/meta-resin-common/recipes-connectivity/resin-proxy-config/resin-proxy-config/resin-proxy-config#L48).
+proxy. Keep in mind that local/reserved subnets are already [excluded by resinOS automatically](https://github.com/resin-os/meta-resin/blob/master/meta-resin-common/recipes-connectivity/resin-proxy-config/resin-proxy-config/resin-proxy-config#L48).
 
 If either "proxy" or "hostname" are null or empty values (i.e. `{}` for proxy or an empty string for hostname), they will be cleared to their default values (i.e. not using a proxy, and a hostname equal to the first 7 characters of the device's uuid, respectively).
 
@@ -572,7 +522,7 @@ From the app on the device:
 ```bash
 $ curl -X PATCH --header "Content-Type:application/json" \
 	--data '{"network": {"hostname": "newhostname"}}' \
-	"${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+	"$RESIN_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 
 Response:
@@ -585,7 +535,7 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>, "method": "PATCH", "data": {"network": {"hostname": "newhostname"}}}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/device/host-config"
+	"https://api.resin.io/supervisor/v1/device/host-config"
 ```
 
 <hr>
@@ -602,7 +552,7 @@ Please refer to the PATCH endpoint above for details on the behavior and meaning
 #### Examples:
 From the app on the device:
 ```bash
-$ curl "${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+$ curl "$RESIN_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=$RESIN_SUPERVISOR_API_KEY"
 ```
 
 Response:
@@ -615,5 +565,5 @@ Remotely via the API proxy:
 $ curl -X POST --header "Content-Type:application/json" \
 	--header "Authorization: Bearer <auth token>" \
 	--data '{"uuid": <uuid>, "method": "GET"}' \
-	"https://api.{{ $names.domain }}/supervisor/v1/device/host-config"
+	"https://api.resin.io/supervisor/v1/device/host-config"
 ```

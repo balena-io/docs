@@ -180,7 +180,7 @@ Get a single application.
 #### Examples:
 ```python
 >>> resin.models.application.get('RPI1')
-{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.{{ $names.domain }}:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}
+{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.resin.io:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}
 ```
 ### Function: get_all()
 
@@ -192,7 +192,7 @@ Get all applications.
 #### Examples:
 ```python
 >>> resin.models.application.get_all()
-[{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.{{ $names.domain }}:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}, {u'app_name': u'RPI2', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9019)'}, u'git_repository': u'g_trong_nghia_nguyen@git.{{ $names.domain }}:g_trong_nghia_nguyen/rpi2.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi2', u'commit': None, u'id': 9019}]
+[{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.resin.io:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}, {u'app_name': u'RPI2', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9019)'}, u'git_repository': u'g_trong_nghia_nguyen@git.resin.io:g_trong_nghia_nguyen/rpi2.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi2', u'commit': None, u'id': 9019}]
 ```
 ### Function: get_by_id(app_id)
 
@@ -210,7 +210,7 @@ Get a single application by application id.
 #### Examples:
 ```python
 >>> resin.models.application.get_by_id(9020)
-{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.{{ $names.domain }}:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}
+{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.resin.io:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}
 ```
 ### Function: get_config(app_id)
 
@@ -228,7 +228,7 @@ Get a single application by application id.
 ####         Examples:
 ```python
             >>> resin.models.application.get_config('106640')
-            {u'applicationName': u'RPI3', u'username': u'nghiant2710', u'apiKey': u'kIaqS6ZLOoxkFzpzqSYhWtr2lj6m8KZi', u'vpnPort': 443, u'listenPort': 48484, u'pubnubSubscribeKey': u'sub-c-bbc12eba-ce4a-11e3-9782-02ee2ddab7fe', u'vpnEndpoint': u'vpn.{{ $names.domain }}', u'userId': 189, u'files': {u'network/network.config': u'[service_home_ethernet]
+            {u'applicationName': u'RPI3', u'username': u'nghiant2710', u'apiKey': u'kIaqS6ZLOoxkFzpzqSYhWtr2lj6m8KZi', u'vpnPort': 443, u'listenPort': 48484, u'pubnubSubscribeKey': u'sub-c-bbc12eba-ce4a-11e3-9782-02ee2ddab7fe', u'vpnEndpoint': u'vpn.resin.io', u'userId': 189, u'files': {u'network/network.config': u'[service_home_ethernet]
 Type = ethernet
 Nameservers = 8.8.8.8,8.8.4.4', u'network/settings': u'[global]
 OfflineMode=false
@@ -245,7 +245,7 @@ Tethering=false
 
 [Bluetooth]
 Enable=true
-Tethering=false'}, u'pubnubPublishKey': u'pub-c-6cbce8db-bfd1-4fdf-a8c8-53671ae2b226', u'apiEndpoint': u'https://api.{{ $names.domain }}', u'connectivity': u'connman', u'deviceType': u'raspberrypi3', u'mixpanelToken': u'99eec53325d4f45dd0633abd719e3ff1', u'deltaEndpoint': u'https://delta.{{ $names.domain }}', u'appUpdatePollInterval': 60000, u'applicationId': 106640, u'registryEndpoint': u'registry.{{ $names.domain }}'}
+Tethering=false'}, u'pubnubPublishKey': u'pub-c-6cbce8db-bfd1-4fdf-a8c8-53671ae2b226', u'apiEndpoint': u'https://api.resin.io', u'connectivity': u'connman', u'deviceType': u'raspberrypi3', u'mixpanelToken': u'99eec53325d4f45dd0633abd719e3ff1', u'deltaEndpoint': u'https://delta.resin.io', u'appUpdatePollInterval': 60000, u'applicationId': 106640, u'registryEndpoint': u'registry.resin.io'}
         
 ### Function: grant_support_access(app_id, expiry_timestamp)
 
@@ -451,8 +451,8 @@ Create an application config variable.
 
 #### Examples:
 ```python
->>> print(resin.models.config_variable.application_config_variable.create('1005160', '{{ $names.company.allCaps }}_TEST_APP_CONFIG_VAR', 'test value'))
-{"id":117738,"application":{"__deferred":{"uri":"/resin/application(1005160)"},"__id":1005160},"name":"{{ $names.company.allCaps }}_TEST_APP_CONFIG_VAR","value":"test value","__metadata":{"uri":"/resin/application_config_variable(117738)","type":""}}
+>>> print(resin.models.config_variable.application_config_variable.create('1005160', 'RESIN_TEST_APP_CONFIG_VAR', 'test value'))
+{"id":117738,"application":{"__deferred":{"uri":"/resin/application(1005160)"},"__id":1005160},"name":"RESIN_TEST_APP_CONFIG_VAR","value":"test value","__metadata":{"uri":"/resin/application_config_variable(117738)","type":""}}
 ```
 ### Function: get_all(app_id)
 
@@ -467,7 +467,7 @@ Get all application config variables belong to an application.
 #### Examples:
 ```python
 >>> resin.models.config_variable.application_config_variable.get_all('1005160')
-[{u'application': {u'__deferred': {u'uri': u'/resin/application(1005160)'}, u'__id': 1005160}, u'__metadata': {u'type': u'', u'uri': u'/resin/application_config_variable(116965)'}, u'id': 116965, u'value': u'false', u'name': u'{{ $names.company.allCaps }}_SUPERVISOR_NATIVE_LOGGER'}]
+[{u'application': {u'__deferred': {u'uri': u'/resin/application(1005160)'}, u'__id': 1005160}, u'__metadata': {u'type': u'', u'uri': u'/resin/application_config_variable(116965)'}, u'id': 116965, u'value': u'false', u'name': u'RESIN_SUPERVISOR_NATIVE_LOGGER'}]
 ```
 ### Function: remove(var_id)
 
@@ -527,7 +527,7 @@ Get all device config variables belong to a device.
 #### Examples:
 ```python
 >>> resin.models.config_variable.device_config_variable.get_all('f5213eac0d63ac47721b037a7406d306')
-[{u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id74}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_variab8)'}, u'id': 130598, u'value': u'1', u'name': u'{{ $names.company.allCaps }}_HOST_CONFIG_avoid_'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'_36574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_var0597)'}, u'id': 130597, u'value': u'1', u'name': u'{{ $names.company.allCaps }}_HOST_CONFIG_disash'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'},  1036574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_(130596)'}, u'id': 130596, u'value': u'"i2c_arm=on","spi=on","audio=on"'': u'{{ $names.company.allCaps }}_HOST_CONFIG_dtparam'}, {u'device': {u'__deferred': {u'uri': udevice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uresin/device_config_variable(130595)'}, u'id': 130595, u'value': u'16', uu'{{ $names.company.allCaps }}_HOST_CONFIG_gpu_mem'}, {u'device': {u'__deferred': {u'uri': u'/rice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uri':n/device_config_variable(130594)'}, u'id': 130594, u'value': u'false', uu'{{ $names.company.allCaps }}_HOST_LOG_TO_DISPLAY'}]
+[{u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id74}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_variab8)'}, u'id': 130598, u'value': u'1', u'name': u'RESIN_HOST_CONFIG_avoid_'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'_36574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_var0597)'}, u'id': 130597, u'value': u'1', u'name': u'RESIN_HOST_CONFIG_disash'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'},  1036574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_(130596)'}, u'id': 130596, u'value': u'"i2c_arm=on","spi=on","audio=on"'': u'RESIN_HOST_CONFIG_dtparam'}, {u'device': {u'__deferred': {u'uri': udevice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uresin/device_config_variable(130595)'}, u'id': 130595, u'value': u'16', uu'RESIN_HOST_CONFIG_gpu_mem'}, {u'device': {u'__deferred': {u'uri': u'/rice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uri':n/device_config_variable(130594)'}, u'id': 130594, u'value': u'false', uu'RESIN_HOST_LOG_TO_DISPLAY'}]
 ```
 ### Function: remove(var_id)
 
@@ -724,7 +724,7 @@ Get Resin Dashboard URL for a specific device.
 #### Examples:
 ```python
 >>> resin.models.device.get_dashboard_url('19619a6317072b65a240b451f45f855d')
-{{ $links.dashboardUrl }}/devices/19619a6317072b65a240b451f45f855d/summary
+https://dashboard.resin.io/devices/19619a6317072b65a240b451f45f855d/summary
 ```
 ### Function: get_device_slug(device_type_name)
 
@@ -1767,12 +1767,12 @@ This class implements supervisor model for Resin Python SDK.
 
 #### Attributes:
     SUPERVISOR_API_VERSION (str): supervisor API version.
-    {{ $names.company.allCaps }}_SUPERVISOR_ADDRESS (str): supervisor endpoint address on device.
-    {{ $names.company.allCaps }}_SUPERVISOR_API_KEY (str): supervisor API key on device.
+    RESIN_SUPERVISOR_ADDRESS (str): supervisor endpoint address on device.
+    RESIN_SUPERVISOR_API_KEY (str): supervisor API key on device.
     _on_device (bool): API endpoint flag.
         If True then all commands will be sent to the API on device.
-        If False then all command will be sent to the Resin API proxy endpoint (api.{{ $names.domain }}/supervisor/<url>).
-        If {{ $names.company.allCaps }}_SUPERVISOR_ADDRESS and {{ $names.company.allCaps }}_SUPERVISOR_API_KEY are available, _on_device will be set to True by default. Otherwise, it's False.
+        If False then all command will be sent to the Resin API proxy endpoint (api.resin.io/supervisor/<url>).
+        If RESIN_SUPERVISOR_ADDRESS and RESIN_SUPERVISOR_API_KEY are available, _on_device will be set to True by default. Otherwise, it's False.
 ### Function: blink(device_uuid, app_id)
 
 Start a blink pattern on a LED for 15 seconds. This is the same with `resin.models.device.identify()`.
@@ -1939,7 +1939,7 @@ No need to set device_uuid and app_id if command is sent to the API on device.
 ```
 ### Function: regenerate_supervisor_api_key(app_id, device_uuid)
 
-Invalidate the current {{ $names.company.allCaps }}_SUPERVISOR_API_KEY and generates a new one.
+Invalidate the current RESIN_SUPERVISOR_API_KEY and generates a new one.
 The application will be restarted on the next update cycle to update the API key environment variable.
 No need to set device_uuid and app_id if command is sent to the API on device.
 
@@ -2334,7 +2334,7 @@ Get a setting value.
 #### Examples:
 ```python
 >>> resin.settings.get('api_endpoint')
-'https://api.{{ $names.domain }}/'
+'https://api.resin.io/'
 ```
 ### Function: get_all()
 
@@ -2346,7 +2346,7 @@ Get all settings.
 #### Examples:
 ```python
 >>> resin.settings.get_all()
-{'image_cache_time': '604800000', 'api_endpoint': 'https://api.{{ $names.domain }}/', 'data_directory': '/root/.resin', 'token_refresh_interval': '3600000', 'cache_directory': '/root/.resin/cache', 'pine_endpoint': 'https://api.{{ $names.domain }}/ewa/'}
+{'image_cache_time': '604800000', 'api_endpoint': 'https://api.resin.io/', 'data_directory': '/root/.resin', 'token_refresh_interval': '3600000', 'cache_directory': '/root/.resin/cache', 'pine_endpoint': 'https://api.resin.io/ewa/'}
 ```
 ### Function: has(key)
 

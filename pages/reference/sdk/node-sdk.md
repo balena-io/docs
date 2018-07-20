@@ -5,7 +5,7 @@ Welcome to the Resin SDK documentation.
 
 This document aims to describe all the functions supported by the SDK, as well as showing examples of their expected usage.
 
-If you feel something is missing, not clear or could be improved, please don't hesitate to open an [issue in GitHub]({{ $links.githubMain }}/resin-sdk/issues/new), we'll be happy to help.
+If you feel something is missing, not clear or could be improved, please don't hesitate to open an [issue in GitHub](https://github.com/resin-io/resin-sdk/issues/new), we'll be happy to help.
 
 **Kind**: global namespace  
 
@@ -147,7 +147,7 @@ If you feel something is missing, not clear or could be improved, please don't h
         * [.logout()](#resin.auth.logout) ⇒ <code>Promise</code>
         * [.register([credentials])](#resin.auth.register) ⇒ <code>Promise</code>
     * [.logs](#resin.logs) : <code>object</code>
-        * [.subscribe(uuidOrId)](#resin.logs.subscribe) ⇒ <code>Promise</code>
+        * [.subscribe(uuidOrId, [options])](#resin.logs.subscribe) ⇒ <code>Promise</code>
         * [.history(uuidOrId, [options])](#resin.logs.history) ⇒ <code>Promise</code>
         * [.LogSubscription](#resin.logs.LogSubscription) : <code>EventEmitter</code>
             * [.unsubscribe()](#resin.logs.LogSubscription.unsubscribe)
@@ -210,7 +210,7 @@ using the same token and hooks as the SDK.
 **Access**: public  
 **Example**  
 ```js
-resin.request.send({ url: 'http://api.{{ $names.domain }}/ping' });
+resin.request.send({ url: 'http://api.resin.io/ping' });
 ```
 <a name="resin.pine"></a>
 
@@ -2847,7 +2847,7 @@ resin.models.environmentVariables.remove(51, function(error) {
 **Example**  
 ```js
 resin.models.environmentVariables.isSystemVariable({
-	name: '{{ $names.company.allCaps }}_SUPERVISOR'
+	name: 'RESIN_SUPERVISOR'
 });
 > true
 ```
@@ -3715,7 +3715,7 @@ resin.auth.register({
 **Kind**: static namespace of <code>[resin](#resin)</code>  
 
 * [.logs](#resin.logs) : <code>object</code>
-    * [.subscribe(uuidOrId)](#resin.logs.subscribe) ⇒ <code>Promise</code>
+    * [.subscribe(uuidOrId, [options])](#resin.logs.subscribe) ⇒ <code>Promise</code>
     * [.history(uuidOrId, [options])](#resin.logs.history) ⇒ <code>Promise</code>
     * [.LogSubscription](#resin.logs.LogSubscription) : <code>EventEmitter</code>
         * [.unsubscribe()](#resin.logs.LogSubscription.unsubscribe)
@@ -3724,7 +3724,7 @@ resin.auth.register({
 
 <a name="resin.logs.subscribe"></a>
 
-#### logs.subscribe(uuidOrId) ⇒ <code>Promise</code>
+#### logs.subscribe(uuidOrId, [options]) ⇒ <code>Promise</code>
 Connects to the stream of devices logs, returning a LogSubscription, which
 can be used to listen for logs as they appear, line by line.
 
@@ -3740,6 +3740,8 @@ can be used to listen for logs as they appear, line by line.
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
+| [options] | <code>Object</code> | options |
+| [options.count] | <code>Number</code> | number of historical messages to include |
 
 **Example**  
 ```js
@@ -3771,22 +3773,25 @@ resin.logs.subscribe('7cf02a6', function(error, logs) {
 
 #### logs.history(uuidOrId, [options]) ⇒ <code>Promise</code>
 Get an array of the latest log messages for a given device.
+<<<<<<< HEAD
 
 **Note**: the default number of logs retrieved is 100.
 To get a different number pass the `{ count: N }` to the options param.
 Also note that the actual number of log lines can be bigger as the
 Resin.io supervisor can combine lines sent in a short time interval
+=======
+>>>>>>> Reroute HTTP to HTTPS
 
 **Kind**: static method of <code>[logs](#resin.logs)</code>  
 **Summary**: Get device logs history  
 **Access**: public  
 **Fulfil**: <code>Object[]</code> - history lines  
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| uuidOrId | <code>String</code> \| <code>Number</code> |  | device uuid (string) or id (number) |
-| [options] | <code>Object</code> |  | options |
-| [options.count] | <code>Number</code> | <code>100</code> | Number of requests to return |
+| Param | Type | Description |
+| --- | --- | --- |
+| uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
+| [options] | <code>Object</code> | options |
+| [options.count] | <code>Number</code> | number of log messages to return |
 
 **Example**  
 ```js
@@ -3930,8 +3935,8 @@ startup and before any calls to `fromSharedOptions()` are made.
 **Example**  
 ```js
 resin.setSharedOptions({
-	apiUrl: 'https://api.{{ $names.domain }}/',
-	imageMakerUrl: 'https://img.{{ $names.domain }}/',
+	apiUrl: 'https://api.resin.io/',
+	imageMakerUrl: 'https://img.resin.io/',
 	isBrowser: true,
 });
 ```

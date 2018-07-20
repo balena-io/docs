@@ -1,13 +1,14 @@
 COMPANY_LOWER = process.env.COMPANY_LOWER || 'resin.io'
-COMPANY_UPPER = process.env.COMPANY_UPPER || 'Resin.io'
+COMPANY_UPPER = (COMPANY_LOWER.charAt(0).toUpperCase() + COMPANY_LOWER.slice(1)) || 'Resin.io'
 COMPANY_ALL_CAPS = process.env.COMPANY_ALL_CAPS || 'RESIN'
 COMPANY_SHORT = process.env.COMPANY_SHORT || 'resin'
 COMPANY_DASH = process.env.COMPANY_DASH || 'resin-io'
 OS_LOWER = process.env.OS_LOWER || 'resinOS'
-OS_UPPER = process.env.OS_UPPER || 'ResinOS'
+OS_UPPER = (OS_LOWER.charAt(0).toUpperCase() + OS_LOWER.slice(1)) || 'ResinOS'
 ENGINE_LOWER = process.env.ENGINE_LOWER || 'balena'
-ENGINE_UPPER = process.env.ENGINE_UPPER || 'Balena'
+ENGINE_UPPER = (ENGINE_LOWER.charAt(0).toUpperCase() + ENGINE_LOWER.slice(1))
 DOMAIN = process.env.DOMAIN || 'resin.io'
+
 
 module.exports =
   company: 
