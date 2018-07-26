@@ -4,7 +4,7 @@
 * An ethernet cable or WiFi adapter (not needed for the Zero W). Check our [list of supported WiFi adapters][wifiAdapters].
 * A micro USB cable.
 * **[Optional]** A [2A micro USB power supply][psu].
-* A [resin.io account][link-to-signup].
+* A [{{ $names.company.lower }} account][link-to-signup].
 
 [aplus]:{{ $links.raspberrypi.aplus }}
 [bplus]:{{ $links.raspberrypi.bplus }}
@@ -15,4 +15,4 @@
 [wifiAdapters]:/hardware/wifi-dongles/
 [supportedDevicesList]:/hardware/devices/
 
-[link-to-signup]:https://dashboard.resin.io/signup
+[link-to-signup]:{{ $links.dashboardUrl }}/signup

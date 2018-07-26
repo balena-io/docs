@@ -1,12 +1,12 @@
 ---
 title: Samsung ARTIK Cloud integration
-excerpt: Get started with ARTIK, ARTIK Cloud and resin.io
+excerpt: Get started with ARTIK, ARTIK Cloud and {{ $names.company.lower }}
 thumbnail: /img/integrations/artik/ARTIKCloud_new_device.png
 ---
 
 # Samsung ARTIK Cloud integration
 
-The [Samsung ARTIK Cloud](https://artik.cloud/) is an open data exchange platform for the Internet of Things (IoT). It uses APIs for devices and services to interact with each other, to send, receive, and analyze data. This tutorial shows how to use ARTIK Cloud with devices deployed on resin.io.
+The [Samsung ARTIK Cloud](https://artik.cloud/) is an open data exchange platform for the Internet of Things (IoT). It uses APIs for devices and services to interact with each other, to send, receive, and analyze data. This tutorial shows how to use ARTIK Cloud with devices deployed on {{ $names.company.lower }}.
 
 As a simple illustration use case, an example device is used which reads local ambient temperatures, and send the readings to the ARTIK Cloud for logging and analysis.
 
@@ -92,9 +92,9 @@ One useful trick while developing actions is setting up your rule as a scheduled
 
 For more information see the [Develop Rules for Devices](https://developer.artik.cloud/documentation/connect-the-data/develop-rules-for-devices.html) section of the ARTIK Cloud documentation.
 
-## Configuring Resin.io
+## Configuring {{ $names.company.upper }}
 
-Go to your [resin.io dashboard](https://dashboard.resin.io) and create a new application with the physical device type you are using (for example a Samsung ARTIK board, or any other). In the tutorial's example a BeagleBone Green Wifi is used (with a temperature sensor module).
+Go to your [{{ $names.company.lower }} dashboard]({{ $links.dashboardUrl }}/) and create a new application with the physical device type you are using (for example a Samsung ARTIK board, or any other). In the tutorial's example a BeagleBone Green Wifi is used (with a temperature sensor module).
 
 In the application dashboard define two application-wide environmental variables for the Device ID and Device Token values. For clarity you can choose `ARTIKCLOUD_DEVICE_ID` `ARTIKCLOUD_DEVICE_TOKEN`, though can use any other value you like. In the application-wide setting just use a placeholder value, such as `REDEFINE`.
 
@@ -106,16 +106,16 @@ After this, the credentials for the devices to talk to ARTIK Cloud will be avail
 
 ## Programming
 
-There are multiple ways to connect to the ARTIK Cloud to send and receive data, including WebSockets, MQTT, CoAP, REST (see the [API reference](https://developer.artik.cloud/documentation/api-reference/)), and there are also a number of [native SDKs](https://developer.artik.cloud/documentation/tools/native-sdks.html) that you can speed things up with. For most applications on resin.io the [Python](https://github.com/artikcloud/artikcloud-python) or the [Javascript/Node.js](https://github.com/artikcloud/artikcloud-js) SDK are the simplest to start with, though they can only send message at this time. In case you are both sending messages and receiving actions, we recommend using WebSockets or MQTT. The following section highlights some language-specific notes for using resin.io and ARTIK Cloud. For more detailed information see the rest of the docs, and be sure to check out the SDKs documentation.
+There are multiple ways to connect to the ARTIK Cloud to send and receive data, including WebSockets, MQTT, CoAP, REST (see the [API reference](https://developer.artik.cloud/documentation/api-reference/)), and there are also a number of [native SDKs](https://developer.artik.cloud/documentation/tools/native-sdks.html) that you can speed things up with. For most applications on {{ $names.company.lower }} the [Python](https://github.com/artikcloud/artikcloud-python) or the [Javascript/Node.js](https://github.com/artikcloud/artikcloud-js) SDK are the simplest to start with, though they can only send message at this time. In case you are both sending messages and receiving actions, we recommend using WebSockets or MQTT. The following section highlights some language-specific notes for using {{ $names.company.lower }} and ARTIK Cloud. For more detailed information see the rest of the docs, and be sure to check out the SDKs documentation.
 
 ### Python
 
 #### Using the ARTIK Cloud Python SDK
 
-Here are a few notes using the [Python SDK](https://github.com/artikcloud/artikcloud-python) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
+Here are a few notes using the [Python SDK](https://github.com/artikcloud/artikcloud-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
 
 ```
-FROM resin/%%RESIN_MACHINE_NAME%%-python:2.7
+FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python:2.7
 ```
 
 Add the `artikcloud` dependency in your `requirements.txt` file:
@@ -167,11 +167,11 @@ print(response)
 
 You can use any Python WebSockets library to communicate with the ARTIK Cloud. Check the [WebSockets connection](https://developer.artik.cloud/documentation/connect-the-data/rest-and-websockets.html) and [WebSockets API](https://developer.artik.cloud/documentation/api-reference/websockets-api.html) pages on the ARTIK Cloud Documentation.
 
-The [artilcloud-resin-python](https://github.com/resin-io-projects/artikcloud-resin-python) project includes a example of how to connect to the ARTIK Cloud using WebSockets, send messages and receive actions.
+The [artilcloud-resin-python]({{ $links.githubProjects }}/artikcloud-resin-python) project includes a example of how to connect to the ARTIK Cloud using WebSockets, send messages and receive actions.
 
 #### Using MQTT from Python
 
-The [artilcloud-resin-python](https://github.com/resin-io-projects/artikcloud-resin-python) project includes an example of how to connect to the ARTIK Cloud using MQTT, send messages and receive actions.
+The [artilcloud-resin-python]({{ $links.githubProjects }}/artikcloud-resin-python) project includes an example of how to connect to the ARTIK Cloud using MQTT, send messages and receive actions.
 
 You can use any Python MQTT library to communicate with the ARTIK Cloud. Check the [MQTT connection](https://developer.artik.cloud/documentation/connect-the-data/mqtt.html) and [MQTT API](https://developer.artik.cloud/documentation/api-reference/mqtt-api.html) pages on the ARTIK Cloud Documentation.
 
@@ -179,10 +179,10 @@ You can use any Python MQTT library to communicate with the ARTIK Cloud. Check t
 
 #### Using the ARTIK Cloud Node.js SDK
 
-Here are a few notes using the [Javascript/Node.js SDK](https://github.com/artikcloud/artikcloud-js) with resin.io devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
+Here are a few notes using the [Javascript/Node.js SDK](https://github.com/artikcloud/artikcloud-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
 
 ```
-FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
+FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
 ```
 
 Add the `artikcloud-js` dependency in your `package.json` in your application's folder:
@@ -250,12 +250,12 @@ Once it is working, you can go to more advanced features, such as [setting rules
 
 A few sample apps to get started:
 
-* [Push events to the Artik cloud(sami)](https://github.com/resin-io-projects/resin-artik-cloud-publisher)
-* [Python application showing how to send messages and receive actions over MQTT and WebSockets in a resin.io application](https://github.com/resin-io-projects/artikcloud-resin-python)
+* [Push events to the Artik cloud(sami)]({{ $links.githubProjects }}/resin-artik-cloud-publisher)
+* [Python application showing how to send messages and receive actions over MQTT and WebSockets in a {{ $names.company.lower }} application]({{ $links.githubProjects }}/artikcloud-resin-python)
 * [ARTIK Cloud documentation samples](https://developer.artik.cloud/documentation/samples/)
 
 ### Relevant Blogposts
 
 Some relevant posts from our blog:
 
-* [ARTIK & ARTIK Cloud tutorial](https://resin.io/blog/artikartikcloud/)
+* [ARTIK & ARTIK Cloud tutorial]({{ $links.mainSiteUrl }}/blog/artikartikcloud/)

@@ -6,7 +6,7 @@ __Warning:__ This will completely overwrite any data on your devices' internal e
 
 <img src="/img/beaglebone-black/sd_card_BBB.jpg" width="40%">
 
-After a short while you should see your device pop up in the dashboard. It will appear in a configuring state as it flashes resinOS to the internal media. This step can take a little time.
+After a short while you should see your device pop up in the dashboard. It will appear in a configuring state as it flashes {{ $names.os.lower }} to the internal media. This step can take a little time.
 
 After the internal media has been flashed, your device will shut itself down. At this point you will see the device in a `Post-Provisioning` state and all its LEDs should be off. Before booting the device again, *make sure to remove the SD card*. You may then simply press the power button situated nearest to the ethernet port or pull out and replug the power cable.
 
@@ -14,4 +14,4 @@ After the internal media has been flashed, your device will shut itself down. At
 
 Your device should now start booting from internal eMMC and in a minute or so you should have a happy Beaglebone device in the `Idle` state on your dashboard. From here on you can deploy code to your device with ease.
 
-__Note:__ If you have an HDMI screen attached (Beaglebone Black only), you should see `"Booted - Check your resin.io dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](#create-a-bootable-sd-card) again. If the issue persists, come and get [help from our support team](/support/).
+__Note:__ If you have an HDMI screen attached (Beaglebone Black only), you should see `"Booted - Check your {{ $names.company.lower }} dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](#create-a-bootable-sd-card) again. If the issue persists, come and get [help from our support team](/support/).

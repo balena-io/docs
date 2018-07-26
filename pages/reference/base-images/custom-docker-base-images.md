@@ -1,11 +1,11 @@
 ---
 title: Custom base images
-excerpt: Building custom base images for use with resin.io
+excerpt: Building custom base images for use with {{ $names.company.lower }}
 ---
 
 # Custom Base Images for your Fleet
 
-Raspbian and Debian are great, but sometimes you just want to let your hair loose and get crazy with Arch Linux or some other distro. With resin.io this is actually pretty easy and what follows are a few simple steps to get your own custom base image.
+Raspbian and Debian are great, but sometimes you just want to let your hair loose and get crazy with Arch Linux or some other distro. With {{ $names.company.lower }} this is actually pretty easy and what follows are a few simple steps to get your own custom base image.
 
 __Note:__ This guide assumes some knowledge of [Docker][docker] and expects that you have Docker or somekind or boot2docker installed on your host machine. It also expects you to have an account over at the [Docker Hub][dockerhub-link].
 
@@ -25,7 +25,7 @@ FROM digitallyseamless/archlinux-armv6h
 COPY qemu-arm-static /usr/bin/
 ```
 
-This image builds qemu-arm into your base image. This is needed in the resin.io builder so that all your code can be correctly cross compiled for the targeted ARM architecture.
+This image builds qemu-arm into your base image. This is needed in the {{ $names.company.lower }} builder so that all your code can be correctly cross compiled for the targeted ARM architecture.
 
 ### Step 3:
 From this point, we are going to dive into Docker land, so make sure you are familiar with Docker commands. If you are unsure of building Docker images, start with a little reading from over [here][docker-create-images-link]
@@ -53,7 +53,7 @@ docker push myDockerHubName/myNewBaseImageName
 After a short while you should have your new base image reading and waiting on Docker Hub.
 
 ### Step 5:
-Make a new resin.io project that uses your new image as its base. It could look like this in the case of the Arch Linux ARM example:
+Make a new {{ $names.company.lower }} project that uses your new image as its base. It could look like this in the case of the Arch Linux ARM example:
 ```
 FROM shaunmulligan/arch-armv6h-resin
 
@@ -69,14 +69,14 @@ CMD ["bash", "/app/start.sh"]
 
 This is from my [demo project][example-archlinux], which just launches an ssh daemon and small hello world python-flask server on boot.
 
-One pretty cool consequence of this is that users can share their base images, for instance you can now base you resin.io projects on shaunmulligan/arch-arm6h-resin because it is a public image.
+One pretty cool consequence of this is that users can share their base images, for instance you can now base you {{ $names.company.lower }} projects on shaunmulligan/arch-arm6h-resin because it is a public image.
 
-So there you have it. Brand new base images for your resin.io projects in 4 simple steps (step 5 doesnt really count :P ).
+So there you have it. Brand new base images for your {{ $names.company.lower }} projects in 4 simple steps (step 5 doesnt really count :P ).
 
 [docker]:https://www.docker.com/
 [dockerfile]:https://docs.docker.com/reference/builder/
 [docker-registry]:https://registry.hub.docker.com/u/resin/rpi-raspbian/tags/manage/
-[resin-docker-blog]:https://resin.io/blog/docker-on-raspberry-pi/
+[resin-docker-blog]:{{ $links.mainSiteUrl }}/blog/docker-on-raspberry-pi/
 [dockerhub-link]:https://registry.hub.docker.com/search?q=rpi
 [rpi-archlinux-link]:https://registry.hub.docker.com/u/digitallyseamless/archlinux-armv6h/
 [docker-custom-base-os-repo]:https://github.com/nghiant2710/base-os-image-example

@@ -1,12 +1,12 @@
 ---
 title: Custom board support
-excerpt: Instructions for adding boards not currently supported by resin.io
+excerpt: Instructions for adding boards not currently supported by {{ $names.company.lower }}
 
 ---
 
 # Custom board support
 
-### Its important to note that the instructions for [meta-resin][meta-resin] are still a draft, we still may have some detail to cover, if you have any feedback please let us know - hello@resin.io.
+### Its important to note that the instructions for [meta-resin][meta-resin] are still a draft, we still may have some detail to cover, if you have any feedback please let us know - hello@{{ $names.domain }}.
 
 __NOTE:__ Pre-requisites: yocto BSP layer for your particular board. Should be compatible to yocto fido release at the time of writing this howto.
 
@@ -24,9 +24,9 @@ One should define the following variables in the resin-image bbappend:
 
 	- `IMAGE_FSTYPES_${board_name}` - using this variable one can declare the type of the produced image. It can be ext3, ext4, resin-sdcard etc. Usual type for a board that can boot from SD card, USB, is "resin-sdcard".
 
-	- `RESIN_BOOT_PARTITION_FILES_${board_name}` - this allows adding needed files from the deploy directory into the boot partition (one can add here bootloader config files, first stage bootloader, initramfs etc).
+	- `{{ $names.company.allCaps }}_BOOT_PARTITION_FILES_${board_name}` - this allows adding needed files from the deploy directory into the boot partition (one can add here bootloader config files, first stage bootloader, initramfs etc).
 	This is a list of files relative to `DEPLOY_DIR_IMAGE` that will be included in the vfat partition. It has the following format: "FilenameRelativeToDeployDir:FilenameOnTheTarget". if `FilenameOnTheTarget` is omitted the same filename will be used
-	For example to have the `bzImage-nuc.bin` copied from deploy directory in the boot partition, renamed to vmlinuz: `RESIN_BOOT_PARTITION_FILES_nuc = "bzImage-nuc.bin:vmlinuz"`
+	For example to have the `bzImage-nuc.bin` copied from deploy directory in the boot partition, renamed to vmlinuz: `{{ $names.company.allCaps }}_BOOT_PARTITION_FILES_nuc = "bzImage-nuc.bin:vmlinuz"`
 
 	If using **resin-image-flasher**, the following variables should be defined/appended:
 
@@ -34,7 +34,7 @@ One should define the following variables in the resin-image bbappend:
 
 	- `BOOT_SPACE_${board_name}` - can be used to customize the space of the boot partition
 
-	- `RESIN_BOOT_PARTITION_FILES_append_${board_name}` - one can use this append here to add extra files to the boot partition needed for the **resin-image-flasher** that are not already contained in resin-image.
+	- `{{ $names.company.allCaps }}_BOOT_PARTITION_FILES_append_${board_name}` - one can use this append here to add extra files to the boot partition needed for the **resin-image-flasher** that are not already contained in resin-image.
 
 2. Create a `.bbappend` for having the kernel recipe in your BSP layer inherit kernel-resin. This adds the necessary kernel configs for using with resin.
 
@@ -61,4 +61,4 @@ One should define the following variables in the resin-image bbappend:
 5. And of course your typical yocto `conf/layer.conf` file, COPYING and README.md file specifying what is the machine this layer adds support for and what are the yocto layers it depends on.
 
 
-[meta-resin]:https://github.com/resin-io/meta-resin
+[meta-resin]:{{ $links.githubMain }}/meta-resin

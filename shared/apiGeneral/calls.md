@@ -1,8 +1,8 @@
 ## Constructing API calls
 
-The resin.io API uses the Open Data Protocol ([OData][odata]), which defines a standard set of tools for querying and modifying structured data. To help you get started, we'll go over some of the most common requests, but when you're ready to build more advanced API calls make sure to consult the [OData documentation][odata-docs].
+The {{ $names.company.lower }} API uses the Open Data Protocol ([OData][odata]), which defines a standard set of tools for querying and modifying structured data. To help you get started, we'll go over some of the most common requests, but when you're ready to build more advanced API calls make sure to consult the [OData documentation][odata-docs].
 
-To construct an API call, it helps to understand a little about how the underlying data is structured. The resin.io data model consists of a number of connected resources. Resources include devices, applications, users, and more. When you make an API call, you are asking to either view, create, modify, or remove a resource. The *method* of the API call corresponds to the action you are trying to take:
+To construct an API call, it helps to understand a little about how the underlying data is structured. The {{ $names.company.lower }} data model consists of a number of connected resources. Resources include devices, applications, users, and more. When you make an API call, you are asking to either view, create, modify, or remove a resource. The *method* of the API call corresponds to the action you are trying to take:
 
 - **GET:** view information about a resource
 - **POST:** create a new resource

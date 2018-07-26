@@ -8,7 +8,7 @@ This is a small collection of base projects to get you started. The focus on spe
 
 ## Installing a Project
 
-To install a project you will need a [resin.io][resin] account with an
+To install a project you will need a [{{ $names.company.lower }}][resin] account with an
 application set up ready to receive code. See the
 [getting started][getting-started] and [deployment][deploy] guides for details
 on how to do this.
@@ -17,9 +17,9 @@ To deploy a project simply clone it and push it to your application's `resin`
 endpoint. E.g. for the [Text to Speech Converter project][text2speech]:-
 
 ```
-git clone https://github.com/resin-io/text2speech.git
-git remote add resin [endpoint]
-git push resin master
+git clone {{ $links.githubMain }}/text2speech.git
+git remote add {{ $names.company.short }} [endpoint]
+git push {{ $names.company.short }} master
 ```
 
 
@@ -56,7 +56,7 @@ This python project allows you to share your ethernet connection to wifi. It ess
 
 [Repository][avahi-example]
 
-This simple example demonstrates how to get the avahi daemon running on your resin.io device. From this example you will be able to access your device from `<RESIN_UUID>.local` on your local network. The `<RESIN_UUID>` is the ID shown on the resin.io device dashboard.
+This simple example demonstrates how to get the avahi daemon running on your {{ $names.company.lower }} device. From this example you will be able to access your device from `<{{ $names.company.allCaps }}_UUID>.local` on your local network. The `<{{ $names.company.allCaps }}_UUID>` is the ID shown on the {{ $names.company.lower }} device dashboard.
 
 ### Example GPIO control in node.js
 
@@ -80,16 +80,16 @@ A simple application that shows you how to issue commands to a servo motor using
 
 <!-- ###Code Snippets Links -->
 
-[py-gpio]:https://github.com/resin-io-projects/resin-rpi-gpio-sample-with-python
-[picamera-node]:https://github.com/resin-io-projects/resin-rpi-nodejs-picamera.git
-[picamera-py]:https://github.com/resin-io-projects/resin-rpi-python-picamera.git
-[ADC_py]:https://github.com/resin-io-projects/resin-rpi-py-ADC.git
+[py-gpio]:{{ $links.githubProjects }}/resin-rpi-gpio-sample-with-python
+[picamera-node]:{{ $links.githubProjects }}/resin-rpi-nodejs-picamera.git
+[picamera-py]:{{ $links.githubProjects }}/resin-rpi-python-picamera.git
+[ADC_py]:{{ $links.githubProjects }}/resin-rpi-py-ADC.git
 [resin-tether]:https://github.com/petrosagg/resin-tether
-[example-pi-pins]:https://github.com/resin-io-projects/resin-rpi-nodejs-basic-gpio.git
-[avahi-example]:https://github.com/resin-io-projects/avahi-example.git
-[resin-ssh]:https://github.com/resin-io-projects/resin-ssh-python.git
-[resin-ssh-node]:https://github.com/resin-io-projects/ssh-node
-[text2speech]:https://github.com/resin-io/text2speech
+[example-pi-pins]:{{ $links.githubProjects }}/resin-rpi-nodejs-basic-gpio.git
+[avahi-example]:{{ $links.githubProjects }}/avahi-example.git
+[resin-ssh]:{{ $links.githubProjects }}/resin-ssh-python.git
+[resin-ssh-node]:{{ $links.githubProjects }}/ssh-node
+[text2speech]:{{ $links.githubMain }}/text2speech
 [servo-motor-node]:https://github.com/craig-mulligan/resin-servo-node
 [pi-pins]:https://www.npmjs.com/package/pi-pins
 
@@ -105,4 +105,4 @@ A simple application that shows you how to issue commands to a servo motor using
 
 [deploy]:/deployment/deployment
 [getting-started]:/installing/gettingStarted
-[resin]:https://resin.io
+[resin]:{{ $links.mainSiteUrl }}/

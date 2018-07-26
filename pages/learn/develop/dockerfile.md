@@ -1,13 +1,13 @@
 ---
 title: Define a container
-excerpt: Use Dockerfiles to package your resin.io services and their dependencies
+excerpt: Use Dockerfiles to package your {{ $names.company.lower }} services and their dependencies
 ---
 
 # Define a container
 
-Resin.io uses [Docker][docker] containers to manage applications. You can use one or more containers to package your services with whichever environments and tools they need to run.
+{{ $names.company.upper }} uses [Docker][docker] containers to manage applications. You can use one or more containers to package your services with whichever environments and tools they need to run.
 
-To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image][docker-images-containers]. Whether the build process is done [on your device][local-mode], [on your workstation][local-build], or on the [resin.io builders][builders], the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the resinOS version) to kick off a running container.
+To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image][docker-images-containers]. Whether the build process is done [on your device][local-mode], [on your workstation][local-build], or on the [{{ $names.company.lower }} builders][builders], the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the {{ $names.os.lower }} version) to kick off a running container.
 
 ## Dockerfiles
 
@@ -25,13 +25,13 @@ Typically you will only need to use 4 instructions - [FROM][from], [RUN][run] an
 
 * [COPY][copy] is very similar to [ADD][add], but without the compression and url functionality. According to [the Dockerfile best practices][dockerfile-best-practices], you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
 
-* [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a resin.io application, this is typically used to execute a start script or entrypoint for the users application. [CMD][cmd] should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD][cmd] command and all processes that it spawns.
+* [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a {{ $names.company.lower }} application, this is typically used to execute a start script or entrypoint for the users application. [CMD][cmd] should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD][cmd] command and all processes that it spawns.
 
 For details on other instructions, consult the official [Dockerfile documentation][dockerfile].
 
-### Using Dockerfiles with resin.io
+### Using Dockerfiles with {{ $names.company.lower }}
 
-To deploy a single-container application to resin.io, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
+To deploy a single-container application to {{ $names.company.lower }}, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
 
 ```
 version: '2.1'
@@ -65,13 +65,13 @@ __NOTE:__ You *don't* need to worry about ignoring `.git` as the builders alread
 
 ## Dockerfile templates
 
-One of the goals of resin.io is code portability and ease of use, so you can easily manage and deploy a whole fleet of different devices. This is why Docker containers were such a natural choice. However, there are cases where Dockerfiles fall short and can't easily target multiple different device architectures.
+One of the goals of {{ $names.company.lower }} is code portability and ease of use, so you can easily manage and deploy a whole fleet of different devices. This is why Docker containers were such a natural choice. However, there are cases where Dockerfiles fall short and can't easily target multiple different device architectures.
 
 To allow our builders to build containers for multiple architectures from one code repository, we implemented simple Dockerfile templates.
 
 It is now possible to define a `Dockerfile.template` file that looks like this:
 ```Dockerfile
-FROM resin/%%RESIN_MACHINE_NAME%%-node
+FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node
 
 COPY package.json /package.json
 RUN npm install
@@ -79,8 +79,8 @@ RUN npm install
 COPY src/ /usr/src/app
 CMD ["node", "/usr/src/app/main.js"]
 ```
-This template will build and deploy a Node.js project for any of the devices supported by resin.io, regardless of whether the device architecture is [ARM][ARM-link] or [x86][x86-link].
-In this example, you can see the build variable `%%RESIN_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. See below for a list of machine names.
+This template will build and deploy a Node.js project for any of the devices supported by {{ $names.company.lower }}, regardless of whether the device architecture is [ARM][ARM-link] or [x86][x86-link].
+In this example, you can see the build variable `%%{{ $names.company.allCaps }}_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. See below for a list of machine names.
 
 The machine name is inferred from the device type of the application you are pushing to. So if you have an Intel Edison application, the machine name will be `intel-edison` and an `i386` architecture base image will be built.
 
@@ -90,8 +90,8 @@ Currently our builder supports the following build variables:
 
 | Variable Name        | Description          |
 | ------------- |-------------|
-| RESIN_MACHINE_NAME    | The name of the yocto machine this board is based on. It is the name that you will see in most of the resin.io [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). | 
-| RESIN_ARCH    | The instruction set architecture for the base images associated with this device.|
+| {{ $names.company.allCaps }}_MACHINE_NAME    | The name of the yocto machine this board is base on. It is the name that you will see in most of the {{ $names.company.lower }} [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). | 
+| {{ $names.company.allCaps }}_ARCH    | The instruction set architecture for the base images associated with this device.|
   
 __Note:__ If your application contains devices of different types, the `%%RESIN_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%RESIN_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%RESIN_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application.
 
@@ -99,7 +99,7 @@ If you want to see an example of build variables in action, have a look at this 
 
 Here are the supported machine names and architectures:
 
-{{> "general/resinDeviceTypeNames"}}
+{{> "general/deviceTypeNames"}}
 
 ## Init system
 
@@ -149,7 +149,7 @@ Check out https://www.freedesktop.org/software/systemd/man/systemd.service.html#
 
 ## Node applications
 
-Resin.io supports [Node.js][node] natively using the [package.json][package]
+{{ $names.company.upper }} supports [Node.js][node] natively using the [package.json][package]
 file located in the root of the repository to determine how to build and execute
 node applications.
 
@@ -174,7 +174,7 @@ here's its `package.json` file*:
   "description": "Simple resin app that uses Google's TTS endpoint",
   "repository": {
     "type": "git",
-    "url": "https://github.com/resin-io/text2speech.git"
+    "url": "{{ $links.githubMain }}/text2speech.git"
   },
   "scripts": {
     "preinstall": "bash deps.sh"
@@ -233,7 +233,7 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [starter-projects]:/examples/projects#Programming_Language_Starter_Projects
 [dockerfile-best-practices]:https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy
 [docker-registry]:https://registry.hub.docker.com/u/resin/rpi-raspbian/tags/manage/
-[resin-docker-blog]:https://resin.io/blog/docker-on-raspberry-pi/
+[resin-docker-blog]:{{ $links.mainSiteUrl }}/blog/docker-on-raspberry-pi/
 [dockerhub-link]:https://registry.hub.docker.com/search?q=rpi
 [rpi-archlinux-link]:https://registry.hub.docker.com/u/digitallyseamless/archlinux-armv6h/
 [docker-custom-base-os-repo]:https://github.com/nghiant2710/base-os-image-example
@@ -247,7 +247,7 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [builders]:/learn/deploy/deployment
 [local-build]:/reference/cli/#build-source-
 [multicontainer]:/learn/develop/multicontainer
-[base-images]:/reference/base-images/resin-base-images
+[base-images]:/reference/base-images/base-images
 
 [init-system-link]:https://en.wikipedia.org/wiki/Init
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
@@ -257,7 +257,7 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [package]:https://www.npmjs.org/doc/package.json.html
 [container]:https://wiki.archlinux.org/index.php/Linux_Containers
 [npm]:https://www.npmjs.org/
-[text-to-speech]:https://github.com/resin-io/text2speech
+[text-to-speech]:{{ $links.githubMain }}/text2speech
 [node]:http://nodejs.org/
 [raspbian]:http://www.raspbian.org/
 [aptitude]:https://wiki.debian.org/Aptitude

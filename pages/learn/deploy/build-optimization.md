@@ -1,11 +1,11 @@
 ---
 title: Optimize your builds
-excerpt: Tips for reducing the time to build your resin.io container builds
+excerpt: Tips for reducing the time to build your {{ $names.company.lower }} container builds
 ---
 
 # Optimize your builds
 
-These are just a few tips and tricks to optimize your resin.io container builds and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the Docker container builders on our servers. If you want to read more about how Docker caches layers and Docker best practices, head over here - [Docker best practices][docker-best-practices].
+These are just a few tips and tricks to optimize your {{ $names.company.lower }} container builds and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the Docker container builders on our servers. If you want to read more about how Docker caches layers and Docker best practices, head over here - [Docker best practices][docker-best-practices].
 
 ## Move `ADD` and `COPY` Commands
 
@@ -13,7 +13,7 @@ Caching in Docker is done by comparing the instructions in the current `Dockerfi
 
 ## Minimize the number of layers
 
-Reducing the number of layers in your Dockerfile can reduce the build and push time on resin.io. If we combine two instructions we avoid making another layer so we’re not storing intermediate (and maybe useless) states. Reducing the number of layers can be achieved by chaining multiple commands together with `&&` in `RUN` invocations. e.g. :
+Reducing the number of layers in your Dockerfile can reduce the build and push time on {{ $names.company.lower }}. If we combine two instructions we avoid making another layer so we’re not storing intermediate (and maybe useless) states. Reducing the number of layers can be achieved by chaining multiple commands together with `&&` in `RUN` invocations. e.g. :
 ```Dockerfile
 RUN apt-get update && apt-get install -y python
 ```
@@ -72,13 +72,13 @@ These are just a few tips from our engineers on how to reduce your build size
 * You can combine the smaller layers together (each RUN/COPY/etc command creates a new layer) in order to reduce the metadata required for each layer and to speed up the updating process (each layer is downloaded individually), eg. you could change:
 ```Dockerfile
 RUN mkdir /var/run/sshd
-RUN echo 'root:resin' | chpasswd
+RUN echo 'root:{{ $names.os.short }}' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 ```
 into
 ```Dockerfile
 RUN mkdir /var/run/sshd \
-  && echo 'root:resin' | chpasswd
+  && echo 'root:{{ $names.os.short }}' | chpasswd
   && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 ```
 in order to merge those three layers into just one, without losing any benefits of Docker caching - this would also work well for combing the layers that add the apt mirrors.

@@ -1,13 +1,13 @@
 ---
 title: Core concepts
-excerpt: Definitions for concepts mentioned throughout the resin.io documentation
+excerpt: Definitions for concepts mentioned throughout the {{ $names.company.lower }} documentation
 ---
 
 # Core concepts
 
 ### Device 
 
-An internet-connected, single-board computer running resinOS and provisioned with the resin.io platform.
+An internet-connected, single-board computer running {{ $names.os.lower }} and provisioned with the {{ $names.company.lower }} platform.
 
 ### Release 
 
@@ -27,9 +27,9 @@ An independently deployable component of an application, packaged into a Docker 
 
 ### Device supervisor
 
-Resin.io's agent on the device, responsible for managing application updates and reporting device status.
+{{ $names.company.upper }}'s agent on the device, responsible for managing application updates and reporting device status.
 
-### ResinOS image
+### {{ $names.os.upper }} image
 
 A versioned build of the host OS, specific to an application and device type.
 

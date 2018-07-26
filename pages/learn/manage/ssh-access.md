@@ -1,6 +1,6 @@
 ---
 title: SSH access
-excerpt: Communicate with the host OS and service containers via SSH with resin.io
+excerpt: Communicate with the host OS and service containers via SSH with {{ $names.company.lower }}
 ---
 
 # SSH access

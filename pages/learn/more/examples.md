@@ -15,4 +15,4 @@ A list of [seed projects](seed-projects/), "hello world" applications written in
 
 ### Projects
 
-Some awesome [projects](projects/) built using resin.io and are a lot more fully featured and complete than the code snippets.
+Some awesome [projects](projects/) built using {{ $names.company.lower }} and are a lot more fully featured and complete than the code snippets.
