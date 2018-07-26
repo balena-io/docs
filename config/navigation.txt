@@ -103,7 +103,7 @@ Reference
     [/reference/supervisor/docker-compose]
 
   Base images
-    [/reference/base-images/resin-base-images]
+    [/reference/base-images/base-images]
     [/reference/base-images/devicetypes]
     [/reference/base-images/custom-docker-base-images]  
 
