@@ -147,14 +147,11 @@ If you feel something is missing, not clear or could be improved, please don't h
         * [.logout()](#resin.auth.logout) ⇒ <code>Promise</code>
         * [.register([credentials])](#resin.auth.register) ⇒ <code>Promise</code>
     * [.logs](#resin.logs) : <code>object</code>
-        * [.subscribe(uuidOrId)](#resin.logs.subscribe) ⇒ <code>Promise</code>
+        * [.subscribe(uuidOrId, [options])](#resin.logs.subscribe) ⇒ <code>Promise</code>
         * [.history(uuidOrId, [options])](#resin.logs.history) ⇒ <code>Promise</code>
-        * ~~[.historySinceLastClear(uuidOrId, [options])](#resin.logs.historySinceLastClear) ⇒ <code>Promise</code>~~
-        * ~~[.clear(uuidOrId)](#resin.logs.clear) ⇒ <code>Promise</code>~~
         * [.LogSubscription](#resin.logs.LogSubscription) : <code>EventEmitter</code>
             * [.unsubscribe()](#resin.logs.LogSubscription.unsubscribe)
             * ["line"](#resin.logs.LogSubscription.event_line)
-            * ~~["clear"](#resin.logs.LogSubscription.event_clear)~~
             * ["error"](#resin.logs.LogSubscription.event_error)
     * [.settings](#resin.settings) : <code>object</code>
         * [.get([key])](#resin.settings.get) ⇒ <code>Promise</code>
@@ -3718,19 +3715,16 @@ resin.auth.register({
 **Kind**: static namespace of <code>[resin](#resin)</code>  
 
 * [.logs](#resin.logs) : <code>object</code>
-    * [.subscribe(uuidOrId)](#resin.logs.subscribe) ⇒ <code>Promise</code>
+    * [.subscribe(uuidOrId, [options])](#resin.logs.subscribe) ⇒ <code>Promise</code>
     * [.history(uuidOrId, [options])](#resin.logs.history) ⇒ <code>Promise</code>
-    * ~~[.historySinceLastClear(uuidOrId, [options])](#resin.logs.historySinceLastClear) ⇒ <code>Promise</code>~~
-    * ~~[.clear(uuidOrId)](#resin.logs.clear) ⇒ <code>Promise</code>~~
     * [.LogSubscription](#resin.logs.LogSubscription) : <code>EventEmitter</code>
         * [.unsubscribe()](#resin.logs.LogSubscription.unsubscribe)
         * ["line"](#resin.logs.LogSubscription.event_line)
-        * ~~["clear"](#resin.logs.LogSubscription.event_clear)~~
         * ["error"](#resin.logs.LogSubscription.event_error)
 
 <a name="resin.logs.subscribe"></a>
 
-#### logs.subscribe(uuidOrId) ⇒ <code>Promise</code>
+#### logs.subscribe(uuidOrId, [options]) ⇒ <code>Promise</code>
 Connects to the stream of devices logs, returning a LogSubscription, which
 can be used to listen for logs as they appear, line by line.
 
@@ -3746,15 +3740,14 @@ can be used to listen for logs as they appear, line by line.
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
+| [options] | <code>Object</code> | options |
+| [options.count] | <code>Number</code> | number of historical messages to include |
 
 **Example**  
 ```js
 resin.logs.subscribe('7cf02a6').then(function(logs) {
 	logs.on('line', function(line) {
 		console.log(line);
-	});
-	logs.on('clear', function() {
-		console.clear();
 	});
 });
 ```
@@ -3763,9 +3756,6 @@ resin.logs.subscribe('7cf02a6').then(function(logs) {
 resin.logs.subscribe(123).then(function(logs) {
 	logs.on('line', function(line) {
 		console.log(line);
-	});
-	logs.on('clear', function() {
-		console.clear();
 	});
 });
 ```
@@ -3782,10 +3772,15 @@ resin.logs.subscribe('7cf02a6', function(error, logs) {
 <a name="resin.logs.history"></a>
 
 #### logs.history(uuidOrId, [options]) ⇒ <code>Promise</code>
+Get an array of the latest log messages for a given device.
+<<<<<<< HEAD
+
 **Note**: the default number of logs retrieved is 100.
 To get a different number pass the `{ count: N }` to the options param.
 Also note that the actual number of log lines can be bigger as the
 Resin.io supervisor can combine lines sent in a short time interval
+=======
+>>>>>>> Reroute HTTP to HTTPS
 
 **Kind**: static method of <code>[logs](#resin.logs)</code>  
 **Summary**: Get device logs history  
@@ -3795,7 +3790,8 @@ Resin.io supervisor can combine lines sent in a short time interval
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
-| [options] | <code>Object</code> | any options supported by https://www.pubnub.com/docs/nodejs-javascript/api-reference#history |
+| [options] | <code>Object</code> | options |
+| [options.count] | <code>Number</code> | number of log messages to return |
 
 **Example**  
 ```js
@@ -3823,77 +3819,6 @@ resin.logs.history('7cf02a6', { count: 20 }, function(error, lines) {
 	});
 });
 ```
-<a name="resin.logs.historySinceLastClear"></a>
-
-#### ~~logs.historySinceLastClear(uuidOrId, [options]) ⇒ <code>Promise</code>~~
-***Deprecated***
-
-**Note**: the default number of logs retrieved is 200.
-To get a different number pass the `{ count: N }` to the options param.
-Also note that the actual number of log lines can be bigger as the
-Resin.io supervisor can combine lines sent in a short time interval
-
-**Kind**: static method of <code>[logs](#resin.logs)</code>  
-**Summary**: Get device logs history after the most recent clear request  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - history lines  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
-| [options] | <code>Object</code> | any options supported by https://www.pubnub.com/docs/nodejs-javascript/api-reference#history |
-
-**Example**  
-```js
-resin.logs.historySinceLastClear('7cf02a6', { count: 20 }).then(function(lines) {
-	lines.forEach(function(line) {
-		console.log(line);
-	});
-});
-```
-**Example**  
-```js
-resin.logs.historySinceLastClear(123).then(function(lines) {
-	lines.forEach(function(line) {
-		console.log(line);
-	});
-});
-```
-**Example**  
-```js
-resin.logs.historySinceLastClear('7cf02a6', function(error, lines) {
-	if (error) throw error;
-
-	lines.forEach(function(line) {
-		console.log(line);
-	});
-});
-```
-<a name="resin.logs.clear"></a>
-
-#### ~~logs.clear(uuidOrId) ⇒ <code>Promise</code>~~
-***Deprecated***
-
-**Kind**: static method of <code>[logs](#resin.logs)</code>  
-**Summary**: Clear device logs history  
-**Access**: public  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
-
-**Example**  
-```js
-resin.logs.clear('7cf02a6').then(function() {
-	console.log('OK');
-});
-```
-**Example**  
-```js
-resin.logs.clear(123).then(function() {
-	console.log('OK');
-});
-```
 <a name="resin.logs.LogSubscription"></a>
 
 #### logs.LogSubscription : <code>EventEmitter</code>
@@ -3905,7 +3830,6 @@ You can get a LogSubscription for a given device by calling `resin.logs.subscrib
 * [.LogSubscription](#resin.logs.LogSubscription) : <code>EventEmitter</code>
     * [.unsubscribe()](#resin.logs.LogSubscription.unsubscribe)
     * ["line"](#resin.logs.LogSubscription.event_line)
-    * ~~["clear"](#resin.logs.LogSubscription.event_clear)~~
     * ["error"](#resin.logs.LogSubscription.event_error)
 
 <a name="resin.logs.LogSubscription.unsubscribe"></a>
@@ -3929,19 +3853,6 @@ logs.unsubscribe();
 ```js
 logs.on('line', function(line) {
 	console.log(line);
-});
-```
-<a name="resin.logs.LogSubscription.event_clear"></a>
-
-##### ~~"clear"~~
-***Deprecated***
-
-**Kind**: event emitted by <code>[LogSubscription](#resin.logs.LogSubscription)</code>  
-**Summary**: Event fired when the logs have been cleared  
-**Example**  
-```js
-logs.on('clear', function() {
-	console.clear();
 });
 ```
 <a name="resin.logs.LogSubscription.event_error"></a>

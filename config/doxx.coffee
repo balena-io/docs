@@ -2,6 +2,7 @@ path = require('path')
 
 config = require('./index')
 links = require('./links')
+names = require('./names')
 
 root = path.resolve(__dirname, '..')
 
@@ -16,6 +17,7 @@ module.exports = {
     fileMatch = fileName.match(config.dynamicDocs)
     improveDocsLink: if fileMatch then "#{config.editPageLink}/#{config.partialsDir}/#{fileMatch[1]}" else "#{config.editPageLink}/#{config.docsSourceDir}/#{fileName}"
     $links: links
+    $names: names
   layoutLocals: config.layoutLocals
   parseNav: true
   serializeNav: path.join(root, 'server', 'nav.json')

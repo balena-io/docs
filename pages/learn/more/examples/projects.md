@@ -1,12 +1,12 @@
 ---
-title: Resin.io Projects
+title: {{ $names.company.upper }} Projects
 ---
 
-# Projects Built on Resin.io
+# Projects Built on {{ $names.company.upper }}
 
 ## Installing a Project
 
-To install a project you will need a [resin.io][resin] account with an
+To install a project you will need a [{{ $names.company.lower }}][resin] account with an
 application set up ready to receive code. See the
 [getting started][getting-started] and [deployment][deploy] guides for details
 on how to do this.
@@ -15,14 +15,14 @@ To deploy a project simply clone it and push it to your application's `resin`
 endpoint. E.g. for the [Text to Speech Converter project][text2speech]:
 
 ```
-git clone https://github.com/resin-io/text2speech.git
-git remote add resin [endpoint]
-git push resin master
+git clone {{ $links.githubMain }}/text2speech.git
+git remote add {{ $names.company.short }} [endpoint]
+git push {{ $names.company.short }} master
 ```
 
 ## Projects
 
-These are some awesome projects built using resin.io and are a lot more fully featured and complete than the code snippets.
+These are some awesome projects built using {{ $names.company.lower }} and are a lot more fully featured and complete than the code snippets.
 
 ### Digital Temperature Logger
 
@@ -35,7 +35,7 @@ devices with multiple temperature sensors to a central cloud-based datastore.
 
 [Repository][audio-stock-ticker-link]
 
-This is a simple node.js project built on resin.io. It should work on all versions of the Raspberry Pi.
+This is a simple node.js project built on {{ $names.company.lower }}. It should work on all versions of the Raspberry Pi.
 
 The audio stock ticker will verbally announce a list of your favourite stocks every couple of minutes or hours, depending on how you configure it.
 
@@ -43,13 +43,13 @@ The audio stock ticker will verbally announce a list of your favourite stocks ev
 
 [Repository][pm2-repo-link]
 
-This is a simple example project for resin.io which demonstrates how to use pm2 on your device to keep a process running forever and monitor your devices health. For the full story check our [blog post][pm2-blog-link] about it.
+This is a simple example project for {{ $names.company.lower }} which demonstrates how to use pm2 on your device to keep a process running forever and monitor your devices health. For the full story check our [blog post][pm2-blog-link] about it.
 
 ### Cloud Synchronised Streaming Radios
 
 [Repository][sonos-clone]
 
-Build your own version of Sonos cloud synchronised speakers using Grooveshark, some raspberry pis, node.js and resin.io. It also has an awesome frontend web app [[link][clonos-frontend]] that allows you to search and queue up songs in a playlist so that all the rooms in your house are in perfect harmony.
+Build your own version of Sonos cloud synchronised speakers using Grooveshark, some raspberry pis, node.js and {{ $names.company.lower }}. It also has an awesome frontend web app [[link][clonos-frontend]] that allows you to search and queue up songs in a playlist so that all the rooms in your house are in perfect harmony.
 
 ### resin-samba
 
@@ -67,7 +67,7 @@ A simple application that makes your device speak out loud.
 
 [Repository][occupied] by [Craig Mulligan][craig-mulligan]
 
-A toilet queueing app for serious poopers. Uses resin.io, firebase and twilio to notify people when the toilet is open - runs on the RPI.
+A toilet queueing app for serious poopers. Uses {{ $names.company.lower }}, firebase and twilio to notify people when the toilet is open - runs on the RPI.
 
 ### Digitiser
 
@@ -80,13 +80,13 @@ display.
 
 [Repository][grovepi-humidity]
 
-This python project logs humidity and temperature data to a small OLED display and the resin.io dashboard. It uses the GrovePi addon board to interface with the sensors.
+This python project logs humidity and temperature data to a small OLED display and the {{ $names.company.lower }} dashboard. It uses the GrovePi addon board to interface with the sensors.
 
 ### Google Coder
 
 [Repository][coder-fork]
 
-Resin.io-enabled version of Google's excellent [Coder][coder] project which
+{{ $names.company.upper }}-enabled version of Google's excellent [Coder][coder] project which
 makes it easy to develop web projects on your device.
 
 ### Hoversnap
@@ -143,26 +143,26 @@ Displays values from a JSON endpoint on your browser in kiosk mode (based on
 
 [Repository][dockerHub] by [nghiant2710][nghiant2710]
 
-Resin.io offers you the flexibility to deploy your application from a custom Dockerfile which allows you to define your own development environment.
+{{ $names.company.upper }} offers you the flexibility to deploy your application from a custom Dockerfile which allows you to define your own development environment.
 
-Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, resin.io allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
+Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, {{ $names.company.lower }} allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
 
 ### Safe-deposit box with Two-Factor Authentication
 
 [Repository][safebox]
 
-A safe-deposit box that requires 2FA to open (inputting a passcode and an SMS code). Powered by a resin.io Raspberry Pi 2, and using [Authy][authy] for 2FA. More information on [this blog post][safebox-blog].
+A safe-deposit box that requires 2FA to open (inputting a passcode and an SMS code). Powered by a {{ $names.company.lower }} Raspberry Pi 2, and using [Authy][authy] for 2FA. More information on [this blog post][safebox-blog].
 
 ### Slack Lunchbot
 [Repository][lunch-mutn] by [thibmaek][thibmaek]
 
 A Slack bot that picks a lunch place for a team.
 Written in Node.js using ES6 and Botkit to quickly assemble the bot and its responses.
-Read the writeup on [our blog](https://resin.io/blog/planning-lunch-with-a-slackbot-on-resin-io/)
+Read the writeup on [our blog]({{ $links.mainSiteUrl }}/blog/planning-lunch-with-a-slackbot-on-resin-io/)
 
 ## Community Built Projects
 
-These are just some of the awesome projects built by resin.io users.
+These are just some of the awesome projects built by {{ $names.company.lower }} users.
 
 ### RPI Humidity and Temperature Logger
 
@@ -180,7 +180,7 @@ This is a fairly complex project that uses OpenCV and python to do facial recogn
 
 [Repository][rpi-resin-io-zetta-user] by [zettajs][zettajs]
 
-This is a simple demo of how one can deploy a [zetta.js][zettajs-website] project on a raspberry pi or beaglebone black using resin.io.
+This is a simple demo of how one can deploy a [zetta.js][zettajs-website] project on a raspberry pi or beaglebone black using {{ $names.company.lower }}.
 
 ### Pi Miner
 
@@ -197,12 +197,12 @@ visualisation at [123k.de](http://123k.de).
 
 <!-- ###Team Project Links -->
 
-[text2speech]:https://github.com/resin-io/text2speech
-[coder-fork]:https://github.com/resin-io/coder
+[text2speech]:{{ $links.githubMain }}/text2speech
+[coder-fork]:{{ $links.githubMain }}/coder
 [resin-player]:https://bitbucket.org/lifeeth/resin_player/
 [digitiser-kiosk]:https://bitbucket.org/lifeeth/resin-kiosk
 [sms2speech]:https://github.com/alexandrosm/sms2speech
-[hoversnap]:https://github.com/resin-io/hoversnap
+[hoversnap]:{{ $links.githubMain }}/hoversnap
 [digitiser]:https://github.com/shaunmulligan/digitiser
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
 [resin-cctv]:https://github.com/abresas/resin-cctv
@@ -211,11 +211,11 @@ visualisation at [123k.de](http://123k.de).
 [dockerHub]:https://github.com/nghiant2710/resin-DockerHubDeploymentGuide
 [resin-samba]:https://github.com/abresas/resin-samba
 [webLamp]:https://github.com/shaunmulligan/webLamp
-[sonos-clone]:https://github.com/resin-io/music-player-device
-[clonos-frontend]:https://github.com/resin-io/music-player-web
+[sonos-clone]:{{ $links.githubMain }}/music-player-device
+[clonos-frontend]:{{ $links.githubMain }}/music-player-web
 [grovepi-humidity]:https://github.com/shaunmulligan/grovePi
-[safebox]:https://github.com/resin-io/resin-safebox
-[sms2speech_python]:https://github.com/resin-io/sms2speech_python
+[safebox]:{{ $links.githubMain }}/resin-safebox
+[sms2speech_python]:{{ $links.githubMain }}/sms2speech_python
 
 <!-- ###Community Project Links -->
 
@@ -258,7 +258,7 @@ visualisation at [123k.de](http://123k.de).
 
 <!-- ###Additional links -->
 
-[resin]:https://resin.io
+[resin]:{{ $links.mainSiteUrl }}/
 [dropbox]:https://www.dropbox.com/
 [deploy]:/deployment/deployment
 [dockerfile]:/deployment/dockerfile
@@ -278,8 +278,8 @@ visualisation at [123k.de](http://123k.de).
 [twillio]:https://www.twilio.com/
 [zettajs-website]:http://www.zettajs.org/
 [authy]:http://authy.com
-[safebox-blog]:https://resin.io/blog/two-factor-authentication-in-the-real-world/
-[sms2speech-blog]:https://resin.io/blog/sms-to-speech/
-[audio-stock-ticker-link]:https://github.com/resin-io-projects/audio-stock-ticker
-[pm2-blog-link]:https://resin.io/blog/eternal-applications-with-pm2-and-resin-io/
-[pm2-repo-link]:https://github.com/resin-io-projects/resin-pm2-monitor.git
+[safebox-blog]:{{ $links.mainSiteUrl }}/blog/two-factor-authentication-in-the-real-world/
+[sms2speech-blog]:{{ $links.mainSiteUrl }}/blog/sms-to-speech/
+[audio-stock-ticker-link]:{{ $links.githubProjects }}/audio-stock-ticker
+[pm2-blog-link]:{{ $links.mainSiteUrl }}/blog/eternal-applications-with-pm2-and-resin-io/
+[pm2-repo-link]:{{ $links.githubProjects }}/resin-pm2-monitor.git

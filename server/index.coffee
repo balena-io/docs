@@ -1,13 +1,15 @@
-path = require('path')
-express = require('express')
-_ = require('lodash')
-Doxx = require('@resin.io/doxx')
-redirect = require('./redirect')
-navTree = require('./nav.json')
-config = require('../config')
+path       = require('path')
+express    = require('express')
+_          = require('lodash')
+Doxx       = require('@resin.io/doxx')
+redirect   = require('./redirect')
+navTree    = require('./nav.json')
+config     = require('../config')
 doxxConfig = require('../config/doxx')
+redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
 
 app = express()
+app.use(redirectToHTTPS([/localhost:(\d{4})/]))
 doxx = Doxx(doxxConfig)
 doxx.configureExpress(app)
 

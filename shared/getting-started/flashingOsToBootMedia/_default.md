@@ -1,8 +1,8 @@
 The next step is to flash the downloaded image onto your {{ $device.bootMedia }} using [**Etcher**][etcher-link], a simple, cross platform {{ $device.bootMedia }} writer and validator. Once you have **Etcher** installed, start it up. To give **Etcher** access to your {{ $device.bootMedia }}, your system may prompt you to grant administrative privileges.
 
-To create a bootable resinOS {{ $device.bootMedia }} follow these steps:
+To create a bootable {{ $names.os.lower }} {{ $device.bootMedia }} follow these steps:
 
-1. Click *Select image* and find your application's resinOS image file.
+1. Click *Select image* and find your application's {{ $names.os.lower }} image file.
 2. If you haven't already done so, insert your {{ $device.bootMedia }} into your computer. **Etcher** will automatically detect it. If you have more than one {{ $device.bootMedia }} inserted, you will need to select the appropriate one.
 3. Click the *Flash!* button.
 

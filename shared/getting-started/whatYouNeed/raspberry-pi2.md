@@ -4,7 +4,7 @@
 * An ethernet cable or WiFi adapter. Check our [list of supported WiFi adapters][wifiAdapters].
 * A micro USB cable.
 * **[Optional]** A [2A micro USB power supply][psu].
-* A [resin.io account][link-to-signup].
+* A [{{ $names.company.lower }} account][link-to-signup].
 
 [rpi2B]:https://www.raspberrypi.org/products/raspberry-pi-2-model-b/
 [psu]:https://www.raspberrypi.org/products/universal-power-supply/
@@ -13,4 +13,4 @@
 [wifiAdapters]:/hardware/wifi-dongles/
 [supportedDevicesList]:/hardware/devices/
 
-[link-to-signup]:https://dashboard.resin.io/signup
+[link-to-signup]:{{ $links.dashboardUrl }}/signup

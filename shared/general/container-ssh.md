@@ -1,6 +1,6 @@
 To help you debug and develop your applications, we've provided a browser based terminal and a command line tool for easy SSH access to your devices. With these tools, you have console access to any of your running containers, as well as to the host OS, letting you test out small snippets of code and check system logs on your device.
 
-__Note:__ Host OS SSH access is available for devices running resinOS version 2.7.5 and above.
+__Note:__ Host OS SSH access is available for devices running {{ $names.os.lower }} version 2.7.5 and above.
 
 ## Using the dashboard web terminal
 
@@ -16,7 +16,7 @@ __Note:__ To copy and paste in the terminal window,  you cannot use the normal C
 
 ## Using `resin ssh` from the CLI
 
-If you prefer to work from the command line, you can use [`resin ssh`][resin-ssh] to connect to your application containers and the host OS. First, you will need to install the [resin.io Command Line Interface (CLI)](/tools/cli/). Once that is set up, run the following in your development machine's terminal:
+If you prefer to work from the command line, you can use [`resin ssh`][resin-ssh] to connect to your application containers and the host OS. First, you will need to install the [{{ $names.company.lower }} Command Line Interface (CLI)](/tools/cli/). Once that is set up, run the following in your development machine's terminal:
 
 ```shell
 $ resin ssh <device-uuid>
@@ -35,7 +35,7 @@ __Note:__ Host OS access via the CLI requires CLI version 6.12.0 or above
 
 `resin ssh` makes use of the resin VPN connection to access a device. This allows you to access and test devices wherever they are. If you want to SSH only on the internal network, you can install an SSH server in your container, as we show in the [resin-openssh][resin-openssh] project.
 
-One note is that if you run your own SSH in the container you won't automatically get your environment variables in the SSH session. To bring them in, simply run `. <(xargs -0 bash -c 'printf \"export %q\n\" \"\$@\"' -- < /proc/1/environ)`. Now any operations or code you run from the SSH session will be able to access the environment variables you set on your resin.io dashboard ([see gitter discussion for more info](https://gitter.im/resin-io/chat?at=57be336fce157d1b57a19e82)). Alternatively, use the following command in a Dockerfile to update the root's `.profile` so resin variables are sourced at each tty/ssh login:
+One note is that if you run your own SSH in the container you won't automatically get your environment variables in the SSH session. To bring them in, simply run `. <(xargs -0 bash -c 'printf \"export %q\n\" \"\$@\"' -- < /proc/1/environ)`. Now any operations or code you run from the SSH session will be able to access the environment variables you set on your {{ $names.company.lower }} dashboard ([see gitter discussion for more info](https://gitter.im/resin-io/chat?at=57be336fce157d1b57a19e82)). Alternatively, use the following command in a Dockerfile to update the root's `.profile` so resin variables are sourced at each tty/ssh login:
 ```
 echo ". <(xargs -0 bash -c 'printf \"export %q\n\" \"\$@\"' -- < /proc/1/environ)" >> /root/.profile
 ```
@@ -43,4 +43,4 @@ echo ". <(xargs -0 bash -c 'printf \"export %q\n\" \"\$@\"' -- < /proc/1/environ
 [dockerfile-init]:/learn/develop/dockerfile/#init-system
 [compose-init]:/learn/develop/multicontainer/#resin-io-settings
 [resin-ssh]:/reference/cli/#ssh-uuid-
-[resin-openssh]:https://github.com/resin-io-projects/resin-openssh
+[resin-openssh]:{{ $links.githubProjects }}/resin-openssh

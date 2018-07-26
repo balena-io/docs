@@ -5,7 +5,7 @@
 * A [5V @4A UPboard power supply][psu].
 * A USB keyboard.
 * An HDMI LCD screen.
-* A [resin.io account][link-to-signup].
+* A [{{ $names.company.lower }} account][link-to-signup].
 
 [up-board]:http://www.up-board.org/up/
 [up2]:http://www.up-board.org/upsquared/
@@ -14,4 +14,4 @@
 [wifiAdapters]:/hardware/wifi-dongles/
 [supportedDevicesList]:/hardware/devices/
 
-[link-to-signup]:https://dashboard.resin.io/signup
+[link-to-signup]:{{ $links.dashboardUrl }}/signup

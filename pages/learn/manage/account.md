@@ -10,7 +10,7 @@ title: Account management
 
 ## Access tokens
 
-Access tokens are used for authentication in the resin.io [API][api], [CLI][cli], and [Node.js][node-sdk] and [Python][python-sdk] SDKs. They are managed in the *Access tokens* tab of the [*Preferences*][prefs] page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
+Access tokens are used for authentication in the {{ $names.company.lower }} [API][api], [CLI][cli], and [Node.js][node-sdk] and [Python][python-sdk] SDKs. They are managed in the *Access tokens* tab of the [*Preferences*][prefs] page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
 
 <img src="/img/common/preferences/access_tokens.png" width="100%">
 
@@ -82,7 +82,7 @@ The *Add application member* dialog has a dropdown with descriptions of the memb
 
 <img src="/img/common/app/member_dialog.png" width="60%">
 
-__Note__: Application members must have already [signed up][signup] for a resin.io account before they can be added to an application.
+__Note__: Application members must have already [signed up][signup] for a {{ $names.company.lower }} account before they can be added to an application.
 
 After you click *Add*, you will see the username of the new application member in the list. From here, you can edit access levels or remove the user if necessary:
 
@@ -124,7 +124,7 @@ __Note:__ Two factor authentication will only be enabled once you have finished 
 
 ![Two Factor Authentication Tab, Configuring](/img/screenshots/2fa3.png)
 
-In order to use your phone/computer as your added layer of security you will need to download a free authenticator application. There are many available, but one that works well and has been successfully tested against [resin.io][resin] is [Google Authenticator][google-auth] - download it for [Android][google-auth-android] or [iOS][google-auth-ios].
+In order to use your phone/computer as your added layer of security you will need to download a free authenticator application. There are many available, but one that works well and has been successfully tested against {{ $names.company.lower }} is [Google Authenticator][google-auth] - download it for [Android][google-auth-android] or [iOS][google-auth-ios].
 
 Once installed, navigate to the barcode scanner:-
 
@@ -140,7 +140,7 @@ Once configured, you'll see a 6 digit generated code with a graphic beside it in
 
 Next you'll need to input the displayed code into the 'Pairing code' input on the preferences page.
 
-Once you've paired your authenticator to your [resin.io][resin] account you'll be all set up and the two factor authentication page will simply give you the option to disable it should you wish to later:-
+Once you've paired your authenticator to your {{ $names.company.lower }} account you'll be all set up and the two factor authentication page will simply give you the option to disable it should you wish to later:-
 
 __Note:__ It's best to wait for the countdown to show plenty of time remaining before doing this as the window during which the code is valid is rather short!
 
@@ -154,14 +154,12 @@ Now when you log in you will be prompted for the code displayed in your authenti
 * [Authy](https://www.authy.com)
 * [1Password](https://1password.com)
 
-[resin]:https://resin.io
-
 [ssh]:/learn/manage/ssh-access
 [starter]:/learn/manage/app-types#starter
 
-[signup]:https://dashboard.resin.io/signup
-[login]:https://dashboard.resin.io/login
-[prefs]:https://dashboard.resin.io/preferences?tab=details
+[signup]:{{ $links.dashboardUrl }}/signup
+[login]:{{ $links.dashboardUrl }}/login
+[prefs]:{{ $links.dashboardUrl }}/preferences?tab=details
 
 [api]:/reference/data-api
 [cli]:/reference/cli

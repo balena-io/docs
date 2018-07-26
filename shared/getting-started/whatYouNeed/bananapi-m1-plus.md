@@ -4,11 +4,11 @@
 * A micro USB cable.
 * **[Optional]** An ethernet cable.
 * **[Optional]** A [2A micro USB power supply][psu].
-* A [resin.io account][link-to-signup].
+* A [{{ $names.company.lower }} account][link-to-signup].
 
 [device]:{{ $device.link }}
 
 [psu]:https://www.raspberrypi.org/products/universal-power-supply/
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [supportedDevicesList]:/reference/hardware/devices/
-[link-to-signup]:https://dashboard.resin.io/signup
+[link-to-signup]:{{ $links.dashboardUrl }}/signup

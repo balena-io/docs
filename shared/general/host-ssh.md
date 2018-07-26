@@ -16,7 +16,7 @@ journalctl -u systemd-timesyncd
 ```
 To return the last *x* messages, use `-fn x`:
 ```
-journalctl -fn 100 -u resin-supervisor
+journalctl -fn 100 -u {{ $names.company.short }}-supervisor
 ```
 
 #### dmesg
@@ -26,9 +26,9 @@ For displaying messages from the kernel, you can use **dmesg**. Similar to **jou
 dmesg | tail -n 100
 ```
 
-### Monitor balena
+### Monitor {{ $names.engine.lower }}
 
-ResinOS, beginning with version 2.9.0, includes the lightweight container engine **[balena][balena]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to do use **balena** for debugging. 
+{{ $names.os.upper }}, beginning with version 2.9.0, includes the lightweight container engine **[{{ $names.engine.lower }}][{{ $names.engine.lower }}]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to do use **balena** for debugging. 
 
 This command will show the status of all containers:
 ```
@@ -36,9 +36,9 @@ balena ps -a
 ```
 You can also check the **journalctl** logs for messages related to **balena**:
 ```
-journalctl -fn 100 -u balena
+journalctl -fn 100 -u {{ $names.engine.lower }}
 ```
-For devices with resinOS versions earlier than 2.9.0, you can replace `balena` in these commands with `docker`.
+For devices with {{ $names.os.lower }} versions earlier than 2.9.0, you can replace `balena` in these commands with `docker`.
 
 ### Inspect network settings
 
@@ -73,11 +73,11 @@ In some cases, you may need to examine the contents of certain directories or fi
 Note that the [filesystem layout][filesystem] may look slightly different from what you’d expect—for example the two locations mentioned above are found at `/mnt/data` and `/mnt/boot`, respectively.
 
 
-[forums]:https://forums.resin.io/c/troubleshooting
-[balena]:https://www.balena.io/
+[forums]:https://forums.{{ $names.domain }}/c/troubleshooting
+[{{ $names.engine.lower }}]:https://www.balena.io/
 [nmcli]:https://fedoraproject.org/wiki/Networking/CLI
 [mmcli]:https://www.freedesktop.org/software/ModemManager/man/1.0.0/mmcli.8.html
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
-[config-txt]:/reference/resinOS/advanced/#config-txt
-[network]:/reference/resinOS/network/2.x
-[filesystem]:/reference/resinOS/overview/2.x/#stateless-and-read-only-rootfs
+[config-txt]:/reference/OS/advanced/#config-txt
+[network]:/reference/OS/network/2.x
+[filesystem]:/reference/OS/overview/2.x/#stateless-and-read-only-rootfs

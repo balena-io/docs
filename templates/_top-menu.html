@@ -4,8 +4,8 @@
     <nav class="menu__nav navbar" role="navigation">
       <a class="menu__logo navbar-brand" href="{{ mainSiteUrl }}">
         <span class="logo">
-          <img class="logo__img" src="/img/logo.svg">
-          <span class="logo__text">resin.io</span>
+          <img class="logo__img" src="{{ logo }}">
+          <span class="logo__text">{{ $names.company.lower }}</span>
         </span>
       </a>
 
@@ -35,8 +35,8 @@
   <div class="navbar-header">
     <a class="menu__logo navbar-brand" href="{{ mainSiteUrl }}">
       <span class="logo">
-        <img class="logo__img" src="/img/logo.svg">
-        <span class="logo__text">resin.io</span>
+        <img class="logo__img" src="{{ logo }}">
+        <span class="logo__text">{{ $names.company.lower }}</span>
       </span>
     </a>
 

@@ -4,7 +4,7 @@ title: Billing
 
 # Billing
 
-The billing page can be found in the dropdown at the top-right of the dashboard, directly beneath the account preferences. From this dashboard, you can sign up for a paid plan, update your information, change your plan, monitor your usage, and download invoices. If you have any doubts or questions about the billing information shown for your account, please contact [sales@resin.io][sales].
+The billing page can be found in the dropdown at the top-right of the dashboard, directly beneath the account preferences. From this dashboard, you can sign up for a paid plan, update your information, change your plan, monitor your usage, and download invoices. If you have any doubts or questions about the billing information shown for your account, please contact [our sales team][sales].
 
 ## Account settings and usage
 
@@ -38,7 +38,7 @@ If you have devices that will be inactive for long periods of time, you can mark
 
 Marking a device as `Inactive` is a [device action][device-action]. Device actions can be applied in one of three ways: as a group action applied to one or more devices in the device list, as an action selected from the dropdown on the device dashboard, or directly from the *Actions* tab of the device dashboard. Once a device has been marked `Inactive`, it will be faded out in the device list.
 
-[sales]:mailto:sales@resin.io
-[plans]:https://resin.io/pricing/
+[sales]:mailto:sales@{{ $names.domain }}
+[plans]:{{ $links.mainSiteUrl }}/pricing/
 [device-action]:/learn/manage/actions/#device-specific-actions
 [inactive]:#inactive-devices

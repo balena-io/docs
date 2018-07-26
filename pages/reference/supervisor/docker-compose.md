@@ -1,6 +1,6 @@
 ---
 title: docker-compose.yml fields
-excerpt: docker-compose.yml fields supported by resin.io
+excerpt: docker-compose.yml fields supported by {{ $names.company.lower }}
 ---
 
 # docker-compose.yml fields
@@ -57,7 +57,7 @@ tmpfs |
 ulimits |
 user |
 userns_mode |
-volumes | Only support short syntax and named volumes. Bind mounts are not supported, except for as allowed by resin.io specific [labels](#labels)
+volumes | Only support short syntax and named volumes. Bind mounts are not supported, except for as allowed by {{ $names.company.lower }} specific [labels](#labels)
 working_dir |
 
 
