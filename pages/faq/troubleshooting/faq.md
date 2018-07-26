@@ -110,7 +110,7 @@ Persistent data is specific to an application. If you move devices between appli
 
 On devices running {{ $names.os.lower }} versions before 2.12.0, if you move the device back to the old application you'll find `/data` remains intact. Newer {{ $names.os.lower }} versions automatically purge named volumes when a device is moved to a new application.
 
-##### It appears that there is a centralized {{ $names.company.lower }} master running (in cloud) and agents running on devices. Is that accurate?
+##### It appears that there is a centralized master running (in cloud) and agents running on devices. Is that accurate?
 Yes. In fact there are multiple services running on the cloud and the devices communicate with some of them. On the device we run our agent in a Docker container, like a user application.
 
 ##### What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?
