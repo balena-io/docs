@@ -91,11 +91,12 @@
 ^\/tools\/cli\/?(\?.+)?(#.+)?$ -> /reference/cli/$1$2
 ^\/tools\/sdk\/?(\?.+)?(#.+)?$ -> /reference/sdk/node-sdk/$1$2
 ^\/tools\/python-sdk\/?(\?.+)?(#.+)?$ -> /reference/sdk/python-sdk/$1$2
-^\/runtime\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/resin-base-images/$1$2
+^\/runtime\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2
 ^\/configuration\/custom-docker-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/customer-docker-base-images/$1$2
 ^\/deployment/docker-templates\/?(\?.+)?(#.+)?$ -> /learn/develop/dockerfile/$1$2
 ^\/support\/?(\?.+)?(#.+)?$ -> /learn/welcome/support/$1$2
 ^\/devicetypes\/?(\?.+)?(#.+)?$ -> /reference/base-images/devicetypes/$1$2
 ^\/deployment\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2
-^\/reference/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
-^\/reference/resinOS\/?(.*) -> /reference/OS/$1
+^\/reference\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
+^\/reference\/resinOS\/?(.*) -> /reference/OS/$1
+^\/reference\/base-images\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2
