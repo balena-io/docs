@@ -34,7 +34,7 @@ Learn
   # this URL is handled in redirects.txt
   GET STARTED[/learn/getting-started]
     # with $device and $language being dynamic
-    {{ $device.name }} and {{ $language.name }}[/learn/getting-started/$device/$language]
+    Getting started guide ~ {{ $device.name }} and {{ $language.name }}[/learn/getting-started/$device/$language]
 
   DEVELOP
     [/learn/develop/local-mode]
@@ -87,7 +87,7 @@ Reference
     [/reference/hardware/wifi-dongles]
 
   Host OS
-    What is {{ $names.os.lower }}?[/reference/OS/overview/$os_version]
+    Overview[/reference/OS/overview/$os_version]
     Host OS updates
       [/reference/OS/updates/self-service]
       [/reference/OS/updates/update-process]
