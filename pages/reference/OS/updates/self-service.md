@@ -7,7 +7,7 @@ excerpt: How to update {{ $names.os.lower }} versions from your dashboard
 
 ## Which devices and versions are supported?
 
-Since we periodically release updates and improvements to {{ $names.os.lower }} (the host OS running on all {{ $names.company.lower }} devices), we encourage you to keep your device up to date. We offer self-service host OS updates between 2.x versions, from 1.x to 2.x versions, and between 1.x versions.
+Since we periodically release updates and improvements to {{ $names.os.lower }} (the host OS running on all {{ $names.company.lower }} devices), we encourage you to keep your devices up to date. We offer self-service host OS updates between 2.x versions, from 1.x to 2.x versions, and between 1.x versions.
 
 __Note__: {{ $names.os.upper }} 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
 
@@ -35,13 +35,17 @@ For device types and {{ $names.os.lower }} versions that are not yet supported, 
 
 ## Running an update
 
-To run an update, navigate to your device's *Actions* tab, click *Update {{ $names.os.upper }}*, and select the version of {{ $names.os.lower }} you would like to update to:
+To run an update for an individual device, navigate to that device's *Actions* tab, click *Update {{ $names.os.upper }}*, and select the version of {{ $names.os.lower }} you would like to update to:
 
 <img src="/img/common/updates/update-os.png" width="80%">
 
+Updates can also be made to multiple devices in the same application. From the device list, click the checkbox to the left of any online devices you wish to update. Then click the *Group Actions* button in the upper-right corner of the dashboard, followed by *Update {{ $names.os.lower }}*:
+
+<img src="/img/common/updates/group-update.png" width="100%">
+
 __Note:__ Updates to the supervisor, {{ $names.company.lower }}'s agent on the device, are handled in conjuction with host OS updates. If you need to update the supervisor separately from the host OS, please [contact us][troubleshooting] for assistance.
 
-You will see a progress bar that marks the steps completed for the update. Some steps that take longer, such as the device downloading the new OS image, may make the progress bar appear stuck. This doesn't mean anything has gone wrong with your update. We are working on making the update process more informative.
+After an update begins, the device summary page will show a progress bar that marks the steps completed for the update. Some steps that take longer, such as the device downloading the new OS image, may make the progress bar appear stuck. This doesn't mean anything has gone wrong with your update. We are working on making the update process more informative.
 
 Update time can vary significantly, depending on the speed of your network, the speed of your SD card (or other storage medium), and your device performance.
 
