@@ -21,6 +21,13 @@ gpio:
       - SYS_RAWIO
 ```
 
+For serial communication over USB, you can use the following:
+
+```
+devices:
+  - "/dev/ttyACM0:ttyACM0"
+```
+
 __Note:__ If you are not using one of the Docker base images recommended in our [base images wiki][base-image-wiki-link], then it's most likely you will need to handle the updating of `/dev` via [udev][udev-link] yourself. You can see an example of how our base images handle this [here]({{ $links.githubMain }}-library/base-images/blob/master/debian/armv7hf/jessie/entry.sh#L54).
 
 For more details on interacting with external hardware, check out these guides:
