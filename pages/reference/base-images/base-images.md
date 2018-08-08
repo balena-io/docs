@@ -491,30 +491,6 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | {{ $names.company.short }}/ts4900-fedora-openjdk | [Docker Hub][armv7hf-ts4900-fedora-openjdk-dockerhub-link], [github][armv7hf-ts4900-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-ts4900-fedora-openjdk-dockerhub-tag-link] |
 
 
-##### Samsung Artik 520
-
-| Image | Links | Available Tag |
-|:-----------|:------------|:------------|
-| {{ $names.company.short }}/artik5-debian | [Docker Hub][armv7hf-artik5-dockerhub-link], [github][armv7hf-artik5-github-link] | latest, buster, stretch, jessie, wheezy |
-| {{ $names.company.short }}/artik5-buildpack-deps | [Docker Hub][armv7hf-artik5-buildpack-deps-dockerhub-link], [github][armv7hf-artik5-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| {{ $names.company.short }}/artik5-node | [Docker Hub][armv7hf-artik5-node-dockerhub-link], [github][armv7hf-artik5-node-github-link] | For available image tags, refer [here][armv7hf-artik5-node-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-python | [Docker Hub][armv7hf-artik5-python-dockerhub-link], [github][armv7hf-artik5-python-github-link] | For available image tags, refer [here][armv7hf-artik5-python-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-golang | [Docker Hub][armv7hf-artik5-golang-dockerhub-link], [github][armv7hf-artik5-golang-github-link] | For available image tags, refer [here][armv7hf-artik5-golang-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-openjdk | [Docker Hub][armv7hf-artik5-openjdk-dockerhub-link], [github][armv7hf-artik5-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik5-openjdk-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-alpine | [Docker Hub][armv7hf-artik5-alpine-dockerhub-link], [github][armv7hf-artik5-alpine-github-link] | latest, 3.7, 3.6, 3.5, edge |
-| {{ $names.company.short }}/artik5-alpine-buildpack-deps | [Docker Hub][armv7hf-artik5-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-artik5-alpine-buildpack-deps-github-link] | latest, 3.7, edge, 3.7-scm, edge-scm, 3.7-curl, edge-curl |
-| {{ $names.company.short }}/artik5-alpine-node | [Docker Hub][armv7hf-artik5-alpine-node-dockerhub-link], [github][armv7hf-artik5-alpine-node-github-link] | For available image tags, refer [here][armv7hf-artik5-alpine-node-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-alpine-python | [Docker Hub][armv7hf-artik5-alpine-python-dockerhub-link], [github][armv7hf-artik5-alpine-python-github-link] | For available image tags, refer [here][armv7hf-artik5-alpine-python-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-alpine-golang | [Docker Hub][armv7hf-artik5-alpine-golang-dockerhub-link], [github][armv7hf-artik5-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-artik5-alpine-golang-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-alpine-openjdk | [Docker Hub][armv7hf-artik5-alpine-openjdk-dockerhub-link], [github][armv7hf-artik5-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik5-alpine-openjdk-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-fedora | [Docker Hub][armv7hf-artik5-fedora-node-dockerhub-link], [github][armv7hf-artik5-fedora-node-github-link] | latest, 26, 25, 24 |
-| {{ $names.company.short }}/artik5-fedora-buildpack-deps | [Docker Hub][armv7hf-artik5-fedora-node-dockerhub-link], [github][armv7hf-artik5-fedora-node-github-link] | latest, 25, 25-scm, 25-curl |
-| {{ $names.company.short }}/artik5-fedora-node | [Docker Hub][armv7hf-artik5-fedora-node-dockerhub-link], [github][armv7hf-artik5-fedora-node-github-link] | For available image tags, refer [here][armv7hf-artik5-fedora-node-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-fedora-python | [Docker Hub][armv7hf-artik5-fedora-python-dockerhub-link], [github][armv7hf-artik5-fedora-python-github-link] | For available image tags, refer [here][armv7hf-artik5-fedora-python-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-fedora-golang | [Docker Hub][armv7hf-artik5-fedora-golang-dockerhub-link], [github][armv7hf-artik5-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-artik5-fedora-golang-dockerhub-tag-link] |
-| {{ $names.company.short }}/artik5-fedora-openjdk | [Docker Hub][armv7hf-artik5-fedora-openjdk-dockerhub-link], [github][armv7hf-artik5-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik5-fedora-openjdk-dockerhub-tag-link] |
-
-
 ##### Samsung Artik 1020
 
 | Image | Links | Available Tag |
@@ -633,30 +609,6 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | {{ $names.company.short }}/am571x-evm-fedora-python | [Docker Hub][armv7hf-am571x-evm-fedora-python-dockerhub-link], [github][armv7hf-am571x-evm-fedora-python-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-fedora-python-dockerhub-tag-link] |
 | {{ $names.company.short }}/am571x-evm-fedora-golang | [Docker Hub][armv7hf-am571x-evm-fedora-golang-dockerhub-link], [github][armv7hf-am571x-evm-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-fedora-golang-dockerhub-tag-link] |
 | {{ $names.company.short }}/am571x-evm-fedora-openjdk | [Docker Hub][armv7hf-am571x-evm-fedora-openjdk-dockerhub-link], [github][armv7hf-am571x-evm-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-fedora-openjdk-dockerhub-tag-link] |
-
-
-##### RushUp Kitra 520
-
-| Image | Links | Available Tag |
-|:-----------|:------------|:------------|
-| {{ $names.company.short }}/kitra520-debian | [Docker Hub][armv7hf-kitra520-dockerhub-link], [github][armv7hf-kitra520-github-link] | latest, buster, stretch, jessie, wheezy |
-| {{ $names.company.short }}/kitra520-buildpack-deps | [Docker Hub][armv7hf-kitra520-buildpack-deps-dockerhub-link], [github][armv7hf-kitra520-buildpack-deps-github-link] | latest, jessie, wheezy, jessie-scm, wheezy-scm, jessie-curl, wheezy-curl |
-| {{ $names.company.short }}/kitra520-node | [Docker Hub][armv7hf-kitra520-node-dockerhub-link], [github][armv7hf-kitra520-node-github-link] | For available image tags, refer [here][armv7hf-kitra520-node-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-python | [Docker Hub][armv7hf-kitra520-python-dockerhub-link], [github][armv7hf-kitra520-python-github-link] | For available image tags, refer [here][armv7hf-kitra520-python-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-golang | [Docker Hub][armv7hf-kitra520-golang-dockerhub-link], [github][armv7hf-kitra520-golang-github-link] | For available image tags, refer [here][armv7hf-kitra520-golang-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-openjdk | [Docker Hub][armv7hf-kitra520-openjdk-dockerhub-link], [github][armv7hf-kitra520-openjdk-github-link] | For available image tags, refer [here][armv7hf-kitra520-openjdk-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-alpine | [Docker Hub][armv7hf-kitra520-alpine-dockerhub-link], [github][armv7hf-kitra520-alpine-github-link] | latest, 3.7, 3.6, 3.5, edge |
-| {{ $names.company.short }}/kitra520-alpine-buildpack-deps | [Docker Hub][armv7hf-kitra520-alpine-buildpack-deps-dockerhub-link], [github][armv7hf-kitra520-alpine-buildpack-deps-github-link] | latest, 3.7, edge, 3.7-scm, edge-scm, 3.7-curl, edge-curl |
-| {{ $names.company.short }}/kitra520-alpine-node | [Docker Hub][armv7hf-kitra520-alpine-node-dockerhub-link], [github][armv7hf-kitra520-alpine-node-github-link] | For available image tags, refer [here][armv7hf-kitra520-alpine-node-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-alpine-python | [Docker Hub][armv7hf-kitra520-alpine-python-dockerhub-link], [github][armv7hf-kitra520-alpine-python-github-link] | For available image tags, refer [here][armv7hf-kitra520-alpine-python-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-alpine-golang | [Docker Hub][armv7hf-kitra520-alpine-golang-dockerhub-link], [github][armv7hf-kitra520-alpine-golang-github-link] | For available image tags, refer [here][armv7hf-kitra520-alpine-golang-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-alpine-openjdk | [Docker Hub][armv7hf-kitra520-alpine-openjdk-dockerhub-link], [github][armv7hf-kitra520-alpine-openjdk-github-link] | For available image tags, refer [here][armv7hf-kitra520-alpine-openjdk-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-fedora | [Docker Hub][armv7hf-kitra520-fedora-node-dockerhub-link], [github][armv7hf-kitra520-fedora-node-github-link] | latest, 26, 25, 24 |
-| {{ $names.company.short }}/kitra520-fedora-buildpack-deps | [Docker Hub][armv7hf-kitra520-fedora-node-dockerhub-link], [github][armv7hf-kitra520-fedora-node-github-link] | latest, 25, 25-scm, 25-curl |
-| {{ $names.company.short }}/kitra520-fedora-node | [Docker Hub][armv7hf-kitra520-fedora-node-dockerhub-link], [github][armv7hf-kitra520-fedora-node-github-link] | For available image tags, refer [here][armv7hf-kitra520-fedora-node-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-fedora-python | [Docker Hub][armv7hf-kitra520-fedora-python-dockerhub-link], [github][armv7hf-kitra520-fedora-python-github-link] | For available image tags, refer [here][armv7hf-kitra520-fedora-python-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-fedora-golang | [Docker Hub][armv7hf-kitra520-fedora-golang-dockerhub-link], [github][armv7hf-kitra520-fedora-golang-github-link] | For available image tags, refer [here][armv7hf-kitra520-fedora-golang-dockerhub-tag-link] |
-| {{ $names.company.short }}/kitra520-fedora-openjdk | [Docker Hub][armv7hf-kitra520-fedora-openjdk-dockerhub-link], [github][armv7hf-kitra520-fedora-openjdk-github-link] | For available image tags, refer [here][armv7hf-kitra520-fedora-openjdk-dockerhub-tag-link] |
 
 
 ##### Nvidia Jetson Tx2
@@ -1941,54 +1893,6 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [armel-ts7700-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/ts7700-openjdk/tags/manage/
 [armel-ts7700-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/ts7700
 
-[armv7hf-artik5-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-debian/
-[armv7hf-artik5-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-buildpack-deps/
-[armv7hf-artik5-node-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-node/
-[armv7hf-artik5-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-node/tags/manage/
-[armv7hf-artik5-python-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-python/
-[armv7hf-artik5-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-python/tags/manage/
-[armv7hf-artik5-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/device-base/artik5
-[armv7hf-artik5-buildpack-deps-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/buildpack-deps/artik5
-[armv7hf-artik5-node-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/node/artik5
-[armv7hf-artik5-python-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/python/artik5
-[armv7hf-artik5-golang-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-golang/
-[armv7hf-artik5-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-golang/tags/manage/
-[armv7hf-artik5-golang-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/golang/artik5
-[armv7hf-artik5-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-openjdk/
-[armv7hf-artik5-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-openjdk/tags/manage/
-[armv7hf-artik5-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/artik5
-[armv7hf-artik5-alpine-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine/
-[armv7hf-artik5-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine-buildpack-deps/
-[armv7hf-artik5-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine-node/
-[armv7hf-artik5-alpine-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine-node/tags/manage/
-[armv7hf-artik5-alpine-python-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine-python/
-[armv7hf-artik5-alpine-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine-python/tags/manage/
-[armv7hf-artik5-alpine-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/device-base/artik5
-[armv7hf-artik5-alpine-buildpack-deps-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/buildpack-deps/artik5
-[armv7hf-artik5-alpine-node-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/node/artik5
-[armv7hf-artik5-alpine-python-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/python/artik5
-[armv7hf-artik5-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine-golang/
-[armv7hf-artik5-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine-golang/tags/manage/
-[armv7hf-artik5-alpine-golang-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/golang/artik5
-[armv7hf-artik5-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine-openjdk/
-[armv7hf-artik5-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-alpine-openjdk/tags/manage/
-[armv7hf-artik5-alpine-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/artik5
-[armv7hf-artik5-fedora-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora/
-[armv7hf-artik5-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora-buildpack-deps/
-[armv7hf-artik5-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora-node/
-[armv7hf-artik5-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora-node/tags/manage/
-[armv7hf-artik5-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora-python/
-[armv7hf-artik5-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora-python/tags/manage/
-[armv7hf-artik5-fedora-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/device-base/artik5
-[armv7hf-artik5-fedora-buildpack-deps-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/buildpack-deps/artik5
-[armv7hf-artik5-fedora-node-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/node/artik5
-[armv7hf-artik5-fedora-python-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/python/artik5
-[armv7hf-artik5-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora-golang/
-[armv7hf-artik5-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora-golang/tags/manage/
-[armv7hf-artik5-fedora-golang-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/golang/artik5
-[armv7hf-artik5-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora-openjdk/
-[armv7hf-artik5-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik5-fedora-openjdk/tags/manage/
-[armv7hf-artik5-fedora-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/artik5
 
 [armv7hf-artik10-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik10-debian/
 [armv7hf-artik10-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/artik10-buildpack-deps/
@@ -2284,54 +2188,6 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [armv7hf-am571x-evm-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/am571x-evm-fedora-openjdk/tags/manage/
 [armv7hf-am571x-evm-fedora-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/am571x-evm
 
-[armv7hf-kitra520-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-debian/
-[armv7hf-kitra520-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-buildpack-deps/
-[armv7hf-kitra520-node-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-node/
-[armv7hf-kitra520-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-node/tags/manage/
-[armv7hf-kitra520-python-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-python/
-[armv7hf-kitra520-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-python/tags/manage/
-[armv7hf-kitra520-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/device-base/kitra520
-[armv7hf-kitra520-buildpack-deps-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/buildpack-deps/kitra520
-[armv7hf-kitra520-node-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/node/kitra520
-[armv7hf-kitra520-python-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/python/kitra520
-[armv7hf-kitra520-golang-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-golang/
-[armv7hf-kitra520-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-golang/tags/manage/
-[armv7hf-kitra520-golang-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/golang/kitra520
-[armv7hf-kitra520-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-openjdk/
-[armv7hf-kitra520-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-openjdk/tags/manage/
-[armv7hf-kitra520-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/kitra520
-[armv7hf-kitra520-alpine-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine/
-[armv7hf-kitra520-alpine-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine-buildpack-deps/
-[armv7hf-kitra520-alpine-node-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine-node/
-[armv7hf-kitra520-alpine-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine-node/tags/manage/
-[armv7hf-kitra520-alpine-python-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine-python/
-[armv7hf-kitra520-alpine-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine-python/tags/manage/
-[armv7hf-kitra520-alpine-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/device-base/kitra520
-[armv7hf-kitra520-alpine-buildpack-deps-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/buildpack-deps/kitra520
-[armv7hf-kitra520-alpine-node-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/node/kitra520
-[armv7hf-kitra520-alpine-python-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/python/kitra520
-[armv7hf-kitra520-alpine-golang-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine-golang/
-[armv7hf-kitra520-alpine-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine-golang/tags/manage/
-[armv7hf-kitra520-alpine-golang-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/golang/kitra520
-[armv7hf-kitra520-alpine-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine-openjdk/
-[armv7hf-kitra520-alpine-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-alpine-openjdk/tags/manage/
-[armv7hf-kitra520-alpine-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/kitra520
-[armv7hf-kitra520-fedora-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora/
-[armv7hf-kitra520-fedora-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora-buildpack-deps/
-[armv7hf-kitra520-fedora-node-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora-node/
-[armv7hf-kitra520-fedora-node-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora-node/tags/manage/
-[armv7hf-kitra520-fedora-python-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora-python/
-[armv7hf-kitra520-fedora-python-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora-python/tags/manage/
-[armv7hf-kitra520-fedora-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/device-base/kitra520
-[armv7hf-kitra520-fedora-buildpack-deps-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/buildpack-deps/kitra520
-[armv7hf-kitra520-fedora-node-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/node/kitra520
-[armv7hf-kitra520-fedora-python-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/python/kitra520
-[armv7hf-kitra520-fedora-golang-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora-golang/
-[armv7hf-kitra520-fedora-golang-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora-golang/tags/manage/
-[armv7hf-kitra520-fedora-golang-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/golang/kitra520
-[armv7hf-kitra520-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora-openjdk/
-[armv7hf-kitra520-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/kitra520-fedora-openjdk/tags/manage/
-[armv7hf-kitra520-fedora-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/kitra520
 
 [armv7hf-jetson-tx2-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/jetson-tx2-debian/
 [armv7hf-jetson-tx2-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/{{ $names.company.short }}/jetson-tx2-buildpack-deps/
