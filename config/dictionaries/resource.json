@@ -163,8 +163,8 @@
         "id": "devices-by-application",
         "summary": "Get all devices by application",
         "method": "GET",
-        "endpoint": "/v4/application(<ID>)",
-        "filters": "?\\$expand=device"
+        "endpoint": "/v4/device",
+        "filters": "?\\$filter=belongs_to__application%20eq%20'<APP_ID>'"
       },
       {
         "id": "device-by-id",
@@ -186,7 +186,7 @@
         "method": "PATCH",
         "endpoint": "/v4/device(<ID>)",
         "filters": "",
-        "data": "{\n    \"name\": \"<NEW NAME>\"\n}"
+        "data": "{\n    \"device_name\": \"<NEW NAME>\"\n}"
       },
       {
         "id": "delete-device",
