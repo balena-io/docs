@@ -178,15 +178,6 @@
     "type": "beta"
   },
   {
-    "id": "artik5",
-    "name": "Samsung ARTIK 520",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/artik5.svg",
-    "link": "https://www.artik.io/modules/artik-520/",
-    "type": "released"
-  },
-  {
     "id": "artik530",
     "name": "Samsung ARTIK 530",
     "arch": "armv7hf",
@@ -229,15 +220,6 @@
     "bootMedia": "SD card",
     "icon": "/img/device/kitra710.svg",
     "link": "https://www.rushup.tech/kitra710/",
-    "type": "beta"
-  },
-  {
-    "id": "kitra520",
-    "name": "Kitra 520",
-    "arch": "armv7hf",
-		"bootMedia": "SD card",
-    "icon": "/img/device/kitra520.svg",
-    "link": "https://www.rushup.tech/kitra520/",
     "type": "beta"
   },
   {

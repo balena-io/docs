@@ -13,8 +13,8 @@ Hummingboard | hummingboard | armv7hf | {{ $links.githubOS }}/resin-fsl-arm
 Nitrogen 6X | nitrogen6x | armv7hf | ttps://github.com/resin-os/resin-fsl-arm
 Parallella | parallella | armv7hf | {{ $links.githubOS }}/resin-parallella
 Samsung Artik 1020 | artik10 | armv7hf | {{ $links.githubOS }}/resin-artik
-Samsung Artik 520 | artik5 | armv7hf | {{ $links.githubOS }}/resin-artik
-RushUp Kitra 520 | kitra520 | armv7hf | {{ $links.githubOS }}/resin-artik
+Samsung Artik 530 | artik530 | armv7hf | {{ $links.githubOS }}/resin-artik
+Samsung Artik 530s 1G | artik533s | armv7hf | {{ $links.githubOS }}/resin-artik
 Samsung Artik 710 | artik710 | aarch64 | {{ $links.githubOS }}/resin-artik710
 RushUp Kitra 710 | kitra710 | aarch64 | {{ $links.githubOS }}/resin-artik710
 UpBoard | up-board | amd64 | {{ $links.githubOS }}/resin-up-board
