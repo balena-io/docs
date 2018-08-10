@@ -65,7 +65,6 @@ gcloud beta iot registries create ​<iot-registry>​ --region us-central1 --ev
 5. Click **Create Service Account**.
 6. Enter a service account name, select Pub/Sub Publisher role you wish to grant to the service account and click **Create**.
 
-
 ## Set up your resin application's environment
 Go to the [resin dashboard](https://dashboard.resin.io/apps) and create or select your project
 
