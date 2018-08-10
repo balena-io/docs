@@ -12,7 +12,7 @@ title: I2C and Other Interfaces
   * [Using UART or Serial on Raspberry Pi 3](/hardware/i2c-and-spi#using-uart-or-serial-on-raspberry-pi-3)
   * [Raspberry Pi camera module](/hardware/i2c-and-spi#raspberry-pi-camera-module)
   * [Raspberry Pi 7” Touchscreen Display](/hardware/i2c-and-spi#raspberry-pi-7-touchscreen-display)
-  * [Customising config.txt](/hardware/i2c-and-spi#customizing-config-txt)
+  * [Customising config.txt](/hardware/i2c-and-spi#customising-config-txt)
 * [Beaglebone](/hardware/i2c-and-spi#beaglebone)
   * [Capemgr support](/hardware/i2c-and-spi#capemgr-support)
   * [Disable HDMI](/hardware/i2c-and-spi#disable-hdmi)
