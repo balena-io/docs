@@ -71,6 +71,7 @@ Below you can find a couple of examples. All of them requires either prepending 
 __Note:__ To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile if you are using the Debian image, or check under what name does your chosen operating system supply the `dbus-send` executable.
 
 #### Change the Device hostname
+__Note:__ This command will not work on ResinOS 2.0 because it requests through DBus that [`systemd-hostnamed`](https://www.freedesktop.org/wiki/Software/systemd/hostnamed/) modify `/etc/hostname`, which is in the read-only root partition. See more [here](resin-io/docs/issues/462).
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
   dbus-send \
