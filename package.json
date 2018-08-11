@@ -1,6 +1,6 @@
 {
   "name": "resin-docs",
-  "version": "2.7.4",
+  "version": "2.8.0",
   "description": "This repo contains our public-facing documentation.",
   "main": "index.js",
   "scripts": {
