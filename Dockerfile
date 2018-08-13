@@ -1,4 +1,4 @@
-FROM library/node:6.3
+FROM library/node:latest
 
 RUN mkdir /src
 WORKDIR /src
