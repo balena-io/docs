@@ -609,8 +609,6 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 | resin/artik5-ubuntu-python | [Docker Hub][armv7hf-artik5-ubuntu-python-dockerhub-link], [github][armv7hf-artik5-ubuntu-python-github-link] | For available image tags, refer [here][armv7hf-artik5-ubuntu-python-dockerhub-tag-link] |
 | resin/artik5-ubuntu-golang | [Docker Hub][armv7hf-artik5-ubuntu-golang-dockerhub-link], [github][armv7hf-artik5-ubuntu-golang-github-link] | For available image tags, refer [here][armv7hf-artik5-ubuntu-golang-dockerhub-tag-link] |
 
-
->>>>>>> a5c4876... base-images: Latest updates for base images documentation
 ##### Samsung Artik 1020
 
 | Image | Links | Available Tag |
@@ -728,7 +726,6 @@ __Note:__ In the tree diagram, from the bottom to the top, the lower level image
 
 
 ##### BananaPi-M1+
->>>>>>> a5c4876... base-images: Latest updates for base images documentation
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
@@ -2830,7 +2827,6 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [armv7hf-artik5-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-openjdk/
 [armv7hf-artik5-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-openjdk/tags/manage/
 [armv7hf-artik5-fedora-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/artik5
->>>>>>> a5c4876... base-images: Latest updates for base images documentation
 
 [armv7hf-artik5-ubuntu-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-ubuntu/
 [armv7hf-artik5-ubuntu-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-ubuntu-buildpack-deps/
@@ -3293,7 +3289,6 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [armv7hf-kitra520-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-openjdk/
 [armv7hf-kitra520-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-openjdk/tags/manage/
 [armv7hf-kitra520-fedora-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/kitra520
->>>>>>> a5c4876... base-images: Latest updates for base images documentation
 
 [armv7hf-kitra520-ubuntu-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-ubuntu/
 [armv7hf-kitra520-ubuntu-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-ubuntu-buildpack-deps/
