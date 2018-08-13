@@ -184,7 +184,7 @@ Get a single application.
 ```
 ### Function: get_all()
 
-Get all applications.
+Get all applications (including collaborator applications).
 
 #### Returns:
     list: list contains info of applications.
@@ -527,6 +527,21 @@ Get all device config variables belong to a device.
 #### Examples:
 ```python
 >>> resin.models.config_variable.device_config_variable.get_all('f5213eac0d63ac47721b037a7406d306')
+[{u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id74}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_variab8)'}, u'id': 130598, u'value': u'1', u'name': u'RESIN_HOST_CONFIG_avoid_'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'_36574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_var0597)'}, u'id': 130597, u'value': u'1', u'name': u'RESIN_HOST_CONFIG_disash'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'},  1036574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_(130596)'}, u'id': 130596, u'value': u'"i2c_arm=on","spi=on","audio=on"'': u'RESIN_HOST_CONFIG_dtparam'}, {u'device': {u'__deferred': {u'uri': udevice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uresin/device_config_variable(130595)'}, u'id': 130595, u'value': u'16', uu'RESIN_HOST_CONFIG_gpu_mem'}, {u'device': {u'__deferred': {u'uri': u'/rice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uri':n/device_config_variable(130594)'}, u'id': 130594, u'value': u'false', uu'RESIN_HOST_LOG_TO_DISPLAY'}]
+```
+### Function: get_all_by_application(app_id)
+
+Get all device config variables by application.
+
+#### Args:
+    app_id (int): application id.
+
+#### Returns:
+    list: device config variables.
+
+#### Examples:
+```python
+>>> resin.models.config_variable.device_config_variable.get_all_by_application(1043050)
 [{u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'__id74}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_variab8)'}, u'id': 130598, u'value': u'1', u'name': u'RESIN_HOST_CONFIG_avoid_'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'}, u'_36574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_var0597)'}, u'id': 130597, u'value': u'1', u'name': u'RESIN_HOST_CONFIG_disash'}, {u'device': {u'__deferred': {u'uri': u'/resin/device(1036574)'},  1036574}, u'__metadata': {u'type': u'', u'uri': u'/resin/device_config_(130596)'}, u'id': 130596, u'value': u'"i2c_arm=on","spi=on","audio=on"'': u'RESIN_HOST_CONFIG_dtparam'}, {u'device': {u'__deferred': {u'uri': udevice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uresin/device_config_variable(130595)'}, u'id': 130595, u'value': u'16', uu'RESIN_HOST_CONFIG_gpu_mem'}, {u'device': {u'__deferred': {u'uri': u'/rice(1036574)'}, u'__id': 1036574}, u'__metadata': {u'type': u'', u'uri':n/device_config_variable(130594)'}, u'id': 130594, u'value': u'false', uu'RESIN_HOST_LOG_TO_DISPLAY'}]
 ```
 ### Function: remove(var_id)
@@ -1115,12 +1130,21 @@ Download an OS image. This function only works if you log in using credentials o
 >>> response.headers
 {'access-control-allow-methods': 'GET, PUT, POST, PATCH, DELETE, OPTIONS, HEAD', 'content-disposition': 'attachment; filename="resin-RPI1-0.1.0-1.1.0-7588720e0262.img"', 'content-encoding': 'gzip', 'transfer-encoding': 'chunked', 'x-powered-by': 'Express', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'date': 'Mon, 23 Nov 2015 15:13:39 GMT', 'access-control-allow-origin': '*', 'access-control-allow-headers': 'Content-Type, Authorization, Application-Record-Count, MaxDataServiceVersion, X-Requested-With', 'content-type': 'application/octet-stream', 'x-frame-options': 'DENY'}
 ```
-### Function: get_config(app_id)
+### Function: get_config(app_id, options)
 
-Get an application config.json
+Get an application config.json.
 
 #### Args:
     app_id (str): application id.
+    options (dict): OS configuration options to use. The available options are listed below:
+        version (str): the OS version of the image.
+        network (Optional[str]): the network type that the device will use, one of 'ethernet' or 'wifi' and defaults to 'ethernet' if not specified.
+        appUpdatePollInterval (Optional[str]): how often the OS checks for updates, in minutes.
+        wifiKey (Optional[str]): the key for the wifi network the device will connect to.
+        wifiSsid (Optional[str]): the ssid for the wifi network the device will connect to.
+        ip (Optional[str]): static ip address.
+        gateway (Optional[str]): static ip gateway.
+        netmask (Optional[str]): static ip netmask.
 
 #### Returns:
     dict: application config.json
@@ -1242,7 +1266,7 @@ Create a service environment variable for application.
 >>> resin.models.environment_variables.service_environment_variable.create('1005160', 'proxy', 'app_proxy', 'test value')
 {"id":12444,"created_at":"2018-03-18T09:34:09.144Z","service":{"__deferred":{"uri":"/resin/service(21668)"},"__id":21668},"name":"app_proxy","value":"test value","__metadata":{"uri":"/resin/service_environment_variable(12444)","type":""}}
 ```
-### Function: get_all(app_id)
+### Function: get_all_by_application(app_id)
 
 Get all service environment variables by application.
 
@@ -1392,6 +1416,21 @@ Get all device service environment variables belong to a device.
 ```python
 >>> resin.models.environment_variables.device_service_environment_variable.get_all('f5213eac0d63ac47721b037a7406d306')
 [{u'name': u'dev_proxy', u'created_at': u'2018-03-16T19:23:21.727Z', u'__metadata': {u'type': u'', u'uri': u'/resin/device_service_environment_variable(28888)'}, u'value': u'value', u'service_install': [{u'__metadata': {u'type': u'', u'uri': u'/resin/service_install(30788)'}, u'id': 30788, u'service': [{u'service_name': u'proxy', u'__metadata': {u'type': u'', u'uri': u'/resin/service(NaN)'}}]}], u'id': 28888}, {u'name': u'dev_data', u'created_at': u'2018-03-16T19:23:11.614Z', u'__metadata': {u'type': u'', u'uri': u'/resin/device_service_environment_variable(28887)'}, u'value': u'dev_data_value', u'service_install': [{u'__metadata': {u'type': u'', u'uri': u'/resin/service_install(30789)'}, u'id': 30789, u'service': [{u'service_name': u'data', u'__metadata': {u'type': u'', u'uri': u'/resin/service(NaN)'}}]}], u'id': 28887}, {u'name': u'dev_data1', u'created_at': u'2018-03-17T05:53:19.257Z', u'__metadata': {u'type': u'', u'uri': u'/resin/device_service_environment_variable(28964)'}, u'value': u'aaaa', u'service_install': [{u'__metadata': {u'type': u'', u'uri': u'/resin/service_install(30789)'}, u'id': 30789, u'service': [{u'service_name': u'data', u'__metadata': {u'type': u'', u'uri': u'/resin/service(NaN)'}}]}], u'id': 28964}]
+```
+### Function: get_all_by_application(app_id)
+
+Get all device service environment variables belong to an application.
+
+#### Args:
+    app_id (int): application id.
+
+#### Returns:
+    list: list of device service environment variables.
+
+#### Examples:
+```python
+>>> resin.models.environment_variables.device_service_environment_variable(1043050)
+[{'name': u'device1', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(40794)'}, u'value': u'test', u'device': {u'__deferred': {u'uri': u'/resin/device(115792)'}, u'__id': 115792}, u'id': 40794}, {'name': u'RESIN_DEVICE_RESTART', u'__metadata': {u'type': u'', u'uri': u'/resin/device_environment_variable(1524)'}, u'value': u'961506585823372', u'device': {u'__deferred': {u'uri': u'/resin/device(121794)'}, u'__id': 121794}, u'id': 1524}]
 ```
 ### Function: remove(var_id)
 
@@ -1790,42 +1829,6 @@ No need to set device_uuid and app_id if command is sent to the API on device.
 >>> resin.models.supervisor.blink(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 'OK'
 ```
-### Function: disable_tcp_ping(app_id, device_uuid)
-
-Disable TCP ping.
-When the device's connection to the Resin VPN is down, by default the device performs a TCP ping heartbeat to check for connectivity.
-No need to set device_uuid and app_id if command is sent to the API on device.
-
-#### Args:
-    app_id (Optional[str]): application id.
-    device_uuid (Optional[str]): device uuid.
-
-#### Raises:
-    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
-
-#### Examples:
-```python
->>> resin.models.supervisor.disable_tcp_ping(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
-(Empty response)
-```
-### Function: enable_tcp_ping(app_id, device_uuid)
-
-Enable TCP ping in case it has been disabled.
-When the device's connection to the Resin VPN is down, by default the device performs a TCP ping heartbeat to check for connectivity.
-No need to set device_uuid and app_id if command is sent to the API on device.
-
-#### Args:
-    app_id (Optional[str]): application id.
-    device_uuid (Optional[str]): device uuid.
-
-#### Raises:
-    InvalidOption: if the endpoint is Resin API proxy endpoint and device_uuid or app_id is not specified.
-
-#### Examples:
-```python
->>> resin.models.supervisor.enable_tcp_ping(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
-(Empty response)
-```
 ### Function: force_api_endpoint(endpoint)
 
 Force all API commands to a specific endpoint.
@@ -1837,6 +1840,7 @@ Force all API commands to a specific endpoint.
     InvalidOption: if endpoint value is not bool.
 ### Function: get_application_info(app_id, device_uuid)
 
+***Deprecated***
 Return information about the application running on the device.
 This function requires supervisor v1.8 or higher.
 No need to set device_uuid if command is sent to the API on device.
@@ -1978,6 +1982,19 @@ No need to set device_uuid and app_id if command is sent to the API on device.
 >>> resin.models.supervisor.restart(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 'OK'
 ```
+### Function: restart_service(device_uuid, image_id)
+
+Restart a service on device.
+
+#### Args:
+    device_uuid (str): device uuid.
+    image_id (int): id of the image to start
+
+#### Examples:
+```python
+>>> resin.models.supervisor.restart_service('f3887b184396844f52402c5cf09bd3b9', 392229)
+OK
+```
 ### Function: shutdown(device_uuid, app_id, force)
 
 Shut down the device.
@@ -2001,6 +2018,7 @@ No need to set device_uuid and app_id if command is sent to the API on device.
 ```
 ### Function: start_application(app_id, device_uuid)
 
+***Deprecated***
 Starts a user application container, usually after it has been stopped with `stop_application()`.
 This function requires supervisor v1.8 or higher.
 No need to set device_uuid if command is sent to the API on device.
@@ -2019,8 +2037,22 @@ No need to set device_uuid if command is sent to the API on device.
 ```python
 >>> resin.models.supervisor.start_application(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
 ```
+### Function: start_service(device_uuid, image_id)
+
+Start a service on device.
+
+#### Args:
+    device_uuid (str): device uuid.
+    image_id (int): id of the image to start
+
+#### Examples:
+```python
+>>> resin.models.supervisor.start_service('f3887b184396844f52402c5cf09bd3b9', 392229)
+OK
+```
 ### Function: stop_application(app_id, device_uuid)
 
+***Deprecated***
 Temporarily stops a user application container. Application container will not be removed after invoking this function and a reboot or supervisor restart will cause the container to start again.
 This function requires supervisor v1.8 or higher.
 No need to set device_uuid if command is sent to the API on device.
@@ -2038,6 +2070,19 @@ No need to set device_uuid if command is sent to the API on device.
 #### Examples:
 ```python
 >>> resin.models.supervisor.stop_application(device_uuid='8f66ec7335267e7cc7999ca9eec029a01ea7d823214c742ace5cfffaa21be3', app_id='9020')
+```
+### Function: stop_service(device_uuid, image_id)
+
+Stop a service on device.
+
+#### Args:
+    device_uuid (str): device uuid.
+    image_id (int): id of the image to start
+
+#### Examples:
+```python
+>>> resin.models.supervisor.stop_service('f3887b184396844f52402c5cf09bd3b9', 392229)
+OK
 ```
 ### Function: update(device_uuid, app_id, force)
 
@@ -2247,68 +2292,34 @@ u'g_trong_nghia_nguyen'
 ## Logs
 
 This class implements functions that allow processing logs from device.
+### Function: history(uuid, count)
 
-This class is implemented using pubnub python sdk.
-
-For more details about pubnub, please visit: https://www.pubnub.com/docs/python/pubnub-python-sdk
-### Function: get_channel(uuid)
-
-This function returns pubnub channel for a specific device.
+Get device logs history.
 
 #### Args:
     uuid (str): device uuid.
+    count (Optional[int]): this callback is called on receiving a message from the channel.
+### Function: subscribe(uuid, callback, error, count)
+
+Subscribe to device logs.
+
+#### Args:
+    uuid (str): device uuid.
+    callback (function): this callback is called on receiving a message.
+    error (Optional[function]): this callback is called on an error event.
+    count (Optional[int]): number of historical messages to include.
 
 #### Returns:
-    str: device channel.
-### Function: history()
-
-This function allows fetching historical device logs.
-
-#### Args:
-    uuid (str): device uuid.
-    callback (function): this callback is called on receiving a message from the channel.
-    error (function): this callback is called on an error event.
-    For more details about callbacks in pubnub subscribe, visit here: https://www.pubnub.com/docs/python/api-reference#history
-
-#### Examples:
-```python
-# Define callback and error.
->>> def callback(message):
-...     print(message)
->>> def error(message):
-...     print('Error:'+ str(message))
-Logs.history(uuid=uuid, callback=callback, error=error)
-```
-### Function: subscribe()
-
-This function allows subscribing to device logs.
-There are fields (`m`, `t`, `s`, `c`) in the output which can be unclear. They stand for:
-    m - The log message itself.
-    t - The log timestamp.
-    s - Is this a system message?
-    c - The id of the service which produced this log (or null if the device does not support multiple containers).
-
-#### Args:
-    uuid (str): device uuid.
-    callback (function): this callback is called on receiving a message from the channel.
-    error (function): this callback is called on an error event.
-    For more details about callbacks in pubnub subscribe, visit here: https://www.pubnub.com/docs/python/api-reference#subscribe
-
-#### Examples:
-```python
-# Define callback and error.
->>> def callback(message, channel):
-...     print(message)
->>> def error(message):
-...     print('Error:'+ str(message))
->>> Logs.subscribe(uuid=uuid, callback=callback, error=error)
-```
+    dict: a log entry will contain the following keys: `isStdErr, timestamp, message, isSystem, createdAt`.
 ### Function: unsubscribe(uuid)
 
-This function allows unsubscribing to device logs.
+Unsubscribe from device logs for a specific device.
 
 #### Args:
     uuid (str): device uuid.
+### Function: unsubscribe_all()
+
+Unsubscribe all subscribed devices.
 ## Settings
 
 This class handles settings for Resin Python SDK.

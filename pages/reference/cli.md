@@ -1274,6 +1274,14 @@ Examples:
 
 The source that should be sent to the resin builder to be built (defaults to the current directory)
 
+#### --emulated, -e
+
+Force an emulated build to occur on the remote builder
+
+#### --nocache, -c
+
+Don't use cache when building this project
+
 # Settings
 
 ## settings
@@ -1431,12 +1439,14 @@ also change any option by editing '.resin-sync.yml' directly.
 Here is an example '.resin-sync.yml' :
 
 	$ cat $PWD/.resin-sync.yml
-	destination: '/usr/src/app'
-	before: 'echo Hello'
-	after: 'echo Done'
-	ignore:
-		- .git
-		- node_modules/
+	local_resinos:
+		app-name: local-app
+		build-triggers:
+			- Dockerfile: file-hash-abcdefabcdefabcdefabcdefabcdefabcdef
+			- package.json: file-hash-abcdefabcdefabcdefabcdefabcdefabcdef
+		environment:
+			- MY_VARIABLE=123
+
 
 Command line options have precedence over the ones saved in '.resin-sync.yml'.
 
