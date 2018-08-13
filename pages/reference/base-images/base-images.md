@@ -2828,6 +2828,7 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [armv7hf-artik5-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/artik5-fedora-openjdk/tags/manage/
 [armv7hf-artik5-fedora-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/artik5
 
+
 [armv7hf-artik5-ubuntu-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-ubuntu/
 [armv7hf-artik5-ubuntu-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-ubuntu-buildpack-deps/
 [armv7hf-artik5-ubuntu-node-dockerhub-link]:https://registry.hub.docker.com/u/resin/artik5-ubuntu-node/
@@ -3289,6 +3290,7 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [armv7hf-kitra520-fedora-openjdk-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-openjdk/
 [armv7hf-kitra520-fedora-openjdk-dockerhub-tag-link]:https://registry.hub.docker.com/u/resin/kitra520-fedora-openjdk/tags/manage/
 [armv7hf-kitra520-fedora-openjdk-github-link]:{{ $links.githubMain }}-library/base-images/tree/master/openjdk/kitra520
+
 
 [armv7hf-kitra520-ubuntu-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-ubuntu/
 [armv7hf-kitra520-ubuntu-buildpack-deps-dockerhub-link]:https://registry.hub.docker.com/u/resin/kitra520-ubuntu-buildpack-deps/
