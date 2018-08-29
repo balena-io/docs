@@ -1,0 +1,7 @@
+---
+docker:
+  builds:
+    - path: .
+      dockerfile: Dockerfile
+      docker_repo: resin/docs
+
