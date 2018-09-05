@@ -10,6 +10,7 @@ excerpt: Guides to integrate {{ $names.company.lower }} with a variety of IoT pl
 ### Guides
 
 * [Amazon AWS IoT](aws/)
+* [Google IoT](google/)
 * [IBM BlueMix](bluemix/)
 * [Microsoft Azure](azure/)
 * [Samsung ARTIK Cloud](artik/)
