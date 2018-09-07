@@ -7,20 +7,20 @@ excerpt: Get started with the Google IoT platform and {{ $names.company.lower }}
 
 The example project below shows you how to use Google Cloud IoT with resin.io to automatically create a Cloud IoT device on first boot. It also shows you how to run a sample to connect a device and publish device telemetry events.
 
-Before you begin go and grab the example project code from github using the following command.
+Before you begin, grab the example project code from GitHub using the following command.
 ```bash
 git clone https://github.com/resin-io-projects/google-iot
 ```
 
-If you want to learn more about Google Cloud IoT and its capabilities checkout https://cloud.google.com/solutions/iot/ 
+If you want to learn more about Google Cloud IoT check out https://cloud.google.com/solutions/iot/ 
 
 ## IoT Core Setup on the GCP Side
 	
 ### Google Cloud Platform Account
-Before IoT core setup can be done, an account with Google is needed to log into the Google Cloud Platform. Please register an account with Google if you don’t have it. Once an account is created successfully, you will be able to run the gcloud commands below.
+Before you set up IoT Core, you'll need a Google account to log into the Google Cloud Platform. Once an account is created successfully, you will be able to run the gcloud commands below.
 
 ### Install the ​Google Cloud Command Line Tool
-Follow all the instruction from this [link](https://cloud.google.com/sdk/downloads) to install google command line tool. After the google command line tool is installed, run the commands below.
+Follow the instructions [here](https://cloud.google.com/sdk/downloads) to the install google command line tool. After the google command line tool is installed, run the commands below: 
 
 ### Installing the components
 ```
@@ -58,12 +58,12 @@ gcloud beta iot registries create ​<iot-registry>​ --region us-central1 --ev
 ```
 
 ### Create Service Account
-1. Open the **Service Accounts** page in the GCP Console.
-2. OPEN THE SERVICE ACCOUNTS PAGE
-3. Click **Select a project**.
-4. Select your project and click **Open**.
-5. Click **Create Service Account**.
-6. Enter a service account name, select Pub/Sub Publisher role you wish to grant to the service account and click **Create**.
+1. Navigate to the IAM & admin page in the GCP Console and make sure your project is selected.
+2. Open the [**Service Accounts**](https://console.cloud.google.com/iam-admin/serviceaccounts) page.
+3. Click **Create Service Account.**
+4. Enter a service account name and service account ID
+5. Select the Pub/Sub project role
+6. Click **Save.**
 
 ## Set up your resin application's environment
 Go to the [resin dashboard](https://dashboard.resin.io/apps) and create or select your project
@@ -76,7 +76,7 @@ Click Environment Variables and create the following keys and matching values:
 
 ## Provision your device
 
-You're now ready to provision your resin.io device and push the code to the application. Once it's started up it'll automatically register it's self with Google Cloud IoT as a device, and allow you to push telemetry data to the pubsub channel you've created.
+You're now ready to provision your resin.io device and push the code to the application. Once it boots, it will automatically register itself with Google Cloud IoT as a device, and allow you to push telemetry data to the pubsub channel you've created.
 
 ## Viewing published messages
 
