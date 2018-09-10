@@ -12,7 +12,7 @@ In order to give our power users control over data flow we enabled a few RESIN [
 |---------------------------------------|-------------------|----------------------------------------------------------------|
 | `{{ $names.company.allCaps }}_SUPERVISOR_VPN_CONTROL`        | true/false        |  Enable / Disable VPN                                |   true  |
 | `{{ $names.company.allCaps }}_SUPERVISOR_CONNECTIVITY_CHECK` | true/false        |  Enable / Disable connectivity check VPN is disabled |   true  |
-| `{{ $names.company.allCaps }}_SUPERVISOR_POLL_INTERVAL`      | 60000 to 86400000 |  Resin API Poll interval in milliseconds             |   60000 |
+| `{{ $names.company.allCaps }}_SUPERVISOR_POLL_INTERVAL`      | 600000 to 86400000 |  Resin API Poll interval in milliseconds             |   600000 |
 | `{{ $names.company.allCaps }}_SUPERVISOR_LOG_CONTROL`        | true/false        |  Enable / Disable logs from being sent to Resin      |   true  |
 
 Side-effect/Warning
@@ -32,7 +32,7 @@ Data usage impact
 
 | Service                                             | Usage (Including DNS overhead) |
 |-----------------------------------------------------|--------------------------------|
-| API poll (Once per 60s)                             | 6650 Bytes per request         |
+| API poll (Once per 10m)                             | 6650 Bytes per request         |
 | Resin Agent update poll (Once every 24 hours)       | 6693 Bytes per request         |
 | VPN enabled                                         | 43 Bytes / second              |
 | TCP check cost (When VPN disabled)                  | 47.36 Bytes / second           |
