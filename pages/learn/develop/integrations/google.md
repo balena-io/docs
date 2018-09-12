@@ -20,7 +20,7 @@ If you want to learn more about Google Cloud IoT check out https://cloud.google.
 Before you set up IoT Core, you'll need a Google account to log into the Google Cloud Platform. Once an account is created successfully, you will be able to run the gcloud commands below.
 
 ### Install the ​Google Cloud Command Line Tool
-Follow the instructions [here](https://cloud.google.com/sdk/downloads) to the install google command line tool. After the google command line tool is installed, run the commands below: 
+Follow the instructions [here](https://cloud.google.com/sdk/downloads) to install the google command line tool. After the google command line tool is installed, run the commands below:
 
 ### Installing the components
 ```
