@@ -186,7 +186,7 @@
         "method": "PATCH",
         "endpoint": "/v4/device(<ID>)",
         "filters": "",
-        "data": "{\n    \"name\": \"<NEW NAME>\"\n}"
+        "data": "{\n    \"device_name\": \"<NEW NAME>\"\n}"
       },
       {
         "id": "delete-device",
