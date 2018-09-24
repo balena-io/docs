@@ -1,6 +1,6 @@
 # Interacting with the Resin Supervisor
 
-The Resin Supervisor is resin.io's agent that runs on devices. It's main role is to ensure your app is running and communicate with the Resin API server.
+The Resin Supervisor is resin.io's agent that runs on devices. It's main role is to ensure your app is running and to communicate with the Resin API server.
 
 The Supervisor itself has it's own API, with means for user applications to communicate and execute some special actions that affect the host OS or the application itself. There are two main ways for the application to interact with the Supervisor: the update lockfile and the HTTP API.
 
