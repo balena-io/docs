@@ -73,7 +73,7 @@ npm start
 ```
 You should now see the docs served from localhost:3000
 
-To add you changes to the docs, create a new local branch of master:
+To add your changes to the docs, create a new local branch of master:
 ```
 git checkout -b my-docs-patch
 ```
