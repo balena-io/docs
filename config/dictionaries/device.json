@@ -74,6 +74,15 @@
     "type": "released"
   },
   {
+    "id": "fincm3",
+    "name": "Balena Fin",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/fincm3.svg",
+    "link": "https://www.balenafin.io/",
+    "type": "released"
+  },
+  {
     "id": "beaglebone-black",
     "name": "BeagleBone",
     "variants": 
