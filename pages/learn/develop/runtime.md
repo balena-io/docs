@@ -230,7 +230,7 @@ mkdir -p /mnt/storage && mount /mnt/storage
 
 **Using systemd**
 
-Normally systemd mounts entries from `/etc/fstab` on startup automatically, but running within Docker, it will only mount entries that are not block devices, such as `tempfs` entries. For non-block devices, adding entries `/etc/fstab` is sufficient, for example in your Dockerfile:
+Normally systemd mounts entries from `/etc/fstab` on startup automatically, but running within Docker, it will only mount entries that are not block devices, such as `tmpfs` entries. For non-block devices, adding entries `/etc/fstab` is sufficient, for example in your Dockerfile:
 ```Dockerfile
 RUN echo "tmpfs  /cache  tmpfs  rw,size=200M,nosuid,nodev,noexec  0 0" >> /etc/fstab
 ```
