@@ -48,13 +48,13 @@ services:
     volumes:
       - 'resin-data:/data'
     labels:
-      io.resin.features.kernel-modules: '1'
-      io.resin.features.firmware: '1'
-      io.resin.features.dbus: '1'
-      io.resin.features.supervisor-api: '1'
-      io.resin.features.resin-api: '1'
-      io.resin.update.strategy: download-then-kill
-      io.resin.update.handover-timeout: ''
+      io.balena.features.kernel-modules: '1'
+      io.balena.features.firmware: '1'
+      io.balena.features.dbus: '1'
+      io.balena.features.supervisor-api: '1'
+      io.balena.features.balena-api: '1'
+      io.balena.update.strategy: download-then-kill
+      io.balena.update.handover-timeout: ''
 ```
 
 Applications with multiple containers should include a `Dockerfile` or `package.json` in each service directory. A `docker-compose.yml` file will need to be defined at the root of the repository, as discussed in our [multicontainer documentation][multicontainer].

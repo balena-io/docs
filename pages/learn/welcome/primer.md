@@ -31,7 +31,7 @@ First, the device connects to the network and performs its early provisioning, w
 
 Code deployment begins when you type `git push {{ $names.company.short }} master` in your command line, moving your application code from a local repository to the {{ $names.company.lower }} platform. Here's what the process looks like:
 
-<img src="/img/common/how_deploy_works.jpg" width="80%">
+<img src="/img/common/how_deploy_works.png" width="80%">
 
 Our git server receives the latest commits of your code at the remote git endpoint we’ve generated for your application. This remote repo serves as the source of truth for all devices in your fleet.  Any code pushed to the master branch is passed to our builders, which generate Docker images to be sent to your devices.
 

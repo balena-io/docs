@@ -159,7 +159,7 @@ environment variable (in the same standard URL format).
 
 - Push
 
-	- [push &#60;application&#62;](#push-application-)
+	- [push &#60;applicationOrDevice&#62;](#push-applicationordevice-)
 
 - Settings
 
@@ -388,23 +388,16 @@ Examples:
 
 Use this command to register a device to an application.
 
-Note that device api keys are only supported on ResinOS 2.0.3+
-
 Examples:
 
 	$ resin device register MyApp
 	$ resin device register MyApp --uuid <uuid>
-	$ resin device register MyApp --uuid <uuid> --device-api-key <existingDeviceKey>
 
 ### Options
 
 #### --uuid, -u &#60;uuid&#62;
 
 custom uuid
-
-#### --deviceApiKey, -k &#60;device-api-key&#62;
-
-custom device key - note that this is only supported on ResinOS 2.0.3+
 
 ## device rm &#60;uuid&#62;
 
@@ -1203,8 +1196,9 @@ Use this command to preload an application to a local disk image (or
 Edison zip archive) with a built release from Resin.io.
 
 Examples:
-  $ resin preload resin.img --app 1234 --commit e1f2592fc6ee949e68756d4f4a48e49bff8d72a0 --splash-image some-image.png
-  $ resin preload resin.img
+
+	$ resin preload resin.img --app 1234 --commit e1f2592fc6ee949e68756d4f4a48e49bff8d72a0 --splash-image some-image.png
+	$ resin preload resin.img
 
 ### Options
 
@@ -1221,9 +1215,9 @@ the commit hash for a specific application release to preload, use "latest" to s
 
 path to a png image to replace the splash screen
 
-#### --dont-check-device-type
+#### --dont-check-arch
 
-Disables check for matching device types in image and application
+Disables check for matching architecture in image and application
 
 #### --pin-device-to-release, -p
 
@@ -1255,18 +1249,28 @@ Docker host TLS key file
 
 # Push
 
-## push &#60;application&#62;
+## push &#60;applicationOrDevice&#62;
 
 This command can be used to start a build on the remote
-resin.io cloud builders. The given source directory will be sent to the
+resin.io cloud builders, or a local mode resin device.
+
+When building on the resin cloud the given source directory will be sent to the
 resin.io builder, and the build will proceed. This can be used as a drop-in
 replacement for git push to deploy.
+
+When building on a local mode device, the given source directory will be built on
+device, and the resulting containers will be run on the device. Logs will be
+streamed back from the device as part of the same invocation.
 
 Examples:
 
 	$ resin push myApp
 	$ resin push myApp --source <source directory>
 	$ resin push myApp -s <source directory>
+
+	$ resin push 10.0.0.1
+	$ resin push 10.0.0.1 --source <source directory>
+	$ resin push 10.0.0.1 -s <source directory>
 
 ### Options
 
@@ -1561,7 +1565,7 @@ Examples:
 
 	$ resin build
 	$ resin build ./source/
-	$ resin build --deviceType raspberrypi3 --arch armhf
+	$ resin build --deviceType raspberrypi3 --arch armhf --emulated
 	$ resin build --application MyApp ./source/
 	$ resin build --docker '/var/run/docker.sock'
 	$ resin build --dockerHost my.docker.host --dockerPort 2376 --ca ca.pem --key key.pem --cert cert.pem

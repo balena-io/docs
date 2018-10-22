@@ -16,7 +16,7 @@ Actions allow you to control the status of your applications and devices during 
 
 {{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard.
 
-<img src="/img/screenshots/device-url-new.png" width="80%">
+<img src="/img/common/enable-public-URLs.png" width="80%">
 
 To see what your device is serving on port 80, just click on the URL. If your application is not serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 

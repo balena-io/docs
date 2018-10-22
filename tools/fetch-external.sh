@@ -23,3 +23,5 @@ cd pages/reference/supervisor/ && { curl -O -L https://github.com/resin-io/resin
 
 # get latest supervisor update-lock docs
 cd pages/learn/deploy/release-strategy/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/update-locking.md; cd -; }
+
+cd pages/learn/deploy/release-strategy/ && { curl -O -L https://github.com/resin-io/resin-supervisor/raw/master/docs/update-strategies.md; cd -; }

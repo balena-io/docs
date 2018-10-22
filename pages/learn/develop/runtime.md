@@ -14,6 +14,8 @@ For many applications, the code running in your container will need some way to 
 
 Inside your running container, you'll have access to a number of `{{ $names.company.allCaps }}_` namespaced environment variables, which provide information from the system outside the container:
 
+__Note:__ On all BalenaOS versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
+
 |    Variable   	| Description 	|
 |:----------:	    |:-----------:	|
 | `{{ $names.company.allCaps }}_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on {{ $names.company.lower }}	|
@@ -177,7 +179,7 @@ which listen on any port without issue. There is no need to have the Docker `EXP
 
 {{ $names.company.upper }} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the {{ $names.company.lower }} dashboard and select the `Enable a public URL for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
 
-![Enable device url](/img/screenshots/device-url-new.png)
+![Enable device url](/img/common/enable-public-URLs.png)
 
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices URL.
 

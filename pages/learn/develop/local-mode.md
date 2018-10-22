@@ -63,7 +63,7 @@ sudo {{ $names.company.short }} local push f340127.local -s .
 * Building..
 - Stopping and Removing any previous 'rainbow' container
 - Building new 'rainbow' image
-Step 1 : FROM {{ $names.company.short }}/raspberrypi3-python:3-slim
+Step 1 : FROM resin/raspberrypi3-python:3-slim
  ---> aa2d93575b6c
 Step 2 : WORKDIR /usr/src/app
  ---> Using cache
