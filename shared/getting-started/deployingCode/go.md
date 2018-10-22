@@ -2,19 +2,19 @@
 
 Now that we have a device or two connected to a {{ $names.company.lower }} application, let's deploy some code and actually start building something.
 
-A nice first project to get your feet wet is a simple [Go][go] hello world program which will print a `Hello, world!` message to the logs on the dashboard. All the project source code can be found [here][resin-go-hello-world-link].
+A nice first project to get your feet wet is a simple [Go][go] hello world program which will print a `Hello, world!` message to the logs on the dashboard. All the project source code can be found [here][balena-go-hello-world-link].
 
 To clone the project, run the following command in a terminal or your preferred git client:
 
 ```shell
-$ git clone {{ $links.githubProjects }}/resin-go-hello-world
+$ git clone {{ $links.githubProjects }}/balena-go-hello-world
 ```
 
-Once the repo is cloned, change directory into the newly created `resin-go-hello-world` directory and add the {{ $names.company.short }} git remote endpoint by running the command `git remote add` shown in
+Once the repo is cloned, change directory into the newly created `balena-go-hello-world` directory and add the {{ $names.company.short }} git remote endpoint by running the command `git remote add` shown in
 the top-right corner of your application page:
 
 ```shell
-$ cd resin-go-hello-world
+$ cd balena-go-hello-world
 $ git remote add {{ $names.company.short }} <USERNAME>@git.{{ $names.domain }}:<USERNAME>/<APPNAME>.git
 ```
 __Note:__ On other git clients there may be an alternative way to add a remote repository.
@@ -46,6 +46,6 @@ Your application will now be downloaded and executed by all the devices you have
 
 You should now have the hello world program running on your device and see some logs, including the `Hello, world!` message, on your dashboard.
 
-[resin-go-hello-world-link]:{{ $links.githubProjects }}/resin-go-hello-world
+[balena-go-hello-world-link]:{{ $links.githubProjects }}/balena-go-hello-world
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
 [go]:https://golang.org/

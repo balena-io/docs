@@ -61,7 +61,7 @@ These example projects will give you an idea of more things that can be done wit
 
 
 
-**Enjoy Resinifying All the Things!**
+**Enjoy Balenafying All the Things!**
 <img src="/img/common/resinify.jpg" width="80%">
 
 [dockerfile]:/learn/develop/dockerfile

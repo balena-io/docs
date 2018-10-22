@@ -4,8 +4,8 @@
 * A 4GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - class 10 card or above is the way to go.
 * An ethernet cable.
 * Compatible power supply.
-* A [resin.io account][link-to-signup].
+* A [{{ $links.dashboardUrl }} account][link-to-signup].
 
 [tx1]:https://developer.nvidia.com/embedded/buy/jetson-tx1
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
-[link-to-signup]:dashboard.resin.io/signup
+[link-to-signup]:dashboard.{{ $links.dashboardUrl }}/signup

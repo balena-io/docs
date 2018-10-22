@@ -100,7 +100,7 @@ though can use any other value you like. Here `BLUEMIX_ORG`, `BLUEMIX_DEVICE_TYP
 
 ![Application Environment Variables](/img/integrations/bluemix/Bluemix_resin_env1.png)
 
-Set up your device and connect to resin. Then in the device's dashboard, redefine the environment variables (the Device ID and Auth Token). If you have multiple devices, repeat these steps for all.
+Set up your device and connect to {{ $names.company.lower }}. Then in the device's dashboard, redefine the environment variables (the Device ID and Auth Token). If you have multiple devices, repeat these steps for all.
 
 ![Device Environment Variables](/img/integrations/bluemix/Bluemix_resin_env2.png)
 
@@ -117,9 +117,9 @@ If using automatic device setup, you must have created a set of application API 
 
 Your code then can interact with Bluemix to set up new devices as it fits your use case.
 
-One common use case is setting up a device on Bluemix with the same device ID (name) as on {{ $names.company.lower }}. For this, at the moment you need to use the resin SDK ([Python](/tools/python-sdk/), [Node.js](/tools/sdk/)) to get the device's name. You can also use the SDK to create the relevant `BLUEMIX_DEVICE_ID` and `BLUEMIX_DEVICE_TOKEN` environment variables, if you device code uses them for authenticating to Bluemix (for example reusing code that can either manually or automatically register to Bluemix).
+One common use case is setting up a device on Bluemix with the same device ID (name) as on {{ $names.company.lower }}. For this, at the moment you need to use the {{ $names.company.lower }} SDK ([Python](/tools/python-sdk/), [Node.js](/tools/sdk/)) to get the device's name. You can also use the SDK to create the relevant `BLUEMIX_DEVICE_ID` and `BLUEMIX_DEVICE_TOKEN` environment variables, if you device code uses them for authenticating to Bluemix (for example reusing code that can either manually or automatically register to Bluemix).
 
-To use the resin SDK from a device, at the moment you have to pass your {{ $names.company.lower }} API key (found in the Dashboard / Preferences section) to the device, for example through environment variables.
+To use the {{ $names.company.lower }} SDK from a device, at the moment you have to pass your {{ $names.company.lower }} API key (found in the Dashboard / Preferences section) to the device, for example through environment variables.
 
 For example projects implementing automatic device setup, see the [sample apps](#sample-apps) section below.
 
@@ -135,10 +135,10 @@ For devices on {{ $names.company.lower }}, the most commonly used languages are 
 
 For a complete Python example which includes a device and a command line application to interact with the device, you can check [bluemix-resin-python]({{ $links.githubProjects }}/bluemix-resin-python)).
 
-The following are a few notes using the [Python SDK](https://github.com/ibm-watson-iot/iot-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
+The following are a few notes using the [Python SDK](https://github.com/ibm-watson-iot/iot-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Python images, for example:
 
 ```Dockerfile
-FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
+FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
 ```
 
 Add the `ibmiotf` dependency in your `requirements.txt` file, either using the latest published version, or pulling the library directly from GitHub.:
@@ -223,10 +223,10 @@ For further examples, you can check the [samples included in the Python SDK](htt
 
 #### Using the Node.js SDK
 
-Here are a few notes using the [Node.js SDK](https://github.com/ibm-watson-iot/iot-nodejs) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
+Here are a few notes using the [Node.js SDK](https://github.com/ibm-watson-iot/iot-nodejs) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Node.js images, for example:
 
 ```Dockerfile
-FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
+FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
 ```
 
 Add the `ibmiotf` dependency in your `package.json` in your application's folder:

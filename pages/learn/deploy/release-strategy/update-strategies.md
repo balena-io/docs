@@ -24,7 +24,7 @@ which are explained below. `{{ $names.company.allCaps }}_SUPERVISOR_HANDOVER_TIM
 
 ## download-then-kill
 
-This is the default strategy, and it is selected if the variable is not set or if it has an invalid value. Its behavior corresponds to the way resin traditionally works:
+This is the default strategy, and it is selected if the variable is not set or if it has an invalid value. Its behavior corresponds to the way {{ $names.company.lower }} traditionally works:
 
 * When an update is available, the Supervisor downloads the new container image.
 * Once the download is complete, the Supervisor kills the container for the old version.

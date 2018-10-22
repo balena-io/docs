@@ -10,7 +10,7 @@ To clone the project, run the following command in a terminal or your preferred 
 $ git clone {{ $links.githubProjects }}/simple-server-node.git
 ```
 
-__Note:__ This project runs an application in a single container. If you would like to start with a [multicontainer project][multi-project], run `git clone git@github.com:resin-io-projects/multicontainer-getting-started.git`.
+__Note:__ This project runs an application in a single container. If you would like to start with a [multicontainer project][multi-project], run `git clone git@github.com:balena-io-projects/multicontainer-getting-started.git`.
 
 Once the repo is cloned, change directory into the newly created `simple-server-node` directory and add the {{ $names.company.short }} git remote endpoint by running the command `git remote add` shown in
 the top-right corner of your application page:

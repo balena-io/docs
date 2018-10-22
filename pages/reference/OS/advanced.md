@@ -16,11 +16,11 @@ things should you configure them incorrectly - tread carefully!
 The Raspberry Pi exposes device configuration options via a text file on the
 boot medium, `config.txt` - you change boot options simply by editing this file.
 
-__Note:__ You will only find the `config.txt` file after first boot, it can then easily be found in the `{{ $names.company.lower }}-boot` partition of the SD card.
+__Note:__ You will only find the `config.txt` file after first boot, it can then easily be found in the `resin-boot` partition of the SD card.
 
 #### Modifying `config.txt` locally after the first boot
 
-The `config.txt` is located in the root of the `{{ $names.company.lower }}-boot` partition, and you can modify it by mounting the SD card on a computer.
+The `config.txt` is located in the root of the `resin-boot` partition, and you can modify it by mounting the SD card on a computer.
 
 #### Modifying `config.txt` **remotely**
 
@@ -38,7 +38,7 @@ These variables can be set using the API or any of its clients, including the [S
 
 **After modifying a config.txt variable, the device supervisor will apply the changes and reboot the device.**
 
-__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode]. You will need to define them in your `{{ $names.company.lower }}-sync.yml`.
+__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode]. You will need to define them in your `resin-sync.yml`.
 
 ### GPU Memory
 

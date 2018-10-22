@@ -8,11 +8,9 @@ excerpt: Instructions for adding boards not currently supported by {{ $names.com
 
 ### Its important to note that the instructions for [meta-resin][meta-resin] are still a draft, we still may have some detail to cover, if you have any feedback please let us know - hello@{{ $names.domain }}.
 
-__NOTE:__ Pre-requisites: yocto BSP layer for your particular board. Should be compatible to yocto fido release at the time of writing this howto.
+__NOTE:__ Pre-requisites: yocto BSP layer for your particular board. Should be compatible to yocto sumo release at the time of writing this howto.
 
-Pre-requisites: yocto BSP layer for your particular board. Should be compatible to yocto fido release at the time of writing this howto.
-
-The following are the steps to follow in order to add a new board to resin.
+The following are the steps to follow in order to add a new board to {{ $names.company.lower }}.
 I - Add the dependencies for your layer in the resin-yocto manifests. For examples, check out **resin-yocto/manifests/resin-master-board.xml**.
 
 II - Create a layer in meta-resin that will hold the relevant files pertaining to the new board. The layer should follow the naming convention `meta-resin-${board_name}` **(i.e. meta-resin-nuc)**

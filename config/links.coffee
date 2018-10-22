@@ -3,12 +3,12 @@
 
 RPI_PRODUCTS = 'https://www.raspberrypi.org/products'
 BB_PRODUCTS = 'https://beagleboard.org'
-GITHUB_MAIN = process.env.GITHUB_MAIN || 'https://github.com/resin-io'
-GITHUB_PROJECTS = process.env.GITHUB_PROJECTS || 'https://github.com/resin-io-projects'
-GITHUB_OS = process.env.GITHUB_OS || 'https://github.com/resin-os'
-API_BASE = process.env.API_BASE || 'https://api.resin.io/'
-MAIN_SITE = process.env.MAIN_SITE || 'https://resin.io'
-DASHBOARD_SITE = process.env.DASHBOARD_SITE || 'https://dashboard.resin.io'
+GITHUB_MAIN = process.env.GITHUB_MAIN || 'https://github.com/balena-io'
+GITHUB_PROJECTS = process.env.GITHUB_PROJECTS || 'https://github.com/balena-io-projects'
+GITHUB_OS = process.env.GITHUB_OS || 'https://github.com/balena-os'
+API_BASE = process.env.API_BASE || 'https://api.balena-cloud.com/'
+MAIN_SITE = process.env.MAIN_SITE || 'https://balena.io'
+DASHBOARD_SITE = process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
 
 module.exports =
   raspberrypi:

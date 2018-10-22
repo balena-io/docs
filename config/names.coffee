@@ -8,6 +8,10 @@ OS_UPPER = (OS_LOWER.charAt(0).toUpperCase() + OS_LOWER.slice(1)) || 'BalenaOS'
 ENGINE_LOWER = process.env.ENGINE_LOWER || 'balenaEngine'
 ENGINE_UPPER = (ENGINE_LOWER.charAt(0).toUpperCase() + ENGINE_LOWER.slice(1))
 DOMAIN = process.env.DOMAIN || 'balena.io'
+DOMAIN_OS = process.env.DOMAIN_OS || 'balena.io/os'
+DOMAIN_ENGINE = process.env.DOMAIN_ENGINE || 'balena.io/engine'
+BASE_IMAGES_LIB = process.env.BASE_IMAGES_LIB || 'resin'
+BASE_IMAGES_CORE = process.env.BASE_IMAGES_CORE || 'resin'
 
 
 module.exports =
@@ -20,7 +24,12 @@ module.exports =
   os:
     lower: OS_LOWER
     upper: OS_UPPER
+    url: DOMAIN_OS
   engine:
     lower: ENGINE_LOWER
     upper: ENGINE_UPPER
+    url: DOMAIN_ENGINE
+  base:
+    lib: BASE_IMAGES_LIB
+    core: BASE_IMAGES_CORE
   domain: DOMAIN

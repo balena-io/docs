@@ -39,7 +39,7 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 {{ $names.company.allCaps }}_SUPERVISOR_API_KEY=1111deadbeef2222                    
 {{ $names.company.allCaps }}_APP_ID=157270                                                                                          
 {{ $names.company.allCaps }}_DEVICE_TYPE=raspberrypi3                                                                               
-RESIN=1                                                                                                      
+{{ $names.company.allCaps }}=1                                                                                                      
 {{ $names.company.allCaps }}_SUPERVISOR_ADDRESS=http://127.0.0.1:48484                                                              
 {{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1                                                                              
 {{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee                             
@@ -48,7 +48,7 @@ RESIN=1
 {{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3                                                                               
 {{ $names.company.allCaps }}_APP_NAME=Example                                                                                      
 {{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze                                                                          
-{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.upper }} 1.24.0                          
+{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.lower }} 2.20.0                          
 {{ $names.company.allCaps }}_SUPERVISOR_PORT=48484  
 ```
 
