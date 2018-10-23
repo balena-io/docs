@@ -55,7 +55,7 @@ The variables are:
 
 ## Push the sample app to your devices
 
-When you push code to {{ $names.company.lower }} git endpoint several things happen, including:
+When you push code to the {{ $names.company.lower }} git endpoint several things happen, including:
 * {{ $names.company.lower }} creates a Docker container
 * it provisions it following the instructions in Dockerfile (for example, it automatically installs Linux packages and builds C sources in our case)
 * it notifies the devices about the new container availability
