@@ -46,6 +46,6 @@ Your application will now be downloaded and executed by all the devices you have
 
 You should now have the hello world program running on your device and see some logs, including the `Hello, world!` message, on your dashboard.
 
-[balena-haskell-hello-world-link]:https://github.com/balena-io-projects/balena-haskell-hello-world
+[balena-haskell-hello-world-link]:{{ $links.githubProjects }}/balena-haskell-hello-world
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
 [haskell]:https://www.haskell.org/
