@@ -7,7 +7,7 @@ A nice first project to get your feet wet is a simple [Haskell][haskell] hello w
 To clone the project, run the following command in a terminal or your preferred git client:
 
 ```shell
-$ git clone https://github.com/balena-io-projects/balena-haskell-hello-world
+$ git clone {{ $links.githubProjects }}/balena-haskell-hello-world
 ```
 
 Once the repo is cloned, change directory into the newly created `balena-haskell-hello-world` directory and add the balena git remote endpoint by running the command `git remote add` shown in
