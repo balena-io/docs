@@ -1,6 +1,6 @@
 In order to get {{ $names.os.lower }} up and running on your **{{ $device.name }}**, you need to first set it up to boot from your {{ $device.bootMedia }} rather than its internal [eMMC memory][emmc-link]. To do this we need to set the `SW402` dip switches to position `1:off, 2:off, 3:off, 4:on`.
 
-__Note:__ balenaOS will completely write over the existing eMMC. 
+__Note:__ {{ $names.os.lower }} will completely write over the existing eMMC. 
 
 You can now insert the 5VDC power cable and flip the power switch labelled `SW700` to the `on` position. You should now have some glowing LEDs indicating the board has power. Next, you need to press and hold the `SW400` push button for 1 or 2 seconds, which starts the boot from the {{ $device.bootMedia }}.
 
