@@ -60,7 +60,7 @@ When you push code to the {{ $names.company.lower }} git endpoint several things
 * it provisions it following the instructions in Dockerfile (for example, it automatically installs Linux packages and builds C sources in our case)
 * it notifies the devices about the new container availability
 
-When you power on the device, it connects to {{ $names.company.lower }} API server and fetches the application container. It also does it every time a new container is available (when you push the updated code).
+When you power on the device, it connects to the {{ $names.company.lower }} API and fetches the application container. It also does it every time a new container is available (when you push the updated code).
 
 First clone the the [sample application][sampleApp] to your local machine.
 
