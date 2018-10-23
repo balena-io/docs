@@ -107,7 +107,7 @@ Here are the supported machine names and architectures:
 
 Whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process tree in your container. It also means that this PID 1 process needs to know how to properly process UNIX signals, reap orphan zombie processes [[1]](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) and if it crashes, your whole container crashes, meaning you lose logs and debug info.
 
-For these reasons we have built an [init system][init-system-link] into most of the {{ $names.company.upper }} base images listed here: [{{ $names.company.upper }} Base Images Wiki][base-images]. The init system will handle signals, reap zombies and also properly handle [udev][udev-link] hardware events correctly.
+For these reasons we have built an [init system][init-system-link] into most of the {{ $names.company.lower }} base images listed here: [{{ $names.company.upper }} Base Images Wiki][base-images]. The init system will handle signals, reap zombies and also properly handle [udev][udev-link] hardware events correctly.
 
 There are two ways of enabling the init system in your application. You can add the following environment variable in your Dockerfile:
 ```Dockerfile
