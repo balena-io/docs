@@ -1,4 +1,4 @@
-In order to get balenaOS up and running on your **{{ $device.name }}**, you need to first set it up to boot from your {{ $device.bootMedia }} rather than its internal [eMMC memory][emmc-link]. To do this we need to set the `SW402` dip switches to position `1:off, 2:off, 3:off, 4:on`.
+In order to get {{ $names.os.lower }} up and running on your **{{ $device.name }}**, you need to first set it up to boot from your {{ $device.bootMedia }} rather than its internal [eMMC memory][emmc-link]. To do this we need to set the `SW402` dip switches to position `1:off, 2:off, 3:off, 4:on`.
 
 __Note:__ balenaOS will completely write over the existing eMMC. 
 
