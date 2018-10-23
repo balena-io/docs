@@ -1,6 +1,6 @@
 ---
 title: Application update locks
-excerpt: Locking application updates on your balenaOS devices
+excerpt: Locking application updates on your balena devices
 ---
 
 # Application update locks
