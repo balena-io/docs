@@ -6,7 +6,7 @@ You can now insert the 5VDC power cable and flip the power switch labelled `SW70
 
 After a few seconds you should see your **{{ $device.name }}** appear on the {{ $names.company.lower }} dashboard. If it still hasn't appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the correct WiFi credentials at download time.
 
-Your **{{ $device.name }}** will now flash balenaOS onto the internal eMMC so that you can remove the {{ $device.bootMedia }}. This will take about 30 seconds. Once it has finished it will shut itself down and you will see the device on the dashboard in a `Post-Provisioning` state. At this point you need to:
+Your **{{ $device.name }}** will now flash {{ $names.os.lower }} onto the internal eMMC so that you can remove the {{ $device.bootMedia }}. This will take about 30 seconds. Once it has finished it will shut itself down and you will see the device on the dashboard in a `Post-Provisioning` state. At this point you need to:
 1. Flip `SW700` back to the `off` position.
 2. Remove the {{ $device.bootMedia }}.
 3. Set the `SW402` dip switches to `1:off, 2:off, 3:off, 4:off`.
