@@ -9,7 +9,7 @@ The example project below shows you how to use Google Cloud IoT with {{ $names.c
 
 Before you begin, grab the example project code from GitHub using the following command.
 ```bash
-git clone https://github.com/resin-io-projects/google-iot
+git clone https://github.com/{{ $names.company.lower }}-io-projects/google-iot
 ```
 
 If you want to learn more about Google Cloud IoT check out https://cloud.google.com/solutions/iot/ 
@@ -65,7 +65,7 @@ gcloud beta iot registries create ​<iot-registry>​ --region us-central1 --ev
 5. Select the Pub/Sub project role
 6. Click **Save.**
 
-## Set up your resin application's environment
+## Set up your {{ $names.company.lower }} application's environment
 Go to the [{{ $names.company.lower }} dashboard](https://dashboard.balena-cloud.com/apps) and create or select your project
 
 Click Environment Variables and create the following keys and matching values:

@@ -11,7 +11,7 @@ application set up ready to receive code. See the
 [getting started][getting-started] and [deployment][deploy] guides for details
 on how to do this.
 
-To deploy a project simply clone it and push it to your application's `resin`
+To deploy a project simply clone it and push it to your application's {{ $names.company.lower }}
 endpoint. E.g. for the [Text to Speech Converter project][text2speech]:
 
 ```

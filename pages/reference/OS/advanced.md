@@ -26,9 +26,9 @@ The `config.txt` is located in the root of the `resin-boot` partition, and you c
 
 If your device has a supervisor version above 1.0.0, it has support for modifying the values in `config.txt` remotely using [configuration variables][config-vars]. These can be set as fleet-wide values (for all devices in an application) or device-specific ones.
 
-The variables that start with the `{{ $names.company.allCaps }}_HOST_CONFIG_` prefix will be added to the `config.txt` file, also replacing the preexisting values of such variables in the file.
+The variables that start with the `RESIN_HOST_CONFIG_` prefix will be added to the `config.txt` file, also replacing the preexisting values of such variables in the file.
 
-For example, setting the value of `{{ $names.company.allCaps }}_HOST_CONFIG_gpu_mem` to 16 will produce the following entry in `config.txt`:
+For example, setting the value of `RESIN_HOST_CONFIG_gpu_mem` to 16 will produce the following entry in `config.txt`:
 
 ```
 gpu_mem=16
