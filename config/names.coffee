@@ -7,15 +7,13 @@ OS_LOWER = process.env.OS_LOWER || 'balenaOS'
 OS_UPPER = (OS_LOWER.charAt(0).toUpperCase() + OS_LOWER.slice(1)) || 'BalenaOS'
 ENGINE_LOWER = process.env.ENGINE_LOWER || 'balenaEngine'
 ENGINE_UPPER = (ENGINE_LOWER.charAt(0).toUpperCase() + ENGINE_LOWER.slice(1))
-DOMAIN = process.env.DOMAIN || 'balena.io'
-DOMAIN_OS = process.env.DOMAIN_OS || 'balena.io/os'
-DOMAIN_ENGINE = process.env.DOMAIN_ENGINE || 'balena.io/engine'
+DOMAIN_OS = process.env.DOMAIN_OS || 'www.balena.io/os'
+DOMAIN_ENGINE = process.env.DOMAIN_ENGINE || 'www.balena.io/engine'
 BASE_IMAGES_LIB = process.env.BASE_IMAGES_LIB || 'resin'
 BASE_IMAGES_CORE = process.env.BASE_IMAGES_CORE || 'resin'
 
-
 module.exports =
-  company: 
+  company:
     lower: COMPANY_LOWER
     upper: COMPANY_UPPER
     allCaps: COMPANY_ALL_CAPS
@@ -32,4 +30,4 @@ module.exports =
   base:
     lib: BASE_IMAGES_LIB
     core: BASE_IMAGES_CORE
-  domain: DOMAIN
+  domain: process.env.DOMAIN || 'www.balena.io'
