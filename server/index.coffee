@@ -2,9 +2,9 @@ path       = require('path')
 express    = require('express')
 _          = require('lodash')
 Doxx       = require('@resin.io/doxx')
-redirect   = require('./redirect')
 navTree    = require('./nav.json')
 config     = require('../config')
+redirect   = require('./redirect')({ pathPrefix: config.pathPrefix })
 doxxConfig = require('../config/doxx')
 redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
 
@@ -28,6 +28,7 @@ app.use("#{config.pathPrefix}/", express.static(staticDir))
 app.use (req, res, next) ->
   originalUrl = req.originalUrl
   url = redirect(originalUrl)
+
   if url isnt originalUrl
     return res.redirect(url)
   next()
@@ -48,7 +49,7 @@ app.get "#{config.pathPrefix}/search-results", (req, res) ->
     searchTerm: searchTerm
     searchResults: doxx.lunrSearch(searchTerm)
 
-console.error("#{config.pathPrefix}/")
+console.error('serving everything under pathPrefix:', "#{config.pathPrefix}")
 app.use("#{config.pathPrefix}/", express.static(contentsDir))
 
 app.get '*', (req, res) ->
