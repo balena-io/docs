@@ -12,8 +12,8 @@ module.exports =
     black: "#{BB_PRODUCTS}/black"
     green: "#{BB_PRODUCTS}/green"
   githubMain: 'https://github.com/balena-io'
-  githubProjects: 'https://github.com/balena-io-projects'
-  githubOS: 'https://github.com/balena-os'
+  githubProjects: 'https://github.com/resin-io-projects'
+  githubOS: 'https://github.com/resin-os'
   apiBase: process.env.API_BASE || 'https://api.balena-cloud.com/'
   mainSiteUrl: '/'
   dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
