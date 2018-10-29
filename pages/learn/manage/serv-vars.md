@@ -12,7 +12,7 @@ Environment variables are accessible to all services running on a device, wherea
 
 Values defined for individual devices always override those defined for the fleet. Values defined for services override environment variables defined at the same level. So for any given variable, the **device service variable** will always have top priority, followed by the **device environment variable**, then the **fleet service variable**, and finally the **fleet environment variable**.
 
-__Note:__ Environment and service variables defined in the dashboard will not apply to devices in [local mode][local-mode]. You will need to define them in your `{{ $names.company.short }}-sync.yml`.
+__Note:__ Environment and service variables defined in the dashboard will not apply to devices in [local mode][local-mode]. You will need to define them in your `.resin-sync.yml`.
 
 ## Fleet environment and service variables
 

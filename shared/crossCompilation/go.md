@@ -1,6 +1,6 @@
 #### Setting up {{ $language.name }} cross-compilation
 
-Cross-compilation is needed when using `resin sync` and {{ $language.name }} as it is a compiled language. Compiled languages are programming languages in which source code must be compiled into an executable form before it can be run.
+Cross-compilation is needed when using `{{ $names.company.short }} sync` and {{ $language.name }} as it is a compiled language. Compiled languages are programming languages in which source code must be compiled into an executable form before it can be run.
 
 __Warning:__ This guide is for Linux and will not work on Windows or OSX!
 
@@ -13,12 +13,12 @@ $ sudo tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz
 $ echo export PATH=$PATH:/usr/local/go/bin >> ~/.profile
 ```
 
-Now that we have `resin sync` and cross-compilation setup there is one more step needed to link them both together. This comes in the form of a `.resin-sync.yml` file that needs to be created in the root of the application directory.
+Now that we have `{{ $names.company.short }} sync` and cross-compilation setup there is one more step needed to link them both together. This comes in the form of a `.{{ $names.company.short }}-sync.yml` file that needs to be created in the root of the application directory.
 ```
-destination: /go/src/github.com/resin-io-projects/resin-go-hello-world
+destination: /go/src/github.com/balena-io-projects/balena-go-hello-world
 port: 22
 before: env GOOS=linux GOARCH=arm go build
 ```
-The first line specifies the directory `resin sync` will sync the files to. The third line builds the {{ $language.name }} code for an arm device running linux.
+The first line specifies the directory `balena sync` will sync the files to. The third line builds the {{ $language.name }} code for an arm device running linux.
 
 [install]:https://golang.org/doc/install

@@ -4,7 +4,7 @@ title: Welcome
 
 # Welcome
 
-[{{ $names.company.upper }}][resin] makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
+[{{ $names.company.upper }}][balena] makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
 
 Our [{{ $names.company.lower }} primer][primer] covers the platform from end to end, walking through all the pieces and how they fit together. We've also defined some [core concepts][concepts] you'll see throughout the documentation.
 
@@ -26,7 +26,7 @@ Check here for details on all the tools we provide for managing your device flee
 
 Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][reference] sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help][help] is always available!
 
-[resin]:{{ $links.mainSiteUrl }}/
+[balena]:{{ $links.mainSiteUrl }}/
 [git]:https://git-scm.com/
 [docker]:https://www.docker.com/
 [rasppi]:https://www.raspberrypi.org/

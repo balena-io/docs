@@ -74,10 +74,10 @@ The [boto3](https://pypi.python.org/pypi/boto3/) package is a Python SDK for AWS
 
 For easy communication between the devices and AWS IoT an MQTT library is recommended, such as [paho-mqtt](https://pypi.python.org/pypi/paho-mqtt).
 
-Here are a few notes using Python with {{ $names.company.lower }} devices. Starting from a [Dockerfile templates](/deployment/docker-templates/), build on the resin default Python images, for example:
+Here are a few notes using Python with {{ $names.company.lower }} devices. Starting from a [Dockerfile templates](/deployment/docker-templates/), build on the {{ $names.company.lower }} default Python images, for example:
 
 ```Dockerfile
-FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
+FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
 ```
 
 Add the relevant dependencies to your `requirements.txt` file, for example
@@ -150,14 +150,14 @@ It sets up key files from the environment variables, as the MQTT library used re
 
 ### Using Node.js
 
-The [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) package is capable of both working with the [AWS IoT resources](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html) and the data communication on the [IoT Data Plane](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IotData.html). Thus it can be used to implement both the provisioning and the device side of the application. However for security reasons it isn't encouraged to use the [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) on devices in the field, it is better instead to just use the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) doesn't have resource management capabilities. Therefore for this example, we have split the code into two parts. `resin-aws-lambda` is responsible the resource provisioning and `resin-aws-device` only handles data communication.
+The [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) package is capable of both working with the [AWS IoT resources](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html) and the data communication on the [IoT Data Plane](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IotData.html). Thus it can be used to implement both the provisioning and the device side of the application. However for security reasons it isn't encouraged to use the [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) on devices in the field, it is better instead to just use the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) doesn't have resource management capabilities. Therefore for this example, we have split the code into two parts. `{{ $names.company.lower }}-aws-lambda` is responsible the resource provisioning and `{{ $names.company.lower }}-aws-device` only handles data communication.
 
 For a complete Node.js example, please see the pair of [resin-aws-lambda]({{ $links.githubProjects }}/resin-aws-lambda) and [resin-aws-device]({{ $links.githubProjects }}/resin-aws-device) repositories!
 
-Here are a few notes using the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
+Here are a few notes using the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Node.js images, for example:
 
 ```Dockerfile
-FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
+FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
 ```
 
 Add the `aws-iot-device-sdk` dependency in your `package.json` in your application's folder:

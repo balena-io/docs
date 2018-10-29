@@ -1,7 +1,7 @@
 ### Basic GPIO Control in Node.js
 
 {{> icon class="octicon octicon-mark-github" }}
-[Repository]({{ $links.githubProjects }}/resin-rpi-nodejs-basic-gpio)
+[Repository]({{ $links.githubProjects }}/balena-rpi-nodejs-basic-gpio)
 
 This sample project will get you started blinking LEDs on the **{{ $device.name }}** using only javascript. For this project you will need some additional hardware, namely a basic LED, a breadboard and a 220 ohm resistor.
 

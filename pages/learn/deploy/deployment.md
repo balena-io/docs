@@ -11,7 +11,7 @@ When you've finished prototyping and are ready to deploy your application to you
 
 __Note:__ The {{ $names.company.lower }} git repository is not intended as a code hosting solution, and we cannot guarantee the persistence of data in {{ $names.company.lower }} git remotes.
 
-![how deployment works](/img/common/how_deploy_works.jpg)
+![how deployment works](/img/common/how_deploy_works.png)
 
 ## The build server
 
