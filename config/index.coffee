@@ -10,16 +10,12 @@ DOMAIN = "https://#{process.env.DOMAIN || 'www.balena.io'}"
 
 MAIN_MENU_LINKS = [
   {
-    "title": "What it's for",
-    "link": "#{DOMAIN}/usecases"
+    "title": "What is Balena",
+    "link": "#{DOMAIN}/what-is-balena"
   },
   {
-    "title": "How it works",
-    "link": "#{DOMAIN}/how-it-works"
-  },
-  {
-    "title": "Community",
-    "link": "https://resin.io/community"
+    "title": "Forums",
+    "link": "https://forums.balena.io"
   },
   {
     "title": "Blog",
