@@ -13,7 +13,9 @@ module.exports =
     green: "#{BB_PRODUCTS}/green"
   githubMain: 'https://github.com/balena-io'
   githubProjects: 'https://github.com/balena-io-projects'
+  githubPlayground: 'https://github.com/balena-io-playground'
   githubOS: 'https://github.com/balena-os'
   apiBase: process.env.API_BASE || 'https://api.balena-cloud.com/'
-  mainSiteUrl: '/'
+  mainSiteUrl: 'http://balena.io'
+  blogSiteUrl: 'https://balena.io/blog'
   dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
