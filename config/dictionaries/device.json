@@ -6,31 +6,31 @@
     [
       {
         "name": "Raspberry Pi 1 Model A+",
-        "image": "/img/raspberry-pi/raspberry-pi-1-A-plus.jpg",
+        "image": "/docs/img/raspberry-pi/raspberry-pi-1-A-plus.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-1-model-a-plus/"
     
       },
       {
         "name": "Raspberry Pi 1 Model B+",
-        "image": "/img/raspberry-pi/raspberry-pi-1-B-plus.jpg",
+        "image": "/docs/img/raspberry-pi/raspberry-pi-1-B-plus.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-1-model-b-plus/"
     
       },
       {
         "name": "Raspberry Pi Zero",
-        "image": "/img/raspberry-pi/raspberry-pi-zero.jpg",
+        "image": "/docs/img/raspberry-pi/raspberry-pi-zero.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-zero/"
     
       },
       {
         "name": "Raspberry Pi Zero W",
-        "image": "/img/raspberry-pi/raspberry-pi-zero-w.jpg",
+        "image": "/docs/img/raspberry-pi/raspberry-pi-zero-w.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-zero-w/"
       }
     ],
     "arch": "rpi",
 		"bootMedia": "SD card",
-    "icon": "/img/device/raspberry-pi.svg",
+    "icon": "/docs/img/device/raspberry-pi.svg",
     "link": "https://www.raspberrypi.org/products/",
     "type": "released"
   },
@@ -41,13 +41,13 @@
     [
       {
         "name": "Raspberry Pi 2 Model B",
-        "image": "/img/raspberry-pi2/raspberry-pi2.jpg",
+        "image": "/docs/img/raspberry-pi2/raspberry-pi2.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-2-model-b/"
       }
     ],
     "arch": "armv7hf",
 		"bootMedia": "SD card",
-    "icon": "/img/device/raspberry-pi2.svg",
+    "icon": "/docs/img/device/raspberry-pi2.svg",
     "link": "https://www.raspberrypi.org/products/",
     "type": "released"
   },
@@ -58,18 +58,18 @@
     [
       {
         "name": "Raspberry Pi 3 Model B",
-        "image": "/img/raspberrypi3/raspberrypi3.jpg",
+        "image": "/docs/img/raspberrypi3/raspberrypi3.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-3-model-b/"
       },
       {
         "name": "Raspberry Pi 3 Model B+",
-        "image": "/img/raspberrypi3/raspberrypi3-b-plus.jpg",
+        "image": "/docs/img/raspberrypi3/raspberrypi3-b-plus.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/"
       }
     ],
     "arch": "armv7hf",
 		"bootMedia": "SD card",
-    "icon": "/img/device/raspberry-pi3.svg",
+    "icon": "/docs/img/device/raspberry-pi3.svg",
     "link": "https://www.raspberrypi.org/products/",
     "type": "released"
   },
@@ -80,28 +80,28 @@
     [
       {
         "name": "BeagleBone Black",
-        "image": "/img/beaglebone-black/beaglebone-black.jpg",
+        "image": "/docs/img/beaglebone-black/beaglebone-black.jpg",
         "link": "http://beagleboard.org/black"
       },
       {
         "name": "BeagleBone Blue",
-        "image": "/img/beaglebone-black/beagle-blue.png",
+        "image": "/docs/img/beaglebone-black/beagle-blue.png",
         "link": "http://beagleboard.org/blue"
       },
       {
         "name": "BeagleBone Green",
-        "image": "/img/beaglebone-black/beaglebone-green.jpg",
+        "image": "/docs/img/beaglebone-black/beaglebone-green.jpg",
         "link": "http://beagleboard.org/green"
       },
       {
         "name": "BeagleBone Green Wireless",
-        "image": "/img/beaglebone-black/beaglebone-green-wireless.jpg",
+        "image": "/docs/img/beaglebone-black/beaglebone-green-wireless.jpg",
         "link": "http://beagleboard.org/green-wireless"
       }
     ],
     "arch": "armv7hf",
 		"bootMedia": "SD card",
-    "icon": "/img/device/beaglebone-black.svg",
+    "icon": "/docs/img/device/beaglebone-black.svg",
     "link": "http://beagleboard.org/bone",
     "type": "released"
   },
@@ -112,23 +112,23 @@
     [
       {
         "name": "UP board",
-        "image": "/img/up-board/up-board.png",
+        "image": "/docs/img/up-board/up-board.png",
         "link": "http://www.up-board.org/up/"
       },
       {
         "name": "UP core",
-        "image": "/img/up-board/up-core.png",
+        "image": "/docs/img/up-board/up-core.png",
         "link": "http://www.up-board.org/upcore/"
       },
       {
         "name": "UP squared",
-        "image": "/img/up-board/up-squared.png",
+        "image": "/docs/img/up-board/up-squared.png",
         "link": "http://www.up-board.org/upsquared/"
       }
     ],
     "arch": "amd64",
 		"bootMedia": "USB drive",
-    "icon": "/img/device/up-board.svg",
+    "icon": "/docs/img/device/up-board.svg",
     "link": "https://www.up-board.org/",
     "type": "released"
   },
@@ -137,7 +137,7 @@
     "name": "Jetson TX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "icon": "/img/device/jetson-tx2.svg",
+    "icon": "/docs/img/device/jetson-tx2.svg",
     "link": "https://developer.nvidia.com/embedded/buy/jetson-tx2",
     "type": "beta"
   },
@@ -146,7 +146,7 @@
     "name": "Jetson TX1",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "icon": "/img/device/jetson-tx1.svg",
+    "icon": "/docs/img/device/jetson-tx1.svg",
     "link": "https://developer.nvidia.com/embedded/buy/jetson-tx1",
     "type": "beta"
   },
@@ -157,18 +157,18 @@
     [
       {
         "name": "Intel NUC",
-        "image": "/img/intel-nuc/intel-nuc.jpg",
+        "image": "/docs/img/intel-nuc/intel-nuc.jpg",
         "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html"
       },
       {
         "name": "Generic x86 devices",
-        "image": "/img/intel-nuc/x86.png",
+        "image": "/docs/img/intel-nuc/x86.png",
         "link": "/learn/getting-started/intel-nuc/nodejs/"
       }
     ],
     "arch": "amd64",
     "bootMedia": "USB drive",
-    "icon": "/img/device/intel-nuc.svg",
+    "icon": "/docs/img/device/intel-nuc.svg",
     "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html",
     "type": "released"
   },
@@ -177,7 +177,7 @@
     "name": "Orange Pi Plus2",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/orangepi-plus2.svg",
+    "icon": "/docs/img/device/orangepi-plus2.svg",
     "link": "http://www.orangepi.org/orangepiplus2/",
     "type": "beta"
   },
@@ -186,7 +186,7 @@
     "name": "Banana Pi M1+",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/bananapi-m1-plus.svg",
+    "icon": "/docs/img/device/bananapi-m1-plus.svg",
     "link": "http://www.banana-pi.org/m1plus.html",
     "type": "beta"
   },
@@ -195,7 +195,7 @@
     "name": "Samsung ARTIK 530",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/artik530.svg",
+    "icon": "/docs/img/device/artik530.svg",
     "link": "https://www.artik.io/modules/artik-530/",
     "type": "beta"
   },
@@ -204,7 +204,7 @@
     "name": "Samsung ARTIK 530s 1G",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/artik533s.svg",
+    "icon": "/docs/img/device/artik533s.svg",
     "link": "https://www.artik.io/modules/artik-530/",
     "type": "beta"
   },
@@ -213,7 +213,7 @@
     "name": "Samsung ARTIK 710",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/artik710.svg",
+    "icon": "/docs/img/device/artik710.svg",
     "link": "https://www.artik.io/modules/artik-710/",
     "type": "beta"
   },
@@ -222,7 +222,7 @@
     "name": "Samsung ARTIK 1020",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/artik10.svg",
+    "icon": "/docs/img/device/artik10.svg",
     "link": "https://www.artik.io/modules/artik-1020/",
     "type": "released"
   },
@@ -231,7 +231,7 @@
     "name": "Kitra 710",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "icon": "/img/device/kitra710.svg",
+    "icon": "/docs/img/device/kitra710.svg",
     "link": "https://www.rushup.tech/kitra710/",
     "type": "beta"
   },
@@ -240,7 +240,7 @@
     "name": "DART-6UL",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/dart6ul.svg",
+    "icon": "/docs/img/device/dart6ul.svg",
     "link": "https://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul/",
     "type": "beta"
   },
@@ -249,7 +249,7 @@
     "name": "Nitrogen 6X",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/nitrogen6x.svg",
+    "icon": "/docs/img/device/nitrogen6x.svg",
     "link": "https://boundarydevices.com/nitrogen6x/",
     "type": "released"
   },
@@ -258,7 +258,7 @@
     "name": "Hummingboard",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/hummingboard.svg",
+    "icon": "/docs/img/device/hummingboard.svg",
     "link": "https://www.solid-run.com/nxp-family/hummingboard/",
     "type": "released"
   },
@@ -267,7 +267,7 @@
     "name": "Odroid C1/C1+",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/odroid-c1.svg",
+    "icon": "/docs/img/device/odroid-c1.svg",
     "link": "http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573",
     "type": "released"
   },
@@ -276,7 +276,7 @@
     "name": "Odroid XU4",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/odroid-xu4.svg",
+    "icon": "/docs/img/device/odroid-xu4.svg",
     "link": "http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825",
     "type": "released"
   },
@@ -285,7 +285,7 @@
     "name": "Technologic TS-4900",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/ts4900.svg",
+    "icon": "/docs/img/device/ts4900.svg",
     "link": "https://www.embeddedarm.com/products/TS-4900",
     "type": "released"
   },
@@ -294,7 +294,7 @@
     "name": "Intel Edison",
     "arch": "i386",
     "bootMedia": "eMMC",
-    "icon": "/img/device/intel-edison.svg",
+    "icon": "/docs/img/device/intel-edison.svg",
     "link": "https://software.intel.com/en-us/iot/hardware/edison/documentation",
     "type": "released"
   },
@@ -302,14 +302,14 @@
     "id": "generic-aarch64",
     "name": "Generic AARCH64 (ARMv8)",
     "arch": "aarch64",
-    "icon": "/img/device/generic-aarch64.svg",
+    "icon": "/docs/img/device/generic-aarch64.svg",
     "type": "virtual"
   },
   {
     "id": "generic-armv7ahf",
     "name": "Generic ARMv7-a HF",
     "arch": "armv7hf",
-    "icon": "/img/device/generic-armv7ahf.svg",
+    "icon": "/docs/img/device/generic-armv7ahf.svg",
     "type": "virtual"
   }
 ]
