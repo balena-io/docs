@@ -140,5 +140,5 @@ local stop [deviceIp]               Stop a running container on a {{ $names.os.l
 [development]:/reference/OS/overview/2.x/#dev-vs-prod-images
 [cli]:/reference/cli
 [supervisor API]:/reference/supervisor/supervisor-api/
-[compose-remote]:{{ $links.githubMain }}-playground/resinos-compose
+[compose-remote]:{{ $links.githubMain }}-playground/balenaos-compose
 [troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access

@@ -117,13 +117,13 @@ The {{ $names.company.lower }} API includes functionality that allows for [fine-
 [docker-compose]:https://docs.docker.com/compose/overview/
 [dev-vs-prod]:/reference/OS/overview/2.x/#dev-vs-prod-images
 [local-mode]:/learn/develop/local-mode
-[wifi-connect]:{{ $links.githubMain }}/{{ $names.company.short }}-wifi-connect
+[wifi-connect]:{{ $links.githubMain }}/wifi-connect
 [supervisor-api]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
 [collaborators]:/learn/manage/account/#collaboration-management
 [ssh]:/learn/manage/ssh-access
-[custom-logging]:{{ $links.mainSiteUrl }}/blog/how-to-create-a-custom-logging-system-for-longer-log-retention/
+[custom-logging]:{{ $links.blogSiteUrl }}/how-to-create-a-custom-logging-system-for-longer-log-retention/
 [preload]:/reference/cli/#preload-60-image-62-
-[staged-releases]:{{ $links.githubMain }}-playground/staged-releases
+[staged-releases]:{{ $links.githubProjects }}/staged-releases
 [tags]:/learn/manage/filters-tags/#device-tags
 [filters]:/learn/manage/filters-tags/#device-filters
 

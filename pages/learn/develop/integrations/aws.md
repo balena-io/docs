@@ -42,7 +42,7 @@ After this steps, you'll have all information and setup required to connect a ph
 
 All of AWS can be controlled over API calls, and AWS itself can be used to automate the creation of the things, certificates, policies, and other settings. Such automatic setups would tap into your {{ $names.company.lower }} resources, and when a new device is created, would automatically set up the required resources, and would notify the device of its credentials.
 
-One such possible automatic setup example, [resin-aws-lambda]({{ $links.githubProjects }}/resin-aws-lambda) uses the [AWS Lambda](https://aws.amazon.com/documentation/lambda/) platform to run "serverless" AWS provisioning.
+One such possible automatic setup example, [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) uses the [AWS Lambda](https://aws.amazon.com/documentation/lambda/) platform to run "serverless" AWS provisioning.
 
 All automatic provisioning method would use the [AWS IoT API](http://docs.aws.amazon.com/iot/latest/apireference/Welcome.html).
 
@@ -60,7 +60,7 @@ The environment variables can not contain new-line characters (they can only be 
 
 ### Automatic Device setup
 
-Automatic device setup would involve the newly provisioned {{ $names.company.lower }} device notifying your AWS IoT setup service (from the earlier steps), which in turns sets up the credentials, and for example sets them up as environment variables for the device. An example of this automatic setup, working with the "resin-aws-lambda" above, is [resin-aws-device]({{ $links.githubProjects }}/resin-aws-device). The automatic setup procedure generally depends on your device software and the service you use for AWS provisioning.
+Automatic device setup would involve the newly provisioned {{ $names.company.lower }} device notifying your AWS IoT setup service (from the earlier steps), which in turns sets up the credentials, and for example sets them up as environment variables for the device. An example of this automatic setup, working with the "balena-aws-lambda" above, is [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device). The automatic setup procedure generally depends on your device software and the service you use for AWS provisioning.
 
 ## Programming
 
@@ -152,7 +152,7 @@ It sets up key files from the environment variables, as the MQTT library used re
 
 The [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) package is capable of both working with the [AWS IoT resources](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html) and the data communication on the [IoT Data Plane](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IotData.html). Thus it can be used to implement both the provisioning and the device side of the application. However for security reasons it isn't encouraged to use the [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) on devices in the field, it is better instead to just use the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) doesn't have resource management capabilities. Therefore for this example, we have split the code into two parts. `{{ $names.company.lower }}-aws-lambda` is responsible the resource provisioning and `{{ $names.company.lower }}-aws-device` only handles data communication.
 
-For a complete Node.js example, please see the pair of [resin-aws-lambda]({{ $links.githubProjects }}/resin-aws-lambda) and [resin-aws-device]({{ $links.githubProjects }}/resin-aws-device) repositories!
+For a complete Node.js example, please see the pair of [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device) repositories!
 
 Here are a few notes using the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Node.js images, for example:
 
@@ -239,5 +239,5 @@ where you need to replace `KEYFILE` with the relevant filename (such as `xxxxxxx
 
 A few sample apps to get started:
 
-* [resin-aws-lambda]({{ $links.githubProjects }}/resin-aws-lambda) and [resin-aws-device]({{ $links.githubProjects }}/resin-aws-device)
+* [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device)
 * [Python and Paho for MQTT with AWS IoT project on Hackster.io](https://www.hackster.io/mariocannistra/python-and-paho-for-mqtt-with-aws-iot-921e41) and [its repository](https://github.com/mariocannistra/python-paho-mqtt-for-aws-iot)

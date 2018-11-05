@@ -95,7 +95,7 @@ Currently our builder supports the following build variables:
   
 __Note:__ If your application contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application. 
 
-If you want to see an example of build variables in action, have a look at this [basic openssh example](https://github.com/resin-io-playground/balena-openssh).
+If you want to see an example of build variables in action, have a look at this [basic openssh example](https://github.com/balena-io-playground/balena-openssh).
 
 Here are the supported machine names and architectures:
 
