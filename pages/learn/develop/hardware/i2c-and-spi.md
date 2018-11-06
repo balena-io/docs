@@ -82,7 +82,7 @@ To enable UART on `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX` , you will need to
 This can be done in two ways:
 1. Add the following Device (or Fleet) Configuration variable to your device (or Fleet).
 ```
-RESIN_HOST_CONFIG_dtoverlay = pi3-miniuart-bt
+BALENA_HOST_CONFIG_dtoverlay = pi3-miniuart-bt
 ```
 If you can't find the where to add this configuration go to this page on your dashboard: dashboard.balena-cloud.com/apps/`APP_ID`/config but replace `APP_ID` with the number of your application.
 
@@ -97,7 +97,7 @@ To demonstrate this functionality, you can push this project ({{ $links.githubMa
 
 ### Raspberry Pi camera module
 
-Depending on the version of your {{ $names.os.lower }}, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `RESIN_HOST_CONFIG_variablename` settings in your [fleet or device configuration](/management/env-vars/).
+Depending on the version of your {{ $names.os.lower }}, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](/management/env-vars/).
 
 **{{ $names.os.upper }} 1.16.0 and newer**
 
@@ -107,8 +107,8 @@ gpu_mem=128
 start_x=1
 ```
 or for remote update
-* `RESIN_HOST_CONFIG_gpu_mem` to `128`
-* `RESIN_HOST_CONFIG_start_x` to `1`
+* `BALENA_HOST_CONFIG_gpu_mem` to `128`
+* `BALENA_HOST_CONFIG_start_x` to `1`
 in the fleet or device configuration.
 
 **{{ $names.os.upper }} 1.8.0 and earlier**
@@ -120,9 +120,9 @@ start_file=start_x.elf
 fixup_file=fixup_x.dat
 ```
 or for remote update
-* `RESIN_HOST_CONFIG_gpu_mem` to `128`
-* `RESIN_HOST_CONFIG_start_file` to `start_x.elf`
-* `RESIN_HOST_CONFIG_fixup_file` to `fixup_x.elf`
+* `BALENA_HOST_CONFIG_gpu_mem` to `128`
+* `BALENA_HOST_CONFIG_start_file` to `start_x.elf`
+* `BALENA_HOST_CONFIG_fixup_file` to `fixup_x.elf`
 in the fleet or device configuration.
 
 You will also need to add `modprobe bcm2835-v4l2` before your start scripts in either your `package.json` start command or Dockerfile `CMD` command.
@@ -153,7 +153,7 @@ so won't work with the 16M GPU split.
 ### Customising config.txt
 These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings in the `config.txt` file on the SD cards `boot` partition. See [here](/configuration/advanced/) for more details.
 
-You can also set all of these variables remotely in the Device Configuration (for a single device) or Fleet Configuration (for all devices within an application) menu. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `RESIN_HOST_CONFIG_variable` set to the value `value`. For example:
+You can also set all of these variables remotely in the Device Configuration (for a single device) or Fleet Configuration (for all devices within an application) menu. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `BALENA_HOST_CONFIG_variable` set to the value `value`. For example:
 
 ![Setting the device configuration for Raspberry Pi config.txt variables](/img/hardware/host_config.png)
 

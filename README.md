@@ -1,4 +1,4 @@
-Resin.io Documentation
+balenaCloud Documentation
 ======================
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qbsivehgnq0vyrrb?svg=true)](https://ci.appveyor.com/project/fedealconada/resin-docs)
@@ -49,7 +49,7 @@ Style manual
 
 ### Default style manual: (TBD)
 
-### Resin-specific words
+### Balena-specific words
 For all, lower-case capitalization unless beginning a sentence (Ex. *I like balena. Balena is great.*)
 * **balena** (used to refer to the company as a whole, not in place of balenaCloud, balenaOS or any other project)
 * **balenaEtcher**

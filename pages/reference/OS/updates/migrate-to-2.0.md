@@ -6,7 +6,7 @@ excerpt: How to migrate code from {{ $names.os.lower }} 1.x to 2.0 and what to w
 
 In {{ $names.os.lower }} 2.x, a number of changes were introduced to improve reliability and connectivity. This guide will highlight some of the major changes and how those changes may affect your code.
 
-Perhaps one of the largest changes in 2.x is the change in the connection manager. {{ $names.os.upper }} now uses [**NetworkManager**][networkmanager-link] and [**ModemManager**][modemmanager-link] to provide a robust and flexible networking stack. This change has enabled much more simple and effective [GSM/cellular connectivity](/deployment/network/2.0/#cellular-modem-setup) and overall [simpler network configuration](/deployment/network/2.0/#introduction) process. However, this change has meant we had to remove the old connection manager [**ConnMan**][connman-link] and deprecate its interfaces. 
+Perhaps one of the largest changes in 2.x is the change in the connection manager. {{ $names.os.upper }} now uses [**NetworkManager**][networkmanager-link] and [**ModemManager**][modemmanager-link] to provide a robust and flexible networking stack. This change has enabled much more simple and effective [GSM/cellular connectivity](/deployment/network/2.0/#cellular-modem-setup) and overall [simpler network configuration](/deployment/network/2.0/#introduction) process. However, this change has meant we had to remove the old connection manager [**ConnMan**][connman-link] and deprecate its interfaces.
 
 What this means for you:
 1. Your WiFi credentials will be preserved when you migrate from **ConnMan** to **NetworkManager**, so you will not lose your network connection.
@@ -27,7 +27,7 @@ Other smaller, but important changes to note are the following:
 
 - If you rely on some {{ $names.company.lower }} CLI functionality e.g.: `{{ $names.company.short }} sync` or `{{ $names.company.short }} ssh`, you will need update to at least version 5.7.0 to work with 2.x devices.
 
-- It's also important to note that the {{ $names.os.lower }} versioning scheme has changed a bit in the 2.x series and any code that relies on parsing the OS version should take care in these cases. An example of the new scheme is `Resin OS 2.0.0+rc3.rev1 (prod)` and you can find more detail on how the versioning works [here]({{ $links.githubOS }}/meta-resin#versioning).
+- It's also important to note that the {{ $names.os.lower }} versioning scheme has changed a bit in the 2.x series and any code that relies on parsing the OS version should take care in these cases. An example of the new scheme is `balenaOS 2.0.0+rc3.rev1 (prod)` and you can find more detail on how the versioning works [here]({{ $links.githubOS }}/meta-balena#versioning).
 
 
 <!-- links -->

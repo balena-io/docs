@@ -78,7 +78,7 @@
 ^\/deployment\/network\/?(.*) -> /reference/OS/network/$1
 ^\/security\/?(\?.+)?(#.+)?$  -> /learn/welcome/security/$1$2
 ^\/integrations\/?(.*) -> /learn/develop/integrations/$1
-^\/hardware\/meta-resin\/?(\?.+)?(#.+)?$ -> /reference/OS/meta-resin/$1$2
+^\/hardware\/meta-resin\/?(\?.+)?(#.+)?$ -> /reference/OS/meta-balena/$1$2
 ^\/advanced\/resources\/?(\?.+)?(#.+)?$ -> /learn/more/resources/$1$2
 ^\/examples\/?(.*) -> /learn/more/examples/$1
 ^\/troubleshooting\/faq\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/faq/$1$2

@@ -14,7 +14,7 @@ For many applications, the code running in your container will need some way to 
 
 Inside your running container, you'll have access to a number of `{{ $names.company.allCaps }}_` namespaced environment variables, which provide information from the system outside the container:
 
-__Note:__ On all BalenaOS versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
+__Note:__ On all BalenaOS versions of the OS, both `BALENA_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
 
 |    Variable   	| Description 	|
 |:----------:	    |:-----------:	|
