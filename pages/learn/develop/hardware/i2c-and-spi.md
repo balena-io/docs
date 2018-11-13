@@ -97,7 +97,7 @@ To demonstrate this functionality, you can push this project ({{ $links.githubMa
 
 ### Raspberry Pi camera module
 
-Depending on the version of your {{ $names.os.lower }}, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `RESIN_HOST_CONFIG_variablename` settings in your [fleet or device configuration](/management/env-vars/).
+Depending on the version of your {{ $names.os.lower }}, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `RESIN_HOST_CONFIG_variablename` settings in your [fleet or device configuration](/learn/manage/configuration/).
 
 **{{ $names.os.upper }} 1.16.0 and newer**
 
@@ -297,10 +297,10 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
-[i2c-example]:https://github.com/shaunmulligan/resin-rpi-py-ADC
+[i2c-example]:https://github.com/balena-io-playground/balena-rpi-py-ADC
 [ads1115-link]:http://www.adafruit.com/product/1085
-[digitiser-link]:https://github.com/shaunmulligan/digitiser
-[firebaseTemp-link]:https://github.com/shaunmulligan/firebaseDTL
+[digitiser-link]:https://github.com/balena-io-playground/digitiser
+[firebaseTemp-link]:https://github.com/balena-io-playground/firebaseDTL
 [spi-npm]:https://www.npmjs.com/package/spi
 [picamera-link]:{{ $links.githubProjects }}/resin-rpi-python-picamera
 [mraa-link]:https://github.com/intel-iot-devkit/mraa
