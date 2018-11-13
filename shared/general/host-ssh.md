@@ -28,7 +28,7 @@ dmesg | tail -n 100
 
 ### Monitor {{ $names.engine.lower }}
 
-{{ $names.os.upper }}, beginning with version 2.9.0, includes the lightweight container engine **[{{ $names.engine.lower }}][engine-link]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to do use **balena** for debugging. 
+{{ $names.os.upper }}, beginning with version 2.9.0, includes the lightweight container engine **[{{ $names.engine.lower }}][engine-link]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to use **balena** for debugging. 
 
 This command will show the status of all containers:
 ```
@@ -74,7 +74,7 @@ Note that the [filesystem layout][filesystem] may look slightly different from w
 
 
 [forums]:https://forums.balena.io/c/balena-cloud
-[engine-link]:https://www.balena.io/engine
+[engine-link]:{{ $links.engineSiteUrl }}
 [nmcli]:https://fedoraproject.org/wiki/Networking/CLI
 [mmcli]:https://www.freedesktop.org/software/ModemManager/man/1.8.0/mmcli.8.html
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
