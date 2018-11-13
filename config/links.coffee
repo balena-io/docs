@@ -18,4 +18,6 @@ module.exports =
   apiBase: process.env.API_BASE || 'https://api.balena-cloud.com'
   mainSiteUrl: 'http://balena.io'
   blogSiteUrl: 'https://balena.io/blog'
+  osSiteUrl: 'https://balena.io/os'
+  engineSiteUrl: 'https://balena.io/engine'
   dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
