@@ -10,7 +10,7 @@
         {% if entry.id === currentValue%}selected{% endif %}
         data-content="
           {% if entry.icon %}
-            <img src='{{ entry.icon }}' class='dynamic-switch__select__icon'>
+            <img src='/docs/{{ entry.icon }}' class='dynamic-switch__select__icon'>
           {% endif %}
           {{ entry.name }}
         ">
