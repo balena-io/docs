@@ -224,11 +224,11 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [hello-python]:https://github.com/alexandrosm/hello-python
 [raspbian]:http://www.raspbian.org/
 
-[from]:https://docs.docker.com/reference/builder/#from
-[run]:https://docs.docker.com/reference/builder/#run
-[add]:https://docs.docker.com/reference/builder/#add
-[copy]:https://docs.docker.com/reference/builder/#copy
-[cmd]:https://docs.docker.com/reference/builder/#cmd
+[from]:https://docs.docker.com/engine/reference/builder/#from
+[run]:https://docs.docker.com/engine/reference/builder/#run
+[add]:https://docs.docker.com/engine/reference/builder/#add
+[copy]:https://docs.docker.com/engine/reference/builder/#copy
+[cmd]:https://docs.docker.com/engine/reference/builder/#cmd
 
 [starter-projects]:/examples/projects#Programming_Language_Starter_Projects
 [dockerfile-best-practices]:https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy
@@ -254,7 +254,7 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
 
-[package]:https://www.npmjs.org/doc/package.json.html
+[package]:https://docs.npmjs.com/files/package.json
 [container]:https://wiki.archlinux.org/index.php/Linux_Containers
 [npm]:https://www.npmjs.org/
 [text-to-speech]:{{ $links.githubMain }}/text2speech
