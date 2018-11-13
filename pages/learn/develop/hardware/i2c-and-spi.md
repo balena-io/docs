@@ -159,7 +159,7 @@ You can also set all of these variables remotely in the Device Configuration (fo
 
 For simplicity, below all examples are using the `config.txt` formatting, but all of them are available to set remotely as outlined above.
 
-For further details and explanation regarding the settings below you may check the official [`config.txt` documentation](https://www.raspberrypi.org/documentation/configuration/config-txt.md).
+For further details and explanation regarding the settings below you may check the official [`config.txt` documentation](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md).
 
 ##### Binary Blobs for GPU/vcore
 This is neccessary for any graphics acceleration or if you want to use the official raspberry pi camera module
