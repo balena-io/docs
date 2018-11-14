@@ -6,7 +6,7 @@ DYNAMIC_DOCS = /.*(getting-started|overview|network).*/
 
 FB_APP_ID = '221218511385682'
 
-DOMAIN = "https://#{process.env.DOMAIN || 'www.balena.io'}"
+DOMAIN = "https://#{process.env.DOMAIN || 'balena.io'}"
 
 MAIN_MENU_LINKS = [
   {

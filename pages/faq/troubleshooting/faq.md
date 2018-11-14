@@ -26,6 +26,7 @@ title: FAQs
 * [I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on-{{ $names.company.lower }}-)
 
 
+
 ##### Can I use multiple containers?
 Multiple container applications are supported, beginning with {{ $names.os.lower }} v2.12.0. To run multiple containers, you will need to create or upgrade to a [starter or microservices type application][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
 

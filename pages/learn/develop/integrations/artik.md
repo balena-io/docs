@@ -60,7 +60,7 @@ I've got this file by exporting the manifest from the device type dashboard, onc
 
 The next step would be adding any actions that the device can take, but that is out of scope for this simple getting started tutorial and we won't add any actions. As a general overview, actions have a "name" which is equivalent of a command sent to the device (e.g. "setText" to display a given text any way the device is capable of, or "turnOff" to turn off the the device). The actions may also have parameters (but don't have to), which act as arguments to the command (such as the "text" parameter of the "setText" action, to tell the device what to display). ARTIK Cloud has a number of default actions, but you can define any action name, and any parameter names.
 
-For more advanced set up, you can consult the [device manifest documentation]([documentation](https://developer.artik.cloud/documentation/introduction/the-manifest.html)).
+For more advanced set up, you can consult the [device manifest documentation](https://developer.artik.cloud/documentation/data-management/the-manifest.html).
 
 Once data fields and actions are set up, save and activate the manifest. Your new device type is ready to use:
 
@@ -250,12 +250,12 @@ Once it is working, you can go to more advanced features, such as [setting rules
 
 A few sample apps to get started:
 
-* [Push events to the Artik cloud(sami)]({{ $links.githubProjects }}/resin-artik-cloud-publisher)
-* [Python application showing how to send messages and receive actions over MQTT and WebSockets in a {{ $names.company.lower }} application]({{ $links.githubProjects }}/artikcloud-resin-python)
+* [Push events to the Artik cloud(sami)]({{ $links.githubProjects }}/balena-artik-cloud-publisher)
+* [Python application showing how to send messages and receive actions over MQTT and WebSockets in a {{ $names.company.lower }} application]({{ $links.githubProjects }}/artikcloud-balena-python)
 * [ARTIK Cloud documentation samples](https://developer.artik.cloud/documentation/samples/)
 
 ### Relevant Blogposts
 
 Some relevant posts from our blog:
 
-* [ARTIK & ARTIK Cloud tutorial]({{ $links.mainSiteUrl }}/blog/artikartikcloud/)
+* [ARTIK & ARTIK Cloud tutorial]({{ $links.blogSiteUrl }}/artikartikcloud/)

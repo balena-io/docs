@@ -13,7 +13,7 @@ If you're eager to learn more about the inner workings, you're in luck! We're ea
 
 <img src="/img/common/architecture.png" width="60%">
 
-Devices in the {{ $names.company.lower }} ecosystem run [{{ $names.os.lower }}][os], a bare-bones, [Yocto Linux][yocto] based host OS, which comes packaged with [{{ $names.engine.lower }}][{{ $names.engine.lower }}], our lightweight, [Docker][docker]-compatible container engine. The host OS is responsible for kicking off the device supervisor, {{ $names.company.lower }}'s agent on your device, as well as your containerized services. Within each service's container you can specify a base OS, which can come from any existing [Docker base image][docker-images] that is compatible with your device architecture. The base OS shares a kernel with the host OS, but otherwise works independently. If you choose, your containers [can be configured][multicontainer] to run as privileged, access hardware directly, and even inject modules into the kernel. The {{ $names.company.lower }} device supervisor runs in its own container, which allows us to continue running and pulling new code even if your application crashes.
+Devices in the {{ $names.company.lower }} ecosystem run [{{ $names.os.lower }}][os], a bare-bones, [Yocto Linux][yocto] based host OS, which comes packaged with [{{ $names.engine.lower }}][engine-link], our lightweight, [Docker][docker]-compatible container engine. The host OS is responsible for kicking off the device supervisor, {{ $names.company.lower }}'s agent on your device, as well as your containerized services. Within each service's container you can specify a base OS, which can come from any existing [Docker base image][docker-images] that is compatible with your device architecture. The base OS shares a kernel with the host OS, but otherwise works independently. If you choose, your containers [can be configured][multicontainer] to run as privileged, access hardware directly, and even inject modules into the kernel. The {{ $names.company.lower }} device supervisor runs in its own container, which allows us to continue running and pulling new code even if your application crashes.
 
 ### Host and kernel updates
 
@@ -61,11 +61,12 @@ Once your services are up and running, you can use the dashboard to monitor and 
 
 Much of the device, service, and application information provided by the dashboard is managed through the [{{ $names.company.lower }} API][api], and can also be viewed and modified using the [CLI][cli] or the [Node.js][node] and [Python][python] SDKs. {{ $names.company.upper }} has been designed so users can build rich experiences, combining device-level data provided by {{ $names.company.lower }} with higher-level application-specific data that lives in other data domains.
 
-[os-docs]:/reference/OS/overview
+[os-docs]:/reference/OS/overview/2.x/
 [build]:/learn/deploy/deployment
 [dashboard]:{{ $links.dashboardUrl }}/
 [getting-started]:/learn/getting-started
-[os]:{{ $names.os.url }}
+[os]:{{ $links.osSiteUrl }}
+[engine-link]:{{ $links.engineSiteUrl }}
 [yocto]:https://www.yoctoproject.org/
 [{{ $names.engine.lower }}]:https://www.balena.io/
 [docker]:https://www.docker.com/
@@ -79,7 +80,7 @@ Much of the device, service, and application information provided by the dashboa
 [update-locking]:/learn/deploy/release-strategy/update-locking
 [drone-video]:https://www.youtube.com/watch?time_continue=1569&v=75vm6rRb6K0
 [ssh]:/learn/manage/ssh-access
-[api]:/reference/data-api
+[api]:/reference/api/overview/
 [cli]:/reference/cli
 [node]:/reference/sdk/node-sdk
 [python]:/reference/sdk/python-sdk
