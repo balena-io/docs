@@ -32,24 +32,22 @@ sudo {{ $names.company.short }} local scan
 ```
 **Output**
 ```
-Reporting scan results
--
-  host:          f340127.local
-  address:       192.168.1.133
-  dockerInfo:
-    Containers:        2
+  host:          bce2006.local
+  address:       10.10.0.236
+  dockerInfo: 
+    Containers:        1
     ContainersRunning: 1
     ContainersPaused:  0
-    ContainersStopped: 1
-    Images:            5
+    ContainersStopped: 0
+    Images:            1
     Driver:            aufs
-    SystemTime:        2017-03-10T21:11:21.849756652Z
-    KernelVersion:     4.4.48
-    OperatingSystem:   Resin OS 2.0.0-beta13.rev3
-    Architecture:      armv7l
-  dockerVersion:
-    Version:    1.10.3
-    ApiVersion: 1.22
+    SystemTime:        2018-10-18T13:38:30.960146041Z
+    KernelVersion:     4.14.48-yocto-standard
+    OperatingSystem:   balenaOS 2.19.0+rev4
+    Architecture:      x86_64
+  dockerVersion: 
+    Version:    17.12.0-dev
+    ApiVersion: 1.35
 ```
 
 ## Push over a new project
@@ -65,7 +63,7 @@ sudo {{ $names.company.short }} local push f340127.local -s .
 * Building..
 - Stopping and Removing any previous 'rainbow' container
 - Building new 'rainbow' image
-Step 1 : FROM {{ $names.company.short }}/raspberrypi3-python:3-slim
+Step 1 : FROM {{ $names.base.lib }}/raspberrypi3-python:3-slim
  ---> aa2d93575b6c
 Step 2 : WORKDIR /usr/src/app
  ---> Using cache
@@ -142,5 +140,5 @@ local stop [deviceIp]               Stop a running container on a {{ $names.os.l
 [development]:/reference/OS/overview/2.x/#dev-vs-prod-images
 [cli]:/reference/cli
 [supervisor API]:/reference/supervisor/supervisor-api/
-[compose-remote]:{{ $links.githubMain }}-playground/resinos-compose
+[compose-remote]:{{ $links.githubMain }}-playground/balenaos-compose
 [troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access

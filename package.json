@@ -1,6 +1,7 @@
 {
   "name": "resin-docs",
-  "version": "2.7.4",
+  "private": true,
+  "version": "3.0.7",
   "description": "This repo contains our public-facing documentation.",
   "main": "index.js",
   "scripts": {
@@ -14,27 +15,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/resin-io/docs.git"
+    "url": "git://github.com/balena-io/docs.git"
   },
-  "author": "Resin.io <hello@resin.io>",
+  "author": "balena <hello@balena.io>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/resin-io/docs/issues"
+    "url": "https://github.com/balena-io/docs/issues"
   },
-  "homepage": "https://github.com/resin-io/docs",
+  "homepage": "https://github.com/balena-io/docs",
   "dependencies": {
-    "@resin.io/doxx": "0.10.1",
+    "@resin.io/doxx": "0.11.1",
     "bootstrap": "3.3.7",
     "bootstrap-select": "1.12.2",
     "coffee-script": "~1.10.0",
     "express": "^4.13.4",
+    "express-http-to-https": "1.1.4",
     "headroom.js": "0.9.3",
     "highlight.js": "9.11.0",
     "jquery": "3.2.1",
     "jquery-colorbox": "1.6.4",
     "lodash": "^4.11.1",
-    "ractive": "0.8.12",
-    "express-http-to-https": "1.1.4"
+    "metalsmith-prefixoid": "^1.0.3",
+    "ractive": "0.8.12"
   },
   "devDependencies": {
     "css-loader": "0.28.0",

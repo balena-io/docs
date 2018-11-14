@@ -23,7 +23,7 @@ application set up ready to receive code. See the
 [getting started][getting-started] and [deployment][deploy] guides for details
 on how to do this.
 
-To deploy a project simply clone it and push it to your application's `resin`
+To deploy a project simply clone it and push it to your application's {{ $names.company.lower }}
 endpoint. E.g. for the [Text to Speech Converter project][text2speech]:-
 
 ```
@@ -102,9 +102,9 @@ in the `Dockerfile`.
 __Note:__ This project will not build on any of the ARM architecture board. Currently,
 this project will only work on the Intel Edison.
 
-[Resin Golang Image Example][golang-image-link]
+[{{ $names.company.lower }} Golang Image Example][golang-image-link]
 
-This project contains examples of how to use Resin Golang images on devices supported by {{ $names.company.upper }}.
+This project contains examples of how to use {{ $names.company.lower }} Golang images on devices supported by {{ $names.company.upper }}.
 
 ### Flogo
 

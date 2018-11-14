@@ -49,7 +49,7 @@ After an update begins, the device summary page will show a progress bar that ma
 
 Update time can vary significantly, depending on the speed of your network, the speed of your SD card (or other storage medium), and your device performance.
 
-If your {{ $names.os.lower }} update fails for any reason, the device should still be recoverable. For devices running {{ $names.os.lower }} 2.x, the user application should still be running normally, and the reasons for failure can be examined throught the update logs at `mnt/data/{{ $names.company.short }}hup/`. If you have any issues, please contact us on the [troubleshooting section of the forums][troubleshooting].
+If your {{ $names.os.lower }} update fails for any reason, the device should still be recoverable. For devices running {{ $names.os.lower }} 2.x, the user application should still be running normally, and the reasons for failure can be examined throught the update logs at `mnt/data/resinhup/`. If you have any issues, please contact us on the [troubleshooting section of the forums][troubleshooting].
 
 You can learn more about what exactly goes on during the update process [here][update-process].
 

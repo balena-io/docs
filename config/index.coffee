@@ -1,66 +1,55 @@
 DOCS_SOURCE_DIR = 'pages'
-DOCS_DEST_DIR = 'contents'
-
 TEMPLATES_DIR = 'templates'
 PARTIALS_DIR = 'shared'
 
 DYNAMIC_DOCS = /.*(getting-started|overview|network).*/
 
-GITHUB_EDIT_PAGE_LINK = (process.env.GITHUB_MAIN + '/docs/edit/master') || 'https://github.com/resin-io/docs/edit/master'
-
-MAIN_SITE = process.env.MAIN_SITE || 'https://resin.io'
-DASHBOARD_SITE  = process.env.DASHBOARD_SITE || 'https://dashboard.resin.io'
-LOGO = '/img/logo.svg'
-BASE_URL = process.env.BASE_URL || 'https://docs.resin.io'
 FB_APP_ID = '221218511385682'
-DEFAULT_THUMBNAIL = '/img/docs-preview.png'
+
+DOMAIN = "https://#{process.env.DOMAIN || 'balena.io'}"
 
 MAIN_MENU_LINKS = [
   {
-    "title": "What it's for",
-    "link": "#{MAIN_SITE}/usecases"
+    "title": "What is Balena",
+    "link": "#{DOMAIN}/what-is-balena"
   },
   {
-    "title": "How it works",
-    "link": "#{MAIN_SITE}/how-it-works"
-  },
-  {
-    "title": "Community",
-    "link": "https://resin.io/community"
+    "title": "Forums",
+    "link": "https://forums.balena.io"
   },
   {
     "title": "Blog",
-    "link": "#{MAIN_SITE}/blog"
+    "link": "#{DOMAIN}/blog"
   },
   {
     "title": "Pricing",
-    "link": "#{MAIN_SITE}/pricing"
+    "link": "#{DOMAIN}/pricing"
   },
   {
     "title": "Team",
-    "link": "#{MAIN_SITE}/team"
+    "link": "#{DOMAIN}/team"
   },
   {
     "title": "Contact",
-    "link": "#{MAIN_SITE}/contact"
+    "link": "#{DOMAIN}/contact"
   }
 ]
 
 module.exports =
   docsExt: 'md'
   docsSourceDir: DOCS_SOURCE_DIR
-  docsDestDir: DOCS_DEST_DIR
+  docsDestDir: 'contents'
   templatesDir: TEMPLATES_DIR
   partialsDir: PARTIALS_DIR
   dynamicDocs: DYNAMIC_DOCS
-  editPageLink: GITHUB_EDIT_PAGE_LINK
+  editPageLink: 'https://github.com/resin-io/docs/edit/master'
   links: require('./links')
   names: require('./names')
+  pathPrefix: process.env.PATH_PREFIX || '/docs'
   layoutLocals:
-    mainSiteUrl: MAIN_SITE
-    dashboardUrl: DASHBOARD_SITE
-    logo: LOGO
-    baseUrl: BASE_URL
+    dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.resin.io'
+    logo: '/img/logo.svg'
+    baseUrl: process.env.BASE_URL || 'https://docs.resin.io'
     menuLinks: MAIN_MENU_LINKS
     fbAppId: FB_APP_ID
-    defaultThumbnail: DEFAULT_THUMBNAIL
+    defaultThumbnail: '/img/docs-preview.png'

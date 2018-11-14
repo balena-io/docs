@@ -5,6 +5,7 @@
     "fields": [
       "id",
       "user",
+      "owns__device",
       "depends_on__application",
       "actor",
       "app_name",
@@ -36,6 +37,13 @@
         "method": "GET",
         "endpoint": "/v4/application",
         "filters": "?\\$filter=app_name%20eq%20'<NAME>'"
+      },
+      {
+        "id": "app-with-devices",
+        "summary": "Get application by id along with its devices",
+        "method": "GET",
+        "endpoint": "/v4/application(<ID>)",
+        "filters": "?\\$expand=owns__device"
       },
       {
         "id": "create-app",
@@ -124,6 +132,7 @@
       "local_id",
       "status",
       "is_online",
+      "is_active",
       "last_connectivity_event",
       "is_connected_to_vpn",
       "last_vpn_event",
@@ -217,6 +226,14 @@
         "endpoint": "/v4/device(<ID>)",
         "filters": "",
         "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
+      },
+      {
+        "id": "deactivate-device",
+        "summary": "Deactivate an offline device (CHARGEABLE)",
+        "method": "PATCH",
+        "endpoint": "/v4/device(<ID>)",
+        "filters": "",
+        "data": "{\n    \"is_active\": false\n}"
       }
     ]
   },
