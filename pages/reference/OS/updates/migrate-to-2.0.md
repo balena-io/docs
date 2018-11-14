@@ -27,7 +27,7 @@ Other smaller, but important changes to note are the following:
 
 - If you rely on some {{ $names.company.lower }} CLI functionality e.g.: `{{ $names.company.short }} sync` or `{{ $names.company.short }} ssh`, you will need update to at least version 5.7.0 to work with 2.x devices.
 
-- It's also important to note that the {{ $names.os.lower }} versioning scheme has changed a bit in the 2.x series and any code that relies on parsing the OS version should take care in these cases. An example of the new scheme is `balenaOS 2.0.0+rc3.rev1 (prod)` and you can find more detail on how the versioning works [here]({{ $links.githubOS }}/meta-balena#versioning).
+- It's also important to note that the {{ $names.os.lower }} versioning scheme has changed a bit in the 2.x series and any code that relies on parsing the OS version should take care in these cases. An example of the new scheme is `balenaOS 2.26.0-beta0+rev1 (prod)` and you can find more detail on how the versioning works [here]({{ $links.githubOS }}/meta-balena#versioning).
 
 
 <!-- links -->
