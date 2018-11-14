@@ -2,9 +2,9 @@ path       = require('path')
 express    = require('express')
 _          = require('lodash')
 Doxx       = require('@resin.io/doxx')
-redirect   = require('./redirect')
 navTree    = require('./nav.json')
 config     = require('../config')
+redirect   = require('./redirect')({ pathPrefix: config.pathPrefix })
 doxxConfig = require('../config/doxx')
 redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
 
@@ -12,11 +12,6 @@ app = express()
 app.use(redirectToHTTPS([/localhost:(\d{4})/]))
 doxx = Doxx(doxxConfig)
 doxx.configureExpress(app)
-
-{ ACME_CHALLENGE, ACME_RESPONSE } = process.env
-if ACME_CHALLENGE and ACME_RESPONSE
-  app.use "/.well-known/acme-challenge/#{ACME_CHALLENGE}", (req, res) ->
-    res.send(ACME_RESPONSE)
 
 { GOOGLE_VERIFICATION } = process.env
 if GOOGLE_VERIFICATION
@@ -28,11 +23,12 @@ if GOOGLE_VERIFICATION
 staticDir = path.join(__dirname, '..', 'static')
 contentsDir = path.join(__dirname, '..', config.docsDestDir)
 
-app.use(express.static(staticDir))
+app.use("#{config.pathPrefix}/", express.static(staticDir))
 
 app.use (req, res, next) ->
   originalUrl = req.originalUrl
   url = redirect(originalUrl)
+
   if url isnt originalUrl
     return res.redirect(url)
   next()
@@ -42,7 +38,7 @@ getLocals = (extra) ->
 
 doxx.loadLunrIndex()
 
-app.get '/search-results', (req, res) ->
+app.get "#{config.pathPrefix}/search-results", (req, res) ->
   { searchTerm } = req.query
   res.render 'search', getLocals
     title: "Search results for \"#{searchTerm}\""
@@ -53,7 +49,8 @@ app.get '/search-results', (req, res) ->
     searchTerm: searchTerm
     searchResults: doxx.lunrSearch(searchTerm)
 
-app.use(express.static(contentsDir))
+console.error('serving everything under pathPrefix:', "#{config.pathPrefix}")
+app.use("#{config.pathPrefix}/", express.static(contentsDir))
 
 app.get '*', (req, res) ->
   res.render 'not-found', getLocals

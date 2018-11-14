@@ -23,7 +23,7 @@ The updater script checks to see if the new {{ $names.os.lower }} version ships 
 
 Finally, the boot settings are modified so that on the next reboot the new root file system is used. As a last step, the device is rebooted.
 
-For devices running {{ $names.os.lower }} 2.x, a status of `OS update failed` means the user application should still be running normally, and the reasons for failure can be examined throught the update logs at `mnt/data/{{ $names.company.short }}hup/`. The device may have some reduced functionality, for instance if the supervisor was stopped for the update, but we are working on ways to automatically restore full functionality whenever possible.
+For devices running {{ $names.os.lower }} 2.x, a status of `OS update failed` means the user application should still be running normally, and the reasons for failure can be examined throught the update logs at `mnt/data/resinhup/`. The device may have some reduced functionality, for instance if the supervisor was stopped for the update, but we are working on ways to automatically restore full functionality whenever possible.
 
 ## Upgrading from {{ $names.os.lower }} 1.x to 2.x
 
@@ -35,9 +35,9 @@ After the checks are run, both the supervisor and the user application are stopp
 
 Next, the script downloads a couple of binary tools that are not present in 1.x systems but are required for the transition (mainly tools handling the ext4 file system).
 
-The contents of the `{{ $names.company.short }}-data` folder, where the contents of your application’s `/data` folder are stored, are backed up on the secondary root partition temporarily. This limits the amount of data that can be backed up automatically to about 170MB (compressed). If there's more data than this, the update process will stop, but the device hasn't been materially modified yet.
+The contents of the `resin-data` folder, where the contents of your application’s `/data` folder are stored, are backed up on the secondary root partition temporarily. This limits the amount of data that can be backed up automatically to about 170MB (compressed). If there's more data than this, the update process will stop, but the device hasn't been materially modified yet.
 
-Next, the device’s file system is modified to match the setup required by {{ $names.os.lower }} 2.x. **Docker** is then restarted and pulls a new {{ $names.os.lower }} image, which is exported into a compressed archive. Finally, the new rootfs is populated, and `{{ $names.company.short }}-data` is restored.
+Next, the device’s file system is modified to match the setup required by {{ $names.os.lower }} 2.x. **Docker** is then restarted and pulls a new {{ $names.os.lower }} image, which is exported into a compressed archive. Finally, the new rootfs is populated, and `resin-data` is restored.
 
 
 The WiFi settings are then migrated from the 1.x setup (in `config.json`) to the 2.x setup (as **NetworkManager** files). The migration also tries to create configurations from any [**WiFi Connect**][wifi-connect] settings found.
@@ -52,7 +52,7 @@ The process for upgrading between 1.x versions mirrors the process used for 2.x 
 
 The updater script first does a couple of cross-checks, stops the supervisor and user containers, and if everything looks okay, starts by checking if any supervisor updates are needed.
 
-Then a `{{ $names.company.short }}hup` **Docker** image is pulled, which contains all the tools and the secondary Python updater scripts for the main migration. Since the {{ $names.os.lower }} 1.x root filesystem is read-write, the `{{ $names.company.short }}hup` updater scripts start with a fingerprint check to see if any files have been modified. If there have been any modifications, it will stop the update as not to unexpectedly overwrite any modifications.
+Then a `resinhup` **Docker** image is pulled, which contains all the tools and the secondary Python updater scripts for the main migration. Since the {{ $names.os.lower }} 1.x root filesystem is read-write, the `resinhup` updater scripts start with a fingerprint check to see if any files have been modified. If there have been any modifications, it will stop the update as not to unexpectedly overwrite any modifications.
 
 If the fingerprint check succeeds, the updater will use **Docker** to pull the target {{ $names.os.lower }} image and export the relevant contents onto the spare root partition and the boot partition. Next, the updater runs any required data migrations (for example, to account for any changes to the location and contents of the `config.json` file). As a final step, this Python-based updater will switch the boot settings, so that next time the device boots, it will boot from the updated system.
 

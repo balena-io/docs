@@ -1,11 +1,11 @@
-Resin.io Documentation
+Balena Documentation
 ======================
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qbsivehgnq0vyrrb?svg=true)](https://ci.appveyor.com/project/fedealconada/resin-docs)
 
-Join our [forums](https://forums.resin.io/), or online chat at [![Gitter chat](https://badges.gitter.im/resin-io/chat.png)](https://gitter.im/resin-io/chat)
+Join our [forums](https://forums.balena.io/), or online chat at [![Gitter chat](https://badges.gitter.im/resin-io/chat.png)](https://gitter.im/resin-io/chat)
 
-Documentation for the [resin.io](https://resin.io/) platform.
+Documentation for the [balena](https://balena.io/) platform.
 
 Role
 ----
@@ -19,7 +19,7 @@ Running locally
 To run the docs web application locally, you should do the following:
 
 ```sh
-git clone https://github.com/resin-io/docs
+git clone https://github.com/balena-io/docs
 cd docs
 npm install
 npm start
@@ -29,8 +29,8 @@ And then open [http://localhost:3000](http://localhost:3000).
 How to Contribute
 ----------
 
-- Issue Tracker: [github.com/resin-io/docs/issues](https://github.com/resin-io/docs/issues)
-- Source Code: [github.com/resin-io/docs](https://github.com/resin-io/docs)
+- Issue Tracker: [github.com/balena-io/docs/issues](https://github.com/balena-io/docs/issues)
+- Source Code: [github.com/balena-io/docs](https://github.com/balena-io/docs)
 
 If you think something is not documented, or can be improved, don't hesitate in sending a PR!
 
@@ -38,11 +38,11 @@ If you think something is not documented, or can be improved, don't hesitate in 
 Deploying
 ----------
 
-After a PR has been created, a member of the resin team will review and merge into `master`.
+After a PR has been created, a member of the balena team will review and merge into `staging`.
 
-Shortly after merging to `master` it'll automatically be deployed to our [staging environment](https://docs.resinstaging.io/) (This should only take a few minutes).
+Shortly after merging to `staging` it'll automatically be deployed to our [staging environment](https://www.balena-staging.io/docs/) (This should only take a few minutes).
 
-Once deployed to staging, we will preview your changes. If everything looks good, a member of the resin team will make another PR from `master` into the `production` branch. When this is merged, the changes will automatically deploy to [production](https://docs.resin.io/)
+Once deployed to staging, we will preview your changes. If everything looks good, a member of the balena team will make another PR from `staging` into the `master` branch. When this is merged, the changes will automatically deploy to [production](https://balena.io/docs)
 
 Style manual
 ----------
@@ -50,11 +50,13 @@ Style manual
 ### Default style manual: (TBD)
 
 ### Resin-specific words
-For all, lower-case capitalization unless beginning a sentence (Ex. *I like resin.io. Resin.io is great.*)
-* **resin.io**
-* **etcher**
-* **resinOS** (note the capitalization of **OS**)
-* **resin** (used to refer to the company as a whole, not in place of resin.io or resinOS)
+For all, lower-case capitalization unless beginning a sentence (Ex. *I like balena. Balena is great.*)
+* **balena** (used to refer to the company as a whole, not in place of balenaCloud, balenaOS or any other project)
+* **balenaEtcher**
+* **balenaOS** (note the capitalization of **OS**)
+* **balenaEngine**
+* **balenaFin**
+* **balenaCloud**
 
 Conventions
 -----------
@@ -63,7 +65,7 @@ Conventions
 ### Get Setup
 
 ```sh
-git clone https://github.com/resin-io/docs.git
+git clone https://github.com/balena-io/docs.git
 cd docs
 npm install
 ```

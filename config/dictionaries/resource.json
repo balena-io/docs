@@ -5,6 +5,7 @@
     "fields": [
       "id",
       "user",
+      "owns__device",
       "depends_on__application",
       "actor",
       "app_name",
@@ -36,6 +37,13 @@
         "method": "GET",
         "endpoint": "/v4/application",
         "filters": "?\\$filter=app_name%20eq%20'<NAME>'"
+      },
+      {
+        "id": "app-with-devices",
+        "summary": "Get application by id along with its devices",
+        "method": "GET",
+        "endpoint": "/v4/application(<ID>)",
+        "filters": "?\\$expand=owns__device"
       },
       {
         "id": "create-app",

@@ -11,7 +11,7 @@ application set up ready to receive code. See the
 [getting started][getting-started] and [deployment][deploy] guides for details
 on how to do this.
 
-To deploy a project simply clone it and push it to your application's `resin`
+To deploy a project simply clone it and push it to your application's {{ $names.company.lower }}
 endpoint. E.g. for the [Text to Speech Converter project][text2speech]:
 
 ```
@@ -215,7 +215,7 @@ visualisation at [123k.de](http://123k.de).
 [clonos-frontend]:{{ $links.githubMain }}/music-player-web
 [grovepi-humidity]:https://github.com/shaunmulligan/grovePi
 [safebox]:{{ $links.githubMain }}/resin-safebox
-[sms2speech_python]:{{ $links.githubMain }}/sms2speech_python
+[sms2speech_python]:{{ $links.githubPlayground }}/sms2speech_python
 
 <!-- ###Community Project Links -->
 
@@ -279,7 +279,7 @@ visualisation at [123k.de](http://123k.de).
 [zettajs-website]:http://www.zettajs.org/
 [authy]:http://authy.com
 [safebox-blog]:{{ $links.mainSiteUrl }}/blog/two-factor-authentication-in-the-real-world/
-[sms2speech-blog]:{{ $links.mainSiteUrl }}/blog/sms-to-speech/
-[audio-stock-ticker-link]:{{ $links.githubProjects }}/audio-stock-ticker
-[pm2-blog-link]:{{ $links.mainSiteUrl }}/blog/eternal-applications-with-pm2-and-resin-io/
-[pm2-repo-link]:{{ $links.githubProjects }}/resin-pm2-monitor.git
+[sms2speech-blog]:{{ $links.blogSiteUrl }}/sms-to-speech/
+[audio-stock-ticker-link]:{{ $links.githubPlayground }}/audio-stock-ticker
+[pm2-blog-link]:{{ $links.blogSiteUrl }}/eternal-applications-with-pm2-and-resin-io/
+[pm2-repo-link]:{{ $links.githubPlayground }}/balena-pm2-monitor

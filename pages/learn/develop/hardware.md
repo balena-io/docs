@@ -21,7 +21,7 @@ gpio:
       - SYS_RAWIO
 ```
 
-__Note:__ If you are not using one of the Docker base images recommended in our [base images wiki][base-image-wiki-link], then it's most likely you will need to handle the updating of `/dev` via [udev][udev-link] yourself. You can see an example of how our base images handle this [here]({{ $links.githubMain }}-library/base-images/blob/master/debian/armv7hf/jessie/entry.sh#L54).
+__Note:__ If you are not using one of the Docker base images recommended in our [base images wiki][base-image-wiki-link], then it's most likely you will need to handle the updating of `/dev` via [udev][udev-link] yourself. 
 
 For more details on interacting with external hardware, check out these guides:
 - [GPIO][gpio]
@@ -29,5 +29,5 @@ For more details on interacting with external hardware, check out these guides:
 
 [gpio]:/learn/develop/hardware/gpio
 [i2c-spi]:/learn/develop/hardware/i2c-and-spi
-[base-image-wiki-link]:/runtime/base-images/
+[base-image-wiki-link]:/reference/base-images/base-images/
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html

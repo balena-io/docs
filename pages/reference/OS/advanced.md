@@ -16,19 +16,19 @@ things should you configure them incorrectly - tread carefully!
 The Raspberry Pi exposes device configuration options via a text file on the
 boot medium, `config.txt` - you change boot options simply by editing this file.
 
-__Note:__ You will only find the `config.txt` file after first boot, it can then easily be found in the `{{ $names.company.lower }}-boot` partition of the SD card.
+__Note:__ You will only find the `config.txt` file after first boot, it can then easily be found in the `resin-boot` partition of the SD card.
 
 #### Modifying `config.txt` locally after the first boot
 
-The `config.txt` is located in the root of the `{{ $names.company.lower }}-boot` partition, and you can modify it by mounting the SD card on a computer.
+The `config.txt` is located in the root of the `resin-boot` partition, and you can modify it by mounting the SD card on a computer.
 
 #### Modifying `config.txt` **remotely**
 
 If your device has a supervisor version above 1.0.0, it has support for modifying the values in `config.txt` remotely using [configuration variables][config-vars]. These can be set as fleet-wide values (for all devices in an application) or device-specific ones.
 
-The variables that start with the `{{ $names.company.allCaps }}_HOST_CONFIG_` prefix will be added to the `config.txt` file, also replacing the preexisting values of such variables in the file.
+The variables that start with the `RESIN_HOST_CONFIG_` prefix will be added to the `config.txt` file, also replacing the preexisting values of such variables in the file.
 
-For example, setting the value of `{{ $names.company.allCaps }}_HOST_CONFIG_gpu_mem` to 16 will produce the following entry in `config.txt`:
+For example, setting the value of `RESIN_HOST_CONFIG_gpu_mem` to 16 will produce the following entry in `config.txt`:
 
 ```
 gpu_mem=16
@@ -38,7 +38,7 @@ These variables can be set using the API or any of its clients, including the [S
 
 **After modifying a config.txt variable, the device supervisor will apply the changes and reboot the device.**
 
-__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode]. You will need to define them in your `{{ $names.company.lower }}-sync.yml`.
+__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode]. You will need to define them in your `resin-sync.yml`.
 
 ### GPU Memory
 
