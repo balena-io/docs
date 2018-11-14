@@ -12,7 +12,7 @@ Environment variables are accessible to all services running on a device, wherea
 
 Values defined for individual devices always override those defined for the fleet. Values defined for services override environment variables defined at the same level. So for any given variable, the **device service variable** will always have top priority, followed by the **device environment variable**, then the **fleet service variable**, and finally the **fleet environment variable**.
 
-__Note:__ Environment and service variables defined in the dashboard will not apply to devices in [local mode][local-mode]. You will need to define them in your `{{ $names.company.short }}-sync.yml`.
+__Note:__ Environment and service variables defined in the dashboard will not apply to devices in [local mode][local-mode]. You will need to define them in your `.resin-sync.yml`.
 
 ## Fleet environment and service variables
 
@@ -59,7 +59,7 @@ You can override the value of a fleet variable by clicking *override* in the far
 The {{ $names.company.lower }} CLI and SDKs all include methods to easily read, add or update environment and service variables. Consult the appropriate reference for code examples.
 
 * [CLI environment reference](/tools/cli/#envs)
-* [Node.js SDK environment reference](/tools/sdk/#{{ $names.company.short }}.models.environment-variables)
-* [Python SDK environment reference](/tools/python-sdk/#environmentvariable)
+* [Node.js SDK environment reference](/reference/sdk/node-sdk/#balena.models.application.envVar)
+* [Python SDK environment reference](/reference/sdk/python-sdk/#environmentvariable)
 
 [local-mode]:/learn/develop/local-mode

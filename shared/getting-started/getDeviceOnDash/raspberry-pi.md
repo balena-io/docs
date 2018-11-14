@@ -16,6 +16,6 @@ If you still can't get your device online, come on over and talk to us on our [s
 __Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your {{ $names.company.lower }} dashboard."` on the screen when the device boots. If instead you see rainbow colours or a black screen with a raspberry on it, it could mean that the SD card was not burned correctly or is corrupted.
 
 [dashboard]:{{ $links.dashboardUrl }}/
-[networkRequirements]:/deployment/network/#network-requirements
+[networkRequirements]:/reference/OS/network/2.x/#network-requirements
 [usingSupport]:/support/
 [errorNotifications]:/troubleshooting/error

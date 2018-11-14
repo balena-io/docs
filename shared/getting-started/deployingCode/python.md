@@ -10,7 +10,7 @@ To clone the project, run the following command in a terminal or your preferred 
 $ git clone {{ $links.githubProjects }}/simple-server-python.git
 ```
 
-Once the repo is cloned, change directory into the newly created `simple-server-python` directory and add the resin git remote endpoint by running the command `git remote add` shown in
+Once the repo is cloned, change directory into the newly created `simple-server-python` directory and add the balena git remote endpoint by running the command `git remote add` shown in
 the top-right corner of your application page:
 
 ```shell

@@ -81,15 +81,15 @@ Use the `volumes` field of the service to link a directory in your container to 
 ```
 version: '2'
 volumes: 
-    {{ $names.company.short }}-data:
+    resin-data:
 services:
     example:
         build: ./example
         volumes: 
-            - '{{ $names.company.short }}-data:/data'
+            - 'resin-data:/data'
 ```
 
-For devices upgraded from older versions of {{ $names.os.lower }} to v2.12.0 or higher, a link will automatically be created from the `/data` directory of the container to the `{{ $names.company.short }}-data` named volume (similar to above). This ensures application behavior will remain consistent across host OS versions. One notable difference is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<APP ID>_{{ $names.company.short }}-data/_data`, rather than the `/mnt/data/{{ $names.company.short }}-data/<APP ID>` location used with earlier host OS versions. 
+For devices upgraded from older versions of {{ $names.os.lower }} to v2.12.0 or higher, a link will automatically be created from the `/data` directory of the container to the `resin-data` named volume (similar to above). This ensures application behavior will remain consistent across host OS versions. One notable difference is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<APP ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<APP ID>` location used with earlier host OS versions. 
 
 ### Labels 
 

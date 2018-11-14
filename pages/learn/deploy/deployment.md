@@ -11,7 +11,7 @@ When you've finished prototyping and are ready to deploy your application to you
 
 __Note:__ The {{ $names.company.lower }} git repository is not intended as a code hosting solution, and we cannot guarantee the persistence of data in {{ $names.company.lower }} git remotes.
 
-![how deployment works](/img/common/how_deploy_works.jpg)
+![how deployment works](/img/common/how_deploy_works.png)
 
 ## The build server
 
@@ -64,8 +64,8 @@ Much like with the device list, [filters][filters] can be added to the release l
 [git]:http://git-scm.com/
 
 [getting-started]:/learn/getting-started
-[filters]:/learn/manage/applications/#device-filters
-[saved-views]:/learn/manage/applications/#create-a-view
+[filters]:/learn/manage/filters-tags/#filters-and-tags
+[saved-views]:/learn/manage/filters-tags/#create-a-view
 [logs]:#release-logs
 [multicontainer]:/learn/develop/multicontainer
 [app-types]:/learn/manage/app-types

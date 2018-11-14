@@ -28,7 +28,7 @@ dmesg | tail -n 100
 
 ### Monitor {{ $names.engine.lower }}
 
-{{ $names.os.upper }}, beginning with version 2.9.0, includes the lightweight container engine **[{{ $names.engine.lower }}][{{ $names.engine.lower }}]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to do use **balena** for debugging. 
+{{ $names.os.upper }}, beginning with version 2.9.0, includes the lightweight container engine **[{{ $names.engine.lower }}][engine-link]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to use **balena** for debugging. 
 
 This command will show the status of all containers:
 ```
@@ -73,10 +73,10 @@ In some cases, you may need to examine the contents of certain directories or fi
 Note that the [filesystem layout][filesystem] may look slightly different from what you’d expect—for example the two locations mentioned above are found at `/mnt/data` and `/mnt/boot`, respectively.
 
 
-[forums]:https://forums.{{ $names.domain }}/c/troubleshooting
-[{{ $names.engine.lower }}]:https://www.balena.io/
+[forums]:https://forums.balena.io/c/balena-cloud
+[engine-link]:{{ $links.engineSiteUrl }}
 [nmcli]:https://fedoraproject.org/wiki/Networking/CLI
-[mmcli]:https://www.freedesktop.org/software/ModemManager/man/1.0.0/mmcli.8.html
+[mmcli]:https://www.freedesktop.org/software/ModemManager/man/1.8.0/mmcli.8.html
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [config-txt]:/reference/OS/advanced/#config-txt
 [network]:/reference/OS/network/2.x

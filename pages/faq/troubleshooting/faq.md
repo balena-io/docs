@@ -23,6 +23,9 @@ title: FAQs
 * [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
 * [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
 * [What does it mean when a device type is discontinued?](#what-does-it-mean-when-a-device-type-is-discontinued-)
+* [I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on-{{ $names.company.lower }}-)
+
+
 
 ##### Can I use multiple containers?
 Multiple container applications are supported, beginning with {{ $names.os.lower }} v2.12.0. To run multiple containers, you will need to create or upgrade to a [starter or microservices type application][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
@@ -132,13 +135,17 @@ The {{ $names.company.lower }} device supervisor needs to be able to access our 
 Generally, we try to follow good OPSEC practices for our systems. We support 2FA for user accounts and force all the connections to be over HTTPS. More details on our approach can be found on our [security page][security].
 
 ##### What does it mean when a device type is discontinued?
-Discontinued devices will no longer be actively supported by {{ $names.company.lower }}. This means we will no longer provide prebuilt versions of {{ $names.os.lower }} for these devices, and we will not be resolving any issues related to these boards. In addition, it will no longer be possible to create applications for these device types, although existing applications and their devices will still function. If you would like to keep your discontinued devices updated with the latest {{ $names.os.lower }} changes, you can [build your own]({{ $links.githubOS }}/meta-resin/blob/master/contributing-device-support.md) board-specific versions using our [open source repos]({{ $links.githubOS }}). Please contact sales@{{ $names.domain }} with any questions regarding continued device support.
 
+Discontinued devices will no longer be actively supported by {{ $names.company.lower }}. This means we will no longer provide prebuilt versions of {{ $names.os.lower }} for these devices, and we will not be resolving any issues related to these boards. In addition, it will no longer be possible to create applications for these device types, although existing applications and their devices will still function. If you would like to keep your discontinued devices updated with the latest {{ $names.os.lower }} changes, you can [build your own]({{ $links.githubOS }}/meta-balena/blob/master/contributing-device-support.md) board-specific versions using our [open source repos]({{ $links.githubOS }}). Please contact sales@{{ $names.domain }} with any questions regarding continued device support.
+
+##### I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?
+
+There are a few options for devices that do not have an official device type on {{ $names.company.lower }}. If your device has an x86 architecture, you can try the [Intel NUC][nuc] image, which is built to support generic x86 devices. For other devices, you can [build your own][build-your-own] version of {{ $names.os.lower }} using our [open source repos][balenaOS]. To discuss custom board support, please contact sales@{{ $names.domain }}.
 
 [forums]:https://forums.{{ $names.domain }}/c/troubleshooting
 
 [device-types]:/reference/base-images/devicetypes
-[base-image]:/reference/base-images/resin-base-images
+[base-image]:/reference/base-images/base-images
 [dockerfile]:/learn/develop/dockerfile
 [multicontainer]:/learn/develop/multicontainer
 [app-types]:/learn/manage/app-types
@@ -146,3 +153,6 @@ Discontinued devices will no longer be actively supported by {{ $names.company.l
 [security]:/learn/welcome/security
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [named-volumes]:/learn/develop/multicontainer/#named-volumes
+[balenaOS]:{{ $links.githubOS }}
+[build-your-own]:{{ $links.githubOS }}/meta-balena/blob/master/contributing-device-support.md
+[nuc]:/learn/getting-started/intel-nuc/nodejs/
