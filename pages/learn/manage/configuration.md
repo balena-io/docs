@@ -4,7 +4,7 @@ title: Configuration variables
 
 # Configuration variables
 
-Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
+Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `RESIN_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
 
 Configuration variables can be managed at both the fleet and device level.
 
@@ -16,26 +16,26 @@ This list contains configuration variables that can be used with {{ $names.compa
 
 Name | Default | Description | Valid from
 --- | --- | --- | ---
-BALENA_HOST_LOG_TO_DISPLAY | | Enable / Disable logs on the HDMI display | v1.7.0
-BALENA_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
-BALENA_SUPERVISOR_DELTA | false | Enable / Disable [delta updates][deltas] | v1.7.0
-BALENA_SUPERVISOR_DELTA_REQUEST_TIMEOUT | 30000| Define the timeout when requesting a delta, in milliseconds | v3.0.0
-BALENA_SUPERVISOR_DELTA_RETRY_COUNT | 30 | Define the number of times a delta download should be retried | v6.2.0
-BALENA_SUPERVISOR_DELTA_RETRY_INTERVAL | 1000 | Define the wait time between delta download attempts, in milliseconds | v6.2.0
-BALENA_SUPERVISOR_LOCAL_MODE | false | Enable / Disable [local mode][local-mode] | v4.0.0
-BALENA_SUPERVISOR_LOG_CONTROL | true | Enable / Disable logs being sent to the {{ $names.company.lower }} API | v1.3.0
-BALENA_SUPERVISOR_POLL_INTERVAL | 60000 | Define the {{ $names.company.lower }} API poll interval in milliseconds | v1.3.0
-BALENA_SUPERVISOR_VPN_CONTROL | true | Enable / Disable VPN | v1.3.0
+RESIN_HOST_LOG_TO_DISPLAY | | Enable / Disable logs on the HDMI display | v1.7.0
+RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
+RESIN_SUPERVISOR_DELTA | false | Enable / Disable [delta updates][deltas] | v1.7.0
+RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT | 30000| Define the timeout when requesting a delta, in milliseconds | v3.0.0
+RESIN_SUPERVISOR_DELTA_RETRY_COUNT | 30 | Define the number of times a delta download should be retried | v6.2.0
+RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL | 1000 | Define the wait time between delta download attempts, in milliseconds | v6.2.0
+RESIN_SUPERVISOR_LOCAL_MODE | false | Enable / Disable [local mode][local-mode] | v4.0.0
+RESIN_SUPERVISOR_LOG_CONTROL | true | Enable / Disable logs being sent to the {{ $names.company.lower }} API | v1.3.0
+RESIN_SUPERVISOR_POLL_INTERVAL | 60000 | Define the {{ $names.company.lower }} API poll interval in milliseconds | v1.3.0
+RESIN_SUPERVISOR_VPN_CONTROL | true | Enable / Disable VPN | v1.3.0
 
 
 In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these values apply to Raspberry Pi devices, reflecting the contents of the `config.txt` file:
 
 Name | Default | Description
 --- | --- | ---
-BALENA_HOST_CONFIG_disable_splash | 1 | Enable / Disable the {{ $names.company.lower }} splash screen
-BALENA_HOST_CONFIG_dtparam | "i2c_arm=on","spi=on","audio=on" | Define DT parameters
-BALENA_HOST_CONFIG_enable_uart | 1 | Enable / Disable UART
-BALENA_HOST_CONFIG_gpu_mem | 16 | Define device GPU memory in megabytes
+RESIN_HOST_CONFIG_disable_splash | 1 | Enable / Disable the {{ $names.company.lower }} splash screen
+RESIN_HOST_CONFIG_dtparam | "i2c_arm=on","spi=on","audio=on" | Define DT parameters
+RESIN_HOST_CONFIG_enable_uart | 1 | Enable / Disable UART
+RESIN_HOST_CONFIG_gpu_mem | 16 | Define device GPU memory in megabytes
 
 You can find more information on updating `config.txt` through configuration variables in our [Advanced Boot Configuration Guide][boot-config-guide].
 
@@ -55,7 +55,7 @@ To define a custom fleet configuration variable, scroll past the automatically p
 
 <img src="/img/configuration/add_fleet_configuration.png" width="100%">
 
-As before, a dialog pops up giving you the option to define a name and value (remember, all config variable names must begin with `BALENA_`). Click *Add* to apply:
+As before, a dialog pops up giving you the option to define a name and value (remember, all config variable names must begin with `RESIN_`). Click *Add* to apply:
 
 <img src="/img/configuration/variable_editor_config.png" width="60%">
 

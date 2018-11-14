@@ -1,7 +1,7 @@
 ---
 title: Delta updates
 excerpt: How binary delta updates work on {{ $names.company.lower }}, and how to enable it for your applications
-thumbnail: /img/runtime/BalenaSupervisorDelta.png
+thumbnail: /img/runtime/ResinSupervisorDelta.png
 ---
 
 # Delta updates
@@ -16,9 +16,9 @@ These binary deltas save on the amount of data needed to be downloaded, reduce t
 
 ## Enabling delta updates
 
-Delta update behaviour is enabled with the `BALENA_SUPERVISOR_DELTA` configuration variable:
+Delta update behaviour is enabled with the `RESIN_SUPERVISOR_DELTA` configuration variable:
 
-![Setting the fleet configuration to enable delta behaviour](/img/runtime/BalenaSupervisorDelta.png)
+![Setting the fleet configuration to enable delta behaviour](/img/runtime/ResinSupervisorDelta.png)
 
 To enable this behaviour application-wide, that is for all devices of a given application, set the above variable at **Fleet Configuration** in the {{ $names.company.lower }} dashboard of your application, through the {{ $names.company.lower }} [API](/reference/api/resources/application_config_variable/), through the SDK (in [Node.js](/reference/sdk/node-sdk/#configvar-set-nameorid-key-value-code-promise-code-) or [Python](/reference/sdk/python-sdk/#applicationconfigvariable)), or the [command line interface](/tools/cli/#envs).
 
@@ -30,8 +30,8 @@ If you are using delta updates, you might notice the following changes in {{ $na
 
 The *Download progress* bar on the dashboard might show for only a short time—much shorter than in a normal application update. This is because in the most common development patterns, there are usually very small changes between one version of the application image and the next (e.g. fixing typos, adding a new source file, or installing an extra OS package), and when using deltas these changes are downloaded much quicker than before.
 
-Delta updates are resumable, so if the connection drops or otherwise stalls, the update will resume from the last byte received. A user can configure the number of times a delta is retried before it bails out and signals failure to the supervisor. This is set by the `BALENA_SUPERVISOR_DELTA_RETRY_COUNT` configuration variable.
+Delta updates are resumable, so if the connection drops or otherwise stalls, the update will resume from the last byte received. A user can configure the number of times a delta is retried before it bails out and signals failure to the supervisor. This is set by the `RESIN_SUPERVISOR_DELTA_RETRY_COUNT` configuration variable.
 
-In addition, the wait time before a connection is considered stalled and the time between retries are configurable, using `BALENA_SUPERVISOR_DELTA_REQUEST_TIMEOUT` and `BALENA_SUPERVISOR_DELTA_RETRY_INTERVAL`. These are both specified in milliseconds. The defaults for these options allow for a 20 minute time frame where no byte is received before giving up, after which the supervisor retries the delta from the beginning.
+In addition, the wait time before a connection is considered stalled and the time between retries are configurable, using `RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT` and `RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL`. These are both specified in milliseconds. The defaults for these options allow for a 20 minute time frame where no byte is received before giving up, after which the supervisor retries the delta from the beginning.
 
 The only case where the deltas fall back to pulling the entire image is if corruption is detected.
