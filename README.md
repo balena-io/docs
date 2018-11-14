@@ -1,4 +1,4 @@
-balenaCloud Documentation
+Balena Documentation
 ======================
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qbsivehgnq0vyrrb?svg=true)](https://ci.appveyor.com/project/fedealconada/resin-docs)
@@ -38,11 +38,11 @@ If you think something is not documented, or can be improved, don't hesitate in 
 Deploying
 ----------
 
-After a PR has been created, a member of the resin team will review and merge into `master`.
+After a PR has been created, a member of the balena team will review and merge into `staging`.
 
-Shortly after merging to `master` it'll automatically be deployed to our [staging environment](https://docs.resinstaging.io/) (This should only take a few minutes).
+Shortly after merging to `staging` it'll automatically be deployed to our [staging environment](https://www.balena-staging.io/docs/) (This should only take a few minutes).
 
-Once deployed to staging, we will preview your changes. If everything looks good, a member of the resin team will make another PR from `master` into the `production` branch. When this is merged, the changes will automatically deploy to [production](https://balena.io/docs)
+Once deployed to staging, we will preview your changes. If everything looks good, a member of the balena team will make another PR from `staging` into the `master` branch. When this is merged, the changes will automatically deploy to [production](https://balena.io/docs)
 
 Style manual
 ----------

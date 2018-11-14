@@ -223,7 +223,7 @@ If you have not enabled an init system in your application or chose to mount man
 ```Dockerfile
 RUN echo "LABEL=mysdcard /mnt/storage ext4 rw,relatime,discard,data=ordered 0 2" >> /etc/fstab
 ```
-Modify your settings as apporopriate (device identification, mount endpoint, file system, mount options), and see more information about the possible settings at the [fstab man page](http://man7.org/linux/man-pages/man5/fstab.5.html).
+Modify your settings as appropriate (device identification, mount endpoint, file system, mount options), and see more information about the possible settings at the [fstab man page](http://man7.org/linux/man-pages/man5/fstab.5.html).
 
 Then in your start script you need to create the mount directory and mount the device:
 ```Bash

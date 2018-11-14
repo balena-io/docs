@@ -8,7 +8,7 @@ excerpt: Choosing an update strategy for your {{ $names.company.lower }} devices
 With the {{ $names.company.lower }} device supervisor version 1.3, we added the ability to choose the update strategy on devices, that is, the order and way in which the steps to perform an update are executed. You can check whether your Supervisor has the appropriate version in the "Agent version" entry in the device dashboard page.
 These update strategies allow users to choose between three modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
 
-Update strategies are selected using [Fleet Configuration environment variables](/management/env-vars). The two variables that are involved are
+Update strategies are selected using [Fleet Configuration environment variables](/learn/manage/configuration/). The two variables that are involved are
 
 * `BALENA_SUPERVISOR_UPDATE_STRATEGY` and
 * `BALENA_SUPERVISOR_HANDOVER_TIMEOUT`.
