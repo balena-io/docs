@@ -20,12 +20,12 @@
 ^\/installing\/otherboards\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi3/nodejs/$1$2
 
 # Device name changes
-(.*)\/raspberrypi/(.*) -> $1/raspberry-pi/$2
-(.*)\/raspberrypi2/(.*) -> $1/raspberry-pi2/$2
-(.*)\/edison/(.*) -> $1/intel-edison/$2
-(.*)\/nuc/(.*) -> $1/intel-nuc/$2
-(.*)\/beaglebone/(.*) -> $1/beaglebone-black/$2
-(.*)\/dart6ul/(.*) -> $1/imx6ul-var-dart/$2
+^\/(.*)\/raspberrypi\/(.*) -> /$1/raspberry-pi/$2
+^\/(.*)\/raspberrypi2\/(.*) -> /$1/raspberry-pi2/$2
+^\/(.*)\/edison\/(.*) -> /$1/intel-edison/$2
+^\/(.*)\/nuc\/(.*) -> /$1/intel-nuc/$2
+^\/(.*)\/beaglebone\/(.*) -> /$1/beaglebone-black/$2
+^\/(.*)\/dart6ul\/(.*) -> /$1/imx6ul-var-dart/$2
 
 # Default redirects
 ^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi3/nodejs/$1$2
@@ -37,8 +37,8 @@
 ^\/reference\/?(\?.+)?(#.+)?$ -> /reference/hardware/devices/$1$2
 ^\/deployment\/network\/2\.0.*\/?(\?.+)?(#.+)?$ -> /reference/OS/network/2.x/$1$2
 ^\/deployment\/network\/1.x.x\/?(\?.+)?(#.+)?$-> /reference/OS/network/1.x/$1$2
-^\/understanding/understanding-devices\/2\.0.*\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/2.x/$1$2
-^\/understanding/understanding-devices\/1.x.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/1.x/$1$2
+^\/understanding\/understanding-devices\/2\.0.*\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/2.x/$1$2
+^\/understanding\/understanding-devices\/1.x.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/1.x/$1$2
 ^\/reference\/api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
 
 # Renamed pages
@@ -78,7 +78,7 @@
 ^\/deployment\/network\/?(.*) -> /reference/OS/network/$1
 ^\/security\/?(\?.+)?(#.+)?$  -> /learn/welcome/security/$1$2
 ^\/integrations\/?(.*) -> /learn/develop/integrations/$1
-^\/hardware\/meta-resin\/?(\?.+)?(#.+)?$ -> /reference/OS/meta-resin/$1$2
+^\/hardware\/meta-resin\/?(\?.+)?(#.+)?$ -> /reference/OS/meta-balena/$1$2
 ^\/advanced\/resources\/?(\?.+)?(#.+)?$ -> /learn/more/resources/$1$2
 ^\/examples\/?(.*) -> /learn/more/examples/$1
 ^\/troubleshooting\/faq\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/faq/$1$2
@@ -93,7 +93,7 @@
 ^\/tools\/python-sdk\/?(\?.+)?(#.+)?$ -> /reference/sdk/python-sdk/$1$2
 ^\/runtime\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2
 ^\/configuration\/custom-docker-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/customer-docker-base-images/$1$2
-^\/deployment/docker-templates\/?(\?.+)?(#.+)?$ -> /learn/develop/dockerfile/$1$2
+^\/deployment\/docker-templates\/?(\?.+)?(#.+)?$ -> /learn/develop/dockerfile/$1$2
 ^\/support\/?(\?.+)?(#.+)?$ -> /learn/welcome/support/$1$2
 ^\/devicetypes\/?(\?.+)?(#.+)?$ -> /reference/base-images/devicetypes/$1$2
 ^\/deployment\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2
