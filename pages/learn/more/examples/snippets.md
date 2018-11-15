@@ -23,7 +23,7 @@ git push {{ $names.company.short }} master
 ```
 
 
-### Resin-ssh
+### balena-ssh
 
 [Repository][resin-ssh]
 [Repository][resin-ssh-node]
@@ -80,15 +80,15 @@ A simple application that shows you how to issue commands to a servo motor using
 
 <!-- ###Code Snippets Links -->
 
-[py-gpio]:{{ $links.githubProjects }}/resin-rpi-gpio-sample-with-python
-[picamera-node]:{{ $links.githubProjects }}/resin-rpi-nodejs-picamera.git
-[picamera-py]:{{ $links.githubProjects }}/resin-rpi-python-picamera.git
-[ADC_py]:{{ $links.githubProjects }}/resin-rpi-py-ADC.git
+[py-gpio]:{{ $links.githubPlayground }}/balena-rpi-gpio-sample-with-python
+[picamera-node]:{{ $links.githubProjects }}/balena-rpi-nodejs-picamera.git
+[picamera-py]:{{ $links.githubProjects }}/balena-rpi-python-picamera.git
+[ADC_py]:{{ $links.githubPlayground }}/balena-rpi-py-ADC.git
 [resin-tether]:https://github.com/petrosagg/resin-tether
-[example-pi-pins]:{{ $links.githubProjects }}/resin-rpi-nodejs-basic-gpio.git
-[avahi-example]:{{ $links.githubProjects }}/avahi-example.git
-[resin-ssh]:{{ $links.githubProjects }}/resin-ssh-python.git
-[resin-ssh-node]:{{ $links.githubProjects }}/ssh-node
+[example-pi-pins]:{{ $links.githubPlayground }}/balena-rpi-nodejs-basic-gpio.git
+[avahi-example]:{{ $links.githubPlayground }}/avahi-example.git
+[resin-ssh]:{{ $links.githubPlayground }}/balena-ssh-python.git
+[resin-ssh-node]:{{ $links.githubPlayground }}/ssh-node
 [text2speech]:{{ $links.githubMain }}/text2speech
 [servo-motor-node]:https://github.com/craig-mulligan/resin-servo-node
 [pi-pins]:https://www.npmjs.com/package/pi-pins
