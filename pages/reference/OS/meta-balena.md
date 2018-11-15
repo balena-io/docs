@@ -6,18 +6,18 @@ excerpt: Instructions for adding boards not currently supported by {{ $names.com
 
 # Custom board support
 
-### Its important to note that the instructions for [meta-resin][meta-resin] are still a draft, we still may have some detail to cover, if you have any feedback please let us know - hello@{{ $names.domain }}.
+### Its important to note that the instructions for [meta-balena][meta-balena] are still a draft, we still may have some detail to cover, if you have any feedback please let us know - hello@{{ $names.domain }}.
 
 __NOTE:__ Pre-requisites: yocto BSP layer for your particular board. Should be compatible to yocto sumo release at the time of writing this howto.
 
 The following are the steps to follow in order to add a new board to {{ $names.company.lower }}.
 I - Add the dependencies for your layer in the resin-yocto manifests. For examples, check out **resin-yocto/manifests/resin-master-board.xml**.
 
-II - Create a layer in meta-resin that will hold the relevant files pertaining to the new board. The layer should follow the naming convention `meta-resin-${board_name}` **(i.e. meta-resin-nuc)**
+II - Create a layer in meta-balena that will hold the relevant files pertaining to the new board. The layer should follow the naming convention `meta-resin-${board_name}` **(i.e. meta-resin-nuc)**
 Following files should be present in this layer:
 Depending on the type of board you are adding suport for, you should have your device support either just resin-image or resin-image-flasher and resin-image. Generally, resin-image is for boards that boot directly from external storage (these boards do not have internal storage to install resin on). resin-image-flasher is used when the targeted board has internal storage so this flasher image is burned onto an SD card or USB stick that is used for the initial boot. When booted, this flasher image should automatically install resin on internal storage.
 
-1. The resin-image and/or resin-image-flasher appends reside in **meta-resin/meta-resin-${board_name}/recipes-core/images/** directory.
+1. The resin-image and/or resin-image-flasher appends reside in **meta-balena/meta-resin-${board_name}/recipes-core/images/** directory.
 One should define the following variables in the resin-image bbappend:
 
 	- `IMAGE_FSTYPES_${board_name}` - using this variable one can declare the type of the produced image. It can be ext3, ext4, resin-sdcard etc. Usual type for a board that can boot from SD card, USB, is "resin-sdcard".
@@ -36,9 +36,9 @@ One should define the following variables in the resin-image bbappend:
 
 2. Create a `.bbappend` for having the kernel recipe in your BSP layer inherit kernel-resin. This adds the necessary kernel configs for using with resin.
 
-	This should reside in **meta-resin/meta-resin-${board_name}/recipes-kernel/linux/**
+	This should reside in **meta-balena/meta-resin-${board_name}/recipes-kernel/linux/**
 
-3. Create a `.bbappend` for specifying the build of the resin supervisor to be used with your board. This append resides in **meta-resin/meta-resin-${board-name}/recipes-support/resin-supervisor-disk/**
+3. Create a `.bbappend` for specifying the build of the resin supervisor to be used with your board. This append resides in **meta-balena/meta-resin-${board-name}/recipes-support/resin-supervisor-disk/**
 
 	Following variables should be defined:
 
@@ -50,7 +50,7 @@ One should define the following variables in the resin-image bbappend:
 
 	- `LED_FILE_${board_name}` - points to a sysfs property that allows an LED to be flashed on your board.
 
-4. If using *resin-image-flasher*, you must define some variables to pass to the flashing script. Create a `resin-init-flasher.bbappend` in **meta-resin/meta-resin-${board_name}/recipes-support/resin-init/** and define in it:
+4. If using *resin-image-flasher*, you must define some variables to pass to the flashing script. Create a `resin-init-flasher.bbappend` in **meta-balena/meta-resin-${board_name}/recipes-support/resin-init/** and define in it:
 
 	- `BOARD_BOOTLOADER_${board_name}` - for the moment, "grub-efi" and "u-boot" are the supported options
 
@@ -59,4 +59,4 @@ One should define the following variables in the resin-image bbappend:
 5. And of course your typical yocto `conf/layer.conf` file, COPYING and README.md file specifying what is the machine this layer adds support for and what are the yocto layers it depends on.
 
 
-[meta-resin]:{{ $links.githubMain }}/meta-resin
+[meta-balena]:{{ $links.githubMain }}/meta-balena

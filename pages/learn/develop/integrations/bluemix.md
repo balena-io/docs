@@ -288,4 +288,4 @@ There is an example how to [visualize your data](https://developer.ibm.com/recip
 A few sample apps to get started:
 
 * [bluemix-resin-python demo project]({{ $links.githubProjects }}/bluemix-resin-python): automatic or manual device registration, send data and receive actions
-* [Resin-Bluemix boilerplate](https://github.com/craig-mulligan/resin-bluemix-boilerplate): automatically register your device and publish data to your Bluemix app
+* [Bluemix boilerplate](https://github.com/craig-mulligan/resin-bluemix-boilerplate): automatically register your device and publish data to your Bluemix app

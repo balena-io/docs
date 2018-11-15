@@ -104,14 +104,14 @@ Allows you to control a simple desk lamp from your browser anywhere in the world
 
 Warning!!! This project uses a relay to switch on and off mains power. So some level of familiarity with electronics is required.
 
-### Resin CCTV
+### CCTV
 
 [Repository][resin-cctv] by [Aleksis Brezas][aleksis]
 
 A project which allows you to use your devices as a CCTV camera system which
 hooks into [Dropbox][dropbox].
 
-### Resin Player
+### Squeezebox Player
 
 [Repository][resin-player] by [Praneeth Bodduluri][lifeeth]
 
