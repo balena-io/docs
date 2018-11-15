@@ -63,19 +63,24 @@ Starting from {{ $names.os.lower }} v2.0.7, the devices connect to the following
 - 3.resinio.pool.ntp.org
 
 ##### What network ports are required?
+
 In order for a {{ $names.company.lower }} device to get outside of the local network and connect to the {{ $names.company.lower }} API, there are a few core network requirements.
 
 {{ $names.company.upper }} makes use of the following ports:
 
-* `443` TCP - This is the most fundamental requirement - it is used to connect to the VPN and the web terminal, and many web endpoints using TLS (`https://`.)
+* `443` TCP - This is the most fundamental requirement - it is used to connect to the VPN and the web terminal, and many web endpoints using TLS (https://.)
 * `123` UDP - For NTP time synchronisation.
 * `53` UDP - For DNS name resolution.
 
 Each of these should work with outward only (and inward once outward connection established) firewall settings.
 
-Additionally, if the network your device is connecting to works with whitelisting, you should whitelist the following domains on port `80` and `443`:
-* `*.{{ $names.domain }}`
-* `*.pubnub.com`
+Additionally, you should whitelist the following domains for the relevant ports above:
+* `*.{{ $names.dashboard_domain }}`
+* `*.docker.com`
+* `*.docker.io`
+
+
+Additionally, an outgoing connection to `mixpanel.com` is made. This is not a functional requirement for {{ $names.company.lower }}, but allows tracking of some useful metrics.
 
 ##### Can I access /dev and things like GPIO from the container?
 If you're application uses a single container, it will be run in privileged mode by default and will have access to hardware in the same way as a vanilla Linux system.
