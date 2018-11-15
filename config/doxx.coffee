@@ -22,4 +22,5 @@ module.exports = {
   parseNav: true
   serializeNav: path.join(root, 'server', 'nav.json')
   buildLunrIndex: path.join(root, 'server', 'lunr_index.json')
+  pathPrefix: config.pathPrefix
 }

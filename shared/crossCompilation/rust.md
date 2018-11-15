@@ -39,7 +39,7 @@ hello: ELF 32-bit LSB  shared object, ARM, EABI5 version 1 (SYSV), dynamically l
 
 Now that we have `{{ $names.company.short }} sync` and cross-compilation setup there is one more step needed to link them both together. This comes in the form of a `.{{ $names.company.short }}-sync.yml` file that needs to be created in the root of the application directory.
 ```
-before: 'cargo build --target={{ $device.rustTriple }} && cp target/{{ $device.rustTriple }}/debug/resin-rust-hello-world target/debug/resin-rust-hello-world && rm -r target/{{ $device.rustTriple }}/'
+before: 'cargo build --target={{ $device.rustTriple }} && cp target/{{ $device.rustTriple }}/debug/balena-rust-hello-world target/debug/balena-rust-hello-world && rm -r target/{{ $device.rustTriple }}/'
 ```
 This line has a lot packed into it but is really quite simple. The `before:` option ensures the command that follows is run on our local machine before syncing any changes to our device. First the changes must be cross-compiled for our device using `cargo build --target={{ $device.rustTriple }}`, next the compiled executable is copied from the cargo output directory `{{ $device.rustTriple }}` to `debug`, finally the cargo output directory is deleted to save space and reduce syncing time.
 

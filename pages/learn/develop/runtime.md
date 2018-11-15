@@ -14,6 +14,8 @@ For many applications, the code running in your container will need some way to 
 
 Inside your running container, you'll have access to a number of `{{ $names.company.allCaps }}_` namespaced environment variables, which provide information from the system outside the container:
 
+__Note:__ On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
+
 |    Variable   	| Description 	|
 |:----------:	    |:-----------:	|
 | `{{ $names.company.allCaps }}_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on {{ $names.company.lower }}	|
@@ -39,7 +41,7 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 {{ $names.company.allCaps }}_SUPERVISOR_API_KEY=1111deadbeef2222                    
 {{ $names.company.allCaps }}_APP_ID=157270                                                                                          
 {{ $names.company.allCaps }}_DEVICE_TYPE=raspberrypi3                                                                               
-RESIN=1                                                                                                      
+{{ $names.company.allCaps }}=1                                                                                                      
 {{ $names.company.allCaps }}_SUPERVISOR_ADDRESS=http://127.0.0.1:48484                                                              
 {{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1                                                                              
 {{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee                             
@@ -48,7 +50,7 @@ RESIN=1
 {{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3                                                                               
 {{ $names.company.allCaps }}_APP_NAME=Example                                                                                      
 {{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze                                                                          
-{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.upper }} 1.24.0                          
+{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.lower }} 2.20.0                          
 {{ $names.company.allCaps }}_SUPERVISOR_PORT=48484  
 ```
 
@@ -177,7 +179,7 @@ which listen on any port without issue. There is no need to have the Docker `EXP
 
 {{ $names.company.upper }} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the {{ $names.company.lower }} dashboard and select the `Enable a public URL for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
 
-![Enable device url](/img/screenshots/device-url-new.png)
+![Enable device url](/img/common/enable-public-URLs.png)
 
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices URL.
 
@@ -221,7 +223,7 @@ If you have not enabled an init system in your application or chose to mount man
 ```Dockerfile
 RUN echo "LABEL=mysdcard /mnt/storage ext4 rw,relatime,discard,data=ordered 0 2" >> /etc/fstab
 ```
-Modify your settings as apporopriate (device identification, mount endpoint, file system, mount options), and see more information about the possible settings at the [fstab man page](http://man7.org/linux/man-pages/man5/fstab.5.html).
+Modify your settings as appropriate (device identification, mount endpoint, file system, mount options), and see more information about the possible settings at the [fstab man page](http://man7.org/linux/man-pages/man5/fstab.5.html).
 
 Then in your start script you need to create the mount directory and mount the device:
 ```Bash
@@ -230,7 +232,7 @@ mkdir -p /mnt/storage && mount /mnt/storage
 
 **Using systemd**
 
-Normally systemd mounts entries from `/etc/fstab` on startup automatically, but running within Docker, it will only mount entries that are not block devices, such as `tempfs` entries. For non-block devices, adding entries `/etc/fstab` is sufficient, for example in your Dockerfile:
+Normally systemd mounts entries from `/etc/fstab` on startup automatically, but running within Docker, it will only mount entries that are not block devices, such as `tmpfs` entries. For non-block devices, adding entries `/etc/fstab` is sufficient, for example in your Dockerfile:
 ```Dockerfile
 RUN echo "tmpfs  /cache  tmpfs  rw,size=200M,nosuid,nodev,noexec  0 0" >> /etc/fstab
 ```

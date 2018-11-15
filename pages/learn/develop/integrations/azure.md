@@ -5,7 +5,7 @@ excerpt: Get started with the Microsoft Azure IoT Suire and {{ $names.company.lo
 
 # [Microsoft Azure IoT Suite][azure] integration
 
-[{{ $names.company.upper }}][resin] makes it simple to deploy, update, and maintain code running on remote devices. Microsoft's new IoT Suite makes it easy to manage and capture the data those devices generate. This tutorial will walk you through using the two in conjunction.
+[{{ $names.company.upper }}][balena] makes it simple to deploy, update, and maintain code running on remote devices. Microsoft's new IoT Suite makes it easy to manage and capture the data those devices generate. This tutorial will walk you through using the two in conjunction.
 
 
 ## Connect your device to {{ $names.company.lower }}
@@ -55,12 +55,12 @@ The variables are:
 
 ## Push the sample app to your devices
 
-When you push code to resin git endpoint several things happen, including:
-* resin creates a Docker container
+When you push code to the {{ $names.company.lower }} git endpoint several things happen, including:
+* {{ $names.company.lower }} creates a Docker container
 * it provisions it following the instructions in Dockerfile (for example, it automatically installs Linux packages and builds C sources in our case)
 * it notifies the devices about the new container availability
 
-When you power on the device resin-agent connects to resin API server and fetches the application container. It also does it every time a new container is available (when you push the updated code).
+When you power on the device, it connects to the {{ $names.company.lower }} API and fetches the application container. It also does it every time a new container is available (when you push the updated code).
 
 First clone the the [sample application][sampleApp] to your local machine.
 
@@ -70,7 +70,7 @@ __NOTE:__ Our integration is not part of the code Microsoft releases, instead it
 git clone {{ $links.githubProjects }}/resin-azure-iot-sample && cd resin-azure-iot-sample && git checkout resin-node
 ```
 
-Then add your {{ $names.company.lower }} applications remote endpoint to the git repository. It can be found in the top right hand corner of your resin applications dashboard.
+Then add your {{ $names.company.lower }} applications remote endpoint to the git repository. It can be found in the top right hand corner of your {{ $names.company.lower }} applications dashboard.
 
 ```
 git remote add {{ $names.company.short }} <your-applications-remote-endpoint>
@@ -93,11 +93,11 @@ Once the download is complete, head to the device logs you'll notice that we are
 
 ## Have fun!
 
-Now you’re done. Provision as many devices as you need with resin (you can use the same device OS image you’ve downloaded at step 1, burn it to multiple SD cards and power on the devices). You can watch devices appearing online through resin dashboard. You can check app and device environment variables that should be created quickly after the device is online. Then you can check the device logs and see as they send the information to the IoT Hub. Finally you can go to the IoT Hub Admin portal and check that the new devices appear as running there.
+Now you’re done. Provision as many devices as you need with {{ $names.company.lower }} (you can use the same device OS image you’ve downloaded at step 1, burn it to multiple SD cards and power on the devices). You can watch devices appearing online through {{ $names.company.lower }} dashboard. You can check app and device environment variables that should be created quickly after the device is online. Then you can check the device logs and see as they send the information to the IoT Hub. Finally you can go to the IoT Hub Admin portal and check that the new devices appear as running there.
 
 ![devices-running](/img/integrations/azure/devices-running.png)
 
-[resin]:{{ $links.mainSiteUrl }}
+[balena]:{{ $links.mainSiteUrl }}
 [installing]:/installing/gettingStarted
 [azure]:http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx
 [screencast]:https://vimeo.com/136840643

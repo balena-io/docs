@@ -1,4 +1,4 @@
-One of the many useful features of [resin-cli][resin-cli-link] is `resin ssh`, this command allows you to quickly SSH into a device's running container and run test commands or pull out some logs.
+One of the many useful features of [resin-cli][resin-cli-link] is `{{ $names.company.lower }} ssh`, this command allows you to quickly SSH into a device's running container and run test commands or pull out some logs.
 
 Provided you are already logged in on the CLI and you have a device online, you can use `resin ssh <uuid>` to access the container. Here is an example:
 ```shell

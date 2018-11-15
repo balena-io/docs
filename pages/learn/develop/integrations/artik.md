@@ -24,7 +24,7 @@ To create your first device type, on the developer dashboard navigate to device 
 
 ![New ARTIK Cloud device type](/img/integrations/artik/ARTIKCloud_new_devicetype.png)
 
-Set a suitable _display name_, and a _unique name_ for the device type. In my example the display name is "My Resin Device", and the unique name is `my.resin.v1`. Unique names can, but do not have to follow the pattern of reversed Internet domain name format, for example `io.resin.aircon`.
+Set a suitable _display name_, and a _unique name_ for the device type. In my example the display name is "My {{ $names.company.upper }} Device", and the unique name is `my.{{ $names.company.lower }}.v1`. Unique names can, but do not have to follow the pattern of reversed Internet domain name format, for example `io.{{ $names.company.lower }}.aircon`.
 
 After the new device type is created, you have to declare its capabilities through a manifest file. A manifest file is a specially formatted JSON file (see the [documentation](https://developer.artik.cloud/documentation/introduction/the-manifest.html)), which can be either manually created, or you can use the online manifest creator from the device type's dashboard:
 
@@ -60,7 +60,7 @@ I've got this file by exporting the manifest from the device type dashboard, onc
 
 The next step would be adding any actions that the device can take, but that is out of scope for this simple getting started tutorial and we won't add any actions. As a general overview, actions have a "name" which is equivalent of a command sent to the device (e.g. "setText" to display a given text any way the device is capable of, or "turnOff" to turn off the the device). The actions may also have parameters (but don't have to), which act as arguments to the command (such as the "text" parameter of the "setText" action, to tell the device what to display). ARTIK Cloud has a number of default actions, but you can define any action name, and any parameter names.
 
-For more advanced set up, you can consult the [device manifest documentation]([documentation](https://developer.artik.cloud/documentation/introduction/the-manifest.html)).
+For more advanced set up, you can consult the [device manifest documentation](https://developer.artik.cloud/documentation/data-management/the-manifest.html).
 
 Once data fields and actions are set up, save and activate the manifest. Your new device type is ready to use:
 
@@ -70,7 +70,7 @@ There are advanced options available on that dashboard to manage the device type
 
 ### Device creation
 
-Next, we need to create a new device with the above device type. This is done on the [My ARTIK Cloud dashboard](https://www.artik.cloud/my). When prompted to connect your first device, in the device type field you will be able to find the name, in this example "My Resin Device". You can use any convenient name for your device itself.
+Next, we need to create a new device with the above device type. This is done on the [My ARTIK Cloud dashboard](https://www.artik.cloud/my). When prompted to connect your first device, in the device type field you will be able to find the name, in this example "My {{ $names.company.upper }} Device". You can use any convenient name for your device itself.
 
 ![New device](/img/integrations/artik/ARTIKCloud_new_device.png)
 
@@ -100,7 +100,7 @@ In the application dashboard define two application-wide environmental variables
 
 ![Environment variables](/img/integrations/artik/ARTIKCloud_environment.png)
 
-Set up your device and connect to resin. Then in the device's dashboard, redefine the environmental variables (the Device ID and Device Token) saved from the previous step. If you have multiple devices, do these steps for all of them.
+Set up your device and connect to {{ $names.company.lower }}. Then in the device's dashboard, redefine the environmental variables (the Device ID and Device Token) saved from the previous step. If you have multiple devices, do these steps for all of them.
 
 After this, the credentials for the devices to talk to ARTIK Cloud will be available from within your application code as environmental variables!
 
@@ -112,10 +112,10 @@ There are multiple ways to connect to the ARTIK Cloud to send and receive data, 
 
 #### Using the ARTIK Cloud Python SDK
 
-Here are a few notes using the [Python SDK](https://github.com/artikcloud/artikcloud-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Python images, for example:
+Here are a few notes using the [Python SDK](https://github.com/artikcloud/artikcloud-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Python images, for example:
 
 ```
-FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python:2.7
+FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python:2.7
 ```
 
 Add the `artikcloud` dependency in your `requirements.txt` file:
@@ -179,10 +179,10 @@ You can use any Python MQTT library to communicate with the ARTIK Cloud. Check t
 
 #### Using the ARTIK Cloud Node.js SDK
 
-Here are a few notes using the [Javascript/Node.js SDK](https://github.com/artikcloud/artikcloud-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the resin default Node.js images, for example:
+Here are a few notes using the [Javascript/Node.js SDK](https://github.com/artikcloud/artikcloud-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Node.js images, for example:
 
 ```
-FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
+FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
 ```
 
 Add the `artikcloud-js` dependency in your `package.json` in your application's folder:
@@ -250,12 +250,12 @@ Once it is working, you can go to more advanced features, such as [setting rules
 
 A few sample apps to get started:
 
-* [Push events to the Artik cloud(sami)]({{ $links.githubProjects }}/resin-artik-cloud-publisher)
-* [Python application showing how to send messages and receive actions over MQTT and WebSockets in a {{ $names.company.lower }} application]({{ $links.githubProjects }}/artikcloud-resin-python)
+* [Push events to the Artik cloud(sami)]({{ $links.githubProjects }}/balena-artik-cloud-publisher)
+* [Python application showing how to send messages and receive actions over MQTT and WebSockets in a {{ $names.company.lower }} application]({{ $links.githubProjects }}/artikcloud-balena-python)
 * [ARTIK Cloud documentation samples](https://developer.artik.cloud/documentation/samples/)
 
 ### Relevant Blogposts
 
 Some relevant posts from our blog:
 
-* [ARTIK & ARTIK Cloud tutorial]({{ $links.mainSiteUrl }}/blog/artikartikcloud/)
+* [ARTIK & ARTIK Cloud tutorial]({{ $links.blogSiteUrl }}/artikartikcloud/)

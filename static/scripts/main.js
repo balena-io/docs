@@ -3,6 +3,9 @@ var Headroom = require('headroom.js')
 var hljs = require('highlight.js/lib/highlight')
 var languages = require('./langs.js')
 
+// Export jQuery
+window.jQuery = $
+
 // TODO use import and tree shake instead of whitelisting lang modules
 // https://bjacobel.com/2016/12/04/highlight-bundle-size/
 languages.forEach(function(langName) {
