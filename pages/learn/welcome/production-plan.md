@@ -27,7 +27,7 @@ Of course, the single biggest choice you have to make is whether to use off-the-
 
 One of the challenges in building applications for distributed fleets is aligning your development environment with the operating environment running on your devices. You'll need a way to make sure your application and its dependencies work with your device's architecture, as well as a plan for pushing updates to your application without losing access to your devices. 
 
-{{ $names.company.upper }} solves for these concerns by running {{ $names.os.lower }}, a bare-bones host OS with a lightweight, Docker-compatible container engine, [{{ $names.engine.lower }}][{{ $names.engine.lower }}]. With containers, you can develop your application in the way you are most comfortable, and then run that environment on your device without worrying about the underlying hardware support. Any dependencies, such as libraries and runtime environments, will already be packaged in the container.
+{{ $names.company.upper }} solves for these concerns by running {{ $names.os.lower }}, a bare-bones host OS with a lightweight, Docker-compatible container engine, [{{ $names.engine.lower }}][engine-link]. With containers, you can develop your application in the way you are most comfortable, and then run that environment on your device without worrying about the underlying hardware support. Any dependencies, such as libraries and runtime environments, will already be packaged in the container.
 
 Containers also make remote application updates a straightforward process. A new application image can be downloaded, verified, and started while the host OS maintains a network connection and handles any issues.
 
@@ -113,17 +113,17 @@ When updating software on production devices, it makes sense to be cautious and 
 
 The {{ $names.company.lower }} API includes functionality that allows for [fine-grained control of updates][staged-releases]. With these endpoints, you can turn off automatic release updates, set a target release for the whole fleet, or set target releases for a specific subset of devices. The [device tag][tags] and [filter][filters] functionality makes it easy to assign groups of devices to certain phases of your deployment.
 
-[{{ $names.engine.lower }}]:https://www.balena.io/
+[engine-link]:{{ $links.engineSiteUrl }}
 [docker-compose]:https://docs.docker.com/compose/overview/
 [dev-vs-prod]:/reference/OS/overview/2.x/#dev-vs-prod-images
 [local-mode]:/learn/develop/local-mode
-[wifi-connect]:{{ $links.githubMain }}/{{ $names.company.short }}-wifi-connect
+[wifi-connect]:{{ $links.githubMain }}/wifi-connect
 [supervisor-api]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
-[collaborators]:/learn/manage/account/#collaboration-management
+[collaborators]:/learn/manage/account/#application-members
 [ssh]:/learn/manage/ssh-access
-[custom-logging]:{{ $links.mainSiteUrl }}/blog/how-to-create-a-custom-logging-system-for-longer-log-retention/
-[preload]:/reference/cli/#preload-60-image-62-
-[staged-releases]:{{ $links.githubMain }}-playground/staged-releases
+[custom-logging]:{{ $links.blogSiteUrl }}/how-to-create-a-custom-logging-system-for-longer-log-retention/
+[preload]:/reference/cli/#preload-image-
+[staged-releases]:{{ $links.githubProjects }}/staged-releases
 [tags]:/learn/manage/filters-tags/#device-tags
 [filters]:/learn/manage/filters-tags/#device-filters
 

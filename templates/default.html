@@ -10,7 +10,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ title }} - {{ $names.company.upper }} Documentation" />
     {% if excerpt %}<meta property="og:description" content="{{ excerpt }}" />{% endif %}
-    <meta property="og:image" content="{{ baseUrl }}{% if thumbnail %}{{ thumbnail }}{% else %}{{ defaultThumbnail }}{% endif %}" />
+    <meta property="og:image" content="{% if thumbnail %}{{ thumbnail }}{% else %}{{ defaultThumbnail }}{% endif %}" />
     <link rel="stylesheet" href="/dist/style.css">
     <!-- Algolia search styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
