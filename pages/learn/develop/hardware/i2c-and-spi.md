@@ -12,7 +12,7 @@ title: I2C and Other Interfaces
   * [Using UART or Serial on Raspberry Pi 3](/hardware/i2c-and-spi#using-uart-or-serial-on-raspberry-pi-3)
   * [Raspberry Pi camera module](/hardware/i2c-and-spi#raspberry-pi-camera-module)
   * [Raspberry Pi 7” Touchscreen Display](/hardware/i2c-and-spi#raspberry-pi-7-touchscreen-display)
-  * [Customising config.txt](/hardware/i2c-and-spi#customizing-config-txt)
+  * [Customizing config.txt](/hardware/i2c-and-spi#customizing-config-txt)
 * [Beaglebone](/hardware/i2c-and-spi#beaglebone)
   * [Capemgr support](/hardware/i2c-and-spi#capemgr-support)
   * [Disable HDMI](/hardware/i2c-and-spi#disable-hdmi)
@@ -150,7 +150,7 @@ And set the value to either 0, 90, 180 or 270, depending on your desired orienta
 __Note:__ The 90 and 270 degrees rotation options require additional memory on GPU,
 so won't work with the 16M GPU split.
 
-### Customising config.txt
+### Customizing config.txt
 These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings in the `config.txt` file on the SD cards `boot` partition. See [here](/configuration/advanced/) for more details.
 
 You can also set all of these variables remotely in the Device Configuration (for a single device) or Fleet Configuration (for all devices within an application) menu. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `RESIN_HOST_CONFIG_variable` set to the value `value`. For example:
