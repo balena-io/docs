@@ -6,7 +6,7 @@ excerpt: Instructions for adding boards not currently supported by {{ $names.com
 
 # Custom board support
 
-### Its important to note that the instructions for [meta-balena][meta-balena] are still a draft, we still may have some detail to cover, if you have any feedback please let us know - hello@{{ $names.domain }}.
+### Its important to note that the instructions for [meta-balena][meta-balena] are still a draft, we still may have some detail to cover, if you have any feedback please let us know - hello@{{ $names.email_domain }}.
 
 __NOTE:__ Pre-requisites: yocto BSP layer for your particular board. Should be compatible to yocto sumo release at the time of writing this howto.
 
