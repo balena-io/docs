@@ -42,14 +42,14 @@ module.exports =
   templatesDir: TEMPLATES_DIR
   partialsDir: PARTIALS_DIR
   dynamicDocs: DYNAMIC_DOCS
-  editPageLink: 'https://github.com/resin-io/docs/edit/master'
+  editPageLink: 'https://github.com/balena-io/docs/edit/master'
   links: require('./links')
   names: require('./names')
   pathPrefix: process.env.PATH_PREFIX || '/docs'
   layoutLocals:
-    dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.resin.io'
+    dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
     logo: '/img/logo.svg'
-    baseUrl: process.env.BASE_URL || 'https://docs.resin.io'
+    baseUrl: process.env.BASE_URL || 'https://www.balena.io/docs'
     menuLinks: MAIN_MENU_LINKS
     fbAppId: FB_APP_ID
     defaultThumbnail: '/img/docs-preview.png'
