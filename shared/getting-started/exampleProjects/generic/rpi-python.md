@@ -12,7 +12,7 @@ This sample project will get you started blinking LEDs on the **{{ $device.name 
 
 This is a simple Python project that uses i2c to read acceleration data from the ADXL345 sensor. It is made to be generic and act as base for any i2c sensor integration.
 
-### Resin Tether
+### Tether
 
 {{> icon class="octicon octicon-mark-github" }}
 [Repository](https://github.com/petrosagg/resin-tether)
