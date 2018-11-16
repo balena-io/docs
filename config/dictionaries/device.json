@@ -263,6 +263,15 @@
     "type": "beta"
   },
   {
+    "id": "iot2000",
+    "name": "Siemens IOT2000",
+    "arch": "i386-nlp",
+    "bootMedia": "SD card",
+    "icon": "/img/device/iot2000.svg",
+    "link": "https://w3.siemens.com/mcms/pc-based-automation/en/industrial-iot/Pages/Default.aspx",
+    "type": "beta"
+  },
+  {
     "id": "nitrogen6x",
     "name": "Nitrogen 6X",
     "arch": "armv7hf",
