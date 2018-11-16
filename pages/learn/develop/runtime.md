@@ -73,18 +73,8 @@ Below you can find a couple of examples. All of them requires either prepending 
 __Note:__ To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile if you are using the Debian image, or check under what name does your chosen operating system supply the `dbus-send` executable.
 
 #### Change the Device hostname
-```Bash
-DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
-  dbus-send \
-  --system \
-  --print-reply \
-  --reply-timeout=2000 \
-  --type=method_call \
-  --dest=org.freedesktop.hostname1 \
-  /org/freedesktop/hostname1 \
-  org.freedesktop.hostname1.SetStaticHostname \
-  string:"YOUR-NEW-HOSTNAME" boolean:true
-```
+
+Changing the device hostname is no longer possible via this method, due to the fact that the `/etc/hostname` file is stored on the read-only root partition. To change the device hostname, use the [balena supervisor API][supervisor-api-device-host-config].
 
 #### Rebooting the Device
 ```Bash
@@ -290,6 +280,7 @@ Devices can be selected in many ways, for example by `/dev` entry, labels, or UU
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [supervisor-api-link]:/runtime/supervisor-api/
+[supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
 [expressjs-link]:http://expressjs.com/
 [projects-github]:{{ $links.githubProjects }}
 [systemd-base-image-link]:https://hub.docker.com/r/{{ $names.company.short }}/raspberrypi-python/
