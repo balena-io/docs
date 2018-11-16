@@ -182,6 +182,15 @@
     "type": "beta"
   },
   {
+    "id": "asus-tinker-board-s",
+    "name": "Asus Tinker Board S",
+    "arch": "armv7hf",
+    "bootMedia": "eMMC",
+    "icon": "/img/device/asus-tinker-board-s.svg",
+    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board-S/",
+    "type": "beta"
+  },
+  {
     "id": "orangepi-plus2",
     "name": "Orange Pi Plus2",
     "arch": "armv7hf",
