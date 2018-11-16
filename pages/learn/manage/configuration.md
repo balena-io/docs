@@ -16,7 +16,6 @@ This list contains configuration variables that can be used with {{ $names.compa
 
 Name | Default | Description | Valid from
 --- | --- | --- | ---
-RESIN_HOST_LOG_TO_DISPLAY | | Enable / Disable logs on the HDMI display | v1.7.0
 RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
 RESIN_SUPERVISOR_DELTA | false | Enable / Disable [delta updates][deltas] | v1.7.0
 RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT | 30000| Define the timeout when requesting a delta, in milliseconds | v3.0.0
