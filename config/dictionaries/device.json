@@ -173,6 +173,15 @@
     "type": "released"
   },
   {
+    "id": "asus-tinker-board",
+    "name": "Asus Tinker Board",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/asus-tinker-board.svg",
+    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board/",
+    "type": "beta"
+  },
+  {
     "id": "orangepi-plus2",
     "name": "Orange Pi Plus2",
     "arch": "armv7hf",
