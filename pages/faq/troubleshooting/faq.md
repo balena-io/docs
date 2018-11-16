@@ -41,7 +41,7 @@ It is possible to have devices of [different types][device-types] in the same ap
 Regardless of type, all devices in your application will get the same container images. This means that if you have mixed device types you'll need to use an architecture-specific [base image][base-image] in your [Dockerfile][dockerfile], rather than one based on device type.
 
 ##### How do I push a new git repo to an application?
-If you have pushed a repository called `project-A` to your application and at a later stage you would like to push a new project called `project-B`, you can do this by adding the application remote (`git remote add {{ $names.company.short }} <USERNAME>@git.{{ $names.domain }}:<USERNAME>/<APPNAME>.git`) to `project-B`'s local repository. You can then easily push `project-B` to your application by just doing `git push {{ $names.company.short }} master -f`. The extra `-f` on the command forces the push and resets the git history on the git remote on {{ $names.company.lower }}'s backend. You should now have `project-B` running on all the devices in the application fleet. Note that once you have successfully switched to `project-B` you no longer need to add the `-f` on every push, for more info check out the docs on [forced git pushes](https://git-scm.com/docs/git-push#git-push--f).
+If you have pushed a repository called `project-A` to your application and at a later stage you would like to push a new project called `project-B`, you can do this by adding the application remote (`git remote add {{ $names.company.short }} <USERNAME>@git.{{ $names.dashboard_domain }}:<USERNAME>/<APPNAME>.git`) to `project-B`'s local repository. You can then easily push `project-B` to your application by just doing `git push {{ $names.company.short }} master -f`. The extra `-f` on the command forces the push and resets the git history on the git remote on {{ $names.company.lower }}'s backend. You should now have `project-B` running on all the devices in the application fleet. Note that once you have successfully switched to `project-B` you no longer need to add the `-f` on every push, for more info check out the docs on [forced git pushes](https://git-scm.com/docs/git-push#git-push--f).
 
 ##### Why does /data report weird usage?
 On the device we have a writable data partition that uses all the free space remaining after reserving the required amount for the host os. This data partition contains the Docker images for the {{ $names.company.lower }} device supervisor and the user applications so that they can be updated, along with containing the persistent `/data` for the application to use, this way it avoids reserving a specific amount of space for either images or data and then finding out that we have reserved too much or too little for one. So the space usage in `/data` being used but not accounted for will likely be due to the Docker images. (As a side note if you want the most accurate usage stats you should use `btrfs fi df /data` as `df` is not accurate for btrfs partitions).
@@ -63,19 +63,24 @@ Starting from {{ $names.os.lower }} v2.0.7, the devices connect to the following
 - 3.resinio.pool.ntp.org
 
 ##### What network ports are required?
+
 In order for a {{ $names.company.lower }} device to get outside of the local network and connect to the {{ $names.company.lower }} API, there are a few core network requirements.
 
 {{ $names.company.upper }} makes use of the following ports:
 
-* `443` TCP - This is the most fundamental requirement - it is used to connect to the VPN and the web terminal, and many web endpoints using TLS (`https://`.)
+* `443` TCP - This is the most fundamental requirement - it is used to connect to the VPN and the web terminal, and many web endpoints using TLS (https://.)
 * `123` UDP - For NTP time synchronisation.
 * `53` UDP - For DNS name resolution.
 
 Each of these should work with outward only (and inward once outward connection established) firewall settings.
 
-Additionally, if the network your device is connecting to works with whitelisting, you should whitelist the following domains on port `80` and `443`:
-* `*.{{ $names.domain }}`
-* `*.pubnub.com`
+Additionally, you should whitelist the following domains for the relevant ports above:
+* `*.{{ $names.dashboard_domain }}`
+* `*.docker.com`
+* `*.docker.io`
+
+
+Additionally, an outgoing connection to `mixpanel.com` is made. This is not a functional requirement for {{ $names.company.lower }}, but allows tracking of some useful metrics.
 
 ##### Can I access /dev and things like GPIO from the container?
 If you're application uses a single container, it will be run in privileged mode by default and will have access to hardware in the same way as a vanilla Linux system.
@@ -136,11 +141,11 @@ Generally, we try to follow good OPSEC practices for our systems. We support 2FA
 
 ##### What does it mean when a device type is discontinued?
 
-Discontinued devices will no longer be actively supported by {{ $names.company.lower }}. This means we will no longer provide prebuilt versions of {{ $names.os.lower }} for these devices, and we will not be resolving any issues related to these boards. In addition, it will no longer be possible to create applications for these device types, although existing applications and their devices will still function. If you would like to keep your discontinued devices updated with the latest {{ $names.os.lower }} changes, you can [build your own]({{ $links.githubOS }}/meta-balena/blob/master/contributing-device-support.md) board-specific versions using our [open source repos]({{ $links.githubOS }}). Please contact sales@{{ $names.domain }} with any questions regarding continued device support.
+Discontinued devices will no longer be actively supported by {{ $names.company.lower }}. This means we will no longer provide prebuilt versions of {{ $names.os.lower }} for these devices, and we will not be resolving any issues related to these boards. In addition, it will no longer be possible to create applications for these device types, although existing applications and their devices will still function. If you would like to keep your discontinued devices updated with the latest {{ $names.os.lower }} changes, you can [build your own]({{ $links.githubOS }}/meta-balena/blob/master/contributing-device-support.md) board-specific versions using our [open source repos]({{ $links.githubOS }}). Please contact sales@{{ $names.email_domain }} with any questions regarding continued device support.
 
 ##### I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?
 
-There are a few options for devices that do not have an official device type on {{ $names.company.lower }}. If your device has an x86 architecture, you can try the [Intel NUC][nuc] image, which is built to support generic x86 devices. For other devices, you can [build your own][build-your-own] version of {{ $names.os.lower }} using our [open source repos][balenaOS]. To discuss custom board support, please contact sales@{{ $names.domain }}.
+There are a few options for devices that do not have an official device type on {{ $names.company.lower }}. If your device has an x86 architecture, you can try the [Intel NUC][nuc] image, which is built to support generic x86 devices. For other devices, you can [build your own][build-your-own] version of {{ $names.os.lower }} using our [open source repos][balenaOS]. To discuss custom board support, please contact sales@{{ $names.email_domain }}.
 
 [forums]:https://forums.{{ $names.domain }}/c/troubleshooting
 

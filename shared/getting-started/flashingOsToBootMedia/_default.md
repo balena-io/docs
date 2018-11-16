@@ -12,5 +12,4 @@ To create a bootable {{ $names.os.lower }} {{ $device.bootMedia }} follow these 
 
 __Note:__ You can burn several {{ $device.bootMedia }}s with the same image file and all the devices will boot and provision into your application's fleet. You can also disable the auto-ejecting or validation steps from the **Etcher** settings panel.
 
-[etcher-link]:https://etcher.io/
-
+[etcher-link]:https://www.balena.io/etcher

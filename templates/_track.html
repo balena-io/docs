@@ -15,9 +15,7 @@ for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElemen
 
 window.jQuery.get('https://api.resin.io/config', (config) => {
   mixpanel.init(config.mixpanelToken, { host: 'https://api.resin.io/mixpanel' });
-  document.addEventListener("DOMContentLoaded", function(event) {
-    mixpanel.track('Docs', { page: location.href });
-  });
+  mixpanel.track('Docs', { page: location.href });
 });
 </script>
 <!-- end Mixpanel -->
