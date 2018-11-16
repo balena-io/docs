@@ -317,6 +317,15 @@
     "type": "released"
   },
   {
+    "id": "revpi-core-3",
+    "name": "Revolution Pi Core 3",
+    "arch": "armv7hf",
+    "bootMedia": "eMMC",
+    "icon": "/img/device/revpi-core-3.svg",
+    "link": "https://revolution.kunbus.de/shop/en/revpi-core-3",
+    "type": "beta"
+  },
+  {
     "id": "intel-edison",
     "name": "Intel Edison",
     "arch": "i386",
