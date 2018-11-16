@@ -15,7 +15,7 @@ the top-right corner of your application page:
 
 ```shell
 $ cd balena-haskell-hello-world
-$ git remote add balena <USERNAME>@git.{{ $names.domain }}:<USERNAME>/<APPNAME>.git
+$ git remote add balena <USERNAME>@git.{{ $names.dashboard_domain }}:<USERNAME>/<APPNAME>.git
 ```
 __Note:__ On other git clients there may be an alternative way to add a remote repository.
 

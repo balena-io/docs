@@ -17,7 +17,7 @@ the top-right corner of your application page:
 
 ```shell
 $ cd simple-server-node
-$ git remote add {{ $names.company.short }} <USERNAME>@git.{{ $names.domain }}:<USERNAME>/<APPNAME>.git
+$ git remote add {{ $names.company.short }} <USERNAME>@git.{{ $names.dashboard_domain }}:<USERNAME>/<APPNAME>.git
 ```
 __Note:__ On other git clients there may be an alternative way to add a remote repository.
 
