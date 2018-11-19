@@ -98,7 +98,7 @@ This option allows you to convert your application to [another type][app-types],
 
 This option permanently deletes your application.
 
-__Warning:__ It is a good idea to [move your devices to another application][move-devices] before deleting your current application. If you do not, **all devices attached to the application will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device actions from {{ $names.company.lower }}.
+__Warning:__ It is a good idea to [move your devices to another application][move-devices] before deleting your current application. If you do not, **all devices attached to the application will become orphaned and you will need to reconfigure them from scratch**. The currently deployed code will continue to function, but the devices will not be able to receive code updates or device actions from {{ $names.company.lower }}.
 
 [update-locks]:/learn/deploy/release-strategy/update-locking
 [move-app-blog-post]:{{ $links.blogSiteUrl }}/canary-rollouts-on-resin-io/
