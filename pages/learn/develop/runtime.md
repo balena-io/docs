@@ -21,7 +21,6 @@ __Note:__ On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variab
 | `{{ $names.company.allCaps }}_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on {{ $names.company.lower }}	|
 | `{{ $names.company.allCaps }}_APP_ID` 	            |  ID number of the {{ $names.company.lower }} application the device is associated. 	|
 | `{{ $names.company.allCaps }}_APP_NAME`            |  The name of the {{ $names.company.lower }} application the device is associated with. |
-| `{{ $names.company.allCaps }}_APP_RELEASE`         |  The commit hash of the deployed application version. |
 | `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |  The name of the device on first initialisation. |
 | `{{ $names.company.allCaps }}_DEVICE_TYPE`         |  The type of device the application is running on. |
 | `{{ $names.company.allCaps }}` 	                  |  The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a {{ $names.company.lower }} device. 	|
