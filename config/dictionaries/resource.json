@@ -286,7 +286,7 @@
       "id",
       "created_at",
       "device",
-      "env_var_name",
+      "name",
       "value"
     ],
     "examples": [
@@ -303,7 +303,7 @@
         "method": "POST",
         "endpoint": "/v4/device_environment_variable",
         "filters": "",
-        "data": "{\n    \"device\": \"<DEVICE ID>\",\n    \"env_var_name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
+        "data": "{\n    \"device\": \"<DEVICE ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
       {
         "id": "update-device-env-var",
@@ -441,7 +441,7 @@
       "id",
       "created_at",
       "application",
-      "env_var_name",
+      "name",
       "value"
     ],
     "examples": [
@@ -458,7 +458,7 @@
         "method": "POST",
         "endpoint": "/v4/application_environment_variable",
         "filters": "",
-        "data": "{\n    \"application\": \"<APP ID>\",\n    \"env_var_name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
+        "data": "{\n    \"application\": \"<APP ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
       {
         "id": "update-fleet-env-var",
