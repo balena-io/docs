@@ -77,6 +77,12 @@ A simple application that shows you how to toggle the general purpose I/O pins o
 
 A simple application that shows you how to issue commands to a servo motor using pi-blaster.
 
+### Example access of a physical keyboard in node.js
+
+[Repository][node-keyboard-input]
+
+An application that demonstrates how to read input from a physical keyboard or other USB HID, and transmit the characters via Socket.io to a web browser.
+
 
 <!-- ###Code Snippets Links -->
 
@@ -92,6 +98,7 @@ A simple application that shows you how to issue commands to a servo motor using
 [text2speech]:{{ $links.githubMain }}/text2speech
 [servo-motor-node]:https://github.com/craig-mulligan/resin-servo-node
 [pi-pins]:https://www.npmjs.com/package/pi-pins
+[node-keyboard-input]:https://github.com/balena-io-playground/node-keyboard-input
 
 <!-- ###Team Github name links -->
 
