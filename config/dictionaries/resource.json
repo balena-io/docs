@@ -217,7 +217,7 @@
         "method": "PATCH",
         "endpoint": "/v4/device(<ID>)",
         "filters": "",
-        "data": "{\n    \"application\": \"<APP ID>\"\n}"
+        "data": "{\n    \"belongs_to__application\": \"<APP ID>\"\n}"
       },
       {
         "id": "set-device-to-release",
