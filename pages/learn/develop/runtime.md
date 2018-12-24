@@ -21,7 +21,6 @@ __Note:__ On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variab
 | `{{ $names.company.allCaps }}_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on {{ $names.company.lower }}	|
 | `{{ $names.company.allCaps }}_APP_ID` 	            |  ID number of the {{ $names.company.lower }} application the device is associated. 	|
 | `{{ $names.company.allCaps }}_APP_NAME`            |  The name of the {{ $names.company.lower }} application the device is associated with. |
-| `{{ $names.company.allCaps }}_APP_RELEASE`         |  The commit hash of the deployed application version. |
 | `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |  The name of the device on first initialisation. |
 | `{{ $names.company.allCaps }}_DEVICE_TYPE`         |  The type of device the application is running on. |
 | `{{ $names.company.allCaps }}` 	                  |  The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a {{ $names.company.lower }} device. 	|
@@ -38,25 +37,27 @@ Here's an example from a Raspberry Pi 3:
 
 ```Bash
 root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
-{{ $names.company.allCaps }}_SUPERVISOR_API_KEY=1111deadbeef2222                    
-{{ $names.company.allCaps }}_APP_ID=157270                                                                                          
-{{ $names.company.allCaps }}_DEVICE_TYPE=raspberrypi3                                                                               
-{{ $names.company.allCaps }}=1                                                                                                      
-{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS=http://127.0.0.1:48484                                                              
-{{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1                                                                              
-{{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee                             
-{{ $names.company.allCaps }}_API_KEY=deadbeef12345                                                               
-{{ $names.company.allCaps }}_APP_RELEASE=667153acf91a58886c1bc30fe4320c864471e23a                                                  
-{{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3                                                                               
-{{ $names.company.allCaps }}_APP_NAME=Example                                                                                      
-{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze                                                                          
-{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.lower }} 2.20.0                          
-{{ $names.company.allCaps }}_SUPERVISOR_PORT=48484  
+{{ $names.company.allCaps }}_SUPERVISOR_API_KEY=1111deadbeef2222
+{{ $names.company.allCaps }}_APP_ID=157270
+{{ $names.company.allCaps }}_DEVICE_TYPE=raspberrypi3
+{{ $names.company.allCaps }}=1
+{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS=http://127.0.0.1:48484
+{{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1
+{{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
+{{ $names.company.allCaps }}_API_KEY=deadbeef12345
+{{ $names.company.allCaps }}_APP_RELEASE=667153acf91a58886c1bc30fe4320c864471e23a
+{{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3
+{{ $names.company.allCaps }}_APP_NAME=Example
+{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze
+{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.lower }} 2.20.0
+{{ $names.company.allCaps }}_SUPERVISOR_PORT=48484
 ```
 
 ### Dbus communication with host OS
 
 In some cases its necessary to communicate with the host OS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
+
+__Note:__ In multicontainer applications, the `io.balena.features.dbus` label must be applied for each service that requires access to the dbus.
 
 ```
 # for {{ $names.company.lower }} supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
@@ -141,6 +142,8 @@ Since the `/etc/modules` you see in your container belongs to the container's fi
 
 ## Supervisor
 
+__Note:__ In multicontainer applications, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API.
+
 ### Reboot from Inside the Container
 
 You may notice that if you issue a `reboot`, `halt`, or `shutdown` your container either gets into a weird zombie state or doesn't do anything. The reason for this is that these commands do not propagate down to the hostOS system. If you need to issue a `reboot` from your container you should use the supervisor API as shown:
@@ -196,7 +199,7 @@ In the {{ $names.company.lower }} host OS [dnsmasq][dnsmasq-link] is used to man
 
 ## Storage
 
-### Persistent Storage		
+### Persistent Storage
 
 {{> "general/persistent-storage"}}
 
