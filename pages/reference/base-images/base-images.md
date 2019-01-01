@@ -5,7 +5,7 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 
 # {{ $names.company.upper }} base images
 
-[`balenalib`](https://hub.docker.com/u/balenalib/) is the central home for 6000+ IoT focused Docker images built specifically for [balenaCloud](https://www.balena.io/cloud/) and [balenaOS](https://www.balena.io/os/). This set of images provide a way to get up and running quickly and easily, while still providing the option to deploy slim secure images to the edge when you go to production. 
+[`balenalib`](https://hub.docker.com/u/balenalib/) is the central home for 26000+ IoT focused Docker images built specifically for [balenaCloud](https://www.balena.io/cloud/) and [balenaOS](https://www.balena.io/os/). This set of images provide a way to get up and running quickly and easily, while still providing the option to deploy slim secure images to the edge when you go to production. 
 
 ## Features Overview
 
@@ -16,12 +16,12 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 	- aarch64
 	- amd64
 	- i386
-- multiple distributions: 
+- Multiple Distributions: 
 	- [Debian](https://www.debian.org/): jessie, sid, stretch and buster
 	- [Alpine](https://alpinelinux.org/): 3.5, 3.6, 3.7, 3.8 and edge
 	- [Ubuntu](https://www.ubuntu.com/): artful, bionic, cosmic, trusty and xenial
 	- [Fedora](https://getfedora.org/): 26, 28
-- multiple language stacks: 
+- Multiple language stacks: 
 <!-- TODO: list versions of languages stacks -->
 	- [Node.js](https://nodejs.org/en/) 
 	- [Python](https://www.python.org/) 
@@ -35,17 +35,18 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 ## How to Pick a Base Image
 
 <!-- TODO: Add image on how image hierarchy and discuss  -->
+When starting out a project its generally easier to have a "fatter" image which contains a lot of prebuilt dependencies and tools. These images help you get setup faster and work out the requirements for your project. For this reason its recommended to start with `-build` variants and as your project progresses switch to a `-run` variant with some [docker multistage build magic][multistage-build-docs] to slim your deploy image down. In most cases your project can just use a Debian based distribution, which is the default if not specified, but if you know the requirements of your project or prefer specific distros, Ubuntu, Alpine and Fedora images are available. The set of `balenalib` base images follow a simple naming scheme described below, which will help you select a base image for your specific needs.
 
 ### How the Image Naming Scheme Works
 
-With over 6000 `balenalib` base images to choose from it can be overwhelming to decide which image and tag is correct for your project. To pick the correct image, it helps to understand the how the images are named as that indicates what is installed in the image. In general the naming scheme for the `balenalib` image set follows the pattern below:
+With over 26000 `balenalib` base images to choose from it can be overwhelming to decide which image and tag is correct for your project. To pick the correct image, it helps to understand how the images are named as that indicates what is installed in the image. In general the naming scheme for the `balenalib` image set follows the pattern below:
 ```
 balenalib/<hw>-<distro>-<lang_stack>:<lang_ver>-<distro_ver>-(build|run)-<yyyymmdd>
 ```
 
 #### Image Names:
 
-- `<hw>` is either architecture or device type and is **mandatory**. If using Dockerfile.templates you can replace this with `%%BALENA_MACHINE_NAME%%` or `BALENA_ARCH` 
+- `<hw>` is either architecture or device type and is **mandatory**. If using Dockerfile.templates you can replace this with `%%BALENA_MACHINE_NAME%%` or `BALENA_ARCH`. For a list of available device names and architectures see the [Device types](/reference/base-images/devicetypes/).
 - `<distro>`  is the linux distribution, currently there are 4 distributions, namely Debian, Alpine, Ubuntu and Fedora. This field is optional, and will default to Debian if left out.
 - `<lang_stack>` is the programming language pack, currently we support Node.js, Python, OpenJDK and Go. This field is optional and if left out, no language pack will be installed, so you will just have the distribution.
 
@@ -55,7 +56,7 @@ In the tags, all of the fields are optional and if they are left out, they will 
 
 - `<lang_ver>` is the version of the language stack, for example node.js 10.10, it can also be substituted for `latest`.
 - `<distro_ver>` is the version of the linux distro, for example in the case of Debian there are 4 valid versions, namely `sid`, `jessie`, `buster` and `stretch`.
-For each combination of distro and stack we have two variants called `run` and `build`. The build variant is much heavier as it has a number of tools preinstalled to help with building source code. You can see an example of the tools that are included in the Debian Stretch variant here. The `run` variants are stripped down and only include a few useful runtime tools, see an example here.
+- For each combination of distro and stack we have two variants called `run` and `build`. The build variant is much heavier as it has a number of tools preinstalled to help with building source code. You can see an example of the tools that are included in the Debian Stretch variant [here](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/build/Dockerfile). The `run` variants are stripped down and only include a few useful runtime tools, see an example [here](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile).
 If no variant is specified, the image defaults to `run`
 - <yyyymmdd> the last optional field on tags is the date tag. This is useful for production deployments as these base images are non-moving tags, so no packages in these will update ever. 
 
@@ -118,10 +119,10 @@ Currently balenalib supports the following OS distribuitions and Language stacks
 
 | Language | Default  	                  | Supported Architectures                      |
 |---------|------------------------------|----------------------------------------------|
-| Node.js | v10.10.0                     | armv6, armv7hf, aarch64, amd64, i386         |
+| Node.js | v11.3.0                      | armv6, armv7hf, aarch64, amd64, i386         |
 | Python  | 2.7.15                       | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
 | OpenJDK | 1.7.0_181 (IcedTea 2.6.14)   | armv7hf, aarch64, amd64, i386                |
-| Go      | 1.11                         | armv7hf, aarch64, amd64, i386                |
+| Go      | 1.11.2                       | armv7hf, aarch64, amd64, i386                |
 
 ## Installing Packages
 
@@ -147,7 +148,7 @@ Each `balenalib` base image has a default [`ENTRYPOINT`](https://docs.docker.com
 
 On container start up, the [entry.sh][entry-sh-link] script first checks if the `UDEV` flag is set to `true` or `false`. In the case where it is `false`, the `CMD` is then executed. In the case it is `true` (or `1`), the entry.sh will check if the container is running privileged, if it is, it will mount `/dev` to a devtmpfs and then start `udevd`. In the case the container is an unprivileged container, no mount will be performed and `udevd` will be started (although it won't be very much use without the privilege).
 
-At the end of a container's lifecycle, when a request to container restart, reboot or shutdown is sent to the supervisor, the [balenaEngine](https://www.balena.io/engine/) will send a `SIGTERM` (signal 15) to the containers, and 10 seconds later it will issue a `SIGKILL` if the container is still running. 
+At the end of a container's lifecycle, when a request to container restart, reboot or shutdown is sent to the supervisor, the [balenaEngine](https://www.balena.io/engine/) will send a `SIGTERM` (signal 15) to the containers, and 10 seconds later it will issue a `SIGKILL` if the container is still running. This timeout can also be configured via the [stop_grace_period](https://docs.docker.com/compose/compose-file/compose-file-v2/#stop_grace_period) in your docker-compose.yml.
 
 ## Working with Dynamically Plugged Devices
 
@@ -157,8 +158,7 @@ You will also need to run your container `privileged`, by default any [balenaClo
 
 When a `balenalib` container runs with `UDEV=1` it will first detect if it is running on a `privileged` container, if it is, it will mount the hostOS `/dev` to a devtmpfs and then start [`udevd`][udevd-link]. Now anytime a new device is plugged in, the kernel will notify the container [`udevd`][udevd-link] daemon and the relevant device nodes in the container `/dev` will appear.
 
-__Warning:__ If you are using `UDEV=1` and a cellular modem, you need to take special care to disable host networking for any of the services that use `udevd`, as it can sometimes cause the modems to disconnect and never come back. The easiest way to do this is to ensure your service does **NOT** have `network_mode: host`.
-
+__Note:__ The new balenalib base images make sure `udevd` runs in its own network namespace, so as to not interfere with cellular modems. These images should not have any of the past udev restrictions of the `resin/` base images.
 
 ### Major Changes
 
@@ -172,9 +172,9 @@ When moving from the legacy `resin/...` base images to the `balenalib` ones, the
 
 ### Installing your own Initsystem
 
-Since the release of multicontainer on the balenaCloud platform, we now recommend the use of multiple containers and discourage the use of an initsystem, particularly systemd, in the container as it tends to cause a myriad of issues, undefined behaviour and requires the container to run fully privileged. 
+Since the release of multicontainer on the balenaCloud platform, we now recommend the use of multiple containers and no longer recommend the use of an initsystem, particularly systemd, in the container as it tends to cause a myriad of issues, undefined behaviour and requires the container to run fully privileged. 
 
-However if your application relies on initsystem features, it is fairly easy to add this functionality balenalib base image. We have provided some examples for [systemd](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd) and [openRC](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/openrc). 
+However if your application relies on initsystem features, it is fairly easy to add this functionality to a balenalib base image. We have provided some examples for [systemd](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd) and [openRC](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/openrc). 
 
 Generally for systemd, it just requires installing the systemd package, masking a number of services and defining a new [`entry.sh`](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd/entry.sh) and a [`resin.service`](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd/resin.service). The `Dockerfile` below demonstates this:
 
@@ -236,3 +236,4 @@ can be run on your x86 machine and there will be no `Exec format error`, which i
 
 [udevd-link]:https://linux.die.net/man/8/udevd
 [entry-sh-link]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/entry.sh
+[multistage-build-docs]:https://docs.docker.com/develop/develop-images/multistage-build/
