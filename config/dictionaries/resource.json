@@ -5,6 +5,7 @@
     "fields": [
       "id",
       "user",
+      "owns__device",
       "depends_on__application",
       "actor",
       "app_name",
@@ -36,6 +37,13 @@
         "method": "GET",
         "endpoint": "/v4/application",
         "filters": "?\\$filter=app_name%20eq%20'<NAME>'"
+      },
+      {
+        "id": "app-with-devices",
+        "summary": "Get application by id along with its devices",
+        "method": "GET",
+        "endpoint": "/v4/application(<ID>)",
+        "filters": "?\\$expand=owns__device"
       },
       {
         "id": "create-app",
@@ -163,8 +171,8 @@
         "id": "devices-by-application",
         "summary": "Get all devices by application",
         "method": "GET",
-        "endpoint": "/v4/application(<ID>)",
-        "filters": "?\\$expand=device"
+        "endpoint": "/v4/device",
+        "filters": "?\\$filter=belongs_to__application%20eq%20'<APP_ID>'"
       },
       {
         "id": "device-by-id",
@@ -186,7 +194,7 @@
         "method": "PATCH",
         "endpoint": "/v4/device(<ID>)",
         "filters": "",
-        "data": "{\n    \"name\": \"<NEW NAME>\"\n}"
+        "data": "{\n    \"device_name\": \"<NEW NAME>\"\n}"
       },
       {
         "id": "delete-device",
@@ -209,7 +217,7 @@
         "method": "PATCH",
         "endpoint": "/v4/device(<ID>)",
         "filters": "",
-        "data": "{\n    \"application\": \"<APP ID>\"\n}"
+        "data": "{\n    \"belongs_to__application\": \"<APP ID>\"\n}"
       },
       {
         "id": "set-device-to-release",
@@ -278,7 +286,7 @@
       "id",
       "created_at",
       "device",
-      "env_var_name",
+      "name",
       "value"
     ],
     "examples": [
@@ -295,7 +303,7 @@
         "method": "POST",
         "endpoint": "/v4/device_environment_variable",
         "filters": "",
-        "data": "{\n    \"device\": \"<DEVICE ID>\",\n    \"env_var_name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
+        "data": "{\n    \"device\": \"<DEVICE ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
       {
         "id": "update-device-env-var",
@@ -433,7 +441,7 @@
       "id",
       "created_at",
       "application",
-      "env_var_name",
+      "name",
       "value"
     ],
     "examples": [
@@ -450,7 +458,7 @@
         "method": "POST",
         "endpoint": "/v4/application_environment_variable",
         "filters": "",
-        "data": "{\n    \"application\": \"<APP ID>\",\n    \"env_var_name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
+        "data": "{\n    \"application\": \"<APP ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
       {
         "id": "update-fleet-env-var",

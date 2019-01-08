@@ -16,19 +16,19 @@ things should you configure them incorrectly - tread carefully!
 The Raspberry Pi exposes device configuration options via a text file on the
 boot medium, `config.txt` - you change boot options simply by editing this file.
 
-__Note:__ You will only find the `config.txt` file after first boot, it can then easily be found in the `{{ $names.company.lower }}-boot` partition of the SD card.
 
-#### Modifying `config.txt` locally after the first boot
+#### Modifying `config.txt` locally before the first boot
 
-The `config.txt` is located in the root of the `{{ $names.company.lower }}-boot` partition, and you can modify it by mounting the SD card on a computer.
+The `config.txt` is located in the root of the `{{ $names.company.lower }}-boot` partition, and you can modify it by mounting the SD card on a computer. This will only work if you edit the SD card before the device's first boot.
+
 
 #### Modifying `config.txt` **remotely**
 
 If your device has a supervisor version above 1.0.0, it has support for modifying the values in `config.txt` remotely using [configuration variables][config-vars]. These can be set as fleet-wide values (for all devices in an application) or device-specific ones.
 
-The variables that start with the `{{ $names.company.allCaps }}_HOST_CONFIG_` prefix will be added to the `config.txt` file, also replacing the preexisting values of such variables in the file.
+The variables that start with the `RESIN_HOST_CONFIG_` prefix will be added to the `config.txt` file, also replacing the preexisting values of such variables in the file.
 
-For example, setting the value of `{{ $names.company.allCaps }}_HOST_CONFIG_gpu_mem` to 16 will produce the following entry in `config.txt`:
+For example, setting the value of `RESIN_HOST_CONFIG_gpu_mem` to 16 will produce the following entry in `config.txt`:
 
 ```
 gpu_mem=16
@@ -38,7 +38,7 @@ These variables can be set using the API or any of its clients, including the [S
 
 **After modifying a config.txt variable, the device supervisor will apply the changes and reboot the device.**
 
-__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode]. You will need to define them in your `{{ $names.company.lower }}-sync.yml`.
+__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode]. You will need to define them in your `resin-sync.yml`.
 
 ### GPU Memory
 
@@ -86,6 +86,33 @@ This has a number of consequences for users of the serial interface.
 To enable the miniUART an entry should be added to `config.txt` as follows:
 ```
 enable_uart=1
+```
+
+### Setting device tree overlays (`dtoverlay`) and parameters (`dtparam`)
+
+The Raspberry Pi allows loading custom device tree overlays using the `dtoverlay` setting in config.txt. It also allows setting parameters for the default overlay with the `dtparam` setting. For these settings, the syntax is different from other keys because several entries can be added, and the bootloader will use all of them.
+
+To allow setting several values, devices running resinOS version 2.12.0 and above (supervisor 7.0.0 and above), will parse the values of `RESIN_HOST_CONFIG_dtoverlay` and `RESIN_HOST_CONFIG_dtparam` in a special way: the value of the configuration variable will be treated as the contents of a JSON array (without the enclosing braces `[]`), so a comma-separated list of quote-enclosed values will be split into several lines.
+
+For example, the default value of `RESIN_HOST_CONFIG_dtparam = "i2c_arm=on","spi=on","audio=on"` will translate into the following entries in config.txt:
+
+```
+dtparam=i2c_arm=on
+dtparam=spi=on
+dtparam=audio=on
+```
+
+Another example would be setting several overlays with their own parameters, e.g. `RESIN_HOST_CONFIG_dtoverlay = "i2c-rtc,ds1307","lirc-rpi"` will translate to:
+
+```
+dtoverlay=i2c-rtc,ds1307
+dtoverlay=lirc-rpi
+```
+
+This parsing will only be done if the value is a valid string; so if it doesn't begin with a quote `"`, the value will be parsed as a single string and not split into several lines. For instance `RESIN_HOST_CONFIG_dtoverlay = i2c-rtc,ds1307` will translate to:
+
+```
+dtoverlay=i2c-rtc,ds1307
 ```
 
 ### Further Reading

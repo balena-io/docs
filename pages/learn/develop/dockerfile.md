@@ -48,13 +48,13 @@ services:
     volumes:
       - 'resin-data:/data'
     labels:
-      io.resin.features.kernel-modules: '1'
-      io.resin.features.firmware: '1'
-      io.resin.features.dbus: '1'
-      io.resin.features.supervisor-api: '1'
-      io.resin.features.resin-api: '1'
-      io.resin.update.strategy: download-then-kill
-      io.resin.update.handover-timeout: ''
+      io.balena.features.kernel-modules: '1'
+      io.balena.features.firmware: '1'
+      io.balena.features.dbus: '1'
+      io.balena.features.supervisor-api: '1'
+      io.balena.features.balena-api: '1'
+      io.balena.update.strategy: download-then-kill
+      io.balena.update.handover-timeout: ''
 ```
 
 Applications with multiple containers should include a `Dockerfile` or `package.json` in each service directory. A `docker-compose.yml` file will need to be defined at the root of the repository, as discussed in our [multicontainer documentation][multicontainer].
@@ -71,7 +71,7 @@ To allow our builders to build containers for multiple architectures from one co
 
 It is now possible to define a `Dockerfile.template` file that looks like this:
 ```Dockerfile
-FROM resin/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node
+FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node
 
 COPY package.json /package.json
 RUN npm install
@@ -93,9 +93,9 @@ Currently our builder supports the following build variables:
 | {{ $names.company.allCaps }}_MACHINE_NAME    | The name of the yocto machine this board is base on. It is the name that you will see in most of the {{ $names.company.lower }} [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). | 
 | {{ $names.company.allCaps }}_ARCH    | The instruction set architecture for the base images associated with this device.|
   
-__Note:__ If your application contains devices of different types, the `%%RESIN_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%RESIN_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%RESIN_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application.
+__Note:__ If your application contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application. 
 
-If you want to see an example of build variables in action, have a look at this [basic openssh example](https://github.com/shaunmulligan/resin-openssh).
+If you want to see an example of build variables in action, have a look at this [basic openssh example](https://github.com/balena-io-playground/balena-openssh).
 
 Here are the supported machine names and architectures:
 
@@ -107,7 +107,7 @@ Here are the supported machine names and architectures:
 
 Whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process tree in your container. It also means that this PID 1 process needs to know how to properly process UNIX signals, reap orphan zombie processes [[1]](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) and if it crashes, your whole container crashes, meaning you lose logs and debug info.
 
-For these reasons we have built an [init system][init-system-link] into most of the resin base images listed here: [Resin Base Images Wiki][base-images]. The init system will handle signals, reap zombies and also properly handle [udev][udev-link] hardware events correctly.
+For these reasons we have built an [init system][init-system-link] into most of the {{ $names.company.lower }} base images listed here: [{{ $names.company.upper }} Base Images Wiki][base-images]. The init system will handle signals, reap zombies and also properly handle [udev][udev-link] hardware events correctly.
 
 There are two ways of enabling the init system in your application. You can add the following environment variable in your Dockerfile:
 ```Dockerfile
@@ -170,8 +170,8 @@ here's its `package.json` file*:
 
 ```JSON
 {
-  "name": "resin-text2speech",
-  "description": "Simple resin app that uses Google's TTS endpoint",
+  "name": "text2speech",
+  "description": "Simple balena app that uses Google's TTS endpoint",
   "repository": {
     "type": "git",
     "url": "{{ $links.githubMain }}/text2speech.git"
@@ -224,11 +224,11 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [hello-python]:https://github.com/alexandrosm/hello-python
 [raspbian]:http://www.raspbian.org/
 
-[from]:https://docs.docker.com/reference/builder/#from
-[run]:https://docs.docker.com/reference/builder/#run
-[add]:https://docs.docker.com/reference/builder/#add
-[copy]:https://docs.docker.com/reference/builder/#copy
-[cmd]:https://docs.docker.com/reference/builder/#cmd
+[from]:https://docs.docker.com/engine/reference/builder/#from
+[run]:https://docs.docker.com/engine/reference/builder/#run
+[add]:https://docs.docker.com/engine/reference/builder/#add
+[copy]:https://docs.docker.com/engine/reference/builder/#copy
+[cmd]:https://docs.docker.com/engine/reference/builder/#cmd
 
 [starter-projects]:/examples/projects#Programming_Language_Starter_Projects
 [dockerfile-best-practices]:https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy
@@ -254,7 +254,7 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
 
-[package]:https://www.npmjs.org/doc/package.json.html
+[package]:https://docs.npmjs.com/files/package.json
 [container]:https://wiki.archlinux.org/index.php/Linux_Containers
 [npm]:https://www.npmjs.org/
 [text-to-speech]:{{ $links.githubMain }}/text2speech

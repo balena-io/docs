@@ -14,12 +14,13 @@ For many applications, the code running in your container will need some way to 
 
 Inside your running container, you'll have access to a number of `{{ $names.company.allCaps }}_` namespaced environment variables, which provide information from the system outside the container:
 
+__Note:__ On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
+
 |    Variable   	| Description 	|
 |:----------:	    |:-----------:	|
 | `{{ $names.company.allCaps }}_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on {{ $names.company.lower }}	|
 | `{{ $names.company.allCaps }}_APP_ID` 	            |  ID number of the {{ $names.company.lower }} application the device is associated. 	|
 | `{{ $names.company.allCaps }}_APP_NAME`            |  The name of the {{ $names.company.lower }} application the device is associated with. |
-| `{{ $names.company.allCaps }}_APP_RELEASE`         |  The commit hash of the deployed application version. |
 | `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |  The name of the device on first initialisation. |
 | `{{ $names.company.allCaps }}_DEVICE_TYPE`         |  The type of device the application is running on. |
 | `{{ $names.company.allCaps }}` 	                  |  The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a {{ $names.company.lower }} device. 	|
@@ -36,25 +37,27 @@ Here's an example from a Raspberry Pi 3:
 
 ```Bash
 root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
-{{ $names.company.allCaps }}_SUPERVISOR_API_KEY=1111deadbeef2222                    
-{{ $names.company.allCaps }}_APP_ID=157270                                                                                          
-{{ $names.company.allCaps }}_DEVICE_TYPE=raspberrypi3                                                                               
-RESIN=1                                                                                                      
-{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS=http://127.0.0.1:48484                                                              
-{{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1                                                                              
-{{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee                             
-{{ $names.company.allCaps }}_API_KEY=deadbeef12345                                                               
-{{ $names.company.allCaps }}_APP_RELEASE=667153acf91a58886c1bc30fe4320c864471e23a                                                  
-{{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3                                                                               
-{{ $names.company.allCaps }}_APP_NAME=Example                                                                                      
-{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze                                                                          
-{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.upper }} 1.24.0                          
-{{ $names.company.allCaps }}_SUPERVISOR_PORT=48484  
+{{ $names.company.allCaps }}_SUPERVISOR_API_KEY=1111deadbeef2222
+{{ $names.company.allCaps }}_APP_ID=157270
+{{ $names.company.allCaps }}_DEVICE_TYPE=raspberrypi3
+{{ $names.company.allCaps }}=1
+{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS=http://127.0.0.1:48484
+{{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1
+{{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
+{{ $names.company.allCaps }}_API_KEY=deadbeef12345
+{{ $names.company.allCaps }}_APP_RELEASE=667153acf91a58886c1bc30fe4320c864471e23a
+{{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3
+{{ $names.company.allCaps }}_APP_NAME=Example
+{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze
+{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.lower }} 2.20.0
+{{ $names.company.allCaps }}_SUPERVISOR_PORT=48484
 ```
 
 ### Dbus communication with host OS
 
 In some cases its necessary to communicate with the host OS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
+
+__Note:__ In multicontainer applications, the `io.balena.features.dbus` label must be applied for each service that requires access to the dbus.
 
 ```
 # for {{ $names.company.lower }} supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
@@ -71,18 +74,8 @@ Below you can find a couple of examples. All of them requires either prepending 
 __Note:__ To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile if you are using the Debian image, or check under what name does your chosen operating system supply the `dbus-send` executable.
 
 #### Change the Device hostname
-```Bash
-DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
-  dbus-send \
-  --system \
-  --print-reply \
-  --reply-timeout=2000 \
-  --type=method_call \
-  --dest=org.freedesktop.hostname1 \
-  /org/freedesktop/hostname1 \
-  org.freedesktop.hostname1.SetStaticHostname \
-  string:"YOUR-NEW-HOSTNAME" boolean:true
-```
+
+Changing the device hostname is no longer possible via this method, due to the fact that the `/etc/hostname` file is stored on the read-only root partition. To change the device hostname, use the [balena supervisor API][supervisor-api-device-host-config].
 
 #### Rebooting the Device
 ```Bash
@@ -149,6 +142,8 @@ Since the `/etc/modules` you see in your container belongs to the container's fi
 
 ## Supervisor
 
+__Note:__ In multicontainer applications, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API.
+
 ### Reboot from Inside the Container
 
 You may notice that if you issue a `reboot`, `halt`, or `shutdown` your container either gets into a weird zombie state or doesn't do anything. The reason for this is that these commands do not propagate down to the hostOS system. If you need to issue a `reboot` from your container you should use the supervisor API as shown:
@@ -177,7 +172,7 @@ which listen on any port without issue. There is no need to have the Docker `EXP
 
 {{ $names.company.upper }} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the {{ $names.company.lower }} dashboard and select the `Enable a public URL for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
 
-![Enable device url](/img/screenshots/device-url-new.png)
+![Enable device url](/img/common/enable-public-URLs.png)
 
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices URL.
 
@@ -204,7 +199,7 @@ In the {{ $names.company.lower }} host OS [dnsmasq][dnsmasq-link] is used to man
 
 ## Storage
 
-### Persistent Storage		
+### Persistent Storage
 
 {{> "general/persistent-storage"}}
 
@@ -221,7 +216,7 @@ If you have not enabled an init system in your application or chose to mount man
 ```Dockerfile
 RUN echo "LABEL=mysdcard /mnt/storage ext4 rw,relatime,discard,data=ordered 0 2" >> /etc/fstab
 ```
-Modify your settings as apporopriate (device identification, mount endpoint, file system, mount options), and see more information about the possible settings at the [fstab man page](http://man7.org/linux/man-pages/man5/fstab.5.html).
+Modify your settings as appropriate (device identification, mount endpoint, file system, mount options), and see more information about the possible settings at the [fstab man page](http://man7.org/linux/man-pages/man5/fstab.5.html).
 
 Then in your start script you need to create the mount directory and mount the device:
 ```Bash
@@ -230,7 +225,7 @@ mkdir -p /mnt/storage && mount /mnt/storage
 
 **Using systemd**
 
-Normally systemd mounts entries from `/etc/fstab` on startup automatically, but running within Docker, it will only mount entries that are not block devices, such as `tempfs` entries. For non-block devices, adding entries `/etc/fstab` is sufficient, for example in your Dockerfile:
+Normally systemd mounts entries from `/etc/fstab` on startup automatically, but running within Docker, it will only mount entries that are not block devices, such as `tmpfs` entries. For non-block devices, adding entries `/etc/fstab` is sufficient, for example in your Dockerfile:
 ```Dockerfile
 RUN echo "tmpfs  /cache  tmpfs  rw,size=200M,nosuid,nodev,noexec  0 0" >> /etc/fstab
 ```
@@ -288,6 +283,7 @@ Devices can be selected in many ways, for example by `/dev` entry, labels, or UU
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [supervisor-api-link]:/runtime/supervisor-api/
+[supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
 [expressjs-link]:http://expressjs.com/
 [projects-github]:{{ $links.githubProjects }}
 [systemd-base-image-link]:https://hub.docker.com/r/{{ $names.company.short }}/raspberrypi-python/

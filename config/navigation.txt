@@ -68,7 +68,7 @@ Learn
     [/learn/manage/configuration]
     [/learn/manage/serv-vars]
     [/learn/manage/actions]
-  
+
   MORE RESOURCES
     [/learn/more/examples]
       [/learn/more/examples/projects]
@@ -96,8 +96,8 @@ Reference
     Network[/reference/OS/network/$os_version]
     [/reference/OS/time]
     [/reference/OS/advanced]
-    [/reference/OS/meta-resin]
-    
+    [/reference/OS/meta-balena]
+
   Device supervisor
     Supervisor API[/reference/supervisor/supervisor-api]
     [/reference/supervisor/bandwidth-reduction]
@@ -105,8 +105,9 @@ Reference
 
   Base images
     [/reference/base-images/base-images]
+    [/reference/base-images/base-images-ref]
     [/reference/base-images/devicetypes]
-    [/reference/base-images/custom-docker-base-images]  
+    [/reference/base-images/legacy-base-images]
 
   API
     [/reference/api/overview]
@@ -116,4 +117,3 @@ Reference
   SDKs
     Node.js SDK[/reference/sdk/node-sdk]
     Python SDK[/reference/sdk/python-sdk]
-

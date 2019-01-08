@@ -2,25 +2,21 @@
   {
     "id": "raspberry-pi",
     "name": "Raspberry Pi 1, Zero, or Zero W",
-    "variants": 
-    [
+    "variants": [
       {
         "name": "Raspberry Pi 1 Model A+",
         "image": "/img/raspberry-pi/raspberry-pi-1-A-plus.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-1-model-a-plus/"
-    
       },
       {
         "name": "Raspberry Pi 1 Model B+",
         "image": "/img/raspberry-pi/raspberry-pi-1-B-plus.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-1-model-b-plus/"
-    
       },
       {
         "name": "Raspberry Pi Zero",
         "image": "/img/raspberry-pi/raspberry-pi-zero.jpg",
         "link": "https://www.raspberrypi.org/products/raspberry-pi-zero/"
-    
       },
       {
         "name": "Raspberry Pi Zero W",
@@ -29,16 +25,15 @@
       }
     ],
     "arch": "rpi",
-		"bootMedia": "SD card",
+    "bootMedia": "SD card",
     "icon": "/img/device/raspberry-pi.svg",
     "link": "https://www.raspberrypi.org/products/",
     "type": "released"
   },
-	{
+  {
     "id": "raspberry-pi2",
     "name": "Raspberry Pi 2",
-    "variants": 
-    [
+    "variants": [
       {
         "name": "Raspberry Pi 2 Model B",
         "image": "/img/raspberry-pi2/raspberry-pi2.jpg",
@@ -46,16 +41,15 @@
       }
     ],
     "arch": "armv7hf",
-		"bootMedia": "SD card",
+    "bootMedia": "SD card",
     "icon": "/img/device/raspberry-pi2.svg",
     "link": "https://www.raspberrypi.org/products/",
     "type": "released"
   },
-	{
+  {
     "id": "raspberrypi3",
     "name": "Raspberry Pi 3",
-    "variants": 
-    [
+    "variants": [
       {
         "name": "Raspberry Pi 3 Model B",
         "image": "/img/raspberrypi3/raspberrypi3.jpg",
@@ -68,16 +62,24 @@
       }
     ],
     "arch": "armv7hf",
-		"bootMedia": "SD card",
+    "bootMedia": "SD card",
     "icon": "/img/device/raspberry-pi3.svg",
     "link": "https://www.raspberrypi.org/products/",
     "type": "released"
   },
   {
+    "id": "fincm3",
+    "name": "Balena Fin",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/fincm3.svg",
+    "link": "https://www.balenafin.io/",
+    "type": "released"
+  },
+  {
     "id": "beaglebone-black",
     "name": "BeagleBone",
-    "variants": 
-    [
+    "variants": [
       {
         "name": "BeagleBone Black",
         "image": "/img/beaglebone-black/beaglebone-black.jpg",
@@ -100,7 +102,7 @@
       }
     ],
     "arch": "armv7hf",
-		"bootMedia": "SD card",
+    "bootMedia": "SD card",
     "icon": "/img/device/beaglebone-black.svg",
     "link": "http://beagleboard.org/bone",
     "type": "released"
@@ -108,8 +110,7 @@
   {
     "id": "up-board",
     "name": "UP board",
-    "variants": 
-    [
+    "variants": [
       {
         "name": "UP board",
         "image": "/img/up-board/up-board.png",
@@ -127,7 +128,7 @@
       }
     ],
     "arch": "amd64",
-		"bootMedia": "USB drive",
+    "bootMedia": "USB drive",
     "icon": "/img/device/up-board.svg",
     "link": "https://www.up-board.org/",
     "type": "released"
@@ -153,8 +154,7 @@
   {
     "id": "intel-nuc",
     "name": "Intel NUC",
-    "variants": 
-    [
+    "variants": [
       {
         "name": "Intel NUC",
         "image": "/img/intel-nuc/intel-nuc.jpg",
@@ -171,6 +171,24 @@
     "icon": "/img/device/intel-nuc.svg",
     "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html",
     "type": "released"
+  },
+  {
+    "id": "asus-tinker-board",
+    "name": "Asus Tinker Board",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/asus-tinker-board.svg",
+    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board/",
+    "type": "beta"
+  },
+  {
+    "id": "asus-tinker-board-s",
+    "name": "Asus Tinker Board S",
+    "arch": "armv7hf",
+    "bootMedia": "eMMC",
+    "icon": "/img/device/asus-tinker-board-s.svg",
+    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board-S/",
+    "type": "beta"
   },
   {
     "id": "orangepi-plus2",
@@ -245,6 +263,15 @@
     "type": "beta"
   },
   {
+    "id": "iot2000",
+    "name": "Siemens IOT2000",
+    "arch": "i386-nlp",
+    "bootMedia": "SD card",
+    "icon": "/img/device/iot2000.svg",
+    "link": "https://w3.siemens.com/mcms/pc-based-automation/en/industrial-iot/Pages/Default.aspx",
+    "type": "beta"
+  },
+  {
     "id": "nitrogen6x",
     "name": "Nitrogen 6X",
     "arch": "armv7hf",
@@ -290,6 +317,15 @@
     "type": "released"
   },
   {
+    "id": "revpi-core-3",
+    "name": "Revolution Pi Core 3",
+    "arch": "armv7hf",
+    "bootMedia": "eMMC",
+    "icon": "/img/device/revpi-core-3.svg",
+    "link": "https://revolution.kunbus.de/shop/en/revpi-core-3",
+    "type": "beta"
+  },
+  {
     "id": "intel-edison",
     "name": "Intel Edison",
     "arch": "i386",
@@ -311,5 +347,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/generic-armv7ahf.svg",
     "type": "virtual"
+  },
+  {
+    "id": "var-som-mx6",
+    "name": "Variscite VAR-SOM-MX6",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/var-som-mx6.svg",
+    "link": "https://www.variscite.com/products/system-on-module-som/cortex-a9/var-som-mx6-cpu-freescale-imx6/",
+    "type": "beta"
   }
 ]

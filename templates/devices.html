@@ -2,7 +2,7 @@
 
 {% block "contents" %}
 	<h1>Single-board computers</h1>
-
+	<div class="alert alert-note">Don't see your device here? Contact <a href="mailto:sales@{{ $names.email_domain }}">sales@{{ $names.email_domain }}</a> to discuss our custom hardware support packages. </div>
 	<h2>Currently supported</h2>
 
 		{% for device in $dictionaries.getDict("$device") %}
@@ -26,4 +26,5 @@
 				</div>
 			{% endif %}
 		{% endfor %}
+
 {% endblock %}

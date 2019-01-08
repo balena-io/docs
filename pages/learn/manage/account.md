@@ -161,12 +161,12 @@ Now when you log in you will be prompted for the code displayed in your authenti
 [login]:{{ $links.dashboardUrl }}/login
 [prefs]:{{ $links.dashboardUrl }}/preferences?tab=details
 
-[api]:/reference/data-api
+[api]:/reference/api/overview/
 [cli]:/reference/cli
 [node-sdk]:/reference/sdk/node-sdk
 [python-sdk]:/reference/sdk/python-sdk
 
-[api-refresh]:/reference/data-api/#refresh-token
+[api-refresh]:/reference/api/resources/whoami/
 
 [cli-keys]:/reference/cli/#api-key-generate-name-
 [node-sdk-keys]:/reference/sdk/node-sdk/#auth-createapikey-name-code-promise-code-

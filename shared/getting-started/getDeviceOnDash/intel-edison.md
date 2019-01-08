@@ -8,7 +8,7 @@ First you will need the [firmware flashing tool][flash-tool-link] provided by In
 
 __Warning:__ There is a known issue with the flash tool and OSX 10.11 - El Captitan. In this case, we recommend [using the flashall scripts and dfu-util](/edison/nodejs/getting-started/#alternative-method-of-flashing-edison-firmware-for-mac-osx-10-11-el-capitan).
 
-#### Flash the Resin Firmware onto the Edison
+#### Flash the {{ $names.company.lower }} Firmware onto the Edison
 
 __Note:__ Before you start this step, ensure that your Edison is not plugged into your Computer.
 

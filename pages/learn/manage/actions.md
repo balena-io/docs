@@ -14,9 +14,9 @@ Actions allow you to control the status of your applications and devices during 
 
 ### Enable Public Device URL
 
-{{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.resindevice.io`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard.
+{{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard.
 
-<img src="/img/screenshots/device-url-new.png" width="80%">
+<img src="/img/common/enable-public-URLs.png" width="80%">
 
 To see what your device is serving on port 80, just click on the URL. If your application is not serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
@@ -101,7 +101,7 @@ This option permanently deletes your application.
 __Warning:__ It is a good idea to [move your devices to another application][move-devices] before deleting your current application. If you do not, **all devices attached to the application will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device actions from {{ $names.company.lower }}.
 
 [update-locks]:/learn/deploy/release-strategy/update-locking
-[move-app-blog-post]:{{ $links.mainSiteUrl }}/blog/canary-rollouts-on-resin-io/
+[move-app-blog-post]:{{ $links.blogSiteUrl }}/canary-rollouts-on-resin-io/
 [updates]:/reference/OS/updates/self-service
 [local-mode]:/learn/develop/local-mode
 [move-devices]:#move-to-another-application

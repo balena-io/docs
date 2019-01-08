@@ -20,7 +20,7 @@ The [Raspberry Pi][rpi]'s [General Purpose I/O][gpio] (GPIO) pins can be used to
 
 There are many libraries available for GPIO access, e.g. [Wiring Pi][wiring-pi]. For [node.js][node] users [npm][npm] has a number of [GPIO libraries][npm-gpio] available.
 
-We recommend [Pi Pins][pi-pins] for node.js projects - we've found it works reliably on [{{ $names.company.upper }}][resin]. Check out our [example GPIO application][example-gpio-app] which uses this library.
+We recommend [Pi Pins][pi-pins] for node.js projects - we've found it works reliably on [{{ $names.company.lower }}][balena]. Check out our [example GPIO application][example-gpio-app] which uses this library.
 
 There are also specialist libraries available for powering particular classes of devices via GPIO, e.g. the [MAX7219 node library][max7219] for [MAX7219][max7219] LED displays.
 
@@ -137,7 +137,7 @@ Please note that these are operating at a different voltage from the data pins -
 
 Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the [Octalbonescript](https://github.com/theoctal/octalbonescript) JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
 
-With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module [here]({{ $links.githubProjects }}/beaglebone-adc-node).
+With this module you should be able to carry out basic GPIO and analog-to-digital conversion operations. To get you started we have a simple example using this module [here]({{ $links.githubProjects }}/beaglebone-adc-node).
 
 If you would prefer a python implementation, then look at this [github issue](https://github.com/adafruit/adafruit-beaglebone-io-python/issues/80#issuecomment-163073883) and get involved in making it happen.
 
@@ -150,7 +150,7 @@ To get started with GPIO on edison have a look at our ["Edison GPIO in node.js"]
 [edison-base-image-link]:https://hub.docker.com/search/?q=resin%2Fedison&page=1&isAutomated=0&isOfficial=0&starCount=0&pullCount=0
 [terminal]:/runtime/terminal
 
-[resin]:{{ $links.mainSiteUrl }}
+[balena]:{{ $links.mainSiteUrl }}
 
 [rpi]:http://www.raspberrypi.org/
 [node]:http://nodejs.org/

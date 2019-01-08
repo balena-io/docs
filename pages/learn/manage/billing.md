@@ -38,7 +38,7 @@ If you have devices that will be inactive for long periods of time, you can mark
 
 Marking a device as `Inactive` is a [device action][device-action]. Device actions can be applied in one of three ways: as a group action applied to one or more devices in the device list, as an action selected from the dropdown on the device dashboard, or directly from the *Actions* tab of the device dashboard. Once a device has been marked `Inactive`, it will be faded out in the device list.
 
-[sales]:mailto:sales@{{ $names.domain }}
+[sales]:mailto:sales@{{ $names.email_domain }}
 [plans]:{{ $links.mainSiteUrl }}/pricing/
 [device-action]:/learn/manage/actions/#device-specific-actions
 [inactive]:#inactive-devices
