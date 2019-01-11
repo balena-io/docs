@@ -45,6 +45,7 @@ body {
   .improve-docs {
     float: none;
     margin-top: 10px;
+    margin-bottom: 16px;
   }
 }
 
@@ -433,6 +434,10 @@ header.sticky {
   .form-inline .bootstrap-select.dynamic-switch__select {
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .page-content-wrapper {
+    padding: 24px 16px 0;
   }
 }
 
