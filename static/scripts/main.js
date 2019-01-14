@@ -1,4 +1,3 @@
-var Ractive = require('ractive')
 var Headroom = require('headroom.js')
 var hljs = require('highlight.js/lib/highlight')
 var languages = require('./langs.js')
@@ -154,24 +153,9 @@ $('.site-navigation')
   .find('a[href^="/"]')
   .fixLinks()
 
-
-Ractive.DEBUG = false
-Ractive.defaults.delimiters = [ '[[', ']]' ]
-
-Ractive({
-  el: '#ract-mobile-top-menu',
-  template: '#tpl-mobile-top-menu',
-  data: {
-    collapsed: true
-  }
-})
-
-Ractive({
-  el: '#ract-mobile-sub-menu',
-  template: '#tpl-mobile-sub-menu',
-  data: {
-    collapsed: true
-  }
+$('.navbar-toggle').click(function() {
+  $(this).find('span').toggleClass('active')
+  $(this).closest('.navbar').find('.navbar-collapse').toggleClass('collapsed')
 })
 
 var reRegExpChar = /[\\^$.*+?()[\]{}|]/g
