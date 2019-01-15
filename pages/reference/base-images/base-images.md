@@ -77,7 +77,7 @@ If no variant is specified, the image defaults to `run`
 - `<hw>` : i386 - the intel 32 bit architecture that runs on Intel Edison
 - `<distro>` : ubuntu
 - `<lang>` : python
-- `<lang_ver>` : `latest` points to the latest language python 2 version, which currently is 2.7.15
+- `<lang_ver>` : `latest` points to the latest python 2 version, which currently is 2.7.15
 - `<distro_ver>` : trusty is Ubuntu 14.04
 - `(build|run)` : `build` - to include things like `build-essential` and gcc
 - `<yyyymmdd>` : 20181029 is a date frozen image - so this image will never be updated on dockerhub. Pinning to a date frozen base image is a good idea if you are running a fleet in production and are sensitive to dependencies updating and/or bandwidth constrained.
