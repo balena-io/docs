@@ -77,10 +77,10 @@ If no variant is specified, the image defaults to `run`
 - `<hw>` : i386 - the intel 32 bit architecture that runs on Intel Edison
 - `<distro>` : ubuntu
 - `<lang>` : python
-- `<lang_ver>` : `latest`, so it points to python 2, which currently is 2.7.15
-- `<distro_ver>` : trusty, which is ubuntu 14.04
-- `(build|run)` : build - so it will include things like `build-essential` and gcc
-- `<yyyymmdd>` : 20181029 - This is a date frozen image, so this image will never be updated on dockerhub. Pinning to a date frozen base image is a good idea if you are running a fleet in production and are sensitive to dependencies updating and/or bandwidth constrained.
+- `<lang_ver>` : `latest` points to the latest python 2 version, which currently is 2.7.15
+- `<distro_ver>` : trusty is Ubuntu 14.04
+- `(build|run)` : `build` - to include things like `build-essential` and `gcc`
+- `<yyyymmdd>` : 20181029 is a date frozen image - so this image will never be updated on dockerhub. Pinning to a date frozen base image is a good idea if you are running a fleet in production and are sensitive to dependencies updating and/or bandwidth constrained.
 
 ### run vs. build
 
@@ -126,7 +126,7 @@ Currently balenalib supports the following OS distribuitions and Language stacks
 
 ## Installing Packages
 
-Installing software packages in balenalib containers is very easy and in most cases you can just use base image operating system package manager, however to make things evey easier ever balenalib image includes a small `install_packages` script that abstracts away the specifics of the underlying package managers, and adds the following useful features:
+Installing software packages in balenalib containers is very easy and in most cases you can just use base image operating system package manager, however to make things even easier, every balenalib image includes a small `install_packages` script that abstracts away the specifics of the underlying package managers, and adds the following useful features:
 - Install the named packages, skipping prompts etc.
 - Clean up the package manager metadata afterwards to keep the resulting image small.
 - Retries if package install fails. Sometimes a package will fail to download due to a network issue, and this may fix that, which is particularly useful in an automated build pipeline.
@@ -164,7 +164,7 @@ __Note:__ The new balenalib base images make sure `udevd` runs in its own networ
 
 When moving from the legacy `resin/...` base images to the `balenalib` ones, there are a number of breaking changes that you should take note of, namely:
 
-- `UDEV` now defaults to `off`, so if you have code that relies on detecting dynamically plugged devices you will need to enable this in either your Dockerfile or via a device environment variable. See [Working with Dynamcally Plugged Devices](#working-with-dynamically-plugged-devices).
+- `UDEV` now defaults to `off`, so if you have code that relies on detecting dynamically plugged devices you will need to enable this in either your Dockerfile or via a device environment variable. See [Working with Dynamically Plugged Devices](#working-with-dynamically-plugged-devices).
 - The `INITSYSTEM` functionality has been completely removed, so applications that rely on [systemd](https://www.freedesktop.org/wiki/Software/systemd/) or [openRC](https://github.com/OpenRC/openrc) should install and set up the initsystem in their apps. See [Installing your own Initsystem](#installing-your-own-initsystem).
 - Mounting of `/dev` to a devtmpfs will now only occur when `UDEV=on` and the container is running as `privileged`.
 - Support for Debian Wheezy has been dropped.
@@ -218,7 +218,7 @@ ENTRYPOINT ["/usr/bin/entry.sh"]
 
 ## Building ARM Containers on x86 Machines
 
-This is an unique feature of balenalib ARM base images that allows you to run them anywhere (running ARM image on x86/x86_64 machines). A tool called `resin-xbuild` and QEMU are installed inside any balenalib ARM base images and can be triggered by `RUN [ "cross-build-start" ]` and `RUN [ "cross-build-end" ]`. QEMU will emulate any instructions between `cross-build-start` and `cross-build-end`. So this Dockerfile:
+This is a unique feature of balenalib ARM base images that allows you to run them anywhere (running ARM image on x86/x86_64 machines). A tool called `resin-xbuild` and QEMU are installed inside any balenalib ARM base images and can be triggered by `RUN [ "cross-build-start" ]` and `RUN [ "cross-build-end" ]`. QEMU will emulate any instructions between `cross-build-start` and `cross-build-end`. So this Dockerfile:
 
 ```Dockerfile
 FROM resin/armv7hf-debian
