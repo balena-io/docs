@@ -1,7 +1,7 @@
 {
   "name": "resin-docs",
   "private": true,
-  "version": "3.2.0",
+  "version": "3.2.5",
   "description": "This repo contains our public-facing documentation.",
   "main": "index.js",
   "scripts": {
@@ -35,8 +35,7 @@
     "jquery": "3.2.1",
     "jquery-colorbox": "1.6.4",
     "lodash": "^4.11.1",
-    "metalsmith-prefixoid": "^1.0.3",
-    "ractive": "0.8.12"
+    "metalsmith-prefixoid": "^1.0.3"
   },
   "devDependencies": {
     "css-loader": "0.28.0",
