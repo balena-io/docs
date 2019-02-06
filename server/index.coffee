@@ -38,17 +38,6 @@ getLocals = (extra) ->
 
 doxx.loadLunrIndex()
 
-app.get "#{config.pathPrefix}/search-results", (req, res) ->
-  { searchTerm } = req.query
-  res.render 'search', getLocals
-    title: "Search results for \"#{searchTerm}\""
-    breadcrumbs: [
-      'Search Results'
-      searchTerm
-    ]
-    searchTerm: searchTerm
-    searchResults: doxx.lunrSearch(searchTerm)
-
 console.error('serving everything under pathPrefix:', "#{config.pathPrefix}")
 app.use("#{config.pathPrefix}/", express.static(contentsDir))
 
