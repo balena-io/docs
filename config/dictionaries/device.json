@@ -73,7 +73,7 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/fincm3.svg",
-    "link": "https://www.balenafin.io/",
+    "link": "https://www.balena.io/fin",
     "type": "released"
   },
   {

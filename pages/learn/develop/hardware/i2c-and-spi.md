@@ -93,7 +93,7 @@ dtoverlay=pi3-miniuart-bt
 
 Now eject the SD card and pop it back into the RPI3, and you can boot the device up again.
 
-To demonstrate this functionality, you can push this project ({{ $links.githubMain }}-playground/rpi3-uart) to your RPI3. You will also need to add a small jumper wire between `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX`, so that the data sent out of the UART is read back in and displayed in the logs.
+To demonstrate this functionality, you can push this project ({{ $links.githubPlayground }}/rpi3-uart) to your RPI3. You will also need to add a small jumper wire between `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX`, so that the data sent out of the UART is read back in and displayed in the logs.
 
 ### Raspberry Pi camera module
 

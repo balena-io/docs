@@ -154,5 +154,5 @@ Sample secrets YAML file:
 [development]:/reference/OS/overview/2.x/#dev-vs-prod-images
 [cli]:/reference/cli
 [supervisor API]:/reference/supervisor/supervisor-api/
-[compose-remote]:{{ $links.githubMain }}-playground/balenaos-compose
+[compose-remote]:{{ $links.githubPlayground }}/balenaos-compose
 [troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access
