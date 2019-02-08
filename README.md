@@ -24,7 +24,7 @@ cd docs
 npm install
 npm start
 ```
-And then open [http://localhost:3000](http://localhost:3000).
+And then open [http://localhost:3000/docs](http://localhost:3000/docs).
 
 How to Contribute
 ----------
