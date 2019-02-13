@@ -29,7 +29,7 @@ __Note:__ On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variab
 | `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`	|
 | `{{ $names.company.allCaps }}_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`|
 | `{{ $names.company.allCaps }}_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`	|
-| `{{ $names.company.allCaps }}_API_KEY` 	          |  API key which can be used to authenticate requests to the {{ $names.company.lower }} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code full user permissions, so can be used to delete and update anything as you would on the Dashboard.  	|
+| `{{ $names.company.allCaps }}_API_KEY` 	          |  API key which can be used to authenticate requests to the {{ $names.company.lower }} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation][security-docs-link] for more details.  	|
 | `{{ $names.company.allCaps }}_HOST_OS_VERSION`     |  The version of the host OS. |
 | `{{ $names.company.allCaps }}_DEVICE_RESTART` 	    |  This is a internal mechanism for restarting containers and can be ignored as its not very useful to application code.  Example: `1.13.0`	|
 
@@ -283,6 +283,7 @@ Devices can be selected in many ways, for example by `/dev` entry, labels, or UU
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [supervisor-api-link]:/runtime/supervisor-api/
+[security-docs-link]:/welcome/security/
 [supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
 [expressjs-link]:http://expressjs.com/
 [projects-github]:{{ $links.githubProjects }}
