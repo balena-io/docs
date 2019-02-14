@@ -138,7 +138,7 @@ For a complete Python example which includes a device and a command line applica
 The following are a few notes using the [Python SDK](https://github.com/ibm-watson-iot/iot-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Python images, for example:
 
 ```Dockerfile
-FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
+FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
 ```
 
 Add the `ibmiotf` dependency in your `requirements.txt` file, either using the latest published version, or pulling the library directly from GitHub.:
@@ -226,7 +226,7 @@ For further examples, you can check the [samples included in the Python SDK](htt
 Here are a few notes using the [Node.js SDK](https://github.com/ibm-watson-iot/iot-nodejs) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Node.js images, for example:
 
 ```Dockerfile
-FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
+FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
 ```
 
 Add the `ibmiotf` dependency in your `package.json` in your application's folder:

@@ -1,4 +1,4 @@
-# Resin Node.js SDK
+# Balena Node.js SDK
 
 ## balena : <code>object</code>
 Welcome to the Balena SDK documentation.
@@ -33,6 +33,7 @@ If you feel something is missing, not clear or could be improved, please don't h
                 * [.set(nameOrId, key, value)](#balena.models.application.envVar.set) ⇒ <code>Promise</code>
                 * [.remove(nameOrId, key)](#balena.models.application.envVar.remove) ⇒ <code>Promise</code>
             * [.getAll([options])](#balena.models.application.getAll) ⇒ <code>Promise</code>
+            * [.getAllWithDeviceServiceDetails([options])](#balena.models.application.getAllWithDeviceServiceDetails) ⇒ <code>Promise</code>
             * [.get(nameOrId, [options])](#balena.models.application.get) ⇒ <code>Promise</code>
             * [.getWithDeviceServiceDetails(nameOrId, [options])](#balena.models.application.getWithDeviceServiceDetails) ⇒ <code>Promise</code>
             * [.getAppByOwner(appName, owner, [options])](#balena.models.application.getAppByOwner) ⇒ <code>Promise</code>
@@ -122,6 +123,9 @@ If you feel something is missing, not clear or could be improved, please don't h
             * [.getDeviceUrl(uuidOrId)](#balena.models.device.getDeviceUrl) ⇒ <code>Promise</code>
             * [.enableDeviceUrl(uuidOrId)](#balena.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
             * [.disableDeviceUrl(uuidOrId)](#balena.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
+            * [.enableLockOverride(uuidOrId)](#balena.models.device.enableLockOverride) ⇒ <code>Promise</code>
+            * [.disableLockOverride(uuidOrId)](#balena.models.device.disableLockOverride) ⇒ <code>Promise</code>
+            * [.hasLockOverride(uuidOrId)](#balena.models.device.hasLockOverride) ⇒ <code>Promise</code>
             * [.ping(uuidOrId)](#balena.models.device.ping) ⇒ <code>Promise</code>
             * [.getStatus(device)](#balena.models.device.getStatus) ⇒ <code>Promise</code>
             * [.grantSupportAccess(uuidOrId, expiryTimestamp)](#balena.models.device.grantSupportAccess) ⇒ <code>Promise</code>
@@ -326,6 +330,7 @@ balena.models.device.get(123).catch(function (error) {
             * [.set(nameOrId, key, value)](#balena.models.application.envVar.set) ⇒ <code>Promise</code>
             * [.remove(nameOrId, key)](#balena.models.application.envVar.remove) ⇒ <code>Promise</code>
         * [.getAll([options])](#balena.models.application.getAll) ⇒ <code>Promise</code>
+        * [.getAllWithDeviceServiceDetails([options])](#balena.models.application.getAllWithDeviceServiceDetails) ⇒ <code>Promise</code>
         * [.get(nameOrId, [options])](#balena.models.application.get) ⇒ <code>Promise</code>
         * [.getWithDeviceServiceDetails(nameOrId, [options])](#balena.models.application.getWithDeviceServiceDetails) ⇒ <code>Promise</code>
         * [.getAppByOwner(appName, owner, [options])](#balena.models.application.getAppByOwner) ⇒ <code>Promise</code>
@@ -415,6 +420,9 @@ balena.models.device.get(123).catch(function (error) {
         * [.getDeviceUrl(uuidOrId)](#balena.models.device.getDeviceUrl) ⇒ <code>Promise</code>
         * [.enableDeviceUrl(uuidOrId)](#balena.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
         * [.disableDeviceUrl(uuidOrId)](#balena.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
+        * [.enableLockOverride(uuidOrId)](#balena.models.device.enableLockOverride) ⇒ <code>Promise</code>
+        * [.disableLockOverride(uuidOrId)](#balena.models.device.disableLockOverride) ⇒ <code>Promise</code>
+        * [.hasLockOverride(uuidOrId)](#balena.models.device.hasLockOverride) ⇒ <code>Promise</code>
         * [.ping(uuidOrId)](#balena.models.device.ping) ⇒ <code>Promise</code>
         * [.getStatus(device)](#balena.models.device.getStatus) ⇒ <code>Promise</code>
         * [.grantSupportAccess(uuidOrId, expiryTimestamp)](#balena.models.device.grantSupportAccess) ⇒ <code>Promise</code>
@@ -497,6 +505,7 @@ balena.models.device.get(123).catch(function (error) {
         * [.set(nameOrId, key, value)](#balena.models.application.envVar.set) ⇒ <code>Promise</code>
         * [.remove(nameOrId, key)](#balena.models.application.envVar.remove) ⇒ <code>Promise</code>
     * [.getAll([options])](#balena.models.application.getAll) ⇒ <code>Promise</code>
+    * [.getAllWithDeviceServiceDetails([options])](#balena.models.application.getAllWithDeviceServiceDetails) ⇒ <code>Promise</code>
     * [.get(nameOrId, [options])](#balena.models.application.get) ⇒ <code>Promise</code>
     * [.getWithDeviceServiceDetails(nameOrId, [options])](#balena.models.application.getWithDeviceServiceDetails) ⇒ <code>Promise</code>
     * [.getAppByOwner(appName, owner, [options])](#balena.models.application.getAppByOwner) ⇒ <code>Promise</code>
@@ -938,6 +947,37 @@ balena.models.application.getAll(function(error, applications) {
 	console.log(applications);
 });
 ```
+<a name="balena.models.application.getAllWithDeviceServiceDetails"></a>
+
+##### application.getAllWithDeviceServiceDetails([options]) ⇒ <code>Promise</code>
+This method does not map exactly to the underlying model: it runs a
+larger prebuilt query, and reformats it into an easy to use and
+understand format. If you want more control, or to see the raw model
+directly, use `application.getAll(options)` instead.
+
+**Kind**: static method of [<code>application</code>](#balena.models.application)  
+**Summary**: Get applications and their devices, along with each device's
+associated services' essential details  
+**Access**: public  
+**Fulfil**: <code>Object[]</code> - applications  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
+
+**Example**  
+```js
+balena.models.application.getAllWithDeviceServiceDetails().then(function(applications) {
+	console.log(applications);
+})
+```
+**Example**  
+```js
+balena.models.application.getAllWithDeviceServiceDetails(function(error, applications) {
+	if (error) throw error;
+	console.log(applications);
+});
+```
 <a name="balena.models.application.get"></a>
 
 ##### application.get(nameOrId, [options]) ⇒ <code>Promise</code>
@@ -979,7 +1019,7 @@ understand format. If you want more control, or to see the raw model
 directly, use `application.get(uuidOrId, options)` instead.
 
 **Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Get a single application and its deives, along with each device's
+**Summary**: Get a single application and its devices, along with each device's
 associated services' essential details  
 **Access**: public  
 **Fulfil**: <code>Object</code> - application  
@@ -1628,6 +1668,9 @@ balena.models.application.revokeSupportAccess('MyApp', function(error) {
     * [.getDeviceUrl(uuidOrId)](#balena.models.device.getDeviceUrl) ⇒ <code>Promise</code>
     * [.enableDeviceUrl(uuidOrId)](#balena.models.device.enableDeviceUrl) ⇒ <code>Promise</code>
     * [.disableDeviceUrl(uuidOrId)](#balena.models.device.disableDeviceUrl) ⇒ <code>Promise</code>
+    * [.enableLockOverride(uuidOrId)](#balena.models.device.enableLockOverride) ⇒ <code>Promise</code>
+    * [.disableLockOverride(uuidOrId)](#balena.models.device.disableLockOverride) ⇒ <code>Promise</code>
+    * [.hasLockOverride(uuidOrId)](#balena.models.device.hasLockOverride) ⇒ <code>Promise</code>
     * [.ping(uuidOrId)](#balena.models.device.ping) ⇒ <code>Promise</code>
     * [.getStatus(device)](#balena.models.device.getStatus) ⇒ <code>Promise</code>
     * [.grantSupportAccess(uuidOrId, expiryTimestamp)](#balena.models.device.grantSupportAccess) ⇒ <code>Promise</code>
@@ -3524,6 +3567,81 @@ balena.models.device.disableDeviceUrl(123);
 **Example**  
 ```js
 balena.models.device.disableDeviceUrl('7cf02a6', function(error) {
+	if (error) throw error;
+});
+```
+<a name="balena.models.device.enableLockOverride"></a>
+
+##### device.enableLockOverride(uuidOrId) ⇒ <code>Promise</code>
+**Kind**: static method of [<code>device</code>](#balena.models.device)  
+**Summary**: Enable lock override  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
+
+**Example**  
+```js
+balena.models.device.enableLockOverride('7cf02a6');
+```
+**Example**  
+```js
+balena.models.device.enableLockOverride(123);
+```
+**Example**  
+```js
+balena.models.device.enableLockOverride('7cf02a6', function(error) {
+	if (error) throw error;
+});
+```
+<a name="balena.models.device.disableLockOverride"></a>
+
+##### device.disableLockOverride(uuidOrId) ⇒ <code>Promise</code>
+**Kind**: static method of [<code>device</code>](#balena.models.device)  
+**Summary**: Disable lock override  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
+
+**Example**  
+```js
+balena.models.device.disableLockOverride('7cf02a6');
+```
+**Example**  
+```js
+balena.models.device.disableLockOverride(123);
+```
+**Example**  
+```js
+balena.models.device.disableLockOverride('7cf02a6', function(error) {
+	if (error) throw error;
+});
+```
+<a name="balena.models.device.hasLockOverride"></a>
+
+##### device.hasLockOverride(uuidOrId) ⇒ <code>Promise</code>
+**Kind**: static method of [<code>device</code>](#balena.models.device)  
+**Summary**: Check if a device has the lock override enabled  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
+
+**Example**  
+```js
+balena.models.device.hasLockOverride('7cf02a6');
+```
+**Example**  
+```js
+balena.models.device.hasLockOverride(123);
+```
+**Example**  
+```js
+balena.models.device.hasLockOverride('7cf02a6', function(error) {
 	if (error) throw error;
 });
 ```

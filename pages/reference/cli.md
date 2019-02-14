@@ -6,6 +6,23 @@ Please make sure your system meets the requirements as specified in the [README]
 
 ## Install the CLI
 
+### Dependencies
+
+Before installing the Balena CLI from npm, make sure you have the following dependencies installed:
+
+* make
+* g++ compiler
+* Python 2.7
+* git
+
+For example, to install these packages on a Debian-based Linux operating systems:
+
+```
+$ sudo apt-get install g++ make python git --yes
+```
+
+**NOTE**: If you are installing the stand-alone binary CLI, you will not need to install these dependencies.
+
 ### Npm install
 
 The best supported way to install the CLI is from npm:
@@ -106,6 +123,12 @@ environment variable (in the same standard URL format).
 	- [env add &#60;key&#62; [value]](#env-add-key-value-)
 	- [env rename &#60;id&#62; &#60;value&#62;](#env-rename-id-value-)
 
+- Tags
+
+	- [tags](#tags)
+	- [tag set &#60;tagKey&#62; [value]](#tag-set-tagkey-value-)
+	- [tag rm &#60;tagKey&#62;](#tag-rm-tagkey-)
+
 - Help
 
 	- [help [command...]](#help-command-)
@@ -183,6 +206,11 @@ environment variable (in the same standard URL format).
 
 	- [build [source]](#build-source-)
 	- [deploy &#60;appName&#62; [image]](#deploy-appname-image-)
+
+- Platform
+
+	- [join [deviceIp]](#join-deviceip-)
+	- [leave [deviceIp]](#leave-deviceip-)
 
 - Utilities
 
@@ -284,7 +312,7 @@ from the dashboard.
 
 - Credentials: using email/password and 2FA.
 
-- Token: using a session token or API key (experimental) from the preferences page.
+- Token: using a session token or API key from the preferences page.
 
 Examples:
 
@@ -298,7 +326,7 @@ Examples:
 
 #### --token, -t &#60;token&#62;
 
-session token or API key (experimental)
+session token or API key
 
 #### --web, -w
 
@@ -318,7 +346,7 @@ password
 
 ## logout
 
-Use this command to logout from your balena account.o
+Use this command to logout from your balena account.
 
 Examples:
 
@@ -667,6 +695,89 @@ Examples:
 
 device
 
+# Tags
+
+## tags
+
+Use this command to list all tags for
+a particular application, device or release.
+
+This command lists all application/device/release tags.
+
+Example:
+
+	$ balena tags --application MyApp
+	$ balena tags --device 7cf02a6
+	$ balena tags --release 1234
+
+### Options
+
+#### --application, -a, --app &#60;application&#62;
+
+application name
+
+#### --device, -d &#60;device&#62;
+
+device uuid
+
+#### --release, -r &#60;release&#62;
+
+release id
+
+## tag set &#60;tagKey&#62; [value]
+
+Use this command to set a tag to an application, device or release.
+
+You can optionally provide a value to be associated with the created
+tag, as an extra argument after the tag key. When the value isn't
+provided, a tag with an empty value is created.
+
+Examples:
+
+	$ balena tag set mySimpleTag --application MyApp
+	$ balena tag set myCompositeTag myTagValue --application MyApp
+	$ balena tag set myCompositeTag myTagValue --device 7cf02a6
+	$ balena tag set myCompositeTag myTagValue --release 1234
+	$ balena tag set myCompositeTag "my tag value with whitespaces" --release 1234
+
+### Options
+
+#### --application, -a, --app &#60;application&#62;
+
+application name
+
+#### --device, -d &#60;device&#62;
+
+device uuid
+
+#### --release, -r &#60;release&#62;
+
+release id
+
+## tag rm &#60;tagKey&#62;
+
+Use this command to remove a tag from an application, device or release.
+
+Examples:
+
+	$ balena tag rm myTagKey --application MyApp
+	$ balena tag rm myTagKey --device 7cf02a6
+	$ balena tag rm myTagKey --release 1234
+
+### Options
+
+#### --application, -a, --app &#60;application&#62;
+
+application name
+
+#### --device, -d &#60;device&#62;
+
+device uuid
+
+#### --release, -r &#60;release&#62;
+
+release id
+
 # Help
 
 ## help [command...]
@@ -968,7 +1079,9 @@ the path to the output JSON file
 Use this command to configure a previously downloaded operating system image for
 the specific device or for an application generally.
 
-Calling this command with the exact version number of the targeted image is required.
+This command will try to automatically determine the operating system version in order
+to correctly configure the image. It may fail to do so however, in which case you'll
+have to call this command again with the exact version number of the targeted image.
 
 Note that device api keys are only supported on balenaOS 2.0.3+.
 
@@ -976,11 +1089,16 @@ This command still supports the *deprecated* format where the UUID and optionall
 are passed directly on the command line, but the recommended way is to pass either an --app or
 --device argument. The deprecated format will be remove in a future release.
 
+In case that you want to configure an image for an application with mixed device types,
+you can pass the --device-type argument along with --app to specify the target device type.
+
 Examples:
 
-	$ balena os configure ../path/rpi.img --device 7cf02a6 --version 2.12.7
-	$ balena os configure ../path/rpi.img --device 7cf02a6 --version 2.12.7 --device-api-key <existingDeviceKey>
-	$ balena os configure ../path/rpi.img --app MyApp  --version 2.12.7
+	$ balena os configure ../path/rpi3.img --device 7cf02a6
+	$ balena os configure ../path/rpi3.img --device 7cf02a6 --device-api-key <existingDeviceKey>
+	$ balena os configure ../path/rpi3.img --app MyApp
+	$ balena os configure ../path/rpi3.img --app MyApp --version 2.12.7
+	$ balena os configure ../path/rpi3.img --app MyFinApp --device-type raspberrypi3
 
 ### Options
 
@@ -999,6 +1117,10 @@ device uuid
 #### --deviceApiKey, -k &#60;device-api-key&#62;
 
 custom device key - note that this is only supported on balenaOS 2.0.3+
+
+#### --deviceType &#60;device-type&#62;
+
+device type slug
 
 #### --version &#60;version&#62;
 
@@ -1128,6 +1250,9 @@ This is interactive by default, but you can do this automatically without intera
 by specifying an option for each question on the command line, if you know the questions
 that will be asked for the relevant device type.
 
+In case that you want to configure an image for an application with mixed device types,
+you can pass the --device-type argument along with --app to specify the target device type.
+
 Examples:
 
 	$ balena config generate --device 7cf02a6 --version 2.12.7
@@ -1135,6 +1260,7 @@ Examples:
 	$ balena config generate --device 7cf02a6 --version 2.12.7 --device-api-key <existingDeviceKey>
 	$ balena config generate --device 7cf02a6 --version 2.12.7 --output config.json
 	$ balena config generate --app MyApp --version 2.12.7
+	$ balena config generate --app MyApp --version 2.12.7 --device-type fincm3
 	$ balena config generate --app MyApp --version 2.12.7 --output config.json
 	$ balena config generate --app MyApp --version 2.12.7 --network wifi --wifiSsid mySsid --wifiKey abcdefgh --appUpdatePollInterval 1
 
@@ -1155,6 +1281,10 @@ device uuid
 #### --deviceApiKey, -k &#60;device-api-key&#62;
 
 custom device key - note that this is only supported on balenaOS 2.0.3+
+
+#### --deviceType &#60;device-type&#62;
+
+device type slug
 
 #### --generate-device-api-key
 
@@ -1247,16 +1377,28 @@ Docker host TLS key file
 
 ## push &#60;applicationOrDevice&#62;
 
-This command can be used to start a build on the remote
-balena cloud builders, or a local mode balena device.
+This command can be used to start a build on the remote balena cloud builders,
+or a local mode balena device.
 
 When building on the balena cloud the given source directory will be sent to the
 balena builder, and the build will proceed. This can be used as a drop-in
 replacement for git push to deploy.
 
-When building on a local mode device, the given source directory will be built on
-device, and the resulting containers will be run on the device. Logs will be
-streamed back from the device as part of the same invocation.
+When building on a local mode device, the given source directory will be built
+on the device, and the resulting containers will be run on the device. Logs will
+be streamed back from the device as part of the same invocation.
+
+The --registry-secrets option specifies a JSON or YAML file containing private
+Docker registry usernames and passwords to be used when pulling base images.
+Sample registry-secrets YAML file:
+
+	'https://idx.docker.io/v1/':
+		username: mike
+		password: cze14
+	'myregistry.com:25000':
+		username: ann
+		password: hunter2
+
 
 Examples:
 
@@ -1281,6 +1423,10 @@ Force an emulated build to occur on the remote builder
 #### --nocache, -c
 
 Don't use cache when building this project
+
+#### --registry-secrets, -R &#60;secrets.yml|.json&#62;
+
+Path to a local YAML or JSON file containing Docker registry passwords used to pull base images
 
 # Settings
 
@@ -1327,7 +1473,7 @@ Use this command to flash a balenaOS image to a drive.
 
 Examples:
 
-	$ balena local flash path/to/balenaos.img
+	$ balena local flash path/to/balenaos.img[.zip|.gz|.bz2|.xz]
 	$ balena local flash path/to/balenaos.img --drive /dev/disk2
 	$ balena local flash path/to/balenaos.img --drive /dev/disk2 --yes
 
@@ -1561,7 +1707,7 @@ Examples:
 
 	$ balena build
 	$ balena build ./source/
-	$ balena build --deviceType raspberrypi3 --arch armhf --emulated
+	$ balena build --deviceType raspberrypi3 --arch armv7hf --emulated
 	$ balena build --application MyApp ./source/
 	$ balena build --docker '/var/run/docker.sock'
 	$ balena build --dockerHost my.docker.host --dockerPort 2376 --ca ca.pem --key key.pem --cert cert.pem
@@ -1723,6 +1869,54 @@ Don't use docker layer caching when building
 #### --squash
 
 Squash newly built layers into a single new layer
+
+# Platform
+
+## join [deviceIp]
+
+Use this command to move a local device to an application on another balena server.
+
+For example, you could provision a device against an openBalena installation
+where you perform end-to-end tests and then move it to balenaCloud when it's
+ready for production.
+
+Moving a device between applications on the same server is not supported.
+
+If you don't specify a device hostname or IP, this command will automatically
+scan the local network for balenaOS devices and prompt you to select one
+from an interactive picker. This usually requires root privileges.
+
+Examples:
+
+	$ balena join
+	$ balena join balena.local
+	$ balena join balena.local --application MyApp
+	$ balena join 192.168.1.25
+	$ balena join 192.168.1.25 --application MyApp
+
+### Options
+
+#### --application, -a &#60;application&#62;
+
+The name of the application the device should join
+
+## leave [deviceIp]
+
+Use this command to make a local device leave the balena server it is
+provisioned on. This effectively makes the device "unmanaged".
+
+The device entry on the server is preserved after running this command,
+so the device can subsequently re-join the server if needed.
+
+If you don't specify a device hostname or IP, this command will automatically
+scan the local network for balenaOS devices and prompt you to select one
+from an interactive picker. This usually requires root privileges.
+
+Examples:
+
+	$ balena leave
+	$ balena leave balena.local
+	$ balena leave 192.168.1.25
 
 # Utilities
 
