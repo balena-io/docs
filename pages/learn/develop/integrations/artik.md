@@ -115,7 +115,7 @@ There are multiple ways to connect to the ARTIK Cloud to send and receive data, 
 Here are a few notes using the [Python SDK](https://github.com/artikcloud/artikcloud-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Python images, for example:
 
 ```
-FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python:2.7
+FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python:2.7
 ```
 
 Add the `artikcloud` dependency in your `requirements.txt` file:
@@ -182,7 +182,7 @@ You can use any Python MQTT library to communicate with the ARTIK Cloud. Check t
 Here are a few notes using the [Javascript/Node.js SDK](https://github.com/artikcloud/artikcloud-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Node.js images, for example:
 
 ```
-FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
+FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
 ```
 
 Add the `artikcloud-js` dependency in your `package.json` in your application's folder:

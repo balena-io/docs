@@ -212,41 +212,61 @@ Get a single application by application id.
 >>> balena.models.application.get_by_id(9020)
 {u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.balena.io:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}
 ```
-### Function: get_config(app_id)
+### Function: get_by_owner(name, owner)
 
-        Download application config.json.
+Get a single application.
 
-####         Args:
-            app_id (str): application id.
+#### Args:
+    name (str): application name.
+    owner (str):  owner's username.
 
-####         Returns:
-            dict: application config.json content.
+#### Returns:
+    dict: application info.
 
-####         Raises:
-            ApplicationNotFound: if application couldn't be found.
+#### Raises:
+    ApplicationNotFound: if application couldn't be found.
+    AmbiguousApplication: when more than one application is returned.
 
-####         Examples:
+#### Examples:
 ```python
-            >>> balena.models.application.get_config('106640')
-            {u'applicationName': u'RPI3', u'username': u'nghiant2710', u'apiKey': u'kIaqS6ZLOoxkFzpzqSYhWtr2lj6m8KZi', u'vpnPort': 443, u'listenPort': 48484, u'pubnubSubscribeKey': u'sub-c-bbc12eba-ce4a-11e3-9782-02ee2ddab7fe', u'vpnEndpoint': u'vpn.balena.io', u'userId': 189, u'files': {u'network/network.config': u'[service_home_ethernet]
-Type = ethernet
-Nameservers = 8.8.8.8,8.8.4.4', u'network/settings': u'[global]
-OfflineMode=false
-TimeUpdates=manual
+>>> balena.models.application.get_by_owner('mothaiba', 'pythonsdk_test_resin')
+{u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'mothaiba', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(1307755)'}, u'is_accessible_by_support_until__date': None, u'actor': 3438708, u'id': 1307755, u'user': {u'__deferred': {u'uri': u'/resin/user(32986)'}, u'__id': 32986}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'pythonsdk_test_resin/mothaiba'}
 ```
+### Function: get_config(app_id, version)
 
-[WiFi]
-Enable=true
-Tethering=false
+Download application config.json.
 
-[Wired]
-Enable=true
-Tethering=false
+#### Args:
+    app_id (str): application id.
+    version (str): the OS version of the image.
+    **options (dict): OS configuration keyword arguments to use. The available options are listed below:
+        network (Optional[str]): the network type that the device will use, one of 'ethernet' or 'wifi' and defaults to 'ethernet' if not specified.
+        appUpdatePollInterval (Optional[str]): how often the OS checks for updates, in minutes.
+        wifiKey (Optional[str]): the key for the wifi network the device will connect to.
+        wifiSsid (Optional[str]): the ssid for the wifi network the device will connect to.
+        ip (Optional[str]): static ip address.
+        gateway (Optional[str]): static ip gateway.
+        netmask (Optional[str]): static ip netmask.
 
-[Bluetooth]
-Enable=true
-Tethering=false'}, u'pubnubPublishKey': u'pub-c-6cbce8db-bfd1-4fdf-a8c8-53671ae2b226', u'apiEndpoint': u'https://api.balena.io', u'connectivity': u'connman', u'deviceType': u'raspberrypi3', u'mixpanelToken': u'12345678912345678912345678912345', u'deltaEndpoint': u'https://delta.balena.io', u'appUpdatePollInterval': 60000, u'applicationId': 106640, u'registryEndpoint': u'registry.balena.io'}
-        
+#### Returns:
+    dict: application config.json content.
+
+#### Raises:
+    ApplicationNotFound: if application couldn't be found.
+### Function: get_target_release_hash(app_id)
+
+Get the hash of the current release for a specific application.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    str: The release hash of the current release.
+
+#### Examples:
+```python
+>>> balena.models.application.get_target_release_hash('5685')
+```
 ### Function: grant_support_access(app_id, expiry_timestamp)
 
 Grant support access to an application until a specified time.
@@ -288,6 +308,19 @@ Check if the user has any applications.
 >>> balena.models.application.has_any()
 True
 ```
+### Function: is_tracking_latest_release(app_id)
+
+Get whether the application is up to date and is tracking the latest release for updates.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    bool: is tracking the latest release.
+
+#### Examples:
+    >> > balena.models.application.is_tracking_latest_release('5685')
+    True
 ### Function: remove(name)
 
 Remove application. This function only works if you log in using credentials or Auth Token.
@@ -328,14 +361,13 @@ Revoke support access to an application.
 #### Examples:
     >> > balena.models.application.revoke_support_access('5685')
     'OK'
-### Function: set_to_release(app_id, commit_id)
+### Function: set_to_release(app_id, full_release_hash)
 
 Set an application to a specific commit.
-The commit will get updated on the next push unless rolling updates are disabled (there is a dedicated method for that which is balena.models.applicaion.disable_rolling_updates())
 
 #### Args:
     app_id (str): application id.
-    commit_id (str) : commit id.
+    full_release_hash (str) : full_release_hash.
 
 #### Returns:
     OK/error.
@@ -343,6 +375,30 @@ The commit will get updated on the next push unless rolling updates are disabled
 #### Examples:
     >> > balena.models.application.set_to_release('5685', '7dba4e0c461215374edad74a5b78f470b894b5b7')
     'OK'
+### Function: track_latest_release(app_id)
+
+Configure a specific application to track the latest available release.
+
+#### Args:
+    app_id (str): application id.
+
+#### Examples:
+```python
+>>> balena.models.application.track_latest_release('5685')
+```
+### Function: will_track_new_releases(app_id)
+
+Get whether the application is configured to receive updates whenever a new release is available.
+
+#### Args:
+    app_id (str): application id.
+
+#### Returns:
+    bool: is tracking the latest release.
+
+#### Examples:
+    >> > balena.models.application.will_track_new_releases('5685')
+    True
 ## ApiKey
 
 This class implements user API key model for balena python SDK.
@@ -946,6 +1002,18 @@ Check if a device is online.
 
 #### Raises:
     DeviceNotFound: if device couldn't be found.
+### Function: is_tracking_application_release(uuid)
+
+Get whether the device is configured to track the current application release.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    bool: is tracking the current application release.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
 ### Function: move(uuid, app_name)
 
 Move a device to another application.
@@ -1085,6 +1153,15 @@ Set an empty commit_id will restore rolling releases to the device.
 #### Examples:
     >> > balena.models.device.set_to_release('49b2a76b7f188c1d6f781e67c8f34adb4a7bfd2eec3f91d40b1efb75fe413d', '45c90004de73557ded7274d4896a6db90ea61e36')
     'OK'
+### Function: track_application_release(uuid)
+
+Configure a specific device to track the current application release.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
 ### Function: unset_custom_location(uuid)
 
 clear custom location for a device.
@@ -1278,7 +1355,7 @@ Get all service environment variables by application.
 
 #### Examples:
 ```python
->>> balena.models.environment_variables.service_environment_variable.get_all('1005160')
+>>> balena.models.environment_variables.service_environment_variable.get_all_by_application('1005160')
 [{u'name': u'app_data', u'service': {u'__deferred': {u'uri': u'/balena/service(21667)'}, u'__id': 21667}, u'created_at': u'2018-03-16T19:21:21.087Z', u'__metadata': {u'type': u'', u'uri': u'/balena/service_environment_variable(12365)'}, u'value': u'app_data_value', u'id': 12365}, {u'name': u'app_data1', u'service': {u'__deferred': {u'uri': u'/balena/service(21667)'}, u'__id': 21667}, u'created_at': u'2018-03-16T19:21:49.662Z', u'__metadata': {u'type': u'', u'uri': u'/balena/service_environment_variable(12366)'}, u'value': u'app_data_value', u'id': 12366}, {u'name': u'app_front', u'service': {u'__deferred': {u'uri': u'/balena/service(21669)'}, u'__id': 21669}, u'created_at': u'2018-03-16T19:22:06.955Z', u'__metadata': {u'type': u'', u'uri': u'/balena/service_environment_variable(12367)'}, u'value': u'front_value', u'id': 12367}]
 ```
 ### Function: remove(var_id)
@@ -1429,7 +1506,7 @@ Get all device service environment variables belong to an application.
 
 #### Examples:
 ```python
->>> balena.models.environment_variables.device_service_environment_variable(1043050)
+>>> balena.models.environment_variables.device_service_environment_variable.get_all_by_application(1043050)
 [{'name': u'device1', u'__metadata': {u'type': u'', u'uri': u'/balena/device_environment_variable(40794)'}, u'value': u'test', u'device': {u'__deferred': {u'uri': u'/balena/device(115792)'}, u'__id': 115792}, u'id': 40794}, {'name': u'BALENA_DEVICE_RESTART', u'__metadata': {u'type': u'', u'uri': u'/balena/device_environment_variable(1524)'}, u'value': u'961506585823372', u'device': {u'__deferred': {u'uri': u'/balena/device(121794)'}, u'__id': 121794}, u'id': 1524}]
 ```
 ### Function: remove(var_id)
@@ -1508,6 +1585,15 @@ Get all releases from an application.
 
 #### Returns:
     list: release info.
+### Function: get_latest_by_application(app_id)
+
+Get the latest successful release for an application.
+
+#### Args:
+    app_id (str): applicaiton id.
+
+#### Returns:
+    dict: release info.
 ### Function: get_with_image_details(id)
 
 Get a specific release with the details of the images built.

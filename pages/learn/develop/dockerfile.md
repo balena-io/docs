@@ -71,7 +71,7 @@ To allow our builders to build containers for multiple architectures from one co
 
 It is now possible to define a `Dockerfile.template` file that looks like this:
 ```Dockerfile
-FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node
+FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node
 
 COPY package.json /package.json
 RUN npm install

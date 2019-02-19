@@ -79,7 +79,7 @@ To add you changes to the docs, create a new local branch of master:
 ```
 git checkout -b my-docs-patch
 ```
-Now you can make changes in this branch. Since our docs are static pages generated from markdown using metalsmith.io,  each time you change some of the `.md` files you will need to run rebuild of the docs to generate the static pages. This is done by running:
+Now you can make changes in this branch. Since our docs are static pages generated from markdown using metalsmith.io, each time you change some of the `.md` files you will need to run rebuild of the docs to generate the static pages. This is done by running:
 ```
 ./tools/prepare.sh
 ```
@@ -115,7 +115,7 @@ and the engine will pull that partial into this location in the page.
 
 Its important to note that `h1` and `h2` headings will automatically be included in the left hand side navigation bar, so make sure to use these appropriately.
 
-In the dynamically generated pages ( the ones with he device-type and language dropdown) it is possible to use templates to dynamically change the device name and language name in your text. Here is an example:
+In the dynamically generated pages (the ones with the device-type and language dropdown) it is possible to use templates to dynamically change the device name and language name in your text. Here is an example:
 ```
 Getting started with {{ $device_details.name }} using {{ $language_details.name }}
 ```

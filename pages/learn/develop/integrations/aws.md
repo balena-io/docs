@@ -77,7 +77,7 @@ For easy communication between the devices and AWS IoT an MQTT library is recomm
 Here are a few notes using Python with {{ $names.company.lower }} devices. Starting from a [Dockerfile templates](/deployment/docker-templates/), build on the {{ $names.company.lower }} default Python images, for example:
 
 ```Dockerfile
-FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
+FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
 ```
 
 Add the relevant dependencies to your `requirements.txt` file, for example
@@ -157,7 +157,7 @@ For a complete Node.js example, please see the pair of [balena-aws-lambda]({{ $l
 Here are a few notes using the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Node.js images, for example:
 
 ```Dockerfile
-FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
+FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
 ```
 
 Add the `aws-iot-device-sdk` dependency in your `package.json` in your application's folder:
