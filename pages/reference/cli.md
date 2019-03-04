@@ -597,9 +597,7 @@ This command lists all application/device environment variables.
 If you want to see config variables, used to configure
 balena features, use the --config option.
 
-At the moment the CLI does not support per-service variables,
-so the following commands will only show service-wide
-environment variables.
+At the moment the CLI does not support neither service variable or device service variables. The following commands may only show environment or config variables.
 
 Example:
 
@@ -1924,4 +1922,3 @@ Examples:
 
 Use this command to list your machine's drives usable for writing the OS image to.
 Skips the system drives.
-
