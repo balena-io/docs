@@ -649,6 +649,15 @@ Disable device url for a device.
 >>> balena.models.device.disable_device_url('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
 'OK'
 ```
+### Function: disable_lock_override(uuid)
+
+Disable lock override.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
 ### Function: enable_device_url(uuid)
 
 Enable device url for a device.
@@ -671,6 +680,15 @@ False
 >>> balena.models.device.has_device_url('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
 True
 ```
+### Function: enable_lock_override(uuid)
+
+Enable lock override.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
 ### Function: generate_device_key(uuid)
 
 Generate a device key.
@@ -978,6 +996,18 @@ Check if a device is web accessible with device urls
 >>> balena.models.device.has_device_url('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
 False
 ```
+### Function: has_lock_override(uuid)
+
+Check if a device has the lock override enabled.
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    bool: lock override status.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
 ### Function: identify(uuid)
 
 Identify device. This function only works if you log in using credentials or Auth Token.
