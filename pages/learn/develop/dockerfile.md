@@ -103,15 +103,17 @@ Here are the supported machine names and architectures:
 
 ## Multiple Dockerfiles
 
-There are cases where just specifying a Dockerfile template doesn't work, as different systems or architectures may need different configuration and installation files. The solution to this problem is having multiple dockerfiles that are automatically selected based on the device it is going to be used.
+There are cases when you would need a higher granularity of control when specifying build instructions for different devices and architectures than a Dockerfile template can provide. An example of this would be when different configuration or installation files are required.
 
-When using the command `balena push`, the balena CLI tool looks at all available dockerfiles and builds the appropriate container based on the following order:
+When deploying an application, the balena CLI tool looks at all available dockerfiles and builds the appropriate docker image based on the following order:
 
 * Dockerfile.<device-type>
 * Dockerfile.<arch>
 * Dockerfile.template
 
-As an example, if you have two dockerfiles in the directory, `Dockerfile.raspberrypi3` and `Dockerfile.template`, whenever you run `balena push <app-name>` if the `device-type` is a Raspberry Pi 3, it will select `Dockerfile.raspberrypi3`  and for all other devices it will automatically select `Dockerfile.template`.
+As an example, if you have two dockerfiles in the directory, `Dockerfile.raspberrypi3` and `Dockerfile.template`, whenever you publish the application do balenaCloud, if the `device-type` is a Raspberry Pi 3, `Dockerfile.raspberrypi3` will be selected and for all other devices it will automatically select `Dockerfile.template`.
+
+Note that this feature works with the following commands: `git push`, `balena push`, `balena build`, and `balena deploy`.
 
 ## Init system
 
