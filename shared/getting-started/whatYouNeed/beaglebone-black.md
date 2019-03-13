@@ -1,4 +1,5 @@
 <img style="float: right;padding-left: 10px;" src="/img/beaglebone-black/beaglebone-black.jpg" width="25%">
+
 * A [Beaglebone Black][bbb-link] or [Beaglebone Green][bbg-link].
 * A 4GB or larger SD card. Both the Beaglebone Black and Green use a Micro SD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 * An ethernet cable or [WiFi adapter][wifi-adapters-link] to connect your device to the
