@@ -45,6 +45,7 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 {{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1
 {{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
 {{ $names.company.allCaps }}_API_KEY=deadbeef12345
+{{ $names.company.allCaps }}_APP_RELEASE=667153acf91a58886c1bc30fe4320c864471e23a
 {{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3
 {{ $names.company.allCaps }}_APP_NAME=Example
 {{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze
