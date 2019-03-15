@@ -24,7 +24,9 @@ When you're ready to bring your application from one to device to a fleet, read 
 
 Check here for details on all the tools we provide for managing your device fleet, including configuration variables, service variables, SSH access, and device logs.
 
-Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][reference] sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help][help] is always available!
+Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][reference] sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help][help] is always available! 
+
+You can also check out our [public roadmap][roadmap] and share your ideas and feature requests!
 
 [balena]:{{ $links.mainSiteUrl }}/
 [git]:https://git-scm.com/
@@ -40,5 +42,5 @@ Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][re
 [faq]:/faq
 [reference]:/reference
 [help]:/learn/welcome/support
-
+[roadmap]:https://trello.com/b/9CSzdCXQ/balena-product-roadmap
 

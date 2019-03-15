@@ -50,7 +50,7 @@ You should now have a node.js web server running on your device and see some log
 
 <img src="/img/common/enable-public-URLs.png" width="60%">
 
-If you follow the URL, you will be served a page saying "Hello, World!". Alternatively you can point your browser to your devices IP address.
+If you follow the URL, you will be served a page with some additional balena learning resources and next steps. Alternatively, you can point your browser to your device's IP address.
 
 [simple-server-node-link]:{{ $links.githubProjects }}/simple-server-node
 

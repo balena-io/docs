@@ -6,6 +6,23 @@ Please make sure your system meets the requirements as specified in the [README]
 
 ## Install the CLI
 
+### Dependencies
+
+Before installing the Balena CLI from npm, make sure you have the following dependencies installed:
+
+* make
+* g++ compiler
+* Python 2.7
+* git
+
+For example, to install these packages on a Debian-based Linux operating systems:
+
+```
+$ sudo apt-get install g++ make python git --yes
+```
+
+**NOTE**: If you are installing the stand-alone binary CLI, you will not need to install these dependencies.
+
 ### Npm install
 
 The best supported way to install the CLI is from npm:
@@ -64,15 +81,15 @@ environment variable (in the same standard URL format).
 
 - Api keys
 
-	- [api-key generate &#60;name&#62;](#api-key-generate-name-)
+	- [api-key generate &#60;name&#62;](#api-key-generate-name)
 
 - Application
 
-	- [app create &#60;name&#62;](#app-create-name-)
+	- [app create &#60;name&#62;](#app-create-name)
 	- [apps](#apps)
-	- [app &#60;name&#62;](#app-name-)
-	- [app restart &#60;name&#62;](#app-restart-name-)
-	- [app rm &#60;name&#62;](#app-rm-name-)
+	- [app &#60;name&#62;](#app-name)
+	- [app restart &#60;name&#62;](#app-restart-name)
+	- [app rm &#60;name&#62;](#app-rm-name)
 
 - Authentication
 
@@ -84,31 +101,37 @@ environment variable (in the same standard URL format).
 - Device
 
 	- [devices](#devices)
-	- [device &#60;uuid&#62;](#device-uuid-)
+	- [device &#60;uuid&#62;](#device-uuid)
 	- [devices supported](#devices-supported)
-	- [device register &#60;application&#62;](#device-register-application-)
-	- [device rm &#60;uuid&#62;](#device-rm-uuid-)
-	- [device identify &#60;uuid&#62;](#device-identify-uuid-)
-	- [device reboot &#60;uuid&#62;](#device-reboot-uuid-)
-	- [device shutdown &#60;uuid&#62;](#device-shutdown-uuid-)
-	- [device public-url enable &#60;uuid&#62;](#device-public-url-enable-uuid-)
-	- [device public-url disable &#60;uuid&#62;](#device-public-url-disable-uuid-)
-	- [device public-url &#60;uuid&#62;](#device-public-url-uuid-)
-	- [device public-url status &#60;uuid&#62;](#device-public-url-status-uuid-)
-	- [device rename &#60;uuid&#62; [newName]](#device-rename-uuid-newname-)
-	- [device move &#60;uuid&#62;](#device-move-uuid-)
+	- [device register &#60;application&#62;](#device-register-application)
+	- [device rm &#60;uuid&#62;](#device-rm-uuid)
+	- [device identify &#60;uuid&#62;](#device-identify-uuid)
+	- [device reboot &#60;uuid&#62;](#device-reboot-uuid)
+	- [device shutdown &#60;uuid&#62;](#device-shutdown-uuid)
+	- [device public-url enable &#60;uuid&#62;](#device-public-url-enable-uuid)
+	- [device public-url disable &#60;uuid&#62;](#device-public-url-disable-uuid)
+	- [device public-url &#60;uuid&#62;](#device-public-url-uuid)
+	- [device public-url status &#60;uuid&#62;](#device-public-url-status-uuid)
+	- [device rename &#60;uuid&#62; [newName]](#device-rename-uuid-newname)
+	- [device move &#60;uuid&#62;](#device-move-uuid)
 	- [device init](#device-init)
 
 - Environment Variables
 
 	- [envs](#envs)
-	- [env rm &#60;id&#62;](#env-rm-id-)
-	- [env add &#60;key&#62; [value]](#env-add-key-value-)
-	- [env rename &#60;id&#62; &#60;value&#62;](#env-rename-id-value-)
+	- [env rm &#60;id&#62;](#env-rm-id)
+	- [env add &#60;key&#62; [value]](#env-add-key-value)
+	- [env rename &#60;id&#62; &#60;value&#62;](#env-rename-id-value)
+
+- Tags
+
+	- [tags](#tags)
+	- [tag set &#60;tagKey&#62; [value]](#tag-set-tagkey-value)
+	- [tag rm &#60;tagKey&#62;](#tag-rm-tagkey)
 
 - Help
 
-	- [help [command...]](#help-command-)
+	- [help [command...]](#help-command)
 
 - Information
 
@@ -117,49 +140,49 @@ environment variable (in the same standard URL format).
 - Keys
 
 	- [keys](#keys)
-	- [key &#60;id&#62;](#key-id-)
-	- [key rm &#60;id&#62;](#key-rm-id-)
-	- [key add &#60;name&#62; [path]](#key-add-name-path-)
+	- [key &#60;id&#62;](#key-id)
+	- [key rm &#60;id&#62;](#key-rm-id)
+	- [key add &#60;name&#62; [path]](#key-add-name-path)
 
 - Logs
 
-	- [logs &#60;uuid&#62;](#logs-uuid-)
+	- [logs &#60;uuid&#62;](#logs-uuid)
 
 - Sync
 
-	- [sync [uuid]](#sync-uuid-)
+	- [sync [uuid]](#sync-uuid)
 
 - SSH
 
-	- [ssh [uuid]](#ssh-uuid-)
+	- [ssh [uuid]](#ssh-uuid)
 
 - Notes
 
-	- [note &#60;|note&#62;](#note-note-)
+	- [note &#60;|note&#62;](#note-note)
 
 - OS
 
-	- [os versions &#60;type&#62;](#os-versions-type-)
-	- [os download &#60;type&#62;](#os-download-type-)
-	- [os build-config &#60;image&#62; &#60;device-type&#62;](#os-build-config-image-device-type-)
-	- [os configure &#60;image&#62;](#os-configure-image-)
-	- [os initialize &#60;image&#62;](#os-initialize-image-)
+	- [os versions &#60;type&#62;](#os-versions-type)
+	- [os download &#60;type&#62;](#os-download-type)
+	- [os build-config &#60;image&#62; &#60;device-type&#62;](#os-build-config-image-device-type)
+	- [os configure &#60;image&#62;](#os-configure-image)
+	- [os initialize &#60;image&#62;](#os-initialize-image)
 
 - Config
 
 	- [config read](#config-read)
-	- [config write &#60;key&#62; &#60;value&#62;](#config-write-key-value-)
-	- [config inject &#60;file&#62;](#config-inject-file-)
+	- [config write &#60;key&#62; &#60;value&#62;](#config-write-key-value)
+	- [config inject &#60;file&#62;](#config-inject-file)
 	- [config reconfigure](#config-reconfigure)
 	- [config generate](#config-generate)
 
 - Preload
 
-	- [preload &#60;image&#62;](#preload-image-)
+	- [preload &#60;image&#62;](#preload-image)
 
 - Push
 
-	- [push &#60;applicationOrDevice&#62;](#push-applicationordevice-)
+	- [push &#60;applicationOrDevice&#62;](#push-applicationordevice)
 
 - Settings
 
@@ -167,22 +190,27 @@ environment variable (in the same standard URL format).
 
 - Wizard
 
-	- [quickstart [name]](#quickstart-name-)
+	- [quickstart [name]](#quickstart-name)
 
 - Local
 
-	- [local configure &#60;target&#62;](#local-configure-target-)
-	- [local flash &#60;image&#62;](#local-flash-image-)
-	- [local logs [deviceIp]](#local-logs-deviceip-)
+	- [local configure &#60;target&#62;](#local-configure-target)
+	- [local flash &#60;image&#62;](#local-flash-image)
+	- [local logs [deviceIp]](#local-logs-deviceip)
 	- [local scan](#local-scan)
-	- [local ssh [deviceIp]](#local-ssh-deviceip-)
-	- [local push [deviceIp]](#local-push-deviceip-)
-	- [local stop [deviceIp]](#local-stop-deviceip-)
+	- [local ssh [deviceIp]](#local-ssh-deviceip)
+	- [local push [deviceIp]](#local-push-deviceip)
+	- [local stop [deviceIp]](#local-stop-deviceip)
 
 - Deploy
 
-	- [build [source]](#build-source-)
-	- [deploy &#60;appName&#62; [image]](#deploy-appname-image-)
+	- [build [source]](#build-source)
+	- [deploy &#60;appName&#62; [image]](#deploy-appname-image)
+
+- Platform
+
+	- [join [deviceIp]](#join-deviceip)
+	- [leave [deviceIp]](#leave-deviceip)
 
 - Utilities
 
@@ -284,7 +312,7 @@ from the dashboard.
 
 - Credentials: using email/password and 2FA.
 
-- Token: using a session token or API key (experimental) from the preferences page.
+- Token: using a session token or API key from the preferences page.
 
 Examples:
 
@@ -298,7 +326,7 @@ Examples:
 
 #### --token, -t &#60;token&#62;
 
-session token or API key (experimental)
+session token or API key
 
 #### --web, -w
 
@@ -318,7 +346,7 @@ password
 
 ## logout
 
-Use this command to logout from your balena account.o
+Use this command to logout from your balena account.
 
 Examples:
 
@@ -561,17 +589,14 @@ path to the config JSON file, see `balena os build-config`
 
 ## envs
 
-Use this command to list all environment variables for
-a particular application or device.
+Use this command to list the environment variables of an application
+or device.
 
-This command lists all application/device environment variables.
+The --config option is used to list "config" variables that configure
+balena features.
 
-If you want to see config variables, used to configure
-balena features, use the --config option.
-
-At the moment the CLI does not support per-service variables,
-so the following commands will only show service-wide
-environment variables.
+Service-specific variables are not currently supported. The following
+examples list variables that apply to all services in an app or device.
 
 Example:
 
@@ -595,12 +620,16 @@ show config variables
 
 ## env rm &#60;id&#62;
 
-Use this command to remove an environment variable from an application.
+Use this command to remove an environment variable from an application
+or device.
 
 Notice this command asks for confirmation interactively.
 You can avoid this by passing the `--yes` boolean option.
 
-If you want to eliminate a device environment variable, pass the `--device` boolean option.
+The --device option selects a device instead of an application.
+
+Service-specific variables are not currently supported. The following
+examples remove variables that apply to all services in an app or device.
 
 Examples:
 
@@ -620,10 +649,8 @@ device
 
 ## env add &#60;key&#62; [value]
 
-Use this command to add an enviroment or config variable to an application.
-
-At the moment the CLI doesn't fully support multi-container applications,
-so the following commands will set service-wide environment variables.
+Use this command to add an enviroment or config variable to an application
+or device.
 
 If value is omitted, the tool will attempt to use the variable's value
 as defined in your host machine.
@@ -633,6 +660,9 @@ to a specific device.
 
 If the value is grabbed from the environment, a warning message will be printed.
 Use `--quiet` to remove it.
+
+Service-specific variables are not currently supported. The following
+examples set variables that apply to all services in an app or device.
 
 Examples:
 
@@ -652,9 +682,13 @@ device uuid
 
 ## env rename &#60;id&#62; &#60;value&#62;
 
-Use this command to change the value of an enviroment variable.
+Use this command to change the value of an application or device
+enviroment variable.
 
-Pass the `--device` boolean option if you want to rename a device environment variable.
+The --device option selects a device instead of an application.
+
+Service-specific variables are not currently supported. The following
+examples modify variables that apply to all services in an app or device.
 
 Examples:
 
@@ -666,6 +700,89 @@ Examples:
 #### --device, -d
 
 device
+
+# Tags
+
+## tags
+
+Use this command to list all tags for
+a particular application, device or release.
+
+This command lists all application/device/release tags.
+
+Example:
+
+	$ balena tags --application MyApp
+	$ balena tags --device 7cf02a6
+	$ balena tags --release 1234
+
+### Options
+
+#### --application, -a, --app &#60;application&#62;
+
+application name
+
+#### --device, -d &#60;device&#62;
+
+device uuid
+
+#### --release, -r &#60;release&#62;
+
+release id
+
+## tag set &#60;tagKey&#62; [value]
+
+Use this command to set a tag to an application, device or release.
+
+You can optionally provide a value to be associated with the created
+tag, as an extra argument after the tag key. When the value isn't
+provided, a tag with an empty value is created.
+
+Examples:
+
+	$ balena tag set mySimpleTag --application MyApp
+	$ balena tag set myCompositeTag myTagValue --application MyApp
+	$ balena tag set myCompositeTag myTagValue --device 7cf02a6
+	$ balena tag set myCompositeTag myTagValue --release 1234
+	$ balena tag set myCompositeTag "my tag value with whitespaces" --release 1234
+
+### Options
+
+#### --application, -a, --app &#60;application&#62;
+
+application name
+
+#### --device, -d &#60;device&#62;
+
+device uuid
+
+#### --release, -r &#60;release&#62;
+
+release id
+
+## tag rm &#60;tagKey&#62;
+
+Use this command to remove a tag from an application, device or release.
+
+Examples:
+
+	$ balena tag rm myTagKey --application MyApp
+	$ balena tag rm myTagKey --device 7cf02a6
+	$ balena tag rm myTagKey --release 1234
+
+### Options
+
+#### --application, -a, --app &#60;application&#62;
+
+application name
+
+#### --device, -d &#60;device&#62;
+
+device uuid
+
+#### --release, -r &#60;release&#62;
+
+release id
 
 # Help
 
@@ -968,7 +1085,9 @@ the path to the output JSON file
 Use this command to configure a previously downloaded operating system image for
 the specific device or for an application generally.
 
-Calling this command with the exact version number of the targeted image is required.
+This command will try to automatically determine the operating system version in order
+to correctly configure the image. It may fail to do so however, in which case you'll
+have to call this command again with the exact version number of the targeted image.
 
 Note that device api keys are only supported on balenaOS 2.0.3+.
 
@@ -976,11 +1095,16 @@ This command still supports the *deprecated* format where the UUID and optionall
 are passed directly on the command line, but the recommended way is to pass either an --app or
 --device argument. The deprecated format will be remove in a future release.
 
+In case that you want to configure an image for an application with mixed device types,
+you can pass the --device-type argument along with --app to specify the target device type.
+
 Examples:
 
-	$ balena os configure ../path/rpi.img --device 7cf02a6 --version 2.12.7
-	$ balena os configure ../path/rpi.img --device 7cf02a6 --version 2.12.7 --device-api-key <existingDeviceKey>
-	$ balena os configure ../path/rpi.img --app MyApp  --version 2.12.7
+	$ balena os configure ../path/rpi3.img --device 7cf02a6
+	$ balena os configure ../path/rpi3.img --device 7cf02a6 --device-api-key <existingDeviceKey>
+	$ balena os configure ../path/rpi3.img --app MyApp
+	$ balena os configure ../path/rpi3.img --app MyApp --version 2.12.7
+	$ balena os configure ../path/rpi3.img --app MyFinApp --device-type raspberrypi3
 
 ### Options
 
@@ -999,6 +1123,10 @@ device uuid
 #### --deviceApiKey, -k &#60;device-api-key&#62;
 
 custom device key - note that this is only supported on balenaOS 2.0.3+
+
+#### --deviceType &#60;device-type&#62;
+
+device type slug
 
 #### --version &#60;version&#62;
 
@@ -1128,6 +1256,9 @@ This is interactive by default, but you can do this automatically without intera
 by specifying an option for each question on the command line, if you know the questions
 that will be asked for the relevant device type.
 
+In case that you want to configure an image for an application with mixed device types,
+you can pass the --device-type argument along with --app to specify the target device type.
+
 Examples:
 
 	$ balena config generate --device 7cf02a6 --version 2.12.7
@@ -1135,6 +1266,7 @@ Examples:
 	$ balena config generate --device 7cf02a6 --version 2.12.7 --device-api-key <existingDeviceKey>
 	$ balena config generate --device 7cf02a6 --version 2.12.7 --output config.json
 	$ balena config generate --app MyApp --version 2.12.7
+	$ balena config generate --app MyApp --version 2.12.7 --device-type fincm3
 	$ balena config generate --app MyApp --version 2.12.7 --output config.json
 	$ balena config generate --app MyApp --version 2.12.7 --network wifi --wifiSsid mySsid --wifiKey abcdefgh --appUpdatePollInterval 1
 
@@ -1155,6 +1287,10 @@ device uuid
 #### --deviceApiKey, -k &#60;device-api-key&#62;
 
 custom device key - note that this is only supported on balenaOS 2.0.3+
+
+#### --deviceType &#60;device-type&#62;
+
+device type slug
 
 #### --generate-device-api-key
 
@@ -1221,15 +1357,15 @@ Pin the preloaded device to the preloaded release on provision
 
 #### --docker, -P &#60;docker&#62;
 
-Path to a local docker socket
+Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the docker daemon
+Docker daemon hostname or IP address (dev machine or balena device) 
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
-The port on which the host docker daemon is listening
+Docker daemon TCP port number (hint: 2375 for balena devices)
 
 #### --ca &#60;ca&#62;
 
@@ -1247,16 +1383,32 @@ Docker host TLS key file
 
 ## push &#60;applicationOrDevice&#62;
 
-This command can be used to start a build on the remote
-balena cloud builders, or a local mode balena device.
+This command can be used to start an image build on the remote balenaCloud build
+servers, or on a local-mode balena device.
 
-When building on the balena cloud the given source directory will be sent to the
-balena builder, and the build will proceed. This can be used as a drop-in
-replacement for git push to deploy.
+When building on the balenaCloud servers, the given source directory will be
+sent to the remote server. This can be used as a drop-in replacement for the
+"git push" deployment method.
 
-When building on a local mode device, the given source directory will be built on
-device, and the resulting containers will be run on the device. Logs will be
-streamed back from the device as part of the same invocation.
+When building on a local-mode device, the given source directory will be
+built on the device, and the resulting containers will be run on the device.
+Logs will be streamed back from the device as part of the same invocation.
+The web dashboard can be used to switch a device to local mode:
+https://www.balena.io/docs/learn/develop/local-mode/
+
+The --registry-secrets option specifies a JSON or YAML file containing private
+Docker registry usernames and passwords to be used when pulling base images.
+Sample registry-secrets YAML file:
+
+	'my-registry-server.com:25000':
+		username: ann
+		password: hunter2
+	'':  # Use the empty string to refer to the Docker Hub
+		username: mike
+		password: cze14
+	'eu.gcr.io':  # Google Container Registry
+		username: '_json_key'
+		password: '{escaped contents of the GCR keyfile.json file}'
 
 Examples:
 
@@ -1281,6 +1433,10 @@ Force an emulated build to occur on the remote builder
 #### --nocache, -c
 
 Don't use cache when building this project
+
+#### --registry-secrets, -R &#60;secrets.yml|.json&#62;
+
+Path to a local YAML or JSON file containing Docker registry passwords used to pull base images
 
 # Settings
 
@@ -1327,7 +1483,7 @@ Use this command to flash a balenaOS image to a drive.
 
 Examples:
 
-	$ balena local flash path/to/balenaos.img
+	$ balena local flash path/to/balenaos.img[.zip|.gz|.bz2|.xz]
 	$ balena local flash path/to/balenaos.img --drive /dev/disk2
 	$ balena local flash path/to/balenaos.img --drive /dev/disk2 --yes
 
@@ -1545,7 +1701,9 @@ name of container to stop
 ## build [source]
 
 Use this command to build an image or a complete multicontainer project
-with the provided docker daemon.
+with the provided docker daemon in your development machine or balena
+device. (See also the `balena push` command for the option of building
+images in the balenaCloud build servers.)
 
 You must provide either an application or a device-type/architecture
 pair to use the balena Dockerfile pre-processor
@@ -1557,11 +1715,25 @@ command will build each service defined in the compose file. If a compose file
 isn't found, the command will look for a Dockerfile, and if yet that isn't found,
 it will try to generate one.
 
+The --registry-secrets option specifies a JSON or YAML file containing private
+Docker registry usernames and passwords to be used when pulling base images.
+Sample registry-secrets YAML file:
+
+	'my-registry-server.com:25000':
+		username: ann
+		password: hunter2
+	'':  # Use the empty string to refer to the Docker Hub
+		username: mike
+		password: cze14
+	'eu.gcr.io':  # Google Container Registry
+		username: '_json_key'
+		password: '{escaped contents of the GCR keyfile.json file}'
+
 Examples:
 
 	$ balena build
 	$ balena build ./source/
-	$ balena build --deviceType raspberrypi3 --arch armhf --emulated
+	$ balena build --deviceType raspberrypi3 --arch armv7hf --emulated
 	$ balena build --application MyApp ./source/
 	$ balena build --docker '/var/run/docker.sock'
 	$ balena build --dockerHost my.docker.host --dockerPort 2376 --ca ca.pem --key key.pem --cert cert.pem
@@ -1592,17 +1764,21 @@ Run an emulated build using Qemu
 
 Display full log output
 
+#### --registry-secrets, -R &#60;secrets.yml|.json&#62;
+
+Path to a YAML or JSON file with passwords for a private Docker registry
+
 #### --docker, -P &#60;docker&#62;
 
-Path to a local docker socket
+Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the docker daemon
+Docker daemon hostname or IP address (dev machine or balena device) 
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
-The port on which the host docker daemon is listening
+Docker daemon TCP port number (hint: 2375 for balena devices)
 
 #### --ca &#60;ca&#62;
 
@@ -1634,10 +1810,13 @@ Squash newly built layers into a single new layer
 
 ## deploy &#60;appName&#62; [image]
 
-Use this command to deploy an image or a complete multicontainer project
-to an application, optionally building it first.
-
 Usage: `deploy <appName> ([image] | --build [--source build-dir])`
+
+Use this command to deploy an image or a complete multicontainer project to an
+application, optionally building it first. The source images are searched for
+(and optionally built) using the docker daemon in your development machine or
+balena device. (See also the `balena push` command for the option of building
+the image in the balenaCloud build servers.)
 
 Unless an image is specified, this command will look into the current directory
 (or the one specified by --source) for a compose file. If one is found, this
@@ -1649,8 +1828,22 @@ generate one.
 To deploy to an app on which you're a collaborator, use
 `balena deploy <appOwnerUsername>/<appName>`.
 
-Note: If building with this command, all options supported by `balena build`
-are also supported with this command.
+When --build is used, all options supported by `balena build` are also
+supported by this command.
+
+The --registry-secrets option specifies a JSON or YAML file containing private
+Docker registry usernames and passwords to be used when pulling base images.
+Sample registry-secrets YAML file:
+
+	'my-registry-server.com:25000':
+		username: ann
+		password: hunter2
+	'':  # Use the empty string to refer to the Docker Hub
+		username: mike
+		password: cze14
+	'eu.gcr.io':  # Google Container Registry
+		username: '_json_key'
+		password: '{escaped contents of the GCR keyfile.json file}'
 
 Examples:
 
@@ -1684,17 +1877,21 @@ Run an emulated build using Qemu
 
 Display full log output
 
+#### --registry-secrets, -R &#60;secrets.yml|.json&#62;
+
+Path to a YAML or JSON file with passwords for a private Docker registry
+
 #### --docker, -P &#60;docker&#62;
 
-Path to a local docker socket
+Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the docker daemon
+Docker daemon hostname or IP address (dev machine or balena device) 
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
-The port on which the host docker daemon is listening
+Docker daemon TCP port number (hint: 2375 for balena devices)
 
 #### --ca &#60;ca&#62;
 
@@ -1723,6 +1920,54 @@ Don't use docker layer caching when building
 #### --squash
 
 Squash newly built layers into a single new layer
+
+# Platform
+
+## join [deviceIp]
+
+Use this command to move a local device to an application on another balena server.
+
+For example, you could provision a device against an openBalena installation
+where you perform end-to-end tests and then move it to balenaCloud when it's
+ready for production.
+
+Moving a device between applications on the same server is not supported.
+
+If you don't specify a device hostname or IP, this command will automatically
+scan the local network for balenaOS devices and prompt you to select one
+from an interactive picker. This usually requires root privileges.
+
+Examples:
+
+	$ balena join
+	$ balena join balena.local
+	$ balena join balena.local --application MyApp
+	$ balena join 192.168.1.25
+	$ balena join 192.168.1.25 --application MyApp
+
+### Options
+
+#### --application, -a &#60;application&#62;
+
+The name of the application the device should join
+
+## leave [deviceIp]
+
+Use this command to make a local device leave the balena server it is
+provisioned on. This effectively makes the device "unmanaged".
+
+The device entry on the server is preserved after running this command,
+so the device can subsequently re-join the server if needed.
+
+If you don't specify a device hostname or IP, this command will automatically
+scan the local network for balenaOS devices and prompt you to select one
+from an interactive picker. This usually requires root privileges.
+
+Examples:
+
+	$ balena leave
+	$ balena leave balena.local
+	$ balena leave 192.168.1.25
 
 # Utilities
 

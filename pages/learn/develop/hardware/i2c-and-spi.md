@@ -257,7 +257,7 @@ The best and easiest way to interface with GPIO, I2C, SPI or UART on the Intel E
 [MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applications that
 interact directly with the Edison hardware.
 
-If you use our [{{ $names.base.lib }}/edison-node][dockerbase-node] or [{{ $names.base.lib }}/edison-python][dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
+If you use our [{{ $names.base_images.lib }}/edison-node][dockerbase-node] or [{{ $names.base_images.lib }}/edison-python][dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
 
 Have a look at this [python example](https://github.com/shaunmulligan/hello-python-edison) or this [node.js example](https://github.com/shaunmulligan/edison-blink-node) to get started.
 
@@ -305,5 +305,5 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 [picamera-link]:{{ $links.githubProjects }}/resin-rpi-python-picamera
 [mraa-link]:https://github.com/intel-iot-devkit/mraa
 [upm-link]:https://github.com/intel-iot-devkit/upm
-[dockerbase-node]:https://hub.docker.com/r/{{ $names.base.lib }}/edison-node/
-[dockerbase-python]:https://hub.docker.com/r/{{ $names.base.lib }}/edison-python/
+[dockerbase-node]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-node/
+[dockerbase-python]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-python/
