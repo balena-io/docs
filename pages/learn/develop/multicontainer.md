@@ -97,19 +97,6 @@ In addition to the settings above, there are some {{ $names.company.lower }} spe
 
 {{> "general/labels" }}
 
-These labels are applied to a specific service with the `labels:` setting:
-
-```
-labels:
-      io.{{ $names.company.short }}.features.kernel-modules: '1'
-      io.{{ $names.company.short }}.features.firmware: '1'
-      io.{{ $names.company.short }}.features.dbus: '1'
-      io.{{ $names.company.short }}.features.supervisor-api: '1'
-      io.{{ $names.company.short }}.features.{{ $names.company.short }}-api: '1'
-      io.{{ $names.company.short }}.update.strategy: download-then-kill
-      io.{{ $names.company.short }}.update.handover-timeout: ''
-```
-
 [docker-compose]:https://docs.docker.com/compose/overview/
 [simple-app]:{{ $links.githubProjects }}/multicontainer-getting-started
 [compose-features]:https://docs.docker.com/compose/compose-file/compose-file-v2/
