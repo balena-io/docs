@@ -98,7 +98,7 @@ This option allows you to convert your application to [another type][app-types],
 
 ### Rename Application
 
-This action allows you to rename your application. This action is only available for new [applications types][app-types] such as Starter, Microservices or Essentials. Its not currently possible to rename `Legacy` or `Classic` applications, you will first need to upgrade your app type.
+This action allows you to rename your application. This action is only available for new [applications types][app-types] such as `Starter`, `Microservices` or `Essentials`. Its not currently possible to rename `Legacy` or `Classic` applications, you will first need to upgrade your app type.
 
 ### Enable/Disable All Public Device URLs
 
