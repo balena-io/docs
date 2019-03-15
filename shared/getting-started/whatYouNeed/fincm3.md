@@ -6,6 +6,6 @@
 * **[Optional]** An ethernet cable.
 * A [{{ $names.company.lower }} account][link-to-signup].
 
-[fin-link]:https://store.resin.io/collections/balena-fin-home-page/products/fin-8gb
+[fin-link]:https://store.balena.io/collections/developer-kit/products/balenafin-v1-1-0-developer-kit
 [supportedDevicesList]:/hardware/devices/ 
 [link-to-signup]:{{ $links.dashboardUrl }}/signup

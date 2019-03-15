@@ -14,7 +14,7 @@ Actions allow you to control the status of your applications and devices during 
 
 ### Enable Public Device URL
 
-{{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard.
+{{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
 
 <img src="/img/common/enable-public-URLs.png" width="80%">
 
@@ -90,9 +90,25 @@ The `Delete Device` action is an extremely dangerous action and results in disas
 
 ## Application-specific actions
 
+These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet.
+
 ### Change Application Type
 
 This option allows you to convert your application to [another type][app-types], as long as the devices in the application meet the {{ $names.os.lower }} version requirements and your account has the appropriate privileges.
+
+### Rename Application
+
+This action allows you to rename your application. This action is only available for new [applications types][app-types] such as `Starter`, `Microservices` or `Essentials`. Its not currently possible to rename `Legacy` or `Classic` applications, you will first need to upgrade your app type.
+
+### Enable/Disable All Public Device URLs
+
+This action allows you to enable or disable all the device URLs for the devices in your application. Note that this will only apply to already provisioned devices in the app, any devices added after you enable this fleet wide will need to have their device URL manually enabled.
+
+### Grant Support Access to Application
+
+This action will allow you to give our balena engineering team access to the entire application fleet for a set time period.
+
+<img src="/img/common/app/support_access.png" width="80%">
 
 ### Delete Application
 

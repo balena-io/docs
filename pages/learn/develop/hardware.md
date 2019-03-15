@@ -9,7 +9,7 @@ For many projects, you may need to control or have access to some external hardw
 
 Multicontainer applications do not run containers in privileged mode by default. If you want to make use of hardware, you will have to appropriately configure your `docker-compose.yml` file to either set some services to privileged, using `privileged: true`, or use the `cap_add` and `devices` settings to map in the correct hardware access to the container.
 
-As an example, here the `gpio` service is set up to use **i2c** sensors:
+As an example, here the `gpio` service is set up to use i2c and serial uart sensors:
 
 ```
 gpio:
@@ -17,6 +17,7 @@ gpio:
     devices:
       - "/dev/i2c-1:/dev/i2c-1"
       - "/dev/mem:/dev/mem"
+      - "/dev/ttyACM0:/dev/ttyACM0"
     cap_add: 
       - SYS_RAWIO
 ```
