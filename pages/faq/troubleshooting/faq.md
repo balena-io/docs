@@ -147,7 +147,7 @@ Discontinued devices will no longer be actively supported by {{ $names.company.l
 
 There are a few options for devices that do not have an official device type on {{ $names.company.lower }}. If your device has an x86 architecture, you can try the [Intel NUC][nuc] image, which is built to support generic x86 devices. For other devices, you can [build your own][build-your-own] version of {{ $names.os.lower }} using our [open source repos][balenaOS]. To discuss custom board support, please contact sales@{{ $names.email_domain }}.
 
-[forums]:https://forums.{{ $names.domain }}/c/troubleshooting
+[forums]:{{ $names.forums_domain }}/c/troubleshooting
 
 [device-types]:/reference/base-images/devicetypes
 [base-image]:/reference/base-images/base-images
