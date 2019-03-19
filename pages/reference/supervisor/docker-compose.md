@@ -10,7 +10,7 @@ excerpt: docker-compose.yml fields supported by {{ $names.company.lower }}
 Field | Details
 --- | ---
 build |
-cap_add | 
+cap_add |
 cap_drop |
 cgroup_parent |
 command |
@@ -19,12 +19,12 @@ cpu_quota |
 cpus |
 cpuset |
 devices |
-depends_on | Only array form is supported 
+depends_on | Only array form is supported
 dns |
 dns_opt |
 dns_search |
 domainname |
-entrypoint | 
+entrypoint |
 environment |
 expose |
 extra_hosts |
@@ -32,14 +32,14 @@ group_add |
 healthcheck |
 hostname |
 image |
-init | 
+init |
 ipc |
 labels |
 mac_address |
 mem_limit |
 mem_reservation |
 network_mode | Only support `bridge`, `host`, or none
-networks | Only support specifiying network names
+networks | Only support specifying network names
 oom_kill_disable |
 oom_score_adj |
 pid | Only support `host` or none
