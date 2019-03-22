@@ -51,7 +51,15 @@ To install the CLI as a standalone binary:
 
 To update in future, simply download a new release and replace the extracted folder.
 
-Have any problems, or see any unexpected behaviour? Please file an issue!
+### macOS homebrew installation
+
+On macOS you can also install the CLI using
+
+  $ brew install balena-cli
+  
+### Installation support
+
+Have any problems, or see any unexpected behaviour? Please file an issue: https://github.com/balena-io/balena-cli
 
 ## Getting started
 
