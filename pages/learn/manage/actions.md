@@ -104,6 +104,19 @@ This action allows you to rename your application. This action is only available
 
 This action allows you to enable or disable all the device URLs for the devices in your application. Note that this will only apply to already provisioned devices in the app, any devices added after you enable this fleet wide will need to have their device URL manually enabled.
 
+### Transfer Application Ownership
+
+You can transfer application ownership between balenaCloud user accounts. In order to transfer application ownership, you will need to perform a series of steps using both the **source** account and **target** account.
+
+1. Take note of the Application name and balenaCloud username (*in the top-right drop-down*) in the **source** account
+2. In the **target** balenaCloud account, create a new balenaCloud Application using the same Application name
+3. In the **Members** of the Application you just created, add the **source** balenaCloud username as a **Developer**
+4. In the **source** balenaCloud account, select **<Application>** --> **Actions** --> **Transfer This Application**
+
+**NOTE**: If the **Transfer This Application** button is greyed out, ensure that you have created an empty Application in the **target** balenaCloud account with the same name as the source Application, and that the **source** username has been added as a **Developer** to the **target** Application.
+
+You can watch [this video](https://www.youtube.com/watch?v=nkYve7PwqmE) to learn how to transfer application ownership.
+
 ### Grant Support Access to Application
 
 This action will allow you to give our balena engineering team access to the entire application fleet for a set time period.
