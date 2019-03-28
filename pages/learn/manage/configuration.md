@@ -27,7 +27,7 @@ RESIN_SUPERVISOR_POLL_INTERVAL | 60000 | Define the {{ $names.company.lower }} A
 RESIN_SUPERVISOR_VPN_CONTROL | true | Enable / Disable VPN | v1.3.0
 
 
-In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these values apply to Raspberry Pi devices, reflecting the contents of the `config.txt` file:
+In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these are a few of the values that apply to Raspberry Pi devices, corresponding to the contents of the [Raspberry Pi `config.txt` file](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md):
 
 Name | Default | Description
 --- | --- | ---
