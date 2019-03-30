@@ -18,15 +18,14 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 	- i386
 - Multiple Distributions: 
 	- [Debian](https://www.debian.org/): jessie, sid, stretch and buster
-	- [Alpine](https://alpinelinux.org/): 3.5, 3.6, 3.7, 3.8 and edge
+	- [Alpine](https://alpinelinux.org/): 3.5, 3.6, 3.7, 3.8, 3.9 and edge
 	- [Ubuntu](https://www.ubuntu.com/): artful, bionic, cosmic, trusty and xenial
-	- [Fedora](https://getfedora.org/): 26, 28
+	- [Fedora](https://getfedora.org/): 26, 28, 29 and 30
 - Multiple language stacks: 
-<!-- TODO: list versions of languages stacks -->
-	- [Node.js](https://nodejs.org/en/) 
-	- [Python](https://www.python.org/) 
-	- [openJDK](https://openjdk.java.net/)
-	- [Golang](https://golang.org/)
+	- [Node.js](https://nodejs.org/en/): 11.12.0, 10.15.3, 8.15.1 and 6.17.0
+	- [Python](https://www.python.org/): 2.7.15, 3.5.6, 3.6.8 and 3.7.2 
+	- [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 10-jdk/jre and 11-jdk/jre
+	- [Golang](https://golang.org/): 1.12.1, 1.11.6 and 1.10.8
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
 - Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
@@ -108,21 +107,27 @@ CMD ["node", "main.js"]
 
 ### Supported Architectures, Distros and Languages
 
-Currently balenalib supports the following OS distribuitions and Language stacks, if you would like to see others added, create an issue on the [balena base images repo](https://github.com/balena-io-library/base-images/issues).
+Currently balenalib supports the following OS distributions and Language stacks, if you would like to see others added, create an issue on the [balena base images repo](https://github.com/balena-io-library/base-images/issues).
 
 | Distribution | Default                | Supported Architectures                      |
 |---------|------------------------------|----------------------------------------------|
 | Debian  | Debian GNU/Linux 9 (stretch) | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
-| Alpine  | Alpine Linux v3.8            | armv6, armv7hf, aarch64, amd64, i386 		|
+| Alpine  | Alpine Linux v3.9            | armv6, armv7hf, aarch64, amd64, i386 		|
 | Ubuntu  | 18.04 LTS (Bionic Beaver)    | armv7hf, aarch64, amd64, i386                |
-| Fedora  | Fedora 28 (Twenty Eight)     | armv7hf, aarch64, amd64, i386                |
+| Fedora  | Fedora 29 (Twenty Nine)      | armv7hf, aarch64, amd64, i386                |
 
 | Language | Default  	                  | Supported Architectures                      |
 |---------|------------------------------|----------------------------------------------|
-| Node.js | v11.3.0                      | armv6, armv7hf, aarch64, amd64, i386         |
-| Python  | 2.7.15                       | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
-| OpenJDK | 1.7.0_181 (IcedTea 2.6.14)   | armv7hf, aarch64, amd64, i386                |
-| Go      | 1.11.2                       | armv7hf, aarch64, amd64, i386                |
+| Node.js | v11.12.0                      | armv6, armv7hf, aarch64, amd64, i386         |
+| Python  | v2.7.15                       | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
+| OpenJDK | v1.8.0_181                    | armv7hf, aarch64, amd64, i386                |
+| Go      | 1.12.1                       | armv7hf, aarch64, amd64, i386                |
+
+#### Notices
+
+Not all OS distro and language stack versions are compatible with each other, pleace notice that there are some combinations which are not available in the `balenalib` base images.
+- [Nodejs dropped 32-bit builds](https://github.com/nodejs/build/issues/885) a while ago so i386-based nodejs images (Debian, Fedora and Ubuntu) only support v8.x and v6.x, new series are not avaiable.
+- The Nodejs v6.x and v8.x series are not available for i386 Alpine Linux base images v3.9 and edge as node crashes with segfault error, we are investigating the issue and will add them back as soon as the issue is resolved.
 
 ## Installing Packages
 
@@ -174,7 +179,7 @@ When moving from the legacy `resin/...` base images to the `balenalib` ones, the
 
 Since the release of multicontainer on the balenaCloud platform, we now recommend the use of multiple containers and no longer recommend the use of an initsystem, particularly systemd, in the container as it tends to cause a myriad of issues, undefined behaviour and requires the container to run fully privileged. 
 
-However if your application relies on initsystem features, it is fairly easy to add this functionality to a balenalib base image. We have provided some examples for [systemd](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd) and [openRC](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/openrc). 
+However if your application relies on initsystem features, it is fairly easy to add this functionality to a balenalib base image. We have provided some examples for [systemd](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd) and [openRC](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/openrc). Please notice that different systemd versions require different implementation so for Debian Jessie and older, please refer to this [example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd ) and for Debian Stretch and later, please refer to this [example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230).
 
 Generally for systemd, it just requires installing the systemd package, masking a number of services and defining a new [`entry.sh`](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd/entry.sh) and a [`resin.service`](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd/resin.service). The `Dockerfile` below demonstates this:
 
