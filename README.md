@@ -1,11 +1,7 @@
 Balena Documentation
 ======================
 
-[![Build status](https://ci.appveyor.com/api/projects/status/qbsivehgnq0vyrrb?svg=true)](https://ci.appveyor.com/project/fedealconada/resin-docs)
-
-Join our [forums](https://forums.balena.io/), or online chat at [![Gitter chat](https://badges.gitter.im/resin-io/chat.png)](https://gitter.im/resin-io/chat)
-
-Documentation for the [balena](https://balena.io/) platform.
+Documentation for the [balenaCloud](https://balena.io/) platform. Join our [forums](https://forums.balena.io/) to chat.
 
 Role
 ----
@@ -34,6 +30,22 @@ How to Contribute
 
 If you think something is not documented, or can be improved, don't hesitate in sending a PR!
 
+**NB:** Please ensure that each commit in your pull request conforms to the following format.
+
+```
+component: Description of my change
+
+Change-type: patch
+Signed-off-by: Joe Soap <joe.soap@gmail.com>
+```
+
+This will allow the system to automatically version the documentation using the `Change-type`. The versioning follows [semver](https://semver.org/) and changes can be of type `patch`, `minor` or `major`.
+
+It is also worth noting that for some of the Reference documentation, the docs are sourced from the components repos and they will need to be changed in the source repos. Currently the following reference material is pulled from other repos:
+- [Device Supervisor API](https://www.balena.io/docs/reference/supervisor/supervisor-api/) sourced from https://github.com/balena-io/balena-supervisor/tree/master/docs
+- [CLI](https://www.balena.io/docs/reference/cli/) sourced from https://github.com/balena-io/balena-cli/blob/master/doc/cli.markdown
+- [Node SDK](https://www.balena.io/docs/reference/sdk/node-sdk/) sourced from https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md
+- [Python SDK](https://www.balena.io/docs/reference/sdk/python-sdk/) sourced from https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md
 
 Deploying
 ----------
