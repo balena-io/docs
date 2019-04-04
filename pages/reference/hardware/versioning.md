@@ -26,7 +26,7 @@ Official device types are:
 On some official device types you will see the `(BETA)` designation. This does not mean the OS itself is `beta` level software, but rather that this device type not yet used by enough people or has not been in production for a long enough time. In balenaCloud all official device types start out as `BETA` and when the team decides the device type has enough production usage, it is graduated out of `BETA`.
 
 #### Private
-Private device types have exactly the same guarentees and testing process as official device types but they are only visible to specific customers that have paid for this device support. If you are interested in finding out more about private device support email sales@balena.io .
+Private device types have exactly the same guarentees and testing process as official device types but they are only visible to specific customers that have paid for this device support. If you are interested in finding out more about private device support email solutions@balena.io .
 
 #### Community
 Device types that are marked as `COMMUNITY` are device types that have been contributed by an external community member rather than the balena team. An example of a community device type is the Orange Pi Zero which was contributed into the https://github.com/balena-os/balena-allwinner repo.
@@ -35,10 +35,10 @@ The community devices types are:
 - Maintained by the community member
 - The balena team does **not** test and verify each release of the OS, instead we rely on the community members to conduct testing.
 - Updated to newer versions as the community drives it, we do not guarentee the device type will keep up with OS versions.
-- Community boards can be promoted to an Official balena supported board if a customer is interested in sponsoring the device support. If you are interested in sponsoring a community board, email sales@balena.io .
+- Community boards can be promoted to an official balena supported board if a customer is interested in sponsoring the device support. If you are interested in sponsoring a community board, email solutions@balena.io .
 
 #### Discontinued
-Discontinued device types are those that are no longer actively maintained by the balena team or anyone in the community and will stop showing up in the dashboard, but any already provisioned devices of this type will continue to function, but will not receive operating system updates. 
+Discontinued device types are those that are no longer actively maintained by the balena team or anyone in the community and will stop showing in the dashboard as options for new applications and devices. Any already provisioned devices of this type will continue to function, but will no longer receive operating system updates.  
 
 A device type will be discontinued if:
 - The device manufacturer end support and sale of the device.
