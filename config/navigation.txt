@@ -84,6 +84,7 @@ FAQ
 Reference
 
   Supported devices
+    [/reference/hardware/versioning]
     [/reference/hardware/devices]
     [/reference/hardware/wifi-dongles]
 
