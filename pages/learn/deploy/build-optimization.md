@@ -65,7 +65,7 @@ This will start downloading both files and wait for them to complete. The next l
 
 These are just a few tips from our engineers on how to reduce your build size
 
-* npm install commands like `npm install --unsafe-perm -g @some/node-module` can have `&& npm cache clean && rm -rf /tmp/*` added in order to clean up the npm cache and the /tmp/npm-... folders it uses.
+* npm install commands like `npm install --unsafe-perm -g @some/node-module` can have `&& npm cache clean --force && rm -rf /tmp/*` added in order to clean up the npm cache and the /tmp/npm-... folders it uses.
 
 * apt-get update commands should have a matching `rm -rf /var/lib/apt/lists` in order to clean up the package lists (or `rm -rf /var/lib/apt/*` which is equivalent).
 
