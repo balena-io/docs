@@ -8,7 +8,7 @@ A device type in balena describes a [SoC](https://en.wikipedia.org/wiki/System_o
 
 As an example the [Raspberry Pi 1 model B+](https://www.raspberrypi.org/products/raspberry-pi-1-model-b-plus/) and [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) are part of the same device type since they are both `armv6l` architecture SoCs and the boot loader is capable of booting both boards. However, the [Raspberry Pi 3 model B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) is by default a `armv7l` CPU and we therefore separate it into a new device type.
 
-In balenaCloud the device type is also used to define what architecture the built containers for each app will be. So in the above example RPi ZERO deployments are built for the `armv6l` architecture where as RPi 3 applications will target the `armv7l` architecture. 
+In balenaCloud the device type is also used to define what architecture the built containers for each app will be. So in the above example RPi ZERO deployments are built for the `armv6l` architecture where as RPi 3 applications will target the `armv7l` architecture and the Intel NUC device type will target `x86_64` architecture. 
 
 ### Designations
 
@@ -32,7 +32,7 @@ Private device types have exactly the same guarentees and testing process as off
 Device types that are marked as `COMMUNITY` are device types that have been contributed by an external community member rather than the balena team. An example of a community device type is the Orange Pi Zero which was contributed into the https://github.com/balena-os/balena-allwinner repo.
 
 The community devices types are:
-- Maintained by the community member
+- Maintained by the community member and feature/support requests are handled in the forums or on the device-types github repository.
 - The balena team does **not** test and verify each release of the OS, instead we rely on the community members to conduct testing.
 - Updated to newer versions as the community drives it, we do not guarentee the device type will keep up with OS versions.
 - Community boards can be promoted to an official balena supported board if a customer is interested in sponsoring the device support. If you are interested in sponsoring a community board, email solutions@balena.io .
@@ -53,4 +53,4 @@ The version string for a particular device type is a combination of the [meta-ba
 * The version of `meta-balena` is in the format of 3 numbers separated by a dot. The patch number can have a `beta` label. e.g. 1.2.3, 1.2.3-beta1, 2.0.0-beta1.
 * The version of the specific device type is constructed by appending to the `meta-balena` version a `rev` label. This will have the semantics of a board revision which adapts a specific `meta-balena` version for a targeted board. For example a `meta-balena` 1.2.3 can go through 3 board revisions at the end of which the final version will be 1.2.3+rev3 .
 * When updating `meta-balena` version in a specific device type repo, the revision will reset to 1. Ex: 1.2.3+rev4 will be updated to 1.2.4+rev1 .
-* Note that the final OS version is NOT based on semver specification so parsing of such a version needs to be handled in a custom way.
+* Note that the final OS version is NOT based on the semver specification so parsing of such a version needs to be handled in a custom way. If you are interested in how to parse the version scheme, have a look at our balenaOS version parser [balena-semver](https://github.com/balena-io-modules/resin-semver).
