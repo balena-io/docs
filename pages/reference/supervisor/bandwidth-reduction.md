@@ -8,8 +8,8 @@ In order to provide our users with a clear view of their devices, the {{ $names.
 
 In order to give our power users control over data flow we enabled a few RESIN_ [config environment variables](/management/env-vars).
 
-|Variable                               | Allowed Value     |   Action                                             | Default |
-|---------------------------------------|-------------------|----------------------------------------------------------------|
+| Variable                              | Allowed Value     |  Action                                              | Default |
+|---------------------------------------|-------------------|------------------------------------------------------|---------|
 | `RESIN_SUPERVISOR_VPN_CONTROL`        | true/false        |  Enable / Disable VPN                                |   true  |
 | `RESIN_SUPERVISOR_CONNECTIVITY_CHECK` | true/false        |  Enable / Disable connectivity check VPN is disabled |   true  |
 | `RESIN_SUPERVISOR_POLL_INTERVAL`      | 600000 to 86400000 |  API Poll interval in milliseconds             |   600000 |
