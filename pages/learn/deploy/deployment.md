@@ -64,9 +64,11 @@ In `balena deploy` the container images are built on your laptop or development 
 
 `balena deploy` will build all your container images on the machine the command is run on (or on a specified docker daemon) and upon success, it will upload the images to the balenaCloud image registry and then create a release on the API. The devices in the application will then be notified of a new release and download it. In order to build containers you will need to have [Docker installed](https://docs.docker.com/install/) on your development machine and you should be able to execute [docker commands as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/).
 
-Like `balena push` it is also independent of git and you can therefor use any version control scheme you wish. It is also possible to make use of [private base images](#private-base-images) and [build time secrets](#build-time-secrets-and-variables).
+Like `balena push` it is also independent of git and you can therefor use any version control scheme you wish. It is also possible to make use of [private base images](#private-base-images) 
 
-Its also to do a `balena build` without actually deploying. This command has all the same functionality as `deploy` but it does not upload the images to the registry or create a release on the API. This command can be useful if you want your CI/CD system to first run built images through some testing and validation stage before finally doing the deploy.
+__Note:__ Currently `balena deploy` does not support the [build time secrets](#build-time-secrets-and-variables) feature.
+
+Its also possible to do a `balena build` without actually deploying. This command has all the same functionality as `deploy` but it does not upload the images to the registry or create a release on the API. This command can be useful if you want your CI/CD system to first run built images through some testing and validation stage before finally doing the deploy.
 
 ### Additional Options
 
@@ -220,7 +222,9 @@ It should be noted that in this case the devices will still pull the container i
 
 ## Build Time Secrets and Variables
 
-Often it in necessary to use passwords or secrets during your build to fetch proprietary files or code but not have these sensitive files be downloaded to all the devices. For this reason `balena push` and `balena deploy` allow one to define a `.balena` folder to hold secret files and build time variables which will get exposed to build container but not propagate down to devices.
+Often it in necessary to use passwords or secrets during your build to fetch proprietary files or code but not have these sensitive files be downloaded to all the devices. For this reason `balena push` allow one to define a `.balena` folder to hold secret files and build time variables which will get exposed to build container but not propagate down to devices.
+
+__Note:__ Currently this is not supported on `balena push <deviceIP>` localMode development, but there is an issue tracking its support here: https://github.com/balena-io/balena-cli/issues/1164 .
 
 {{import "deployment/secrets"}}
 
