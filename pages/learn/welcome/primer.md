@@ -57,7 +57,7 @@ As the downloads proceed, you can watch the progress in the {{ $names.company.lo
 
 ## Device management
 
-Once your services are up and running, you can use the dashboard to monitor and interact with them. Messages from the device supervisor, as well as anything written by your services to `stdout` and `stderr`, will appear in the *Logs* window, which can be filtered by service. Our build-in [web terminal][ssh] allows you to SSH into any running services, as well as the underlying host OS.
+Once your services are up and running, you can use the dashboard to monitor and interact with them. Messages from the device supervisor, as well as anything written by your services to `stdout` and `stderr`, will appear in the *Logs* window, which can be filtered by service. Our built-in [web terminal][ssh] allows you to SSH into any running services, as well as the underlying host OS.
 
 Much of the device, service, and application information provided by the dashboard is managed through the [{{ $names.company.lower }} API][api], and can also be viewed and modified using the [CLI][cli] or the [Node.js][node] and [Python][python] SDKs. {{ $names.company.upper }} has been designed so users can build rich experiences, combining device-level data provided by {{ $names.company.lower }} with higher-level application-specific data that lives in other data domains.
 
