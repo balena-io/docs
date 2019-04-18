@@ -1,9 +1,8 @@
 ### Build Time only Secret File
 
 To use build secrets, make a subdirectory `.balena` in the root of your repository. Inside that directory, make another 
-directory named `secrets` and a file named `balena.yml`, without any secrets, your tree should look like
+directory named `secrets` and a file named `balena.yml`. Without any secrets, your tree should look like:
 ```
-[19:48] ➜  project tree -a
 .
 ├── docker-compose.yml
 ├── .balena
@@ -15,9 +14,8 @@ directory named `secrets` and a file named `balena.yml`, without any secrets, yo
     └── Dockerfile.template
 ```
 
-to add a secret file, first add the file to the `.balena/secrets` directory:
+To add a secret file, first add the file to the `.balena/secrets` directory:
 ```
-[19:49] ➜  project tree -a
 .
 ├── docker-compose.yml
 ├── .balena
@@ -30,18 +28,17 @@ to add a secret file, first add the file to the `.balena/secrets` directory:
     └── Dockerfile.template
 ```
 
-now, in the `.balena/balena.yml` file, add the following to mount that secret into every service:
+Now, in the `.balena/balena.yml` file, add the following:
 ```
 build-secrets:
     global:
         - source: super-secret-recipe
           dest: my-recipe   
 ```
-This will mount the `super-secret-recipe` file into `/run/secrets/my-recipe` file in every build container.
+This will mount the `super-secret-recipe` file into `/run/secrets/my-recipe` file in every build container. Note that the `/run/secrets` folder is only available during the image build, and not present in the image that is deployed to the devices.
 
 To add a secret file to a specific service's build:
 ```
-[19:53] ➜  project tree -a
 .
 ├── docker-compose.yml
 ├── .balena
@@ -67,7 +64,7 @@ build-secrets:
             - source: super-secret-recipe-2
                dest: my-recipe2
 ```
-and that will mount both the global and the service1 specific secret into `/run/secrets` as `my-recipe2`.
+This will mount the `super-secret-recipe` file as `/run/secrets/my-recipe` for all services, and `super-secret-recipe-2` as `/run/secrets/my-recipe2` for `service1` only. Again, note that the `/run/secrets` folder is only available during the image build, and not present in the image that is deployed to the devices.
 
 Subdirectories are supported in both the source (`.balena/secrets`) and the destination (`/run/secrets`)
 
@@ -85,7 +82,7 @@ build-variables:
             - SERVICE1_VAR=This is a service specific variable
 ```
 
-These will be added as build args to your builds, so for example, to read it in your build:
+These variables can then be accessed in your Dockerfile through the ARG instruction. For example:
 
 ```Dockerfile
 FROM balenalib/armv7hf-debian
@@ -95,7 +92,7 @@ ARG MY_VAR_1
 RUN echo "The build variable is ${MY_VAR_1}"
 ```
 
-Build variables should **NOT** be used to hold secrets like access tokens or passwords if the docker image is accessible to untrusted parties, because the Dockerfile ARG instruction may be stored in the image as the Docker documentation advises:
+Build variables should **NOT** be used to hold secrets like access tokens or passwords if the Docker image is accessible to untrusted parties, because the Dockerfile ARG instruction may be stored in the image as the Docker documentation advises:
 
 >https://docs.docker.com/engine/reference/builder/#arg
 Warning: It is not recommended to use build-time variables for passing secrets like github keys, user credentials etc. Build-time variable values are visible to any user of the image with the docker history command.
