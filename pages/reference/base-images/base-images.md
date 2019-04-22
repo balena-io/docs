@@ -26,6 +26,7 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 	- [Python](https://www.python.org/): 2.7.15, 3.5.6, 3.6.8 and 3.7.2 
 	- [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 10-jdk/jre and 11-jdk/jre
 	- [Golang](https://golang.org/): 1.12.1, 1.11.6 and 1.10.8
+	- [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.2-sdk/runtime/aspnet,3.0-sdk/runtime/aspnet,2.1-sdk/runtime/aspnet 
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
 - Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
@@ -118,10 +119,11 @@ Currently balenalib supports the following OS distributions and Language stacks,
 
 | Language | Default  	                  | Supported Architectures                      |
 |---------|------------------------------|----------------------------------------------|
-| Node.js | v11.12.0                      | armv6, armv7hf, aarch64, amd64, i386         |
+| Node.js | v11.14.0                      | armv6, armv7hf, aarch64, amd64, i386         |
 | Python  | v2.7.15                       | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
 | OpenJDK | v1.8.0_181                    | armv7hf, aarch64, amd64, i386                |
-| Go      | 1.12.1                       | armv7hf, aarch64, amd64, i386                |
+| Go      | 1.12.4                       | armv7hf, aarch64, amd64, i386                |
+| Dotnet  | 2.2-sdk                       | armv7hf, aarch64, amd64                |
 
 #### Notices
 
