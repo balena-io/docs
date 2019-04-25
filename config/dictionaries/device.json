@@ -134,6 +134,15 @@
     "type": "released"
   },
   {
+    "id": "jetson-nano",
+    "name": "Jetson Nano",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/jetson-nano.svg",
+    "link": "https://developer.nvidia.com/embedded/buy/jetson-nano",
+    "type": "beta"
+  },
+  {
     "id": "jetson-tx2",
     "name": "Jetson TX2",
     "arch": "aarch64",
