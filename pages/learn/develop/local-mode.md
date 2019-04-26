@@ -114,7 +114,6 @@ balena push 192.168.1.37
 These containers will have access to all the features and environment that balenaCloud deployed devices have. For example, you will still be able to query and use the [supervisor API][supervisor API] and the containers will be brought up automatically on boot.
 
 ## Caveats
-- In localMode, a device will not send logs back to the balenaCloud dashboard. 
 - Set device and service environment variables from the dashboard will not be applied to localMode containers, but it is still possible to set these in your `docker-compose.yml` or `Dockerfile`.
 - Changes to Device configuration variables, for example `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
 - Actions such as `Restart` and `purge Data` from balenaCloud interface will not apply to localMode containers.
