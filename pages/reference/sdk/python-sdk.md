@@ -66,11 +66,7 @@ This module implements all models for balena python SDK.
 
 This class implements application model for balena python SDK.
 
-Due to API changes, the returned Application object schema has changed. Here are the formats of the old and new returned objects.
-
-The old returned object's properties: `__metadata, actor, app_name, application, commit, device_type, git_repository, id, should_track_latest_release, support_expiry_date, user, version`.
-
-The new returned object's properties (since python SDK v2.0.0): `__metadata, actor, app_name, commit, depends_on__application, device_type, git_repository, id, is_accessible_by_support_until__date, should_track_latest_release, user, version`.
+The returned objects properties are `__metadata, actor, app_name, application_type, commit, depends_on__application, device_type, id, is_accessible_by_support_until__date, should_track_latest_release, slug, user`.
 ### Function: create(name, device_type, app_type)
 
 Create an application. This function only works if you log in using credentials or Auth Token.
@@ -89,8 +85,8 @@ Create an application. This function only works if you log in using credentials 
 
 #### Examples:
 ```python
->>> balena.models.application.create('Foobar', 'Raspberry Pi 3', 'microservices-starter')
-'{"id":1005767,"user":{"__deferred":{"uri":"/balena/user(32986)"},"__id":32986},"depends_on__application":null,"actor":2630233,"app_name":"Foobar","git_repository":"pythonsdk_test_balena/foobar","commit":null,"application_type":{"__deferred":{"uri":"/balena/application_type(5)"},"__id":5},"device_type":"raspberrypi3","should_track_latest_release":true,"is_accessible_by_support_until__date":null,"__metadata":{"uri":"/balena/application(1005767)","type":""}}'
+>>> balena.models.application.create('foo', 'Raspberry Pi 3', 'microservices-starter')
+'{u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'foo', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(12345)'}, u'is_accessible_by_support_until__date': None, u'actor': 12345, u'id': 12345, u'user': {u'__deferred': {u'uri': u'/resin/user(12345)'}, u'__id': 12345}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'my_user/foo'}'
 ```
 ### Function: disable_device_urls(app_id)
 
@@ -179,8 +175,8 @@ Get a single application.
 
 #### Examples:
 ```python
->>> balena.models.application.get('RPI1')
-{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.balena.io:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}
+>>> balena.models.application.get('foo')
+'{u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'foo', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(12345)'}, u'is_accessible_by_support_until__date': None, u'actor': 12345, u'id': 12345, u'user': {u'__deferred': {u'uri': u'/resin/user(12345)'}, u'__id': 12345}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'my_user/foo'}'
 ```
 ### Function: get_all()
 
@@ -192,7 +188,7 @@ Get all applications (including collaborator applications).
 #### Examples:
 ```python
 >>> balena.models.application.get_all()
-[{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.balena.io:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}, {u'app_name': u'RPI2', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9019)'}, u'git_repository': u'g_trong_nghia_nguyen@git.balena.io:g_trong_nghia_nguyen/rpi2.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi2', u'commit': None, u'id': 9019}]
+'[{u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'foo', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(12345)'}, u'is_accessible_by_support_until__date': None, u'actor': 12345, u'id': 12345, u'user': {u'__deferred': {u'uri': u'/resin/user(12345)'}, u'__id': 12345}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'my_user/foo'}, {u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'bar', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(12346)'}, u'is_accessible_by_support_until__date': None, u'actor': 12345, u'id': 12346, u'user': {u'__deferred': {u'uri': u'/resin/user(12345)'}, u'__id': 12345}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'my_user/bar'}]'
 ```
 ### Function: get_by_id(app_id)
 
@@ -209,8 +205,8 @@ Get a single application by application id.
 
 #### Examples:
 ```python
->>> balena.models.application.get_by_id(9020)
-{u'app_name': u'RPI1', u'__metadata': {u'type': u'', u'uri': u'/ewa/application(9020)'}, u'git_repository': u'g_trong_nghia_nguyen@git.balena.io:g_trong_nghia_nguyen/rpi1.git', u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'device_type': u'raspberry-pi', u'commit': None, u'id': 9020}
+>>> balena.models.application.get_by_id(12345)
+'{u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'foo', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(12345)'}, u'is_accessible_by_support_until__date': None, u'actor': 12345, u'id': 12345, u'user': {u'__deferred': {u'uri': u'/resin/user(12345)'}, u'__id': 12345}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'my_user/foo'}'
 ```
 ### Function: get_by_owner(name, owner)
 
@@ -229,8 +225,8 @@ Get a single application.
 
 #### Examples:
 ```python
->>> balena.models.application.get_by_owner('mothaiba', 'pythonsdk_test_resin')
-{u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'mothaiba', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(1307755)'}, u'is_accessible_by_support_until__date': None, u'actor': 3438708, u'id': 1307755, u'user': {u'__deferred': {u'uri': u'/resin/user(32986)'}, u'__id': 32986}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'pythonsdk_test_resin/mothaiba'}
+>>> balena.models.application.get_by_owner('foo', 'my_user')
+'{u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'foo', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(12345)'}, u'is_accessible_by_support_until__date': None, u'actor': 12345, u'id': 12345, u'user': {u'__deferred': {u'uri': u'/resin/user(12345)'}, u'__id': 12345}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'my_user/foo'}'
 ```
 ### Function: get_config(app_id, version)
 
@@ -293,7 +289,7 @@ Check if an application exists.
 
 #### Examples:
 ```python
->>> balena.models.application.has('RPI1')
+>>> balena.models.application.has('foo')
 True
 ```
 ### Function: has_any()
@@ -732,7 +728,7 @@ Get a single device by device uuid.
 #### Examples:
 ```python
 >>> balena.models.device.get('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
-{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_seen_time': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}
+{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_connectivity_event': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}
 ```
 ### Function: get_all()
 
@@ -744,7 +740,7 @@ Get all devices.
 #### Examples:
 ```python
 >>> balena.models.device.get_all()
-[{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_seen_time': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
+[{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_connectivity_event': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
 ```
 ### Function: get_all_by_application(name)
 
@@ -759,7 +755,7 @@ Get devices by application name.
 #### Examples:
 ```python
 >>> balena.models.device.get_all_by_application('RPI1')
-[{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_seen_time': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
+[{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_connectivity_event': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
 ```
 ### Function: get_all_by_application_id(appid)
 
@@ -774,7 +770,7 @@ Get devices by application name.
 #### Examples:
 ```python
 >>> balena.models.device.get_all_by_application_id(1234)
-[{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_seen_time': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
+[{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_connectivity_event': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
 ```
 ### Function: get_application_name(uuid)
 
@@ -801,7 +797,7 @@ Get devices by device name.
 #### Examples:
 ```python
 >>> balena.models.device.get_by_name('floral-mountain')
-[{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_seen_time': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
+[{u'__metadata': {u'type': u'', u'uri': u'/ewa/device(122950)'}, u'last_connectivity_event': u'1970-01-01T00:00:00.000Z', u'is_web_accessible': False, u'device_type': u'raspberry-pi', u'id': 122950, u'logs_channel': None, u'uuid': u'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143', u'application': {u'__deferred': {u'uri': u'/ewa/application(9020)'}, u'__id': 9020}, u'note': None, u'os_version': None, u'location': u'', u'latitude': u'', u'status': None, u'public_address': u'', u'provisioning_state': None, u'user': {u'__deferred': {u'uri': u'/ewa/user(5397)'}, u'__id': 5397}, u'is_online': False, u'supervisor_version': None, u'ip_address': None, u'vpn_address': None, u'name': u'floral-mountain', u'download_progress': None, u'longitude': u'', u'commit': None, u'provisioning_progress': None, u'supervisor_release': None}]
 ```
 ### Function: get_dashboard_url(uuid)
 
@@ -916,6 +912,23 @@ Get device name by device uuid.
 
 #### Raises:
     DeviceNotFound: if device couldn't be found.
+### Function: get_os_update_status(uuid)
+
+        Get the OS update status of a device.
+
+####         Args:
+            uuid (str): device uuid.
+
+####         Returns:
+            dict: action response.
+
+####         Examples:
+```python
+            >>> balena.models.device.get_os_update_status('b6070f4fea5edf808b576123157fe5ec')
+            {u'status': u'done', u'parameters': {u'target_version': u'2.29.2+rev1.prod'}, u'stdout': u'[1554490814][LOG]Normalized target version: 2.29.2+rev1
+', u'last_run': 1554491107242L, u'error': u'', u'action': u'resinhup'}
+        
+```
 ### Function: get_status(uuid)
 
 Get the status of a device.
@@ -933,6 +946,36 @@ Get the status of a device.
 ```python
 >>> balena.models.device.get_status('8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143')
 'Offline'
+```
+### Function: get_supervisor_state(uuid)
+
+Get the supervisor state on a device
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    dict: supervisor state.
+
+#### Examples:
+```python
+>>> balena.models.device.get_supervisor_state('b6070f4fea5edf808b576123157fe5ec')
+{u'status': u'Idle', u'update_failed': False, u'os_version': u'balenaOS 2.29.0+rev1', u'download_progress': None, u'update_pending': False, u'api_port': u'48484', u'commit': u'd26dd8a68a47c40daaa1d32e03c96d934f37c53b', u'update_downloaded': False, u'supervisor_version': u'9.0.1', u'ip_address': u'192.168.100.16'}
+```
+### Function: get_supervisor_target_state(uuid)
+
+Get the supervisor target state on a device
+
+#### Args:
+    uuid (str): device uuid.
+
+#### Returns:
+    dict: supervisor target state.
+
+#### Examples:
+```python
+>>> balena.models.device.get_supervisor_target_state('b6070f4fea5edf808b576123157fe5ec')
+{u'local': {u'name': u'holy-darkness', u'config': {u'RESIN_SUPERVISOR_NATIVE_LOGGER': u'true', u'RESIN_SUPERVISOR_POLL_INTERVAL': u'900000'}, u'apps': {u'1398898': {u'name': u'test-nuc', u'commit': u'f9d139b80a7df94f90d7b9098b1353b14ca31b85', u'releaseId': 850293, u'services': {u'229592': {u'imageId': 1016025, u'serviceName': u'main', u'image': u'registry2.balena-cloud.com/v2/27aa30131b770a4f993da9a54eca6ed8@sha256:f489c30335a0036ecf1606df3150907b32ea39d73ec6de825a549385022e3e22', u'running': True, u'environment': {}, u'labels': {u'io.resin.features.dbus': u'1', u'io.resin.features.firmware': u'1', u'io.resin.features.kernel-modules': u'1', u'io.resin.features.resin-api': u'1', u'io.resin.features.supervisor-api': u'1'}, u'privileged': True, u'tty': True, u'restart': u'always', u'network_mode': u'host', u'volumes': ['resin-data:/data']}}, u'volumes': {u'resin-data': {}}, u'networks': {}}}}, u'dependent': {u'apps': {}, u'devices': {}}}
 ```
 ### Function: get_supported_device_types()
 
@@ -1093,7 +1136,7 @@ Register a new device with a balena application. This function only works if you
 ```python
 >>> device_uuid = balena.models.device.generate_uuid()
 >>> balena.models.device.register('RPI1',device_uuid)
-{'id':122950,'application':{'__deferred':{'uri':'/ewa/application(9020)'},'__id':9020},'user':{'__deferred':{'uri':'/ewa/user(5397)'},'__id':5397},'name':'floral-mountain','device_type':'raspberry-pi','uuid':'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143','commit':null,'note':null,'status':null,'is_online':false,'last_seen_time':'1970-01-01T00:00:00.000Z','ip_address':null,'vpn_address':null,'public_address':'','os_version':null,'supervisor_version':null,'supervisor_release':null,'provisioning_progress':null,'provisioning_state':null,'download_progress':null,'is_web_accessible':false,'longitude':'','latitude':'','location':'','logs_channel':null,'__metadata':{'uri':'/ewa/device(122950)','type':''}}
+{'id':122950,'application':{'__deferred':{'uri':'/ewa/application(9020)'},'__id':9020},'user':{'__deferred':{'uri':'/ewa/user(5397)'},'__id':5397},'name':'floral-mountain','device_type':'raspberry-pi','uuid':'8deb12a58e3b6d3920db1c2b6303d1ff32f23d5ab99781ce1dde6876e8d143','commit':null,'note':null,'status':null,'is_online':false,'last_connectivity_event':'1970-01-01T00:00:00.000Z','ip_address':null,'vpn_address':null,'public_address':'','os_version':null,'supervisor_version':null,'supervisor_release':null,'provisioning_progress':null,'provisioning_state':null,'download_progress':null,'is_web_accessible':false,'longitude':'','latitude':'','location':'','logs_channel':null,'__metadata':{'uri':'/ewa/device(122950)','type':''}}
 ```
 ### Function: remove(uuid)
 
@@ -1181,8 +1224,51 @@ Set an empty commit_id will restore rolling releases to the device.
     OK.
 
 #### Examples:
-    >> > balena.models.device.set_to_release('49b2a76b7f188c1d6f781e67c8f34adb4a7bfd2eec3f91d40b1efb75fe413d', '45c90004de73557ded7274d4896a6db90ea61e36')
-    'OK'
+```python
+>>> balena.models.device.set_to_release('49b2a76b7f188c1d6f781e67c8f34adb4a7bfd2eec3f91d40b1efb75fe413d', '45c90004de73557ded7274d4896a6db90ea61e36')
+'OK'
+```
+### Function: set_to_release_by_id(uuid, release_id)
+
+Set device to a specific release by release id (please notice that release id is not the commit hash on balena dashboard).
+Remove release_id will restore rolling releases to the device.
+
+#### Args:
+    uuid (str): device uuid.
+    release_id (Optional[int]): release id.
+
+#### Returns:
+    OK.
+
+#### Examples:
+```python
+>>> balena.models.device.set_to_release_by_id('49b2a76b7f188c1d6f781e67c8f34adb4a7bfd2eec3f91d40b1efb75fe413d', 165432)
+'OK'
+>>> balena.models.device.set_to_release_by_id('49b2a76b7f188c1d6f781e67c8f34adb4a7bfd2eec3f91d40b1efb75fe413d')
+'OK'
+```
+### Function: start_os_update(uuid, target_os_version)
+
+Start an OS update on a device.
+
+#### Args:
+    uuid (str): device uuid.
+    target_os_version (str): semver-compatible version for the target device.
+        Unsupported (unpublished) version will result in rejection.
+        The version **must** be the exact version number, a "prod" variant and greater than the one running on the device.
+
+#### Returns:
+    dict: action response.
+
+#### Raises:
+    DeviceNotFound: if device couldn't be found.
+    InvalidParameter|OsUpdateError: if target_os_version is invalid.
+
+#### Examples:
+```python
+>>> balena.models.device.start_os_update('b6070f4fea5edf808b576123157fe5ec', '2.29.2+rev1.prod')
+{u'status': u'in_progress', u'action': u'resinhup', u'parameters': {u'target_version': u'2.29.2+rev1.prod'}, u'last_run': 1554490809219L}
+```
 ### Function: track_application_release(uuid)
 
 Configure a specific device to track the current application release.
@@ -1255,6 +1341,32 @@ Get an application config.json.
 
 #### Returns:
     dict: application config.json
+### Function: get_device_os_semver_with_variant(os_version, os_variant)
+
+Get current device os semver with variant.
+
+#### Args:
+    os_version (str): current os version.
+    os_variant (str): os variant.
+
+#### Examples:
+```python
+>>> balena.models.device_os.get_device_os_semver_with_variant('balenaOS 2.29.2+rev1', 'prod')
+'2.29.2+rev1.prod'
+```
+### Function: get_supported_versions(device_type)
+
+Get OS supported versions.
+
+#### Args:
+    device_type (str): device type slug
+
+#### Returns:
+    dict: the versions information, of the following structure:
+        * versions - an array of strings, containing exact version numbers supported by the current environment.
+        * recommended - the recommended version, i.e. the most recent version that is _not_ pre-release, can be `None`.
+        * latest - the most recent version, including pre-releases.
+        * default - recommended (if available) or latest otherwise.
 ### Function: parse_params()
 
 Validate parameters for downloading device OS image.
