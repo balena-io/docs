@@ -1,4 +1,12 @@
 ---
+npm:
+  platforms:
+    - name: linux
+      os: alpine
+      architecture: x86_64
+      node_versions:
+        - "10"
+
 docker:
   builds:
     - path: .
