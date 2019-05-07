@@ -5,3 +5,11 @@ docker:
       dockerfile: Dockerfile
       docker_repo: resin/docs
 
+npm:
+  platforms:
+    - name: linux
+      os: alpine
+      architecture: x86_64
+      node_versions:
+        - "10"
+        - "12"
