@@ -2,11 +2,14 @@
   "name": "resin-docs",
   "private": true,
   "version": "4.2.2",
+  "engines": {
+    "node": "^10.0.0"
+  },
   "description": "This repo contains our public-facing documentation.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"This repo has no tests specified.\" && exit 0",
     "postinstall": "./tools/prepare.sh",
     "build": "./tools/build.sh && webpack -p",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
