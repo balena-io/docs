@@ -228,7 +228,7 @@ ENTRYPOINT ["/usr/bin/entry.sh"]
 This is a unique feature of balenalib ARM base images that allows you to run them anywhere (running ARM image on x86/x86_64 machines). A tool called `resin-xbuild` and QEMU are installed inside any balenalib ARM base images and can be triggered by `RUN [ "cross-build-start" ]` and `RUN [ "cross-build-end" ]`. QEMU will emulate any instructions between `cross-build-start` and `cross-build-end`. So this Dockerfile:
 
 ```Dockerfile
-FROM resin/armv7hf-debian
+FROM balenalib/armv7hf-debian
 
 RUN [ "cross-build-start" ]
 
