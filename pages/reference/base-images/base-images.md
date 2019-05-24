@@ -22,10 +22,10 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 	- [Ubuntu](https://www.ubuntu.com/): artful, bionic, cosmic, trusty and xenial
 	- [Fedora](https://getfedora.org/): 26, 28, 29 and 30
 - Multiple language stacks: 
-	- [Node.js](https://nodejs.org/en/): 11.12.0, 10.15.3, 8.15.1 and 6.17.0
-	- [Python](https://www.python.org/): 2.7.15, 3.5.6, 3.6.8 and 3.7.2 
+	- [Node.js](https://nodejs.org/en/): 12.2.0, 11.15.0, 10.15.3, 8.16.0 and 6.17.1
+	- [Python](https://www.python.org/): 2.7.16, 3.5.7, 3.6.8 and 3.7.3 
 	- [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 10-jdk/jre and 11-jdk/jre
-	- [Golang](https://golang.org/): 1.12.1, 1.11.6 and 1.10.8
+	- [Golang](https://golang.org/): 1.12.4, 1.11.9 and 1.10.8
 	- [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.2-sdk/runtime/aspnet,3.0-sdk/runtime/aspnet,2.1-sdk/runtime/aspnet 
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
@@ -121,14 +121,15 @@ Currently balenalib supports the following OS distributions and Language stacks,
 |---------|------------------------------|----------------------------------------------|
 | Node.js | v11.14.0                      | armv6, armv7hf, aarch64, amd64, i386         |
 | Python  | v2.7.15                       | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
-| OpenJDK | v1.8.0_181                    | armv7hf, aarch64, amd64, i386                |
-| Go      | 1.12.4                       | armv7hf, aarch64, amd64, i386                |
+| OpenJDK | v1.8.0_181                    | armv7hf, aarch64, amd64, i386, armv6         |
+| Go      | 1.12.4                        | armv7hf, aarch64, amd64, i386, armv6         |
 | Dotnet  | 2.2-sdk                       | armv7hf, aarch64, amd64                |
 
 #### Notices
 
 Not all OS distro and language stack versions are compatible with each other, pleace notice that there are some combinations which are not available in the `balenalib` base images.
-- [Nodejs dropped 32-bit builds](https://github.com/nodejs/build/issues/885) a while ago so i386-based nodejs images (Debian, Fedora and Ubuntu) only support v8.x and v6.x, new series are not avaiable.
+- [Nodejs dropped 32-bit builds](https://github.com/nodejs/build/issues/885) a while ago so i386-based nodejs images (Debian, Fedora and Ubuntu) v8.x and v6.x are official. New series (v10.x and v12.x) are using unofficial builds so please notice when using these images.
+- armv6 binaries were officially dropped from v12 and v12 armv6 support is now considered unofficial.
 - The Nodejs v6.x and v8.x series are not available for i386 Alpine Linux base images v3.9 and edge as node crashes with segfault error, we are investigating the issue and will add them back as soon as the issue is resolved.
 
 ## Installing Packages
