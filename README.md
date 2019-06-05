@@ -22,6 +22,10 @@ npm start
 ```
 And then open [http://localhost:3000/docs](http://localhost:3000/docs).
 
+> Note: if you are using macOS and you get `"RangeError: Maximum call stack size exceeded"`
+> when running `npm install` (which eventually calls the `build.sh` script), have a look at
+> the comments at the top of the `'Dockerfile.bindmount'` file.
+
 How to Contribute
 ----------
 
