@@ -83,4 +83,4 @@ You can override the value of a custom fleet configuration variable by clicking 
 [deltas]:/learn/deploy/delta
 [local-mode]:/learn/develop/local-mode
 [update-locking]:/learn/deploy/release-strategy/update-locking
-[boot-config-guide]:/reference/OS/advanced/#modifying-config-txt-remotely-
+[boot-config-guide]:/reference/OS/advanced/#modifying-configtxt-remotely
