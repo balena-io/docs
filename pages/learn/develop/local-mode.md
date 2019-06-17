@@ -20,13 +20,13 @@ In order to use local mode on a device:
 
 ## Scan the network and find your device
 
-Before you can get any code running, you first have to find your device. To do this, login to the balena CLI and use `balena local scan`. Note, you may need administrator privileges to run the scan as it needs access to all network interfaces.
+Before you can get any code running, you first have to find your device. To do this, login to the balena CLI and use `balena scan`. Note, you may need administrator privileges to run the scan as it needs access to all network interfaces.
 
 All balenaOS devices advertise themselves on the network using Avahi. The names take the form `<short-uuid>.local`, where the short-uuid is the uuid you see on your device dashboard. The CLI allows you to scan the network and discover your device:
 
 **Command**
 ```
-sudo balena local scan
+sudo balena scan
 ```
 **Output**
 ```
