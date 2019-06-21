@@ -9,9 +9,9 @@
 
 [aplus]:{{ $links.raspberrypi.aplus }}
 [bplus]:{{ $links.raspberrypi.bplus }}
-[zero]:https://www.raspberrypi.org/products/pi-zero/
-[zerow]:https://www.raspberrypi.org/products/pi-zero-w/
-[psu]:https://www.raspberrypi.org/products/universal-power-supply/
+[zero]:https://www.raspberrypi.org/products/raspberry-pi-zero/
+[zerow]:https://www.raspberrypi.org/products/raspberry-pi-zero-w/
+[psu]:https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [wifiAdapters]:/hardware/wifi-dongles/
 [supportedDevicesList]:/hardware/devices/

@@ -59,4 +59,4 @@ If the fingerprint check succeeds, the updater will use **Docker** to pull the t
 From here, the original updater script takes back control, and finishes up any other changes required by the update. When all this is done, the device is rebooted into the new system.
 
 [changes]:/reference/OS/updates/migrate-to-2.0/
-[wifi-connect]:{{ $links.githubMain }}/{{ $names.company.short }}-wifi-connect
+[wifi-connect]:{{ $links.githubMain }}/wifi-connect

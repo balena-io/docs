@@ -21,6 +21,6 @@ UpBoard | up-board | amd64 | {{ $links.githubOS }}/balena-up-board
 Technologic TS-4900 | ts4900 | armv7hf | {{ $links.githubOS }}/balena-ts
 Odroid C1/C1+ | odroid-c1 | armv7hf | {{ $links.githubOS }}/balena-odroid
 Odroid XU4 | odroid-xu4 | armv7hf | {{ $links.githubOS }}/balena-odroid
-Variscite DART-6UL | imx6ul-var-dart | armv7hf | {{ $links.githubOS }}/balena-imx6ul-var-dart
+Variscite DART-6UL | imx6ul-var-dart | armv7hf | {{ $links.githubOS }}/balena-variscite-mx8
 Generic ARMv7-a HF | generic-armv7ahf | armv7hf | {{ $links.githubOS }}/balena-generic
 Generic AARCH64 (ARMv8) | generic-aarch64 | aarch64 | {{ $links.githubOS }}/balena-generic

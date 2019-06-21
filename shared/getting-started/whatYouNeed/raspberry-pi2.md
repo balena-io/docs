@@ -8,7 +8,7 @@
 * A [{{ $names.company.lower }} account][link-to-signup].
 
 [rpi2B]:https://www.raspberrypi.org/products/raspberry-pi-2-model-b/
-[psu]:https://www.raspberrypi.org/products/universal-power-supply/
+[psu]:https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/
 
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [wifiAdapters]:/hardware/wifi-dongles/
