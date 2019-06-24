@@ -15,7 +15,7 @@ The audio stock ticker will verbally announce a list of your favourite stocks ev
 ### Servo motor control in Node.js
 
 {{> icon class="octicon octicon-mark-github" }}
-[Repository](https://github.com/craig-mulligan/resin-servo-node)
+[Repository](https://github.com/hobochild/resin-servo-node)
 
 A simple application to issue commands to a servo motor using pi-blaster.
 

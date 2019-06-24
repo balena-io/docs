@@ -79,7 +79,7 @@ Field | Details
 [scale](https://docs.docker.com/compose/compose-file/compose-file-v2/#scale) |
 [stdin_open](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [tty](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
-[volume_driver](https://docs.docker.com/compose/compose-file/compose-file-v2/volume_driver) |
+[volume_driver](https://docs.docker.com/compose/compose-file/compose-file-v2/#volume_driver) |
 [volumes_from](https://docs.docker.com/compose/compose-file/compose-file-v2/#volumes_from) |
 
 ## Labels

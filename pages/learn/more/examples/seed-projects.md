@@ -143,7 +143,7 @@ This hello world for Flogo helps you to get started.
 [hello-flogo]:https://github.com/ecarlier-tibco/flogo-resin.io
 
 [csharp-dockerfile]:https://github.com/ResinIoDotNetExamples/Example-01-HelloWorld/blob/master/Dockerfile
-[java-dockerfile]:{{ $links.githubMain }}/Hello-Java/blob/master/Dockerfile
+[java-dockerfile]:{{ $links.githubProjects }}/balena-java-hello-world/blob/master/Dockerfile.template
 [scala-dockerfile]:https://github.com/elecnix/Hello-Scala/blob/master/Dockerfile
 [python-dockerfile]:https://github.com/alexandrosm/hello-python/blob/master/Dockerfile
 [ruby-dockerfile]:{{ $links.githubMain }}/Hello-Ruby/blob/master/Dockerfile

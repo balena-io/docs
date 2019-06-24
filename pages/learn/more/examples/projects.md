@@ -207,7 +207,7 @@ visualisation at [123k.de](http://123k.de).
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
 [resin-cctv]:https://github.com/abresas/resin-cctv
 [salesforce-temp]:https://github.com/shaunmulligan/salesforceTemp
-[occupied]:http://www.hackster.io/craig-mulligan/occupied
+[occupied]:http://www.hackster.io/hobochild/occupied-507dc6
 [dockerHub]:https://github.com/nghiant2710/resin-DockerHubDeploymentGuide
 [resin-samba]:https://github.com/abresas/resin-samba
 [webLamp]:https://github.com/shaunmulligan/webLamp
@@ -230,7 +230,7 @@ visualisation at [123k.de](http://123k.de).
 
 [py-gpio]:https://github.com/nghiant2710/resin-rpi-gpio-sample-with-python
 [picamera-node]:https://github.com/shaunmulligan/resin-rpi-nodejs-picamera
-[picamera-py]:https://github.com/shaunmulligan/resin-rpi-python-picamera
+[picamera-py]:{{ $links.githubProjects }}/balena-rpi-python-picamera
 [ADC_py]:https://github.com/shaunmulligan/resin-rpi-py-ADC
 [resin-tether]:https://github.com/petrosagg/resin-tether
 [example-pi-pins]:https://github.com/shaunmulligan/basic-gpio
@@ -238,7 +238,7 @@ visualisation at [123k.de](http://123k.de).
 <!-- ###Team Github name links-->
 
 [shaun-mulligan]:https://github.com/shaunmulligan
-[craig-mulligan]:https://github.com/craig-mulligan
+[craig-mulligan]:https://github.com/hobochild
 [aleksis]:https://github.com/abresas/
 [lifeeth]:https://bitbucket.org/lifeeth/
 [alex]:https://github.com/alexandrosm
