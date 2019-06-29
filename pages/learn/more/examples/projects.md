@@ -195,6 +195,12 @@ A simple tool for reading temperatures from a USB-enabled thermometer. This
 project is used as the backend to [efwe][efwe]'s awesome temperature
 visualisation at [123k.de](http://123k.de).
 
+### Uptime Robot Dashboard
+[Repository][secanis/uptime-robot-dashboard] by [secanis][secanis]
+
+A dashboard which is visualizing the [Uptime Robot API](https://uptimerobot.com/) on a Raspberry PI, deployed over the Balena Cloud.
+This dashboard could be used on TV's or on monitors.
+
 <!-- ###Team Project Links -->
 
 [text2speech]:{{ $links.githubMain }}/text2speech
