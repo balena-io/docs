@@ -19,7 +19,7 @@ Follow our [getting started guide][installing] to get your device connect to you
 Find your Application ID in the {{ $names.company.lower }} dashboard url: {{ $links.dashboardUrl }}/apps/NNNN/devices and your auth-token from the [preferences panel]({{ $links.dashboardUrl }}/preferences?tab=details). Then combine insert the two into the curl request below.
 
 ```
-curl -H 'Authorization: Bearer AUTH_TOKEN' -X POST https://api.{{ $names.domain }}/application/NNNN/generate-api-key
+curl -H 'Authorization: Bearer AUTH_TOKEN' -X POST https://api.{{ $names.dashboard_domain }}/application/NNNN/generate-api-key
 ```
 
 This will return your new API key.
