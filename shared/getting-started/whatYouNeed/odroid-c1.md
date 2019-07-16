@@ -5,7 +5,7 @@
 * A 5V/2A round plug power supply unit from [Hardkernel][hardkernel-link] like this [one][C1-PSU-link].
 * An ethernet cable or WiFi adapter to connect your device to the internet.
 
-[odroidC1-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573
+[odroidC1-link]:https://www.hardkernel.com/shop/odroid-c1/
 [hardkernel-link]:http://www.hardkernel.com/main/main.php
 [odroid-emmc]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143538061522
 [C1-PSU-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G134111972476

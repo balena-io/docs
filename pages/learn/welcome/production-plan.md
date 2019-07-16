@@ -61,7 +61,7 @@ When developing an application, you should consider using a [development image][
 
 While prototyping, you should start thinking about how your devices will be connected when deployed in the real world.  If it's possible to have network settings preconfigured, or to have everything done by DHCP, this is easy. But most devices will need onsite configuration.
 
-{{ $names.company.upper }} provides the ability to configure networking from inside your application containers and exposes a great deal of functionality to make this easier. One example is the [{{ $names.company.short }}-wifi-connect][wifi-connect] project, which allows the device to create its own WiFi access point that users can connect with to configure proper credentials. The {{ $names.company.lower }} [supervisor API][supervisor-api] also makes it possible to configure more advanced networking parameters, including hostname and proxy configuration.
+{{ $names.company.upper }} provides the ability to configure networking from inside your application containers and exposes a great deal of functionality to make this easier. One example is the [wifi-connect][wifi-connect] project, which allows the device to create its own WiFi access point that users can connect with to configure proper credentials. The {{ $names.company.lower }} [supervisor API][supervisor-api] also makes it possible to configure more advanced networking parameters, including hostname and proxy configuration.
 
 ### Multiple developers
 

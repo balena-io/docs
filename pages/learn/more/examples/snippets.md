@@ -96,14 +96,14 @@ An application that demonstrates how to read input from a physical keyboard or o
 [resin-ssh]:{{ $links.githubPlayground }}/balena-ssh-python.git
 [resin-ssh-node]:{{ $links.githubPlayground }}/ssh-node
 [text2speech]:{{ $links.githubMain }}/text2speech
-[servo-motor-node]:https://github.com/craig-mulligan/resin-servo-node
+[servo-motor-node]:https://github.com/hobochild/resin-servo-node
 [pi-pins]:https://www.npmjs.com/package/pi-pins
 [node-keyboard-input]:https://github.com/balena-io-playground/node-keyboard-input
 
 <!-- ###Team Github name links -->
 
 [shaun-mulligan]:https://github.com/shaunmulligan
-[craig-mulligan]:https://github.com/craig-mulligan
+[craig-mulligan]:https://github.com/hobochild
 [aleksis]:https://github.com/abresas/
 [lifeeth]:https://bitbucket.org/lifeeth/
 [alex]:https://github.com/alexandrosm

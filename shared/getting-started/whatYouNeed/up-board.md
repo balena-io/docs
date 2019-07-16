@@ -8,9 +8,9 @@
 * An HDMI LCD screen.
 * A [{{ $names.company.lower }} account][link-to-signup].
 
-[up-board]:http://www.up-board.org/up/
-[up2]:http://www.up-board.org/upsquared/
-[upcore]:http://www.up-board.org/upcore/
+[up-board]:https://www.up-board.org/
+[up2]:https://www.up-board.org/upsquared/specifications
+[upcore]:https://www.up-board.org/upcore/specifications
 [psu]:http://up-shop.org/up-peripherals/65-dc-power-adapter-for-up-board-eu-plug.html
 [wifiAdapters]:/hardware/wifi-dongles/
 [supportedDevicesList]:/hardware/devices/

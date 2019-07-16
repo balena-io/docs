@@ -6,8 +6,8 @@ BB_PRODUCTS = 'https://beagleboard.org'
 
 module.exports =
   raspberrypi:
-    aplus: "#{RPI_PRODUCTS}/model-a-plus/"
-    bplus: "#{RPI_PRODUCTS}/model-b-plus/"
+    aplus: "#{RPI_PRODUCTS}/raspberry-pi-1-model-a-plus/"
+    bplus: "#{RPI_PRODUCTS}/raspberry-pi-1-model-b-plus/"
   beaglebone:
     black: "#{BB_PRODUCTS}/black"
     green: "#{BB_PRODUCTS}/green"
@@ -18,6 +18,6 @@ module.exports =
   apiBase: process.env.API_BASE || 'https://api.balena-cloud.com'
   mainSiteUrl: 'https://balena.io'
   blogSiteUrl: 'https://balena.io/blog'
-  osSiteUrl: 'https://balena.io/os'
-  engineSiteUrl: 'https://balena.io/engine'
+  osSiteUrl: 'https://www.balena.io/os'
+  engineSiteUrl: 'https://www.balena.io/engine'
   dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
