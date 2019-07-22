@@ -75,6 +75,7 @@ Learn
       [/learn/more/examples/seed-projects]
       [/learn/more/examples/snippets]
     [/learn/more/resources]
+    [/learn/more/collected-data]
 
 FAQ
 
