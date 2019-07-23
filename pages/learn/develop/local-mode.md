@@ -31,10 +31,10 @@ sudo balena scan
 **Output**
 ```
 Reporting scan results
-- 
+-
   host:          33bccbc.local
   address:       192.168.1.37
-  dockerInfo: 
+  dockerInfo:
     Containers:        2
     ContainersRunning: 2
     ContainersPaused:  0
@@ -45,7 +45,7 @@ Reporting scan results
     KernelVersion:     4.14.79
     OperatingSystem:   balenaOS 2.29.2+rev1
     Architecture:      armv7l
-  dockerVersion: 
+  dockerVersion:
     Version:    17.12.0-dev
     ApiVersion: 1.35
 ```
@@ -71,10 +71,10 @@ balena push 192.168.1.37
 [Build]   [main]  ---> 4efbe5eef155
 [Build]   [main] Step 4/8 : RUN JOBS=MAX npm install --production --unsafe-perm && npm cache verify && rm -rf /tmp/*
 [Build]   [main]  ---> Running in b558ec5ad3de
-[Build]   [main] npm 
+[Build]   [main] npm
 [Build]   [main] notice
 [Build]   [main]  created a lockfile as package-lock.json. You should commit this file.
-[Build]   
+[Build]
 [Build]   [main] added 49 packages from 38 contributors and audited 122 packages in 8.35s
 [Build]   [main] found 0 vulnerabilities
 [Build]   [main] Cache verified and compressed (~/.npm/_cacache):
@@ -104,21 +104,21 @@ balena push 192.168.1.37
 [Logs]    [1/25/2019, 1:14:21 PM] Installed service 'main sha256:97200548c13376aaf7445cb4c62fa13d2e758931cf34daf5ab20e3c00656a1b4'
 [Logs]    [1/25/2019, 1:14:21 PM] Starting service 'main sha256:97200548c13376aaf7445cb4c62fa13d2e758931cf34daf5ab20e3c00656a1b4'
 [Logs]    [1/25/2019, 1:14:22 PM] Started service 'main sha256:97200548c13376aaf7445cb4c62fa13d2e758931cf34daf5ab20e3c00656a1b4'
-[Logs]    [1/25/2019, 1:14:25 PM] [main] 
+[Logs]    [1/25/2019, 1:14:25 PM] [main]
 [Logs]    [1/25/2019, 1:14:25 PM] [main] > simple-server-node@1.0.0 start /usr/src/app
 [Logs]    [1/25/2019, 1:14:25 PM] [main] > node server.js
-[Logs]    [1/25/2019, 1:14:25 PM] [main] 
+[Logs]    [1/25/2019, 1:14:25 PM] [main]
 [Logs]    [1/25/2019, 1:14:28 PM] [main] Server listening on port  80
 ```
 
 These containers will have access to all the features and environment that balenaCloud deployed devices have. For example, you will still be able to query and use the [supervisor API][supervisor API] and the containers will be brought up automatically on boot.
 
 ## Caveats
-- In localMode, a device will not send logs back to the balenaCloud dashboard. 
+- In localMode, a device will not send logs back to the balenaCloud dashboard.
 - Set device and service environment variables from the dashboard will not be applied to localMode containers, but it is still possible to set these in your `docker-compose.yml` or `Dockerfile`.
 - Changes to Device configuration variables, for example `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
 - Actions such as `Restart` and `purge Data` from balenaCloud interface will not apply to localMode containers.
-- When switching out of localMode and back to tracking releases from balenaCloud, the balena supervisor will destroy any localMode containers and clean up unneeded base images, and then start up the application that balenaCloud instructs it to run.
+- When switching out of localMode and back to tracking releases from balenaCloud, the balena supervisor will destroy any localMode containers and  volumes as well as clean up unneeded base images, and then start up the application that balenaCloud instructs it to run.
 
 ## SSH into the running app container or host OS
 
@@ -137,7 +137,7 @@ sudo {{ $names.company.short }} local ssh f340127.local --host
 If your project relies on a private base image, then it is possible to specify your registry credentials when doing a `balena push`. To do this you simply pass the `--registry-secrets` option as shown below.
 
 ```bash
-balena push 192.168.1.37 --registry-secrets /Path/To/File/dockerhub-secret.yml 
+balena push 192.168.1.37 --registry-secrets /Path/To/File/dockerhub-secret.yml
 ```
 
 Where `dockerhub-secret.yml` is a YAML file containing my private registry usernames and passwords to be used by the device balena-engine when pulling base images during a build.
