@@ -122,7 +122,7 @@ fixup_file=fixup_x.dat
 or for remote update
 * `RESIN_HOST_CONFIG_gpu_mem` to `128`
 * `RESIN_HOST_CONFIG_start_file` to `start_x.elf`
-* `RESIN_HOST_CONFIG_fixup_file` to `fixup_x.elf`
+* `RESIN_HOST_CONFIG_fixup_file` to `fixup_x.dat`
 in the fleet or device configuration.
 
 You will also need to add `modprobe bcm2835-v4l2` before your start scripts in either your `package.json` start command or Dockerfile `CMD` command.
