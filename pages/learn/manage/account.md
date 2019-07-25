@@ -62,7 +62,7 @@ Observers are given read-only access to the application and its devices. They ar
 
 #### Operator
 
-Operators have all the access given to observers, plus the ability to manage an application's devices. This means operators can add new devices, remove devices, perform device actions, and modify device tags, metadata, and environment variables. Operators also have full [SSH access][ssh] to the application's devices. This role can only be assigned by application owners on paid plans.
+Operators have all the access given to observers, plus the ability to manage an application's devices. This means operators can remove devices, perform device actions, and modify device tags, metadata, and environment variables. Operators also have full [SSH access][ssh] to the application's devices. This role can only be assigned by application owners on paid plans.
 
 #### Developer
 

@@ -79,9 +79,6 @@ Additionally, you should whitelist the following domains for the relevant ports 
 * `*.docker.com`
 * `*.docker.io`
 
-
-Additionally, an outgoing connection to `mixpanel.com` is made. This is not a functional requirement for {{ $names.company.lower }}, but allows tracking of some useful metrics.
-
 ##### Can I access /dev and things like GPIO from the container?
 If you're application uses a single container, it will be run in privileged mode by default and will have access to hardware in the same way as a vanilla Linux system.
 
