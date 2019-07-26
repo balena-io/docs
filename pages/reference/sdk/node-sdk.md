@@ -166,12 +166,12 @@ If you feel something is missing, not clear or could be improved, please don't h
         * [.release](#balena.models.release) : <code>object</code>
             * [.tags](#balena.models.release.tags) : <code>object</code>
                 * [.getAllByApplication(nameOrId, [options])](#balena.models.release.tags.getAllByApplication) ⇒ <code>Promise</code>
-                * [.getAllByRelease(id, [options])](#balena.models.release.tags.getAllByRelease) ⇒ <code>Promise</code>
+                * [.getAllByRelease(commitOrId, [options])](#balena.models.release.tags.getAllByRelease) ⇒ <code>Promise</code>
                 * [.getAll([options])](#balena.models.release.tags.getAll) ⇒ <code>Promise</code>
-                * [.set(releaseId, tagKey, value)](#balena.models.release.tags.set) ⇒ <code>Promise</code>
-                * [.remove(releaseId, tagKey)](#balena.models.release.tags.remove) ⇒ <code>Promise</code>
-            * [.get(id, [options])](#balena.models.release.get) ⇒ <code>Promise</code>
-            * [.getWithImageDetails(id, [options])](#balena.models.release.getWithImageDetails) ⇒ <code>Promise</code>
+                * [.set(commitOrId, tagKey, value)](#balena.models.release.tags.set) ⇒ <code>Promise</code>
+                * [.remove(commitOrId, tagKey)](#balena.models.release.tags.remove) ⇒ <code>Promise</code>
+            * [.get(commitOrId, [options])](#balena.models.release.get) ⇒ <code>Promise</code>
+            * [.getWithImageDetails(commitOrId, [options])](#balena.models.release.getWithImageDetails) ⇒ <code>Promise</code>
             * [.getAllByApplication(nameOrId, [options])](#balena.models.release.getAllByApplication) ⇒ <code>Promise</code>
             * [.getLatestByApplication(nameOrId, [options])](#balena.models.release.getLatestByApplication) ⇒ <code>Promise</code>
         * [.service](#balena.models.service) : <code>object</code>
@@ -470,12 +470,12 @@ balena.models.device.get(123).catch(function (error) {
     * [.release](#balena.models.release) : <code>object</code>
         * [.tags](#balena.models.release.tags) : <code>object</code>
             * [.getAllByApplication(nameOrId, [options])](#balena.models.release.tags.getAllByApplication) ⇒ <code>Promise</code>
-            * [.getAllByRelease(id, [options])](#balena.models.release.tags.getAllByRelease) ⇒ <code>Promise</code>
+            * [.getAllByRelease(commitOrId, [options])](#balena.models.release.tags.getAllByRelease) ⇒ <code>Promise</code>
             * [.getAll([options])](#balena.models.release.tags.getAll) ⇒ <code>Promise</code>
-            * [.set(releaseId, tagKey, value)](#balena.models.release.tags.set) ⇒ <code>Promise</code>
-            * [.remove(releaseId, tagKey)](#balena.models.release.tags.remove) ⇒ <code>Promise</code>
-        * [.get(id, [options])](#balena.models.release.get) ⇒ <code>Promise</code>
-        * [.getWithImageDetails(id, [options])](#balena.models.release.getWithImageDetails) ⇒ <code>Promise</code>
+            * [.set(commitOrId, tagKey, value)](#balena.models.release.tags.set) ⇒ <code>Promise</code>
+            * [.remove(commitOrId, tagKey)](#balena.models.release.tags.remove) ⇒ <code>Promise</code>
+        * [.get(commitOrId, [options])](#balena.models.release.get) ⇒ <code>Promise</code>
+        * [.getWithImageDetails(commitOrId, [options])](#balena.models.release.getWithImageDetails) ⇒ <code>Promise</code>
         * [.getAllByApplication(nameOrId, [options])](#balena.models.release.getAllByApplication) ⇒ <code>Promise</code>
         * [.getLatestByApplication(nameOrId, [options])](#balena.models.release.getLatestByApplication) ⇒ <code>Promise</code>
     * [.service](#balena.models.service) : <code>object</code>
@@ -968,6 +968,8 @@ This method does not map exactly to the underlying model: it runs a
 larger prebuilt query, and reformats it into an easy to use and
 understand format. If you want more control, or to see the raw model
 directly, use `application.getAll(options)` instead.
+**NOTE:** In contrast with device.getWithServiceDetails() the service details
+in the result of this method do not include the associated commit.
 
 **Kind**: static method of [<code>application</code>](#balena.models.application)  
 **Summary**: Get applications and their devices, along with each device's
@@ -1031,6 +1033,8 @@ This method does not map exactly to the underlying model: it runs a
 larger prebuilt query, and reformats it into an easy to use and
 understand format. If you want more control, or to see the raw model
 directly, use `application.get(uuidOrId, options)` instead.
+**NOTE:** In contrast with device.getWithServiceDetails() the service details
+in the result of this method do not include the associated commit.
 
 **Kind**: static method of [<code>application</code>](#balena.models.application)  
 **Summary**: Get a single application and its devices, along with each device's
@@ -2515,7 +2519,8 @@ understand format. If you want more control, or to see the raw model
 directly, use `device.get(uuidOrId, options)` instead.
 
 **Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get a single device along with its associated services' essential details  
+**Summary**: Get a single device along with its associated services' details,
+including their associated commit  
 **Access**: public  
 **Fulfil**: <code>Object</code> - device with service details  
 
@@ -3322,7 +3327,7 @@ balena.models.device.getSupervisorState('7cf02a6', function(error, state) {
 **Summary**: Get display name for a device  
 **Access**: public  
 **Fulfil**: <code>String</code> - device display name  
-**See**: [module:balena.models.device.getSupportedDeviceTypes](module:balena.models.device.getSupportedDeviceTypes) for a list of supported devices  
+**See**: [getSupportedDeviceTypes](#balena.models.device.getSupportedDeviceTypes) for a list of supported devices  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -3350,7 +3355,7 @@ balena.models.device.getDisplayName('raspberry-pi', function(error, deviceTypeNa
 **Summary**: Get device slug  
 **Access**: public  
 **Fulfil**: <code>String</code> - device slug name  
-**See**: [module:balena.models.device.getSupportedDeviceTypes](module:balena.models.device.getSupportedDeviceTypes) for a list of supported devices  
+**See**: [getSupportedDeviceTypes](#balena.models.device.getSupportedDeviceTypes) for a list of supported devices  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -4579,12 +4584,12 @@ balena.models.config.getDeviceOptions('raspberry-pi', function(error, options) {
 * [.release](#balena.models.release) : <code>object</code>
     * [.tags](#balena.models.release.tags) : <code>object</code>
         * [.getAllByApplication(nameOrId, [options])](#balena.models.release.tags.getAllByApplication) ⇒ <code>Promise</code>
-        * [.getAllByRelease(id, [options])](#balena.models.release.tags.getAllByRelease) ⇒ <code>Promise</code>
+        * [.getAllByRelease(commitOrId, [options])](#balena.models.release.tags.getAllByRelease) ⇒ <code>Promise</code>
         * [.getAll([options])](#balena.models.release.tags.getAll) ⇒ <code>Promise</code>
-        * [.set(releaseId, tagKey, value)](#balena.models.release.tags.set) ⇒ <code>Promise</code>
-        * [.remove(releaseId, tagKey)](#balena.models.release.tags.remove) ⇒ <code>Promise</code>
-    * [.get(id, [options])](#balena.models.release.get) ⇒ <code>Promise</code>
-    * [.getWithImageDetails(id, [options])](#balena.models.release.getWithImageDetails) ⇒ <code>Promise</code>
+        * [.set(commitOrId, tagKey, value)](#balena.models.release.tags.set) ⇒ <code>Promise</code>
+        * [.remove(commitOrId, tagKey)](#balena.models.release.tags.remove) ⇒ <code>Promise</code>
+    * [.get(commitOrId, [options])](#balena.models.release.get) ⇒ <code>Promise</code>
+    * [.getWithImageDetails(commitOrId, [options])](#balena.models.release.getWithImageDetails) ⇒ <code>Promise</code>
     * [.getAllByApplication(nameOrId, [options])](#balena.models.release.getAllByApplication) ⇒ <code>Promise</code>
     * [.getLatestByApplication(nameOrId, [options])](#balena.models.release.getLatestByApplication) ⇒ <code>Promise</code>
 
@@ -4595,10 +4600,10 @@ balena.models.config.getDeviceOptions('raspberry-pi', function(error, options) {
 
 * [.tags](#balena.models.release.tags) : <code>object</code>
     * [.getAllByApplication(nameOrId, [options])](#balena.models.release.tags.getAllByApplication) ⇒ <code>Promise</code>
-    * [.getAllByRelease(id, [options])](#balena.models.release.tags.getAllByRelease) ⇒ <code>Promise</code>
+    * [.getAllByRelease(commitOrId, [options])](#balena.models.release.tags.getAllByRelease) ⇒ <code>Promise</code>
     * [.getAll([options])](#balena.models.release.tags.getAll) ⇒ <code>Promise</code>
-    * [.set(releaseId, tagKey, value)](#balena.models.release.tags.set) ⇒ <code>Promise</code>
-    * [.remove(releaseId, tagKey)](#balena.models.release.tags.remove) ⇒ <code>Promise</code>
+    * [.set(commitOrId, tagKey, value)](#balena.models.release.tags.set) ⇒ <code>Promise</code>
+    * [.remove(commitOrId, tagKey)](#balena.models.release.tags.remove) ⇒ <code>Promise</code>
 
 <a name="balena.models.release.tags.getAllByApplication"></a>
 
@@ -4634,7 +4639,7 @@ balena.models.release.tags.getAllByApplication('MyApp', function(error, tags) {
 ```
 <a name="balena.models.release.tags.getAllByRelease"></a>
 
-###### tags.getAllByRelease(id, [options]) ⇒ <code>Promise</code>
+###### tags.getAllByRelease(commitOrId, [options]) ⇒ <code>Promise</code>
 **Kind**: static method of [<code>tags</code>](#balena.models.release.tags)  
 **Summary**: Get all release tags for a release  
 **Access**: public  
@@ -4642,12 +4647,18 @@ balena.models.release.tags.getAllByApplication('MyApp', function(error, tags) {
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| id | <code>Number</code> |  | release id |
+| commitOrId | <code>String</code> \| <code>Number</code> |  | release commit (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
 **Example**  
 ```js
 balena.models.release.tags.getAllByRelease(123).then(function(tags) {
+	console.log(tags);
+});
+```
+**Example**  
+```js
+balena.models.release.tags.getAllByRelease('7cf02a6').then(function(tags) {
 	console.log(tags);
 });
 ```
@@ -4685,14 +4696,14 @@ balena.models.release.tags.getAll(function(error, tags) {
 ```
 <a name="balena.models.release.tags.set"></a>
 
-###### tags.set(releaseId, tagKey, value) ⇒ <code>Promise</code>
+###### tags.set(commitOrId, tagKey, value) ⇒ <code>Promise</code>
 **Kind**: static method of [<code>tags</code>](#balena.models.release.tags)  
 **Summary**: Set a release tag  
 **Access**: public  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| releaseId | <code>Number</code> | release id |
+| commitOrId | <code>String</code> \| <code>Number</code> | release commit (string) or id (number) |
 | tagKey | <code>String</code> | tag key |
 | value | <code>String</code> \| <code>undefined</code> | tag value |
 
@@ -4702,25 +4713,33 @@ balena.models.release.tags.set(123, 'EDITOR', 'vim');
 ```
 **Example**  
 ```js
+balena.models.release.tags.set('7cf02a6', 'EDITOR', 'vim');
+```
+**Example**  
+```js
 balena.models.release.tags.set(123, 'EDITOR', 'vim', function(error) {
 	if (error) throw error;
 });
 ```
 <a name="balena.models.release.tags.remove"></a>
 
-###### tags.remove(releaseId, tagKey) ⇒ <code>Promise</code>
+###### tags.remove(commitOrId, tagKey) ⇒ <code>Promise</code>
 **Kind**: static method of [<code>tags</code>](#balena.models.release.tags)  
 **Summary**: Remove a release tag  
 **Access**: public  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| releaseId | <code>Number</code> | release id |
+| commitOrId | <code>String</code> \| <code>Number</code> | release commit (string) or id (number) |
 | tagKey | <code>String</code> | tag key |
 
 **Example**  
 ```js
 balena.models.release.tags.remove(123, 'EDITOR');
+```
+**Example**  
+```js
+balena.models.release.tags.remove('7cf02a6', 'EDITOR');
 ```
 **Example**  
 ```js
@@ -4730,7 +4749,7 @@ balena.models.release.tags.remove(123, 'EDITOR', function(error) {
 ```
 <a name="balena.models.release.get"></a>
 
-##### release.get(id, [options]) ⇒ <code>Promise</code>
+##### release.get(commitOrId, [options]) ⇒ <code>Promise</code>
 **Kind**: static method of [<code>release</code>](#balena.models.release)  
 **Summary**: Get a specific release  
 **Access**: public  
@@ -4738,12 +4757,18 @@ balena.models.release.tags.remove(123, 'EDITOR', function(error) {
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| id | <code>Number</code> |  | release id |
+| commitOrId | <code>String</code> \| <code>Number</code> |  | release commit (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
 **Example**  
 ```js
 balena.models.release.get(123).then(function(release) {
+		console.log(release);
+});
+```
+**Example**  
+```js
+balena.models.release.get('7cf02a6').then(function(release) {
 		console.log(release);
 });
 ```
@@ -4756,7 +4781,7 @@ balena.models.release.get(123, function(error, release) {
 ```
 <a name="balena.models.release.getWithImageDetails"></a>
 
-##### release.getWithImageDetails(id, [options]) ⇒ <code>Promise</code>
+##### release.getWithImageDetails(commitOrId, [options]) ⇒ <code>Promise</code>
 This method does not map exactly to the underlying model: it runs a
 larger prebuilt query, and reformats it into an easy to use and
 understand format. If you want significantly more control, or to see the
@@ -4769,7 +4794,7 @@ raw model directly, use `release.get(id, options)` instead.
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| id | <code>Number</code> |  | release id |
+| commitOrId | <code>String</code> \| <code>Number</code> |  | release commit (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | a map of extra pine options |
 | [options.release] | <code>Boolean</code> | <code>{}</code> | extra pine options for releases |
 | [options.image] | <code>Object</code> | <code>{}</code> | extra pine options for images |
@@ -4777,6 +4802,12 @@ raw model directly, use `release.get(id, options)` instead.
 **Example**  
 ```js
 balena.models.release.getWithImageDetails(123).then(function(release) {
+		console.log(release);
+});
+```
+**Example**  
+```js
+balena.models.release.getWithImageDetails('7cf02a6').then(function(release) {
 		console.log(release);
 });
 ```
@@ -5359,7 +5390,7 @@ balena.auth.twoFactor.challenge('1234', function(error) {
 <a name="balena.auth.whoami"></a>
 
 #### auth.whoami() ⇒ <code>Promise</code>
-This will only work if you used [module:balena.auth.login](module:balena.auth.login) to log in.
+This will only work if you used [login](#balena.auth.login) to log in.
 
 **Kind**: static method of [<code>auth</code>](#balena.auth)  
 **Summary**: Return current logged in username  
@@ -5390,7 +5421,7 @@ balena.auth.whoami(function(error, username) {
 <a name="balena.auth.authenticate"></a>
 
 #### auth.authenticate(credentials) ⇒ <code>Promise</code>
-You should use [module:balena.auth.login](module:balena.auth.login) when possible,
+You should use [login](#balena.auth.login) when possible,
 as it takes care of saving the token and email as well.
 
 Notice that if `credentials` contains extra keys, they'll be discarted
@@ -5500,7 +5531,7 @@ balena.auth.isLoggedIn(function(error, isLoggedIn) {
 <a name="balena.auth.getToken"></a>
 
 #### auth.getToken() ⇒ <code>Promise</code>
-This will only work if you used [module:balena.auth.login](module:balena.auth.login) to log in.
+This will only work if you used [login](#balena.auth.login) to log in.
 
 **Kind**: static method of [<code>auth</code>](#balena.auth)  
 **Summary**: Get current logged in user's raw API key or session token  
@@ -5522,7 +5553,7 @@ balena.auth.getToken(function(error, token) {
 <a name="balena.auth.getUserId"></a>
 
 #### auth.getUserId() ⇒ <code>Promise</code>
-This will only work if you used [module:balena.auth.login](module:balena.auth.login) to log in.
+This will only work if you used [login](#balena.auth.login) to log in.
 
 **Kind**: static method of [<code>auth</code>](#balena.auth)  
 **Summary**: Get current logged in user's id  
@@ -5544,7 +5575,7 @@ balena.auth.getUserId(function(error, userId) {
 <a name="balena.auth.getEmail"></a>
 
 #### auth.getEmail() ⇒ <code>Promise</code>
-This will only work if you used [module:balena.auth.login](module:balena.auth.login) to log in.
+This will only work if you used [login](#balena.auth.login) to log in.
 
 **Kind**: static method of [<code>auth</code>](#balena.auth)  
 **Summary**: Get current logged in user's email  
