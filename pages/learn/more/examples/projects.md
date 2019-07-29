@@ -196,7 +196,7 @@ project is used as the backend to [efwe][efwe]'s awesome temperature
 visualisation at [123k.de](http://123k.de).
 
 ### Uptime Robot Dashboard
-[Repository][secanis/uptime-robot-dashboard] by [secanis][secanis]
+[Repository][uptime-robot-dashboard] by [secanis][secanis]
 
 A dashboard which is visualizing the [Uptime Robot API](https://uptimerobot.com/) on a Raspberry PI, deployed over the Balena Cloud.
 This dashboard could be used on TV's or on monitors.
@@ -231,6 +231,7 @@ This dashboard could be used on TV's or on monitors.
 [rpiminer]:https://github.com/csquared/resin-piminer
 [cimon]:https://bitbucket.org/efwe/cimon
 [lunch-mutn]:https://github.com/thibmaek/lunch-mutn
+[uptime-robot-dashboard]:https://github.com/secanis/uptime-robot-dashboard
 
 <!-- ###Code Snippets Links -->
 
@@ -252,6 +253,7 @@ This dashboard could be used on TV's or on monitors.
 [nghiant2710]:https://github.com/nghiant2710
 [nchronas]:https://github.com/nchronas
 [thibmaek]:https://github.com/thibmaek
+[secanis]:https://github.com/secanis
 
 <!-- ###Community Github name links -->
 
