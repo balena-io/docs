@@ -199,7 +199,7 @@ visualisation at [123k.de](http://123k.de).
 [Repository][uptime-robot-dashboard] by [secanis][secanis]
 
 A dashboard which is visualizing the [Uptime Robot API](https://uptimerobot.com/) on a Raspberry Pi, deployed via balenaCloud.
-This dashboard could be used on TV's or on monitors.
+This dashboard can be used on TVs or on monitors.
 
 <!-- ###Team Project Links -->
 
