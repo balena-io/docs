@@ -18,14 +18,14 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 	- i386
 - Multiple Distributions: 
 	- [Debian](https://www.debian.org/): jessie, sid, stretch and buster
-	- [Alpine](https://alpinelinux.org/): 3.5, 3.6, 3.7, 3.8, 3.9 and edge
+	- [Alpine](https://alpinelinux.org/): 3.5, 3.6, 3.7, 3.8, 3.9, 3.10 and edge
 	- [Ubuntu](https://www.ubuntu.com/): artful, bionic, cosmic, trusty and xenial
 	- [Fedora](https://getfedora.org/): 26, 28, 29 and 30
 - Multiple language stacks: 
-	- [Node.js](https://nodejs.org/en/): 12.2.0, 11.15.0, 10.15.3, 8.16.0 and 6.17.1
-	- [Python](https://www.python.org/): 2.7.16, 3.5.7, 3.6.8 and 3.7.3 
+	- [Node.js](https://nodejs.org/en/): 12.7.0, 11.15.0, 10.16.1, 8.16.1 and 6.17.1
+	- [Python](https://www.python.org/): 2.7.16, 3.5.7, 3.6.9 and 3.7.4 
 	- [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 10-jdk/jre and 11-jdk/jre
-	- [Golang](https://golang.org/): 1.12.4, 1.11.9 and 1.10.8
+	- [Golang](https://golang.org/): 1.12.7, 1.11.12 and 1.10.8
 	- [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.2-sdk/runtime/aspnet,3.0-sdk/runtime/aspnet,2.1-sdk/runtime/aspnet 
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
@@ -113,16 +113,16 @@ Currently balenalib supports the following OS distributions and Language stacks,
 | Distribution | Default                | Supported Architectures                      |
 |---------|------------------------------|----------------------------------------------|
 | Debian  | Debian GNU/Linux 9 (stretch) | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
-| Alpine  | Alpine Linux v3.9            | armv6, armv7hf, aarch64, amd64, i386 		|
+| Alpine  | Alpine Linux v3.10            | armv6, armv7hf, aarch64, amd64, i386 		|
 | Ubuntu  | 18.04 LTS (Bionic Beaver)    | armv7hf, aarch64, amd64, i386                |
 | Fedora  | Fedora 29 (Twenty Nine)      | armv7hf, aarch64, amd64, i386                |
 
 | Language | Default  	                  | Supported Architectures                      |
 |---------|------------------------------|----------------------------------------------|
-| Node.js | v11.14.0                      | armv6, armv7hf, aarch64, amd64, i386         |
-| Python  | v2.7.15                       | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
+| Node.js | v12.7.0                      | armv6, armv7hf, aarch64, amd64, i386         |
+| Python  | v2.7.16                       | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
 | OpenJDK | v1.8.0_181                    | armv7hf, aarch64, amd64, i386, armv6         |
-| Go      | 1.12.4                        | armv7hf, aarch64, amd64, i386, armv6         |
+| Go      | 1.12.7                        | armv7hf, aarch64, amd64, i386, armv6         |
 | Dotnet  | 2.2-sdk                       | armv7hf, aarch64, amd64                |
 
 #### Notices
@@ -174,7 +174,7 @@ When moving from the legacy `resin/...` base images to the `balenalib` ones, the
 
 - `UDEV` now defaults to `off`, so if you have code that relies on detecting dynamically plugged devices you will need to enable this in either your Dockerfile or via a device environment variable. See [Working with Dynamically Plugged Devices](#working-with-dynamically-plugged-devices).
 - The `INITSYSTEM` functionality has been completely removed, so applications that rely on [systemd](https://www.freedesktop.org/wiki/Software/systemd/) or [openRC](https://github.com/OpenRC/openrc) should install and set up the initsystem in their apps. See [Installing your own Initsystem](#installing-your-own-initsystem).
-- Mounting of `/dev` to a devtmpfs will now only occur when `UDEV=on` and the container is running as `privileged`.
+- Mounting of `/dev` to a devtmpfs will now only occur when `UDEV=on` and the container is running as `privileged`. `1`, `true` and `on` are valid value for `UDEV` and will be evaluated as `UDEV=on`, all other values will turn `UDEV` off.
 - Support for Debian Wheezy has been dropped.
 - `armel` architecture has been renamed to `armv5e`.
 
