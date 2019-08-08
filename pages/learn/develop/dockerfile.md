@@ -90,10 +90,10 @@ Currently our builder supports the following build variables:
 
 | Variable Name        | Description          |
 | ------------- |-------------|
-| {{ $names.company.allCaps }}_MACHINE_NAME    | The name of the yocto machine this board is base on. It is the name that you will see in most of the {{ $names.company.lower }} [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). | 
+| {{ $names.company.allCaps }}_MACHINE_NAME    | The name of the yocto machine this board is base on. It is the name that you will see in most of the {{ $names.company.lower }} [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). |
 | {{ $names.company.allCaps }}_ARCH    | The instruction set architecture for the base images associated with this device.|
-  
-__Note:__ If your application contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application. 
+
+__Note:__ If your application contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application.
 
 If you want to see an example of build variables in action, have a look at this [basic openssh example](https://github.com/balena-io-playground/balena-openssh).
 
@@ -103,15 +103,15 @@ Here are the supported machine names and architectures:
 
 ## Multiple Dockerfiles
 
-There are cases when you would need a higher granularity of control when specifying build instructions for different devices and architectures than a Dockerfile template can provide. An example of this would be when different configuration or installation files are required.
+There are cases when you would need a higher granularity of control when specifying build instructions for different devices and architectures than a single Dockerfile template can provide. An example of this would be when different configuration or installation files are required for each architecture or device.
 
-When deploying an application, the balena CLI tool looks at all available dockerfiles and builds the appropriate docker image based on the following order:
+When deploying an application, the balenaCloud build servers or the balena CLI tool (depending deployment method used) look at all available Dockerfiles and build the appropriate image using the following order of preference:
 
 * Dockerfile.<device-type>
 * Dockerfile.<arch>
 * Dockerfile.template
 
-As an example, if you have two dockerfiles in the directory, `Dockerfile.raspberrypi3` and `Dockerfile.template`, whenever you publish the application do balenaCloud, if the `device-type` is a Raspberry Pi 3, `Dockerfile.raspberrypi3` will be selected and for all other devices it will automatically select `Dockerfile.template`.
+As an example, let's say you have two Dockerfiles available, `Dockerfile.raspberrypi3` and `Dockerfile.template`. Whenever you publish the application to balenaCloud, if the `device-type` is a Raspberry Pi 3, `Dockerfile.raspberrypi3` will be selected as an exact match and for all other devices the builder will automatically select `Dockerfile.template`.
 
 Note that this feature works with the following commands: `git push`, `balena push`, `balena build`, and `balena deploy`.
 
