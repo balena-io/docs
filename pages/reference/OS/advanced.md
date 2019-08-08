@@ -38,7 +38,7 @@ These variables can be set using the API or any of its clients, including the [S
 
 **After modifying a config.txt variable, the device supervisor will apply the changes and reboot the device.**
 
-__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode]. You will need to define them in your `{{ $names.company.short }}-sync.yml`.
+__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode].
 
 ### GPU Memory
 
