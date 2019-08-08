@@ -122,7 +122,7 @@ fixup_file=fixup_x.dat
 or for remote update
 * `RESIN_HOST_CONFIG_gpu_mem` to `128`
 * `RESIN_HOST_CONFIG_start_file` to `start_x.elf`
-* `RESIN_HOST_CONFIG_fixup_file` to `fixup_x.elf`
+* `RESIN_HOST_CONFIG_fixup_file` to `fixup_x.dat`
 in the fleet or device configuration.
 
 You will also need to add `modprobe bcm2835-v4l2` before your start scripts in either your `package.json` start command or Dockerfile `CMD` command.
@@ -139,7 +139,7 @@ In order to work with the Raspberry Pi display you will need to do the following
 device_tree_overlay=rpi-ft5406-overlay.dtb
 ```
 
-If you want a quick example project to get you started with you new screen, you might want to checkout our [Raspberry Pi Electron starter App]({{ $links.githubProjects }}/electron-rpi-quick-start).
+If you want a quick example project to get you started with you new screen, you might want to checkout our [Raspberry Pi Electron starter App]({{ $links.githubPlayground }}/electron-rpi-quick-start).
 
 If you find that you need to change the orientation of you LCD screen, you can easily achieve this by adding the following key/value to your `/boot/config.txt` on your SD card:
 ```
@@ -211,7 +211,7 @@ overscan_bottom=4
 
 Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the Octalbonescript JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
 
-With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module [here]({{ $links.githubProjects }}/beaglebone-adc-node).
+With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module [here]({{ $links.githubPlayground }}/beaglebone-adc-node).
 
 __Note:__ The ADC voltage is only rated to 1.8V, if you apply more you risk frying the pin.
 
@@ -302,7 +302,7 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 [digitiser-link]:https://github.com/balena-io-playground/digitiser
 [firebaseTemp-link]:https://github.com/balena-io-playground/firebaseDTL
 [spi-npm]:https://www.npmjs.com/package/spi
-[picamera-link]:{{ $links.githubProjects }}/resin-rpi-python-picamera
+[picamera-link]:{{ $links.githubProjects }}/balena-rpi-python-picamera
 [mraa-link]:https://github.com/intel-iot-devkit/mraa
 [upm-link]:https://github.com/intel-iot-devkit/upm
 [dockerbase-node]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-node/

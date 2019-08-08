@@ -545,7 +545,7 @@ guaranteed to work, especially if they block connections that the balena service
 Keep in mind that, even if transparent proxy redirection will take effect immediately after the API call (i.e. all new connections will go through the proxy), open connections will not be closed. So, if for example, the device has managed to connect to the balenaCloud VPN without the proxy, it will stay connected directly without trying to reconnect through the proxy, unless the connection breaks - any reconnection attempts will then go through the proxy. To force *all* connections to go through the proxy, the best way is to reboot the device (see the /v1/reboot endpoint). In most networks were no connections to the Internet can be made if not through a proxy, this should not be necessary (as there will be no open connections before configuring the proxy settings).
 
 The "noProxy" setting for the proxy is an optional array of IP addresses/subnets that should not be routed through the
-proxy. Keep in mind that local/reserved subnets are already [excluded by balenaOS automatically](https://github.com/balena-os/meta-balena/blob/master/meta-resin-common/recipes-connectivity/resin-proxy-config/resin-proxy-config/resin-proxy-config#L48).
+proxy. Keep in mind that local/reserved subnets are already [excluded by balenaOS automatically](https://github.com/balena-os/meta-balena/blob/master/meta-balena-common/recipes-connectivity/resin-proxy-config/resin-proxy-config/resin-proxy-config#L76).
 
 If either "proxy" or "hostname" are null or empty values (i.e. `{}` for proxy or an empty string for hostname), they will be cleared to their default values (i.e. not using a proxy, and a hostname equal to the first 7 characters of the device's uuid, respectively).
 
@@ -673,7 +673,7 @@ Use this endpoint to get the state of a single application, given the appId.
 
 From an application container:
 ```bash
-curl "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$APPID/state?apikey=$BALENA_SUPERVISOR_API_KEY"
+curl "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/state?apikey=$BALENA_SUPERVISOR_API_KEY"
 ```
 
 Response:
@@ -743,14 +743,11 @@ Response:
 
 **Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
 
-For the following endpoints the application id is required in the url. The
-easiest way to get the application id from the device is to use the following
-process (note that you will need jq and curl inside your container):
+For the following endpoints the application ID is required in the url. The application ID is exposed as `BALENA_APP_ID` inside your container. Otherwise, you can use the following snippet to determine the application ID programmatically:
 
-From an application container:
 ```bash
 APPNAME="supervisortest"
-APPID=$(curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/state?apikey=$BALENA_SUPERVISOR_API_KEY" | jq ".$APPNAME.appId")
+BALENA_APP_ID=$(curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/state?apikey=$BALENA_SUPERVISOR_API_KEY" | jq ".$APPNAME.appId")
 ```
 
 The easiest way to find your application from the dashboard is to look at the
@@ -768,8 +765,8 @@ passed in with the url.
 
 From an application container:
 ```bash
-curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$APPID/restart-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"serviceName": "my-service"}'
-curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$APPID/restart-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"imageId": 1234}'
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/restart-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"serviceName": "my-service"}'
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/restart-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"imageId": 1234}'
 ```
 
 Response:
@@ -791,8 +788,8 @@ passed in with the url.
 
 From an application container:
 ```bash
-curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$APPID/stop-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"serviceName": "my-service"}'
-curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$APPID/stop-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"imageId": 1234}'
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/stop-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"serviceName": "my-service"}'
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/stop-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"imageId": 1234}'
 ```
 
 Response:
@@ -814,8 +811,8 @@ passed in with the url.
 
 From an application container:
 ```bash
-curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$APPID/start-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"serviceName": "my-service"}'
-curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$APPID/start-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"imageId": 1234}'
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/start-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"serviceName": "my-service"}'
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/start-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"imageId": 1234}'
 ```
 
 Response:
@@ -835,7 +832,7 @@ Use this endpoint to restart every service in an application.
 
 From an application container:
 ```bash
-curl -X POST --header "Content-Type: application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$APPID/restart?apikey=$BALENA_SUPERVISOR_API_KEY"
+curl -X POST --header "Content-Type: application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/restart?apikey=$BALENA_SUPERVISOR_API_KEY"
 ```
 
 Response:
@@ -855,7 +852,7 @@ Use this endpoint to purge all user data for a given application id.
 
 From an application container:
 ```bash
-curl -X POST --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$APPID/purge?apikey=$BALENA_SUPERVISOR_API_KEY"
+curl -X POST --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/purge?apikey=$BALENA_SUPERVISOR_API_KEY"
 ```
 
 Response:
@@ -1152,3 +1149,33 @@ Response:
 	]
 }
 ```
+### V2 Utilities
+
+#### Cleanup volumes with no references
+Added in supervisor version v10.0.0
+
+Starting with balena-supervisor v10.0.0, volumes which have no
+references are no longer automatically removed as part of
+the standard update flow. To cleanup up any orphaned
+volumes, use this supervisor endpoint:
+
+From an application container:
+```
+$ curl "$BALENA_SUPERVISOR_ADDRESS/v2/cleanup-volumes?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Successful response:
+```
+{
+       "status": "success"
+}
+```
+
+Unsuccessful response:
+```
+{
+       "status": "failed",
+       "message": "the error message"
+}
+```
+

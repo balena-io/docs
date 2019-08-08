@@ -19,7 +19,7 @@ Follow our [getting started guide][installing] to get your device connect to you
 Find your Application ID in the {{ $names.company.lower }} dashboard url: {{ $links.dashboardUrl }}/apps/NNNN/devices and your auth-token from the [preferences panel]({{ $links.dashboardUrl }}/preferences?tab=details). Then combine insert the two into the curl request below.
 
 ```
-curl -H 'Authorization: Bearer AUTH_TOKEN' -X POST https://api.{{ $names.domain }}/application/NNNN/generate-api-key
+curl -H 'Authorization: Bearer AUTH_TOKEN' -X POST https://api.{{ $names.dashboard_domain }}/application/NNNN/generate-api-key
 ```
 
 This will return your new API key.
@@ -28,7 +28,7 @@ __NOTE:__ The key will be returned in quotation marks, but these should be strip
 
 ## Add {{ $names.company.lower }} API key to IoT Hub Admin portal
 
-Signup and following the [Azure IoT Suite getting started guide](http://www.microsoft.com/en-us/server-cloud/internet-of-things/getting-started.aspx).
+Signup and following the [Azure IoT Suite getting started guide](https://azure.microsoft.com/en-us/overview/iot/product-selector/).
 
 __NOTE:__ you'll have to use the [special version][integration] with {{ $names.company.lower }} integration additions as our integration is not currently a part of the code Microsoft releases.
 
@@ -67,7 +67,7 @@ First clone the the [sample application][sampleApp] to your local machine.
 __NOTE:__ Our integration is not part of the code Microsoft releases, instead it will stay as a separate fork that should be used instead of the official sample solution.
 
 ```
-git clone {{ $links.githubProjects }}/resin-azure-iot-sample && cd resin-azure-iot-sample && git checkout resin-node
+git clone {{ $links.githubProjects }}/balena-azure-iot-sample && cd balena-azure-iot-sample && git checkout resin-node
 ```
 
 Then add your {{ $names.company.lower }} applications remote endpoint to the git repository. It can be found in the top right hand corner of your {{ $names.company.lower }} applications dashboard.
@@ -99,7 +99,7 @@ Now you’re done. Provision as many devices as you need with {{ $names.company.
 
 [balena]:{{ $links.mainSiteUrl }}
 [installing]:/installing/gettingStarted
-[azure]:http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx
+[azure]:https://azure.microsoft.com/en-us/product-categories/iot/
 [screencast]:https://vimeo.com/136840643
-[integration]:{{ $links.githubProjects }}/resin-azure-iot-remote-monitoring
-[sampleApp]:{{ $links.githubProjects }}/resin-azure-iot-sample
+[integration]:{{ $links.githubProjects }}/balena-azure-iot-remote-monitoring
+[sampleApp]:{{ $links.githubProjects }}/balena-azure-iot-sample

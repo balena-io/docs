@@ -7,6 +7,8 @@ OS_LOWER = process.env.OS_LOWER || 'balenaOS'
 OS_UPPER = (OS_LOWER.charAt(0).toUpperCase() + OS_LOWER.slice(1)) || 'BalenaOS'
 ENGINE_LOWER = process.env.ENGINE_LOWER || 'balenaEngine'
 ENGINE_UPPER = (ENGINE_LOWER.charAt(0).toUpperCase() + ENGINE_LOWER.slice(1))
+CLOUD_LOWER = process.env.CLOUD_LOWER || 'balenaCloud'
+ETCHER_LOWER = process.env.ETCHER_LOWER || 'balenaEtcher'
 DOMAIN_OS = process.env.DOMAIN_OS || 'balena.io/os'
 DOMAIN_ENGINE = process.env.DOMAIN_ENGINE || 'balena.io/engine'
 FORUMS_DOMAIN = process.env.DOMAIN_FORUMS || 'https://forums.balena.io'
@@ -20,6 +22,10 @@ module.exports =
     allCaps: COMPANY_ALL_CAPS
     short: COMPANY_SHORT
     dash: COMPANY_DASH
+  cloud:
+    lower: CLOUD_LOWER
+  etcher:
+    lower: ETCHER_LOWER
   os:
     lower: OS_LOWER
     upper: OS_UPPER

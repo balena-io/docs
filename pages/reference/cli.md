@@ -104,6 +104,7 @@ If you come across any problems or would like to get in touch:
 	- [device rename &#60;uuid&#62; [newName]](#device-rename-uuid-newname)
 	- [device move &#60;uuid&#62;](#device-move-uuid)
 	- [device init](#device-init)
+	- [device os-update &#60;uuid&#62;](#device-os-update-uuid)
 
 - Environment Variables
 
@@ -118,12 +119,9 @@ If you come across any problems or would like to get in touch:
 	- [tag set &#60;tagKey&#62; [value]](#tag-set-tagkey-value)
 	- [tag rm &#60;tagKey&#62;](#tag-rm-tagkey)
 
-- Help
+- Help and Version
 
 	- [help [command...]](#help-command)
-
-- Information
-
 	- [version](#version)
 
 - Keys
@@ -141,7 +139,7 @@ If you come across any problems or would like to get in touch:
 
 	- [scan](#scan)
 	- [ssh &#60;applicationOrDevice&#62; [serviceName]](#ssh-applicationordevice-servicename)
-	- [tunnel &#60;uuid&#62;](#tunnel-uuid)
+	- [tunnel &#60;deviceOrApplication&#62;](#tunnel-deviceorapplication)
 
 - Notes
 
@@ -548,6 +546,28 @@ the drive to write the image to, like `/dev/sdb` or `/dev/mmcblk0`. Careful with
 
 path to the config JSON file, see `balena os build-config`
 
+## device os-update &#60;uuid&#62;
+
+Use this command to trigger a Host OS update for a device.
+
+Notice this command will ask for confirmation interactively.
+You can avoid this by passing the `--yes` boolean option.
+
+Examples:
+
+	$ balena device os-update 23c73a1
+	$ balena device os-update 23c73a1 --version 2.31.0+rev1.prod
+
+### Options
+
+#### --version &#60;version&#62;
+
+a balenaOS version
+
+#### --yes, -y
+
+confirm non interactively
+
 # Environment Variables
 
 ## envs
@@ -756,7 +776,7 @@ device uuid
 
 release id
 
-# Help
+# Help and Version
 
 ## help [command...]
 
@@ -773,11 +793,27 @@ Examples:
 
 show additional commands
 
-# Information
-
 ## version
 
-Display the balena CLI version.
+Display version information for the balena CLI and/or Node.js.
+If you intend to parse the output, please use the -j option for
+JSON output, as its format is more stable.
+
+Examples:
+
+	$ balena version
+	$ balena version -a
+	$ balena version -j
+
+### Options
+
+#### -a, --all
+
+include version information for additional components (Node.js)
+
+#### -j, --json
+
+output version information in JSON format for programmatic use
 
 # Keys
 
@@ -934,7 +970,7 @@ Increase verbosity
 Don't use the proxy configuration for this connection. This flag
 only make sense if you've configured a proxy globally.
 
-## tunnel &#60;uuid&#62;
+## tunnel &#60;deviceOrApplication&#62;
 
 Use this command to open local ports which tunnel to listening ports on your balenaOS device.
 
@@ -1401,6 +1437,9 @@ Sample registry-secrets YAML file:
 		username: '_json_key'
 		password: '{escaped contents of the GCR keyfile.json file}'
 
+If an option is not specified, and a secrets.yml or secrets.json file exists in
+the balena directory (usually $HOME/.balena), this file will be used instead.
+
 Examples:
 
 	$ balena push myApp
@@ -1436,7 +1475,9 @@ Don't use cache when building this project
 
 #### --registry-secrets, -R &#60;secrets.yml|.json&#62;
 
-Path to a local YAML or JSON file containing Docker registry passwords used to pull base images
+Path to a local YAML or JSON file containing Docker registry passwords used to pull base images.
+Note that if registry-secrets are not provided on the command line, a secrets configuration
+file from the balena directory will be used (usually $HOME/.balena/secrets.yml|.json)
 
 #### --nolive
 
@@ -1542,6 +1583,9 @@ Sample registry-secrets YAML file:
 	'eu.gcr.io':  # Google Container Registry
 		username: '_json_key'
 		password: '{escaped contents of the GCR keyfile.json file}'
+
+If an option is not specified, and a secrets.yml or secrets.json file exists in
+the balena directory (usually $HOME/.balena), this file will be used instead.
 
 Examples:
 
@@ -1663,6 +1707,9 @@ Sample registry-secrets YAML file:
 	'eu.gcr.io':  # Google Container Registry
 		username: '_json_key'
 		password: '{escaped contents of the GCR keyfile.json file}'
+
+If an option is not specified, and a secrets.yml or secrets.json file exists in
+the balena directory (usually $HOME/.balena), this file will be used instead.
 
 Examples:
 

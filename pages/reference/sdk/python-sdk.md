@@ -190,6 +190,15 @@ Get all applications (including collaborator applications).
 >>> balena.models.application.get_all()
 '[{u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'foo', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(12345)'}, u'is_accessible_by_support_until__date': None, u'actor': 12345, u'id': 12345, u'user': {u'__deferred': {u'uri': u'/resin/user(12345)'}, u'__id': 12345}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'my_user/foo'}, {u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'bar', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(12346)'}, u'is_accessible_by_support_until__date': None, u'actor': 12345, u'id': 12346, u'user': {u'__deferred': {u'uri': u'/resin/user(12345)'}, u'__id': 12345}, u'device_type': u'raspberrypi3', u'commit': None, u'slug': u'my_user/bar'}]'
 ```
+### Function: get_all_with_device_service_details(expand_release)
+
+Get all applications (including collaborator applications) along with associated services' essential details.
+
+#### Args:
+    expand_release (Optional[bool]): Set this parameter to True then the commit of service details will be included.
+
+#### Returns:
+    list: list contains info of applications.
 ### Function: get_by_id(app_id)
 
 Get a single application by application id.
@@ -262,6 +271,26 @@ Get the hash of the current release for a specific application.
 #### Examples:
 ```python
 >>> balena.models.application.get_target_release_hash('5685')
+```
+### Function: get_with_device_service_details(name, expand_release)
+
+Get a single application along with its associated services' essential details.
+
+#### Args:
+    name (str): application name.
+    expand_release (Optional[bool]): Set this parameter to True then the commit of service details will be included.
+
+#### Returns:
+    dict: application info.
+
+#### Raises:
+    ApplicationNotFound: if application couldn't be found.
+    AmbiguousApplication: when more than one application is returned.
+
+#### Examples:
+```python
+>>> balena.models.application.get('test-app')
+'{u'depends_on__application': None, u'should_track_latest_release': True, u'app_name': u'test-app', u'application_type': {u'__deferred': {u'uri': u'/resin/application_type(5)'}, u'__id': 5}, u'__metadata': {u'type': u'', u'uri': u'/resin/application(1252573)'}, u'is_accessible_by_support_until__date': None, u'actor': 3259381, u'slug': u'nghiant27101/test-app', u'owns__device': [{u'os_variant': u'prod', u'__metadata': {u'type': u'', u'uri': u'/resin/device(1460194)'}, u'is_managed_by__service_instance': {u'__deferred': {u'uri': u'/resin/service_instance(117953)'}, u'__id': 117953}, u'should_be_running__release': None, u'belongs_to__user': {u'__deferred': {u'uri': u'/resin/user(5227)'}, u'__id': 5227}, u'is_web_accessible': False, u'device_type': u'raspberrypi3', u'belongs_to__application': {u'__deferred': {u'uri': u'/resin/application(1252573)'}, u'__id': 1252573}, u'id': 1460194, u'is_locked_until__date': None, u'logs_channel': None, u'uuid': u'b6070f4fea5edf808b576123157fe5ec', u'is_managed_by__device': None, u'should_be_managed_by__supervisor_release': None, u'actor': 3505229, u'note': None, u'os_version': u'balenaOS 2.29.2+rev2', u'longitude': u'105.8516', u'last_connectivity_event': u'2019-05-06T07:30:20.230Z', u'is_on__commit': u'ddf95bef72a981f826bf5303df11f318dbdbff23', u'gateway_download': [], u'location': u'Hanoi, Hanoi, Vietnam', u'status': u'Idle', u'public_address': u'14.162.159.155', u'is_connected_to_vpn': False, u'custom_latitude': u'', u'is_active': True, u'provisioning_state': u'', u'latitude': u'21.0313', u'custom_longitude': u'', u'is_online': False, u'supervisor_version': u'9.0.1', u'ip_address': u'192.168.100.20', u'provisioning_progress': None, u'is_accessible_by_support_until__date': None, u'created_at': u'2019-01-09T11:41:19.336Z', u'download_progress': None, u'last_vpn_event': u'2019-05-06T07:30:20.230Z', u'device_name': u'spring-morning', u'image_install': [{u'status': u'Running', u'__metadata': {u'type': u'', u'uri': u'/resin/image_install(34691843)'}, u'image': [{u'is_a_build_of__service': [{u'service_name': u'main', u'__metadata': {u'type': u'', u'uri': u'/resin/service(92238)'}, u'id': 92238}], u'__metadata': {u'type': u'', u'uri': u'/resin/image(1117181)'}, u'id': 1117181}], u'download_progress': None, u'install_date': u'2019-04-29T10:24:23.476Z', u'id': 34691843}], u'local_id': None, u'vpn_address': None}, {u'os_variant': u'prod', u'__metadata': {u'type': u'', u'uri': u'/resin/device(1308755)'}, u'is_managed_by__service_instance': {u'__deferred': {u'uri': u'/resin/service_instance(2205)'}, u'__id': 2205}, u'should_be_running__release': None, u'belongs_to__user': {u'__deferred': {u'uri': u'/resin/user(5227)'}, u'__id': 5227}, u'is_web_accessible': False, u'device_type': u'raspberrypi3', u'belongs_to__application': {u'__deferred': {u'uri': u'/resin/application(1252573)'}, u'__id': 1252573}, u'id': 1308755, u'is_locked_until__date': None, u'logs_channel': None, u'uuid': u'531e5cc893b7df1e1118121059d93eee', u'is_managed_by__device': None, u'should_be_managed_by__supervisor_release': None, u'actor': 3259425, u'note': None, u'os_version': u'Resin OS 2.15.1+rev1', u'longitude': u'105.85', u'last_connectivity_event': u'2018-09-27T14:48:53.034Z', u'is_on__commit': u'19ab64483292f0a52989d0ce15ee3d21348dbfce', u'gateway_download': [], u'location': u'Hanoi, Hanoi, Vietnam', u'status': u'Idle', u'public_address': u'14.231.247.155', u'is_connected_to_vpn': False, u'custom_latitude': u'', u'is_active': True, u'provisioning_state': u'', u'latitude': u'21.0333', u'custom_longitude': u'', u'is_online': False, u'supervisor_version': u'7.16.6', u'ip_address': u'192.168.0.102', u'provisioning_progress': None, u'is_accessible_by_support_until__date': None, u'created_at': u'2018-09-12T04:30:13.549Z', u'download_progress': None, u'last_vpn_event': u'2018-09-27T14:48:53.034Z', u'device_name': u'nameless-resonance', u'image_install': [{u'status': u'Running', u'__metadata': {u'type': u'', u'uri': u'/resin/image_install(33844685)'}, u'image': [{u'is_a_build_of__service': [{u'service_name': u'main', u'__metadata': {u'type': u'', u'uri': u'/resin/service(92238)'}, u'id': 92238}], u'__metadata': {u'type': u'', u'uri': u'/resin/image(513014)'}, u'id': 513014}], u'download_progress': None, u'install_date': u'2018-09-27T13:53:04.748Z', u'id': 33844685}], u'local_id': None, u'vpn_address': None}], u'user': {u'__deferred': {u'uri': u'/resin/user(5227)'}, u'__id': 5227}, u'device_type': u'raspberrypi3', u'commit': u'ddf95bef72a981f826bf5303df11f318dbdbff23', u'id': 1252573}'
 ```
 ### Function: grant_support_access(app_id, expiry_timestamp)
 
@@ -940,7 +969,7 @@ Get the status of a device.
     DeviceNotFound: if device couldn't be found.
 
 #### Returns:
-    str: status of a device. List of available statuses: Idle, Configuring, Updating, Offline and Post Provisioning.
+    str: status of a device. List of available statuses: Idle, Configuring, Updating, Offline, Inactive and Post Provisioning.
 
 #### Examples:
 ```python
@@ -983,12 +1012,13 @@ Get device slug.
 
 #### Returns:
     list: list of supported device types.
-### Function: get_with_service_details(uuid)
+### Function: get_with_service_details(uuid, expand_release)
 
 Get a single device along with its associated services' essential details.
 
 #### Args:
     uuid (str): device uuid.
+    expand_release (Optional[bool]): Set this parameter to False then the commit of service details will not be included.
 
 #### Returns:
     dict: device info with associated services details.

@@ -167,11 +167,11 @@ print(response)
 
 You can use any Python WebSockets library to communicate with the ARTIK Cloud. Check the [WebSockets connection](https://developer.artik.cloud/documentation/connect-the-data/rest-and-websockets.html) and [WebSockets API](https://developer.artik.cloud/documentation/api-reference/websockets-api.html) pages on the ARTIK Cloud Documentation.
 
-The [artilcloud-resin-python]({{ $links.githubProjects }}/artikcloud-resin-python) project includes a example of how to connect to the ARTIK Cloud using WebSockets, send messages and receive actions.
+The [artikcloud-resin-python]({{ $links.githubProjects }}/artikcloud-balena-python) project includes a example of how to connect to the ARTIK Cloud using WebSockets, send messages and receive actions.
 
 #### Using MQTT from Python
 
-The [artilcloud-resin-python]({{ $links.githubProjects }}/artikcloud-resin-python) project includes an example of how to connect to the ARTIK Cloud using MQTT, send messages and receive actions.
+The [artikcloud-resin-python]({{ $links.githubProjects }}/artikcloud-balena-python) project includes an example of how to connect to the ARTIK Cloud using MQTT, send messages and receive actions.
 
 You can use any Python MQTT library to communicate with the ARTIK Cloud. Check the [MQTT connection](https://developer.artik.cloud/documentation/connect-the-data/mqtt.html) and [MQTT API](https://developer.artik.cloud/documentation/api-reference/mqtt-api.html) pages on the ARTIK Cloud Documentation.
 

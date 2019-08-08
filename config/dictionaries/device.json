@@ -119,12 +119,12 @@
       {
         "name": "UP core",
         "image": "/img/up-board/up-core.png",
-        "link": "http://www.up-board.org/upcore/"
+        "link": "https://www.up-board.org/upcore/specifications"
       },
       {
         "name": "UP squared",
         "image": "/img/up-board/up-squared.png",
-        "link": "http://www.up-board.org/upsquared/"
+        "link": "https://www.up-board.org/upsquared/specifications"
       }
     ],
     "arch": "amd64",
@@ -304,7 +304,7 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/odroid-c1.svg",
-    "link": "http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573",
+    "link": "https://www.hardkernel.com/shop/odroid-c1/",
     "type": "released"
   },
   {
@@ -313,7 +313,7 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/odroid-xu4.svg",
-    "link": "http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825",
+    "link": "https://www.hardkernel.com/shop/odroid-xu4-special-price/",
     "type": "released"
   },
   {
