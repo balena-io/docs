@@ -4,7 +4,7 @@ excerpt: How time is synchronized and managed for {{ $names.company.lower }} dev
 ---
 # Time management
 
-{{ $names.company.upper }} devices make use of the `systemd-timesyncd` service to keep the system time synchronized. That service is running in the host OS, independent of the application containers.
+{{ $names.company.upper }} devices make use of the `systemd-timesyncd` or `chrony` service to keep the system time synchronized. That service is running in the host OS, independent of the application containers.
 
 If you want to query the current time, you can do so by using the `date` utility or the datetime related functions of the standard library of your language.
 
