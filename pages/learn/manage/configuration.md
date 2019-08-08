@@ -8,7 +8,7 @@ Configuration variables allow you to provide runtime configuration to the host O
 
 Configuration variables can be managed at both the fleet and device level.
 
-__Note:__ Configuration variables defined in the dashboard will not apply to devices in [local mode][local-mode]. You will need to define them in your `{{ $names.company.short }}-sync.yml`.
+__Note:__ Configuration variables defined in the dashboard will not apply to devices in [local mode][local-mode].
 
 ## Variable list
 
