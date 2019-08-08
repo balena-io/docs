@@ -6,151 +6,130 @@ thumbnail: /img/integrations/aws/AWS_IoT_resources.png
 
 # AWS IoT Integration
 
+![balena aws iot](/img/integrations/aws/aws_iot_logo.png)
+
 The Amazon Web Services Internet-of-Things (AWS IoT) service enables bi-directional communication between Internet-connected things, such as sensors, embedded devices, or appliances, and other services on the AWS cloud, such as cloud servers, databases, analytics and more. This document provides an overview how to use [AWS IoT](https://console.aws.amazon.com/iot/home) component with {{ $names.company.lower }} to deploy IoT devices on the AWS IoT platform.
 
 ## Configuring AWS IoT
 
-Sign up for an AWS account or log into your account at the [AWS Console](https://aws.amazon.com/). Once logged in, navigate to the [AWS IoT console](https://console.aws.amazon.com/iot/home) from AWS services dashboard:
-
-![AWS services dashboard](/img/integrations/aws/AWS_IoT.png)
+Sign up for an AWS account or log into your account at the [AWS Console](https://aws.amazon.com/). Once logged in, navigate to the [AWS IoT console](https://console.aws.amazon.com/iot/home) from AWS services dashboard.
 
 For more details about the following steps, please check the [AWS Documentation](https://aws.amazon.com/documentation/), and in particular the [AWS IoT Documentation](https://aws.amazon.com/documentation/iot/). Most tasks are available both in the web interface and through the [AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/).
 
-### Creating Things
+### Create a thing
 
 Physical devices that are sending and/or receiving data are called "things" on AWS IoT. They can connect to the platform using [certificates](http://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html), and have to have [rules](http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) defined to give the device ability to communicate with AWS services. Optionally they are grouped with a [thing type](http://docs.aws.amazon.com/iot/latest/developerguide/thing-types.html) to make configuration of similar devices easier.
 
-As a first experience with AWS IoT, you can try the [interactive tutorial](https://console.aws.amazon.com/iot/home#/tutorial).
+From the AWS IoT Core page, go to **Manage -> Things**. Then on the page, go ahead and register a thing, then on the next page select Create a single thing.
 
-AWS IoT is available in [selected regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#iot_region), and all setup involves selecting your desired region.
+![create thing](/img/integrations/aws/01_aws_iot_manage.png)
 
-#### Manual Thing Creation
+![create thing](/img/integrations/aws/02_create_a_thing.png)
 
-Manual device creation involves setting up all relevant configuration either in the web console, or through the CLI. Select your thing type (optionally), and create a new thing for each of the physical devices you would like to use (that is for each of the boards you will be provisioning on {{ $names.company.lower }}).
+For this example project, we will create a thing called `balena_project`. All you need to do is to insert the name and click Next.
 
-![AWS IoT Resources](/img/integrations/aws/AWS_IoT_resources.png)
+![generate certs](/img/integrations/aws/03_generate_certs.gif)
 
-Create and activate certificates for each of the devices, attach each to the corresponding thing, and save the "private key" and "certificate" files: those will provide authentication for the physical devices when they try to connect to AWS IoT. The private key can only be downloaded in this step, if lost it needs to be regenerated.
+Each `device` or `thing`, must have its own certificates that will be used to authenticate with AWS IoT, so let’s use the One-click certificate creation option.
 
-Finally, add some policies to let the devices communicate with the AWS platform. The simplest policy allowing all actions on all available resources (such as things, policies, MQTT channels for communication, and so on):
+![generate certs](/img/integrations/aws/04_create_cert.png)
 
-![AWS IoT Simple Policy](/img/integrations/aws/AWS_IoT_policy_all_allowed.png)
+In order to authenticate with the service, you will first need to download all four certificates from the dashboard to your computer (make sure you also download the `root CA` for AWS IoT).
 
-After this steps, you'll have all information and setup required to connect a physical device to AWS IoT!
+![download certs](/img/integrations/aws/05_download_cert.png)
 
-#### Automatic Thing Creation
+### Create a policy
 
-All of AWS can be controlled over API calls, and AWS itself can be used to automate the creation of the things, certificates, policies, and other settings. Such automatic setups would tap into your {{ $names.company.lower }} resources, and when a new device is created, would automatically set up the required resources, and would notify the device of its credentials.
+Now it’s time to create some policies to allow our devices to communicate with the platform. Go back to the **IoT Core**, open **Secure -> Policies** and click on **Create a policy**.
 
-One such possible automatic setup example, [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) uses the [AWS Lambda](https://aws.amazon.com/documentation/lambda/) platform to run "serverless" AWS provisioning.
+![create policy](/img/integrations/aws/06_create_policy.png)
 
-All automatic provisioning method would use the [AWS IoT API](http://docs.aws.amazon.com/iot/latest/apireference/Welcome.html).
+For this project create a policy called `balena_control_policy`, and add the statement as shown below:
 
-## Configuring {{ $names.company.upper }}
+| Action       | iot:* |
+|--------------|-------|
+| Resource ARN | *     |
+| Effect       | Allow |
 
-Go to your [{{ $names.company.lower }} dashboard]({{ $links.dashboardUrl }}/) and create a new application with the physical device type you are using.
+![create policy](/img/integrations/aws/07_add_policy.png)
 
-The next step depends on whether you are doing manual or automatic device creation on AWS IoT.
+Go to **Secure -> Certificates*. Select the recently created certificate and attach both the thing and policy to it.
 
-### Manual Device setup
+The policy previously created enables all devices (things) to connect to our AWS IoT broker, but for security reasons, when you add the **thing* to the certificate, it guarantees that only those with matching security keys will be able to connect to the server.
 
-If you are using manual device creation, then you must have set up a corresponding thing and certificate for each {{ $names.company.lower }} device. In this case you will likely need a number of environment variables defined, some [application-wide environment variable](/management/env-vars/#application-wide) if the setting applies for all devices (such as AWS region), and some [per-device](/management/env-vars/#per-device) (such as authentication credentials). The environment variables will be available from the code running on your device to correctly connect to AWS IoT.
+![create policy](/img/integrations/aws/08_attach_certs.gif)
 
-The environment variables can not contain new-line characters (they can only be a single line), while the AWS IoT private key and certificates do use information in multiple lines. Some possible tricks are [base64 encoding](https://en.wikipedia.org/wiki/Base64) the credentials before adding them as an environment variable and decoding it within your application software.
+The last step in configuring the AWS IoT is to get the endpoint URL to connect to the service. Simply go to **AWS IoT** and click on **Settings**. There you will find the endpoint. Save it as we will need it later on.
 
-### Automatic Device setup
+![endpoint](/img/integrations/aws/092_get_endpoint.png)
 
-Automatic device setup would involve the newly provisioned {{ $names.company.lower }} device notifying your AWS IoT setup service (from the earlier steps), which in turns sets up the credentials, and for example sets them up as environment variables for the device. An example of this automatic setup, working with the "balena-aws-lambda" above, is [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device). The automatic setup procedure generally depends on your device software and the service you use for AWS provisioning.
+At this point everything is ready on the AWS side, so let’s go ahead and configure our device to communicate with it using balenaCloud.
 
-## Programming
+## Flashing the Raspberry Pi and deploying code
 
-Data communication to and from AWS IoT is done over a number of [protocols](http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html), the main ones being MQTT, HTTP REST API, and MQTT Over the WebSocket Protocol. See more information regarding these in the documentation. An important information is the list of connection endpoints and parameters for the specific [IoT regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#iot_region).
+### Step 1 - Set up the balenaCloud application
 
-Communication with AWS IoT usually involves authenticating with the AWS service, which might require the AWS IoT Root Certificate, available from [here](https://www.symantec.com/content/en/us/enterprise/verisign/roots/VeriSign-Class%203-Public-Primary-Certification-Authority-G5.pem), and also included in other certificate stores, such as [certifi](https://pypi.python.org/pypi/certifi) for Python.
+If you don’t have one already, [sign up for a balenaCloud account](https://dashboard.balena-cloud.com/signup). The first thing we need to do is to create a new application, for that click on **Create application**, give it a name and select a device type (on this example we will create a project called aws-iot to run on a Raspberry Pi 3).
 
-### Using Python
+With the application created, click on **Add device** and select the latest recommended balenaOS version, choose the network connection you desire, setup its credentials and download the balenaOS to your computer.
 
-The [boto3](https://pypi.python.org/pypi/boto3/) package is a Python SDK for AWS services, and it is capable of both working with the [AWS IoT resources](https://boto3.readthedocs.io/en/latest/reference/services/iot.html) and the data communication on the [IoT Data Plane](https://boto3.readthedocs.io/en/latest/reference/services/iot-data.html). Thus it can be used to implement both the provisioning and the device side of the application.
+![add device](/img/integrations/aws/11_create_application.gif)
 
-For easy communication between the devices and AWS IoT an MQTT library is recommended, such as [paho-mqtt](https://pypi.python.org/pypi/paho-mqtt).
+### Step 2 - Flash your device
 
-Here are a few notes using Python with {{ $names.company.lower }} devices. Starting from a [Dockerfile templates](/deployment/docker-templates/), build on the {{ $names.company.lower }} default Python images, for example:
+Use [balenaEtcher](https://www.balena.io/etcher/) to flash your Raspberry Pi with the downloaded OS image from the previous section. Insert the SD card into your computer, select the balenaOS image file, select the SD Card and click Flash!
 
-```Dockerfile
-FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python
-```
+![etcher](/img/integrations/aws/12_etcher.png)
 
-Add the relevant dependencies to your `requirements.txt` file, for example
+After flashing is done, insert the SD card into your device and turn it on. After a few seconds, it should connect to the internet and show up on the balenaCloud dashboard.
 
-```
-paho-mqtt
-certifi
-```
+![etcher](/img/integrations/aws/13_device.png)
 
-Later in your `Dockerfile.template` you can then install it as:
+### Step 3 - Push the app code
 
-```
-COPY requirements.txt ./
-RUN pip install -r ./requirements.txt
-```
+Once your device is showing up on the dashboard, it is time to push the code to balenaCloud, after which it will automatically distribute it to all of the devices in your application. For that, we will download the source code from GitHub and push the project to the device using the [balena CLI tools](https://github.com/balena-io/balena-cli). I’ve summarised the process for this below, but if you need more information we have a [detailed deployment guide](https://www.balena.io/docs/learn/deploy/deployment/) available in our docs.
 
-Then in your application, you can access the environmental variables through `os.getenv(VARIABLE)`, and send messages through the MQTT library. A very simple example is shown below:
+First of all, download the app from [the GitHub project repository](https://github.com/balena-io-playground/balena-aws-iot-mqtt-example), and clone or download it to your computer.
 
-```Python
-import base64
-import json
-import os
-import ssl
+![github](/img/integrations/aws/14_github.png)
 
-import certifi
-import paho.mqtt.client as paho
 
-# Set up AWS variables
-awshost = os.getenv("AWS_HOST", "data.iot.us-east-1.amazonaws.com")
-awsport = os.getenv("AWS_PORT", 8883)
-thing_name = os.getenv("UUID")
+Then, after [installing the balena CLI tools on your computer](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md), from the project directory, execute `balena push <appName>` where `<appName>` is the name of the application you created within the balenaCloud dashboard earlier. For this example project, we will use then `balena push aws-iot`.
 
-def on_connect(client, userdata, flags, rc):
-    """Send data once when connected connection
-    """
-    print("Connection returned result: " + str(rc) )
-    value = 42
-    data = {"state": {"reported": {"reading": value}}}
-    mqttc.publish("$aws/things/{}/shadow/update".format(thing_name), json.dumps(data), qos=1)
-    print("msg sent: temperature " + "%.2f" % tempreading )
+If all went well you’ll see the balena unicorn mascot and the code you’ve just pushed will automatically be distributed to the devices in your application.
 
-def set_cred(env_name, file_name):
-    """Turn base64 encoded environmental variable into a certificate file
-    """
-    env = os.getenv(env_name)
-    with open(file_name, "wb") as output_file:
-        output_file.write(base64.b64decode(env))
+![balena push](/img/integrations/aws/15_balena_push.gif)
 
-# Set up key files
-key_filename = "aws_private_key.key"
-set_cred("AWS_PRIVATE_KEY", key_filename)
-cert_filename = "aws_certificate.crt"
-set_cred("AWS_CERTIFICATE", cert_filename)
+With your hardware provisioned and the code deployed, it’s time to configure the device so it can connect to the Amazon servers.
 
-mqttc = paho.Client()
-mqttc.on_connect = on_connect
+### Converting the certificates to base64 
 
-mqttc.tls_set(certifi.where(),
-              certfile=cert_filename,
-              keyfile=key_filename,
-              cert_reqs=ssl.CERT_REQUIRED,
-              tls_version=ssl.PROTOCOL_TLSv1_2,
-              ciphers=None)
+When configuring your device to communicate with AWS IoT, each device must contain its own certificates. The issue with the certificate files is that you can’t and shouldn’t add them to the project directory as it would create a security issue for the whole project. Instead, we will deploy all the devices with the same source-code and configure individual certificates from the balenaCloud dashboard, making use of **environment variables**.
 
-mqttc.connect(awshost, awsport, keepalive=60)
-mqttc.loop_forever()
-```
+The method we will apply is to convert the cert files we previously downloaded into base64 strings and paste them into our device’s variables.
 
-It sets up key files from the environment variables, as the MQTT library used requires those credentials to be available as files. Those files are set normally set up on the volatile portion of the file system within the Docker container, thus they will not be kept upon restarting the application, making them more secure.
+You can generate the base64 encoded files from the terminal with: `openssl base64 -in <in file> -out <out file>`
+
+For this project, you will need to convert the root CA `root-CA.crt`, the thing certificate `xxx.cert.pem` and the private key `xxx.private.key`. Then you will paste the content of the files into our balenaDash environment variables as described in the next session.
+
+### Add Environment Variables
+
+To add the environment variables for the device, on the device dashboard page, go to **D(x) Device Variables** and add the following variables with the values from the conversion in the previous step.
+
+| ENV VAR          | Value                            |
+|------------------|----------------------------------|
+| AWS_ENDPOINT     | data.iot.us-west-2.amazonaws.com |
+| AWS_PRIVATE_CERT | Base64 string of xxx.cert.pem    |
+| AWS_ROOT_CERT    | Base64 string of root-CA.crt     |
+| AWS_THING_CERT   | Base64 string of xxx.private.key |
+
+You should now have something similar to:
+
+![end vars](/img/integrations/aws/16_env_vars.png)
 
 ### Using Node.js
 
-The [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) package is capable of both working with the [AWS IoT resources](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html) and the data communication on the [IoT Data Plane](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IotData.html). Thus it can be used to implement both the provisioning and the device side of the application. However for security reasons it isn't encouraged to use the [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) on devices in the field, it is better instead to just use the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) doesn't have resource management capabilities. Therefore for this example, we have split the code into two parts. `{{ $names.company.lower }}-aws-lambda` is responsible the resource provisioning and `{{ $names.company.lower }}-aws-device` only handles data communication.
+The previous part of the documentation describes how to create a sample project with Python. In case you want to create a Node.js application, the [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) package is capable of both working with the [AWS IoT resources](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html) and the data communication on the [IoT Data Plane](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IotData.html). Thus it can be used to implement both the provisioning and the device side of the application. However for security reasons it isn't encouraged to use the [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) on devices in the field, it is better instead to just use the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) doesn't have resource management capabilities. Therefore for this example, we have split the code into two parts. `{{ $names.company.lower }}-aws-lambda` is responsible the resource provisioning and `{{ $names.company.lower }}-aws-device` only handles data communication.
 
 For a complete Node.js example, please see the pair of [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device) repositories!
 
@@ -240,4 +219,4 @@ where you need to replace `KEYFILE` with the relevant filename (such as `xxxxxxx
 A few sample apps to get started:
 
 * [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device)
-* [Python and Paho for MQTT with AWS IoT project on Hackster.io](https://www.hackster.io/mariocannistra/python-and-paho-for-mqtt-with-aws-iot-921e41) and [its repository](https://github.com/mariocannistra/python-paho-mqtt-for-aws-iot)
+* [balenaCloud AWS IoT MQTT Broker Example](https://github.com/balena-io-playground/balena-aws-iot-mqtt-example) with full blog post for example: 

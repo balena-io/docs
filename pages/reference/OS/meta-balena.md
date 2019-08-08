@@ -59,4 +59,4 @@ One should define the following variables in the resin-image bbappend:
 5. And of course your typical yocto `conf/layer.conf` file, COPYING and README.md file specifying what is the machine this layer adds support for and what are the yocto layers it depends on.
 
 
-[meta-balena]:{{ $links.githubMain }}/meta-balena
+[meta-balena]:{{ $links.githubOS }}/meta-balena

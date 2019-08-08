@@ -42,9 +42,7 @@ console.error('serving everything under pathPrefix:', "#{config.pathPrefix}")
 app.use("#{config.pathPrefix}/", express.static(contentsDir))
 
 app.get '*', (req, res) ->
-  res.render 'not-found', getLocals
-    title: "We don't seem to have such page"
-    breadcrumbs: [ 'Page not found' ]
+  res.redirect("#{config.pathPrefix}/404")
 
 port = process.env.PORT ? 3000
 

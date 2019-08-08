@@ -54,6 +54,6 @@ If your {{ $names.os.lower }} update fails for any reason, the device should sti
 You can learn more about what exactly goes on during the update process [here][update-process].
 
 <!-- links -->
-[forums]:https://forums.{{ $names.domain }}/
-[troubleshooting]:https://forums.{{ $names.domain }}/c/troubleshooting
+[forums]:{{ $names.forums_domain }}/
+[troubleshooting]:{{ $names.forums_domain }}/c/troubleshooting
 [update-process]:/updates/update-process/

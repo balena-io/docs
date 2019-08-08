@@ -1,222 +1,198 @@
 # Balena CLI Documentation
 
-This tool allows you to interact with the balena api from the comfort of your command line.
+The balena CLI (Command-Line Interface) allows you to interact with the balenaCloud and the
+[balena API](https://www.balena.io/docs/reference/api/overview/) through a terminal window
+on Linux, macOS or Windows. You can also write shell scripts around it, or import its Node.js
+modules to use it programmatically.
+As an [open-source project on GitHub](https://github.com/balena-io/balena-cli/), your contribution
+is also welcome!
 
-Please make sure your system meets the requirements as specified in the [README](https://github.com/balena-io/balena-cli).
+## Installation
 
-## Install the CLI
+Check the [balena CLI installation instructions on GitHub](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md).
 
-### Dependencies
+## Getting Started
 
-Before installing the Balena CLI from npm, make sure you have the following dependencies installed:
+### Choosing a shell (command prompt/terminal)
 
-* make
-* g++ compiler
-* Python 2.7
-* git
+On **Windows,** the standard Command Prompt (`cmd.exe`) and
+[PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-6)
+are supported. We are aware of users also having a good experience with alternative shells,
+including:
 
-For example, to install these packages on a Debian-based Linux operating systems:
+* Microsoft's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
+  (a.k.a. Microsoft's "bash for Windows 10")
+* [Git for Windows](https://git-for-windows.github.io/)
+* [MSYS](http://www.mingw.org/wiki/MSYS) and [MSYS2](https://www.msys2.org/) (install the
+  `msys-rsync` and `msys-openssh` packages too)
 
+On **macOS** and **Linux,** the standard terminal window is supported. _Optionally,_ `bash` command
+auto completion may be enabled by copying the
+[balena-completion.bash](https://github.com/balena-io/balena-cli/blob/master/balena-completion.bash)
+file to your system's `bash_completion` directory: check [Docker's command completion
+guide](https://docs.docker.com/compose/completion/) for system setup instructions.
+
+### Logging in
+
+Several CLI commands require access to your balenaCloud account, for example in order to push a
+new release to your application. Those commands require creating a CLI login session by running:
+
+```sh
+$ balena login
 ```
-$ sudo apt-get install g++ make python git --yes
-```
 
-**NOTE**: If you are installing the stand-alone binary CLI, you will not need to install these dependencies.
+### Proxy support
 
-### Npm install
+HTTP(S) proxies can be configured through any of the following methods, in order of preference:
 
-The best supported way to install the CLI is from npm:
+* Set the `BALENARC_PROXY` environment variable in URL format (with protocol, host, port, and
+  optionally basic auth).
+* Alternatively, use the [balena config file](https://www.npmjs.com/package/balena-settings-client#documentation)
+  (project-specific or user-level) and set the `proxy` setting. It can be:
+  * A string in URL format, or
+  * An object in the [global-tunnel-ng options format](https://www.npmjs.com/package/global-tunnel-ng#options) (which allows more control).
+* Alternatively, set the conventional `https_proxy` / `HTTPS_PROXY` / `http_proxy` / `HTTP_PROXY`
+  environment variable (in the same standard URL format).
 
-	$ npm install balena-cli -g --production --unsafe-perm
+To get a proxy to work with the `balena ssh` command, check the
+[installation instructions](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md).
 
-`--unsafe-perm` is only required on systems where the global install directory is not user-writable.
-This allows npm install steps to download and save prebuilt native binaries. You may be able to omit it,
-especially if you're using a user-managed node install such as [nvm](https://github.com/creationix/nvm).
+## Support, FAQ and troubleshooting
 
-### Standalone install
+If you come across any problems or would like to get in touch:
 
-Alternatively, if you don't have a node or pre-gyp environment, you can still install the CLI as a standalone
-binary. **This is in experimental and may not work perfectly yet in all environments**, but works well in
-initial cross-platform testing, so it may be useful, and we'd love your feedback if you hit any issues.
+* Check our [FAQ / troubleshooting document](https://github.com/balena-io/balena-cli/blob/master/TROUBLESHOOTING.md).
+* Ask us a question through the [balenaCloud forum](https://forums.balena.io/c/balena-cloud).
+* For bug reports or feature requests,
+  [have a look at the GitHub issues or create a new one](https://github.com/balena-io/balena-cli/issues/).
 
-To install the CLI as a standalone binary:
 
-* Download the latest zip for your OS from https://github.com/balena-io/balena-cli/releases.
-* Extract the contents, putting the `balena-cli` folder somewhere appropriate for your system (e.g. `C:/balena-cli`, `/usr/local/lib/balena-cli`, etc).
-* Add the `balena-cli` folder to your `PATH`. (
-[Windows instructions](https://www.computerhope.com/issues/ch000549.htm),
-[Linux instructions](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix),
-[OSX instructions](https://stackoverflow.com/questions/22465332/setting-path-environment-variable-in-osx-permanently))
-* Running `balena` in a fresh command line should print the balena CLI help.
+# CLI Command Reference
 
-To update in future, simply download a new release and replace the extracted folder.
+- API keys
 
-Have any problems, or see any unexpected behaviour? Please file an issue!
-
-## Getting started
-
-Once you have the CLI installed, you'll need to log in, so it can access everything in your balena account.
-
-To authenticate yourself, run:
-
-	$ balena login
-
-You now have access to all the commands referenced below.
-
-## Proxy support
-
-The CLI does support HTTP(S) proxies.
-
-You can configure the proxy using several methods (in order of their precedence):
-
-* set the `BALENARC_PROXY` environment variable in the URL format (with protocol, host, port, and optionally the basic auth),
-* use the [balena config file](https://www.npmjs.com/package/balena-settings-client#documentation) (project-specific or user-level)
-and set the `proxy` setting. This can be:
-	* a string in the URL format,
-	* or an object following [this format](https://www.npmjs.com/package/global-tunnel-ng#options), which allows more control,
-* or set the conventional `https_proxy` / `HTTPS_PROXY` / `http_proxy` / `HTTP_PROXY`
-environment variable (in the same standard URL format).
-
-# Table of contents
-
-- Api keys
-
-	- [api-key generate &#60;name&#62;](#api-key-generate-name-)
+	- [api-key generate &#60;name&#62;](#api-key-generate-name)
 
 - Application
 
-	- [app create &#60;name&#62;](#app-create-name-)
+	- [app create &#60;name&#62;](#app-create-name)
 	- [apps](#apps)
-	- [app &#60;name&#62;](#app-name-)
-	- [app restart &#60;name&#62;](#app-restart-name-)
-	- [app rm &#60;name&#62;](#app-rm-name-)
+	- [app &#60;name&#62;](#app-name)
+	- [app restart &#60;name&#62;](#app-restart-name)
+	- [app rm &#60;name&#62;](#app-rm-name)
 
 - Authentication
 
 	- [login](#login)
 	- [logout](#logout)
-	- [signup](#signup)
 	- [whoami](#whoami)
 
 - Device
 
 	- [devices](#devices)
-	- [device &#60;uuid&#62;](#device-uuid-)
+	- [device &#60;uuid&#62;](#device-uuid)
 	- [devices supported](#devices-supported)
-	- [device register &#60;application&#62;](#device-register-application-)
-	- [device rm &#60;uuid&#62;](#device-rm-uuid-)
-	- [device identify &#60;uuid&#62;](#device-identify-uuid-)
-	- [device reboot &#60;uuid&#62;](#device-reboot-uuid-)
-	- [device shutdown &#60;uuid&#62;](#device-shutdown-uuid-)
-	- [device public-url enable &#60;uuid&#62;](#device-public-url-enable-uuid-)
-	- [device public-url disable &#60;uuid&#62;](#device-public-url-disable-uuid-)
-	- [device public-url &#60;uuid&#62;](#device-public-url-uuid-)
-	- [device public-url status &#60;uuid&#62;](#device-public-url-status-uuid-)
-	- [device rename &#60;uuid&#62; [newName]](#device-rename-uuid-newname-)
-	- [device move &#60;uuid&#62;](#device-move-uuid-)
+	- [device register &#60;application&#62;](#device-register-application)
+	- [device rm &#60;uuid&#62;](#device-rm-uuid)
+	- [device identify &#60;uuid&#62;](#device-identify-uuid)
+	- [device reboot &#60;uuid&#62;](#device-reboot-uuid)
+	- [device shutdown &#60;uuid&#62;](#device-shutdown-uuid)
+	- [device public-url enable &#60;uuid&#62;](#device-public-url-enable-uuid)
+	- [device public-url disable &#60;uuid&#62;](#device-public-url-disable-uuid)
+	- [device public-url &#60;uuid&#62;](#device-public-url-uuid)
+	- [device public-url status &#60;uuid&#62;](#device-public-url-status-uuid)
+	- [device rename &#60;uuid&#62; [newName]](#device-rename-uuid-newname)
+	- [device move &#60;uuid&#62;](#device-move-uuid)
 	- [device init](#device-init)
+	- [device os-update &#60;uuid&#62;](#device-os-update-uuid)
 
 - Environment Variables
 
 	- [envs](#envs)
-	- [env rm &#60;id&#62;](#env-rm-id-)
-	- [env add &#60;key&#62; [value]](#env-add-key-value-)
-	- [env rename &#60;id&#62; &#60;value&#62;](#env-rename-id-value-)
+	- [env rm &#60;id&#62;](#env-rm-id)
+	- [env add &#60;name&#62; [value]](#env-add-name-value)
+	- [env rename &#60;id&#62; &#60;value&#62;](#env-rename-id-value)
 
 - Tags
 
 	- [tags](#tags)
-	- [tag set &#60;tagKey&#62; [value]](#tag-set-tagkey-value-)
-	- [tag rm &#60;tagKey&#62;](#tag-rm-tagkey-)
+	- [tag set &#60;tagKey&#62; [value]](#tag-set-tagkey-value)
+	- [tag rm &#60;tagKey&#62;](#tag-rm-tagkey)
 
-- Help
+- Help and Version
 
-	- [help [command...]](#help-command-)
-
-- Information
-
+	- [help [command...]](#help-command)
 	- [version](#version)
 
 - Keys
 
 	- [keys](#keys)
-	- [key &#60;id&#62;](#key-id-)
-	- [key rm &#60;id&#62;](#key-rm-id-)
-	- [key add &#60;name&#62; [path]](#key-add-name-path-)
+	- [key &#60;id&#62;](#key-id)
+	- [key rm &#60;id&#62;](#key-rm-id)
+	- [key add &#60;name&#62; [path]](#key-add-name-path)
 
 - Logs
 
-	- [logs &#60;uuid&#62;](#logs-uuid-)
+	- [logs &#60;uuidOrDevice&#62;](#logs-uuidordevice)
 
-- Sync
+- Network
 
-	- [sync [uuid]](#sync-uuid-)
-
-- SSH
-
-	- [ssh [uuid]](#ssh-uuid-)
+	- [scan](#scan)
+	- [ssh &#60;applicationOrDevice&#62; [serviceName]](#ssh-applicationordevice-servicename)
+	- [tunnel &#60;deviceOrApplication&#62;](#tunnel-deviceorapplication)
 
 - Notes
 
-	- [note &#60;|note&#62;](#note-note-)
+	- [note &#60;|note&#62;](#note-note)
 
 - OS
 
-	- [os versions &#60;type&#62;](#os-versions-type-)
-	- [os download &#60;type&#62;](#os-download-type-)
-	- [os build-config &#60;image&#62; &#60;device-type&#62;](#os-build-config-image-device-type-)
-	- [os configure &#60;image&#62;](#os-configure-image-)
-	- [os initialize &#60;image&#62;](#os-initialize-image-)
+	- [os versions &#60;type&#62;](#os-versions-type)
+	- [os download &#60;type&#62;](#os-download-type)
+	- [os build-config &#60;image&#62; &#60;device-type&#62;](#os-build-config-image-device-type)
+	- [os configure &#60;image&#62;](#os-configure-image)
+	- [os initialize &#60;image&#62;](#os-initialize-image)
 
 - Config
 
 	- [config read](#config-read)
-	- [config write &#60;key&#62; &#60;value&#62;](#config-write-key-value-)
-	- [config inject &#60;file&#62;](#config-inject-file-)
+	- [config write &#60;key&#62; &#60;value&#62;](#config-write-key-value)
+	- [config inject &#60;file&#62;](#config-inject-file)
 	- [config reconfigure](#config-reconfigure)
 	- [config generate](#config-generate)
 
 - Preload
 
-	- [preload &#60;image&#62;](#preload-image-)
+	- [preload &#60;image&#62;](#preload-image)
 
 - Push
 
-	- [push &#60;applicationOrDevice&#62;](#push-applicationordevice-)
+	- [push &#60;applicationOrDevice&#62;](#push-applicationordevice)
 
 - Settings
 
 	- [settings](#settings)
 
-- Wizard
-
-	- [quickstart [name]](#quickstart-name-)
-
 - Local
 
-	- [local configure &#60;target&#62;](#local-configure-target-)
-	- [local flash &#60;image&#62;](#local-flash-image-)
-	- [local logs [deviceIp]](#local-logs-deviceip-)
-	- [local scan](#local-scan)
-	- [local ssh [deviceIp]](#local-ssh-deviceip-)
-	- [local push [deviceIp]](#local-push-deviceip-)
-	- [local stop [deviceIp]](#local-stop-deviceip-)
+	- [local configure &#60;target&#62;](#local-configure-target)
+	- [local flash &#60;image&#62;](#local-flash-image)
 
 - Deploy
 
-	- [build [source]](#build-source-)
-	- [deploy &#60;appName&#62; [image]](#deploy-appname-image-)
+	- [build [source]](#build-source)
+	- [deploy &#60;appName&#62; [image]](#deploy-appname-image)
 
 - Platform
 
-	- [join [deviceIp]](#join-deviceip-)
-	- [leave [deviceIp]](#leave-deviceip-)
+	- [join [deviceIp]](#join-deviceip)
+	- [leave [deviceIp]](#leave-deviceip)
 
 - Utilities
 
 	- [util available-drives](#util-available-drives)
 
-# Api keys
+# API keys
 
 ## api-key generate &#60;name&#62;
 
@@ -351,21 +327,6 @@ Use this command to logout from your balena account.
 Examples:
 
 	$ balena logout
-
-## signup
-
-Use this command to signup for a balena account.
-
-If signup is successful, you'll be logged in to your new user automatically.
-
-Examples:
-
-	$ balena signup
-	Email: johndoe@acme.com
-	Password: ***********
-
-	$ balena whoami
-	johndoe
 
 ## whoami
 
@@ -585,21 +546,40 @@ the drive to write the image to, like `/dev/sdb` or `/dev/mmcblk0`. Careful with
 
 path to the config JSON file, see `balena os build-config`
 
+## device os-update &#60;uuid&#62;
+
+Use this command to trigger a Host OS update for a device.
+
+Notice this command will ask for confirmation interactively.
+You can avoid this by passing the `--yes` boolean option.
+
+Examples:
+
+	$ balena device os-update 23c73a1
+	$ balena device os-update 23c73a1 --version 2.31.0+rev1.prod
+
+### Options
+
+#### --version &#60;version&#62;
+
+a balenaOS version
+
+#### --yes, -y
+
+confirm non interactively
+
 # Environment Variables
 
 ## envs
 
-Use this command to list all environment variables for
-a particular application or device.
+Use this command to list the environment variables of an application
+or device.
 
-This command lists all application/device environment variables.
+The --config option is used to list "config" variables that configure
+balena features.
 
-If you want to see config variables, used to configure
-balena features, use the --config option.
-
-At the moment the CLI does not support per-service variables,
-so the following commands will only show service-wide
-environment variables.
+Service-specific variables are not currently supported. The following
+examples list variables that apply to all services in an app or device.
 
 Example:
 
@@ -623,12 +603,16 @@ show config variables
 
 ## env rm &#60;id&#62;
 
-Use this command to remove an environment variable from an application.
+Use this command to remove an environment variable from an application
+or device.
 
 Notice this command asks for confirmation interactively.
 You can avoid this by passing the `--yes` boolean option.
 
-If you want to eliminate a device environment variable, pass the `--device` boolean option.
+The --device option selects a device instead of an application.
+
+Service-specific variables are not currently supported. The following
+examples remove variables that apply to all services in an app or device.
 
 Examples:
 
@@ -646,43 +630,57 @@ confirm non interactively
 
 device
 
-## env add &#60;key&#62; [value]
+## env add NAME [VALUE]
 
-Use this command to add an enviroment or config variable to an application.
+Add an environment or config variable to an application or device, as selected
+by the respective command-line options.
 
-At the moment the CLI doesn't fully support multi-container applications,
-so the following commands will set service-wide environment variables.
+If VALUE is omitted, the CLI will attempt to use the value of the environment
+variable of same name in the CLI process' environment. In this case, a warning
+message will be printed. Use `--quiet` to suppress it.
 
-If value is omitted, the tool will attempt to use the variable's value
-as defined in your host machine.
-
-Use the `--device` option if you want to assign the environment variable
-to a specific device.
-
-If the value is grabbed from the environment, a warning message will be printed.
-Use `--quiet` to remove it.
+Service-specific variables are not currently supported. The given command line
+examples variables that apply to all services in an app or device.
 
 Examples:
 
-	$ balena env add EDITOR vim --application MyApp
 	$ balena env add TERM --application MyApp
+	$ balena env add EDITOR vim --application MyApp
 	$ balena env add EDITOR vim --device 7cf02a6
+
+### Arguments
+
+#### NAME
+
+environment or config variable name
+
+#### VALUE
+
+variable value; if omitted, use value from CLI's environment
 
 ### Options
 
-#### --application, -a, --app &#60;application&#62;
+#### -a, --application APPLICATION
 
 application name
 
-#### --device, -d &#60;device&#62;
+#### -d, --device DEVICE
 
-device uuid
+device UUID
+
+#### -q, --quiet
+
+suppress warning messages
 
 ## env rename &#60;id&#62; &#60;value&#62;
 
-Use this command to change the value of an enviroment variable.
+Use this command to change the value of an application or device
+environment variable.
 
-Pass the `--device` boolean option if you want to rename a device environment variable.
+The --device option selects a device instead of an application.
+
+Service-specific variables are not currently supported. The following
+examples modify variables that apply to all services in an app or device.
 
 Examples:
 
@@ -778,7 +776,7 @@ device uuid
 
 release id
 
-# Help
+# Help and Version
 
 ## help [command...]
 
@@ -795,11 +793,27 @@ Examples:
 
 show additional commands
 
-# Information
-
 ## version
 
-Display the balena CLI version.
+Display version information for the balena CLI and/or Node.js.
+If you intend to parse the output, please use the -j option for
+JSON output, as its format is more stable.
+
+Examples:
+
+	$ balena version
+	$ balena version -a
+	$ balena version -j
+
+### Options
+
+#### -a, --all
+
+include version information for additional components (Node.js)
+
+#### -j, --json
+
+output version information in JSON format for programmatic use
 
 # Keys
 
@@ -851,18 +865,32 @@ Examples:
 
 # Logs
 
-## logs &#60;uuid&#62;
+## logs &#60;uuidOrDevice&#62;
 
 Use this command to show logs for a specific device.
 
-By default, the command prints all log messages and exit.
+By default, the command prints all log messages and exits.
 
 To continuously stream output, and see new logs in real time, use the `--tail` option.
+
+If an IP or .local address is passed to this command, logs are displayed from
+a local mode device with that address. Note that --tail is implied
+when this command is provided a local mode device.
+
+Logs from a single service can be displayed with the --service flag. Just system logs
+can be shown with the --system flag. Note that these flags can be used together.
 
 Examples:
 
 	$ balena logs 23c73a1
-	$ balena logs 23c73a1
+	$ balena logs 23c73a1 --tail
+
+	$ balena logs 192.168.0.31
+	$ balena logs 192.168.0.31 --service my-service
+	$ balena logs 192.168.0.31 --service my-service-1 --service my-service-2
+
+	$ balena logs 23c73a1.local --system
+	$ balena logs 23c73a1.local --system --service my-service
 
 ### Options
 
@@ -870,123 +898,109 @@ Examples:
 
 continuously stream output
 
-# Sync
+#### --service, -s &#60;service&#62;
 
-## sync [uuid]
+Reject logs not originating from this service.
+This can be used in combination with --system or other --service flags.
 
-Warning: 'balena sync' requires an openssh-compatible client and 'rsync' to
-be correctly installed in your shell environment. For more information (including
-Windows support) please check the README here: https://github.com/balena-io/balena-cli
+#### --system, -S
 
-Use this command to sync your local changes to a certain device on the fly.
+Only show system logs. This can be used in combination with --service.
 
-After every 'balena sync' the updated settings will be saved in
-'<source>/.balena-sync.yml' and will be used in later invocations. You can
-also change any option by editing '.balena-sync.yml' directly.
+# Network
 
-Here is an example '.balena-sync.yml' :
+## scan
 
-	$ cat $PWD/.balena-sync.yml
-	uuid: 7cf02a6
-	destination: '/usr/src/app'
-	before: 'echo Hello'
-	after: 'echo Done'
-	ignore:
-		- .git
-		- node_modules/
-
-Command line options have precedence over the ones saved in '.balena-sync.yml'.
-
-If '.gitignore' is found in the source directory then all explicitly listed files will be
-excluded from the syncing process. You can choose to change this default behavior with the
-'--skip-gitignore' option.
 
 Examples:
 
-	$ balena sync 7cf02a6 --source . --destination /usr/src/app
-	$ balena sync 7cf02a6 -s /home/user/myBalenaProject -d /usr/src/app --before 'echo Hello' --after 'echo Done'
-	$ balena sync --ignore lib/
-	$ balena sync --verbose false
-	$ balena sync
+	$ balena scan
+	$ balena scan --timeout 120
+	$ balena scan --verbose
 
 ### Options
 
-#### --source, -s &#60;path&#62;
-
-local directory path to synchronize to device
-
-#### --destination, -d &#60;path&#62;
-
-destination path on device
-
-#### --ignore, -i &#60;paths&#62;
-
-comma delimited paths to ignore when syncing
-
-#### --skip-gitignore
-
-do not parse excluded/included files from .gitignore
-
-#### --skip-restart
-
-do not restart container after syncing
-
-#### --before, -b &#60;command&#62;
-
-execute a command before syncing
-
-#### --after, -a &#60;command&#62;
-
-execute a command after syncing
-
-#### --port, -t &#60;port&#62;
-
-ssh port
-
-#### --progress, -p
-
-show progress
-
 #### --verbose, -v
 
-increase verbosity
+Display full info
 
-# SSH
+#### --timeout, -t &#60;timeout&#62;
 
-## ssh [uuid]
+Scan timeout in seconds
+
+## ssh &#60;applicationOrDevice&#62; [serviceName]
+
+This command can be used to start a shell on a local or remote device.
+
+If a service name is not provided, a shell will be opened on the host OS.
+
+If an application name is provided, all online devices in the application
+will be presented, and the chosen device will then have a shell opened on
+in it's service container or host OS.
+
+For local devices, the ip address and .local domain name are supported.
+
+Examples:
+	balena ssh MyApp
+
+	balena ssh f49cefd
+	balena ssh f49cefd my-service
+	balena ssh f49cefd --port <port>
+
+	balena ssh 192.168.0.1 --verbose
+	balena ssh f49cefd.local my-service
 
 Warning: 'balena ssh' requires an openssh-compatible client to be correctly
 installed in your shell environment. For more information (including Windows
-support) please check the README here: https://github.com/balena-io/balena-cli
-
-Use this command to get a shell into the running application container of
-your device.
-
-Examples:
-
-	$ balena ssh MyApp
-	$ balena ssh 7cf02a6
-	$ balena ssh 7cf02a6 --port 8080
-	$ balena ssh 7cf02a6 -v
-	$ balena ssh 7cf02a6 -s
+support) please check:
+	https://github.com/balena-io/balena-cli/blob/master/INSTALL.md#additional-dependencies
 
 ### Options
 
 #### --port, -p &#60;port&#62;
 
-ssh gateway port
+SSH gateway port
 
 #### --verbose, -v
 
-increase verbosity
-
-#### --host, -s
-
-access host OS (for devices with balenaOS >= 2.7.5)
+Increase verbosity
 
 #### --noproxy
 
-don't use the proxy configuration for this connection. Only makes sense if you've configured proxy globally.
+Don't use the proxy configuration for this connection. This flag
+only make sense if you've configured a proxy globally.
+
+## tunnel &#60;deviceOrApplication&#62;
+
+Use this command to open local ports which tunnel to listening ports on your balenaOS device.
+
+For example, you could open port 8080 on your local machine to connect to your managed balenaOS
+device running a web server listening on port 3000.
+
+You can tunnel multiple ports at any given time.
+
+Examples:
+
+	# map remote port 22222 to localhost:22222
+	$ balena tunnel abcde12345 -p 22222
+
+	# map remote port 22222 to localhost:222
+	$ balena tunnel abcde12345 -p 22222:222
+
+	# map remote port 22222 to any address on your host machine, port 22222
+	$ balena tunnel abcde12345 -p 22222:0.0.0.0
+
+	# map remote port 22222 to any address on your host machine, port 222
+	$ balena tunnel abcde12345 -p 22222:0.0.0.0:222
+
+	# multiple port tunnels can be specified at any one time
+	$ balena tunnel abcde12345 -p 8080:3000 -p 8081:9000
+
+### Options
+
+#### --port, -p &#60;port&#62;
+
+The mapping of remote to local ports.
 
 # Notes
 
@@ -1062,7 +1076,7 @@ Use this command to prebuild the OS config once and skip the interactive part of
 Example:
 
 	$ balena os build-config ../path/rpi3.img raspberrypi3 --output rpi3-config.json
-	$ balena os configure ../path/rpi3.img 7cf02a6 --config "$(cat rpi3-config.json)"
+	$ balena os configure ../path/rpi3.img --device 7cf02a6 --config rpi3-config.json
 
 ### Options
 
@@ -1087,7 +1101,7 @@ Note that device api keys are only supported on balenaOS 2.0.3+.
 
 This command still supports the *deprecated* format where the UUID and optionally device key
 are passed directly on the command line, but the recommended way is to pass either an --app or
---device argument. The deprecated format will be remove in a future release.
+--device argument. The deprecated format will be removed in a future release.
 
 In case that you want to configure an image for an application with mixed device types,
 you can pass the --device-type argument along with --app to specify the target device type.
@@ -1334,8 +1348,9 @@ id of the application to preload
 
 #### --commit, -c &#60;hash&#62;
 
-the commit hash for a specific application release to preload, use "latest" to specify the latest release
-(ignored if no appId is given)
+The commit hash for a specific application release to preload, use "current" to specify the current
+release (ignored if no appId is given). The current release is usually also the latest, but can be
+manually pinned using https://github.com/balena-io-projects/staged-releases .
 
 #### --splash-image, -s &#60;splashImage.png&#62;
 
@@ -1349,17 +1364,24 @@ Disables check for matching architecture in image and application
 
 Pin the preloaded device to the preloaded release on provision
 
+#### --add-certificate &#60;certificate.crt&#62;
+
+Add the given certificate (in PEM format) to /etc/ssl/certs in the preloading container.
+The file name must end with '.crt' and must not be already contained in the preloader's
+/etc/ssl/certs folder.
+Can be repeated to add multiple certificates.
+
 #### --docker, -P &#60;docker&#62;
 
-Path to a local docker socket
+Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the docker daemon
+Docker daemon hostname or IP address (dev machine or balena device) 
 
-#### --dockerPort, -p &#60;dockerPort&#62;
+#### --dockerPort &#60;dockerPort&#62;
 
-The port on which the host docker daemon is listening
+Docker daemon TCP port number (hint: 2375 for balena devices)
 
 #### --ca &#60;ca&#62;
 
@@ -1380,25 +1402,43 @@ Docker host TLS key file
 This command can be used to start a build on the remote balena cloud builders,
 or a local mode balena device.
 
-When building on the balena cloud the given source directory will be sent to the
-balena builder, and the build will proceed. This can be used as a drop-in
-replacement for git push to deploy.
+When building on the balenaCloud servers, the given source directory will be
+sent to the remote server. This can be used as a drop-in replacement for the
+"git push" deployment method.
 
-When building on a local mode device, the given source directory will be built
-on the device, and the resulting containers will be run on the device. Logs will
-be streamed back from the device as part of the same invocation.
+When building on a local mode device, the given source directory will be
+built on the device, and the resulting containers will be run on the device.
+Logs will be streamed back from the device as part of the same invocation.
+The web dashboard can be used to switch a device to local mode:
+https://www.balena.io/docs/learn/develop/local-mode/
+Note that local mode requires a supervisor version of at least v7.21.0.
+The logs from only a single service can be shown with the --service flag, and
+showing only the system logs can be achieved with --system. Note that these
+flags can be used together.
+
+When pushing to a local device a live session will be started.
+The project source folder is watched for filesystem events, and changes
+to files and folders are automatically synchronized to the running
+containers. The synchronisation is only in one direction, from this machine to
+the device, and changes made on the device itself may be overwritten.
+This feature requires a device running supervisor version v9.7.0 or greater.
 
 The --registry-secrets option specifies a JSON or YAML file containing private
 Docker registry usernames and passwords to be used when pulling base images.
 Sample registry-secrets YAML file:
 
-	'https://idx.docker.io/v1/':
-		username: mike
-		password: cze14
-	'myregistry.com:25000':
+	'my-registry-server.com:25000':
 		username: ann
 		password: hunter2
+	'':  # Use the empty string to refer to the Docker Hub
+		username: mike
+		password: cze14
+	'eu.gcr.io':  # Google Container Registry
+		username: '_json_key'
+		password: '{escaped contents of the GCR keyfile.json file}'
 
+If an option is not specified, and a secrets.yml or secrets.json file exists in
+the balena directory (usually $HOME/.balena), this file will be used instead.
 
 Examples:
 
@@ -1408,7 +1448,12 @@ Examples:
 
 	$ balena push 10.0.0.1
 	$ balena push 10.0.0.1 --source <source directory>
-	$ balena push 10.0.0.1 -s <source directory>
+	$ balena push 10.0.0.1 --service my-service
+	$ balena push 10.0.0.1 --env MY_ENV_VAR=value --env my-service:SERVICE_VAR=value
+	$ balena push 10.0.0.1 --nolive
+
+	$ balena push 23c73a1.local --system
+	$ balena push 23c73a1.local --system --service my-service
 
 ### Options
 
@@ -1420,13 +1465,50 @@ The source that should be sent to the balena builder to be built (defaults to th
 
 Force an emulated build to occur on the remote builder
 
+#### --dockerfile &#60;Dockerfile&#62;
+
+Alternative Dockerfile name/path, relative to the source folder
+
 #### --nocache, -c
 
 Don't use cache when building this project
 
 #### --registry-secrets, -R &#60;secrets.yml|.json&#62;
 
-Path to a local YAML or JSON file containing Docker registry passwords used to pull base images
+Path to a local YAML or JSON file containing Docker registry passwords used to pull base images.
+Note that if registry-secrets are not provided on the command line, a secrets configuration
+file from the balena directory will be used (usually $HOME/.balena/secrets.yml|.json)
+
+#### --nolive
+
+Don't run a live session on this push. The filesystem will not be monitored, and changes
+will not be synchronised to any running containers. Note that both this flag and --detached
+and required to cause the process to end once the initial build has completed.
+
+#### --detached, -d
+
+Don't tail application logs when pushing to a local mode device
+
+#### --service &#60;service&#62;
+
+Reject logs not originating from this service.
+This can be used in combination with --system and other --service flags.
+Only valid when pushing to a local mode device.
+
+#### --system
+
+Only show system logs. This can be used in combination with --service.
+Only valid when pushing to a local mode device.
+
+#### --env &#60;env&#62;
+
+When performing a push to device, run the built containers with environment
+variables provided with this argument. Environment variables can be applied
+to individual services by adding their service name before the argument,
+separated by a colon, e.g:
+	--env main:MY_ENV=value
+Note that if the service name cannot be found in the composition, the entire
+left hand side of the = character will be treated as the variable name.
 
 # Settings
 
@@ -1437,24 +1519,6 @@ Use this command to display detected settings
 Examples:
 
 	$ balena settings
-
-# Wizard
-
-## quickstart [name]
-
-Use this command to run a friendly wizard to get started with balena.
-
-The wizard will guide you through:
-
-	- Create an application.
-	- Initialise an SDCard with the balena operating system.
-	- Associate an existing project directory with your balena application.
-	- Push your project to your devices.
-
-Examples:
-
-	$ balena quickstart
-	$ balena quickstart MyApp
 
 # Local
 
@@ -1487,221 +1551,41 @@ confirm non-interactively
 
 drive
 
-## local logs [deviceIp]
-
-
-Examples:
-
-	$ balena local logs
-	$ balena local logs -f
-	$ balena local logs 192.168.1.10
-	$ balena local logs 192.168.1.10 -f
-	$ balena local logs 192.168.1.10 -f --app-name myapp
-
-### Options
-
-#### --follow, -f
-
-follow log
-
-#### --app-name, -a &#60;name&#62;
-
-name of container to get logs from
-
-## local scan
-
-
-Examples:
-
-	$ balena local scan
-	$ balena local scan --timeout 120
-	$ balena local scan --verbose
-
-### Options
-
-#### --verbose, -v
-
-Display full info
-
-#### --timeout, -t &#60;timeout&#62;
-
-Scan timeout in seconds
-
-## local ssh [deviceIp]
-
-Warning: 'balena local ssh' requires an openssh-compatible client to be correctly
-installed in your shell environment. For more information (including Windows
-support) please check the README here: https://github.com/balena-io/balena-cli
-
-Use this command to get a shell into the running application container of
-your device.
-
-The '--host' option will get you a shell into the Host OS of the balenaOS device.
-No option will return a list of containers to enter or you can explicitly select
-one by passing its name to the --container option
-
-Examples:
-
-	$ balena local ssh
-	$ balena local ssh --host
-	$ balena local ssh --container chaotic_water
-	$ balena local ssh --container chaotic_water --port 22222
-	$ balena local ssh --verbose
-
-### Options
-
-#### --verbose, -v
-
-increase verbosity
-
-#### --host, -s
-
-get a shell into the host OS
-
-#### --container, -c &#60;container&#62;
-
-name of container to access
-
-#### --port, -p &#60;port&#62;
-
-ssh port number (default: 22222)
-
-## local push [deviceIp]
-
-Warning: 'balena local push' requires an openssh-compatible client and 'rsync' to
-be correctly installed in your shell environment. For more information (including
-Windows support) please check the README here: https://github.com/balena-io/balena-cli
-
-Use this command to push your local changes to a container on a LAN-accessible balenaOS device on the fly.
-
-If `Dockerfile` or any file in the 'build-triggers' list is changed,
-a new container will be built and run on your device.
-If not, changes will simply be synced with `rsync` into the application container.
-
-After every 'balena local push' the updated settings will be saved in
-'<source>/.balena-sync.yml' and will be used in later invocations. You can
-also change any option by editing '.balena-sync.yml' directly.
-
-Here is an example '.balena-sync.yml' :
-
-	$ cat $PWD/.balena-sync.yml
-	local_balenaos:
-		app-name: local-app
-		build-triggers:
-			- Dockerfile: file-hash-abcdefabcdefabcdefabcdefabcdefabcdef
-			- package.json: file-hash-abcdefabcdefabcdefabcdefabcdefabcdef
-		environment:
-			- MY_VARIABLE=123
-
-
-Command line options have precedence over the ones saved in '.balena-sync.yml'.
-
-If '.gitignore' is found in the source directory then all explicitly listed files will be
-excluded when using rsync to update the container. You can choose to change this default behavior with the
-'--skip-gitignore' option.
-
-Examples:
-
-	$ balena local push
-	$ balena local push --app-name test-server --build-triggers package.json,requirements.txt
-	$ balena local push --force-build
-	$ balena local push --force-build --skip-logs
-	$ balena local push --ignore lib/
-	$ balena local push --verbose false
-	$ balena local push 192.168.2.10 --source . --destination /usr/src/app
-	$ balena local push 192.168.2.10 -s /home/user/balenaProject -d /usr/src/app --before 'echo Hello' --after 'echo Done'
-
-### Options
-
-#### --source, -s &#60;path&#62;
-
-root of project directory to push
-
-#### --destination, -d &#60;path&#62;
-
-destination path on device container
-
-#### --ignore, -i &#60;paths&#62;
-
-comma delimited paths to ignore when syncing with 'rsync'
-
-#### --skip-gitignore
-
-do not parse excluded/included files from .gitignore
-
-#### --before, -b &#60;command&#62;
-
-execute a command before pushing
-
-#### --after, -a &#60;command&#62;
-
-execute a command after pushing
-
-#### --progress, -p
-
-show progress
-
-#### --skip-logs
-
-do not stream logs after push
-
-#### --verbose, -v
-
-increase verbosity
-
-#### --app-name, -n &#60;name&#62;
-
-application name - may contain lowercase characters, digits and one or more dashes. It may not start or end with a dash.
-
-#### --build-triggers, -r &#60;files&#62;
-
-comma delimited file list that will trigger a container rebuild if changed
-
-#### --force-build, -f
-
-force a container build and run
-
-#### --env, -e &#60;env&#62;
-
-environment variable (e.g. --env 'ENV=value'). Multiple --env parameters are supported.
-
-## local stop [deviceIp]
-
-
-Examples:
-
-	$ balena local stop
-	$ balena local stop --app-name myapp
-	$ balena local stop --all
-	$ balena local stop 192.168.1.10
-	$ balena local stop 192.168.1.10 --app-name myapp
-
-### Options
-
-#### --all
-
-stop all containers
-
-#### --app-name, -a &#60;name&#62;
-
-name of container to stop
-
 # Deploy
 
 ## build [source]
 
-Use this command to build an image or a complete multicontainer project
-with the provided docker daemon.
+Use this command to build an image or a complete multicontainer project with
+the provided docker daemon in your development machine or balena device.
+(See also the `balena push` command for the option of building images in the
+balenaCloud build servers.)
 
-You must provide either an application or a device-type/architecture
-pair to use the balena Dockerfile pre-processor
-(e.g. Dockerfile.template -> Dockerfile).
+You must provide either an application or a device-type/architecture pair to use
+the balena Dockerfile pre-processor (e.g. Dockerfile.template -> Dockerfile).
 
 This command will look into the given source directory (or the current working
-directory if one isn't specified) for a compose file. If one is found, this
-command will build each service defined in the compose file. If a compose file
-isn't found, the command will look for a Dockerfile, and if yet that isn't found,
-it will try to generate one.
+directory if one isn't specified) for a docker-compose.yml file. If it is found,
+this command will build each service defined in the compose file. If a compose
+file isn't found, the command will look for a Dockerfile[.template] file (or
+alternative Dockerfile specified with the `-f` option), and if yet that isn't
+found, it will try to generate one.
+
+The --registry-secrets option specifies a JSON or YAML file containing private
+Docker registry usernames and passwords to be used when pulling base images.
+Sample registry-secrets YAML file:
+
+	'my-registry-server.com:25000':
+		username: ann
+		password: hunter2
+	'':  # Use the empty string to refer to the Docker Hub
+		username: mike
+		password: cze14
+	'eu.gcr.io':  # Google Container Registry
+		username: '_json_key'
+		password: '{escaped contents of the GCR keyfile.json file}'
+
+If an option is not specified, and a secrets.yml or secrets.json file exists in
+the balena directory (usually $HOME/.balena), this file will be used instead.
 
 Examples:
 
@@ -1734,21 +1618,29 @@ Specify an alternate project name; default is the directory name
 
 Run an emulated build using Qemu
 
+#### --dockerfile &#60;Dockerfile&#62;
+
+Alternative Dockerfile name/path, relative to the source folder
+
 #### --logs
 
 Display full log output
 
+#### --registry-secrets, -R &#60;secrets.yml|.json&#62;
+
+Path to a YAML or JSON file with passwords for a private Docker registry
+
 #### --docker, -P &#60;docker&#62;
 
-Path to a local docker socket
+Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the docker daemon
+Docker daemon hostname or IP address (dev machine or balena device) 
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
-The port on which the host docker daemon is listening
+Docker daemon TCP port number (hint: 2375 for balena devices)
 
 #### --ca &#60;ca&#62;
 
@@ -1780,23 +1672,44 @@ Squash newly built layers into a single new layer
 
 ## deploy &#60;appName&#62; [image]
 
-Use this command to deploy an image or a complete multicontainer project
-to an application, optionally building it first.
-
 Usage: `deploy <appName> ([image] | --build [--source build-dir])`
 
+Use this command to deploy an image or a complete multicontainer project to an
+application, optionally building it first. The source images are searched for
+(and optionally built) using the docker daemon in your development machine or
+balena device. (See also the `balena push` command for the option of building
+the image in the balenaCloud build servers.)
+
 Unless an image is specified, this command will look into the current directory
-(or the one specified by --source) for a compose file. If one is found, this
-command will deploy each service defined in the compose file, building it first
-if an image for it doesn't exist. If a compose file isn't found, the command
-will look for a Dockerfile, and if yet that isn't found, it will try to
-generate one.
+(or the one specified by --source) for a docker-compose.yml file.  If one is
+found, this command will deploy each service defined in the compose file,
+building it first if an image for it doesn't exist. If a compose file isn't
+found, the command will look for a Dockerfile[.template] file (or alternative
+Dockerfile specified with the `-f` option), and if yet that isn't found, it
+will try to generate one.
 
 To deploy to an app on which you're a collaborator, use
 `balena deploy <appOwnerUsername>/<appName>`.
 
-Note: If building with this command, all options supported by `balena build`
-are also supported with this command.
+When --build is used, all options supported by `balena build` are also supported
+by this command.
+
+The --registry-secrets option specifies a JSON or YAML file containing private
+Docker registry usernames and passwords to be used when pulling base images.
+Sample registry-secrets YAML file:
+
+	'my-registry-server.com:25000':
+		username: ann
+		password: hunter2
+	'':  # Use the empty string to refer to the Docker Hub
+		username: mike
+		password: cze14
+	'eu.gcr.io':  # Google Container Registry
+		username: '_json_key'
+		password: '{escaped contents of the GCR keyfile.json file}'
+
+If an option is not specified, and a secrets.yml or secrets.json file exists in
+the balena directory (usually $HOME/.balena), this file will be used instead.
 
 Examples:
 
@@ -1826,21 +1739,29 @@ Specify an alternate project name; default is the directory name
 
 Run an emulated build using Qemu
 
+#### --dockerfile &#60;Dockerfile&#62;
+
+Alternative Dockerfile name/path, relative to the source folder
+
 #### --logs
 
 Display full log output
 
+#### --registry-secrets, -R &#60;secrets.yml|.json&#62;
+
+Path to a YAML or JSON file with passwords for a private Docker registry
+
 #### --docker, -P &#60;docker&#62;
 
-Path to a local docker socket
+Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-The address of the host containing the docker daemon
+Docker daemon hostname or IP address (dev machine or balena device) 
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
-The port on which the host docker daemon is listening
+Docker daemon TCP port number (hint: 2375 for balena devices)
 
 #### --ca &#60;ca&#62;
 
@@ -1924,4 +1845,3 @@ Examples:
 
 Use this command to list your machine's drives usable for writing the OS image to.
 Skips the system drives.
-

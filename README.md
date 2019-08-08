@@ -1,11 +1,7 @@
 Balena Documentation
 ======================
 
-[![Build status](https://ci.appveyor.com/api/projects/status/qbsivehgnq0vyrrb?svg=true)](https://ci.appveyor.com/project/fedealconada/resin-docs)
-
-Join our [forums](https://forums.balena.io/), or online chat at [![Gitter chat](https://badges.gitter.im/resin-io/chat.png)](https://gitter.im/resin-io/chat)
-
-Documentation for the [balena](https://balena.io/) platform.
+Documentation for the [balenaCloud](https://balena.io/) platform. Join our [forums](https://forums.balena.io/) to chat.
 
 Role
 ----
@@ -24,7 +20,12 @@ cd docs
 npm install
 npm start
 ```
-And then open [http://localhost:3000](http://localhost:3000).
+And then open [http://localhost:3000/docs](http://localhost:3000/docs).
+
+> Note: if you are using macOS and you get `"RangeError: Maximum call stack size exceeded"`
+> when running `npm install` (which eventually calls the `build.sh` script), have a look at
+> the comments at the top of the `'Dockerfile.bindmount'` file.
+
 
 How to Contribute
 ----------
@@ -32,7 +33,7 @@ How to Contribute
 - Issue Tracker: [github.com/balena-io/docs/issues](https://github.com/balena-io/docs/issues)
 - Source Code: [github.com/balena-io/docs](https://github.com/balena-io/docs)
 
-If you think something is not documented, or can be improved, don't hesitate in sending a PR!
+If you think something is not documented, or can be improved, don't hesitate in sending a PR! Check [CONTRIBUTING.md](CONTRIBUTING.md) for the guidelines to ensure your PR can be merged as quickly as possible.
 
 
 Deploying
@@ -43,6 +44,7 @@ After a PR has been created, a member of the balena team will review and merge i
 Shortly after merging to `staging` it'll automatically be deployed to our [staging environment](https://www.balena-staging.io/docs/) (This should only take a few minutes).
 
 Once deployed to staging, we will preview your changes. If everything looks good, a member of the balena team will make another PR from `staging` into the `master` branch. When this is merged, the changes will automatically deploy to [production](https://balena.io/docs)
+
 
 Style manual
 ----------

@@ -25,11 +25,11 @@ __Note:__ On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variab
 | `{{ $names.company.allCaps }}_DEVICE_TYPE`         |  The type of device the application is running on. |
 | `{{ $names.company.allCaps }}` 	                  |  The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a {{ $names.company.lower }} device. 	|
 | `{{ $names.company.allCaps }}_SUPERVISOR_VERSION` 	|  The current version of the supervisor agent running on the device.	|
-| `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` 	|  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link]	for detailed usage.|
-| `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`	|
-| `{{ $names.company.allCaps }}_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`|
-| `{{ $names.company.allCaps }}_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`	|
-| `{{ $names.company.allCaps }}_API_KEY` 	          |  API key which can be used to authenticate requests to the {{ $names.company.lower }} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code full user permissions, so can be used to delete and update anything as you would on the Dashboard.  	|
+| `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` 	|  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link]	for detailed usage. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
+| `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
+| `{{ $names.company.allCaps }}_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`. For multicontainer the service needs the [io.resin.features.supervisor-api][labels-link] set|
+| `{{ $names.company.allCaps }}_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
+| `{{ $names.company.allCaps }}_API_KEY` 	          |  API key which can be used to authenticate requests to the {{ $names.company.lower }} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation][security-docs-link] for more details. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
 | `{{ $names.company.allCaps }}_HOST_OS_VERSION`     |  The version of the host OS. |
 | `{{ $names.company.allCaps }}_DEVICE_RESTART` 	    |  This is a internal mechanism for restarting containers and can be ignored as its not very useful to application code.  Example: `1.13.0`	|
 
@@ -45,7 +45,6 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 {{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1
 {{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
 {{ $names.company.allCaps }}_API_KEY=deadbeef12345
-{{ $names.company.allCaps }}_APP_RELEASE=667153acf91a58886c1bc30fe4320c864471e23a
 {{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3
 {{ $names.company.allCaps }}_APP_NAME=Example
 {{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze
@@ -57,7 +56,7 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 
 In some cases its necessary to communicate with the host OS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
-__Note:__ In multicontainer applications, the `io.balena.features.dbus` label must be applied for each service that requires access to the dbus.
+__Note:__ In multicontainer applications, the `io.balena.features.dbus` label must be applied for each service that requires access to the dbus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labelling as that will ensure backward compatibility.
 
 ```
 # for {{ $names.company.lower }} supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
@@ -142,7 +141,7 @@ Since the `/etc/modules` you see in your container belongs to the container's fi
 
 ## Supervisor
 
-__Note:__ In multicontainer applications, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API.
+__Note:__ In multicontainer applications, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API.  If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labelling as that will ensure backward compatibility
 
 ### Reboot from Inside the Container
 
@@ -153,7 +152,7 @@ curl -X POST --header "Content-Type:application/json" \
 ```
 [Read more about the supervisor API](/runtime/supervisor-api/#post-v1-reboot)
 
-__Note:__ `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` and `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` should already be in your environment by default. You will also **need** `curl` installed in your container.
+__Note:__ `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` and `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the [io.resin.features.supervisor-api][labels-link] set . You will also **need** `curl` installed in your container.
 
 Alternatively, it is possible to reboot the device via the dbus interface as described above.
 
@@ -283,6 +282,7 @@ Devices can be selected in many ways, for example by `/dev` entry, labels, or UU
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [supervisor-api-link]:/runtime/supervisor-api/
+[security-docs-link]:/learn/welcome/security/
 [supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
 [expressjs-link]:http://expressjs.com/
 [projects-github]:{{ $links.githubProjects }}
@@ -290,3 +290,4 @@ Devices can be selected in many ways, for example by `/dev` entry, labels, or UU
 [dnsmasq-link]:http://www.thekelleys.org.uk/dnsmasq/doc.html
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
 [dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/
+[labels-link]:/reference/supervisor/docker-compose/#labels

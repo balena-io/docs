@@ -43,7 +43,7 @@ Each service can either be built from a directory containing a `Dockerfile`, as 
 
 Unlike single container applications, multicontainer applications do not run containers in privileged mode by default. If you want to make use of hardware, you will either have to set some services to privileged, using `privileged: true`, or use the `cap_add` and `devices` settings to map in the correct hardware access to the container.
 
-Here, the `gpio` service is set up to use **i2c** sensors:
+As an example, here the `gpio` service is set up to use i2c and serial uart sensors:
 
 ```
 gpio:
@@ -51,6 +51,7 @@ gpio:
     devices:
       - "/dev/i2c-1:/dev/i2c-1"
       - "/dev/mem:/dev/mem"
+      - "/dev/ttyACM0:/dev/ttyACM0"
     cap_add: 
       - SYS_RAWIO
 ```
@@ -96,19 +97,6 @@ For devices upgraded from older versions of {{ $names.os.lower }} to v2.12.0 or 
 In addition to the settings above, there are some {{ $names.company.lower }} specific labels that can be defined in the `docker-compose.yml` file. These provide access to certain bind mounts and environment variables without requiring you to run the container as privileged:
 
 {{> "general/labels" }}
-
-These labels are applied to a specific service with the `labels:` setting:
-
-```
-labels:
-      io.{{ $names.company.short }}.features.kernel-modules: '1'
-      io.{{ $names.company.short }}.features.firmware: '1'
-      io.{{ $names.company.short }}.features.dbus: '1'
-      io.{{ $names.company.short }}.features.supervisor-api: '1'
-      io.{{ $names.company.short }}.features.{{ $names.company.short }}-api: '1'
-      io.{{ $names.company.short }}.update.strategy: download-then-kill
-      io.{{ $names.company.short }}.update.handover-timeout: ''
-```
 
 [docker-compose]:https://docs.docker.com/compose/overview/
 [simple-app]:{{ $links.githubProjects }}/multicontainer-getting-started

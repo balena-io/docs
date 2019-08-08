@@ -38,7 +38,7 @@ These variables can be set using the API or any of its clients, including the [S
 
 **After modifying a config.txt variable, the device supervisor will apply the changes and reboot the device.**
 
-__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode]. You will need to define them in your `resin-sync.yml`.
+__Note:__ Configuration variables defined through the API will not apply to devices in [local mode][local-mode].
 
 ### GPU Memory
 
@@ -92,7 +92,7 @@ enable_uart=1
 
 The Raspberry Pi allows loading custom device tree overlays using the `dtoverlay` setting in config.txt. It also allows setting parameters for the default overlay with the `dtparam` setting. For these settings, the syntax is different from other keys because several entries can be added, and the bootloader will use all of them.
 
-To allow setting several values, devices running resinOS version 2.12.0 and above (supervisor 7.0.0 and above), will parse the values of `RESIN_HOST_CONFIG_dtoverlay` and `RESIN_HOST_CONFIG_dtparam` in a special way: the value of the configuration variable will be treated as the contents of a JSON array (without the enclosing braces `[]`), so a comma-separated list of quote-enclosed values will be split into several lines.
+To allow setting several values, devices running balenaOS version 2.12.0 and above (supervisor 7.0.0 and above), will parse the values of `RESIN_HOST_CONFIG_dtoverlay` and `RESIN_HOST_CONFIG_dtparam` in a special way: the value of the configuration variable will be treated as the contents of a JSON array (without the enclosing braces `[]`), so a comma-separated list of quote-enclosed values will be split into several lines.
 
 For example, the default value of `RESIN_HOST_CONFIG_dtparam = "i2c_arm=on","spi=on","audio=on"` will translate into the following entries in config.txt:
 

@@ -1,7 +1,7 @@
 ### Basic Analog input in Node.js on the Beaglebone
 
 {{> icon class="octicon octicon-mark-github" }}
-[Repository]({{ $links.githubProjects }}/beaglebone-adc-node)
+[Repository]({{ $links.githubPlayground }}/beaglebone-adc-node)
 
 A simple node.js project that uses the [Octalbonescript](https://github.com/theoctal/octalbonescript) library to read an analog voltage signal from `P9_33` on the Beaglebone every 3 seconds.
 

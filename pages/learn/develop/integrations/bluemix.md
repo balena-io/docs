@@ -133,7 +133,7 @@ For devices on {{ $names.company.lower }}, the most commonly used languages are 
 
 #### Using the Python SDK
 
-For a complete Python example which includes a device and a command line application to interact with the device, you can check [bluemix-resin-python]({{ $links.githubProjects }}/bluemix-resin-python)).
+For a complete Python example which includes a device and a command line application to interact with the device, you can check [bluemix-balena-python]({{ $links.githubProjects }}/bluemix-balena-python)).
 
 The following are a few notes using the [Python SDK](https://github.com/ibm-watson-iot/iot-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Python images, for example:
 
@@ -267,10 +267,6 @@ deviceClient.on("connect", function () {
 
 For detailed description, check the [Node.js SDK's README](https://github.com/ibm-watson-iot/iot-nodejs/blob/master/README.md) or the [samples included in the SDK](https://github.com/ibm-watson-iot/iot-nodejs/tree/master/samples).
 
-#### Visualizing your data with Node.js
-
-There is an example how to [visualize your data](https://developer.ibm.com/recipes/tutorials/visualizing-your-data/) using Node.js on the IBM Developerworks Recipes site.
-
 ## Further information
 
 ### Shortcuts:
@@ -287,5 +283,5 @@ There is an example how to [visualize your data](https://developer.ibm.com/recip
 
 A few sample apps to get started:
 
-* [bluemix-resin-python demo project]({{ $links.githubProjects }}/bluemix-resin-python): automatic or manual device registration, send data and receive actions
-* [Bluemix boilerplate](https://github.com/craig-mulligan/resin-bluemix-boilerplate): automatically register your device and publish data to your Bluemix app
+* [bluemix-balena-python demo project]({{ $links.githubProjects }}/bluemix-balena-python): automatic or manual device registration, send data and receive actions
+* [Bluemix boilerplate](https://github.com/hobochild/resin-bluemix-boilerplate): automatically register your device and publish data to your Bluemix app
