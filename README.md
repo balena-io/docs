@@ -26,30 +26,15 @@ And then open [http://localhost:3000/docs](http://localhost:3000/docs).
 > when running `npm install` (which eventually calls the `build.sh` script), have a look at
 > the comments at the top of the `'Dockerfile.bindmount'` file.
 
+
 How to Contribute
 ----------
 
 - Issue Tracker: [github.com/balena-io/docs/issues](https://github.com/balena-io/docs/issues)
 - Source Code: [github.com/balena-io/docs](https://github.com/balena-io/docs)
 
-If you think something is not documented, or can be improved, don't hesitate in sending a PR!
+If you think something is not documented, or can be improved, don't hesitate in sending a PR! Check [CONTRIBUTING.md](CONTRIBUTING.md) for the guidelines to ensure your PR can be merged as quickly as possible.
 
-**NB:** Please ensure that each commit in your pull request conforms to the following format.
-
-```
-component: Description of my change
-
-Change-type: patch
-Signed-off-by: Joe Soap <joe.soap@gmail.com>
-```
-
-This will allow the system to automatically version the documentation using the `Change-type`. The versioning follows [semver](https://semver.org/) and changes can be of type `patch`, `minor` or `major`.
-
-It is also worth noting that for some of the Reference documentation, the docs are sourced from the components repos and they will need to be changed in the source repos. Currently the following reference material is pulled from other repos:
-- [Device Supervisor API](https://www.balena.io/docs/reference/supervisor/supervisor-api/) sourced from https://github.com/balena-io/balena-supervisor/tree/master/docs
-- [CLI](https://www.balena.io/docs/reference/cli/) sourced from https://github.com/balena-io/balena-cli/blob/master/doc/cli.markdown
-- [Node SDK](https://www.balena.io/docs/reference/sdk/node-sdk/) sourced from https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md
-- [Python SDK](https://www.balena.io/docs/reference/sdk/python-sdk/) sourced from https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md
 
 Deploying
 ----------
@@ -59,6 +44,7 @@ After a PR has been created, a member of the balena team will review and merge i
 Shortly after merging to `staging` it'll automatically be deployed to our [staging environment](https://www.balena-staging.io/docs/) (This should only take a few minutes).
 
 Once deployed to staging, we will preview your changes. If everything looks good, a member of the balena team will make another PR from `staging` into the `master` branch. When this is merged, the changes will automatically deploy to [production](https://balena.io/docs)
+
 
 Style manual
 ----------

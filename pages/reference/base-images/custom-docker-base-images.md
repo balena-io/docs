@@ -7,7 +7,7 @@ excerpt: Building custom base images for use with {{ $names.company.lower }}
 
 Raspbian and Debian are great, but sometimes you just want to let your hair loose and get crazy with Arch Linux or some other distro. With {{ $names.company.lower }} this is actually pretty easy and what follows are a few simple steps to get your own custom base image.
 
-__Note:__ This guide assumes some knowledge of [Docker][docker] and expects that you have Docker or somekind or boot2docker installed on your host machine. It also expects you to have an account over at the [Docker Hub][dockerhub-link].
+__Note:__ This guide assumes some knowledge of [Docker][docker] and expects that you have [Docker installed](https://www.docker.com/products/docker-desktop) on your host machine. It also expects you to have an account over at the [Docker Hub][dockerhub-link].
 
 ### Step 1:
 First things, first. Find image you like on [Docker Hub][dockerhub-link] or build your own from [here][resin-docker-blog]. Remember this image needs to be architecture specific, i.e. an Ubuntu base image is not going to work on your raspberry pi B+.
