@@ -8,7 +8,11 @@ Only Supervisors after version 1.1.0 have this functionality, and some of the en
 
 ## HTTP API reference
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 The supervisor exposes an HTTP API on port 48484 (`BALENA_SUPERVISOR_PORT`).
+
+To enable these Supervisor environment variables, the `io.balena.features.supervisor-api` label must be applied for each service that requires them. See [here](https://www.balena.io/docs/learn/develop/multicontainer/#labels) for further details.
 
 **All endpoints require an apikey parameter, which is exposed to the application as `BALENA_SUPERVISOR_API_KEY`.**
 
@@ -26,10 +30,12 @@ Here's the full list of endpoints implemented so far. In all examples, replace e
 
 ### GET /ping
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Responds with a simple "OK", signaling that the supervisor is alive and well.
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X GET --header "Content-Type:application/json" \
 	"$BALENA_SUPERVISOR_ADDRESS/ping?apikey=$BALENA_SUPERVISOR_API_KEY"
@@ -51,11 +57,13 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/blink
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Starts a blink pattern on a LED for 15 seconds, if your device has one.
 Responds with an empty 200 response. It implements the "identify device" feature from the dashboard.
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
 	"$BALENA_SUPERVISOR_ADDRESS/v1/blink?apikey=$BALENA_SUPERVISOR_API_KEY"
@@ -75,6 +83,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/update
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Triggers an update check on the supervisor. Optionally, forces an update when updates are locked.
 
 Responds with an empty 204 (No Content) response.
@@ -88,7 +98,7 @@ Can be a JSON object with a `force` property. If this property is true, the upda
 ```
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
 	--data '{"force": true}' \
@@ -108,6 +118,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/reboot
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Reboots the device. This will first try to stop applications, and fail if there is an update lock.
 An optional "force" parameter in the body overrides the lock when true (and the lock can also be overridden from
 the dashboard).
@@ -124,7 +136,7 @@ When successful, responds with 202 accepted and a JSON object:
 Can contain a `force` property, which if set to `true` will cause the update lock to be overridden.
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
 	"$BALENA_SUPERVISOR_ADDRESS/v1/reboot?apikey=$BALENA_SUPERVISOR_API_KEY"
@@ -146,6 +158,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/shutdown
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 **Dangerous**. Shuts down the device. This will first try to stop applications, and fail if there is an update lock.
 An optional "force" parameter in the body overrides the lock when true (and the lock can also be overridden from
 the dashboard).
@@ -162,7 +176,7 @@ When successful, responds with 202 accepted and a JSON object:
 Can contain a `force` property, which if set to `true` will cause the update lock to be overridden.
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
 	"$BALENA_SUPERVISOR_ADDRESS/v1/shutdown?apikey=$BALENA_SUPERVISOR_API_KEY"
@@ -184,6 +198,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 <hr>
 
 ### POST /v1/purge
+
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
 
 Clears the user application's `/data` folder.
 
@@ -207,7 +223,7 @@ Example:
 ```
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
 	--data '{"appId": <appId>}' \
@@ -231,6 +247,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/restart
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Restarts a user application container
 
 When successful, responds with 200 and an "OK"
@@ -247,7 +265,7 @@ Example:
 ```
 
 #### Examples:
-From the app on the device:
+From an application container:
 
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
@@ -272,10 +290,12 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/regenerate-api-key
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Invalidates the current `BALENA_SUPERVISOR_API_KEY` and generates a new one. Responds with the new API key, but **the application will be restarted on the next update cycle** to update the API key environment variable.
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
 	"$BALENA_SUPERVISOR_ADDRESS/v1/regenerate-api-key?apikey=$BALENA_SUPERVISOR_API_KEY"
@@ -299,6 +319,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### GET /v1/device
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Introduced in supervisor v1.6.
 Returns the current device state, as reported to the balenaCloud API and with some extra fields added to allow control over pending/locked updates.
 The state is a JSON object that contains some or all of the following:
@@ -316,7 +338,7 @@ The state is a JSON object that contains some or all of the following:
 Other attributes may be added in the future, and some may be missing or null if they haven't been set yet.
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X GET --header "Content-Type:application/json" \
 	"$BALENA_SUPERVISOR_ADDRESS/v1/device?apikey=$BALENA_SUPERVISOR_API_KEY"
@@ -338,6 +360,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/apps/:appId/stop
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Introduced in supervisor v1.8.
 Temporarily stops a user application container. A reboot or supervisor restart will cause the container to start again.
 The container is not removed with this endpoint.
@@ -352,7 +376,7 @@ The appId must be specified in the URL.
 Can contain a `force` property, which if set to `true` will cause the update lock to be overridden.
 
 #### Examples:
-From the app on the device:
+From an application container:
 
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
@@ -378,6 +402,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### POST /v1/apps/:appId/start
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Introduced in supervisor v1.8.
 Starts a user application container, usually after it has been stopped with `/v1/stop`.
 
@@ -388,7 +414,7 @@ When successful, responds with 200 and the Id of the started container.
 The appId must be specified in the URL.
 
 #### Examples:
-From the app on the device:
+From an application container:
 
 ```bash
 $ curl -X POST --header "Content-Type:application/json" \
@@ -414,6 +440,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### GET /v1/apps/:appId
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Introduced in supervisor v1.8.
 Returns the application running on the device
 The app is a JSON object that contains the following:
@@ -428,7 +456,7 @@ The appId must be specified in the URL.
 This is only supported on single-container devices, and will return 400 on devices running multiple containers.
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X GET --header "Content-Type:application/json" \
 	"$BALENA_SUPERVISOR_ADDRESS/v1/apps/<appId>?apikey=$BALENA_SUPERVISOR_API_KEY"
@@ -450,6 +478,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### GET /v1/healthy
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Added in supervisor v6.5.0.
 
 Used internally to check whether the supervisor is running correctly, according to some heuristics that help determine
@@ -459,7 +489,7 @@ Responds with an empty 200 response if the supervisor is healthy, or a 500 statu
 correctly.
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl "$BALENA_SUPERVISOR_ADDRESS/v1/healthy"
 ```
@@ -477,12 +507,14 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### PATCH /v1/device/host-config
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Added in supervisor v6.6.0.
 
 This endpoint allows setting some configuration values for the host OS. Currently it supports
 proxy and hostname configuration.
 
-For proxy configuration, resinOS 2.0.7 and higher provides a transparent proxy redirector (redsocks) that makes all connections be routed to a SOCKS or HTTP proxy. This endpoint allows user applications to modify these proxy settings at runtime.
+For proxy configuration, balenaOS 2.0.7 and higher provides a transparent proxy redirector (redsocks) that makes all connections be routed to a SOCKS or HTTP proxy. This endpoint allows user applications to modify these proxy settings at runtime.
 
 
 #### Request body
@@ -513,12 +545,12 @@ guaranteed to work, especially if they block connections that the balena service
 Keep in mind that, even if transparent proxy redirection will take effect immediately after the API call (i.e. all new connections will go through the proxy), open connections will not be closed. So, if for example, the device has managed to connect to the balenaCloud VPN without the proxy, it will stay connected directly without trying to reconnect through the proxy, unless the connection breaks - any reconnection attempts will then go through the proxy. To force *all* connections to go through the proxy, the best way is to reboot the device (see the /v1/reboot endpoint). In most networks were no connections to the Internet can be made if not through a proxy, this should not be necessary (as there will be no open connections before configuring the proxy settings).
 
 The "noProxy" setting for the proxy is an optional array of IP addresses/subnets that should not be routed through the
-proxy. Keep in mind that local/reserved subnets are already [excluded by resinOS automatically](https://github.com/resin-os/meta-resin/blob/master/meta-resin-common/recipes-connectivity/resin-proxy-config/resin-proxy-config/resin-proxy-config#L48).
+proxy. Keep in mind that local/reserved subnets are already [excluded by balenaOS automatically](https://github.com/balena-os/meta-balena/blob/master/meta-balena-common/recipes-connectivity/resin-proxy-config/resin-proxy-config/resin-proxy-config#L76).
 
 If either "proxy" or "hostname" are null or empty values (i.e. `{}` for proxy or an empty string for hostname), they will be cleared to their default values (i.e. not using a proxy, and a hostname equal to the first 7 characters of the device's uuid, respectively).
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl -X PATCH --header "Content-Type:application/json" \
 	--data '{"network": {"hostname": "newhostname"}}' \
@@ -542,6 +574,8 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### GET /v1/device/host-config
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Added in supervisor v6.6.0.
 
 This endpoint allows reading some configuration values for the host OS, previously set with `PATCH /v1/device/host-config`. Currently it supports
@@ -550,7 +584,7 @@ proxy and hostname configuration.
 Please refer to the PATCH endpoint above for details on the behavior and meaning of the fields in the response.
 
 #### Examples:
-From the app on the device:
+From an application container:
 ```bash
 $ curl "$BALENA_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=$BALENA_SUPERVISOR_API_KEY"
 ```
@@ -570,12 +604,14 @@ $ curl -X POST --header "Content-Type:application/json" \
 
 ### GET /v2/applications/state
 
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
 Added in supervisor v7.12.0
 
 Get a list of applications, services and their statuses. This will reflect the
 current state of the supervisor, and not the target state.
 
-From the user container:
+From an application container:
 ```bash
 $ curl "$BALENA_SUPERVISOR_ADDRESS/v2/applications/state?apikey=$BALENA_SUPERVISOR_API_KEY"
 ```
@@ -616,3 +652,530 @@ Response:
   }
 }
 ```
+
+
+Remotely via the API proxy:
+```bash
+curl -X POST \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <auth token>' \
+  -d '{"uuid": "<uuid>", "method": "GET"}' \
+  "https://api.balena-cloud.com/supervisor/v2/applications/state"
+```
+
+### GET /v2/applications/:appId/state
+
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
+Added in supervisor version v7.12.0.
+
+Use this endpoint to get the state of a single application, given the appId.
+
+From an application container:
+```bash
+curl "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/state?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Response:
+```json
+{
+  "local": {
+    "1234": {
+      "services": {
+        "5678": {
+          "status": "Running",
+          "releaseId": 99999,
+          "download_progress": null
+        }
+      }
+    }
+  },
+  "dependent": {},
+  "commit": "7fc9c5bea8e361acd49886fe6cc1e1cd"
+}
+```
+
+### GET /v2/state/status
+Added in supervisor version v9.7.0
+
+This will return a list of images, containers, the overall download progress and the status of the state engine.
+
+From an application container:
+```bash
+curl "$BALENA_SUPERVISOR_ADDRESS/v2/state/status?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Response:
+```json
+{
+  "status": "success",
+  "appState": "applied",
+  "overallDownloadProgress": null,
+  "containers": [
+    {
+      "status": "Running",
+      "serviceName": "main",
+      "appId": 1032480,
+      "imageId": 959262,
+      "serviceId": 29396,
+      "containerId": "be4a860e34ffca609866f8af3596e9ee7b869e1e0bb9f51406d0b120b0a81cdd",
+      "createdAt": "2019-03-11T16:05:34.506Z"
+    }
+  ],
+  "images": [
+    {
+      "name": "registry2.balena-cloud.com/v2/fbf67cf6574fb0f8da3c8998226fde9e@sha256:9e328a53813e3c2337393c63cfd6c2f5294872cf0d03dc9f74d02e66b9ca1221",
+      "appId": 1032480,
+      "serviceName": "main",
+      "imageId": 959262,
+      "dockerImageId": "sha256:2662fc0ca0c7dd0f549e87e224f454165f260ff54aac59308d2641d99ca95e58",
+      "status": "Downloaded",
+      "downloadProgress": null
+    }
+  ],
+  "release": "804281fb17e8291c542f9640814ef546"
+}
+```
+
+### Service Actions
+
+#### The application ID
+
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
+For the following endpoints the application ID is required in the url. The application ID is exposed as `BALENA_APP_ID` inside your container. Otherwise, you can use the following snippet to determine the application ID programmatically:
+
+```bash
+APPNAME="supervisortest"
+BALENA_APP_ID=$(curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/state?apikey=$BALENA_SUPERVISOR_API_KEY" | jq ".$APPNAME.appId")
+```
+
+The easiest way to find your application from the dashboard is to look at the
+url when on the device list.
+
+#### Restart a service (POST /v2/applications/:appId/restart-service)
+
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
+Added in supervisor version v7.0.0. Support for passing `serviceName` instead of
+`imageId` added in v8.2.2.
+
+Use this endpoint to restart a service in the application with application id
+passed in with the url.
+
+From an application container:
+```bash
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/restart-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"serviceName": "my-service"}'
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/restart-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"imageId": 1234}'
+```
+
+Response:
+```
+OK
+```
+
+This endpoint can also take an extra optional boolean, `force`, which if true informs the supervisor to ignore any update locks which have been taken.
+
+#### Stop a service (POST /v2/applications/:appId:/stop-service)
+
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
+Added in supervisor version v7.0.0. Support for passing `serviceName` instead of
+`imageId` added in v8.2.2.
+
+Use this endpoint to stop a service in the application with application id
+passed in with the url.
+
+From an application container:
+```bash
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/stop-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"serviceName": "my-service"}'
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/stop-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"imageId": 1234}'
+```
+
+Response:
+```
+OK
+```
+
+This endpoint can also take an extra optional boolean, `force`, which if true informs the supervisor to ignore any update locks which have been taken.
+
+#### Start a service (POST /v2/applications/:appId/start-service)
+
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
+Added in supervisor version v7.0.0. Support for passing `serviceName` instead of
+`imageId` added in v8.2.2.
+
+Use this endpoint to start a service in the application with application id
+passed in with the url.
+
+From an application container:
+```bash
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/start-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"serviceName": "my-service"}'
+curl --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/start-service?apikey=$BALENA_SUPERVISOR_API_KEY" -d '{"imageId": 1234}'
+```
+
+Response:
+```
+OK
+```
+
+This endpoint can also take an extra optional boolean, `force`, which if true informs the supervisor to ignore any update locks which have been taken.
+
+#### Restart all services in an application (POST /v2/applications/:appId/restart)
+
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
+Added in supervisor version v7.0.0.
+
+Use this endpoint to restart every service in an application.
+
+From an application container:
+```bash
+curl -X POST --header "Content-Type: application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/restart?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Response:
+```
+OK
+```
+
+This endpoint can also take an extra optional boolean, `force`, which if true informs the supervisor to ignore any update locks which have been taken.
+
+#### Purge an application data (POST /v2/applications/:appId/purge)
+
+**Note:** on devices with supervisor version lower than 7.22.0, replace all `BALENA_` variables with `RESIN_`, e.g. `RESIN_SUPERVISOR_ADDRESS` instead of `BALENA_SUPERVISOR_ADDRESS`.
+
+Added in supervisor version v7.0.0.
+
+Use this endpoint to purge all user data for a given application id.
+
+From an application container:
+```bash
+curl -X POST --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/applications/$BALENA_APP_ID/purge?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Response:
+```
+OK
+```
+
+This endpoint can also take an extra optional boolean, `force`, which if true informs the supervisor to ignore any update locks which have been taken.
+
+
+### Supervisor version (GET /v2/version)
+
+Added in supervisor v7.21.0
+
+This endpoint returns the supervisor version currently running the device api.
+
+From an application container:
+```
+$ curl "$BALENA_SUPERVISOR_ADDRESS/v2/version?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Response:
+```json
+{
+	"status": "success",
+	"version": "v7.21.0"
+}
+```
+
+### Container ID (GET /v2/containerId)
+
+Added in supervisor v8.6.0
+
+Use this endpoint to match a service name to a container ID.
+
+From an application container:
+```
+$ curl "$BALENA_SUPERVISOR_ADDRESS/v2/containerId?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Response:
+```json
+{
+	"status": "success",
+	"services": {
+		"service-one": "ad6d5d32576ad3cb1fcaa59b564b8f6f22b079631080ab1a3bbac9199953eb7d",
+		"service-two": "756535dc6e9ab9b560f84c85063f55952273a23192641fc2756aa9721d9d1000"
+	}
+}
+```
+
+You can also specify a service, to return only that container id:
+```
+$ curl "$BALENA_SUPERVISOR_ADDRESS/v2/containerId?apikey=$BALENA_SUPERVISOR_API_KEY&service=service-one"
+```
+
+Response:
+```json
+{
+	"status": "sucess",
+	"containerId": "ad6d5d32576ad3cb1fcaa59b564b8f6f22b079631080ab1a3bbac9199953eb7d"
+}
+```
+
+### Local mode endpoints
+
+These endpoints are mainly for use by the CLI, for working with a local mode device.
+As such they are not recommended for general use.
+
+The device must be in local mode before these endpoints are called.
+
+#### Get current target state (GET /v2/local/target-state)
+
+Added in supervisor version v7.21.0.
+
+Get the current target state. Note that if a local mode target state has not been
+set then the apps section of the response will always be empty.
+
+Request:
+```bash
+curl "$BALENA_SUPERVISOR_ADDRESS/v2/local/target-state"
+```
+
+Response:
+```json
+{
+	"status": "success",
+	"state": {
+		"local": {
+			"name": "my-device",
+			"config": {
+				"HOST_CONFIG_disable_splash": "1",
+				"HOST_CONFIG_dtparam": "\"i2c_arm=on\",\"spi=on\",\"audio=on\"",
+				"HOST_CONFIG_enable_uart": "1",
+				"HOST_CONFIG_gpu_mem": "16",
+				"SUPERVISOR_LOCAL_MODE": "1",
+				"SUPERVISOR_PERSISTENT_LOGGING": "",
+				"SUPERVISOR_POLL_INTERVAL": "600000",
+				"SUPERVISOR_VPN_CONTROL": "true",
+				"SUPERVISOR_CONNECTIVITY_CHECK": "true",
+				"SUPERVISOR_LOG_CONTROL": "true",
+				"SUPERVISOR_DELTA": "false",
+				"SUPERVISOR_DELTA_REQUEST_TIMEOUT": "30000",
+				"SUPERVISOR_DELTA_APPLY_TIMEOUT": "",
+				"SUPERVISOR_DELTA_RETRY_COUNT": "30",
+				"SUPERVISOR_DELTA_RETRY_INTERVAL": "10000",
+				"SUPERVISOR_DELTA_VERSION": "2",
+				"SUPERVISOR_OVERRIDE_LOCK": "false"
+			},
+			"apps": {}
+		},
+		"dependent": {
+			"apps": [],
+			"devices": []
+		}
+	}
+}
+```
+
+#### Set a target state (POST /v2/local/target-state)
+
+Added in supervisor version v7.21.0.
+
+Set the current target state.
+
+Request:
+```bash
+TARGET_STATE='{
+	"local": {
+		"name": "Home",
+		"config": {
+			"HOST_CONFIG_disable_splash": "1",
+			"HOST_CONFIG_dtparam": "i2c_arm=on,i2s=on",
+			"HOST_CONFIG_enable_uart": "1",
+			"HOST_CONFIG_gpio": "\"2=op\",\"3=op\"",
+			"HOST_CONFIG_gpu_mem": "16",
+			"SUPERVISOR_LOCAL_MODE": "1",
+			"SUPERVISOR_POLL_INTERVAL": "600000",
+			"SUPERVISOR_VPN_CONTROL": "true",
+			"SUPERVISOR_CONNECTIVITY_CHECK": "true",
+			"SUPERVISOR_LOG_CONTROL": "true",
+			"SUPERVISOR_DELTA": "false",
+			"SUPERVISOR_DELTA_REQUEST_TIMEOUT": "30000",
+			"SUPERVISOR_DELTA_APPLY_TIMEOUT": "",
+			"SUPERVISOR_DELTA_RETRY_COUNT": "30",
+			"SUPERVISOR_DELTA_RETRY_INTERVAL": "10000",
+			"SUPERVISOR_DELTA_VERSION": "2",
+			"SUPERVISOR_OVERRIDE_LOCK": "false",
+			"SUPERVISOR_PERSISTENT_LOGGING": "false"
+		},
+		"apps": {
+			"1": {
+				"name": "localapp",
+				"commit": "localcommit",
+				"releaseId": "1",
+				"services": {
+					"1": {
+						"environment": {},
+						"labels": {},
+						"imageId": 1,
+						"serviceName": "one",
+						"serviceId": 1,
+						"image": "local_image_one:latest",
+						"running": true
+					},
+					"2": {
+						"environment": {},
+						"labels": {},
+						"network_mode": "container:one",
+						"imageId": 2,
+						"serviceName": "two",
+						"serviceId": 2,
+						"image": "local_image_two:latest",
+						"running": true
+					}
+				},
+				"volumes": {},
+				"networks": {}
+			}
+		}
+	},
+	"dependent": {
+		"apps": [],
+		"devices": []
+	}
+}
+'
+
+curl -X POST --header "Content-Type:application/json" "$BALENA_SUPERVISOR_ADDRESS/v2/local/target-state" -d $TARGET_STATE
+```
+
+Response:
+```json
+{
+	"status": "success",
+	"message": "OK"
+}
+```
+
+#### Get the device type information
+
+Added in supervisor version v7.21.0.
+
+Get the architecture and device type of the device.
+
+Request:
+```bash
+curl "$BALENA_SUPERVISOR_ADDRESS/v2/local/device-info"
+```
+
+Response:
+```json
+{
+	"status": "success",
+	"info": {
+		"arch": "armv7hf",
+		"deviceType": "raspberry-pi3"
+	}
+}
+```
+
+#### Stream local mode application logs from device
+
+Added in supervisor version v7.21.0.
+
+This endpoint will stream the logs of the applications containers and the supervisor. The logs
+come in as NDJSON.
+
+Request:
+```bash
+curl "$BALENA_SUPERVISOR_ADDRESS/v2/local/logs"
+```
+
+Response:
+```json
+{
+	"message": "log line text",
+	"timestamp": 1541508467072,
+	"serviceName": "main"
+}
+{
+	"message": "another log line",
+	"timestamp": 1541508467072,
+	"serviceName": "main"
+}
+```
+
+### V2 Device Information
+
+#### Device name
+
+Added in supervisor version v9.11.0
+
+Get the last returned device name from the balena API. Note that this differs from the
+`BALENA_DEVICE_NAME_AT_INIT` environment variable provided to containers, as this will
+not change throughout the runtime of the container, but the endpoint will always return
+the latest known device name.
+
+From an application container:
+```
+$ curl "$BALENA_SUPERVISOR_ADDRESS/v2/device/name?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Response:
+```json
+{
+	"status": "success",
+	"deviceName": "holy-wildflower"
+}
+```
+
+#### Device tags
+
+Added in supervisor version v9.11.0
+
+Retrieve any device tags from the balena API. Note that this endpoint will not work when
+the device does not have an available connection to the balena API.
+
+From an application container:
+```
+$ curl "$BALENA_SUPERVISOR_ADDRESS/v2/device/tags?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Response:
+```json
+{
+	"status": "success",
+	"tags": [
+		{
+			"id": 188303,
+			"name": "DeviceLocation",
+			"value": "warehouse #3"
+		}
+	]
+}
+```
+### V2 Utilities
+
+#### Cleanup volumes with no references
+Added in supervisor version v10.0.0
+
+Starting with balena-supervisor v10.0.0, volumes which have no
+references are no longer automatically removed as part of
+the standard update flow. To cleanup up any orphaned
+volumes, use this supervisor endpoint:
+
+From an application container:
+```
+$ curl "$BALENA_SUPERVISOR_ADDRESS/v2/cleanup-volumes?apikey=$BALENA_SUPERVISOR_API_KEY"
+```
+
+Successful response:
+```
+{
+       "status": "success"
+}
+```
+
+Unsuccessful response:
+```
+{
+       "status": "failed",
+       "message": "the error message"
+}
+```
+

@@ -20,7 +20,7 @@ On older devices (with v4.0.0 <= supervisor version < v7.22.0) the lock is locat
 Legacy supervisors (< v4.0.0) have the lock at `/data/resin-updates.lock`. This lock is only supported on devices running resinOS 1.X.
 This old lock has the problem that the supervisor has to clear whenever it starts up to avoid deadlocks. If the user app
 has taken the lock before the supervisor starts up, the lock will be cleared and the app can operate under the false
-assumption that updates are locked (see [issue #20](https://github.com/balena-io/balena-supervisor/issues/20)). We therefore strongly recommend switching to the new lock location as soon as possible.
+assumption that updates are locked (see [issue #20](https://github.com/resin-io/resin-supervisor/issues/20)). We therefore strongly recommend switching to the new lock location as soon as possible.
 
 ### Creating the lockfile
 
@@ -80,6 +80,6 @@ Check the link for more examples and other Python libraries that provide locking
 
 The update lock can be overridden in case you need to force an update, for instance, if your app has hung in a critical section.
 
-The way to do this is hitting the `/v1/update` endpoint of the [supervisor HTTP API](./API.md), with `{ "force": true }` as body.
+The way to do this is hitting the `/v1/update` endpoint of the [supervisor HTTP API](/reference/supervisor/supervisor-api/#post-v1update), with `{ "force": true }` as body.
 
 The lock can also be overridden by setting the app's `BALENA_SUPERVISOR_OVERRIDE_LOCK` configuration variable to "1".

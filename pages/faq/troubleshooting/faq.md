@@ -3,27 +3,27 @@ title: FAQs
 ---
 # Frequently Asked Questions
 
-* [Can I use multiple containers?](#can-i-use-multiple-containers-)
-* [Can I mix device types in an application?](#can-i-mix-device-types-in-an-application-)
-* [How do I push a new git repo to an Application](#how-do-i-push-a-new-git-repo-to-an-application-)
-* [Why does `/data` report weird usage?](#why-does-data-report-weird-usage-)
-* [What NTP servers do the devices use?](#what-ntp-servers-do-the-devices-use-)
-* [What Network Ports are required?](#what-network-ports-are-required-)
-* [Can I access /dev and things like GPIO from the container?](#can-i-access-dev-and-things-like-gpio-from-the-container-)
-* [Can I set a static IP address for my device?](#can-i-set-a-static-ip-address-for-my-device-)
-* [Why can't I SSH into or run code in older versions of the host OS?](#why-can-t-i-ssh-into-or-run-code-in-older-versions-of-the-host-os-)
-* [How can I forward my container ports?](#how-can-i-forward-my-container-ports-)
-* [Which data is persisted on devices across updates/power cycles?](#which-data-is-persisted-on-devices-across-updates-power-cycles-)
-* [Why does /data disappear when I move a device between applications?](#why-does-data-disappear-when-i-move-a-device-between-applications-)
-* [It appears that there is a centralized master running (in cloud) and agents running on devices. Is that accurate?](#it-appears-that-there-is-a-centralized-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate-)
-* [What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?](#what-type-of-encryption-do-you-use-over-openvpn-ssl-tls-aes-256-mutual-key-authentication-over-ssh-)
-* [What is the performance impact on the gateway device due to encryption?](#what-is-the-performance-impact-on-the-gateway-device-due-to-encryption-)
-* [How long does the update process run typically? For now it appears to be quick for small updates.](#how-long-does-the-update-process-run-typically-do-you-have-any-benchmark-data-for-now-it-appears-to-be-quick-for-small-updates-)
-* [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration-)
-* [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
-* [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
-* [What does it mean when a device type is discontinued?](#what-does-it-mean-when-a-device-type-is-discontinued-)
-* [I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on-{{ $names.company.lower }}-)
+* [Can I use multiple containers?](#can-i-use-multiple-containers)
+* [Can I mix device types in an application?](#can-i-mix-device-types-in-an-application)
+* [How do I push a new git repo to an Application](#how-do-i-push-a-new-git-repo-to-an-application)
+* [Why does `/data` report weird usage?](#why-does-data-report-weird-usage)
+* [What NTP servers do the devices use?](#what-ntp-servers-do-the-devices-use)
+* [What Network Ports are required?](#what-network-ports-are-required)
+* [Can I access /dev and things like GPIO from the container?](#can-i-access-dev-and-things-like-gpio-from-the-container)
+* [Can I set a static IP address for my device?](#can-i-set-a-static-ip-address-for-my-device)
+* [Why can't I SSH into or run code in older versions of the host OS?](#why-cant-i-ssh-into-or-run-code-in-older-versions-of-the-host-os)
+* [How can I forward my container ports?](#how-can-i-forward-my-container-ports)
+* [Which data is persisted on devices across updates/power cycles?](#which-data-is-persisted-on-devices-across-updatespower-cycles)
+* [Why does /data disappear when I move a device between applications?](#why-does-data-disappear-when-i-move-a-device-between-applications)
+* [It appears that there is a centralized master running (in cloud) and agents running on devices. Is that accurate?](#it-appears-that-there-is-a-centralized-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate)
+* [What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?](#what-type-of-encryption-do-you-use-over-openvpn-ssltlsaes-256-mutual-key-authentication-over-ssh)
+* [What is the performance impact on the gateway device due to encryption?](#what-is-the-performance-impact-on-the-gateway-device-due-to-encryption)
+* [How long does the update process run typically? For now it appears to be quick for small updates.](#how-long-does-the-update-process-run-typically-do-you-have-any-benchmark-data-for-now-it-appears-to-be-quick-for-small-updates)
+* [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration)
+* [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](#if-the-device-is-installed-behind-a-proxyfirewall-and-cant-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls)
+* [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems)
+* [What does it mean when a device type is discontinued?](#what-does-it-mean-when-a-device-type-is-discontinued)
+* [I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on-{{ $names.company.lower }})
 
 
 
@@ -78,9 +78,6 @@ Additionally, you should whitelist the following domains for the relevant ports 
 * `*.{{ $names.dashboard_domain }}`
 * `*.docker.com`
 * `*.docker.io`
-
-
-Additionally, an outgoing connection to `mixpanel.com` is made. This is not a functional requirement for {{ $names.company.lower }}, but allows tracking of some useful metrics.
 
 ##### Can I access /dev and things like GPIO from the container?
 If you're application uses a single container, it will be run in privileged mode by default and will have access to hardware in the same way as a vanilla Linux system.
@@ -147,7 +144,7 @@ Discontinued devices will no longer be actively supported by {{ $names.company.l
 
 There are a few options for devices that do not have an official device type on {{ $names.company.lower }}. If your device has an x86 architecture, you can try the [Intel NUC][nuc] image, which is built to support generic x86 devices. For other devices, you can [build your own][build-your-own] version of {{ $names.os.lower }} using our [open source repos][balenaOS]. To discuss custom board support, please contact sales@{{ $names.email_domain }}.
 
-[forums]:https://forums.{{ $names.domain }}/c/troubleshooting
+[forums]:{{ $names.forums_domain }}/c/troubleshooting
 
 [device-types]:/reference/base-images/devicetypes
 [base-image]:/reference/base-images/base-images

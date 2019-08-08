@@ -1,12 +1,15 @@
 {
   "name": "resin-docs",
   "private": true,
-  "version": "3.1.16",
+  "version": "4.5.0",
+  "engines": {
+    "node": "^10.0.0"
+  },
   "description": "This repo contains our public-facing documentation.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"This repo has no tests specified.\" && exit 0",
     "postinstall": "./tools/prepare.sh",
     "build": "./tools/build.sh && webpack -p",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
@@ -24,7 +27,7 @@
   },
   "homepage": "https://github.com/balena-io/docs",
   "dependencies": {
-    "@resin.io/doxx": "0.11.1",
+    "@resin.io/doxx": "0.11.3",
     "bootstrap": "3.3.7",
     "bootstrap-select": "1.12.2",
     "coffee-script": "~1.10.0",
@@ -35,8 +38,7 @@
     "jquery": "3.2.1",
     "jquery-colorbox": "1.6.4",
     "lodash": "^4.11.1",
-    "metalsmith-prefixoid": "^1.0.3",
-    "ractive": "0.8.12"
+    "metalsmith-prefixoid": "^1.0.3"
   },
   "devDependencies": {
     "css-loader": "0.28.0",

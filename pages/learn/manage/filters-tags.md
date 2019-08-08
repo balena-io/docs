@@ -79,7 +79,7 @@ A new column will be created. You can then select which tag it should display:
 <img src="/img/common/app/tag_column.png" width="25%">
 
 
-[api-example]:{{ $links.githubMain }}-playground/device-tags
+[api-example]:{{ $links.githubPlayground }}/device-tags
 [filters]:#device-filters
 [tags]:#device-tags
 

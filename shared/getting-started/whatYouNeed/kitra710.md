@@ -1,6 +1,5 @@
 <img style="float: right;padding-left: 10px;" src="/img/kitra710/kitra710.jpg" width="35%">
 
-
 * [A Kitra710][kitra710-link] product accelerator development board from [RushUp](http://www.rushup.tech/).
 * A 12VDC power supply (100-240V input) with a 5mm DC barrel jack connector.
 * At least one of Wireless communication antennas, the kit should container both 2.4Ghz and 5Ghz antennas.

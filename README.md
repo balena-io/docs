@@ -1,11 +1,7 @@
 Balena Documentation
 ======================
 
-[![Build status](https://ci.appveyor.com/api/projects/status/qbsivehgnq0vyrrb?svg=true)](https://ci.appveyor.com/project/fedealconada/resin-docs)
-
-Join our [forums](https://forums.balena.io/), or online chat at [![Gitter chat](https://badges.gitter.im/resin-io/chat.png)](https://gitter.im/resin-io/chat)
-
-Documentation for the [balena](https://balena.io/) platform.
+Documentation for the [balenaCloud](https://balena.io/) platform. Join our [forums](https://forums.balena.io/) to chat.
 
 Role
 ----
@@ -24,7 +20,11 @@ cd docs
 npm install
 npm start
 ```
-And then open [http://localhost:3000](http://localhost:3000).
+And then open [http://localhost:3000/docs](http://localhost:3000/docs).
+
+> Note: if you are using macOS and you get `"RangeError: Maximum call stack size exceeded"`
+> when running `npm install` (which eventually calls the `build.sh` script), have a look at
+> the comments at the top of the `'Dockerfile.bindmount'` file.
 
 How to Contribute
 ----------
@@ -34,6 +34,22 @@ How to Contribute
 
 If you think something is not documented, or can be improved, don't hesitate in sending a PR!
 
+**NB:** Please ensure that each commit in your pull request conforms to the following format.
+
+```
+component: Description of my change
+
+Change-type: patch
+Signed-off-by: Joe Soap <joe.soap@gmail.com>
+```
+
+This will allow the system to automatically version the documentation using the `Change-type`. The versioning follows [semver](https://semver.org/) and changes can be of type `patch`, `minor` or `major`.
+
+It is also worth noting that for some of the Reference documentation, the docs are sourced from the components repos and they will need to be changed in the source repos. Currently the following reference material is pulled from other repos:
+- [Device Supervisor API](https://www.balena.io/docs/reference/supervisor/supervisor-api/) sourced from https://github.com/balena-io/balena-supervisor/tree/master/docs
+- [CLI](https://www.balena.io/docs/reference/cli/) sourced from https://github.com/balena-io/balena-cli/blob/master/doc/cli.markdown
+- [Node SDK](https://www.balena.io/docs/reference/sdk/node-sdk/) sourced from https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md
+- [Python SDK](https://www.balena.io/docs/reference/sdk/python-sdk/) sourced from https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md
 
 Deploying
 ----------
@@ -79,7 +95,7 @@ To add you changes to the docs, create a new local branch of master:
 ```
 git checkout -b my-docs-patch
 ```
-Now you can make changes in this branch. Since our docs are static pages generated from markdown using metalsmith.io,  each time you change some of the `.md` files you will need to run rebuild of the docs to generate the static pages. This is done by running:
+Now you can make changes in this branch. Since our docs are static pages generated from markdown using metalsmith.io, each time you change some of the `.md` files you will need to run rebuild of the docs to generate the static pages. This is done by running:
 ```
 ./tools/prepare.sh
 ```
@@ -115,7 +131,7 @@ and the engine will pull that partial into this location in the page.
 
 Its important to note that `h1` and `h2` headings will automatically be included in the left hand side navigation bar, so make sure to use these appropriately.
 
-In the dynamically generated pages ( the ones with he device-type and language dropdown) it is possible to use templates to dynamically change the device name and language name in your text. Here is an example:
+In the dynamically generated pages (the ones with the device-type and language dropdown) it is possible to use templates to dynamically change the device name and language name in your text. Here is an example:
 ```
 Getting started with {{ $device_details.name }} using {{ $language_details.name }}
 ```

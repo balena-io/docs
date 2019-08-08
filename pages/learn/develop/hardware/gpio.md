@@ -137,7 +137,7 @@ Please note that these are operating at a different voltage from the data pins -
 
 Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the [Octalbonescript](https://github.com/theoctal/octalbonescript) JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
 
-With this module you should be able to carry out basic GPIO and analog-to-digital conversion operations. To get you started we have a simple example using this module [here]({{ $links.githubProjects }}/beaglebone-adc-node).
+With this module you should be able to carry out basic GPIO and analog-to-digital conversion operations. To get you started we have a simple example using this module [here]({{ $links.githubPlayground }}/beaglebone-adc-node).
 
 If you would prefer a python implementation, then look at this [github issue](https://github.com/adafruit/adafruit-beaglebone-io-python/issues/80#issuecomment-163073883) and get involved in making it happen.
 

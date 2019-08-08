@@ -73,7 +73,7 @@ In some cases, you may need to examine the contents of certain directories or fi
 Note that the [filesystem layout][filesystem] may look slightly different from what you’d expect—for example the two locations mentioned above are found at `/mnt/data` and `/mnt/boot`, respectively.
 
 
-[forums]:https://forums.balena.io/c/balena-cloud
+[forums]:{{$names.forums_domain}}/c/balena-cloud
 [engine-link]:{{ $links.engineSiteUrl }}
 [nmcli]:https://fedoraproject.org/wiki/Networking/CLI
 [mmcli]:https://www.freedesktop.org/software/ModemManager/man/1.8.0/mmcli.8.html

@@ -115,7 +115,7 @@ There are multiple ways to connect to the ARTIK Cloud to send and receive data, 
 Here are a few notes using the [Python SDK](https://github.com/artikcloud/artikcloud-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Python images, for example:
 
 ```
-FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python:2.7
+FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-python:2.7
 ```
 
 Add the `artikcloud` dependency in your `requirements.txt` file:
@@ -167,11 +167,11 @@ print(response)
 
 You can use any Python WebSockets library to communicate with the ARTIK Cloud. Check the [WebSockets connection](https://developer.artik.cloud/documentation/connect-the-data/rest-and-websockets.html) and [WebSockets API](https://developer.artik.cloud/documentation/api-reference/websockets-api.html) pages on the ARTIK Cloud Documentation.
 
-The [artilcloud-resin-python]({{ $links.githubProjects }}/artikcloud-resin-python) project includes a example of how to connect to the ARTIK Cloud using WebSockets, send messages and receive actions.
+The [artikcloud-resin-python]({{ $links.githubProjects }}/artikcloud-balena-python) project includes a example of how to connect to the ARTIK Cloud using WebSockets, send messages and receive actions.
 
 #### Using MQTT from Python
 
-The [artilcloud-resin-python]({{ $links.githubProjects }}/artikcloud-resin-python) project includes an example of how to connect to the ARTIK Cloud using MQTT, send messages and receive actions.
+The [artikcloud-resin-python]({{ $links.githubProjects }}/artikcloud-balena-python) project includes an example of how to connect to the ARTIK Cloud using MQTT, send messages and receive actions.
 
 You can use any Python MQTT library to communicate with the ARTIK Cloud. Check the [MQTT connection](https://developer.artik.cloud/documentation/connect-the-data/mqtt.html) and [MQTT API](https://developer.artik.cloud/documentation/api-reference/mqtt-api.html) pages on the ARTIK Cloud Documentation.
 
@@ -182,7 +182,7 @@ You can use any Python MQTT library to communicate with the ARTIK Cloud. Check t
 Here are a few notes using the [Javascript/Node.js SDK](https://github.com/artikcloud/artikcloud-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Node.js images, for example:
 
 ```
-FROM {{ $names.base.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
+FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node:latest
 ```
 
 Add the `artikcloud-js` dependency in your `package.json` in your application's folder:

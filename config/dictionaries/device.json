@@ -73,7 +73,7 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/fincm3.svg",
-    "link": "https://www.balenafin.io/",
+    "link": "https://www.balena.io/fin",
     "type": "released"
   },
   {
@@ -119,12 +119,12 @@
       {
         "name": "UP core",
         "image": "/img/up-board/up-core.png",
-        "link": "http://www.up-board.org/upcore/"
+        "link": "https://www.up-board.org/upcore/specifications"
       },
       {
         "name": "UP squared",
         "image": "/img/up-board/up-squared.png",
-        "link": "http://www.up-board.org/upsquared/"
+        "link": "https://www.up-board.org/upsquared/specifications"
       }
     ],
     "arch": "amd64",
@@ -132,6 +132,15 @@
     "icon": "/img/device/up-board.svg",
     "link": "https://www.up-board.org/",
     "type": "released"
+  },
+  {
+    "id": "jetson-nano",
+    "name": "Jetson Nano",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/jetson-nano.svg",
+    "link": "https://developer.nvidia.com/embedded/buy/jetson-nano",
+    "type": "beta"
   },
   {
     "id": "jetson-tx2",
@@ -295,7 +304,7 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/odroid-c1.svg",
-    "link": "http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573",
+    "link": "https://www.hardkernel.com/shop/odroid-c1/",
     "type": "released"
   },
   {
@@ -304,7 +313,7 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/odroid-xu4.svg",
-    "link": "http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825",
+    "link": "https://www.hardkernel.com/shop/odroid-xu4-special-price/",
     "type": "released"
   },
   {

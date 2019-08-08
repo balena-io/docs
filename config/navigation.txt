@@ -75,6 +75,7 @@ Learn
       [/learn/more/examples/seed-projects]
       [/learn/more/examples/snippets]
     [/learn/more/resources]
+    [/learn/more/collected-data]
 
 FAQ
 
@@ -84,6 +85,7 @@ FAQ
 Reference
 
   Supported devices
+    [/reference/hardware/versioning]
     [/reference/hardware/devices]
     [/reference/hardware/wifi-dongles]
 
@@ -105,8 +107,9 @@ Reference
 
   Base images
     [/reference/base-images/base-images]
+    [/reference/base-images/base-images-ref]
     [/reference/base-images/devicetypes]
-    [/reference/base-images/custom-docker-base-images]
+    [/reference/base-images/legacy-base-images]
 
   API
     [/reference/api/overview]

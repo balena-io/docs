@@ -2,7 +2,7 @@
 
 Now that we have a device or two connected to a {{ $names.company.lower }} application, let's deploy some code and actually start building something.
 
-A nice first project to get your feet wet is a simple [C++][cpp] hello world program which will print a `Hello, world!` message to the logs on the dashboard. All the project source code can be found [here on github] [balena-cpp-hello-world-link].
+A nice first project to get your feet wet is a simple [C++][cpp] hello world program which will print a `Hello, world!` message to the logs on the dashboard. All the project source code can be found [here on GitHub][balena-cpp-hello-world-link].
 
 To clone the project, run the following command in a terminal or your preferred git client:
 

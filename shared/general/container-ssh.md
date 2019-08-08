@@ -43,4 +43,4 @@ echo ". <(xargs -0 bash -c 'printf \"export %q\n\" \"\$@\"' -- < /proc/1/environ
 [dockerfile-init]:/learn/develop/dockerfile/#init-system
 [compose-init]:/learn/develop/multicontainer/#balena-settings
 [balena-ssh]:/reference/cli/#ssh-uuid-
-[balena-openssh]:{{ $links.githubProjects }}/balena-openssh
+[balena-openssh]:{{ $links.githubPlayground }}/balena-openssh

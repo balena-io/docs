@@ -45,6 +45,7 @@ body {
   .improve-docs {
     float: none;
     margin-top: 10px;
+    margin-bottom: 16px;
   }
 }
 
@@ -181,12 +182,16 @@ article .headroom {
  color: #6b6d73;
 }
 
-.sidebar .search-wrapper form {
+.sidebar .search-wrapper .algolia-wrapper {
   border-bottom: 1px solid #e6e8eb;
   border-right: 1px solid #e6e8eb;
   padding: 10px;
   padding-bottom: 9px;
   background: #F7F7F7;
+}
+
+.sidebar .search-wrapper .algolia-wrapper .algolia-autocomplete {
+  width: 100%;
 }
 
 .sidebar .search-wrapper {
@@ -433,6 +438,10 @@ header.sticky {
   .form-inline .bootstrap-select.dynamic-switch__select {
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .page-content-wrapper {
+    padding: 24px 16px 0;
   }
 }
 

@@ -3,11 +3,14 @@
 {% block "contents" %}
   <h1>Page not found</h1>
 
-  <p>We think we don't have a page you're looking for.</p>
+  <p>We think we don't have the page you're looking for.</p>
   <p>
     Try starting from the
     <a href="/">Introduction</a> or use the search:
   </p>
-  {% include "_search-form.html" %}
+
+  <div class='algolia-wrapper'>
+    <input name="searchTerm404" type="text" class="form-control" placeholder="Search Docs..." value="{{ searchTerm }}">
+  </div>
 
 {% endblock %}
