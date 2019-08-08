@@ -105,7 +105,7 @@ Here are the supported machine names and architectures:
 
 There are cases when you would need a higher granularity of control when specifying build instructions for different devices and architectures than a single Dockerfile template can provide. An example of this would be when different configuration or installation files are required for each architecture or device.
 
-When deploying an application, the balenaCloud build servers or the balena CLI tool (depending deployment method used) look at all available Dockerfiles and build the appropriate image using the following order of preference:
+When deploying an application, the balenaCloud build servers or the balena CLI tool (depending on the deployment method used) look at all available Dockerfiles and build the appropriate image using the following order of preference:
 
 * Dockerfile.<device-type>
 * Dockerfile.<arch>
