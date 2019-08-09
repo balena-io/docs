@@ -941,6 +941,7 @@ in it's service container or host OS.
 For local devices, the ip address and .local domain name are supported.
 
 Examples:
+
 	balena ssh MyApp
 
 	balena ssh f49cefd
@@ -950,7 +951,7 @@ Examples:
 	balena ssh 192.168.0.1 --verbose
 	balena ssh f49cefd.local my-service
 
-Warning: 'balena ssh' requires an openssh-compatible client to be correctly
+Warning: `balena ssh` requires an openssh-compatible client to be correctly
 installed in your shell environment. For more information (including Windows
 support) please check:
 	https://github.com/balena-io/balena-cli/blob/master/INSTALL.md#additional-dependencies
