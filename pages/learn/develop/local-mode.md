@@ -122,14 +122,14 @@ These containers will have access to all the features and environment that balen
 
 ## SSH into the running app container or host OS
 
-If we want to run some test commands in our app container, we can do this easily using `{{ $names.company.short }} local ssh`. This command drops us directly into the selected container:
+If we want to run some test commands in our app container, we can do this easily using `{{ $names.company.short }} ssh`. This command drops us directly into the host OS. From there, we can check system logs and [perform other troubleshooting tasks][troubleshooting]:
 ```
-sudo {{ $names.company.short }} local ssh f340127.local
+sudo {{ $names.company.short }} ssh 192.168.0.12
 ```
-To connect to the host OS, we can add the `--host` option. From here, we can check system logs and [perform other troubleshooting tasks][troubleshooting]:
+To connect to an application container, we can add the service name after the hostname or IP address:
 
 ```
-sudo {{ $names.company.short }} local ssh f340127.local --host
+sudo {{ $names.company.short }} ssh 192.168.36.12 my-service
 ```
 
 ## Using a Private Docker Registry
