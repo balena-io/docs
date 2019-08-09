@@ -1,5 +1,206 @@
 [
   {
+    "id": "asus-tinker-board",
+    "name": "Asus Tinker Board",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/asus-tinker-board.svg",
+    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board/",
+    "type": "beta"
+  },
+  {
+    "id": "asus-tinker-board-s",
+    "name": "Asus Tinker Board S",
+    "arch": "armv7hf",
+    "bootMedia": "eMMC",
+    "icon": "/img/device/asus-tinker-board-s.svg",
+    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board-S/",
+    "type": "beta"
+  },
+  {
+    "id": "fincm3",
+    "name": "Balena Fin",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/fincm3.svg",
+    "link": "https://www.balena.io/fin",
+    "type": "released"
+  },
+  {
+    "id": "bananapi-m1-plus",
+    "name": "Banana Pi M1+",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/bananapi-m1-plus.svg",
+    "link": "http://www.banana-pi.org/m1plus.html",
+    "type": "beta"
+  },
+  {
+    "id": "beaglebone-black",
+    "name": "BeagleBone",
+    "variants": [
+      {
+        "name": "BeagleBone Black",
+        "image": "/img/beaglebone-black/beaglebone-black.jpg",
+        "link": "http://beagleboard.org/black"
+      },
+      {
+        "name": "BeagleBone Blue",
+        "image": "/img/beaglebone-black/beagle-blue.png",
+        "link": "http://beagleboard.org/blue"
+      },
+      {
+        "name": "BeagleBone Green",
+        "image": "/img/beaglebone-black/beaglebone-green.jpg",
+        "link": "http://beagleboard.org/green"
+      },
+      {
+        "name": "BeagleBone Green Wireless",
+        "image": "/img/beaglebone-black/beaglebone-green-wireless.jpg",
+        "link": "http://beagleboard.org/green-wireless"
+      }
+    ],
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/beaglebone-black.svg",
+    "link": "http://beagleboard.org/bone",
+    "type": "released"
+  },
+  {
+    "id": "imx6ul-var-dart",
+    "name": "DART-6UL",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/dart6ul.svg",
+    "link": "https://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul/",
+    "type": "beta"
+  },
+  {
+    "id": "generic-aarch64",
+    "name": "Generic AARCH64 (ARMv8)",
+    "arch": "aarch64",
+    "icon": "/img/device/generic-aarch64.svg",
+    "type": "virtual"
+  },
+  {
+    "id": "generic-armv7ahf",
+    "name": "Generic ARMv7-a HF",
+    "arch": "armv7hf",
+    "icon": "/img/device/generic-armv7ahf.svg",
+    "type": "virtual"
+  },
+  {
+    "id": "hummingboard",
+    "name": "Hummingboard",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/hummingboard.svg",
+    "link": "https://www.solid-run.com/nxp-family/hummingboard/",
+    "type": "released"
+  },
+  {
+    "id": "intel-edison",
+    "name": "Intel Edison",
+    "arch": "i386",
+    "bootMedia": "eMMC",
+    "icon": "/img/device/intel-edison.svg",
+    "link": "https://software.intel.com/en-us/iot/hardware/edison/documentation",
+    "type": "released"
+  },
+  {
+    "id": "intel-nuc",
+    "name": "Intel NUC",
+    "variants": [
+      {
+        "name": "Intel NUC",
+        "image": "/img/intel-nuc/intel-nuc.jpg",
+        "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html"
+      },
+      {
+        "name": "Generic x86 devices",
+        "image": "/img/intel-nuc/x86.png",
+        "link": "/learn/getting-started/intel-nuc/nodejs/"
+      }
+    ],
+    "arch": "amd64",
+    "bootMedia": "USB drive",
+    "icon": "/img/device/intel-nuc.svg",
+    "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html",
+    "type": "released"
+  },
+  {
+    "id": "jetson-nano",
+    "name": "Jetson Nano",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/jetson-nano.svg",
+    "link": "https://developer.nvidia.com/embedded/buy/jetson-nano",
+    "type": "beta"
+  },
+  {
+    "id": "jetson-tx1",
+    "name": "Jetson TX1",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/jetson-tx1.svg",
+    "link": "https://developer.nvidia.com/embedded/buy/jetson-tx1",
+    "type": "beta"
+  },
+  {
+    "id": "jetson-tx2",
+    "name": "Jetson TX2",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/jetson-tx2.svg",
+    "link": "https://developer.nvidia.com/embedded/buy/jetson-tx2",
+    "type": "beta"
+  },
+  {
+    "id": "kitra710",
+    "name": "Kitra 710",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/kitra710.svg",
+    "link": "https://www.rushup.tech/kitra710/",
+    "type": "beta"
+  },
+  {
+    "id": "nitrogen6x",
+    "name": "Nitrogen 6X",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/nitrogen6x.svg",
+    "link": "https://boundarydevices.com/nitrogen6x/",
+    "type": "released"
+  },
+  {
+    "id": "odroid-c1",
+    "name": "Odroid C1/C1+",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/odroid-c1.svg",
+    "link": "https://www.hardkernel.com/shop/odroid-c1/",
+    "type": "released"
+  },
+  {
+    "id": "odroid-xu4",
+    "name": "Odroid XU4",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/odroid-xu4.svg",
+    "link": "https://www.hardkernel.com/shop/odroid-xu4-special-price/",
+    "type": "released"
+  },
+  {
+    "id": "orangepi-plus2",
+    "name": "Orange Pi Plus2",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "icon": "/img/device/orangepi-plus2.svg",
+    "link": "http://www.orangepi.org/orangepiplus2/",
+    "type": "beta"
+  },
+  {
     "id": "raspberry-pi",
     "name": "Raspberry Pi 1, Zero, or Zero W",
     "variants": [
@@ -68,154 +269,22 @@
     "type": "released"
   },
   {
-    "id": "fincm3",
-    "name": "Balena Fin",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/fincm3.svg",
-    "link": "https://www.balena.io/fin",
-    "type": "released"
-  },
-  {
-    "id": "beaglebone-black",
-    "name": "BeagleBone",
-    "variants": [
-      {
-        "name": "BeagleBone Black",
-        "image": "/img/beaglebone-black/beaglebone-black.jpg",
-        "link": "http://beagleboard.org/black"
-      },
-      {
-        "name": "BeagleBone Blue",
-        "image": "/img/beaglebone-black/beagle-blue.png",
-        "link": "http://beagleboard.org/blue"
-      },
-      {
-        "name": "BeagleBone Green",
-        "image": "/img/beaglebone-black/beaglebone-green.jpg",
-        "link": "http://beagleboard.org/green"
-      },
-      {
-        "name": "BeagleBone Green Wireless",
-        "image": "/img/beaglebone-black/beaglebone-green-wireless.jpg",
-        "link": "http://beagleboard.org/green-wireless"
-      }
-    ],
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/beaglebone-black.svg",
-    "link": "http://beagleboard.org/bone",
-    "type": "released"
-  },
-  {
-    "id": "up-board",
-    "name": "UP board",
-    "variants": [
-      {
-        "name": "UP board",
-        "image": "/img/up-board/up-board.png",
-        "link": "http://www.up-board.org/up/"
-      },
-      {
-        "name": "UP core",
-        "image": "/img/up-board/up-core.png",
-        "link": "https://www.up-board.org/upcore/specifications"
-      },
-      {
-        "name": "UP squared",
-        "image": "/img/up-board/up-squared.png",
-        "link": "https://www.up-board.org/upsquared/specifications"
-      }
-    ],
-    "arch": "amd64",
-    "bootMedia": "USB drive",
-    "icon": "/img/device/up-board.svg",
-    "link": "https://www.up-board.org/",
-    "type": "released"
-  },
-  {
-    "id": "jetson-nano",
-    "name": "Jetson Nano",
-    "arch": "aarch64",
-    "bootMedia": "SD card",
-    "icon": "/img/device/jetson-nano.svg",
-    "link": "https://developer.nvidia.com/embedded/buy/jetson-nano",
-    "type": "beta"
-  },
-  {
-    "id": "jetson-tx2",
-    "name": "Jetson TX2",
-    "arch": "aarch64",
-    "bootMedia": "SD card",
-    "icon": "/img/device/jetson-tx2.svg",
-    "link": "https://developer.nvidia.com/embedded/buy/jetson-tx2",
-    "type": "beta"
-  },
-  {
-    "id": "jetson-tx1",
-    "name": "Jetson TX1",
-    "arch": "aarch64",
-    "bootMedia": "SD card",
-    "icon": "/img/device/jetson-tx1.svg",
-    "link": "https://developer.nvidia.com/embedded/buy/jetson-tx1",
-    "type": "beta"
-  },
-  {
-    "id": "intel-nuc",
-    "name": "Intel NUC",
-    "variants": [
-      {
-        "name": "Intel NUC",
-        "image": "/img/intel-nuc/intel-nuc.jpg",
-        "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html"
-      },
-      {
-        "name": "Generic x86 devices",
-        "image": "/img/intel-nuc/x86.png",
-        "link": "/learn/getting-started/intel-nuc/nodejs/"
-      }
-    ],
-    "arch": "amd64",
-    "bootMedia": "USB drive",
-    "icon": "/img/device/intel-nuc.svg",
-    "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html",
-    "type": "released"
-  },
-  {
-    "id": "asus-tinker-board",
-    "name": "Asus Tinker Board",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/asus-tinker-board.svg",
-    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board/",
-    "type": "beta"
-  },
-  {
-    "id": "asus-tinker-board-s",
-    "name": "Asus Tinker Board S",
+    "id": "revpi-core-3",
+    "name": "Revolution Pi Core 3",
     "arch": "armv7hf",
     "bootMedia": "eMMC",
-    "icon": "/img/device/asus-tinker-board-s.svg",
-    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board-S/",
+    "icon": "/img/device/revpi-core-3.svg",
+    "link": "https://revolution.kunbus.de/shop/en/revpi-core-3",
     "type": "beta"
   },
   {
-    "id": "orangepi-plus2",
-    "name": "Orange Pi Plus2",
+    "id": "artik10",
+    "name": "Samsung ARTIK 1020",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/orangepi-plus2.svg",
-    "link": "http://www.orangepi.org/orangepiplus2/",
-    "type": "beta"
-  },
-  {
-    "id": "bananapi-m1-plus",
-    "name": "Banana Pi M1+",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/bananapi-m1-plus.svg",
-    "link": "http://www.banana-pi.org/m1plus.html",
-    "type": "beta"
+    "icon": "/img/device/artik10.svg",
+    "link": "https://www.artik.io/modules/artik-1020/",
+    "type": "released"
   },
   {
     "id": "artik530",
@@ -245,33 +314,6 @@
     "type": "beta"
   },
   {
-    "id": "artik10",
-    "name": "Samsung ARTIK 1020",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/artik10.svg",
-    "link": "https://www.artik.io/modules/artik-1020/",
-    "type": "released"
-  },
-  {
-    "id": "kitra710",
-    "name": "Kitra 710",
-    "arch": "aarch64",
-    "bootMedia": "SD card",
-    "icon": "/img/device/kitra710.svg",
-    "link": "https://www.rushup.tech/kitra710/",
-    "type": "beta"
-  },
-  {
-    "id": "imx6ul-var-dart",
-    "name": "DART-6UL",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/dart6ul.svg",
-    "link": "https://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul/",
-    "type": "beta"
-  },
-  {
     "id": "iot2000",
     "name": "Siemens IOT2000",
     "arch": "i386-nlp",
@@ -279,42 +321,6 @@
     "icon": "/img/device/iot2000.svg",
     "link": "https://w3.siemens.com/mcms/pc-based-automation/en/industrial-iot/Pages/Default.aspx",
     "type": "beta"
-  },
-  {
-    "id": "nitrogen6x",
-    "name": "Nitrogen 6X",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/nitrogen6x.svg",
-    "link": "https://boundarydevices.com/nitrogen6x/",
-    "type": "released"
-  },
-  {
-    "id": "hummingboard",
-    "name": "Hummingboard",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/hummingboard.svg",
-    "link": "https://www.solid-run.com/nxp-family/hummingboard/",
-    "type": "released"
-  },
-  {
-    "id": "odroid-c1",
-    "name": "Odroid C1/C1+",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/odroid-c1.svg",
-    "link": "https://www.hardkernel.com/shop/odroid-c1/",
-    "type": "released"
-  },
-  {
-    "id": "odroid-xu4",
-    "name": "Odroid XU4",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/odroid-xu4.svg",
-    "link": "https://www.hardkernel.com/shop/odroid-xu4-special-price/",
-    "type": "released"
   },
   {
     "id": "ts4900",
@@ -326,36 +332,30 @@
     "type": "released"
   },
   {
-    "id": "revpi-core-3",
-    "name": "Revolution Pi Core 3",
-    "arch": "armv7hf",
-    "bootMedia": "eMMC",
-    "icon": "/img/device/revpi-core-3.svg",
-    "link": "https://revolution.kunbus.de/shop/en/revpi-core-3",
-    "type": "beta"
-  },
-  {
-    "id": "intel-edison",
-    "name": "Intel Edison",
-    "arch": "i386",
-    "bootMedia": "eMMC",
-    "icon": "/img/device/intel-edison.svg",
-    "link": "https://software.intel.com/en-us/iot/hardware/edison/documentation",
+    "id": "up-board",
+    "name": "UP board",
+    "variants": [
+      {
+        "name": "UP board",
+        "image": "/img/up-board/up-board.png",
+        "link": "http://www.up-board.org/up/"
+      },
+      {
+        "name": "UP core",
+        "image": "/img/up-board/up-core.png",
+        "link": "https://www.up-board.org/upcore/specifications"
+      },
+      {
+        "name": "UP squared",
+        "image": "/img/up-board/up-squared.png",
+        "link": "https://www.up-board.org/upsquared/specifications"
+      }
+    ],
+    "arch": "amd64",
+    "bootMedia": "USB drive",
+    "icon": "/img/device/up-board.svg",
+    "link": "https://www.up-board.org/",
     "type": "released"
-  },
-  {
-    "id": "generic-aarch64",
-    "name": "Generic AARCH64 (ARMv8)",
-    "arch": "aarch64",
-    "icon": "/img/device/generic-aarch64.svg",
-    "type": "virtual"
-  },
-  {
-    "id": "generic-armv7ahf",
-    "name": "Generic ARMv7-a HF",
-    "arch": "armv7hf",
-    "icon": "/img/device/generic-armv7ahf.svg",
-    "type": "virtual"
   },
   {
     "id": "var-som-mx6",
