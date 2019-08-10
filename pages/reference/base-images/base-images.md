@@ -164,7 +164,7 @@ In many IoT projects your containers will want to interact with some hardware, o
 
 You will also need to run your container `privileged`, by default any [balenaCloud](https://www.balena.io/cloud/) projects that don't contain a `docker-compose.yml` will run their containers `privileged`. If you are using a multicontainer project you will need to add `privileged: true` to each of the service definitions for the services that need hardware access.
 
-When a `balenalib` container runs with `UDEV=1` it will first detect if it is running on a `privileged` container, if it is, it will mount the hostOS `/dev` to a devtmpfs and then start [`udevd`][udevd-link]. Now anytime a new device is plugged in, the kernel will notify the container [`udevd`][udevd-link] daemon and the relevant device nodes in the container `/dev` will appear.
+When a `balenalib` container runs with `UDEV=1` it will first detect if it is running on a `privileged` container, if it is, it will mount the host OS `/dev` to a devtmpfs and then start [`udevd`][udevd-link]. Now anytime a new device is plugged in, the kernel will notify the container [`udevd`][udevd-link] daemon and the relevant device nodes in the container `/dev` will appear.
 
 __Note:__ The new balenalib base images make sure `udevd` runs in its own network namespace, so as to not interfere with cellular modems. These images should not have any of the past udev restrictions of the `resin/` base images.
 
