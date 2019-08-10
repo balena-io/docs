@@ -137,7 +137,7 @@ method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 
 ```
 
 ### Blacklisting kernel modules won't work
-Since the `/etc/modules` you see in your container belongs to the container's filesystem and is not the same as `/etc/modules` in the hostOS, adding kernel modules to the modules blacklist in the container will have no effect. So in order to remove a module, you need to explicitly do a [`rmmod`](http://linux.die.net/man/8/rmmod).
+Since the `/etc/modules` you see in your container belongs to the container's filesystem and is not the same as `/etc/modules` in the host OS, adding kernel modules to the modules blacklist in the container will have no effect. So in order to remove a module, you need to explicitly do a [`rmmod`](http://linux.die.net/man/8/rmmod).
 
 ## Supervisor
 
@@ -145,7 +145,7 @@ __Note:__ In multicontainer applications, the `io.balena.features.supervisor-api
 
 ### Reboot from Inside the Container
 
-You may notice that if you issue a `reboot`, `halt`, or `shutdown` your container either gets into a weird zombie state or doesn't do anything. The reason for this is that these commands do not propagate down to the hostOS system. If you need to issue a `reboot` from your container you should use the supervisor API as shown:
+You may notice that if you issue a `reboot`, `halt`, or `shutdown` your container either gets into a weird zombie state or doesn't do anything. The reason for this is that these commands do not propagate down to the host OS system. If you need to issue a `reboot` from your container you should use the supervisor API as shown:
 ```
 curl -X POST --header "Content-Type:application/json" \
     "${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/reboot?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
