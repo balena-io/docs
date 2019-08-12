@@ -1,6 +1,6 @@
 ### Build Time only Secret File
 
-To use build secrets, make a subdirectory `.balena` in the root of your repository. Inside that directory, make another 
+To use build secrets, make a subdirectory `.balena` in the root of your repository. Inside that directory, make another
 directory named `secrets` and a file named `balena.yml`. Without any secrets, your tree should look like:
 ```
 .
@@ -33,7 +33,7 @@ Now, in the `.balena/balena.yml` file, add the following:
 build-secrets:
     global:
         - source: super-secret-recipe
-          dest: my-recipe   
+          dest: my-recipe
 ```
 This will mount the `super-secret-recipe` file into `/run/secrets/my-recipe` file in every build container. Note that the `/run/secrets` folder is only available during the image build, and not present in the image that is deployed to the devices.
 

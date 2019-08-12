@@ -30,7 +30,7 @@ jobs:
             docker push ${DOCKER_IMAGE}:${CIRCLE_BRANCH}
             docker tag ${DOCKER_IMAGE}:${CIRCLE_SHA1} ${DOCKER_IMAGE}:latest
             docker push ${DOCKER_IMAGE}:latest
-            
+
             if [ "${CIRCLE_TAG}" != "" ]; then
               docker tag ${DOCKER_IMAGE}:${CIRCLE_SHA1} ${DOCKER_IMAGE}:${CIRCLE_TAG}
               docker push ${DOCKER_IMAGE}:${CIRCLE_TAG}

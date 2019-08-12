@@ -24,9 +24,9 @@ Depending on the number of applications you have access to, this could return mu
 The following API call uses `$select` to only return the name and device type for each application:
 
 ```
-curl -X GET 
+curl -X GET
 "{{ $links.apiBase }}/v4/application?\$select=app_name,device_type" \
--H "Content-Type: application/json" \ 
+-H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 

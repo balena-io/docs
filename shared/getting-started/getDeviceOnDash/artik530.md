@@ -11,7 +11,7 @@ Your **{{ $device.name }}** will now flash {{ $names.os.lower }} onto the intern
 2. Remove the {{ $device.bootMedia }}.
 3. Set the `SW402` dip switches to `1:off, 2:off, 3:off, 4:off`.
 
-Next, flip the `SW700` switch back to `on` and once again hold down the `SW400` button for a second or so. If all goes according to plan, you should now have a freshly provisioned **{{ $device.name }}** sitting in an `IDLE` state on your dashboard, ready and waiting to receive some code. 
+Next, flip the `SW700` switch back to `on` and once again hold down the `SW400` button for a second or so. If all goes according to plan, you should now have a freshly provisioned **{{ $device.name }}** sitting in an `IDLE` state on your dashboard, ready and waiting to receive some code.
 
 Now let's deploy some code!
 

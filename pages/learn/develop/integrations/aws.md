@@ -102,7 +102,7 @@ If all went well you’ll see the balena unicorn mascot and the code you’ve ju
 
 With your hardware provisioned and the code deployed, it’s time to configure the device so it can connect to the Amazon servers.
 
-### Converting the certificates to base64 
+### Converting the certificates to base64
 
 When configuring your device to communicate with AWS IoT, each device must contain its own certificates. The issue with the certificate files is that you can’t and shouldn’t add them to the project directory as it would create a security issue for the whole project. Instead, we will deploy all the devices with the same source-code and configure individual certificates from the balenaCloud dashboard, making use of **environment variables**.
 
@@ -219,4 +219,4 @@ where you need to replace `KEYFILE` with the relevant filename (such as `xxxxxxx
 A few sample apps to get started:
 
 * [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device)
-* [balenaCloud AWS IoT MQTT Broker Example](https://github.com/balena-io-playground/balena-aws-iot-mqtt-example) with full blog post for example: 
+* [balenaCloud AWS IoT MQTT Broker Example](https://github.com/balena-io-playground/balena-aws-iot-mqtt-example) with full blog post for example:

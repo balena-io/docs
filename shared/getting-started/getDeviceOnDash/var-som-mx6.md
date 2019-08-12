@@ -8,4 +8,4 @@ VAR-SOLOCustomBoard.
 
 While you wait, {{ $names.os.lower }} is partitioning your SD card, installing a custom Linux environment, and establishing a secure connection with our servers.
 
-If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in a minute or so. 
+If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in a minute or so.

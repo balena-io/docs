@@ -4,18 +4,18 @@ excerpt: Explanation of device types and their version scheme
 ---
 
 ## Device Types
-A device type in balena describes a [SoC](https://en.wikipedia.org/wiki/System_on_a_chip) or group of SoCs that have the same boot configuration and are capable of booting the same Operating system. When a new device type is created, it is usually because the SoC or configuration is distinctly different from others that exist. 
+A device type in balena describes a [SoC](https://en.wikipedia.org/wiki/System_on_a_chip) or group of SoCs that have the same boot configuration and are capable of booting the same Operating system. When a new device type is created, it is usually because the SoC or configuration is distinctly different from others that exist.
 
 As an example the [Raspberry Pi 1 model B+](https://www.raspberrypi.org/products/raspberry-pi-1-model-b-plus/) and [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) are part of the same device type since they are both `armv6l` architecture SoCs and the boot loader is capable of booting both boards. However, the [Raspberry Pi 3 model B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) is by default a `armv7l` CPU and we therefore separate it into a new device type.
 
-In balenaCloud the device type is also used to define what architecture the built containers for each app will be. So in the above example RPi ZERO deployments are built for the `armv6l` architecture where as RPi 3 applications will target the `armv7l` architecture and the Intel NUC device type will target `x86_64` architecture. 
+In balenaCloud the device type is also used to define what architecture the built containers for each app will be. So in the above example RPi ZERO deployments are built for the `armv6l` architecture where as RPi 3 applications will target the `armv7l` architecture and the Intel NUC device type will target `x86_64` architecture.
 
 ### Designations
 
 When looking at all the supported device types in balenaCloud, you will notice that there are a number of different designations. Here we will discuss a few of these designations in more detail.
 
 #### Official
-All device types that are not designated with `COMMUNITY` or `PRIVATE` are considered officially supported boards. 
+All device types that are not designated with `COMMUNITY` or `PRIVATE` are considered officially supported boards.
 
 Official device types are:
 - Run through a full suite of testing on real hardware each time an OS version is released for the device type.
@@ -38,7 +38,7 @@ The community devices types are:
 - Community boards can be promoted to an official balena supported board if a customer is interested in sponsoring the device support. If you are interested in sponsoring a community board, email solutions@balena.io .
 
 #### Discontinued
-Discontinued device types are those that are no longer actively maintained by the balena team or anyone in the community and will stop showing in the dashboard as options for new applications and devices. Any already provisioned devices of this type will continue to function, but will no longer receive operating system updates.  
+Discontinued device types are those that are no longer actively maintained by the balena team or anyone in the community and will stop showing in the dashboard as options for new applications and devices. Any already provisioned devices of this type will continue to function, but will no longer receive operating system updates.
 
 A device type will be discontinued if:
 - The device manufacturer end support and sale of the device.

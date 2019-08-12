@@ -4,7 +4,7 @@
 
 __Note:__ You can click *Skip* to move past this step for now, but you will not be able to push code to your **{{ $device.name }}** until you have added a public key to your account. This can be done at any time from the [*Preferences*][prefsPage] page on the dashboard.
 
-If you have a public SSH key, simply paste it into the box provided and click *Save Key*: 
+If you have a public SSH key, simply paste it into the box provided and click *Save Key*:
 
 <img src="/img/common/sign_up_flow/enter_ssh_key_cropped.png" width="60%">
 

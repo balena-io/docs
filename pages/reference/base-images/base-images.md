@@ -5,7 +5,7 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 
 # {{ $names.company.upper }} base images
 
-[`balenalib`](https://hub.docker.com/u/balenalib/) is the central home for 26000+ IoT focused Docker images built specifically for [balenaCloud](https://www.balena.io/cloud/) and [balenaOS](https://www.balena.io/os/). This set of images provide a way to get up and running quickly and easily, while still providing the option to deploy slim secure images to the edge when you go to production. 
+[`balenalib`](https://hub.docker.com/u/balenalib/) is the central home for 26000+ IoT focused Docker images built specifically for [balenaCloud](https://www.balena.io/cloud/) and [balenaOS](https://www.balena.io/os/). This set of images provide a way to get up and running quickly and easily, while still providing the option to deploy slim secure images to the edge when you go to production.
 
 ## Features Overview
 
@@ -16,17 +16,17 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 	- aarch64
 	- amd64
 	- i386
-- Multiple Distributions: 
+- Multiple Distributions:
 	- [Debian](https://www.debian.org/): jessie, sid, stretch and buster
 	- [Alpine](https://alpinelinux.org/): 3.5, 3.6, 3.7, 3.8, 3.9, 3.10 and edge
 	- [Ubuntu](https://www.ubuntu.com/): artful, bionic, cosmic, trusty and xenial
 	- [Fedora](https://getfedora.org/): 26, 28, 29 and 30
-- Multiple language stacks: 
+- Multiple language stacks:
 	- [Node.js](https://nodejs.org/en/): 12.7.0, 11.15.0, 10.16.1, 8.16.1 and 6.17.1
-	- [Python](https://www.python.org/): 2.7.16, 3.5.7, 3.6.9 and 3.7.4 
+	- [Python](https://www.python.org/): 2.7.16, 3.5.7, 3.6.9 and 3.7.4
 	- [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 10-jdk/jre and 11-jdk/jre
 	- [Golang](https://golang.org/): 1.12.7, 1.11.12 and 1.10.8
-	- [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.2-sdk/runtime/aspnet,3.0-sdk/runtime/aspnet,2.1-sdk/runtime/aspnet 
+	- [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.2-sdk/runtime/aspnet,3.0-sdk/runtime/aspnet,2.1-sdk/runtime/aspnet
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
 - Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
@@ -58,7 +58,7 @@ In the tags, all of the fields are optional and if they are left out, they will 
 - `<distro_ver>` is the version of the linux distro, for example in the case of Debian there are 4 valid versions, namely `sid`, `jessie`, `buster` and `stretch`.
 - For each combination of distro and stack we have two variants called `run` and `build`. The build variant is much heavier as it has a number of tools preinstalled to help with building source code. You can see an example of the tools that are included in the Debian Stretch variant [here](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/build/Dockerfile). The `run` variants are stripped down and only include a few useful runtime tools, see an example [here](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile).
 If no variant is specified, the image defaults to `run`
-- <yyyymmdd> the last optional field on tags is the date tag. This is useful for production deployments as these base images are non-moving tags, so no packages in these will update ever. 
+- <yyyymmdd> the last optional field on tags is the date tag. This is useful for production deployments as these base images are non-moving tags, so no packages in these will update ever.
 
 #### Examples
 
@@ -84,7 +84,7 @@ If no variant is specified, the image defaults to `run`
 
 ### run vs. build
 
-For each combination of `<hw>`-`<distro>`-`<lang>` there is both a `run` and a `build` variant. These variants are provided to allow for easier multistage builds. 
+For each combination of `<hw>`-`<distro>`-`<lang>` there is both a `run` and a `build` variant. These variants are provided to allow for easier multistage builds.
 
 The `run` variant is designed to be a slim and minimal variant with only runtime essentials packaged into it. An example of the packages installed in can be seen in the [`Dockerfile`](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile#L7) of [`balenalib/armv7hf-debian:run`](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/armv7hf/debian/stretch/run).
 
@@ -148,7 +148,7 @@ RUN install_packages wget git
 CMD ["bash", "start.sh"]
 ```
 
-This will run an `apt-get update -qq`, then install `wget` and `git` via apt-get with `-y --no-install-recommends` flags and it will by default try this 2 times before failing. You can see the source of `install_packages` [here](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile#L25-L49). 
+This will run an `apt-get update -qq`, then install `wget` and `git` via apt-get with `-y --no-install-recommends` flags and it will by default try this 2 times before failing. You can see the source of `install_packages` [here](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile#L25-L49).
 
 ## How the Images Work at Runtime
 
@@ -180,7 +180,7 @@ When moving from the legacy `resin/...` base images to the `balenalib` ones, the
 
 ### Installing your own Initsystem
 
-Since the release of multicontainer on the balenaCloud platform, we now recommend the use of multiple containers and no longer recommend the use of an initsystem, particularly systemd, in the container as it tends to cause a myriad of issues, undefined behaviour and requires the container to run fully privileged. 
+Since the release of multicontainer on the balenaCloud platform, we now recommend the use of multiple containers and no longer recommend the use of an initsystem, particularly systemd, in the container as it tends to cause a myriad of issues, undefined behaviour and requires the container to run fully privileged.
 
 However if your application relies on initsystem features, it is fairly easy to add this functionality to a balenalib base image. We have provided some examples for [systemd](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd) and [openRC](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/openrc). Please notice that different systemd versions require different implementation so for Debian Jessie and older, please refer to this [example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd ) and for Debian Stretch and later, please refer to this [example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230).
 
@@ -233,14 +233,14 @@ FROM balenalib/armv7hf-debian
 
 RUN [ "cross-build-start" ]
 
-RUN apt-get update  
+RUN apt-get update
 RUN apt-get install python-pip
 RUN pip install virtualenv
 
 RUN [ "cross-build-end" ]
 ```
 
-can be run on your x86 machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. More details can be found in our [blog post here]({{ $links.mainSiteUrl }}/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/). You can find the full source code for the two cross-build scripts [here](https://github.com/balena-io-playground/armv7hf-debian-qemu). 
+can be run on your x86 machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. More details can be found in our [blog post here]({{ $links.mainSiteUrl }}/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/). You can find the full source code for the two cross-build scripts [here](https://github.com/balena-io-playground/armv7hf-debian-qemu).
 
 [udevd-link]:https://linux.die.net/man/8/udevd
 [entry-sh-link]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/entry.sh

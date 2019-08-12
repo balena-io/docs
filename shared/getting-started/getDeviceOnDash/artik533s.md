@@ -1,6 +1,6 @@
 In order to get {{ $names.os.lower }} up and running on your **{{ $device.name }}**, you need to first set it up to boot from your {{ $device.bootMedia }} rather than its internal [eMMC memory][emmc-link]. To do this we need to set the `SW402` dip switches to position `1:off, 2:off, 3:off, 4:on`.
 
-__Note:__ {{ $names.os.lower }} will completely write over the existing eMMC. 
+__Note:__ {{ $names.os.lower }} will completely write over the existing eMMC.
 
 You can now insert the 5VDC power cable and flip the power switch labelled `SW700` to the `on` position. You should now have some glowing LEDs indicating the board has power. Next, you need to press and hold the `SW400` push button for 1 or 2 seconds, which starts the boot from the {{ $device.bootMedia }}.
 
@@ -11,7 +11,7 @@ Your **{{ $device.name }}** will now flash {{ $names.os.lower }} onto the intern
 2. Remove the {{ $device.bootMedia }}.
 3. Set the `SW402` dip switches to `1:off, 2:off, 3:off, 4:off`.
 
-Next, flip the `SW700` switch back to `on` and once again hold down the `SW400` button for a second or so. If all goes according to plan, you should now have a freshly provisioned **{{ $device.name }}** sitting in an `IDLE` state on your dashboard, ready and waiting to receive some code. 
+Next, flip the `SW700` switch back to `on` and once again hold down the `SW400` button for a second or so. If all goes according to plan, you should now have a freshly provisioned **{{ $device.name }}** sitting in an `IDLE` state on your dashboard, ready and waiting to receive some code.
 
 Now let's deploy some code!
 

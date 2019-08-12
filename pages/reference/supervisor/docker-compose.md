@@ -10,7 +10,7 @@ excerpt: docker-compose.yml fields supported by {{ $names.company.lower }}
 Field | Details
 --- | ---
 [build](https://docs.docker.com/compose/compose-file/compose-file-v2/#build) |
-[cap_add](https://docs.docker.com/compose/compose-file/compose-file-v2/#cap_add-cap_drop) | 
+[cap_add](https://docs.docker.com/compose/compose-file/compose-file-v2/#cap_add-cap_drop) |
 [cap_drop](https://docs.docker.com/compose/compose-file/compose-file-v2/#cap_add-cap_drop) |
 [cgroup_parent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cgroup_parent) |
 [command](https://docs.docker.com/compose/compose-file/compose-file-v2/#command) |
@@ -19,12 +19,12 @@ Field | Details
 [cpus](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpuset](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [devices](https://docs.docker.com/compose/compose-file/compose-file-v2/#devices) |
-[depends_on](https://docs.docker.com/compose/compose-file/compose-file-v2/#depends_on) | Only array form is supported 
+[depends_on](https://docs.docker.com/compose/compose-file/compose-file-v2/#depends_on) | Only array form is supported
 [dns](https://docs.docker.com/compose/compose-file/compose-file-v2/#dns) |
 [dns_opt](https://docs.docker.com/compose/compose-file/compose-file-v2/#dns_opt) |
 [dns_search](https://docs.docker.com/compose/compose-file/compose-file-v2/#dns_search) |
 [domainname](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
-[entrypoint](https://docs.docker.com/compose/compose-file/compose-file-v2/#entrypoint) | 
+[entrypoint](https://docs.docker.com/compose/compose-file/compose-file-v2/#entrypoint) |
 [environment](https://docs.docker.com/compose/compose-file/compose-file-v2/#environment) |
 [expose](https://docs.docker.com/compose/compose-file/compose-file-v2/#expose) |
 [extra_hosts](https://docs.docker.com/compose/compose-file/compose-file-v2/#extra_hosts) |
@@ -32,7 +32,7 @@ Field | Details
 [healthcheck](https://docs.docker.com/compose/compose-file/compose-file-v2/#healthcheck) |
 [hostname](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [image](https://docs.docker.com/compose/compose-file/compose-file-v2/#image) |
-[init](https://docs.docker.com/compose/compose-file/compose-file-v2/#init) | 
+[init](https://docs.docker.com/compose/compose-file/compose-file-v2/#init) |
 [ipc](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [labels](https://docs.docker.com/compose/compose-file/compose-file-v2/#labels-1) |
 [mac_address](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |

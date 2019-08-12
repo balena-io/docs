@@ -5,23 +5,23 @@ excerpt: Definitions for concepts mentioned throughout the {{ $names.company.low
 
 # Core concepts
 
-### Device 
+### Device
 
 An internet-connected, single-board computer running {{ $names.os.lower }} and provisioned with the {{ $names.company.lower }} platform.
 
-### Release 
+### Release
 
 A snapshot of code collected into one or more Docker images.
 
-### Application 
+### Application
 
 A set of releases and a set of devices, encompassing the code and history of the code that applies to a fleet.
 
-### Fleet 
+### Fleet
 
 The set of devices belonging to an application.
 
-### Service 
+### Service
 
 An independently deployable component of an application, packaged into a Docker image and run as a container.
 

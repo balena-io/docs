@@ -7,7 +7,7 @@ This document aims to describe all the functions supported by the SDK, as well a
 
 If you feel something is missing, not clear or could be improved, please don't hesitate to open an [issue in GitHub](https://github.com/balena-io/balena-sdk/issues/new), we'll be happy to help.
 
-**Kind**: global namespace  
+**Kind**: global namespace
 
 * [balena](#balena) : <code>object</code>
     * [.interceptors](#balena.interceptors) : <code>Array.&lt;Interceptor&gt;</code>
@@ -159,6 +159,7 @@ If you feel something is missing, not clear or could be improved, please don't h
             * [.getConfig(nameOrId, options)](#balena.models.os.getConfig) ⇒ <code>Promise</code>
             * [.isSupportedOsUpdate(deviceType, currentVersion, targetVersion)](#balena.models.os.isSupportedOsUpdate) ⇒ <code>Promise</code>
             * [.getSupportedOsUpdateVersions(deviceType, currentVersion)](#balena.models.os.getSupportedOsUpdateVersions) ⇒ <code>Promise</code>
+            * [.isArchitectureCompatibleWith(osArchitecture, applicationArchitecture)](#balena.models.os.isArchitectureCompatibleWith) ⇒ <code>Boolean</code>
         * [.config](#balena.models.config) : <code>object</code>
             * [.getAll()](#balena.models.config.getAll) ⇒ <code>Promise</code>
             * [.getDeviceTypes()](#balena.models.config.getDeviceTypes) ⇒ <code>Promise</code>
@@ -227,10 +228,10 @@ The current array of interceptors to use. Interceptors intercept requests made
 internally and are executed in the order they appear in this array for requests,
 and in the reverse order for responses.
 
-**Kind**: static property of [<code>balena</code>](#balena)  
-**Summary**: Array of interceptors  
-**Access**: public  
-**Example**  
+**Kind**: static property of [<code>balena</code>](#balena)
+**Summary**: Array of interceptors
+**Access**: public
+**Example**
 ```js
 balena.interceptors.push({
 	responseError: function (error) {
@@ -249,7 +250,7 @@ successfully resolves to a value.
 To halt processing, each function should throw an error or return a promise that
 rejects with an error.
 
-**Kind**: static typedef of [<code>interceptors</code>](#balena.interceptors)  
+**Kind**: static typedef of [<code>interceptors</code>](#balena.interceptors)
 **Properties**
 
 | Name | Type | Description |
@@ -266,10 +267,10 @@ The balena-request instance used internally. This should not be necessary
 in normal usage, but can be useful if you want to make an API request directly,
 using the same token and hooks as the SDK.
 
-**Kind**: static property of [<code>balena</code>](#balena)  
-**Summary**: Balena request instance  
-**Access**: public  
-**Example**  
+**Kind**: static property of [<code>balena</code>](#balena)
+**Summary**: Balena request instance
+**Access**: public
+**Example**
 ```js
 balena.request.send({ url: 'http://api.balena-cloud.com/ping' });
 ```
@@ -281,10 +282,10 @@ in normal usage, but can be useful if you want to directly make pine
 queries to the api for some resource that isn't directly supported
 in the SDK.
 
-**Kind**: static property of [<code>balena</code>](#balena)  
-**Summary**: Balena pine instance  
-**Access**: public  
-**Example**  
+**Kind**: static property of [<code>balena</code>](#balena)
+**Summary**: Balena pine instance
+**Access**: public
+**Example**
 ```js
 balena.pine.get({
 	resource: 'release/$count',
@@ -301,10 +302,10 @@ convenience, and to avoid the necessity for separate balena-errors
 dependencies. You'll want to use this if you need to match on the specific
 type of error thrown by the SDK.
 
-**Kind**: static property of [<code>balena</code>](#balena)  
-**Summary**: Balena errors module  
-**Access**: public  
-**Example**  
+**Kind**: static property of [<code>balena</code>](#balena)
+**Summary**: Balena errors module
+**Access**: public
+**Example**
 ```js
 balena.models.device.get(123).catch(function (error) {
   if (error.code === balena.errors.BalenaDeviceNotFound.code) {
@@ -317,7 +318,7 @@ balena.models.device.get(123).catch(function (error) {
 <a name="balena.models"></a>
 
 ### balena.models : <code>object</code>
-**Kind**: static namespace of [<code>balena</code>](#balena)  
+**Kind**: static namespace of [<code>balena</code>](#balena)
 
 * [.models](#balena.models) : <code>object</code>
     * [.application](#balena.models.application) : <code>object</code>
@@ -463,6 +464,7 @@ balena.models.device.get(123).catch(function (error) {
         * [.getConfig(nameOrId, options)](#balena.models.os.getConfig) ⇒ <code>Promise</code>
         * [.isSupportedOsUpdate(deviceType, currentVersion, targetVersion)](#balena.models.os.isSupportedOsUpdate) ⇒ <code>Promise</code>
         * [.getSupportedOsUpdateVersions(deviceType, currentVersion)](#balena.models.os.getSupportedOsUpdateVersions) ⇒ <code>Promise</code>
+        * [.isArchitectureCompatibleWith(osArchitecture, applicationArchitecture)](#balena.models.os.isArchitectureCompatibleWith) ⇒ <code>Boolean</code>
     * [.config](#balena.models.config) : <code>object</code>
         * [.getAll()](#balena.models.config.getAll) ⇒ <code>Promise</code>
         * [.getDeviceTypes()](#balena.models.config.getDeviceTypes) ⇒ <code>Promise</code>
@@ -500,7 +502,7 @@ balena.models.device.get(123).catch(function (error) {
 <a name="balena.models.application"></a>
 
 #### models.application : <code>object</code>
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.application](#balena.models.application) : <code>object</code>
     * [.tags](#balena.models.application.tags) : <code>object</code>
@@ -546,7 +548,7 @@ balena.models.device.get(123).catch(function (error) {
 <a name="balena.models.application.tags"></a>
 
 ##### application.tags : <code>object</code>
-**Kind**: static namespace of [<code>application</code>](#balena.models.application)  
+**Kind**: static namespace of [<code>application</code>](#balena.models.application)
 
 * [.tags](#balena.models.application.tags) : <code>object</code>
     * [.getAllByApplication(nameOrId, [options])](#balena.models.application.tags.getAllByApplication) ⇒ <code>Promise</code>
@@ -557,29 +559,29 @@ balena.models.device.get(123).catch(function (error) {
 <a name="balena.models.application.tags.getAllByApplication"></a>
 
 ###### tags.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.application.tags)  
-**Summary**: Get all application tags for an application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - application tags  
+**Kind**: static method of [<code>tags</code>](#balena.models.application.tags)
+**Summary**: Get all application tags for an application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - application tags
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.getAllByApplication('MyApp').then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.getAllByApplication(999999).then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.getAllByApplication('MyApp', function(error, tags) {
 	if (error) throw error;
@@ -589,22 +591,22 @@ balena.models.application.tags.getAllByApplication('MyApp', function(error, tags
 <a name="balena.models.application.tags.getAll"></a>
 
 ###### tags.getAll([options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.application.tags)  
-**Summary**: Get all application tags  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - application tags  
+**Kind**: static method of [<code>tags</code>](#balena.models.application.tags)
+**Summary**: Get all application tags
+**Access**: public
+**Fulfil**: <code>Object[]</code> - application tags
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.getAll().then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.getAll(function(error, tags) {
 	if (error) throw error;
@@ -614,9 +616,9 @@ balena.models.application.tags.getAll(function(error, tags) {
 <a name="balena.models.application.tags.set"></a>
 
 ###### tags.set(nameOrId, tagKey, value) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.application.tags)  
-**Summary**: Set an application tag  
-**Access**: public  
+**Kind**: static method of [<code>tags</code>](#balena.models.application.tags)
+**Summary**: Set an application tag
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -624,15 +626,15 @@ balena.models.application.tags.getAll(function(error, tags) {
 | tagKey | <code>String</code> | tag key |
 | value | <code>String</code> \| <code>undefined</code> | tag value |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.set('7cf02a6', 'EDITOR', 'vim');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.set(123, 'EDITOR', 'vim');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.set('7cf02a6', 'EDITOR', 'vim', function(error) {
 	if (error) throw error;
@@ -641,20 +643,20 @@ balena.models.application.tags.set('7cf02a6', 'EDITOR', 'vim', function(error) {
 <a name="balena.models.application.tags.remove"></a>
 
 ###### tags.remove(nameOrId, tagKey) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.application.tags)  
-**Summary**: Remove an application tag  
-**Access**: public  
+**Kind**: static method of [<code>tags</code>](#balena.models.application.tags)
+**Summary**: Remove an application tag
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 | tagKey | <code>String</code> | tag key |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.remove('7cf02a6', 'EDITOR');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.tags.remove('7cf02a6', 'EDITOR', function(error) {
 	if (error) throw error;
@@ -663,7 +665,7 @@ balena.models.application.tags.remove('7cf02a6', 'EDITOR', function(error) {
 <a name="balena.models.application.configVar"></a>
 
 ##### application.configVar : <code>object</code>
-**Kind**: static namespace of [<code>application</code>](#balena.models.application)  
+**Kind**: static namespace of [<code>application</code>](#balena.models.application)
 
 * [.configVar](#balena.models.application.configVar) : <code>object</code>
     * [.getAllByApplication(nameOrId, [options])](#balena.models.application.configVar.getAllByApplication) ⇒ <code>Promise</code>
@@ -674,29 +676,29 @@ balena.models.application.tags.remove('7cf02a6', 'EDITOR', function(error) {
 <a name="balena.models.application.configVar.getAllByApplication"></a>
 
 ###### configVar.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>configVar</code>](#balena.models.application.configVar)  
-**Summary**: Get all config variables for an application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - application config variables  
+**Kind**: static method of [<code>configVar</code>](#balena.models.application.configVar)
+**Summary**: Get all config variables for an application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - application config variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.getAllByApplication('MyApp').then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.getAllByApplication(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.getAllByApplication('MyApp', function(error, vars) {
 	if (error) throw error;
@@ -706,29 +708,29 @@ balena.models.application.configVar.getAllByApplication('MyApp', function(error,
 <a name="balena.models.application.configVar.get"></a>
 
 ###### configVar.get(nameOrId, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>configVar</code>](#balena.models.application.configVar)  
-**Summary**: Get the value of a specific config variable  
-**Access**: public  
-**Fulfil**: <code>String\|undefined</code> - the config variable value (or undefined)  
+**Kind**: static method of [<code>configVar</code>](#balena.models.application.configVar)
+**Summary**: Get the value of a specific config variable
+**Access**: public
+**Fulfil**: <code>String\|undefined</code> - the config variable value (or undefined)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 | key | <code>String</code> | config variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.get('MyApp', 'BALENA_VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.get(999999, 'BALENA_VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.get('MyApp', 'BALENA_VAR', function(error, value) {
 	if (error) throw error;
@@ -738,9 +740,9 @@ balena.models.application.configVar.get('MyApp', 'BALENA_VAR', function(error, v
 <a name="balena.models.application.configVar.set"></a>
 
 ###### configVar.set(nameOrId, key, value) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>configVar</code>](#balena.models.application.configVar)  
-**Summary**: Set the value of a specific config variable  
-**Access**: public  
+**Kind**: static method of [<code>configVar</code>](#balena.models.application.configVar)
+**Summary**: Set the value of a specific config variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -748,19 +750,19 @@ balena.models.application.configVar.get('MyApp', 'BALENA_VAR', function(error, v
 | key | <code>String</code> | config variable name |
 | value | <code>String</code> | config variable value |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.set('MyApp', 'BALENA_VAR', 'newvalue').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.set(999999, 'BALENA_VAR', 'newvalue').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.set('MyApp', 'BALENA_VAR', 'newvalue', function(error) {
 	if (error) throw error;
@@ -770,28 +772,28 @@ balena.models.application.configVar.set('MyApp', 'BALENA_VAR', 'newvalue', funct
 <a name="balena.models.application.configVar.remove"></a>
 
 ###### configVar.remove(nameOrId, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>configVar</code>](#balena.models.application.configVar)  
-**Summary**: Clear the value of a specific config variable  
-**Access**: public  
+**Kind**: static method of [<code>configVar</code>](#balena.models.application.configVar)
+**Summary**: Clear the value of a specific config variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 | key | <code>String</code> | config variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.remove('MyApp', 'BALENA_VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.remove(999999, 'BALENA_VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.configVar.remove('MyApp', 'BALENA_VAR', function(error) {
 	if (error) throw error;
@@ -801,7 +803,7 @@ balena.models.application.configVar.remove('MyApp', 'BALENA_VAR', function(error
 <a name="balena.models.application.envVar"></a>
 
 ##### application.envVar : <code>object</code>
-**Kind**: static namespace of [<code>application</code>](#balena.models.application)  
+**Kind**: static namespace of [<code>application</code>](#balena.models.application)
 
 * [.envVar](#balena.models.application.envVar) : <code>object</code>
     * [.getAllByApplication(nameOrId, [options])](#balena.models.application.envVar.getAllByApplication) ⇒ <code>Promise</code>
@@ -812,29 +814,29 @@ balena.models.application.configVar.remove('MyApp', 'BALENA_VAR', function(error
 <a name="balena.models.application.envVar.getAllByApplication"></a>
 
 ###### envVar.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>envVar</code>](#balena.models.application.envVar)  
-**Summary**: Get all environment variables for an application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - application environment variables  
+**Kind**: static method of [<code>envVar</code>](#balena.models.application.envVar)
+**Summary**: Get all environment variables for an application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - application environment variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.getAllByApplication('MyApp').then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.getAllByApplication(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.getAllByApplication('MyApp', function(error, vars) {
 	if (error) throw error;
@@ -844,29 +846,29 @@ balena.models.application.envVar.getAllByApplication('MyApp', function(error, va
 <a name="balena.models.application.envVar.get"></a>
 
 ###### envVar.get(nameOrId, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>envVar</code>](#balena.models.application.envVar)  
-**Summary**: Get the value of a specific environment variable  
-**Access**: public  
-**Fulfil**: <code>String\|undefined</code> - the environment variable value (or undefined)  
+**Kind**: static method of [<code>envVar</code>](#balena.models.application.envVar)
+**Summary**: Get the value of a specific environment variable
+**Access**: public
+**Fulfil**: <code>String\|undefined</code> - the environment variable value (or undefined)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 | key | <code>String</code> | environment variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.get('MyApp', 'VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.get(999999, 'VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.get('MyApp', 'VAR', function(error, value) {
 	if (error) throw error;
@@ -876,9 +878,9 @@ balena.models.application.envVar.get('MyApp', 'VAR', function(error, value) {
 <a name="balena.models.application.envVar.set"></a>
 
 ###### envVar.set(nameOrId, key, value) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>envVar</code>](#balena.models.application.envVar)  
-**Summary**: Set the value of a specific environment variable  
-**Access**: public  
+**Kind**: static method of [<code>envVar</code>](#balena.models.application.envVar)
+**Summary**: Set the value of a specific environment variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -886,19 +888,19 @@ balena.models.application.envVar.get('MyApp', 'VAR', function(error, value) {
 | key | <code>String</code> | environment variable name |
 | value | <code>String</code> | environment variable value |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.set('MyApp', 'VAR', 'newvalue').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.set(999999, 'VAR', 'newvalue').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.set('MyApp', 'VAR', 'newvalue', function(error) {
 	if (error) throw error;
@@ -908,28 +910,28 @@ balena.models.application.envVar.set('MyApp', 'VAR', 'newvalue', function(error)
 <a name="balena.models.application.envVar.remove"></a>
 
 ###### envVar.remove(nameOrId, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>envVar</code>](#balena.models.application.envVar)  
-**Summary**: Clear the value of a specific environment variable  
-**Access**: public  
+**Kind**: static method of [<code>envVar</code>](#balena.models.application.envVar)
+**Summary**: Clear the value of a specific environment variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 | key | <code>String</code> | environment variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.remove('MyApp', 'VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.remove(999999, 'VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.envVar.remove('MyApp', 'VAR', function(error) {
 	if (error) throw error;
@@ -939,22 +941,22 @@ balena.models.application.envVar.remove('MyApp', 'VAR', function(error) {
 <a name="balena.models.application.getAll"></a>
 
 ##### application.getAll([options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Get all applications  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - applications  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Get all applications
+**Access**: public
+**Fulfil**: <code>Object[]</code> - applications
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.getAll().then(function(applications) {
 	console.log(applications);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.getAll(function(error, applications) {
 	if (error) throw error;
@@ -971,23 +973,23 @@ directly, use `application.getAll(options)` instead.
 **NOTE:** In contrast with device.getWithServiceDetails() the service details
 in the result of this method do not include the associated commit.
 
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
 **Summary**: Get applications and their devices, along with each device's
-associated services' essential details  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - applications  
+associated services' essential details
+**Access**: public
+**Fulfil**: <code>Object[]</code> - applications
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.getAllWithDeviceServiceDetails().then(function(applications) {
 	console.log(applications);
 })
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.getAllWithDeviceServiceDetails(function(error, applications) {
 	if (error) throw error;
@@ -997,29 +999,29 @@ balena.models.application.getAllWithDeviceServiceDetails(function(error, applica
 <a name="balena.models.application.get"></a>
 
 ##### application.get(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Get a single application  
-**Access**: public  
-**Fulfil**: <code>Object</code> - application  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Get a single application
+**Access**: public
+**Fulfil**: <code>Object</code> - application
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.get('MyApp').then(function(application) {
 	console.log(application);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.get(123).then(function(application) {
 	console.log(application);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.get('MyApp', function(error, application) {
 	if (error) throw error;
@@ -1036,30 +1038,30 @@ directly, use `application.get(uuidOrId, options)` instead.
 **NOTE:** In contrast with device.getWithServiceDetails() the service details
 in the result of this method do not include the associated commit.
 
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
 **Summary**: Get a single application and its devices, along with each device's
-associated services' essential details  
-**Access**: public  
-**Fulfil**: <code>Object</code> - application  
+associated services' essential details
+**Access**: public
+**Fulfil**: <code>Object</code> - application
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.getWithDeviceServiceDetails('7cf02a6').then(function(device) {
 	console.log(device);
 })
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.getWithDeviceServiceDetails(123).then(function(device) {
 	console.log(device);
 })
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.getWithDeviceServiceDetails('7cf02a6', function(error, device) {
 	if (error) throw error;
@@ -1069,10 +1071,10 @@ balena.models.application.getWithDeviceServiceDetails('7cf02a6', function(error,
 <a name="balena.models.application.getAppByOwner"></a>
 
 ##### application.getAppByOwner(appName, owner, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Get a single application using the appname and owner's username  
-**Access**: public  
-**Fulfil**: <code>Object</code> - application  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Get a single application using the appname and owner's username
+**Access**: public
+**Fulfil**: <code>Object</code> - application
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -1080,7 +1082,7 @@ balena.models.application.getWithDeviceServiceDetails('7cf02a6', function(error,
 | owner | <code>String</code> |  | The owner's username |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.getAppByOwner('MyApp', 'MyUser').then(function(application) {
 	console.log(application);
@@ -1089,28 +1091,28 @@ balena.models.application.getAppByOwner('MyApp', 'MyUser').then(function(applica
 <a name="balena.models.application.has"></a>
 
 ##### application.has(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Check if an application exists  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - has application  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Check if an application exists
+**Access**: public
+**Fulfil**: <code>Boolean</code> - has application
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.has('MyApp').then(function(hasApp) {
 	console.log(hasApp);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.has(123).then(function(hasApp) {
 	console.log(hasApp);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.has('MyApp', function(error, hasApp) {
 	if (error) throw error;
@@ -1120,17 +1122,17 @@ balena.models.application.has('MyApp', function(error, hasApp) {
 <a name="balena.models.application.hasAny"></a>
 
 ##### application.hasAny() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Check if the user has any applications  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - has any applications  
-**Example**  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Check if the user has any applications
+**Access**: public
+**Fulfil**: <code>Boolean</code> - has any applications
+**Example**
 ```js
 balena.models.application.hasAny().then(function(hasAny) {
 	console.log('Has any?', hasAny);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.hasAny(function(error, hasAny) {
 	if (error) throw error;
@@ -1140,10 +1142,10 @@ balena.models.application.hasAny(function(error, hasAny) {
 <a name="balena.models.application.create"></a>
 
 ##### application.create(options) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Create an application  
-**Access**: public  
-**Fulfil**: <code>Object</code> - application  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Create an application
+**Access**: public
+**Fulfil**: <code>Object</code> - application
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -1153,19 +1155,19 @@ balena.models.application.hasAny(function(error, hasAny) {
 | options.deviceType | <code>String</code> | device type slug |
 | [options.parent] | <code>Number</code> \| <code>String</code> | parent application name or id |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.create({ name: 'My App', applicationType: 'essentials', deviceType: 'raspberry-pi').then(function(application) {
 	console.log(application);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.create({ name: 'My App', applicationType: 'microservices', deviceType: 'raspberry-pi', parent: 'ParentApp' }).then(function(application) {
 	console.log(application);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.create({ name: 'My App', applicationType: 'microservices-starter', deviceType: 'raspberry-pi' }, function(error, application) {
 	if (error) throw error;
@@ -1175,23 +1177,23 @@ balena.models.application.create({ name: 'My App', applicationType: 'microservic
 <a name="balena.models.application.remove"></a>
 
 ##### application.remove(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Remove application  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Remove application
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.remove('MyApp');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.remove(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.remove('MyApp', function(error) {
 	if (error) throw error;
@@ -1200,23 +1202,23 @@ balena.models.application.remove('MyApp', function(error) {
 <a name="balena.models.application.restart"></a>
 
 ##### application.restart(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Restart application  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Restart application
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.restart('MyApp');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.restart(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.restart('MyApp', function(error) {
 	if (error) throw error;
@@ -1231,28 +1233,28 @@ Generally you shouldn't use this method: if you're provisioning a recent BalenaO
 version (2.4.0+) then generateProvisioningKey should work just as well, but
 be more secure.
 
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Generate an API key for a specific application  
-**Access**: public  
-**Fulfil**: <code>String</code> - api key  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Generate an API key for a specific application
+**Access**: public
+**Fulfil**: <code>String</code> - api key
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.generateApiKey('MyApp').then(function(apiKey) {
 	console.log(apiKey);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.generateApiKey(123).then(function(apiKey) {
 	console.log(apiKey);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.generateApiKey('MyApp', function(error, apiKey) {
 	if (error) throw error;
@@ -1262,28 +1264,28 @@ balena.models.application.generateApiKey('MyApp', function(error, apiKey) {
 <a name="balena.models.application.generateProvisioningKey"></a>
 
 ##### application.generateProvisioningKey(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Generate a device provisioning key for a specific application  
-**Access**: public  
-**Fulfil**: <code>String</code> - device provisioning key  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Generate a device provisioning key for a specific application
+**Access**: public
+**Fulfil**: <code>String</code> - device provisioning key
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.generateProvisioningKey('MyApp').then(function(key) {
 	console.log(key);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.generateProvisioningKey(123).then(function(key) {
 	console.log(key);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.generateProvisioningKey('MyApp', function(error, key) {
 	if (error) throw error;
@@ -1293,19 +1295,19 @@ balena.models.application.generateProvisioningKey('MyApp', function(error, key) 
 <a name="balena.models.application.purge"></a>
 
 ##### application.purge(appId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Purge devices by application id  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Purge devices by application id
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | appId | <code>Number</code> | application id |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.purge(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.purge(123, function(error) {
 	if (error) throw error;
@@ -1314,9 +1316,9 @@ balena.models.application.purge(123, function(error) {
 <a name="balena.models.application.shutdown"></a>
 
 ##### application.shutdown(appId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Shutdown devices by application id  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Shutdown devices by application id
+**Access**: public
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -1324,11 +1326,11 @@ balena.models.application.purge(123, function(error) {
 | [options] | <code>Object</code> |  | options |
 | [options.force] | <code>Boolean</code> | <code>false</code> | override update lock |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.shutdown(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.shutdown(123, function(error) {
 	if (error) throw error;
@@ -1337,9 +1339,9 @@ balena.models.application.shutdown(123, function(error) {
 <a name="balena.models.application.reboot"></a>
 
 ##### application.reboot(appId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Reboot devices by application id  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Reboot devices by application id
+**Access**: public
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -1347,11 +1349,11 @@ balena.models.application.shutdown(123, function(error) {
 | [options] | <code>Object</code> |  | options |
 | [options.force] | <code>Boolean</code> | <code>false</code> | override update lock |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.reboot(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.reboot(123, function(error) {
 	if (error) throw error;
@@ -1360,28 +1362,28 @@ balena.models.application.reboot(123, function(error) {
 <a name="balena.models.application.willTrackNewReleases"></a>
 
 ##### application.willTrackNewReleases(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Get whether the application is configured to receive updates whenever a new release is available  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - is tracking the latest release  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Get whether the application is configured to receive updates whenever a new release is available
+**Access**: public
+**Fulfil**: <code>Boolean</code> - is tracking the latest release
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.willTrackNewReleases('MyApp').then(function(isEnabled) {
 	console.log(isEnabled);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.willTrackNewReleases(123).then(function(isEnabled) {
 	console.log(isEnabled);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.willTrackNewReleases('MyApp', function(error, isEnabled) {
 	console.log(isEnabled);
@@ -1390,28 +1392,28 @@ balena.models.application.willTrackNewReleases('MyApp', function(error, isEnable
 <a name="balena.models.application.isTrackingLatestRelease"></a>
 
 ##### application.isTrackingLatestRelease(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Get whether the application is up to date and is tracking the latest release for updates  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - is tracking the latest release  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Get whether the application is up to date and is tracking the latest release for updates
+**Access**: public
+**Fulfil**: <code>Boolean</code> - is tracking the latest release
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.isTrackingLatestRelease('MyApp').then(function(isEnabled) {
 	console.log(isEnabled);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.isTrackingLatestRelease(123).then(function(isEnabled) {
 	console.log(isEnabled);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.isTrackingLatestRelease('MyApp', function(error, isEnabled) {
 	console.log(isEnabled);
@@ -1423,28 +1425,28 @@ balena.models.application.isTrackingLatestRelease('MyApp', function(error, isEna
 Configures the application to run a particular release
 and not get updated when the latest release changes.
 
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Set a specific application to run a particular release  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Set a specific application to run a particular release
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 | fullReleaseHash | <code>String</code> | the hash of a successful release (string) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.pinToRelease('MyApp', 'f7caf4ff80114deeaefb7ab4447ad9c661c50847').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.pinToRelease(123, 'f7caf4ff80114deeaefb7ab4447ad9c661c50847').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.pinToRelease('MyApp', 'f7caf4ff80114deeaefb7ab4447ad9c661c50847', function(error) {
 	if (error) throw error;
@@ -1454,28 +1456,28 @@ balena.models.application.pinToRelease('MyApp', 'f7caf4ff80114deeaefb7ab4447ad9c
 <a name="balena.models.application.getTargetReleaseHash"></a>
 
 ##### application.getTargetReleaseHash(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Get the hash of the current release for a specific application  
-**Access**: public  
-**Fulfil**: <code>String</code> - The release hash of the current release  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Get the hash of the current release for a specific application
+**Access**: public
+**Fulfil**: <code>String</code> - The release hash of the current release
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.getTargetReleaseHash('MyApp').then(function(release) {
 	console.log(release);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.getTargetReleaseHash(123).then(function(release) {
 	console.log(release);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.getTargetReleaseHash('MyApp', function(release) {
 	console.log(release);
@@ -1486,27 +1488,27 @@ balena.models.application.getTargetReleaseHash('MyApp', function(release) {
 ##### application.trackLatestRelease(nameOrId) ⇒ <code>Promise</code>
 The application's current release will be updated with each new successfully built release.
 
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Configure a specific application to track the latest available release  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Configure a specific application to track the latest available release
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.trackLatestRelease('MyApp').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.trackLatestRelease(123).then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.trackLatestRelease('MyApp', function(error) {
 	if (error) throw error;
@@ -1516,23 +1518,23 @@ balena.models.application.trackLatestRelease('MyApp', function(error) {
 <a name="balena.models.application.enableDeviceUrls"></a>
 
 ##### application.enableDeviceUrls(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Enable device urls for all devices that belong to an application  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Enable device urls for all devices that belong to an application
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.enableDeviceUrls('MyApp');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.enableDeviceUrls(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.enableDeviceUrls('MyApp', function(error) {
 	if (error) throw error;
@@ -1541,23 +1543,23 @@ balena.models.device.enableDeviceUrls('MyApp', function(error) {
 <a name="balena.models.application.disableDeviceUrls"></a>
 
 ##### application.disableDeviceUrls(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Disable device urls for all devices that belong to an application  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Disable device urls for all devices that belong to an application
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.disableDeviceUrls('MyApp');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.disableDeviceUrls(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.disableDeviceUrls('MyApp', function(error) {
 	if (error) throw error;
@@ -1566,24 +1568,24 @@ balena.models.device.disableDeviceUrls('MyApp', function(error) {
 <a name="balena.models.application.grantSupportAccess"></a>
 
 ##### application.grantSupportAccess(nameOrId, expiryTimestamp) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Grant support access to an application until a specified time  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Grant support access to an application until a specified time
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 | expiryTimestamp | <code>Number</code> | a timestamp in ms for when the support access will expire |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.grantSupportAccess('MyApp', Date.now() + 3600 * 1000);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.grantSupportAccess(123, Date.now() + 3600 * 1000);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.grantSupportAccess('MyApp', Date.now() + 3600 * 1000, function(error) {
 	if (error) throw error;
@@ -1592,23 +1594,23 @@ balena.models.application.grantSupportAccess('MyApp', Date.now() + 3600 * 1000, 
 <a name="balena.models.application.revokeSupportAccess"></a>
 
 ##### application.revokeSupportAccess(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>application</code>](#balena.models.application)  
-**Summary**: Revoke support access to an application  
-**Access**: public  
+**Kind**: static method of [<code>application</code>](#balena.models.application)
+**Summary**: Revoke support access to an application
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.application.revokeSupportAccess('MyApp');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.revokeSupportAccess(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.application.revokeSupportAccess('MyApp', function(error) {
 	if (error) throw error;
@@ -1617,7 +1619,7 @@ balena.models.application.revokeSupportAccess('MyApp', function(error) {
 <a name="balena.models.device"></a>
 
 #### models.device : <code>object</code>
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.device](#balena.models.device) : <code>object</code>
     * [.tags](#balena.models.device.tags) : <code>object</code>
@@ -1707,7 +1709,7 @@ balena.models.application.revokeSupportAccess('MyApp', function(error) {
 <a name="balena.models.device.tags"></a>
 
 ##### device.tags : <code>object</code>
-**Kind**: static namespace of [<code>device</code>](#balena.models.device)  
+**Kind**: static namespace of [<code>device</code>](#balena.models.device)
 
 * [.tags](#balena.models.device.tags) : <code>object</code>
     * [.getAllByApplication(nameOrId, [options])](#balena.models.device.tags.getAllByApplication) ⇒ <code>Promise</code>
@@ -1719,29 +1721,29 @@ balena.models.application.revokeSupportAccess('MyApp', function(error) {
 <a name="balena.models.device.tags.getAllByApplication"></a>
 
 ###### tags.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)  
-**Summary**: Get all device tags for an application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - device tags  
+**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)
+**Summary**: Get all device tags for an application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - device tags
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.getAllByApplication('MyApp').then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.getAllByApplication(999999).then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.getAllByApplication('MyApp', function(error, tags) {
 	if (error) throw error;
@@ -1751,29 +1753,29 @@ balena.models.device.tags.getAllByApplication('MyApp', function(error, tags) {
 <a name="balena.models.device.tags.getAllByDevice"></a>
 
 ###### tags.getAllByDevice(uuidOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)  
-**Summary**: Get all device tags for a device  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - device tags  
+**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)
+**Summary**: Get all device tags for a device
+**Access**: public
+**Fulfil**: <code>Object[]</code> - device tags
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> |  | device uuid (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.getAllByDevice('7cf02a6').then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.getAllByDevice(123).then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.getAllByDevice('7cf02a6', function(error, tags) {
 	if (error) throw error;
@@ -1783,22 +1785,22 @@ balena.models.device.tags.getAllByDevice('7cf02a6', function(error, tags) {
 <a name="balena.models.device.tags.getAll"></a>
 
 ###### tags.getAll([options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)  
-**Summary**: Get all device tags  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - device tags  
+**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)
+**Summary**: Get all device tags
+**Access**: public
+**Fulfil**: <code>Object[]</code> - device tags
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.getAll().then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.getAll(function(error, tags) {
 	if (error) throw error;
@@ -1808,9 +1810,9 @@ balena.models.device.tags.getAll(function(error, tags) {
 <a name="balena.models.device.tags.set"></a>
 
 ###### tags.set(uuidOrId, tagKey, value) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)  
-**Summary**: Set a device tag  
-**Access**: public  
+**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)
+**Summary**: Set a device tag
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -1818,15 +1820,15 @@ balena.models.device.tags.getAll(function(error, tags) {
 | tagKey | <code>String</code> | tag key |
 | value | <code>String</code> \| <code>undefined</code> | tag value |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.set('7cf02a6', 'EDITOR', 'vim');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.set(123, 'EDITOR', 'vim');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.set('7cf02a6', 'EDITOR', 'vim', function(error) {
 	if (error) throw error;
@@ -1835,20 +1837,20 @@ balena.models.device.tags.set('7cf02a6', 'EDITOR', 'vim', function(error) {
 <a name="balena.models.device.tags.remove"></a>
 
 ###### tags.remove(uuidOrId, tagKey) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)  
-**Summary**: Remove a device tag  
-**Access**: public  
+**Kind**: static method of [<code>tags</code>](#balena.models.device.tags)
+**Summary**: Remove a device tag
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | tagKey | <code>String</code> | tag key |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.remove('7cf02a6', 'EDITOR');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.tags.remove('7cf02a6', 'EDITOR', function(error) {
 	if (error) throw error;
@@ -1857,7 +1859,7 @@ balena.models.device.tags.remove('7cf02a6', 'EDITOR', function(error) {
 <a name="balena.models.device.configVar"></a>
 
 ##### device.configVar : <code>object</code>
-**Kind**: static namespace of [<code>device</code>](#balena.models.device)  
+**Kind**: static namespace of [<code>device</code>](#balena.models.device)
 
 * [.configVar](#balena.models.device.configVar) : <code>object</code>
     * [.getAllByDevice(uuidOrId, [options])](#balena.models.device.configVar.getAllByDevice) ⇒ <code>Promise</code>
@@ -1869,29 +1871,29 @@ balena.models.device.tags.remove('7cf02a6', 'EDITOR', function(error) {
 <a name="balena.models.device.configVar.getAllByDevice"></a>
 
 ###### configVar.getAllByDevice(uuidOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)  
-**Summary**: Get all config variables for a device  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - device config variables  
+**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)
+**Summary**: Get all config variables for a device
+**Access**: public
+**Fulfil**: <code>Object[]</code> - device config variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> |  | device uuid (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.getAllByDevice('7cf02a6').then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.getAllByDevice(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.getAllByDevice('7cf02a6', function(error, vars) {
 	if (error) throw error;
@@ -1901,29 +1903,29 @@ balena.models.device.configVar.getAllByDevice('7cf02a6', function(error, vars) {
 <a name="balena.models.device.configVar.getAllByApplication"></a>
 
 ###### configVar.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)  
-**Summary**: Get all device config variables by application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - device config variables  
+**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)
+**Summary**: Get all device config variables by application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - device config variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.getAllByApplication('MyApp').then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.getAllByApplication(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.getAllByApplication('MyApp', function(error, vars) {
 	if (error) throw error;
@@ -1933,29 +1935,29 @@ balena.models.device.configVar.getAllByApplication('MyApp', function(error, vars
 <a name="balena.models.device.configVar.get"></a>
 
 ###### configVar.get(uuidOrId, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)  
-**Summary**: Get the value of a specific config variable  
-**Access**: public  
-**Fulfil**: <code>String\|undefined</code> - the config variable value (or undefined)  
+**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)
+**Summary**: Get the value of a specific config variable
+**Access**: public
+**Fulfil**: <code>String\|undefined</code> - the config variable value (or undefined)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | key | <code>String</code> | config variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.get('7cf02a6', 'BALENA_VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.get(999999, 'BALENA_VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.get('7cf02a6', 'BALENA_VAR', function(error, value) {
 	if (error) throw error;
@@ -1965,9 +1967,9 @@ balena.models.device.configVar.get('7cf02a6', 'BALENA_VAR', function(error, valu
 <a name="balena.models.device.configVar.set"></a>
 
 ###### configVar.set(uuidOrId, key, value) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)  
-**Summary**: Set the value of a specific config variable  
-**Access**: public  
+**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)
+**Summary**: Set the value of a specific config variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -1975,19 +1977,19 @@ balena.models.device.configVar.get('7cf02a6', 'BALENA_VAR', function(error, valu
 | key | <code>String</code> | config variable name |
 | value | <code>String</code> | config variable value |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.set('7cf02a6', 'BALENA_VAR', 'newvalue').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.set(999999, 'BALENA_VAR', 'newvalue').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.set('7cf02a6', 'BALENA_VAR', 'newvalue', function(error) {
 	if (error) throw error;
@@ -1997,28 +1999,28 @@ balena.models.device.configVar.set('7cf02a6', 'BALENA_VAR', 'newvalue', function
 <a name="balena.models.device.configVar.remove"></a>
 
 ###### configVar.remove(uuidOrId, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)  
-**Summary**: Clear the value of a specific config variable  
-**Access**: public  
+**Kind**: static method of [<code>configVar</code>](#balena.models.device.configVar)
+**Summary**: Clear the value of a specific config variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | key | <code>String</code> | config variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.remove('7cf02a6', 'BALENA_VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.remove(999999, 'BALENA_VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.configVar.remove('7cf02a6', 'BALENA_VAR', function(error) {
 	if (error) throw error;
@@ -2028,7 +2030,7 @@ balena.models.device.configVar.remove('7cf02a6', 'BALENA_VAR', function(error) {
 <a name="balena.models.device.envVar"></a>
 
 ##### device.envVar : <code>object</code>
-**Kind**: static namespace of [<code>device</code>](#balena.models.device)  
+**Kind**: static namespace of [<code>device</code>](#balena.models.device)
 
 * [.envVar](#balena.models.device.envVar) : <code>object</code>
     * [.getAllByDevice(uuidOrId, [options])](#balena.models.device.envVar.getAllByDevice) ⇒ <code>Promise</code>
@@ -2040,29 +2042,29 @@ balena.models.device.configVar.remove('7cf02a6', 'BALENA_VAR', function(error) {
 <a name="balena.models.device.envVar.getAllByDevice"></a>
 
 ###### envVar.getAllByDevice(uuidOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)  
-**Summary**: Get all environment variables for a device  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - device environment variables  
+**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)
+**Summary**: Get all environment variables for a device
+**Access**: public
+**Fulfil**: <code>Object[]</code> - device environment variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> |  | device uuid (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.getAllByDevice('7cf02a6').then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.getAllByDevice(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.getAllByDevice('7cf02a6', function(error, vars) {
 	if (error) throw error;
@@ -2072,29 +2074,29 @@ balena.models.device.envVar.getAllByDevice('7cf02a6', function(error, vars) {
 <a name="balena.models.device.envVar.getAllByApplication"></a>
 
 ###### envVar.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)  
-**Summary**: Get all device environment variables by application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - device environment variables  
+**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)
+**Summary**: Get all device environment variables by application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - device environment variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.getAllByApplication('MyApp').then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.getAllByApplication(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.getAllByApplication('MyApp', function(error, vars) {
 	if (error) throw error;
@@ -2104,29 +2106,29 @@ balena.models.device.envVar.getAllByApplication('MyApp', function(error, vars) {
 <a name="balena.models.device.envVar.get"></a>
 
 ###### envVar.get(uuidOrId, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)  
-**Summary**: Get the value of a specific environment variable  
-**Access**: public  
-**Fulfil**: <code>String\|undefined</code> - the environment variable value (or undefined)  
+**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)
+**Summary**: Get the value of a specific environment variable
+**Access**: public
+**Fulfil**: <code>String\|undefined</code> - the environment variable value (or undefined)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | key | <code>String</code> | environment variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.get('7cf02a6', 'VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.get(999999, 'VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.get('7cf02a6', 'VAR', function(error, value) {
 	if (error) throw error;
@@ -2136,9 +2138,9 @@ balena.models.device.envVar.get('7cf02a6', 'VAR', function(error, value) {
 <a name="balena.models.device.envVar.set"></a>
 
 ###### envVar.set(uuidOrId, key, value) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)  
-**Summary**: Set the value of a specific environment variable  
-**Access**: public  
+**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)
+**Summary**: Set the value of a specific environment variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -2146,19 +2148,19 @@ balena.models.device.envVar.get('7cf02a6', 'VAR', function(error, value) {
 | key | <code>String</code> | environment variable name |
 | value | <code>String</code> | environment variable value |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.set('7cf02a6', 'VAR', 'newvalue').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.set(999999, 'VAR', 'newvalue').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.set('7cf02a6', 'VAR', 'newvalue', function(error) {
 	if (error) throw error;
@@ -2168,28 +2170,28 @@ balena.models.device.envVar.set('7cf02a6', 'VAR', 'newvalue', function(error) {
 <a name="balena.models.device.envVar.remove"></a>
 
 ###### envVar.remove(uuidOrId, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)  
-**Summary**: Clear the value of a specific environment variable  
-**Access**: public  
+**Kind**: static method of [<code>envVar</code>](#balena.models.device.envVar)
+**Summary**: Clear the value of a specific environment variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | key | <code>String</code> | environment variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.remove('7cf02a6', 'VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.remove(999999, 'VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.envVar.remove('7cf02a6', 'VAR', function(error) {
 	if (error) throw error;
@@ -2199,7 +2201,7 @@ balena.models.device.envVar.remove('7cf02a6', 'VAR', function(error) {
 <a name="balena.models.device.serviceVar"></a>
 
 ##### device.serviceVar : <code>object</code>
-**Kind**: static namespace of [<code>device</code>](#balena.models.device)  
+**Kind**: static namespace of [<code>device</code>](#balena.models.device)
 
 * [.serviceVar](#balena.models.device.serviceVar) : <code>object</code>
     * [.getAllByDevice(uuidOrId, [options])](#balena.models.device.serviceVar.getAllByDevice) ⇒ <code>Promise</code>
@@ -2211,29 +2213,29 @@ balena.models.device.envVar.remove('7cf02a6', 'VAR', function(error) {
 <a name="balena.models.device.serviceVar.getAllByDevice"></a>
 
 ###### serviceVar.getAllByDevice(uuidOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)  
-**Summary**: Get all service variable overrides for a device  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - service variables  
+**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)
+**Summary**: Get all service variable overrides for a device
+**Access**: public
+**Fulfil**: <code>Object[]</code> - service variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> |  | device uuid (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.getAllByDevice('7cf02a6').then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.getAllByDevice(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.getAllByDevice('7cf02a6', function(error, vars) {
 	if (error) throw error;
@@ -2243,29 +2245,29 @@ balena.models.device.serviceVar.getAllByDevice('7cf02a6', function(error, vars) 
 <a name="balena.models.device.serviceVar.getAllByApplication"></a>
 
 ###### serviceVar.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)  
-**Summary**: Get all device service variable overrides by application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - service variables  
+**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)
+**Summary**: Get all device service variable overrides by application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - service variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.getAllByApplication('MyApp').then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.getAllByApplication(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.getAllByApplication('MyApp', function(error, vars) {
 	if (error) throw error;
@@ -2275,10 +2277,10 @@ balena.models.device.serviceVar.getAllByApplication('MyApp', function(error, var
 <a name="balena.models.device.serviceVar.get"></a>
 
 ###### serviceVar.get(uuidOrId, id, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)  
-**Summary**: Get the overriden value of a service variable on a device  
-**Access**: public  
-**Fulfil**: <code>String\|undefined</code> - the variable value (or undefined)  
+**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)
+**Summary**: Get the overriden value of a service variable on a device
+**Access**: public
+**Fulfil**: <code>String\|undefined</code> - the variable value (or undefined)
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -2286,19 +2288,19 @@ balena.models.device.serviceVar.getAllByApplication('MyApp', function(error, var
 | id | <code>Number</code> | service id |
 | key | <code>String</code> | variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.get('7cf02a6', 123, 'VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.get(999999, 123, 'VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.get('7cf02a6', 123, 'VAR', function(error, value) {
 	if (error) throw error;
@@ -2308,9 +2310,9 @@ balena.models.device.serviceVar.get('7cf02a6', 123, 'VAR', function(error, value
 <a name="balena.models.device.serviceVar.set"></a>
 
 ###### serviceVar.set(uuidOrId, id, key, value) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)  
-**Summary**: Set the overriden value of a service variable on a device  
-**Access**: public  
+**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)
+**Summary**: Set the overriden value of a service variable on a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -2319,19 +2321,19 @@ balena.models.device.serviceVar.get('7cf02a6', 123, 'VAR', function(error, value
 | key | <code>String</code> | variable name |
 | value | <code>String</code> | variable value |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.set('7cf02a6', 123, 'VAR', 'override').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.set(999999, 123, 'VAR', 'override').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.set('7cf02a6', 123, 'VAR', 'override', function(error) {
 	if (error) throw error;
@@ -2341,9 +2343,9 @@ balena.models.device.serviceVar.set('7cf02a6', 123, 'VAR', 'override', function(
 <a name="balena.models.device.serviceVar.remove"></a>
 
 ###### serviceVar.remove(uuidOrId, id, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)  
-**Summary**: Clear the overridden value of a service variable on a device  
-**Access**: public  
+**Kind**: static method of [<code>serviceVar</code>](#balena.models.device.serviceVar)
+**Summary**: Clear the overridden value of a service variable on a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -2351,19 +2353,19 @@ balena.models.device.serviceVar.set('7cf02a6', 123, 'VAR', 'override', function(
 | id | <code>Number</code> | service id |
 | key | <code>String</code> | variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.remove('7cf02a6', 123, 'VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.remove(999999, 123, 'VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.serviceVar.remove('7cf02a6', 123, 'VAR', function(error) {
 	if (error) throw error;
@@ -2373,9 +2375,9 @@ balena.models.device.serviceVar.remove('7cf02a6', 123, 'VAR', function(error) {
 <a name="balena.models.device.getDashboardUrl"></a>
 
 ##### device.getDashboardUrl(uuid) ⇒ <code>String</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get Dashboard URL for a specific device  
-**Returns**: <code>String</code> - - Dashboard URL for the specific device  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get Dashboard URL for a specific device
+**Returns**: <code>String</code> - - Dashboard URL for the specific device
 **Throws**:
 
 - Exception if the uuid is empty
@@ -2385,29 +2387,29 @@ balena.models.device.serviceVar.remove('7cf02a6', 123, 'VAR', function(error) {
 | --- | --- | --- |
 | uuid | <code>String</code> | Device uuid |
 
-**Example**  
+**Example**
 ```js
 dashboardDeviceUrl = balena.models.device.getDashboardUrl('a44b544b8cc24d11b036c659dfeaccd8')
 ```
 <a name="balena.models.device.getAll"></a>
 
 ##### device.getAll([options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get all devices  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - devices  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get all devices
+**Access**: public
+**Fulfil**: <code>Object[]</code> - devices
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getAll().then(function(devices) {
 	console.log(devices);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getAll(function(error, devices) {
 	if (error) throw error;
@@ -2417,29 +2419,29 @@ balena.models.device.getAll(function(error, devices) {
 <a name="balena.models.device.getAllByApplication"></a>
 
 ##### device.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get all devices by application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - devices  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get all devices by application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - devices
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getAllByApplication('MyApp').then(function(devices) {
 	console.log(devices);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getAllByApplication(123).then(function(devices) {
 	console.log(devices);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getAllByApplication('MyApp', function(error, devices) {
 	if (error) throw error;
@@ -2449,29 +2451,29 @@ balena.models.device.getAllByApplication('MyApp', function(error, devices) {
 <a name="balena.models.device.getAllByParentDevice"></a>
 
 ##### device.getAllByParentDevice(parentUuidOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get all devices by parent device  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - devices  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get all devices by parent device
+**Access**: public
+**Fulfil**: <code>Object[]</code> - devices
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | parentUuidOrId | <code>String</code> \| <code>Number</code> |  | parent device uuid (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getAllByParentDevice('7cf02a6').then(function(devices) {
 	console.log(devices);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getAllByParentDevice(123).then(function(devices) {
 	console.log(devices);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getAllByParentDevice('7cf02a6', function(error, devices) {
 	if (error) throw error;
@@ -2481,29 +2483,29 @@ balena.models.device.getAllByParentDevice('7cf02a6', function(error, devices) {
 <a name="balena.models.device.get"></a>
 
 ##### device.get(uuidOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get a single device  
-**Access**: public  
-**Fulfil**: <code>Object</code> - device  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get a single device
+**Access**: public
+**Fulfil**: <code>Object</code> - device
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> |  | device uuid (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.get('7cf02a6').then(function(device) {
 	console.log(device);
 })
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.get(123).then(function(device) {
 	console.log(device);
 })
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.get('7cf02a6', function(error, device) {
 	if (error) throw error;
@@ -2518,30 +2520,30 @@ larger prebuilt query, and reformats it into an easy to use and
 understand format. If you want more control, or to see the raw model
 directly, use `device.get(uuidOrId, options)` instead.
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
 **Summary**: Get a single device along with its associated services' details,
-including their associated commit  
-**Access**: public  
-**Fulfil**: <code>Object</code> - device with service details  
+including their associated commit
+**Access**: public
+**Fulfil**: <code>Object</code> - device with service details
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> |  | device uuid (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getWithServiceDetails('7cf02a6').then(function(device) {
 	console.log(device);
 })
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getWithServiceDetails(123).then(function(device) {
 	console.log(device);
 })
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getWithServiceDetails('7cf02a6', function(error, device) {
 	if (error) throw error;
@@ -2551,22 +2553,22 @@ balena.models.device.getWithServiceDetails('7cf02a6', function(error, device) {
 <a name="balena.models.device.getByName"></a>
 
 ##### device.getByName(name) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get devices by name  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - devices  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get devices by name
+**Access**: public
+**Fulfil**: <code>Object[]</code> - devices
 
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>String</code> | device name |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getByName('MyDevice').then(function(devices) {
 	console.log(devices);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getByName('MyDevice', function(error, devices) {
 	if (error) throw error;
@@ -2576,28 +2578,28 @@ balena.models.device.getByName('MyDevice', function(error, devices) {
 <a name="balena.models.device.getName"></a>
 
 ##### device.getName(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get the name of a device  
-**Access**: public  
-**Fulfil**: <code>String</code> - device name  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get the name of a device
+**Access**: public
+**Fulfil**: <code>String</code> - device name
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getName('7cf02a6').then(function(deviceName) {
 	console.log(deviceName);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getName(123).then(function(deviceName) {
 	console.log(deviceName);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getName('7cf02a6', function(error, deviceName) {
 	if (error) throw error;
@@ -2607,28 +2609,28 @@ balena.models.device.getName('7cf02a6', function(error, deviceName) {
 <a name="balena.models.device.getApplicationName"></a>
 
 ##### device.getApplicationName(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get application name  
-**Access**: public  
-**Fulfil**: <code>String</code> - application name  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get application name
+**Access**: public
+**Fulfil**: <code>String</code> - application name
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getApplicationName('7cf02a6').then(function(applicationName) {
 	console.log(applicationName);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getApplicationName(123).then(function(applicationName) {
 	console.log(applicationName);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getApplicationName('7cf02a6', function(error, applicationName) {
 	if (error) throw error;
@@ -2642,28 +2644,28 @@ balena.models.device.getApplicationName('7cf02a6', function(error, applicationNa
 
 This is not supported on multicontainer devices, and will be removed in a future major release
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get application container information  
-**Access**: public  
-**Fulfil**: <code>Object</code> - application info  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get application container information
+**Access**: public
+**Fulfil**: <code>Object</code> - application info
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getApplicationInfo('7cf02a6').then(function(appInfo) {
 	console.log(appInfo);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getApplicationInfo(123).then(function(appInfo) {
 	console.log(appInfo);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getApplicationInfo('7cf02a6', function(error, appInfo) {
 	if (error) throw error;
@@ -2673,28 +2675,28 @@ balena.models.device.getApplicationInfo('7cf02a6', function(error, appInfo) {
 <a name="balena.models.device.has"></a>
 
 ##### device.has(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Check if a device exists  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - has device  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Check if a device exists
+**Access**: public
+**Fulfil**: <code>Boolean</code> - has device
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.has('7cf02a6').then(function(hasDevice) {
 	console.log(hasDevice);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.has(123).then(function(hasDevice) {
 	console.log(hasDevice);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.has('7cf02a6', function(error, hasDevice) {
 	if (error) throw error;
@@ -2704,28 +2706,28 @@ balena.models.device.has('7cf02a6', function(error, hasDevice) {
 <a name="balena.models.device.isOnline"></a>
 
 ##### device.isOnline(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Check if a device is online  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - is device online  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Check if a device is online
+**Access**: public
+**Fulfil**: <code>Boolean</code> - is device online
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.isOnline('7cf02a6').then(function(isOnline) {
 	console.log('Is device online?', isOnline);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.isOnline(123).then(function(isOnline) {
 	console.log('Is device online?', isOnline);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.isOnline('7cf02a6', function(error, isOnline) {
 	if (error) throw error;
@@ -2735,17 +2737,17 @@ balena.models.device.isOnline('7cf02a6', function(error, isOnline) {
 <a name="balena.models.device.getLocalIPAddresses"></a>
 
 ##### device.getLocalIPAddresses(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get the local IP addresses of a device  
-**Access**: public  
-**Fulfil**: <code>String[]</code> - local ip addresses  
-**Reject**: <code>Error</code> Will reject if the device is offline  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get the local IP addresses of a device
+**Access**: public
+**Fulfil**: <code>String[]</code> - local ip addresses
+**Reject**: <code>Error</code> Will reject if the device is offline
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getLocalIPAddresses('7cf02a6').then(function(localIPAddresses) {
 	localIPAddresses.forEach(function(localIP) {
@@ -2753,7 +2755,7 @@ balena.models.device.getLocalIPAddresses('7cf02a6').then(function(localIPAddress
 	});
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getLocalIPAddresses(123).then(function(localIPAddresses) {
 	localIPAddresses.forEach(function(localIP) {
@@ -2761,7 +2763,7 @@ balena.models.device.getLocalIPAddresses(123).then(function(localIPAddresses) {
 	});
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getLocalIPAddresses('7cf02a6', function(error, localIPAddresses) {
 	if (error) throw error;
@@ -2774,23 +2776,23 @@ balena.models.device.getLocalIPAddresses('7cf02a6', function(error, localIPAddre
 <a name="balena.models.device.remove"></a>
 
 ##### device.remove(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Remove device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Remove device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.remove('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.remove(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.remove('7cf02a6', function(error) {
 	if (error) throw error;
@@ -2799,23 +2801,23 @@ balena.models.device.remove('7cf02a6', function(error) {
 <a name="balena.models.device.identify"></a>
 
 ##### device.identify(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Identify device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Identify device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.identify('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.identify(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.identify('7cf02a6', function(error) {
 	if (error) throw error;
@@ -2824,24 +2826,24 @@ balena.models.device.identify('7cf02a6', function(error) {
 <a name="balena.models.device.rename"></a>
 
 ##### device.rename(uuidOrId, newName) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Rename device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Rename device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | newName | <code>String</code> | the device new name |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.rename('7cf02a6', 'NewName');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.rename(123, 'NewName');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.rename('7cf02a6', 'NewName', function(error) {
 	if (error) throw error;
@@ -2850,24 +2852,24 @@ balena.models.device.rename('7cf02a6', 'NewName', function(error) {
 <a name="balena.models.device.note"></a>
 
 ##### device.note(uuidOrId, note) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Note a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Note a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | note | <code>String</code> | the note |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.note('7cf02a6', 'My useful note');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.note(123, 'My useful note');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.note('7cf02a6', 'My useful note', function(error) {
 	if (error) throw error;
@@ -2876,24 +2878,24 @@ balena.models.device.note('7cf02a6', 'My useful note', function(error) {
 <a name="balena.models.device.setCustomLocation"></a>
 
 ##### device.setCustomLocation(uuidOrId, location) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Set a custom location for a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Set a custom location for a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | location | <code>Object</code> | the location ({ latitude: 123, longitude: 456 }) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.setCustomLocation('7cf02a6', { latitude: 123, longitude: 456 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.setCustomLocation(123, { latitude: 123, longitude: 456 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.setCustomLocation('7cf02a6', { latitude: 123, longitude: 456 }, function(error) {
 	if (error) throw error;
@@ -2902,23 +2904,23 @@ balena.models.device.setCustomLocation('7cf02a6', { latitude: 123, longitude: 45
 <a name="balena.models.device.unsetCustomLocation"></a>
 
 ##### device.unsetCustomLocation(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Clear the custom location of a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Clear the custom location of a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.unsetCustomLocation('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.unsetCustomLocation(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.unsetLocation('7cf02a6', function(error) {
 	if (error) throw error;
@@ -2927,28 +2929,28 @@ balena.models.device.unsetLocation('7cf02a6', function(error) {
 <a name="balena.models.device.move"></a>
 
 ##### device.move(uuidOrId, applicationNameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Move a device to another application  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Move a device to another application
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | applicationNameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.move('7cf02a6', 'MyApp');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.move(123, 'MyApp');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.move(123, 456);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.move('7cf02a6', 'MyApp', function(error) {
 	if (error) throw error;
@@ -2961,28 +2963,28 @@ balena.models.device.move('7cf02a6', 'MyApp', function(error) {
 
 This is not supported on multicontainer devices, and will be removed in a future major release
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Start application on device  
-**Access**: public  
-**Fulfil**: <code>String</code> - application container id  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Start application on device
+**Access**: public
+**Fulfil**: <code>String</code> - application container id
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.startApplication('7cf02a6').then(function(containerId) {
 	console.log(containerId);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.startApplication(123).then(function(containerId) {
 	console.log(containerId);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.startApplication('7cf02a6', function(error, containerId) {
 	if (error) throw error;
@@ -2996,28 +2998,28 @@ balena.models.device.startApplication('7cf02a6', function(error, containerId) {
 
 This is not supported on multicontainer devices, and will be removed in a future major release
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Stop application on device  
-**Access**: public  
-**Fulfil**: <code>String</code> - application container id  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Stop application on device
+**Access**: public
+**Fulfil**: <code>String</code> - application container id
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.stopApplication('7cf02a6').then(function(containerId) {
 	console.log(containerId);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.stopApplication(123).then(function(containerId) {
 	console.log(containerId);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.stopApplication('7cf02a6', function(error, containerId) {
 	if (error) throw error;
@@ -3031,23 +3033,23 @@ This function restarts the Docker container running
 the application on the device, but doesn't reboot
 the device itself.
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Restart application on device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Restart application on device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.restartApplication('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.restartApplication(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.restartApplication('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3056,28 +3058,28 @@ balena.models.device.restartApplication('7cf02a6', function(error) {
 <a name="balena.models.device.startService"></a>
 
 ##### device.startService(uuidOrId, imageId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Start a service on a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Start a service on a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | imageId | <code>Number</code> | id of the image to start |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.startService('7cf02a6', 123).then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.startService(1, 123).then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.startService('7cf02a6', 123, function(error) {
 	if (error) throw error;
@@ -3087,28 +3089,28 @@ balena.models.device.startService('7cf02a6', 123, function(error) {
 <a name="balena.models.device.stopService"></a>
 
 ##### device.stopService(uuidOrId, imageId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Stop a service on a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Stop a service on a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | imageId | <code>Number</code> | id of the image to stop |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.stopService('7cf02a6', 123).then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.stopService(1, 123).then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.stopService('7cf02a6', 123, function(error) {
 	if (error) throw error;
@@ -3118,28 +3120,28 @@ balena.models.device.stopService('7cf02a6', 123, function(error) {
 <a name="balena.models.device.restartService"></a>
 
 ##### device.restartService(uuidOrId, imageId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Restart a service on a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Restart a service on a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | imageId | <code>Number</code> | id of the image to restart |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.restartService('7cf02a6', 123).then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.restartService(1, 123).then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.restartService('7cf02a6', 123, function(error) {
 	if (error) throw error;
@@ -3149,9 +3151,9 @@ balena.models.device.restartService('7cf02a6', 123, function(error) {
 <a name="balena.models.device.reboot"></a>
 
 ##### device.reboot(uuidOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Reboot device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Reboot device
+**Access**: public
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -3159,15 +3161,15 @@ balena.models.device.restartService('7cf02a6', 123, function(error) {
 | [options] | <code>Object</code> |  | options |
 | [options.force] | <code>Boolean</code> | <code>false</code> | override update lock |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.reboot('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.reboot(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.reboot('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3176,9 +3178,9 @@ balena.models.device.reboot('7cf02a6', function(error) {
 <a name="balena.models.device.shutdown"></a>
 
 ##### device.shutdown(uuidOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Shutdown device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Shutdown device
+**Access**: public
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -3186,15 +3188,15 @@ balena.models.device.reboot('7cf02a6', function(error) {
 | [options] | <code>Object</code> |  | options |
 | [options.force] | <code>Boolean</code> | <code>false</code> | override update lock |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.shutdown('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.shutdown(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.shutdown('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3205,23 +3207,23 @@ balena.models.device.shutdown('7cf02a6', function(error) {
 ##### device.purge(uuidOrId) ⇒ <code>Promise</code>
 This function clears the user application's `/data` directory.
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Purge device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Purge device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.purge('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.purge(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.purge('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3230,9 +3232,9 @@ balena.models.device.purge('7cf02a6', function(error) {
 <a name="balena.models.device.update"></a>
 
 ##### device.update(uuidOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Trigger an update check on the supervisor  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Trigger an update check on the supervisor
+**Access**: public
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -3240,19 +3242,19 @@ balena.models.device.purge('7cf02a6', function(error) {
 | [options] | <code>Object</code> |  | options |
 | [options.force] | <code>Boolean</code> | <code>false</code> | override update lock |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.update('7cf02a6', {
 	force: true
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.update(123, {
 	force: true
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.update('7cf02a6', {
 	force: true
@@ -3263,27 +3265,27 @@ balena.models.device.update('7cf02a6', {
 <a name="balena.models.device.getSupervisorTargetState"></a>
 
 ##### device.getSupervisorTargetState(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get the target supervisor state on a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get the target supervisor state on a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getSupervisorTargetState('7cf02a6').then(function(state) {
 	console.log(state);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getSupervisorTargetState(123).then(function(state) {
 	console.log(state);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getSupervisorTargetState('7cf02a6', function(error, state) {
 	if (error) throw error;
@@ -3293,27 +3295,27 @@ balena.models.device.getSupervisorTargetState('7cf02a6', function(error, state) 
 <a name="balena.models.device.getSupervisorState"></a>
 
 ##### device.getSupervisorState(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get the supervisor state on a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get the supervisor state on a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getSupervisorState('7cf02a6').then(function(state) {
 	console.log(state);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getSupervisorState(123).then(function(state) {
 	console.log(state);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getSupervisorState('7cf02a6', function(error, state) {
 	if (error) throw error;
@@ -3323,24 +3325,24 @@ balena.models.device.getSupervisorState('7cf02a6', function(error, state) {
 <a name="balena.models.device.getDisplayName"></a>
 
 ##### device.getDisplayName(deviceTypeSlug) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get display name for a device  
-**Access**: public  
-**Fulfil**: <code>String</code> - device display name  
-**See**: [getSupportedDeviceTypes](#balena.models.device.getSupportedDeviceTypes) for a list of supported devices  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get display name for a device
+**Access**: public
+**Fulfil**: <code>String</code> - device display name
+**See**: [getSupportedDeviceTypes](#balena.models.device.getSupportedDeviceTypes) for a list of supported devices
 
 | Param | Type | Description |
 | --- | --- | --- |
 | deviceTypeSlug | <code>String</code> | device type slug |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getDisplayName('raspberry-pi').then(function(deviceTypeName) {
 	console.log(deviceTypeName);
 	// Raspberry Pi
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getDisplayName('raspberry-pi', function(error, deviceTypeName) {
 	if (error) throw error;
@@ -3351,24 +3353,24 @@ balena.models.device.getDisplayName('raspberry-pi', function(error, deviceTypeNa
 <a name="balena.models.device.getDeviceSlug"></a>
 
 ##### device.getDeviceSlug(deviceTypeName) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get device slug  
-**Access**: public  
-**Fulfil**: <code>String</code> - device slug name  
-**See**: [getSupportedDeviceTypes](#balena.models.device.getSupportedDeviceTypes) for a list of supported devices  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get device slug
+**Access**: public
+**Fulfil**: <code>String</code> - device slug name
+**See**: [getSupportedDeviceTypes](#balena.models.device.getSupportedDeviceTypes) for a list of supported devices
 
 | Param | Type | Description |
 | --- | --- | --- |
 | deviceTypeName | <code>String</code> | device type name |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getDeviceSlug('Raspberry Pi').then(function(deviceTypeSlug) {
 	console.log(deviceTypeSlug);
 	// raspberry-pi
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getDeviceSlug('Raspberry Pi', function(error, deviceTypeSlug) {
 	if (error) throw error;
@@ -3379,11 +3381,11 @@ balena.models.device.getDeviceSlug('Raspberry Pi', function(error, deviceTypeSlu
 <a name="balena.models.device.getSupportedDeviceTypes"></a>
 
 ##### device.getSupportedDeviceTypes() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get supported device types  
-**Access**: public  
-**Fulfil**: <code>String[]</code> - supported device types  
-**Example**  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get supported device types
+**Access**: public
+**Fulfil**: <code>String[]</code> - supported device types
+**Example**
 ```js
 balena.models.device.getSupportedDeviceTypes().then(function(supportedDeviceTypes) {
 	supportedDeviceTypes.forEach(function(supportedDeviceType) {
@@ -3391,7 +3393,7 @@ balena.models.device.getSupportedDeviceTypes().then(function(supportedDeviceType
 	});
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getSupportedDeviceTypes(function(error, supportedDeviceTypes) {
 	if (error) throw error;
@@ -3404,22 +3406,22 @@ balena.models.device.getSupportedDeviceTypes(function(error, supportedDeviceType
 <a name="balena.models.device.getManifestBySlug"></a>
 
 ##### device.getManifestBySlug(slug) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get a device manifest by slug  
-**Access**: public  
-**Fulfil**: <code>Object</code> - device manifest  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get a device manifest by slug
+**Access**: public
+**Fulfil**: <code>Object</code> - device manifest
 
 | Param | Type | Description |
 | --- | --- | --- |
 | slug | <code>String</code> | device slug |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getManifestBySlug('raspberry-pi').then(function(manifest) {
 	console.log(manifest);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getManifestBySlug('raspberry-pi', function(error, manifest) {
 	if (error) throw error;
@@ -3429,28 +3431,28 @@ balena.models.device.getManifestBySlug('raspberry-pi', function(error, manifest)
 <a name="balena.models.device.getManifestByApplication"></a>
 
 ##### device.getManifestByApplication(nameOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get a device manifest by application name  
-**Access**: public  
-**Fulfil**: <code>Object</code> - device manifest  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get a device manifest by application name
+**Access**: public
+**Fulfil**: <code>Object</code> - device manifest
 
 | Param | Type | Description |
 | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getManifestByApplication('MyApp').then(function(manifest) {
 	console.log(manifest);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getManifestByApplication(123).then(function(manifest) {
 	console.log(manifest);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getManifestByApplication('MyApp', function(error, manifest) {
 	if (error) throw error;
@@ -3460,11 +3462,11 @@ balena.models.device.getManifestByApplication('MyApp', function(error, manifest)
 <a name="balena.models.device.generateUniqueKey"></a>
 
 ##### device.generateUniqueKey() ⇒ <code>String</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Generate a random key, useful for both uuid and api key.  
-**Returns**: <code>String</code> - A generated key  
-**Access**: public  
-**Example**  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Generate a random key, useful for both uuid and api key.
+**Returns**: <code>String</code> - A generated key
+**Access**: public
+**Example**
 ```js
 randomKey = balena.models.device.generateUniqueKey();
 // randomKey is a randomly generated key that can be used as either a uuid or an api key
@@ -3473,31 +3475,31 @@ console.log(randomKey);
 <a name="balena.models.device.register"></a>
 
 ##### device.register(applicationNameOrId, [uuid]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Register a new device with a Balena application.  
-**Access**: public  
-**Fulfil**: <code>Object</code> Device registration info ({ id: "...", uuid: "...", api_key: "..." })  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Register a new device with a Balena application.
+**Access**: public
+**Fulfil**: <code>Object</code> Device registration info ({ id: "...", uuid: "...", api_key: "..." })
 
 | Param | Type | Description |
 | --- | --- | --- |
 | applicationNameOrId | <code>String</code> \| <code>Number</code> | application name (string) or id (number) |
 | [uuid] | <code>String</code> | device uuid |
 
-**Example**  
+**Example**
 ```js
 var uuid = balena.models.device.generateUniqueKey();
 balena.models.device.register('MyApp', uuid).then(function(registrationInfo) {
 	console.log(registrationInfo);
 });
 ```
-**Example**  
+**Example**
 ```js
 var uuid = balena.models.device.generateUniqueKey();
 balena.models.device.register(123, uuid).then(function(registrationInfo) {
 	console.log(registrationInfo);
 });
 ```
-**Example**  
+**Example**
 ```js
 var uuid = balena.models.device.generateUniqueKey();
 balena.models.device.register('MyApp', uuid, function(error, registrationInfo) {
@@ -3508,27 +3510,27 @@ balena.models.device.register('MyApp', uuid, function(error, registrationInfo) {
 <a name="balena.models.device.generateDeviceKey"></a>
 
 ##### device.generateDeviceKey(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Generate a device key  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Generate a device key
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.generateDeviceKey('7cf02a6').then(function(deviceApiKey) {
 	console.log(deviceApiKey);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.generateDeviceKey(123).then(function(deviceApiKey) {
 	console.log(deviceApiKey);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.generateDeviceKey('7cf02a6', function(error, deviceApiKey) {
 	if (error) throw error;
@@ -3538,16 +3540,16 @@ balena.models.device.generateDeviceKey('7cf02a6', function(error, deviceApiKey) 
 <a name="balena.models.device.hasDeviceUrl"></a>
 
 ##### device.hasDeviceUrl(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Check if a device is web accessible with device utls  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - has device url  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Check if a device is web accessible with device utls
+**Access**: public
+**Fulfil**: <code>Boolean</code> - has device url
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.hasDeviceUrl('7cf02a6').then(function(hasDeviceUrl) {
 	if (hasDeviceUrl) {
@@ -3555,7 +3557,7 @@ balena.models.device.hasDeviceUrl('7cf02a6').then(function(hasDeviceUrl) {
 	}
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.hasDeviceUrl(123).then(function(hasDeviceUrl) {
 	if (hasDeviceUrl) {
@@ -3563,7 +3565,7 @@ balena.models.device.hasDeviceUrl(123).then(function(hasDeviceUrl) {
 	}
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.hasDeviceUrl('7cf02a6', function(error, hasDeviceUrl) {
 	if (error) throw error;
@@ -3576,28 +3578,28 @@ balena.models.device.hasDeviceUrl('7cf02a6', function(error, hasDeviceUrl) {
 <a name="balena.models.device.getDeviceUrl"></a>
 
 ##### device.getDeviceUrl(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get a device url  
-**Access**: public  
-**Fulfil**: <code>String</code> - device url  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get a device url
+**Access**: public
+**Fulfil**: <code>String</code> - device url
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getDeviceUrl('7cf02a6').then(function(url) {
 	console.log(url);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getDeviceUrl(123).then(function(url) {
 	console.log(url);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getDeviceUrl('7cf02a6', function(error, url) {
 	if (error) throw error;
@@ -3607,23 +3609,23 @@ balena.models.device.getDeviceUrl('7cf02a6', function(error, url) {
 <a name="balena.models.device.enableDeviceUrl"></a>
 
 ##### device.enableDeviceUrl(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Enable device url for a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Enable device url for a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.enableDeviceUrl('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.enableDeviceUrl(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.enableDeviceUrl('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3632,23 +3634,23 @@ balena.models.device.enableDeviceUrl('7cf02a6', function(error) {
 <a name="balena.models.device.disableDeviceUrl"></a>
 
 ##### device.disableDeviceUrl(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Disable device url for a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Disable device url for a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.disableDeviceUrl('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.disableDeviceUrl(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.disableDeviceUrl('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3657,23 +3659,23 @@ balena.models.device.disableDeviceUrl('7cf02a6', function(error) {
 <a name="balena.models.device.enableLockOverride"></a>
 
 ##### device.enableLockOverride(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Enable lock override  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Enable lock override
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.enableLockOverride('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.enableLockOverride(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.enableLockOverride('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3682,23 +3684,23 @@ balena.models.device.enableLockOverride('7cf02a6', function(error) {
 <a name="balena.models.device.disableLockOverride"></a>
 
 ##### device.disableLockOverride(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Disable lock override  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Disable lock override
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.disableLockOverride('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.disableLockOverride(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.disableLockOverride('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3707,23 +3709,23 @@ balena.models.device.disableLockOverride('7cf02a6', function(error) {
 <a name="balena.models.device.hasLockOverride"></a>
 
 ##### device.hasLockOverride(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Check if a device has the lock override enabled  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Check if a device has the lock override enabled
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.hasLockOverride('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.hasLockOverride(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.hasLockOverride('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3734,23 +3736,23 @@ balena.models.device.hasLockOverride('7cf02a6', function(error) {
 ##### device.ping(uuidOrId) ⇒ <code>Promise</code>
 This is useful to signal that the supervisor is alive and responding.
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Ping a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Ping a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.ping('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.ping(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.ping('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3759,22 +3761,22 @@ balena.models.device.ping('7cf02a6', function(error) {
 <a name="balena.models.device.getStatus"></a>
 
 ##### device.getStatus(device) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get the status of a device  
-**Access**: public  
-**Fulfil**: <code>String</code> - device status  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get the status of a device
+**Access**: public
+**Fulfil**: <code>String</code> - device status
 
 | Param | Type | Description |
 | --- | --- | --- |
 | device | <code>Object</code> | A device object |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getStatus(device).then(function(status) {
 	console.log(status);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getStatus(device, function(error, status) {
 	if (error) throw error;
@@ -3784,24 +3786,24 @@ balena.models.device.getStatus(device, function(error, status) {
 <a name="balena.models.device.grantSupportAccess"></a>
 
 ##### device.grantSupportAccess(uuidOrId, expiryTimestamp) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Grant support access to a device until a specified time  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Grant support access to a device until a specified time
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | expiryTimestamp | <code>Number</code> | a timestamp in ms for when the support access will expire |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.grantSupportAccess('7cf02a6', Date.now() + 3600 * 1000);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.grantSupportAccess(123, Date.now() + 3600 * 1000);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.grantSupportAccess('7cf02a6', Date.now() + 3600 * 1000, function(error) {
 	if (error) throw error;
@@ -3810,23 +3812,23 @@ balena.models.device.grantSupportAccess('7cf02a6', Date.now() + 3600 * 1000, fun
 <a name="balena.models.device.revokeSupportAccess"></a>
 
 ##### device.revokeSupportAccess(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Revoke support access to a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Revoke support access to a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.revokeSupportAccess('7cf02a6');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.revokeSupportAccess(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.revokeSupportAccess('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3837,15 +3839,15 @@ balena.models.device.revokeSupportAccess('7cf02a6', function(error) {
 ##### device.lastOnline(device) ⇒ <code>String</code>
 If the device has never been online this method returns the string `Connecting...`.
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get a string showing when a device was last set as online  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get a string showing when a device was last set as online
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | device | <code>Object</code> | A device object |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.get('7cf02a6').then(function(device) {
 	balena.models.device.lastOnline(device);
@@ -3854,15 +3856,15 @@ balena.models.device.get('7cf02a6').then(function(device) {
 <a name="balena.models.device.getOsVersion"></a>
 
 ##### device.getOsVersion(device) ⇒ <code>String</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get the OS version (version number and variant combined) running on a device  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get the OS version (version number and variant combined) running on a device
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | device | <code>Object</code> | A device object |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.get('7cf02a6').then(function(device) {
 	console.log(device.os_version); // => 'balenaOS 2.26.0+rev1'
@@ -3873,22 +3875,22 @@ balena.models.device.get('7cf02a6').then(function(device) {
 <a name="balena.models.device.isTrackingApplicationRelease"></a>
 
 ##### device.isTrackingApplicationRelease(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get whether the device is configured to track the current application release  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - is tracking the current application release  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get whether the device is configured to track the current application release
+**Access**: public
+**Fulfil**: <code>Boolean</code> - is tracking the current application release
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.isTrackingApplicationRelease('7cf02a6').then(function(isEnabled) {
 	console.log(isEnabled);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.isTrackingApplicationRelease('7cf02a6', function(error, isEnabled) {
 	console.log(isEnabled);
@@ -3897,22 +3899,22 @@ balena.models.device.isTrackingApplicationRelease('7cf02a6', function(error, isE
 <a name="balena.models.device.getTargetReleaseHash"></a>
 
 ##### device.getTargetReleaseHash(uuidOrId) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get the hash of the currently tracked release for a specific device  
-**Access**: public  
-**Fulfil**: <code>String</code> - The release hash of the currently tracked release  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get the hash of the currently tracked release for a specific device
+**Access**: public
+**Fulfil**: <code>String</code> - The release hash of the currently tracked release
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getTargetReleaseHash('7cf02a6').then(function(release) {
 	console.log(release);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getTargetReleaseHash('7cf02a6', function(release) {
 	console.log(release);
@@ -3924,28 +3926,28 @@ balena.models.device.getTargetReleaseHash('7cf02a6', function(release) {
 Configures the device to run a particular release
 and not get updated when the current application release changes.
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Set a specific device to run a particular release  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Set a specific device to run a particular release
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 | fullReleaseHashOrId | <code>String</code> \| <code>Number</code> | the hash of a successful release (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.pinToRelease('7cf02a6', 'f7caf4ff80114deeaefb7ab4447ad9c661c50847').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.pinToRelease(123, 'f7caf4ff80114deeaefb7ab4447ad9c661c50847').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.pinToRelease('7cf02a6', 'f7caf4ff80114deeaefb7ab4447ad9c661c50847', function(error) {
 	if (error) throw error;
@@ -3957,21 +3959,21 @@ balena.models.device.pinToRelease('7cf02a6', 'f7caf4ff80114deeaefb7ab4447ad9c661
 ##### device.trackApplicationRelease(uuidOrId) ⇒ <code>Promise</code>
 The device's current release will be updated with each new successfully built release.
 
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Configure a specific device to track the current application release  
-**Access**: public  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Configure a specific device to track the current application release
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuidOrId | <code>String</code> \| <code>Number</code> | device uuid (string) or id (number) |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.trackApplicationRelease('7cf02a6').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.trackApplicationRelease('7cf02a6', function(error) {
 	if (error) throw error;
@@ -3981,23 +3983,23 @@ balena.models.device.trackApplicationRelease('7cf02a6', function(error) {
 <a name="balena.models.device.startOsUpdate"></a>
 
 ##### device.startOsUpdate(uuid, targetOsVersion) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Start an OS update on a device  
-**Access**: public  
-**Fulfil**: <code>Object</code> - action response  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Start an OS update on a device
+**Access**: public
+**Fulfil**: <code>Object</code> - action response
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuid | <code>String</code> | full device uuid |
 | targetOsVersion | <code>String</code> | semver-compatible version for the target device Unsupported (unpublished) version will result in rejection. The version **must** be the exact version number, a "prod" variant and greater than the one running on the device. To resolve the semver-compatible range use `balena.model.os.getMaxSatisfyingVersion`. |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.startOsUpdate('7cf02a687b74206f92cb455969cf8e98', '2.29.2+rev1.prod').then(function(status) {
 	console.log(result.status);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.startOsUpdate('7cf02a687b74206f92cb455969cf8e98', '2.29.2+rev1.prod', function(error, status) {
 	if (error) throw error;
@@ -4007,22 +4009,22 @@ balena.models.device.startOsUpdate('7cf02a687b74206f92cb455969cf8e98', '2.29.2+r
 <a name="balena.models.device.getOsUpdateStatus"></a>
 
 ##### device.getOsUpdateStatus(uuid) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>device</code>](#balena.models.device)  
-**Summary**: Get the OS update status of a device  
-**Access**: public  
-**Fulfil**: <code>Object</code> - action response  
+**Kind**: static method of [<code>device</code>](#balena.models.device)
+**Summary**: Get the OS update status of a device
+**Access**: public
+**Fulfil**: <code>Object</code> - action response
 
 | Param | Type | Description |
 | --- | --- | --- |
 | uuid | <code>String</code> | full device uuid |
 
-**Example**  
+**Example**
 ```js
 balena.models.device.getOsUpdateStatus('7cf02a687b74206f92cb455969cf8e98').then(function(status) {
 	console.log(result.status);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.device.getOsUpdateStatus('7cf02a687b74206f92cb455969cf8e98', function(error, status) {
 	if (error) throw error;
@@ -4032,7 +4034,7 @@ balena.models.device.getOsUpdateStatus('7cf02a687b74206f92cb455969cf8e98', funct
 <a name="balena.models.apiKey"></a>
 
 #### models.apiKey : <code>object</code>
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.apiKey](#balena.models.apiKey) : <code>object</code>
     * [.create(name, [description])](#balena.models.apiKey.create) ⇒ <code>Promise</code>
@@ -4045,29 +4047,29 @@ balena.models.device.getOsUpdateStatus('7cf02a687b74206f92cb455969cf8e98', funct
 ##### apiKey.create(name, [description]) ⇒ <code>Promise</code>
 This method registers a new api key for the current user with the name given.
 
-**Kind**: static method of [<code>apiKey</code>](#balena.models.apiKey)  
-**Summary**: Creates a new user API key  
-**Access**: public  
-**Fulfil**: <code>String</code> - API key  
+**Kind**: static method of [<code>apiKey</code>](#balena.models.apiKey)
+**Summary**: Creates a new user API key
+**Access**: public
+**Fulfil**: <code>String</code> - API key
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | name | <code>String</code> |  | the API key name |
 | [description] | <code>String</code> | <code></code> | the API key description |
 
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.create(apiKeyName).then(function(apiKey) {
 	console.log(apiKey);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.create(apiKeyName, apiKeyDescription).then(function(apiKey) {
 	console.log(apiKey);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.create(apiKeyName, function(error, apiKey) {
 	if (error) throw error;
@@ -4077,22 +4079,22 @@ balena.models.apiKey.create(apiKeyName, function(error, apiKey) {
 <a name="balena.models.apiKey.getAll"></a>
 
 ##### apiKey.getAll([options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>apiKey</code>](#balena.models.apiKey)  
-**Summary**: Get all API keys  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - apiKeys  
+**Kind**: static method of [<code>apiKey</code>](#balena.models.apiKey)
+**Summary**: Get all API keys
+**Access**: public
+**Fulfil**: <code>Object[]</code> - apiKeys
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.getAll().then(function(apiKeys) {
 	console.log(apiKeys);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.getAll(function(error, apiKeys) {
 	if (error) throw error;
@@ -4102,28 +4104,28 @@ balena.models.apiKey.getAll(function(error, apiKeys) {
 <a name="balena.models.apiKey.update"></a>
 
 ##### apiKey.update(id, apiKeyInfo) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>apiKey</code>](#balena.models.apiKey)  
-**Summary**: Update the details of an API key  
-**Access**: public  
+**Kind**: static method of [<code>apiKey</code>](#balena.models.apiKey)
+**Summary**: Update the details of an API key
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>Number</code> | API key id |
 | apiKeyInfo | <code>Object</code> | an object with the updated name or description |
 
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.update(123, { name: 'updatedName' });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.update(123, { description: 'updated description' });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.update(123, { name: 'updatedName', description: 'updated description' });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.update(123, { name: 'updatedName', description: 'updated description' }, function(error, apiKeys) {
 	if (error) throw error;
@@ -4133,19 +4135,19 @@ balena.models.apiKey.update(123, { name: 'updatedName', description: 'updated de
 <a name="balena.models.apiKey.revoke"></a>
 
 ##### apiKey.revoke(id) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>apiKey</code>](#balena.models.apiKey)  
-**Summary**: Revoke an API key  
-**Access**: public  
+**Kind**: static method of [<code>apiKey</code>](#balena.models.apiKey)
+**Summary**: Revoke an API key
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>Number</code> | API key id |
 
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.revoke(123);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.apiKey.revoke(123, function(error) {
 	if (error) throw error;
@@ -4154,7 +4156,7 @@ balena.models.apiKey.revoke(123, function(error) {
 <a name="balena.models.key"></a>
 
 #### models.key : <code>object</code>
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.key](#balena.models.key) : <code>object</code>
     * [.getAll([options])](#balena.models.key.getAll) ⇒ <code>Promise</code>
@@ -4165,22 +4167,22 @@ balena.models.apiKey.revoke(123, function(error) {
 <a name="balena.models.key.getAll"></a>
 
 ##### key.getAll([options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>key</code>](#balena.models.key)  
-**Summary**: Get all ssh keys  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - ssh keys  
+**Kind**: static method of [<code>key</code>](#balena.models.key)
+**Summary**: Get all ssh keys
+**Access**: public
+**Fulfil**: <code>Object[]</code> - ssh keys
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.key.getAll().then(function(keys) {
 	console.log(keys);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.key.getAll(function(error, keys) {
 	if (error) throw error;
@@ -4190,22 +4192,22 @@ balena.models.key.getAll(function(error, keys) {
 <a name="balena.models.key.get"></a>
 
 ##### key.get(id) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>key</code>](#balena.models.key)  
-**Summary**: Get a single ssh key  
-**Access**: public  
-**Fulfil**: <code>Object</code> - ssh key  
+**Kind**: static method of [<code>key</code>](#balena.models.key)
+**Summary**: Get a single ssh key
+**Access**: public
+**Fulfil**: <code>Object</code> - ssh key
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> \| <code>Number</code> | key id |
 
-**Example**  
+**Example**
 ```js
 balena.models.key.get(51).then(function(key) {
 	console.log(key);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.key.get(51, function(error, key) {
 	if (error) throw error;
@@ -4215,19 +4217,19 @@ balena.models.key.get(51, function(error, key) {
 <a name="balena.models.key.remove"></a>
 
 ##### key.remove(id) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>key</code>](#balena.models.key)  
-**Summary**: Remove ssh key  
-**Access**: public  
+**Kind**: static method of [<code>key</code>](#balena.models.key)
+**Summary**: Remove ssh key
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> \| <code>Number</code> | key id |
 
-**Example**  
+**Example**
 ```js
 balena.models.key.remove(51);
 ```
-**Example**  
+**Example**
 ```js
 balena.models.key.remove(51, function(error) {
 	if (error) throw error;
@@ -4236,23 +4238,23 @@ balena.models.key.remove(51, function(error) {
 <a name="balena.models.key.create"></a>
 
 ##### key.create(title, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>key</code>](#balena.models.key)  
-**Summary**: Create a ssh key  
-**Access**: public  
-**Fulfil**: <code>Object</code> - ssh key  
+**Kind**: static method of [<code>key</code>](#balena.models.key)
+**Summary**: Create a ssh key
+**Access**: public
+**Fulfil**: <code>Object</code> - ssh key
 
 | Param | Type | Description |
 | --- | --- | --- |
 | title | <code>String</code> | key title |
 | key | <code>String</code> | the public ssh key |
 
-**Example**  
+**Example**
 ```js
 balena.models.key.create('Main', 'ssh-rsa AAAAB....').then(function(key) {
 	console.log(key);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.key.create('Main', 'ssh-rsa AAAAB....', function(error, key) {
 	if (error) throw error;
@@ -4262,7 +4264,7 @@ balena.models.key.create('Main', 'ssh-rsa AAAAB....', function(error, key) {
 <a name="balena.models.os"></a>
 
 #### models.os : <code>object</code>
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.os](#balena.models.os) : <code>object</code>
     * [.getDownloadSize(deviceType, [version])](#balena.models.os.getDownloadSize) ⇒ <code>Promise</code>
@@ -4273,23 +4275,24 @@ balena.models.key.create('Main', 'ssh-rsa AAAAB....', function(error, key) {
     * [.getConfig(nameOrId, options)](#balena.models.os.getConfig) ⇒ <code>Promise</code>
     * [.isSupportedOsUpdate(deviceType, currentVersion, targetVersion)](#balena.models.os.isSupportedOsUpdate) ⇒ <code>Promise</code>
     * [.getSupportedOsUpdateVersions(deviceType, currentVersion)](#balena.models.os.getSupportedOsUpdateVersions) ⇒ <code>Promise</code>
+    * [.isArchitectureCompatibleWith(osArchitecture, applicationArchitecture)](#balena.models.os.isArchitectureCompatibleWith) ⇒ <code>Boolean</code>
 
 <a name="balena.models.os.getDownloadSize"></a>
 
 ##### os.getDownloadSize(deviceType, [version]) ⇒ <code>Promise</code>
 **Note!** Currently only the raw (uncompressed) size is reported.
 
-**Kind**: static method of [<code>os</code>](#balena.models.os)  
-**Summary**: Get OS download size estimate  
-**Access**: public  
-**Fulfil**: <code>Number</code> - OS image download size, in bytes.  
+**Kind**: static method of [<code>os</code>](#balena.models.os)
+**Summary**: Get OS download size estimate
+**Access**: public
+**Fulfil**: <code>Number</code> - OS image download size, in bytes.
 
 | Param | Type | Description |
 | --- | --- | --- |
 | deviceType | <code>String</code> | device type slug |
 | [version] | <code>String</code> | semver-compatible version or 'latest', defaults to 'latest'. The version **must** be the exact version number. |
 
-**Example**  
+**Example**
 ```js
 balena.models.os.getDownloadSize('raspberry-pi').then(function(size) {
 	console.log('The OS download size for raspberry-pi', size);
@@ -4303,22 +4306,22 @@ balena.models.os.getDownloadSize('raspberry-pi', function(error, size) {
 <a name="balena.models.os.getSupportedVersions"></a>
 
 ##### os.getSupportedVersions(deviceType) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>os</code>](#balena.models.os)  
-**Summary**: Get OS supported versions  
-**Access**: public  
+**Kind**: static method of [<code>os</code>](#balena.models.os)
+**Summary**: Get OS supported versions
+**Access**: public
 **Fulfil**: <code>Object</code> - the versions information, of the following structure:
 * versions - an array of strings,
 containing exact version numbers supported by the current environment
 * recommended - the recommended version, i.e. the most recent version
 that is _not_ pre-release, can be `null`
 * latest - the most recent version, including pre-releases
-* default - recommended (if available) or latest otherwise  
+* default - recommended (if available) or latest otherwise
 
 | Param | Type | Description |
 | --- | --- | --- |
 | deviceType | <code>String</code> | device type slug |
 
-**Example**  
+**Example**
 ```js
 balena.models.os.getSupportedVersions('raspberry-pi').then(function(osVersions) {
 	console.log('Supported OS versions for raspberry-pi', osVersions);
@@ -4332,17 +4335,17 @@ balena.models.os.getSupportedVersions('raspberry-pi', function(error, osVersions
 <a name="balena.models.os.getMaxSatisfyingVersion"></a>
 
 ##### os.getMaxSatisfyingVersion(deviceType, versionOrRange) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>os</code>](#balena.models.os)  
-**Summary**: Get the max OS version satisfying the given range  
-**Access**: public  
-**Fulfil**: <code>String\|null</code> - the version number, or `null` if no matching versions are found  
+**Kind**: static method of [<code>os</code>](#balena.models.os)
+**Summary**: Get the max OS version satisfying the given range
+**Access**: public
+**Fulfil**: <code>String\|null</code> - the version number, or `null` if no matching versions are found
 
 | Param | Type | Description |
 | --- | --- | --- |
 | deviceType | <code>String</code> | device type slug |
 | versionOrRange | <code>String</code> | can be one of * the exact version number, in which case it is returned if the version is supported, or `null` is returned otherwise, * a [semver](https://www.npmjs.com/package/semver)-compatible range specification, in which case the most recent satisfying version is returned if it exists, or `null` is returned, * `'latest'` in which case the most recent version is returned, including pre-releases, * `'recommended'` in which case the recommended version is returned, i.e. the most recent version excluding pre-releases, which can be `null` if only pre-release versions are available, * `'default'` in which case the recommended version is returned if available, or `latest` is returned otherwise. Defaults to `'latest'`. |
 
-**Example**  
+**Example**
 ```js
 balena.models.os.getSupportedVersions('raspberry-pi').then(function(osVersions) {
 	console.log('Supported OS versions for raspberry-pi', osVersions);
@@ -4356,17 +4359,17 @@ balena.models.os.getSupportedVersions('raspberry-pi', function(error, osVersions
 <a name="balena.models.os.getLastModified"></a>
 
 ##### os.getLastModified(deviceType, [version]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>os</code>](#balena.models.os)  
-**Summary**: Get the OS image last modified date  
-**Access**: public  
-**Fulfil**: <code>Date</code> - last modified date  
+**Kind**: static method of [<code>os</code>](#balena.models.os)
+**Summary**: Get the OS image last modified date
+**Access**: public
+**Fulfil**: <code>Date</code> - last modified date
 
 | Param | Type | Description |
 | --- | --- | --- |
 | deviceType | <code>String</code> | device type slug |
 | [version] | <code>String</code> | semver-compatible version or 'latest', defaults to 'latest'. Unsupported (unpublished) version will result in rejection. The version **must** be the exact version number. To resolve the semver-compatible range use `balena.model.os.getMaxSatisfyingVersion`. |
 
-**Example**  
+**Example**
 ```js
 balena.models.os.getLastModified('raspberry-pi').then(function(date) {
 	console.log('The raspberry-pi image was last modified in ' + date);
@@ -4384,17 +4387,17 @@ balena.models.os.getLastModified('raspberry-pi', function(error, date) {
 <a name="balena.models.os.download"></a>
 
 ##### os.download(deviceType, [version]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>os</code>](#balena.models.os)  
-**Summary**: Download an OS image  
-**Access**: public  
-**Fulfil**: <code>ReadableStream</code> - download stream  
+**Kind**: static method of [<code>os</code>](#balena.models.os)
+**Summary**: Download an OS image
+**Access**: public
+**Fulfil**: <code>ReadableStream</code> - download stream
 
 | Param | Type | Description |
 | --- | --- | --- |
 | deviceType | <code>String</code> | device type slug |
 | [version] | <code>String</code> | semver-compatible version or 'latest', defaults to 'latest' Unsupported (unpublished) version will result in rejection. The version **must** be the exact version number. To resolve the semver-compatible range use `balena.model.os.getMaxSatisfyingVersion`. |
 
-**Example**  
+**Example**
 ```js
 balena.models.os.download('raspberry-pi').then(function(stream) {
 	stream.pipe(fs.createWriteStream('foo/bar/image.img'));
@@ -4414,10 +4417,10 @@ options.
 Note that an OS version is required. For versions < 2.7.8, config
 generation is only supported when using a session token, not an API key.
 
-**Kind**: static method of [<code>os</code>](#balena.models.os)  
-**Summary**: Get an applications config.json  
-**Access**: public  
-**Fulfil**: <code>Object</code> - application configuration as a JSON object.  
+**Kind**: static method of [<code>os</code>](#balena.models.os)
+**Summary**: Get an applications config.json
+**Access**: public
+**Fulfil**: <code>Object</code> - application configuration as a JSON object.
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -4432,7 +4435,7 @@ generation is only supported when using a session token, not an API key.
 | [options.gateway] | <code>String</code> |  | static ip gateway. |
 | [options.netmask] | <code>String</code> |  | static ip netmask. |
 
-**Example**  
+**Example**
 ```js
 balena.models.os.getConfig('MyApp', { version: ''2.12.7+rev1.prod'' }).then(function(config) {
 	fs.writeFile('foo/bar/config.json', JSON.stringify(config));
@@ -4450,10 +4453,10 @@ balena.models.os.getConfig('MyApp', { version: ''2.12.7+rev1.prod'' }, function(
 <a name="balena.models.os.isSupportedOsUpdate"></a>
 
 ##### os.isSupportedOsUpdate(deviceType, currentVersion, targetVersion) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>os</code>](#balena.models.os)  
-**Summary**: Returns whether the provided device type supports OS updates between the provided balenaOS versions  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - whether upgrading the OS to the target version is supported  
+**Kind**: static method of [<code>os</code>](#balena.models.os)
+**Summary**: Returns whether the provided device type supports OS updates between the provided balenaOS versions
+**Access**: public
+**Fulfil**: <code>Boolean</code> - whether upgrading the OS to the target version is supported
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -4461,7 +4464,7 @@ balena.models.os.getConfig('MyApp', { version: ''2.12.7+rev1.prod'' }, function(
 | currentVersion | <code>String</code> | semver-compatible version for the starting OS version |
 | targetVersion | <code>String</code> | semver-compatible version for the target OS version |
 
-**Example**  
+**Example**
 ```js
 balena.models.os.isSupportedOsUpgrade('raspberry-pi', '2.9.6+rev2.prod', '2.29.2+rev1.prod').then(function(isSupported) {
 	console.log(isSupported);
@@ -4475,22 +4478,22 @@ balena.models.os.isSupportedOsUpgrade('raspberry-pi', '2.9.6+rev2.prod', '2.29.2
 <a name="balena.models.os.getSupportedOsUpdateVersions"></a>
 
 ##### os.getSupportedOsUpdateVersions(deviceType, currentVersion) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>os</code>](#balena.models.os)  
-**Summary**: Returns the supported OS update targets for the provided device type  
-**Access**: public  
+**Kind**: static method of [<code>os</code>](#balena.models.os)
+**Summary**: Returns the supported OS update targets for the provided device type
+**Access**: public
 **Fulfil**: <code>Object</code> - the versions information, of the following structure:
 * versions - an array of strings,
 containing exact version numbers that OS update is supported
 * recommended - the recommended version, i.e. the most recent version
 that is _not_ pre-release, can be `null`
-* current - the provided current version after normalization  
+* current - the provided current version after normalization
 
 | Param | Type | Description |
 | --- | --- | --- |
 | deviceType | <code>String</code> | device type slug |
 | currentVersion | <code>String</code> | semver-compatible version for the starting OS version |
 
-**Example**  
+**Example**
 ```js
 balena.models.os.getSupportedOsUpdateVersions('raspberry-pi', '2.9.6+rev2.prod').then(function(isSupported) {
 	console.log(isSupported);
@@ -4501,10 +4504,32 @@ balena.models.os.getSupportedOsUpdateVersions('raspberry-pi', '2.9.6+rev2.prod',
 	console.log(isSupported);
 });
 ```
+<a name="balena.models.os.isArchitectureCompatibleWith"></a>
+
+##### os.isArchitectureCompatibleWith(osArchitecture, applicationArchitecture) ⇒ <code>Boolean</code>
+**Kind**: static method of [<code>os</code>](#balena.models.os)
+**Summary**: Returns whether the specified OS architecture is compatible with the target architecture
+**Returns**: <code>Boolean</code> - - Whether the specified OS architecture is capable of running
+applications build for the target architecture
+**Access**: public
+
+| Param | Type | Description |
+| --- | --- | --- |
+| osArchitecture | <code>String</code> | The OS's architecture as specified in its device type |
+| applicationArchitecture | <code>String</code> | The application's architecture as specified in its device type |
+
+**Example**
+```js
+const result1 = balena.models.os.isArchitectureCompatibleWith('aarch64', 'armv7hf');
+console.log(result1);
+
+const result2 = balena.models.os.isArchitectureCompatibleWith('armv7hf', 'amd64');
+console.log(result2);
+```
 <a name="balena.models.config"></a>
 
 #### models.config : <code>object</code>
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.config](#balena.models.config) : <code>object</code>
     * [.getAll()](#balena.models.config.getAll) ⇒ <code>Promise</code>
@@ -4514,17 +4539,17 @@ balena.models.os.getSupportedOsUpdateVersions('raspberry-pi', '2.9.6+rev2.prod',
 <a name="balena.models.config.getAll"></a>
 
 ##### config.getAll() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>config</code>](#balena.models.config)  
-**Summary**: Get all configuration  
-**Access**: public  
-**Fulfil**: <code>Object</code> - configuration  
-**Example**  
+**Kind**: static method of [<code>config</code>](#balena.models.config)
+**Summary**: Get all configuration
+**Access**: public
+**Fulfil**: <code>Object</code> - configuration
+**Example**
 ```js
 balena.models.config.getAll().then(function(config) {
 	console.log(config);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.config.getAll(function(error, config) {
 	if (error) throw error;
@@ -4534,17 +4559,17 @@ balena.models.config.getAll(function(error, config) {
 <a name="balena.models.config.getDeviceTypes"></a>
 
 ##### config.getDeviceTypes() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>config</code>](#balena.models.config)  
-**Summary**: Get device types  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - device types  
-**Example**  
+**Kind**: static method of [<code>config</code>](#balena.models.config)
+**Summary**: Get device types
+**Access**: public
+**Fulfil**: <code>Object[]</code> - device types
+**Example**
 ```js
 balena.models.config.getDeviceTypes().then(function(deviceTypes) {
 	console.log(deviceTypes);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.config.getDeviceTypes(function(error, deviceTypes) {
 	if (error) throw error;
@@ -4554,22 +4579,22 @@ balena.models.config.getDeviceTypes(function(error, deviceTypes) {
 <a name="balena.models.config.getDeviceOptions"></a>
 
 ##### config.getDeviceOptions(deviceType) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>config</code>](#balena.models.config)  
-**Summary**: Get configuration/initialization options for a device type  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - configuration options  
+**Kind**: static method of [<code>config</code>](#balena.models.config)
+**Summary**: Get configuration/initialization options for a device type
+**Access**: public
+**Fulfil**: <code>Object[]</code> - configuration options
 
 | Param | Type | Description |
 | --- | --- | --- |
 | deviceType | <code>String</code> | device type slug |
 
-**Example**  
+**Example**
 ```js
 balena.models.config.getDeviceOptions('raspberry-pi').then(function(options) {
 	console.log(options);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.config.getDeviceOptions('raspberry-pi', function(error, options) {
 	if (error) throw error;
@@ -4579,7 +4604,7 @@ balena.models.config.getDeviceOptions('raspberry-pi', function(error, options) {
 <a name="balena.models.release"></a>
 
 #### models.release : <code>object</code>
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.release](#balena.models.release) : <code>object</code>
     * [.tags](#balena.models.release.tags) : <code>object</code>
@@ -4596,7 +4621,7 @@ balena.models.config.getDeviceOptions('raspberry-pi', function(error, options) {
 <a name="balena.models.release.tags"></a>
 
 ##### release.tags : <code>object</code>
-**Kind**: static namespace of [<code>release</code>](#balena.models.release)  
+**Kind**: static namespace of [<code>release</code>](#balena.models.release)
 
 * [.tags](#balena.models.release.tags) : <code>object</code>
     * [.getAllByApplication(nameOrId, [options])](#balena.models.release.tags.getAllByApplication) ⇒ <code>Promise</code>
@@ -4608,29 +4633,29 @@ balena.models.config.getDeviceOptions('raspberry-pi', function(error, options) {
 <a name="balena.models.release.tags.getAllByApplication"></a>
 
 ###### tags.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)  
-**Summary**: Get all release tags for an application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - release tags  
+**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)
+**Summary**: Get all release tags for an application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - release tags
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.getAllByApplication('MyApp').then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.getAllByApplication(999999).then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.getAllByApplication('MyApp', function(error, tags) {
 	if (error) throw error;
@@ -4640,29 +4665,29 @@ balena.models.release.tags.getAllByApplication('MyApp', function(error, tags) {
 <a name="balena.models.release.tags.getAllByRelease"></a>
 
 ###### tags.getAllByRelease(commitOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)  
-**Summary**: Get all release tags for a release  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - release tags  
+**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)
+**Summary**: Get all release tags for a release
+**Access**: public
+**Fulfil**: <code>Object[]</code> - release tags
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | commitOrId | <code>String</code> \| <code>Number</code> |  | release commit (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.getAllByRelease(123).then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.getAllByRelease('7cf02a6').then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.getAllByRelease(123, function(error, tags) {
 	if (error) throw error;
@@ -4672,22 +4697,22 @@ balena.models.release.tags.getAllByRelease(123, function(error, tags) {
 <a name="balena.models.release.tags.getAll"></a>
 
 ###### tags.getAll([options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)  
-**Summary**: Get all release tags  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - release tags  
+**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)
+**Summary**: Get all release tags
+**Access**: public
+**Fulfil**: <code>Object[]</code> - release tags
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.getAll().then(function(tags) {
 	console.log(tags);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.getAll(function(error, tags) {
 	if (error) throw error;
@@ -4697,9 +4722,9 @@ balena.models.release.tags.getAll(function(error, tags) {
 <a name="balena.models.release.tags.set"></a>
 
 ###### tags.set(commitOrId, tagKey, value) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)  
-**Summary**: Set a release tag  
-**Access**: public  
+**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)
+**Summary**: Set a release tag
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -4707,15 +4732,15 @@ balena.models.release.tags.getAll(function(error, tags) {
 | tagKey | <code>String</code> | tag key |
 | value | <code>String</code> \| <code>undefined</code> | tag value |
 
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.set(123, 'EDITOR', 'vim');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.set('7cf02a6', 'EDITOR', 'vim');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.set(123, 'EDITOR', 'vim', function(error) {
 	if (error) throw error;
@@ -4724,24 +4749,24 @@ balena.models.release.tags.set(123, 'EDITOR', 'vim', function(error) {
 <a name="balena.models.release.tags.remove"></a>
 
 ###### tags.remove(commitOrId, tagKey) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)  
-**Summary**: Remove a release tag  
-**Access**: public  
+**Kind**: static method of [<code>tags</code>](#balena.models.release.tags)
+**Summary**: Remove a release tag
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | commitOrId | <code>String</code> \| <code>Number</code> | release commit (string) or id (number) |
 | tagKey | <code>String</code> | tag key |
 
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.remove(123, 'EDITOR');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.remove('7cf02a6', 'EDITOR');
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.tags.remove(123, 'EDITOR', function(error) {
 	if (error) throw error;
@@ -4750,29 +4775,29 @@ balena.models.release.tags.remove(123, 'EDITOR', function(error) {
 <a name="balena.models.release.get"></a>
 
 ##### release.get(commitOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>release</code>](#balena.models.release)  
-**Summary**: Get a specific release  
-**Access**: public  
-**Fulfil**: <code>Object</code> - release  
+**Kind**: static method of [<code>release</code>](#balena.models.release)
+**Summary**: Get a specific release
+**Access**: public
+**Fulfil**: <code>Object</code> - release
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | commitOrId | <code>String</code> \| <code>Number</code> |  | release commit (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.release.get(123).then(function(release) {
 		console.log(release);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.get('7cf02a6').then(function(release) {
 		console.log(release);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.get(123, function(error, release) {
 		if (error) throw error;
@@ -4787,10 +4812,10 @@ larger prebuilt query, and reformats it into an easy to use and
 understand format. If you want significantly more control, or to see the
 raw model directly, use `release.get(id, options)` instead.
 
-**Kind**: static method of [<code>release</code>](#balena.models.release)  
-**Summary**: Get a specific release with the details of the images built  
-**Access**: public  
-**Fulfil**: <code>Object</code> - release with image details  
+**Kind**: static method of [<code>release</code>](#balena.models.release)
+**Summary**: Get a specific release with the details of the images built
+**Access**: public
+**Fulfil**: <code>Object</code> - release with image details
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -4799,26 +4824,26 @@ raw model directly, use `release.get(id, options)` instead.
 | [options.release] | <code>Boolean</code> | <code>{}</code> | extra pine options for releases |
 | [options.image] | <code>Object</code> | <code>{}</code> | extra pine options for images |
 
-**Example**  
+**Example**
 ```js
 balena.models.release.getWithImageDetails(123).then(function(release) {
 		console.log(release);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.getWithImageDetails('7cf02a6').then(function(release) {
 		console.log(release);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.getWithImageDetails(123, { image: { $select: 'build_log' } })
 .then(function(release) {
 		console.log(release.images[0].build_log);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.getWithImageDetails(123, function(error, release) {
 		if (error) throw error;
@@ -4828,29 +4853,29 @@ balena.models.release.getWithImageDetails(123, function(error, release) {
 <a name="balena.models.release.getAllByApplication"></a>
 
 ##### release.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>release</code>](#balena.models.release)  
-**Summary**: Get all releases from an application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - releases  
+**Kind**: static method of [<code>release</code>](#balena.models.release)
+**Summary**: Get all releases from an application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - releases
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.release.getAllByApplication('MyApp').then(function(releases) {
 		console.log(releases);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.getAllByApplication(123).then(function(releases) {
 		console.log(releases);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.getAllByApplication('MyApp', function(error, releases) {
 		if (error) throw error;
@@ -4860,29 +4885,29 @@ balena.models.release.getAllByApplication('MyApp', function(error, releases) {
 <a name="balena.models.release.getLatestByApplication"></a>
 
 ##### release.getLatestByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>release</code>](#balena.models.release)  
-**Summary**: Get the latest successful release for an application  
-**Access**: public  
-**Fulfil**: <code>Object\|undefined</code> - release  
+**Kind**: static method of [<code>release</code>](#balena.models.release)
+**Summary**: Get the latest successful release for an application
+**Access**: public
+**Fulfil**: <code>Object\|undefined</code> - release
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.release.getLatestByApplication('MyApp').then(function(releases) {
 		console.log(releases);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.getLatestByApplication(123).then(function(releases) {
 		console.log(releases);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.release.getLatestByApplication('MyApp', function(error, releases) {
 		if (error) throw error;
@@ -4892,7 +4917,7 @@ balena.models.release.getLatestByApplication('MyApp', function(error, releases) 
 <a name="balena.models.service"></a>
 
 #### models.service : <code>object</code>
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.service](#balena.models.service) : <code>object</code>
     * [.var](#balena.models.service.var) : <code>object</code>
@@ -4906,7 +4931,7 @@ balena.models.release.getLatestByApplication('MyApp', function(error, releases) 
 <a name="balena.models.service.var"></a>
 
 ##### service.var : <code>object</code>
-**Kind**: static namespace of [<code>service</code>](#balena.models.service)  
+**Kind**: static namespace of [<code>service</code>](#balena.models.service)
 
 * [.var](#balena.models.service.var) : <code>object</code>
     * [.getAllByService(id, [options])](#balena.models.service.var.getAllByService) ⇒ <code>Promise</code>
@@ -4918,23 +4943,23 @@ balena.models.release.getLatestByApplication('MyApp', function(error, releases) 
 <a name="balena.models.service.var.getAllByService"></a>
 
 ###### var.getAllByService(id, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>var</code>](#balena.models.service.var)  
-**Summary**: Get all variables for a service  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - service variables  
+**Kind**: static method of [<code>var</code>](#balena.models.service.var)
+**Summary**: Get all variables for a service
+**Access**: public
+**Fulfil**: <code>Object[]</code> - service variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | id | <code>Number</code> |  | service id |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.service.var.getAllByService(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.service.var.getAllByService(999999, function(error, vars) {
 	if (error) throw error;
@@ -4944,29 +4969,29 @@ balena.models.service.var.getAllByService(999999, function(error, vars) {
 <a name="balena.models.service.var.getAllByApplication"></a>
 
 ###### var.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>var</code>](#balena.models.service.var)  
-**Summary**: Get all service variables by application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - service variables  
+**Kind**: static method of [<code>var</code>](#balena.models.service.var)
+**Summary**: Get all service variables by application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - service variables
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.service.var.getAllByApplication('MyApp').then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.service.var.getAllByApplication(999999).then(function(vars) {
 	console.log(vars);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.service.var.getAllByApplication('MyApp', function(error, vars) {
 	if (error) throw error;
@@ -4976,23 +5001,23 @@ balena.models.service.var.getAllByApplication('MyApp', function(error, vars) {
 <a name="balena.models.service.var.get"></a>
 
 ###### var.get(id, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>var</code>](#balena.models.service.var)  
-**Summary**: Get the value of a specific service variable  
-**Access**: public  
-**Fulfil**: <code>String\|undefined</code> - the variable value (or undefined)  
+**Kind**: static method of [<code>var</code>](#balena.models.service.var)
+**Summary**: Get the value of a specific service variable
+**Access**: public
+**Fulfil**: <code>String\|undefined</code> - the variable value (or undefined)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>Number</code> | service id |
 | key | <code>String</code> | variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.service.var.get(999999, 'VAR').then(function(value) {
 	console.log(value);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.service.var.get(999999, 'VAR', function(error, value) {
 	if (error) throw error;
@@ -5002,9 +5027,9 @@ balena.models.service.var.get(999999, 'VAR', function(error, value) {
 <a name="balena.models.service.var.set"></a>
 
 ###### var.set(id, key, value) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>var</code>](#balena.models.service.var)  
-**Summary**: Set the value of a specific service variable  
-**Access**: public  
+**Kind**: static method of [<code>var</code>](#balena.models.service.var)
+**Summary**: Set the value of a specific service variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -5012,13 +5037,13 @@ balena.models.service.var.get(999999, 'VAR', function(error, value) {
 | key | <code>String</code> | variable name |
 | value | <code>String</code> | variable value |
 
-**Example**  
+**Example**
 ```js
 balena.models.service.var.set(999999, 'VAR', 'newvalue').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.service.var.set(999999, 'VAR', 'newvalue', function(error) {
 	if (error) throw error;
@@ -5028,22 +5053,22 @@ balena.models.service.var.set(999999, 'VAR', 'newvalue', function(error) {
 <a name="balena.models.service.var.remove"></a>
 
 ###### var.remove(id, key) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>var</code>](#balena.models.service.var)  
-**Summary**: Clear the value of a specific service variable  
-**Access**: public  
+**Kind**: static method of [<code>var</code>](#balena.models.service.var)
+**Summary**: Clear the value of a specific service variable
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>Number</code> | service id |
 | key | <code>String</code> | variable name |
 
-**Example**  
+**Example**
 ```js
 balena.models.service.var.remove(999999, 'VAR').then(function() {
 	...
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.service.var.remove(999999, 'VAR', function(error) {
 	if (error) throw error;
@@ -5053,29 +5078,29 @@ balena.models.service.var.remove(999999, 'VAR', function(error) {
 <a name="balena.models.service.getAllByApplication"></a>
 
 ##### service.getAllByApplication(nameOrId, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>service</code>](#balena.models.service)  
-**Summary**: Get all services from an application  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - services  
+**Kind**: static method of [<code>service</code>](#balena.models.service)
+**Summary**: Get all services from an application
+**Access**: public
+**Fulfil**: <code>Object[]</code> - services
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | nameOrId | <code>String</code> \| <code>Number</code> |  | application name (string) or id (number) |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.service.getAllByApplication('MyApp').then(function(services) {
 		console.log(services);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.service.getAllByApplication(123).then(function(services) {
 		console.log(services);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.service.getAllByApplication('MyApp', function(error, services) {
 		if (error) throw error;
@@ -5085,7 +5110,7 @@ balena.models.service.getAllByApplication('MyApp', function(error, services) {
 <a name="balena.models.image"></a>
 
 #### models.image : <code>object</code>
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.image](#balena.models.image) : <code>object</code>
     * [.get(id, [options])](#balena.models.image.get) ⇒ <code>Promise</code>
@@ -5094,23 +5119,23 @@ balena.models.service.getAllByApplication('MyApp', function(error, services) {
 <a name="balena.models.image.get"></a>
 
 ##### image.get(id, [options]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>image</code>](#balena.models.image)  
-**Summary**: Get a specific image  
-**Access**: public  
-**Fulfil**: <code>Object</code> - image  
+**Kind**: static method of [<code>image</code>](#balena.models.image)
+**Summary**: Get a specific image
+**Access**: public
+**Fulfil**: <code>Object</code> - image
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | id | <code>Number</code> |  | image id |
 | [options] | <code>Object</code> | <code>{}</code> | extra pine options to use |
 
-**Example**  
+**Example**
 ```js
 balena.models.image.get(123).then(function(image) {
 		console.log(image);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.image.get(123, function(error, image) {
 		if (error) throw error;
@@ -5120,22 +5145,22 @@ balena.models.image.get(123, function(error, image) {
 <a name="balena.models.image.getLogs"></a>
 
 ##### image.getLogs(id) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>image</code>](#balena.models.image)  
-**Summary**: Get the logs for an image  
-**Access**: public  
-**Fulfil**: <code>string</code> - logs  
+**Kind**: static method of [<code>image</code>](#balena.models.image)
+**Summary**: Get the logs for an image
+**Access**: public
+**Fulfil**: <code>string</code> - logs
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>Number</code> | image id |
 
-**Example**  
+**Example**
 ```js
 balena.models.image.getLogs(123).then(function(logs) {
 		console.log(logs);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.image.getLogs(123, function(error, logs) {
 		if (error) throw error;
@@ -5147,7 +5172,7 @@ balena.models.image.getLogs(123, function(error, logs) {
 #### models.billing : <code>object</code>
 **Note!** The billing methods are available on Balena.io exclusively.
 
-**Kind**: static namespace of [<code>models</code>](#balena.models)  
+**Kind**: static namespace of [<code>models</code>](#balena.models)
 
 * [.billing](#balena.models.billing) : <code>object</code>
     * [.getAccount()](#balena.models.billing.getAccount) ⇒ <code>Promise</code>
@@ -5160,17 +5185,17 @@ balena.models.image.getLogs(123, function(error, logs) {
 <a name="balena.models.billing.getAccount"></a>
 
 ##### billing.getAccount() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>billing</code>](#balena.models.billing)  
-**Summary**: Get the user's billing account  
-**Access**: public  
-**Fulfil**: <code>Object</code> - billing account  
-**Example**  
+**Kind**: static method of [<code>billing</code>](#balena.models.billing)
+**Summary**: Get the user's billing account
+**Access**: public
+**Fulfil**: <code>Object</code> - billing account
+**Example**
 ```js
 balena.models.billing.getAccount().then(function(billingAccount) {
 	console.log(billingAccount);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.billing.getAccount(function(error, billingAccount) {
 	if (error) throw error;
@@ -5180,17 +5205,17 @@ balena.models.billing.getAccount(function(error, billingAccount) {
 <a name="balena.models.billing.getPlan"></a>
 
 ##### billing.getPlan() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>billing</code>](#balena.models.billing)  
-**Summary**: Get the current billing plan  
-**Access**: public  
-**Fulfil**: <code>Object</code> - billing plan  
-**Example**  
+**Kind**: static method of [<code>billing</code>](#balena.models.billing)
+**Summary**: Get the current billing plan
+**Access**: public
+**Fulfil**: <code>Object</code> - billing plan
+**Example**
 ```js
 balena.models.billing.getPlan().then(function(billingPlan) {
 	console.log(billingPlan);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.billing.getPlan(function(error, billingPlan) {
 	if (error) throw error;
@@ -5200,17 +5225,17 @@ balena.models.billing.getPlan(function(error, billingPlan) {
 <a name="balena.models.billing.getBillingInfo"></a>
 
 ##### billing.getBillingInfo() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>billing</code>](#balena.models.billing)  
-**Summary**: Get the current billing information  
-**Access**: public  
-**Fulfil**: <code>Object</code> - billing information  
-**Example**  
+**Kind**: static method of [<code>billing</code>](#balena.models.billing)
+**Summary**: Get the current billing information
+**Access**: public
+**Fulfil**: <code>Object</code> - billing information
+**Example**
 ```js
 balena.models.billing.getBillingInfo().then(function(billingInfo) {
 	console.log(billingInfo);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.billing.getBillingInfo(function(error, billingInfo) {
 	if (error) throw error;
@@ -5220,22 +5245,22 @@ balena.models.billing.getBillingInfo(function(error, billingInfo) {
 <a name="balena.models.billing.updateBillingInfo"></a>
 
 ##### billing.updateBillingInfo() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>billing</code>](#balena.models.billing)  
-**Summary**: Update the current billing information  
-**Access**: public  
-**Fulfil**: <code>Object</code> - billing information  
+**Kind**: static method of [<code>billing</code>](#balena.models.billing)
+**Summary**: Update the current billing information
+**Access**: public
+**Fulfil**: <code>Object</code> - billing information
 
 | Type | Description |
 | --- | --- |
 | <code>Object</code> | an object containing a billing info token_id |
 
-**Example**  
+**Example**
 ```js
 balena.models.billing.updateBillingInfo({ token_id: 'xxxxxxx' }).then(function(billingInfo) {
 	console.log(billingInfo);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.billing.updateBillingInfo({ token_id: 'xxxxxxx' }, function(error, billingInfo) {
 	if (error) throw error;
@@ -5245,17 +5270,17 @@ balena.models.billing.updateBillingInfo({ token_id: 'xxxxxxx' }, function(error,
 <a name="balena.models.billing.getInvoices"></a>
 
 ##### billing.getInvoices() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>billing</code>](#balena.models.billing)  
-**Summary**: Get the available invoices  
-**Access**: public  
-**Fulfil**: <code>Object</code> - invoices  
-**Example**  
+**Kind**: static method of [<code>billing</code>](#balena.models.billing)
+**Summary**: Get the available invoices
+**Access**: public
+**Fulfil**: <code>Object</code> - invoices
+**Example**
 ```js
 balena.models.billing.getInvoices().then(function(invoices) {
 	console.log(invoices);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.models.billing.getInvoices(function(error, invoices) {
 	if (error) throw error;
@@ -5265,16 +5290,16 @@ balena.models.billing.getInvoices(function(error, invoices) {
 <a name="balena.models.billing.downloadInvoice"></a>
 
 ##### billing.downloadInvoice() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>billing</code>](#balena.models.billing)  
-**Summary**: Download a specific invoice  
-**Access**: public  
-**Fulfil**: <code>Blob\|ReadableStream</code> - blob on the browser, download stream on node  
+**Kind**: static method of [<code>billing</code>](#balena.models.billing)
+**Summary**: Download a specific invoice
+**Access**: public
+**Fulfil**: <code>Blob\|ReadableStream</code> - blob on the browser, download stream on node
 
 | Type | Description |
 | --- | --- |
 | <code>String</code> | an invoice number |
 
-**Example**  
+**Example**
 ```js
 # Browser
 balena.models.billing.downloadInvoice('0000').then(function(blob) {
@@ -5288,7 +5313,7 @@ balena.models.billing.downloadInvoice('0000').then(function(stream) {
 <a name="balena.auth"></a>
 
 ### balena.auth : <code>object</code>
-**Kind**: static namespace of [<code>balena</code>](#balena)  
+**Kind**: static namespace of [<code>balena</code>](#balena)
 
 * [.auth](#balena.auth) : <code>object</code>
     * [.twoFactor](#balena.auth.twoFactor) : <code>object</code>
@@ -5309,7 +5334,7 @@ balena.models.billing.downloadInvoice('0000').then(function(stream) {
 <a name="balena.auth.twoFactor"></a>
 
 #### auth.twoFactor : <code>object</code>
-**Kind**: static namespace of [<code>auth</code>](#balena.auth)  
+**Kind**: static namespace of [<code>auth</code>](#balena.auth)
 
 * [.twoFactor](#balena.auth.twoFactor) : <code>object</code>
     * [.isEnabled()](#balena.auth.twoFactor.isEnabled) ⇒ <code>Promise</code>
@@ -5319,11 +5344,11 @@ balena.models.billing.downloadInvoice('0000').then(function(stream) {
 <a name="balena.auth.twoFactor.isEnabled"></a>
 
 ##### twoFactor.isEnabled() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>twoFactor</code>](#balena.auth.twoFactor)  
-**Summary**: Check if two factor authentication is enabled  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - whether 2fa is enabled  
-**Example**  
+**Kind**: static method of [<code>twoFactor</code>](#balena.auth.twoFactor)
+**Summary**: Check if two factor authentication is enabled
+**Access**: public
+**Fulfil**: <code>Boolean</code> - whether 2fa is enabled
+**Example**
 ```js
 balena.auth.twoFactor.isEnabled().then(function(isEnabled) {
 	if (isEnabled) {
@@ -5331,7 +5356,7 @@ balena.auth.twoFactor.isEnabled().then(function(isEnabled) {
 	}
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.twoFactor.isEnabled(function(error, isEnabled) {
 	if (error) throw error;
@@ -5344,11 +5369,11 @@ balena.auth.twoFactor.isEnabled(function(error, isEnabled) {
 <a name="balena.auth.twoFactor.isPassed"></a>
 
 ##### twoFactor.isPassed() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>twoFactor</code>](#balena.auth.twoFactor)  
-**Summary**: Check if two factor authentication challenge was passed  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - whether 2fa challenge was passed  
-**Example**  
+**Kind**: static method of [<code>twoFactor</code>](#balena.auth.twoFactor)
+**Summary**: Check if two factor authentication challenge was passed
+**Access**: public
+**Fulfil**: <code>Boolean</code> - whether 2fa challenge was passed
+**Example**
 ```js
 balena.auth.twoFactor.isPassed().then(function(isPassed) {
 	if (isPassed) {
@@ -5356,7 +5381,7 @@ balena.auth.twoFactor.isPassed().then(function(isPassed) {
 	}
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.twoFactor.isPassed(function(error, isPassed) {
 	if (error) throw error;
@@ -5369,19 +5394,19 @@ balena.auth.twoFactor.isPassed(function(error, isPassed) {
 <a name="balena.auth.twoFactor.challenge"></a>
 
 ##### twoFactor.challenge(code) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>twoFactor</code>](#balena.auth.twoFactor)  
-**Summary**: Challenge two factor authentication  
-**Access**: public  
+**Kind**: static method of [<code>twoFactor</code>](#balena.auth.twoFactor)
+**Summary**: Challenge two factor authentication
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | code | <code>String</code> | code |
 
-**Example**  
+**Example**
 ```js
 balena.auth.twoFactor.challenge('1234');
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.twoFactor.challenge('1234', function(error) {
 	if (error) throw error;
@@ -5392,11 +5417,11 @@ balena.auth.twoFactor.challenge('1234', function(error) {
 #### auth.whoami() ⇒ <code>Promise</code>
 This will only work if you used [login](#balena.auth.login) to log in.
 
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Return current logged in username  
-**Access**: public  
-**Fulfil**: <code>(String\|undefined)</code> - username, if it exists  
-**Example**  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Return current logged in username
+**Access**: public
+**Fulfil**: <code>(String\|undefined)</code> - username, if it exists
+**Example**
 ```js
 balena.auth.whoami().then(function(username) {
 	if (!username) {
@@ -5406,7 +5431,7 @@ balena.auth.whoami().then(function(username) {
 	}
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.whoami(function(error, username) {
 	if (error) throw error;
@@ -5427,10 +5452,10 @@ as it takes care of saving the token and email as well.
 Notice that if `credentials` contains extra keys, they'll be discarted
 by the server automatically.
 
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Authenticate with the server  
-**Access**: protected  
-**Fulfil**: <code>String</code> - session token  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Authenticate with the server
+**Access**: protected
+**Fulfil**: <code>String</code> - session token
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -5438,13 +5463,13 @@ by the server automatically.
 | credentials.email | <code>String</code> | the email |
 | credentials.password | <code>String</code> | the password |
 
-**Example**  
+**Example**
 ```js
 balena.auth.authenticate(credentials).then(function(token) {
 	console.log('My token is:', token);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.authenticate(credentials, function(error, token) {
 	if (error) throw error;
@@ -5456,9 +5481,9 @@ balena.auth.authenticate(credentials, function(error, token) {
 #### auth.login(credentials) ⇒ <code>Promise</code>
 If the login is successful, the token is persisted between sessions.
 
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Login  
-**Access**: public  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Login
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -5466,11 +5491,11 @@ If the login is successful, the token is persisted between sessions.
 | credentials.email | <code>String</code> | the email |
 | credentials.password | <code>String</code> | the password |
 
-**Example**  
+**Example**
 ```js
 balena.auth.login(credentials);
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.login(credentials, function(error) {
 	if (error) throw error;
@@ -5481,19 +5506,19 @@ balena.auth.login(credentials, function(error) {
 #### auth.loginWithToken(authToken) ⇒ <code>Promise</code>
 Login to balena with a session token or api key instead of with credentials.
 
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Login with a token or api key  
-**Access**: public  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Login with a token or api key
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
 | authToken | <code>String</code> | the auth token |
 
-**Example**  
+**Example**
 ```js
 balena.auth.loginWithToken(authToken);
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.loginWithToken(authToken, function(error) {
 	if (error) throw error;
@@ -5502,11 +5527,11 @@ balena.auth.loginWithToken(authToken, function(error) {
 <a name="balena.auth.isLoggedIn"></a>
 
 #### auth.isLoggedIn() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Check if you're logged in  
-**Access**: public  
-**Fulfil**: <code>Boolean</code> - is logged in  
-**Example**  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Check if you're logged in
+**Access**: public
+**Fulfil**: <code>Boolean</code> - is logged in
+**Example**
 ```js
 balena.auth.isLoggedIn().then(function(isLoggedIn) {
 	if (isLoggedIn) {
@@ -5516,7 +5541,7 @@ balena.auth.isLoggedIn().then(function(isLoggedIn) {
 	}
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.isLoggedIn(function(error, isLoggedIn) {
 	if (error) throw error;
@@ -5533,17 +5558,17 @@ balena.auth.isLoggedIn(function(error, isLoggedIn) {
 #### auth.getToken() ⇒ <code>Promise</code>
 This will only work if you used [login](#balena.auth.login) to log in.
 
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Get current logged in user's raw API key or session token  
-**Access**: public  
-**Fulfil**: <code>String</code> - raw API key or session token  
-**Example**  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Get current logged in user's raw API key or session token
+**Access**: public
+**Fulfil**: <code>String</code> - raw API key or session token
+**Example**
 ```js
 balena.auth.getToken().then(function(token) {
 	console.log(token);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.getToken(function(error, token) {
 	if (error) throw error;
@@ -5555,17 +5580,17 @@ balena.auth.getToken(function(error, token) {
 #### auth.getUserId() ⇒ <code>Promise</code>
 This will only work if you used [login](#balena.auth.login) to log in.
 
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Get current logged in user's id  
-**Access**: public  
-**Fulfil**: <code>Number</code> - user id  
-**Example**  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Get current logged in user's id
+**Access**: public
+**Fulfil**: <code>Number</code> - user id
+**Example**
 ```js
 balena.auth.getUserId().then(function(userId) {
 	console.log(userId);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.getUserId(function(error, userId) {
 	if (error) throw error;
@@ -5577,17 +5602,17 @@ balena.auth.getUserId(function(error, userId) {
 #### auth.getEmail() ⇒ <code>Promise</code>
 This will only work if you used [login](#balena.auth.login) to log in.
 
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Get current logged in user's email  
-**Access**: public  
-**Fulfil**: <code>String</code> - user email  
-**Example**  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Get current logged in user's email
+**Access**: public
+**Fulfil**: <code>String</code> - user email
+**Example**
 ```js
 balena.auth.getEmail().then(function(email) {
 	console.log(email);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.getEmail(function(error, email) {
 	if (error) throw error;
@@ -5597,14 +5622,14 @@ balena.auth.getEmail(function(error, email) {
 <a name="balena.auth.logout"></a>
 
 #### auth.logout() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Logout  
-**Access**: public  
-**Example**  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Logout
+**Access**: public
+**Example**
 ```js
 balena.auth.logout();
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.logout(function(error) {
 	if (error) throw error;
@@ -5613,10 +5638,10 @@ balena.auth.logout(function(error) {
 <a name="balena.auth.register"></a>
 
 #### auth.register([credentials]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>auth</code>](#balena.auth)  
-**Summary**: Register a user account  
-**Access**: public  
-**Fulfil**: <code>String</code> - session token  
+**Kind**: static method of [<code>auth</code>](#balena.auth)
+**Summary**: Register a user account
+**Access**: public
+**Fulfil**: <code>String</code> - session token
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -5624,7 +5649,7 @@ balena.auth.logout(function(error) {
 | credentials.email | <code>String</code> |  | the email |
 | credentials.password | <code>String</code> |  | the password |
 
-**Example**  
+**Example**
 ```js
 balena.auth.register({
 	email: 'johndoe@gmail.com',
@@ -5633,7 +5658,7 @@ balena.auth.register({
 	console.log(token);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.auth.register({
 	email: 'johndoe@gmail.com',
@@ -5646,7 +5671,7 @@ balena.auth.register({
 <a name="balena.logs"></a>
 
 ### balena.logs : <code>object</code>
-**Kind**: static namespace of [<code>balena</code>](#balena)  
+**Kind**: static namespace of [<code>balena</code>](#balena)
 
 * [.logs](#balena.logs) : <code>object</code>
     * [.subscribe(uuidOrId, [options])](#balena.logs.subscribe) ⇒ <code>Promise</code>
@@ -5662,10 +5687,10 @@ balena.auth.register({
 Connects to the stream of devices logs, returning a LogSubscription, which
 can be used to listen for logs as they appear, line by line.
 
-**Kind**: static method of [<code>logs</code>](#balena.logs)  
-**Summary**: Subscribe to device logs  
-**Access**: public  
-**Fulfil**: [<code>LogSubscription</code>](#balena.logs.LogSubscription)  
+**Kind**: static method of [<code>logs</code>](#balena.logs)
+**Summary**: Subscribe to device logs
+**Access**: public
+**Fulfil**: [<code>LogSubscription</code>](#balena.logs.LogSubscription)
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -5673,7 +5698,7 @@ can be used to listen for logs as they appear, line by line.
 | [options] | <code>Object</code> |  | options |
 | [options.count] | <code>Number</code> \| <code>&#x27;all&#x27;</code> | <code>0</code> | number of historical messages to include (or 'all') |
 
-**Example**  
+**Example**
 ```js
 balena.logs.subscribe('7cf02a6').then(function(logs) {
 	logs.on('line', function(line) {
@@ -5681,7 +5706,7 @@ balena.logs.subscribe('7cf02a6').then(function(logs) {
 	});
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.logs.subscribe(123).then(function(logs) {
 	logs.on('line', function(line) {
@@ -5689,7 +5714,7 @@ balena.logs.subscribe(123).then(function(logs) {
 	});
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.logs.subscribe('7cf02a6', function(error, logs) {
 	if (error) throw error;
@@ -5704,10 +5729,10 @@ balena.logs.subscribe('7cf02a6', function(error, logs) {
 #### logs.history(uuidOrId, [options]) ⇒ <code>Promise</code>
 Get an array of the latest log messages for a given device.
 
-**Kind**: static method of [<code>logs</code>](#balena.logs)  
-**Summary**: Get device logs history  
-**Access**: public  
-**Fulfil**: <code>Object[]</code> - history lines  
+**Kind**: static method of [<code>logs</code>](#balena.logs)
+**Summary**: Get device logs history
+**Access**: public
+**Fulfil**: <code>Object[]</code> - history lines
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -5715,7 +5740,7 @@ Get an array of the latest log messages for a given device.
 | [options] | <code>Object</code> |  | options |
 | [options.count] | <code>Number</code> \| <code>&#x27;all&#x27;</code> | <code>1000</code> | number of log messages to return (or 'all') |
 
-**Example**  
+**Example**
 ```js
 balena.logs.history('7cf02a6').then(function(lines) {
 	lines.forEach(function(line) {
@@ -5723,7 +5748,7 @@ balena.logs.history('7cf02a6').then(function(lines) {
 	});
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.logs.history(123).then(function(lines) {
 	lines.forEach(function(line) {
@@ -5731,7 +5756,7 @@ balena.logs.history(123).then(function(lines) {
 	});
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.logs.history('7cf02a6', { count: 20 }, function(error, lines) {
 	if (error) throw error;
@@ -5747,7 +5772,7 @@ balena.logs.history('7cf02a6', { count: 20 }, function(error, lines) {
 The log subscription emits events as log data arrives.
 You can get a LogSubscription for a given device by calling `balena.logs.subscribe(deviceId)`
 
-**Kind**: static typedef of [<code>logs</code>](#balena.logs)  
+**Kind**: static typedef of [<code>logs</code>](#balena.logs)
 
 * [.LogSubscription](#balena.logs.LogSubscription) : <code>EventEmitter</code>
     * [.unsubscribe()](#balena.logs.LogSubscription.unsubscribe)
@@ -5759,19 +5784,19 @@ You can get a LogSubscription for a given device by calling `balena.logs.subscri
 ##### LogSubscription.unsubscribe()
 Disconnect from the logs feed and stop receiving any future events on this emitter.
 
-**Kind**: static method of [<code>LogSubscription</code>](#balena.logs.LogSubscription)  
-**Summary**: Unsubscribe from device logs  
-**Access**: public  
-**Example**  
+**Kind**: static method of [<code>LogSubscription</code>](#balena.logs.LogSubscription)
+**Summary**: Unsubscribe from device logs
+**Access**: public
+**Example**
 ```js
 logs.unsubscribe();
 ```
 <a name="balena.logs.LogSubscription.event_line"></a>
 
 ##### "line"
-**Kind**: event emitted by [<code>LogSubscription</code>](#balena.logs.LogSubscription)  
-**Summary**: Event fired when a new line of log output is available  
-**Example**  
+**Kind**: event emitted by [<code>LogSubscription</code>](#balena.logs.LogSubscription)
+**Summary**: Event fired when a new line of log output is available
+**Example**
 ```js
 logs.on('line', function(line) {
 	console.log(line);
@@ -5780,9 +5805,9 @@ logs.on('line', function(line) {
 <a name="balena.logs.LogSubscription.event_error"></a>
 
 ##### "error"
-**Kind**: event emitted by [<code>LogSubscription</code>](#balena.logs.LogSubscription)  
-**Summary**: Event fired when an error has occured reading the device logs  
-**Example**  
+**Kind**: event emitted by [<code>LogSubscription</code>](#balena.logs.LogSubscription)
+**Summary**: Event fired when an error has occured reading the device logs
+**Example**
 ```js
 logs.on('error', function(error) {
 	console.error(error);
@@ -5791,7 +5816,7 @@ logs.on('error', function(error) {
 <a name="balena.settings"></a>
 
 ### balena.settings : <code>object</code>
-**Kind**: static namespace of [<code>balena</code>](#balena)  
+**Kind**: static namespace of [<code>balena</code>](#balena)
 
 * [.settings](#balena.settings) : <code>object</code>
     * [.get([key])](#balena.settings.get) ⇒ <code>Promise</code>
@@ -5800,22 +5825,22 @@ logs.on('error', function(error) {
 <a name="balena.settings.get"></a>
 
 #### settings.get([key]) ⇒ <code>Promise</code>
-**Kind**: static method of [<code>settings</code>](#balena.settings)  
-**Summary**: Get a single setting. **Only implemented in Node.js**  
-**Access**: public  
-**Fulfil**: <code>\*</code> - setting value  
+**Kind**: static method of [<code>settings</code>](#balena.settings)
+**Summary**: Get a single setting. **Only implemented in Node.js**
+**Access**: public
+**Fulfil**: <code>\*</code> - setting value
 
 | Param | Type | Description |
 | --- | --- | --- |
 | [key] | <code>String</code> | setting key |
 
-**Example**  
+**Example**
 ```js
 balena.settings.get('apiUrl').then(function(apiUrl) {
 	console.log(apiUrl);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.settings.get('apiUrl', function(error, apiUrl) {
 	if (error) throw error;
@@ -5825,17 +5850,17 @@ balena.settings.get('apiUrl', function(error, apiUrl) {
 <a name="balena.settings.getAll"></a>
 
 #### settings.getAll() ⇒ <code>Promise</code>
-**Kind**: static method of [<code>settings</code>](#balena.settings)  
-**Summary**: Get all settings **Only implemented in Node.js**  
-**Access**: public  
-**Fulfil**: <code>Object</code> - settings  
-**Example**  
+**Kind**: static method of [<code>settings</code>](#balena.settings)
+**Summary**: Get all settings **Only implemented in Node.js**
+**Access**: public
+**Fulfil**: <code>Object</code> - settings
+**Example**
 ```js
 balena.settings.getAll().then(function(settings) {
 	console.log(settings);
 });
 ```
-**Example**  
+**Example**
 ```js
 balena.settings.getAll(function(error, settings) {
 	if (error) throw error;
@@ -5850,11 +5875,11 @@ The options accepted are the same as those used in the main SDK factory function
 If you use this method, it should be called as soon as possible during app
 startup and before any calls to `fromSharedOptions()` are made.
 
-**Kind**: static method of [<code>balena</code>](#balena)  
-**Summary**: Set shared default options  
-**Access**: public  
-**Params**: <code>Object</code> opts - The shared default options  
-**Example**  
+**Kind**: static method of [<code>balena</code>](#balena)
+**Summary**: Set shared default options
+**Access**: public
+**Params**: <code>Object</code> opts - The shared default options
+**Example**
 ```js
 balena.setSharedOptions({
 	apiUrl: 'https://api.balena-cloud.com/',
@@ -5869,11 +5894,11 @@ Create an SDK instance using shared default options set using the `setSharedOpti
 If options have not been set using this method, then this method will use the
 same defaults as the main SDK factory function.
 
-**Kind**: static method of [<code>balena</code>](#balena)  
-**Summary**: Create an SDK instance using shared default options  
-**Access**: public  
-**Params**: <code>Object</code> opts - The shared default options  
-**Example**  
+**Kind**: static method of [<code>balena</code>](#balena)
+**Summary**: Create an SDK instance using shared default options
+**Access**: public
+**Params**: <code>Object</code> opts - The shared default options
+**Example**
 ```js
 const sdk = balena.fromSharedOptions();
 ```

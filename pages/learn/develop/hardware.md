@@ -18,11 +18,11 @@ gpio:
       - "/dev/i2c-1:/dev/i2c-1"
       - "/dev/mem:/dev/mem"
       - "/dev/ttyACM0:/dev/ttyACM0"
-    cap_add: 
+    cap_add:
       - SYS_RAWIO
 ```
 
-__Note:__ If you are not using one of the Docker base images recommended in our [base images wiki][base-image-wiki-link], then it's most likely you will need to handle the updating of `/dev` via [udev][udev-link] yourself. 
+__Note:__ If you are not using one of the Docker base images recommended in our [base images wiki][base-image-wiki-link], then it's most likely you will need to handle the updating of `/dev` via [udev][udev-link] yourself.
 
 For more details on interacting with external hardware, check out these guides:
 - [GPIO][gpio]

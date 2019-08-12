@@ -28,9 +28,9 @@ API keys are named tokens that do not expire and can be revoked as needed. To cr
 
 You'll see a required field for *Token name*, as well as an optional field for *Token description*:
 
-<img src="/img/common/preferences/api_key_name.png" width="60%"> 
+<img src="/img/common/preferences/api_key_name.png" width="60%">
 
-When you click *Create token*, you will see a dialog with the new API key: 
+When you click *Create token*, you will see a dialog with the new API key:
 
 <img src="/img/common/preferences/api_key_warning.png" width="60%">
 

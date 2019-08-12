@@ -956,7 +956,7 @@ Get device name by device uuid.
             >>> balena.models.device.get_os_update_status('b6070f4fea5edf808b576123157fe5ec')
             {u'status': u'done', u'parameters': {u'target_version': u'2.29.2+rev1.prod'}, u'stdout': u'[1554490814][LOG]Normalized target version: 2.29.2+rev1
 ', u'last_run': 1554491107242L, u'error': u'', u'action': u'resinhup'}
-        
+
 ```
 ### Function: get_status(uuid)
 

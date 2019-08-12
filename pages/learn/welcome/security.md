@@ -5,13 +5,13 @@ excerpt: The {{ $names.company.lower }} approach to securing your fleet
 
 # Security
 
-{{ $names.company.upper }} takes your fleet’s security very seriously.  We understand that your data and devices are valuable and often critical, and we take precautions to ensure that your devices and data are not compromised. 
+{{ $names.company.upper }} takes your fleet’s security very seriously.  We understand that your data and devices are valuable and often critical, and we take precautions to ensure that your devices and data are not compromised.
 
 Security begins with the ability to send timely updates to your devices. By providing a mechanism for regular, reliable, and verifiable updates, {{ $names.company.lower }} gives you the tools you need to keep your device fleet up to date and protected against attacks.
 
 To keep the {{ $names.company.lower }} ecosystem secure, we focus on the principle of least privilege—permissions are given only as necessary, and no information is available to any account or device unless it is required for the tasks being performed. We take a number of steps to isolate all components in the update process, so that unauthorized access to any one component will not provide enough information to access additional components, accounts, or devices.
 
-The core mechanism for implementing this security approach is through API access control. By controlling access to the API, the actions that are permitted, and the available communication channels, we can protect fleets at all points of entry. 
+The core mechanism for implementing this security approach is through API access control. By controlling access to the API, the actions that are permitted, and the available communication channels, we can protect fleets at all points of entry.
 
 In this document, we will further explain how the {{ $names.company.lower }} infrastructure implements access control across the entire lifecycle, from device access and runtime management, to the image build process, and finally to the API and backend services.
 
@@ -37,7 +37,7 @@ When a {{ $names.os.lower }} image is downloaded and flashed to a device, it com
 
 If a device is compromised, the device API key can only be used to read information about the device or the application the device is associated with. A fleet owner can remove and revoke the API key of a compromised device by simply deleting the device from the dashboard.
 
-A device API key also allows a device to request an application update. When a device requests an update, this API key is sent to {{ $names.company.lower }} and authenticated. Once the API key has been authenticated, a Docker pull is initiated on the device.  
+A device API key also allows a device to request an application update. When a device requests an update, this API key is sent to {{ $names.company.lower }} and authenticated. Once the API key has been authenticated, a Docker pull is initiated on the device.
 
 Both the Docker pull request and the actual image download process are performed using HTTPS, so are TLS encrypted. HTTPS connections are always outbound from the device to the {{ $names.company.lower }} service, meaning that no inbound connections are created and no inbound ports on the firewall are required.
 ## Runtime management
@@ -50,9 +50,9 @@ When the VPN is enabled, SSH access is available to the application container us
 
 The {{ $names.company.lower }} VPN disallows device-to-device traffic and prohibits outbound traffic to the Internet.  If a device were compromised, this ensures that it cannot contaminate another device.
 
-Currently, authentication against the VPN is performed with API token authentication.  API keys can be managed and revoked in the {{ $names.company.lower }} dashboard. 
+Currently, authentication against the VPN is performed with API token authentication.  API keys can be managed and revoked in the {{ $names.company.lower }} dashboard.
 
-This VPN connection is optional and [can be disabled](/reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the {{ $names.company.lower }} dashboard or API.  When disabled, the VPN connection is not established from the device and no traffic will be transmitted or received through this channel.  If desired, the VPN can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.  
+This VPN connection is optional and [can be disabled](/reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the {{ $names.company.lower }} dashboard or API.  When disabled, the VPN connection is not established from the device and no traffic will be transmitted or received through this channel.  If desired, the VPN can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
 
 ### Support access
 
@@ -93,7 +93,7 @@ Once user application container images are built, they are pushed to the {{ $nam
 
 ## The API and backend
 
-The {{ $names.company.lower }} API provides a central mechanism for authentication, requesting information, and making changes to the database. The API manages communication both internally among the backend services and externally for users and devices. 
+The {{ $names.company.lower }} API provides a central mechanism for authentication, requesting information, and making changes to the database. The API manages communication both internally among the backend services and externally for users and devices.
 
 The API interface is based on the Open Data (OData) format. All requests are authenticated with an API token, which users access on the dashboard and can refresh via the API.
 
