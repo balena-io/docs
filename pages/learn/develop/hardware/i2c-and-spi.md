@@ -221,7 +221,7 @@ __Warning:__ Capemgr is only supported in {{ $names.company.lower }} BBB devices
 
 ##### Loading a Cape
 ```Bash
-echo cape-universaln > /sys/devices/platform/bone_capemgr/slots              
+echo cape-universaln > /sys/devices/platform/bone_capemgr/slots
 ```
 ##### Checking which Capes are loaded.
 ```Bash

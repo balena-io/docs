@@ -3,14 +3,14 @@ title: Collected Data
 ---
 # Data collected by {{ $names.company.lower }}
 
-In order to make data driven decisions, {{ $names.company.lower }} collects usage related events via a 3rd party 
-analytics service [Mixpanel][mixpanel]. These events provide us context on the state of application 
-execution steps. This way we could observe the health of fleets of devices in {{ $names.cloud.lower }} ecosystem and 
+In order to make data driven decisions, {{ $names.company.lower }} collects usage related events via a 3rd party
+analytics service [Mixpanel][mixpanel]. These events provide us context on the state of application
+execution steps. This way we could observe the health of fleets of devices in {{ $names.cloud.lower }} ecosystem and
 analyze the potential problems as well as trends.
 
 ## User data collected by {{ $names.company.lower }}
 
-{{ $names.company.lower }} collects information about CLI and web dashboard users behaviour. 
+{{ $names.company.lower }} collects information about CLI and web dashboard users behaviour.
 User data we process includes
 
 * user name (login) and the email address used to log into the system,
@@ -20,20 +20,20 @@ User data we process includes
 * referrer to {{ $names.company.lower }} sites,
 * company user belongs to (when web dashboard is used only).
 
-Please note that {{ $names.company.lower }} does not collect information about end users of devices managed with 
-{{ $names.company.lower }} platform, i.e. information about our customer users is not collected or processed. 
+Please note that {{ $names.company.lower }} does not collect information about end users of devices managed with
+{{ $names.company.lower }} platform, i.e. information about our customer users is not collected or processed.
 We work only with data collected for users who use {{ $names.company.lower }} to manage their device fleets.
 
 ## {{ $names.etcher.lower }}
 
-{{ $names.etcher.lower }} is an application maintained by {{ $names.company.lower }} team that can be used to easily 
-flash OS images to SD cards and USB drives. If user does not opt out from collecting the analytics data, the application 
-tracks its usage. In addition to the data described above, information about the type of SD cards and USB drives is 
+{{ $names.etcher.lower }} is an application maintained by {{ $names.company.lower }} team that can be used to easily
+flash OS images to SD cards and USB drives. If user does not opt out from collecting the analytics data, the application
+tracks its usage. In addition to the data described above, information about the type of SD cards and USB drives is
 collected too.
 
 ## Device data collected by the supervisor
 
-Data is submitted to Mixpanel from {{ $names.company.lower }}-managed devices (if allowed) on the events listed in 
+Data is submitted to Mixpanel from {{ $names.company.lower }}-managed devices (if allowed) on the events listed in
 the table below. Submitted packets [may contain][supervisor-data-mask] the following information:
 
 * Application ID and name
@@ -102,20 +102,20 @@ the table below. Submitted packets [may contain][supervisor-data-mask] the follo
 | Supervisor start | SystemMessage | src/supervisor.ts |
 
 
-## Data collected automatically by Mixpanel 
-Mixpanel library generates a unique identifier for each device that sends an event. 
-We associate the events with the device UUID provided by {{ $names.cloud.lower }} as well. 
+## Data collected automatically by Mixpanel
+Mixpanel library generates a unique identifier for each device that sends an event.
+We associate the events with the device UUID provided by {{ $names.cloud.lower }} as well.
 Besides these identifiers, we don’t send any other user ID to Mixpanel.
 
-Mixpanel library automatically extracts geographical location data from the device’s IP address, 
-so it collects city, region and country information. 
+Mixpanel library automatically extracts geographical location data from the device’s IP address,
+so it collects city, region and country information.
 See more in a [relevant article by Mixpanel][mixpanel-auto-collection].
 
 ## About logging
-Logs produced by applications deployed to the devices via {{ $names.company.lower }} supervisor application 
-can be streamed to web dashboard or CLI user who has permissions to view them through our cloud. 
-However, the logs are stored in the cloud temporarily only in order to allow the streaming 
-functionality - {{ $names.company.lower }} does not process device application logs unless technical support is 
+Logs produced by applications deployed to the devices via {{ $names.company.lower }} supervisor application
+can be streamed to web dashboard or CLI user who has permissions to view them through our cloud.
+However, the logs are stored in the cloud temporarily only in order to allow the streaming
+functionality - {{ $names.company.lower }} does not process device application logs unless technical support is
 requested by our users.
 
 

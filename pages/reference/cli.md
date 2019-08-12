@@ -601,12 +601,12 @@ device uuid
 
 show config variables
 
-## env rm &#60;id&#62;
+## env rm ID
 
-Use this command to remove an environment variable from an application
-or device.
+Remove an environment variable from an application or device, as selected
+by command-line options.
 
-Notice this command asks for confirmation interactively.
+Note that this command asks for confirmation interactively.
 You can avoid this by passing the `--yes` boolean option.
 
 The --device option selects a device instead of an application.
@@ -620,15 +620,21 @@ Examples:
 	$ balena env rm 215 --yes
 	$ balena env rm 215 --device
 
+### Arguments
+
+#### ID
+
+environment variable id
+
 ### Options
 
-#### --yes, -y
+#### -d, --device
 
-confirm non interactively
+Selects a device environment variable instead of an application environment variable
 
-#### --device, -d
+#### -y, --yes
 
-device
+Run in non-interactive mode
 
 ## env add NAME [VALUE]
 
@@ -1377,7 +1383,7 @@ Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-Docker daemon hostname or IP address (dev machine or balena device) 
+Docker daemon hostname or IP address (dev machine or balena device)
 
 #### --dockerPort &#60;dockerPort&#62;
 
@@ -1487,7 +1493,11 @@ and required to cause the process to end once the initial build has completed.
 
 #### --detached, -d
 
-Don't tail application logs when pushing to a local mode device
+When pushing to the cloud, this option will cause the build to start, then return execution
+back to the shell, with the status and release ID (if applicable).
+
+When pushing to a local mode device, this option will cause the command to not tail application logs when the build
+has completed.
 
 #### --service &#60;service&#62;
 
@@ -1636,7 +1646,7 @@ Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-Docker daemon hostname or IP address (dev machine or balena device) 
+Docker daemon hostname or IP address (dev machine or balena device)
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
@@ -1757,7 +1767,7 @@ Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-Docker daemon hostname or IP address (dev machine or balena device) 
+Docker daemon hostname or IP address (dev machine or balena device)
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 

@@ -12,10 +12,10 @@ Before you begin, grab the example project code from GitHub using the following 
 git clone https://github.com/{{ $names.company.lower }}-io-projects/google-iot
 ```
 
-If you want to learn more about Google Cloud IoT check out https://cloud.google.com/solutions/iot/ 
+If you want to learn more about Google Cloud IoT check out https://cloud.google.com/solutions/iot/
 
 ## IoT Core Setup on the GCP Side
-	
+
 ### Google Cloud Platform Account
 Before you set up IoT Core, you'll need a Google account to log into the Google Cloud Platform. Once an account is created successfully, you will be able to run the gcloud commands below.
 

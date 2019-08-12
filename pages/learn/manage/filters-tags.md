@@ -6,7 +6,7 @@ title: Filters and tags
 
 ## Device filters
 
-As the number of devices in your application grows, the device list will become increasingly busy. Filters provide a convenient way to quickly find specific devices based on shared characteristics. 
+As the number of devices in your application grows, the device list will become increasingly busy. Filters provide a convenient way to quickly find specific devices based on shared characteristics.
 
 ### Add and update filters
 
@@ -14,7 +14,7 @@ To add a filter, click the *Add filter* button near the top-left corner of your 
 
 <img src="/img/common/app/add-filter.png" width="80%">
 
-The first dropdown lists the device characteristics you can filter on. These characteristics correspond to the columns in your device list. The second dropdown contains comparison operators appropriate to the device characteristic, such as `is`, `is before`, `contains`, and `matches RegEx`. The third field is where you specify a value to filter on. 
+The first dropdown lists the device characteristics you can filter on. These characteristics correspond to the columns in your device list. The second dropdown contains comparison operators appropriate to the device characteristic, such as `is`, `is before`, `contains`, and `matches RegEx`. The third field is where you specify a value to filter on.
 
 __Note:__ When filtering by [device tags][tags], you can filter by name, value, or both.
 
@@ -48,7 +48,7 @@ You can also manage tags from a device's summary page. The *Manage Tags* option 
 
 <img src="/img/common/app/device_manage_tags.png" width="40%">
 
-Both of these options will open the tag management window, from which you can define a name for your tag. Note that tag names cannot be empty, cannot contain spaces, and cannot use the reserved `io.{{ $names.company.short }}` prefix. In addition to a name, you can define a value, although this is optional. 
+Both of these options will open the tag management window, from which you can define a name for your tag. Note that tag names cannot be empty, cannot contain spaces, and cannot use the reserved `io.{{ $names.company.short }}` prefix. In addition to a name, you can define a value, although this is optional.
 
 __Note:__ A device cannot have more than one tag with the same name, even if the values are different. If you create a new tag with the same name as an existing tag, the existing tag will be replaced.
 

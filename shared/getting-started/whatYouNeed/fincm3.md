@@ -7,5 +7,5 @@
 * A [{{ $names.company.lower }} account][link-to-signup].
 
 [fin-link]:https://store.balena.io/collections/developer-kit/products/balenafin-v1-1-0-developer-kit
-[supportedDevicesList]:/hardware/devices/ 
+[supportedDevicesList]:/hardware/devices/
 [link-to-signup]:{{ $links.dashboardUrl }}/signup

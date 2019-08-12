@@ -53,7 +53,7 @@ This isn't so much of an optimization tip, but more a guideline to ensure mainta
 ## Starting long running tasks together
 If you have commands that do not depend on each other, they can be started in the background at the same time to decrease build time. An example of this could be two downloads of unrelated sources:
 
-``` 
+```
 RUN wget my-source-1.tar.gz & \
     && wget my-source-2.tar.gz & \
     && wait

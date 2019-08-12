@@ -7,5 +7,5 @@
 * A [{{ $names.company.lower }} account][link-to-signup].
 
 [device-link]:{{ $device.link }}
-[supportedDevicesList]:/hardware/devices/ 
+[supportedDevicesList]:/hardware/devices/
 [link-to-signup]:{{ $links.dashboardUrl }}/signup

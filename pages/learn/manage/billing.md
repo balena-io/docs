@@ -26,7 +26,7 @@ At the bottom of this page, you'll find more information on the available [plans
 
 From August 15th, 2018, and onward, we will be tracking usage dynamically. For any usage that is outside the limits defined by your plan, you will be billed. Dynamic billing for devices and users outside of your plan will occur every month, even for those on annual plans.
 
-For both devices and users, usage is calculated based on the maximum number in your account at any point during the month. **This includes all [active devices][inactive], whether online or offline.** 
+For both devices and users, usage is calculated based on the maximum number in your account at any point during the month. **This includes all [active devices][inactive], whether online or offline.**
 
 As an example, let's say you are on the Pilot plan, which includes up to 50 devices and 3 users. In one month, your active device count steadily climbs from 43 to 52. During this same month, you temporarily increase your user count from 3 to 4, before returning it to 3 at the end of the month. Based on this usage, your dynamic billing charges for the month will include an additional 2 devices and 1 user.
 
