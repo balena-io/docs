@@ -38,7 +38,7 @@ MAIN_MENU_LINKS = [
 module.exports =
   docsExt: 'md'
   docsSourceDir: DOCS_SOURCE_DIR
-  docsDestDir: 'contents'
+  docsDestDir: 'contents/docs'
   templatesDir: TEMPLATES_DIR
   partialsDir: PARTIALS_DIR
   dynamicDocs: DYNAMIC_DOCS
