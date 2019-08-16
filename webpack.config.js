@@ -1,14 +1,13 @@
 const path = require('path')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const webpack = require('webpack')
-const languages = require('./static/scripts/langs')
+const languages = require('./public/scripts/langs')
 
 module.exports = {
-  entry: path.resolve(__dirname, 'static/scripts/main.js'),
+  entry: path.resolve(__dirname, 'public/scripts/main.js'),
   output: {
-    path: path.resolve(__dirname, 'static/dist'),
-    filename: 'main.js',
-    publicPath: '/docs/dist/'
+    path: path.resolve(__dirname, 'public/docs/dist'),
+    filename: 'main.js'
   },
   module: {
     rules: [
