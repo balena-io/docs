@@ -14,7 +14,7 @@
 for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
 
 window.jQuery.get('https://api.resin.io/config', (config) => {
-  mixpanel.init(config.mixpanelToken, { host: 'https://api.resin.io/mixpanel' });
+  mixpanel.init(config.mixpanelToken, { api_host: 'https://api.balena-cloud.com/mixpanel' });
   mixpanel.track('Docs', { page: location.href });
 });
 </script>
