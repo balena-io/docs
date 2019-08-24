@@ -944,7 +944,11 @@ If an application name is provided, all online devices in the application
 will be presented, and the chosen device will then have a shell opened on
 in it's service container or host OS.
 
-For local devices, the ip address and .local domain name are supported.
+For local devices, the IP address and .local domain name are supported.
+If the device is referenced by IP or `.local` address, the connection
+is initiated directly to balenaOS on port `22222` via an
+openssh-compatible client. Otherwise, any connection initiated remotely
+traverses the balenaCloud VPN.
 
 Examples:
 	balena ssh MyApp
@@ -956,7 +960,7 @@ Examples:
 	balena ssh 192.168.0.1 --verbose
 	balena ssh f49cefd.local my-service
 
-Warning: 'balena ssh' requires an openssh-compatible client to be correctly
+Warning: `balena ssh` requires an openssh-compatible client to be correctly
 installed in your shell environment. For more information (including Windows
 support) please check:
 	https://github.com/balena-io/balena-cli/blob/master/INSTALL.md#additional-dependencies
@@ -1383,7 +1387,7 @@ Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-Docker daemon hostname or IP address (dev machine or balena device)
+Docker daemon hostname or IP address (dev machine or balena device) 
 
 #### --dockerPort &#60;dockerPort&#62;
 
@@ -1443,8 +1447,12 @@ Sample registry-secrets YAML file:
 		username: '_json_key'
 		password: '{escaped contents of the GCR keyfile.json file}'
 
-If an option is not specified, and a secrets.yml or secrets.json file exists in
-the balena directory (usually $HOME/.balena), this file will be used instead.
+For a sample project using registry secrets with the Google Container Registry,
+check: https://github.com/balena-io-playground/sample-gcr-registry-secrets
+
+If the --registry-secrets option is not specified, and a secrets.yml or
+secrets.json file exists in the balena directory (usually $HOME/.balena),
+this file will be used instead.
 
 Examples:
 
@@ -1594,8 +1602,12 @@ Sample registry-secrets YAML file:
 		username: '_json_key'
 		password: '{escaped contents of the GCR keyfile.json file}'
 
-If an option is not specified, and a secrets.yml or secrets.json file exists in
-the balena directory (usually $HOME/.balena), this file will be used instead.
+For a sample project using registry secrets with the Google Container Registry,
+check: https://github.com/balena-io-playground/sample-gcr-registry-secrets
+
+If the --registry-secrets option is not specified, and a secrets.yml or
+secrets.json file exists in the balena directory (usually $HOME/.balena),
+this file will be used instead.
 
 Examples:
 
@@ -1646,7 +1658,7 @@ Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-Docker daemon hostname or IP address (dev machine or balena device)
+Docker daemon hostname or IP address (dev machine or balena device) 
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
@@ -1718,8 +1730,12 @@ Sample registry-secrets YAML file:
 		username: '_json_key'
 		password: '{escaped contents of the GCR keyfile.json file}'
 
-If an option is not specified, and a secrets.yml or secrets.json file exists in
-the balena directory (usually $HOME/.balena), this file will be used instead.
+For a sample project using registry secrets with the Google Container Registry,
+check: https://github.com/balena-io-playground/sample-gcr-registry-secrets
+
+If the --registry-secrets option is not specified, and a secrets.yml or
+secrets.json file exists in the balena directory (usually $HOME/.balena),
+this file will be used instead.
 
 Examples:
 
@@ -1767,7 +1783,7 @@ Path to a local docker socket (e.g. /var/run/docker.sock)
 
 #### --dockerHost, -h &#60;dockerHost&#62;
 
-Docker daemon hostname or IP address (dev machine or balena device)
+Docker daemon hostname or IP address (dev machine or balena device) 
 
 #### --dockerPort, -p &#60;dockerPort&#62;
 
