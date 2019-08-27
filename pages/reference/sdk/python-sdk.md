@@ -956,7 +956,7 @@ Get device name by device uuid.
             >>> balena.models.device.get_os_update_status('b6070f4fea5edf808b576123157fe5ec')
             {u'status': u'done', u'parameters': {u'target_version': u'2.29.2+rev1.prod'}, u'stdout': u'[1554490814][LOG]Normalized target version: 2.29.2+rev1
 ', u'last_run': 1554491107242L, u'error': u'', u'action': u'resinhup'}
-
+        
 ```
 ### Function: get_status(uuid)
 
@@ -1397,6 +1397,16 @@ Get OS supported versions.
         * recommended - the recommended version, i.e. the most recent version that is _not_ pre-release, can be `None`.
         * latest - the most recent version, including pre-releases.
         * default - recommended (if available) or latest otherwise.
+### Function: is_architecture_compatible_with(os_architecture, application_architecture)
+
+Returns whether the specified OS architecture is compatible with the target architecture.
+
+#### Args:
+    os_architecture (str): The OS's architecture as specified in its device type.
+    application_architecture (str): The application's architecture as specified in its device type.
+
+#### Returns:
+    bool: Whether the specified OS architecture is capable of running applications build for the target architecture.
 ### Function: parse_params()
 
 Validate parameters for downloading device OS image.
