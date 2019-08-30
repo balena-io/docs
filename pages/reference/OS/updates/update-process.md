@@ -15,15 +15,15 @@ Since {{ $names.os.lower }} 1.x and 2.x behave somewhat differently in how they 
 
 ## Upgrading between {{ $names.os.lower }} 2.x versions
 
-The first step the updater script performs includes a number of sanity checks, so that an update does not progress if something isn't right. The checks include, among other things, whether the device is running a {{ $names.os.lower }} version that it can work with (i.e., not on 1.x), whether the script is running on the right device type, whether it can reach the **Docker** registry to get the target {{ $names.os.lower }} image, and whether that image exists.
+The first step the updater script performs includes a number of sanity checks, so that an update does not progress if something isn't right. The checks include, among other things, whether the device is running a {{ $names.os.lower }} version that it can work with (i.e., not on 1.x), whether the script is running on the right device type, whether it can reach the **DockerHub** registry to get the target {{ $names.os.lower }} image, and whether that image exists.
 
-Next, the supervisor is stopped so it does not inadvertently interfere with the update process. The user application is kept running to minimize downtime. The updater then uses **Docker** to pull the new {{ $names.os.lower }} image. When the pull succeeds, the spare root partition is formatted and the contents of the image are exported onto that partition. The modifications to the boot partition are also applied.
+Next, the supervisor is stopped so it does not inadvertently interfere with the update process. The user application is kept running to minimize downtime. The updater then uses **{{ $names.engine.lower }}** to pull the new {{ $names.os.lower }} image. When the pull succeeds, the spare root partition is formatted and the contents of the image are exported onto that partition. The modifications to the boot partition are also applied.
 
 The updater script checks to see if the new {{ $names.os.lower }} version ships with a newer supervisor version than what the device currently runs, and, if so, the supervisor is updated.
 
 Finally, the boot settings are modified so that on the next reboot the new root file system is used. As a last step, the device is rebooted.
 
-For devices running {{ $names.os.lower }} 2.x, a status of `OS update failed` means the user application should still be running normally, and the reasons for failure can be examined throught the update logs at `mnt/data/resinhup/`. The device may have some reduced functionality, for instance if the supervisor was stopped for the update, but we are working on ways to automatically restore full functionality whenever possible.
+For devices running {{ $names.os.lower }} 2.x, a status of `OS update failed` means the user application should still be running normally, and the reasons for failure can be examined throught the update logs at `/mnt/data/resinhup/`. The device may have some reduced functionality, for instance if the supervisor was stopped for the update, but we are working on ways to automatically restore full functionality whenever possible.
 
 ## Upgrading from {{ $names.os.lower }} 1.x to 2.x
 
