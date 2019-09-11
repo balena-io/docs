@@ -119,3 +119,5 @@ Reference
   SDKs
     Node.js SDK[/reference/sdk/node-sdk]
     Python SDK[/reference/sdk/python-sdk]
+
+  Device Diagnostics[/reference/diagnostics]
