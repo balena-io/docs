@@ -19,7 +19,7 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 - Multiple Distributions:
 	- [Debian](https://www.debian.org/): jessie, sid, stretch and buster
 	- [Alpine](https://alpinelinux.org/): 3.5, 3.6, 3.7, 3.8, 3.9, 3.10 and edge
-	- [Ubuntu](https://www.ubuntu.com/): artful, bionic, cosmic, trusty and xenial
+	- [Ubuntu](https://www.ubuntu.com/): trusty (14.04), xenial (16.04), artful (17.10), bionic (18.04), and cosmic (18.10)
 	- [Fedora](https://getfedora.org/): 26, 28, 29 and 30
 - Multiple language stacks:
 	- [Node.js](https://nodejs.org/en/): 12.7.0, 11.15.0, 10.16.1, 8.16.1 and 6.17.1
