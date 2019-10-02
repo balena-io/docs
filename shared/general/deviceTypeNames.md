@@ -3,6 +3,8 @@ Device Name | {{ $names.company.allCaps }}_MACHINE_NAME | {{ $names.company.allC
 Raspberry Pi (v1 and Zero) | raspberry-pi | rpi | {{ $links.githubOS }}/balena-raspberrypi
 Raspberry Pi 2 | raspberry-pi2 | armv7hf | {{ $links.githubOS }}/balena-raspberrypi
 Raspberry Pi 3 | raspberrypi3 | armv7hf | {{ $links.githubOS }}/balena-raspberrypi
+Raspberry Pi 3 (using 64-bit OS) | raspberrypi3-64 | aarch64 | {{ $links.githubOS }}/balena-raspberrypi
+Raspberry Pi 4 (using 64-bit OS) | raspberrypi4-64 | aarch64 | {{ $links.githubOS }}/balena-raspberrypi
 BeagleBone Black | beaglebone-black | armv7hf | {{ $links.githubOS }}/balena-beaglebone
 BeagleBone Green Wireless | beaglebone-green-wifi | armv7hf | {{ $links.githubOS }}/balena-beaglebone
 BeagleBone Green | beaglebone-green | armv7hf | {{ $links.githubOS }}/balena-beaglebone
