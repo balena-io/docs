@@ -269,6 +269,22 @@
     "type": "released"
   },
   {
+    "id": "raspberrypi4",
+    "name": "Raspberry Pi 4",
+    "variants": [
+      {
+        "name": "Raspberry Pi 4 Model B",
+        "image": "/img/raspberrypi4/raspberrypi4.jpg",
+        "link": "https://www.raspberrypi.org/products/raspberry-pi-4-model-b/"
+      }
+    ],
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "icon": "/img/device/raspberrypi4-64.svg",
+    "link": "https://www.raspberrypi.org/products/raspberry-pi-4-model-b/",
+    "type": "released"
+  },
+  {
     "id": "revpi-core-3",
     "name": "Revolution Pi Core 3",
     "arch": "armv7hf",
