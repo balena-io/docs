@@ -232,8 +232,6 @@ It should be noted that in this case the devices will still pull the container i
 
 Often it is necessary to use passwords or secrets during your build to fetch proprietary files or code but not have these sensitive files be downloaded to all the devices. For this reason `balena push` allows one to define a `.balena` folder to hold secret files which will get exposed to during the image build but not propagate down to devices.
 
-__Note:__ Currently this is not supported on `balena push <deviceIP>` localMode development, but there is an issue tracking its support here: https://github.com/balena-io/balena-cli/issues/1164 .
-
 {{import "deployment/secrets"}}
 
 ## The balenaCloud Build server
