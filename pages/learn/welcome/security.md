@@ -79,7 +79,7 @@ Currently, metadata such as device identifiers or WiFi credentials are not encry
 
 ## Building images
 
-The first step in deploying an application to a fleet of devices is to build a Docker image that contains everything necessary to run the application. While these images can be built locally, {{ $names.company.lower }} provides a powerful image builder that is more appropriate for most use cases. The builder for x86 images is hosted on AWS, while the builder for ARM images is hosted by [Packet.net](https://www.packet.net/).
+The first step in deploying an application to a fleet of devices is to build a Docker image that contains everything necessary to run the application. While these images can be built locally, {{ $names.company.lower }} provides a powerful image builder that is more appropriate for most use cases. The builder for x86 images is hosted on AWS, while the builder for ARM images is hosted by [Packet.com](https://www.packet.com/).
 
 {{ $names.company.upper }} maintains a repository of base images. These base images are built by the {{ $names.company.lower }} build infrastructure, so they inherit all the security protections provided to application images. While we provide images for a wide variety of distributions, architectures, and devices, the images built by the builder can also inherit from any publicly accessible Docker image repository.
 
