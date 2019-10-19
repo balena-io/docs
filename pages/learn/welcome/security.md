@@ -42,7 +42,7 @@ A device API key also allows a device to request an application update. When a d
 Both the Docker pull request and the actual image download process are performed using HTTPS, so are TLS encrypted. HTTPS connections are always outbound from the device to the {{ $names.company.lower }} service, meaning that no inbound connections are created and no inbound ports on the firewall are required.
 ## Runtime management
 
-### VPN
+### VPN 
 
 {{ $names.company.upper }} uses [OpenVPN](https://openvpn.net/) to control the device state (e.g. device reboot, device shutdown, application restart, etc.). As mentioned above, devices only connect outbound to the VPN and all traffic over the VPN is encrypted with TLS.
 
