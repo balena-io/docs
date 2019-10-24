@@ -184,7 +184,7 @@ Since the release of multicontainer on the balenaCloud platform, we now recommen
 
 However if your application relies on initsystem features, it is fairly easy to add this functionality to a balenalib base image. We have provided some examples for [systemd](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd) and [openRC](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/openrc). Please notice that different systemd versions require different implementation so for Debian Jessie and older, please refer to this [example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd ) and for Debian Stretch and later, please refer to this [example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230).
 
-Generally for systemd, it just requires installing the systemd package, masking a number of services and defining a new [`entry.sh`](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd/entry.sh) and a [`resin.service`](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd/resin.service). The `Dockerfile` below demonstates this:
+Generally for systemd, it just requires installing the systemd package, masking a number of services and defining a new [`entry.sh`](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd/entry.sh) and a [`balena.service`](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd/balena.service). The `Dockerfile` below demonstates this:
 
 ```Dockerfile
 FROM balenalib/amd64-debian:jessie
@@ -211,9 +211,9 @@ RUN systemctl mask \
     graphical.target
 
 COPY entry.sh /usr/bin/entry.sh
-COPY resin.service /etc/systemd/system/resin.service
+COPY balena.service /etc/systemd/system/balena.service
 
-RUN systemctl enable /etc/systemd/system/resin.service
+RUN systemctl enable /etc/systemd/system/balena.service
 
 STOPSIGNAL 37
 VOLUME ["/sys/fs/cgroup"]
