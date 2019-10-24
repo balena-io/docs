@@ -44,3 +44,5 @@ Starting from {{ $names.os.lower }} 2.1.0, you can configure your own NTP server
 ```
 "ntpServers": "0.resinio.pool.ntp.org 1.resinio.pool.ntp.org"
 ```
+
+Starting from {{ $names.os.lower }} 2.30.0, NTP servers can be set over DHCP.
