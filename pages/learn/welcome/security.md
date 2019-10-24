@@ -20,7 +20,7 @@ In this document, we will further explain how the {{ $names.company.lower }} inf
 The first points of access to the {{ $names.company.lower }} ecosystem are the user dashboard and the CLI. From these, a user can add and remove SSH keys, retrieve an API token, and manage devices. Multiple methods of authentication are supported for logging in:
 
 - Simple username/password authentication is supported, though not recommended for production accounts.
-- {{ $names.company.upper }} supports a number of [OpenID Connect](http://openid.net/connect/) providers, including GitHub and Google.
+- {{ $names.company.upper }} supports a number of [OpenID Connect](https://openid.net/connect/) providers, including GitHub and Google.
 - Two-factor authentication using the Time-based One-time Password Algorithm (TOTP) is fully supported.  This enables integration with tools such as Google Authenticator.
 
 ## Device access
