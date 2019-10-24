@@ -20,11 +20,20 @@ On **Windows,** the standard Command Prompt (`cmd.exe`) and
 are supported. We are aware of users also having a good experience with alternative shells,
 including:
 
-* Microsoft's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
-  (a.k.a. Microsoft's "bash for Windows 10")
+* [MSYS2](https://www.msys2.org/):
+  * Install additional packages with the command:  
+    `pacman -S git openssh rsync`
+  * [Set a Windows environment variable](https://www.onmsft.com/how-to/how-to-set-an-environment-variable-in-windows-10): `MSYS2_PATH_TYPE=inherit`
+  * Note that a bug in the MSYS2 launch script (`msys2_shell.cmd`) makes text-based interactive CLI
+    menus to break. [Check this Github issue for a
+    workaround](https://github.com/msys2/MINGW-packages/issues/1633#issuecomment-240583890).
+* [MSYS](http://www.mingw.org/wiki/MSYS): select the `msys-rsync` and `msys-openssh` packages too
 * [Git for Windows](https://git-for-windows.github.io/)
-* [MSYS](http://www.mingw.org/wiki/MSYS) and [MSYS2](https://www.msys2.org/) (install the
-  `msys-rsync` and `msys-openssh` packages too)
+* Microsoft's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
+  (WSL). In this case, a Linux distribution like Ubuntu is installed via the Microsoft Store, and a
+  balena CLI release **for Linux** is recommended. See
+  [FAQ](https://github.com/balena-io/balena-cli/blob/master/TROUBLESHOOTING.md) for using balena
+  CLI with WSL and Docker Desktop for Windows.
 
 On **macOS** and **Linux,** the standard terminal window is supported. _Optionally,_ `bash` command
 auto completion may be enabled by copying the
@@ -572,16 +581,16 @@ confirm non interactively
 
 ## envs
 
-Use this command to list the environment variables of an application
-or device.
+List the environment or config variables of an application or device,
+as selected by the respective command-line options.
 
-The --config option is used to list "config" variables that configure
-balena features.
+The --config option is used to list "configuration variables" that
+control balena features.
 
 Service-specific variables are not currently supported. The following
 examples list variables that apply to all services in an app or device.
 
-Example:
+Examples:
 
 	$ balena envs --application MyApp
 	$ balena envs --application MyApp --config
@@ -589,27 +598,32 @@ Example:
 
 ### Options
 
-#### --application, -a, --app &#60;application&#62;
+#### -a, --application APPLICATION
 
 application name
 
-#### --device, -d &#60;device&#62;
-
-device uuid
-
-#### --config, -c, -v, --verbose
+#### -c, --config
 
 show config variables
 
+#### -d, --device DEVICE
+
+device UUID
+
+#### -v, --verbose
+
+produce verbose output
+
 ## env rm ID
 
-Remove an environment variable from an application or device, as selected
-by command-line options.
+Remove a configuration or environment variable from an application or device,
+as selected by command-line options.
 
 Note that this command asks for confirmation interactively.
 You can avoid this by passing the `--yes` boolean option.
 
 The --device option selects a device instead of an application.
+The --config option selects a config var instead of an env var.
 
 Service-specific variables are not currently supported. The following
 examples remove variables that apply to all services in an app or device.
@@ -618,19 +632,25 @@ Examples:
 
 	$ balena env rm 215
 	$ balena env rm 215 --yes
+	$ balena env rm 215 --config
 	$ balena env rm 215 --device
+	$ balena env rm 215 --device --config
 
 ### Arguments
 
 #### ID
 
-environment variable id
+environment variable numeric database ID
 
 ### Options
 
 #### -d, --device
 
 Selects a device environment variable instead of an application environment variable
+
+#### -c, --config
+
+Selects a configuration variable instead of an environment variable
 
 #### -y, --yes
 
@@ -678,12 +698,12 @@ device UUID
 
 suppress warning messages
 
-## env rename &#60;id&#62; &#60;value&#62;
+## env rename ID VALUE
 
-Use this command to change the value of an application or device
-environment variable.
-
-The --device option selects a device instead of an application.
+Change the value of an environment variable for an application or device,
+as selected by the '--device' option. The variable is identified by its
+database ID, rather than its name. The 'balena envs' command can be used
+to list the variable's ID.
 
 Service-specific variables are not currently supported. The following
 examples modify variables that apply to all services in an app or device.
@@ -693,11 +713,21 @@ Examples:
 	$ balena env rename 376 emacs
 	$ balena env rename 376 emacs --device
 
+### Arguments
+
+#### ID
+
+environment variable numeric database ID
+
+#### VALUE
+
+variable value; if omitted, use value from CLI's environment
+
 ### Options
 
-#### --device, -d
+#### -d, --device
 
-device
+select a device variable instead of an application variable
 
 # Tags
 
@@ -713,6 +743,7 @@ Example:
 	$ balena tags --application MyApp
 	$ balena tags --device 7cf02a6
 	$ balena tags --release 1234
+	$ balena tags --release b376b0e544e9429483b656490e5b9443b4349bd6
 
 ### Options
 
@@ -741,8 +772,10 @@ Examples:
 	$ balena tag set mySimpleTag --application MyApp
 	$ balena tag set myCompositeTag myTagValue --application MyApp
 	$ balena tag set myCompositeTag myTagValue --device 7cf02a6
+	$ balena tag set myCompositeTag "my tag value with whitespaces" --device 7cf02a6
 	$ balena tag set myCompositeTag myTagValue --release 1234
-	$ balena tag set myCompositeTag "my tag value with whitespaces" --release 1234
+	$ balena tag set myCompositeTag --release 1234
+	$ balena tag set myCompositeTag --release b376b0e544e9429483b656490e5b9443b4349bd6
 
 ### Options
 
@@ -767,6 +800,7 @@ Examples:
 	$ balena tag rm myTagKey --application MyApp
 	$ balena tag rm myTagKey --device 7cf02a6
 	$ balena tag rm myTagKey --release 1234
+	$ balena tag rm myTagKey --release b376b0e544e9429483b656490e5b9443b4349bd6
 
 ### Options
 
@@ -1615,7 +1649,8 @@ Examples:
 	$ balena build ./source/
 	$ balena build --deviceType raspberrypi3 --arch armv7hf --emulated
 	$ balena build --application MyApp ./source/
-	$ balena build --docker '/var/run/docker.sock'
+	$ balena build --docker /var/run/docker.sock   # Linux, Mac
+	$ balena build --docker //./pipe/docker_engine # Windows
 	$ balena build --dockerHost my.docker.host --dockerPort 2376 --ca ca.pem --key key.pem --cert cert.pem
 
 ### Options
