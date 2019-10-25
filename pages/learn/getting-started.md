@@ -19,15 +19,9 @@ dynamic:
 
 {{import "getting-started/whatYouNeed"}}
 
-## Need help?
-
-{{import "getting-started/usingSupport"}}
-
 ## Account setup
 
-If you don't already have a {{ $names.company.lower }} account, make sure to [sign up][link-to-signup].
-
-{{import "getting-started/sshKey"}}
+If you don't already have a {{ $names.company.lower }} account, make sure to [sign up][link-to-signup] before continuing.
 
 ## Create an application
 
@@ -39,27 +33,27 @@ If you don't already have a {{ $names.company.lower }} account, make sure to [si
 
 {{import "getting-started/flashingOsToBootMedia"}}
 
-## Provision your device
+## Provision device
+
 {{import "getting-started/getDeviceOnDash"}}
 
-## Deploy code
+## Add release
+
+Now that we have a device or two connected to a {{ $names.company.lower }} application, let's deploy some code and actually build something.
+
+{{import "getting-started/balenaCliAuth"}}
 
 {{import "getting-started/deployingCode"}}
 
+{{import "getting-started/balenaPush"}}
+
+{{import "getting-started/postPush"}}
+
+{{import "getting-started/deviceUrl"}}
+
 ## Next steps
 
-- Learn more about the [Dockerfile][dockerfile] that is used to build your application.
-- Build an application that uses [multiple containers][multicontainer].
-- Get to know the [web terminal][terminal], which can be used to SSH into your application containers and the host OS.
-- Try out [local mode][local-mode], the most efficient way to rapidly develop and test your {{ $names.company.lower }} application.
-
-## Example projects
-
-These example projects will give you an idea of more things that can be done with {{ $names.company.lower }}:
-
-{{import "getting-started/exampleProjects"}}
-
-
+{{import "getting-started/nextSteps"}}
 
 **Enjoy Balenafying All the Things!**
 <!-- <img src="/img/common/resinify.jpg" width="80%"> -->
@@ -69,3 +63,4 @@ These example projects will give you an idea of more things that can be done wit
 [local-mode]:/learn/develop/local-mode
 [multicontainer]:/learn/develop/multicontainer
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
+[dashboard]:{{ $links.dashboardUrl }}
