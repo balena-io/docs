@@ -4,7 +4,7 @@ To create your first application, log into your [balenaCloud dashboard][dashboar
 
 <img src="/img/common/create-first-application.png" width="100%">
 
-Select the **{{ $device.name }}** device type, select an [application type][app-types], enter a name, and click *Create new application*:
+Select the **{{ $device.name }}** device type, choose an [application type][app-types], enter a name, and click *Create new application*:
 
 <img src="/img/common/create-application.png" width="60%">
 

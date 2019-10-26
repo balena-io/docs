@@ -1,8 +1,8 @@
-The recommended way to deploy code is to install the [balenaCLI][cli]. The easiest way to do this is to use the installer for your OS from the balenaCLI [releases page][releases]. Choose the latest release of the installer for your OS, and follow the [installation instructions][install].
+The recommended way to deploy code is to install the [balenaCLI][cli]. The easiest way to do this is to use the installer for your OS available on the [releases page][releases]. Choose the latest release of the installer for your OS, and follow the [installation instructions][install].
 
 <img src="/img/common/cli/download-installer.png" width="60%">
 
-__Note:__ You may also install the CLI via npm on a system running NodeJS. In a terminal on your development machine run `npm --global install balena-cli`.
+__Note:__ You may also install the balenaCLI via npm on a system running NodeJS. In a terminal on your development machine run `npm --global install balena-cli`.
 
 To use the [balenaCLI][cli], you need to login to your {{ $names.company.lower }} account. Login via the terminal using the `balena login` command:
 
@@ -29,7 +29,7 @@ You will be asked how you wish to authenticate. The recommended method is that o
 
 __Note__ Other authentication methods include using your username and password credentials or obtaining an authentication token from the dashboard. Authentication tokens come in two types, API tokens, and JSON Web Token (JWT) session tokens. While API tokens do not expire, JWT session tokens do after 7 days.
 
-After authorization, test out the balenaCLI by running the `balena apps` command, which should return information about the application you created in the previous step. Take a note of the `APP NAME` as you'll need this in the next step to push the code to all devices in that application.
+After logging in, test out the balenaCLI by running the `balena apps` command, which should return information about the application you created in the previous step. Take a note of the `APP NAME` as you'll need this in the next step to push the code to all devices in that application.
 
 ```shell
 $ balena apps
@@ -37,7 +37,7 @@ ID    APP NAME   DEVICE TYPE     ONLINE DEVICES DEVICE COUNT
 98264 FirstApp   raspberrypi4-64 0              0
 ```
 
-__Note__ See all available commands in the CLI by running `balena help` 
+__Note__ See all the commands available with balenaCLI by running `balena help` 
 
 [cli]:https://github.com/balena-io/balena-cli
 [releases]:https://github.com/balena-io/balena-cli/releases
