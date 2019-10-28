@@ -2,7 +2,8 @@ The recommended way to deploy code is to install the [balenaCLI][cli]. The easie
 
 <img src="/img/common/cli/download-installer.png" width="60%">
 
-__Note:__ You may also install the balenaCLI via npm on a system running NodeJS. In a terminal on your development machine run `npm --global install balena-cli`.
+__Note:__ You may also install the balenaCLI via npm on a system running NodeJS, as explained in
+[NPM Installation][npminstall].
 
 To use the [balenaCLI][cli], you need to login to your {{ $names.company.lower }} account. Login via the terminal using the `balena login` command:
 
@@ -39,6 +40,7 @@ ID    APP NAME   DEVICE TYPE     ONLINE DEVICES DEVICE COUNT
 
 __Note__ See all the commands available with balenaCLI by running `balena help` 
 
-[cli]:https://github.com/balena-io/balena-cli
+[cli]:https://www.balena.io/docs/reference/cli/
 [releases]:https://github.com/balena-io/balena-cli/releases
 [install]:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md
+[npminstall]:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md#npm-installation
