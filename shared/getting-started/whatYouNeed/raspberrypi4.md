@@ -2,7 +2,7 @@
 
 * A [Raspberry Pi 4 Model B][rpi4B]. See our [supported devices list][supportedDevicesList] for other boards.
 * A 4GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - class 10 card or above is the way to go.
-* A micro USB cable.
+* A USB-C cable (for power supply, rated at 3A).
 * **[Optional]** An ethernet cable.
 * **[Optional]** A [3A USB-C power supply][psu].
 * A [{{ $names.company.lower }} account][link-to-signup].

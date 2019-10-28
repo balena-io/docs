@@ -3,7 +3,7 @@
 * A [Raspberry Pi 2 model B][rpi2B]. See our [supported devices list][supportedDevicesList] for other boards.
 * A 4GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - class 10 card or above is the way to go.
 * An ethernet cable or WiFi adapter. Check our [list of supported WiFi adapters][wifiAdapters].
-* A micro USB cable.
+* A micro USB cable (for power supply).
 * **[Optional]** A [2A micro USB power supply][psu].
 * A [{{ $names.company.lower }} account][link-to-signup].
 
