@@ -1,9 +1,10 @@
 #!/bin/bash
+# This script pulls in external documentation and should be edited in the upstream repo
 
 # get latest CLI docs
 cd pages/reference/ && { curl -O -L https://github.com/balena-io/balena-cli/raw/master/doc/cli.markdown ; mv cli.markdown cli.md ; cd -; }
 
-# get lastest node SDK docs
+# get latest node SDK docs
 cd pages/reference/sdk/ && {
   curl -O -L https://github.com/balena-io/balena-sdk/raw/master/DOCUMENTATION.md;
   echo "# Balena Node.js SDK" > node-sdk.md
@@ -11,7 +12,7 @@ cd pages/reference/sdk/ && {
   cd -;
 }
 
-# get lastest SDK docs
+# get latest python SDK docs
 cd pages/reference/sdk/ && {
   curl -O -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md;
   mv DOCUMENTATION.md python-sdk.md;
