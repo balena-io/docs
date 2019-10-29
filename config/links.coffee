@@ -21,3 +21,6 @@ module.exports =
   osSiteUrl: 'https://www.balena.io/os'
   engineSiteUrl: 'https://www.balena.io/engine'
   dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
+  etcherSiteUrl: 'https://www.balena.io/etcher'
+  githubCli: 'https://github.com/balena-io/balena-cli'
+  supportUrl: 'https://www.balena.io/support'

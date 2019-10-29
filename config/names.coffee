@@ -14,6 +14,7 @@ DOMAIN_ENGINE = process.env.DOMAIN_ENGINE || 'balena.io/engine'
 FORUMS_DOMAIN = process.env.DOMAIN_FORUMS || 'https://forums.balena.io'
 BASE_IMAGES_LIB = process.env.BASE_IMAGES_LIB || 'balenalib'
 BASE_IMAGES_CORE = process.env.BASE_IMAGES_CORE || 'balena'
+CLI = process.env.CLI || 'balenaCLI'
 
 module.exports =
   company:
@@ -41,3 +42,4 @@ module.exports =
   dashboard_domain: 'balena-cloud.com'
   email_domain: 'balena.io'
   forums_domain: FORUMS_DOMAIN
+  cli: CLI

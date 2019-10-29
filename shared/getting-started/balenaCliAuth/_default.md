@@ -1,11 +1,11 @@
-The recommended way to deploy code is to install the [balenaCLI][cli]. The easiest way to do this is to use the installer for your OS available on the [releases page][releases]. Choose the latest release of the installer for your OS, and follow the [installation instructions][install].
+The recommended way to deploy code is to install the [{{ $names.cli }}][cli]. The easiest way to do this is to use the installer for your OS available on the [releases page][releases]. Choose the latest release of the installer for your OS, and follow the [installation instructions][install].
 
 <img src="/img/common/cli/download-installer.png" width="60%">
 
 __Note:__ You may also install the balenaCLI via npm on a system running NodeJS, as explained in
 [NPM Installation][npminstall].
 
-To use the [balenaCLI][cli], you need to login to your {{ $names.company.lower }} account. Login via the terminal using the `balena login` command:
+To use the [{{ $names.cli }}][cli], you need to login to your {{ $names.company.lower }} account. Login via the terminal using the `balena login` command:
 
 ```shell
 $ balena login
@@ -40,7 +40,7 @@ ID    APP NAME   DEVICE TYPE     ONLINE DEVICES DEVICE COUNT
 
 __Note__ See all the commands available with balenaCLI by running `balena help` 
 
-[cli]:https://www.balena.io/docs/reference/cli/
-[releases]:https://github.com/balena-io/balena-cli/releases
-[install]:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md
-[npminstall]:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md#npm-installation
+[cli]:/reference/cli/
+[releases]:{{ $links.githubCli }}/releases
+[install]:{{ $links.githubCli }}/blob/master/INSTALL.md
+[npminstall]:{{ $links.githubCli }}/blob/master/INSTALL.md#npm-installation

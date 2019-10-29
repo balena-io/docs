@@ -54,4 +54,4 @@ Your application will then be downloaded and executed by all the devices you hav
 <img src="/img/common/device/download-progress.png" width="80%">
 
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
-[gitdocs]:https://www.balena.io/docs/learn/deploy/deployment/#git-push
+[gitdocs]:/learn/deploy/deployment/#git-push
