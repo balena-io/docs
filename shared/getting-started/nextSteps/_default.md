@@ -8,5 +8,5 @@
 [multicontainer]:/learn/develop/multicontainer
 [configuration]:/learn/manage/configuration/
 [service]:/learn/manage/serv-vars/
-[projects]:https://www.balena.io/blog/tag/etcher-featured/
-[help]:https://www.balena.io/support/
+[projects]:{{ $links.blogSiteUrl }}/tag/etcher-featured/
+[help]:{{ $links.supportUrl }}
