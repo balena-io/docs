@@ -39,7 +39,14 @@
           </div>
           <div class="content-wrapper">
             <div class="page-content-wrapper">
-              {% if improveDocsLink %}
+              {% if externalImproveDocsLink %}
+                <a
+                  target="_blank"
+                  href="{{ externalImproveDocsLink }}"
+                  class="improve-docs btn btn-info">
+                  <span class="glyphicon glyphicon-edit"></span>
+                  Improve this doc</a>
+              {% elseif improveDocsLink %}
                 <a
                   target="_blank"
                   href="{{ improveDocsLink }}"

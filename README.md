@@ -113,6 +113,15 @@ To use these partials in a markdown page all you need to do is add the following
 ```
 and the engine will pull that partial into this location in the page.
 
+### Adding external documentation
+
+To add additional external documentation follow these steps:
+
+1. Update `tools/fetch-external.sh` to add the additional external source. If required rename the source document as this will be used in the docs URL and in dynamically determining the "Improve this doc" link and must be unique. 
+2. Update `externalDocs` in `config/links.coffee` to add the link to edit the source file. This is the link presented in "Improve this doc". The key must match the name of the filename without the .md extension e.g. `"node-sdk": 'https://github.com/balena-io/balena-sdk/edit/master/DOCUMENTATION.md'` for a file named `node-sdk.md`.
+3. In `config/index.coffee` add the filename (again without the .md extension) to the `EXTERNAL_DOCS` variable so that the system knows to correctly identify this file as coming from an external source.
+4. If the source is currently duplicated in this repo then delete the content from this repo and add the file to `/.gitignore`.
+
 ### Some other important bits
 
 Its important to note that `h1` and `h2` headings will automatically be included in the left hand side navigation bar, so make sure to use these appropriately.

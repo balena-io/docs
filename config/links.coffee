@@ -24,3 +24,9 @@ module.exports =
   etcherSiteUrl: 'https://www.balena.io/etcher'
   githubCli: 'https://github.com/balena-io/balena-cli'
   supportUrl: 'https://www.balena.io/support'
+  externalDocs:
+    "python-sdk": 'https://github.com/balena-io/balena-sdk-python/edit/master/DOCUMENTATION.md'
+    "node-sdk": 'https://github.com/balena-io/balena-sdk/edit/master/DOCUMENTATION.md'
+    "cli": 'https://github.com/balena-io/balena-cli/edit/master/doc/cli.markdown'
+    "supervisor-api": 'https://github.com/balena-io/balena-supervisor/edit/master/docs/API.md'
+    "update-locking": "https://github.com/balena-io/balena-supervisor/edit/master/docs/update-locking.md"

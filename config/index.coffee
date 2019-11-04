@@ -4,6 +4,9 @@ PARTIALS_DIR = 'shared'
 
 DYNAMIC_DOCS = /.*(getting-started|overview|network).*/
 
+# These files are pulled in externally and so cannot be edited in the base repo
+EXTERNAL_DOCS = /.*(python-sdk|node-sdk|cli|supervisor-api|update-locking).*/
+
 FB_APP_ID = '221218511385682'
 
 DOMAIN = "https://#{process.env.DOMAIN || 'balena.io'}"
@@ -42,6 +45,7 @@ module.exports =
   templatesDir: TEMPLATES_DIR
   partialsDir: PARTIALS_DIR
   dynamicDocs: DYNAMIC_DOCS
+  externalDocs: EXTERNAL_DOCS
   editPageLink: 'https://github.com/balena-io/docs/edit/master'
   links: require('./links')
   names: require('./names')
