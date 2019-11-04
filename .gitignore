@@ -12,3 +12,10 @@ static/dist
 *.swo
 tmp
 docs_env
+
+# Ignore external docs that are pulled via tools/fetch-external.sh
+pages/reference/cli.md
+pages/reference/sdk/node-sdk.md
+pages/reference/sdk/python-sdk.md
+pages/reference/supervisor/supervisor-api.md
+pages/learn/deploy/release-strategy/update-locking.md
