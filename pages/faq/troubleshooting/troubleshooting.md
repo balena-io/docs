@@ -6,11 +6,11 @@ title: Troubleshooting
 
 * [General](#general)
   * [Terminal Closes On Update](#terminal-closes-on-update)
-  * [Can't Login to the Dashboard](#can-t-login-to-the-dashboard)
+  * [Can't Login to the Dashboard](#cant-login-to-the-dashboard)
   * [I get `$'\r': command not found` when my device tries to run scripts](#i-get-r-command-not-found-when-my-device-tries-to-run-scripts)
   * [Device keeps dropping off wifi](#device-keeps-dropping-off-wifi)
 * [Raspberry Pi](#raspberry-pi)
-  * [My Device Doesn't Boot](#my-device-doesn-t-boot)
+  * [My Device Doesn't Boot](#my-device-doesnt-boot)
   * [Connectivity](#connectivity)
   * [SD Card Corruption](#sd-card-corruption)
   * [Wifi doesn't connect on RPI3](#wifi-connection-problems-on-rpi3)
