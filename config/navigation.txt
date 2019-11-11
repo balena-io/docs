@@ -76,6 +76,7 @@ Learn
       [/learn/more/examples/snippets]
     [/learn/more/resources]
     [/learn/more/collected-data]
+    [/learn/more/masterclass]
 
 FAQ
 
