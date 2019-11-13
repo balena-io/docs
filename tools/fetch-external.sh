@@ -22,5 +22,8 @@ cd pages/reference/sdk/ && {
 # get latest supervisor API docs
 cd pages/reference/supervisor/ && { curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/API.md; mv API.md supervisor-api.md ; cd -; }
 
+# get latest diagnostics docs
+cd pages/reference/ && { curl -O -L https://github.com/balena-io/device-diagnostics/raw/master/diagnostics.md; cd -; }
+
 # get latest supervisor update-lock docs
 cd pages/learn/deploy/release-strategy/ && { curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/update-locking.md; cd -; }
