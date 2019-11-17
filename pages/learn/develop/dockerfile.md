@@ -115,52 +115,6 @@ As an example, let's say you have two Dockerfiles available, `Dockerfile.raspber
 
 Note that this feature works with the following commands: `git push`, `balena push`, `balena build`, and `balena deploy`.
 
-## Init system
-
-### Enable the init system
-
-Whatever you define as `CMD` in your `Dockerfile` will be PID 1 of the process tree in your container. It also means that this PID 1 process needs to know how to properly process UNIX signals, reap orphan zombie processes [[1]](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) and if it crashes, your whole container crashes, meaning you lose logs and debug info.
-
-For these reasons we have built an [init system][init-system-link] into most of the {{ $names.company.lower }} base images listed here: [{{ $names.company.upper }} Base Images Wiki][base-images]. The init system will handle signals, reap zombies and also properly handle [udev][udev-link] hardware events correctly.
-
-There are two ways of enabling the init system in your application. You can add the following environment variable in your Dockerfile:
-```Dockerfile
-# enable container init system.
-ENV INITSYSTEM on
-```
-
-You can also enable the init system from the dashboard: navigate to the `Service variables` menu item on the left and add `INITSYSTEM` with a value of `on`.
-![Enable init system](/img/common/app/app_initsystem_envvar.png)
-
-Once you have enabled your init system you should see something like this in your device logs:
-![init system enabled in logs](/img/common/device/device_logs_initsystem_enabled.png)
-
-You shouldn't need to make any adjustments to your code or `CMD`—it should just work out of the box. Note that if you are using our Debian or Fedora based images, then you should have [systemd][systemd-link] in your containers, whereas if you use one of our Alpine images you will have [OpenRC][openrc-link] as your init system.
-
-### Setting up a systemd service
-
-In some cases its useful to set up a service that starts up when your container starts. To do this with systemd, make sure you have the init system enabled in your container as mentioned above. You can then create a basic service file in your code repository called `my_service.service` and add something like this:
-```
-[Unit]
-Description=My Super Sweet Service
-
-[Service]
-EnvironmentFile=/etc/docker.env
-Type=OneShot
-ExecStart=/etc/init.d/my_super_sweet_service
-
-[Install]
-WantedBy=basic.target
-```
-Then by adding the following to your Dockerfile your service should be added/enabled on startup:
-```Dockerfile
-ENV INITSYSTEM on
-COPY my_service.service /etc/systemd/system/my_service.service
-RUN systemctl enable /etc/systemd/system/my_service.service
-```
-Check out https://www.freedesktop.org/software/systemd/man/systemd.service.html#Options if you need a different service type (OneShot is for services that exit once they're finished starting, e.g. daemons).
-
-
 ## Node applications
 
 {{ $names.company.upper }} supports [Node.js][node] natively using the [package.json][package]
