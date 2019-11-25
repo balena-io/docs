@@ -12,7 +12,6 @@ title: FAQs
 * [Can I access /dev and things like GPIO from the container?](#can-i-access-dev-and-things-like-gpio-from-the-container)
 * [Can I set a static IP address for my device?](#can-i-set-a-static-ip-address-for-my-device)
 * [Why can't I SSH into or run code in older versions of the host OS?](#why-cant-i-ssh-into-or-run-code-in-older-versions-of-the-host-os)
-* [How can I forward my container ports?](#how-can-i-forward-my-container-ports)
 * [Which data is persisted on devices across updates/power cycles?](#which-data-is-persisted-on-devices-across-updatespower-cycles)
 * [Why does /data disappear when I move a device between applications?](#why-does-data-disappear-when-i-move-a-device-between-applications)
 * [It appears that there is a centralized master running (in cloud) and agents running on devices. Is that accurate?](#it-appears-that-there-is-a-centralized-master-running-in-cloud-and-agents-running-on-devices-is-that-accurate)
@@ -96,14 +95,6 @@ While you’ve always been able to SSH into your container, we had previously re
 - When troubleshooting issues we base our assumptions on the host OS behaving as we expect it to. If you have made changes here, there's a good chance we won't be able to reproduce the issues locally and therefore won't be able to help you.
 
 However,  we've heard from users that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability starting with {{ $names.os.lower }} version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your application container, such as NetworkManager, Docker, the VPN, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
-
-##### How can I forward my container ports?
-It's usually not necessary to forward ports within the container because the container is bound to the host networking. However if you do need to do something like `docker run -p [host port]:[container port]`, it can be achieved with `iptables`.
-
-For example, mapping port 80 to 8080 can be achieved with the following:-
-```
-iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
-```
 
 ##### Which data is persisted on devices across updates/power cycles?
 The only data we [guarantee to be persisted][persistent-storage] across reboot, shutdown and device update/container restart is the contents of the `/data` folder, or any [named volumes][named-volumes] on devices running {{ $names.os.lower }} v2.12.0 and above.
