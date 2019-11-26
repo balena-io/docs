@@ -14,3 +14,4 @@ Currently, the following masterclasses are available:
 * [{{ $names.cli }} advanced masterclass]({{ $links.githubProjects }}/balena-cli-advanced-masterclass) - a guide to the advanced features available in {{ $names.cli }}.
 * [Services masterclass]({{ $links.githubProjects }}/services-masterclass) - a guide to developing and deploying services on a {{ $names.company.lower }} device.
 * [{{ $names.os.lower }} masterclass]({{ $links.githubProjects }}/balenaos-masterclass) - an introduction to {{ $names.os.lower }}.
+* [{{ $names.os.lower }} fleet management masterclass]({{ $links.githubProjects }}/balena-fleet-management-masterclass) - a guide to managing an application fleet with {{ $names.os.lower }}.
