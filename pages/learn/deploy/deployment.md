@@ -112,7 +112,7 @@ The `--source` flag allows you do define a path to your source code folder. You 
 
 The `git push balena master` method of deployment is the original deployment mechanism for balenaCloud. While we will continue to support and improve git push, our primary focus going forward will be to improve [balena push](#balena-push).
 
-The `git push` workflow requires that you have [git](https://git-scm.com/) installed on your development machine and that you have a [SSH key setup](/learn/getting-started/raspberrypi3/nodejs/#adding-an-ssh-key) on your balenaCloud account.
+The `git push` workflow requires that you have [git](https://git-scm.com/) installed on your development machine and that you have an SSH key setup on your balenaCloud account.
 
 ![how git push works](/img/common/deployment/git-push.png)
 
