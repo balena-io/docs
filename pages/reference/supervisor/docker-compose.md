@@ -82,6 +82,11 @@ Field | Details
 [volume_driver](https://docs.docker.com/compose/compose-file/compose-file-v2/#volume_driver) |
 [volumes_from](https://docs.docker.com/compose/compose-file/compose-file-v2/#volumes_from) |
 
+## Known unsupported features
+Feature | Details
+--- | ---
+[variable substitution](https://docs.docker.com/compose/compose-file/compose-file-v2/#variable-substitution) | 
+
 ## Labels
 
 {{> "general/labels"}}
