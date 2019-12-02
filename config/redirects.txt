@@ -48,6 +48,7 @@
 ^\/deployment\/wifi\/?(\?.+)?(#.+)?$ -> /reference/OS/network/2.x/$1$2
 ^\/runtime\/terminal\/?(\?.+)?(#.+)?$ -> /learn/manage/ssh-access/$1$2
 ^\/using\/cli\/?(\?.+)?(#.+)?$ -> /reference/cli/$1$2
+^\/learn\/deploy\/release-strategy\/update-locking\/API\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-api/$1$2
 
 # Restructure
 ^\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
