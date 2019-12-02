@@ -1,6 +1,6 @@
 __Note:__ You may also use git to deploy code to a device. If you wish to deploy via git see the instructions [here][gitdocs].
 
-Now to deploy this code to all device(s) in the application, use the `balena push FirstApp` command replacing `FirstApp` with the name of your application. Ensure you are in the root of the project directory before issuing this command.
+Now to deploy this code to all device(s) in the application, use the `balena push FirstApp` command replacing `FirstApp` with the name of your application. Ensure you are in the root of the project directory before issuing this command or specify the `--source` option to provide an alternate location of the project directory.
 
 ```shell
 $ balena push FirstApp
