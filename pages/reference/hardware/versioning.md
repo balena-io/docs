@@ -29,7 +29,7 @@ On some official device types you will see the `(BETA)` designation. This does n
 Private device types have exactly the same guarentees and testing process as official device types but they are only visible to specific customers that have paid for this device support. If you are interested in finding out more about private device support email solutions@balena.io .
 
 #### Community
-Device types that are marked as `COMMUNITY` are device types that have been contributed by an external community member rather than the balena team. An example of a community device type is the Orange Pi Zero which was contributed into the https://github.com/balena-os/balena-allwinner repo.
+Device types that are marked as `COMMUNITY` are device types that have been contributed by an external community member rather than the balena team. An example of a community device type is the Orange Pi Zero which was contributed into the {{ $links.githubOS }}/balena-allwinner repo.
 
 The community devices types are:
 - Maintained by the community member and feature/support requests are handled in the forums or on the device-types github repository.
@@ -48,7 +48,7 @@ A device type will be discontinued if:
 
 ## Versioning
 
-The version string for a particular device type is a combination of the [meta-balena](https://github.com/balena-os/meta-balena) version and the device specific repo revisions.
+The version string for a particular device type is a combination of the [meta-balena]({{ $links.githubOS }}/meta-balena) version and the device specific repo revisions.
 
 * The version of `meta-balena` is in the format of 3 numbers separated by a dot. The patch number can have a `beta` label. e.g. 1.2.3, 1.2.3-beta1, 2.0.0-beta1.
 * The version of the specific device type is constructed by appending to the `meta-balena` version a `rev` label. This will have the semantics of a board revision which adapts a specific `meta-balena` version for a targeted board. For example a `meta-balena` 1.2.3 can go through 3 board revisions at the end of which the final version will be 1.2.3+rev3 .

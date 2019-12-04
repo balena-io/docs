@@ -1,4 +1,4 @@
-Currently {{ $names.os.lower }} on the {{ $device.name }} is only capable of booting from SD card, but in the future [eMMC booting will be supported](https://github.com/balena-os/resin-imx6ul-var-dart/issues/64). To provision the device, do the following:
+Currently {{ $names.os.lower }} on the {{ $device.name }} is only capable of booting from SD card, but in the future [eMMC booting will be supported]({{ $links.githubOS }}/resin-imx6ul-var-dart/issues/64). To provision the device, do the following:
 1. Verify Switch SW5 is OFF (downwards).
 2. Set Boot select switch (SW6) right to boot from microSD Card.
 3. Push microSD card into the microSD card slot (J102) of the
