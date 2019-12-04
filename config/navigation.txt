@@ -54,6 +54,7 @@ Learn
   DEPLOY
     [/learn/deploy/deployment]
     Release strategy
+      [/learn/deploy/release-strategy/release-policy]
       [/learn/deploy/release-strategy/update-locking]
       [/learn/deploy/release-strategy/update-strategies]
     [/learn/deploy/delta]
