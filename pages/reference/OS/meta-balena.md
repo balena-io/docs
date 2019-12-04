@@ -8,7 +8,7 @@ excerpt: Instructions for adding boards not currently supported by {{ $names.com
 
 Pre-requisites: a [Yocto](https://www.yoctoproject.org) Board Support Package (BSP) layer for your particular board. It should be compatible to the Yocto releases balenaOS supports.
 
-Repositories used to build balenaOS host Operating System (OS) are typically named `balena-<board-family>`. For example, consider [balena-raspberrypi](https://github.com/balena-os/balena-raspberrypi) which is used for building the OS for [Raspberryi Pi](https://raspberrypi.org), or [balena-intel](https://github.com/balena-os/balena-intel) repository which can be used to build a balena image for the Intel NUC boards.
+Repositories used to build balenaOS host Operating System (OS) are typically named `balena-<board-family>`. For example, consider [balena-raspberrypi]({{ $links.githubOS }}/balena-raspberrypi) which is used for building the OS for [Raspberryi Pi](https://raspberrypi.org), or [balena-intel]({{ $links.githubOS }}/balena-intel) repository which can be used to build a balena image for the Intel NUC boards.
 
 Contributing support for a new board consist of creating a a Yocto package that includes:
 
@@ -25,7 +25,7 @@ The `balena-<board-family>` repositories use [git submodules](https://git-scm.co
 The root directory shall contain 2 directory entries:
 
 * a `layers` directory
-* [balena-yocto-scripts](https://github.com/balena-os/balena-yocto-scripts) git submodule.
+* [balena-yocto-scripts]({{ $links.githubOS }}/balena-yocto-scripts) git submodule.
 
 _Note: you add submodules by `git submodule add <url> <directory>`, see the git documentation for more details._
 
@@ -36,7 +36,7 @@ The root directory generally also includes the following files:
 * `README.md`
 * `VERSION`
 
-and one or more files named `<yocto-machine-name>.coffee`, one for each of the boards that the repository will add support for (eg. [`raspberry-pi3.coffee`](https://github.com/balena-os/balena-raspberrypi/blob/master/raspberrypi3.coffee) for Raspberry Pi 3 in `balena-raspberrypi`). This file contains information on the Yocto build for the specific board, in [CoffeeScript](http://coffeescript.org/) format. A minimal version of this file, using Raspberry Pi 3 as the example, would be:
+and one or more files named `<yocto-machine-name>.coffee`, one for each of the boards that the repository will add support for (eg. [`raspberry-pi3.coffee`]({{ $links.githubOS }}/balena-raspberrypi/blob/master/raspberrypi3.coffee) for Raspberry Pi 3 in `balena-raspberrypi`). This file contains information on the Yocto build for the specific board, in [CoffeeScript](http://coffeescript.org/) format. A minimal version of this file, using Raspberry Pi 3 as the example, would be:
 
 ``` coffeescript
 module.exports =
@@ -53,12 +53,12 @@ The `layers` directory contains the git submodules of the yocto layers used in t
 
 - [poky](https://www.yoctoproject.org/tools-resources/projects/poky)  at the version/revision required by the board BSP
 - [meta-openembedded](https://github.com/openembedded/meta-openembedded) at the revision poky uses
-- [meta-balena](https://github.com/balena-os/meta-balena) using the master branch
-- [oe-meta-go](https://github.com/balena-os/oe-meta-go) using the master branch (there were no branches corresponding to the yocto releases at the time this howto was written)
+- [meta-balena]({{ $links.githubOS }}/meta-balena) using the master branch
+- [oe-meta-go]({{ $links.githubOS }}/oe-meta-go) using the master branch (there were no branches corresponding to the yocto releases at the time this howto was written)
 - Yocto BSP layer for the board (for example, the BSP layer for Raspberry Pi is [meta-raspberrypi](https://github.com/agherzan/meta-raspberrypi))
 - any additional Yocto layers required by the board BSP (check the Yocto BSP layer of the respective board for instructions on how to build the BSP and what are the Yocto dependencies of that particular BSP layer)
 
-In addition to the above git submodules, the "layers" directory also contains a `meta-balena-<board-family>` directory (please note this directory is _not_ a git submodule, but an actual directory in the ). This directory contains the required customization for making a board balena enabled. For example, the [balena-raspberrypi](https://github.com/balena-os/balena-raspberrypi) repository contains the directory `layers/meta-balena-raspberrypi` to supplement the BSP from `layers/meta-raspberrypi` git submodule, with any changes that might be required by balenaOS.
+In addition to the above git submodules, the "layers" directory also contains a `meta-balena-<board-family>` directory (please note this directory is _not_ a git submodule, but an actual directory in the ). This directory contains the required customization for making a board balena enabled. For example, the [balena-raspberrypi]({{ $links.githubOS }}/balena-raspberrypi) repository contains the directory `layers/meta-balena-raspberrypi` to supplement the BSP from `layers/meta-raspberrypi` git submodule, with any changes that might be required by balenaOS.
 
 The layout so far looks as follows:
 
@@ -88,9 +88,9 @@ This directory contains:
 and a number of directories out of which the mandatory ones are:
 
 - `conf` directory - contains the following files:
-    - `layer.conf`, see the [layer.conf](https://github.com/balena-os/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/layer.conf) from `meta-balena-raspberrypi` for an example, and see [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#bsp-filelayout-layer)
-    - `samples/bblayers.conf.sample` file in which all the required Yocto layers are listed, see this [bblayers.conf.sample](https://github.com/balena-os/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample) from `meta-balena-raspberrypi` for an example, and see the [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#var-BBLAYERS)
-    - `samples/local.conf.sample` file which defines part of the build configuration (see the meta-balena [README.md](https://github.com/balena-os/meta-balena/blob/master/README.md) for an overview of some of the variables use in the `local.conf.sample` file). An existing file can be used (e.g. [local.conf.sample](https://github.com/balena-os/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/local.conf.sample)) but making sure the "Supported machines" area lists the appropriate machines this repository is used for. See also the [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#structure-build-conf-local.conf).
+    - `layer.conf`, see the [layer.conf]({{ $links.githubOS }}/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/layer.conf) from `meta-balena-raspberrypi` for an example, and see [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#bsp-filelayout-layer)
+    - `samples/bblayers.conf.sample` file in which all the required Yocto layers are listed, see this [bblayers.conf.sample]({{ $links.githubOS }}/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample) from `meta-balena-raspberrypi` for an example, and see the [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#var-BBLAYERS)
+    - `samples/local.conf.sample` file which defines part of the build configuration (see the meta-balena [README.md]({{ $links.githubOS }}/meta-balena/blob/master/README.md) for an overview of some of the variables use in the `local.conf.sample` file). An existing file can be used (e.g. [local.conf.sample]({{ $links.githubOS }}/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/local.conf.sample)) but making sure the "Supported machines" area lists the appropriate machines this repository is used for. See also the [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#structure-build-conf-local.conf).
 
 - `recipes-containers/docker-disk` directory, which contains `docker-balena-supervisor-disk.bbappend` that shall define the following variable(s):
 
@@ -111,7 +111,7 @@ from external storage (these boards do not have internal storage to install bale
 
     - `IMAGE_FSTYPES_<yocto-machine-name>`: this variable is used to declare the type of the produced image (it can be ext3, ext4, balenaos-img etc. The usual type for a board that can boot from SD card, USB, is "balenaos-img").
 
-    - `BALENA_BOOT_PARTITION_FILES_<yocto-machine-name>`: this allows adding files from the build's deploy directory into the vfat formatted resin-boot partition (can be used to add bootloader config files, first stage bootloader, initramfs or anything else needed for the booting process to take place for your particular board). If the board uses different bootloader configuration files when booting from either external media (USB thumb drive, SD card etc.) or from internal media (mSATA, eMMC etc) then you would want make use of this variable to make sure the different bootloader configuration files get copied over and further manipulated as needed (see `INTERNAL_DEVICE_BOOTLOADER_CONFIG_<yocto-machine-name>` and `INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_<yocto-machine-name>` below). Please note that you only reference these files here, it is the responsibility of a `.bb` or `.bbappend` to provide and deploy them (for bootloader config files this is done with an append typically in `recipes-bsp/<your board's bootloader>/<your board's bootloader>.bbappend`, see [balena-intel grub bbappend](https://github.com/balena-os/balena-intel/blob/master/layers/meta-balena-genericx86/recipes-bsp/grub/grub_%25.bbappend) for an example)
+    - `BALENA_BOOT_PARTITION_FILES_<yocto-machine-name>`: this allows adding files from the build's deploy directory into the vfat formatted resin-boot partition (can be used to add bootloader config files, first stage bootloader, initramfs or anything else needed for the booting process to take place for your particular board). If the board uses different bootloader configuration files when booting from either external media (USB thumb drive, SD card etc.) or from internal media (mSATA, eMMC etc) then you would want make use of this variable to make sure the different bootloader configuration files get copied over and further manipulated as needed (see `INTERNAL_DEVICE_BOOTLOADER_CONFIG_<yocto-machine-name>` and `INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_<yocto-machine-name>` below). Please note that you only reference these files here, it is the responsibility of a `.bb` or `.bbappend` to provide and deploy them (for bootloader config files this is done with an append typically in `recipes-bsp/<your board's bootloader>/<your board's bootloader>.bbappend`, see [balena-intel grub bbappend]({{ $links.githubOS }}/balena-intel/blob/master/layers/meta-balena-genericx86/recipes-bsp/grub/grub_%25.bbappend) for an example)
 
     It is a space separated list of items with the following format: *FilenameRelativeToDeployDir:FilenameOnTheTarget*. If *FilenameOnTheTarget* is omitted then the *FilenameRelativeToDeployDir* will be used.
 
@@ -179,7 +179,7 @@ The directory structure then looks similar to this:
 
 ## Building
 
-See the [meta-balena Readme](https://github.com/balena-os/meta-balena/blob/master/README.md) on how to build the new balenaOS image after setting up the new board package as defined above.
+See the [meta-balena Readme]({{ $links.githubOS }}/meta-balena/blob/master/README.md) on how to build the new balenaOS image after setting up the new board package as defined above.
 
 ## Troubleshooting
 
