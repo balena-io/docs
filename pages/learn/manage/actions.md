@@ -24,7 +24,7 @@ To see what your device is serving on port 80, just click on the URL. If your ap
 
 ### Restart Application
 
-The `Restart Application` action restarts the currently running **application containers**. Your application (A.K.A it's running containers) will be shutdown and restarted from scratch.
+The `Restart Application` action restarts the currently running **application containers**. Your application (A.K.A it's running containers) will be shut down and restarted from scratch.
 
 When the containers are stopped, the application is politely asked to stop by sending a `SIGTERM` and after 10 seconds of wait time a `SIGKILL` is sent.
 
@@ -98,7 +98,7 @@ This option allows you to convert your application to [another type][app-types],
 
 ### Rename Application
 
-This action allows you to rename your application. This action is only available for new [applications types][app-types] such as `Starter`, `Microservices` or `Essentials`. Its not currently possible to rename `Legacy` or `Classic` applications, you will first need to upgrade your app type.
+This action allows you to rename your application. This action is only available for new [applications types][app-types] such as `Starter`, `Microservices` or `Essentials`. It's not currently possible to rename `Legacy` or `Classic` applications, you will first need to upgrade your app type.
 
 ### Enable/Disable All Public Device URLs
 

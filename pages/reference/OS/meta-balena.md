@@ -10,7 +10,7 @@ Pre-requisites: a [Yocto](https://www.yoctoproject.org) Board Support Package (B
 
 Repositories used to build balenaOS host Operating System (OS) are typically named `balena-<board-family>`. For example, consider [balena-raspberrypi]({{ $links.githubOS }}/balena-raspberrypi) which is used for building the OS for [Raspberryi Pi](https://raspberrypi.org), or [balena-intel]({{ $links.githubOS }}/balena-intel) repository which can be used to build a balena image for the Intel NUC boards.
 
-Contributing support for a new board consist of creating a a Yocto package that includes:
+Contributing support for a new board consist of creating a Yocto package that includes:
 
 * general hardware support for the specific board,
 * the balenaOS-specific software features,

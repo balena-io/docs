@@ -46,7 +46,7 @@ The qemu: Unsupported syscall: 384 is a warning that the getrandom(2) system cal
 
 To determine the cause of this issue, check your ACT led for known [error notifications][error]. If no known errors are shown on the ACT led, attach a screen to your Pi's HDMI port.
 
-One other thing to confirm is that you are not trying to boot a Raspberry Pi 2 with a OS download designed for the Raspberry Pi B+. This will not work. The Raspberry Pi 2 requires a OS download specific to its architecture.
+One other thing to confirm is that you are not trying to boot a Raspberry Pi 2 with an OS download designed for the Raspberry Pi B+. This will not work. The Raspberry Pi 2 requires an OS download specific to its architecture.
 
 ### Connectivity
 

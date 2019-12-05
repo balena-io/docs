@@ -96,7 +96,7 @@ Hello World written in [Ruby][ruby] using a [custom Dockerfile][ruby-dockerfile]
 [Repository][golang-seed-link]
 
 This is a simple seed project for getting started with Go on the Intel Edison.
-The project use [GB][gb-builder-link] to build the project and it's dependencies
+The project use [GB][gb-builder-link] to build the project and its dependencies
 in the `Dockerfile`.
 
 __Note:__ This project will not build on any of the ARM architecture board. Currently,

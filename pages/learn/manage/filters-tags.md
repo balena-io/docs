@@ -62,7 +62,7 @@ Tags you add to your device will appear in a list in the management window. They
 
 When you are finished creating and editing tags, click *Apply* to keep the changes.
 
-__Note:__ Device tags can also be created and managed programatically [via the API][api-example].
+__Note:__ Device tags can also be created and managed programmatically [via the API][api-example].
 
 ### Tag columns
 

@@ -4,7 +4,7 @@ It will take a minute or so for the **{{ $device.name }}** to appear on your {{ 
 
 Once the OS is fully flashed onto the devices eMMC, the device will perform a shutdown and all the LEDs on the device will turn off. Now make sure that the jumper between the 5V power supply and the HDMI connector is in the "parking (no function)" mode.
 
-You can now power the board back up and you should see it's status indicate "online" and you should now be ready to deploy some code!
+You can now power the board back up and you should see its status indicate "online" and you should now be ready to deploy some code!
 
 __Note:__ Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
 
