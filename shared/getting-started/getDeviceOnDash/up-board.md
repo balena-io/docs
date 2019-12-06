@@ -5,7 +5,7 @@ __Note:__ {{ $names.os.upper }} will completely write over the existing eMMC.
 
 First, make sure the device is setup correctly:
 - Ensure you have a HDMI screen attached and powered up.
-- Make sure the the {{ $device.bootMedia }} is plugged into one of the 4 available USB ports.
+- Make sure the {{ $device.bootMedia }} is plugged into one of the 4 available USB ports.
 - Attach a USB keyboard to one of the other available USB ports.
 - Attach a USB WiFi dongle or an ethernet cable to give the device access to the internet.
 
@@ -13,7 +13,7 @@ Now that you have your board setup, apply power to it using the supplied 5 Vdc b
 
 <img src="/img/up-board/up-board-uefi-selection.jpg" width="60%">
 
-Using the keyboard arrow keys, select the the `UEFI : USB` option and hit enter. Your **{{ $device.name }}** will now boot from the {{ $device.bootMedia }} and flash {{ $names.os.lower }} onto the internal [eMMC memory][emmc-link]. If your device is correctly connected to the internet, you should see progress of the flashing on your {{ $names.company.lower }} dashboard. Once {{ $names.os.lower }} is safely flashed onto the internal [eMMC memory][emmc-link], the device will shut itself down and you should see all the user LEDs on the board switch off.
+Using the keyboard arrow keys, select the `UEFI : USB` option and hit enter. Your **{{ $device.name }}** will now boot from the {{ $device.bootMedia }} and flash {{ $names.os.lower }} onto the internal [eMMC memory][emmc-link]. If your device is correctly connected to the internet, you should see progress of the flashing on your {{ $names.company.lower }} dashboard. Once {{ $names.os.lower }} is safely flashed onto the internal [eMMC memory][emmc-link], the device will shut itself down and you should see all the user LEDs on the board switch off.
 
 __NOTE:__ The blue power LED will stay illuminated even once the device has shutdown. You can find the user LEDs on the underside of the board near the USB ports.
 

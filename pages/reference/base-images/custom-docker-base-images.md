@@ -71,7 +71,7 @@ This is from my [demo project][example-archlinux], which just launches an ssh da
 
 One pretty cool consequence of this is that users can share their base images, for instance you can now base you {{ $names.company.lower }} projects on shaunmulligan/arch-arm6h-resin because it is a public image.
 
-So there you have it. Brand new base images for your {{ $names.company.lower }} projects in 4 simple steps (step 5 doesnt really count :P ).
+So there you have it. Brand new base images for your {{ $names.company.lower }} projects in 4 simple steps (step 5 doesn't really count :P ).
 
 [docker]:https://www.docker.com/
 [dockerfile]:https://docs.docker.com/reference/builder/

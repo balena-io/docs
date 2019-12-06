@@ -6,7 +6,7 @@ Now to deploy this code to all device(s) in the application, use the `balena pus
 $ balena push FirstApp
 ```
 
-This command will package up and push the code from the local directory to the balena builders, where it will be compiled and built and  deployed to every device in the application fleet.
+This command will package up and push the code from the local directory to the balena builders, where it will be compiled and built and deployed to every device in the application fleet.
 
 You'll know your code has been successfully compiled and built when our
 friendly unicorn mascot appears in your terminal:

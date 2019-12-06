@@ -44,7 +44,7 @@ If you have already defined environment or service variables at the device level
 
 Device environment and service variables are applied to only one device. Device service variables override device environment variables of the same name, and all device variables override fleet variables.
 
-Adding a device variable is very similar to adding a fleet variable. From the device summary page, select *Device Variables* for environment variables or *Device Service Variables* for service variables. Click *Add variable*, select the appropriate service if necessary, add a name and and a value, and click *Add*.
+Adding a device variable is very similar to adding a fleet variable. From the device summary page, select *Device Variables* for environment variables or *Device Service Variables* for service variables. Click *Add variable*, select the appropriate service if necessary, add a name and a value, and click *Add*.
 
 The variable list will include both values defined for that specific device, as well as any fleet variables of the same type:
 

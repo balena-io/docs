@@ -30,7 +30,7 @@ The `--source` flag allows you do define a path to your source code folder. This
 
 #### `--emulated, -e`
 
-The `--emulated` flag will force the [balenaCloud builder](#the-balenacloud-build-server) to run an [qemu](https://www.qemu.org/) emulated build. This means that your build will be executed on a `x86_64` CPU that emulates the target architecture of your application, rather than running on the native architecure of your device. You can see if the build is emulated in the first few lines of the builder output as below:
+The `--emulated` flag will force the [balenaCloud builder](#the-balenacloud-build-server) to run an [qemu](https://www.qemu.org/) emulated build. This means that your build will be executed on a `x86_64` CPU that emulates the target architecture of your application, rather than running on the native architecture of your device. You can see if the build is emulated in the first few lines of the builder output as below:
 
 ```
 hobochild$ balena push myApp --emulated
@@ -116,7 +116,7 @@ The `git push` workflow requires that you have [git](https://git-scm.com/) insta
 
 ![how git push works](/img/common/deployment/git-push.png)
 
-Then simply add your balenaCloud app's git endpoint to your your local git repository via `git remote add balena <application git endpoint>` . You can find the application git remote endpoint at the top-right corner of the application page of the web dashboard.
+Then simply add your balenaCloud app's git endpoint to your local git repository via `git remote add balena <application git endpoint>` . You can find the application git remote endpoint at the top-right corner of the application page of the web dashboard.
 
 ![Where to find git remote](/img/common/deployment/git-remote.png)
 
