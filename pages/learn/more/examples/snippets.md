@@ -98,7 +98,7 @@ An application that demonstrates how to read input from a physical keyboard or o
 [text2speech]:{{ $links.githubMain }}/text2speech
 [servo-motor-node]:https://github.com/hobochild/resin-servo-node
 [pi-pins]:https://www.npmjs.com/package/pi-pins
-[node-keyboard-input]:https://github.com/balena-io-playground/node-keyboard-input
+[node-keyboard-input]:{{ $links.githubPlayground }}/node-keyboard-input
 
 <!-- ###Team Github name links -->
 
