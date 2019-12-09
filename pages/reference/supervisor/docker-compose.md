@@ -89,4 +89,6 @@ Feature | Details
 
 ## Labels
 
-{{> "general/labels"}}
+{{> "general/labels-version-note" }}
+
+{{> "general/labels" }}
