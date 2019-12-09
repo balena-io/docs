@@ -240,7 +240,7 @@ RUN pip install virtualenv
 RUN [ "cross-build-end" ]
 ```
 
-can be run on your x86 machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. More details can be found in our [blog post here]({{ $links.mainSiteUrl }}/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/). You can find the full source code for the two cross-build scripts [here](https://github.com/balena-io-playground/armv7hf-debian-qemu).
+can be run on your x86 machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. More details can be found in our [blog post here]({{ $links.mainSiteUrl }}/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/). You can find the full source code for the two cross-build scripts [here]({{ $links.githubPlayground }}/armv7hf-debian-qemu).
 
 [udevd-link]:https://linux.die.net/man/8/udevd
 [entry-sh-link]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/entry.sh

@@ -297,10 +297,10 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
-[i2c-example]:https://github.com/balena-io-playground/balena-rpi-py-ADC
+[i2c-example]:{{ $links.githubPlayground }}/balena-rpi-py-ADC
 [ads1115-link]:http://www.adafruit.com/product/1085
-[digitiser-link]:https://github.com/balena-io-playground/digitiser
-[firebaseTemp-link]:https://github.com/balena-io-playground/firebaseDTL
+[digitiser-link]:{{ $links.githubPlayground }}/digitiser
+[firebaseTemp-link]:{{ $links.githubPlayground }}/firebaseDTL
 [spi-npm]:https://www.npmjs.com/package/spi
 [picamera-link]:{{ $links.githubProjects }}/balena-rpi-python-picamera
 [mraa-link]:https://github.com/intel-iot-devkit/mraa

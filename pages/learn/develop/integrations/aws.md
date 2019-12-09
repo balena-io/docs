@@ -89,7 +89,7 @@ After flashing is done, insert the SD card into your device and turn it on. Afte
 
 Once your device is showing up on the dashboard, it is time to push the code to balenaCloud, after which it will automatically distribute it to all of the devices in your application. For that, we will download the source code from GitHub and push the project to the device using the [balena CLI tools](https://github.com/balena-io/balena-cli). I’ve summarised the process for this below, but if you need more information we have a [detailed deployment guide](https://www.balena.io/docs/learn/deploy/deployment/) available in our docs.
 
-First of all, download the app from [the GitHub project repository](https://github.com/balena-io-playground/balena-aws-iot-mqtt-example), and clone or download it to your computer.
+First of all, download the app from [the GitHub project repository]({{ $links.githubPlayground }}/balena-aws-iot-mqtt-example), and clone or download it to your computer.
 
 ![github](/img/integrations/aws/14_github.png)
 
@@ -219,4 +219,4 @@ where you need to replace `KEYFILE` with the relevant filename (such as `xxxxxxx
 A few sample apps to get started:
 
 * [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device)
-* [balenaCloud AWS IoT MQTT Broker Example](https://github.com/balena-io-playground/balena-aws-iot-mqtt-example) with full blog post for example:
+* [balenaCloud AWS IoT MQTT Broker Example]({{ $links.githubPlayground }}/balena-aws-iot-mqtt-example) with full blog post for example:
