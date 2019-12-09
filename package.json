@@ -1,7 +1,7 @@
 {
   "name": "resin-docs",
   "private": true,
-  "version": "4.12.10",
+  "version": "4.12.11",
   "engines": {
     "node": "^10.0.0"
   },
