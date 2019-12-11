@@ -162,10 +162,52 @@ Anything written from the application to `stdout` and `stderr` should appear on 
 
 ## Network
 
-### Exposed ports
+{{ $names.engine.upper }} supports [host][network-host] and [bridge][network-bridge] network modes:
 
-{{ $names.company.upper }} devices expose all ports by default, meaning you can run applications
-which listen on any port without issue. There is no need to have the Docker `EXPOSE` command in your `Dockerfile`.
+* Host mode allows a service to use all host network interfaces.
+* Bridge mode uses a user-defined bridge network interface, to which service containers are connected.
+
+Any service that uses host networking does not have to define ports for traffic ingress, and a service can bind to all interfaces of the host. Single container applications always use host networking.
+
+In contrast to host networking, bridge networks isolate all services from the host, requiring services to explicitly define open ports to allow traffic from the host to be passed to them (all outgoing traffic is permitted). By default, multicontainer applications use a bridge network.
+
+### Single container applications
+
+Single container applications always use host networking, allowing them to bind to any of the host's network interfaces. If security and sandboxing are required for either privilege level or to ensure self-contained networking, then a multicontainer application should be used, even if only a single service is required.
+
+### Multicontainer applications
+
+Multicontainer applications use a user-defined bridge network by default. No ports are exposed to the host and must be explicitly enabled through the `ports` [keyword][network-ports]. Services on the same bridge network have access to all other services' ports.
+
+The following [sample multicontainer][multicontainer] `docker-compose.yml` file allows incoming traffic on port 80 to the `proxy` service, but the `frontend` and `data` services are isolated from the host and only accessible via the bridge network, which all services are connected to.
+
+```yaml
+version: '2'
+services:
+  frontend:
+    build: ./frontend
+    expose:
+      - "80"
+  proxy:
+    build: ./haproxy
+    depends_on:
+      - frontend
+      - data
+    ports:
+      - "80:80"
+  data:
+    build: ./data
+    expose:
+      - "8080"
+```
+
+__Note:__ Exposing ports via the expose keyword is optional and a way of documenting which ports are used, but does not map or open any ports. By default, services on the same bridge network have access to all other services' ports.
+
+For multicontainer applications, setting the service `network_mode` to `host` in `docker-compose.yml` allows the container to share the same network namespace as the host OS.
+
+{{ $names.company.upper }} `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` [keyword][network-aliases] for providing alias names for services (including FQDNs) and [IPAM bridge networks][network-ipam] are also supported.
+
+__Note:__ For more information on networking with {{ $names.company.lower }}, see the [{{ $names.company.lower }} services masterclass][services-masterclass].
 
 ### Public device URLS
 
@@ -291,3 +333,10 @@ Devices can be selected in many ways, for example by `/dev` entry, labels, or UU
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
 [dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/
 [labels-link]:/reference/supervisor/docker-compose/#labels
+[network-host]:https://docs.docker.com/network/host/
+[network-bridge]:https://docs.docker.com/network/bridge/
+[network-ports]:https://docs.docker.com/compose/compose-file/compose-file-v2/#ports
+[multicontainer]:{{ $links.githubProjects }}/multicontainer-getting-started
+[network-ipam]:https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference
+[network-aliases]:https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases
+[services-masterclass]:{{ $links.githubProjects }}/services-masterclass#4-networking-types
