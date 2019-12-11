@@ -22,16 +22,16 @@ If you prefer to work from the command line, you can use [`{{ $names.company.sho
 $ {{ $names.company.short }} ssh <device-uuid>
 ```
 
-`<device-uuid>` is the unique identifier for the device you want to access, which can be found on the dashboard.
-
-To access the host OS, add the `--host` or `-s` option:
-
-```shell
-$ {{ $names.company.short }} ssh <device-uuid> -s
-```
+`<device-uuid>` is the unique identifier for the device you want to access, which can be found on the dashboard. By
+default this command will connect to the host OS.
 
 __Note:__ Host OS access via the CLI requires CLI version 6.12.0 or above
 
+To access a specific container by name, add the container name immediately following the `<device-uuid>`
+
+```shell
+$ {{ $names.company.short }} ssh <device-uuid> main
+```
 
 `{{ $names.company.short }} ssh` makes use of the {{ $names.company.short }} VPN connection to access a device. This allows you to access and test devices wherever they are. If you want to SSH only on the internal network, you can install an SSH server in your container, as we show in the [balena-openssh][balena-openssh] project.
 
