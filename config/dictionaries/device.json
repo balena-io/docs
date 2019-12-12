@@ -299,7 +299,6 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/artik10.svg",
-    "link": "https://www.artik.io/modules/artik-1020/",
     "type": "released"
   },
   {
@@ -308,7 +307,6 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/artik530.svg",
-    "link": "https://www.artik.io/modules/artik-530/",
     "type": "beta"
   },
   {
@@ -317,7 +315,6 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/artik533s.svg",
-    "link": "https://www.artik.io/modules/artik-530/",
     "type": "beta"
   },
   {
@@ -326,7 +323,6 @@
     "arch": "armv7hf",
     "bootMedia": "SD card",
     "icon": "/img/device/artik710.svg",
-    "link": "https://www.artik.io/modules/artik-710/",
     "type": "beta"
   },
   {
