@@ -60,15 +60,6 @@ gpio:
 
 There are a few settings and considerations specific to {{ $names.company.lower }} that need to be taken into account when building multicontainer applications.
 
-### Init system
-
-Using the `INITSYSTEM=on` [setting][init-system] in the `Dockerfile` of a service is only supported if the container is run as privileged, as **systemd** does not run correctly in unprivileged containers. In addition, if you want to ensure your container is always kept running, set `restart` to `always`:
-
-```
-privileged: true
-restart: always
-```
-
 ### Network mode
 
 Setting `network_mode` to `host` allows the container to share the same network namespace as the host OS. When this is set, any ports exposed on the container will be exposed locally on the device. This is necessary for features such as bluetooth.
