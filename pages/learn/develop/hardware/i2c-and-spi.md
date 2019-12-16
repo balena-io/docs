@@ -49,9 +49,9 @@ To get you started, here is an [example][i2c-example] that uses i2c to communica
 
 ### SPI
 
-SPI is enabled by default and should work out of the box with the [spi node module][spi-npm].
+SPI is enabled by default on {{ $names.os.lower }} via the `dtparam=spi=on` [device tree parameter][dt-params]. This default behaviour can be modified by editing the [device configuration variables][device-configuration].
 
-For an example of this, check our this project: [digitiser][digitiser-link].
+For Node.js applications it should work out of the box with the [spi node module][spi-npm]. For an example of this, check out this project: [digitiser][digitiser-link].
 
 ### Serial
 
@@ -307,3 +307,5 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 [upm-link]:https://github.com/intel-iot-devkit/upm
 [dockerbase-node]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-node/
 [dockerbase-python]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-python/
+[dt-params]:/reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam
+[device-configuration]:/learn/manage/configuration/#managing-device-configuration-variables
