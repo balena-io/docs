@@ -35,7 +35,7 @@
     "express-http-to-https": "1.1.4",
     "headroom.js": "0.9.3",
     "highlight.js": "9.11.0",
-    "jquery": "3.2.1",
+    "jquery": "3.4.0",
     "jquery-colorbox": "1.6.4",
     "lodash": "^4.11.1",
     "metalsmith-prefixoid": "^1.0.3"
