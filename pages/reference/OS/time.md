@@ -4,6 +4,8 @@ excerpt: How time is synchronized and managed for {{ $names.company.lower }} dev
 ---
 # Time management
 
+__Note:__ Starting from {{ $names.os.lower }} 2.13.1 the `chrony` service is used for time management. Prior versions use `systemd-timesyncd`.
+
 {{ $names.company.upper }} devices make use of the `systemd-timesyncd` or `chrony` service to keep the system time synchronized. That service is running in the host OS, independent of the application containers.
 
 If you want to query the current time, you can do so by using the `date` utility or the datetime related functions of the standard library of your language.
