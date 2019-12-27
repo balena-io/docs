@@ -107,7 +107,7 @@ While a device will provision itself and download your application as soon as it
 
 Happily, you can [preload][preload] your application into a {{ $names.os.lower }} image with a one-time process. Then, when that image is flashed onto your devices in the factory, it will have the application already installed and ready. Any updates made to the application after the preloading process will be downloaded and applied when the device is brought online, so there's no need to worry about devices that have been sitting in a warehouse or on store shelves.
 
-For situations where you need to register your devices before they have been powered on or connected to the network, you can [preregister][preregister] them. Preregistering a device allows the creation of individually registered devices to an application, which is extremely useful in situations such as manufacturing where a device may require tracking, as a specific device UUID can then be associated with a specific customer order.
+For situations where you need to register your devices before they have been powered on or connected to the network, you can [preregister][preregister] them. Preregistering a device allows the creation of individually registered devices in an application, which is extremely useful in situations such as manufacturing where a device may require tracking, as a specific device UUID can then be associated with a specific customer order.
 
 More information about preloading images and preregistering devices can be found in the [CLI Advanced Masterclass][cli-advanced-masterclass] or the [CLI documentation][cli].
 
