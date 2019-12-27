@@ -11,4 +11,4 @@
 [solid-run]:http://www.solid-run.com/
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
-[wifi]:/deployment/network
+[wifi]:/reference/hardware/wifi-dongles/
