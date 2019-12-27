@@ -9,4 +9,4 @@
 [boundary-devices-link]:http://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
-[wifi]:/deployment/network
+[wifi]:/reference/hardware/wifi-dongles/

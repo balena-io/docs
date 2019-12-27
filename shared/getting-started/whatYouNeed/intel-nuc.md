@@ -10,5 +10,5 @@
 
 [nuc-link]:https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html
 [hdmi-link]:https://en.wikipedia.org/wiki/HDMI
-[wifi]:/deployment/network
+[wifi]:/reference/hardware/wifi-dongles/
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
