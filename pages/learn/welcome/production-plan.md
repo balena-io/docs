@@ -101,11 +101,15 @@ Understanding how your devices handle adverse conditions allows you to be confid
 
 Now that your testing is wrapping up, it's time to get your devices out into the world and have them do their job!  At this point you'll be moving from a primarily development-focused perspective to a primarily operations-focused perspective, at least for the current release of your application.  Of course, you may want to continue development on the next version, knowing that you can safely roll out updates to your fleet at any point with {{ $names.company.lower }}!
 
-### Preloading images
+### Preloading images and preregistering devices
 
-While a device will provision itself and download your application as soon as it's turned on and connected to the Internet, this might not be the experience you want your users to have.  It would be nice to have something that works right away, rather than having to wait for a potentially slow download to finish.
+While a device will provision itself and download your application as soon as it's turned on and connected to the Internet, this might not be the experience you want your users to have. It would be nice to have something that works right away, rather than having to wait for a potentially slow download to finish.
 
-Happily, you can preload your application into a {{ $names.os.lower }} image with a one-time process. Then, when that image is flashed onto your devices in the factory, it will have the application already installed and ready. Any updates made to the application after the preloading process will be downloaded and applied when the device is brought online, so there's no need to worry about devices that have been sitting in a warehouse or on store shelves. More information about preloading applications with the {{ $names.company.lower }} CLI can be found in the [preload section of the CLI manual][preload].
+Happily, you can [preload][preload] your application into a {{ $names.os.lower }} image with a one-time process. Then, when that image is flashed onto your devices in the factory, it will have the application already installed and ready. Any updates made to the application after the preloading process will be downloaded and applied when the device is brought online, so there's no need to worry about devices that have been sitting in a warehouse or on store shelves.
+
+For situations where you need to register your devices before they have been powered on or connected to the network, you can [preregister][preregister] them. Preregistering a device allows the creation of individually registered devices to an application, which is extremely useful in situations such as manufacturing where a device may require tracking, as a specific device UUID can then be associated with a specific customer order.
+
+More information about preloading images and preregistering devices can be found in the [CLI Advanced Masterclass][cli-advanced-masterclass] or the [CLI documentation][cli].
 
 ### Canary deployments
 
@@ -122,10 +126,10 @@ The {{ $names.company.lower }} API includes functionality that allows for [fine-
 [collaborators]:/learn/manage/account/#application-members
 [ssh]:/learn/manage/ssh-access
 [custom-logging]:{{ $links.blogSiteUrl }}/how-to-create-a-custom-logging-system-for-longer-log-retention/
-[preload]:/reference/cli/#preload-image-
+[cli]:/reference/cli
+[preload]:/reference/cli/#preload-image
+[preregister]:/reference/cli/#device-register-application
 [staged-releases]:{{ $links.githubProjects }}/staged-releases
 [tags]:/learn/manage/filters-tags/#device-tags
 [filters]:/learn/manage/filters-tags/#device-filters
-
-
-
+[cli-advanced-masterclass]:{{ $links.githubProjects }}/balena-cli-advanced-masterclass#5-preloading-and-preregistering
