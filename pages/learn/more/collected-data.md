@@ -33,7 +33,7 @@ collected too.
 
 ## Device data collected by the supervisor
 
-Data is submitted to Mixpanel from {{ $names.company.lower }}-managed devices (if allowed) on the events listed in
+Data are submitted to Mixpanel from {{ $names.company.lower }}-managed devices on the events listed in
 the table below. Submitted packets [may contain][supervisor-data-mask] the following information:
 
 * Application ID and name
