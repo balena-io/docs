@@ -15,6 +15,7 @@ module.exports =
   githubProjects: 'https://github.com/balena-io-projects'
   githubPlayground: 'https://github.com/balena-io-playground'
   githubOS: 'https://github.com/balena-os'
+  githubBaseImages: 'https://github.com/balena-io-library/base-images/tree/master/balena-base-images/device-base'
   apiBase: process.env.API_BASE || 'https://api.balena-cloud.com'
   mainSiteUrl: 'https://balena.io'
   blogSiteUrl: 'https://balena.io/blog'
