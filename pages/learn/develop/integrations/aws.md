@@ -119,9 +119,9 @@ To add the environment variables for the device, on the device dashboard page, g
 | ENV VAR          | Value                            |
 |------------------|----------------------------------|
 | AWS_ENDPOINT     | data.iot.us-west-2.amazonaws.com |
-| AWS_PRIVATE_CERT | Base64 string of xxx.cert.pem    |
+| AWS_PRIVATE_CERT | Base64 string of xxx.private.key |
 | AWS_ROOT_CERT    | Base64 string of root-CA.crt     |
-| AWS_THING_CERT   | Base64 string of xxx.private.key |
+| AWS_THING_CERT   | Base64 string of xxx.cert.pem    |
 
 You should now have something similar to:
 
