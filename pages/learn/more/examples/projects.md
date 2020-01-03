@@ -28,14 +28,14 @@ These are some awesome projects built using {{ $names.company.lower }} and are a
 
 [Repository][firebase-dtl] by [Shaun Mulligan][shaun-mulligan]
 
-A [Firebase][firebase]-backed Digital Temperature Logger, written in node.js, allowing you to connect
+A [Firebase][firebase]-backed Digital Temperature Logger, written in Node.js, allowing you to connect
 devices with multiple temperature sensors to a central cloud-based datastore.
 
 ### Audio Stock Ticker
 
 [Repository][audio-stock-ticker-link]
 
-This is a simple node.js project built on {{ $names.company.lower }}. It should work on all versions of the Raspberry Pi.
+This is a simple Node.js project built on {{ $names.company.lower }}. It should work on all versions of the Raspberry Pi.
 
 The audio stock ticker will verbally announce a list of your favourite stocks every couple of minutes or hours, depending on how you configure it.
 
@@ -45,11 +45,11 @@ The audio stock ticker will verbally announce a list of your favourite stocks ev
 
 This is a simple example project for {{ $names.company.lower }} which demonstrates how to use pm2 on your device to keep a process running forever and monitor your devices health. For the full story check our [blog post][pm2-blog-link] about it.
 
-### Cloud Synchronised Streaming Radios
+### Cloud Synchronized Streaming Radios
 
 [Repository][sonos-clone]
 
-Build your own version of Sonos cloud synchronised speakers using Grooveshark, some raspberry pis, node.js and {{ $names.company.lower }}. It also has an awesome frontend web app [[link][clonos-frontend]] that allows you to search and queue up songs in a playlist so that all the rooms in your house are in perfect harmony.
+Build your own version of Sonos cloud synchronized speakers using Grooveshark, some Raspberry Pis, Node.js and {{ $names.company.lower }}. It also has an awesome frontend web app [[link][clonos-frontend]] that allows you to search and queue up songs in a playlist so that all the rooms in your house are in perfect harmony.
 
 ### resin-samba
 
@@ -73,7 +73,7 @@ A toilet queueing app for serious poopers. Uses {{ $names.company.lower }}, fire
 
 [Repository][digitiser] by [Shaun Mulligan][shaun-mulligan]
 
-A node.js project for displaying integer values from a JSON endpoint on a MAX7219 7-segment
+A Node.js project for displaying integer values from a JSON endpoint on a MAX7219 7-segment
 display.
 
 ### GrovePi Humidity sensor and OLED display
