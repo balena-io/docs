@@ -23,7 +23,7 @@ Other smaller, but important changes to note are the following:
 
 - The device `UUID` has been shortened from 31-bytes to 16-bytes to be a bit more standards compliant. This can cause some issues with external scripts or regex which rely on a set `UUID` length.
 
-- If you use {{ $names.company.lower }} base images, you may notice that the hostname changes from `<device_type>-<short_uuid>` to just `<short_uuid>`, however, if you update to the latest version of your respective base image, the hostname will remain `<device_type>-<short_uuid>`. If you are interested in how the hostname is generated checkout this [bit of code in **GitHub**]({{ $links.githubMain }}-library/base-images/pull/256/files#diff-f1f5c90c015964785192b51de0187522R9). It's also important to know if you set a customised hostname in your config.json, this hostname will also be reflected as part of your container hostname.
+- If you use {{ $names.company.lower }} base images, you may notice that the hostname changes from `<device_type>-<short_uuid>` to just `<short_uuid>`, however, if you update to the latest version of your respective base image, the hostname will remain `<device_type>-<short_uuid>`. If you are interested in how the hostname is generated checkout this [bit of code in **GitHub**]({{ $links.githubMain }}-library/base-images/pull/256/files#diff-f1f5c90c015964785192b51de0187522R9). It's also important to know if you set a customized hostname in your config.json, this hostname will also be reflected as part of your container hostname.
 
 - If you rely on some {{ $names.company.lower }} CLI functionality e.g.: `{{ $names.company.short }} sync` or `{{ $names.company.short }} ssh`, you will need update to at least version 5.7.0 to work with 2.x devices.
 

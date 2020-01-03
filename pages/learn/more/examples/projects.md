@@ -37,7 +37,7 @@ devices with multiple temperature sensors to a central cloud-based datastore.
 
 This is a simple Node.js project built on {{ $names.company.lower }}. It should work on all versions of the Raspberry Pi.
 
-The audio stock ticker will verbally announce a list of your favourite stocks every couple of minutes or hours, depending on how you configure it.
+The audio stock ticker will verbally announce a list of your favorite stocks every couple of minutes or hours, depending on how you configure it.
 
 ### Process and Device Health Monitor
 
@@ -145,7 +145,7 @@ Displays values from a JSON endpoint on your browser in kiosk mode (based on
 
 {{ $names.company.upper }} offers you the flexibility to deploy your application from a custom Dockerfile which allows you to define your own development environment.
 
-Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilising existing Docker images instead of building from scratch, {{ $names.company.lower }} allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
+Freely constructing the environment gives you all the power but sometimes takes a lot of time to create a proper Dockerfile for your application. Why not save your effort by utilizing existing Docker images instead of building from scratch, {{ $names.company.lower }} allows you to use Docker image from Docker Hub which contains many repos of pre-built Docker image.
 
 ### Safe-deposit box with Two-Factor Authentication
 
@@ -193,7 +193,7 @@ A [bitcoin][bitcoin] miner for the [Raspberry Pi][rpi].
 
 A simple tool for reading temperatures from a USB-enabled thermometer. This
 project is used as the backend to [efwe][efwe]'s awesome temperature
-visualisation at [123k.de](http://123k.de).
+visualization at [123k.de](http://123k.de).
 
 ### Uptime Robot Dashboard
 [Repository][uptime-robot-dashboard] by [secanis][secanis]

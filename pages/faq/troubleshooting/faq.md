@@ -99,7 +99,7 @@ However,  we've heard from users that they would still like to be able to SSH in
 ##### Which data is persisted on devices across updates/power cycles?
 The only data we [guarantee to be persisted][persistent-storage] across reboot, shutdown and device update/container restart is the contents of the `/data` folder, or any [named volumes][named-volumes] on devices running {{ $names.os.lower }} v2.12.0 and above.
 However, when a device is restarted or power cycled the container is not recreated, meaning all the data that was present in the container's filesystem before, remains.
-It's very important not to rely on this behaviour, as containers are recreated on application updates, when environment variables are changed in the UI or API, or when an application restart is requested.
+It's very important not to rely on this behavior, as containers are recreated on application updates, when environment variables are changed in the UI or API, or when an application restart is requested.
 
 ##### Why does /data disappear when I move a device between applications?
 Persistent data is specific to an application. If you move devices between applications running different code, then keeping persistent data from the old application could potentially cause issues.

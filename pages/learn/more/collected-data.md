@@ -10,7 +10,7 @@ analyze the potential problems as well as trends.
 
 ## User data collected by {{ $names.company.lower }}
 
-{{ $names.company.lower }} collects information about CLI and web dashboard users behaviour.
+{{ $names.company.lower }} collects information about CLI and web dashboard users behavior.
 User data we process includes
 
 * user name (login) and the email address used to log into the system,

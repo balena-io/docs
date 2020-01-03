@@ -21,7 +21,7 @@ __Note:__ On all {{ $names.os.lower }} versions of the OS, both `RESIN_` and `BA
 | `{{ $names.company.allCaps }}_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on {{ $names.company.lower }}	|
 | `{{ $names.company.allCaps }}_APP_ID` 	            |  ID number of the {{ $names.company.lower }} application the device is associated. 	|
 | `{{ $names.company.allCaps }}_APP_NAME`            |  The name of the {{ $names.company.lower }} application the device is associated with. |
-| `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |  The name of the device on first initialisation. |
+| `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |  The name of the device on first initialization. |
 | `{{ $names.company.allCaps }}_DEVICE_TYPE`         |  The type of device the application is running on. |
 | `{{ $names.company.allCaps }}` 	                  |  The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a {{ $names.company.lower }} device. 	|
 | `{{ $names.company.allCaps }}_SUPERVISOR_VERSION` 	|  The current version of the supervisor agent running on the device.	|
@@ -56,7 +56,7 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 
 In some cases its necessary to communicate with the host OS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
-__Note:__ In multicontainer applications, the `io.balena.features.dbus` label must be applied for each service that requires access to the dbus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labelling as that will ensure backward compatibility.
+__Note:__ In multicontainer applications, the `io.balena.features.dbus` label must be applied for each service that requires access to the dbus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
 
 ```
 # for {{ $names.company.lower }} supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
@@ -141,7 +141,7 @@ Since the `/etc/modules` you see in your container belongs to the container's fi
 
 ## Supervisor
 
-__Note:__ In multicontainer applications, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API.  If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labelling as that will ensure backward compatibility
+__Note:__ In multicontainer applications, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API.  If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility
 
 ### Reboot from Inside the Container
 
@@ -245,7 +245,7 @@ In the {{ $names.company.lower }} host OS [dnsmasq][dnsmasq-link] is used to man
 {{> "general/persistent-storage"}}
 
 ### Inconsistency in `/tmp` Directory
-At the time of writing there is an inconsistency in the behaviour of `/tmp` directory during reboot and application restart. With the current behaviour any thing in `/tmp` will persist over a reboot, but will **not** persist over an application restart.
+At the time of writing there is an inconsistency in the behavior of `/tmp` directory during reboot and application restart. With the current behavior any thing in `/tmp` will persist over a reboot, but will **not** persist over an application restart.
 
 ### Mounting external storage media
 

@@ -9,7 +9,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"This repo has no tests specified.\" && exit 0",
+    "test": "npm run test-spelling",
+    "test-spelling": "find . -iname \"*.*md\" -not -path \"./CHANGELOG*\" -not -path \"./node_modules/*\" | ./tools/test-spelling.sh",
     "postinstall": "./tools/prepare.sh",
     "build": "./tools/build.sh && webpack -p",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
@@ -41,6 +42,7 @@
     "metalsmith-prefixoid": "^1.0.3"
   },
   "devDependencies": {
+    "american-british-english-translator": "^0.1.2",
     "css-loader": "0.28.0",
     "extract-text-webpack-plugin": "2.1.0",
     "file-loader": "0.11.1",

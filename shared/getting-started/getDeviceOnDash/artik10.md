@@ -4,7 +4,7 @@ __Note:__ {{ $names.os.upper }} will completely write over the existing eMMC.
 
 <img src="/img/artik10/artik10-dev-kit.png" width="80%">
 
-You can now insert the 5VDC power cable and flip the power, switch labelled `PSW1`, to the `on` position. You should now have some glowing LEDs indicating a sign of life. Next, you need to press and hold the `SW3 POWER` push button for 1 or 2 seconds, this starts the boot from the {{ $device.bootMedia }}.
+You can now insert the 5VDC power cable and flip the power, switch labeled `PSW1`, to the `on` position. You should now have some glowing LEDs indicating a sign of life. Next, you need to press and hold the `SW3 POWER` push button for 1 or 2 seconds, this starts the boot from the {{ $device.bootMedia }}.
 
 After a few seconds you should see your **{{ $device.name }}** appear on the {{ $names.company.lower }} dashboard. If it still hasn't appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the right WiFi credentials at download time.
 

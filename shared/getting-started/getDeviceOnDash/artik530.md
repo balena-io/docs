@@ -2,7 +2,7 @@ In order to get {{ $names.os.lower }} up and running on your **{{ $device.name }
 
 __Note:__ {{ $names.os.lower }} will completely write over the existing eMMC.
 
-You can now insert the 5VDC power cable and flip the power switch labelled `SW700` to the `on` position. You should now have some glowing LEDs indicating the board has power. Next, you need to press and hold the `SW400` push button for 1 or 2 seconds, which starts the boot from the {{ $device.bootMedia }}.
+You can now insert the 5VDC power cable and flip the power switch labeled `SW700` to the `on` position. You should now have some glowing LEDs indicating the board has power. Next, you need to press and hold the `SW400` push button for 1 or 2 seconds, which starts the boot from the {{ $device.bootMedia }}.
 
 After a few seconds you should see your **{{ $device.name }}** appear on the {{ $names.company.lower }} dashboard. If it still hasn't appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the correct WiFi credentials at download time.
 

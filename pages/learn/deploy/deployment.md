@@ -159,7 +159,7 @@ $ git push balena master:balena-emulated
 
 ## Project Structure
 
-When deploying a balena project the build system will endeavour to build the most appropriate release for a specific set of devices. The following section will discuss some of the mechanisms you can use to control the type of builds that are produced.
+When deploying a balena project the build system will endeavor to build the most appropriate release for a specific set of devices. The following section will discuss some of the mechanisms you can use to control the type of builds that are produced.
 
 ### Project Resolutions
 

@@ -49,7 +49,7 @@ To get you started, here is an [example][i2c-example] that uses i2c to communica
 
 ### SPI
 
-SPI is enabled by default on {{ $names.os.lower }} via the `dtparam=spi=on` [device tree parameter][dt-params]. This default behaviour can be modified by editing the [device configuration variables][device-configuration].
+SPI is enabled by default on {{ $names.os.lower }} via the `dtparam=spi=on` [device tree parameter][dt-params]. This default behavior can be modified by editing the [device configuration variables][device-configuration].
 
 For Node.js applications it should work out of the box with the [spi node module][spi-npm]. For an example of this, check out this project: [digitiser][digitiser-link].
 
@@ -237,7 +237,7 @@ SLOTS=/sys/devices/platform/bone_capemgr/slots
 
 ### Disable HDMI
 
-Before provisioning, mount the `.img`, in the `flash-boot` partition you should see a file named `uEnv.txt_internal` open that up with your favourite text editor and add
+Before provisioning, mount the `.img`, in the `flash-boot` partition you should see a file named `uEnv.txt_internal` open that up with your favorite text editor and add
 the following line to the bottom of the file:
 ```
 fdtfile=am335x-boneblack-emmc-overlay.dtb
