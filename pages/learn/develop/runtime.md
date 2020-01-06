@@ -259,8 +259,6 @@ Before you start it's a good idea to check if the {{ $names.os.lower }} kernel y
 
 If your filesystem is not supported you can contact us through our [forums](https://forums.balena.io/) and we will be glad to help.
 
-__Note:__ You can get a list of device names, labels and filesystem types by running `lsblk -f` (both on the host or container).
-
 **Preparing the container**
 
 In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](https://www.balena.io/docs/reference/base-images/base-images/#working-with-dynamically-plugged-devices) by:
@@ -271,7 +269,9 @@ This will ensure that the host propagates udev events into the container, enabli
 
 **General tips for external media**
 
-Devices can be selected in many ways, for example by it's device name (`/dev` entry), label, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices. Device names or UUIDs are a good choice when you can easily identify or predict their values, for example within the context of a UDev rule.
+Devices can be selected in many ways, for example by its device name (`/dev` entry), label, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices. Device names or UUIDs are a good choice when you can easily identify or predict their values, for example within the context of a UDev rule.
+
+__Note:__ You can get a list of device names, labels and filesystem types by running `lsblk -f` (both on the host or container).
 
 **Mounting**
 
@@ -318,7 +318,7 @@ COPY scripts /usr/src/scripts
 
 Finally we need to write the `mount.sh` and `unmount.sh` scripts. These scripts will use `mount` and `umount` commands in the same way we described on the **Mounting** and **Unmounting** sections above. 
 
-You can find a fully working example of automounting/unmounting devices with UDev rules on this [project]({{ $links.githubPlayground }}/balena-storage).
+You can find a fully working example of automounting/unmounting devices with UDev rules in this [project]({{ $links.githubPlayground }}/balena-storage).
 
 **Sharing mounted devices across containers**
 
