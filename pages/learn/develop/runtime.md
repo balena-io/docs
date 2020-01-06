@@ -14,7 +14,7 @@ For many applications, the code running in your container will need some way to 
 
 Inside your running container, you'll have access to a number of `{{ $names.company.allCaps }}_` namespaced environment variables, which provide information from the system outside the container:
 
-__Note:__ On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
+__Note:__ On all {{ $names.os.lower }} versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
 
 |    Variable   	| Description 	|
 |:----------:	    |:-----------:	|
@@ -249,74 +249,80 @@ At the time of writing there is an inconsistency in the behaviour of `/tmp` dire
 
 ### Mounting external storage media
 
-Mounting external storage media, such as SD cards or USB thumb drives, within your application (running inside Docker) works somewhat different compared to mounting devices directly in Linux. Here we include a set of recommendations that helps you can get started.
+Since the release of multicontainer on the {{ $names.company.lower }} platform we no longer recommend the use of an initsystem in the container. This affects the way we deal with external storage since previously we relied on `systemd`/`OpenRC` and `/etc/fstab`.
 
-**Without the init system**
+The recommended way for mounting external storage media (SD cards, USB sticks, external drives, etc) into a container is now through the use of `mount`. Here we include a set of recommendations that will help you get started.
 
-If you have not enabled an init system in your application or chose to mount manually, you can add the mount logic into your start script. This can be made simpler by adding the storage media settings to `/etc/fstab` in your Dockerfile:
-```Dockerfile
-RUN echo "LABEL=mysdcard /mnt/storage ext4 rw,relatime,discard,data=ordered 0 2" >> /etc/fstab
-```
-Modify your settings as appropriate (device identification, mount endpoint, file system, mount options), and see more information about the possible settings at the [fstab man page](http://man7.org/linux/man-pages/man5/fstab.5.html).
+**{{ $names.os.lower }} kernel support**
 
-Then in your start script you need to create the mount directory and mount the device:
-```Bash
-mkdir -p /mnt/storage && mount /mnt/storage
-```
+Before you start it's a good idea to check if the {{ $names.os.lower }} kernel you are running was compiled with support for the filesystem you want to use. To do so, you can run this command on the **host** which will produce a list of supported filesystems: `cat /proc/filesystems`.
 
-**Using systemd**
+If your filesystem is not supported you can contact us through our [forums](https://forums.balena.io/) and we will be glad to help.
 
-Normally systemd mounts entries from `/etc/fstab` on startup automatically, but running within Docker, it will only mount entries that are not block devices, such as `tmpfs` entries. For non-block devices, adding entries `/etc/fstab` is sufficient, for example in your Dockerfile:
-```Dockerfile
-RUN echo "tmpfs  /cache  tmpfs  rw,size=200M,nosuid,nodev,noexec  0 0" >> /etc/fstab
-```
+**Preparing the container**
 
-For block devices (SD cards, USB sticks), `/etc/fstab` entries would result in this error at runtime: `Running in a container, ignoring fstab device entry for ...`. Instead, you have to use [systemd .mount files](https://www.freedesktop.org/software/systemd/man/systemd.mount.html). Let's assume you want to mount an external SD card to `/mnt/storage`. Then you have to create a file with the name `mnt-storage.mount` and the content such as:
-```
-[Unit]
-Description = External SD Card
+In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](https://www.balena.io/docs/reference/base-images/base-images/#working-with-dynamically-plugged-devices) by:
+- Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file
+- Adding `ENV UDEV=on` to your container's `Dockerfile`
 
-[Mount]
-What = LABEL=mysdcard
-Where = /mnt/storage
-Type = ext4
-Options = rw,relatime,data=ordered
-
-[Install]
-WantedBy = multi-user.target
-```
-
-Above you need to modify the options with the `[Unit]` and `[Mount]` sections as appropriate. For more information, see the [systemd.mount documentation](https://www.freedesktop.org/software/systemd/man/systemd.mount.html).
-
-Finally copy and enable these systemd settings in your Dockerfile:
-```Dockerfile
-COPY mnt-storage.mount /etc/systemd/system/
-RUN systemctl enable mnt-storage.mount
-```
-
-This way your storage media will be mounted on your application start. You can check the status of this job with the `systemctl is-active mnt-storage.mount` command.
-
-Systemd is the init system on our Debian and Fedora base images.
-
-**Using OpenRC**
-
-OpenRC is the init system on our Alpine Linux base images. Its `localmount` service mounts entries defined in `/etc/fstab`. Unfortunately in its current form the `localmount` service is explicitly filtered out and disabled by the `-lxc` keyword in `/etc/init.d/localmount` when running inside Docker. This setting modifies some of its behaviour.
-
-To use OpenRC to automount your media, add your `/etc/fstab` entries in your Dockerfile, such as:
-```Dockerfile
-RUN echo "LABEL=mysdcard /mnt/storage ext4 rw,relatime,discard,data=ordered 0 2" >> /etc/fstab
-```
-Then start the `localmount` service manually in your start script:
-```Bash
-rc-service localmount start
-```
-After running that command, the device should be mounted and ready to use in your application.
-
-Because of the keyword filter, `localmount` cannot be automatically started (using `rc-update add`) and won't appear in the output of `rc-status`, even when it works correctly.
+This will ensure that the host propagates udev events into the container, enabling us to manipulate the device from within it.
 
 **General tips for external media**
 
-Devices can be selected in many ways, for example by `/dev` entry, labels, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices.
+Devices can be selected in many ways, for example by its device name (`/dev` entry), label, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices. Device names or UUIDs are a good choice when you can easily identify or predict their values, for example within the context of a UDev rule.
+
+__Note:__ You can get a list of device names, labels and filesystem types by running `lsblk -f` (both on the host or container).
+
+**Mounting**
+
+To mount an external drive you can use Linux's `mount` command. Again, any selection method is supported:
+
+```bash
+mount -t <fstype> -o rw <device-name> <mount-point>
+mount -t <fstype> -o rw -L <device-label> <mount-point>
+mount -t <fstype> -o rw -U <device-uuid> <mount-point>
+```
+
+__Note:__ The mount point folder needs to exist for the mount to be successfull.
+
+For more information about the `mount` command see the [mount man page](http://man7.org/linux/man-pages/man8/mount.8.html).
+
+**Unmounting**
+
+To unmount an external drive you can use Linux's `umount` command:
+
+```bash
+umount <mount-point>
+```
+
+For more information about the `umount` command see the [umount man page](http://man7.org/linux/man-pages/man8/umount.8.html).
+
+**Automounting/unmounting with UDev rules**
+
+The previous sections show how to manually mount or unmount external media. You probably want to automate this and have your media automatically mount/unmount when you plug it or unplug it. Fortunately this can be easily achieved by using UDev rules.
+
+First we create a rules file `usb.rules`:
+
+```
+ACTION=="add", SUBSYSTEM=="block", ENV{DEVTYPE}=="partition", RUN+="/bin/sh -c '/usr/src/scripts/mount.sh'"
+ACTION=="remove", SUBSYSTEM=="block", ENV{DEVTYPE}=="partition", RUN+="/bin/sh -c '/usr/src/scripts/unmount.sh'"
+```
+
+These rules will trigger everytime we plug or unplug a block partition device and run the scripts we provide (`/usr/src/mount.sh` or `/usr/src/unmount.sh`).
+
+Copy both the rules and scripts to your container:
+```Dockerfile
+COPY usb.rules /etc/udev/rules.d/usb.rules
+COPY scripts /usr/src/scripts
+```
+
+Finally we need to write the `mount.sh` and `unmount.sh` scripts. These scripts will use `mount` and `umount` commands in the same way we described on the **Mounting** and **Unmounting** sections above. 
+
+You can find a fully working example of automounting/unmounting devices with UDev rules in this [project]({{ $links.githubPlayground }}/balena-storage).
+
+**Sharing mounted devices across containers**
+
+Note that currently it's not possible to share a mounted device across multiple containers. This is a feature that we are currently working on. This documentation will be updated once we add support for this feature.
 
 [container-link]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
 [base-image-wiki-link]:/runtime/base-images/
