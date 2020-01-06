@@ -10,8 +10,8 @@ Feedback on the masterclasses are welcome and should be given by creating an iss
 
 Currently, the following masterclasses are available:
 
-* [{{ $names.cli }} masterclass]({{ $links.githubProjects }}/balena-cli-masterclass) - a guide to getting started with the {{ $names.cli }}.
-* [{{ $names.cli }} advanced masterclass]({{ $links.githubProjects }}/balena-cli-advanced-masterclass) - a guide to the advanced features available in {{ $names.cli }}.
-* [Services masterclass]({{ $links.githubProjects }}/services-masterclass) - a guide to developing and deploying services on a {{ $names.company.lower }} device.
-* [{{ $names.os.lower }} masterclass]({{ $links.githubProjects }}/balenaos-masterclass) - an introduction to {{ $names.os.lower }}.
-* [{{ $names.os.lower }} fleet management masterclass]({{ $links.githubProjects }}/balena-fleet-management-masterclass) - a guide to managing an application fleet with {{ $names.os.lower }}.
+* [{{ $names.cli }} masterclass]({{ $links.githubMain }}/balena-cli-masterclass) - a guide to getting started with the {{ $names.cli }}.
+* [{{ $names.cli }} advanced masterclass]({{ $links.githubMain }}/balena-cli-advanced-masterclass) - a guide to the advanced features available in {{ $names.cli }}.
+* [Services masterclass]({{ $links.githubMain }}/services-masterclass) - a guide to developing and deploying services on a {{ $names.company.lower }} device.
+* [{{ $names.os.lower }} masterclass]({{ $links.githubMain }}/balenaos-masterclass) - an introduction to {{ $names.os.lower }}.
+* [{{ $names.os.lower }} fleet management masterclass]({{ $links.githubMain }}/balena-fleet-management-masterclass) - a guide to managing an application fleet with {{ $names.os.lower }}.
