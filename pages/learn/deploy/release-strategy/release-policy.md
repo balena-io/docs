@@ -43,7 +43,7 @@ Using [device tags][device-tags], you can quickly select a group of devices and 
 
 __Note:__ For more details about using the API to manage the release policy see the [Fleet Management Masterclass][masterclass].
 
-[masterclass]:https://github.com/balena-io-projects/balena-fleet-management-masterclass/blob/master/README.md#6-Release-Policy
+[masterclass]:https://github.com/balena-io/balena-fleet-management-masterclass/blob/master/README.md#6-Release-Policy
 [canary]:/learn/welcome/production-plan/#canary-deployments
 [api]:/reference/api/overview/
 [sdk]:/reference/sdk/node-sdk/

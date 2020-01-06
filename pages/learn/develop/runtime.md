@@ -345,4 +345,4 @@ Note that currently it's not possible to share a mounted device across multiple 
 [multicontainer]:{{ $links.githubProjects }}/multicontainer-getting-started
 [network-ipam]:https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference
 [network-aliases]:https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases
-[services-masterclass]:{{ $links.githubProjects }}/services-masterclass#4-networking-types
+[services-masterclass]:{{ $links.githubMain }}/services-masterclass#4-networking-types
