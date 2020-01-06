@@ -14,7 +14,7 @@ For many applications, the code running in your container will need some way to 
 
 Inside your running container, you'll have access to a number of `{{ $names.company.allCaps }}_` namespaced environment variables, which provide information from the system outside the container:
 
-__Note:__ On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
+__Note:__ On all {{ $names.os.lower }} versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
 
 |    Variable   	| Description 	|
 |:----------:	    |:-----------:	|
@@ -249,13 +249,13 @@ At the time of writing there is an inconsistency in the behaviour of `/tmp` dire
 
 ### Mounting external storage media
 
-Since the release of multicontainer on the balenaCloud platform we no longer recommend the use of an initsystem in the container. This affects the way we deal with external storage since previously we relied on `systemd`/`OpenRC` and `/etc/fstab`.
+Since the release of multicontainer on the {{ $names.company.lower }} platform we no longer recommend the use of an initsystem in the container. This affects the way we deal with external storage since previously we relied on `systemd`/`OpenRC` and `/etc/fstab`.
 
 The recommended way for mounting external storage media (SD cards, USB sticks, external drives, etc) into a container is now through the use of `mount`. Here we include a set of recommendations that will help you get started.
 
-**balenaOS kernel support**
+**{{ $names.os.lower }} kernel support**
 
-Before you start it's a good idea to check if the balenaOS kernel you are running was compiled with support for the filesystem you want to use. To do so, you can run this command on the **host** which will produce a list of supported filesystems: `cat /proc/filesystems`.
+Before you start it's a good idea to check if the {{ $names.os.lower }} kernel you are running was compiled with support for the filesystem you want to use. To do so, you can run this command on the **host** which will produce a list of supported filesystems: `cat /proc/filesystems`.
 
 If your filesystem is not supported you can contact us through our [forums](https://forums.balena.io/) and we will be glad to help.
 
@@ -263,23 +263,24 @@ __Note:__ You can get a list of device names, labels and filesystem types by run
 
 **Preparing the container**
 
-In order to be able to detect external media dynamically you will need to run the container on privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](https://www.balena.io/docs/reference/base-images/base-images/#working-with-dynamically-plugged-devices) by:
+In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](https://www.balena.io/docs/reference/base-images/base-images/#working-with-dynamically-plugged-devices) by:
 - Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file
 - Adding `ENV UDEV=on` to your container's `Dockerfile`
 
 This will ensure that the host propagates udev events into the container, enabling us to manipulate the device from within it.
 
+**General tips for external media**
+
+Devices can be selected in many ways, for example by it's device name (`/dev` entry), label, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices. Device names or UUIDs are a good choice when you can easily identify or predict their values, for example within the context of a UDev rule.
+
 **Mounting**
 
-To mount an external drive you can use Linux's `mount` command. You can either mount a device by it's device name (i.e: `/dev/sda1`):
+To mount an external drive you can use Linux's `mount` command. Again, any selection method is supported:
 
 ```bash
 mount -t <fstype> -o rw <device-name> <mount-point>
-```
-
-Or mount it by it's device label (i.e: `my-usb-drive`):
-```bash
 mount -t <fstype> -o rw -L <device-label> <mount-point>
+mount -t <fstype> -o rw -U <device-uuid> <mount-point>
 ```
 
 __Note:__ The mount point folder needs to exist for the mount to be successfull.
@@ -307,7 +308,7 @@ ACTION=="add", SUBSYSTEM=="block", ENV{DEVTYPE}=="partition", RUN+="/bin/sh -c '
 ACTION=="remove", SUBSYSTEM=="block", ENV{DEVTYPE}=="partition", RUN+="/bin/sh -c '/usr/src/scripts/unmount.sh'"
 ```
 
-This rules will trigger everytime we plug or unplug a block partition device and run the scripts we provide (`/usr/src/mount.sh` or `/usr/src/unmount.sh`).
+These rules will trigger everytime we plug or unplug a block partition device and run the scripts we provide (`/usr/src/mount.sh` or `/usr/src/unmount.sh`).
 
 Copy both the rules and scripts to your container:
 ```Dockerfile
@@ -315,9 +316,9 @@ COPY usb.rules /etc/udev/rules.d/usb.rules
 COPY scripts /usr/src/scripts
 ```
 
-Finally we need to write the `mount.sh` and `unmount.sh` scripts. This scripts will use `mount` and `unmount` commands in the same way we described on the **Mounting** and **Unmounting** sections above. 
+Finally we need to write the `mount.sh` and `unmount.sh` scripts. These scripts will use `mount` and `umount` commands in the same way we described on the **Mounting** and **Unmounting** sections above. 
 
-You can find a fully working example of automounting/unmounting devices with UDev rules on this [project](https://github.com/balena-io-playground/balena-storage).
+You can find a fully working example of automounting/unmounting devices with UDev rules on this [project]({{ $links.githubPlayground }}/balena-storage).
 
 **Sharing mounted devices across containers**
 
