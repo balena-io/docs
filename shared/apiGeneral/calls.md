@@ -12,7 +12,7 @@ To construct an API call, it helps to understand a little about how the underlyi
 Knowing the resource you wish to act upon and the method you wish to act with is enough for some requests. For example, if you want to view all applications you have access to, you can use the `GET` method and the `application` resource. Your API call would look like this:
 
 ```
-curl -X GET "{{ $links.apiBase }}/v4/application" \
+curl -X GET "{{ $links.apiBase }}/v5/application" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -25,7 +25,7 @@ The following API call uses `$select` to only return the name and device type fo
 
 ```
 curl -X GET
-"{{ $links.apiBase }}/v4/application?\$select=app_name,device_type" \
+"{{ $links.apiBase }}/v5/application?\$select=app_name,device_type" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -33,7 +33,7 @@ curl -X GET
 In some cases, you'll want to get information for one specific resource, rather than all resources of that type. If you happen to know the resource ID, you can simply append it to the resource name:
 
 ```
-curl -X GET "{{ $links.apiBase }}/v4/device(<ID>)" \
+curl -X GET "{{ $links.apiBase }}/v5/device(<ID>)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -42,7 +42,7 @@ Many times, however, you won't know the internal ID used by the API, and you'll 
 
 ```
 curl -X GET \
-"{{ $links.apiBase }}/v4/device?\$filter=uuid%20eq%20'<UUID>'" \
+"{{ $links.apiBase }}/v5/device?\$filter=uuid%20eq%20'<UUID>'" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -53,7 +53,7 @@ A final tip for constructing API calls: for some of the fields in the API respon
 
 ```
 curl -X GET \
-"{{ $links.apiBase }}/v4/device?\$filter=uuid%20eq%20'<UUID>'&\$expand=belongs_to__application" \
+"{{ $links.apiBase }}/v5/device?\$filter=uuid%20eq%20'<UUID>'&\$expand=belongs_to__application" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -62,7 +62,7 @@ It's also possible to filter on a field that belongs to a linked resource. To fi
 
 ```
 curl -X GET \
-"{{ $links.apiBase }}/v4/device?\$filter=belongs_to__application/app_name%20eq%20'<APP_NAME>'" \
+"{{ $links.apiBase }}/v5/device?\$filter=belongs_to__application/app_name%20eq%20'<APP_NAME>'" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
