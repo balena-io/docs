@@ -98,6 +98,7 @@ Reference
       [/reference/OS/updates/update-process]
       [/reference/OS/updates/migrate-to-2.0]
     Network[/reference/OS/network/$os_version]
+    [/reference/OS/configuration]
     [/reference/OS/time]
     [/reference/OS/advanced]
     [/reference/OS/meta-balena]
