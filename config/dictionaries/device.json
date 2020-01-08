@@ -90,6 +90,14 @@
     "type": "virtual"
   },
   {
+    "id": "coral-dev",
+    "name": "Google Coral Dev Board",
+    "arch": "aarch64",
+    "icon": "/img/device/coral-dev.svg",
+    "link": "https://coral.ai/products/dev-board/",
+    "type": "beta"
+  },
+  {
     "id": "hummingboard",
     "name": "Hummingboard",
     "arch": "armv7hf",
