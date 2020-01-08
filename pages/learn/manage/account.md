@@ -82,7 +82,7 @@ The *Add application member* dialog has a dropdown with descriptions of the memb
 
 <img src="/img/common/app/member_dialog.png" width="60%">
 
-__Note__: Application members must have already [signed up][signup] for a {{ $names.company.lower }} account before they can be added to an application.
+__Note:__ Application members must have already [signed up][signup] for a {{ $names.company.lower }} account before they can be added to an application.
 
 After you click *Add*, you will see the username of the new application member in the list. From here, you can edit access levels or remove the user if necessary:
 

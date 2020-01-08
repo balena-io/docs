@@ -61,7 +61,7 @@ Applications with multiple containers should include a `Dockerfile` or `package.
 
 You can also include a `.dockerignore` file with your project if you wish the builder to ignore certain files.
 
-__NOTE:__ You *don't* need to worry about ignoring `.git` as the builders already do this by default.
+__Note:__ You *don't* need to worry about ignoring `.git` as the builders already do this by default.
 
 ## Dockerfile templates
 

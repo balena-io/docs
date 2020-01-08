@@ -60,9 +60,9 @@ For more details on sysfs GPIO access see the [official kernel documentation][ke
 
 GPIO pin numberings are listed below for all released models of the Raspberry Pi:-
 
-__NOTE:__ The tables below assume your Pi is orientated as shown in the diagram above - the SD card should be at the top of the Pi and the ethernet port at the bottom. GND refers to ground pins.
+__Note:__ The tables below assume your Pi is orientated as shown in the diagram above - the SD card should be at the top of the Pi and the ethernet port at the bottom. GND refers to ground pins.
 
-__NOTE:__ If you have a 26-pin device, it's almost certainly a Raspberry Pi B rev2.
+__Note:__ If you have a 26-pin device, it's almost certainly a Raspberry Pi B rev2.
 
 ### Raspberry Pi B Rev 1
 
@@ -125,7 +125,7 @@ __NOTE:__ If you have a 26-pin device, it's almost certainly a Raspberry Pi B re
 | 26   | 20  |
 | GND  | 21  |
 
-__NOTE:__ The '---' pins between GND/7 and 5/GND are reserved for ID EEPROM and should not be used for GPIO ([reference][eeprom-diag]) -->
+__Note:__ The '---' pins between GND/7 and 5/GND are reserved for ID EEPROM and should not be used for GPIO ([reference][eeprom-diag]) -->
 
 #### Voltage
 

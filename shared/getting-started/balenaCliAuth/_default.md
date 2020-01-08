@@ -28,7 +28,7 @@ You will be asked how you wish to authenticate. The recommended method is that o
 
 <img src="/img/common/cli/web_authorization.png" width="60%">
 
-__Note__ Other authentication methods include using your username and password credentials or obtaining an authentication token from the dashboard. Authentication tokens come in two types, API tokens, and JSON Web Token (JWT) session tokens. While API tokens do not expire, JWT session tokens do after 7 days.
+__Note:__ Other authentication methods include using your username and password credentials or obtaining an authentication token from the dashboard. Authentication tokens come in two types, API tokens, and JSON Web Token (JWT) session tokens. While API tokens do not expire, JWT session tokens do after 7 days.
 
 After logging in, test out the balenaCLI by running the `balena apps` command, which should return information about the application you created in the previous step. Take a note of the `APP NAME` as you'll need this in the next step to push the code to all devices in that application.
 
@@ -38,7 +38,7 @@ ID    APP NAME   DEVICE TYPE     ONLINE DEVICES DEVICE COUNT
 98264 FirstApp   raspberrypi4-64 0              0
 ```
 
-__Note__ See all the commands available with balenaCLI by running `balena help` 
+__Note:__ See all the commands available with balenaCLI by running `balena help`
 
 [cli]:/reference/cli/
 [releases]:{{ $links.githubCli }}/releases

@@ -9,7 +9,7 @@ excerpt: How to update {{ $names.os.lower }} versions from your dashboard
 
 Since we periodically release updates and improvements to {{ $names.os.lower }} (the host OS running on all {{ $names.company.lower }} devices), we encourage you to keep your devices up to date. We offer self-service host OS updates between 2.x versions, from 1.x to 2.x versions, and between 1.x versions.
 
-__Note__: {{ $names.os.upper }} 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
+__Note:__ {{ $names.os.upper }} 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
 
 Supported device types:
 

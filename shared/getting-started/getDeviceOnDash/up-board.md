@@ -15,7 +15,7 @@ Now that you have your board setup, apply power to it using the supplied 5 Vdc b
 
 Using the keyboard arrow keys, select the `UEFI : USB` option and hit enter. Your **{{ $device.name }}** will now boot from the {{ $device.bootMedia }} and flash {{ $names.os.lower }} onto the internal [eMMC memory][emmc-link]. If your device is correctly connected to the internet, you should see progress of the flashing on your {{ $names.company.lower }} dashboard. Once {{ $names.os.lower }} is safely flashed onto the internal [eMMC memory][emmc-link], the device will shut itself down and you should see all the user LEDs on the board switch off.
 
-__NOTE:__ The blue power LED will stay illuminated even once the device has shutdown. You can find the user LEDs on the underside of the board near the USB ports.
+__Note:__ The blue power LED will stay illuminated even once the device has shutdown. You can find the user LEDs on the underside of the board near the USB ports.
 
 You can now remove the {{ $device.bootMedia }} and power up the board again. Your **{{ $device.name }}** should now be sitting happily waiting on the {{ $names.company.lower }} dashboard. If it still hasn't appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the right WiFi credentials at download time. If you still can't get it online, [contact us on support](/support/).
 

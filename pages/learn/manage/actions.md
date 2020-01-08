@@ -113,7 +113,7 @@ You can transfer application ownership between balenaCloud user accounts. In ord
 3. In the **Members** of the Application you just created, add the **source** balenaCloud username as a **Developer**
 4. In the **source** balenaCloud account, select **<Application>** --> **Actions** --> **Transfer This Application**
 
-**NOTE**: If the **Transfer This Application** button is greyed out, ensure that you have created an empty Application in the **target** balenaCloud account with the same name as the source Application, and that the **source** username has been added as a **Developer** to the **target** Application.
+__Note:__ If the **Transfer This Application** button is greyed out, ensure that you have created an empty Application in the **target** balenaCloud account with the same name as the source Application, and that the **source** username has been added as a **Developer** to the **target** Application.
 
 You can watch [this video](https://www.youtube.com/watch?v=nkYve7PwqmE) to learn how to transfer application ownership.
 

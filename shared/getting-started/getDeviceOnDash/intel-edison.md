@@ -1,6 +1,6 @@
 In order to deploy code on the Edison, you'll first need to flash new firmware ({{ $names.OS.lower }}) onto the device's internal eMMC.
 
-__Note__: This will erase the current yocto OS system on your Edison and any data or configurations you have on it. If you have to revert to the old way of doing things, you can restore your Edison to its factory default firmware by following the instructions in our [restore original Edison firmware guide](/troubleshooting/restore-edison).
+__Note:__ This will erase the current yocto OS system on your Edison and any data or configurations you have on it. If you have to revert to the old way of doing things, you can restore your Edison to its factory default firmware by following the instructions in our [restore original Edison firmware guide](/troubleshooting/restore-edison).
 
 #### Install Intel Flash Tool Lite
 

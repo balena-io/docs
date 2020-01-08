@@ -24,13 +24,13 @@ curl -H 'Authorization: Bearer AUTH_TOKEN' -X POST https://api.{{ $names.dashboa
 
 This will return your new API key.
 
-__NOTE:__ The key will be returned in quotation marks, but these should be stripped before using it in the following step.
+__Note:__ The key will be returned in quotation marks, but these should be stripped before using it in the following step.
 
 ## Add {{ $names.company.lower }} API key to IoT Hub Admin portal
 
 Signup and following the [Azure IoT Suite getting started guide](https://azure.microsoft.com/en-us/overview/iot/product-selector/).
 
-__NOTE:__ you'll have to use the [special version][integration] with {{ $names.company.lower }} integration additions as our integration is not currently a part of the code Microsoft releases.
+__Note:__ you'll have to use the [special version][integration] with {{ $names.company.lower }} integration additions as our integration is not currently a part of the code Microsoft releases.
 
 Go to the IoT Hub Admin portal, select '{{ $names.company.upper }} Config' and set the `App ID` and the newly generated `API Key`.
 
@@ -64,7 +64,7 @@ When you power on the device, it connects to the {{ $names.company.lower }} API 
 
 First clone the the [sample application][sampleApp] to your local machine.
 
-__NOTE:__ Our integration is not part of the code Microsoft releases, instead it will stay as a separate fork that should be used instead of the official sample solution.
+__Note:__ Our integration is not part of the code Microsoft releases, instead it will stay as a separate fork that should be used instead of the official sample solution.
 
 ```
 git clone {{ $links.githubProjects }}/balena-azure-iot-sample && cd balena-azure-iot-sample && git checkout resin-node
