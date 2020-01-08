@@ -115,6 +115,12 @@ This parsing will only be done if the value is a valid string; so if it doesn't 
 dtoverlay=i2c-rtc,ds1307
 ```
 
+### Disabling rainbow splash screen
+
+To disable the Raspberry Pi rainbow splash screen, add the `disable_splash=1` entry to `config.txt`.
+
+__Note:__ This setting disables the Raspberry Pi rainbow splash screen but does not disable the {{ $names.company.lower }} logo splash screen. If you would like to replace the {{ $names.company.lower }} logo with your custom splash logo, replace `splash/resin-logo.png` located in the [boot partition][boot-partition] of the image.
+
 ### Further Reading
 
 There are more details on the options available in `config.txt` over at
@@ -125,3 +131,4 @@ There are more details on the options available in `config.txt` over at
 [sdk]:/reference/sdk/node-sdk
 [cli]:/reference/cli
 [local-mode]:/learn/develop/local-mode
+[boot-partition]:/reference/OS/overview/2.x/#image-partition-layout
