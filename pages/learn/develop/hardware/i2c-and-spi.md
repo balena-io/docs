@@ -43,7 +43,7 @@ CMD modprobe i2c-dev && python /app/demo.py
 
 After your first push, the code will most likely throw an error caused by the modules not being loaded. If this is the case, simply reboot the pi and the modules should be loaded.
 
-__NOTE:__ A few places will talk about adding the modules to the /etc/modules file so that they are there on boot. This will not work on the {{ $names.company.lower }} system because that file is not mapped to the host OS.
+__Note:__ A few places will talk about adding the modules to the /etc/modules file so that they are there on boot. This will not work on the {{ $names.company.lower }} system because that file is not mapped to the host OS.
 
 To get you started, here is an [example][i2c-example] that uses i2c to communicate with the [ADS1115][ads1115-link] analog-to-digital converter to allow the Raspberry Pi to read analog signals, which is useful for a bunch of sensor types.
 

@@ -34,7 +34,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 ```
 
-__NOTE:__ The above command should never be split over two or more `RUN` commands, as the benefits will be lost.
+__Note:__ The above command should never be split over two or more `RUN` commands, as the benefits will be lost.
 
 It is also wise to remove any .tar.gz or temporary files in a similar fashion to the above, as this will reduce build size.
 
