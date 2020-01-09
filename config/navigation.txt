@@ -40,6 +40,7 @@ Learn
     [/learn/develop/local-mode]
     [/learn/develop/dockerfile]
     [/learn/develop/multicontainer]
+    [/learn/develop/container-contracts]
     [/learn/develop/runtime]
     [/learn/develop/hardware]
       [/learn/develop/hardware/gpio]
