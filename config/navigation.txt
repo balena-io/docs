@@ -49,7 +49,6 @@ Learn
       Google IoT[/learn/develop/integrations/google]
       IBM Bluemix[/learn/develop/integrations/bluemix]
       Microsoft Azure[/learn/develop/integrations/azure]
-      Samsung ARTIK Cloud[/learn/develop/integrations/artik]
 
   DEPLOY
     [/learn/deploy/deployment]
