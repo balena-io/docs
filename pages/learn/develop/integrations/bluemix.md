@@ -133,7 +133,7 @@ For devices on {{ $names.company.lower }}, the most commonly used languages are 
 
 #### Using the Python SDK
 
-For a complete Python example which includes a device and a command line application to interact with the device, you can check [bluemix-balena-python]({{ $links.githubProjects }}/bluemix-balena-python)).
+For a complete Python example which includes a device and a command line application to interact with the device, you can check [bluemix-balena-python]({{ $links.githubLabs }}/bluemix-balena-python)).
 
 The following are a few notes using the [Python SDK](https://github.com/ibm-watson-iot/iot-python) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Python images, for example:
 
@@ -283,5 +283,5 @@ For detailed description, check the [Node.js SDK's README](https://github.com/ib
 
 A few sample apps to get started:
 
-* [bluemix-balena-python demo project]({{ $links.githubProjects }}/bluemix-balena-python): automatic or manual device registration, send data and receive actions
+* [bluemix-balena-python demo project]({{ $links.githubLabs }}/bluemix-balena-python): automatic or manual device registration, send data and receive actions
 * [Bluemix boilerplate](https://github.com/hobochild/resin-bluemix-boilerplate): automatically register your device and publish data to your Bluemix app

@@ -302,7 +302,7 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 [digitiser-link]:{{ $links.githubPlayground }}/digitiser
 [firebaseTemp-link]:{{ $links.githubPlayground }}/firebaseDTL
 [spi-npm]:https://www.npmjs.com/package/spi
-[picamera-link]:{{ $links.githubProjects }}/balena-rpi-python-picamera
+[picamera-link]:{{ $links.githubLabs }}/balena-rpi-python-picamera
 [mraa-link]:https://github.com/intel-iot-devkit/mraa
 [upm-link]:https://github.com/intel-iot-devkit/upm
 [dockerbase-node]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-node/

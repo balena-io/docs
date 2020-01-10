@@ -3,4 +3,4 @@
 ### RPI camera module example in Python
 
 {{> icon class="octicon octicon-mark-github" }}
-[Repository]({{ $links.githubProjects }}/balena-rpi-python-picamera)
+[Repository]({{ $links.githubLabs }}/balena-rpi-python-picamera)

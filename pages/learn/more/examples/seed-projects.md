@@ -36,11 +36,11 @@ do this with the {{ $names.cli }}.
 [balena]:{{ $links.mainSiteUrl }}/
 [getting-started]:/installing/gettingStarted
 [deploy]:/deployment/deployment
-[simple-nodejs-server-link]:{{ $links.githubProjects }}/simple-server-node.git
-[simple-python-server-link]:{{ $links.githubProjects }}/simple-server-python.git
-[balena-cpp-hello-world]:{{ $links.githubProjects }}/balena-cpp-hello-world.git
-[balena-rust-hello-world]:{{ $links.githubProjects }}/balena-rust-hello-world.git
-[balena-go-hello-world]:{{ $links.githubProjects }}/balena-go-hello-world
-[balena-haskell-hello-world]:{{ $links.githubProjects }}/balena-haskell-hello-world
-[balena-java-hello-world]:{{ $links.githubProjects }}/balena-java-hello-world
-[balena-c-hello-world]:{{ $links.githubProjects }}/balena-c-hello-world
+[simple-nodejs-server-link]:{{ $links.githubLabs }}/simple-server-node.git
+[simple-python-server-link]:{{ $links.githubLabs }}/simple-server-python.git
+[balena-cpp-hello-world]:{{ $links.githubLabs }}/balena-cpp-hello-world.git
+[balena-rust-hello-world]:{{ $links.githubLabs }}/balena-rust-hello-world.git
+[balena-go-hello-world]:{{ $links.githubLabs }}/balena-go-hello-world
+[balena-haskell-hello-world]:{{ $links.githubLabs }}/balena-haskell-hello-world
+[balena-java-hello-world]:{{ $links.githubLabs }}/balena-java-hello-world
+[balena-c-hello-world]:{{ $links.githubLabs }}/balena-c-hello-world

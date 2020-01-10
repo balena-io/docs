@@ -186,7 +186,7 @@ project: $ tree -a
 └── Dockerfile
 ```
 
-When we push this project to an application which has its default device type selected as `Raspberry Pi 3`, the build system will use the device type specific `Dockerfile.raspberrypi3` file to build from. If we instead pushed this to an `Intel Edison` application, the build would use the `Dockerfile.i386` file. When pushing to any other device type, the regular `Dockerfile` would be used to perform the build. This type of project selection will also work in service folders of multicontainer deployments; you can see an example of that in our [Getting started with multicontainer project](https://github.com/balena-io-projects/multicontainer-getting-started/tree/master/haproxy).
+When we push this project to an application which has its default device type selected as `Raspberry Pi 3`, the build system will use the device type specific `Dockerfile.raspberrypi3` file to build from. If we instead pushed this to an `Intel Edison` application, the build would use the `Dockerfile.i386` file. When pushing to any other device type, the regular `Dockerfile` would be used to perform the build. This type of project selection will also work in service folders of multicontainer deployments; you can see an example of that in our [Getting started with multicontainer project]({{ $links.githubLabs }}/multicontainer-getting-started/tree/master/haproxy).
 
 The file extensions are equivalent to `BALENA_MACHINE_NAME` for `.<device-type>` and `BALENA_ARCH` for `.<arch>` from the template files discussed in the next section. To find the correct name have a look at our [Machine names and architectures list](https://www.balena.io/docs/reference/base-images/devicetypes/).
 

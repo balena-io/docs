@@ -129,7 +129,7 @@ The {{ $names.company.lower }} API includes functionality that allows for [fine-
 [cli]:/reference/cli
 [preload]:/reference/cli/#preload-image
 [preregister]:/reference/cli/#device-register-application
-[staged-releases]:{{ $links.githubProjects }}/staged-releases
+[staged-releases]:{{ $links.githubLabs }}/staged-releases
 [tags]:/learn/manage/filters-tags/#device-tags
 [filters]:/learn/manage/filters-tags/#device-filters
 [cli-advanced-masterclass]:{{ $links.githubMain }}/balena-cli-advanced-masterclass#5-preloading-and-preregistering
