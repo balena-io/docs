@@ -67,7 +67,7 @@ First clone the the [sample application][sampleApp] to your local machine.
 __Note:__ Our integration is not part of the code Microsoft releases, instead it will stay as a separate fork that should be used instead of the official sample solution.
 
 ```
-git clone {{ $links.githubProjects }}/balena-azure-iot-sample && cd balena-azure-iot-sample && git checkout resin-node
+git clone {{ $links.githubLabs }}/balena-azure-iot-sample && cd balena-azure-iot-sample && git checkout resin-node
 ```
 
 Then add your {{ $names.company.lower }} applications remote endpoint to the git repository. It can be found in the top right hand corner of your {{ $names.company.lower }} applications dashboard.
@@ -101,5 +101,5 @@ Now you’re done. Provision as many devices as you need with {{ $names.company.
 [installing]:/installing/gettingStarted
 [azure]:https://azure.microsoft.com/en-us/product-categories/iot/
 [screencast]:https://vimeo.com/136840643
-[integration]:{{ $links.githubProjects }}/balena-azure-iot-remote-monitoring
-[sampleApp]:{{ $links.githubProjects }}/balena-azure-iot-sample
+[integration]:{{ $links.githubLabs }}/balena-azure-iot-remote-monitoring
+[sampleApp]:{{ $links.githubLabs }}/balena-azure-iot-sample

@@ -131,7 +131,7 @@ You should now have something similar to:
 
 The previous part of the documentation describes how to create a sample project with Python. In case you want to create a Node.js application, the [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) package is capable of both working with the [AWS IoT resources](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html) and the data communication on the [IoT Data Plane](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IotData.html). Thus it can be used to implement both the provisioning and the device side of the application. However for security reasons it isn't encouraged to use the [AWS Javascript SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html) on devices in the field, it is better instead to just use the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) doesn't have resource management capabilities. Therefore for this example, we have split the code into two parts. `{{ $names.company.lower }}-aws-lambda` is responsible the resource provisioning and `{{ $names.company.lower }}-aws-device` only handles data communication.
 
-For a complete Node.js example, please see the pair of [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device) repositories!
+For a complete Node.js example, please see the pair of [balena-aws-lambda]({{ $links.githubLabs }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubLabs }}/balena-aws-device) repositories!
 
 Here are a few notes using the [AWS IoT device SDK](https://github.com/aws/aws-iot-device-sdk-js) with {{ $names.company.lower }} devices. Using [Dockerfile templates](/deployment/docker-templates/), start from the {{ $names.company.lower }} default Node.js images, for example:
 
@@ -218,5 +218,5 @@ where you need to replace `KEYFILE` with the relevant filename (such as `xxxxxxx
 
 A few sample apps to get started:
 
-* [balena-aws-lambda]({{ $links.githubProjects }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubProjects }}/balena-aws-device)
+* [balena-aws-lambda]({{ $links.githubLabs }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubLabs }}/balena-aws-device)
 * [balenaCloud AWS IoT MQTT Broker Example]({{ $links.githubPlayground }}/balena-aws-iot-mqtt-example) with full blog post for example:

@@ -333,7 +333,7 @@ Note that currently it's not possible to share a mounted device across multiple 
 [security-docs-link]:/learn/welcome/security/
 [supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
 [expressjs-link]:http://expressjs.com/
-[projects-github]:{{ $links.githubProjects }}
+[projects-github]:{{ $links.githubLabs }}
 [systemd-base-image-link]:https://hub.docker.com/r/{{ $names.company.short }}/raspberrypi-python/
 [dnsmasq-link]:http://www.thekelleys.org.uk/dnsmasq/doc.html
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
@@ -342,7 +342,7 @@ Note that currently it's not possible to share a mounted device across multiple 
 [network-host]:https://docs.docker.com/network/host/
 [network-bridge]:https://docs.docker.com/network/bridge/
 [network-ports]:https://docs.docker.com/compose/compose-file/compose-file-v2/#ports
-[multicontainer]:{{ $links.githubProjects }}/multicontainer-getting-started
+[multicontainer]:{{ $links.githubLabs }}/multicontainer-getting-started
 [network-ipam]:https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference
 [network-aliases]:https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases
 [services-masterclass]:{{ $links.githubMain }}/services-masterclass#4-networking-types

@@ -237,7 +237,7 @@ This dashboard can be used on TVs or on monitors.
 
 [py-gpio]:https://github.com/nghiant2710/resin-rpi-gpio-sample-with-python
 [picamera-node]:https://github.com/shaunmulligan/resin-rpi-nodejs-picamera
-[picamera-py]:{{ $links.githubProjects }}/balena-rpi-python-picamera
+[picamera-py]:{{ $links.githubLabs }}/balena-rpi-python-picamera
 [ADC_py]:https://github.com/shaunmulligan/resin-rpi-py-ADC
 [resin-tether]:https://github.com/petrosagg/resin-tether
 [example-pi-pins]:https://github.com/shaunmulligan/basic-gpio

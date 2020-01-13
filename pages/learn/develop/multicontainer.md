@@ -90,7 +90,7 @@ In addition to the settings above, there are some {{ $names.company.lower }} spe
 {{> "general/labels" }}
 
 [docker-compose]:https://docs.docker.com/compose/overview/
-[simple-app]:{{ $links.githubProjects }}/multicontainer-getting-started
+[simple-app]:{{ $links.githubLabs }}/multicontainer-getting-started
 [compose-features]:https://docs.docker.com/compose/compose-file/compose-file-v2/
 [compose-support]:/reference/supervisor/docker-compose
 [depends-on]:https://docs.docker.com/compose/compose-file/compose-file-v2/#depends_on

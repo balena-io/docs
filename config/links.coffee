@@ -12,7 +12,7 @@ module.exports =
     black: "#{BB_PRODUCTS}/black"
     green: "#{BB_PRODUCTS}/green"
   githubMain: 'https://github.com/balena-io'
-  githubProjects: 'https://github.com/balena-io-projects'
+  githubLabs: 'https://github.com/balenalabs'
   githubPlayground: 'https://github.com/balena-io-playground'
   githubOS: 'https://github.com/balena-os'
   githubBaseImages: 'https://github.com/balena-io-library/base-images/tree/master/balena-base-images/device-base'

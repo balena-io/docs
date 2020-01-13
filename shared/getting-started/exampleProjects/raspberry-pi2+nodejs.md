@@ -3,4 +3,4 @@
 ### RPI camera module example in Node.js
 
 {{> icon class="octicon octicon-mark-github" }}
-[Repository]({{ $links.githubProjects }}/balena-rpi-nodejs-picamera)
+[Repository]({{ $links.githubLabs }}/balena-rpi-nodejs-picamera)
