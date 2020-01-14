@@ -7,7 +7,7 @@ __Note:__ {{ $names.os.upper }} will completely write over the existing eMMC.
 <!-- <img src="/img/artik5/artik5-dev-kit.png" width="80%"> -->
 If you selected WiFi as your connectivity type, remember to attach the WiFi antennas before booting the board.
 
-We can now insert the 5VDC power cable and flip the power switch labelled `SW700`, to the `on` position.
+We can now insert the 5VDC power cable and flip the power switch labeled `SW700`, to the `on` position.
 We should now have some glowing LEDs on the underside of the board indicating a sign of life. Next we need to press and hold the `SW400 POWER` push button for 1 or 2 seconds,
 this starts the boot from the {{ $device.bootMedia }}. You should see the red `POWER ON` LED light up when it starts booting.
 

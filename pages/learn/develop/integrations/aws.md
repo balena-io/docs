@@ -87,7 +87,7 @@ After flashing is done, insert the SD card into your device and turn it on. Afte
 
 ### Step 3 - Push the app code
 
-Once your device is showing up on the dashboard, it is time to push the code to balenaCloud, after which it will automatically distribute it to all of the devices in your application. For that, we will download the source code from GitHub and push the project to the device using the [balena CLI tools](https://github.com/balena-io/balena-cli). I’ve summarised the process for this below, but if you need more information we have a [detailed deployment guide](https://www.balena.io/docs/learn/deploy/deployment/) available in our docs.
+Once your device is showing up on the dashboard, it is time to push the code to balenaCloud, after which it will automatically distribute it to all of the devices in your application. For that, we will download the source code from GitHub and push the project to the device using the [balena CLI tools](https://github.com/balena-io/balena-cli). I’ve summarized the process for this below, but if you need more information we have a [detailed deployment guide](https://www.balena.io/docs/learn/deploy/deployment/) available in our docs.
 
 First of all, download the app from [the GitHub project repository]({{ $links.githubPlayground }}/balena-aws-iot-mqtt-example), and clone or download it to your computer.
 
@@ -156,7 +156,7 @@ Then in your application you can access the environmental variables through `pro
 
 ```Javascript
 var awsIot = require('aws-iot-device-sdk');
-var Chance = require('chance'); // used to randomise bool values
+var Chance = require('chance'); // used to randomize bool values
 var chance = new Chance();
 
 var device = awsIot.device({

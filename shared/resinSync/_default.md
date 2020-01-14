@@ -24,7 +24,7 @@ Once the CLI is installed globally, login with your {{ $names.company.lower }} a
 ```
 $ {{ $names.company.lower }} login
 ```
-You should then be presented with 3 options to login. The recommended method is `Web authorisation` which will open a dialog in your web browser and ask you to authorise the use of the CLI.
+You should then be presented with 3 options to login. The recommended method is `Web authorization` which will open a dialog in your web browser and ask you to authorize the use of the CLI.
 ```
 {{ $names.company.lower }}:simple-server-node shaun$ {{ $names.company.lower }} login
  _            _

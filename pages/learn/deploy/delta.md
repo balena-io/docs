@@ -16,17 +16,17 @@ These binary deltas save on the amount of data needed to be downloaded, reduce t
 
 ## Enabling delta updates
 
-Delta update behaviour is enabled with the `RESIN_SUPERVISOR_DELTA` configuration variable:
+Delta update behavior is enabled with the `RESIN_SUPERVISOR_DELTA` configuration variable:
 
-![Setting the fleet configuration to enable delta behaviour](/img/runtime/ResinSupervisorDelta.png)
+![Setting the fleet configuration to enable delta behavior](/img/runtime/ResinSupervisorDelta.png)
 
-To enable this behaviour application-wide, that is for all devices of a given application, set the above variable at **Fleet Configuration** in the {{ $names.company.lower }} dashboard of your application, through the {{ $names.company.lower }} [API](/reference/api/resources/application_config_variable/), through the SDK (in [Node.js](/reference/sdk/node-sdk/#configvar-set-nameorid-key-value-code-promise-code-) or [Python](/reference/sdk/python-sdk/#applicationconfigvariable)), or the [command line interface](/tools/cli/#envs).
+To enable this behavior application-wide, that is for all devices of a given application, set the above variable at **Fleet Configuration** in the {{ $names.company.lower }} dashboard of your application, through the {{ $names.company.lower }} [API](/reference/api/resources/application_config_variable/), through the SDK (in [Node.js](/reference/sdk/node-sdk/#configvar-set-nameorid-key-value-code-promise-code-) or [Python](/reference/sdk/python-sdk/#applicationconfigvariable)), or the [command line interface](/tools/cli/#envs).
 
-To enable this behaviour on a per-device basis, set the above variable at **Device Configuration** in the {{ $names.company.lower }} dashboard for your device, through the {{ $names.company.lower }} [API](/runtime/data-api/#create-device-variable), through the SDK (in [Node.js](/reference/sdk/node-sdk/#configvar-set-uuidorid-key-value-code-promise-code-) or [Python](/reference/sdk/python-sdk/#deviceconfigvariable)), or the [command line interface](/tools/cli/#envs). If the device is [moved to another application](/management/devices/#move-to-another-application), it will keep the delta updates behaviour regardless of the application setting.
+To enable this behavior on a per-device basis, set the above variable at **Device Configuration** in the {{ $names.company.lower }} dashboard for your device, through the {{ $names.company.lower }} [API](/runtime/data-api/#create-device-variable), through the SDK (in [Node.js](/reference/sdk/node-sdk/#configvar-set-uuidorid-key-value-code-promise-code-) or [Python](/reference/sdk/python-sdk/#deviceconfigvariable)), or the [command line interface](/tools/cli/#envs). If the device is [moved to another application](/management/devices/#move-to-another-application), it will keep the delta updates behavior regardless of the application setting.
 
-## Delta behaviour
+## Delta behavior
 
-If you are using delta updates, you might notice the following changes in {{ $names.company.lower }} behaviour:
+If you are using delta updates, you might notice the following changes in {{ $names.company.lower }} behavior:
 
 The *Download progress* bar on the dashboard might show for only a short time—much shorter than in a normal application update. This is because in the most common development patterns, there are usually very small changes between one version of the application image and the next (e.g. fixing typos, adding a new source file, or installing an extra OS package), and when using deltas these changes are downloaded much quicker than before.
 

@@ -6,7 +6,7 @@ __Note:__ {{ $names.os.upper }} will completely write over the existing eMMC, so
 
 If you selected WiFi as your connectivity type, remember to attach the WiFi antennas before booting the board.
 
-You can now insert the 12VDC power cable and press and hold the power button for 1 second until the RGB LED in the centre of the board starts blinking. The board will now boot from your {{ $device.bootMedia}} and flash the device's internal storage with {{ $names.os.lower }}.
+You can now insert the 12VDC power cable and press and hold the power button for 1 second until the RGB LED in the center of the board starts blinking. The board will now boot from your {{ $device.bootMedia}} and flash the device's internal storage with {{ $names.os.lower }}.
 
 After a few seconds you should see your **{{ $device.name }}** appear on the {{ $names.company.lower }} dashboard in a configuring state.
 If it still hasn't appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the right WiFi credentials at download time.

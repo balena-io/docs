@@ -13,7 +13,7 @@ If your device still hasn't shown up on your dashboard after a few minutes, some
 
 If you still can't get your device online, come on over and talk to us on our [support channel][usingSupport].
 
-__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your {{ $names.company.lower }} dashboard."` on the screen when the device boots. If instead you see rainbow colours or a black screen with 4 raspberries on it, it could mean that the SD card was not burned correctly or is corrupted.
+__Note:__ If you have an HDMI screen attached, you should see `"Booted - Check your {{ $names.company.lower }} dashboard."` on the screen when the device boots. If instead you see rainbow colors or a black screen with 4 raspberries on it, it could mean that the SD card was not burned correctly or is corrupted.
 
 [dashboard]:{{ $links.dashboardUrl }}/
 [networkRequirements]:/reference/OS/network/2.x/#network-requirements
