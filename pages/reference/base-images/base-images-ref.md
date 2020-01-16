@@ -11,12 +11,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/raspberry-pi| [Docker Hub][armv6hf-raspberry-pi-dockerhub-link], [GitHub][armv6hf-raspberry-pi-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberry-pi| [Docker Hub][armv6hf-raspberry-pi-dockerhub-link], [GitHub][armv6hf-raspberry-pi-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberry-pi-node | [Docker Hub][armv6hf-raspberry-pi-node-dockerhub-link], [GitHub][armv6hf-raspberry-pi-node-github-link] | For available image tags, refer [here][armv6hf-raspberry-pi-node-dockerhub-tag-link] |
 | balenalib/raspberry-pi-python | [Docker Hub][armv6hf-raspberry-pi-python-dockerhub-link], [GitHub][armv6hf-raspberry-pi-python-github-link] | For available image tags, refer [here][armv6hf-raspberry-pi-python-dockerhub-tag-link] |
 | balenalib/raspberry-pi-golang | [Docker Hub][armv6hf-raspberry-pi-golang-dockerhub-link], [GitHub][armv6hf-raspberry-pi-golang-github-link] | For available image tags, refer [here][armv6hf-raspberry-pi-golang-dockerhub-tag-link] |
 | balenalib/raspberry-pi-openjdk | [Docker Hub][armv6hf-raspberry-pi-openjdk-dockerhub-link], [GitHub][armv6hf-raspberry-pi-openjdk-github-link] | For available image tags, refer [here][armv6hf-raspberry-pi-openjdk-dockerhub-tag-link] |
-| balenalib/raspberry-pi-debian | [Docker Hub][armv6hf-raspberry-pi-debian-dockerhub-link], [GitHub][armv6hf-raspberry-pi-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberry-pi-debian | [Docker Hub][armv6hf-raspberry-pi-debian-dockerhub-link], [GitHub][armv6hf-raspberry-pi-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberry-pi-debian-node | [Docker Hub][armv6hf-raspberry-pi-debian-node-dockerhub-link], [GitHub][armv6hf-raspberry-pi-debian-node-github-link] | For available image tags, refer [here][armv6hf-raspberry-pi-debian-node-dockerhub-tag-link] |
 | balenalib/raspberry-pi-debian-python | [Docker Hub][armv6hf-raspberry-pi-debian-python-dockerhub-link], [GitHub][armv6hf-raspberry-pi-debian-python-github-link] | For available image tags, refer [here][armv6hf-raspberry-pi-debian-python-dockerhub-tag-link] |
 | balenalib/raspberry-pi-debian-golang | [Docker Hub][armv6hf-raspberry-pi-debian-golang-dockerhub-link], [GitHub][armv6hf-raspberry-pi-debian-golang-github-link] | For available image tags, refer [here][armv6hf-raspberry-pi-debian-golang-dockerhub-tag-link] |
@@ -36,12 +36,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/raspberry-pi2| [Docker Hub][armv7hf-raspberry-pi2-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberry-pi2| [Docker Hub][armv7hf-raspberry-pi2-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberry-pi2-node | [Docker Hub][armv7hf-raspberry-pi2-node-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-node-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi2-node-dockerhub-tag-link] |
 | balenalib/raspberry-pi2-python | [Docker Hub][armv7hf-raspberry-pi2-python-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-python-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi2-python-dockerhub-tag-link] |
 | balenalib/raspberry-pi2-golang | [Docker Hub][armv7hf-raspberry-pi2-golang-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-golang-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi2-golang-dockerhub-tag-link] |
 | balenalib/raspberry-pi2-openjdk | [Docker Hub][armv7hf-raspberry-pi2-openjdk-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi2-openjdk-dockerhub-tag-link] |
-| balenalib/raspberry-pi2-debian | [Docker Hub][armv7hf-raspberry-pi2-debian-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberry-pi2-debian | [Docker Hub][armv7hf-raspberry-pi2-debian-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberry-pi2-debian-node | [Docker Hub][armv7hf-raspberry-pi2-debian-node-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-debian-node-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi2-debian-node-dockerhub-tag-link] |
 | balenalib/raspberry-pi2-debian-python | [Docker Hub][armv7hf-raspberry-pi2-debian-python-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-debian-python-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi2-debian-python-dockerhub-tag-link] |
 | balenalib/raspberry-pi2-debian-golang | [Docker Hub][armv7hf-raspberry-pi2-debian-golang-dockerhub-link], [GitHub][armv7hf-raspberry-pi2-debian-golang-github-link] | For available image tags, refer [here][armv7hf-raspberry-pi2-debian-golang-dockerhub-tag-link] |
@@ -67,12 +67,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/raspberrypi3| [Docker Hub][armv7hf-raspberrypi3-dockerhub-link], [GitHub][armv7hf-raspberrypi3-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberrypi3| [Docker Hub][armv7hf-raspberrypi3-dockerhub-link], [GitHub][armv7hf-raspberrypi3-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberrypi3-node | [Docker Hub][armv7hf-raspberrypi3-node-dockerhub-link], [GitHub][armv7hf-raspberrypi3-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-node-dockerhub-tag-link] |
 | balenalib/raspberrypi3-python | [Docker Hub][armv7hf-raspberrypi3-python-dockerhub-link], [GitHub][armv7hf-raspberrypi3-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-python-dockerhub-tag-link] |
 | balenalib/raspberrypi3-golang | [Docker Hub][armv7hf-raspberrypi3-golang-dockerhub-link], [GitHub][armv7hf-raspberrypi3-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-golang-dockerhub-tag-link] |
 | balenalib/raspberrypi3-openjdk | [Docker Hub][armv7hf-raspberrypi3-openjdk-dockerhub-link], [GitHub][armv7hf-raspberrypi3-openjdk-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-openjdk-dockerhub-tag-link] |
-| balenalib/raspberrypi3-debian | [Docker Hub][armv7hf-raspberrypi3-debian-dockerhub-link], [GitHub][armv7hf-raspberrypi3-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberrypi3-debian | [Docker Hub][armv7hf-raspberrypi3-debian-dockerhub-link], [GitHub][armv7hf-raspberrypi3-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberrypi3-debian-node | [Docker Hub][armv7hf-raspberrypi3-debian-node-dockerhub-link], [GitHub][armv7hf-raspberrypi3-debian-node-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-debian-node-dockerhub-tag-link] |
 | balenalib/raspberrypi3-debian-python | [Docker Hub][armv7hf-raspberrypi3-debian-python-dockerhub-link], [GitHub][armv7hf-raspberrypi3-debian-python-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-debian-python-dockerhub-tag-link] |
 | balenalib/raspberrypi3-debian-golang | [Docker Hub][armv7hf-raspberrypi3-debian-golang-dockerhub-link], [GitHub][armv7hf-raspberrypi3-debian-golang-github-link] | For available image tags, refer [here][armv7hf-raspberrypi3-debian-golang-dockerhub-tag-link] |
@@ -98,12 +98,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/beaglebone-black| [Docker Hub][armv7hf-beaglebone-black-dockerhub-link], [GitHub][armv7hf-beaglebone-black-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beaglebone-black| [Docker Hub][armv7hf-beaglebone-black-dockerhub-link], [GitHub][armv7hf-beaglebone-black-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beaglebone-black-node | [Docker Hub][armv7hf-beaglebone-black-node-dockerhub-link], [GitHub][armv7hf-beaglebone-black-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-black-node-dockerhub-tag-link] |
 | balenalib/beaglebone-black-python | [Docker Hub][armv7hf-beaglebone-black-python-dockerhub-link], [GitHub][armv7hf-beaglebone-black-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-black-python-dockerhub-tag-link] |
 | balenalib/beaglebone-black-golang | [Docker Hub][armv7hf-beaglebone-black-golang-dockerhub-link], [GitHub][armv7hf-beaglebone-black-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-black-golang-dockerhub-tag-link] |
 | balenalib/beaglebone-black-openjdk | [Docker Hub][armv7hf-beaglebone-black-openjdk-dockerhub-link], [GitHub][armv7hf-beaglebone-black-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-black-openjdk-dockerhub-tag-link] |
-| balenalib/beaglebone-black-debian | [Docker Hub][armv7hf-beaglebone-black-debian-dockerhub-link], [GitHub][armv7hf-beaglebone-black-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beaglebone-black-debian | [Docker Hub][armv7hf-beaglebone-black-debian-dockerhub-link], [GitHub][armv7hf-beaglebone-black-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beaglebone-black-debian-node | [Docker Hub][armv7hf-beaglebone-black-debian-node-dockerhub-link], [GitHub][armv7hf-beaglebone-black-debian-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-black-debian-node-dockerhub-tag-link] |
 | balenalib/beaglebone-black-debian-python | [Docker Hub][armv7hf-beaglebone-black-debian-python-dockerhub-link], [GitHub][armv7hf-beaglebone-black-debian-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-black-debian-python-dockerhub-tag-link] |
 | balenalib/beaglebone-black-debian-golang | [Docker Hub][armv7hf-beaglebone-black-debian-golang-dockerhub-link], [GitHub][armv7hf-beaglebone-black-debian-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-black-debian-golang-dockerhub-tag-link] |
@@ -129,12 +129,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/beaglebone-green| [Docker Hub][armv7hf-beaglebone-green-dockerhub-link], [GitHub][armv7hf-beaglebone-green-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beaglebone-green| [Docker Hub][armv7hf-beaglebone-green-dockerhub-link], [GitHub][armv7hf-beaglebone-green-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beaglebone-green-node | [Docker Hub][armv7hf-beaglebone-green-node-dockerhub-link], [GitHub][armv7hf-beaglebone-green-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-node-dockerhub-tag-link] |
 | balenalib/beaglebone-green-python | [Docker Hub][armv7hf-beaglebone-green-python-dockerhub-link], [GitHub][armv7hf-beaglebone-green-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-python-dockerhub-tag-link] |
 | balenalib/beaglebone-green-golang | [Docker Hub][armv7hf-beaglebone-green-golang-dockerhub-link], [GitHub][armv7hf-beaglebone-green-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-golang-dockerhub-tag-link] |
 | balenalib/beaglebone-green-openjdk | [Docker Hub][armv7hf-beaglebone-green-openjdk-dockerhub-link], [GitHub][armv7hf-beaglebone-green-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-openjdk-dockerhub-tag-link] |
-| balenalib/beaglebone-green-debian | [Docker Hub][armv7hf-beaglebone-green-debian-dockerhub-link], [GitHub][armv7hf-beaglebone-green-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beaglebone-green-debian | [Docker Hub][armv7hf-beaglebone-green-debian-dockerhub-link], [GitHub][armv7hf-beaglebone-green-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beaglebone-green-debian-node | [Docker Hub][armv7hf-beaglebone-green-debian-node-dockerhub-link], [GitHub][armv7hf-beaglebone-green-debian-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-debian-node-dockerhub-tag-link] |
 | balenalib/beaglebone-green-debian-python | [Docker Hub][armv7hf-beaglebone-green-debian-python-dockerhub-link], [GitHub][armv7hf-beaglebone-green-debian-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-debian-python-dockerhub-tag-link] |
 | balenalib/beaglebone-green-debian-golang | [Docker Hub][armv7hf-beaglebone-green-debian-golang-dockerhub-link], [GitHub][armv7hf-beaglebone-green-debian-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-debian-golang-dockerhub-tag-link] |
@@ -160,12 +160,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/beaglebone-green-wifi| [Docker Hub][armv7hf-beaglebone-green-wifi-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beaglebone-green-wifi| [Docker Hub][armv7hf-beaglebone-green-wifi-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beaglebone-green-wifi-node | [Docker Hub][armv7hf-beaglebone-green-wifi-node-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-node-dockerhub-tag-link] |
 | balenalib/beaglebone-green-wifi-python | [Docker Hub][armv7hf-beaglebone-green-wifi-python-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-python-dockerhub-tag-link] |
 | balenalib/beaglebone-green-wifi-golang | [Docker Hub][armv7hf-beaglebone-green-wifi-golang-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-golang-dockerhub-tag-link] |
 | balenalib/beaglebone-green-wifi-openjdk | [Docker Hub][armv7hf-beaglebone-green-wifi-openjdk-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-openjdk-dockerhub-tag-link] |
-| balenalib/beaglebone-green-wifi-debian | [Docker Hub][armv7hf-beaglebone-green-wifi-debian-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beaglebone-green-wifi-debian | [Docker Hub][armv7hf-beaglebone-green-wifi-debian-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beaglebone-green-wifi-debian-node | [Docker Hub][armv7hf-beaglebone-green-wifi-debian-node-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-debian-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-debian-node-dockerhub-tag-link] |
 | balenalib/beaglebone-green-wifi-debian-python | [Docker Hub][armv7hf-beaglebone-green-wifi-debian-python-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-debian-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-debian-python-dockerhub-tag-link] |
 | balenalib/beaglebone-green-wifi-debian-golang | [Docker Hub][armv7hf-beaglebone-green-wifi-debian-golang-dockerhub-link], [GitHub][armv7hf-beaglebone-green-wifi-debian-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-green-wifi-debian-golang-dockerhub-tag-link] |
@@ -191,12 +191,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/via-vab820-quad| [Docker Hub][armv7hf-via-vab820-quad-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/via-vab820-quad| [Docker Hub][armv7hf-via-vab820-quad-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/via-vab820-quad-node | [Docker Hub][armv7hf-via-vab820-quad-node-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-node-github-link] | For available image tags, refer [here][armv7hf-via-vab820-quad-node-dockerhub-tag-link] |
 | balenalib/via-vab820-quad-python | [Docker Hub][armv7hf-via-vab820-quad-python-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-python-github-link] | For available image tags, refer [here][armv7hf-via-vab820-quad-python-dockerhub-tag-link] |
 | balenalib/via-vab820-quad-golang | [Docker Hub][armv7hf-via-vab820-quad-golang-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-golang-github-link] | For available image tags, refer [here][armv7hf-via-vab820-quad-golang-dockerhub-tag-link] |
 | balenalib/via-vab820-quad-openjdk | [Docker Hub][armv7hf-via-vab820-quad-openjdk-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-openjdk-github-link] | For available image tags, refer [here][armv7hf-via-vab820-quad-openjdk-dockerhub-tag-link] |
-| balenalib/via-vab820-quad-debian | [Docker Hub][armv7hf-via-vab820-quad-debian-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/via-vab820-quad-debian | [Docker Hub][armv7hf-via-vab820-quad-debian-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/via-vab820-quad-debian-node | [Docker Hub][armv7hf-via-vab820-quad-debian-node-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-debian-node-github-link] | For available image tags, refer [here][armv7hf-via-vab820-quad-debian-node-dockerhub-tag-link] |
 | balenalib/via-vab820-quad-debian-python | [Docker Hub][armv7hf-via-vab820-quad-debian-python-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-debian-python-github-link] | For available image tags, refer [here][armv7hf-via-vab820-quad-debian-python-dockerhub-tag-link] |
 | balenalib/via-vab820-quad-debian-golang | [Docker Hub][armv7hf-via-vab820-quad-debian-golang-dockerhub-link], [GitHub][armv7hf-via-vab820-quad-debian-golang-github-link] | For available image tags, refer [here][armv7hf-via-vab820-quad-debian-golang-dockerhub-tag-link] |
@@ -222,12 +222,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/odroid-c1| [Docker Hub][armv7hf-odroid-c1-dockerhub-link], [GitHub][armv7hf-odroid-c1-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/odroid-c1| [Docker Hub][armv7hf-odroid-c1-dockerhub-link], [GitHub][armv7hf-odroid-c1-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/odroid-c1-node | [Docker Hub][armv7hf-odroid-c1-node-dockerhub-link], [GitHub][armv7hf-odroid-c1-node-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-node-dockerhub-tag-link] |
 | balenalib/odroid-c1-python | [Docker Hub][armv7hf-odroid-c1-python-dockerhub-link], [GitHub][armv7hf-odroid-c1-python-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-python-dockerhub-tag-link] |
 | balenalib/odroid-c1-golang | [Docker Hub][armv7hf-odroid-c1-golang-dockerhub-link], [GitHub][armv7hf-odroid-c1-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-golang-dockerhub-tag-link] |
 | balenalib/odroid-c1-openjdk | [Docker Hub][armv7hf-odroid-c1-openjdk-dockerhub-link], [GitHub][armv7hf-odroid-c1-openjdk-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-openjdk-dockerhub-tag-link] |
-| balenalib/odroid-c1-debian | [Docker Hub][armv7hf-odroid-c1-debian-dockerhub-link], [GitHub][armv7hf-odroid-c1-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/odroid-c1-debian | [Docker Hub][armv7hf-odroid-c1-debian-dockerhub-link], [GitHub][armv7hf-odroid-c1-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/odroid-c1-debian-node | [Docker Hub][armv7hf-odroid-c1-debian-node-dockerhub-link], [GitHub][armv7hf-odroid-c1-debian-node-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-debian-node-dockerhub-tag-link] |
 | balenalib/odroid-c1-debian-python | [Docker Hub][armv7hf-odroid-c1-debian-python-dockerhub-link], [GitHub][armv7hf-odroid-c1-debian-python-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-debian-python-dockerhub-tag-link] |
 | balenalib/odroid-c1-debian-golang | [Docker Hub][armv7hf-odroid-c1-debian-golang-dockerhub-link], [GitHub][armv7hf-odroid-c1-debian-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-c1-debian-golang-dockerhub-tag-link] |
@@ -253,12 +253,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/odroid-xu4| [Docker Hub][armv7hf-odroid-xu4-dockerhub-link], [GitHub][armv7hf-odroid-xu4-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/odroid-xu4| [Docker Hub][armv7hf-odroid-xu4-dockerhub-link], [GitHub][armv7hf-odroid-xu4-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/odroid-xu4-node | [Docker Hub][armv7hf-odroid-xu4-node-dockerhub-link], [GitHub][armv7hf-odroid-xu4-node-github-link] | For available image tags, refer [here][armv7hf-odroid-xu4-node-dockerhub-tag-link] |
 | balenalib/odroid-xu4-python | [Docker Hub][armv7hf-odroid-xu4-python-dockerhub-link], [GitHub][armv7hf-odroid-xu4-python-github-link] | For available image tags, refer [here][armv7hf-odroid-xu4-python-dockerhub-tag-link] |
 | balenalib/odroid-xu4-golang | [Docker Hub][armv7hf-odroid-xu4-golang-dockerhub-link], [GitHub][armv7hf-odroid-xu4-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-xu4-golang-dockerhub-tag-link] |
 | balenalib/odroid-xu4-openjdk | [Docker Hub][armv7hf-odroid-xu4-openjdk-dockerhub-link], [GitHub][armv7hf-odroid-xu4-openjdk-github-link] | For available image tags, refer [here][armv7hf-odroid-xu4-openjdk-dockerhub-tag-link] |
-| balenalib/odroid-xu4-debian | [Docker Hub][armv7hf-odroid-xu4-debian-dockerhub-link], [GitHub][armv7hf-odroid-xu4-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/odroid-xu4-debian | [Docker Hub][armv7hf-odroid-xu4-debian-dockerhub-link], [GitHub][armv7hf-odroid-xu4-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/odroid-xu4-debian-node | [Docker Hub][armv7hf-odroid-xu4-debian-node-dockerhub-link], [GitHub][armv7hf-odroid-xu4-debian-node-github-link] | For available image tags, refer [here][armv7hf-odroid-xu4-debian-node-dockerhub-tag-link] |
 | balenalib/odroid-xu4-debian-python | [Docker Hub][armv7hf-odroid-xu4-debian-python-dockerhub-link], [GitHub][armv7hf-odroid-xu4-debian-python-github-link] | For available image tags, refer [here][armv7hf-odroid-xu4-debian-python-dockerhub-tag-link] |
 | balenalib/odroid-xu4-debian-golang | [Docker Hub][armv7hf-odroid-xu4-debian-golang-dockerhub-link], [GitHub][armv7hf-odroid-xu4-debian-golang-github-link] | For available image tags, refer [here][armv7hf-odroid-xu4-debian-golang-dockerhub-tag-link] |
@@ -284,12 +284,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/parallella| [Docker Hub][armv7hf-parallella-dockerhub-link], [GitHub][armv7hf-parallella-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/parallella| [Docker Hub][armv7hf-parallella-dockerhub-link], [GitHub][armv7hf-parallella-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/parallella-node | [Docker Hub][armv7hf-parallella-node-dockerhub-link], [GitHub][armv7hf-parallella-node-github-link] | For available image tags, refer [here][armv7hf-parallella-node-dockerhub-tag-link] |
 | balenalib/parallella-python | [Docker Hub][armv7hf-parallella-python-dockerhub-link], [GitHub][armv7hf-parallella-python-github-link] | For available image tags, refer [here][armv7hf-parallella-python-dockerhub-tag-link] |
 | balenalib/parallella-golang | [Docker Hub][armv7hf-parallella-golang-dockerhub-link], [GitHub][armv7hf-parallella-golang-github-link] | For available image tags, refer [here][armv7hf-parallella-golang-dockerhub-tag-link] |
 | balenalib/parallella-openjdk | [Docker Hub][armv7hf-parallella-openjdk-dockerhub-link], [GitHub][armv7hf-parallella-openjdk-github-link] | For available image tags, refer [here][armv7hf-parallella-openjdk-dockerhub-tag-link] |
-| balenalib/parallella-debian | [Docker Hub][armv7hf-parallella-debian-dockerhub-link], [GitHub][armv7hf-parallella-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/parallella-debian | [Docker Hub][armv7hf-parallella-debian-dockerhub-link], [GitHub][armv7hf-parallella-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/parallella-debian-node | [Docker Hub][armv7hf-parallella-debian-node-dockerhub-link], [GitHub][armv7hf-parallella-debian-node-github-link] | For available image tags, refer [here][armv7hf-parallella-debian-node-dockerhub-tag-link] |
 | balenalib/parallella-debian-python | [Docker Hub][armv7hf-parallella-debian-python-dockerhub-link], [GitHub][armv7hf-parallella-debian-python-github-link] | For available image tags, refer [here][armv7hf-parallella-debian-python-dockerhub-tag-link] |
 | balenalib/parallella-debian-golang | [Docker Hub][armv7hf-parallella-debian-golang-dockerhub-link], [GitHub][armv7hf-parallella-debian-golang-github-link] | For available image tags, refer [here][armv7hf-parallella-debian-golang-dockerhub-tag-link] |
@@ -315,12 +315,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/nitrogen6x| [Docker Hub][armv7hf-nitrogen6x-dockerhub-link], [GitHub][armv7hf-nitrogen6x-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/nitrogen6x| [Docker Hub][armv7hf-nitrogen6x-dockerhub-link], [GitHub][armv7hf-nitrogen6x-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/nitrogen6x-node | [Docker Hub][armv7hf-nitrogen6x-node-dockerhub-link], [GitHub][armv7hf-nitrogen6x-node-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-node-dockerhub-tag-link] |
 | balenalib/nitrogen6x-python | [Docker Hub][armv7hf-nitrogen6x-python-dockerhub-link], [GitHub][armv7hf-nitrogen6x-python-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-python-dockerhub-tag-link] |
 | balenalib/nitrogen6x-golang | [Docker Hub][armv7hf-nitrogen6x-golang-dockerhub-link], [GitHub][armv7hf-nitrogen6x-golang-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-golang-dockerhub-tag-link] |
 | balenalib/nitrogen6x-openjdk | [Docker Hub][armv7hf-nitrogen6x-openjdk-dockerhub-link], [GitHub][armv7hf-nitrogen6x-openjdk-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-openjdk-dockerhub-tag-link] |
-| balenalib/nitrogen6x-debian | [Docker Hub][armv7hf-nitrogen6x-debian-dockerhub-link], [GitHub][armv7hf-nitrogen6x-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/nitrogen6x-debian | [Docker Hub][armv7hf-nitrogen6x-debian-dockerhub-link], [GitHub][armv7hf-nitrogen6x-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/nitrogen6x-debian-node | [Docker Hub][armv7hf-nitrogen6x-debian-node-dockerhub-link], [GitHub][armv7hf-nitrogen6x-debian-node-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-debian-node-dockerhub-tag-link] |
 | balenalib/nitrogen6x-debian-python | [Docker Hub][armv7hf-nitrogen6x-debian-python-dockerhub-link], [GitHub][armv7hf-nitrogen6x-debian-python-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-debian-python-dockerhub-tag-link] |
 | balenalib/nitrogen6x-debian-golang | [Docker Hub][armv7hf-nitrogen6x-debian-golang-dockerhub-link], [GitHub][armv7hf-nitrogen6x-debian-golang-github-link] | For available image tags, refer [here][armv7hf-nitrogen6x-debian-golang-dockerhub-tag-link] |
@@ -346,12 +346,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/hummingboard| [Docker Hub][armv7hf-hummingboard-dockerhub-link], [GitHub][armv7hf-hummingboard-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/hummingboard| [Docker Hub][armv7hf-hummingboard-dockerhub-link], [GitHub][armv7hf-hummingboard-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/hummingboard-node | [Docker Hub][armv7hf-hummingboard-node-dockerhub-link], [GitHub][armv7hf-hummingboard-node-github-link] | For available image tags, refer [here][armv7hf-hummingboard-node-dockerhub-tag-link] |
 | balenalib/hummingboard-python | [Docker Hub][armv7hf-hummingboard-python-dockerhub-link], [GitHub][armv7hf-hummingboard-python-github-link] | For available image tags, refer [here][armv7hf-hummingboard-python-dockerhub-tag-link] |
 | balenalib/hummingboard-golang | [Docker Hub][armv7hf-hummingboard-golang-dockerhub-link], [GitHub][armv7hf-hummingboard-golang-github-link] | For available image tags, refer [here][armv7hf-hummingboard-golang-dockerhub-tag-link] |
 | balenalib/hummingboard-openjdk | [Docker Hub][armv7hf-hummingboard-openjdk-dockerhub-link], [GitHub][armv7hf-hummingboard-openjdk-github-link] | For available image tags, refer [here][armv7hf-hummingboard-openjdk-dockerhub-tag-link] |
-| balenalib/hummingboard-debian | [Docker Hub][armv7hf-hummingboard-debian-dockerhub-link], [GitHub][armv7hf-hummingboard-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/hummingboard-debian | [Docker Hub][armv7hf-hummingboard-debian-dockerhub-link], [GitHub][armv7hf-hummingboard-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/hummingboard-debian-node | [Docker Hub][armv7hf-hummingboard-debian-node-dockerhub-link], [GitHub][armv7hf-hummingboard-debian-node-github-link] | For available image tags, refer [here][armv7hf-hummingboard-debian-node-dockerhub-tag-link] |
 | balenalib/hummingboard-debian-python | [Docker Hub][armv7hf-hummingboard-debian-python-dockerhub-link], [GitHub][armv7hf-hummingboard-debian-python-github-link] | For available image tags, refer [here][armv7hf-hummingboard-debian-python-dockerhub-tag-link] |
 | balenalib/hummingboard-debian-golang | [Docker Hub][armv7hf-hummingboard-debian-golang-dockerhub-link], [GitHub][armv7hf-hummingboard-debian-golang-github-link] | For available image tags, refer [here][armv7hf-hummingboard-debian-golang-dockerhub-tag-link] |
@@ -377,12 +377,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/colibri-imx6dl| [Docker Hub][armv7hf-colibri-imx6dl-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/colibri-imx6dl| [Docker Hub][armv7hf-colibri-imx6dl-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/colibri-imx6dl-node | [Docker Hub][armv7hf-colibri-imx6dl-node-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-node-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6dl-node-dockerhub-tag-link] |
 | balenalib/colibri-imx6dl-python | [Docker Hub][armv7hf-colibri-imx6dl-python-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-python-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6dl-python-dockerhub-tag-link] |
 | balenalib/colibri-imx6dl-golang | [Docker Hub][armv7hf-colibri-imx6dl-golang-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-golang-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6dl-golang-dockerhub-tag-link] |
 | balenalib/colibri-imx6dl-openjdk | [Docker Hub][armv7hf-colibri-imx6dl-openjdk-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-openjdk-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6dl-openjdk-dockerhub-tag-link] |
-| balenalib/colibri-imx6dl-debian | [Docker Hub][armv7hf-colibri-imx6dl-debian-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/colibri-imx6dl-debian | [Docker Hub][armv7hf-colibri-imx6dl-debian-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/colibri-imx6dl-debian-node | [Docker Hub][armv7hf-colibri-imx6dl-debian-node-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-debian-node-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6dl-debian-node-dockerhub-tag-link] |
 | balenalib/colibri-imx6dl-debian-python | [Docker Hub][armv7hf-colibri-imx6dl-debian-python-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-debian-python-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6dl-debian-python-dockerhub-tag-link] |
 | balenalib/colibri-imx6dl-debian-golang | [Docker Hub][armv7hf-colibri-imx6dl-debian-golang-dockerhub-link], [GitHub][armv7hf-colibri-imx6dl-debian-golang-github-link] | For available image tags, refer [here][armv7hf-colibri-imx6dl-debian-golang-dockerhub-tag-link] |
@@ -408,12 +408,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/apalis-imx6q| [Docker Hub][armv7hf-apalis-imx6q-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/apalis-imx6q| [Docker Hub][armv7hf-apalis-imx6q-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/apalis-imx6q-node | [Docker Hub][armv7hf-apalis-imx6q-node-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-node-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6q-node-dockerhub-tag-link] |
 | balenalib/apalis-imx6q-python | [Docker Hub][armv7hf-apalis-imx6q-python-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-python-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6q-python-dockerhub-tag-link] |
 | balenalib/apalis-imx6q-golang | [Docker Hub][armv7hf-apalis-imx6q-golang-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-golang-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6q-golang-dockerhub-tag-link] |
 | balenalib/apalis-imx6q-openjdk | [Docker Hub][armv7hf-apalis-imx6q-openjdk-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-openjdk-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6q-openjdk-dockerhub-tag-link] |
-| balenalib/apalis-imx6q-debian | [Docker Hub][armv7hf-apalis-imx6q-debian-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/apalis-imx6q-debian | [Docker Hub][armv7hf-apalis-imx6q-debian-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/apalis-imx6q-debian-node | [Docker Hub][armv7hf-apalis-imx6q-debian-node-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-debian-node-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6q-debian-node-dockerhub-tag-link] |
 | balenalib/apalis-imx6q-debian-python | [Docker Hub][armv7hf-apalis-imx6q-debian-python-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-debian-python-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6q-debian-python-dockerhub-tag-link] |
 | balenalib/apalis-imx6q-debian-golang | [Docker Hub][armv7hf-apalis-imx6q-debian-golang-dockerhub-link], [GitHub][armv7hf-apalis-imx6q-debian-golang-github-link] | For available image tags, refer [here][armv7hf-apalis-imx6q-debian-golang-dockerhub-tag-link] |
@@ -439,12 +439,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/ts4900| [Docker Hub][armv7hf-ts4900-dockerhub-link], [GitHub][armv7hf-ts4900-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/ts4900| [Docker Hub][armv7hf-ts4900-dockerhub-link], [GitHub][armv7hf-ts4900-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/ts4900-node | [Docker Hub][armv7hf-ts4900-node-dockerhub-link], [GitHub][armv7hf-ts4900-node-github-link] | For available image tags, refer [here][armv7hf-ts4900-node-dockerhub-tag-link] |
 | balenalib/ts4900-python | [Docker Hub][armv7hf-ts4900-python-dockerhub-link], [GitHub][armv7hf-ts4900-python-github-link] | For available image tags, refer [here][armv7hf-ts4900-python-dockerhub-tag-link] |
 | balenalib/ts4900-golang | [Docker Hub][armv7hf-ts4900-golang-dockerhub-link], [GitHub][armv7hf-ts4900-golang-github-link] | For available image tags, refer [here][armv7hf-ts4900-golang-dockerhub-tag-link] |
 | balenalib/ts4900-openjdk | [Docker Hub][armv7hf-ts4900-openjdk-dockerhub-link], [GitHub][armv7hf-ts4900-openjdk-github-link] | For available image tags, refer [here][armv7hf-ts4900-openjdk-dockerhub-tag-link] |
-| balenalib/ts4900-debian | [Docker Hub][armv7hf-ts4900-debian-dockerhub-link], [GitHub][armv7hf-ts4900-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/ts4900-debian | [Docker Hub][armv7hf-ts4900-debian-dockerhub-link], [GitHub][armv7hf-ts4900-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/ts4900-debian-node | [Docker Hub][armv7hf-ts4900-debian-node-dockerhub-link], [GitHub][armv7hf-ts4900-debian-node-github-link] | For available image tags, refer [here][armv7hf-ts4900-debian-node-dockerhub-tag-link] |
 | balenalib/ts4900-debian-python | [Docker Hub][armv7hf-ts4900-debian-python-dockerhub-link], [GitHub][armv7hf-ts4900-debian-python-github-link] | For available image tags, refer [here][armv7hf-ts4900-debian-python-dockerhub-tag-link] |
 | balenalib/ts4900-debian-golang | [Docker Hub][armv7hf-ts4900-debian-golang-dockerhub-link], [GitHub][armv7hf-ts4900-debian-golang-github-link] | For available image tags, refer [here][armv7hf-ts4900-debian-golang-dockerhub-tag-link] |
@@ -470,12 +470,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/artik5| [Docker Hub][armv7hf-artik5-dockerhub-link], [GitHub][armv7hf-artik5-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik5| [Docker Hub][armv7hf-artik5-dockerhub-link], [GitHub][armv7hf-artik5-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik5-node | [Docker Hub][armv7hf-artik5-node-dockerhub-link], [GitHub][armv7hf-artik5-node-github-link] | For available image tags, refer [here][armv7hf-artik5-node-dockerhub-tag-link] |
 | balenalib/artik5-python | [Docker Hub][armv7hf-artik5-python-dockerhub-link], [GitHub][armv7hf-artik5-python-github-link] | For available image tags, refer [here][armv7hf-artik5-python-dockerhub-tag-link] |
 | balenalib/artik5-golang | [Docker Hub][armv7hf-artik5-golang-dockerhub-link], [GitHub][armv7hf-artik5-golang-github-link] | For available image tags, refer [here][armv7hf-artik5-golang-dockerhub-tag-link] |
 | balenalib/artik5-openjdk | [Docker Hub][armv7hf-artik5-openjdk-dockerhub-link], [GitHub][armv7hf-artik5-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik5-openjdk-dockerhub-tag-link] |
-| balenalib/artik5-debian | [Docker Hub][armv7hf-artik5-debian-dockerhub-link], [GitHub][armv7hf-artik5-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik5-debian | [Docker Hub][armv7hf-artik5-debian-dockerhub-link], [GitHub][armv7hf-artik5-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik5-debian-node | [Docker Hub][armv7hf-artik5-debian-node-dockerhub-link], [GitHub][armv7hf-artik5-debian-node-github-link] | For available image tags, refer [here][armv7hf-artik5-debian-node-dockerhub-tag-link] |
 | balenalib/artik5-debian-python | [Docker Hub][armv7hf-artik5-debian-python-dockerhub-link], [GitHub][armv7hf-artik5-debian-python-github-link] | For available image tags, refer [here][armv7hf-artik5-debian-python-dockerhub-tag-link] |
 | balenalib/artik5-debian-golang | [Docker Hub][armv7hf-artik5-debian-golang-dockerhub-link], [GitHub][armv7hf-artik5-debian-golang-github-link] | For available image tags, refer [here][armv7hf-artik5-debian-golang-dockerhub-tag-link] |
@@ -501,12 +501,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/artik10| [Docker Hub][armv7hf-artik10-dockerhub-link], [GitHub][armv7hf-artik10-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik10| [Docker Hub][armv7hf-artik10-dockerhub-link], [GitHub][armv7hf-artik10-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik10-node | [Docker Hub][armv7hf-artik10-node-dockerhub-link], [GitHub][armv7hf-artik10-node-github-link] | For available image tags, refer [here][armv7hf-artik10-node-dockerhub-tag-link] |
 | balenalib/artik10-python | [Docker Hub][armv7hf-artik10-python-dockerhub-link], [GitHub][armv7hf-artik10-python-github-link] | For available image tags, refer [here][armv7hf-artik10-python-dockerhub-tag-link] |
 | balenalib/artik10-golang | [Docker Hub][armv7hf-artik10-golang-dockerhub-link], [GitHub][armv7hf-artik10-golang-github-link] | For available image tags, refer [here][armv7hf-artik10-golang-dockerhub-tag-link] |
 | balenalib/artik10-openjdk | [Docker Hub][armv7hf-artik10-openjdk-dockerhub-link], [GitHub][armv7hf-artik10-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik10-openjdk-dockerhub-tag-link] |
-| balenalib/artik10-debian | [Docker Hub][armv7hf-artik10-debian-dockerhub-link], [GitHub][armv7hf-artik10-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik10-debian | [Docker Hub][armv7hf-artik10-debian-dockerhub-link], [GitHub][armv7hf-artik10-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik10-debian-node | [Docker Hub][armv7hf-artik10-debian-node-dockerhub-link], [GitHub][armv7hf-artik10-debian-node-github-link] | For available image tags, refer [here][armv7hf-artik10-debian-node-dockerhub-tag-link] |
 | balenalib/artik10-debian-python | [Docker Hub][armv7hf-artik10-debian-python-dockerhub-link], [GitHub][armv7hf-artik10-debian-python-github-link] | For available image tags, refer [here][armv7hf-artik10-debian-python-dockerhub-tag-link] |
 | balenalib/artik10-debian-golang | [Docker Hub][armv7hf-artik10-debian-golang-dockerhub-link], [GitHub][armv7hf-artik10-debian-golang-github-link] | For available image tags, refer [here][armv7hf-artik10-debian-golang-dockerhub-tag-link] |
@@ -532,12 +532,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/imx6ul-var-dart| [Docker Hub][armv7hf-imx6ul-var-dart-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/imx6ul-var-dart| [Docker Hub][armv7hf-imx6ul-var-dart-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/imx6ul-var-dart-node | [Docker Hub][armv7hf-imx6ul-var-dart-node-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-node-github-link] | For available image tags, refer [here][armv7hf-imx6ul-var-dart-node-dockerhub-tag-link] |
 | balenalib/imx6ul-var-dart-python | [Docker Hub][armv7hf-imx6ul-var-dart-python-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-python-github-link] | For available image tags, refer [here][armv7hf-imx6ul-var-dart-python-dockerhub-tag-link] |
 | balenalib/imx6ul-var-dart-golang | [Docker Hub][armv7hf-imx6ul-var-dart-golang-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-golang-github-link] | For available image tags, refer [here][armv7hf-imx6ul-var-dart-golang-dockerhub-tag-link] |
 | balenalib/imx6ul-var-dart-openjdk | [Docker Hub][armv7hf-imx6ul-var-dart-openjdk-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-openjdk-github-link] | For available image tags, refer [here][armv7hf-imx6ul-var-dart-openjdk-dockerhub-tag-link] |
-| balenalib/imx6ul-var-dart-debian | [Docker Hub][armv7hf-imx6ul-var-dart-debian-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/imx6ul-var-dart-debian | [Docker Hub][armv7hf-imx6ul-var-dart-debian-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/imx6ul-var-dart-debian-node | [Docker Hub][armv7hf-imx6ul-var-dart-debian-node-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-debian-node-github-link] | For available image tags, refer [here][armv7hf-imx6ul-var-dart-debian-node-dockerhub-tag-link] |
 | balenalib/imx6ul-var-dart-debian-python | [Docker Hub][armv7hf-imx6ul-var-dart-debian-python-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-debian-python-github-link] | For available image tags, refer [here][armv7hf-imx6ul-var-dart-debian-python-dockerhub-tag-link] |
 | balenalib/imx6ul-var-dart-debian-golang | [Docker Hub][armv7hf-imx6ul-var-dart-debian-golang-dockerhub-link], [GitHub][armv7hf-imx6ul-var-dart-debian-golang-github-link] | For available image tags, refer [here][armv7hf-imx6ul-var-dart-debian-golang-dockerhub-tag-link] |
@@ -563,12 +563,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/am571x-evm| [Docker Hub][armv7hf-am571x-evm-dockerhub-link], [GitHub][armv7hf-am571x-evm-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/am571x-evm| [Docker Hub][armv7hf-am571x-evm-dockerhub-link], [GitHub][armv7hf-am571x-evm-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/am571x-evm-node | [Docker Hub][armv7hf-am571x-evm-node-dockerhub-link], [GitHub][armv7hf-am571x-evm-node-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-node-dockerhub-tag-link] |
 | balenalib/am571x-evm-python | [Docker Hub][armv7hf-am571x-evm-python-dockerhub-link], [GitHub][armv7hf-am571x-evm-python-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-python-dockerhub-tag-link] |
 | balenalib/am571x-evm-golang | [Docker Hub][armv7hf-am571x-evm-golang-dockerhub-link], [GitHub][armv7hf-am571x-evm-golang-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-golang-dockerhub-tag-link] |
 | balenalib/am571x-evm-openjdk | [Docker Hub][armv7hf-am571x-evm-openjdk-dockerhub-link], [GitHub][armv7hf-am571x-evm-openjdk-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-openjdk-dockerhub-tag-link] |
-| balenalib/am571x-evm-debian | [Docker Hub][armv7hf-am571x-evm-debian-dockerhub-link], [GitHub][armv7hf-am571x-evm-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/am571x-evm-debian | [Docker Hub][armv7hf-am571x-evm-debian-dockerhub-link], [GitHub][armv7hf-am571x-evm-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/am571x-evm-debian-node | [Docker Hub][armv7hf-am571x-evm-debian-node-dockerhub-link], [GitHub][armv7hf-am571x-evm-debian-node-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-debian-node-dockerhub-tag-link] |
 | balenalib/am571x-evm-debian-python | [Docker Hub][armv7hf-am571x-evm-debian-python-dockerhub-link], [GitHub][armv7hf-am571x-evm-debian-python-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-debian-python-dockerhub-tag-link] |
 | balenalib/am571x-evm-debian-golang | [Docker Hub][armv7hf-am571x-evm-debian-golang-dockerhub-link], [GitHub][armv7hf-am571x-evm-debian-golang-github-link] | For available image tags, refer [here][armv7hf-am571x-evm-debian-golang-dockerhub-tag-link] |
@@ -594,12 +594,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/kitra520| [Docker Hub][armv7hf-kitra520-dockerhub-link], [GitHub][armv7hf-kitra520-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/kitra520| [Docker Hub][armv7hf-kitra520-dockerhub-link], [GitHub][armv7hf-kitra520-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/kitra520-node | [Docker Hub][armv7hf-kitra520-node-dockerhub-link], [GitHub][armv7hf-kitra520-node-github-link] | For available image tags, refer [here][armv7hf-kitra520-node-dockerhub-tag-link] |
 | balenalib/kitra520-python | [Docker Hub][armv7hf-kitra520-python-dockerhub-link], [GitHub][armv7hf-kitra520-python-github-link] | For available image tags, refer [here][armv7hf-kitra520-python-dockerhub-tag-link] |
 | balenalib/kitra520-golang | [Docker Hub][armv7hf-kitra520-golang-dockerhub-link], [GitHub][armv7hf-kitra520-golang-github-link] | For available image tags, refer [here][armv7hf-kitra520-golang-dockerhub-tag-link] |
 | balenalib/kitra520-openjdk | [Docker Hub][armv7hf-kitra520-openjdk-dockerhub-link], [GitHub][armv7hf-kitra520-openjdk-github-link] | For available image tags, refer [here][armv7hf-kitra520-openjdk-dockerhub-tag-link] |
-| balenalib/kitra520-debian | [Docker Hub][armv7hf-kitra520-debian-dockerhub-link], [GitHub][armv7hf-kitra520-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/kitra520-debian | [Docker Hub][armv7hf-kitra520-debian-dockerhub-link], [GitHub][armv7hf-kitra520-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/kitra520-debian-node | [Docker Hub][armv7hf-kitra520-debian-node-dockerhub-link], [GitHub][armv7hf-kitra520-debian-node-github-link] | For available image tags, refer [here][armv7hf-kitra520-debian-node-dockerhub-tag-link] |
 | balenalib/kitra520-debian-python | [Docker Hub][armv7hf-kitra520-debian-python-dockerhub-link], [GitHub][armv7hf-kitra520-debian-python-github-link] | For available image tags, refer [here][armv7hf-kitra520-debian-python-dockerhub-tag-link] |
 | balenalib/kitra520-debian-golang | [Docker Hub][armv7hf-kitra520-debian-golang-dockerhub-link], [GitHub][armv7hf-kitra520-debian-golang-github-link] | For available image tags, refer [here][armv7hf-kitra520-debian-golang-dockerhub-tag-link] |
@@ -625,12 +625,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/bananapi-m1-plus| [Docker Hub][armv7hf-bananapi-m1-plus-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/bananapi-m1-plus| [Docker Hub][armv7hf-bananapi-m1-plus-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/bananapi-m1-plus-node | [Docker Hub][armv7hf-bananapi-m1-plus-node-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-node-github-link] | For available image tags, refer [here][armv7hf-bananapi-m1-plus-node-dockerhub-tag-link] |
 | balenalib/bananapi-m1-plus-python | [Docker Hub][armv7hf-bananapi-m1-plus-python-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-python-github-link] | For available image tags, refer [here][armv7hf-bananapi-m1-plus-python-dockerhub-tag-link] |
 | balenalib/bananapi-m1-plus-golang | [Docker Hub][armv7hf-bananapi-m1-plus-golang-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-golang-github-link] | For available image tags, refer [here][armv7hf-bananapi-m1-plus-golang-dockerhub-tag-link] |
 | balenalib/bananapi-m1-plus-openjdk | [Docker Hub][armv7hf-bananapi-m1-plus-openjdk-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-openjdk-github-link] | For available image tags, refer [here][armv7hf-bananapi-m1-plus-openjdk-dockerhub-tag-link] |
-| balenalib/bananapi-m1-plus-debian | [Docker Hub][armv7hf-bananapi-m1-plus-debian-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/bananapi-m1-plus-debian | [Docker Hub][armv7hf-bananapi-m1-plus-debian-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/bananapi-m1-plus-debian-node | [Docker Hub][armv7hf-bananapi-m1-plus-debian-node-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-debian-node-github-link] | For available image tags, refer [here][armv7hf-bananapi-m1-plus-debian-node-dockerhub-tag-link] |
 | balenalib/bananapi-m1-plus-debian-python | [Docker Hub][armv7hf-bananapi-m1-plus-debian-python-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-debian-python-github-link] | For available image tags, refer [here][armv7hf-bananapi-m1-plus-debian-python-dockerhub-tag-link] |
 | balenalib/bananapi-m1-plus-debian-golang | [Docker Hub][armv7hf-bananapi-m1-plus-debian-golang-dockerhub-link], [GitHub][armv7hf-bananapi-m1-plus-debian-golang-github-link] | For available image tags, refer [here][armv7hf-bananapi-m1-plus-debian-golang-dockerhub-tag-link] |
@@ -656,12 +656,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/generic-armv7ahf| [Docker Hub][armv7hf-generic-armv7ahf-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/generic-armv7ahf| [Docker Hub][armv7hf-generic-armv7ahf-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/generic-armv7ahf-node | [Docker Hub][armv7hf-generic-armv7ahf-node-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-node-github-link] | For available image tags, refer [here][armv7hf-generic-armv7ahf-node-dockerhub-tag-link] |
 | balenalib/generic-armv7ahf-python | [Docker Hub][armv7hf-generic-armv7ahf-python-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-python-github-link] | For available image tags, refer [here][armv7hf-generic-armv7ahf-python-dockerhub-tag-link] |
 | balenalib/generic-armv7ahf-golang | [Docker Hub][armv7hf-generic-armv7ahf-golang-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-golang-github-link] | For available image tags, refer [here][armv7hf-generic-armv7ahf-golang-dockerhub-tag-link] |
 | balenalib/generic-armv7ahf-openjdk | [Docker Hub][armv7hf-generic-armv7ahf-openjdk-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-openjdk-github-link] | For available image tags, refer [here][armv7hf-generic-armv7ahf-openjdk-dockerhub-tag-link] |
-| balenalib/generic-armv7ahf-debian | [Docker Hub][armv7hf-generic-armv7ahf-debian-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/generic-armv7ahf-debian | [Docker Hub][armv7hf-generic-armv7ahf-debian-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/generic-armv7ahf-debian-node | [Docker Hub][armv7hf-generic-armv7ahf-debian-node-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-debian-node-github-link] | For available image tags, refer [here][armv7hf-generic-armv7ahf-debian-node-dockerhub-tag-link] |
 | balenalib/generic-armv7ahf-debian-python | [Docker Hub][armv7hf-generic-armv7ahf-debian-python-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-debian-python-github-link] | For available image tags, refer [here][armv7hf-generic-armv7ahf-debian-python-dockerhub-tag-link] |
 | balenalib/generic-armv7ahf-debian-golang | [Docker Hub][armv7hf-generic-armv7ahf-debian-golang-dockerhub-link], [GitHub][armv7hf-generic-armv7ahf-debian-golang-github-link] | For available image tags, refer [here][armv7hf-generic-armv7ahf-debian-golang-dockerhub-tag-link] |
@@ -687,12 +687,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/orangepi-plus2| [Docker Hub][armv7hf-orangepi-plus2-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orangepi-plus2| [Docker Hub][armv7hf-orangepi-plus2-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orangepi-plus2-node | [Docker Hub][armv7hf-orangepi-plus2-node-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-node-github-link] | For available image tags, refer [here][armv7hf-orangepi-plus2-node-dockerhub-tag-link] |
 | balenalib/orangepi-plus2-python | [Docker Hub][armv7hf-orangepi-plus2-python-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-python-github-link] | For available image tags, refer [here][armv7hf-orangepi-plus2-python-dockerhub-tag-link] |
 | balenalib/orangepi-plus2-golang | [Docker Hub][armv7hf-orangepi-plus2-golang-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-golang-github-link] | For available image tags, refer [here][armv7hf-orangepi-plus2-golang-dockerhub-tag-link] |
 | balenalib/orangepi-plus2-openjdk | [Docker Hub][armv7hf-orangepi-plus2-openjdk-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-openjdk-github-link] | For available image tags, refer [here][armv7hf-orangepi-plus2-openjdk-dockerhub-tag-link] |
-| balenalib/orangepi-plus2-debian | [Docker Hub][armv7hf-orangepi-plus2-debian-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orangepi-plus2-debian | [Docker Hub][armv7hf-orangepi-plus2-debian-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orangepi-plus2-debian-node | [Docker Hub][armv7hf-orangepi-plus2-debian-node-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-debian-node-github-link] | For available image tags, refer [here][armv7hf-orangepi-plus2-debian-node-dockerhub-tag-link] |
 | balenalib/orangepi-plus2-debian-python | [Docker Hub][armv7hf-orangepi-plus2-debian-python-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-debian-python-github-link] | For available image tags, refer [here][armv7hf-orangepi-plus2-debian-python-dockerhub-tag-link] |
 | balenalib/orangepi-plus2-debian-golang | [Docker Hub][armv7hf-orangepi-plus2-debian-golang-dockerhub-link], [GitHub][armv7hf-orangepi-plus2-debian-golang-github-link] | For available image tags, refer [here][armv7hf-orangepi-plus2-debian-golang-dockerhub-tag-link] |
@@ -718,12 +718,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/fincm3| [Docker Hub][armv7hf-fincm3-dockerhub-link], [GitHub][armv7hf-fincm3-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/fincm3| [Docker Hub][armv7hf-fincm3-dockerhub-link], [GitHub][armv7hf-fincm3-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/fincm3-node | [Docker Hub][armv7hf-fincm3-node-dockerhub-link], [GitHub][armv7hf-fincm3-node-github-link] | For available image tags, refer [here][armv7hf-fincm3-node-dockerhub-tag-link] |
 | balenalib/fincm3-python | [Docker Hub][armv7hf-fincm3-python-dockerhub-link], [GitHub][armv7hf-fincm3-python-github-link] | For available image tags, refer [here][armv7hf-fincm3-python-dockerhub-tag-link] |
 | balenalib/fincm3-golang | [Docker Hub][armv7hf-fincm3-golang-dockerhub-link], [GitHub][armv7hf-fincm3-golang-github-link] | For available image tags, refer [here][armv7hf-fincm3-golang-dockerhub-tag-link] |
 | balenalib/fincm3-openjdk | [Docker Hub][armv7hf-fincm3-openjdk-dockerhub-link], [GitHub][armv7hf-fincm3-openjdk-github-link] | For available image tags, refer [here][armv7hf-fincm3-openjdk-dockerhub-tag-link] |
-| balenalib/fincm3-debian | [Docker Hub][armv7hf-fincm3-debian-dockerhub-link], [GitHub][armv7hf-fincm3-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/fincm3-debian | [Docker Hub][armv7hf-fincm3-debian-dockerhub-link], [GitHub][armv7hf-fincm3-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/fincm3-debian-node | [Docker Hub][armv7hf-fincm3-debian-node-dockerhub-link], [GitHub][armv7hf-fincm3-debian-node-github-link] | For available image tags, refer [here][armv7hf-fincm3-debian-node-dockerhub-tag-link] |
 | balenalib/fincm3-debian-python | [Docker Hub][armv7hf-fincm3-debian-python-dockerhub-link], [GitHub][armv7hf-fincm3-debian-python-github-link] | For available image tags, refer [here][armv7hf-fincm3-debian-python-dockerhub-tag-link] |
 | balenalib/fincm3-debian-golang | [Docker Hub][armv7hf-fincm3-debian-golang-dockerhub-link], [GitHub][armv7hf-fincm3-debian-golang-github-link] | For available image tags, refer [here][armv7hf-fincm3-debian-golang-dockerhub-tag-link] |
@@ -749,12 +749,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/artik533s| [Docker Hub][armv7hf-artik533s-dockerhub-link], [GitHub][armv7hf-artik533s-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik533s| [Docker Hub][armv7hf-artik533s-dockerhub-link], [GitHub][armv7hf-artik533s-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik533s-node | [Docker Hub][armv7hf-artik533s-node-dockerhub-link], [GitHub][armv7hf-artik533s-node-github-link] | For available image tags, refer [here][armv7hf-artik533s-node-dockerhub-tag-link] |
 | balenalib/artik533s-python | [Docker Hub][armv7hf-artik533s-python-dockerhub-link], [GitHub][armv7hf-artik533s-python-github-link] | For available image tags, refer [here][armv7hf-artik533s-python-dockerhub-tag-link] |
 | balenalib/artik533s-golang | [Docker Hub][armv7hf-artik533s-golang-dockerhub-link], [GitHub][armv7hf-artik533s-golang-github-link] | For available image tags, refer [here][armv7hf-artik533s-golang-dockerhub-tag-link] |
 | balenalib/artik533s-openjdk | [Docker Hub][armv7hf-artik533s-openjdk-dockerhub-link], [GitHub][armv7hf-artik533s-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik533s-openjdk-dockerhub-tag-link] |
-| balenalib/artik533s-debian | [Docker Hub][armv7hf-artik533s-debian-dockerhub-link], [GitHub][armv7hf-artik533s-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik533s-debian | [Docker Hub][armv7hf-artik533s-debian-dockerhub-link], [GitHub][armv7hf-artik533s-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik533s-debian-node | [Docker Hub][armv7hf-artik533s-debian-node-dockerhub-link], [GitHub][armv7hf-artik533s-debian-node-github-link] | For available image tags, refer [here][armv7hf-artik533s-debian-node-dockerhub-tag-link] |
 | balenalib/artik533s-debian-python | [Docker Hub][armv7hf-artik533s-debian-python-dockerhub-link], [GitHub][armv7hf-artik533s-debian-python-github-link] | For available image tags, refer [here][armv7hf-artik533s-debian-python-dockerhub-tag-link] |
 | balenalib/artik533s-debian-golang | [Docker Hub][armv7hf-artik533s-debian-golang-dockerhub-link], [GitHub][armv7hf-artik533s-debian-golang-github-link] | For available image tags, refer [here][armv7hf-artik533s-debian-golang-dockerhub-tag-link] |
@@ -780,12 +780,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/artik530| [Docker Hub][armv7hf-artik530-dockerhub-link], [GitHub][armv7hf-artik530-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik530| [Docker Hub][armv7hf-artik530-dockerhub-link], [GitHub][armv7hf-artik530-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik530-node | [Docker Hub][armv7hf-artik530-node-dockerhub-link], [GitHub][armv7hf-artik530-node-github-link] | For available image tags, refer [here][armv7hf-artik530-node-dockerhub-tag-link] |
 | balenalib/artik530-python | [Docker Hub][armv7hf-artik530-python-dockerhub-link], [GitHub][armv7hf-artik530-python-github-link] | For available image tags, refer [here][armv7hf-artik530-python-dockerhub-tag-link] |
 | balenalib/artik530-golang | [Docker Hub][armv7hf-artik530-golang-dockerhub-link], [GitHub][armv7hf-artik530-golang-github-link] | For available image tags, refer [here][armv7hf-artik530-golang-dockerhub-tag-link] |
 | balenalib/artik530-openjdk | [Docker Hub][armv7hf-artik530-openjdk-dockerhub-link], [GitHub][armv7hf-artik530-openjdk-github-link] | For available image tags, refer [here][armv7hf-artik530-openjdk-dockerhub-tag-link] |
-| balenalib/artik530-debian | [Docker Hub][armv7hf-artik530-debian-dockerhub-link], [GitHub][armv7hf-artik530-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik530-debian | [Docker Hub][armv7hf-artik530-debian-dockerhub-link], [GitHub][armv7hf-artik530-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik530-debian-node | [Docker Hub][armv7hf-artik530-debian-node-dockerhub-link], [GitHub][armv7hf-artik530-debian-node-github-link] | For available image tags, refer [here][armv7hf-artik530-debian-node-dockerhub-tag-link] |
 | balenalib/artik530-debian-python | [Docker Hub][armv7hf-artik530-debian-python-dockerhub-link], [GitHub][armv7hf-artik530-debian-python-github-link] | For available image tags, refer [here][armv7hf-artik530-debian-python-dockerhub-tag-link] |
 | balenalib/artik530-debian-golang | [Docker Hub][armv7hf-artik530-debian-golang-dockerhub-link], [GitHub][armv7hf-artik530-debian-golang-github-link] | For available image tags, refer [here][armv7hf-artik530-debian-golang-dockerhub-tag-link] |
@@ -811,12 +811,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/revpi-core-3| [Docker Hub][armv7hf-revpi-core-3-dockerhub-link], [GitHub][armv7hf-revpi-core-3-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/revpi-core-3| [Docker Hub][armv7hf-revpi-core-3-dockerhub-link], [GitHub][armv7hf-revpi-core-3-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/revpi-core-3-node | [Docker Hub][armv7hf-revpi-core-3-node-dockerhub-link], [GitHub][armv7hf-revpi-core-3-node-github-link] | For available image tags, refer [here][armv7hf-revpi-core-3-node-dockerhub-tag-link] |
 | balenalib/revpi-core-3-python | [Docker Hub][armv7hf-revpi-core-3-python-dockerhub-link], [GitHub][armv7hf-revpi-core-3-python-github-link] | For available image tags, refer [here][armv7hf-revpi-core-3-python-dockerhub-tag-link] |
 | balenalib/revpi-core-3-golang | [Docker Hub][armv7hf-revpi-core-3-golang-dockerhub-link], [GitHub][armv7hf-revpi-core-3-golang-github-link] | For available image tags, refer [here][armv7hf-revpi-core-3-golang-dockerhub-tag-link] |
 | balenalib/revpi-core-3-openjdk | [Docker Hub][armv7hf-revpi-core-3-openjdk-dockerhub-link], [GitHub][armv7hf-revpi-core-3-openjdk-github-link] | For available image tags, refer [here][armv7hf-revpi-core-3-openjdk-dockerhub-tag-link] |
-| balenalib/revpi-core-3-debian | [Docker Hub][armv7hf-revpi-core-3-debian-dockerhub-link], [GitHub][armv7hf-revpi-core-3-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/revpi-core-3-debian | [Docker Hub][armv7hf-revpi-core-3-debian-dockerhub-link], [GitHub][armv7hf-revpi-core-3-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/revpi-core-3-debian-node | [Docker Hub][armv7hf-revpi-core-3-debian-node-dockerhub-link], [GitHub][armv7hf-revpi-core-3-debian-node-github-link] | For available image tags, refer [here][armv7hf-revpi-core-3-debian-node-dockerhub-tag-link] |
 | balenalib/revpi-core-3-debian-python | [Docker Hub][armv7hf-revpi-core-3-debian-python-dockerhub-link], [GitHub][armv7hf-revpi-core-3-debian-python-github-link] | For available image tags, refer [here][armv7hf-revpi-core-3-debian-python-dockerhub-tag-link] |
 | balenalib/revpi-core-3-debian-golang | [Docker Hub][armv7hf-revpi-core-3-debian-golang-dockerhub-link], [GitHub][armv7hf-revpi-core-3-debian-golang-github-link] | For available image tags, refer [here][armv7hf-revpi-core-3-debian-golang-dockerhub-tag-link] |
@@ -842,12 +842,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/asus-tinker-board-s| [Docker Hub][armv7hf-asus-tinker-board-s-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/asus-tinker-board-s| [Docker Hub][armv7hf-asus-tinker-board-s-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/asus-tinker-board-s-node | [Docker Hub][armv7hf-asus-tinker-board-s-node-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-node-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-s-node-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-s-python | [Docker Hub][armv7hf-asus-tinker-board-s-python-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-python-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-s-python-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-s-golang | [Docker Hub][armv7hf-asus-tinker-board-s-golang-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-golang-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-s-golang-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-s-openjdk | [Docker Hub][armv7hf-asus-tinker-board-s-openjdk-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-openjdk-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-s-openjdk-dockerhub-tag-link] |
-| balenalib/asus-tinker-board-s-debian | [Docker Hub][armv7hf-asus-tinker-board-s-debian-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/asus-tinker-board-s-debian | [Docker Hub][armv7hf-asus-tinker-board-s-debian-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/asus-tinker-board-s-debian-node | [Docker Hub][armv7hf-asus-tinker-board-s-debian-node-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-debian-node-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-s-debian-node-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-s-debian-python | [Docker Hub][armv7hf-asus-tinker-board-s-debian-python-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-debian-python-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-s-debian-python-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-s-debian-golang | [Docker Hub][armv7hf-asus-tinker-board-s-debian-golang-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-s-debian-golang-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-s-debian-golang-dockerhub-tag-link] |
@@ -873,12 +873,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/asus-tinker-board| [Docker Hub][armv7hf-asus-tinker-board-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/asus-tinker-board| [Docker Hub][armv7hf-asus-tinker-board-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/asus-tinker-board-node | [Docker Hub][armv7hf-asus-tinker-board-node-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-node-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-node-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-python | [Docker Hub][armv7hf-asus-tinker-board-python-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-python-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-python-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-golang | [Docker Hub][armv7hf-asus-tinker-board-golang-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-golang-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-golang-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-openjdk | [Docker Hub][armv7hf-asus-tinker-board-openjdk-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-openjdk-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-openjdk-dockerhub-tag-link] |
-| balenalib/asus-tinker-board-debian | [Docker Hub][armv7hf-asus-tinker-board-debian-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/asus-tinker-board-debian | [Docker Hub][armv7hf-asus-tinker-board-debian-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/asus-tinker-board-debian-node | [Docker Hub][armv7hf-asus-tinker-board-debian-node-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-debian-node-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-debian-node-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-debian-python | [Docker Hub][armv7hf-asus-tinker-board-debian-python-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-debian-python-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-debian-python-dockerhub-tag-link] |
 | balenalib/asus-tinker-board-debian-golang | [Docker Hub][armv7hf-asus-tinker-board-debian-golang-dockerhub-link], [GitHub][armv7hf-asus-tinker-board-debian-golang-github-link] | For available image tags, refer [here][armv7hf-asus-tinker-board-debian-golang-dockerhub-tag-link] |
@@ -904,12 +904,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/var-som-mx6| [Docker Hub][armv7hf-var-som-mx6-dockerhub-link], [GitHub][armv7hf-var-som-mx6-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/var-som-mx6| [Docker Hub][armv7hf-var-som-mx6-dockerhub-link], [GitHub][armv7hf-var-som-mx6-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/var-som-mx6-node | [Docker Hub][armv7hf-var-som-mx6-node-dockerhub-link], [GitHub][armv7hf-var-som-mx6-node-github-link] | For available image tags, refer [here][armv7hf-var-som-mx6-node-dockerhub-tag-link] |
 | balenalib/var-som-mx6-python | [Docker Hub][armv7hf-var-som-mx6-python-dockerhub-link], [GitHub][armv7hf-var-som-mx6-python-github-link] | For available image tags, refer [here][armv7hf-var-som-mx6-python-dockerhub-tag-link] |
 | balenalib/var-som-mx6-golang | [Docker Hub][armv7hf-var-som-mx6-golang-dockerhub-link], [GitHub][armv7hf-var-som-mx6-golang-github-link] | For available image tags, refer [here][armv7hf-var-som-mx6-golang-dockerhub-tag-link] |
 | balenalib/var-som-mx6-openjdk | [Docker Hub][armv7hf-var-som-mx6-openjdk-dockerhub-link], [GitHub][armv7hf-var-som-mx6-openjdk-github-link] | For available image tags, refer [here][armv7hf-var-som-mx6-openjdk-dockerhub-tag-link] |
-| balenalib/var-som-mx6-debian | [Docker Hub][armv7hf-var-som-mx6-debian-dockerhub-link], [GitHub][armv7hf-var-som-mx6-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/var-som-mx6-debian | [Docker Hub][armv7hf-var-som-mx6-debian-dockerhub-link], [GitHub][armv7hf-var-som-mx6-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/var-som-mx6-debian-node | [Docker Hub][armv7hf-var-som-mx6-debian-node-dockerhub-link], [GitHub][armv7hf-var-som-mx6-debian-node-github-link] | For available image tags, refer [here][armv7hf-var-som-mx6-debian-node-dockerhub-tag-link] |
 | balenalib/var-som-mx6-debian-python | [Docker Hub][armv7hf-var-som-mx6-debian-python-dockerhub-link], [GitHub][armv7hf-var-som-mx6-debian-python-github-link] | For available image tags, refer [here][armv7hf-var-som-mx6-debian-python-dockerhub-tag-link] |
 | balenalib/var-som-mx6-debian-golang | [Docker Hub][armv7hf-var-som-mx6-debian-golang-dockerhub-link], [GitHub][armv7hf-var-som-mx6-debian-golang-github-link] | For available image tags, refer [here][armv7hf-var-som-mx6-debian-golang-dockerhub-tag-link] |
@@ -935,12 +935,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/beaglebone-pocket| [Docker Hub][armv7hf-beaglebone-pocket-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beaglebone-pocket| [Docker Hub][armv7hf-beaglebone-pocket-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beaglebone-pocket-node | [Docker Hub][armv7hf-beaglebone-pocket-node-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-pocket-node-dockerhub-tag-link] |
 | balenalib/beaglebone-pocket-python | [Docker Hub][armv7hf-beaglebone-pocket-python-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-pocket-python-dockerhub-tag-link] |
 | balenalib/beaglebone-pocket-golang | [Docker Hub][armv7hf-beaglebone-pocket-golang-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-pocket-golang-dockerhub-tag-link] |
 | balenalib/beaglebone-pocket-openjdk | [Docker Hub][armv7hf-beaglebone-pocket-openjdk-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-openjdk-github-link] | For available image tags, refer [here][armv7hf-beaglebone-pocket-openjdk-dockerhub-tag-link] |
-| balenalib/beaglebone-pocket-debian | [Docker Hub][armv7hf-beaglebone-pocket-debian-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beaglebone-pocket-debian | [Docker Hub][armv7hf-beaglebone-pocket-debian-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beaglebone-pocket-debian-node | [Docker Hub][armv7hf-beaglebone-pocket-debian-node-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-debian-node-github-link] | For available image tags, refer [here][armv7hf-beaglebone-pocket-debian-node-dockerhub-tag-link] |
 | balenalib/beaglebone-pocket-debian-python | [Docker Hub][armv7hf-beaglebone-pocket-debian-python-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-debian-python-github-link] | For available image tags, refer [here][armv7hf-beaglebone-pocket-debian-python-dockerhub-tag-link] |
 | balenalib/beaglebone-pocket-debian-golang | [Docker Hub][armv7hf-beaglebone-pocket-debian-golang-dockerhub-link], [GitHub][armv7hf-beaglebone-pocket-debian-golang-github-link] | For available image tags, refer [here][armv7hf-beaglebone-pocket-debian-golang-dockerhub-tag-link] |
@@ -966,12 +966,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/imx7-var-som| [Docker Hub][armv7hf-imx7-var-som-dockerhub-link], [GitHub][armv7hf-imx7-var-som-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/imx7-var-som| [Docker Hub][armv7hf-imx7-var-som-dockerhub-link], [GitHub][armv7hf-imx7-var-som-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/imx7-var-som-node | [Docker Hub][armv7hf-imx7-var-som-node-dockerhub-link], [GitHub][armv7hf-imx7-var-som-node-github-link] | For available image tags, refer [here][armv7hf-imx7-var-som-node-dockerhub-tag-link] |
 | balenalib/imx7-var-som-python | [Docker Hub][armv7hf-imx7-var-som-python-dockerhub-link], [GitHub][armv7hf-imx7-var-som-python-github-link] | For available image tags, refer [here][armv7hf-imx7-var-som-python-dockerhub-tag-link] |
 | balenalib/imx7-var-som-golang | [Docker Hub][armv7hf-imx7-var-som-golang-dockerhub-link], [GitHub][armv7hf-imx7-var-som-golang-github-link] | For available image tags, refer [here][armv7hf-imx7-var-som-golang-dockerhub-tag-link] |
 | balenalib/imx7-var-som-openjdk | [Docker Hub][armv7hf-imx7-var-som-openjdk-dockerhub-link], [GitHub][armv7hf-imx7-var-som-openjdk-github-link] | For available image tags, refer [here][armv7hf-imx7-var-som-openjdk-dockerhub-tag-link] |
-| balenalib/imx7-var-som-debian | [Docker Hub][armv7hf-imx7-var-som-debian-dockerhub-link], [GitHub][armv7hf-imx7-var-som-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/imx7-var-som-debian | [Docker Hub][armv7hf-imx7-var-som-debian-dockerhub-link], [GitHub][armv7hf-imx7-var-som-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/imx7-var-som-debian-node | [Docker Hub][armv7hf-imx7-var-som-debian-node-dockerhub-link], [GitHub][armv7hf-imx7-var-som-debian-node-github-link] | For available image tags, refer [here][armv7hf-imx7-var-som-debian-node-dockerhub-tag-link] |
 | balenalib/imx7-var-som-debian-python | [Docker Hub][armv7hf-imx7-var-som-debian-python-dockerhub-link], [GitHub][armv7hf-imx7-var-som-debian-python-github-link] | For available image tags, refer [here][armv7hf-imx7-var-som-debian-python-dockerhub-tag-link] |
 | balenalib/imx7-var-som-debian-golang | [Docker Hub][armv7hf-imx7-var-som-debian-golang-dockerhub-link], [GitHub][armv7hf-imx7-var-som-debian-golang-github-link] | For available image tags, refer [here][armv7hf-imx7-var-som-debian-golang-dockerhub-tag-link] |
@@ -997,12 +997,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/orange-pi-zero| [Docker Hub][armv7hf-orange-pi-zero-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orange-pi-zero| [Docker Hub][armv7hf-orange-pi-zero-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orange-pi-zero-node | [Docker Hub][armv7hf-orange-pi-zero-node-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-node-github-link] | For available image tags, refer [here][armv7hf-orange-pi-zero-node-dockerhub-tag-link] |
 | balenalib/orange-pi-zero-python | [Docker Hub][armv7hf-orange-pi-zero-python-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-python-github-link] | For available image tags, refer [here][armv7hf-orange-pi-zero-python-dockerhub-tag-link] |
 | balenalib/orange-pi-zero-golang | [Docker Hub][armv7hf-orange-pi-zero-golang-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-golang-github-link] | For available image tags, refer [here][armv7hf-orange-pi-zero-golang-dockerhub-tag-link] |
 | balenalib/orange-pi-zero-openjdk | [Docker Hub][armv7hf-orange-pi-zero-openjdk-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-openjdk-github-link] | For available image tags, refer [here][armv7hf-orange-pi-zero-openjdk-dockerhub-tag-link] |
-| balenalib/orange-pi-zero-debian | [Docker Hub][armv7hf-orange-pi-zero-debian-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orange-pi-zero-debian | [Docker Hub][armv7hf-orange-pi-zero-debian-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orange-pi-zero-debian-node | [Docker Hub][armv7hf-orange-pi-zero-debian-node-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-debian-node-github-link] | For available image tags, refer [here][armv7hf-orange-pi-zero-debian-node-dockerhub-tag-link] |
 | balenalib/orange-pi-zero-debian-python | [Docker Hub][armv7hf-orange-pi-zero-debian-python-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-debian-python-github-link] | For available image tags, refer [here][armv7hf-orange-pi-zero-debian-python-dockerhub-tag-link] |
 | balenalib/orange-pi-zero-debian-golang | [Docker Hub][armv7hf-orange-pi-zero-debian-golang-dockerhub-link], [GitHub][armv7hf-orange-pi-zero-debian-golang-github-link] | For available image tags, refer [here][armv7hf-orange-pi-zero-debian-golang-dockerhub-tag-link] |
@@ -1028,12 +1028,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/orange-pi-one| [Docker Hub][armv7hf-orange-pi-one-dockerhub-link], [GitHub][armv7hf-orange-pi-one-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orange-pi-one| [Docker Hub][armv7hf-orange-pi-one-dockerhub-link], [GitHub][armv7hf-orange-pi-one-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orange-pi-one-node | [Docker Hub][armv7hf-orange-pi-one-node-dockerhub-link], [GitHub][armv7hf-orange-pi-one-node-github-link] | For available image tags, refer [here][armv7hf-orange-pi-one-node-dockerhub-tag-link] |
 | balenalib/orange-pi-one-python | [Docker Hub][armv7hf-orange-pi-one-python-dockerhub-link], [GitHub][armv7hf-orange-pi-one-python-github-link] | For available image tags, refer [here][armv7hf-orange-pi-one-python-dockerhub-tag-link] |
 | balenalib/orange-pi-one-golang | [Docker Hub][armv7hf-orange-pi-one-golang-dockerhub-link], [GitHub][armv7hf-orange-pi-one-golang-github-link] | For available image tags, refer [here][armv7hf-orange-pi-one-golang-dockerhub-tag-link] |
 | balenalib/orange-pi-one-openjdk | [Docker Hub][armv7hf-orange-pi-one-openjdk-dockerhub-link], [GitHub][armv7hf-orange-pi-one-openjdk-github-link] | For available image tags, refer [here][armv7hf-orange-pi-one-openjdk-dockerhub-tag-link] |
-| balenalib/orange-pi-one-debian | [Docker Hub][armv7hf-orange-pi-one-debian-dockerhub-link], [GitHub][armv7hf-orange-pi-one-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orange-pi-one-debian | [Docker Hub][armv7hf-orange-pi-one-debian-dockerhub-link], [GitHub][armv7hf-orange-pi-one-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orange-pi-one-debian-node | [Docker Hub][armv7hf-orange-pi-one-debian-node-dockerhub-link], [GitHub][armv7hf-orange-pi-one-debian-node-github-link] | For available image tags, refer [here][armv7hf-orange-pi-one-debian-node-dockerhub-tag-link] |
 | balenalib/orange-pi-one-debian-python | [Docker Hub][armv7hf-orange-pi-one-debian-python-dockerhub-link], [GitHub][armv7hf-orange-pi-one-debian-python-github-link] | For available image tags, refer [here][armv7hf-orange-pi-one-debian-python-dockerhub-tag-link] |
 | balenalib/orange-pi-one-debian-golang | [Docker Hub][armv7hf-orange-pi-one-debian-golang-dockerhub-link], [GitHub][armv7hf-orange-pi-one-debian-golang-github-link] | For available image tags, refer [here][armv7hf-orange-pi-one-debian-golang-dockerhub-tag-link] |
@@ -1059,12 +1059,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/nitrogen6xq2g| [Docker Hub][armv7hf-nitrogen6xq2g-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/nitrogen6xq2g| [Docker Hub][armv7hf-nitrogen6xq2g-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/nitrogen6xq2g-node | [Docker Hub][armv7hf-nitrogen6xq2g-node-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-node-github-link] | For available image tags, refer [here][armv7hf-nitrogen6xq2g-node-dockerhub-tag-link] |
 | balenalib/nitrogen6xq2g-python | [Docker Hub][armv7hf-nitrogen6xq2g-python-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-python-github-link] | For available image tags, refer [here][armv7hf-nitrogen6xq2g-python-dockerhub-tag-link] |
 | balenalib/nitrogen6xq2g-golang | [Docker Hub][armv7hf-nitrogen6xq2g-golang-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-golang-github-link] | For available image tags, refer [here][armv7hf-nitrogen6xq2g-golang-dockerhub-tag-link] |
 | balenalib/nitrogen6xq2g-openjdk | [Docker Hub][armv7hf-nitrogen6xq2g-openjdk-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-openjdk-github-link] | For available image tags, refer [here][armv7hf-nitrogen6xq2g-openjdk-dockerhub-tag-link] |
-| balenalib/nitrogen6xq2g-debian | [Docker Hub][armv7hf-nitrogen6xq2g-debian-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/nitrogen6xq2g-debian | [Docker Hub][armv7hf-nitrogen6xq2g-debian-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/nitrogen6xq2g-debian-node | [Docker Hub][armv7hf-nitrogen6xq2g-debian-node-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-debian-node-github-link] | For available image tags, refer [here][armv7hf-nitrogen6xq2g-debian-node-dockerhub-tag-link] |
 | balenalib/nitrogen6xq2g-debian-python | [Docker Hub][armv7hf-nitrogen6xq2g-debian-python-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-debian-python-github-link] | For available image tags, refer [here][armv7hf-nitrogen6xq2g-debian-python-dockerhub-tag-link] |
 | balenalib/nitrogen6xq2g-debian-golang | [Docker Hub][armv7hf-nitrogen6xq2g-debian-golang-dockerhub-link], [GitHub][armv7hf-nitrogen6xq2g-debian-golang-github-link] | For available image tags, refer [here][armv7hf-nitrogen6xq2g-debian-golang-dockerhub-tag-link] |
@@ -1090,12 +1090,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/npe-x500-m3| [Docker Hub][armv7hf-npe-x500-m3-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/npe-x500-m3| [Docker Hub][armv7hf-npe-x500-m3-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/npe-x500-m3-node | [Docker Hub][armv7hf-npe-x500-m3-node-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-node-github-link] | For available image tags, refer [here][armv7hf-npe-x500-m3-node-dockerhub-tag-link] |
 | balenalib/npe-x500-m3-python | [Docker Hub][armv7hf-npe-x500-m3-python-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-python-github-link] | For available image tags, refer [here][armv7hf-npe-x500-m3-python-dockerhub-tag-link] |
 | balenalib/npe-x500-m3-golang | [Docker Hub][armv7hf-npe-x500-m3-golang-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-golang-github-link] | For available image tags, refer [here][armv7hf-npe-x500-m3-golang-dockerhub-tag-link] |
 | balenalib/npe-x500-m3-openjdk | [Docker Hub][armv7hf-npe-x500-m3-openjdk-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-openjdk-github-link] | For available image tags, refer [here][armv7hf-npe-x500-m3-openjdk-dockerhub-tag-link] |
-| balenalib/npe-x500-m3-debian | [Docker Hub][armv7hf-npe-x500-m3-debian-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/npe-x500-m3-debian | [Docker Hub][armv7hf-npe-x500-m3-debian-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/npe-x500-m3-debian-node | [Docker Hub][armv7hf-npe-x500-m3-debian-node-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-debian-node-github-link] | For available image tags, refer [here][armv7hf-npe-x500-m3-debian-node-dockerhub-tag-link] |
 | balenalib/npe-x500-m3-debian-python | [Docker Hub][armv7hf-npe-x500-m3-debian-python-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-debian-python-github-link] | For available image tags, refer [here][armv7hf-npe-x500-m3-debian-python-dockerhub-tag-link] |
 | balenalib/npe-x500-m3-debian-golang | [Docker Hub][armv7hf-npe-x500-m3-debian-golang-dockerhub-link], [GitHub][armv7hf-npe-x500-m3-debian-golang-github-link] | For available image tags, refer [here][armv7hf-npe-x500-m3-debian-golang-dockerhub-tag-link] |
@@ -1121,12 +1121,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/orange-pi-lite| [Docker Hub][armv7hf-orange-pi-lite-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orange-pi-lite| [Docker Hub][armv7hf-orange-pi-lite-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orange-pi-lite-node | [Docker Hub][armv7hf-orange-pi-lite-node-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-node-github-link] | For available image tags, refer [here][armv7hf-orange-pi-lite-node-dockerhub-tag-link] |
 | balenalib/orange-pi-lite-python | [Docker Hub][armv7hf-orange-pi-lite-python-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-python-github-link] | For available image tags, refer [here][armv7hf-orange-pi-lite-python-dockerhub-tag-link] |
 | balenalib/orange-pi-lite-golang | [Docker Hub][armv7hf-orange-pi-lite-golang-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-golang-github-link] | For available image tags, refer [here][armv7hf-orange-pi-lite-golang-dockerhub-tag-link] |
 | balenalib/orange-pi-lite-openjdk | [Docker Hub][armv7hf-orange-pi-lite-openjdk-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-openjdk-github-link] | For available image tags, refer [here][armv7hf-orange-pi-lite-openjdk-dockerhub-tag-link] |
-| balenalib/orange-pi-lite-debian | [Docker Hub][armv7hf-orange-pi-lite-debian-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orange-pi-lite-debian | [Docker Hub][armv7hf-orange-pi-lite-debian-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orange-pi-lite-debian-node | [Docker Hub][armv7hf-orange-pi-lite-debian-node-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-debian-node-github-link] | For available image tags, refer [here][armv7hf-orange-pi-lite-debian-node-dockerhub-tag-link] |
 | balenalib/orange-pi-lite-debian-python | [Docker Hub][armv7hf-orange-pi-lite-debian-python-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-debian-python-github-link] | For available image tags, refer [here][armv7hf-orange-pi-lite-debian-python-dockerhub-tag-link] |
 | balenalib/orange-pi-lite-debian-golang | [Docker Hub][armv7hf-orange-pi-lite-debian-golang-dockerhub-link], [GitHub][armv7hf-orange-pi-lite-debian-golang-github-link] | For available image tags, refer [here][armv7hf-orange-pi-lite-debian-golang-dockerhub-tag-link] |
@@ -1152,12 +1152,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/beagleboard-xm| [Docker Hub][armv7hf-beagleboard-xm-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beagleboard-xm| [Docker Hub][armv7hf-beagleboard-xm-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beagleboard-xm-node | [Docker Hub][armv7hf-beagleboard-xm-node-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-node-github-link] | For available image tags, refer [here][armv7hf-beagleboard-xm-node-dockerhub-tag-link] |
 | balenalib/beagleboard-xm-python | [Docker Hub][armv7hf-beagleboard-xm-python-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-python-github-link] | For available image tags, refer [here][armv7hf-beagleboard-xm-python-dockerhub-tag-link] |
 | balenalib/beagleboard-xm-golang | [Docker Hub][armv7hf-beagleboard-xm-golang-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-golang-github-link] | For available image tags, refer [here][armv7hf-beagleboard-xm-golang-dockerhub-tag-link] |
 | balenalib/beagleboard-xm-openjdk | [Docker Hub][armv7hf-beagleboard-xm-openjdk-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-openjdk-github-link] | For available image tags, refer [here][armv7hf-beagleboard-xm-openjdk-dockerhub-tag-link] |
-| balenalib/beagleboard-xm-debian | [Docker Hub][armv7hf-beagleboard-xm-debian-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/beagleboard-xm-debian | [Docker Hub][armv7hf-beagleboard-xm-debian-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/beagleboard-xm-debian-node | [Docker Hub][armv7hf-beagleboard-xm-debian-node-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-debian-node-github-link] | For available image tags, refer [here][armv7hf-beagleboard-xm-debian-node-dockerhub-tag-link] |
 | balenalib/beagleboard-xm-debian-python | [Docker Hub][armv7hf-beagleboard-xm-debian-python-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-debian-python-github-link] | For available image tags, refer [here][armv7hf-beagleboard-xm-debian-python-dockerhub-tag-link] |
 | balenalib/beagleboard-xm-debian-golang | [Docker Hub][armv7hf-beagleboard-xm-debian-golang-dockerhub-link], [GitHub][armv7hf-beagleboard-xm-debian-golang-github-link] | For available image tags, refer [here][armv7hf-beagleboard-xm-debian-golang-dockerhub-tag-link] |
@@ -1183,12 +1183,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/nanopc-t4| [Docker Hub][armv7hf-nanopc-t4-dockerhub-link], [GitHub][armv7hf-nanopc-t4-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/nanopc-t4| [Docker Hub][armv7hf-nanopc-t4-dockerhub-link], [GitHub][armv7hf-nanopc-t4-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/nanopc-t4-node | [Docker Hub][armv7hf-nanopc-t4-node-dockerhub-link], [GitHub][armv7hf-nanopc-t4-node-github-link] | For available image tags, refer [here][armv7hf-nanopc-t4-node-dockerhub-tag-link] |
 | balenalib/nanopc-t4-python | [Docker Hub][armv7hf-nanopc-t4-python-dockerhub-link], [GitHub][armv7hf-nanopc-t4-python-github-link] | For available image tags, refer [here][armv7hf-nanopc-t4-python-dockerhub-tag-link] |
 | balenalib/nanopc-t4-golang | [Docker Hub][armv7hf-nanopc-t4-golang-dockerhub-link], [GitHub][armv7hf-nanopc-t4-golang-github-link] | For available image tags, refer [here][armv7hf-nanopc-t4-golang-dockerhub-tag-link] |
 | balenalib/nanopc-t4-openjdk | [Docker Hub][armv7hf-nanopc-t4-openjdk-dockerhub-link], [GitHub][armv7hf-nanopc-t4-openjdk-github-link] | For available image tags, refer [here][armv7hf-nanopc-t4-openjdk-dockerhub-tag-link] |
-| balenalib/nanopc-t4-debian | [Docker Hub][armv7hf-nanopc-t4-debian-dockerhub-link], [GitHub][armv7hf-nanopc-t4-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/nanopc-t4-debian | [Docker Hub][armv7hf-nanopc-t4-debian-dockerhub-link], [GitHub][armv7hf-nanopc-t4-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/nanopc-t4-debian-node | [Docker Hub][armv7hf-nanopc-t4-debian-node-dockerhub-link], [GitHub][armv7hf-nanopc-t4-debian-node-github-link] | For available image tags, refer [here][armv7hf-nanopc-t4-debian-node-dockerhub-tag-link] |
 | balenalib/nanopc-t4-debian-python | [Docker Hub][armv7hf-nanopc-t4-debian-python-dockerhub-link], [GitHub][armv7hf-nanopc-t4-debian-python-github-link] | For available image tags, refer [here][armv7hf-nanopc-t4-debian-python-dockerhub-tag-link] |
 | balenalib/nanopc-t4-debian-golang | [Docker Hub][armv7hf-nanopc-t4-debian-golang-dockerhub-link], [GitHub][armv7hf-nanopc-t4-debian-golang-github-link] | For available image tags, refer [here][armv7hf-nanopc-t4-debian-golang-dockerhub-tag-link] |
@@ -1218,12 +1218,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/intel-edison| [Docker Hub][i386-intel-edison-dockerhub-link], [GitHub][i386-intel-edison-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/intel-edison| [Docker Hub][i386-intel-edison-dockerhub-link], [GitHub][i386-intel-edison-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/intel-edison-node | [Docker Hub][i386-intel-edison-node-dockerhub-link], [GitHub][i386-intel-edison-node-github-link] | For available image tags, refer [here][i386-intel-edison-node-dockerhub-tag-link] |
 | balenalib/intel-edison-python | [Docker Hub][i386-intel-edison-python-dockerhub-link], [GitHub][i386-intel-edison-python-github-link] | For available image tags, refer [here][i386-intel-edison-python-dockerhub-tag-link] |
 | balenalib/intel-edison-golang | [Docker Hub][i386-intel-edison-golang-dockerhub-link], [GitHub][i386-intel-edison-golang-github-link] | For available image tags, refer [here][i386-intel-edison-golang-dockerhub-tag-link] |
 | balenalib/intel-edison-openjdk | [Docker Hub][i386-intel-edison-openjdk-dockerhub-link], [GitHub][i386-intel-edison-openjdk-github-link] | For available image tags, refer [here][i386-intel-edison-openjdk-dockerhub-tag-link] |
-| balenalib/intel-edison-debian | [Docker Hub][i386-intel-edison-debian-dockerhub-link], [GitHub][i386-intel-edison-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/intel-edison-debian | [Docker Hub][i386-intel-edison-debian-dockerhub-link], [GitHub][i386-intel-edison-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/intel-edison-debian-node | [Docker Hub][i386-intel-edison-debian-node-dockerhub-link], [GitHub][i386-intel-edison-debian-node-github-link] | For available image tags, refer [here][i386-intel-edison-debian-node-dockerhub-tag-link] |
 | balenalib/intel-edison-debian-python | [Docker Hub][i386-intel-edison-debian-python-dockerhub-link], [GitHub][i386-intel-edison-debian-python-github-link] | For available image tags, refer [here][i386-intel-edison-debian-python-dockerhub-tag-link] |
 | balenalib/intel-edison-debian-golang | [Docker Hub][i386-intel-edison-debian-golang-dockerhub-link], [GitHub][i386-intel-edison-debian-golang-github-link] | For available image tags, refer [here][i386-intel-edison-debian-golang-dockerhub-tag-link] |
@@ -1244,12 +1244,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/qemux86| [Docker Hub][i386-qemux86-dockerhub-link], [GitHub][i386-qemux86-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/qemux86| [Docker Hub][i386-qemux86-dockerhub-link], [GitHub][i386-qemux86-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/qemux86-node | [Docker Hub][i386-qemux86-node-dockerhub-link], [GitHub][i386-qemux86-node-github-link] | For available image tags, refer [here][i386-qemux86-node-dockerhub-tag-link] |
 | balenalib/qemux86-python | [Docker Hub][i386-qemux86-python-dockerhub-link], [GitHub][i386-qemux86-python-github-link] | For available image tags, refer [here][i386-qemux86-python-dockerhub-tag-link] |
 | balenalib/qemux86-golang | [Docker Hub][i386-qemux86-golang-dockerhub-link], [GitHub][i386-qemux86-golang-github-link] | For available image tags, refer [here][i386-qemux86-golang-dockerhub-tag-link] |
 | balenalib/qemux86-openjdk | [Docker Hub][i386-qemux86-openjdk-dockerhub-link], [GitHub][i386-qemux86-openjdk-github-link] | For available image tags, refer [here][i386-qemux86-openjdk-dockerhub-tag-link] |
-| balenalib/qemux86-debian | [Docker Hub][i386-qemux86-debian-dockerhub-link], [GitHub][i386-qemux86-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/qemux86-debian | [Docker Hub][i386-qemux86-debian-dockerhub-link], [GitHub][i386-qemux86-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/qemux86-debian-node | [Docker Hub][i386-qemux86-debian-node-dockerhub-link], [GitHub][i386-qemux86-debian-node-github-link] | For available image tags, refer [here][i386-qemux86-debian-node-dockerhub-tag-link] |
 | balenalib/qemux86-debian-python | [Docker Hub][i386-qemux86-debian-python-dockerhub-link], [GitHub][i386-qemux86-debian-python-github-link] | For available image tags, refer [here][i386-qemux86-debian-python-dockerhub-tag-link] |
 | balenalib/qemux86-debian-golang | [Docker Hub][i386-qemux86-debian-golang-dockerhub-link], [GitHub][i386-qemux86-debian-golang-github-link] | For available image tags, refer [here][i386-qemux86-debian-golang-dockerhub-tag-link] |
@@ -1270,12 +1270,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/cybertan-ze250| [Docker Hub][i386-cybertan-ze250-dockerhub-link], [GitHub][i386-cybertan-ze250-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/cybertan-ze250| [Docker Hub][i386-cybertan-ze250-dockerhub-link], [GitHub][i386-cybertan-ze250-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/cybertan-ze250-node | [Docker Hub][i386-cybertan-ze250-node-dockerhub-link], [GitHub][i386-cybertan-ze250-node-github-link] | For available image tags, refer [here][i386-cybertan-ze250-node-dockerhub-tag-link] |
 | balenalib/cybertan-ze250-python | [Docker Hub][i386-cybertan-ze250-python-dockerhub-link], [GitHub][i386-cybertan-ze250-python-github-link] | For available image tags, refer [here][i386-cybertan-ze250-python-dockerhub-tag-link] |
 | balenalib/cybertan-ze250-golang | [Docker Hub][i386-cybertan-ze250-golang-dockerhub-link], [GitHub][i386-cybertan-ze250-golang-github-link] | For available image tags, refer [here][i386-cybertan-ze250-golang-dockerhub-tag-link] |
 | balenalib/cybertan-ze250-openjdk | [Docker Hub][i386-cybertan-ze250-openjdk-dockerhub-link], [GitHub][i386-cybertan-ze250-openjdk-github-link] | For available image tags, refer [here][i386-cybertan-ze250-openjdk-dockerhub-tag-link] |
-| balenalib/cybertan-ze250-debian | [Docker Hub][i386-cybertan-ze250-debian-dockerhub-link], [GitHub][i386-cybertan-ze250-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/cybertan-ze250-debian | [Docker Hub][i386-cybertan-ze250-debian-dockerhub-link], [GitHub][i386-cybertan-ze250-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/cybertan-ze250-debian-node | [Docker Hub][i386-cybertan-ze250-debian-node-dockerhub-link], [GitHub][i386-cybertan-ze250-debian-node-github-link] | For available image tags, refer [here][i386-cybertan-ze250-debian-node-dockerhub-tag-link] |
 | balenalib/cybertan-ze250-debian-python | [Docker Hub][i386-cybertan-ze250-debian-python-dockerhub-link], [GitHub][i386-cybertan-ze250-debian-python-github-link] | For available image tags, refer [here][i386-cybertan-ze250-debian-python-dockerhub-tag-link] |
 | balenalib/cybertan-ze250-debian-golang | [Docker Hub][i386-cybertan-ze250-debian-golang-dockerhub-link], [GitHub][i386-cybertan-ze250-debian-golang-github-link] | For available image tags, refer [here][i386-cybertan-ze250-debian-golang-dockerhub-tag-link] |
@@ -1296,12 +1296,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/iot2000| [Docker Hub][i386-iot2000-dockerhub-link], [GitHub][i386-iot2000-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/iot2000| [Docker Hub][i386-iot2000-dockerhub-link], [GitHub][i386-iot2000-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/iot2000-node | [Docker Hub][i386-iot2000-node-dockerhub-link], [GitHub][i386-iot2000-node-github-link] | For available image tags, refer [here][i386-iot2000-node-dockerhub-tag-link] |
 | balenalib/iot2000-python | [Docker Hub][i386-iot2000-python-dockerhub-link], [GitHub][i386-iot2000-python-github-link] | For available image tags, refer [here][i386-iot2000-python-dockerhub-tag-link] |
 | balenalib/iot2000-golang | [Docker Hub][i386-iot2000-golang-dockerhub-link], [GitHub][i386-iot2000-golang-github-link] | For available image tags, refer [here][i386-iot2000-golang-dockerhub-tag-link] |
 | balenalib/iot2000-openjdk | [Docker Hub][i386-iot2000-openjdk-dockerhub-link], [GitHub][i386-iot2000-openjdk-github-link] | For available image tags, refer [here][i386-iot2000-openjdk-dockerhub-tag-link] |
-| balenalib/iot2000-debian | [Docker Hub][i386-iot2000-debian-dockerhub-link], [GitHub][i386-iot2000-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/iot2000-debian | [Docker Hub][i386-iot2000-debian-dockerhub-link], [GitHub][i386-iot2000-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/iot2000-debian-node | [Docker Hub][i386-iot2000-debian-node-dockerhub-link], [GitHub][i386-iot2000-debian-node-github-link] | For available image tags, refer [here][i386-iot2000-debian-node-dockerhub-tag-link] |
 | balenalib/iot2000-debian-python | [Docker Hub][i386-iot2000-debian-python-dockerhub-link], [GitHub][i386-iot2000-debian-python-github-link] | For available image tags, refer [here][i386-iot2000-debian-python-dockerhub-tag-link] |
 | balenalib/iot2000-debian-golang | [Docker Hub][i386-iot2000-debian-golang-dockerhub-link], [GitHub][i386-iot2000-debian-golang-github-link] | For available image tags, refer [here][i386-iot2000-debian-golang-dockerhub-tag-link] |
@@ -1326,12 +1326,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/intel-nuc| [Docker Hub][amd64-intel-nuc-dockerhub-link], [GitHub][amd64-intel-nuc-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/intel-nuc| [Docker Hub][amd64-intel-nuc-dockerhub-link], [GitHub][amd64-intel-nuc-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/intel-nuc-node | [Docker Hub][amd64-intel-nuc-node-dockerhub-link], [GitHub][amd64-intel-nuc-node-github-link] | For available image tags, refer [here][amd64-intel-nuc-node-dockerhub-tag-link] |
 | balenalib/intel-nuc-python | [Docker Hub][amd64-intel-nuc-python-dockerhub-link], [GitHub][amd64-intel-nuc-python-github-link] | For available image tags, refer [here][amd64-intel-nuc-python-dockerhub-tag-link] |
 | balenalib/intel-nuc-golang | [Docker Hub][amd64-intel-nuc-golang-dockerhub-link], [GitHub][amd64-intel-nuc-golang-github-link] | For available image tags, refer [here][amd64-intel-nuc-golang-dockerhub-tag-link] |
 | balenalib/intel-nuc-openjdk | [Docker Hub][amd64-intel-nuc-openjdk-dockerhub-link], [GitHub][amd64-intel-nuc-openjdk-github-link] | For available image tags, refer [here][amd64-intel-nuc-openjdk-dockerhub-tag-link] |
-| balenalib/intel-nuc-debian | [Docker Hub][amd64-intel-nuc-debian-dockerhub-link], [GitHub][amd64-intel-nuc-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/intel-nuc-debian | [Docker Hub][amd64-intel-nuc-debian-dockerhub-link], [GitHub][amd64-intel-nuc-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/intel-nuc-debian-node | [Docker Hub][amd64-intel-nuc-debian-node-dockerhub-link], [GitHub][amd64-intel-nuc-debian-node-github-link] | For available image tags, refer [here][amd64-intel-nuc-debian-node-dockerhub-tag-link] |
 | balenalib/intel-nuc-debian-python | [Docker Hub][amd64-intel-nuc-debian-python-dockerhub-link], [GitHub][amd64-intel-nuc-debian-python-github-link] | For available image tags, refer [here][amd64-intel-nuc-debian-python-dockerhub-tag-link] |
 | balenalib/intel-nuc-debian-golang | [Docker Hub][amd64-intel-nuc-debian-golang-dockerhub-link], [GitHub][amd64-intel-nuc-debian-golang-github-link] | For available image tags, refer [here][amd64-intel-nuc-debian-golang-dockerhub-tag-link] |
@@ -1357,12 +1357,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/qemux86-64| [Docker Hub][amd64-qemux86-64-dockerhub-link], [GitHub][amd64-qemux86-64-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/qemux86-64| [Docker Hub][amd64-qemux86-64-dockerhub-link], [GitHub][amd64-qemux86-64-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/qemux86-64-node | [Docker Hub][amd64-qemux86-64-node-dockerhub-link], [GitHub][amd64-qemux86-64-node-github-link] | For available image tags, refer [here][amd64-qemux86-64-node-dockerhub-tag-link] |
 | balenalib/qemux86-64-python | [Docker Hub][amd64-qemux86-64-python-dockerhub-link], [GitHub][amd64-qemux86-64-python-github-link] | For available image tags, refer [here][amd64-qemux86-64-python-dockerhub-tag-link] |
 | balenalib/qemux86-64-golang | [Docker Hub][amd64-qemux86-64-golang-dockerhub-link], [GitHub][amd64-qemux86-64-golang-github-link] | For available image tags, refer [here][amd64-qemux86-64-golang-dockerhub-tag-link] |
 | balenalib/qemux86-64-openjdk | [Docker Hub][amd64-qemux86-64-openjdk-dockerhub-link], [GitHub][amd64-qemux86-64-openjdk-github-link] | For available image tags, refer [here][amd64-qemux86-64-openjdk-dockerhub-tag-link] |
-| balenalib/qemux86-64-debian | [Docker Hub][amd64-qemux86-64-debian-dockerhub-link], [GitHub][amd64-qemux86-64-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/qemux86-64-debian | [Docker Hub][amd64-qemux86-64-debian-dockerhub-link], [GitHub][amd64-qemux86-64-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/qemux86-64-debian-node | [Docker Hub][amd64-qemux86-64-debian-node-dockerhub-link], [GitHub][amd64-qemux86-64-debian-node-github-link] | For available image tags, refer [here][amd64-qemux86-64-debian-node-dockerhub-tag-link] |
 | balenalib/qemux86-64-debian-python | [Docker Hub][amd64-qemux86-64-debian-python-dockerhub-link], [GitHub][amd64-qemux86-64-debian-python-github-link] | For available image tags, refer [here][amd64-qemux86-64-debian-python-dockerhub-tag-link] |
 | balenalib/qemux86-64-debian-golang | [Docker Hub][amd64-qemux86-64-debian-golang-dockerhub-link], [GitHub][amd64-qemux86-64-debian-golang-github-link] | For available image tags, refer [here][amd64-qemux86-64-debian-golang-dockerhub-tag-link] |
@@ -1388,12 +1388,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/up-board| [Docker Hub][amd64-up-board-dockerhub-link], [GitHub][amd64-up-board-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/up-board| [Docker Hub][amd64-up-board-dockerhub-link], [GitHub][amd64-up-board-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/up-board-node | [Docker Hub][amd64-up-board-node-dockerhub-link], [GitHub][amd64-up-board-node-github-link] | For available image tags, refer [here][amd64-up-board-node-dockerhub-tag-link] |
 | balenalib/up-board-python | [Docker Hub][amd64-up-board-python-dockerhub-link], [GitHub][amd64-up-board-python-github-link] | For available image tags, refer [here][amd64-up-board-python-dockerhub-tag-link] |
 | balenalib/up-board-golang | [Docker Hub][amd64-up-board-golang-dockerhub-link], [GitHub][amd64-up-board-golang-github-link] | For available image tags, refer [here][amd64-up-board-golang-dockerhub-tag-link] |
 | balenalib/up-board-openjdk | [Docker Hub][amd64-up-board-openjdk-dockerhub-link], [GitHub][amd64-up-board-openjdk-github-link] | For available image tags, refer [here][amd64-up-board-openjdk-dockerhub-tag-link] |
-| balenalib/up-board-debian | [Docker Hub][amd64-up-board-debian-dockerhub-link], [GitHub][amd64-up-board-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/up-board-debian | [Docker Hub][amd64-up-board-debian-dockerhub-link], [GitHub][amd64-up-board-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/up-board-debian-node | [Docker Hub][amd64-up-board-debian-node-dockerhub-link], [GitHub][amd64-up-board-debian-node-github-link] | For available image tags, refer [here][amd64-up-board-debian-node-dockerhub-tag-link] |
 | balenalib/up-board-debian-python | [Docker Hub][amd64-up-board-debian-python-dockerhub-link], [GitHub][amd64-up-board-debian-python-github-link] | For available image tags, refer [here][amd64-up-board-debian-python-dockerhub-tag-link] |
 | balenalib/up-board-debian-golang | [Docker Hub][amd64-up-board-debian-golang-dockerhub-link], [GitHub][amd64-up-board-debian-golang-github-link] | For available image tags, refer [here][amd64-up-board-debian-golang-dockerhub-tag-link] |
@@ -1419,12 +1419,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/surface-pro-6| [Docker Hub][amd64-surface-pro-6-dockerhub-link], [GitHub][amd64-surface-pro-6-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/surface-pro-6| [Docker Hub][amd64-surface-pro-6-dockerhub-link], [GitHub][amd64-surface-pro-6-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/surface-pro-6-node | [Docker Hub][amd64-surface-pro-6-node-dockerhub-link], [GitHub][amd64-surface-pro-6-node-github-link] | For available image tags, refer [here][amd64-surface-pro-6-node-dockerhub-tag-link] |
 | balenalib/surface-pro-6-python | [Docker Hub][amd64-surface-pro-6-python-dockerhub-link], [GitHub][amd64-surface-pro-6-python-github-link] | For available image tags, refer [here][amd64-surface-pro-6-python-dockerhub-tag-link] |
 | balenalib/surface-pro-6-golang | [Docker Hub][amd64-surface-pro-6-golang-dockerhub-link], [GitHub][amd64-surface-pro-6-golang-github-link] | For available image tags, refer [here][amd64-surface-pro-6-golang-dockerhub-tag-link] |
 | balenalib/surface-pro-6-openjdk | [Docker Hub][amd64-surface-pro-6-openjdk-dockerhub-link], [GitHub][amd64-surface-pro-6-openjdk-github-link] | For available image tags, refer [here][amd64-surface-pro-6-openjdk-dockerhub-tag-link] |
-| balenalib/surface-pro-6-debian | [Docker Hub][amd64-surface-pro-6-debian-dockerhub-link], [GitHub][amd64-surface-pro-6-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/surface-pro-6-debian | [Docker Hub][amd64-surface-pro-6-debian-dockerhub-link], [GitHub][amd64-surface-pro-6-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/surface-pro-6-debian-node | [Docker Hub][amd64-surface-pro-6-debian-node-dockerhub-link], [GitHub][amd64-surface-pro-6-debian-node-github-link] | For available image tags, refer [here][amd64-surface-pro-6-debian-node-dockerhub-tag-link] |
 | balenalib/surface-pro-6-debian-python | [Docker Hub][amd64-surface-pro-6-debian-python-dockerhub-link], [GitHub][amd64-surface-pro-6-debian-python-github-link] | For available image tags, refer [here][amd64-surface-pro-6-debian-python-dockerhub-tag-link] |
 | balenalib/surface-pro-6-debian-golang | [Docker Hub][amd64-surface-pro-6-debian-golang-dockerhub-link], [GitHub][amd64-surface-pro-6-debian-golang-github-link] | For available image tags, refer [here][amd64-surface-pro-6-debian-golang-dockerhub-tag-link] |
@@ -1450,12 +1450,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/up-core-plus| [Docker Hub][amd64-up-core-plus-dockerhub-link], [GitHub][amd64-up-core-plus-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/up-core-plus| [Docker Hub][amd64-up-core-plus-dockerhub-link], [GitHub][amd64-up-core-plus-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/up-core-plus-node | [Docker Hub][amd64-up-core-plus-node-dockerhub-link], [GitHub][amd64-up-core-plus-node-github-link] | For available image tags, refer [here][amd64-up-core-plus-node-dockerhub-tag-link] |
 | balenalib/up-core-plus-python | [Docker Hub][amd64-up-core-plus-python-dockerhub-link], [GitHub][amd64-up-core-plus-python-github-link] | For available image tags, refer [here][amd64-up-core-plus-python-dockerhub-tag-link] |
 | balenalib/up-core-plus-golang | [Docker Hub][amd64-up-core-plus-golang-dockerhub-link], [GitHub][amd64-up-core-plus-golang-github-link] | For available image tags, refer [here][amd64-up-core-plus-golang-dockerhub-tag-link] |
 | balenalib/up-core-plus-openjdk | [Docker Hub][amd64-up-core-plus-openjdk-dockerhub-link], [GitHub][amd64-up-core-plus-openjdk-github-link] | For available image tags, refer [here][amd64-up-core-plus-openjdk-dockerhub-tag-link] |
-| balenalib/up-core-plus-debian | [Docker Hub][amd64-up-core-plus-debian-dockerhub-link], [GitHub][amd64-up-core-plus-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/up-core-plus-debian | [Docker Hub][amd64-up-core-plus-debian-dockerhub-link], [GitHub][amd64-up-core-plus-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/up-core-plus-debian-node | [Docker Hub][amd64-up-core-plus-debian-node-dockerhub-link], [GitHub][amd64-up-core-plus-debian-node-github-link] | For available image tags, refer [here][amd64-up-core-plus-debian-node-dockerhub-tag-link] |
 | balenalib/up-core-plus-debian-python | [Docker Hub][amd64-up-core-plus-debian-python-dockerhub-link], [GitHub][amd64-up-core-plus-debian-python-github-link] | For available image tags, refer [here][amd64-up-core-plus-debian-python-dockerhub-tag-link] |
 | balenalib/up-core-plus-debian-golang | [Docker Hub][amd64-up-core-plus-debian-golang-dockerhub-link], [GitHub][amd64-up-core-plus-debian-golang-github-link] | For available image tags, refer [here][amd64-up-core-plus-debian-golang-dockerhub-tag-link] |
@@ -1481,12 +1481,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/up-core| [Docker Hub][amd64-up-core-dockerhub-link], [GitHub][amd64-up-core-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/up-core| [Docker Hub][amd64-up-core-dockerhub-link], [GitHub][amd64-up-core-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/up-core-node | [Docker Hub][amd64-up-core-node-dockerhub-link], [GitHub][amd64-up-core-node-github-link] | For available image tags, refer [here][amd64-up-core-node-dockerhub-tag-link] |
 | balenalib/up-core-python | [Docker Hub][amd64-up-core-python-dockerhub-link], [GitHub][amd64-up-core-python-github-link] | For available image tags, refer [here][amd64-up-core-python-dockerhub-tag-link] |
 | balenalib/up-core-golang | [Docker Hub][amd64-up-core-golang-dockerhub-link], [GitHub][amd64-up-core-golang-github-link] | For available image tags, refer [here][amd64-up-core-golang-dockerhub-tag-link] |
 | balenalib/up-core-openjdk | [Docker Hub][amd64-up-core-openjdk-dockerhub-link], [GitHub][amd64-up-core-openjdk-github-link] | For available image tags, refer [here][amd64-up-core-openjdk-dockerhub-tag-link] |
-| balenalib/up-core-debian | [Docker Hub][amd64-up-core-debian-dockerhub-link], [GitHub][amd64-up-core-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/up-core-debian | [Docker Hub][amd64-up-core-debian-dockerhub-link], [GitHub][amd64-up-core-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/up-core-debian-node | [Docker Hub][amd64-up-core-debian-node-dockerhub-link], [GitHub][amd64-up-core-debian-node-github-link] | For available image tags, refer [here][amd64-up-core-debian-node-dockerhub-tag-link] |
 | balenalib/up-core-debian-python | [Docker Hub][amd64-up-core-debian-python-dockerhub-link], [GitHub][amd64-up-core-debian-python-github-link] | For available image tags, refer [here][amd64-up-core-debian-python-dockerhub-tag-link] |
 | balenalib/up-core-debian-golang | [Docker Hub][amd64-up-core-debian-golang-dockerhub-link], [GitHub][amd64-up-core-debian-golang-github-link] | For available image tags, refer [here][amd64-up-core-debian-golang-dockerhub-tag-link] |
@@ -1512,12 +1512,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/up-squared| [Docker Hub][amd64-up-squared-dockerhub-link], [GitHub][amd64-up-squared-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/up-squared| [Docker Hub][amd64-up-squared-dockerhub-link], [GitHub][amd64-up-squared-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/up-squared-node | [Docker Hub][amd64-up-squared-node-dockerhub-link], [GitHub][amd64-up-squared-node-github-link] | For available image tags, refer [here][amd64-up-squared-node-dockerhub-tag-link] |
 | balenalib/up-squared-python | [Docker Hub][amd64-up-squared-python-dockerhub-link], [GitHub][amd64-up-squared-python-github-link] | For available image tags, refer [here][amd64-up-squared-python-dockerhub-tag-link] |
 | balenalib/up-squared-golang | [Docker Hub][amd64-up-squared-golang-dockerhub-link], [GitHub][amd64-up-squared-golang-github-link] | For available image tags, refer [here][amd64-up-squared-golang-dockerhub-tag-link] |
 | balenalib/up-squared-openjdk | [Docker Hub][amd64-up-squared-openjdk-dockerhub-link], [GitHub][amd64-up-squared-openjdk-github-link] | For available image tags, refer [here][amd64-up-squared-openjdk-dockerhub-tag-link] |
-| balenalib/up-squared-debian | [Docker Hub][amd64-up-squared-debian-dockerhub-link], [GitHub][amd64-up-squared-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/up-squared-debian | [Docker Hub][amd64-up-squared-debian-dockerhub-link], [GitHub][amd64-up-squared-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/up-squared-debian-node | [Docker Hub][amd64-up-squared-debian-node-dockerhub-link], [GitHub][amd64-up-squared-debian-node-github-link] | For available image tags, refer [here][amd64-up-squared-debian-node-dockerhub-tag-link] |
 | balenalib/up-squared-debian-python | [Docker Hub][amd64-up-squared-debian-python-dockerhub-link], [GitHub][amd64-up-squared-debian-python-github-link] | For available image tags, refer [here][amd64-up-squared-debian-python-dockerhub-tag-link] |
 | balenalib/up-squared-debian-golang | [Docker Hub][amd64-up-squared-debian-golang-dockerhub-link], [GitHub][amd64-up-squared-debian-golang-github-link] | For available image tags, refer [here][amd64-up-squared-debian-golang-dockerhub-tag-link] |
@@ -1543,12 +1543,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/surface-go| [Docker Hub][amd64-surface-go-dockerhub-link], [GitHub][amd64-surface-go-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/surface-go| [Docker Hub][amd64-surface-go-dockerhub-link], [GitHub][amd64-surface-go-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/surface-go-node | [Docker Hub][amd64-surface-go-node-dockerhub-link], [GitHub][amd64-surface-go-node-github-link] | For available image tags, refer [here][amd64-surface-go-node-dockerhub-tag-link] |
 | balenalib/surface-go-python | [Docker Hub][amd64-surface-go-python-dockerhub-link], [GitHub][amd64-surface-go-python-github-link] | For available image tags, refer [here][amd64-surface-go-python-dockerhub-tag-link] |
 | balenalib/surface-go-golang | [Docker Hub][amd64-surface-go-golang-dockerhub-link], [GitHub][amd64-surface-go-golang-github-link] | For available image tags, refer [here][amd64-surface-go-golang-dockerhub-tag-link] |
 | balenalib/surface-go-openjdk | [Docker Hub][amd64-surface-go-openjdk-dockerhub-link], [GitHub][amd64-surface-go-openjdk-github-link] | For available image tags, refer [here][amd64-surface-go-openjdk-dockerhub-tag-link] |
-| balenalib/surface-go-debian | [Docker Hub][amd64-surface-go-debian-dockerhub-link], [GitHub][amd64-surface-go-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/surface-go-debian | [Docker Hub][amd64-surface-go-debian-dockerhub-link], [GitHub][amd64-surface-go-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/surface-go-debian-node | [Docker Hub][amd64-surface-go-debian-node-dockerhub-link], [GitHub][amd64-surface-go-debian-node-github-link] | For available image tags, refer [here][amd64-surface-go-debian-node-dockerhub-tag-link] |
 | balenalib/surface-go-debian-python | [Docker Hub][amd64-surface-go-debian-python-dockerhub-link], [GitHub][amd64-surface-go-debian-python-github-link] | For available image tags, refer [here][amd64-surface-go-debian-python-dockerhub-tag-link] |
 | balenalib/surface-go-debian-golang | [Docker Hub][amd64-surface-go-debian-golang-dockerhub-link], [GitHub][amd64-surface-go-debian-golang-github-link] | For available image tags, refer [here][amd64-surface-go-debian-golang-dockerhub-tag-link] |
@@ -1578,12 +1578,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/artik710| [Docker Hub][aarch64-artik710-dockerhub-link], [GitHub][aarch64-artik710-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik710| [Docker Hub][aarch64-artik710-dockerhub-link], [GitHub][aarch64-artik710-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik710-node | [Docker Hub][aarch64-artik710-node-dockerhub-link], [GitHub][aarch64-artik710-node-github-link] | For available image tags, refer [here][aarch64-artik710-node-dockerhub-tag-link] |
 | balenalib/artik710-python | [Docker Hub][aarch64-artik710-python-dockerhub-link], [GitHub][aarch64-artik710-python-github-link] | For available image tags, refer [here][aarch64-artik710-python-dockerhub-tag-link] |
 | balenalib/artik710-golang | [Docker Hub][aarch64-artik710-golang-dockerhub-link], [GitHub][aarch64-artik710-golang-github-link] | For available image tags, refer [here][aarch64-artik710-golang-dockerhub-tag-link] |
 | balenalib/artik710-openjdk | [Docker Hub][aarch64-artik710-openjdk-dockerhub-link], [GitHub][aarch64-artik710-openjdk-github-link] | For available image tags, refer [here][aarch64-artik710-openjdk-dockerhub-tag-link] |
-| balenalib/artik710-debian | [Docker Hub][aarch64-artik710-debian-dockerhub-link], [GitHub][aarch64-artik710-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/artik710-debian | [Docker Hub][aarch64-artik710-debian-dockerhub-link], [GitHub][aarch64-artik710-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/artik710-debian-node | [Docker Hub][aarch64-artik710-debian-node-dockerhub-link], [GitHub][aarch64-artik710-debian-node-github-link] | For available image tags, refer [here][aarch64-artik710-debian-node-dockerhub-tag-link] |
 | balenalib/artik710-debian-python | [Docker Hub][aarch64-artik710-debian-python-dockerhub-link], [GitHub][aarch64-artik710-debian-python-github-link] | For available image tags, refer [here][aarch64-artik710-debian-python-dockerhub-tag-link] |
 | balenalib/artik710-debian-golang | [Docker Hub][aarch64-artik710-debian-golang-dockerhub-link], [GitHub][aarch64-artik710-debian-golang-github-link] | For available image tags, refer [here][aarch64-artik710-debian-golang-dockerhub-tag-link] |
@@ -1609,12 +1609,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/kitra710| [Docker Hub][aarch64-kitra710-dockerhub-link], [GitHub][aarch64-kitra710-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/kitra710| [Docker Hub][aarch64-kitra710-dockerhub-link], [GitHub][aarch64-kitra710-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/kitra710-node | [Docker Hub][aarch64-kitra710-node-dockerhub-link], [GitHub][aarch64-kitra710-node-github-link] | For available image tags, refer [here][aarch64-kitra710-node-dockerhub-tag-link] |
 | balenalib/kitra710-python | [Docker Hub][aarch64-kitra710-python-dockerhub-link], [GitHub][aarch64-kitra710-python-github-link] | For available image tags, refer [here][aarch64-kitra710-python-dockerhub-tag-link] |
 | balenalib/kitra710-golang | [Docker Hub][aarch64-kitra710-golang-dockerhub-link], [GitHub][aarch64-kitra710-golang-github-link] | For available image tags, refer [here][aarch64-kitra710-golang-dockerhub-tag-link] |
 | balenalib/kitra710-openjdk | [Docker Hub][aarch64-kitra710-openjdk-dockerhub-link], [GitHub][aarch64-kitra710-openjdk-github-link] | For available image tags, refer [here][aarch64-kitra710-openjdk-dockerhub-tag-link] |
-| balenalib/kitra710-debian | [Docker Hub][aarch64-kitra710-debian-dockerhub-link], [GitHub][aarch64-kitra710-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/kitra710-debian | [Docker Hub][aarch64-kitra710-debian-dockerhub-link], [GitHub][aarch64-kitra710-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/kitra710-debian-node | [Docker Hub][aarch64-kitra710-debian-node-dockerhub-link], [GitHub][aarch64-kitra710-debian-node-github-link] | For available image tags, refer [here][aarch64-kitra710-debian-node-dockerhub-tag-link] |
 | balenalib/kitra710-debian-python | [Docker Hub][aarch64-kitra710-debian-python-dockerhub-link], [GitHub][aarch64-kitra710-debian-python-github-link] | For available image tags, refer [here][aarch64-kitra710-debian-python-dockerhub-tag-link] |
 | balenalib/kitra710-debian-golang | [Docker Hub][aarch64-kitra710-debian-golang-dockerhub-link], [GitHub][aarch64-kitra710-debian-golang-github-link] | For available image tags, refer [here][aarch64-kitra710-debian-golang-dockerhub-tag-link] |
@@ -1640,12 +1640,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/jetson-tx2| [Docker Hub][aarch64-jetson-tx2-dockerhub-link], [GitHub][aarch64-jetson-tx2-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jetson-tx2| [Docker Hub][aarch64-jetson-tx2-dockerhub-link], [GitHub][aarch64-jetson-tx2-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jetson-tx2-node | [Docker Hub][aarch64-jetson-tx2-node-dockerhub-link], [GitHub][aarch64-jetson-tx2-node-github-link] | For available image tags, refer [here][aarch64-jetson-tx2-node-dockerhub-tag-link] |
 | balenalib/jetson-tx2-python | [Docker Hub][aarch64-jetson-tx2-python-dockerhub-link], [GitHub][aarch64-jetson-tx2-python-github-link] | For available image tags, refer [here][aarch64-jetson-tx2-python-dockerhub-tag-link] |
 | balenalib/jetson-tx2-golang | [Docker Hub][aarch64-jetson-tx2-golang-dockerhub-link], [GitHub][aarch64-jetson-tx2-golang-github-link] | For available image tags, refer [here][aarch64-jetson-tx2-golang-dockerhub-tag-link] |
 | balenalib/jetson-tx2-openjdk | [Docker Hub][aarch64-jetson-tx2-openjdk-dockerhub-link], [GitHub][aarch64-jetson-tx2-openjdk-github-link] | For available image tags, refer [here][aarch64-jetson-tx2-openjdk-dockerhub-tag-link] |
-| balenalib/jetson-tx2-debian | [Docker Hub][aarch64-jetson-tx2-debian-dockerhub-link], [GitHub][aarch64-jetson-tx2-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jetson-tx2-debian | [Docker Hub][aarch64-jetson-tx2-debian-dockerhub-link], [GitHub][aarch64-jetson-tx2-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jetson-tx2-debian-node | [Docker Hub][aarch64-jetson-tx2-debian-node-dockerhub-link], [GitHub][aarch64-jetson-tx2-debian-node-github-link] | For available image tags, refer [here][aarch64-jetson-tx2-debian-node-dockerhub-tag-link] |
 | balenalib/jetson-tx2-debian-python | [Docker Hub][aarch64-jetson-tx2-debian-python-dockerhub-link], [GitHub][aarch64-jetson-tx2-debian-python-github-link] | For available image tags, refer [here][aarch64-jetson-tx2-debian-python-dockerhub-tag-link] |
 | balenalib/jetson-tx2-debian-golang | [Docker Hub][aarch64-jetson-tx2-debian-golang-dockerhub-link], [GitHub][aarch64-jetson-tx2-debian-golang-github-link] | For available image tags, refer [here][aarch64-jetson-tx2-debian-golang-dockerhub-tag-link] |
@@ -1671,12 +1671,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/jetson-tx1| [Docker Hub][aarch64-jetson-tx1-dockerhub-link], [GitHub][aarch64-jetson-tx1-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jetson-tx1| [Docker Hub][aarch64-jetson-tx1-dockerhub-link], [GitHub][aarch64-jetson-tx1-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jetson-tx1-node | [Docker Hub][aarch64-jetson-tx1-node-dockerhub-link], [GitHub][aarch64-jetson-tx1-node-github-link] | For available image tags, refer [here][aarch64-jetson-tx1-node-dockerhub-tag-link] |
 | balenalib/jetson-tx1-python | [Docker Hub][aarch64-jetson-tx1-python-dockerhub-link], [GitHub][aarch64-jetson-tx1-python-github-link] | For available image tags, refer [here][aarch64-jetson-tx1-python-dockerhub-tag-link] |
 | balenalib/jetson-tx1-golang | [Docker Hub][aarch64-jetson-tx1-golang-dockerhub-link], [GitHub][aarch64-jetson-tx1-golang-github-link] | For available image tags, refer [here][aarch64-jetson-tx1-golang-dockerhub-tag-link] |
 | balenalib/jetson-tx1-openjdk | [Docker Hub][aarch64-jetson-tx1-openjdk-dockerhub-link], [GitHub][aarch64-jetson-tx1-openjdk-github-link] | For available image tags, refer [here][aarch64-jetson-tx1-openjdk-dockerhub-tag-link] |
-| balenalib/jetson-tx1-debian | [Docker Hub][aarch64-jetson-tx1-debian-dockerhub-link], [GitHub][aarch64-jetson-tx1-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jetson-tx1-debian | [Docker Hub][aarch64-jetson-tx1-debian-dockerhub-link], [GitHub][aarch64-jetson-tx1-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jetson-tx1-debian-node | [Docker Hub][aarch64-jetson-tx1-debian-node-dockerhub-link], [GitHub][aarch64-jetson-tx1-debian-node-github-link] | For available image tags, refer [here][aarch64-jetson-tx1-debian-node-dockerhub-tag-link] |
 | balenalib/jetson-tx1-debian-python | [Docker Hub][aarch64-jetson-tx1-debian-python-dockerhub-link], [GitHub][aarch64-jetson-tx1-debian-python-github-link] | For available image tags, refer [here][aarch64-jetson-tx1-debian-python-dockerhub-tag-link] |
 | balenalib/jetson-tx1-debian-golang | [Docker Hub][aarch64-jetson-tx1-debian-golang-dockerhub-link], [GitHub][aarch64-jetson-tx1-debian-golang-github-link] | For available image tags, refer [here][aarch64-jetson-tx1-debian-golang-dockerhub-tag-link] |
@@ -1702,12 +1702,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/generic-aarch64| [Docker Hub][aarch64-generic-aarch64-dockerhub-link], [GitHub][aarch64-generic-aarch64-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/generic-aarch64| [Docker Hub][aarch64-generic-aarch64-dockerhub-link], [GitHub][aarch64-generic-aarch64-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/generic-aarch64-node | [Docker Hub][aarch64-generic-aarch64-node-dockerhub-link], [GitHub][aarch64-generic-aarch64-node-github-link] | For available image tags, refer [here][aarch64-generic-aarch64-node-dockerhub-tag-link] |
 | balenalib/generic-aarch64-python | [Docker Hub][aarch64-generic-aarch64-python-dockerhub-link], [GitHub][aarch64-generic-aarch64-python-github-link] | For available image tags, refer [here][aarch64-generic-aarch64-python-dockerhub-tag-link] |
 | balenalib/generic-aarch64-golang | [Docker Hub][aarch64-generic-aarch64-golang-dockerhub-link], [GitHub][aarch64-generic-aarch64-golang-github-link] | For available image tags, refer [here][aarch64-generic-aarch64-golang-dockerhub-tag-link] |
 | balenalib/generic-aarch64-openjdk | [Docker Hub][aarch64-generic-aarch64-openjdk-dockerhub-link], [GitHub][aarch64-generic-aarch64-openjdk-github-link] | For available image tags, refer [here][aarch64-generic-aarch64-openjdk-dockerhub-tag-link] |
-| balenalib/generic-aarch64-debian | [Docker Hub][aarch64-generic-aarch64-debian-dockerhub-link], [GitHub][aarch64-generic-aarch64-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/generic-aarch64-debian | [Docker Hub][aarch64-generic-aarch64-debian-dockerhub-link], [GitHub][aarch64-generic-aarch64-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/generic-aarch64-debian-node | [Docker Hub][aarch64-generic-aarch64-debian-node-dockerhub-link], [GitHub][aarch64-generic-aarch64-debian-node-github-link] | For available image tags, refer [here][aarch64-generic-aarch64-debian-node-dockerhub-tag-link] |
 | balenalib/generic-aarch64-debian-python | [Docker Hub][aarch64-generic-aarch64-debian-python-dockerhub-link], [GitHub][aarch64-generic-aarch64-debian-python-github-link] | For available image tags, refer [here][aarch64-generic-aarch64-debian-python-dockerhub-tag-link] |
 | balenalib/generic-aarch64-debian-golang | [Docker Hub][aarch64-generic-aarch64-debian-golang-dockerhub-link], [GitHub][aarch64-generic-aarch64-debian-golang-github-link] | For available image tags, refer [here][aarch64-generic-aarch64-debian-golang-dockerhub-tag-link] |
@@ -1733,12 +1733,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/orbitty-tx2| [Docker Hub][aarch64-orbitty-tx2-dockerhub-link], [GitHub][aarch64-orbitty-tx2-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orbitty-tx2| [Docker Hub][aarch64-orbitty-tx2-dockerhub-link], [GitHub][aarch64-orbitty-tx2-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orbitty-tx2-node | [Docker Hub][aarch64-orbitty-tx2-node-dockerhub-link], [GitHub][aarch64-orbitty-tx2-node-github-link] | For available image tags, refer [here][aarch64-orbitty-tx2-node-dockerhub-tag-link] |
 | balenalib/orbitty-tx2-python | [Docker Hub][aarch64-orbitty-tx2-python-dockerhub-link], [GitHub][aarch64-orbitty-tx2-python-github-link] | For available image tags, refer [here][aarch64-orbitty-tx2-python-dockerhub-tag-link] |
 | balenalib/orbitty-tx2-golang | [Docker Hub][aarch64-orbitty-tx2-golang-dockerhub-link], [GitHub][aarch64-orbitty-tx2-golang-github-link] | For available image tags, refer [here][aarch64-orbitty-tx2-golang-dockerhub-tag-link] |
 | balenalib/orbitty-tx2-openjdk | [Docker Hub][aarch64-orbitty-tx2-openjdk-dockerhub-link], [GitHub][aarch64-orbitty-tx2-openjdk-github-link] | For available image tags, refer [here][aarch64-orbitty-tx2-openjdk-dockerhub-tag-link] |
-| balenalib/orbitty-tx2-debian | [Docker Hub][aarch64-orbitty-tx2-debian-dockerhub-link], [GitHub][aarch64-orbitty-tx2-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/orbitty-tx2-debian | [Docker Hub][aarch64-orbitty-tx2-debian-dockerhub-link], [GitHub][aarch64-orbitty-tx2-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/orbitty-tx2-debian-node | [Docker Hub][aarch64-orbitty-tx2-debian-node-dockerhub-link], [GitHub][aarch64-orbitty-tx2-debian-node-github-link] | For available image tags, refer [here][aarch64-orbitty-tx2-debian-node-dockerhub-tag-link] |
 | balenalib/orbitty-tx2-debian-python | [Docker Hub][aarch64-orbitty-tx2-debian-python-dockerhub-link], [GitHub][aarch64-orbitty-tx2-debian-python-github-link] | For available image tags, refer [here][aarch64-orbitty-tx2-debian-python-dockerhub-tag-link] |
 | balenalib/orbitty-tx2-debian-golang | [Docker Hub][aarch64-orbitty-tx2-debian-golang-dockerhub-link], [GitHub][aarch64-orbitty-tx2-debian-golang-github-link] | For available image tags, refer [here][aarch64-orbitty-tx2-debian-golang-dockerhub-tag-link] |
@@ -1764,12 +1764,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/spacely-tx2| [Docker Hub][aarch64-spacely-tx2-dockerhub-link], [GitHub][aarch64-spacely-tx2-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/spacely-tx2| [Docker Hub][aarch64-spacely-tx2-dockerhub-link], [GitHub][aarch64-spacely-tx2-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/spacely-tx2-node | [Docker Hub][aarch64-spacely-tx2-node-dockerhub-link], [GitHub][aarch64-spacely-tx2-node-github-link] | For available image tags, refer [here][aarch64-spacely-tx2-node-dockerhub-tag-link] |
 | balenalib/spacely-tx2-python | [Docker Hub][aarch64-spacely-tx2-python-dockerhub-link], [GitHub][aarch64-spacely-tx2-python-github-link] | For available image tags, refer [here][aarch64-spacely-tx2-python-dockerhub-tag-link] |
 | balenalib/spacely-tx2-golang | [Docker Hub][aarch64-spacely-tx2-golang-dockerhub-link], [GitHub][aarch64-spacely-tx2-golang-github-link] | For available image tags, refer [here][aarch64-spacely-tx2-golang-dockerhub-tag-link] |
 | balenalib/spacely-tx2-openjdk | [Docker Hub][aarch64-spacely-tx2-openjdk-dockerhub-link], [GitHub][aarch64-spacely-tx2-openjdk-github-link] | For available image tags, refer [here][aarch64-spacely-tx2-openjdk-dockerhub-tag-link] |
-| balenalib/spacely-tx2-debian | [Docker Hub][aarch64-spacely-tx2-debian-dockerhub-link], [GitHub][aarch64-spacely-tx2-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/spacely-tx2-debian | [Docker Hub][aarch64-spacely-tx2-debian-dockerhub-link], [GitHub][aarch64-spacely-tx2-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/spacely-tx2-debian-node | [Docker Hub][aarch64-spacely-tx2-debian-node-dockerhub-link], [GitHub][aarch64-spacely-tx2-debian-node-github-link] | For available image tags, refer [here][aarch64-spacely-tx2-debian-node-dockerhub-tag-link] |
 | balenalib/spacely-tx2-debian-python | [Docker Hub][aarch64-spacely-tx2-debian-python-dockerhub-link], [GitHub][aarch64-spacely-tx2-debian-python-github-link] | For available image tags, refer [here][aarch64-spacely-tx2-debian-python-dockerhub-tag-link] |
 | balenalib/spacely-tx2-debian-golang | [Docker Hub][aarch64-spacely-tx2-debian-golang-dockerhub-link], [GitHub][aarch64-spacely-tx2-debian-golang-github-link] | For available image tags, refer [here][aarch64-spacely-tx2-debian-golang-dockerhub-tag-link] |
@@ -1795,12 +1795,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/cl-som-imx8| [Docker Hub][aarch64-cl-som-imx8-dockerhub-link], [GitHub][aarch64-cl-som-imx8-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/cl-som-imx8| [Docker Hub][aarch64-cl-som-imx8-dockerhub-link], [GitHub][aarch64-cl-som-imx8-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/cl-som-imx8-node | [Docker Hub][aarch64-cl-som-imx8-node-dockerhub-link], [GitHub][aarch64-cl-som-imx8-node-github-link] | For available image tags, refer [here][aarch64-cl-som-imx8-node-dockerhub-tag-link] |
 | balenalib/cl-som-imx8-python | [Docker Hub][aarch64-cl-som-imx8-python-dockerhub-link], [GitHub][aarch64-cl-som-imx8-python-github-link] | For available image tags, refer [here][aarch64-cl-som-imx8-python-dockerhub-tag-link] |
 | balenalib/cl-som-imx8-golang | [Docker Hub][aarch64-cl-som-imx8-golang-dockerhub-link], [GitHub][aarch64-cl-som-imx8-golang-github-link] | For available image tags, refer [here][aarch64-cl-som-imx8-golang-dockerhub-tag-link] |
 | balenalib/cl-som-imx8-openjdk | [Docker Hub][aarch64-cl-som-imx8-openjdk-dockerhub-link], [GitHub][aarch64-cl-som-imx8-openjdk-github-link] | For available image tags, refer [here][aarch64-cl-som-imx8-openjdk-dockerhub-tag-link] |
-| balenalib/cl-som-imx8-debian | [Docker Hub][aarch64-cl-som-imx8-debian-dockerhub-link], [GitHub][aarch64-cl-som-imx8-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/cl-som-imx8-debian | [Docker Hub][aarch64-cl-som-imx8-debian-dockerhub-link], [GitHub][aarch64-cl-som-imx8-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/cl-som-imx8-debian-node | [Docker Hub][aarch64-cl-som-imx8-debian-node-dockerhub-link], [GitHub][aarch64-cl-som-imx8-debian-node-github-link] | For available image tags, refer [here][aarch64-cl-som-imx8-debian-node-dockerhub-tag-link] |
 | balenalib/cl-som-imx8-debian-python | [Docker Hub][aarch64-cl-som-imx8-debian-python-dockerhub-link], [GitHub][aarch64-cl-som-imx8-debian-python-github-link] | For available image tags, refer [here][aarch64-cl-som-imx8-debian-python-dockerhub-tag-link] |
 | balenalib/cl-som-imx8-debian-golang | [Docker Hub][aarch64-cl-som-imx8-debian-golang-dockerhub-link], [GitHub][aarch64-cl-som-imx8-debian-golang-github-link] | For available image tags, refer [here][aarch64-cl-som-imx8-debian-golang-dockerhub-tag-link] |
@@ -1826,12 +1826,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/imx8m-var-dart| [Docker Hub][aarch64-imx8m-var-dart-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/imx8m-var-dart| [Docker Hub][aarch64-imx8m-var-dart-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/imx8m-var-dart-node | [Docker Hub][aarch64-imx8m-var-dart-node-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-node-github-link] | For available image tags, refer [here][aarch64-imx8m-var-dart-node-dockerhub-tag-link] |
 | balenalib/imx8m-var-dart-python | [Docker Hub][aarch64-imx8m-var-dart-python-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-python-github-link] | For available image tags, refer [here][aarch64-imx8m-var-dart-python-dockerhub-tag-link] |
 | balenalib/imx8m-var-dart-golang | [Docker Hub][aarch64-imx8m-var-dart-golang-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-golang-github-link] | For available image tags, refer [here][aarch64-imx8m-var-dart-golang-dockerhub-tag-link] |
 | balenalib/imx8m-var-dart-openjdk | [Docker Hub][aarch64-imx8m-var-dart-openjdk-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-openjdk-github-link] | For available image tags, refer [here][aarch64-imx8m-var-dart-openjdk-dockerhub-tag-link] |
-| balenalib/imx8m-var-dart-debian | [Docker Hub][aarch64-imx8m-var-dart-debian-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/imx8m-var-dart-debian | [Docker Hub][aarch64-imx8m-var-dart-debian-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/imx8m-var-dart-debian-node | [Docker Hub][aarch64-imx8m-var-dart-debian-node-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-debian-node-github-link] | For available image tags, refer [here][aarch64-imx8m-var-dart-debian-node-dockerhub-tag-link] |
 | balenalib/imx8m-var-dart-debian-python | [Docker Hub][aarch64-imx8m-var-dart-debian-python-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-debian-python-github-link] | For available image tags, refer [here][aarch64-imx8m-var-dart-debian-python-dockerhub-tag-link] |
 | balenalib/imx8m-var-dart-debian-golang | [Docker Hub][aarch64-imx8m-var-dart-debian-golang-dockerhub-link], [GitHub][aarch64-imx8m-var-dart-debian-golang-github-link] | For available image tags, refer [here][aarch64-imx8m-var-dart-debian-golang-dockerhub-tag-link] |
@@ -1857,12 +1857,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/raspberrypi3-64| [Docker Hub][aarch64-raspberrypi3-64-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberrypi3-64| [Docker Hub][aarch64-raspberrypi3-64-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberrypi3-64-node | [Docker Hub][aarch64-raspberrypi3-64-node-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-node-github-link] | For available image tags, refer [here][aarch64-raspberrypi3-64-node-dockerhub-tag-link] |
 | balenalib/raspberrypi3-64-python | [Docker Hub][aarch64-raspberrypi3-64-python-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-python-github-link] | For available image tags, refer [here][aarch64-raspberrypi3-64-python-dockerhub-tag-link] |
 | balenalib/raspberrypi3-64-golang | [Docker Hub][aarch64-raspberrypi3-64-golang-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-golang-github-link] | For available image tags, refer [here][aarch64-raspberrypi3-64-golang-dockerhub-tag-link] |
 | balenalib/raspberrypi3-64-openjdk | [Docker Hub][aarch64-raspberrypi3-64-openjdk-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-openjdk-github-link] | For available image tags, refer [here][aarch64-raspberrypi3-64-openjdk-dockerhub-tag-link] |
-| balenalib/raspberrypi3-64-debian | [Docker Hub][aarch64-raspberrypi3-64-debian-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberrypi3-64-debian | [Docker Hub][aarch64-raspberrypi3-64-debian-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberrypi3-64-debian-node | [Docker Hub][aarch64-raspberrypi3-64-debian-node-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-debian-node-github-link] | For available image tags, refer [here][aarch64-raspberrypi3-64-debian-node-dockerhub-tag-link] |
 | balenalib/raspberrypi3-64-debian-python | [Docker Hub][aarch64-raspberrypi3-64-debian-python-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-debian-python-github-link] | For available image tags, refer [here][aarch64-raspberrypi3-64-debian-python-dockerhub-tag-link] |
 | balenalib/raspberrypi3-64-debian-golang | [Docker Hub][aarch64-raspberrypi3-64-debian-golang-dockerhub-link], [GitHub][aarch64-raspberrypi3-64-debian-golang-github-link] | For available image tags, refer [here][aarch64-raspberrypi3-64-debian-golang-dockerhub-tag-link] |
@@ -1888,12 +1888,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/n510-tx2| [Docker Hub][aarch64-n510-tx2-dockerhub-link], [GitHub][aarch64-n510-tx2-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/n510-tx2| [Docker Hub][aarch64-n510-tx2-dockerhub-link], [GitHub][aarch64-n510-tx2-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/n510-tx2-node | [Docker Hub][aarch64-n510-tx2-node-dockerhub-link], [GitHub][aarch64-n510-tx2-node-github-link] | For available image tags, refer [here][aarch64-n510-tx2-node-dockerhub-tag-link] |
 | balenalib/n510-tx2-python | [Docker Hub][aarch64-n510-tx2-python-dockerhub-link], [GitHub][aarch64-n510-tx2-python-github-link] | For available image tags, refer [here][aarch64-n510-tx2-python-dockerhub-tag-link] |
 | balenalib/n510-tx2-golang | [Docker Hub][aarch64-n510-tx2-golang-dockerhub-link], [GitHub][aarch64-n510-tx2-golang-github-link] | For available image tags, refer [here][aarch64-n510-tx2-golang-dockerhub-tag-link] |
 | balenalib/n510-tx2-openjdk | [Docker Hub][aarch64-n510-tx2-openjdk-dockerhub-link], [GitHub][aarch64-n510-tx2-openjdk-github-link] | For available image tags, refer [here][aarch64-n510-tx2-openjdk-dockerhub-tag-link] |
-| balenalib/n510-tx2-debian | [Docker Hub][aarch64-n510-tx2-debian-dockerhub-link], [GitHub][aarch64-n510-tx2-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/n510-tx2-debian | [Docker Hub][aarch64-n510-tx2-debian-dockerhub-link], [GitHub][aarch64-n510-tx2-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/n510-tx2-debian-node | [Docker Hub][aarch64-n510-tx2-debian-node-dockerhub-link], [GitHub][aarch64-n510-tx2-debian-node-github-link] | For available image tags, refer [here][aarch64-n510-tx2-debian-node-dockerhub-tag-link] |
 | balenalib/n510-tx2-debian-python | [Docker Hub][aarch64-n510-tx2-debian-python-dockerhub-link], [GitHub][aarch64-n510-tx2-debian-python-github-link] | For available image tags, refer [here][aarch64-n510-tx2-debian-python-dockerhub-tag-link] |
 | balenalib/n510-tx2-debian-golang | [Docker Hub][aarch64-n510-tx2-debian-golang-dockerhub-link], [GitHub][aarch64-n510-tx2-debian-golang-github-link] | For available image tags, refer [here][aarch64-n510-tx2-debian-golang-dockerhub-tag-link] |
@@ -1919,12 +1919,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/jetson-nano| [Docker Hub][aarch64-jetson-nano-dockerhub-link], [GitHub][aarch64-jetson-nano-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jetson-nano| [Docker Hub][aarch64-jetson-nano-dockerhub-link], [GitHub][aarch64-jetson-nano-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jetson-nano-node | [Docker Hub][aarch64-jetson-nano-node-dockerhub-link], [GitHub][aarch64-jetson-nano-node-github-link] | For available image tags, refer [here][aarch64-jetson-nano-node-dockerhub-tag-link] |
 | balenalib/jetson-nano-python | [Docker Hub][aarch64-jetson-nano-python-dockerhub-link], [GitHub][aarch64-jetson-nano-python-github-link] | For available image tags, refer [here][aarch64-jetson-nano-python-dockerhub-tag-link] |
 | balenalib/jetson-nano-golang | [Docker Hub][aarch64-jetson-nano-golang-dockerhub-link], [GitHub][aarch64-jetson-nano-golang-github-link] | For available image tags, refer [here][aarch64-jetson-nano-golang-dockerhub-tag-link] |
 | balenalib/jetson-nano-openjdk | [Docker Hub][aarch64-jetson-nano-openjdk-dockerhub-link], [GitHub][aarch64-jetson-nano-openjdk-github-link] | For available image tags, refer [here][aarch64-jetson-nano-openjdk-dockerhub-tag-link] |
-| balenalib/jetson-nano-debian | [Docker Hub][aarch64-jetson-nano-debian-dockerhub-link], [GitHub][aarch64-jetson-nano-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jetson-nano-debian | [Docker Hub][aarch64-jetson-nano-debian-dockerhub-link], [GitHub][aarch64-jetson-nano-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jetson-nano-debian-node | [Docker Hub][aarch64-jetson-nano-debian-node-dockerhub-link], [GitHub][aarch64-jetson-nano-debian-node-github-link] | For available image tags, refer [here][aarch64-jetson-nano-debian-node-dockerhub-tag-link] |
 | balenalib/jetson-nano-debian-python | [Docker Hub][aarch64-jetson-nano-debian-python-dockerhub-link], [GitHub][aarch64-jetson-nano-debian-python-github-link] | For available image tags, refer [here][aarch64-jetson-nano-debian-python-dockerhub-tag-link] |
 | balenalib/jetson-nano-debian-golang | [Docker Hub][aarch64-jetson-nano-debian-golang-dockerhub-link], [GitHub][aarch64-jetson-nano-debian-golang-github-link] | For available image tags, refer [here][aarch64-jetson-nano-debian-golang-dockerhub-tag-link] |
@@ -1950,12 +1950,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/srd3-tx2| [Docker Hub][aarch64-srd3-tx2-dockerhub-link], [GitHub][aarch64-srd3-tx2-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/srd3-tx2| [Docker Hub][aarch64-srd3-tx2-dockerhub-link], [GitHub][aarch64-srd3-tx2-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/srd3-tx2-node | [Docker Hub][aarch64-srd3-tx2-node-dockerhub-link], [GitHub][aarch64-srd3-tx2-node-github-link] | For available image tags, refer [here][aarch64-srd3-tx2-node-dockerhub-tag-link] |
 | balenalib/srd3-tx2-python | [Docker Hub][aarch64-srd3-tx2-python-dockerhub-link], [GitHub][aarch64-srd3-tx2-python-github-link] | For available image tags, refer [here][aarch64-srd3-tx2-python-dockerhub-tag-link] |
 | balenalib/srd3-tx2-golang | [Docker Hub][aarch64-srd3-tx2-golang-dockerhub-link], [GitHub][aarch64-srd3-tx2-golang-github-link] | For available image tags, refer [here][aarch64-srd3-tx2-golang-dockerhub-tag-link] |
 | balenalib/srd3-tx2-openjdk | [Docker Hub][aarch64-srd3-tx2-openjdk-dockerhub-link], [GitHub][aarch64-srd3-tx2-openjdk-github-link] | For available image tags, refer [here][aarch64-srd3-tx2-openjdk-dockerhub-tag-link] |
-| balenalib/srd3-tx2-debian | [Docker Hub][aarch64-srd3-tx2-debian-dockerhub-link], [GitHub][aarch64-srd3-tx2-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/srd3-tx2-debian | [Docker Hub][aarch64-srd3-tx2-debian-dockerhub-link], [GitHub][aarch64-srd3-tx2-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/srd3-tx2-debian-node | [Docker Hub][aarch64-srd3-tx2-debian-node-dockerhub-link], [GitHub][aarch64-srd3-tx2-debian-node-github-link] | For available image tags, refer [here][aarch64-srd3-tx2-debian-node-dockerhub-tag-link] |
 | balenalib/srd3-tx2-debian-python | [Docker Hub][aarch64-srd3-tx2-debian-python-dockerhub-link], [GitHub][aarch64-srd3-tx2-debian-python-github-link] | For available image tags, refer [here][aarch64-srd3-tx2-debian-python-dockerhub-tag-link] |
 | balenalib/srd3-tx2-debian-golang | [Docker Hub][aarch64-srd3-tx2-debian-golang-dockerhub-link], [GitHub][aarch64-srd3-tx2-debian-golang-github-link] | For available image tags, refer [here][aarch64-srd3-tx2-debian-golang-dockerhub-tag-link] |
@@ -1981,12 +1981,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/blackboard-tx2| [Docker Hub][aarch64-blackboard-tx2-dockerhub-link], [GitHub][aarch64-blackboard-tx2-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/blackboard-tx2| [Docker Hub][aarch64-blackboard-tx2-dockerhub-link], [GitHub][aarch64-blackboard-tx2-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/blackboard-tx2-node | [Docker Hub][aarch64-blackboard-tx2-node-dockerhub-link], [GitHub][aarch64-blackboard-tx2-node-github-link] | For available image tags, refer [here][aarch64-blackboard-tx2-node-dockerhub-tag-link] |
 | balenalib/blackboard-tx2-python | [Docker Hub][aarch64-blackboard-tx2-python-dockerhub-link], [GitHub][aarch64-blackboard-tx2-python-github-link] | For available image tags, refer [here][aarch64-blackboard-tx2-python-dockerhub-tag-link] |
 | balenalib/blackboard-tx2-golang | [Docker Hub][aarch64-blackboard-tx2-golang-dockerhub-link], [GitHub][aarch64-blackboard-tx2-golang-github-link] | For available image tags, refer [here][aarch64-blackboard-tx2-golang-dockerhub-tag-link] |
 | balenalib/blackboard-tx2-openjdk | [Docker Hub][aarch64-blackboard-tx2-openjdk-dockerhub-link], [GitHub][aarch64-blackboard-tx2-openjdk-github-link] | For available image tags, refer [here][aarch64-blackboard-tx2-openjdk-dockerhub-tag-link] |
-| balenalib/blackboard-tx2-debian | [Docker Hub][aarch64-blackboard-tx2-debian-dockerhub-link], [GitHub][aarch64-blackboard-tx2-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/blackboard-tx2-debian | [Docker Hub][aarch64-blackboard-tx2-debian-dockerhub-link], [GitHub][aarch64-blackboard-tx2-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/blackboard-tx2-debian-node | [Docker Hub][aarch64-blackboard-tx2-debian-node-dockerhub-link], [GitHub][aarch64-blackboard-tx2-debian-node-github-link] | For available image tags, refer [here][aarch64-blackboard-tx2-debian-node-dockerhub-tag-link] |
 | balenalib/blackboard-tx2-debian-python | [Docker Hub][aarch64-blackboard-tx2-debian-python-dockerhub-link], [GitHub][aarch64-blackboard-tx2-debian-python-github-link] | For available image tags, refer [here][aarch64-blackboard-tx2-debian-python-dockerhub-tag-link] |
 | balenalib/blackboard-tx2-debian-golang | [Docker Hub][aarch64-blackboard-tx2-debian-golang-dockerhub-link], [GitHub][aarch64-blackboard-tx2-debian-golang-github-link] | For available image tags, refer [here][aarch64-blackboard-tx2-debian-golang-dockerhub-tag-link] |
@@ -2012,12 +2012,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/jetson-xavier| [Docker Hub][aarch64-jetson-xavier-dockerhub-link], [GitHub][aarch64-jetson-xavier-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jetson-xavier| [Docker Hub][aarch64-jetson-xavier-dockerhub-link], [GitHub][aarch64-jetson-xavier-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jetson-xavier-node | [Docker Hub][aarch64-jetson-xavier-node-dockerhub-link], [GitHub][aarch64-jetson-xavier-node-github-link] | For available image tags, refer [here][aarch64-jetson-xavier-node-dockerhub-tag-link] |
 | balenalib/jetson-xavier-python | [Docker Hub][aarch64-jetson-xavier-python-dockerhub-link], [GitHub][aarch64-jetson-xavier-python-github-link] | For available image tags, refer [here][aarch64-jetson-xavier-python-dockerhub-tag-link] |
 | balenalib/jetson-xavier-golang | [Docker Hub][aarch64-jetson-xavier-golang-dockerhub-link], [GitHub][aarch64-jetson-xavier-golang-github-link] | For available image tags, refer [here][aarch64-jetson-xavier-golang-dockerhub-tag-link] |
 | balenalib/jetson-xavier-openjdk | [Docker Hub][aarch64-jetson-xavier-openjdk-dockerhub-link], [GitHub][aarch64-jetson-xavier-openjdk-github-link] | For available image tags, refer [here][aarch64-jetson-xavier-openjdk-dockerhub-tag-link] |
-| balenalib/jetson-xavier-debian | [Docker Hub][aarch64-jetson-xavier-debian-dockerhub-link], [GitHub][aarch64-jetson-xavier-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jetson-xavier-debian | [Docker Hub][aarch64-jetson-xavier-debian-dockerhub-link], [GitHub][aarch64-jetson-xavier-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jetson-xavier-debian-node | [Docker Hub][aarch64-jetson-xavier-debian-node-dockerhub-link], [GitHub][aarch64-jetson-xavier-debian-node-github-link] | For available image tags, refer [here][aarch64-jetson-xavier-debian-node-dockerhub-tag-link] |
 | balenalib/jetson-xavier-debian-python | [Docker Hub][aarch64-jetson-xavier-debian-python-dockerhub-link], [GitHub][aarch64-jetson-xavier-debian-python-github-link] | For available image tags, refer [here][aarch64-jetson-xavier-debian-python-dockerhub-tag-link] |
 | balenalib/jetson-xavier-debian-golang | [Docker Hub][aarch64-jetson-xavier-debian-golang-dockerhub-link], [GitHub][aarch64-jetson-xavier-debian-golang-github-link] | For available image tags, refer [here][aarch64-jetson-xavier-debian-golang-dockerhub-tag-link] |
@@ -2043,12 +2043,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/nitrogen8mm| [Docker Hub][aarch64-nitrogen8mm-dockerhub-link], [GitHub][aarch64-nitrogen8mm-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/nitrogen8mm| [Docker Hub][aarch64-nitrogen8mm-dockerhub-link], [GitHub][aarch64-nitrogen8mm-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/nitrogen8mm-node | [Docker Hub][aarch64-nitrogen8mm-node-dockerhub-link], [GitHub][aarch64-nitrogen8mm-node-github-link] | For available image tags, refer [here][aarch64-nitrogen8mm-node-dockerhub-tag-link] |
 | balenalib/nitrogen8mm-python | [Docker Hub][aarch64-nitrogen8mm-python-dockerhub-link], [GitHub][aarch64-nitrogen8mm-python-github-link] | For available image tags, refer [here][aarch64-nitrogen8mm-python-dockerhub-tag-link] |
 | balenalib/nitrogen8mm-golang | [Docker Hub][aarch64-nitrogen8mm-golang-dockerhub-link], [GitHub][aarch64-nitrogen8mm-golang-github-link] | For available image tags, refer [here][aarch64-nitrogen8mm-golang-dockerhub-tag-link] |
 | balenalib/nitrogen8mm-openjdk | [Docker Hub][aarch64-nitrogen8mm-openjdk-dockerhub-link], [GitHub][aarch64-nitrogen8mm-openjdk-github-link] | For available image tags, refer [here][aarch64-nitrogen8mm-openjdk-dockerhub-tag-link] |
-| balenalib/nitrogen8mm-debian | [Docker Hub][aarch64-nitrogen8mm-debian-dockerhub-link], [GitHub][aarch64-nitrogen8mm-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/nitrogen8mm-debian | [Docker Hub][aarch64-nitrogen8mm-debian-dockerhub-link], [GitHub][aarch64-nitrogen8mm-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/nitrogen8mm-debian-node | [Docker Hub][aarch64-nitrogen8mm-debian-node-dockerhub-link], [GitHub][aarch64-nitrogen8mm-debian-node-github-link] | For available image tags, refer [here][aarch64-nitrogen8mm-debian-node-dockerhub-tag-link] |
 | balenalib/nitrogen8mm-debian-python | [Docker Hub][aarch64-nitrogen8mm-debian-python-dockerhub-link], [GitHub][aarch64-nitrogen8mm-debian-python-github-link] | For available image tags, refer [here][aarch64-nitrogen8mm-debian-python-dockerhub-tag-link] |
 | balenalib/nitrogen8mm-debian-golang | [Docker Hub][aarch64-nitrogen8mm-debian-golang-dockerhub-link], [GitHub][aarch64-nitrogen8mm-debian-golang-github-link] | For available image tags, refer [here][aarch64-nitrogen8mm-debian-golang-dockerhub-tag-link] |
@@ -2074,12 +2074,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/raspberrypi4-64| [Docker Hub][aarch64-raspberrypi4-64-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberrypi4-64| [Docker Hub][aarch64-raspberrypi4-64-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberrypi4-64-node | [Docker Hub][aarch64-raspberrypi4-64-node-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-node-github-link] | For available image tags, refer [here][aarch64-raspberrypi4-64-node-dockerhub-tag-link] |
 | balenalib/raspberrypi4-64-python | [Docker Hub][aarch64-raspberrypi4-64-python-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-python-github-link] | For available image tags, refer [here][aarch64-raspberrypi4-64-python-dockerhub-tag-link] |
 | balenalib/raspberrypi4-64-golang | [Docker Hub][aarch64-raspberrypi4-64-golang-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-golang-github-link] | For available image tags, refer [here][aarch64-raspberrypi4-64-golang-dockerhub-tag-link] |
 | balenalib/raspberrypi4-64-openjdk | [Docker Hub][aarch64-raspberrypi4-64-openjdk-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-openjdk-github-link] | For available image tags, refer [here][aarch64-raspberrypi4-64-openjdk-dockerhub-tag-link] |
-| balenalib/raspberrypi4-64-debian | [Docker Hub][aarch64-raspberrypi4-64-debian-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/raspberrypi4-64-debian | [Docker Hub][aarch64-raspberrypi4-64-debian-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/raspberrypi4-64-debian-node | [Docker Hub][aarch64-raspberrypi4-64-debian-node-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-debian-node-github-link] | For available image tags, refer [here][aarch64-raspberrypi4-64-debian-node-dockerhub-tag-link] |
 | balenalib/raspberrypi4-64-debian-python | [Docker Hub][aarch64-raspberrypi4-64-debian-python-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-debian-python-github-link] | For available image tags, refer [here][aarch64-raspberrypi4-64-debian-python-dockerhub-tag-link] |
 | balenalib/raspberrypi4-64-debian-golang | [Docker Hub][aarch64-raspberrypi4-64-debian-golang-dockerhub-link], [GitHub][aarch64-raspberrypi4-64-debian-golang-github-link] | For available image tags, refer [here][aarch64-raspberrypi4-64-debian-golang-dockerhub-tag-link] |
@@ -2105,12 +2105,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/jn30b-nano| [Docker Hub][aarch64-jn30b-nano-dockerhub-link], [GitHub][aarch64-jn30b-nano-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jn30b-nano| [Docker Hub][aarch64-jn30b-nano-dockerhub-link], [GitHub][aarch64-jn30b-nano-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jn30b-nano-node | [Docker Hub][aarch64-jn30b-nano-node-dockerhub-link], [GitHub][aarch64-jn30b-nano-node-github-link] | For available image tags, refer [here][aarch64-jn30b-nano-node-dockerhub-tag-link] |
 | balenalib/jn30b-nano-python | [Docker Hub][aarch64-jn30b-nano-python-dockerhub-link], [GitHub][aarch64-jn30b-nano-python-github-link] | For available image tags, refer [here][aarch64-jn30b-nano-python-dockerhub-tag-link] |
 | balenalib/jn30b-nano-golang | [Docker Hub][aarch64-jn30b-nano-golang-dockerhub-link], [GitHub][aarch64-jn30b-nano-golang-github-link] | For available image tags, refer [here][aarch64-jn30b-nano-golang-dockerhub-tag-link] |
 | balenalib/jn30b-nano-openjdk | [Docker Hub][aarch64-jn30b-nano-openjdk-dockerhub-link], [GitHub][aarch64-jn30b-nano-openjdk-github-link] | For available image tags, refer [here][aarch64-jn30b-nano-openjdk-dockerhub-tag-link] |
-| balenalib/jn30b-nano-debian | [Docker Hub][aarch64-jn30b-nano-debian-dockerhub-link], [GitHub][aarch64-jn30b-nano-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/jn30b-nano-debian | [Docker Hub][aarch64-jn30b-nano-debian-dockerhub-link], [GitHub][aarch64-jn30b-nano-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/jn30b-nano-debian-node | [Docker Hub][aarch64-jn30b-nano-debian-node-dockerhub-link], [GitHub][aarch64-jn30b-nano-debian-node-github-link] | For available image tags, refer [here][aarch64-jn30b-nano-debian-node-dockerhub-tag-link] |
 | balenalib/jn30b-nano-debian-python | [Docker Hub][aarch64-jn30b-nano-debian-python-dockerhub-link], [GitHub][aarch64-jn30b-nano-debian-python-github-link] | For available image tags, refer [here][aarch64-jn30b-nano-debian-python-dockerhub-tag-link] |
 | balenalib/jn30b-nano-debian-golang | [Docker Hub][aarch64-jn30b-nano-debian-golang-dockerhub-link], [GitHub][aarch64-jn30b-nano-debian-golang-github-link] | For available image tags, refer [here][aarch64-jn30b-nano-debian-golang-dockerhub-tag-link] |
@@ -2136,12 +2136,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/coral-dev| [Docker Hub][aarch64-coral-dev-dockerhub-link], [GitHub][aarch64-coral-dev-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/coral-dev| [Docker Hub][aarch64-coral-dev-dockerhub-link], [GitHub][aarch64-coral-dev-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/coral-dev-node | [Docker Hub][aarch64-coral-dev-node-dockerhub-link], [GitHub][aarch64-coral-dev-node-github-link] | For available image tags, refer [here][aarch64-coral-dev-node-dockerhub-tag-link] |
 | balenalib/coral-dev-python | [Docker Hub][aarch64-coral-dev-python-dockerhub-link], [GitHub][aarch64-coral-dev-python-github-link] | For available image tags, refer [here][aarch64-coral-dev-python-dockerhub-tag-link] |
 | balenalib/coral-dev-golang | [Docker Hub][aarch64-coral-dev-golang-dockerhub-link], [GitHub][aarch64-coral-dev-golang-github-link] | For available image tags, refer [here][aarch64-coral-dev-golang-dockerhub-tag-link] |
 | balenalib/coral-dev-openjdk | [Docker Hub][aarch64-coral-dev-openjdk-dockerhub-link], [GitHub][aarch64-coral-dev-openjdk-github-link] | For available image tags, refer [here][aarch64-coral-dev-openjdk-dockerhub-tag-link] |
-| balenalib/coral-dev-debian | [Docker Hub][aarch64-coral-dev-debian-dockerhub-link], [GitHub][aarch64-coral-dev-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/coral-dev-debian | [Docker Hub][aarch64-coral-dev-debian-dockerhub-link], [GitHub][aarch64-coral-dev-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/coral-dev-debian-node | [Docker Hub][aarch64-coral-dev-debian-node-dockerhub-link], [GitHub][aarch64-coral-dev-debian-node-github-link] | For available image tags, refer [here][aarch64-coral-dev-debian-node-dockerhub-tag-link] |
 | balenalib/coral-dev-debian-python | [Docker Hub][aarch64-coral-dev-debian-python-dockerhub-link], [GitHub][aarch64-coral-dev-debian-python-github-link] | For available image tags, refer [here][aarch64-coral-dev-debian-python-dockerhub-tag-link] |
 | balenalib/coral-dev-debian-golang | [Docker Hub][aarch64-coral-dev-debian-golang-dockerhub-link], [GitHub][aarch64-coral-dev-debian-golang-github-link] | For available image tags, refer [here][aarch64-coral-dev-debian-golang-dockerhub-tag-link] |
@@ -2171,12 +2171,12 @@ excerpt: List of available base images and tags
 
 | Image | Links | Available Tag |
 |:-----------|:------------|:------------|
-| balenalib/ts7700| [Docker Hub][armel-ts7700-dockerhub-link], [GitHub][armel-ts7700-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/ts7700| [Docker Hub][armel-ts7700-dockerhub-link], [GitHub][armel-ts7700-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/ts7700-node | [Docker Hub][armel-ts7700-node-dockerhub-link], [GitHub][armel-ts7700-node-github-link] | For available image tags, refer [here][armel-ts7700-node-dockerhub-tag-link] |
 | balenalib/ts7700-python | [Docker Hub][armel-ts7700-python-dockerhub-link], [GitHub][armel-ts7700-python-github-link] | For available image tags, refer [here][armel-ts7700-python-dockerhub-tag-link] |
 | balenalib/ts7700-golang | [Docker Hub][armel-ts7700-golang-dockerhub-link], [GitHub][armel-ts7700-golang-github-link] | For available image tags, refer [here][armel-ts7700-golang-dockerhub-tag-link] |
 | balenalib/ts7700-openjdk | [Docker Hub][armel-ts7700-openjdk-dockerhub-link], [GitHub][armel-ts7700-openjdk-github-link] | For available image tags, refer [here][armel-ts7700-openjdk-dockerhub-tag-link] |
-| balenalib/ts7700-debian | [Docker Hub][armel-ts7700-debian-dockerhub-link], [GitHub][armel-ts7700-debian-github-link] | latest, buster, stretch, jessie, sid |
+| balenalib/ts7700-debian | [Docker Hub][armel-ts7700-debian-dockerhub-link], [GitHub][armel-ts7700-debian-github-link] | latest, bullseye, buster, stretch, jessie, sid |
 | balenalib/ts7700-debian-node | [Docker Hub][armel-ts7700-debian-node-dockerhub-link], [GitHub][armel-ts7700-debian-node-github-link] | For available image tags, refer [here][armel-ts7700-debian-node-dockerhub-tag-link] |
 | balenalib/ts7700-debian-python | [Docker Hub][armel-ts7700-debian-python-dockerhub-link], [GitHub][armel-ts7700-debian-python-github-link] | For available image tags, refer [here][armel-ts7700-debian-python-dockerhub-tag-link] |
 | balenalib/ts7700-debian-golang | [Docker Hub][armel-ts7700-debian-golang-dockerhub-link], [GitHub][armel-ts7700-debian-golang-github-link] | For available image tags, refer [here][armel-ts7700-debian-golang-dockerhub-tag-link] |
