@@ -107,8 +107,8 @@ There are cases when you would need a higher granularity of control when specify
 
 When deploying an application, the balenaCloud build servers or the balena CLI tool (depending on the deployment method used) look at all available Dockerfiles and build the appropriate image using the following order of preference:
 
-* Dockerfile.<device-type>
-* Dockerfile.<arch>
+* Dockerfile.\<device-type>
+* Dockerfile.\<arch>
 * Dockerfile.template
 
 As an example, let's say you have two Dockerfiles available, `Dockerfile.raspberrypi3` and `Dockerfile.template`. Whenever you publish the application to balenaCloud, if the `device-type` is a Raspberry Pi 3, `Dockerfile.raspberrypi3` will be selected as an exact match and for all other devices the builder will automatically select `Dockerfile.template`.
