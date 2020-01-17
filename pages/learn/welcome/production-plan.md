@@ -18,7 +18,7 @@ There are a number of single-board computers capable of supporting Linux and run
 * CPU: Do you have software components that require the x86 architecture? ARM chips are often cheaper and consume less power, but x86 can often provide more processing capability.
 * RAM: You should ensure that you have a comfortable buffer of memory. Software must be able to evolve with changing business needs and you may find yourself deploying new features beyond what you originally scoped. Having plenty of available memory will save you time and effort (and possibly an expensive upgrade cycle) later.
 * Peripherals: Are there special hardware devices that will need custom drivers?
-* Storage: SD cards are common in embedded devices, but are slower and *much* less reliable than onboard flash storage. Especially if your application will be performing many read/write cycles, avoiding SD storage will reduce the risk of data corruption.
+* Storage: SD cards are common in embedded devices, but are slower and *much* less reliable than onboard flash storage. Especially if your application will be performing many read/write cycles, avoiding SD storage will reduce the risk of data corruption. If using SD cards, we recommend SanDisk Extreme Pro SD cards.
 
 Of course, the single biggest choice you have to make is whether to use off-the-shelf hardware or a custom device. An off-the-shelf device has many advantages, including lower price, faster availability, and broader industry support. But it's possible that no existing device fully meets your needs. In this case it's crucial to think about your operating environment—you need to be sure that it will work with your hardware and that it can be kept up to date with the latest security patches.
 
