@@ -72,7 +72,7 @@ Click Environment Variables and create the following keys and matching values:
 1. `GOOGLE_IOT_PROJECT` and enter the Project Id for your GCP Project, you can find that on the [GCP Home page](https://console.cloud.google.com/home)
 2. `GOOGLE_IOT_REGION` and enter the GCP region you selected above (`us-central1`)
 3. `GOOGLE_IOT_REGISTRY` and enter the device registry name you've selected above (`my-registry`)
-4. `GOOGLE_IOT_SERVICE_JSON` and paste the entire content of the credentials json file you've downloaded above as value
+4. `GOOGLE_IOT_SERVICE_ACCOUNT_TOKEN` and paste the entire content of the credentials json file you've downloaded above as value
 
 ## Provision your device
 
