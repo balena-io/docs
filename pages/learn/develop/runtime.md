@@ -54,7 +54,7 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 
 ### Dbus communication with host OS
 
-In some cases its necessary to communicate with the host OS systemd to perform actions on the host, for example changing the hostname. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
+In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
 __Note:__ In multicontainer applications, the `io.balena.features.dbus` label must be applied for each service that requires access to the dbus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
 
@@ -74,7 +74,8 @@ __Note:__ To use the `dbus-send` command in the example you will need to install
 
 #### Change the Device hostname
 
-Changing the device hostname is no longer possible via this method, due to the fact that the `/etc/hostname` file is stored on the read-only root partition. To change the device hostname, use the [balena supervisor API][supervisor-api-device-host-config].
+Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the [host OS][host-os] is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API][supervisor-api-device-host-config]
+
 
 #### Rebooting the Device
 ```Bash
@@ -346,3 +347,4 @@ Note that currently it's not possible to share a mounted device across multiple 
 [network-ipam]:https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference
 [network-aliases]:https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases
 [services-masterclass]:{{ $links.githubMain }}/services-masterclass#4-networking-types
+[host-os]:/reference/OS/overview/2.x/
