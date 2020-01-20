@@ -47,7 +47,7 @@ Learn
       [/learn/develop/hardware/i2c-and-spi]
     [/learn/develop/integrations]
       Amazon AWS IoT[/learn/develop/integrations/aws]
-      Google IoT[/learn/develop/integrations/google]
+      Google IoT[/learn/develop/integrations/google-iot]
       IBM Bluemix[/learn/develop/integrations/bluemix]
       Microsoft Azure[/learn/develop/integrations/azure]
 

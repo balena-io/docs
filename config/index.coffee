@@ -5,7 +5,7 @@ PARTIALS_DIR = 'shared'
 DYNAMIC_DOCS = /.*(getting-started|overview|network).*/
 
 # These files are pulled in externally and so cannot be edited in the base repo
-EXTERNAL_DOCS = /.*(python-sdk|node-sdk|cli|supervisor-api|update-locking|diagnostics).*/
+EXTERNAL_DOCS = /.*(python-sdk|node-sdk|cli|supervisor-api|update-locking|diagnostics|google-iot).*/
 
 FB_APP_ID = '221218511385682'
 
