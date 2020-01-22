@@ -73,5 +73,8 @@
     <script src="/dist/main.js"></script>
     {% include "_track.html" %}
     {% include "_algolia.html" %}
+    {% if extras == "devices-js" %}
+      {% include "_devices.html" %}
+    {% endif %}
   </body>
 </html>
