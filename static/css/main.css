@@ -465,4 +465,9 @@ header.sticky {
   height: 120px;
 }
 
-
+img.device_icon {
+  display: inline-block; 
+  text-align: center; 
+  margin: 0; 
+  height: 1em 
+}

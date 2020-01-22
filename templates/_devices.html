@@ -1,0 +1,65 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  (function () {
+    window.jQuery
+      .ajax({
+        url: "https://img.resin.io/api/v1/device-types"
+      })
+      .done(function (deviceTypes) {
+        var table;
+        table = _(deviceTypes)
+          .filter(function (deviceType) {
+            return (
+              deviceType.state !== "DISCONTINUED" &&
+              !_.includes(deviceType.slug, 'generic') &&
+              !_.includes(deviceType.slug, 'qemu')
+            );
+          })
+          .map(function (deviceType) {
+            if (deviceType.state === 'PREVIEW') {
+              deviceType.name = deviceType.name.replace('(PREVIEW)', '(ALPHA)');
+            }
+            if (deviceType.state === 'EXPERIMENTAL') {
+              deviceType.name = deviceType.name.replace('(EXPERIMENTAL)', '(BETA)');
+            }
+            if (deviceType.arch === 'rpi') {
+              deviceType.arch = 'armv6hf';
+            }
+
+            return deviceType;
+          })
+          .sortBy([
+            function (deviceType) {
+              return (deviceType.name);
+            }
+          ])
+          .reduce(function (acc, deviceType) {
+            var tableCell;
+            if (deviceType.arch === "rpi") {
+              deviceType.arch = "armv6hf";
+            }
+            tableCell =
+              "<tr> <td>" +
+              "<img class='device_icon' src='/docs/img/device/" + deviceType.slug + ".svg' />" +
+              "</td> <td>" +
+              deviceType.name +
+              "</td> <td>" +
+              deviceType.slug +
+              "</td> <td>" +
+              deviceType.arch +
+              "</td> </tr>";
+            return acc + tableCell;
+          }, "");
+
+        return window.jQuery("#support_devices_table").append(table);
+      })
+      .fail(function (error) {
+        return window
+          .jQuery("#support_devices_table")
+          .append(
+            '<tr><td colspan="4">Something went wrong.</td></tr>'
+          );
+      });
+  }.call(this));
+
+</script>

@@ -1,30 +1,23 @@
-{% extends "default.html" %}
+{% extends "default.html" %} {% block "contents" %}
+<h1>Single-board computers</h1>
+<div class="alert alert-note">
+  Don't see your device here? Contact
+  <a href="mailto:sales@{{ $names.email_domain }}">sales@{{ $names.email_domain }}</a>
+  to discuss our custom hardware support packages.
+</div>
 
-{% block "contents" %}
-	<h1>Single-board computers</h1>
-	<div class="alert alert-note">Don't see your device here? Contact <a href="mailto:sales@{{ $names.email_domain }}">sales@{{ $names.email_domain }}</a> to discuss our custom hardware support packages. </div>
-	<h2>Currently supported</h2>
+<h2>Currently supported</h2>
 
-		{% for device in $dictionaries.getDict("$device") %}
-			{% if device.type != "virtual" %}
-				<a href="{{ device.link }}"><h3><img style="display: inline-block; margin: 0; height: 1em" src="{{ device.icon }}"> {{ device.name }}{% if device.type=="beta" %} (BETA){% endif %}</h3></a>
-				<div class="image-row">
-				{% if device.variants %}
-					{% for variant in device.variants %}
-						<figure>
-							<img src="{{ variant.image }}">
-							<a href="{{ variant.link }}">
-								<figcaption>{{ variant.name }}</figcaption>
-							</a>
-						</figure>
-					{% endfor %}
-				{% else %}
-					<figure>
-						<img src="/img/{{ device.id }}/{{ device.id }}.jpg">
-					</figure>
-				{% endif %}
-				</div>
-			{% endif %}
-		{% endfor %}
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Device Name</th>
+      <th>Machine Name</th>
+      <th>Architecture</th>
+    </tr>
+  </thead>
+  <tbody id="support_devices_table"></tbody>
+</table>
 
 {% endblock %}
