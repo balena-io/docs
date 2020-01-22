@@ -79,7 +79,7 @@ Additionally, you should whitelist the following domains for the relevant ports 
 * `*.docker.io`
 
 ##### Can I access /dev and things like GPIO from the container?
-If you're application uses a single container, it will be run in privileged mode by default and will have access to hardware in the same way as a vanilla Linux system.
+If your application uses a single container, it will be run in privileged mode by default and will have access to hardware in the same way as a vanilla Linux system.
 
 For applications running [multiple containers][multicontainer], you will either need to define services as privileged or use the `cap_add` and `devices` settings in the `docker-compose.yml` file to map in the correct hardware access to the container.
 
