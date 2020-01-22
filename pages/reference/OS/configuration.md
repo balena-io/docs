@@ -22,7 +22,7 @@ After provisioning, editing `config.json` as described above is not reliable or 
 
 - Update the device [hostname](#hostname) via the [supervisor API][hostname].
 - Modify the [persistent logging](#persistentlogging) setting via the device dashboard [configuration variables][configuration].
-- Apply `config.json` updates remotely via the {{ $names.cli }} using the [configizer project][configizer].
+- Apply `config.json` updates remotely via the {{ $names.cli.lower }} using the [configizer project][configizer].
 
 Alternatively, you can always reprovision a device with an updated `config.json` file.
 

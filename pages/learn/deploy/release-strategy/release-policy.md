@@ -9,7 +9,7 @@ When managing an application fleet, you may require devices to be running differ
 
 You may define the application and device release policy via the [{{ $names.cloud.lower }} dashboard]({{ $links.dashboardUrl }}) or programmatically through the [API][api] or [SDKs][sdk].
 
-__Note:__ It is currently not possible to specify the application or device release policy via the {{ $names.cli }}.
+__Note:__ It is currently not possible to specify the application or device release policy via the {{ $names.cli.lower }}.
 
 ## Pin application to a release
 

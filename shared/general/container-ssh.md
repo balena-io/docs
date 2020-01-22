@@ -63,13 +63,13 @@ $ ssh -p 22222 root@<device_ip_address>
 
 ## {{ $names.company.short }} tunnel
 
-The SSH server of the host OS will always be accessible on TCP port `22222` unless this has been blocked at the network level. To get around this, you can use the `{{ $names.company.short }} tunnel` command of the {{ $names.cli }}, which may be used to map local ports to listening ports on the device. For example, the following command maps the local port `4321` to port `22222` on the device:
+The SSH server of the host OS will always be accessible on TCP port `22222` unless this has been blocked at the network level. To get around this, you can use the `{{ $names.company.short }} tunnel` command of the {{ $names.cli.lower }}, which may be used to map local ports to listening ports on the device. For example, the following command maps the local port `4321` to port `22222` on the device:
 
 ```shell
 $ balena tunnel <device-uuid> -p 22222:4321
 ```
 
-The device can then be accessed on port `4321` via the `balena ssh` command of the {{ $names.cli }} or standalone SSH client:
+The device can then be accessed on port `4321` via the `balena ssh` command of the {{ $names.cli.lower }} or standalone SSH client:
 
 ```shell
 $ balena ssh 127.0.0.1 -p 4321
