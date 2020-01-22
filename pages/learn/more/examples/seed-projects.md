@@ -19,7 +19,7 @@ build server and the finished product is pushed to your devices.
 To install a project you will need a [{{ $names.company.lower }}][balena]
 account with an application set up ready to receive code. See the [getting
 started][getting-started] and [deployment][deploy] guides for details on how to
-do this with the {{ $names.cli }}.
+do this with the {{ $names.cli.lower }}.
 
 ## Projects
 

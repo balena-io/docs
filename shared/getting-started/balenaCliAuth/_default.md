@@ -1,11 +1,11 @@
-The recommended way to deploy code is to install the [{{ $names.cli }}][cli]. The easiest way to do this is to use the installer for your OS available on the [releases page][releases]. Choose the latest release of the installer for your OS, and follow the [installation instructions][install].
+The recommended way to deploy code is to install the [{{ $names.cli.lower }}][cli]. The easiest way to do this is to use the installer for your OS available on the [releases page][releases]. Choose the latest release of the installer for your OS, and follow the [installation instructions][install].
 
 <img src="/img/common/cli/download-installer.png" width="60%">
 
 __Note:__ You may also install the balenaCLI via npm on a system running NodeJS, as explained in
 [NPM Installation][npminstall].
 
-To use the [{{ $names.cli }}][cli], you need to login to your {{ $names.company.lower }} account. Login via the terminal using the `balena login` command:
+To use the [{{ $names.cli.lower }}][cli], you need to login to your {{ $names.company.lower }} account. Login via the terminal using the `balena login` command:
 
 ```shell
 $ balena login
