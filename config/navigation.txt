@@ -69,6 +69,7 @@ Learn
     [/learn/manage/configuration]
     [/learn/manage/serv-vars]
     [/learn/manage/actions]
+    [/learn/manage/support-access]
 
   MORE RESOURCES
     [/learn/more/examples]

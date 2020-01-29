@@ -88,6 +88,10 @@ Turning on local mode is useful when you are prototyping your application, as it
 
 The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the application and remote endpoint. Once you have deleted a device from the application it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the {{ $names.company.lower }} dashboard or API.
 
+### Grant Support Access
+
+This action allows you to [enable support access][support-access] to an individual devices for a set time period.
+
 ## Application-specific actions
 
 These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet.
@@ -117,11 +121,9 @@ __Note:__ If the **Transfer This Application** button is grayed out, ensure that
 
 You can watch [this video](https://www.youtube.com/watch?v=nkYve7PwqmE) to learn how to transfer application ownership.
 
-### Grant Support Access to Application
+### Grant Support Access
 
-This action will allow you to give our balena engineering team access to the entire application fleet for a set time period.
-
-<img src="/img/common/app/support_access.png" width="80%">
+This action allows you to [enable support access][support-access] to the entire application fleet for a set time period.
 
 ### Delete Application
 
@@ -137,3 +139,4 @@ __Warning:__ It is a good idea to [move your devices to another application][mov
 [app-types]:/learn/manage/app-types
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [purge-data]:#purge-data
+[support-access]:/learn/manage/support-access
