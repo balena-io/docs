@@ -16,11 +16,15 @@ Actions allow you to control the status of your applications and devices during 
 
 {{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
 
-<img src="/img/common/enable-public-URLs.png" width="80%">
+<img alt="Enable public device URL" src="/img/common/actions/device-public-url-enabled.png">
 
 To see what your device is serving on port 80, just click on the URL. If your application is not serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
-<img src="/img/common/device/device_url_404.png" width="80%">
+<img alt="Public URL error" src="/img/common/actions/public-url-error.png" width="80%">
+
+You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
+
+<img alt="Public URL toggle" src="/img/common/actions/public-url-toggle.png" width="80%">
 
 ### Restart Application
 
@@ -107,6 +111,10 @@ This action allows you to rename your application. This action is only available
 ### Enable/Disable All Public Device URLs
 
 This action allows you to enable or disable all the device URLs for the devices in your application. Note that this will only apply to already provisioned devices in the app, any devices added after you enable this fleet wide will need to have their device URL manually enabled.
+
+You may also enable or disable public URLs for a subset of devices by selecting them on the application summary page and clicking  _Enable public device URL_ in the _Actions_ menu.
+
+<img alt="Enable public device URLs for an application" src="/img/common/actions/application-public-urls.png">
 
 ### Transfer Application Ownership
 
