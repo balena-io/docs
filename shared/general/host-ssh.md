@@ -125,5 +125,5 @@ Note that the [filesystem layout][filesystem] may look slightly different from w
 [network]:/reference/OS/network/2.x
 [filesystem]:/reference/OS/overview/2.x/#stateless-and-read-only-rootfs
 [labels]:/learn/develop/multicontainer/#labels
-[config-json]:{{ $links.osSiteUrl }}/meta-balena#configjson
+[config-json]:/reference/OS/configuration/
 [balena-engine]:{{ $links.engineSiteUrl }}
