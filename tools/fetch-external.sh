@@ -42,6 +42,19 @@ cd pages/learn/deploy/release-strategy/ && {
   cd -
 }
 
+# get meta-balena README and extract partials
+cd shared/meta-balena/ && {
+  curl -O -L https://raw.githubusercontent.com/balena-os/meta-balena/master/README.md
+  mv README.md meta-balena.md
+  # Extract modem text
+  ../../tools/extract-markdown.sh "Modems" < meta-balena.md > supported-modems.md
+  # Extract Wifi adapters   
+  ../../tools/extract-markdown.sh "WiFi Adapters" < meta-balena.md > supported-wifi-adapters.md
+  # Extract config.json
+  ../../tools/extract-markdown.sh "config.json" < meta-balena.md > config-json.md
+  cd -
+}
+
 # get integrations
 cd pages/learn/develop/integrations/ && {
   curl -O -L https://raw.githubusercontent.com/balenalabs/google-iot/master/README.md

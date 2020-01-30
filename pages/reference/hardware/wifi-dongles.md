@@ -5,10 +5,11 @@ excerpt: WiFi adapters known to work with {{ $names.company.lower }} devices
 
 # Supported Wifi Dongles
 
-The officially supported {{ $names.company.lower }} wifi dongle is the [Official Raspberry Pi Wifi][rpi-official-wifi] with the BCM43143 chipset.
-This chipset is guaranteed to work across all the device types supported by {{ $names.company.lower }}.
+{{> "meta-balena/supported-wifi-adapters" }}
 
-There are however many other USB wifi adapters that will work out of the box with {{ $names.company.lower }} devices.
+There are however many other USB wifi adapters that will work out of the box with {{ $names.company.lower }} 
+devices.
+
 ## Known Working Devices
 
 * [Pi Hut USB WiFi Adapter][pi-hut-usb] - Small form-factor and works right out

@@ -62,7 +62,9 @@ The following example provides all customizable configuration options available 
 }
 ```
 
-{{> "general/config-json-fields"}}
+## Valid fields
+
+{{> "meta-balena/config-json" }}
 
 [boot-partition]: /reference/OS/overview/2.x/#stateless-and-read-only-rootfs
 [config-txt]: /reference/OS/advanced/#configtxt
