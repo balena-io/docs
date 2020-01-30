@@ -1,5 +1,7 @@
 ## Troubleshooting with host OS access
 
+__Note:__ For an in-depth guide to debugging {{ $names.company.lower }} devices see the [device debugging masterclass][debugging-masterclass].
+
 Host OS SSH access gives you a handful of tools that can help you gather more information about potential issues on your device.
 
 __Warning:__ Making changes to running services and network configurations carries the risk of losing access to your device. Before making changes to the host OS of a remote device, it is best to test locally. Changes made to the host OS will not be maintained when the OS is updated, and some changes could break the updating process. When in doubt, [reach out][forums] to us for guidance.
@@ -127,3 +129,4 @@ Note that the [filesystem layout][filesystem] may look slightly different from w
 [labels]:/learn/develop/multicontainer/#labels
 [config-json]:/reference/OS/configuration/
 [balena-engine]:{{ $links.engineSiteUrl }}
+[debugging-masterclass]:{{ $links.githubMain }}/debugging-masterclass
