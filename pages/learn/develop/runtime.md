@@ -212,9 +212,9 @@ __Note:__ For more information on networking with {{ $names.company.lower }}, se
 
 ### Public device URLS
 
-{{ $names.company.upper }} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the {{ $names.company.lower }} dashboard and select the `Enable a public URL for this device` checkbox. For more information about device URLS you can head over to the [Device Management Page](/management/devices#enable-public-device-url)
+{{ $names.company.upper }} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the {{ $names.cloud.lower }} dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](/management/devices#enable-public-device-url)
 
-![Enable device url](/img/common/enable-public-URLs.png)
+<img alt="Enable public device URL" src="/img/common/actions/device-public-url-enabled.png">
 
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices URL.
 
