@@ -82,7 +82,7 @@ services:
   first-service:
     build: ./first-service
     labels:
-      - io.balena.features.optional: 1
+      io.balena.features.optional: '1'
   second-service:
     build: ./second-service
 ```
