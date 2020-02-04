@@ -118,6 +118,10 @@ When updating software on production devices, it makes sense to be cautious and 
 
 The {{ $names.company.lower }} API includes functionality that allows for [fine-grained control of updates][staged-releases]. With these endpoints, you can turn off automatic release updates, set a target release for the whole fleet, or set target releases for a specific subset of devices. The [device tag][tags] and [filter][filters] functionality makes it easy to assign groups of devices to certain phases of your deployment.
 
+## Further reading
+
+For more information about common anti-patterns, see [Anti-patterns, or how to break your {{ $names.os.lower }} devices][anti-patterns].
+
 [engine-link]:{{ $links.engineSiteUrl }}
 [docker-compose]:https://docs.docker.com/compose/overview/
 [dev-vs-prod]:/reference/OS/overview/2.x/#dev-vs-prod-images
@@ -134,3 +138,4 @@ The {{ $names.company.lower }} API includes functionality that allows for [fine-
 [tags]:/learn/manage/filters-tags/#device-tags
 [filters]:/learn/manage/filters-tags/#device-filters
 [cli-advanced-masterclass]:{{ $links.githubMain }}/balena-cli-advanced-masterclass#5-preloading-and-preregistering
+[anti-patterns]:/learn/more/anti-patterns

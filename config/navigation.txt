@@ -79,6 +79,7 @@ Learn
     [/learn/more/resources]
     [/learn/more/collected-data]
     [/learn/more/masterclass]
+    [/learn/more/anti-patterns]
 
 FAQ
 
