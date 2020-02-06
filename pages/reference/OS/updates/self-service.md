@@ -37,11 +37,11 @@ For device types and {{ $names.os.lower }} versions that are not yet supported, 
 
 To run an update for an individual device, navigate to that device's *Actions* tab, click *Update {{ $names.os.lower }}*, and select the version of {{ $names.os.lower }} you would like to update to:
 
-<img src="/img/common/updates/update-os.png" width="80%">
+![Update device](/img/common/updates/update-os.png)
 
 Updates can also be made to multiple devices in the same application. From the device list, click the checkbox to the left of any online devices you wish to update. Then click the *Group Actions* button in the upper-right corner of the dashboard, followed by *Update {{ $names.os.lower }}*:
 
-<img src="/img/common/updates/group-update.png" width="100%">
+![Device group update](/img/common/updates/group-update.png)
 
 __Note:__ Updates to the supervisor, {{ $names.company.lower }}'s agent on the device, are handled in conjuction with host OS updates. If you need to update the supervisor separately from the host OS, please [contact us][troubleshooting] for assistance.
 
