@@ -47,8 +47,9 @@
 ^\/configuration\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/resin-base-images/$1$2
 ^\/deployment\/wifi\/?(\?.+)?(#.+)?$ -> /reference/OS/network/2.x/$1$2
 ^\/runtime\/terminal\/?(\?.+)?(#.+)?$ -> /learn/manage/ssh-access/$1$2
-^\/using\/cli\/?(\?.+)?(#.+)?$ -> /reference/cli/$1$2
+^\/using\/cli\/?(\?.+)?(#.+)?$ -> /reference/balena-cli/$1$2
 ^\/learn\/deploy\/release-strategy\/update-locking\/API\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-api/$1$2
+^\/reference\/cli\/?(\?.+)?(#.+)?$ -> /reference/balena-cli/$1$2
 ^\/learn\/develop\/integrations\/google\/?(\?.+)?(#.+)?$ -> /learn/develop/integrations/google-iot/$1$2
 ^\/docs\/learn\/deploy\/release-strategy\/update-locking\/API\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-api/$1$2
 
@@ -91,7 +92,7 @@
 ^\/hardware\/devices\/?(\?.+)?(#.+)?$ -> /reference/hardware/devices/$1$2
 ^\/runtime\/supervisor-api\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-api/$1$2
 ^\/runtime\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
-^\/tools\/cli\/?(\?.+)?(#.+)?$ -> /reference/cli/$1$2
+^\/tools\/cli\/?(\?.+)?(#.+)?$ -> /reference/balena-cli/$1$2
 ^\/tools\/sdk\/?(\?.+)?(#.+)?$ -> /reference/sdk/node-sdk/$1$2
 ^\/tools\/python-sdk\/?(\?.+)?(#.+)?$ -> /reference/sdk/python-sdk/$1$2
 ^\/runtime\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2

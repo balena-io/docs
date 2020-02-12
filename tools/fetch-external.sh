@@ -4,7 +4,7 @@
 # get latest CLI docs
 cd pages/reference/ && {
   curl -O -L https://github.com/balena-io/balena-cli/raw/master/doc/cli.markdown
-  mv cli.markdown cli.md
+  mv cli.markdown balena-cli.md
   cd -
 }
 
@@ -59,5 +59,22 @@ cd shared/meta-balena/ && {
 cd pages/learn/develop/integrations/ && {
   curl -O -L https://raw.githubusercontent.com/balenalabs/google-iot/master/README.md
   mv README.md google-iot.md
+  cd -
+}
+
+# Masterclasses
+cd pages/learn/more/masterclasses/ && {
+  curl -O -L https://raw.githubusercontent.com/balena-io/balena-cli-masterclass/master/README.md
+  mv README.md cli-masterclass.md
+  curl -O -L https://raw.githubusercontent.com/balena-io/balena-cli-advanced-masterclass/master/README.md
+  mv README.md advanced-cli.md
+  curl -O -L https://raw.githubusercontent.com/balena-io/balenaos-masterclass/master/README.md
+  mv README.md host-os-masterclass.md
+  curl -O -L https://raw.githubusercontent.com/balena-io/services-masterclass/master/README.md
+  mv README.md services-masterclass.md
+  curl -O -L https://raw.githubusercontent.com/balena-io-projects/balena-fleet-management-masterclass/master/README.md
+  mv README.md fleet-management.md
+  curl -O -L https://raw.githubusercontent.com/balena-io/debugging-masterclass/master/README.md
+  mv README.md device-debugging.md
   cd -
 }

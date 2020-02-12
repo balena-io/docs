@@ -30,8 +30,14 @@ module.exports =
   externalDocs:
     "python-sdk": 'https://github.com/balena-io/balena-sdk-python/edit/master/DOCUMENTATION.md'
     "node-sdk": 'https://github.com/balena-io/balena-sdk/edit/master/DOCUMENTATION.md'
-    "cli": 'https://github.com/balena-io/balena-cli/edit/master/doc/cli.markdown'
+    "balena-cli": 'https://github.com/balena-io/balena-cli/edit/master/doc/cli.markdown'
     "supervisor-api": 'https://github.com/balena-io/balena-supervisor/edit/master/docs/API.md'
     "update-locking": "https://github.com/balena-io/balena-supervisor/edit/master/docs/update-locking.md"
     "diagnostics": "https://github.com/balena-io/device-diagnostics/edit/master/diagnostics.md"
     "google-iot": "https://github.com/balenalabs/google-iot/edit/master/README.md"
+    "cli-masterclass": "https://github.com/balena-io/balena-cli-masterclass/edit/master/README.md"
+    "advanced-cli": "https://github.com/balena-io/balena-cli-advanced-masterclass/edit/master/README.md"
+    "host-os-masterclass": "https://github.com/balena-io/balenaos-masterclass/edit/master/README.md"
+    "services-masterclass": "https://github.com/balena-io/services-masterclass/edit/master/README.md"
+    "fleet-management": "https://github.com/balena-io/balena-fleet-management-masterclass/edit/master/README.md"
+    "device-debugging": "https://github.com/balena-io/debugging-masterclass/edit/master/README.md"
