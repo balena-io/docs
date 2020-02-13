@@ -78,7 +78,14 @@ Learn
       [/learn/more/examples/snippets]
     [/learn/more/resources]
     [/learn/more/collected-data]
-    [/learn/more/masterclass]
+    Masterclasses
+      [/learn/more/masterclasses/overview]
+      CLI[/learn/more/masterclasses/cli-masterclass]
+      Advanced CLI[/learn/more/masterclasses/advanced-cli]
+      BalenaOS[/learn/more/masterclasses/host-os-masterclass]
+      Services[/learn/more/masterclasses/services-masterclass]
+      Fleet management[/learn/more/masterclasses/fleet-management]
+      Device debugging[/learn/more/masterclasses/device-debugging]
     [/learn/more/anti-patterns]
 
 FAQ
@@ -120,7 +127,7 @@ Reference
     [/reference/api/overview]
     Resources[/reference/api/resources/$resource]
 
-  CLI[/reference/cli]
+  CLI[/reference/balena-cli]
   SDKs
     Node.js SDK[/reference/sdk/node-sdk]
     Python SDK[/reference/sdk/python-sdk]

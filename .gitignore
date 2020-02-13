@@ -15,6 +15,7 @@ docs_env
 
 # Ignore external docs that are pulled via tools/fetch-external.sh
 pages/reference/cli.md
+pages/reference/balena-cli.md
 pages/reference/sdk/node-sdk.md
 pages/reference/sdk/python-sdk.md
 pages/reference/supervisor/supervisor-api.md
@@ -25,3 +26,9 @@ shared/meta-balena/supported-modems.md
 shared/meta-balena/supported-wifi-adapters.md
 shared/meta-balena/config-json.md
 pages/learn/develop/integrations/google-iot.md
+learn/more/masterclasses/cli-masterclass.md
+learn/more/masterclasses/advanced-cli.md
+learn/more/masterclasses/host-os-masterclass.md
+learn/more/masterclasses/services-masterclass.md
+learn/more/masterclasses/fleet-management.md
+learn/more/masterclasses/device-debugging.md
