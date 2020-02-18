@@ -9,7 +9,7 @@ excerpt: docker-compose.yml fields supported by {{ $names.company.lower }}
 
 Field | Details
 --- | ---
-[build](https://docs.docker.com/compose/compose-file/compose-file-v2/#build) | URLs to git repositories are not currently supported
+[build](https://docs.docker.com/compose/compose-file/compose-file-v2/#build) | `build` or `context` paths must point to project/app subfolders. URLs to git repositories are not currently supported.
 [cap_add](https://docs.docker.com/compose/compose-file/compose-file-v2/#cap_add-cap_drop) |
 [cap_drop](https://docs.docker.com/compose/compose-file/compose-file-v2/#cap_add-cap_drop) |
 [cgroup_parent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cgroup_parent) |
