@@ -12,7 +12,7 @@
             return (
               deviceType.state !== "DISCONTINUED" &&
               !_.includes(deviceType.slug, 'generic') &&
-              !_.includes(deviceType.slug, 'qemu')
+              !_.includes(deviceType.slug, 'etcher')
             );
           })
           .map(function (deviceType) {
@@ -20,7 +20,7 @@
               deviceType.name = deviceType.name.replace('(PREVIEW)', '(ALPHA)');
             }
             if (deviceType.state === 'EXPERIMENTAL') {
-              deviceType.name = deviceType.name.replace('(EXPERIMENTAL)', '(BETA)');
+              deviceType.name = deviceType.name.replace('(EXPERIMENTAL)', '(NEW)');
             }
             if (deviceType.arch === 'rpi') {
               deviceType.arch = 'armv6hf';
