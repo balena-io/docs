@@ -28,25 +28,25 @@ Session tokens are retrieved from the *Preferences* page, and they can be refres
 
 API keys are named tokens that do not expire and can be revoked as needed. To create a new API key, make sure you are in the *Access tokens* tab of the *Preferences* page, then select *Create API key*:
 
-<img src="/img/common/preferences/create_api_key.png" width="100%">
+<img alt="Create API Key" src="/img/common/preferences/create_api_key.png" width="100%">
 
 You'll see a required field for *Token name*, as well as an optional field for *Token description*:
 
-<img src="/img/common/preferences/api_key_name.png" width="60%">
+<img alt="Name API Key" src="/img/common/preferences/api_key_name.png" width="60%">
 
 When you click *Create token*, you will see a dialog with the new API key:
 
-<img src="/img/common/preferences/api_key_warning.png" width="60%">
+<img alt="API Key Warning" src="/img/common/preferences/api_key_warning.png" width="80%">
 
 __Warning__: This is your **only** opportunity to see the key, so make sure to download or copy to a secure location!
 
 After you close the dialog, you'll see your API key in the list, complete with name, date of creation, and description:
 
-<img src="/img/common/preferences/api_key_list.png" width="100%">
+<img alt="List API Keys" src="/img/common/preferences/api_key_list.png" width="100%">
 
 To revoke one or more API keys, select the boxes to the left of the tokens you wish to remove, then click *Delete selected*:
 
-<img src="/img/common/preferences/api_key_delete.png" width="100%">
+<img alt="Delete API Key" src="/img/common/preferences/api_key_delete.png" width="100%">
 
 API keys can also be generated using the API, [CLI][cli-keys], and [Node.js][node-sdk-keys] and [Python][python-sdk-keys] SDKs.
 
@@ -76,61 +76,57 @@ Developers are given, in addition to the access provided to operators, the abili
 
 To add a new member to your application, click on the *Members* tab of the application summary page:
 
-<img src="/img/common/app/members_tab.png" width="15%">
+<img alt="Members Tab" src="/img/common/app/members_tab.png" width="15%">
 
 This brings up a list of all application members, if any have been assigned. Click on the *Add member* button in the top left:
 
-<img src="/img/common/app/add_member.png" width="100%">
+<img alt="Create Application Member" src="/img/common/app/add_member.png" width="100%">
 
 The *Add application member* dialog has a dropdown with descriptions of the member types, as well as information about which types are available based on your billing plan. Choose a level of access, then enter the username or email address of the new application member:
 
-<img src="/img/common/app/member_dialog.png" width="60%">
+<img alt="Add Application Member" src="/img/common/app/member_dialog.png" width="60%">
 
 __Note:__ Application members must have already [signed up][signup] for a {{ $names.company.lower }} account before they can be added to an application.
 
 After you click *Add*, you will see the username of the new application member in the list. From here, you can edit access levels or remove the user if necessary:
 
-<img src="/img/common/app/member_list.png" width="100%">
+<img alt="List Application Members" src="/img/common/app/member_list.png" width="100%">
 
 All users that have been added to an application will see that application in their dashboard, with an indicator to designate it has been shared by the application owner:
 
-<img src="/img/common/app/shared_app.png" width="40%">
-
-The shared application will also have a header with the application owner and the member's role:
-
-<img src="/img/common/app/app_header.png" width="40%">
+<img alt="Shared Application" src="/img/common/app/shared_app.png" width="40%">
 
 In addition to the application actions permitted by the assigned member role, application members will have the option to remove themselves from an application. This is done by clicking the *Actions* tab from the application summary page, then clicking *Remove Member Access*:
 
-<img src="/img/common/app/remove_access.png" width="100%">
+<img at="Remove Application Member" src="/img/common/app/remove_access.png" width="100%">
+
+Alternatively, members may remove themselves from an application by clicking on the delete (trash can) icon on the *Members* tab.
+
+<img alt="Remove Application Member Alternative" src="/img/common/app/remove_access_members.png" width="100%">
 
 __Warning__: If you remove your member access to an application, you will not be able to undo the action. Only the application owner will be able to restore your access.
 
-## Two Factor Authentication
+## Two-factor Authentication
 
-We offer the option to enable [Two Factor Authentication][2fa] - this is a feature that prompts you to input a code from your smartphone/computer *in addition* to your password, providing an additional layer of security for your account.
+We offer the option to enable [Two-factor Authentication][2fa] - this is a feature that prompts you to input a code from your smartphone/computer *in addition* to your password, providing an additional layer of security for your account.
 
 __Note:__ We use the industry standard [Time-based One-time Password Algorithm][totp] to implement this functionality.
 
-### Enabling Two-Factor Authentication
+### Enabling Two-factor Authentication
 
-[Sign up][signup] for an account (or [log in][login] if you already have one) and go to your [preferences][prefs] page:-
+[Sign up][signup] for an account (or [log in][login] if you already have one) and go to your [preferences][prefs] page. From here, click on the *Two-factor Authentication* tab then click *Enable two-factor authentication* to enable:
 
-![Preferences Page](/img/screenshots/2fa1.png)
+<img alt="Enable two-factor authentication" src="/img/common/preferences/enable_2fa.png" width="100%">
 
-From here, click on the 'Two factor authentication' tab then click `ENABLE` to switch it on:-
+Next, you will be shown a QR code and prompted for a pairing code as shown below:
 
-![Two Factor Authentication Tab, Disabled](/img/screenshots/2fa2.png)
+__Note:__ Two-factor authentication will only be enabled once you have finished configuring it against your smartphone/computer, so no need to worry about logging out before finishing the configuration then not having access to your account!
 
-Once you've enabled two factor authentication you will be given a QR code and prompted for a pairing code as shown below:-
-
-__Note:__ Two factor authentication will only be enabled once you have finished configuring it against your smartphone/computer, so no need to worry about logging out before finishing the configuration then not having access to your account!
-
-![Two Factor Authentication Tab, Configuring](/img/screenshots/2fa3.png)
+<img alt="Two-factor authentication pairing" src="/img/common/preferences/pairing_2fa.png" width="80%">
 
 In order to use your phone/computer as your added layer of security you will need to download a free authenticator application. There are many available, but one that works well and has been successfully tested against {{ $names.company.lower }} is [Google Authenticator][google-auth] - download it for [Android][google-auth-android] or [iOS][google-auth-ios].
 
-Once installed, navigate to the barcode scanner:-
+Once installed, navigate to the barcode scanner:
 
 __Note:__ The Android application is shown here - if you already have accounts installed, tap the 3 vertical dots in the top right-hand corner and select 'Set up account', otherwise you should be given the option when you first start the app.
 
@@ -138,19 +134,19 @@ __Note:__ The Android application is shown here - if you already have accounts i
 
 When you tap the option to scan a barcode your phone will turn on your camera and all you need to do to pair with your account is to simply point it at the QR code displayed on your monitor.
 
-Once configured, you'll see a 6 digit generated code with a graphic beside it indicating a countdown. Once the countdown expires, the code becomes invalid:-
+Once configured, you'll see a 6 digit generated code with a graphic beside it indicating a countdown. Once the countdown expires, the code becomes invalid:
 
 ![Google Authenticator Codes](/img/screenshots/2fa3mobile2.png)
 
-Next you'll need to input the displayed code into the 'Pairing code' input on the preferences page.
+Next, you'll need to input the displayed code into the 'Pairing code' input on the preferences page. If successful, you will be shown recovery codes that may be used in the event that you cannot access your two-factor authentication application. These codes should be downloaded and stored in a safe place.
 
-Once you've paired your authenticator to your {{ $names.company.lower }} account you'll be all set up and the two factor authentication page will simply give you the option to disable it should you wish to later:-
+<img alt="Two-factor authentication recovery codes" src="/img/common/preferences/recovery_codes_2fa.png" width="100%">
 
-__Note:__ It's best to wait for the countdown to show plenty of time remaining before doing this as the window during which the code is valid is rather short!
+Once you've downloaded your recovery codes and clicked _OK_, the next time you log in, you will be prompted for the code displayed in your authenticator app after you've input your username and password. Enjoy your added layer of security!
 
-![Two Factor Authentication Tab, Enabled](/img/screenshots/2fa4.png)
+To disable two-factor authentication, visit the _Two-factor Authentication_ tab of the _Account Preference_ and click _Disable two-factor authentication_. You will be prompted for your account password before it is disabled.
 
-Now when you log in you will be prompted for the code displayed in your authenticator app after you've input your username and password. Enjoy your added layer of security!
+<img alt="Two-factor authentication recovery codes" src="/img/common/preferences/disable_2fa.png" width="100%">
 
 ### List of verified authenticator applications
 
