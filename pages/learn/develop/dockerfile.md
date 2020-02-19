@@ -35,7 +35,7 @@ To deploy a single-container application to {{ $names.company.lower }}, simply p
 
 {{> "general/labels-version-note"}}
 
-```
+```yaml
 version: '2.1'
 networks: {}
 volumes:
@@ -70,6 +70,7 @@ One of the goals of {{ $names.company.lower }} is code portability and ease of u
 To allow our builders to build containers for multiple architectures from one code repository, we implemented simple Dockerfile templates.
 
 It is now possible to define a `Dockerfile.template` file that looks like this:
+
 ```Dockerfile
 FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node
 
@@ -79,6 +80,7 @@ RUN npm install
 COPY src/ /usr/src/app
 CMD ["node", "/usr/src/app/main.js"]
 ```
+
 This template will build and deploy a Node.js project for any of the devices supported by {{ $names.company.lower }}, regardless of whether the device architecture is [ARM][ARM-link] or [x86][x86-link].
 In this example, you can see the build variable `%%{{ $names.company.allCaps }}_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. See below for a list of machine names.
 
@@ -88,10 +90,13 @@ __Note:__ You need to ensure that your dependencies and Node.js modules are also
 
 Currently our builder supports the following build variables:
 
-| Variable Name        | Description          |
+| Variable Name | Description |
 | ------------- |-------------|
-| {{ $names.company.allCaps }}_MACHINE_NAME    | The name of the yocto machine this board is base on. It is the name that you will see in most of the {{ $names.company.lower }} [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package). |
-| {{ $names.company.allCaps }}_ARCH    | The instruction set architecture for the base images associated with this device.|
+| {{ $names.company.allCaps }}_APP_NAME | The name of the application.|
+| {{ $names.company.allCaps }}_ARCH | The instruction set architecture for the base images associated with this device.|
+| {{ $names.company.allCaps }}_MACHINE_NAME | The name of the yocto machine this board is base on. It is the name that you will see in most of the {{ $names.company.lower }} [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package).|
+| {{ $names.company.allCaps }}_RELEASE_HASH | The hash corresponding to the release.|
+| {{ $names.company.allCaps }}_SERVICE_NAME | The name of the service defined in the `docker-compose.yml` file.|
 
 __Note:__ If your application contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application.
 
@@ -131,7 +136,7 @@ where the supervisor runs it in place of any previously running containers,
 using `npm start` to execute your code (note that if no start script is
 specified, it defaults to running `node server.js`.)
 
-#### Node.js Example
+### Node.js Example
 
 A good example of this is the [text-to-speech][text-to-speech] application -
 here's its `package.json` file*:
