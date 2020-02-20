@@ -14,6 +14,8 @@ title: Troubleshooting
   * [Connectivity](#connectivity)
   * [SD Card Corruption](#sd-card-corruption)
   * [Wifi doesn't connect on RPI3](#wifi-connection-problems-on-rpi3)
+* [NVIDIA Jetson TX2](#nvidia-jetson-tx2)
+  * [Unable to flash a board that was previously running L4T 28.x](#unable-to-flash-a-board-that-was-previously-running-l4t-28x)
 * [Intel Edison](#intel-edison)
   * [Help!!! I want to restore my Edison to factory Yocto](#help-i-want-to-restore-my-edison-to-factory-yocto)
   * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
@@ -84,6 +86,17 @@ If the `ACT` LED blinks with the repeated pattern of 7 quick flashes and a pause
 #### Poor Power Supply
 If you have a screen attached to your Raspberry Pi and notice that there is a small flashing colorful square in the top right of the screen, it could be the case that your power supply or USB cable is not suitable. Take a look at the [Troubleshooting Power Problems](http://elinux.org/R-Pi_Troubleshooting#Troubleshooting_power_problems) on the Raspberry Pi wiki. Additionally, if the onboard `PWR` LED is flashing intermittently, this too could indicate issues with the power supply.
 
+## NVIDIA Jetson TX2
+
+### Unable to flash a board that was previously running L4T 28.x
+
+With {{ $names.os.lower }} 2.47, the [NVIDIA Tegra Linux Driver Package][l4t] (L4T) was upgraded to version 32.2 from a previous version of 28.x. Trying to flash a board that was previously running L4T 28.x with an SD card containing L4T 32.2 will fail. This failure happens because the new 32.2 kernel is incompatible with the NVIDIA eMMC partitions from L4T 28.x.
+
+To resolve, either:
+
+* Perform a [self-service update][self-service-update] to update {{ $names.os.lower }} to >=2.47.
+* Update the Tegra partitions on the eMMC by [downloading the L4T Driver Package][l4t-download] (BSP), unpack it, put the board in recovery mode and execute `sudo ./flash.sh jetson-tx2 mmcblk0p1`. Once this completes, you can reboot the board with the SD card inserted and flash the board as normal. You only need to perform this process once.
+
 ## Intel Edison
 
 ### Help, I want to restore my Edison to factory Yocto
@@ -95,3 +108,6 @@ If you are one of the unfortunate people who feel they want to return to the old
 Make sure you have [Intel Edison drivers](https://software.intel.com/en-us/iot/hardware/edison/downloads) installed in your computer.
 
 [error]:#error-notifications
+[l4t]:https://developer.nvidia.com/embedded/linux-tegra
+[l4t-download]:https://developer.nvidia.com/embedded/linux-tegra-r322
+[self-service-update]:/reference/OS/updates/self-service/
