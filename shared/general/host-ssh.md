@@ -129,4 +129,4 @@ Note that the [filesystem layout][filesystem] may look slightly different from w
 [labels]:/learn/develop/multicontainer/#labels
 [config-json]:/reference/OS/configuration/
 [balena-engine]:{{ $links.engineSiteUrl }}
-[debugging-masterclass]:{{ $links.githubMain }}/debugging-masterclass
+[debugging-masterclass]:/learn/more/masterclasses/device-debugging/

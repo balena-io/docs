@@ -137,5 +137,5 @@ For more information about common anti-patterns, see [Anti-patterns, or how to b
 [staged-releases]:{{ $links.githubLabs }}/staged-releases
 [tags]:/learn/manage/filters-tags/#device-tags
 [filters]:/learn/manage/filters-tags/#device-filters
-[cli-advanced-masterclass]:{{ $links.githubMain }}/balena-cli-advanced-masterclass#5-preloading-and-preregistering
+[cli-advanced-masterclass]:/learn/more/masterclasses/advanced-cli/#5-preloading-and-preregistering
 [anti-patterns]:/learn/more/anti-patterns
