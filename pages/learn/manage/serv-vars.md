@@ -16,29 +16,29 @@ __Note:__ Environment and service variables defined in the dashboard will not ap
 
 ## Fleet environment and service variables
 
-Environment and service variables defined on the fleet level are available to all devices in that fleet, unless they are redefined with a variable of the same name on the device level.
+Environment and service variables defined at the fleet level are available to all devices in that fleet unless they are redefined with a variable of the same name at the device level.
 
 They can be found from the application summary page under the *Environment Variables* and *Service Variables* tabs.
 
 To define a new variable, click the *Add variable* button in the upper-left corner:
 
-<img src="/img/env-vars/add_application_variable.png" width="40%">
+<img alt="Add service variable" src="/img/env-vars/add_application_variable.png" width="60%">
 
-For service variables, you will be asked to select a service from the drop down menu.
+For service variables, you will be asked to select a service from the drop-down menu.
 
 Define a name and value for your variable. Click *Add* to apply to all devices in your fleet that do not have their own values defined:
 
-<img src="/img/env-vars/variable_editor.png" width="60%">
+<img alt="Add service variable" src="/img/env-vars/variable_editor.png" width="80%">
 
 Your new environment or service variable will show up in the list, where it can easily be edited or removed:
 
-<img src="/img/env-vars/variable_list.png" width="100%">
+<img alt="List service variables" src="/img/env-vars/variable_list.png" width="100%">
 
 __Note:__ Deleting a fleet-level variable will not delete a device-level variable of the same name.
 
 If you have already defined environment or service variables at the device level, they will appear below the fleet variables of the same type. You can easily apply a device value to the entire fleet by clicking *Define fleet-wide*:
 
-<img src="/img/env-vars/define_app_wide.png" width="100%">
+<img alt="Define device service variable fleet-wide" src="/img/env-vars/define_app_wide.png" width="100%">
 
 ## Device environment and service variables
 
@@ -48,11 +48,11 @@ Adding a device variable is very similar to adding a fleet variable. From the de
 
 The variable list will include both values defined for that specific device, as well as any fleet variables of the same type:
 
-<img src="/img/env-vars/device_variables.png" width="100%">
+<img alt="Device service variables" src="/img/env-vars/device_variables.png" width="100%">
 
 You can override the value of a fleet variable by clicking *override* in the far-right column. This will pop up the variable editing dialog, where you can change the value:
 
-<img src="/img/env-vars/override.png" width="60%">
+<img alt="Add device service variable" src="/img/env-vars/override.png" width="80%">
 
 ## Managing with the CLI & SDK
 
