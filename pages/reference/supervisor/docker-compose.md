@@ -32,7 +32,6 @@ Field | Details
 [healthcheck](https://docs.docker.com/compose/compose-file/compose-file-v2/#healthcheck) |
 [hostname](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [image](https://docs.docker.com/compose/compose-file/compose-file-v2/#image) |
-[init](https://docs.docker.com/compose/compose-file/compose-file-v2/#init) |
 [ipc](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [labels](https://docs.docker.com/compose/compose-file/compose-file-v2/#labels-1) |
 [mac_address](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
