@@ -234,7 +234,7 @@ Sample secrets YAML file:
 [compose-remote]:{{ $links.githubPlayground }}/{{ $names.company.short }}os-compose
 [troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access
 [configuration]:/learn/manage/configuration/
-[cli-masterclass]:{{ $links.githubBase }}/{{ $names.company.short }}-cli-masterclass#6-using-local-mode-to-develop-applications
+[cli-masterclass]:/learn/more/masterclasses/cli-masterclass/#6-using-local-mode-to-develop-applications
 [livepush]:{{ $links.githubModules }}/livepush
 [ssh]:/learn/manage/ssh-access/
 [avahi]:https://linux.die.net/man/8/avahi-daemon

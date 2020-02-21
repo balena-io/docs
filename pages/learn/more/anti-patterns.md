@@ -79,7 +79,7 @@ During app development, pinning versions of various components as much as possib
 [logging-solutions]:{{ $links.blogSiteUrl }}/how-to-create-a-custom-logging-system-for-longer-log-retention/
 [networking-reqs]:/reference/OS/network/2.x/#network-requirements
 [sd-cards]:/learn/welcome/production-plan/#hardware
-[services-mc]:{{ $links.githubMain }}/services-masterclass
+[services-mc]:/learn/more/masterclasses/services-masterclass/
 [supervisor-api]:/reference/supervisor/supervisor-api/#cleanup-volumes-with-no-references
 [time-sync]:/reference/OS/time/#time-management
 [watchdog]:{{ $links.blogSiteUrl }}/keeping-your-system-running-watchdog/

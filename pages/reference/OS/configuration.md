@@ -73,6 +73,6 @@ The following example provides all customizable configuration options available 
 [configuration]: /learn/manage/configuration/
 [nm-connectivity]: https://developer.gnome.org/NetworkManager/stable/NetworkManager.conf.html
 [configizer]:{{ $links.githubPlayground }}/configizer
-[masterclass-os]:{{ $links.githubMain }}/balenaos-masterclass#12-advanced-editing-configjson-by-hand
+[masterclass-os]:/learn/more/masterclasses/host-os-masterclass/#12-advanced-editing-configjson-by-hand
 [provisioned]:/learn/welcome/primer/#device-provisioning
 [supervisor]:/reference/supervisor/supervisor-api/
