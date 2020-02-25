@@ -22,10 +22,10 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
   - [Ubuntu](https://www.ubuntu.com/): xenial (16.04), bionic (18.04), cosmic (18.10), disco (19.04) and eoan (19.10)
   - [Fedora](https://getfedora.org/): 26, 28, 29, 30 and 31
 - Multiple language stacks:
-  - [Node.js](https://nodejs.org/en/): 8.11.1, 8.17.0, 9.11.2, 10.19.0, 11.15.0, 12.15.0 and 13.8.0
+  - [Node.js](https://nodejs.org/en/): 8.11.1, 8.17.0, 9.11.2, 10.19.0, 11.15.0, 12.16.1 and 13.9.0
   - [Python](https://www.python.org/): 2.7.17, 3.4.10, 3.5.7, 3.6.10, 3.7.6 and 3.8.1
   - [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre and 11-jdk/jre
-  - [Golang](https://golang.org/): 1.10.8, 1.11.13, 1.12.15 and 1.13.6
+  - [Golang](https://golang.org/): 1.10.8, 1.11.13, 1.12.17 and 1.13.8
   - [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.1-sdk/runtime/aspnet, 2.2-sdk/runtime/aspnet and 3.1-sdk/runtime/aspnet
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
@@ -118,10 +118,10 @@ Currently, balenalib supports the following OS distributions and Language stacks
 
 | Language | Default (latest) | Supported Architectures                      |
 | -------- | ---------------- | -------------------------------------------- |
-| Node.js  | 13.8.0           | armv6, armv7hf, aarch64, amd64, i386         |
+| Node.js  | 13.9.0           | armv6, armv7hf, aarch64, amd64, i386         |
 | Python   | 2.7.17           | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
 | OpenJDK  | 11-jdk           | armv7hf, aarch64, amd64, i386, armv6         |
-| Go       | 1.13.6           | armv7hf, aarch64, amd64, i386, armv6         |
+| Go       | 1.13.8           | armv7hf, aarch64, amd64, i386, armv6         |
 | Dotnet   | 3.1-sdk          | armv7hf, aarch64, amd64                      |
 
 #### Notes
