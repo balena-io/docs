@@ -38,7 +38,7 @@ When you click *Create token*, you will see a dialog with the new API key:
 
 <img alt="API Key Warning" src="/img/common/preferences/api_key_warning.png" width="80%">
 
-__Warning__: This is your **only** opportunity to see the key, so make sure to download or copy to a secure location!
+__Warning:__ This is your **only** opportunity to see the key, so make sure to download or copy to a secure location!
 
 After you close the dialog, you'll see your API key in the list, complete with name, date of creation, and description:
 
@@ -104,7 +104,7 @@ Alternatively, members may remove themselves from an application by clicking on 
 
 <img alt="Remove Application Member Alternative" src="/img/common/app/remove_access_members.png" width="100%">
 
-__Warning__: If you remove your member access to an application, you will not be able to undo the action. Only the application owner will be able to restore your access.
+__Warning:__ If you remove your member access to an application, you will not be able to undo the action. Only the application owner will be able to restore your access.
 
 ## Two-factor Authentication
 
