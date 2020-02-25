@@ -137,6 +137,8 @@ method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 
    ]
 ```
 
+__Note:__ For additional dbus examples see the [{{$names.os.lower}} masterclass](os-masterclass)
+
 ### Blacklisting kernel modules won't work
 Since the `/etc/modules` you see in your container belongs to the container's filesystem and is not the same as `/etc/modules` in the host OS, adding kernel modules to the modules blacklist in the container will have no effect. So in order to remove a module, you need to explicitly do a [`rmmod`](http://linux.die.net/man/8/rmmod).
 
@@ -346,5 +348,6 @@ Note that currently it's not possible to share a mounted device across multiple 
 [multicontainer]:{{ $links.githubLabs }}/multicontainer-getting-started
 [network-ipam]:https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference
 [network-aliases]:https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases
+[os-masterclass]:/learn/more/masterclasses/host-os-masterclass/#13-advanced-dbus-examples
 [services-masterclass]:/learn/more/masterclasses/services-masterclass/#4-networking-types
 [host-os]:/reference/OS/overview/2.x/
