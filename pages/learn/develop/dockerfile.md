@@ -90,13 +90,7 @@ __Note:__ You need to ensure that your dependencies and Node.js modules are also
 
 Currently our builder supports the following build variables:
 
-| Variable Name | Description |
-| ------------- |-------------|
-| {{ $names.company.allCaps }}_APP_NAME | The name of the application.|
-| {{ $names.company.allCaps }}_ARCH | The instruction set architecture for the base images associated with this device.|
-| {{ $names.company.allCaps }}_MACHINE_NAME | The name of the yocto machine this board is base on. It is the name that you will see in most of the {{ $names.company.lower }} [Docker base images][base-images].  This name helps us identify a specific [BSP](https://en.wikipedia.org/wiki/Board_support_package).|
-| {{ $names.company.allCaps }}_RELEASE_HASH | The hash corresponding to the release.|
-| {{ $names.company.allCaps }}_SERVICE_NAME | The name of the service defined in the `docker-compose.yml` file.|
+{{> "deployment/build-variables" }}
 
 __Note:__ If your application contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application.
 
