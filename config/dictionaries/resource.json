@@ -87,6 +87,48 @@
     ]
   },
   {
+    "id": "application_tag",
+    "name": "Application tag",
+    "fields": [
+      "id",
+      "application",
+      "tag_key",
+      "value"
+    ],
+    "examples": [
+      {
+        "id": "get-application-tags",
+        "summary": "Get all tags by application name",
+        "method": "GET",
+        "endpoint": "/v5/application_tag",
+        "filters": "?\\$filter=application/app_name%20eq%20'<NAME>'"
+      },
+      {
+        "id": "create-application-tag",
+        "summary": "Create a new application tag",
+        "method": "POST",
+        "endpoint": "/v5/application_tag",
+        "filters": "",
+        "data": "{\n    \"application\": \"<APP ID>\",\n    \"tag_key\": \"<KEY>\",\n    \"value\": \"<VALUE>\"\n}"
+      },
+      {
+        "id": "update-application-tag",
+        "summary": "Update an application tag",
+        "method": "PATCH",
+        "endpoint": "/v5/application_tag/(<ID>)",
+        "filters": "",
+        "data": "{\n    \"value\": \"<NEW VALUE>\"\n}"
+      },
+      {
+        "id": "delete-application-tag",
+        "summary": "Delete an application tag",
+        "method": "DELETE",
+        "endpoint": "/v5/application_tag/(<ID>)",
+        "filters": ""
+      }
+    ]
+  },
+  {
     "id": "api_key",
     "name": "API key",
     "fields": [
