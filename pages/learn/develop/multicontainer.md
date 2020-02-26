@@ -7,6 +7,8 @@ excerpt: A guide to running multiple containers with Docker Compose and {{ $name
 
 As your applications grow more complex, you may find significant benefit in running some services in separate containers. Splitting your application into multiple containers allows you to better isolate and maintain key services, providing a more modular and secure approach to application management. Each service can be packaged with the operating environment and tools it specifically needs to run, and each service can be limited to the minimum system resources necessary to perform its task. The benefits of multicontainer applications compound as the complexity of the application grows. Because each service can be updated independently, larger applications can be developed and maintained by separate teams, each free to work in a way that best supports their service.
 
+__Note:__ For additional information on working with multiple containers with {{$names.company.lower}} see the [services masterclass][services-masterclass].
+
 This guide will cover the considerations you need to take into account when running multiple containers, including `docker-compose.yml` configuration and some important {{ $names.company.lower }} specific settings.
 
 __Note:__ Multicontainer functionality requires {{ $names.os.lower }} v2.12.0 or higher, and it is only available to microservices and starter [application types][app-types]. If you are creating an application and do not see microservices or starter as available application types, a multicontainer compatible OS version has not yet been released for the selected device type.
@@ -19,7 +21,7 @@ At the root of your multicontainer application, you'll use a `docker-compose.yml
 
 Here's an example `docker-compose.yml` for a [simple multicontainer application][simple-app], composed of a static site server, a websocket server, and a proxy:
 
-```
+```yaml
 version: '2'
 services:
   frontend:
@@ -45,7 +47,7 @@ Unlike single container applications, multicontainer applications do not run con
 
 As an example, here the `gpio` service is set up to use i2c and serial uart sensors:
 
-```
+```Dockerfile
 gpio:
     build: ./gpio
     devices:
@@ -70,7 +72,7 @@ With multicontainer applications, {{ $names.company.lower }} supports the use of
 
 Use the `volumes` field of the service to link a directory in your container to your named volume. The named volume should also be specified at the top level of the `docker-compose.yml`:
 
-```
+```yaml
 version: '2'
 volumes:
     resin-data:
@@ -97,3 +99,4 @@ In addition to the settings above, there are some {{ $names.company.lower }} spe
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [init-system]:/learn/develop/runtime/#init-system
 [app-types]:/learn/manage/app-types
+[services-masterclass]:/learn/more/masterclasses/services-masterclass/

@@ -9,6 +9,8 @@ excerpt: Use Dockerfiles to package your {{ $names.company.lower }} services and
 
 To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image][docker-images-containers]. Whether the build process is done [on your device][local-mode], [on your workstation][local-build], or on the [{{ $names.company.lower }} builders][builders], the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the {{ $names.os.lower }} version) to kick off a running container.
 
+__Note:__ For additional information on working with Dockerfiles with {{$names.company.lower}} see the [services masterclass][services-masterclass].
+
 ## Dockerfiles
 
 The instructions for building a container image are written in a [Dockerfile][dockerfile] - this is similar to a `Makefile` in that it contains a recipe or set of instructions to build our container.
@@ -228,3 +230,5 @@ __Note:__ With plain Node.js project, our build server will automatically detect
 [node]:http://nodejs.org/
 [raspbian]:http://www.raspbian.org/
 [aptitude]:https://wiki.debian.org/Aptitude
+
+[services-masterclass]:/learn/more/masterclasses/services-masterclass/

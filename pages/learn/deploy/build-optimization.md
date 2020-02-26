@@ -7,6 +7,8 @@ excerpt: Tips for reducing the time to build your {{ $names.company.lower }} con
 
 These are just a few tips and tricks to optimize your {{ $names.company.lower }} container builds and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the Docker container builders on our servers. If you want to read more about how Docker caches layers and Docker best practices, head over here - [Docker best practices][docker-best-practices].
 
+__Note:__ For information on using multi-stage builds to reduce image sizes, see the [services masterclass][services-masterclass].
+
 ## Move `ADD` and `COPY` Commands
 
 Caching in Docker is done by comparing the instructions in the current `Dockerfile` with the ones in the previous build. If the instructions have changed, the cache is invalidated. This however, is slightly different for the `ADD` and `COPY`, for these commands the contents of the files being put into the image are examined. If there are any changes, even in the file metadata, then the cache is invalidated. So we recommend you place your `ADD` or `COPY` statements near the end of your Dockerfiles, after all your package installs and source compilation steps have been completed.
@@ -100,3 +102,4 @@ path-include /usr/share/locale/en*
 ```
 
 [docker-best-practices]:https://docs.docker.com/articles/dockerfile_best-practices/
+[services-masterclass]:/learn/more/masterclasses/services-masterclass/#6-multi-stage-builds
