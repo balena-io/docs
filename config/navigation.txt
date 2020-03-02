@@ -106,6 +106,7 @@ Reference
       [/reference/OS/updates/self-service]
       [/reference/OS/updates/update-process]
       [/reference/OS/updates/migrate-to-2.0]
+    Extended support release process[/reference/OS/extended-support-release]  
     Network[/reference/OS/network/$os_version]
     [/reference/OS/configuration]
     [/reference/OS/time]
