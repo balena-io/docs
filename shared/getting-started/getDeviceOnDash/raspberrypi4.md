@@ -1,4 +1,4 @@
-Insert the SD card into your **{{ $device.name }}** and connect the ethernet cable if necessary. Now power up the **{{ $device.name }}** by inserting the micro USB cable.
+Insert the SD card into your **{{ $device.name }}** and connect the ethernet cable if necessary. Now power up the **{{ $device.name }}** by inserting the USB-C cable.
 
 ![insert SD](/img/gifs/insert-sd.gif)
 
