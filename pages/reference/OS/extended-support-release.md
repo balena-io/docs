@@ -6,9 +6,9 @@ excerpt: An overview of the {{ $names.company.lower }} extended support release 
 
 __Note:__ This feature is only available on [Production and Enterprise plans][billing].
 
-The {{ $names.os.lower }} Extended Support Release (ESR) process allows fleet owners to update the host OS on their devices at most twice a year to ensure they are on a supported version. New ESR versions are released on a three-month schedule, and as such, fleet owners know in advance when releases will be available and when they need to upgrade.
+The {{ $names.os.lower }} Extended Support Release (ESR) process allows fleet owners to update to a new ESR version on their devices at most twice a year to ensure they are on a supported version. New ESR versions are released on a three-month schedule, and as such, fleet owners know in advance when releases will be available and when they need to upgrade.
 
-Each ESR release is supported for nine months from the time of release. A supported ESR version implies that high-risk security vulnerabilities and critical bug fixes will be backported to that version. Backports of any functional enhancements are not in scope.
+Each ESR release is supported for nine months from the time of release. A supported ESR version implies that high-risk security vulnerabilities and critical bug fixes will be backported to that version, and are guaranteed not to break the interface. Backports of any functional enhancements are not in scope.
 
 ## ESR schedule
 
