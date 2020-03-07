@@ -201,6 +201,12 @@ visualization at [123k.de](http://123k.de).
 A dashboard which is visualizing the [Uptime Robot API](https://uptimerobot.com/) on a Raspberry Pi, deployed via balenaCloud.
 This dashboard can be used on TVs or on monitors.
 
+## Commento Self-Hosted
+[Respository][commento-selfhosted] by [igolaizola][igolaizola]
+
+Deployment configuration to run a self-hosted version of commento on a device running balena.
+This project has been tested on a raspberry pi zero but should work with other devices.
+
 <!-- ###Team Project Links -->
 
 [text2speech]:{{ $links.githubMain }}/text2speech
@@ -232,6 +238,7 @@ This dashboard can be used on TVs or on monitors.
 [cimon]:https://bitbucket.org/efwe/cimon
 [lunch-mutn]:https://github.com/thibmaek/lunch-mutn
 [uptime-robot-dashboard]:https://github.com/secanis/uptime-robot-dashboard
+[commento-selfhosted]:https://github.com/igolaizola/commento-balena
 
 <!-- ###Code Snippets Links -->
 
@@ -263,6 +270,7 @@ This dashboard can be used on TVs or on monitors.
 [faurehu]:https://github.com/faurehu/
 [zettajs]:https://github.com/zettajs/
 [martincalsyn]: https://github.com/martincalsyn
+[igolaizola]: https://github.com/igolaizola
 
 <!-- ###Additional links -->
 
