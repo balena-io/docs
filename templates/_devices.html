@@ -3,7 +3,7 @@
   (function () {
     window.jQuery
       .ajax({
-        url: "https://img.resin.io/api/v1/device-types"
+        url: "https://api.balena-cloud.com/device-types/v1/"
       })
       .done(function (deviceTypes) {
         var table;
@@ -40,7 +40,7 @@
             }
             tableCell =
               "<tr> <td>" +
-              "<img class='device_icon' src='/docs/img/device/" + deviceType.slug + ".svg' />" +
+              "<img class='device_icon' src='" + deviceType.logoUrl + "' />" +
               "</td> <td>" +
               deviceType.name +
               "</td> <td>" +
