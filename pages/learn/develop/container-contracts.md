@@ -26,7 +26,7 @@ Container contracts are defined as a `contract.yml` file and must be placed in t
   └── Dockerfile.template
 ```
 
-`contract.yml` is a YAML file containing `type`, `slug`, `name`, and `requires` keys, which define the requirements of the contract. The following example requires the device to be running a version of L4T equal to 28.2 for the contract to pass. For L4T exact versions (either 28.2 or 32.2) must be specified.
+`contract.yml` is a YAML file containing `type`, `slug`, `name`, and `requires` keys, which define the requirements of the contract. The following example requires the device to be running a version of L4T equal to 28.2 for the contract to pass. For Supervisor versions < 10.10.0, L4T exact versions (either 28.2 or 32.2) must be specified.
 
 ```yaml
 type: "sw.container"
@@ -44,7 +44,7 @@ requires:
 
 **Note** If `type`, `slug`, or `name` are omitted, the build will fail.
 
-Multiple requirements may be added to a single contract. The following example requires that the Supervisor version is greater than or equal to 10.6.17, and the L4T version is equal to 32.2.
+Multiple requirements may be added to a single contract. The following example requires that the Supervisor version is greater than or equal to 10.6.17, and the L4T version is greater than or equal to 32.2.
 
 ```yaml
 type: "sw.container"
@@ -54,7 +54,7 @@ requires:
   - type: "sw.supervisor"
     version: ">=10.6.17"
   - type: "sw.l4t"
-    version: "32.2"
+    version: ">=32.2.0"
 ```
 
 **Note** Any `requires` type other than `sw.supervisor` or `sw.l4t` will result in the contract being invalid.
