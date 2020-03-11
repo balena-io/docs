@@ -1,389 +1,1341 @@
-[
+[{
+    "id": "n510-tx2",
+    "name": "Aetina N510 TX2",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "n510-tx2",
+    "community": true,
+    "icon": "/img/device/n510-tx2.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Aetina N510 TX2."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Connect power to the carrier board."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
   {
     "id": "asus-tinker-board",
     "name": "Asus Tinker Board",
     "arch": "armv7hf",
     "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "asus-tinker-board",
+    "community": false,
     "icon": "/img/device/asus-tinker-board.svg",
-    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board/",
-    "type": "beta"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Asus Tinker Board."
+      },
+      {
+        "i": "Connect your Asus Tinker Board to the internet, then power it up."
+      }
+    ]
   },
   {
     "id": "asus-tinker-board-s",
     "name": "Asus Tinker Board S",
     "arch": "armv7hf",
-    "bootMedia": "eMMC",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "asus-tinker-board-s",
+    "community": false,
     "icon": "/img/device/asus-tinker-board-s.svg",
-    "link": "https://www.asus.com/us/Single-Board-Computer/Tinker-Board-S/",
-    "type": "beta"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Asus Tinker Board S."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Before powering up the Asus Tinker Board S, make sure that the jumper between the 5V power supply and the HDMI connector is in the MASKROM mode, as ilustrated in this link https://tinkerboarding.co.uk/wiki/index.php/Setup"
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Before powering up the Asus Tinker Board S, make sure that the jumper between the 5V power supply and the HDMI connector is in the parking (no function) mode, as ilustrated in this link https://tinkerboarding.co.uk/wiki/index.php/Setup"
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
+    "id": "jn30b-nano",
+    "name": "Auvidea JN30B Nano",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "jn30b-nano",
+    "community": true,
+    "icon": "/img/device/jn30b-nano.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Remove power from the board and insert freshly burnt SD-CARD."
+      },
+      {
+        "i": "Power on the board."
+      }
+    ]
   },
   {
     "id": "fincm3",
-    "name": "Balena Fin",
+    "name": "Balena Fin (CM3)",
     "arch": "armv7hf",
-    "bootMedia": "SD card",
+    "bootMedia": "eMMC",
+    "state": "RELEASED",
+    "machine": "fincm3",
+    "community": false,
     "icon": "/img/device/fincm3.svg",
-    "link": "https://www.balena.io/fin",
-    "type": "released"
+    "instructions": [{
+        "i": "While not having the Fin board powered, connect your system to the board's DBG port via a micro-USB cable.."
+      },
+      {
+        "i": "Power on the Fin by attaching power to either the Barrel or the Phoenix connector."
+      },
+      {
+        "i": "Write the OS to the internal MMC storage device. We recommend using <a href=http://www.etcher.io/>Etcher</a>."
+      },
+      {
+        "i": "When flashing is complete, power off the board by detaching the power and unplug the DGB micro-USB cable."
+      },
+      {
+        "i": "Connect your Balena Fin (CM3) to the internet, then power it up."
+      }
+    ]
   },
   {
     "id": "bananapi-m1-plus",
-    "name": "Banana Pi M1+",
+    "name": "BananaPi-M1+",
     "arch": "armv7hf",
     "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "bananapi-m1-plus",
+    "community": false,
     "icon": "/img/device/bananapi-m1-plus.svg",
-    "link": "http://www.banana-pi.org/m1plus.html",
-    "type": "beta"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to an SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the BananaPi-M1+."
+      },
+      {
+        "i": "Connect your BananaPi-M1+ to the internet, then power it up."
+      }
+    ]
+  },
+  {
+    "id": "beagleboard-xm",
+    "name": "BeagleBoard-XM",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "beagleboard-xm",
+    "community": false,
+    "icon": "/img/device/beagleboard-xm.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the BeagleBoard-XM."
+      },
+      {
+        "i": "Connect your BeagleBoard-XM to the internet, then power it up."
+      }
+    ]
   },
   {
     "id": "beaglebone-black",
-    "name": "BeagleBone",
-    "variants": [
-      {
-        "name": "BeagleBone Black",
-        "image": "/img/beaglebone-black/beaglebone-black.jpg",
-        "link": "http://beagleboard.org/black"
-      },
-      {
-        "name": "BeagleBone Blue",
-        "image": "/img/beaglebone-black/beagle-blue.png",
-        "link": "http://beagleboard.org/blue"
-      },
-      {
-        "name": "BeagleBone Green",
-        "image": "/img/beaglebone-black/beaglebone-green.jpg",
-        "link": "http://beagleboard.org/green"
-      },
-      {
-        "name": "BeagleBone Green Wireless",
-        "image": "/img/beaglebone-black/beaglebone-green-wireless.jpg",
-        "link": "http://beagleboard.org/green-wireless"
-      }
-    ],
+    "name": "BeagleBone Black",
     "arch": "armv7hf",
     "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "beaglebone",
+    "community": false,
     "icon": "/img/device/beaglebone-black.svg",
-    "link": "http://beagleboard.org/bone",
-    "type": "released"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the BeagleBone Black."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Power up the BeagleBone Black while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
-    "id": "imx6ul-var-dart",
-    "name": "DART-6UL",
+    "id": "beaglebone-green",
+    "name": "BeagleBone Green",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/dart6ul.svg",
-    "link": "https://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul/",
-    "type": "beta"
+    "state": "NEW",
+    "machine": "beaglebone-green",
+    "community": false,
+    "icon": "/img/device/beaglebone-green.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the BeagleBone Green."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Power up the BeagleBone Green while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
-    "id": "generic-aarch64",
-    "name": "Generic AARCH64 (ARMv8)",
-    "arch": "aarch64",
-    "icon": "/img/device/generic-aarch64.svg",
-    "type": "virtual"
-  },
-  {
-    "id": "generic-armv7ahf",
-    "name": "Generic ARMv7-a HF",
+    "id": "beaglebone-green-wifi",
+    "name": "BeagleBone Green Wireless",
     "arch": "armv7hf",
-    "icon": "/img/device/generic-armv7ahf.svg",
-    "type": "virtual"
+    "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "beaglebone-green-wifi",
+    "community": false,
+    "icon": "/img/device/beaglebone-green-wifi.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the BeagleBone Green Wireless."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Power up the BeagleBone Green Wireless."
+      },
+      {
+        "i": "Wait 5 seconds after the blue leds stopped flashing wildly, then remove power from the board. On some boards the leds will shut down completely."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
+    "id": "orbitty-tx2",
+    "name": "CTI Orbitty TX2",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "orbitty-tx2",
+    "community": false,
+    "icon": "/img/device/orbitty-tx2.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the CTI Orbitty TX2."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Connect power to the carrier board."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until the SYS LED is turned off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
+    "id": "spacely-tx2",
+    "name": "CTI Spacely TX2",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "spacely-tx2",
+    "community": false,
+    "icon": "/img/device/spacely-tx2.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the CTI Spacely TX2."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Connect power to the carrier board."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
+    "id": "cl-som-imx8",
+    "name": "Compulab MX8M",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "cl-som-imx8",
+    "community": false,
+    "icon": "/img/device/cl-som-imx8.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Compulab MX8M."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Insert SD CARD. Press SW5 followed by SW6. Release SW5 then release SW6."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
     "id": "coral-dev",
     "name": "Google Coral Dev Board",
     "arch": "aarch64",
-    "icon": "/img/device/coral-dev.svg",
-    "link": "https://coral.ai/products/dev-board/",
-    "type": "beta"
-  },
-  {
-    "id": "hummingboard",
-    "name": "Hummingboard",
-    "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/hummingboard.svg",
-    "link": "https://www.solid-run.com/nxp-family/hummingboard/",
-    "type": "released"
+    "state": "NEW",
+    "machine": "coral-dev",
+    "community": false,
+    "icon": "/img/device/coral-dev.svg",
+    "instructions": [{
+        "i": "Set the BOOT_SELECT switch to the SD-CARD position."
+      },
+      {
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Google Coral Dev Board."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Set the BOOT_SELECT switch to the eMMC position."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
     "id": "intel-edison",
     "name": "Intel Edison",
     "arch": "i386",
     "bootMedia": "eMMC",
+    "state": "RELEASED",
+    "machine": "edison",
+    "community": false,
     "icon": "/img/device/intel-edison.svg",
-    "link": "https://software.intel.com/en-us/iot/hardware/edison/documentation",
-    "type": "released"
+    "instructions": [{
+        "i": "windows"
+      },
+      {
+        "i": "osx"
+      },
+      {
+        "i": "linux"
+      }
+    ]
   },
   {
     "id": "intel-nuc",
     "name": "Intel NUC",
-    "variants": [
-      {
-        "name": "Intel NUC",
-        "image": "/img/intel-nuc/intel-nuc.jpg",
-        "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html"
+    "arch": "amd64",
+    "bootMedia": "USB key",
+    "state": "RELEASED",
+    "machine": "genericx86-64",
+    "community": false,
+    "icon": "/img/device/intel-nuc.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
       },
       {
-        "name": "Generic x86 devices",
-        "image": "/img/intel-nuc/x86.png",
-        "link": "/learn/getting-started/intel-nuc/nodejs/"
+        "i": "Insert the freshly burnt USB key into the Intel NUC."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Please make sure you do not have any other USB keys inserted.\nPower up the Intel NUC. Make sure you have a keyboard connected.\nPress the F10 key (may differ on some platforms) while BIOS is loading in order to enter the boot menu.\nNext, select the name of your USB key."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Power on your device."
       }
-    ],
+    ]
+  },
+  {
+    "id": "surface-pro-6",
+    "name": "Microsoft Surface 6",
     "arch": "amd64",
-    "bootMedia": "USB drive",
-    "icon": "/img/device/intel-nuc.svg",
-    "link": "https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html",
-    "type": "released"
+    "bootMedia": "USB key",
+    "state": "NEW",
+    "machine": "surface-pro-6",
+    "community": false,
+    "icon": "/img/device/surface-pro-6.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt USB key into the Microsoft Surface 6."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Press and hold the Volume Down button and press the Power button. Release the Power button but keep pressing the Volume Down button until the windows logo disappears."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Press the Power button."
+      }
+    ]
+  },
+  {
+    "id": "surface-go",
+    "name": "Microsoft Surface Go",
+    "arch": "amd64",
+    "bootMedia": "USB key",
+    "state": "NEW",
+    "machine": "surface-go",
+    "community": false,
+    "icon": "/img/device/surface-go.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt USB key into the Microsoft Surface Go."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Press and hold the Volume Down button and press the Power button. Release the Power button but keep pressing the Volume Down button until the windows logo disappears."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Press the Power button."
+      }
+    ]
+  },
+  {
+    "id": "npe-x500-m3",
+    "name": "NPE X500 M3",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "npe-x500-m3",
+    "community": true,
+    "icon": "/img/device/npe-x500-m3.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the NPE X500 M3."
+      },
+      {
+        "i": "Connect your NPE X500 M3 to the internet, then power it up."
+      }
+    ]
+  },
+  {
+    "id": "nanopc-t4",
+    "name": "NanoPC-T4",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "nanopc-t4",
+    "community": false,
+    "icon": "/img/device/nanopc-t4.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the NanoPC-T4."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
+    "id": "nitrogen8mm",
+    "name": "Nitrogen8M Mini SBC",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "nitrogen8mm",
+    "community": false,
+    "icon": "/img/device/nitrogen8mm.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Nitrogen8M Mini SBC."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      },
+      {
+        "i": "Monitor the device in Balena dashboard to see when it entered the post-provisioning state. Leave the state settle for around 10 seconds."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
+    "id": "nitrogen8mm-dwe",
+    "name": "Nitrogen8MM DWE",
+    "arch": "aarch64",
+    "bootMedia": "USB key",
+    "state": "NEW",
+    "machine": "nitrogen8mm-dwe",
+    "community": false,
+    "icon": "/img/device/nitrogen8mm-dwe.svg",
+    "instructions": [{
+        "i": "Unzip the image downloaded from the dashboard."
+      },
+      {
+        "i": "Power on the board, stop booting in u-boot cmdline and connect the USB OTG port to the PC. Issue the following command in u-boot: ums 0 mmc 0"
+      },
+      {
+        "i": "Use Balena Etcher to write the unzipped image to the internal storage of device, which is exposed as Mass Storage on the PC."
+      },
+      {
+        "i": "Remove power from the board and drain the super capacitor completely."
+      },
+      {
+        "i": "Connect power to the board."
+      },
+      {
+        "i": "If board is using a standard uboot, overwrite it with BalenaOS imx-boot in the mmcblk0boot0 partition."
+      }
+    ]
+  },
+  {
+    "id": "srd3-tx2",
+    "name": "Nvidia D3 TX2",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "srd3-tx2",
+    "community": false,
+    "icon": "/img/device/srd3-tx2.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Nvidia D3 TX2."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      },
+      {
+        "i": "Press and hold for 1 second the POWER push button."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
     "id": "jetson-nano",
-    "name": "Jetson Nano",
+    "name": "Nvidia Jetson Nano",
     "arch": "aarch64",
     "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "jetson-nano",
+    "community": false,
     "icon": "/img/device/jetson-nano.svg",
-    "link": "https://developer.nvidia.com/embedded/buy/jetson-nano",
-    "type": "beta"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Remove power from the board and insert freshly burnt SD-CARD."
+      },
+      {
+        "i": "Power on the board."
+      }
+    ]
   },
   {
     "id": "jetson-tx1",
-    "name": "Jetson TX1",
+    "name": "Nvidia Jetson TX1",
     "arch": "aarch64",
     "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "jetson-tx1",
+    "community": false,
     "icon": "/img/device/jetson-tx1.svg",
-    "link": "https://developer.nvidia.com/embedded/buy/jetson-tx1",
-    "type": "beta"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Nvidia Jetson TX1."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Press and hold for 1 second the POWER push button."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the resinOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
     "id": "jetson-tx2",
-    "name": "Jetson TX2",
+    "name": "Nvidia Jetson TX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "jetson-tx2",
+    "community": false,
     "icon": "/img/device/jetson-tx2.svg",
-    "link": "https://developer.nvidia.com/embedded/buy/jetson-tx2",
-    "type": "beta"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Nvidia Jetson TX2."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      },
+      {
+        "i": "Press and hold for 1 second the POWER push button."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
-    "id": "kitra710",
-    "name": "Kitra 710",
+    "id": "jetson-xavier",
+    "name": "Nvidia Jetson Xavier",
+    "arch": "aarch64",
+    "bootMedia": "eMMC",
+    "state": "NEW",
+    "machine": "jetson-xavier",
+    "community": false,
+    "icon": "/img/device/jetson-xavier.svg",
+    "instructions": [{
+        "i": "Put the NVidia Jetson Xavier board in recovery mode"
+      },
+      {
+        "i": "Unzip BalenaOS image and use the Jetson Flash tool to flash the board. Jetson Flash tool can be found at https://github.com/balena-os/jetson-flash"
+      },
+      {
+        "i": "After flashing is completed, please wait until the board is rebooted"
+      }
+    ]
+  },
+  {
+    "id": "blackboard-tx2",
+    "name": "Nvidia blackboard TX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "icon": "/img/device/kitra710.svg",
-    "link": "https://www.rushup.tech/kitra710/",
-    "type": "beta"
-  },
-  {
-    "id": "nitrogen6x",
-    "name": "Nitrogen 6X",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/nitrogen6x.svg",
-    "link": "https://boundarydevices.com/nitrogen6x/",
-    "type": "released"
+    "state": "RELEASED",
+    "machine": "blackboard-tx2",
+    "community": true,
+    "icon": "/img/device/blackboard-tx2.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Nvidia blackboard TX2."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      },
+      {
+        "i": "Press and hold for 1 second the POWER push button."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
     "id": "odroid-c1",
-    "name": "Odroid C1/C1+",
+    "name": "ODROID-C1+",
     "arch": "armv7hf",
     "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "odroid-c1",
+    "community": false,
     "icon": "/img/device/odroid-c1.svg",
-    "link": "https://www.hardkernel.com/shop/odroid-c1/",
-    "type": "released"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the ODROID-C1+."
+      },
+      {
+        "i": "Connect your ODROID-C1+ to the internet, then power it up."
+      }
+    ]
   },
   {
     "id": "odroid-xu4",
-    "name": "Odroid XU4",
+    "name": "ODROID-XU4",
     "arch": "armv7hf",
     "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "odroid-xu4",
+    "community": false,
     "icon": "/img/device/odroid-xu4.svg",
-    "link": "https://www.hardkernel.com/shop/odroid-xu4-special-price/",
-    "type": "released"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the ODROID-XU4."
+      },
+      {
+        "i": "Connect your ODROID-XU4 to the internet, then power it up."
+      }
+    ]
+  },
+  {
+    "id": "orange-pi-one",
+    "name": "Orange Pi One",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "orange-pi-one",
+    "community": true,
+    "icon": "/img/device/orange-pi-one.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Orange Pi One."
+      },
+      {
+        "i": "Connect your Orange Pi One to the internet, then power it up."
+      }
+    ]
   },
   {
     "id": "orangepi-plus2",
     "name": "Orange Pi Plus2",
     "arch": "armv7hf",
     "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "orangepi-plus2",
+    "community": false,
     "icon": "/img/device/orangepi-plus2.svg",
-    "link": "http://www.orangepi.org/orangepiplus2/",
-    "type": "beta"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Orange Pi Plus2."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Connect your Orange Pi Plus2 to the internet, then power it up."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the resinOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
+    "id": "orange-pi-zero",
+    "name": "Orange Pi Zero",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "orange-pi-zero",
+    "community": true,
+    "icon": "/img/device/orange-pi-zero.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Orange Pi Zero."
+      },
+      {
+        "i": "Connect your Orange Pi Zero to the internet, then power it up."
+      }
+    ]
+  },
+  {
+    "id": "beaglebone-pocket",
+    "name": "PocketBeagle",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "beaglebone-pocket",
+    "community": false,
+    "icon": "/img/device/beaglebone-pocket.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the PocketBeagle."
+      },
+      {
+        "i": "Connect your PocketBeagle to the internet, then power it up."
+      }
+    ]
+  },
+  {
+    "id": "qemux86",
+    "name": "QEMU X86 32bit",
+    "arch": "i386",
+    "bootMedia": "HDD",
+    "state": "NEW",
+    "machine": "qemux86",
+    "community": false,
+    "icon": "/img/device/qemux86.svg",
+    "instructions": [{
+      "i": "Run the following to start the image:\n<br>\nOn systems with KVM support:\n<br>\n<code>qemu-system-i386 -drive file=resin-image-qemux86.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host</code>\n<br>\nOn systems without KVM support:\n<br>\n<code>qemu-system-i386 -drive file=resin-image-qemux86.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4</code>\n<br>\nTweak <code>-smp</code> and <code>-cpu</code> parameters based on the CPU of the machine qemu is running on. <code>-cpu</code> parameter needs to be dropped on OSX and Windows.\n<br>\nTweak <code>-nographic</code> and <code>-m 512</code> to set the display of qemu and memory respectively.\n"
+    }]
+  },
+  {
+    "id": "qemux86-64",
+    "name": "QEMU X86 64bit",
+    "arch": "amd64",
+    "bootMedia": "HDD",
+    "state": "NEW",
+    "machine": "qemux86-64",
+    "community": false,
+    "icon": "/img/device/qemux86-64.svg",
+    "instructions": [{
+      "i": "Run the following to start the image:\n<br>\nOn systems with KVM support:\n<br>\n<code>qemu-system-x86_64 -drive file=resin-image-qemux86-64.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host</code>\n<br>\nOn systems without KVM support:\n<br>\n<code>qemu-system-x86_64 -drive file=resin-image-qemux86-64.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4</code>\n<br>\nTweak <code>-smp</code> and <code>-cpu</code> parameters based on the CPU of the machine qemu is running on. <code>-cpu</code> parameter needs to be dropped on OSX and Windows.\n<br>\nTweak <code>-nographic</code> and <code>-m 512</code> to set the display of qemu and memory respectively.\n"
+    }]
   },
   {
     "id": "raspberry-pi",
-    "name": "Raspberry Pi 1, Zero, or Zero W",
-    "variants": [
-      {
-        "name": "Raspberry Pi 1 Model A+",
-        "image": "/img/raspberry-pi/raspberry-pi-1-A-plus.jpg",
-        "link": "https://www.raspberrypi.org/products/raspberry-pi-1-model-a-plus/"
-      },
-      {
-        "name": "Raspberry Pi 1 Model B+",
-        "image": "/img/raspberry-pi/raspberry-pi-1-B-plus.jpg",
-        "link": "https://www.raspberrypi.org/products/raspberry-pi-1-model-b-plus/"
-      },
-      {
-        "name": "Raspberry Pi Zero",
-        "image": "/img/raspberry-pi/raspberry-pi-zero.jpg",
-        "link": "https://www.raspberrypi.org/products/raspberry-pi-zero/"
-      },
-      {
-        "name": "Raspberry Pi Zero W",
-        "image": "/img/raspberry-pi/raspberry-pi-zero-w.jpg",
-        "link": "https://www.raspberrypi.org/products/raspberry-pi-zero-w/"
-      }
-    ],
+    "name": "Raspberry Pi (v1 / Zero / Zero W)",
     "arch": "rpi",
     "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "raspberrypi",
+    "community": false,
     "icon": "/img/device/raspberry-pi.svg",
-    "link": "https://www.raspberrypi.org/products/",
-    "type": "released"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Raspberry Pi (v1 / Zero / Zero W)."
+      },
+      {
+        "i": "Connect your Raspberry Pi (v1 / Zero / Zero W) to the internet, then power it up."
+      }
+    ]
   },
   {
     "id": "raspberry-pi2",
     "name": "Raspberry Pi 2",
-    "variants": [
-      {
-        "name": "Raspberry Pi 2 Model B",
-        "image": "/img/raspberry-pi2/raspberry-pi2.jpg",
-        "link": "https://www.raspberrypi.org/products/raspberry-pi-2-model-b/"
-      }
-    ],
     "arch": "armv7hf",
     "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "raspberrypi2",
+    "community": false,
     "icon": "/img/device/raspberry-pi2.svg",
-    "link": "https://www.raspberrypi.org/products/",
-    "type": "released"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Raspberry Pi 2."
+      },
+      {
+        "i": "Connect your Raspberry Pi 2 to the internet, then power it up."
+      }
+    ]
   },
   {
     "id": "raspberrypi3",
     "name": "Raspberry Pi 3",
-    "variants": [
-      {
-        "name": "Raspberry Pi 3 Model B",
-        "image": "/img/raspberrypi3/raspberrypi3.jpg",
-        "link": "https://www.raspberrypi.org/products/raspberry-pi-3-model-b/"
-      },
-      {
-        "name": "Raspberry Pi 3 Model B+",
-        "image": "/img/raspberrypi3/raspberrypi3-b-plus.jpg",
-        "link": "https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/"
-      }
-    ],
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "icon": "/img/device/raspberry-pi3.svg",
-    "link": "https://www.raspberrypi.org/products/",
-    "type": "released"
+    "state": "RELEASED",
+    "machine": "raspberrypi3",
+    "community": false,
+    "icon": "/img/device/raspberrypi3.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Raspberry Pi 3."
+      },
+      {
+        "i": "Connect your Raspberry Pi 3 to the internet, then power it up."
+      }
+    ]
   },
   {
-    "id": "raspberrypi4",
-    "name": "Raspberry Pi 4",
-    "variants": [
-      {
-        "name": "Raspberry Pi 4 Model B",
-        "image": "/img/raspberrypi4/raspberrypi4.jpg",
-        "link": "https://www.raspberrypi.org/products/raspberry-pi-4-model-b/"
-      }
-    ],
+    "id": "raspberrypi3-64",
+    "name": "Raspberry Pi 3 (using 64bit OS)",
     "arch": "aarch64",
     "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "raspberrypi3-64",
+    "community": false,
+    "icon": "/img/device/raspberrypi3-64.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Raspberry Pi 3 (using 64bit OS)."
+      },
+      {
+        "i": "Connect your Raspberry Pi 3 (using 64bit OS) to the internet, then power it up."
+      }
+    ]
+  },
+  {
+    "id": "raspberrypi4-64",
+    "name": "Raspberry Pi 4",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "raspberrypi4-64",
+    "community": false,
     "icon": "/img/device/raspberrypi4-64.svg",
-    "link": "https://www.raspberrypi.org/products/raspberry-pi-4-model-b/",
-    "type": "released"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Raspberry Pi 4."
+      },
+      {
+        "i": "Connect your Raspberry Pi 4 to the internet, then power it up."
+      }
+    ]
   },
   {
     "id": "revpi-core-3",
     "name": "Revolution Pi Core 3",
     "arch": "armv7hf",
-    "bootMedia": "eMMC",
+    "bootMedia": "USB key",
+    "state": "RELEASED",
+    "machine": "revpi-core-3",
+    "community": false,
     "icon": "/img/device/revpi-core-3.svg",
-    "link": "https://revolution.kunbus.de/shop/en/revpi-core-3",
-    "type": "beta"
+    "instructions": [{
+        "i": "While not having the Revolution Pi board powered, connect your system to the board's USB port via a micro-USB cable."
+      },
+      {
+        "i": "Power on the Revolution Pi board."
+      },
+      {
+        "i": "Write the OS to the internal MMC storage device. We recommend using <a href=http://www.etcher.io/>Etcher</a>."
+      },
+      {
+        "i": "When flashing is complete, power off the board and unplug the micro-USB cable."
+      },
+      {
+        "i": "Connect your Revolution Pi Core 3 to the internet, then power it up."
+      }
+    ]
   },
   {
-    "id": "artik10",
-    "name": "Samsung ARTIK 1020",
-    "arch": "armv7hf",
+    "id": "skx2",
+    "name": "SKX2",
+    "arch": "aarch64",
     "bootMedia": "SD card",
-    "icon": "/img/device/artik10.svg",
-    "type": "released"
-  },
-  {
-    "id": "artik530",
-    "name": "Samsung ARTIK 530",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/artik530.svg",
-    "type": "beta"
-  },
-  {
-    "id": "artik533s",
-    "name": "Samsung ARTIK 530s 1G",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/artik533s.svg",
-    "type": "beta"
-  },
-  {
-    "id": "artik710",
-    "name": "Samsung ARTIK 710",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/artik710.svg",
-    "type": "beta"
+    "state": "NEW",
+    "machine": "skx2",
+    "community": false,
+    "icon": "/img/device/skx2.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the SKX2."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Press and hold for 1 second the POWER push button."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
     "id": "iot2000",
     "name": "Siemens IOT2000",
     "arch": "i386-nlp",
     "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "iot2000",
+    "community": false,
     "icon": "/img/device/iot2000.svg",
-    "link": "https://w3.siemens.com/mcms/pc-based-automation/en/industrial-iot/Pages/Default.aspx",
-    "type": "beta"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to an SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Siemens IOT2000."
+      },
+      {
+        "i": "Connect your Siemens IOT2000 to the internet, then power it up."
+      }
+    ]
   },
   {
     "id": "ts4900",
     "name": "Technologic TS-4900",
     "arch": "armv7hf",
     "bootMedia": "SD card",
+    "state": "RELEASED",
+    "machine": "ts4900",
+    "community": false,
     "icon": "/img/device/ts4900.svg",
-    "link": "https://www.embeddedarm.com/products/TS-4900",
-    "type": "released"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Technologic TS-4900."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Enable the SD boot jumper present on your specific base board."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Disable the SD boot jumper present on your specific base board."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
     "id": "up-board",
-    "name": "UP board",
-    "variants": [
-      {
-        "name": "UP board",
-        "image": "/img/up-board/up-board.png",
-        "link": "http://www.up-board.org/up/"
-      },
-      {
-        "name": "UP core",
-        "image": "/img/up-board/up-core.png",
-        "link": "https://www.up-board.org/upcore/specifications"
-      },
-      {
-        "name": "UP squared",
-        "image": "/img/up-board/up-squared.png",
-        "link": "https://www.up-board.org/upsquared/specifications"
-      }
-    ],
+    "name": "UP Board",
     "arch": "amd64",
-    "bootMedia": "USB drive",
+    "bootMedia": "USB key",
+    "state": "RELEASED",
+    "machine": "up-board",
+    "community": false,
     "icon": "/img/device/up-board.svg",
-    "link": "https://www.up-board.org/",
-    "type": "released"
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt USB key into the UP Board."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Power up the UP Board. Make sure you have a keyboard connected.\nPress the F7 key while BIOS is loading in order to enter the boot menu. Next, select the \"UEFI:\" option."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Unplug and plug power on your UP Board."
+      }
+    ]
+  },
+  {
+    "id": "imx6ul-var-dart",
+    "name": "Variscite DART-6UL",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "imx6ul-var-dart",
+    "community": false,
+    "icon": "/img/device/imx6ul-var-dart.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Variscite DART-6UL."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Power up the Variscite DART-6UL. Holding down the SW2 button, press the SW1 button and then first release SW1 followed by SW2."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
+    "id": "imx8m-var-dart",
+    "name": "Variscite DART-MX8M",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "imx8m-var-dart",
+    "community": false,
+    "icon": "/img/device/imx8m-var-dart.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Variscite DART-MX8M."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Set the SW7 BOOT SELECT switch to SDCARD. Insert SD CARD. Power up the Variscite DART-MX8M."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Set the SW7 BOOT SELECT switch to eMMC."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   },
   {
     "id": "var-som-mx6",
     "name": "Variscite VAR-SOM-MX6",
     "arch": "armv7hf",
     "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "var-som-mx6",
+    "community": false,
     "icon": "/img/device/var-som-mx6.svg",
-    "link": "https://www.variscite.com/products/system-on-module-som/cortex-a9/var-som-mx6-cpu-freescale-imx6/",
-    "type": "beta"
+    "instructions": [{
+        "i": "Set the BOOT_SELECT switch to the MMC position"
+      },
+      {
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Set the BOOT_SELECT switch to the NAND position"
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
+    "id": "imx7-var-som",
+    "name": "Variscite VAR-SOM-MX7",
+    "arch": "armv7hf",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "imx7-var-som",
+    "community": false,
+    "icon": "/img/device/imx7-var-som.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Variscite VAR-SOM-MX7."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Set the SW1 BOOT SELECT switch to SDCARD. Insert SD CARD. Power up the Variscite VAR-SOM-MX7."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Set the SW1 BOOT SELECT switch to eMMC."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
   }
 ]

@@ -1,3 +1,5 @@
+{{import "getting-started/flashingOsToBootMedia"}}
+
 Insert the SD card into your **{{ $device.name }}** and connect either the ethernet cable or the USB WiFi adapter. Now power up the **{{ $device.name }}** by inserting the micro USB cable.
 
 ![insert SD](/img/gifs/insert-sd.gif)

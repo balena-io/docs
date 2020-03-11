@@ -1,3 +1,5 @@
+{{import "getting-started/flashingOsToBootMedia"}}
+
 Put the USB drive into your device and connect either the ethernet cable or WiFi adapter. Ensure that the HDMI screen and keyboard are connected up.
 
 __Warning:__ {{ $names.os.upper }} will completely overwrite the internal media of your NUC, so if you have important data on the device, we recommend that you make a backup before you attempt provisioning the NUC on {{ $names.company.lower }}.

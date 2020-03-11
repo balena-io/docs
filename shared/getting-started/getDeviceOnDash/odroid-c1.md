@@ -1,3 +1,5 @@
+{{import "getting-started/flashingOsToBootMedia"}}
+
 Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Make sure the little toggle switch near the HDMI port is set to the `uSD` option.
 
 __Note:__ The C1 can boot from both uSD and eMMC, however currently booting from `eMMC` is not supported. By default the C1 will try first boot from eMMC and then try uSD if that failed. For this reason it is important you do **not** have any eMMC media installed on the board.

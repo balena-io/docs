@@ -1,3 +1,5 @@
+{{import "getting-started/flashingOsToBootMedia"}}
+
 Insert the SD card into your **{{ $device.name }}** and connect the ethernet cable. Now power up the **{{ $device.name }}** by connecting your power supply to the barrel jack, or by using a micro USB cable. **Note:** if using the barrel jack for power you're required to fit a jumper to the board at **J48**.
 
 ![insert SD](/img/gifs/jetson-insert-sd.gif)

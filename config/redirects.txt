@@ -22,6 +22,7 @@
 # Device name changes
 ^\/(.*)\/raspberrypi\/(.*) -> /$1/raspberry-pi/$2
 ^\/(.*)\/raspberrypi2\/(.*) -> /$1/raspberry-pi2/$2
+^\/(.*)\/raspberrypi4\/(.*) -> /$1/raspberrypi4-64/$2
 ^\/(.*)\/edison\/(.*) -> /$1/intel-edison/$2
 ^\/(.*)\/nuc\/(.*) -> /$1/intel-nuc/$2
 ^\/(.*)\/beaglebone\/(.*) -> /$1/beaglebone-black/$2

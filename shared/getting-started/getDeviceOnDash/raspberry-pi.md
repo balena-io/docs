@@ -1,3 +1,5 @@
+{{import "getting-started/flashingOsToBootMedia"}}
+
 Insert the SD card into your **{{ $device.name }}** and, if necessary, connect the ethernet cable or the USB WiFi adapter. Now power up your Pi by inserting the micro USB cable.
 
 ![insert SD](/img/gifs/insert-sd.gif)

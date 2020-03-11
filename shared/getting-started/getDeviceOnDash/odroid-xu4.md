@@ -1,3 +1,5 @@
+{{import "getting-started/flashingOsToBootMedia"}}
+
 Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Make sure the little toggle switch near the HDMI port is set to the `uSD` option.
 
 __Note:__ Currently booting from eMMC is not supported.

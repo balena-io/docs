@@ -1,3 +1,5 @@
+{{import "getting-started/flashingOsToBootMedia"}}
+
 In order to get {{ $names.os.lower }} up and running on your **{{ $device.name }}**, you need to first set it up to boot from your {{ $device.bootMedia }} rather than its
 internal [eMMC memory][emmc-link]. To do this, you will need to interrupt the boot process and direct the device to boot from your {{ $device.bootMedia }}.
 
