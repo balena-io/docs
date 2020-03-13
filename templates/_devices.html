@@ -3,7 +3,7 @@
   (function () {
     window.jQuery
       .ajax({
-        url: "https://img.resin.io/api/v1/device-types"
+        url: "https://api.balena-cloud.com/device-types/v1/"
       })
       .done(function (deviceTypes) {
         var table;
@@ -21,6 +21,9 @@
             }
             if (deviceType.state === 'EXPERIMENTAL') {
               deviceType.name = deviceType.name.replace('(EXPERIMENTAL)', '(NEW)');
+            }
+            if (deviceType.community === true) {
+              deviceType.name = deviceType.name.replace(/ \([\s\S]*?\)/, '') + (' (COMMUNITY)')
             }
             if (deviceType.arch === 'rpi') {
               deviceType.arch = 'armv6hf';
