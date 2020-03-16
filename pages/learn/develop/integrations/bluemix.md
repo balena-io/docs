@@ -283,5 +283,5 @@ For detailed description, check the [Node.js SDK's README](https://github.com/ib
 
 A few sample apps to get started:
 
-* [bluemix-balena-python demo project]({{ $links.githubLabs }}/bluemix-balena-python): automatic or manual device registration, send data and receive actions
+* [bluemix-balena-python demo project]({{ $links.githubPlayground }}/bluemix-balena-python): automatic or manual device registration, send data and receive actions
 * [Bluemix boilerplate](https://github.com/hobochild/resin-bluemix-boilerplate): automatically register your device and publish data to your Bluemix app

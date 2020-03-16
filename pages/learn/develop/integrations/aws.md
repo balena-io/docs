@@ -218,5 +218,5 @@ where you need to replace `KEYFILE` with the relevant filename (such as `xxxxxxx
 
 A few sample apps to get started:
 
-* [balena-aws-lambda]({{ $links.githubLabs }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubLabs }}/balena-aws-device)
+* [balena-aws-lambda]({{ $links.githubPlayground }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubPlayground }}/balena-aws-device)
 * [balenaCloud AWS IoT MQTT Broker Example]({{ $links.githubPlayground }}/balena-aws-iot-mqtt-example) with full blog post for example:
