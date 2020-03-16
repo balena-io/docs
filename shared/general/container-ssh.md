@@ -32,6 +32,8 @@ $ {{ $names.company.short }} ssh <device-uuid> main
 
 This also works in multicontainer applications, simply pass the name of the appropriate service (as defined in docker-compose.yml) instead of `main`.
 
+__Note:__ To run a command in a non-interactive way, you can pipe commands to the CLI's stdin. For example, `echo "uptime; exit;" | balena ssh <device-uuid>`.
+
 When an application name or device UUID is used as above, `{{ $names.company.short }}` ssh uses the {{ $names.company.short }} VPN to create a secure tunnel to the device and then forward SSH traffic between the device and your development machine. For this method, you must have a SSH key configured on your development machine and [added to the {{ $names.cloud.lower }} dashboard][add-ssh-key].
 
 If an IP address or a .local hostname is used (instead of an application name or device UUID), `{{ $names.company.short }}` ssh establishes a direct connection that does not rely on the {{ $names.company.short }} VPN:
