@@ -2482,20 +2482,3 @@ excerpt: List of available base images and tags
 | {{ $names.base_images.lib }}/up-squared-ubuntu-openjdk | [Docker Hub](https://hub.docker.com/r/balenalib/up-squared-ubuntu-openjdk), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/openjdk/up-squared/ubuntu) | For available image tags, refer [here](https://hub.docker.com/r/balenalib/up-squared-ubuntu-openjdk/tags) |
 | {{ $names.base_images.lib }}/up-squared-ubuntu-node | [Docker Hub](https://hub.docker.com/r/balenalib/up-squared-ubuntu-node), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/node/up-squared/ubuntu) | For available image tags, refer [here](https://hub.docker.com/r/balenalib/up-squared-ubuntu-node/tags) |
 
-
-### armv5e:
-
-
-##### Technologic TS-7700
-
-
-| Image | Links | Available Tag |
-|:-----------|:------------|:------------|
-| {{ $names.base_images.lib }}/ts7700 | [Docker Hub](https://hub.docker.com/r/balenalib/ts7700), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/device-base/ts7700) | latest, jessie, stretch, buster, bullseye, sid |
-| {{ $names.base_images.lib }}/ts7700-python | [Docker Hub](https://hub.docker.com/r/balenalib/ts7700-python), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/python/ts7700/) | For available image tags, refer [here](https://hub.docker.com/r/balenalib/ts7700-python/tags) |
-| {{ $names.base_images.lib }}/ts7700-golang | [Docker Hub](https://hub.docker.com/r/balenalib/ts7700-golang), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/golang/ts7700/) | For available image tags, refer [here](https://hub.docker.com/r/balenalib/ts7700-golang/tags) |
-| {{ $names.base_images.lib }}/ts7700-openjdk | [Docker Hub](https://hub.docker.com/r/balenalib/ts7700-openjdk), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/openjdk/ts7700/) | For available image tags, refer [here](https://hub.docker.com/r/balenalib/ts7700-openjdk/tags) |
-| {{ $names.base_images.lib }}/ts7700-debian | [Docker Hub](https://hub.docker.com/r/balenalib/ts7700-debian), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/device-base/ts7700) | latest, jessie, stretch, buster, bullseye, sid |
-| {{ $names.base_images.lib }}/ts7700-debian-python | [Docker Hub](https://hub.docker.com/r/balenalib/ts7700-debian-python), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/python/ts7700/debian) | For available image tags, refer [here](https://hub.docker.com/r/balenalib/ts7700-debian-python/tags) |
-| {{ $names.base_images.lib }}/ts7700-debian-golang | [Docker Hub](https://hub.docker.com/r/balenalib/ts7700-debian-golang), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/golang/ts7700/debian) | For available image tags, refer [here](https://hub.docker.com/r/balenalib/ts7700-debian-golang/tags) |
-| {{ $names.base_images.lib }}/ts7700-debian-openjdk | [Docker Hub](https://hub.docker.com/r/balenalib/ts7700-debian-openjdk), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/openjdk/ts7700/debian) | For available image tags, refer [here](https://hub.docker.com/r/balenalib/ts7700-debian-openjdk/tags) |
