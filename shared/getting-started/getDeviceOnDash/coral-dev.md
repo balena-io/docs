@@ -1,3 +1,5 @@
+{{import "getting-started/flashingOsToBootMedia"}}
+
 Unplug the **{{ $device.name }}** and [change the boot mode switches][boot-switches] to boot from the SD card. Insert the SD card into your **{{ $device.name }}** and then power on the board using a 2-3A power cable connected to the USB-C port labeled "PWR".
 
 __Warning:__ This will completely erase the internal storage media, so make a backup first.

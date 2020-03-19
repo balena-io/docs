@@ -1,3 +1,5 @@
+{{import "getting-started/flashingOsToBootMedia"}}
+
 Before you can flash your **{{ $device.name }}** with {{ $names.os.lower }}, you'll need to make sure it has a compatible version of [JetPack](https://developer.nvidia.com/embedded/jetpack) installed. We currently recommend version 3.2 with L4T R28.2, as this is the latest we have tested for support, and other versions might not boot {{ $names.os.lower }}. If you need to install a different version, you can find instructions on the [Nvidia website](http://docs.nvidia.com/jetpack-l4t/#developertools/mobile/jetpack/l4t/3.2/install.htm).
 
 Once you have a compatible version of JetPack, make sure your **{{ $device.name }}** development board is powered off. Insert the SD card you've flashed with {{ $names.os.lower }} and plug in the power cord. Press and hold the power button for one second to turn the device on.
