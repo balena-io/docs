@@ -1,0 +1,5 @@
+/   /docs/learn/welcome/introduction/
+/docs/learn/getting-started/    /docs/learn/getting-started/raspberrypi3/nodejs/
+
+# Images are stored in public dir - don't think this works on production
+/docs/images/*  /images/:splat

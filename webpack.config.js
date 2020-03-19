@@ -6,7 +6,7 @@ const languages = require('./static/scripts/langs')
 module.exports = {
   entry: path.resolve(__dirname, 'static/scripts/main.js'),
   output: {
-    path: path.resolve(__dirname, 'static/dist'),
+    path: path.resolve(__dirname, 'public/docs/dist'),
     filename: 'main.js',
     publicPath: '/docs/dist/'
   },
