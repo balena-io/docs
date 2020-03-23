@@ -10,5 +10,6 @@ excerpt: Guides to integrate {{ $names.company.lower }} with a variety of IoT pl
 ### Guides
 
 * [Amazon AWS IoT](aws/)
+* [Azure IoT Hub](azure-iot-hub/)
 * [Google IoT](google-iot/)
 * [IBM BlueMix](bluemix/)

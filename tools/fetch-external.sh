@@ -59,6 +59,8 @@ cd shared/meta-balena/ && {
 cd pages/learn/develop/integrations/ && {
   curl -O -L https://raw.githubusercontent.com/balenalabs/google-iot/master/README.md
   mv README.md google-iot.md
+  curl -O -L https://raw.githubusercontent.com/balena-io-playground/balena-azure-iot-hub/master/README.md
+  mv README.md azure-iot-hub.md
   cd -
 }
 

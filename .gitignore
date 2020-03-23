@@ -26,6 +26,7 @@ shared/meta-balena/supported-modems.md
 shared/meta-balena/supported-wifi-adapters.md
 shared/meta-balena/config-json.md
 pages/learn/develop/integrations/google-iot.md
+pages/learn/develop/integrations/azure-iot-hub.md
 pages/learn/more/masterclasses/cli-masterclass.md
 pages/learn/more/masterclasses/advanced-cli.md
 pages/learn/more/masterclasses/host-os-masterclass.md
