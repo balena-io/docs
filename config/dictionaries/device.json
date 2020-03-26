@@ -1118,26 +1118,6 @@
     ]
   },
   {
-    "id": "iot2000",
-    "name": "Siemens IOT2000",
-    "arch": "i386-nlp",
-    "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "iot2000",
-    "community": false,
-    "icon": "/img/device/iot2000.svg",
-    "instructions": [{
-        "i": "Write the OS file you downloaded to an SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
-      },
-      {
-        "i": "Insert the freshly burnt SD card into the Siemens IOT2000."
-      },
-      {
-        "i": "Connect your Siemens IOT2000 to the internet, then power it up."
-      }
-    ]
-  },
-  {
     "id": "ts4900",
     "name": "Technologic TS-4900",
     "arch": "armv7hf",
