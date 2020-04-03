@@ -76,5 +76,7 @@ cd pages/learn/more/masterclasses/ && {
   mv README.md fleet-management.md
   curl -O -L https://raw.githubusercontent.com/balena-io/debugging-masterclass/master/README.md
   mv README.md device-debugging.md
+  curl -O -L https://raw.githubusercontent.com/balena-io/docker-masterclass/master/README.md
+  mv README.md docker-masterclass.md
   cd -
 }
