@@ -14,6 +14,7 @@ Currently, the following masterclasses are available:
 * [{{ $names.cli.upper }} masterclass](/learn/more/masterclasses/cli-masterclass/) - a guide to getting started with the {{ $names.cli.lower }}.
 * [{{ $names.cli.upper }} advanced masterclass](/learn/more/masterclasses/advanced-cli/) - a guide to the advanced features available in {{ $names.cli.lower }}.
 * [{{ $names.os.upper }} masterclass](/learn/more/masterclasses/host-os-masterclass/) - an introduction to {{ $names.os.lower }}.
-* [Services masterclass](/learn/more/masterclasses/services-masterclass/) - a guide to developing and deploying services on a {{ $names.company.lower }} device.
 * [{{ $names.company.upper }} fleet management masterclass](/learn/more/masterclasses/fleet-management/) - a guide to managing an application fleet with {{ $names.company.lower }}.
 * [{{ $names.company.upper }} debugging masterclass](/learn/more/masterclasses/device-debugging/) - a guide to debugging {{ $names.company.lower }} device issues.
+* [Docker masterclass](/learn/more/masterclasses/docker-masterclass/) - a guide covering the basics of Docker.
+* [Services masterclass](/learn/more/masterclasses/services-masterclass/) - a guide to developing and deploying services on a {{ $names.company.lower }} device.

@@ -41,3 +41,4 @@ module.exports =
     "services-masterclass": "https://github.com/balena-io/services-masterclass/edit/master/README.md"
     "fleet-management": "https://github.com/balena-io/balena-fleet-management-masterclass/edit/master/README.md"
     "device-debugging": "https://github.com/balena-io/debugging-masterclass/edit/master/README.md"
+    "docker-masterclass": "https://github.com/balena-io/docker-masterclass/edit/master/README.md"
