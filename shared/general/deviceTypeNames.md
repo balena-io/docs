@@ -1,5 +1,5 @@
 | Device Name                     | {{ $names.company.allCaps }}_MACHINE_NAME | {{ $names.company.allCaps }}_ARCH | GitHub                                                      |
-|---------------------------------|-------------------------------------------|-----------------------------------|-------------------------------------------------------------|
+| ------------------------------- | ----------------------------------------- | --------------------------------- | ----------------------------------------------------------- |
 | AM571X-EVM                      | am571x-evm                                | armv7hf                           | [Link]({{ $links.githubBaseImages }}/am571x-evm)            |
 | Aetina N510 TX2                 | n510-tx2                                  | aarch64                           | [Link]({{ $links.githubBaseImages }}/n510-tx2)              |
 | Asus Tinker Board               | asus-tinker-board                         | armv7hf                           | [Link]({{ $links.githubBaseImages }}/asus-tinker-board)     |
@@ -55,6 +55,7 @@
 | Revolution Pi Core 3            | revpi-core-3                              | armv7hf                           | [Link]({{ $links.githubBaseImages }}/revpi-core-3)          |
 | RushUp Kitra 520                | kitra520                                  | armv7hf                           | [Link]({{ $links.githubBaseImages }}/kitra520)              |
 | RushUp Kitra 710                | kitra710                                  | aarch64                           | [Link]({{ $links.githubBaseImages }}/kitra710)              |
+| SKX2                            | skx2                                      | aarch64                           | [Link]({{ $links.githubBaseImages }}/skx2)                  |
 | Samsung Artik 10                | artik10                                   | armv7hf                           | [Link]({{ $links.githubBaseImages }}/artik10)               |
 | Samsung Artik 5                 | artik5                                    | armv7hf                           | [Link]({{ $links.githubBaseImages }}/artik5)                |
 | Samsung Artik 530               | artik530                                  | armv7hf                           | [Link]({{ $links.githubBaseImages }}/artik530)              |
@@ -62,7 +63,6 @@
 | Samsung Artik 710               | artik710                                  | aarch64                           | [Link]({{ $links.githubBaseImages }}/artik710)              |
 | Siemens IOT2000                 | iot2000                                   | i386-nlp                          | [Link]({{ $links.githubBaseImages }}/iot2000)               |
 | Technologic TS-4900             | ts4900                                    | armv7hf                           | [Link]({{ $links.githubBaseImages }}/ts4900)                |
-| Technologic TS-7700             | ts7700                                    | armv5e                            | [Link]({{ $links.githubBaseImages }}/ts7700)                |
 | Toradex Apalis                  | apalis-imx6q                              | armv7hf                           | [Link]({{ $links.githubBaseImages }}/apalis-imx6q)          |
 | Toradex Colibri                 | colibri-imx6dl                            | armv7hf                           | [Link]({{ $links.githubBaseImages }}/colibri-imx6dl)        |
 | UP Board                        | up-board                                  | amd64                             | [Link]({{ $links.githubBaseImages }}/up-board)              |
@@ -71,6 +71,7 @@
 | UP Squared                      | up-squared                                | amd64                             | [Link]({{ $links.githubBaseImages }}/up-squared)            |
 | VIA vab820                      | via-vab820-quad                           | armv7hf                           | [Link]({{ $links.githubBaseImages }}/via-vab820-quad)       |
 | Variscite DART-MX8M             | imx8m-var-dart                            | aarch64                           | [Link]({{ $links.githubBaseImages }}/imx8m-var-dart)        |
+| Variscite DART-MX8M Mini        | imx8mm-var-dart                           | aarch64                           | [Link]({{ $links.githubBaseImages }}/imx8mm-var-dart)       |
 | Variscite VAR-SOM-MX6           | var-som-mx6                               | armv7hf                           | [Link]({{ $links.githubBaseImages }}/var-som-mx6)           |
 | Variscite VAR-SOM-MX7           | imx7-var-som                              | armv7hf                           | [Link]({{ $links.githubBaseImages }}/imx7-var-som)          |
 | Zynq zc702                      | zc702-zynq7                               | armv7hf                           | [Link]({{ $links.githubBaseImages }}/zc702-zynq7)           |
