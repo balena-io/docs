@@ -64,6 +64,7 @@ Learn
     [/learn/manage/account]
     [/learn/manage/billing]
     [/learn/manage/app-types]
+    [/learn/manage/device-statuses]
     [/learn/manage/filters-tags]
     [/learn/manage/ssh-access]
     [/learn/manage/configuration]
