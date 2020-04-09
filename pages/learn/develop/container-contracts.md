@@ -40,7 +40,7 @@ requires:
 - `type` should be set to `sw.container` for container contracts.
 - `slug` should be a unique identifier to identify the contract.
 - `name` should be a descriptive name of the contract.
-- `requires` should be a list of requirements to be enforced by the contract defined by `type` and `version` keys. Currently, `type` may be either `sw.supervisor` for the device Supervisor version or `sw.l4t` for the L4T version.
+- `requires` should be a list of requirements to be enforced by the contract defined by `type` and `version` keys. Valid `type` keys may be found in the [valid contract types][valid-contracts] table.
 
 **Note** If `type`, `slug`, or `name` are omitted, the build will fail.
 
@@ -57,7 +57,15 @@ requires:
     version: ">=32.2.0"
 ```
 
-**Note** Any `requires` type other than `sw.supervisor` or `sw.l4t` will result in the contract being invalid.
+## Valid contract types
+
+| Contract type  | Description                                                      | Valid from |
+|----------------|------------------------------------------------------------------|------------|
+| sw.supervisor  | Device Supervisor version                                        | 10.16.17   |
+| sw.l4t         | [L4T][l4t] version                                               | 10.16.17   |
+| hw.device-type | The [device type][device-type] as given by `BALENA_MACHINE_NAME` | 11.1.0     |
+
+**Note** Any `requires` type other than those listed in the [valid contract types][valid-contracts] table will result in the contract being invalid.
 
 When deploying a release, if the contract requirements are not met, the release will fail, and all services on the device will remain on their current release. This default behavior can be overridden by including an [optional label](#optional-containers) in the application docker-compose.yml file. This optional label specifies which services with unmet requirements will be ignored, with all other services on the device updating to the new release. If there are any existing running services with unmet requirements, they will not be destroyed and continue running the prior release.
 
@@ -110,3 +118,5 @@ Container contracts are supported on all devices where the Supervisor version is
 [multicontainer]: /learn/develop/multicontainer/
 [labels]: /learn/develop/multicontainer/#labels
 [l4t]: https://developer.nvidia.com/embedded/linux-tegra
+[valid-contracts]:#valid-contract-types
+[device-type]:/reference/base-images/devicetypes/
