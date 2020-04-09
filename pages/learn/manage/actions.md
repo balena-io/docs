@@ -88,6 +88,10 @@ This action allows you to remotely update the host OS running on your device. Fo
 
 Turning on local mode is useful when you are prototyping your application, as it allows you to push changes to your device over the local network without relying on the {{ $names.company.lower }} build pipeline. You can find more information in our [development guide][local-mode].
 
+### Deactivate Device
+
+This action will [deactivate the device][inactive-devices] and charge a one-time deactivation fee. To deactivate, the device must be offline, not be part of a Starter application, and be attached to a valid billing account.
+
 ### Delete Device
 
 The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the application and remote endpoint. Once you have deleted a device from the application it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the {{ $names.company.lower }} dashboard or API.
@@ -148,3 +152,4 @@ __Warning:__ It is a good idea to [move your devices to another application][mov
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [purge-data]:#purge-data
 [support-access]:/learn/manage/support-access
+[inactive-devices]:/learn/manage/billing/#inactive-devices
