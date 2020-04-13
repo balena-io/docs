@@ -40,7 +40,7 @@ module.exports =
     lib: BASE_IMAGES_LIB
     core: BASE_IMAGES_CORE
   domain: process.env.DOMAIN || 'balena.io'
-  dashboard_domain: 'balena-cloud.com'
+  cloud_domain: process.env.CLOUD_DOMAIN || 'balena-cloud.com'
   email_domain: 'balena.io'
   forums_domain: FORUMS_DOMAIN
   cli:
