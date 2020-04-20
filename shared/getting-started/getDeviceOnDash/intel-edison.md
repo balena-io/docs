@@ -55,5 +55,5 @@ sudo ./flashall.sh
 ```
 Plug in the Intel Edison, as per the instructions on your terminal. You can check the progress of the flash on your terminal. Once the flashing is complete, your Edison will need to reboot.
 
-[flash-tool-link]:https://01.org/android-ia/downloads/intel-platform-flash-tool-lite
+[flash-tool-link]:https://github.com/projectceladon/tools
 [forums-link]:{{ $names.forums_domain }}
