@@ -39,7 +39,17 @@ build-secrets:
           dest: my-recipe
 ```
 
-This will mount the `super-secret-recipe` file into `/run/secrets/my-recipe` file in every build container. Note that the `/run/secrets` folder is only available during the image build, and not present in the image that is deployed to the devices.
+This will mount the `super-secret-recipe` file into `/run/secrets/my-recipe` file in every build container. However, the `/run/secrets` folder will not be added to the build context that is sent to the Docker daemon (or balenaEngine),
+and therefore:
+
+* The `/run/secrets/` folder will not be present in the image that is deployed to the devices.
+* The `COPY` or `ADD` Dockerfile directives will **not** be able to copy files from that folder.
+* The folder will be available "for the duration of `RUN` directives", such that secrets can be
+  accessed by scripts/code at image build time, for example:
+
+` ``shell
+RUN cat /run/secrets/my-recipe | secret_processing_script.sh
+` ``
 
 To add a secret file to a specific service's build:
 
@@ -74,7 +84,7 @@ build-secrets:
 
 This will mount the `super-secret-recipe` file as `/run/secrets/my-recipe` for all services, and `super-secret-recipe-2` as `/run/secrets/my-recipe2` for `service1` only. Again, note that the `/run/secrets` folder is only available during the image build, and not present in the image that is deployed to the devices.
 
-Subdirectories are supported in both the source (`.balena/secrets`) and the destination (`/run/secrets`)
+Subdirectories are supported in both the source (`.balena/secrets`) and the destination (`/run/secrets`).
 
 ### Build variables
 
