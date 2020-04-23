@@ -9,10 +9,18 @@ To construct an API call, it helps to understand a little about how the underlyi
 - **PATCH:** modify an existing resource
 - **DELETE:** remove a resource
 
-Knowing the resource you wish to act upon and the method you wish to act with is enough for some requests. For example, if you want to view all applications you have access to, you can use the `GET` method and the `application` resource. Your API call would look like this:
+Knowing the resource you wish to act upon and the method you wish to act with is enough for some requests. For example, if you want to view all applications you have access to (which includes public applications), you can use the `GET` method and the `application` resource. Your API call would look like this:
 
-```
+```shell
 curl -X GET "{{ $links.apiBase }}/v5/application" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+If you want to limit this to only return applications related to the authenticated user, use the `my_application` resource. For example:
+
+```shell
+curl -X GET "{{ $links.apiBase }}/v5/my_application" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -23,7 +31,7 @@ Depending on the number of applications you have access to, this could return mu
 
 The following API call uses `$select` to only return the name and device type for each application:
 
-```
+```shell
 curl -X GET
 "{{ $links.apiBase }}/v5/application?\$select=app_name,device_type" \
 -H "Content-Type: application/json" \
@@ -32,7 +40,7 @@ curl -X GET
 
 In some cases, you'll want to get information for one specific resource, rather than all resources of that type. If you happen to know the resource ID, you can simply append it to the resource name:
 
-```
+```shell
 curl -X GET "{{ $links.apiBase }}/v5/device(<ID>)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
@@ -40,7 +48,7 @@ curl -X GET "{{ $links.apiBase }}/v5/device(<ID>)" \
 
 Many times, however, you won't know the internal ID used by the API, and you'll want to use some other piece of information to find the appropriate resource. In these cases, you can use the `$filter` method to select resources based on any field. For example, if you are looking for a specific device, it's more likely that you'll have the device UUID than the device ID:
 
-```
+```shell
 curl -X GET \
 "{{ $links.apiBase }}/v5/device?\$filter=uuid%20eq%20'<UUID>'" \
 -H "Content-Type: application/json" \
@@ -51,7 +59,7 @@ Notice the construction here: `$filter=` is used to define the field, and then t
 
 A final tip for constructing API calls: for some of the fields in the API response, a link to another resource is provided rather than the complete information about that resource. For example, if you make a call requesting information about a specific device, the `belongs_to__application` field will return a link to an application, but not all the information about that application. To get all the fields for the application resource, you can use the `$expand` method:
 
-```
+```shell
 curl -X GET \
 "{{ $links.apiBase }}/v5/device?\$filter=uuid%20eq%20'<UUID>'&\$expand=belongs_to__application" \
 -H "Content-Type: application/json" \
@@ -60,7 +68,7 @@ curl -X GET \
 
 It's also possible to filter on a field that belongs to a linked resource. To find all devices belonging to an application by that application's name, you would construct your query like this:
 
-```
+```shell
 curl -X GET \
 "{{ $links.apiBase }}/v5/device?\$filter=belongs_to__application/app_name%20eq%20'<APP_NAME>'" \
 -H "Content-Type: application/json" \
