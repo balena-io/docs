@@ -9,6 +9,7 @@ title: FAQs
 * [Why does `/data` report weird usage?](#why-does-data-report-weird-usage)
 * [What NTP servers do the devices use?](#what-ntp-servers-do-the-devices-use)
 * [What Network Ports are required?](#what-network-ports-are-required)
+* [Can I use {{ $names.cloud.lower }} in countries with restrictive firewalls such as China?](#can-i-use-balenacloud-in-countries-with-restrictive-firewalls-such-as-china)
 * [Can I access /dev and things like GPIO from the container?](#can-i-access-dev-and-things-like-gpio-from-the-container)
 * [Can I set a static IP address for my device?](#can-i-set-a-static-ip-address-for-my-device)
 * [Why can't I SSH into or run code in older versions of the host OS?](#why-cant-i-ssh-into-or-run-code-in-older-versions-of-the-host-os)
@@ -23,8 +24,6 @@ title: FAQs
 * [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems)
 * [What does it mean when a device type is discontinued?](#what-does-it-mean-when-a-device-type-is-discontinued)
 * [I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on-{{ $names.company.lower }})
-
-
 
 ##### Can I use multiple containers?
 Multiple container applications are supported, beginning with {{ $names.os.lower }} v2.12.0. To run multiple containers, you will need to create or upgrade to a [starter or microservices type application][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
@@ -77,6 +76,10 @@ Additionally, you should whitelist the following domains for the relevant ports 
 * `*.{{ $names.dashboard_domain }}`
 * `*.docker.com`
 * `*.docker.io`
+
+##### Can I use {{ $names.cloud.lower }} in countries with restrictive firewalls such as China?
+
+{{>"general/country-firewall"}}
 
 ##### Can I access /dev and things like GPIO from the container?
 If your application uses a single container, it will be run in privileged mode by default and will have access to hardware in the same way as a vanilla Linux system.
