@@ -29,12 +29,7 @@ RESIN_SUPERVISOR_INSTANT_UPDATE_TRIGGER | true | Enable / Disable instant trigge
 
 In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these are a few of the values that apply to Raspberry Pi devices, corresponding to the contents of the [Raspberry Pi `config.txt` file](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md):
 
-Name | Default | Description
---- | --- | ---
-RESIN_HOST_CONFIG_disable_splash | 1 | Enable / Disable the {{ $names.company.lower }} splash screen
-RESIN_HOST_CONFIG_dtparam | "i2c_arm=on","spi=on","audio=on" | Define DT parameters
-RESIN_HOST_CONFIG_enable_uart | 1 | Enable / Disable UART
-RESIN_HOST_CONFIG_gpu_mem | 16 | Define device GPU memory in megabytes
+{{> "general/config-variables-pi" }}
 
 You can find more information on updating `config.txt` through configuration variables in our [Advanced Boot Configuration Guide][boot-config-guide].
 
