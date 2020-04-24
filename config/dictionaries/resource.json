@@ -25,6 +25,13 @@
         "filters": ""
       },
       {
+        "id": "get-my-apps",
+        "summary": "Get all applications associated with authenticated user",
+        "method": "GET",
+        "endpoint": "/v5/my_application",
+        "filters": ""
+      },
+      {
         "id": "app-by-id",
         "summary": "Get application by ID",
         "method": "GET",
@@ -44,6 +51,13 @@
         "method": "GET",
         "endpoint": "/v5/application(<ID>)",
         "filters": "?\\$expand=owns__device"
+      },
+      {
+        "id": "app-filter-public",
+        "summary": "Filter public applications from returned applications",
+        "method": "GET",
+        "endpoint": "/v5/application",
+        "filters": "?\\$filter=is_public%20eq%20false"
       },
       {
         "id": "create-app",
