@@ -23,6 +23,14 @@ cd pages/reference/sdk/ && {
   cd -
 }
 
+# get SDK README
+cd shared/sdk/ && {
+  curl -O -L https://raw.githubusercontent.com/balena-io/balena-sdk/master/README.md
+  # Extract deprecation text
+  ../../tools/extract-markdown.sh "Deprecation policy" < README.md > deprecation-policy.md
+  cd -
+}  
+
 # get latest supervisor API docs
 cd pages/reference/supervisor/ && {
   curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/API.md
