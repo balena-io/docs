@@ -21,10 +21,6 @@ pages/reference/sdk/python-sdk.md
 pages/reference/supervisor/supervisor-api.md
 pages/learn/deploy/release-strategy/update-locking.md
 pages/reference/diagnostics.md
-shared/meta-balena/meta-balena.md
-shared/meta-balena/supported-modems.md
-shared/meta-balena/supported-wifi-adapters.md
-shared/meta-balena/config-json.md
 pages/learn/develop/integrations/google-iot.md
 pages/learn/develop/integrations/azure-iot-hub.md
 pages/learn/more/masterclasses/cli-masterclass.md
