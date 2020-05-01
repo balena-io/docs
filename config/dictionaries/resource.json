@@ -757,14 +757,16 @@
     "id": "whoami",
     "name": "Who am I",
     "fields": [
-      "N/A"
+      "email",
+      "id",
+      "username"
     ],
     "examples": [
       {
-        "id": "new-jwt-token",
-        "summary": "Get a new JWT token, valid for 7 days",
+        "id": "whoami",
+        "summary": "Get user associated with token",
         "method": "GET",
-        "endpoint": "/whoami",
+        "endpoint": "/user/v1/whoami",
         "filters": ""
       }
     ]
