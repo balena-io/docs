@@ -64,6 +64,7 @@ Learn
     [/learn/manage/account]
     [/learn/manage/billing]
     [/learn/manage/app-types]
+    [/learn/manage/device-statuses]
     [/learn/manage/filters-tags]
     [/learn/manage/ssh-access]
     [/learn/manage/configuration]
@@ -132,5 +133,6 @@ Reference
   SDKs
     Node.js SDK[/reference/sdk/node-sdk]
     Python SDK[/reference/sdk/python-sdk]
+    Deprecation Policy[/reference/sdk/deprecation-policy] 
 
   Device Diagnostics[/reference/diagnostics]
