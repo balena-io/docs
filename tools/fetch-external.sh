@@ -92,3 +92,12 @@ cd pages/reference/sdk/ && {
 } 
 
 wait
+
+# pull in balenaLabs GitHub projects
+cd shared/projects/ && {
+  echo "Name|Description
+---|---" | tee balena-labs-projects.md balena-example-projects.md
+  curl https://api.github.com/orgs/balenalabs/repos | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >> balena-labs-projects.md
+  curl https://api.github.com/orgs/balena-io-examples/repos | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >> balena-example-projects.md
+  cd -
+}
