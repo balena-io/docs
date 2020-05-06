@@ -101,6 +101,23 @@
     ]
   },
   {
+    "id": "application_membership_role",
+    "name": "Application membership role",
+    "fields": [
+      "id",
+      "name"
+    ],
+    "examples": [
+      {
+        "id": "get-application-membership_role",
+        "summary": "Get all application membership roles",
+        "method": "GET",
+        "endpoint": "/v5/application_membership_role",
+        "filters": ""
+      }
+    ]
+  },
+  {
     "id": "application_tag",
     "name": "Application tag",
     "fields": [
@@ -750,6 +767,28 @@
         "method": "GET",
         "endpoint": "/v5/user",
         "filters": ""
+      },
+      {
+        "id": "get-users-application",
+        "summary": "Get users associated with application",
+        "method": "GET",
+        "endpoint": "/v5/user__is_member_of__application",
+        "filters": "?\\$expand=user(\\$select=id,username,actor),application_membership_role(\\$select=id,name,actor)&\\$filter=is_member_of__application%20eq%20<ID>"
+      },
+      {
+        "id": "create-application-membership",
+        "summary": "Create application membership",
+        "method": "POST",
+        "endpoint": "/v5/user__is_member_of__application",
+        "filters": "",
+        "data": "{\n    \"is_member_of_application\": <ID>,\n    \"username\": \"<USERNAME>\",\n    \"application_membership_role\": <ROLE ID>\n}"
+      },
+      {
+        "id": "delete-application-membership",
+        "summary": "Delete application membership",
+        "method": "DELETE",
+        "endpoint": "/v5/user__is_member_of__application",
+        "filters": "?\\$filter=is_member_of__application%20eq%20<ID>%20and%20user%20eq%20<USER ID>"
       }
     ]
   },
