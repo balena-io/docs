@@ -73,11 +73,8 @@ Learn
     [/learn/manage/support-access]
 
   MORE RESOURCES
-    [/learn/more/examples]
-      [/learn/more/examples/projects]
-      [/learn/more/examples/seed-projects]
-      [/learn/more/examples/snippets]
-    [/learn/more/resources]
+    [/learn/more/examples/seed-projects]
+    [/learn/more/examples/projects]
     [/learn/more/collected-data]
     Masterclasses
       [/learn/more/masterclasses/overview]
