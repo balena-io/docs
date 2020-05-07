@@ -59,6 +59,7 @@ Learn
       [/learn/deploy/release-strategy/update-strategies]
     [/learn/deploy/delta]
     [/learn/deploy/build-optimization]
+    [/learn/deploy/deploy-with-balena-button]
 
   MANAGE
     [/learn/manage/account]
