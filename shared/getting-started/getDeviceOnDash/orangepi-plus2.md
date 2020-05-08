@@ -6,6 +6,6 @@ It will take a minute or two for the **{{ $device.name }}** to appear on your {{
 
 You should now be ready to deploy some code!
 
-__Note:__ Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
+{{>"getting-started/sd-card-recommendations"}}
 
 [dashboard]:{{ $links.dashboardUrl }}/

@@ -10,4 +10,6 @@ It can take a few minutes for the device to boot up and appear on the dashboard,
 
 While you wait {{ $names.company.lower }} is partitioning your SD card, installing a custom linux environment and establishing a secure connection with our servers.
 
-If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes. Note that Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
+If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in around 7 minutes.
+
+{{>"getting-started/sd-card-recommendations"}}

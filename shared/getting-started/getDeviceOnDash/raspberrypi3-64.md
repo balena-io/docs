@@ -8,7 +8,7 @@ It will take a minute or two for the **{{ $device.name }}** to appear on your {{
 
 You should now be ready to deploy some code!
 
-__Note:__ Class 4 SD cards can take up to 3 times longer so it's well worth investing in the fastest card you can find.
+{{>"getting-started/sd-card-recommendations"}}
 
 ##### Help! My device won't show up.
 If your device still hasn't shown up on your dashboard after a few minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly and ensure that your network meets these [basic requirements][networkRequirements]. It may also be worth checking the [LED error notifications][errorNotifications].
