@@ -7,17 +7,17 @@ excerpt: Details of the {{ $names.os.lower }} self-service update process
 
 The ability to remotely update the entire host operating system (OS) of your device, rather than just the user application, is a core feature of {{ $names.company.lower }}. Performing updates may feel like an opaque process, so we thought it would be useful to break it down.
 
-__Note:__ Once a successful host OS update has been made, it is not possible to roll back to a previous OS version.
+__Note:__ Once a host OS update is successful, it is not possible to roll back to a previous OS version (except via [automatic rollbacks][automatic-rollbacks] as noted below).
 
-In general, host OS updates are meant to be atomic: if an update is run, it either finishes correctly or it fails and leaves the system in its previous, usable state. If deploying the new root file system is unsuccessful, the boot settings are not switched over to the new partition. This means the device can be rebooted with the previous OS version and no noticable changes. For failures related to the boot partition, the latest versions of {{ $names.os.lower }} have a rollback feature that will leave the partition in a good state.
+In general, host OS updates are meant to be atomic: if an update is run, it either finishes correctly or it fails and leaves the system in its previous, usable state. If deploying the new root file system is unsuccessful, the boot settings are not switched over to the new partition. This means the device can be rebooted with the previous OS version and no noticeable changes. For failures related to the boot partition, the latest versions of {{ $names.os.lower }} have a rollback feature that will leave the partition in a good state.
 
 Since {{ $names.os.lower }} 1.x and 2.x behave somewhat differently in how they manage updates, we'll examine the three main use cases. In all three cases, an updater script gets transferred to the device to handle the update process, as described in detail below.
 
 ## Upgrading between {{ $names.os.lower }} 2.x versions
 
-The first step the updater script performs includes a number of sanity checks, so that an update does not progress if something isn't right. The checks include, among other things, whether the device is running a {{ $names.os.lower }} version that it can work with (i.e., not on 1.x), whether the script is running on the right device type, whether it can reach the **DockerHub** registry to get the target {{ $names.os.lower }} image, and whether that image exists.
+The first step the updater script performs includes a number of sanity checks, so that an update does not progress if something isn't right. The checks include, among other things, whether the device is running a {{ $names.os.lower }} version that it can work with (i.e., not on 1.x), whether the script is running on the right device type, and whether it can reach the {{ $names.cloud.lower }} registry to get the target {{ $names.os.lower }} image.
 
-Next, the supervisor is stopped so it does not inadvertently interfere with the update process. The user application is kept running to minimize downtime. The updater then uses **{{ $names.engine.lower }}** to pull the new {{ $names.os.lower }} image. When the pull succeeds, the spare root partition is formatted and the contents of the image are exported onto that partition. The modifications to the boot partition are also applied.
+Next, the supervisor is stopped so it does not inadvertently interfere with the update process. The user application is kept running to minimize downtime. The updater then attempts to locate the {{ $names.cloud.lower }} public application releases associated with the current & target OS versions to use deltas to reduce the over-the-wire size of the update. If a delta is not found or able to be created, the updater uses **{{ $names.engine.lower }}** to pull the new {{ $names.os.lower }} image directly from {{ $names.cloud.lower }}'s registry. Finally, if either the delta application fails or the registry pull fails, the updater falls back to Docker Hub. When the pull succeeds, the spare root partition is formatted and the contents of the image are exported onto that partition. The modifications to the boot partition are also applied.
 
 The updater script checks to see if the new {{ $names.os.lower }} version ships with a newer supervisor version than what the device currently runs, and, if so, the supervisor is updated.
 
@@ -60,3 +60,4 @@ From here, the original updater script takes back control, and finishes up any o
 
 [changes]:/reference/OS/updates/migrate-to-2.0/
 [wifi-connect]:{{ $links.githubMain }}/wifi-connect
+[automatic-rollbacks]:{{ $links.githubOS }}/meta-balena/blob/development/docs/rollbacks.md
