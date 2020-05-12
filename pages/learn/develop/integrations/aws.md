@@ -76,11 +76,11 @@ At this point everything is ready on the AWS side, so let’s go ahead and confi
 
 ### Using Python: MQTT Client example
 
-#### Set up the balenaCloud application
+#### Set up the {{ $names.cloud.lower }} application
 
-If you don’t have one already, [sign up for a balenaCloud account](https://dashboard.balena-cloud.com/signup).
+If you don’t have one already, [sign up for a {{ $names.cloud.lower }} account]({{ $links.dashboardUrl }}/signup).
 
-You can deploy this project to a new balenaCloud application in one click using the button below:
+You can deploy this project to a new {{ $names.cloud.lower }} application in one click using the button below:
 
 [![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balena-io-examples/balena-aws-iot-mqtt-example)
 
@@ -96,11 +96,11 @@ With the application created, click on **Add device** and select the latest reco
 
 #### Flash your device
 
-Use [balenaEtcher](https://www.balena.io/etcher/) to flash your Raspberry Pi with the downloaded OS image from the previous section. Insert the SD card into your computer, select the balenaOS image file, select the SD Card and click Flash!
+Use [{{ $names.etcher.lower }}]({{ $links.etcherSiteUrl }}) to flash your Raspberry Pi with the downloaded OS image from the previous section. Insert the SD card into your computer, select the {{ $names.os.lower }} image file, select the SD Card and click Flash!
 
 ![etcher](/img/integrations/aws/12_etcher.png)
 
-After flashing is done, insert the SD card into your device and turn it on. After a few seconds, it should connect to the internet and show up on the balenaCloud dashboard.
+After flashing is done, insert the SD card into your device and turn it on. After a few seconds, it should connect to the internet and show up on the {{ $names.cloud.lower }} dashboard.
 
 ![etcher](/img/integrations/aws/13_device.png)
 
