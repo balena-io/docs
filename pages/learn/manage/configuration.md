@@ -27,11 +27,20 @@ RESIN_SUPERVISOR_POLL_INTERVAL | 900000 | Define the {{ $names.company.lower }} 
 RESIN_SUPERVISOR_VPN_CONTROL | true | Enable / Disable VPN | v1.3.0
 RESIN_SUPERVISOR_INSTANT_UPDATE_TRIGGER | true | Enable / Disable instant triggering of updates when a new release is deployed. If set to false, the device will ignore the notification that is triggered when the device's target state has changed. In this case, the device will rely on polling to apply updates. Coupled with a large RESIN_SUPERVISOR_POLL_INTERVAL, this allows spreading out updates in large fleets to avoid overloading local networks when there is a large number of devices at one location. | v9.13.0
 
-In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these are a few of the values that apply to Raspberry Pi devices, corresponding to the contents of the [Raspberry Pi `config.txt` file](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md):
+In addition to these values, there may be some device-type specific configuration variables that can be set.
+
+### Raspberry Pi
+
+These are a few of the values that apply to Raspberry Pi devices, corresponding to the contents of the [Raspberry Pi `config.txt` file](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md):
 
 {{> "general/config-variables-pi" }}
 
 You can find more information on updating `config.txt` through configuration variables in our [Advanced Boot Configuration Guide][boot-config-guide].
+
+### UpBoard
+
+{{> "general/config-variables-upboard" }}
+
 
 ## Managing fleet configuration variables
 
