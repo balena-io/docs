@@ -7,7 +7,7 @@ excerpt: How to update {{ $names.os.lower }} versions from your dashboard
 
 ## Which devices and versions are supported?
 
-Since we periodically release updates and improvements to {{ $names.os.lower }} (the host OS running on all {{ $names.company.lower }} devices), we encourage you to keep your devices up to date. We offer self-service host OS updates between 2.x versions, from 1.x to 2.x versions, and between 1.x versions.
+Since we periodically release updates and improvements to {{ $names.os.lower }} (the host OS running on all {{ $names.company.lower }} devices), we encourage you to keep your devices up to date. We offer self-service host OS updates between 2.x versions and from 1.x to 2.x versions. All 2.x devices will default to delta-based updates if available, thus reducing the size of the update sent over the network.
 
 __Note:__ {{ $names.os.upper }} 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
 
@@ -29,7 +29,7 @@ Supported device types:
 * **TS-4900** can be updated starting from {{ $names.os.lower }} 2.4.1+rev1 to all newer versions.
 * **Variscite DART-6UL** can be updated for all available versions.
 
-At the moment, self-service updates are only available for production {{ $names.os.lower }} versions. If you need updates for development and beta versions, please contact support or start a thread on the [forums][forums].
+Self-service updates are available for both `production` and `development` {{ $names.os.lower }} variants.
 
 For device types and {{ $names.os.lower }} versions that are not yet supported, please contact us on the [forums][forums]. We are continuously expanding the range of versions and types that can be updated.
 
@@ -43,7 +43,7 @@ Updates can also be made to multiple devices in the same application. From the d
 
 ![Device group update](/img/common/updates/group-update.png)
 
-__Note:__ Updates to the supervisor, {{ $names.company.lower }}'s agent on the device, are handled in conjuction with host OS updates. If you need to update the supervisor separately from the host OS, please [contact us][troubleshooting] for assistance.
+__Note:__ Updates to the supervisor, {{ $names.company.lower }}'s agent on the device, are handled in conjunction with host OS updates. If you need to update the supervisor separately from the host OS, please [contact us][troubleshooting] for assistance.
 
 After an update begins, the device summary page will show a progress bar that marks the steps completed for the update. Some steps that take longer, such as the device downloading the new OS image, may make the progress bar appear stuck. This doesn't mean anything has gone wrong with your update. We are working on making the update process more informative.
 
