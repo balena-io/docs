@@ -14,6 +14,7 @@ module.exports =
   githubMain: 'https://github.com/balena-io'
   githubLabs: 'https://github.com/balenalabs'
   githubPlayground: 'https://github.com/balena-io-playground'
+  githubExamples: 'https://github.com/balena-io-examples'
   githubModules: 'https://github.com/balena-io-modules'
   githubOS: 'https://github.com/balena-os'
   githubBaseImages: 'https://github.com/balena-io-library/base-images/tree/master/balena-base-images/device-base'
