@@ -40,7 +40,8 @@ cd pages/reference/supervisor/ && {
 
 # get latest diagnostics docs
 cd pages/reference/ && {
-  curl -O -L https://github.com/balena-io/device-diagnostics/raw/master/diagnostics.md
+  curl -O -L https://github.com/balena-io/device-diagnostics/raw/diagnostics-docs/checks.md
+  curl -O -L https://github.com/balena-io/device-diagnostics/raw/diagnostics-docs/diagnostics.md
   cd -
 }
 

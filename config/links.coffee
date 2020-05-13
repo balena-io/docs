@@ -34,6 +34,7 @@ module.exports =
     "balena-cli": 'https://github.com/balena-io/balena-cli/edit/master/doc/cli.markdown'
     "supervisor-api": 'https://github.com/balena-io/balena-supervisor/edit/master/docs/API.md'
     "update-locking": "https://github.com/balena-io/balena-supervisor/edit/master/docs/update-locking.md"
+    "checks": "https://github.com/balena-io/device-diagnostics/edit/master/checks.md"
     "diagnostics": "https://github.com/balena-io/device-diagnostics/edit/master/diagnostics.md"
     "google-iot": "https://github.com/balenalabs/google-iot/edit/master/README.md"
     "azure-iot-hub": "https://github.com/balena-io-playground/balena-azure-iot-hub"

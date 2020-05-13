@@ -136,4 +136,5 @@ Reference
     Python SDK[/reference/sdk/python-sdk]
     Deprecation Policy[/reference/sdk/deprecation-policy] 
 
+  Device Checks[/reference/checks]
   Device Diagnostics[/reference/diagnostics]

@@ -20,6 +20,7 @@ pages/reference/sdk/node-sdk.md
 pages/reference/sdk/python-sdk.md
 pages/reference/supervisor/supervisor-api.md
 pages/learn/deploy/release-strategy/update-locking.md
+pages/reference/checks.md
 pages/reference/diagnostics.md
 pages/learn/develop/integrations/google-iot.md
 pages/learn/develop/integrations/azure-iot-hub.md
