@@ -34,9 +34,16 @@ Each `device` or `thing`, must have its own certificates that will be used to au
 
 ![generate certs](/img/integrations/aws/04_create_cert.png)
 
-In order to authenticate with the service, you will first need to download all four certificates from the dashboard to your computer (make sure you also download the `root CA` for AWS IoT).
+In order to authenticate with the service, you will first need to download the following files:
+
+1. The thing's certificate
+1. The thing's public key file
+1. The thing's private key file
+1. You also need to download a root CA for AWS IoT. You can find the root CA files for AWS IoT [here](https://docs.aws.amazon.com/iot/latest/developerguide/server-authentication.html#server-authentication-certs). We used the [RSA 2048 bit key](https://www.amazontrust.com/repository/AmazonRootCA1.pem).
 
 ![download certs](/img/integrations/aws/05_download_cert.png)
+
+After downloading the files, click on `Activate`.
 
 ### Create a policy
 
@@ -46,16 +53,16 @@ Now it’s time to create some policies to allow our devices to communicate with
 
 For this project create a policy called `balena_control_policy`, and add the statement as shown below:
 
-| Action       | iot:* |
-|--------------|-------|
-| Resource ARN | *     |
-| Effect       | Allow |
+| Action       | iot:\* |
+| ------------ | ------ |
+| Resource ARN | \*     |
+| Effect       | Allow  |
 
 ![create policy](/img/integrations/aws/07_add_policy.png)
 
-Go to **Secure -> Certificates*. Select the recently created certificate and attach both the thing and policy to it.
+Go to **Secure -> Certificates**. Select the recently created certificate and attach both the thing and policy to it.
 
-The policy previously created enables all devices (things) to connect to our AWS IoT broker, but for security reasons, when you add the **thing* to the certificate, it guarantees that only those with matching security keys will be able to connect to the server.
+The policy previously created enables all devices (things) to connect to our AWS IoT broker, but for security reasons, when you add the **thing** to the certificate, it guarantees that only those with matching security keys will be able to connect to the server.
 
 ![create policy](/img/integrations/aws/08_attach_certs.gif)
 
@@ -67,42 +74,37 @@ At this point everything is ready on the AWS side, so let’s go ahead and confi
 
 ## Flashing the Raspberry Pi and deploying code
 
-### Step 1 - Set up the balenaCloud application
+### Using Python: MQTT Client example
 
-If you don’t have one already, [sign up for a balenaCloud account](https://dashboard.balena-cloud.com/signup). The first thing we need to do is to create a new application, for that click on **Create application**, give it a name and select a device type (on this example we will create a project called aws-iot to run on a Raspberry Pi 3).
+#### Set up the {{ $names.cloud.lower }} application
+
+If you don’t have one already, [sign up for a {{ $names.cloud.lower }} account]({{ $links.dashboardUrl }}/signup).
+
+You can deploy this project to a new {{ $names.cloud.lower }} application in one click using the button below:
+
+[![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balena-io-examples/balena-aws-iot-mqtt-example)
+
+The application will be named `balena-aws-iot-mqtt-example` by default but you can change it to anything you like. Select a device type that matches your device (in this example we will create a project to run on a Raspberry Pi 3).
+
+![add device](/img/integrations/aws/create_and_deploy.jpg)
+
+Then click `Create and Deploy`. This will create an application with all of the code already deployed.
 
 With the application created, click on **Add device** and select the latest recommended balenaOS version, choose the network connection you desire, setup its credentials and download the balenaOS to your computer.
 
 ![add device](/img/integrations/aws/11_create_application.gif)
 
-### Step 2 - Flash your device
+#### Flash your device
 
-Use [balenaEtcher](https://www.balena.io/etcher/) to flash your Raspberry Pi with the downloaded OS image from the previous section. Insert the SD card into your computer, select the balenaOS image file, select the SD Card and click Flash!
+Use [{{ $names.etcher.lower }}]({{ $links.etcherSiteUrl }}) to flash your Raspberry Pi with the downloaded OS image from the previous section. Insert the SD card into your computer, select the {{ $names.os.lower }} image file, select the SD Card and click Flash!
 
 ![etcher](/img/integrations/aws/12_etcher.png)
 
-After flashing is done, insert the SD card into your device and turn it on. After a few seconds, it should connect to the internet and show up on the balenaCloud dashboard.
+After flashing is done, insert the SD card into your device and turn it on. After a few seconds, it should connect to the internet and show up on the {{ $names.cloud.lower }} dashboard.
 
 ![etcher](/img/integrations/aws/13_device.png)
 
-### Step 3 - Push the app code
-
-Once your device is showing up on the dashboard, it is time to push the code to balenaCloud, after which it will automatically distribute it to all of the devices in your application. For that, we will download the source code from GitHub and push the project to the device using the [balena CLI tools](https://github.com/balena-io/balena-cli). I’ve summarized the process for this below, but if you need more information we have a [detailed deployment guide](https://www.balena.io/docs/learn/deploy/deployment/) available in our docs.
-
-First of all, download the app from [the GitHub project repository]({{ $links.githubPlayground }}/balena-aws-iot-mqtt-example), and clone or download it to your computer.
-
-![github](/img/integrations/aws/14_github.png)
-
-
-Then, after [installing the balena CLI tools on your computer](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md), from the project directory, execute `balena push <appName>` where `<appName>` is the name of the application you created within the balenaCloud dashboard earlier. For this example project, we will use then `balena push aws-iot`.
-
-If all went well you’ll see the balena unicorn mascot and the code you’ve just pushed will automatically be distributed to the devices in your application.
-
-![balena push](/img/integrations/aws/15_balena_push.gif)
-
-With your hardware provisioned and the code deployed, it’s time to configure the device so it can connect to the Amazon servers.
-
-### Converting the certificates to base64
+#### Converting the certificates to base64
 
 When configuring your device to communicate with AWS IoT, each device must contain its own certificates. The issue with the certificate files is that you can’t and shouldn’t add them to the project directory as it would create a security issue for the whole project. Instead, we will deploy all the devices with the same source-code and configure individual certificates from the balenaCloud dashboard, making use of **environment variables**.
 
@@ -112,16 +114,16 @@ You can generate the base64 encoded files from the terminal with: `openssl base6
 
 For this project, you will need to convert the root CA `root-CA.crt`, the thing certificate `xxx.cert.pem` and the private key `xxx.private.key`. Then you will paste the content of the files into our balenaDash environment variables as described in the next session.
 
-### Add Environment Variables
+#### Add Environment Variables
 
 To add the environment variables for the device, on the device dashboard page, go to **D(x) Device Variables** and add the following variables with the values from the conversion in the previous step.
 
-| ENV VAR          | Value                            |
-|------------------|----------------------------------|
-| AWS_ENDPOINT     | data.iot.us-west-2.amazonaws.com |
-| AWS_PRIVATE_CERT | Base64 string of xxx.private.key |
-| AWS_ROOT_CERT    | Base64 string of root-CA.crt     |
-| AWS_THING_CERT   | Base64 string of xxx.cert.pem    |
+| ENV VAR          | Value                              |
+| ---------------- | ---------------------------------- |
+| AWS_ENDPOINT     | Your AWS IoT Custom endpoint       |
+| AWS_PRIVATE_CERT | Base64 string of xxx.private.key   |
+| AWS_ROOT_CERT    | Base64 string of AmazonRootCA1.pem |
+| AWS_THING_CERT   | Base64 string of xxx.cert.pem      |
 
 You should now have something similar to:
 
@@ -208,15 +210,15 @@ where you need to replace `KEYFILE` with the relevant filename (such as `xxxxxxx
 
 ### Shortcuts:
 
-* [AWS IoT console](https://console.aws.amazon.com/iot/home)
-* [AWS IoT Documentation](https://aws.amazon.com/documentation/iot/)
-* [AWS IoT API Reference](http://docs.aws.amazon.com/iot/latest/apireference/Welcome.html)
-* [AWS SDK reference](https://aws.amazon.com/tools/#sdk), list of SDKs in all supported languages
-* [AWS IoT MQTT Client](https://console.aws.amazon.com/iot/home#/mqtt), useful for debugging AWS IoT communication
+- [AWS IoT console](https://console.aws.amazon.com/iot/home)
+- [AWS IoT Documentation](https://aws.amazon.com/documentation/iot/)
+- [AWS IoT API Reference](http://docs.aws.amazon.com/iot/latest/apireference/Welcome.html)
+- [AWS SDK reference](https://aws.amazon.com/tools/#sdk), list of SDKs in all supported languages
+- [AWS IoT MQTT Client](https://console.aws.amazon.com/iot/home#/mqtt), useful for debugging AWS IoT communication
 
 ### Sample Apps
 
 A few sample apps to get started:
 
-* [balena-aws-lambda]({{ $links.githubPlayground }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubPlayground }}/balena-aws-device)
-* [balenaCloud AWS IoT MQTT Broker Example]({{ $links.githubPlayground }}/balena-aws-iot-mqtt-example) with full blog post for example:
+- [balena-aws-lambda]({{ $links.githubExamples }}/balena-aws-lambda) and [balena-aws-device]({{ $links.githubExamples }}/balena-aws-device)
+- [balenaCloud AWS IoT MQTT Broker Example]({{ $links.githubExamples }}/balena-aws-iot-mqtt-example) with full blog post for example:
