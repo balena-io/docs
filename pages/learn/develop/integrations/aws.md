@@ -82,7 +82,7 @@ If you don’t have one already, [sign up for a {{ $names.cloud.lower }} account
 
 You can deploy this project to a new {{ $names.cloud.lower }} application in one click using the button below:
 
-[![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balena-io-examples/balena-aws-iot-mqtt-example)
+<a title="Deploy to balena" href="https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balena-io-examples/balena-aws-iot-mqtt-example" target="_blank"><img data-ignore-colorbox="true" src="https://balena.io/deploy.png" alt="Deploy to balena button" title="Deploy to balena"></a>
 
 The application will be named `balena-aws-iot-mqtt-example` by default but you can change it to anything you like. Select a device type that matches your device (in this example we will create a project to run on a Raspberry Pi 3).
 
