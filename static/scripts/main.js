@@ -94,6 +94,7 @@ function fixLinksHref(links) {
 $.fn.applyColorbox = function() {
   this.each(function () {
     var $el = $(this)
+    if (!$el.data("ignore-colorbox")) {
     $el
     .wrap('<a href="' + $el.attr('src') + '" class="colorbox-img-wrappper"></a>')
     .parent()
@@ -103,6 +104,7 @@ $.fn.applyColorbox = function() {
       scalePhotos: true,
       photo: true
     })
+    }
   })
   return this
 }
