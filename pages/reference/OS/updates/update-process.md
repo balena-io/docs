@@ -23,7 +23,7 @@ The updater script checks to see if the new {{ $names.os.lower }} version ships 
 
 Finally, the boot settings are modified so that on the next reboot the new root file system is used. As a last step, the device is rebooted.
 
-For devices running {{ $names.os.lower }} 2.x, a status of `OS update failed` means the user application should still be running normally, and the reasons for failure can be examined through the update logs at `/mnt/data/resinhup/`. The device may have some reduced functionality, for instance if the supervisor was stopped for the update, but we are working on ways to automatically restore full functionality whenever possible.
+For devices running {{ $names.os.lower }} 2.x, a status of `OS update failed` means the user application should still be running normally, and the reasons for failure can be examined through the update logs at `/mnt/data/balenahup/` (or potentially the legacy location `/mnt/data/resinhup/`). The device may have some reduced functionality, for instance if the supervisor was stopped for the update, but we are working on ways to automatically restore full functionality whenever possible.
 
 ## Upgrading from {{ $names.os.lower }} 1.x to 2.x
 
@@ -52,7 +52,7 @@ The process for upgrading between 1.x versions mirrors the process used for 2.x 
 
 The updater script first does a couple of cross-checks, stops the supervisor and user containers, and if everything looks okay, starts by checking if any supervisor updates are needed.
 
-Then a `resinhup` **Docker** image is pulled, which contains all the tools and the secondary Python updater scripts for the main migration. Since the {{ $names.os.lower }} 1.x root filesystem is read-write, the `resinhup` updater scripts start with a fingerprint check to see if any files have been modified. If there have been any modifications, it will stop the update as not to unexpectedly overwrite any modifications.
+Then a `balenahup` **Docker** image is pulled, which contains all the tools and the secondary Python updater scripts for the main migration. Since the {{ $names.os.lower }} 1.x root filesystem is read-write, the `balenahup` updater scripts start with a fingerprint check to see if any files have been modified. If there have been any modifications, it will stop the update as not to unexpectedly overwrite any modifications.
 
 If the fingerprint check succeeds, the updater will use **Docker** to pull the target {{ $names.os.lower }} image and export the relevant contents onto the spare root partition and the boot partition. Next, the updater runs any required data migrations (for example, to account for any changes to the location and contents of the `config.json` file). As a final step, this Python-based updater will switch the boot settings, so that next time the device boots, it will boot from the updated system.
 
