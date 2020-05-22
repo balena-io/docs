@@ -15,6 +15,8 @@ Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $nam
 
 Clicking _Create and deploy_ creates a new application and generates a release. Any devices added to the application will immediately download and begin running the release.
 
+__Note:__ Currently git submodules are not supported and will not build properly.
+
 ## Adding a deploy with {{ $names.company.lower }} button to a project
 
 You can add the **Deploy with {{ $names.company.lower }}** button to any project that can be deployed to {{ $names.cloud.lower }}. To add the button to a project repository, add the following to, for example, the project repository's README.md file:
