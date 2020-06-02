@@ -119,7 +119,7 @@ dtoverlay=i2c-rtc,ds1307
 
 To disable the Raspberry Pi rainbow splash screen, add the `disable_splash=1` entry to `config.txt`.
 
-__Note:__ This setting disables the Raspberry Pi rainbow splash screen but does not disable the {{ $names.company.lower }} logo splash screen. If you would like to replace the {{ $names.company.lower }} logo with your custom splash logo, replace `splash/resin-logo.png` located in the [boot partition][boot-partition] of the image.
+__Note:__ This setting disables the Raspberry Pi rainbow splash screen but does not disable the {{ $names.company.lower }} logo splash screen. If you would like to replace the {{ $names.company.lower }} logo with your custom splash logo, replace `splash/balena-logo.png` located in the [boot partition][boot-partition] of the image. Note that this file may be called `resin-logo.png` on older releases.
 
 [boot-partition]:/reference/OS/overview/2.x/#image-partition-layout
 [cli]:/reference/cli/reference/balena-cli/#envs
