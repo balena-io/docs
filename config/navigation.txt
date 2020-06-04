@@ -88,6 +88,7 @@ Learn
       Services[/learn/more/masterclasses/services-masterclass]
       Fleet management[/learn/more/masterclasses/fleet-management]
       Device debugging[/learn/more/masterclasses/device-debugging]
+      Docker[/learn/more/masterclasses/docker-masterclass/]
     [/learn/more/anti-patterns]
 
 FAQ
