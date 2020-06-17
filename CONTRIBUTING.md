@@ -16,7 +16,7 @@ This will allow the system to automatically version the documentation using the 
 It is also worth noting that some of the reference documentation is sourced from the individual component repositories and should be updated at the source.
 
 Currently the following reference material is pulled from other repos:
-- [Device Supervisor API](https://www.balena.io/docs/reference/supervisor/supervisor-api/) sourced from https://github.com/balena-io/balena-supervisor/tree/master/docs
+- [Device Supervisor API](https://www.balena.io/docs/reference/supervisor/supervisor-api/) and [Device Supervisor upgrades](https://www.balena.io/docs/reference/supervisor/supervisor-upgrades), sourced from https://github.com/balena-io/balena-supervisor/tree/master/docs
 - [CLI](https://www.balena.io/docs/reference/cli/) sourced from https://github.com/balena-io/balena-cli/blob/master/doc/cli.markdown
 - [Node SDK](https://www.balena.io/docs/reference/sdk/node-sdk/) sourced from https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md
 - [Python SDK](https://www.balena.io/docs/reference/sdk/python-sdk/) sourced from https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md
