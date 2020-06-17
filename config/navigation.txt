@@ -120,6 +120,7 @@ Reference
     Supervisor API[/reference/supervisor/supervisor-api]
     [/reference/supervisor/bandwidth-reduction]
     [/reference/supervisor/docker-compose]
+    Upgrade Policy[/reference/supervisor/supervisor-upgrades]
 
   Base images
     [/reference/base-images/base-images]
