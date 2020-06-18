@@ -33,7 +33,7 @@ The estimated drift of the system clock is saved to a driftfile located at `/var
 
 ### chronyc
 
-`chronyc` is a command-line utility that can be used to interoperate with `cronyd`. `chronyc` has [commands][chronyc] to see how `chronyd` is performing and identify any potential [issues](#networking-requirements) preventing synchronization. For example:
+`chronyc` is a command-line utility that can be used to interoperate with `chronyd`. `chronyc` has [commands][chronyc] to see how `chronyd` is performing and identify any potential [issues](#networking-requirements) preventing synchronization. For example:
 
 * `chronyc sources` - A list of all the current NTP sources being used by the NTP daemon, which will also indicate if they are reachable.
 * `chronyc tracking` - Information about the system clock itself, including skew.
