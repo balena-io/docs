@@ -53,7 +53,7 @@ The emulated builds will also happen on the rare occasion that the native ARM bu
 
 #### `--nocache, -c`
 
-The `--nocache` flag will initiate a fresh build and not use any cache from previous builds of this project. This is useful when you want to ensure you are pulling in the latest base image and packages for your project.
+The `--nocache` flag will initiate a fresh build and not use any cache from previous builds of this project. This is useful when you want to ensure you are pulling in the latest base image and packages for your project. Using this option would still lead to the message "pulling previous images for caching purposes" in the build logs. Indicating that balenaCloud builder although pulls previous images for balenaEngine's reuse but won't be using them during a new image build. This will be indicated in the build logs by the absence of "Using cache" lines.
 
 ## {{$names.company.upper}} Build & Deploy
 
