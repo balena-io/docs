@@ -1,0 +1,1 @@
+For our first project we will deploy a simple image classification system that will classify objects in a single image. All the project source code can be found [here on github](https://github.com/balena-io-examples/coral-getting-started). You can download a zipped file of the project from [here](https://github.com/balena-io-examples/coral-getting-started/archive/master.zip)

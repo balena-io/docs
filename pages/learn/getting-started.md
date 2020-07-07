@@ -174,7 +174,8 @@ Your application will then be downloaded and executed by all the devices you hav
 <!-- This is language/project specific -->
 {{import "getting-started/postPush"}}
 
-{{> "getting-started/deviceUrl"}}
+<!-- This is project specific -->
+{{import "getting-started/projectSpecific"}}
 
 ## Next steps
 
