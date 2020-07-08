@@ -53,7 +53,8 @@ The emulated builds will also happen on the rare occasion that the native ARM bu
 
 #### `--nocache, -c`
 
-The `--nocache` flag will initiate a fresh build and not use any cache from previous builds of this project. This is useful when you want to ensure you are pulling in the latest base image and packages for your project.
+The `--nocache` flag causes a fresh image build to take place, preventing the use of cached imaged layers from previous builds of this project. This is useful to
+ensure that the latest base image and packages are pulled. Note that the build logs may still display the message _"Pulling previous images for caching purposes,"_ because the cloud builder needs the previous images in order to prepare [delta updates](https://www.balena.io/docs/learn/deploy/delta/). When `--nocache` is used, the build logs will not display the "Using cache" lines for each build step of a Dockerfile.
 
 ## {{$names.company.upper}} Build & Deploy
 
