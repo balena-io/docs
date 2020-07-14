@@ -5,7 +5,7 @@
 | Asus Tinker Board               | asus-tinker-board                         | armv7hf                           | [Link]({{ $links.githubBaseImages }}/asus-tinker-board)     |
 | Asus Tinker Board S             | asus-tinker-board-s                       | armv7hf                           | [Link]({{ $links.githubBaseImages }}/asus-tinker-board-s)   |
 | Auvidea JN30B Nano              | jn30b-nano                                | aarch64                           | [Link]({{ $links.githubBaseImages }}/jn30b-nano)            |
-| BALENA FIN                      | fincm3                                    | armv7hf                           | [Link]({{ $links.githubBaseImages }}/fincm3)                |
+| BalenaFin                       | fincm3                                    | armv7hf                           | [Link]({{ $links.githubBaseImages }}/fincm3)                |
 | BananaPi-M1+                    | bananapi-m1-plus                          | armv7hf                           | [Link]({{ $links.githubBaseImages }}/bananapi-m1-plus)      |
 | BeagleBoard-XM                  | beagleboard-xm                            | armv7hf                           | [Link]({{ $links.githubBaseImages }}/beagleboard-xm)        |
 | BeagleBone Black                | beaglebone-black                          | armv7hf                           | [Link]({{ $links.githubBaseImages }}/beaglebone-black)      |
@@ -14,11 +14,11 @@
 | CTI Orbitty TX2                 | orbitty-tx2                               | aarch64                           | [Link]({{ $links.githubBaseImages }}/orbitty-tx2)           |
 | CTI Spacely TX2                 | spacely-tx2                               | aarch64                           | [Link]({{ $links.githubBaseImages }}/spacely-tx2)           |
 | Compulab iMX8                   | cl-som-imx8                               | aarch64                           | [Link]({{ $links.githubBaseImages }}/cl-som-imx8)           |
+| Coral Dev Board                 | coral-dev                                 | aarch64                           | [Link]({{ $links.githubBaseImages }}/coral-dev)             |
 | Cybertan ze250                  | cybertan-ze250                            | i386-nlp                          | [Link]({{ $links.githubBaseImages }}/cybertan-ze250)        |
 | Dart                            | imx6ul-var-dart                           | armv7hf                           | [Link]({{ $links.githubBaseImages }}/imx6ul-var-dart)       |
 | Generic AARCH64                 | generic-aarch64                           | aarch64                           | [Link]({{ $links.githubBaseImages }}/generic-aarch64)       |
 | Generic ARMv7-a HF              | generic-armv7ahf                          | armv7hf                           | [Link]({{ $links.githubBaseImages }}/generic-armv7ahf)      |
-| Coral Dev Board                 | coral-dev                                 | aarch64                           | [Link]({{ $links.githubBaseImages }}/coral-dev)             |
 | Hummingboard                    | hummingboard                              | armv7hf                           | [Link]({{ $links.githubBaseImages }}/hummingboard)          |
 | Intel Edison                    | intel-edison                              | i386                              | [Link]({{ $links.githubBaseImages }}/intel-edison)          |
 | Intel NUC                       | intel-nuc                                 | amd64                             | [Link]({{ $links.githubBaseImages }}/intel-nuc)             |
