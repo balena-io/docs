@@ -1566,7 +1566,7 @@ excerpt: List of available base images and tags
 | {{ $names.base_images.lib }}/generic-aarch64-ubuntu-node | [Docker Hub](https://hub.docker.com/r/balenalib/generic-aarch64-ubuntu-node), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/node/generic-aarch64/ubuntu) | For available image tags, refer [here](https://hub.docker.com/r/balenalib/generic-aarch64-ubuntu-node/tags) |
 
 
-##### Google Coral Dev Board
+##### Coral Dev Board
 
 
 | Image | Links | Available Tag |

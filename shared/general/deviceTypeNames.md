@@ -18,7 +18,7 @@
 | Dart                            | imx6ul-var-dart                           | armv7hf                           | [Link]({{ $links.githubBaseImages }}/imx6ul-var-dart)       |
 | Generic AARCH64                 | generic-aarch64                           | aarch64                           | [Link]({{ $links.githubBaseImages }}/generic-aarch64)       |
 | Generic ARMv7-a HF              | generic-armv7ahf                          | armv7hf                           | [Link]({{ $links.githubBaseImages }}/generic-armv7ahf)      |
-| Google Coral Dev Board          | coral-dev                                 | aarch64                           | [Link]({{ $links.githubBaseImages }}/coral-dev)             |
+| Coral Dev Board                 | coral-dev                                 | aarch64                           | [Link]({{ $links.githubBaseImages }}/coral-dev)             |
 | Hummingboard                    | hummingboard                              | armv7hf                           | [Link]({{ $links.githubBaseImages }}/hummingboard)          |
 | Intel Edison                    | intel-edison                              | i386                              | [Link]({{ $links.githubBaseImages }}/intel-edison)          |
 | Intel NUC                       | intel-nuc                                 | amd64                             | [Link]({{ $links.githubBaseImages }}/intel-nuc)             |
