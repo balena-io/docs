@@ -365,7 +365,7 @@
   },
   {
     "id": "coral-dev",
-    "name": "Google Coral Dev Board",
+    "name": "Coral Dev Board",
     "arch": "aarch64",
     "bootMedia": "SD card",
     "state": "NEW",
