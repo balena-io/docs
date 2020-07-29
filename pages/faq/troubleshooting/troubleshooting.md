@@ -28,7 +28,7 @@ When you push updates, the terminal session is automatically closed. To restart 
 
 ### Can't Login to the Dashboard
 
-In some cases social logins can be disrupted or completely borked by Adblocker or browser extensions such as [BrowserShark](https://chrome.google.com/webstore/detail/browsershark/jhbjnipjccjloncefdoknhicbnbjaefh?hl=en). Make sure to disable these extensions or whitelist the `*.{{ $names.dashboard_domain }}` domains.
+In some cases social logins can be disrupted or completely borked by Adblocker or browser extensions such as [BrowserShark](https://chrome.google.com/webstore/detail/browsershark/jhbjnipjccjloncefdoknhicbnbjaefh?hl=en). Make sure to disable these extensions or whitelist the `*.{{ $names.cloud_domain }}` domains.
 
 ### I get `$'\r': command not found` when my device tries to run scripts
 Line endings differ between windows and the unix-y world (they used to be different again for mac but not for many years), which can result in issues. E.g. a user seeing something like:
