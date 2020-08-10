@@ -34,7 +34,7 @@ If you are running a Docker-in-Docker setup, which builds a single application c
 
 ##### Can I mix device types in an application?
 
-It is possible to have devices of [different types][device-types] in the same application, as long as the devices share the same architecture. For example, you could have an application with both Raspberry Pi 3 and BeagleBone Black devices, as they both use an ARMv7 processor. However, you could not have any Intel NUC devices as part of the same application, as those devices have x86-64 processors.
+It is possible to have devices of [different types][device-types] in the same application, as long as they have the same or compatible architectures. For example, you could have an application with both Raspberry Pi 3 and BeagleBone Black devices, as they both use an ARMv7 processor. Or you could have both a Raspberry Pi 3 and a Raspberry Pi Zero, each provisioned with its device specific host OS image, but running the same ARMv6 container image.  However, you could not have any Intel NUC devices as part of the same application, as those devices have x86-64 processors.
 
 Regardless of type, all devices in your application will get the same container images. This means that if you have mixed device types you'll need to use an architecture-specific [base image][base-image] in your [Dockerfile][dockerfile], rather than one based on device type.
 
