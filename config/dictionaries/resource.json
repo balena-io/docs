@@ -196,6 +196,7 @@
       "belongs_to__user",
       "is_managed_by__device",
       "actor",
+      "api_heartbeat_state",
       "should_be_running__release",
       "device_name",
       "device_type",
@@ -210,6 +211,7 @@
       "is_connected_to_vpn",
       "last_vpn_event",
       "ip_address",
+      "mac_address",
       "vpn_address",
       "public_address",
       "os_version",
@@ -227,7 +229,6 @@
       "custom_longitude",
       "custom_latitude",
       "logs_channel",
-      "owns__device_log",
       "is_locked_until__date",
       "is_accessible_by_support_until__date",
       "created_at"
