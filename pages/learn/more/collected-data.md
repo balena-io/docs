@@ -4,13 +4,13 @@ title: Collected Data
 # Data collected by {{ $names.company.lower }}
 
 In order to make data driven decisions, {{ $names.company.lower }} collects usage related events via a 3rd party
-analytics service [Mixpanel][mixpanel]. These events provide us context on the state of application
+analytics service [Amplitude][amplitude]. These events provide us context on the state of application
 execution steps. This way we could observe the health of fleets of devices in {{ $names.cloud.lower }} ecosystem and
 analyze the potential problems as well as trends.
 
 ## User data collected by {{ $names.company.lower }}
 
-{{ $names.company.lower }} collects information about CLI and web dashboard users behavior.
+{{ $names.company.lower }} collects information about CLI and web dashboard usage behavior.
 User data we process includes
 
 * user name (login) and the email address used to log into the system,
@@ -33,7 +33,7 @@ collected too.
 
 ## Device data collected by the supervisor
 
-Data are submitted to Mixpanel from {{ $names.company.lower }}-managed devices on the events listed in
+Data are submitted to Amplitude from {{ $names.company.lower }}-managed devices on the events listed in
 the table below. Submitted packets [may contain][supervisor-data-mask] the following information:
 
 * Application ID and name
@@ -102,14 +102,14 @@ the table below. Submitted packets [may contain][supervisor-data-mask] the follo
 | Supervisor start | SystemMessage | src/supervisor.ts |
 
 
-## Data collected automatically by Mixpanel
-Mixpanel library generates a unique identifier for each device that sends an event.
+## Data collected automatically by Amplitude
+Amplitude library generates a unique identifier for each device that sends an event.
 We associate the events with the device UUID provided by {{ $names.cloud.lower }} as well.
-Besides these identifiers, we don’t send any other user ID to Mixpanel.
+Besides these identifiers, we don’t send any other user ID to Amplitude.
 
-Mixpanel library automatically extracts geographical location data from the device’s IP address,
+Amplitude library automatically extracts geographical location data from the device’s IP address,
 so it collects city, region and country information.
-See more in a [relevant article by Mixpanel][mixpanel-auto-collection].
+See more in a [relevant article by Amplitude][amplitude-auto-collection].
 
 ## About logging
 Logs produced by applications deployed to the devices via {{ $names.company.lower }} supervisor application
@@ -119,6 +119,6 @@ functionality - {{ $names.company.lower }} does not process device application l
 requested by our users.
 
 
-[mixpanel]:https://mixpanel.com/
-[mixpanel-auto-collection]:https://help.mixpanel.com/hc/en-us/articles/115004613766-Default-Properties-Collected-by-Mixpanel
+[amplitude]:https://amplitude.com/
+[amplitude-auto-collection]:https://help.amplitude.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties
 [supervisor-data-mask]:https://github.com/balena-io/balena-supervisor/blob/v10.0.1/src/event-tracker.ts#L25
