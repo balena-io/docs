@@ -237,7 +237,7 @@ This is a unique feature of balenalib ARM base images that allows you to run the
 ```Dockerfile
 FROM balenalib/armv7hf-debian
 
-RUN [ "cross-build-start" ]ilt
+RUN [ "cross-build-start" ]
 
 RUN apt-get update
 RUN apt-get install python-pip
