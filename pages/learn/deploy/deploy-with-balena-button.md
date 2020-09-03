@@ -32,6 +32,7 @@ You can further customize the behavior of the **Deploy with {{ $names.company.lo
 * `repoUrl` - The URL of the project repository.
 * `tarballUrl` - The URL of the project tarball. Automatically determined from `repoUrl` if not provided.
 * `configUrl` - The URL of the configuration file of the application. Automatically determined from `repoUrl` if not provided.
+* `defaultDeviceType` - The device type that will be pre-selected in the "Create application" modal. It defaults to Raspberry Pi 4 if not provided.
 
 ### balena.yml configuration file
 
@@ -47,6 +48,7 @@ applicationConfigVariables:
 applicationEnvironmentVariables:
  - CONFIG_MODE: 0
  - CUSTOM_VALUE: my_value
+defaultDeviceType: 'fincm3'
 ```
 
 __Note:__ You do not need to specify the  `tarballUrl` and `repoUrl` as part of the config file since those are determined automatically from the repository.
