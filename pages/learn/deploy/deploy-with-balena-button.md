@@ -21,9 +21,9 @@ __Note:__ Currently git submodules are not supported and will not build properly
 
 You can add the **Deploy with {{ $names.company.lower }}** button to any project that can be deployed to {{ $names.cloud.lower }}. To add the button to a project repository, add the following to, for example, the project repository's README.md file:
 
-`[![](https://www.balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy)`
+`[![](https://www.balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=<your-repo-url>)`
 
-If the button is contained within a project repository, the URL of the repository will be automatically detected. In the case where you wish to link to a project from a different source, such as a blog post, you can customize the button's behavior through the use of [query string parameters](#query-string-parameters).
+Note that you can further customize the button's behavior through the use of [query string parameters](#query-string-parameters).
 
 ### Query string parameters
 
