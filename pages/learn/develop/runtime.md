@@ -149,6 +149,8 @@ method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 
    ]
 ```
 
+The entry `NTPSynchronized` shows `true`, so the device is NTP synchronized.  (The key `NTP` only shows whether the device is using the systemd service `systemd-timesyncd`; starting from balenaOS 2.13.1, the `chrony` service is used for time management.)
+
 __Note:__ For additional dbus examples see the [{{$names.os.lower}} masterclass][os-masterclass]
 
 ### Blacklisting kernel modules won't work
