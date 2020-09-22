@@ -10,7 +10,8 @@
 		<div style="float: right; width: 60%; padding-left: 10px;">
 			<h2>Examples</h2>
 			{% for example in $resource.examples %}
-				<h3 id="{{ example.id }}">{{ example.summary}}</h3>
+				<h3 id="{{ example.id }}">{{ example.summary }}</h3>
+				<p>{{ example.description }}</p>
 				<pre><code>curl -X {{ example.method }} \
 "{{ $links.apiBase }}{{ example.endpoint }}{{ example.filters }}" \
 -H "Content-Type: application/json" \
@@ -20,6 +21,3 @@
 		</div>
 	</div>
 {% endblock %}
-
-
-

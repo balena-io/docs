@@ -20,6 +20,7 @@
       {
         "id": "get-all-apps",
         "summary": "Get all applications",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         "method": "GET",
         "endpoint": "/v5/application",
         "filters": ""
@@ -27,6 +28,7 @@
       {
         "id": "get-my-apps",
         "summary": "Get all applications associated with authenticated user",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/my_application",
         "filters": ""
@@ -34,6 +36,7 @@
       {
         "id": "app-by-id",
         "summary": "Get application by ID",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/application(<ID>)",
         "filters": ""
@@ -41,6 +44,7 @@
       {
         "id": "app-by-name",
         "summary": "Get application by name",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/application",
         "filters": "?\\$filter=app_name%20eq%20'<NAME>'"
@@ -48,6 +52,7 @@
       {
         "id": "app-with-devices",
         "summary": "Get application by id along with its devices",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/application(<ID>)",
         "filters": "?\\$expand=owns__device"
@@ -55,6 +60,7 @@
       {
         "id": "app-filter-public",
         "summary": "Filter public applications from returned applications",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/application",
         "filters": "?\\$filter=is_public%20eq%20false"
@@ -62,6 +68,7 @@
       {
         "id": "create-app",
         "summary": "Create application",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/application",
         "filters": "",
@@ -70,6 +77,7 @@
       {
         "id": "delete-app",
         "summary": "Delete application",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/application(<ID>)",
         "filters": ""
@@ -77,6 +85,7 @@
       {
         "id": "disable-auto-update",
         "summary": "Disable automatic update tracking for an application",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/application(<ID>)",
         "filters": "",
@@ -85,6 +94,7 @@
       {
         "id": "enable-auto-update",
         "summary": "Enable automatic update tracking for an application",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/application(<ID>)",
         "filters": "",
@@ -93,6 +103,7 @@
       {
         "id": "set-commit",
         "summary": "Set entire fleet to a specific commit",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/application(<ID>)",
         "filters": "",
@@ -111,6 +122,7 @@
       {
         "id": "get-application-membership_role",
         "summary": "Get all application membership roles",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/application_membership_role",
         "filters": ""
@@ -130,6 +142,7 @@
       {
         "id": "get-application-tags",
         "summary": "Get all tags by application name",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/application_tag",
         "filters": "?\\$filter=application/app_name%20eq%20'<NAME>'"
@@ -137,6 +150,7 @@
       {
         "id": "create-application-tag",
         "summary": "Create a new application tag",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/application_tag",
         "filters": "",
@@ -145,6 +159,7 @@
       {
         "id": "update-application-tag",
         "summary": "Update an application tag",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/application_tag/(<ID>)",
         "filters": "",
@@ -153,6 +168,7 @@
       {
         "id": "delete-application-tag",
         "summary": "Delete an application tag",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/application_tag/(<ID>)",
         "filters": ""
@@ -173,6 +189,7 @@
       {
         "id": "get-api-keys",
         "summary": "Get all API keys",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/api_key",
         "filters": ""
@@ -180,6 +197,7 @@
       {
         "id": "create-api-key",
         "summary": "Create new API key",
+        "description": "",
         "method": "POST",
         "endpoint": "/api-key/user/full",
         "filters": "",
@@ -237,6 +255,7 @@
       {
         "id": "get-devices",
         "summary": "Get all devices",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/device",
         "filters": ""
@@ -244,6 +263,7 @@
       {
         "id": "devices-by-application",
         "summary": "Get all devices by application",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/device",
         "filters": "?\\$filter=belongs_to__application%20eq%20'<APP_ID>'"
@@ -251,6 +271,7 @@
       {
         "id": "device-by-id",
         "summary": "Get device by ID",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/device(<ID>)",
         "filters": ""
@@ -258,6 +279,7 @@
       {
         "id": "device-by-uuid",
         "summary": "Get device by UUID",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/device",
         "filters": "?\\$filter=uuid%20eq%20'<UUID>'"
@@ -265,6 +287,7 @@
       {
         "id": "rename-device",
         "summary": "Rename device",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/device(<ID>)",
         "filters": "",
@@ -273,6 +296,7 @@
       {
         "id": "delete-device",
         "summary": "Delete device",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/device(<ID>)",
         "filters": ""
@@ -280,6 +304,7 @@
       {
         "id": "add-note",
         "summary": "Add note to a device",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/device(<ID>)",
         "filters": "",
@@ -288,6 +313,7 @@
       {
         "id": "move-device",
         "summary": "Move device to another application",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/device(<ID>)",
         "filters": "",
@@ -296,6 +322,7 @@
       {
         "id": "set-device-to-release",
         "summary": "Set device to a specific release",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/device(<ID>)",
         "filters": "",
@@ -304,6 +331,7 @@
       {
         "id": "deactivate-device",
         "summary": "Deactivate an offline device (CHARGEABLE)",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/device(<ID>)",
         "filters": "",
@@ -324,6 +352,7 @@
     {
         "id": "get-device-config-vars",
         "summary": "Get all device config variables for a device",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/device_config_variable",
         "filters": "?\\$filter=device%20eq%20<DEVICE ID>"
@@ -331,6 +360,7 @@
       {
         "id": "create-device-config-var",
         "summary": "Create a device config variable",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/device_config_variable",
         "filters": "",
@@ -339,6 +369,7 @@
       {
         "id": "update-device-config-var",
         "summary": "Update a device config variable",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/device_config_variable(<ID>)",
         "filters": "",
@@ -347,6 +378,7 @@
       {
         "id": "delete-device-config-var",
         "summary": "Remove a device config variable",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/device_config_variable(<ID>)",
         "filters": ""
@@ -367,6 +399,7 @@
     {
         "id": "get-device-env-vars",
         "summary": "Get all device environment variables for a device",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/device_environment_variable",
         "filters": "?\\$filter=device%20eq%20<DEVICE ID>"
@@ -374,6 +407,7 @@
       {
         "id": "create-device-env-var",
         "summary": "Create a device environment variable",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/device_environment_variable",
         "filters": "",
@@ -382,6 +416,7 @@
       {
         "id": "update-device-env-var",
         "summary": "Update a device environment variable",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/device_environment_variable(<ID>)",
         "filters": "",
@@ -390,6 +425,7 @@
       {
         "id": "delete-device-env-var",
         "summary": "Remove a device environment variable",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/device_environment_variable(<ID>)",
         "filters": ""
@@ -410,6 +446,7 @@
     {
         "id": "get-device-service-vars",
         "summary": "Get all service variables for a device",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/device_service_environment_variable",
         "filters": "?\\$filter=service_install/device%20eq%20<DEVICE ID>"
@@ -417,6 +454,7 @@
       {
         "id": "create-device-service-var",
         "summary": "Create a device service variable",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/device_service_environment_variable",
         "filters": "",
@@ -425,6 +463,7 @@
       {
         "id": "update-device-service-var",
         "summary": "Update a device service variable",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/device_service_environment_variable(<ID>)",
         "filters": "",
@@ -433,6 +472,7 @@
       {
         "id": "delete-device-service-var",
         "summary": "Remove a device service variable",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/device_service_environment_variable(<ID>)",
         "filters": ""
@@ -452,6 +492,7 @@
       {
         "id": "get-tags",
         "summary": "Get all tags by device UUID",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/device_tag",
         "filters": "?\\$filter=device/uuid%20eq%20'<UUID>'"
@@ -459,6 +500,7 @@
       {
         "id": "create-tag",
         "summary": "Create a new device tag",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/device_tag",
         "filters": "",
@@ -479,6 +521,7 @@
     {
         "id": "get-fleet-config-vars",
         "summary": "Get all fleet config variables for an application",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/application_config_variable",
         "filters": "?\\$filter=application%20eq%20<APP ID>"
@@ -486,6 +529,7 @@
       {
         "id": "create-fleet-config-var",
         "summary": "Create a fleet config variable",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/application_config_variable",
         "filters": "",
@@ -494,6 +538,7 @@
       {
         "id": "update-fleet-config-var",
         "summary": "Update a fleet environment variable",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/application_config_variable(<ID>)",
         "filters": "",
@@ -502,6 +547,7 @@
       {
         "id": "delete-fleet-config-var",
         "summary": "Remove a fleet config variable",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/application_config_variable(<ID>)",
         "filters": ""
@@ -522,6 +568,7 @@
       {
         "id": "get-fleet-env-vars",
         "summary": "Get all fleet environment variables for an application",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/application_environment_variable",
         "filters": "?\\$filter=application%20eq%20<APP ID>"
@@ -529,6 +576,7 @@
       {
         "id": "create-fleet-env-var",
         "summary": "Create a fleet environment variable",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/application_environment_variable",
         "filters": "",
@@ -537,6 +585,7 @@
       {
         "id": "update-fleet-env-var",
         "summary": "Update a fleet environment variable",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/application_environment_variable(<ID>)",
         "filters": "",
@@ -545,6 +594,7 @@
       {
         "id": "delete-fleet-env-var",
         "summary": "Remove a fleet environment variable",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/application_environment_variable(<ID>)",
         "filters": ""
@@ -565,6 +615,7 @@
       {
         "id": "get-fleet-service-vars",
         "summary": "Get all fleet service variables for a service",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/service_environment_variable",
         "filters": "?\\$filter=service%20eq%20<SERVICE ID>"
@@ -572,6 +623,7 @@
       {
         "id": "create-fleet-service-var",
         "summary": "Create a fleet service variable",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/service_environment_variable",
         "filters": "",
@@ -580,6 +632,7 @@
       {
         "id": "update-fleet-service-var",
         "summary": "Update a device service variable",
+        "description": "",
         "method": "PATCH",
         "endpoint": "/v5/service_environment_variable(<ID>)",
         "filters": "",
@@ -588,6 +641,7 @@
       {
         "id": "delete-fleet-service-var",
         "summary": "Remove a fleet service variable",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/service_environment_variable(<ID>)",
         "filters": ""
@@ -614,6 +668,7 @@
       {
         "id": "releases-in-application",
         "summary": "Get all releases for an application",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/release",
         "filters": "?\\$filter=belongs_to__application%20eq%20<APP ID>"
@@ -621,6 +676,7 @@
       {
         "id": "release-from-app-and-commit",
         "summary": "Get a release ID given a specific application and commit",
+        "description": "",        
         "method": "GET",
         "endpoint": "/v5/release",
         "filters": "?\\$filter=belongs_to__application%20eq%20<APP ID>%20and%20commit%20eq%20'<COMMIT HASH>'&\\$select=id"
@@ -640,6 +696,7 @@
       {
         "id": "get-release-tags",
         "summary": "Get all tags by release commit",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/release_tag",
         "filters": "?\\$filter=release/commit%20eq%20'<COMMIT>'"
@@ -647,6 +704,7 @@
       {
         "id": "create-release-tag",
         "summary": "Create a new release tag",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/release_tag",
         "filters": "",
@@ -668,6 +726,7 @@
       {
         "id": "get-ssh-keys",
         "summary": "Get all SSH keys",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/user__has__public_key",
         "filters": ""
@@ -675,6 +734,7 @@
       {
         "id": "ssh-keys-by-id",
         "summary": "Get SSH key by ID",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/user__has__public_key(<ID>)",
         "filters": ""
@@ -682,6 +742,7 @@
       {
         "id": "new-ssh-key",
         "summary": "Add new SSH key to account",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/user__has__public_key",
         "filters": "",
@@ -690,6 +751,7 @@
       {
         "id": "remove-ssh-key",
         "summary": "Remove SSH key",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/user__has__public_key(<ID>)",
         "filters": ""
@@ -709,6 +771,7 @@
       {
         "id": "services-of-application",
         "summary": "Get all services belonging to an application",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/service",
         "filters": "?\\$filter=application/app_name%20eq%20'<APP NAME>'"
@@ -727,6 +790,7 @@
       {
         "id": "service-name-by-device",
         "summary": "Get service name for all services on a device",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/service_install",
         "filters": "?\\$filter=device/uuid%20eq%20'<DEVICE UUID>'&\\$expand=installs__service(\\$select=service_name)"
@@ -747,6 +811,7 @@
       {
         "id": "get-supervisor-releases",
         "summary": "Get all supervisor releases for a device type",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/supervisor_release",
         "filters": "?\\$filter=device_type%20eq%20'<DEVICE TYPE>'"
@@ -765,6 +830,7 @@
       {
         "id": "get-users",
         "summary": "Get users associated with account",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/user",
         "filters": ""
@@ -772,6 +838,7 @@
       {
         "id": "get-users-application",
         "summary": "Get users associated with application",
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/user__is_member_of__application",
         "filters": "?\\$expand=user(\\$select=id,username,actor),application_membership_role(\\$select=id,name,actor)&\\$filter=is_member_of__application%20eq%20<ID>"
@@ -779,6 +846,7 @@
       {
         "id": "create-application-membership",
         "summary": "Create application membership",
+        "description": "",
         "method": "POST",
         "endpoint": "/v5/user__is_member_of__application",
         "filters": "",
@@ -787,6 +855,7 @@
       {
         "id": "delete-application-membership",
         "summary": "Delete application membership",
+        "description": "",
         "method": "DELETE",
         "endpoint": "/v5/user__is_member_of__application",
         "filters": "?\\$filter=is_member_of__application%20eq%20<ID>%20and%20user%20eq%20<USER ID>"
@@ -805,6 +874,7 @@
       {
         "id": "whoami",
         "summary": "Get user associated with token",
+        "description": "",
         "method": "GET",
         "endpoint": "/user/v1/whoami",
         "filters": ""
