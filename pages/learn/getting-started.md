@@ -74,13 +74,9 @@ Once you have finished your image configuration, click the *Download {{ $names.o
 
 Now that we have a device or two connected to a {{ $names.company.lower }} application, let's deploy some code.
 
-The recommended way to deploy code is to install the [{{ $names.cli.lower }}][cli]. The easiest way to do this is to use the installer for your OS available on the [releases page][releases]. Choose the latest release of the installer for your OS, and follow the [installation instructions][install].
-
-<img alt="{{ $names.company.lower }} CLI installer" src="/img/common/cli/cli-release.png" width="100%">
-
-__Note:__ You may also install the {{ $names.company.lower }} CLI via npm on a system running NodeJS, as explained in [NPM Installation][npminstall].
-
-To use the [{{ $names.cli.lower }}][cli], you need to login to your {{ $names.company.lower }} account. Login via the terminal using the `{{ $names.company.lower }} login` command:
+The recommended way to deploy code is to use the {{ $names.cli.lower }}. Follow the [installation
+instructions][cli-install]. After it is installed, login to your {{ $names.company.lower}} account
+with the `{{ $names.company.lower }} login` command on the terminal:
 
 ```shell
 $ {{ $names.company.lower }} login
@@ -99,7 +95,9 @@ Logging in to balena-cloud.com
   I don't have a balena account!
 ```
 
-You will be asked how you wish to authenticate. The recommended method is that of _Web authorization_, which will bring up a browser window (and prompt you to first login to {{ $names.cloud.lower }} if you have not) and ask for confirmation that you wish to authorize the CLI. Click _Authorize_ and head back to your terminal.
+You will be asked to choose an authentication method. Choosing _Web authorization_ will bring up a
+web browser window that allows you to login to your {{ $names.cloud.lower }} account. When asked to
+authorize the CLI, click the _Authorize_ button and head back to the terminal.
 
 <img alt="Web authorization" src="/img/common/cli/web_authorization.png" width="70%">
 
@@ -190,6 +188,7 @@ Your application will then be downloaded and executed by all the devices you hav
 [app-types]:/learn/manage/app-types
 [architecture]:/reference/base-images/devicetypes/#machine-names-and-architectures
 [cli]:/reference/cli/
+[cli-install]:{{ $links.githubCli }}/blob/master/INSTALL.md
 [configuration]:/learn/manage/configuration/
 [dashboard]:{{ $links.dashboardUrl }}
 [devvprod]:/understanding/understanding-devices/2.0.0/#dev-vs-prod-images
@@ -197,7 +196,6 @@ Your application will then be downloaded and executed by all the devices you hav
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
 [gitdocs]:/learn/deploy/deployment/#git-push
 [help]:{{ $links.supportUrl }}
-[install]:{{ $links.githubCli }}/blob/master/INSTALL.md
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
 [local-mode]:/learn/develop/local-mode
 [multicontainer]:/learn/develop/multicontainer
