@@ -9,7 +9,7 @@ The **Deploy with {{ $names.company.lower }}** button allows users to perform a 
 
 ![Deploy with {{ $names.company.lower }}](https://balena.io/deploy.png)
 
-Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $names.cloud.lower }} dashboard with a modal window pre-populated with everything required to deploy the application. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](#balena-yml), they are pre-populated.
+Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $names.cloud.lower }} dashboard with a modal window pre-populated with everything required to deploy the application. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](#balenayml-configuration-file), they are pre-populated.
 
 <img src="/img/configuration/deploy-to-balena.png" width="80%">
 
