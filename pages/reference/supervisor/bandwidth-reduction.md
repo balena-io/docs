@@ -30,12 +30,13 @@ Side-effect/Warning
 Data usage impact
 -----------------
 
-| Service                                             | Usage (Including DNS overhead) |
-|-----------------------------------------------------|--------------------------------|
-| API poll (Once per 10m)                             | 6650 Bytes per request         |
-| {{ $names.company.lower }} supervisor update poll (Once every 24 hours)       | 6693 Bytes per request         |
-| VPN enabled                                         | 43 Bytes / second              |
-| TCP check cost (When VPN disabled)                  | 47.36 Bytes / second           |
+| Service                                             | Usage (Including DNS overhead) | Control Variable               |
+|-----------------------------------------------------|--------------------------------|--------------------------------|
+| API poll (Once per 10m)                             | 6650 Bytes per request         | RESIN_SUPERVISOR_POLL_INTERVAL   |
+| {{ $names.company.lower }} supervisor update poll (Once every 24 hours)       | 6693 Bytes per request         | Not configurable via variables |
+| VPN enabled                                         | 43 Bytes / second              | RESIN_SUPERVISOR_VPN_CONTROL   |
+| TCP check cost (When VPN disabled)                  | 47.36 Bytes / second           | RESIN_SUPERVISOR_CONNECTIVITY_CHECK |
+
 
 Example minimum bandwidth settings
 ----------------------------------
