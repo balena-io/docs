@@ -18,9 +18,6 @@ Name | Default | Description | Valid from
 --- | --- | --- | ---
 RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
 RESIN_SUPERVISOR_DELTA | false | Enable / Disable [delta updates][deltas] | v1.7.0
-RESIN_SUPERVISOR_DELTA_REQUEST_TIMEOUT | 30000| Define the timeout when requesting a delta, in milliseconds | v3.0.0
-RESIN_SUPERVISOR_DELTA_RETRY_COUNT | 30 | Define the number of times a delta download should be retried | v6.2.0
-RESIN_SUPERVISOR_DELTA_RETRY_INTERVAL | 1000 | Define the wait time between delta download attempts, in milliseconds | v6.2.0
 RESIN_SUPERVISOR_LOCAL_MODE | false | Enable / Disable [local mode][local-mode] | v4.0.0
 RESIN_SUPERVISOR_LOG_CONTROL | true | Enable / Disable logs being sent to the {{ $names.company.lower }} API | v1.3.0
 RESIN_SUPERVISOR_POLL_INTERVAL | 900000 | Define the {{ $names.company.lower }} API poll interval in milliseconds. This interval will only matter if the device is not connected to the VPN at the time an update is pushed, or if RESIN_SUPERVISOR_INSTANT_UPDATE_TRIGGER is set to false. Starting from supervisor v9.13.0, the supervisor will use a random time between 0.5 and 1.5 times this poll interval each time it checks the balenaCloud API. The minimum value for this variable is defined by the balenaCloud backend, and may vary. | v1.3.0
