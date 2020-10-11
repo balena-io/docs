@@ -102,7 +102,7 @@
       },
       {
         "id": "set-commit",
-        "summary": "Set entire fleet to a specific commit",
+        "summary": "Pin entire fleet to a specific release",
         "description": "",
         "method": "PATCH",
         "endpoint": "/v5/application(<ID>)",
@@ -321,8 +321,8 @@
       },
       {
         "id": "set-device-to-release",
-        "summary": "Set device to a specific release",
-        "description": "",
+        "summary": "Pin device to a specific release",
+        "description": "Making a GET request to fetch current target release hash of the device will output as null unless the device is pinned to a release.",
         "method": "PATCH",
         "endpoint": "/v5/device(<ID>)",
         "filters": "",
@@ -676,7 +676,7 @@
       {
         "id": "release-from-app-and-commit",
         "summary": "Get a release ID given a specific application and commit",
-        "description": "",        
+        "description": "",
         "method": "GET",
         "endpoint": "/v5/release",
         "filters": "?\\$filter=belongs_to__application%20eq%20<APP ID>%20and%20commit%20eq%20'<COMMIT HASH>'&\\$select=id"
