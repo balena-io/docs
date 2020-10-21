@@ -1,6 +1,6 @@
 Label | Default | Description | Supervisor | balenaOS*
 --- | --- | --- | --- | ---
-io.{{ $names.company.short }}.features.balena-socket | false | Bind mounts the balena container engine socket into the container. | v7.23.0 | v2.21.0
+io.{{ $names.company.short }}.features.balena-socket | false | Bind mounts the balena container engine socket into the container and sets the environment variable `DOCKER_HOST` with the socket location for use by docker clients. | v7.23.0 | v2.21.0
 io.{{ $names.company.short }}.features.dbus | false | Bind mounts the host OS dbus into the container using `/run/dbus:/host/run/dbus`. | v7.23.0 | v2.21.0
 io.{{ $names.company.short }}.features.sysfs | false | Bind mounts the host OS `/sys` into the container. | v10.8.0 | v2.48.0
 io.{{ $names.company.short }}.features.procfs | false | Bind mounts the host OS `/proc` into the container. | v10.8.0 | v2.48.0
