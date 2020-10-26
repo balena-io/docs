@@ -200,7 +200,7 @@ Your application will then be downloaded and executed by all the devices you hav
 [local-mode]:/learn/develop/local-mode
 [multicontainer]:/learn/develop/multicontainer
 [npminstall]:{{ $links.githubCli }}/blob/master/INSTALL.md#npm-installation
-[projects]:{{ $links.blogSiteUrl }}/tag/etcher-featured/
+[projects]:{{ $links.blogSiteUrl }}/tag/project/
 [releases]:{{ $links.githubCli }}/releases
 [service]:/learn/manage/serv-vars/
 [terminal]:/learn/manage/ssh-access
