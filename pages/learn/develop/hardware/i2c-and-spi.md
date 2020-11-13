@@ -22,7 +22,7 @@ title: I2C and Other Interfaces
 
 ## Raspberry Pi Family
 
-Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2c-link] or the [SPI (Serial Peripheral Interface)][spi-link] to communicate with the CPU. In most linux environments, using this kind of low level communication requires enabling a kernel module. In {{ $names.company.lower }} containers this can be done in a similar way because the containers are run in `--priviledged` mode.
+Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2c-link] or the [SPI (Serial Peripheral Interface)][spi-link] to communicate with the CPU. In most linux environments, using this kind of low level communication requires enabling a kernel module. In {{ $names.company.lower }} containers this can be done in a similar way because the containers are run in `--privileged` mode.
 
 ### I2C
 
@@ -162,7 +162,7 @@ For simplicity, below all examples are using the `config.txt` formatting, but al
 For further details and explanation regarding the settings below you may check the official [`config.txt` documentation](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md).
 
 ##### Binary Blobs for GPU/vcore
-This is neccessary for any graphics acceleration or if you want to use the official raspberry pi camera module
+This is necessary for any graphics acceleration or if you want to use the official raspberry pi camera module
 ```
 gpu_mem=128
 start_file=start_x.elf
@@ -217,7 +217,7 @@ __Note:__ The ADC voltage is only rated to 1.8V, if you apply more you risk fryi
 
 ### Capemgr support
 
-__Warning:__ Capemgr is only supported in {{ $names.company.lower }} BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a webterminal to your BBB and run `uname -a`.
+__Warning:__ Capemgr is only supported in {{ $names.company.lower }} BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a web terminal to your BBB and run `uname -a`.
 
 ##### Loading a Cape
 ```Bash
@@ -243,7 +243,7 @@ the following line to the bottom of the file:
 fdtfile=am335x-boneblack-emmc-overlay.dtb
 ```
 
-You should now be able to use any of the pins that used to be occupied by the HDMI. To test this you can run the following from your webterminal:
+You should now be able to use any of the pins that used to be occupied by the HDMI. To test this you can run the following from your web terminal:
 ```bash
 echo 74 > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio74/direction
