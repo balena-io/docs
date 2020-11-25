@@ -38,7 +38,7 @@ You can further customize the behavior of the **Deploy with {{ $names.company.lo
 
 Through the use of a `balena.yml` config file, you may also provide application [configuration](/learn/manage/configuration/) and [environment](/learn/manage/serv-vars/) variables. If provided, they are pre-populated in the advanced modal dialog when using the **Deploy with {{ $names.company.lower }}** button.
 
-The `balena.yml` is can be used if you are submitting your app to [balenaHub][balenaHub].
+The `balena.yml` file can also be used to provide additional metadata to be used if the app is submitted to [balenaHub][balenaHub].
 
 The file should be named `balena.yml` and be located in the root of the project repository, or the `configUrl` link must be specified. A full example of the `balena.yml` file is shown below:
 
@@ -80,7 +80,7 @@ data:
     * `description`: A description of what the application does. This is what is displayed if the application is published on [balenaHub][balenaHub].
     * `applicationEnvironmentVariables` - Environment variables allow you to provide runtime configuration without having to modify your source code.
     * `applicationConfigVariables` - Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
-    * `defaultDeviceType` - The device type that will be pre-selected in the "Create application" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types here](/reference/hardware/devices/).
+    * `defaultDeviceType` - The device type that will be pre-selected in the "Create application" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](/reference/hardware/devices/) here.
     * `supportedDeviceType` - The device types that the application supports. You can find a list of [device types](/reference/hardware/devices/) here.
 
 [balenaHub]:https://hub.balena.io
