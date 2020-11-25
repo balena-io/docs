@@ -1,6 +1,6 @@
 ---
 title: Deploy with {{ $names.company.lower }} button
-excerpt: The Deploy with {{ $names.company.lower }} button allows users to do a single-click deployment and configuration of an application to {{ $names.cloud.lower }}
+excerpt: The Deploy with {{ $names.company.lower }} button allows users to do a single-click deployment and configuration of an application to {{ $names.cloud.lower }} 
 ---
 
 # Deploy with {{ $names.company.lower }} button
@@ -38,49 +38,17 @@ You can further customize the behavior of the **Deploy with {{ $names.company.lo
 
 Through the use of a `balena.yml` config file, you may also provide application [configuration](/learn/manage/configuration/) and [environment](/learn/manage/serv-vars/) variables. If provided, they are pre-populated in the advanced modal dialog when using the **Deploy with {{ $names.company.lower }}** button.
 
-The `balena.yml` is can be used if you are submitting your app to [balenaHub][balenaHub].
-
 The file should be named `balena.yml` and be located in the root of the project repository, or the `configUrl` link must be specified. A full example of the `balena.yml` file is shown below:
 
 ```yaml
-version: "2"
-slug: "my-app"
-name: "myApp"
-type: "sw.application"
-assets:
-  - url: "https://github.com/myorg/myapp"
-    name: "repository"
-  - url: "https://raw.githubusercontent.com/myorg/myapp/main/logo.png"
-    name: "logo"
-data:
-  description: "balenaHub description for myApp goes here!"
-  applicationConfigVariables:
-    - BALENA_HOST_CONFIG_CONNECTIVITY_CHECK: true
-  applicationEnvironmentVariables:
-    - ENV: 'DEV'
-    - VIDEO_OUTPUT: 'BROWSERBLOCK'
-    - THREAD_COUNT: 32
-  defaultDeviceType: "raspberry-pi"
-  supportedDeviceTypes:
-    - "raspberry-pi"
-    - "raspberry-pi2"
-    - "raspberrypi3"
-    - "raspberrypi4-64"
-    - "fincm3"
-    - "intel-nuc"
+repoUrl: "https://github.com/owner/reponame"
+tarballUrl: "https://url-pointing-to-a-tarball.tar.gz"
+applicationConfigVariables:
+ - RESIN_HOST_CONFIG_gpu_mem: 128
+applicationEnvironmentVariables:
+ - CONFIG_MODE: 0
+ - CUSTOM_VALUE: my_value
+defaultDeviceType: 'fincm3'
 ```
 
-* `version` - The `balena.yml` file has multiple versions. We recommend using `version: "2"`.
-* `slug` - Required field. Text to identify a particular page in an easy to read form from the URL.
-* `type` - Required field. Default to `sw.application`.
-* `assets`
-    * `url` - The URL of the asset that is being uploaded.
-    * `name` - Name of the asset being uploaded. Allowed values are `repository` & `logo`. The size of logo needs to be size 512 x 512 px.
-* `data`
-    * `description`: A description of what the application does. This is what is displayed if the application is published on [balenaHub][balenaHub].
-    * `applicationEnvironmentVariables` - Environment variables allow you to provide runtime configuration without having to modify your source code.
-    * `applicationConfigVariables` - Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
-    * `defaultDeviceType` - The device type that will be pre-selected in the "Create application" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types here](/reference/hardware/devices/).
-    * `supportedDeviceType` - The device types that the application supports. You can find a list of [device types](/reference/hardware/devices/) here.
-
-[balenaHub]:https://hub.balena.io
+__Note:__ You do not need to specify the  `tarballUrl` and `repoUrl` as part of the config file since those are determined automatically from the repository.
