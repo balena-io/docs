@@ -7,7 +7,7 @@ excerpt: The Deploy with {{ $names.company.lower }} button allows users to do a 
 
 The **Deploy with {{ $names.company.lower }}** button allows users to perform a single-click deployment and configuration of an application to {{ $names.cloud.lower }}.
 
-![Deploy with {{ $names.company.lower }}](https://balena.io/deploy.png)
+![Deploy with {{ $names.company.lower }}](https://balena.io/deploy.svg)
 
 Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $names.cloud.lower }} dashboard with a modal window pre-populated with everything required to deploy the application. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](#balenayml-configuration-file), they are pre-populated.
 
