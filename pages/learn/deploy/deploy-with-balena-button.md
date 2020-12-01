@@ -7,7 +7,7 @@ excerpt: The Deploy with {{ $names.company.lower }} button allows users to do a 
 
 The **Deploy with {{ $names.company.lower }}** button allows users to perform a single-click deployment and configuration of an application to {{ $names.cloud.lower }}.
 
-![Deploy with {{ $names.company.lower }}](https://balena.io/deploy.png)
+![Deploy with {{ $names.company.lower }}](https://balena.io/deploy.svg)
 
 Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $names.cloud.lower }} dashboard with a modal window pre-populated with everything required to deploy the application. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](#balenayml-configuration-file), they are pre-populated.
 
@@ -21,9 +21,9 @@ __Note:__ Currently git submodules are not supported and will not build properly
 
 You can add the **Deploy with {{ $names.company.lower }}** button to any project that can be deployed to {{ $names.cloud.lower }}. To add the button to a project repository, add the following to, for example, the project repository's README.md file:
 
-`[![balena deploy button](https://www.balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=<your-repo-url>)`
+`[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=<your-repo-url>)`
 
-Note that you can further customize the button's behavior through the use of [query string parameters](#query-string-parameters).
+The above example uses an SVG logo as this renders better on GitHub - however, you can also use the PNG version by changing the file ending `.svg` to `.png`. Note that you can further customize the button's behavior through the use of [query string parameters](#query-string-parameters).
 
 ### Query string parameters
 
