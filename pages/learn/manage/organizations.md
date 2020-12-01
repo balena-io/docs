@@ -67,7 +67,7 @@ Moving an existing application from your personal or any other organization to a
 
 ### Providing access to multiple applications
 
-With organizations, providing access to individual members or teams becomes a hassle-free process. There are mainly 2 application-level roles that can be assigned, `Developer` and `Observer`. Administrator default to `Developer` access to all applications under that organization and are the only ones that can provide access to applications.
+With organizations, providing access to individual members or teams becomes a hassle-free process. There are mainly 3 application-level roles that can be assigned, [`Developer`](developer), [`Observer`](observer) or [`Operator`](operator). Administrator default to [`Owner`](owner) role to all applications under a organization and are the only ones that can provide access to applications. Administrators won't be listed in members page of an organization.  
 
 - **Providing access to members** - Once you are done inviting members, click the username you want to provide access to from the `Members` list. When the member page opens, click `Manage applications` to see all applications available under the org. From there, click the `Add applications to member` button to add the member to one or more applications available under the org with the desired role that you want to assign.
 
@@ -89,5 +89,9 @@ Personal organizations can be used to develop & test applications. When ready, t
 If you like to collaborate with other users on a single app, you can refer to adding an [application member](add-application-member). After adding them to your application, you will start to see them in your organization as a member with access to only the application you explicitly provided them access to. You can review the access of each member in your organization by clicking the username of the member in the `Members` list on the Organization summary. With your view as an administrator, you can check what teams and applications the member has access to.
 
 [getting-started]:/installing/gettingStarted
-[add-application-member]:learn/manage/account/#add-an-application-member
 [transferring-ownership]:learn/manage/actions/#transfer-application-ownership
+[developer]:learn/manage/account/#developer
+[owner]:learn/manage/account/#owner
+[observer]:learn/manage/account/#observer
+[operator]:learn/manage/account/#operator
+[add-application-member]:learn/manage/account/#add-an-application-member
