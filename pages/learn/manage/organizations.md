@@ -75,13 +75,13 @@ With organizations, providing access to individual members or teams becomes a ha
 
 ## Users as an organization - hassle-free app sharing
 
-With organizations being a crucial feature for collaboration, we wanted the same for individual users. Each user in balenaCloud has their own "personal" organization named after their username. This "personal organization" with all applications and devices under it are private until explicitly shared by the user.
+With organizations being a crucial feature for collaboration, we wanted the same for our individual users too. Each user in balenaCloud has their own organization by default named after their username. This "default organization" with all applications and devices under it are private until **explicitly shared** by the user.
 
-Personal organizations can be used to develop & test applications. When ready, these applications can be shared with other members or teams by inviting users to your organization. A personal organization is no different from any other organization that you can create and works in the same way. This way, each user is empowered to collaborate, manage and work on their fleets more easily & securely.
+Default organizations can be used to develop & test applications. When ready, these applications can be shared with other members or teams by inviting users to your organization. A default organization is no different from any other organization that you can create. This way, each user is empowered to collaborate, manage and work on their fleets more easily & securely.
 
 ### I've got an app, how do I collaborate with others?
 
-To collaborate with other users on a single app, you can refer to adding an [application member](add-application-member). After adding them to your application, you will find them in your organization as a member with access to only the application you explicitly provided them access to. You can review the access of each member in your organization by clicking the username of the member in the `Members` list on the Organization summary. With your view as an administrator, you can check what teams and applications the member has access to.
+To collaborate with other users on a single app, you can refer to adding an [application member](add-application-member)using their email address or username. After adding the user, you will find them added to your organization as a member as well with access to only the application you explicitly provided them access to. You can review the access of each member in your organization by clicking the username of the member in the `Members` list on the Organization summary. With your view as an administrator, you can check what teams and applications the member has access to.
 
 [getting-started]:/installing/gettingStarted
 [transferring-ownership]:learn/manage/actions/#transfer-application-ownership
