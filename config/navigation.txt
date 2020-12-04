@@ -63,6 +63,7 @@ Learn
 
   MANAGE
     [/learn/manage/account]
+    [/learn/manage/organizations]
     [/learn/manage/billing]
     [/learn/manage/app-types]
     [/learn/manage/device-statuses]
