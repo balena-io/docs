@@ -5,19 +5,19 @@
     "fields": [
       "id",
       "user",
-	  "created_at",
-	  "is_host",
-	  "should_track_latest_release",
-	  "is_public",
-	  "organization",
-	  "application_config_variable",
-	  "application_environment_variable",
-	  "build_environment_variable",
-	  "application_tag",
-	  "is_depended_on_by__application",
-	  "is_depended_on_by__application",
-	  "is_archived",
-	  "is_for__device_type",
+      "created_at",
+      "is_host",
+      "should_track_latest_release",
+      "is_public",
+      "organization",
+      "application_config_variable",
+      "application_environment_variable",
+      "build_environment_variable",
+      "application_tag",
+      "is_depended_on_by__application",
+      "is_depended_on_by__application",
+      "is_archived",
+      "is_for__device_type",
       "owns__device",
       "owns__release",
       "depends_on__application",
@@ -225,13 +225,15 @@
     "fields": [
       "id",
       "belongs_to__application",
-      "belongs_to__user",
-      "is_managed_by__device",
       "actor",
       "api_heartbeat_state",
+      "belongs_to__user",
+      "is_running__release",
       "should_be_running__release",
+      "is_managed_by__service_instance",
+      "should_be_managed_by__supervisor_release",
+      "is_managed_by__device",
       "device_name",
-      "device_type",
       "uuid",
       "is_on__commit",
       "note",
@@ -241,6 +243,7 @@
       "is_active",
       "last_connectivity_event",
       "is_connected_to_vpn",
+      "is_of__device_type",
       "last_vpn_event",
       "ip_address",
       "mac_address",
@@ -249,7 +252,6 @@
       "os_version",
       "os_variant",
       "supervisor_version",
-      "should_be_managed_by__supervisor_release",
       "is_managed_by__service_instance",
       "provisioning_progress",
       "provisioning_state",
@@ -262,8 +264,8 @@
       "custom_latitude",
       "logs_channel",
       "is_locked_until__date",
-	  "is_accessible_by_support_until__date",
-	  "memory_usage",
+      "is_accessible_by_support_until__date",
+      "memory_usage",
       "memory_total",
       "storage_block_device",
       "storage_usage",
@@ -690,28 +692,59 @@
     ]
   },
   {
+    "id": "organization",
+    "name": "Organization",
+    "fields": [
+      "id",
+    "created_at",
+    "name",
+      "handle",
+      "application",
+      "organization_membership",
+      "owns__team"
+    ],
+    "examples": [
+      {
+        "id": "get-fleet-service-vars",
+        "summary": "Get all fleet service variables for a service",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/service_environment_variable",
+        "filters": "?\\$filter=service%20eq%20<SERVICE ID>"
+    },
+    {
+        "id": "delete-fleet-service-var",
+        "summary": "Remove a fleet service variable",
+        "description": "",
+        "method": "DELETE",
+        "endpoint": "/v6/service_environment_variable(<ID>)",
+        "filters": ""
+      }
+    ]
+  },
+  {
     "id": "release",
     "name": "Release",
     "fields": [
       "id",
-	  "created_at",
-	  "commit",
-	  "composition",
-	  "status",
-	  "source",
-	  "build_log",
-	  "is_invalidated",
-	  "start_timestamp",
-	  "update_timestamp",
-	  "end_timestamp",
-	  "is_created_by__user",
-	  "belongs_to__application",
-	  "contains__image",
-	  "should_be_running_on__application",
-	  "is_running_on__device",
-	  "should_be_running_on__device",
-	  "release_tag"
-	],
+    "created_at",
+    "commit",
+    "composition",
+    "status",
+    "source",
+    "build_log",
+    "is_invalidated",
+    "start_timestamp",
+    "update_timestamp",
+    "end_timestamp",
+    "is_created_by__user",
+    "belongs_to__application",
+    "contains__image",
+    "should_be_running_on__application",
+    "is_running_on__device",
+    "should_be_running_on__device",
+    "release_tag"
+  ],
     "examples": [
       {
         "id": "releases-in-application",
@@ -831,12 +864,12 @@
     "name": "Service install",
     "fields": [
       "id",
-	  "created_at",
-	  "device",
-	  "should_be_running",
-	  "installs__service",
-	  "application",
-	  "device_service_environment_variable"
+    "created_at",
+    "device",
+    "should_be_running",
+    "installs__service",
+    "application",
+    "device_service_environment_variable"
     ],
     "examples": [
       {
@@ -911,6 +944,28 @@
         "method": "DELETE",
         "endpoint": "/v6/user__is_member_of__application",
         "filters": "?\\$filter=is_member_of__application%20eq%20<ID>%20and%20user%20eq%20<USER ID>"
+      }
+    ]
+  },
+  {
+    "id": "teams",
+    "name": "Teams",
+    "fields": [
+      "id",
+      "created_at",
+      "name",
+      "belongs_to__organization",
+      "team_membership",
+      "team_application_access"
+    ],
+    "examples": [
+      {
+        "id": "whoami",
+        "summary": "Get user associated with token",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/user/v1/whoami",
+        "filters": ""
       }
     ]
   },
