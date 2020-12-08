@@ -28,6 +28,7 @@
       "application_type",
       "device_type",
       "should_track_latest_release",
+      "team_application_access",
       "is_accessible_by_support_until__date"
     ],
     "examples": [
@@ -723,6 +724,27 @@
     ]
   },
   {
+    "id": "organization-membership",
+    "name": "Organization Membership",
+    "fields": [
+      "id",
+      "created_at",
+      "user",
+      "is_member_of__organization",
+      "organization_membership_role"
+    ],
+    "examples": [
+      {
+        "id": "whoami",
+        "summary": "Get user associated with token",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/user/v1/whoami",
+        "filters": ""
+      }
+    ]
+  },
+  {
     "id": "release",
     "name": "Release",
     "fields": [
@@ -948,8 +970,8 @@
     ]
   },
   {
-    "id": "teams",
-    "name": "Teams",
+    "id": "team",
+    "name": "Team",
     "fields": [
       "id",
       "created_at",
