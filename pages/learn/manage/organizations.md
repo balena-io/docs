@@ -4,10 +4,13 @@ title: Organization management
 
 # Organization management
 
-An **organization** in balenaCloud is a group of users (members), teams, and applications,
-with an access control system. Organization _members_ are balenaCloud users who may be grouped into _teams_, and can be assigned _roles_ such as developer, observer, or operator in balenaCloud applications. Organizations essentially improve visibility and reasoning over who has access to which applications and, consequently, to which device fleets.
+In balenaCloud, users organize around and collaborate in _organizations_. An organization is a group of users, teams and applications, and is managed by one or more organization administrators. An organization can have any number of members that can be grouped into teams and granted varying levels of access to its applications according to their assigned role.
 
-The feature is available for use in all balenaCloud accounts irrespective of plans. A balenaCloud account may contain one or more organizations.
+Administrators are implicitly granted the ability to perform any possible action to the organization and its associated resources. This includes inviting and removing members, managing applications, teams and billing.
+
+Each user can create or be a member of an unlimited number of organizations. An organization is automatically created upon user registration, and that user is assigned as its administrator. This organization is managed like any other, but currently cannot be deleted.
+
+Billing applies to each organization separately. Administrators can at any time upgrade an organization to the appropriate billing plan as needed.
 
 ## What can you do with organizations?
 
@@ -51,11 +54,13 @@ Depending on the role assigned, they will be able to access, see, and manage bot
 
 ## Creating teams in your organization
 
-With organizations, you can group your existing members to form teams as well. Teams are a robust way to manage members by their function, and bulk provides access to applications as needed. Only administrators are allowed to create a team. To form a team, navigate to the `Organization Teams` tab in the sidebar. On the page that opens, click the `Create Team` button and enter the team's name that is being created.
+Organization members can be grouped into teams. Teams provide a way to manage members according to their function. Only administrators can create and delete teams, and manage their members.
+
+To create a team, navigate to the `Organization Teams` page via the sidebar and click the `Create Team` button to enter a name for the team.
 
 <img alt="Create Team in Organization" src="/img/common/app/create_team.png" width="100%">
 
-When the team is created, you can start adding members and applications to that specific team through the `Manage members` and `Manage applications` buttons, respectively.
+Once the team is created, add members and grant the team access to applications by clicking on the `Manage members` and `Manage applications` buttons, respectively.
 
 <img alt="Organization Team Summary" src="/img/common/app/org_team_summary.png" width="100%">
 
@@ -72,24 +77,19 @@ Moving an existing application to an organization is a common task accomplished 
 
 <img alt="Transfer Ownership" src="/img/common/app/transfer_ownership.png" width="100%">
 
-### Providing access to multiple applications
+### Granting members access to applications
 
-With organizations, providing access to individual members or teams becomes a hassle-free process. There are mainly three application-level roles that can be assigned, [`Developer`](developer), [`Observer`](observer), and [`Operator`](operator). Administrators have the [Owner](owner) role by default for all applications under an organization and are the only ones that can provide access to applications.
+Organization administrators can grant access to applications either directly for individual members or for teams. There are three application-level roles that can be assigned, [`Developer`](developer), [`Observer`](observer), and [`Operator`](operator), which grant varying levels of access. Administrators are implicitly granted full access to all applications of the organization.
 
-- **Providing access to members** - Once you are done inviting members, click the username of the member you want to provide access to from the `Members` list. When the member's summary page opens, click `Manage applications` to see all applications available under the org. From there, click the `Add to applications` button to add the member to one or more applications available under the org with the desired role.
+- **Granting access to applications for individual members** - Once you are done inviting members, click the username of the member you want to provide access to from the `Members` list. When the member's summary page opens, click `Manage applications` to see all applications available under the org. From there, click the `Add to applications` button to add the member to one or more applications available under the org with the desired role.
 
 <img alt="Provide Member Access to Applications" src="/img/common/app/application_access_to_member.png" width="100%">
 
-- **Providing access to teams** - Once you are done forming a team, navigate to the team, you want to provide access to in the `Organization Teams` tab.  Next, click the `Manage applications` button on the team page to see all applications available under the org. From there, click the `Add applications to team` button to add the team to one or more applications available under the org with the desired roles. All members of that team will be provided access to the selected application(s) with the specified role per application.
+- **Granting access to applications for teams** - Teams and their members can be granted access to specific applications from the `Organization Teams` tab.  Click the `Manage applications` button on the team page to see all applications available under the org. From there, click the `Add applications to team` button to add the team to one or more applications available under the org with the desired roles. All members of that team will be provided access to the selected application(s) with the specified role per application.
 
 <img alt="Provide Team Access to Applications" src="/img/common/app/application_access_to_team.png" width="100%">
 
 
-## Users as an organization - hassle-free app sharing
-
-With organizations being a crucial feature for collaboration, we wanted the same for each individual user too. Hence, every user in balenaCloud owns an organization by default named after their username. In this **default organization**, all applications and devices are private until **explicitly shared** by the user.
-
-Default organizations can be used to develop & test applications. When ready, these applications can be shared with other members or teams by inviting users to your organization. A default organization is no different from any other organization that you can create. This way, each user is empowered to collaborate, manage, and work on their fleets securely.
 
 ### I've got an app. How do I collaborate with others?
 
