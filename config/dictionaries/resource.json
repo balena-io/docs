@@ -4,7 +4,6 @@
     "name": "Application",
     "fields": [
       "id",
-      "user",
       "created_at",
       "is_host",
       "should_track_latest_release",
@@ -12,22 +11,19 @@
       "organization",
       "application_config_variable",
       "application_environment_variable",
-      "build_environment_variable",
       "application_tag",
-      "is_depended_on_by__application",
       "is_depended_on_by__application",
       "is_archived",
       "is_for__device_type",
       "owns__device",
       "owns__release",
-      "depends_on__application",
-      "actor",
       "app_name",
       "slug",
-      "commit",
+	  "commit",
+	  "should_be_running__release",
       "application_type",
-      "device_type",
-      "should_track_latest_release",
+	  "should_track_latest_release",
+	  "user__is_member_of__application",
       "team_application_access",
       "is_accessible_by_support_until__date"
     ],
@@ -979,6 +975,46 @@
       "belongs_to__organization",
       "team_membership",
       "team_application_access"
+    ],
+    "examples": [
+      {
+        "id": "whoami",
+        "summary": "Get user associated with token",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/user/v1/whoami",
+        "filters": ""
+      }
+    ]
+  },
+  {
+    "id": "team-application-access",
+    "name": "Team Application Access",
+    "fields": [
+      "id",
+      "team",
+      "grants_access_to__application",
+      "application_membership_role"
+    ],
+    "examples": [
+      {
+        "id": "whoami",
+        "summary": "Get user associated with token",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/user/v1/whoami",
+        "filters": ""
+      }
+    ]
+  },
+  {
+    "id": "team-membership",
+    "name": "Team Membership",
+    "fields": [
+      "id",
+      "created_at",
+      "user",
+      "is_member_of_team"
     ],
     "examples": [
       {
