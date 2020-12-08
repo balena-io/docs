@@ -55,6 +55,15 @@ You may either import an existing SSH key from GitHub or manually enter the publ
 
 If you do not have an existing key, you can follow [GitHub's documentation][github-ssh], skipping the step about adding the key to your GitHub account, and instead adding the key to your {{ $names.cloud.lower }} account.
 
+Once you have added a key your your account, you should also add an entry for `ssh.balena-devices.com` to your `~/.ssh/config` file so that the `balena ssh` command knows to use this key:
+
+```shell
+Host ssh.balena-devices.com
+  User <USER>
+  IdentityFile ~/.ssh/<PRIVATE_KEY>
+
+```
+
 ## Using a standalone SSH client
 
 If you prefer to use a standalone SSH client to connect to the device, the SSH server on a device listens on TCP port `22222`. While development images have passwordless root access enabled, production images require an SSH key to be added to the `config.json` file.
