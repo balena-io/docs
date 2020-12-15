@@ -77,9 +77,9 @@ Moving an existing application to an organization is a common task accomplished 
 
 <img alt="Transfer Ownership" src="/img/common/app/transfer_ownership.png" width="100%">
 
-### Granting members access to applications
+### Granting access to organization applications
 
-Organization administrators can grant access to applications either directly for individual members or for teams. There are three application-level roles that can be assigned, [`Developer`](developer), [`Observer`](observer), and [`Operator`](operator), which grant varying levels of access. Administrators are implicitly granted full access to all applications of the organization.
+Organization administrators can grant access to applications either directly to individual members or to teams. There are three application-level roles that can be assigned, [`Developer`](developer), [`Observer`](observer), and [`Operator`](operator), which grant varying levels of access. Administrators are implicitly granted full access to all applications of the organization.
 
 - **Granting individual members access to applications** - Once you are done inviting members, click the username of the member you want to grant access from the `Members` list. On member's summary page, click `Manage applications`. From there, click the `Add to applications` button to add the member to one or more applications with the desired role.
 
@@ -89,6 +89,9 @@ Organization administrators can grant access to applications either directly for
 
 <img alt="Grant Team Access to Applications" src="/img/common/app/application_access_to_team.png" width="100%">
 
+Alternatively to **remove access** to applications, for individual members or teams. One can navigate back to the respective summary page of the member or team and click the `Manage applications` button there. From the app list, you should be able to select the checkboxes for the apps and use the `Actions` button to select `Remove access` from the list for the selected applications.
+
+<img alt="Remove Access to Applications" src="/img/common/app/remove_access_application.png" width="100%">
 
 ### I've got an app. How do I collaborate with others?
 
