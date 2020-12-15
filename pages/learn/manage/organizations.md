@@ -67,19 +67,19 @@ Once the team is created, add members or grant the team access to applications b
 
 ## Creating new applications under your organization
 
-With members invited to the organization, let's get started on creating new applications under an organization. Navigate to the `Organization Applications` tab in the sidebar to find the `Create application` button for creating a new application under your organization. Learn more about creating an application from the [getting started](getting-started) guide.
+With members invited to the organization, let's get started on creating new applications under an organization. Navigate to the `Organization Applications` tab in the sidebar to find the `Create application` button for creating a new application under your organization. Learn more about creating an application from the [getting started][getting-started] guide.
 
 <img alt="New Application under Organization" src="/img/common/app/create_app_under_org.png" width="100%">
 
 ### Moving existing applications to an organization
 
-Moving an existing application to an organization is a common task accomplished by [transferring ownership](transferring-ownership) of your application.
+Moving an existing application to an organization is a common task accomplished by [transferring ownership][transferring-ownership] of your application.
 
 <img alt="Transfer Ownership" src="/img/common/app/transfer_ownership.png" width="100%">
 
 ### Granting access to organization applications
 
-Organization administrators can grant access to applications either directly to individual members or to teams. There are three application-level roles that can be assigned, [`Developer`](developer), [`Observer`](observer), and [`Operator`](operator), which grant varying levels of access. Administrators are implicitly granted full access to all applications of the organization.
+Organization administrators can grant access to applications either directly to individual members or to teams. There are three application-level roles that can be assigned, [`Developer`][developer], [`Observer`][observer], and [`Operator`][operator], which grant varying levels of access. Administrators are implicitly granted full access to all applications of the organization.
 
 - **Granting individual members access to applications** - Once you are done inviting members, click the username of the member you want to grant access from the `Members` list. On member's summary page, click `Manage applications`. From there, click the `Add to applications` button to add the member to one or more applications with the desired role.
 
@@ -91,16 +91,15 @@ Organization administrators can grant access to applications either directly to 
 
 Alternatively to **remove access** to applications, for individual members or teams. One can navigate back to the respective summary page of the member or team and click the `Manage applications` button there. From the app list, you should be able to select the checkboxes for the apps and use the `Actions` button to select `Remove access` from the list for the selected applications.
 
-<img alt="Remove Access to Applications" src="/img/common/app/remove_access_application.png" width="100%">
+<img alt="Remove Access to Applications" src="/img/common/app/remove_access_applications.png" width="100%">
 
 ### I've got an app. How do I collaborate with others?
 
-To collaborate with other users on a single app, you can refer to adding an [application member](add-application-member) using their email address or username. After adding the user, you will find them in your organization added as a member as well. Members will only have access to those application(s) in the organization that you explicitly grant them access to. You can review each member's access by clicking the member's username in the `Members` list present on the organization summary page. On the page with your view as an administrator, you can check what teams and applications the member has access to.
+To collaborate with other users on a single app, you can refer to adding an [application member][add-application-member] using their email address or username. After adding the user, you will find them in your organization added as a member as well. Members will only have access to those application(s) in the organization that you explicitly grant them access to. You can review each member's access by clicking the member's username in the `Members` list present on the organization summary page. On the page with your view as an administrator, you can check what teams and applications the member has access to.
 
 [getting-started]:/installing/gettingStarted
-[transferring-ownership]:learn/manage/actions/#transfer-application-ownership
-[developer]:learn/manage/account/#developer
-[owner]:learn/manage/account/#owner
-[observer]:learn/manage/account/#observer
-[operator]:learn/manage/account/#operator
-[add-application-member]:learn/manage/account/#add-an-application-member
+[transferring-ownership]:/learn/manage/actions/#transfer-application-ownership
+[developer]:/learn/manage/account/#developer
+[observer]:/learn/manage/account/#observer
+[operator]:/learn/manage/account/#operator
+[add-application-member]:/learn/manage/account/#add-an-application-member
