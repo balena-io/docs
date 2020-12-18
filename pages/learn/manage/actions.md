@@ -133,8 +133,6 @@ Only organization [administrators][administrator] can initiate and complete appl
 
 __Note:__ If the **Transfer This Application** button is grayed out, ensure that you have created an empty application in the **target** organization with the same name as the source application, and that user that is transferring ownership of the application from the source organization has been added as a **Developer** to the **target** application.
 
-You can watch [this video](https://www.youtube.com/watch?v=nkYve7PwqmE) to learn how to transfer application ownership.
-
 ### Grant Support Access
 
 This action allows you to [enable support access][support-access] to the entire application fleet for a set time period.
