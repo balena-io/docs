@@ -122,14 +122,16 @@ You may also enable or disable public URLs for a subset of devices by selecting 
 
 ### Transfer Application Ownership
 
-You can transfer application ownership between balenaCloud user accounts. In order to transfer application ownership, you will need to perform a series of steps using both the **source** account and **target** account.
+Applications with all their associated devices, releases and members can be transferred to any other balenaCloud [organization][organization]. Application transfers are between a **source** and a **target** organization.
 
-1. Take note of the Application name and balenaCloud username (*in the top-right drop-down*) in the **source** account
-2. In the **target** balenaCloud account, create a new balenaCloud Application using the same Application name
-3. In the **Members** of the Application you just created, add the **source** balenaCloud username as a **Developer**
-4. In the **source** balenaCloud account, select **<Application>** --> **Actions** --> **Transfer This Application**
+Only organization [administrators][administrator] can initiate and complete application transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
 
-__Note:__ If the **Transfer This Application** button is grayed out, ensure that you have created an empty Application in the **target** balenaCloud account with the same name as the source Application, and that the **source** username has been added as a **Developer** to the **target** Application.
+1. Take note of the application name in the **source** organization and your balenaCloud username (*in the top-right drop-down menu*).
+2. Ask an administrator of the **target** balenaCloud organization to create a new empty application using the same application name.
+3. Ask the administrator of the **target** balenaCloud organization to [add you as a member][add-application-member] of the newly created application with a [`Developer`][developer] role, using your username. If you are an administrator of the **target** organization, you already have access to the new application & this step can be skipped.
+4. In the **source** organization, select **<Application>** --> **Actions** --> **Transfer This Application** and pick the **target** organization from the list to complete the transfer.
+
+__Note:__ If the **Transfer This Application** button is grayed out, ensure that you have created an empty application in the **target** organization with the same name as the source application, and that user that is transferring ownership of the application from the source organization has been added as a **Developer** to the **target** application.
 
 You can watch [this video](https://www.youtube.com/watch?v=nkYve7PwqmE) to learn how to transfer application ownership.
 
@@ -151,5 +153,9 @@ __Warning:__ It is a good idea to [move your devices to another application][mov
 [app-types]:/learn/manage/app-types
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [purge-data]:#purge-data
+[organization]:/learn/manage/organizations/
+[administrator]:/learn/manage/organizations/#managing-roles--access-in-an-organization
+[add-application-member]:/learn/manage/account/#add-an-application-member
+[developer]:/learn/manage/account/#developer
 [support-access]:/learn/manage/support-access
 [inactive-devices]:/learn/manage/billing/#inactive-devices
