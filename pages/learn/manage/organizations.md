@@ -37,7 +37,7 @@ Only administrators can delete an organization. Alternatively, anyone can leave 
 
 The roles inside the organization give granular control over access & visibility to the user. These roles can be assigned when inviting new members to your organization:
 
-* **Administrator**: Full access to the organization, its applications, and all devices inside them. Administrators can assign roles for incoming members, group them into teams, and grant application access to those teams with granular control over which roles are being assigned at the application level.
+* **Administrator**: Full access to the organization, its applications, and all devices inside them. Administrators also have access to organization's invoices, payment methods, and subscription plan. Administrators can assign roles for incoming members, group them into teams, and grant application access to those teams with granular control over which roles are being assigned at the application level.
 
 * **Member**: Members are granted read-only access to an organization with explicit access to its applications and teams. Administrators assign roles on the application level. Members have no visibility over other applications and teams that they haven't been assigned access to.
 
