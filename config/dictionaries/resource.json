@@ -721,7 +721,7 @@
       {
         "id": "org-by-handle",
         "summary": "Get organization by handle",
-        "description": "Handles are a simpler way to identify organizations. For example: An organization called Foo Bar Enterprises will have the handle foo_bar_enterprises. For gh_john_doe's Organization the handle will be gh_john_doe.",
+        "description": "Uniquely identifies an organization. Handles are currently automatically generated and read-only.",
         "method": "GET",
         "endpoint": "/v6/organization",
         "filters": "?\\$filter=handle%20eq%20'<HANDLE>'"
@@ -894,10 +894,7 @@
       "id",
       "created_at",
       "device",
-      "should_be_running",
-      "installs__service",
-      "application",
-      "device_service_environment_variable"
+      "installs__service"
     ],
     "examples": [
       {
