@@ -693,29 +693,38 @@
     "name": "Organization",
     "fields": [
       "id",
-    "created_at",
-    "name",
+      "created_at",
+      "name",
       "handle",
-      "application",
-      "organization_membership",
-      "owns__team"
+      "company_name",
+      "website",
+      "industry",
+      "billing_account_code"
     ],
     "examples": [
       {
-        "id": "get-fleet-service-vars",
-        "summary": "Get all fleet service variables for a service",
+        "id": "get-all-orgs",
+        "summary": "Get all organizations associated with authenticated user",
         "description": "",
         "method": "GET",
-        "endpoint": "/v6/service_environment_variable",
-        "filters": "?\\$filter=service%20eq%20<SERVICE ID>"
+        "endpoint": "/v6/organization",
+        "filters": ""
     },
     {
-        "id": "delete-fleet-service-var",
-        "summary": "Remove a fleet service variable",
+        "id": "org-by-id",
+        "summary": "Get organization by ID",
         "description": "",
-        "method": "DELETE",
-        "endpoint": "/v6/service_environment_variable(<ID>)",
+        "method": "GET",
+        "endpoint": "/v6/organization(<ID>)",
         "filters": ""
+      },
+      {
+        "id": "org-by-handle",
+        "summary": "Get organization by handle",
+        "description": "Handles are a simpler way to identify organizations. For example: An organization called Foo Bar Enterprises will have the handle foo_bar_enterprises. For gh_john_doe's Organization the handle will be gh_john_doe.",
+        "method": "GET",
+        "endpoint": "/v6/organization",
+        "filters": "?\\$filter=handle%20eq%20'<HANDLE>'"
       }
     ]
   },
@@ -727,15 +736,16 @@
       "created_at",
       "user",
       "is_member_of__organization",
-      "organization_membership_role"
+      "organization_membership_role",
+      "effective_seat_role"
     ],
     "examples": [
       {
-        "id": "whoami",
-        "summary": "Get user associated with token",
+        "id": "get-organization-memberships",
+        "summary": "Get all organization memberships",
         "description": "",
         "method": "GET",
-        "endpoint": "/user/v1/whoami",
+        "endpoint": "/v6/organization_membership",
         "filters": ""
       }
     ]
@@ -882,12 +892,12 @@
     "name": "Service install",
     "fields": [
       "id",
-    "created_at",
-    "device",
-    "should_be_running",
-    "installs__service",
-    "application",
-    "device_service_environment_variable"
+      "created_at",
+      "device",
+      "should_be_running",
+      "installs__service",
+      "application",
+      "device_service_environment_variable"
     ],
     "examples": [
       {
@@ -978,12 +988,37 @@
     ],
     "examples": [
       {
-        "id": "whoami",
-        "summary": "Get user associated with token",
+        "id": "get-teams",
+        "summary": "Get all teams associated with user",
         "description": "",
         "method": "GET",
-        "endpoint": "/user/v1/whoami",
+        "endpoint": "/v6/team",
         "filters": ""
+      },
+      {
+        "id": "get-team-by-id",
+        "summary": "Get team by ID",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/team(<ID>)",
+        "filters": ""
+      },
+      {
+        "id": "delete-team",
+        "summary": "Delete team with ID",
+        "description": "",
+        "method": "Delete",
+        "endpoint": "/v6/team(<ID>)",
+        "filters": ""
+      },
+      {
+        "id": "create-team",
+        "summary": "Create a new team in organization",
+        "description": "",
+        "method": "POST",
+        "endpoint": "/v6/team",
+        "filters": "",
+        "data":"{\n    \"name\": \"<TEAM NAME>\",\n    \"belongs_to__organization\": \"<ORG ID>\"\n}"
       }
     ]
   },
@@ -992,17 +1027,18 @@
     "name": "Team Application Access",
     "fields": [
       "id",
+      "created_at",
       "team",
       "grants_access_to__application",
       "application_membership_role"
     ],
     "examples": [
       {
-        "id": "whoami",
-        "summary": "Get user associated with token",
+        "id": "get-team-application-acess",
+        "summary": "Get Team's Applications Access",
         "description": "",
         "method": "GET",
-        "endpoint": "/user/v1/whoami",
+        "endpoint": "/v6/team_application_access",
         "filters": ""
       }
     ]
@@ -1018,11 +1054,11 @@
     ],
     "examples": [
       {
-        "id": "whoami",
-        "summary": "Get user associated with token",
+        "id": "get-team-membership",
+        "summary": "Get team membership of users",
         "description": "",
         "method": "GET",
-        "endpoint": "/user/v1/whoami",
+        "endpoint": "/v6/team_membership",
         "filters": ""
       }
     ]
