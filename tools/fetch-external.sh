@@ -41,7 +41,7 @@ cd pages/reference/supervisor/ && {
 # get latest supervisor upgrade docs
 cd pages/reference/supervisor/ && {
   curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/upgrades.md
-  mv upgrades.md supervisor-upgrades.md
+  mv upgrades.md upgrade-policy.md
   cd -
 }
 

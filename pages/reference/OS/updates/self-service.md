@@ -25,7 +25,7 @@ Updates can also be made to multiple devices in the same application. From the d
 
 ![Device group update](/img/common/updates/group-update.png)
 
-__Note:__ Updates to the supervisor, {{ $names.company.lower }}'s agent on the device, are handled in conjunction with host OS updates. If you need to update the supervisor separately from the host OS, please [contact us][troubleshooting] for assistance.
+__Note:__ Updates to the balena Supervisor, {{ $names.company.lower }}'s agent on the device, can be triggered independently. Read more about that process [here](/reference/supervisor/supervisor-upgrades).
 
 After an update begins, the device summary page will show a progress bar that marks the steps completed for the update. Some steps that take longer, such as the device downloading the new OS image, may make the progress bar appear stuck. This doesn't mean anything has gone wrong with your update. We are working on making the update process more informative.
 

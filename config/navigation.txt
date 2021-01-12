@@ -121,7 +121,8 @@ Reference
     Supervisor API[/reference/supervisor/supervisor-api]
     [/reference/supervisor/bandwidth-reduction]
     [/reference/supervisor/docker-compose]
-    Upgrade Policy[/reference/supervisor/supervisor-upgrades]
+    [/reference/supervisor/supervisor-upgrades]
+    Upgrade policy[/reference/supervisor/upgrade-policy]
 
   Base images
     [/reference/base-images/base-images]
