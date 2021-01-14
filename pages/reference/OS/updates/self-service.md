@@ -11,24 +11,6 @@ Since we periodically release updates and improvements to {{ $names.os.lower }} 
 
 __Note:__ {{ $names.os.upper }} 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
 
-Supported device types:
-
-* For the **Raspberry Pi** series, self-service updates are available from {{ $names.os.lower }} versions 1.8.0 and upwards (including 2.x versions) to any versions after {{ $names.os.lower }} 2.2.0.
-* For **BeagleBone** devices, you can update {{ $names.os.lower }} 1.8.0 through 1.26.0 to the transitional 1.30.1 version, and from 1.30.1 and upwards (including 2.x versions) to version 2.2.0 and newer.
-* For **Intel NUC** and **UP Boards**, you can update all 2.x versions to 2.2.0 and newer.
-* **Banana Pi M1+** can be updated for all available versions.
-* **Intel Edison** can be updated from all 2.x versions to 2.9.7+rev2 and above.
-* **IOT2000** can be updated from all available versions to all newer versions.
-* **Jetson TX1** can be updated for all available versions.
-* **Jetson TX2** can be updated starting from {{ $names.os.lower }} 2.7.4+rev1 to all newer versions.
-* **Odroid C1** can be updated beginning with the available 2.x versions.
-* **Odroid XU4** can be updated beginning with the available 2.x versions.
-* **Orange Pi Plus2** can be updated for all available versions.
-* **QEMU** devices (both 32 and 64-bit versions) can be updated starting from {{ $names.os.lower }} 2.9.3+rev1 to all newer versions.
-* **Samsung ARTIK 710** can be updated for all available versions.
-* **TS-4900** can be updated starting from {{ $names.os.lower }} 2.4.1+rev1 to all newer versions.
-* **Variscite DART-6UL** can be updated for all available versions.
-
 Self-service updates are available for both `production` and `development` {{ $names.os.lower }} variants.
 
 For device types and {{ $names.os.lower }} versions that are not yet supported, please contact us on the [forums][forums]. We are continuously expanding the range of versions and types that can be updated.
