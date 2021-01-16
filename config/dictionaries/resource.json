@@ -4,16 +4,21 @@
     "name": "Application",
     "fields": [
       "id",
-      "user",
-      "owns__device",
+      "organization",
       "depends_on__application",
       "actor",
       "app_name",
       "slug",
-      "commit",
+      "should_be_running__release",
       "application_type",
-      "device_type",
+      "is_for__device_type",
       "should_track_latest_release",
+      "created_at",
+      "is_public",
+      "is_host",
+      "is_archived",
+      "is_discoverable",
+      "is_stored_at__repository_url",
       "is_accessible_by_support_until__date"
     ],
     "examples": [
@@ -22,7 +27,7 @@
         "summary": "Get all applications",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/application",
+        "endpoint": "/v6/application",
         "filters": ""
       },
       {
@@ -30,7 +35,7 @@
         "summary": "Get all applications associated with authenticated user",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/my_application",
+        "endpoint": "/v6/my_application",
         "filters": ""
       },
       {
@@ -38,7 +43,7 @@
         "summary": "Get application by ID",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/application(<ID>)",
+        "endpoint": "/v6/application(<ID>)",
         "filters": ""
       },
       {
@@ -46,7 +51,7 @@
         "summary": "Get application by name",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/application",
+        "endpoint": "/v6/application",
         "filters": "?\\$filter=app_name%20eq%20'<NAME>'"
       },
       {
@@ -54,7 +59,7 @@
         "summary": "Get application by id along with its devices",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/application(<ID>)",
+        "endpoint": "/v6/application(<ID>)",
         "filters": "?\\$expand=owns__device"
       },
       {
@@ -62,7 +67,7 @@
         "summary": "Filter public applications from returned applications",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/application",
+        "endpoint": "/v6/application",
         "filters": "?\\$filter=is_public%20eq%20false"
       },
       {
@@ -70,7 +75,7 @@
         "summary": "Create application",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/application",
+        "endpoint": "/v6/application",
         "filters": "",
         "data": "{\n    \"app_name\": \"<NAME>\",\n    \"device_type\": \"<DEVICE TYPE>\"\n}"
       },
@@ -79,7 +84,7 @@
         "summary": "Delete application",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/application(<ID>)",
+        "endpoint": "/v6/application(<ID>)",
         "filters": ""
       },
       {
@@ -87,7 +92,7 @@
         "summary": "Disable automatic update tracking for an application",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/application(<ID>)",
+        "endpoint": "/v6/application(<ID>)",
         "filters": "",
         "data": "{\n    \"should_track_latest_release\": \"false\"\n}"
       },
@@ -96,7 +101,7 @@
         "summary": "Enable automatic update tracking for an application",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/application(<ID>)",
+        "endpoint": "/v6/application(<ID>)",
         "filters": "",
         "data": "{\n    \"should_track_latest_release\": \"true\"\n}"
       },
@@ -105,7 +110,7 @@
         "summary": "Pin entire fleet to a specific release",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/application(<ID>)",
+        "endpoint": "/v6/application(<ID>)",
         "filters": "",
         "data": "{\n    \"commit\": \"<COMMIT HASH>\"\n}"
       }
@@ -124,7 +129,7 @@
         "summary": "Get all application membership roles",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/application_membership_role",
+        "endpoint": "/v6/application_membership_role",
         "filters": ""
       }
     ]
@@ -144,7 +149,7 @@
         "summary": "Get all tags by application name",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/application_tag",
+        "endpoint": "/v6/application_tag",
         "filters": "?\\$filter=application/app_name%20eq%20'<NAME>'"
       },
       {
@@ -152,7 +157,7 @@
         "summary": "Create a new application tag",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/application_tag",
+        "endpoint": "/v6/application_tag",
         "filters": "",
         "data": "{\n    \"application\": \"<APP ID>\",\n    \"tag_key\": \"<KEY>\",\n    \"value\": \"<VALUE>\"\n}"
       },
@@ -161,7 +166,7 @@
         "summary": "Update an application tag",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/application_tag/(<ID>)",
+        "endpoint": "/v6/application_tag/(<ID>)",
         "filters": "",
         "data": "{\n    \"value\": \"<NEW VALUE>\"\n}"
       },
@@ -170,7 +175,7 @@
         "summary": "Delete an application tag",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/application_tag/(<ID>)",
+        "endpoint": "/v6/application_tag/(<ID>)",
         "filters": ""
       }
     ]
@@ -191,7 +196,7 @@
         "summary": "Get all API keys",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/api_key",
+        "endpoint": "/v6/api_key",
         "filters": ""
       },
       {
@@ -211,13 +216,15 @@
     "fields": [
       "id",
       "belongs_to__application",
-      "belongs_to__user",
-      "is_managed_by__device",
       "actor",
       "api_heartbeat_state",
+      "belongs_to__user",
+      "is_running__release",
       "should_be_running__release",
+      "is_managed_by__service_instance",
+      "should_be_managed_by__supervisor_release",
+      "is_managed_by__device",
       "device_name",
-      "device_type",
       "uuid",
       "is_on__commit",
       "note",
@@ -227,6 +234,7 @@
       "is_active",
       "last_connectivity_event",
       "is_connected_to_vpn",
+      "is_of__device_type",
       "last_vpn_event",
       "ip_address",
       "mac_address",
@@ -235,7 +243,6 @@
       "os_version",
       "os_variant",
       "supervisor_version",
-      "should_be_managed_by__supervisor_release",
       "is_managed_by__service_instance",
       "provisioning_progress",
       "provisioning_state",
@@ -249,6 +256,15 @@
       "logs_channel",
       "is_locked_until__date",
       "is_accessible_by_support_until__date",
+      "memory_usage",
+      "memory_total",
+      "storage_block_device",
+      "storage_usage",
+      "storage_total",
+      "cpu_temp",
+      "cpu_usage",
+      "cpu_id",
+      "is_undervolted",
       "created_at"
     ],
     "examples": [
@@ -257,7 +273,7 @@
         "summary": "Get all devices",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/device",
+        "endpoint": "/v6/device",
         "filters": ""
       },
       {
@@ -265,7 +281,7 @@
         "summary": "Get all devices by application",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/device",
+        "endpoint": "/v6/device",
         "filters": "?\\$filter=belongs_to__application%20eq%20'<APP_ID>'"
       },
       {
@@ -273,7 +289,7 @@
         "summary": "Get device by ID",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/device(<ID>)",
+        "endpoint": "/v6/device(<ID>)",
         "filters": ""
       },
       {
@@ -281,7 +297,7 @@
         "summary": "Get device by UUID",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/device",
+        "endpoint": "/v6/device",
         "filters": "?\\$filter=uuid%20eq%20'<UUID>'"
       },
       {
@@ -289,7 +305,7 @@
         "summary": "Rename device",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/device(<ID>)",
+        "endpoint": "/v6/device(<ID>)",
         "filters": "",
         "data": "{\n    \"device_name\": \"<NEW NAME>\"\n}"
       },
@@ -298,7 +314,7 @@
         "summary": "Delete device",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/device(<ID>)",
+        "endpoint": "/v6/device(<ID>)",
         "filters": ""
       },
       {
@@ -306,7 +322,7 @@
         "summary": "Add note to a device",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/device(<ID>)",
+        "endpoint": "/v6/device(<ID>)",
         "filters": "",
         "data": "{\n    \"note\": \"<NEW NOTE>\"\n}"
       },
@@ -315,7 +331,7 @@
         "summary": "Move device to another application",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/device(<ID>)",
+        "endpoint": "/v6/device(<ID>)",
         "filters": "",
         "data": "{\n    \"belongs_to__application\": \"<APP ID>\"\n}"
       },
@@ -324,7 +340,7 @@
         "summary": "Get the release device is pinned to",
         "description": "Note: should_be_running__release will be unset or null if the device isn't pinned to any release. For an unpinned device, the device.is_on__commit field may be used to obtain the device's current state, while the application.commit field represents the device's target state.",
         "method": "GET",
-        "endpoint": "/v5/device(<ID>)",
+        "endpoint": "/v6/device(<ID>)",
         "filters": "?\\$select=should_be_running__release",
         "data": ""
       },
@@ -333,7 +349,7 @@
         "summary": "Get current release running on device",
         "description": "The is_on__commit field contains the hash of the release currently deployed to the device.",
         "method": "GET",
-        "endpoint": "/v5/device(<ID>)",
+        "endpoint": "/v6/device(<ID>)",
         "filters": "?\\$select=is_on__commit",
         "data": ""
       },
@@ -342,7 +358,7 @@
         "summary": "Pin device to a specific release",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/device(<ID>)",
+        "endpoint": "/v6/device(<ID>)",
         "filters": "",
         "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
       },
@@ -351,7 +367,7 @@
         "summary": "Deactivate an offline device (CHARGEABLE)",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/device(<ID>)",
+        "endpoint": "/v6/device(<ID>)",
         "filters": "",
         "data": "{\n    \"is_active\": false\n}"
       }
@@ -372,7 +388,7 @@
         "summary": "Get all device config variables for a device",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/device_config_variable",
+        "endpoint": "/v6/device_config_variable",
         "filters": "?\\$filter=device%20eq%20<DEVICE ID>"
       },
       {
@@ -380,7 +396,7 @@
         "summary": "Create a device config variable",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/device_config_variable",
+        "endpoint": "/v6/device_config_variable",
         "filters": "",
         "data": "{\n    \"device\": \"<DEVICE ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
@@ -389,7 +405,7 @@
         "summary": "Update a device config variable",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/device_config_variable(<ID>)",
+        "endpoint": "/v6/device_config_variable(<ID>)",
         "filters": "",
         "data": "{\n    \"value\": \"<NEW VALUE>\"\n}"
       },
@@ -398,7 +414,7 @@
         "summary": "Remove a device config variable",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/device_config_variable(<ID>)",
+        "endpoint": "/v6/device_config_variable(<ID>)",
         "filters": ""
       }
     ]
@@ -419,7 +435,7 @@
         "summary": "Get all device environment variables for a device",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/device_environment_variable",
+        "endpoint": "/v6/device_environment_variable",
         "filters": "?\\$filter=device%20eq%20<DEVICE ID>"
       },
       {
@@ -427,7 +443,7 @@
         "summary": "Create a device environment variable",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/device_environment_variable",
+        "endpoint": "/v6/device_environment_variable",
         "filters": "",
         "data": "{\n    \"device\": \"<DEVICE ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
@@ -436,7 +452,7 @@
         "summary": "Update a device environment variable",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/device_environment_variable(<ID>)",
+        "endpoint": "/v6/device_environment_variable(<ID>)",
         "filters": "",
         "data": "{\n    \"value\": \"<NEW VALUE>\"\n}"
       },
@@ -445,7 +461,7 @@
         "summary": "Remove a device environment variable",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/device_environment_variable(<ID>)",
+        "endpoint": "/v6/device_environment_variable(<ID>)",
         "filters": ""
       }
     ]
@@ -466,7 +482,7 @@
         "summary": "Get all service variables for a device",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/device_service_environment_variable",
+        "endpoint": "/v6/device_service_environment_variable",
         "filters": "?\\$filter=service_install/device%20eq%20<DEVICE ID>"
       },
       {
@@ -474,7 +490,7 @@
         "summary": "Create a device service variable",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/device_service_environment_variable",
+        "endpoint": "/v6/device_service_environment_variable",
         "filters": "",
         "data": "{\n    \"service_install\": \"<SERVICE INSTALL ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
@@ -483,7 +499,7 @@
         "summary": "Update a device service variable",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/device_service_environment_variable(<ID>)",
+        "endpoint": "/v6/device_service_environment_variable(<ID>)",
         "filters": "",
         "data": "{\n    \"value\": \"<NEW VALUE>\"\n}"
       },
@@ -492,7 +508,7 @@
         "summary": "Remove a device service variable",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/device_service_environment_variable(<ID>)",
+        "endpoint": "/v6/device_service_environment_variable(<ID>)",
         "filters": ""
       }
     ]
@@ -512,7 +528,7 @@
         "summary": "Get all tags by device UUID",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/device_tag",
+        "endpoint": "/v6/device_tag",
         "filters": "?\\$filter=device/uuid%20eq%20'<UUID>'"
       },
       {
@@ -520,7 +536,7 @@
         "summary": "Create a new device tag",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/device_tag",
+        "endpoint": "/v6/device_tag",
         "filters": "",
         "data": "{\n    \"device\": \"<DEVICE ID>\",\n    \"tag_key\": \"<KEY>\",\n    \"value\": \"<VALUE>\"\n}"
       }
@@ -541,7 +557,7 @@
         "summary": "Get all fleet config variables for an application",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/application_config_variable",
+        "endpoint": "/v6/application_config_variable",
         "filters": "?\\$filter=application%20eq%20<APP ID>"
       },
       {
@@ -549,7 +565,7 @@
         "summary": "Create a fleet config variable",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/application_config_variable",
+        "endpoint": "/v6/application_config_variable",
         "filters": "",
         "data": "{\n    \"application\": \"<APP ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
@@ -558,7 +574,7 @@
         "summary": "Update a fleet environment variable",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/application_config_variable(<ID>)",
+        "endpoint": "/v6/application_config_variable(<ID>)",
         "filters": "",
         "data": "{\n    \"value\": \"<NEW VALUE>\"\n}"
       },
@@ -567,7 +583,7 @@
         "summary": "Remove a fleet config variable",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/application_config_variable(<ID>)",
+        "endpoint": "/v6/application_config_variable(<ID>)",
         "filters": ""
       }
     ]
@@ -588,7 +604,7 @@
         "summary": "Get all fleet environment variables for an application",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/application_environment_variable",
+        "endpoint": "/v6/application_environment_variable",
         "filters": "?\\$filter=application%20eq%20<APP ID>"
       },
       {
@@ -596,7 +612,7 @@
         "summary": "Create a fleet environment variable",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/application_environment_variable",
+        "endpoint": "/v6/application_environment_variable",
         "filters": "",
         "data": "{\n    \"application\": \"<APP ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
@@ -605,7 +621,7 @@
         "summary": "Update a fleet environment variable",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/application_environment_variable(<ID>)",
+        "endpoint": "/v6/application_environment_variable(<ID>)",
         "filters": "",
         "data": "{\n    \"value\": \"<NEW VALUE>\"\n}"
       },
@@ -614,7 +630,7 @@
         "summary": "Remove a fleet environment variable",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/application_environment_variable(<ID>)",
+        "endpoint": "/v6/application_environment_variable(<ID>)",
         "filters": ""
       }
     ]
@@ -635,7 +651,7 @@
         "summary": "Get all fleet service variables for a service",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/service_environment_variable",
+        "endpoint": "/v6/service_environment_variable",
         "filters": "?\\$filter=service%20eq%20<SERVICE ID>"
       },
       {
@@ -643,7 +659,7 @@
         "summary": "Create a fleet service variable",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/service_environment_variable",
+        "endpoint": "/v6/service_environment_variable",
         "filters": "",
         "data": "{\n    \"service\": \"<SERVICE ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
@@ -652,7 +668,7 @@
         "summary": "Update a device service variable",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v5/service_environment_variable(<ID>)",
+        "endpoint": "/v6/service_environment_variable(<ID>)",
         "filters": "",
         "data": "{\n    \"value\": \"<NEW VALUE>\"\n}"
       },
@@ -661,7 +677,69 @@
         "summary": "Remove a fleet service variable",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/service_environment_variable(<ID>)",
+        "endpoint": "/v6/service_environment_variable(<ID>)",
+        "filters": ""
+      }
+    ]
+  },
+  {
+    "id": "organization",
+    "name": "Organization",
+    "fields": [
+      "id",
+      "created_at",
+      "name",
+      "handle",
+      "company_name",
+      "website",
+      "industry",
+      "billing_account_code"
+    ],
+    "examples": [
+      {
+        "id": "get-all-orgs",
+        "summary": "Get all organizations associated with authenticated user",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/organization",
+        "filters": ""
+    },
+    {
+        "id": "org-by-id",
+        "summary": "Get organization by ID",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/organization(<ID>)",
+        "filters": ""
+      },
+      {
+        "id": "org-by-handle",
+        "summary": "Get organization by handle",
+        "description": "Uniquely identifies an organization. Handles are currently automatically generated and read-only.",
+        "method": "GET",
+        "endpoint": "/v6/organization",
+        "filters": "?\\$filter=handle%20eq%20'<HANDLE>'"
+      }
+    ]
+  },
+  {
+    "id": "organization-membership",
+    "name": "Organization Membership",
+    "fields": [
+      "id",
+      "created_at",
+      "user",
+      "is_member_of__organization",
+      "organization_membership_role",
+      "effective_seat_role"
+    ],
+    "examples": [
+      {
+        "id": "get-organization-memberships",
+        "summary": "Get all organization memberships",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/organization_membership",
         "filters": ""
       }
     ]
@@ -672,15 +750,22 @@
     "fields": [
       "id",
       "created_at",
-      "belongs_to__application",
-      "is_created_by__user",
       "commit",
       "composition",
       "status",
       "source",
+      "build_log",
+      "is_invalidated",
       "start_timestamp",
+      "update_timestamp",
       "end_timestamp",
-      "update_timestamp"
+      "is_created_by__user",
+      "belongs_to__application",
+      "contains__image",
+      "should_be_running_on__application",
+      "is_running_on__device",
+      "should_be_running_on__device",
+      "release_tag"
     ],
     "examples": [
       {
@@ -688,7 +773,7 @@
         "summary": "Get all releases for an application",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/release",
+        "endpoint": "/v6/release",
         "filters": "?\\$filter=belongs_to__application%20eq%20<APP ID>"
       },
       {
@@ -696,7 +781,7 @@
         "summary": "Get a release ID given a specific application and commit",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/release",
+        "endpoint": "/v6/release",
         "filters": "?\\$filter=belongs_to__application%20eq%20<APP ID>%20and%20commit%20eq%20'<COMMIT HASH>'&\\$select=id"
       }
     ]
@@ -716,7 +801,7 @@
         "summary": "Get all tags by release commit",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/release_tag",
+        "endpoint": "/v6/release_tag",
         "filters": "?\\$filter=release/commit%20eq%20'<COMMIT>'"
       },
       {
@@ -724,7 +809,7 @@
         "summary": "Create a new release tag",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/release_tag",
+        "endpoint": "/v6/release_tag",
         "filters": "",
         "data": "{\n    \"release\": \"<RELEASE ID>\",\n    \"tag_key\": \"<KEY>\",\n    \"value\": \"<VALUE>\"\n}"
       }
@@ -746,7 +831,7 @@
         "summary": "Get all SSH keys",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/user__has__public_key",
+        "endpoint": "/v6/user__has__public_key",
         "filters": ""
       },
       {
@@ -754,7 +839,7 @@
         "summary": "Get SSH key by ID",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/user__has__public_key(<ID>)",
+        "endpoint": "/v6/user__has__public_key(<ID>)",
         "filters": ""
       },
       {
@@ -762,7 +847,7 @@
         "summary": "Add new SSH key to account",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/user__has__public_key",
+        "endpoint": "/v6/user__has__public_key",
         "filters": "",
         "data": "{\n    \"public_key\": \"<SSH KEY>\",\n    \"title\": \"<TITLE>\",\n    \"user\": \"<USER ID>\"\n}"
       },
@@ -771,7 +856,7 @@
         "summary": "Remove SSH key",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/user__has__public_key(<ID>)",
+        "endpoint": "/v6/user__has__public_key(<ID>)",
         "filters": ""
       }
     ]
@@ -791,7 +876,7 @@
         "summary": "Get all services belonging to an application",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/service",
+        "endpoint": "/v6/service",
         "filters": "?\\$filter=application/app_name%20eq%20'<APP NAME>'"
       }
     ]
@@ -802,6 +887,7 @@
     "fields": [
       "id",
       "created_at",
+      "device",
       "installs__service"
     ],
     "examples": [
@@ -810,7 +896,7 @@
         "summary": "Get service name for all services on a device",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/service_install",
+        "endpoint": "/v6/service_install",
         "filters": "?\\$filter=device/uuid%20eq%20'<DEVICE UUID>'&\\$expand=installs__service(\\$select=service_name)"
       }
     ]
@@ -831,7 +917,7 @@
         "summary": "Get all supervisor releases for a device type",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/supervisor_release",
+        "endpoint": "/v6/supervisor_release",
         "filters": "?\\$filter=device_type%20eq%20'<DEVICE TYPE>'"
       }
     ]
@@ -850,7 +936,7 @@
         "summary": "Get users associated with account",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/user",
+        "endpoint": "/v6/user",
         "filters": ""
       },
       {
@@ -858,7 +944,7 @@
         "summary": "Get users associated with application",
         "description": "",
         "method": "GET",
-        "endpoint": "/v5/user__is_member_of__application",
+        "endpoint": "/v6/user__is_member_of__application",
         "filters": "?\\$expand=user(\\$select=id,username,actor),application_membership_role(\\$select=id,name,actor)&\\$filter=is_member_of__application%20eq%20<ID>"
       },
       {
@@ -866,7 +952,7 @@
         "summary": "Create application membership",
         "description": "",
         "method": "POST",
-        "endpoint": "/v5/user__is_member_of__application",
+        "endpoint": "/v6/user__is_member_of__application",
         "filters": "",
         "data": "{\n    \"is_member_of_application\": <ID>,\n    \"username\": \"<USERNAME>\",\n    \"application_membership_role\": <ROLE ID>\n}"
       },
@@ -875,8 +961,96 @@
         "summary": "Delete application membership",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v5/user__is_member_of__application",
+        "endpoint": "/v6/user__is_member_of__application",
         "filters": "?\\$filter=is_member_of__application%20eq%20<ID>%20and%20user%20eq%20<USER ID>"
+      }
+    ]
+  },
+  {
+    "id": "team",
+    "name": "Team",
+    "fields": [
+      "id",
+      "created_at",
+      "name",
+      "belongs_to__organization",
+      "team_membership",
+      "team_application_access"
+    ],
+    "examples": [
+      {
+        "id": "get-teams",
+        "summary": "Get all teams associated with user",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/team",
+        "filters": ""
+      },
+      {
+        "id": "get-team-by-id",
+        "summary": "Get team by ID",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/team(<ID>)",
+        "filters": ""
+      },
+      {
+        "id": "delete-team",
+        "summary": "Delete team with ID",
+        "description": "",
+        "method": "Delete",
+        "endpoint": "/v6/team(<ID>)",
+        "filters": ""
+      },
+      {
+        "id": "create-team",
+        "summary": "Create a new team in organization",
+        "description": "",
+        "method": "POST",
+        "endpoint": "/v6/team",
+        "filters": "",
+        "data":"{\n    \"name\": \"<TEAM NAME>\",\n    \"belongs_to__organization\": \"<ORG ID>\"\n}"
+      }
+    ]
+  },
+  {
+    "id": "team-application-access",
+    "name": "Team Application Access",
+    "fields": [
+      "id",
+      "created_at",
+      "team",
+      "grants_access_to__application",
+      "application_membership_role"
+    ],
+    "examples": [
+      {
+        "id": "get-team-application-acess",
+        "summary": "Get Team's Applications Access",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/team_application_access",
+        "filters": ""
+      }
+    ]
+  },
+  {
+    "id": "team-membership",
+    "name": "Team Membership",
+    "fields": [
+      "id",
+      "created_at",
+      "user",
+      "is_member_of_team"
+    ],
+    "examples": [
+      {
+        "id": "get-team-membership",
+        "summary": "Get team membership of users",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/team_membership",
+        "filters": ""
       }
     ]
   },
