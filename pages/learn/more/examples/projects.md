@@ -201,6 +201,12 @@ visualization at [123k.de](http://123k.de).
 A dashboard which is visualizing the [Uptime Robot API](https://uptimerobot.com/) on a Raspberry Pi, deployed via balenaCloud.
 This dashboard can be used on TVs or on monitors.
 
+### Balena ADS-B Multi-Service Flight Tracker
+
+[Repository][balena-ads-b] by [ketilmo][ketilmo]
+
+Track the planes flying over your home with the help of balena, ADS-B data, a Raspberry Pi, and an affordable RTL-SDR USB dongle. You can even share your data with the community by feeding third-party flight tracking services such as FlightAware, Flightradar24, and Plane Finder. If you do, these services will reward you with free premium accounts – worth several hundred dollars/year!
+
 <!-- ###Team Project Links -->
 
 [text2speech]:{{ $links.githubMain }}/text2speech
@@ -213,7 +219,7 @@ This dashboard can be used on TVs or on monitors.
 [firebase-dtl]:https://github.com/shaunmulligan/firebaseDTL
 [resin-cctv]:https://github.com/abresas/resin-cctv
 [salesforce-temp]:https://github.com/shaunmulligan/salesforceTemp
-[occupied]:http://www.hackster.io/hobochild/occupied-507dc6
+[occupied]:https://www.hackster.io/hobochild/occupied-507dc6
 [dockerHub]:https://github.com/nghiant2710/resin-DockerHubDeploymentGuide
 [resin-samba]:https://github.com/abresas/resin-samba
 [webLamp]:https://github.com/shaunmulligan/webLamp
@@ -232,6 +238,7 @@ This dashboard can be used on TVs or on monitors.
 [cimon]:https://bitbucket.org/efwe/cimon
 [lunch-mutn]:https://github.com/thibmaek/lunch-mutn
 [uptime-robot-dashboard]:https://github.com/secanis/uptime-robot-dashboard
+[balena-ads-b]:https://github.com/ketilmo/balena-ads-b
 
 <!-- ###Code Snippets Links -->
 
@@ -254,6 +261,7 @@ This dashboard can be used on TVs or on monitors.
 [nchronas]:https://github.com/nchronas
 [thibmaek]:https://github.com/thibmaek
 [secanis]:https://github.com/secanis
+[ketilmo]:https://github.com/ketilmo
 
 <!-- ###Community Github name links -->
 
