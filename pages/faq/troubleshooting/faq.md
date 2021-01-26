@@ -24,6 +24,7 @@ title: FAQs
 * [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems)
 * [What does it mean when a device type is discontinued?](#what-does-it-mean-when-a-device-type-is-discontinued)
 * [I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on-{{ $names.company.lower }})
+* [What to keep in mind when choosing power supply units?](#what-to-keep-in-mind-when-choosing-power-supply-units)
 
 ##### Can I use multiple containers?
 Multiple container applications are supported, beginning with {{ $names.os.lower }} v2.12.0. To run multiple containers, you will need to create or upgrade to a [starter or microservices type application][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
@@ -138,6 +139,10 @@ Discontinued devices will no longer be actively supported by {{ $names.company.l
 
 There are a few options for devices that do not have an official device type on {{ $names.company.lower }}. If your device has an x86 architecture, you can try the [Intel NUC][nuc] image, which is built to support generic x86 devices. For other devices, you can [build your own][build-your-own] version of {{ $names.os.lower }} using our [open source repos][balenaOS]. To discuss custom board support, please contact sales@{{ $names.email_domain }}.
 
+##### What to keep in mind when choosing power supply units?
+
+Power supply units (PSUs) are a critical component to any widespread production deployment, as mentioned in our [Going to Production][go-to-production] guide. When buying a PSU for your hardware, be sure to inspect and understand the board's power requirements carefully. Current requirements (measured in Amps) are just as important as the voltage requirements (measured in Volts). A PSU that provides a higher voltage than required may damage the board, but a supplied voltage that is too low may cause the board to malfunction or fail to boot. If the PSU isn't capable of providing the maximum current that the board demands, then the board might eventually fail to perform under CPU-intensive loads. As the load increases, more current is drawn than the PSU can supply, which could lead to brown-outs (i.e., the board unexpectedly resetting, causing filesystem corruption). When buying PSUs or using the official power adapters, proper research is recommended to prevent scenarios like these in a production deployment.
+
 [forums]:{{ $names.forums_domain }}/c/troubleshooting
 
 [device-types]:/reference/base-images/devicetypes
@@ -152,3 +157,4 @@ There are a few options for devices that do not have an official device type on 
 [balenaOS]:{{ $links.githubOS }}
 [build-your-own]:{{ $links.githubOS }}/meta-balena/blob/master/contributing-device-support.md
 [nuc]:/learn/getting-started/intel-nuc/nodejs/
+[go-to-production]:/learn/welcome/production-plan/
