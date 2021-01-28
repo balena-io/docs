@@ -13,13 +13,13 @@
       "application_type",
       "is_for__device_type",
       "should_track_latest_release",
-      "created_at",
+      "is_accessible_by_support_until__date",
       "is_public",
       "is_host",
       "is_archived",
       "is_discoverable",
       "is_stored_at__repository_url",
-      "is_accessible_by_support_until__date"
+      "created_at"
     ],
     "examples": [
       {
@@ -216,25 +216,20 @@
     "fields": [
       "id",
       "belongs_to__application",
-      "actor",
-      "api_heartbeat_state",
       "belongs_to__user",
-      "is_running__release",
-      "should_be_running__release",
-      "is_managed_by__service_instance",
-      "should_be_managed_by__supervisor_release",
       "is_managed_by__device",
+      "actor",
+      "should_be_running__release",
       "device_name",
+      "is_of__device_type",
       "uuid",
-      "is_on__commit",
+      "is_running__release",
       "note",
       "local_id",
       "status",
       "is_online",
-      "is_active",
       "last_connectivity_event",
       "is_connected_to_vpn",
-      "is_of__device_type",
       "last_vpn_event",
       "ip_address",
       "mac_address",
@@ -243,6 +238,7 @@
       "os_version",
       "os_variant",
       "supervisor_version",
+      "should_be_managed_by__supervisor_release",
       "is_managed_by__service_instance",
       "provisioning_progress",
       "provisioning_state",
@@ -256,6 +252,9 @@
       "logs_channel",
       "is_locked_until__date",
       "is_accessible_by_support_until__date",
+      "created_at",
+      "is_active",
+      "api_heartbeat_state",
       "memory_usage",
       "memory_total",
       "storage_block_device",
@@ -264,8 +263,7 @@
       "cpu_temp",
       "cpu_usage",
       "cpu_id",
-      "is_undervolted",
-      "created_at"
+      "is_undervolted"
     ],
     "examples": [
       {
@@ -383,7 +381,7 @@
       "name"
     ],
     "examples": [
-    {
+      {
         "id": "get-device-config-vars",
         "summary": "Get all device config variables for a device",
         "description": "",
@@ -430,7 +428,7 @@
       "value"
     ],
     "examples": [
-    {
+      {
         "id": "get-device-env-vars",
         "summary": "Get all device environment variables for a device",
         "description": "",
@@ -477,7 +475,7 @@
       "name"
     ],
     "examples": [
-    {
+      {
         "id": "get-device-service-vars",
         "summary": "Get all service variables for a device",
         "description": "",
@@ -552,7 +550,7 @@
       "value"
     ],
     "examples": [
-    {
+      {
         "id": "get-fleet-config-vars",
         "summary": "Get all fleet config variables for an application",
         "description": "",
@@ -591,13 +589,7 @@
   {
     "id": "application_environment_variable",
     "name": "Fleet environment variable",
-    "fields": [
-      "id",
-      "created_at",
-      "application",
-      "name",
-      "value"
-    ],
+    "fields": ["id", "created_at", "application", "name", "value"],
     "examples": [
       {
         "id": "get-fleet-env-vars",
@@ -641,9 +633,9 @@
     "fields": [
       "id",
       "created_at",
-      "service",
-      "name",
-      "value"
+      "service_install",
+      "value",
+      "name"
     ],
     "examples": [
       {
@@ -703,8 +695,8 @@
         "method": "GET",
         "endpoint": "/v6/organization",
         "filters": ""
-    },
-    {
+      },
+      {
         "id": "org-by-id",
         "summary": "Get organization by ID",
         "description": "",
@@ -723,7 +715,7 @@
     ]
   },
   {
-    "id": "organization-membership",
+    "id": "organization_membership",
     "name": "Organization Membership",
     "fields": [
       "id",
@@ -750,22 +742,19 @@
     "fields": [
       "id",
       "created_at",
+      "belongs_to__application",
+      "is_created_by__user",
       "commit",
       "composition",
       "status",
       "source",
       "build_log",
-      "is_invalidated",
       "start_timestamp",
-      "update_timestamp",
       "end_timestamp",
-      "is_created_by__user",
-      "belongs_to__application",
-      "contains__image",
-      "should_be_running_on__application",
-      "is_running_on__device",
-      "should_be_running_on__device",
-      "release_tag"
+      "update_timestamp",
+      "is_invalidated",
+      "release_version",
+      "contract"
     ],
     "examples": [
       {
@@ -906,10 +895,8 @@
     "name": "Supervisor release",
     "fields": [
       "id",
-      "supervisor_version",
-      "device_type",
-      "image_name",
-      "should_manage__device"
+      "supervisor_version", "is_for__device_type",
+      "image_name"
     ],
     "examples": [
       {
@@ -928,7 +915,9 @@
     "fields": [
       "id",
       "actor",
-      "username"
+      "username",
+      "created_at",
+      "has_legacy_link_to__organization"
     ],
     "examples": [
       {
@@ -973,9 +962,8 @@
       "id",
       "created_at",
       "name",
-      "belongs_to__organization",
-      "team_membership",
-      "team_application_access"
+      "description",
+      "belongs_to__organization"
     ],
     "examples": [
       {
@@ -1009,12 +997,12 @@
         "method": "POST",
         "endpoint": "/v6/team",
         "filters": "",
-        "data":"{\n    \"name\": \"<TEAM NAME>\",\n    \"belongs_to__organization\": \"<ORG ID>\"\n}"
+        "data": "{\n    \"name\": \"<TEAM NAME>\",\n    \"belongs_to__organization\": \"<ORG ID>\"\n}"
       }
     ]
   },
   {
-    "id": "team-application-access",
+    "id": "team_application_access",
     "name": "Team Application Access",
     "fields": [
       "id",
@@ -1025,7 +1013,7 @@
     ],
     "examples": [
       {
-        "id": "get-team-application-acess",
+        "id": "get-team-application-access",
         "summary": "Get Team's Applications Access",
         "description": "",
         "method": "GET",
@@ -1035,13 +1023,13 @@
     ]
   },
   {
-    "id": "team-membership",
+    "id": "team_membership",
     "name": "Team Membership",
     "fields": [
       "id",
       "created_at",
       "user",
-      "is_member_of_team"
+      "is_member_of__team"
     ],
     "examples": [
       {
@@ -1058,9 +1046,9 @@
     "id": "whoami",
     "name": "Who am I",
     "fields": [
-      "email",
       "id",
-      "username"
+      "username",
+      "email"
     ],
     "examples": [
       {
