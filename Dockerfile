@@ -1,10 +1,12 @@
-FROM library/node:latest
+FROM node:latest
 
-RUN mkdir /src
 WORKDIR /src
 
+COPY package.json package-lock.json ./ 
+RUN npm ci
+
 COPY . .
-RUN npm install
+RUN npm run build
 
 EXPOSE 3000
 
