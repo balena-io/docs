@@ -3,11 +3,8 @@ FROM library/node:latest
 RUN mkdir /src
 WORKDIR /src
 
-COPY package.json .
-RUN npm install
-
 COPY . .
-RUN tools/prepare.sh
+RUN npm install
 
 EXPOSE 3000
 
