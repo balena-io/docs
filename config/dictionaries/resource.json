@@ -35,7 +35,7 @@
         "summary": "Get all applications associated with authenticated user",
         "description": "",
         "method": "GET",
-        "endpoint": "/v6/my_application",
+        "endpoint": "/v6/application?$filter=is_directly_accessible_by__user/any(dau:1%20eq%201)",
         "filters": ""
       },
       {
@@ -589,7 +589,13 @@
   {
     "id": "application_environment_variable",
     "name": "Fleet environment variable",
-    "fields": ["id", "created_at", "application", "name", "value"],
+    "fields": [
+      "id", 
+      "created_at", 
+      "application", 
+      "name", 
+      "value"
+    ],
     "examples": [
       {
         "id": "get-fleet-env-vars",
@@ -895,7 +901,8 @@
     "name": "Supervisor release",
     "fields": [
       "id",
-      "supervisor_version", "is_for__device_type",
+      "supervisor_version", 
+      "is_for__device_type",
       "image_name"
     ],
     "examples": [
