@@ -11,8 +11,7 @@
     "start": "node index.js",
     "test": "npm run test-spelling",
     "test-spelling": "find . -iname \"*.*md\" -not -path \"./CHANGELOG*\" -not -path \"./node_modules/*\" | ./tools/test-spelling.sh",
-    "postinstall": "./tools/prepare.sh",
-    "build": "./tools/build.sh && webpack -p",
+    "build": "./tools/prepare.sh && ./tools/build.sh && webpack -p",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
     "watch-assets": "webpack -w",
     "watch": "npm run watch-pages & npm run watch-assets"

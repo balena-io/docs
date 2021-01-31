@@ -17,6 +17,7 @@ To run the docs web application locally, you should do the following:
 git clone https://github.com/balena-io/docs
 cd docs
 npm install
+npm run build
 npm start
 ```
 And then open [http://localhost:3000/docs](http://localhost:3000/docs).
@@ -58,6 +59,8 @@ For all, lower-case capitalization unless beginning a sentence (Ex. *I like bale
 * **balenaEngine**
 * **balenaFin**
 * **balenaCloud**
+* the **balena CLI**
+
 
 Conventions
 -----------
@@ -69,12 +72,13 @@ Conventions
 git clone https://github.com/balena-io/docs.git
 cd docs
 npm install
+npm run build
 ```
 Now to check that everything is working correctly, start the local server with:
 ```
 npm start
 ```
-You should now see the docs served from localhost:3000
+You should now see the docs served from [http://localhost:3000/docs](http://localhost:3000/docs)
 
 To add you changes to the docs, create a new local branch of master:
 ```
@@ -82,7 +86,7 @@ git checkout -b my-docs-patch
 ```
 Now you can make changes in this branch. Since our docs are static pages generated from markdown using metalsmith.io, each time you change some of the `.md` files you will need to run rebuild of the docs to generate the static pages. This is done by running:
 ```
-./tools/prepare.sh
+npm run build
 ```
 However there is a handy watch functionality that will watch for changes in `/pages`, `/shared`, and `/templates` and rebuild each time you save your changes. To use this, open a new tab in your terminal and run:
 ```
