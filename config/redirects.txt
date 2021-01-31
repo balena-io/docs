@@ -7,7 +7,7 @@
 ^\/pages\/(.*) -> /$1
 (.*)\.md(.*) -> $1$2
 ^\/introduction\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
-^\/$ -> /learn/welcome/introduction
+^\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
 ^\/installing\/gettingStarted\/?(\?.+)?(#.+)?$-> /learn/getting-started/raspberrypi3/nodejs/$1$2
 ^\/installing\/gettingStarted-BBB\/?(\?.+)?(#.+)?$ -> /learn/getting-started/beaglebone-black/nodejs/$1$2
 ^\/installing\/gettingStarted-Humming\/?(\?.+)?(#.+)?$ -> /learn/getting-started/hummingboard/nodejs/$1$2
