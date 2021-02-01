@@ -15,7 +15,7 @@ Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $nam
 
 Clicking _Create and deploy_ creates a new application and generates a release. Any devices added to the application will immediately download and begin running the release.
 
-__Note:__ Currently git submodules are not supported and will not build properly.
+**Note:** Currently git submodules are not supported and will not build properly.
 
 ## Adding a deploy with {{ $names.company.lower }} button to a project
 
@@ -29,36 +29,38 @@ The above example uses an SVG logo as this renders better on GitHub - however, y
 
 You can further customize the behavior of the **Deploy with {{ $names.company.lower }}** button by providing additional URL parameters. The following URL parameters are available and may be appended to the `https://dashboard.balena-cloud.com/deploy` link:
 
-* `repoUrl` - The URL of the project repository. If you are placing the deploy button in a GitHub repo then {{ $names.cloud.lower }} can auto-determine the `repoUrl` from the referer info in the HTTP headers. However on Firefox and with some ad-blockers this may fail. So we recommend that you populate this query string parameter.
-* `tarballUrl` - The URL of the project tarball. Automatically determined from `repoUrl` if not provided.
-* `configUrl` - The URL of the configuration file of the application. Automatically determined from `repoUrl` if not provided.
-* `defaultDeviceType` - The device type that will be pre-selected in the "Create application" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types here](/reference/hardware/devices/).
+- `repoUrl` - The URL of the project repository. If you are placing the deploy button in a GitHub repo then {{ $names.cloud.lower }} can auto-determine the `repoUrl` from the referer info in the HTTP headers. However on Firefox and with some ad-blockers this may fail. So we recommend that you populate this query string parameter.
+- `tarballUrl` - The URL of the project tarball. Automatically determined from `repoUrl` if not provided.
+- `configUrl` - The URL of the configuration file of the application. Automatically determined from `repoUrl` if not provided.
+- `defaultDeviceType` - The device type that will be pre-selected in the "Create application" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types here](/reference/hardware/devices/).
 
 ### balena.yml configuration file
 
 Through the use of a `balena.yml` config file, you may also provide application [configuration](/learn/manage/configuration/) and [environment](/learn/manage/serv-vars/) variables. If provided, they are pre-populated in the advanced modal dialog when using the **Deploy with {{ $names.company.lower }}** button.
 
-The `balena.yml` file can also be used to provide additional metadata to be used if the app is submitted to [balenaHub][balenaHub].
+The `balena.yml` file can also be used to provide additional metadata to be used if the app is submitted to [balenaHub][balenahub].
 
 The file should be named `balena.yml` and be located in the root of the project repository, or the `configUrl` link must be specified. A full example of the `balena.yml` file is shown below:
 
 ```yaml
-version: "2"
-slug: "my-app"
 name: "myApp"
+description: "balenaHub description for myApp goes here!"
 type: "sw.application"
 assets:
-  - url: "https://github.com/myorg/myapp"
-    name: "repository"
-  - url: "https://raw.githubusercontent.com/myorg/myapp/main/logo.png"
-    name: "logo"
+  repository:
+    type: "blob.asset"
+    data:
+      url: "https://github.com/myorg/myapp"
+  logo:
+    type: "blob.asset"
+    data:
+      url: "https://raw.githubusercontent.com/myorg/myapp/main/logo.png"
 data:
-  description: "balenaHub description for myApp goes here!"
   applicationConfigVariables:
     - BALENA_HOST_CONFIG_CONNECTIVITY_CHECK: true
   applicationEnvironmentVariables:
-    - ENV: 'DEV'
-    - VIDEO_OUTPUT: 'BROWSERBLOCK'
+    - ENV: "DEV"
+    - VIDEO_OUTPUT: "BROWSERBLOCK"
     - THREAD_COUNT: 32
   defaultDeviceType: "raspberry-pi"
   supportedDeviceTypes:
@@ -70,17 +72,18 @@ data:
     - "intel-nuc"
 ```
 
-* `version` - The `balena.yml` file has multiple versions. We recommend using `version: "2"`.
-* `slug` - Required field. Text to identify a particular page in an easy to read form from the URL.
-* `type` - Required field. Default to `sw.application`.
-* `assets`
-    * `url` - The URL of the asset that is being uploaded.
-    * `name` - Name of the asset being uploaded. Allowed values are `repository` & `logo`. The size of logo needs to be size 512 x 512 px.
-* `data`
-    * `description`: A description of what the application does. This is what is displayed if the application is published on [balenaHub][balenaHub].
-    * `applicationEnvironmentVariables` - Environment variables allow you to provide runtime configuration without having to modify your source code.
-    * `applicationConfigVariables` - Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
-    * `defaultDeviceType` - The device type that will be pre-selected in the "Create application" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](/reference/hardware/devices/) here.
-    * `supportedDeviceType` - The device types that the application supports. You can find a list of [device types](/reference/hardware/devices/) here.
+- `type` - Required field. In most cases this would be `sw.application`, unless you are implementing a block, in which case you need to use `sw.block`.
+- `name` - A user-friendly name of your application.
+- `description`: A description of what the application does. This is what is displayed if the application is published on [balenaHub][balenahub].
+- `assets`
+  - `<asset-slug>`: Supported values are `repository` and `logo`. The size of logo needs to be size 512 x 512 px
+    - `type`: A fixed value that should be set to 'blob.asset'
+    - `data`:
+      - `url` - The URL of the asset that is being uploaded.
+- `data`
+  - `applicationEnvironmentVariables` - Environment variables allow you to provide runtime configuration without having to modify your source code.
+  - `applicationConfigVariables` - Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
+  - `defaultDeviceType` - The device type that will be pre-selected in the "Create application" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](/reference/hardware/devices/) here.
+  - `supportedDeviceType` - The device types that the application supports. You can find a list of [device types](/reference/hardware/devices/) here.
 
-[balenaHub]:https://hub.balena.io
+[balenahub]: https://hub.balena.io
