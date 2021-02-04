@@ -1,35 +1,30 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-  (function () {
+  function fetchArchivedDeviceTypesAndGenerateTable() {
     window.jQuery
       .ajax({
-        url: "https://api.balena-cloud.com/device-types/v1/"
+        url: "https://api.balena-cloud.com/v6/application?$filter=is_host%20eq%201&$filter=is_archived%20eq%20true&$select=app_name",
+      })
+      .done(function (archivedDeviceTypes) {
+        var archivedDeviceTypesArr = _.map(archivedDeviceTypes.d, function (app) { return app.app_name });
+        generateTable(archivedDeviceTypesArr);
+      })
+  };
+
+  function generateTable(archivedDeviceTypes) {
+    window.jQuery
+      .ajax({
+        url: "https://api.balena-cloud.com/v6/device_type?$select=slug,name,is_of__cpu_architecture,logo&$expand=is_of__cpu_architecture($select=slug)&$filter=is_private%20eq%200"
       })
       .done(function (deviceTypes) {
-        var table;
-        table = _(deviceTypes)
-          .filter(function (deviceType) {
-            return (
-              deviceType.state !== "DISCONTINUED" &&
-              !_.includes(deviceType.slug, 'generic') &&
-              !_.includes(deviceType.slug, 'etcher')
-            );
-          })
-          .map(function (deviceType) {
-            if (deviceType.state === 'PREVIEW') {
-              deviceType.name = deviceType.name.replace('(PREVIEW)', '(ALPHA)');
-            }
-            if (deviceType.state === 'EXPERIMENTAL') {
-              deviceType.name = deviceType.name.replace('(EXPERIMENTAL)', '(NEW)');
-            }
-            if (deviceType.community === true) {
-              deviceType.name = deviceType.name.replace(/ \([\s\S]*?\)/, '') + (' (COMMUNITY)')
-            }
-            if (deviceType.arch === 'rpi') {
-              deviceType.arch = 'armv6hf';
-            }
 
-            return deviceType;
+
+        var table;
+
+        table = _(deviceTypes.d)
+          .filter(function (deviceType) {
+            return !archivedDeviceTypes.includes(deviceType.slug)
+
           })
           .sortBy([
             function (deviceType) {
@@ -38,18 +33,18 @@
           ])
           .reduce(function (acc, deviceType) {
             var tableCell;
-            if (deviceType.arch === "rpi") {
-              deviceType.arch = "armv6hf";
+            if (deviceType.is_of__cpu_architecture[0].slug === "rpi") {
+              deviceType.is_of__cpu_architecture[0].slug = "armv6hf";
             }
             tableCell =
               "<tr> <td>" +
-              "<img class='device_icon' src='/docs/img/device/" + deviceType.slug + ".svg' />" +
+              "<img class='device_icon' src=" + deviceType.logo + " />" +
               "</td> <td>" +
               deviceType.name +
               "</td> <td>" +
               deviceType.slug +
               "</td> <td>" +
-              deviceType.arch +
+              deviceType.is_of__cpu_architecture[0].slug +
               "</td> </tr>";
             return acc + tableCell;
           }, "");
@@ -63,6 +58,12 @@
             '<tr><td colspan="4">Something went wrong.</td></tr>'
           );
       });
+  }
+
+
+  (function () {
+    fetchArchivedDeviceTypesAndGenerateTable();
+
   }.call(this));
 
 </script>
