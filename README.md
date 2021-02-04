@@ -88,7 +88,7 @@ Now you can make changes in this branch. Since our docs are static pages generat
 ```
 npm run build:fast
 ```
-This will skip over downloading files from external sources which is a time taking process. However there is a handy watch functionality that will watch for changes in `/pages`, `/shared`, and `/templates` and rebuild each time you save your changes. To use this, open a new tab in your terminal and run:
+This will skip over downloading files from external sources which takes a while. However there is a handy watch functionality that will watch for changes in `/pages`, `/shared`, and `/templates` and rebuild each time you save your changes. To use this, open a new tab in your terminal and run:
 ```
 npm run watch-pages
 ```
