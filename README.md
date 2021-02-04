@@ -86,9 +86,9 @@ git checkout -b my-docs-patch
 ```
 Now you can make changes in this branch. Since our docs are static pages generated from markdown using metalsmith.io, each time you change some of the `.md` files you will need to run rebuild of the docs to generate the static pages. This is done by running:
 ```
-npm run build
+npm run build:fast
 ```
-However there is a handy watch functionality that will watch for changes in `/pages`, `/shared`, and `/templates` and rebuild each time you save your changes. To use this, open a new tab in your terminal and run:
+This will skip over downloading files from external sources which is a time taking process. However there is a handy watch functionality that will watch for changes in `/pages`, `/shared`, and `/templates` and rebuild each time you save your changes. To use this, open a new tab in your terminal and run:
 ```
 npm run watch-pages
 ```
