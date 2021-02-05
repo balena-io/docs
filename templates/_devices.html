@@ -1,55 +1,36 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js" type="text/javascript"></script>
 <script type="text/javascript">
+
   (function () {
     window.jQuery
       .ajax({
-        url: "https://api.balena-cloud.com/device-types/v1/"
+        url: "https://api.balena-cloud.com/v6/application?$filter=is_host%20eq%20true%20and%20is_archived%20eq%20false%20and%20not(contains(app_name,%27esr%27))&$expand=is_for__device_type($select=name,slug,logo&$expand=is_of__cpu_architecture)"
       })
       .done(function (deviceTypes) {
-        var table;
-        table = _(deviceTypes)
-          .filter(function (deviceType) {
-            return (
-              deviceType.state !== "DISCONTINUED" &&
-              !_.includes(deviceType.slug, 'generic') &&
-              !_.includes(deviceType.slug, 'etcher')
-            );
-          })
-          .map(function (deviceType) {
-            if (deviceType.state === 'PREVIEW') {
-              deviceType.name = deviceType.name.replace('(PREVIEW)', '(ALPHA)');
-            }
-            if (deviceType.state === 'EXPERIMENTAL') {
-              deviceType.name = deviceType.name.replace('(EXPERIMENTAL)', '(NEW)');
-            }
-            if (deviceType.community === true) {
-              deviceType.name = deviceType.name.replace(/ \([\s\S]*?\)/, '') + (' (COMMUNITY)')
-            }
-            if (deviceType.arch === 'rpi') {
-              deviceType.arch = 'armv6hf';
-            }
 
-            return deviceType;
-          })
+
+        var table;
+
+        table = _(deviceTypes.d)
           .sortBy([
             function (deviceType) {
-              return (deviceType.name);
+              return (deviceType.is_for__device_type[0].name);
             }
           ])
           .reduce(function (acc, deviceType) {
             var tableCell;
-            if (deviceType.arch === "rpi") {
-              deviceType.arch = "armv6hf";
+            if (deviceType.is_for__device_type[0].is_of__cpu_architecture[0].slug === "rpi") {
+              deviceType.is_for__device_type[0].is_of__cpu_architecture[0].slug = "armv6hf";
             }
             tableCell =
               "<tr> <td>" +
-              "<img class='device_icon' src='/docs/img/device/" + deviceType.slug + ".svg' />" +
+              "<img class='device_icon' src=" + deviceType.is_for__device_type[0].logo + " />" +
               "</td> <td>" +
-              deviceType.name +
+              deviceType.is_for__device_type[0].name +
               "</td> <td>" +
-              deviceType.slug +
+              deviceType.is_for__device_type[0].slug +
               "</td> <td>" +
-              deviceType.arch +
+              deviceType.is_for__device_type[0].is_of__cpu_architecture[0].slug +
               "</td> </tr>";
             return acc + tableCell;
           }, "");
@@ -63,6 +44,7 @@
             '<tr><td colspan="4">Something went wrong.</td></tr>'
           );
       });
+
   }.call(this));
 
 </script>
