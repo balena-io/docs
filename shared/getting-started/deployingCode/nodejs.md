@@ -1,6 +1,6 @@
-A nice first project to get started is a simple [Express.js][expressjs] web server which, will serve a static page on port `:80`. All the project source code can be found [here on GitHub][simple-server-node-link]. Download a zipped file of the project [here][github-download-js], and when downloaded, unzip the file and open a terminal in the root of the project directory. For a TypeScript version of the project please go [here][github-download-ts].
+A nice first project to get started is [balena-node-hello-world][balena-node-hello-world], an [Express.js][expressjs] web server that serves a static page on port `:80`. Download a zipped file of the project, [master.zip (JavaScript)][github-download-js] or [main.zip (TypeScript)][github-download-ts], unzip it and open a terminal in the root of the project directory.
 
-[simple-server-node-link]:{{ $links.githubLabs }}/simple-server-node
-[github-download-js]:{{ $links.githubLabs }}/simple-server-node/archive/master.zip
-[github-download-ts]:{{ $links.githubExamples }}/balena-ts-node-hello-world
+[balena-node-hello-world]:{{ $links.githubExamples }}/balena-node-hello-world
+[github-download-js]:{{ $links.githubExamples }}/balena-node-hello-world/archive/master.zip
+[github-download-ts]:{{ $links.githubExamples }}/balena-ts-node-hello-world/archive/main.zip
 [expressjs]:https://expressjs.com/
