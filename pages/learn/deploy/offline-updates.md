@@ -16,6 +16,8 @@ To perform an offline upgrade, we will be using [balena-cli](https://www.balena.
 ## Overview of the process
 
 <Add what will be happening over the next steps>
+<A line about Mention how important env variables in the process>
+<A line about optional stages and where actually the process is the same for both new and existing devices>
 
 Offline updates includes the following steps
 
@@ -31,19 +33,19 @@ Offline updates includes the following steps
 
 ### Setup
 
-> Download and install [balena-cli](https://www.balena.io/docs/reference/balena-cli/) on your linux distributions. The commands have been tested to work on Ubuntu 20.04.
+> Download and install [balena-cli][balena-cli] on your linux distributions. The commands have been tested to work on Ubuntu 20.04.
 
 #### Logging in
 
 Several `balena-cli` commands require access to your balenaCloud account. Those commands require creating a CLI login session by running [`balena login`](https://www.balena.io/docs/reference/balena-cli/#logging-in) in your terminal. 
 
-```
+```bash
 $ balena login
 ```
 
 Store the filename of your OpenSSH private key in an environment variable or generate an SSH key using the commands below. (MENTION WHY)
 
-```
+```bash
 # (optional) if you already have SSH key(s)
 $ ssh-keygen -o -a 100 -t ed25519 -f id_ed25519 -C 'offline-updates' -N ''
 
@@ -51,40 +53,50 @@ $ ssh-keygen -o -a 100 -t ed25519 -f id_ed25519 -C 'offline-updates' -N ''
 $ ssh_key=<NAME OF FILENAME>.pub
 ```
 
-#### Create an application
+### Create/Use pre-existing application
 
-Initalise the `arch` and `device-type` environment variable with correct CPU architecture (`aarch64`, `armv7l`, etc.) and device type (`raspberrypi4-64`, `raspberrypi3`, etc.). The list of names for supported device types and their architectures can be found on the [hardware][supportedDevicesList] page.
+Initalise the `arch` and `device-type` environment variable with correct CPU architecture (`aarch64`, `armv7l`, etc.) and device type (`raspberrypi4-64`, `raspberrypi3`, etc.). The list of names for supported device types and their architectures can be found on the [hardware][supportedDevicesList] page. 
 
-```
+If a pre-existing application needs to be re-used, then initalise the `app_name` variable with the name of that application.
+
+```bash
 $ arch=<CPU ARCHITECTURE TYPE>
 $ device_type=<DEVICE_TYPE>
 $ app_name=offline-${arch}
 ```
 
-Create a new balenaCloud application by running [`balena app create`](https://www.balena.io/docs/reference/balena-cli/#app-create-name)
+The environement variables will be used later in the process. If a pre-existing application is needed to be used then the next step can be skipped. Otherwise, create a new balenaCloud application by running [`balena app create`](https://www.balena.io/docs/reference/balena-cli/#app-create-name). 
 
 ```bash
 $ balena app create ${app_name} --type ${device_type}
+```
 
+Initalise the `app_slug` environment variable to store the slug of the application.
+
+```bash
 $ app_slug=$(balena app ${app_name} | grep SLUG | awk '{print $2}')
 ```
 
-## create offline device
+### Create/Use pre-existing offline device
 
-multiple devices can be created using this approach
+If a new offline device is being created, then the following command can be used. Otherwise, the `uuid` environment variable can be initialised with the UUID of a pre-existing device that needs to be updated.  
 
 ```bash
-uuid=$(uuidgen | tr '[:upper:]' '[:lower:]' | sed 's/-//g')
-
-balena device register ${app_slug} --uuid ${uuid}
+$ uuid=$(uuidgen | tr '[:upper:]' '[:lower:]' | sed 's/-//g')
 ```
 
-## download balenaOS image
-> download the latest version on the balenaOS
+With `balena device register`, devices can be preregistered to a balenaCloud application  involving a simple call with a unique identifier for the device. You can read more about full process of pre-registering a device in the [balena-cli advanced masterclass][balena-cli advanced masterclass]. This step can be skipped if a pre-existing device is needs to be updated. 
+
+```bash
+$ balena device register ${app_slug} --uuid ${uuid}
+```
+
+### Download balenaOS
+
+Download the latest version of [balenaOS][balenaOS] for the device type.
 
 ```bash
 $ os_version=$(balena os versions ${device_type} | grep prod | head -n 1 | awk '{print $1}')
-
 $ tmpimg=$(mktemp).img
 
 $ balena os download ${device_type} \
@@ -92,7 +104,7 @@ $ balena os download ${device_type} \
   --version ${os_version}
 ```
 
-## configure balenaOS image
+### configure balenaOS image
 > preserving the identify of the registered device `uuid`
 
 ```bash
@@ -123,7 +135,7 @@ $ rm ${tmpconfig}
 $ rm ${config}
 ```
 
-## create and preload release
+### create and preload release
 > [preload](https://github.com/balena-io/balena-cli/blob/master/INSTALL-MAC.md#balena-preload) functionality requires Docker with AUFS support
 
 ```bash
@@ -139,7 +151,7 @@ $ balena preload ${tmpimg} \
     --pin-device-to-release
 ```
 
-## create update media
+### create update media
 > use this media to boot or flash your offline device(s)
 
 ```bash
@@ -154,7 +166,7 @@ $ sudo balena local flash ${tmpimg} \
 $ rm ${tmpimg}
 ```
 
-## update device registration(s)
+### update device registration(s)
 >  manually reflect the new state of the device in balenaCloud for offline devices or devices on private networks without Internet access
 
 ### patch state endpoint
@@ -184,7 +196,7 @@ $ curl --silent \
 	  --data-binary "{\"os_variant\":\"${os_variant}\",\"os_version\":\"balenaOS ${os_version_semver}+${os_revision}\",\"supervisor_version\":\"${supervisor_version}\",\"is_running__release\":${release_id}}"
 ```
 
-### (optional) set tags
+#### (optional) set tags
 
 ```bash
 $ balena tag set 'offline:commit' "${commit}" \
@@ -225,4 +237,7 @@ If this is the case, we recommend mounting an external mass storage (USB) device
 
 By contrast, a typical balena online update leaves your apps and data intact, and persistent logging can be enabled to save your logs across device restarts.
 
+[balena-cli]:/reference/balena-cli/
 [supportedDevicesList]:/reference/hardware/devices/
+[balena-cli advanced masterclass]:/learn/more/masterclasses/advanced-cli/#52-preregistering-a-device
+[balenaOS]:{{ $links.osSiteUrl }}
