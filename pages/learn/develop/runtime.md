@@ -24,8 +24,7 @@ __Note:__ On all {{ $names.os.lower }} versions of the OS, both `RESIN_` and `BA
 | `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |  The name of the device on first initialization. |
 | `{{ $names.company.allCaps }}_DEVICE_TYPE`         |  The type of device the application is running on. |
 | `{{ $names.company.allCaps }}` 	                  |  The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a {{ $names.company.lower }} device. 	|
-| `{{ $names.company.allCaps }}_SUPERVISOR_VERSION` 	|  The current version of the supervisor agent running on the device.	|
-| `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` 	|  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link]	for detailed usage. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
+| `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY`  |  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link] for detailed usage. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
 | `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
 | `{{ $names.company.allCaps }}_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`. For multicontainer the service needs the [io.resin.features.supervisor-api][labels-link] set|
 | `{{ $names.company.allCaps }}_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
@@ -45,18 +44,17 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 {{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1
 {{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
 {{ $names.company.allCaps }}_API_KEY=deadbeef12345
-{{ $names.company.allCaps }}_SUPERVISOR_VERSION=2.8.3
 {{ $names.company.allCaps }}_APP_NAME=Example
 {{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze
 {{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.lower }} 2.20.0
 {{ $names.company.allCaps }}_SUPERVISOR_PORT=48484
 ```
 
-### Dbus communication with host OS
+### D-Bus communication with host OS
 
-In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all dbus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
+In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all D-Bus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
-__Note:__ In multicontainer applications, the `io.balena.features.dbus` label must be applied for each service that requires access to the dbus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
+__Note:__ In multicontainer applications, the `io.balena.features.dbus` label must be applied for each service that requires access to the D-Bus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
 
 ```
 # for {{ $names.company.lower }} supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
@@ -151,7 +149,7 @@ method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 
 
 The entry `NTPSynchronized` shows `true`, so the device is NTP synchronized.  (The key `NTP` only shows whether the device is using the systemd service `systemd-timesyncd`; starting from balenaOS 2.13.1, the `chrony` service is used for time management.)
 
-__Note:__ For additional dbus examples see the [{{$names.os.lower}} masterclass][os-masterclass]
+__Note:__ For additional D-Bus examples see the [{{$names.os.lower}} masterclass][os-masterclass]
 
 ### Blacklisting kernel modules won't work
 Since the `/etc/modules` you see in your container belongs to the container's filesystem and is not the same as `/etc/modules` in the host OS, adding kernel modules to the modules blacklist in the container will have no effect. So in order to remove a module, you need to explicitly do a [`rmmod`](http://linux.die.net/man/8/rmmod).
@@ -171,11 +169,11 @@ curl -X POST --header "Content-Type:application/json" \
 
 __Note:__ `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` and `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the [io.resin.features.supervisor-api][labels-link] set . You will also **need** `curl` installed in your container.
 
-Alternatively, it is possible to reboot the device via the dbus interface as described above.
+Alternatively, it is possible to reboot the device via the D-Bus interface as described above.
 
 ### Writing to logs on the Dashboard
 
-Anything written from the application to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our [example projects][projects-github] on github to get an idea of how to do this.
+Anything written from the application to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our [example projects][projects-github] on GitHub to get an idea of how to do this.
 
 ## Network
 
@@ -286,7 +284,7 @@ This will ensure that the host propagates udev events into the container, enabli
 
 **General tips for external media**
 
-Devices can be selected in many ways, for example by its device name (`/dev` entry), label, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices. Device names or UUIDs are a good choice when you can easily identify or predict their values, for example within the context of a UDev rule.
+Devices can be selected in many ways, for example by its device name (`/dev` entry), label, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices. Device names or UUIDs are a good choice when you can easily identify or predict their values, for example within the context of a udev rule.
 
 __Note:__ You can get a list of device names, labels and filesystem types by running `lsblk -f` (both on the host or container).
 
@@ -300,7 +298,7 @@ mount -t <fstype> -o rw -L <device-label> <mount-point>
 mount -t <fstype> -o rw -U <device-uuid> <mount-point>
 ```
 
-__Note:__ The mount point folder needs to exist for the mount to be successfull.
+__Note:__ The mount point folder needs to exist for the mount to be successful.
 
 For more information about the `mount` command see the [mount man page](http://man7.org/linux/man-pages/man8/mount.8.html).
 
@@ -314,9 +312,9 @@ umount <mount-point>
 
 For more information about the `umount` command see the [umount man page](http://man7.org/linux/man-pages/man8/umount.8.html).
 
-**Automounting/unmounting with UDev rules**
+**Automounting/unmounting with udev rules**
 
-The previous sections show how to manually mount or unmount external media. You probably want to automate this and have your media automatically mount/unmount when you plug it or unplug it. Fortunately this can be easily achieved by using UDev rules.
+The previous sections show how to manually mount or unmount external media. You probably want to automate this and have your media automatically mount/unmount when you plug it or unplug it. Fortunately this can be easily achieved by using udev rules.
 
 First we create a rules file `usb.rules`:
 
@@ -325,7 +323,7 @@ ACTION=="add", SUBSYSTEM=="block", ENV{DEVTYPE}=="partition", RUN+="/bin/sh -c '
 ACTION=="remove", SUBSYSTEM=="block", ENV{DEVTYPE}=="partition", RUN+="/bin/sh -c '/usr/src/scripts/unmount.sh'"
 ```
 
-These rules will trigger everytime we plug or unplug a block partition device and run the scripts we provide (`/usr/src/mount.sh` or `/usr/src/unmount.sh`).
+These rules will trigger every time we plug or unplug a block partition device and run the scripts we provide (`/usr/src/mount.sh` or `/usr/src/unmount.sh`).
 
 Copy both the rules and scripts to your container:
 ```Dockerfile
@@ -333,9 +331,9 @@ COPY usb.rules /etc/udev/rules.d/usb.rules
 COPY scripts /usr/src/scripts
 ```
 
-Finally we need to write the `mount.sh` and `unmount.sh` scripts. These scripts will use `mount` and `umount` commands in the same way we described on the **Mounting** and **Unmounting** sections above. 
+Finally we need to write the `mount.sh` and `unmount.sh` scripts. These scripts will use `mount` and `umount` commands in the same way we described on the **Mounting** and **Unmounting** sections above.
 
-You can find a fully working example of automounting/unmounting devices with UDev rules in this [project]({{ $links.githubPlayground }}/balena-storage).
+You can find a fully working example of automounting/unmounting devices with udev rules in this [project]({{ $links.githubPlayground }}/balena-storage).
 
 **Sharing mounted devices across containers**
 
