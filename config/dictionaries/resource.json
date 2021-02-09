@@ -4,6 +4,7 @@
     "name": "Application",
     "fields": [
       "id",
+      "uuid",
       "organization",
       "depends_on__application",
       "actor",
@@ -336,19 +337,10 @@
       {
         "id": "get-target-release",
         "summary": "Get the release device is pinned to",
-        "description": "Note: should_be_running__release will be unset or null if the device isn't pinned to any release. For an unpinned device, the device.is_on__commit field may be used to obtain the device's current state, while the application.commit field represents the device's target state.",
+        "description": "Note: should_be_running__release will be unset or null if the device isn't pinned to any release. For an unpinned device, the device.is_running__release field may be used to obtain the device's current state.",
         "method": "GET",
         "endpoint": "/v6/device(<ID>)",
         "filters": "?\\$select=should_be_running__release",
-        "data": ""
-      },
-      {
-        "id": "get-current-release",
-        "summary": "Get current release running on device",
-        "description": "The is_on__commit field contains the hash of the release currently deployed to the device.",
-        "method": "GET",
-        "endpoint": "/v6/device(<ID>)",
-        "filters": "?\\$select=is_on__commit",
         "data": ""
       },
       {
@@ -590,10 +582,10 @@
     "id": "application_environment_variable",
     "name": "Fleet environment variable",
     "fields": [
-      "id", 
-      "created_at", 
-      "application", 
-      "name", 
+      "id",
+      "created_at",
+      "application",
+      "name",
       "value"
     ],
     "examples": [
@@ -901,7 +893,7 @@
     "name": "Supervisor release",
     "fields": [
       "id",
-      "supervisor_version", 
+      "supervisor_version",
       "is_for__device_type",
       "image_name"
     ],
@@ -923,8 +915,7 @@
       "id",
       "actor",
       "username",
-      "created_at",
-      "has_legacy_link_to__organization"
+      "created_at"
     ],
     "examples": [
       {
