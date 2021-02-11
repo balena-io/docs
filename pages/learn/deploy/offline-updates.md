@@ -37,13 +37,13 @@ To perform an offline update, we will be using [balena-cli](https://www.balena.i
 Offline update includes the following steps:
 
 - [Setup](#setup)
-- [Create/Use Pre-existing Application](#createuse-pre-existing-application)
-- [Create/Use Pre-existing Offline Device](#createuse-pre-existing-offline-device)
-- [Download balenaOS Image](#download-balenaos-image)
+- [Create/use pre-existing application](#createuse-pre-existing-application)
+- [Create/use pre-existing offline device](#createuse-pre-existing-offline-device)
+- [Download balenaOS image](#download-balenaos-image)
 - [Configure balenaOS image](#configure-balenaos-image)
 - [Create and preload release](#create-and-preload-release)
-- [Create Update Media](#create-update-media)
-- [Process of Reprovisioning](#process-of-reprovisioning)
+- [Create update media](#create-update-media)
+- [Process of reprovisioning](#process-of-reprovisioning)
 - [Update device registration(s)](#update-device-registrations)
 
 ### Setup
@@ -96,6 +96,10 @@ If a new offline device is being created, then the following command can be used
 
 ```bash
 $ uuid=$(uuidgen | tr '[:upper:]' '[:lower:]' | sed 's/-//g')
+```
+OR
+```
+$ uuid=<UUID OF YOUR DEVICE>
 ```
 
 With `balena device register`, devices can be preregistered to a balenaCloud application involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass][balena-cli advanced masterclass]. This step can be skipped if a pre-existing device is needed to be updated.
@@ -159,7 +163,7 @@ Since preload involves flashing an application release with the balenaOS image, 
 ```bash
 $ date +%s > app/.epoch
 
-$ balena deploy ${app_slug} --build --source .
+$ balena deploy ${app_slug} --build --emulated --source .
 ```
 
 The following steps will flash the latest release onto the balenaOS image downloaded in the previous steps and pin the device to mentioned release commit.
@@ -209,13 +213,15 @@ If the target device is connected via a low-bandwidth connection, it should even
 
 ### Update Device Registration(s)
 
-This section deals with device registration.
+This section deals with device registration in the cloud (balenaCloud or openBalena). The following steps help in manually reflecting the new state of the device for offline devices or devices on private networks without Internet access.
 
-> manually reflect the new state of the device in balenaCloud for offline devices or devices on private networks without Internet access
+#### Patch State Endpoint - Update Device State in the Cloud
 
-#### Patch State Endpoint
-
-This step is strictly not required for devices with low bandwidth internet connections. Those devices would be able to update the state endpoint automatically.
+This step updates the device state in the cloud (balenaCloud or openBalena)
+on behalf of the device, as if the device was online. It is only required for
+devices that do not have an internet connection. If the device has an internet
+connection, even if low bandwidth, this step may be skipped because the device
+itself will be able to contact the cloud to update its state.
 
 ```bash
 $ os_version_tag=$(echo ${os_version} | awk -F'+' '{print $1}')
@@ -241,7 +247,7 @@ $ curl --silent \
     --data-binary "{\"os_variant\":\"${os_variant}\",\"os_version\":\"balenaOS ${os_version_semver}+${os_revision}\",\"supervisor_version\":\"${supervisor_version}\",\"is_running__release\":${release_id}}"
 ```
 
-#### [Optional] Set Tags
+#### [Optional] Set Tags on Devices
 
 Tags help identify and track devices in your fleet as to what commit and OS version have they been flashed & updated offline with. One can use [`balena tag set`][balena-tag-set] to create new tags as needed.
 
