@@ -18,7 +18,7 @@ With the offline updates process, the device still resets to a default factory s
 3. Inserting the custom `config.json` file into the downloaded balenaOS image.
 4. Running `balena preload` on the image, pointing to whichever version of your code you want to deploy to the device.
 5. Flashing this preloaded image to an SD card, a device's eMMC or a separate (flasher) USB drive.
-6. Updating device state on balenaCloud and optionally tag the device.
+6. Updating device state on balenaCloud and optionally tagging the device.
 
 When you insert the SD card or USB drive into your device and boot it, the device will be reflashed, retaining its balena identity, and all your updates will be in place and running.
 
@@ -30,7 +30,7 @@ If this is the case, mount an external mass storage (USB) device into a privileg
 
 ## Performing an Offline Update
 
-To perform an offline update, we will be using [balena-cli](https://www.balena.io/docs/reference/balena-cli/). All commands should work on Linux distributions running Docker on Linux Kernel with AUFS and overlay filesystem support. For Windows and macOS, the last version of Docker Desktop supporting AUFS is 18.06.1
+To perform an offline update, we will be using [balena-cli][balena-cli]. All commands should work on Linux distributions running Docker on Linux Kernel with AUFS and overlay filesystem support. For Windows and macOS, the last version of Docker Desktop supporting AUFS is 18.06.1
 
 > Note: In an offline updates process, all data on the device is wiped at this point, making this different from a typical software update process in the balena ecosystem. Any additional user data and system settings written to various device partitions would be lost in this process.
 
@@ -45,6 +45,8 @@ Offline update includes the following steps:
 - [Create update media](#create-update-media)
 - [Process of reprovisioning](#process-of-reprovisioning)
 - [Update device registration(s)](#update-device-registrations)
+
+The process needs some prerequiste knowledge of the balena ecosystem, [balena-cli][balena-cli] commands and shell commands. Please read all instructions carefully and make sure to try the update process first on a test device.
 
 ### Setup
 
@@ -68,7 +70,7 @@ $ ssh_key=id_ed25519.pub
 
 ### Create/Use Pre-existing Application
 
-Initialize the `arch` and `device-type` environment variable with correct CPU architecture (`aarch64`, `armv7l`, etc.) and device type (`raspberrypi4-64`, `raspberrypi3`, etc.). The list of names for supported device types and their architectures can be found on the [hardware][supporteddeviceslist] page.
+Initialize the `arch` and `device-type` environment variable with correct CPU architecture (`aarch64`, `armv7l`, etc.) and device type (`raspberrypi4-64`, `raspberrypi3`, etc.). The list of names for supported device types and their architectures can be found on the [hardware][supported-devices-list] page.
 
 If a pre-existing application needs to be re-used, then initialize the `app_name` variable with that application's name.
 
@@ -102,7 +104,7 @@ OR
 $ uuid=<UUID OF YOUR DEVICE>
 ```
 
-With `balena device register`, devices can be preregistered to a balenaCloud application involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass][balena-cli advanced masterclass]. This step can be skipped if a pre-existing device is needed to be updated.
+With [`balena device register`][balena-device-register], devices can be preregistered to a balenaCloud application involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass][balena-cli advanced masterclass]. This step can be skipped if a pre-existing device is needed to be updated.
 
 ```bash
 $ balena device register ${app_slug} --uuid ${uuid}
@@ -123,7 +125,7 @@ $ balena os download ${device_type} \
 
 ### Configure balenaOS Image
 
-Configure the downloaded image by injecting a [config.json][config-file] file using the [`balena os configure`][balena-os-configure] command. Most common system settings can be (re)specified via [config.json](config-file). To preserve the pre-existing registered device's identity, the same `uuid` initialized earlier will be used to generate a config.json file.
+Configure the downloaded image by injecting a [config.json][config-file] file using the [`balena os configure`][balena-os-configure] command. Most common system settings can be (re)specified via [config.json][config-file]. To preserve the pre-existing registered device's identity, the same `uuid` initialized earlier will be used to generate a config.json file.
 
 ```bash
 $ tmpconfig=$(mktemp)
@@ -158,7 +160,7 @@ Offline update revolve around the concept of [balena preload][balena-preload]. P
 
 > Important note: [balena preload](https://github.com/balena-io/balena-cli/blob/master/INSTALL-MAC.md#balena-preload) functionality requires Docker with AUFS support.
 
-Since preload involves flashing an application release with the balenaOS image, if the pre-existing application doesn't have any releases, then a release needs to be created. If release is present already, then the next step can be skipped.
+Since preload involves flashing an application release with the balenaOS image, if the pre-existing application doesn't have any releases, then a release needs to be created using [`balena deploy`][balena-deploy]. Navigate to the directory of your source code folder and run the command below to deploy the latest release of your application. If a release is present already, then the next step can be skipped.
 
 ```bash
 $ balena deploy ${app_slug} --build --emulated --source .
@@ -184,7 +186,6 @@ Next, a USB flash drive, an SD card or any relevant storage media needs to be pr
 ```bash
 # list the devices available to flash
 $ balena util available-drives
-/dev/...
 
 # Please make sure `--drive` is really the disk you want to write to.
 $ sudo balena local flash ${tmpimg} \
@@ -199,15 +200,15 @@ $ rm ${tmpimg}
 
 With the update media ready having the latest release of the application preloaded. Follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
 
-For example: For Raspberrypi devices, insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect application logs, etc.
+For example: For Raspberry Pi devices, insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect application logs, etc.
 
 #### Strategies to remotely update with an SD card or USB device
 
 If a device isn't locally deployed, one can ship the flashed SD cards or USB sticks/drives to a remote location. There someone can run the update by simply inserting them into the devices and booting.
 
-If the target device exists on an air-gapped or Internet restricted network, inserting [ssh](https://www.balena.io/docs/reference/OS/configuration/#sshkeys) keys during the configuration step will allow fleet managers at the remote site to connect into the device directly via OpenSSH and verify the update by examining container logs, etc.
+If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys][insert-ssh-key] during the configuration step will allow fleet managers at the remote site to connect into the device directly via OpenSSH and verify the update by examining container logs, etc.
 
-If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [Web Terminal][web-terminal] commands and output container logs to the dashboard.
+If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal][web-terminal] commands and output container logs to the dashboard.
 
 ### Update Device Registration(s)
 
@@ -260,13 +261,16 @@ $ balena tag set 'offline:hostOS' "${os_version}" \
 
 Read more about how the process can work better for your usecase in the [offline updates](https://balena.io/blog/offline-updates-make-it-easier-to-update-balena-devices-without-the-internet) blog.
 
-[named volumes]: /learn/develop/multicontainer/#named-volumes
+[named-volumes]: /learn/develop/multicontainer/#named-volumes
 [persistent-logging]: /reference/OS/configuration/#persistentlogging
 [balena-cli]: /reference/balena-cli/
-[supporteddeviceslist]: /reference/hardware/devices/
+[supported-devices-list]: /reference/hardware/devices/
 [balena-cli advanced masterclass]: /learn/more/masterclasses/advanced-cli/#52-preregistering-a-device
+[balena-deploy]:/learn/deploy/deployment/#balena-build--deploy
 [balenaOS]:{{ $links.osSiteUrl }}
+[insert-ssh-key]:/reference/OS/configuration/#sshkeys
 [balena-os-configure]:/reference/balena-cli/#os-configure-image
+[balena-device-register]:/reference/balena-cli/#device-register-application
 [config-file]:/reference/OS/configuration/#valid-fields
 [balena-preload]:/reference/balena-cli/#preload
 [preloading-device-image]:/learn/more/masterclasses/advanced-cli/#51-preloading-a-device-image
