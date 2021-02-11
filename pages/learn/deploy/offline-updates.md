@@ -123,7 +123,7 @@ $ balena os download ${device_type} \
 
 ### Configure balenaOS Image
 
-Next, configure the downloaded image by injecting a [config.json][config-file] file using the [`balena os configure`][balena-os-configure] command. Most common system settings can be (re)specified via [config.json](config-file). To preserve the pre-existing registered device's identity, the same `uuid` initialized earlier will be used to generate a config.json file.
+Configure the downloaded image by injecting a [config.json][config-file] file using the [`balena os configure`][balena-os-configure] command. Most common system settings can be (re)specified via [config.json](config-file). To preserve the pre-existing registered device's identity, the same `uuid` initialized earlier will be used to generate a config.json file.
 
 ```bash
 $ tmpconfig=$(mktemp)
@@ -158,11 +158,9 @@ Offline update revolve around the concept of [balena preload][balena-preload]. P
 
 > Important note: [balena preload](https://github.com/balena-io/balena-cli/blob/master/INSTALL-MAC.md#balena-preload) functionality requires Docker with AUFS support.
 
-Since preload involves flashing an application release with the balenaOS image, if the pre-existing application doesn't have any releases, then a release needs to be created. If present already, then the next step can be skipped.
+Since preload involves flashing an application release with the balenaOS image, if the pre-existing application doesn't have any releases, then a release needs to be created. If release is present already, then the next step can be skipped.
 
 ```bash
-$ date +%s > app/.epoch
-
 $ balena deploy ${app_slug} --build --emulated --source .
 ```
 
@@ -235,13 +233,14 @@ $ supervisor_version=$(curl --silent https://raw.githubusercontent.com/balena-os
     | sed 's/"//g' \
     | sed 's/v//g')
 
-# (e.g.) staging
+$ if [ -z "$BALENARC_BALENA_URL" ]; then BALENARC_BALENA_URL=balena-cloud.com; fi
+
 $ release_id=$(curl --silent \
-    "https://api.balena-staging.com/v6/release?\$filter=startswith(commit,'${commit}')&\$select=id" \
+    "https://api.${BALENARC_BALENA_URL}/v6/release?\$filter=startswith(commit,'${commit}')&\$select=id" \
     -H "Authorization: Bearer $(cat ~/.balena/token)" | jq -r .d[].id)
 
 $ curl --silent \
-    -X 'PATCH' "https://api.balena-staging.com/v6/device(uuid='${uuid}')" \
+    -X 'PATCH' "https://api.${BALENARC_BALENA_URL}/v6/device(uuid='${uuid}')" \
     -H "Authorization: Bearer $(cat ~/.balena/token)" \
     -H 'Content-type: application/json' \
     --data-binary "{\"os_variant\":\"${os_variant}\",\"os_version\":\"balenaOS ${os_version_semver}+${os_revision}\",\"supervisor_version\":\"${supervisor_version}\",\"is_running__release\":${release_id}}"
@@ -260,7 +259,6 @@ $ balena tag set 'offline:hostOS' "${os_version}" \
 ```
 
 Read more about how the process can work better for your usecase in the [offline updates](https://balena.io/blog/offline-updates-make-it-easier-to-update-balena-devices-without-the-internet) blog.
-Here's an [example project](https://github.com/balena-io-example/offline-updates/) to demonstrate offline updates for offline devices with user data mounted on external storage media persisting between hostOS and application updates.
 
 [named volumes]: /learn/develop/multicontainer/#named-volumes
 [persistent-logging]: /reference/OS/configuration/#persistentlogging
