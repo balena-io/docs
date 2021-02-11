@@ -529,6 +529,23 @@
         "endpoint": "/v6/device_tag",
         "filters": "",
         "data": "{\n    \"device\": \"<DEVICE ID>\",\n    \"tag_key\": \"<KEY>\",\n    \"value\": \"<VALUE>\"\n}"
+      },
+      {
+        "id": "update-tag",
+        "summary": "Update a device tag",
+        "description": "",
+        "method": "PATCH",
+        "endpoint": "/v6/device_tag",
+        "filters": "?\\$filter=device/uuid%20eq%20'<UUID>'",
+        "data": "{\n    \"tag_key\": \"<EXISTING-KEY>\",\n    \"value\": \"<NEW-VALUE>\"\n}"
+      },
+      {
+        "id": "delete-tag",
+        "summary": "Delete a device tag given its database ID",
+        "description": "",
+        "method": "DELETE",
+        "endpoint": "/v6/device_tag(<TAG-ID>)",
+        "filters": ""
       }
     ]
   },
