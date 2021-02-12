@@ -43,8 +43,8 @@ Offline update includes the following steps:
 - [Configure balenaOS image](#configure-balenaos-image)
 - [Create and preload release](#create-and-preload-release)
 - [Create update media](#create-update-media)
-- [Process of reprovisioning](#process-of-reprovisioning)
 - [Update device registration(s)](#update-device-registrations)
+- [Process of reprovisioning](#process-of-reprovisioning)
 
 The process needs some prerequiste knowledge of the balena ecosystem, [balena-cli][balena-cli] commands and shell commands. Please read all instructions carefully and make sure to try the update process first on a test device.
 
@@ -174,7 +174,7 @@ $ commit=$(balena app ${app_slug} | grep COMMIT | awk '{print $2}')
 $ balena preload ${tmpimg} \
     --app ${app_slug} \
     --commit ${commit} \
-    --pin-device-to-release
+    --no-pin-device-to-release
 ```
 
 ### Create Update Media
@@ -194,33 +194,25 @@ $ sudo balena local flash ${tmpimg} \
 $ rm ${tmpimg}
 ```
 
-### Process of Reprovisioning
-
-> Warning: For devices with internal storage, this procedure erases the internal media of your device. Hence, remove any mass storage devices containing user data.
-
-With the update media ready having the latest release of the application preloaded. Follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
-
-For example: For Raspberry Pi devices, insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect application logs, etc.
-
-#### Strategies to remotely update with an SD card or USB device
-
-If a device isn't locally deployed, one can ship the flashed SD cards or USB sticks/drives to a remote location. There someone can run the update by simply inserting them into the devices and booting.
-
-If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys][insert-ssh-key] during the configuration step will allow fleet managers at the remote site to connect into the device directly via OpenSSH and verify the update by examining container logs, etc.
-
-If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal][web-terminal] commands and output container logs to the dashboard.
-
 ### Update Device Registration(s)
 
-This section deals with device registration in the cloud (balenaCloud or openBalena). The following steps help in manually reflecting the new state of the device for offline devices or devices on private networks without Internet access.
+This section deals with device registration in the cloud (balenaCloud or openBalena). The following steps help in
+* manually reflecting the new state of the device for offline devices or devices on private networks without Internet access
+* prevent devices with restricted or low bandwidth connectivity from trying to download newer releases.
 
 #### Patch State Endpoint - Update Device State in the Cloud
 
 This step updates the device state in the cloud (balenaCloud or openBalena)
-on behalf of the device, as if the device was online. It is only required for
-devices that do not have an internet connection. If the device has an internet
-connection, even if low bandwidth, this step may be skipped because the device
-itself will be able to contact the cloud to update its state.
+on behalf of the device, as if the had just installed the new release. It is
+optional for devices that do not have an internet connection, but mandatory if
+the device has a unreliable/limited connectivity or low bandwidth internet
+connection.
+
+In such unreliable or limited bandwidth connection situations, you will need to
+run the commands of this step after you have powered off the device. This step
+will pin the device to the release that was preloaded to the image, to ensure
+that the device doesn't attempt to download a newer release over an unreliable
+or limited bandwidth connection.
 
 ```bash
 $ os_version_tag=$(echo ${os_version} | awk -F'+' '{print $1}')
@@ -244,7 +236,7 @@ $ curl --silent \
     -X 'PATCH' "https://api.${BALENARC_BALENA_URL}/v6/device(uuid='${uuid}')" \
     -H "Authorization: Bearer $(cat ~/.balena/token)" \
     -H 'Content-type: application/json' \
-    --data-binary "{\"os_variant\":\"${os_variant}\",\"os_version\":\"balenaOS ${os_version_semver}+${os_revision}\",\"supervisor_version\":\"${supervisor_version}\",\"is_running__release\":${release_id}}"
+    --data-binary "{\"os_variant\":\"${os_variant}\",\"os_version\":\"balenaOS ${os_version_semver}+${os_revision}\",\"supervisor_version\":\"${supervisor_version}\",\"is_running__release\":${release_id},\"should_be_running__release\":${release_id}}"
 ```
 
 #### [Optional] Set Tags on Devices
@@ -258,6 +250,22 @@ $ balena tag set 'offline:commit' "${commit}" \
 $ balena tag set 'offline:hostOS' "${os_version}" \
   --device ${uuid}
 ```
+
+### Process of Reprovisioning
+
+> Warning: For devices with internal storage, this procedure erases the internal media of your device. Hence, remove any mass storage devices containing user data.
+
+With the update media ready having the latest release of the application preloaded. Follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
+
+For example: For Raspberry Pi devices, insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect application logs, etc.
+
+#### Strategies to remotely update with an SD card or USB device
+
+If a device isn't locally deployed, one can ship the flashed SD cards or USB sticks/drives to a remote location.
+
+If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys][insert-ssh-key] during the configuration step will allow fleet managers at the remote site to connect into the device directly via OpenSSH and verify the update by examining container logs, etc. In such cases someone can run the update by simply inserting them into the devices and booting.
+
+If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal][web-terminal] commands and output container logs to the dashboard.
 
 Read more about how the process can work better for your usecase in the [offline updates](https://balena.io/blog/offline-updates-make-it-easier-to-update-balena-devices-without-the-internet) blog.
 
