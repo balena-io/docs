@@ -36,8 +36,8 @@
         "summary": "Get all applications associated with authenticated user",
         "description": "",
         "method": "GET",
-        "endpoint": "/v6/application?$filter=is_directly_accessible_by__user/any(dau:1%20eq%201)",
-        "filters": ""
+        "endpoint": "/v6/application",
+        "filters": "?\\$filter=is_directly_accessible_by__user/any(dau:1%20eq%201)"
       },
       {
         "id": "app-by-id",
