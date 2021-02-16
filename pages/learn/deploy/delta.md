@@ -1,7 +1,6 @@
 ---
 title: Delta updates
 excerpt: How binary delta updates work on {{ $names.company.lower }}, and how to enable it for your applications
-thumbnail: /img/runtime/ResinSupervisorDelta.png
 ---
 
 # Delta updates
@@ -14,19 +13,11 @@ Once the delta (difference between the old and new image) is calculated, the dev
 
 These binary deltas save on the amount of data needed to be downloaded, reduce the storage space requirements on the device to perform an application update, and shorten the time when Docker is updating.
 
-## Enabling/Disabling delta updates
+## Enabling delta updates
 
-__Note__: Delta updates are enabled by default for devices running {{ $names.os.lower }} >= 2.47.1 or [ESR](esr) versions >= 2020.04
+__Note__: Delta updates are already enabled for devices running {{ $names.os.lower }} >= 2.47.1 or [ESR](esr) versions >= 2020.04
 
-For any devices running {{ $names.os.lower }} >= 2.47.1, the delta update behavior is enabled by default. For devices running {{ $names.os.lower }} < 2.47.1, updating to >= 2.47.1 via a [self-service update][self-service-update] will enable delta updates for the device. Alternatively, the delta update behavior may be enabled or disabled application-wide or per-device with the `RESIN_SUPERVISOR_DELTA` configuration variable.
-
-![Setting the fleet configuration to enable delta behavior](/img/runtime/ResinSupervisorDelta.png)
-
-To enable this behavior application-wide, that is for all devices of a given application, set the above variable at **Fleet Configuration** in the {{ $names.company.lower }} dashboard of your application, through the {{ $names.company.lower }} [API](/reference/api/resources/application_config_variable/), through the SDK (in [Node.js](/reference/sdk/node-sdk/#configvar-set-nameorid-key-value-code-promise-code-) or [Python](/reference/sdk/python-sdk/#applicationconfigvariable)), or the [command line interface](/tools/cli/#envs).
-
-To enable this behavior on a per-device basis, set the above variable at **Device Configuration** in the {{ $names.company.lower }} dashboard for your device, through the {{ $names.company.lower }} [API](/runtime/data-api/#create-device-variable), through the SDK (in [Node.js](/reference/sdk/node-sdk/#configvar-set-uuidorid-key-value-code-promise-code-) or [Python](/reference/sdk/python-sdk/#deviceconfigvariable)), or the [command line interface](/tools/cli/#envs). If the device is [moved to another application](/management/devices/#move-to-another-application), it will keep the delta updates behavior regardless of the application setting.
-
-Similarly, you may disable the delta update behavior application-wide or per-device.
+For any devices running {{ $names.os.lower }} >= 2.47.1, the delta update behavior is enabled by default. For devices running {{ $names.os.lower }} < 2.47.1, updating to >= 2.47.1 via a [self-service update][self-service-update] will enable delta updates for the device.
 
 ## Delta behavior
 
