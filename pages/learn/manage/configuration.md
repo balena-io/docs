@@ -17,7 +17,6 @@ This list contains configuration variables that can be used with {{ $names.compa
 Name | Default | Description | Valid from
 --- | --- | --- | ---
 RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
-RESIN_SUPERVISOR_DELTA | false | Enable / Disable [delta updates][deltas] | v1.7.0
 RESIN_SUPERVISOR_LOCAL_MODE | false | Enable / Disable [local mode][local-mode] | v4.0.0
 RESIN_SUPERVISOR_LOG_CONTROL | true | Enable / Disable logs being sent to the {{ $names.company.lower }} API | v1.3.0
 RESIN_SUPERVISOR_POLL_INTERVAL | 900000 | Define the {{ $names.company.lower }} API poll interval in milliseconds. This interval will only matter if the device is not connected to the VPN at the time an update is pushed, or if RESIN_SUPERVISOR_INSTANT_UPDATE_TRIGGER is set to false. Starting from supervisor v9.13.0, the supervisor will use a random time between 0.5 and 1.5 times this poll interval each time it checks the balenaCloud API. The minimum value for this variable is defined by the balenaCloud backend, and may vary. | v1.3.0
@@ -74,7 +73,6 @@ You can override the value of a custom fleet configuration variable by clicking 
 
 <img alt="Override device configuration" src="/img/configuration/override_config.png" width="60%">
 
-[deltas]:/learn/deploy/delta
 [local-mode]:/learn/develop/local-mode
 [update-locking]:/learn/deploy/release-strategy/update-locking
 [boot-config-guide]:/reference/OS/advanced/#modifying-configtxt-remotely
