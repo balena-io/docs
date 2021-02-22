@@ -4,9 +4,9 @@ __Note:__ The Intel NUC image provides generic x86 device support. While the ins
 
 At its most basic, the process for deploying code to an **{{ $device.name }}** consists of two major steps:
 
-- Setting up your **{{ $device.name }}** with {{ $names.os.lower }}, the host OS that manages communication with {{ $names.company.lower }} and runs the core device operations.
+- Setting up your **{{ $device.name }}** with {{ $names.os.lower }}, the [host OS][host-os] that manages communication with {{ $names.company.lower }} and runs the core device operations.
 - Pushing your **{{ $language.name }}** project to the {{ $names.company.lower }} image builder, which pulls in all necessary dependencies and creates the container image for your application.
 
 Once these steps are finished, your **{{ $device.name }}** will download the container image, kick off your application, and begin sending logs to your {{ $names.company.lower }} dashboard!
 
-
+[host-os]:/reference/OS/overview/2.x/
