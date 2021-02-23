@@ -113,7 +113,7 @@
         "method": "PATCH",
         "endpoint": "/v6/application(<ID>)",
         "filters": "",
-        "data": "{\n    \"commit\": \"<COMMIT HASH>\"\n}"
+        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n    \"should_track_latest_release\": false\n}"
       }
     ]
   },
