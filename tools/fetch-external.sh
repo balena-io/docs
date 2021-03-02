@@ -29,19 +29,12 @@ cd shared/sdk/ && {
   # Extract deprecation text
   ../../tools/extract-markdown.sh "Deprecation policy" < README.md > deprecation-policy.md
   cd -
-}  
+}
 
 # get latest supervisor API docs
 cd pages/reference/supervisor/ && {
   curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/API.md
   mv API.md supervisor-api.md
-  cd -
-}
-
-# get latest supervisor upgrade docs
-cd pages/reference/supervisor/ && {
-  curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/upgrades.md
-  mv upgrades.md upgrade-policy.md
   cd -
 }
 
@@ -63,7 +56,7 @@ cd shared/meta-balena/ && {
   mv README.md meta-balena.md
   # Extract modem text
   ../../tools/extract-markdown.sh "Modems" < meta-balena.md > supported-modems.md
-  # Extract Wifi adapters   
+  # Extract Wifi adapters
   ../../tools/extract-markdown.sh "WiFi Adapters" < meta-balena.md > supported-wifi-adapters.md
   # Extract config.json
   ../../tools/extract-markdown.sh "config.json" < meta-balena.md > config-json.md
