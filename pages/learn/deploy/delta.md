@@ -15,7 +15,7 @@ These binary deltas save on the amount of data needed to be downloaded, reduce t
 
 ## Enabling delta updates
 
-__Note__: Delta updates are already enabled for devices running {{ $names.os.lower }} >= 2.47.1 or [ESR](esr) versions >= 2020.04
+__Note__: Delta updates are already enabled for devices running {{ $names.os.lower }} >= 2.47.1 or [ESR](esr) versions >= 2020.04 and can be selectively disabled per device. Note that the value of the fleet configuration variable controlling deltas is ignored by these devices.
 
 For any devices running {{ $names.os.lower }} >= 2.47.1, the delta update behavior is enabled by default. For devices running {{ $names.os.lower }} < 2.47.1, updating to >= 2.47.1 via a [self-service update][self-service-update] will enable delta updates for the device.
 
