@@ -6,7 +6,7 @@ title: Billing
 
 Billing in balenaCloud is managed through [organizations][organizations]. To manage billing for a specific organization, navigate to the organization and select the `Billing` tab from the sidebar on the left:
 
-<img src="/img/common/billing/billing_nav.png" width="100%">
+<img src="/img/common/billing/billing_nav.png" width="25%">
 
 From this dashboard, you can change your billing plan, update your billing information, monitor your usage, and download invoices. If you have any questions about billing for your account, please contact [our customer success team][solutions].
 
