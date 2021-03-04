@@ -78,6 +78,7 @@ Learn
   MORE RESOURCES
     [/learn/more/examples/seed-projects]
     [/learn/more/examples/projects]
+    [/learn/more/examples/balenablocks]
     [/learn/more/collected-data]
     Masterclasses
       [/learn/more/masterclasses/overview]
