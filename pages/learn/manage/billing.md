@@ -4,7 +4,29 @@ title: Billing
 
 # Billing
 
-The billing page can be found in the dropdown at the top-right of the dashboard, directly beneath the account preferences. From this dashboard, you can sign up for a paid plan, update your information, change your plan, monitor your usage, and download invoices. If you have any doubts or questions about the billing information shown for your account, please contact [our sales team][sales].
+Billing in balenaCloud is managed through [organizations][organizations]. To manage billing for a specific organization, navigate to the organization and select the `Billing` tab from the sidebar on the left:
+
+<img src="/img/common/billing/billing_nav.png" width="25%">
+
+From this dashboard, you can change your billing plan, update your billing information, monitor your usage, and download invoices. If you have any questions about billing for your account, please contact [our customer success team][solutions].
+
+## Changing your billing plan
+
+To modify or upgrade your billing plan, click the "Change plan" button on the billing page:
+
+<img src="/img/common/billing/current_plan.png" width="100%">
+
+Select the plan you'd like to upgrade to from the list of available options:
+
+<img src="/img/common/billing/plan_selection.png" width="100%">
+
+Enter your billing information and complete the signup process: 
+
+<img src="/img/common/billing/billing_info.png" width="100%">
+
+If you need to downgrade or cancel your plan, you can follow the steps mentioned above by choosing a lower tier or free plan instead.  
+
+Certain plan levels and custom plans may require you to contact our customer success team in order to complete an upgrade or downgrade. If you find yourself in this situation, please contact [our customer success team][solutions]. 
 
 ## Account settings and usage
 
@@ -24,7 +46,7 @@ At the bottom of this page, you'll find more information on the available [plans
 
 ## Dynamic billing
 
-From August 15th, 2018, and onward, we will be tracking usage dynamically. For any usage that is outside the limits defined by your plan, you will be billed. Dynamic billing for devices and users outside of your plan will occur every month, even for those on annual plans.
+Any usage above what is included in your current billing plan will be tracked and billed dynamically in arrears. Dynamic billing will occur every month, even for those on annual plans.
 
 For both devices and users, usage is calculated based on the maximum number in your account at any point during the month. **This includes all [active devices][inactive], whether online or offline.**
 
@@ -38,7 +60,8 @@ If you have devices that will be inactive for long periods of time, you can mark
 
 Marking a device as `Inactive` is a [device action][device-action]. Device actions can be applied in one of three ways: as a group action applied to one or more devices in the device list, as an action selected from the dropdown on the device dashboard, or directly from the *Actions* tab of the device dashboard. Once a device has been marked `Inactive`, it will be faded out in the device list.
 
-[sales]:mailto:sales@{{ $names.email_domain }}
+[solutions]:mailto:solutions@{{ $names.email_domain }}
 [plans]:{{ $links.mainSiteUrl }}/pricing/
 [device-action]:/learn/manage/actions/#device-specific-actions
 [inactive]:#inactive-devices
+[organizations]:/learn/manage/organizations/
