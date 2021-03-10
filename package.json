@@ -30,7 +30,7 @@
   "dependencies": {
     "@resin.io/doxx": "0.11.4",
     "bootstrap": "3.4.1",
-    "bootstrap-select": "1.12.2",
+    "bootstrap-select": "1.13.6",
     "coffee-script": "~1.10.0",
     "express": "^4.13.4",
     "express-http-to-https": "1.1.4",
