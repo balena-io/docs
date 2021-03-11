@@ -127,7 +127,7 @@ Applications with all their associated devices, releases and members can be tran
 Only organization [administrators][administrator] can initiate and complete application transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
 
 1. Take note of the application name in the **source** organization and your balenaCloud username (*in the top-right drop-down menu*).
-2. Ask an administrator of the **target** balenaCloud organization to create a new empty application using the same application name.
+2. Ask an administrator of the **target** balenaCloud organization to create a new empty application of [any type][app-types] using the same application name.
 3. Ask the administrator of the **target** balenaCloud organization to [add you as a member][add-application-member] of the newly created application with a [`Developer`][developer] role, using your username. If you are an administrator of the **target** organization, you already have access to the new application & this step can be skipped.
 4. In the **source** organization, select **<Application>** --> **Actions** --> **Transfer This Application** and pick the **target** organization from the list to complete the transfer.
 
