@@ -5,7 +5,7 @@ excerpt: How {{ $names.company.lower }} gets your code to your device fleet, fro
 
 # A {{ $names.company.lower }} primer
 
-The {{ $names.company.lower }} platform encompasses device, server, and client software, all designed to get your code securely deployed to a fleet of devices. The broad strokes are easy to grasp: once your device is set up with our [host OS][os-docs], you can push code to the {{ $names.company.lower }} [build servers][build], where it will be packaged into containers and delivered to your fleet. All your devices and their services can be managed, monitored, and updated from your [{{ $names.cloud.lower }} dashboard][dashboard].
+The {{ $names.company.lower }} platform encompasses device, server, and client software, all designed to get your code securely deployed to a fleet of devices. The broad strokes are easy to grasp: once your device is set up with our [host OS][os-docs], you can push code to the {{ $names.company.lower }} [servers][build], where it will be packaged into containers and delivered to your fleet. All your devices and their services can be managed, monitored, and updated from your [{{ $names.cloud.lower }} dashboard][dashboard].
 
 If you're eager to learn more about the inner workings, you're in luck! This guide covers the components and workflows involved in a typical {{ $names.company.lower }} deployment, with enough detail to answer the most common questions. If you're ready to dig in deeper, why not [get started][getting-started] with a project of your own?
 
@@ -60,7 +60,7 @@ Once your services are up and running, you can use the dashboard to monitor and 
 Much of the device, service, and application information provided by the dashboard is managed through the [{{ $names.company.lower }} API][api], and can also be viewed and modified using the [CLI][cli] or the [Node.js][node] and [Python][python] SDKs. {{ $names.company.upper }} has been designed so users can build rich experiences, combining device-level data provided by {{ $names.company.lower }} with higher-level application-specific data that lives in other data domains.
 
 [os-docs]:/reference/OS/overview/2.x/
-[build]:/learn/deploy/deployment
+[build]:/learn/deploy/deployment/#the-balenacloud-build-server
 [dashboard]:{{ $links.dashboardUrl }}/
 [getting-started]:/learn/getting-started
 [os]:{{ $links.osSiteUrl }}
