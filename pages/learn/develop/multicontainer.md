@@ -26,6 +26,7 @@ version: '2'
 services:
   frontend:
     build: ./frontend
+    restart: always
     expose:
       - "80"
   proxy:
@@ -43,7 +44,9 @@ services:
 
 Each service can either be built from a directory containing a `Dockerfile`, as shown here, or can use a **Docker** image that has already been built, by replacing `build:` with `image:`. If your containers need to started in a specific order, make sure to use the `depends_on:` [setting][depends-on].
 
-Unlike single container applications, multicontainer applications do not run containers in privileged mode by default. If you want to make use of hardware, you will either have to set some services to privileged, using `privileged: true`, or use the `cap_add` and `devices` settings to map in the correct hardware access to the container.
+Unlike single container applications, multicontainer applications do not run containers in privileged mode by default. If you want to make use of hardware, you will either have to set some services to privileged, using `privileged: true`, or use the `cap_add` and `devices` settings to map in the correct hardware access to the container. 
+
+Also containers don't restart by default if their process crashes. This can be changed by setting e.g. `restart: always` or to another [value supported by the engine](https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy).
 
 As an example, here the `gpio` service is set up to use i2c and serial uart sensors:
 
