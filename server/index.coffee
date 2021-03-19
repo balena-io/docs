@@ -1,7 +1,7 @@
 path       = require('path')
 express    = require('express')
 _          = require('lodash')
-Doxx       = require('@resin.io/doxx')
+Doxx       = require('@balena/doxx')
 navTree    = require('./nav.json')
 config     = require('../config')
 redirect   = require('./redirect')({ pathPrefix: config.pathPrefix })
