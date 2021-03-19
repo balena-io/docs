@@ -54,6 +54,8 @@ You can override the value of a fleet variable by clicking *override* in the far
 
 <img alt="Add device service variable" src="/img/env-vars/override.png" width="80%">
 
+__Note:__ The size limit for environment and service variable values is 1MB or approximately 1 million characters.
+
 ## Managing with the CLI & SDK
 
 The {{ $names.company.lower }} CLI and SDKs all include methods to easily read, add or update environment and service variables. Consult the appropriate reference for code examples.
