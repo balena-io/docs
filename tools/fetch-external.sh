@@ -6,7 +6,7 @@ cd pages/reference/ && {
   curl -O -L https://github.com/balena-io/balena-cli/raw/master/doc/cli.markdown
   mv cli.markdown balena-cli.md
   cd -
-}
+} &
 
 # get latest node SDK docs
 cd pages/reference/sdk/ && {
@@ -14,14 +14,14 @@ cd pages/reference/sdk/ && {
   echo "# Balena Node.js SDK" >node-sdk.md
   tail -n +2 DOCUMENTATION.md >>node-sdk.md
   cd -
-}
+} &
 
 # get latest python SDK docs
 cd pages/reference/sdk/ && {
   curl -O -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md
   mv DOCUMENTATION.md python-sdk.md
   cd -
-}
+} &
 
 # get SDK README
 cd shared/sdk/ && {
@@ -29,26 +29,26 @@ cd shared/sdk/ && {
   # Extract deprecation text
   ../../tools/extract-markdown.sh "Deprecation policy" < README.md > deprecation-policy.md
   cd -
-}
+} &
 
 # get latest supervisor API docs
 cd pages/reference/supervisor/ && {
   curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/API.md
   mv API.md supervisor-api.md
   cd -
-}
+} &
 
 # get latest diagnostics docs
 cd pages/reference/ && {
   curl -O -L https://github.com/balena-io/device-diagnostics/raw/master/diagnostics.md
   cd -
-}
+} &
 
 # get latest supervisor update-lock docs
 cd pages/learn/deploy/release-strategy/ && {
   curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/update-locking.md
   cd -
-}
+} &
 
 # get meta-balena README and extract partials
 cd shared/meta-balena/ && {
@@ -61,7 +61,7 @@ cd shared/meta-balena/ && {
   # Extract config.json
   ../../tools/extract-markdown.sh "config.json" < meta-balena.md > config-json.md
   cd -
-}
+} &
 
 # get integrations
 cd pages/learn/develop/integrations/ && {
@@ -70,7 +70,7 @@ cd pages/learn/develop/integrations/ && {
   curl -O -L https://raw.githubusercontent.com/balena-io-playground/balena-azure-iot-hub/master/README.md
   mv README.md azure-iot-hub.md
   cd -
-}
+} &
 
 # Masterclasses
 cd pages/learn/more/masterclasses/ && {
@@ -89,4 +89,6 @@ cd pages/learn/more/masterclasses/ && {
   curl -O -L https://raw.githubusercontent.com/balena-io/docker-masterclass/master/README.md
   mv README.md docker-masterclass.md
   cd -
-}
+} &
+
+wait
