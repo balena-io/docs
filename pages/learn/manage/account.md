@@ -14,7 +14,7 @@ If you forget your password, you may request to reset it via the [password reset
 
 ## Add a password to social login
 
-To add a password to an account created with a social login (Google, Github), navigate to the *Preferences* page found by clicking on your profile in the top right of the dashboard. Under the *Account details* tab you can set a password for your account.
+To add a password to an account created with a social login (Google, Github), navigate to the [*Preferences*][prefs] page found by clicking on your profile in the top right of the dashboard. Under the *Account details* tab you can set a password for your account.
 
 ## Access tokens
 
