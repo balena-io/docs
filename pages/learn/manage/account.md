@@ -60,6 +60,13 @@ When an application needs to be shared with more than one user, the application 
 
 ### Member types
 
+| Member Type        | Add members   | Delete App  | Add/Remove device  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions|
+| ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
+| Owner      | Yes       | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Observer   | No       | No  | No  | No  | No  | No | No | No | No | No | No |
+| Operator   | No       | No  | No  | Yes  | Yes  | Yes | Yes | No | No | No |
+| Developer  | No       | No  | No  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+
 #### Owner
 
 The application owner is the user who first creates an application. The owner is the only user who can add other application members or delete the application.
