@@ -1318,6 +1318,47 @@
       }
     ]
   },
+ {
+    "id": "etcher-pro",
+    "name": "Etcher Pro",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "etcher-pro",
+    "community": false,
+    "icon": "/img/device/etcher-pro.svg",
+    "instructions": [{
+        "i": "Use the form on the left above to configure and download balenaOS for your new device."
+      },
+      {
+        "i": "Write the OS file you downloaded to your SD card. We recommend using Etcher."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Etcher Pro."
+      },
+      {
+        "i": "Warning! This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Insert microSD card into flashing slot and toggle DSW1 switch to ON position. Power-up board."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove microSD card from flashing slot and toggle DSW1 switch to OFF position."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      },
+      {
+        "i": "Your device should appear in your application dashboard within a few minutes. Have fun!"
+      }
+    ]
+  },
   {
     "id": "ccimx8x-sbc-pro",
     "name": "Digi ConnnectCore 8X SBC Pro",
