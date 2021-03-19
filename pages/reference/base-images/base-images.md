@@ -23,7 +23,7 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
   - [Fedora](https://getfedora.org/): 30, 31, 32, 33 and 34
 - Multiple language stacks:
   - [Node.js](https://nodejs.org/en/): 15.7.0, 14.16.0, 12.21.0 and 10.23.1
-  - [Python](https://www.python.org/): 2.7.18, 3.5.10, 3.6.12, 3.7.9, 3.8.6 and 3.9.1
+  - [Python](https://www.python.org/): 2.7.18 (deprecated), 3.5.10, 3.6.12, 3.7.9, 3.8.6 and 3.9.1
   - [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre and 11-jdk/jre
   - [Golang](https://golang.org/): 1.16, 1.15.3 and 1.14.10
   - [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.1-sdk/runtime/aspnet, 2.2-sdk/runtime/aspnet, 3.1-sdk/runtime/aspnet and 5.0-sdk/runtime/aspnet
@@ -48,7 +48,7 @@ balenalib/<hw>-<distro>-<lang_stack>:<lang_ver>-<distro_ver>-(build|run)-<yyyymm
 
 - `<hw>` is either architecture or device type and is **mandatory**. If using `Dockerfile.template`, you can replace this with `%%BALENA_MACHINE_NAME%%` or `%%BALENA_ARCH%%`. For a list of available device names and architectures, see the [Device types](/reference/base-images/devicetypes/).
 - `<distro>` is the Linux distribution. Currently there are 4 distributions, namely Debian, Alpine, Ubuntu and Fedora. This field is optional and will default to Debian if left out.
-- `<lang_stack>` is the programming language pack, currently we support Node.js, Python, OpenJDK and Go. This field is optional, and if left out, no language pack will be installed, so you will just have the distribution.
+- `<lang_stack>` is the programming language pack, currently we support Node.js, Python, OpenJDK, Dotnet, and Go. This field is optional, and if left out, no language pack will be installed, so you will just have the distribution. You are limited to the listed languages for the purpose of selecting a base image. More generally, you can use any language that you can later install in your image/container.
 
 #### Image Tags
 
