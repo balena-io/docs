@@ -209,7 +209,7 @@ overscan_bottom=4
 
 ## Beaglebone
 
-Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the Octalbonescript JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
+Currently the Beaglebone devices are running a v5.4 kernel (as of March 2021), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the Octalbonescript JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
 
 With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module [here]({{ $links.githubPlayground }}/beaglebone-adc-node).
 
@@ -217,7 +217,7 @@ __Note:__ The ADC voltage is only rated to 1.8V, if you apply more you risk fryi
 
 ### Capemgr support
 
-__Warning:__ Capemgr is only supported in {{ $names.company.lower }} BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a web terminal to your BBB and run `uname -a`.
+__Warning:__ Capemgr is only supported in {{ $names.company.lower }} BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a web terminal to your BBB and run `uname -a`. Please note that starting with balenaOS v2.29.0+rev3, overlays should be used instead, as capemgr is no longer available.
 
 ##### Loading a Cape
 ```Bash
@@ -233,6 +233,14 @@ cat /sys/devices/platform/ocp/ocp:cape-universal/status
 
 OCPDIR=/sys/devices/platform/ocp/ocp*
 SLOTS=/sys/devices/platform/bone_capemgr/slots
+```
+### Adding an Overlay
+
+To load an overlay in more recent versions of balenaOS, it's necessary to edit the boot partition uEnv.txt file (or uEnv.txt_internal on the flasher image) before provisioning and add the following content:
+
+```Bash
+enable_uboot_overlays=1
+uboot_overlay_addr0=/boot/overlays/<custom_overlay.dtbo>
 ```
 
 ### Disable HDMI
