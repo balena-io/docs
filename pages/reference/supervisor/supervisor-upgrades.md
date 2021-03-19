@@ -25,7 +25,3 @@ Additionally, these devices can be scheduled for an offline device. The update w
 back online and successfully connects to the {{ $names.cloud.lower }} backend.
 
 __Note:__ Only devices running {{ $names.os.lower }} v2.12.0 or greater are able to upgrade the Supervisor independently.
-
-For more information on specific limitations when upgrading the balena Supervisor, see the [upgrade policy][upgrade-policy].
-
-[upgrade-policy]:/reference/supervisor/upgrade-policy
