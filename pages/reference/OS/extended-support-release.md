@@ -40,11 +40,11 @@ __Note:__ Once updated to an ESR version, it is not possible to update from an E
 
 ESR host OS versions are currently available for the following devices with additional device support planned:
 
-* Raspberry Pi (v1 and Zero)
+* Raspberry Pi (v1 / Zero / Zero W)
 * Raspberry Pi 3
 * Raspberry Pi 4
-* Beaglebone
-* Balena Fin
+* Beaglebone Black
+* Balena Fin (CM3)
 * Intel NUC
 * Nvidia Jetson TX2
 
