@@ -87,7 +87,7 @@ An application that demonstrates how to read input from a physical keyboard or o
 <!-- ###Code Snippets Links -->
 
 [py-gpio]:{{ $links.githubPlayground }}/balena-rpi-gpio-sample-with-python
-[picamera-node]:{{ $links.githubLabs }}/balena-rpi-nodejs-picamera.git
+[picamera-node]:{{ $links.githubPlayground }}/balena-rpi-nodejs-picamera.git
 [picamera-py]:{{ $links.githubLabs }}/balena-rpi-python-picamera.git
 [ADC_py]:{{ $links.githubPlayground }}/balena-rpi-py-ADC.git
 [resin-tether]:https://github.com/petrosagg/resin-tether
