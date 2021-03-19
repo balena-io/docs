@@ -49,7 +49,7 @@ Learn
       Amazon AWS IoT[/learn/develop/integrations/aws]
       Google IoT[/learn/develop/integrations/google-iot]
       IBM Bluemix[/learn/develop/integrations/bluemix]
-      Microsoft Azure[/learn/develop/integrations/azure]
+      Microsoft Azure[/learn/develop/integrations/azure-iot-hub]
 
   DEPLOY
     [/learn/deploy/deployment]
