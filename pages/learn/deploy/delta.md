@@ -28,7 +28,7 @@ On-demand deltas may take a while to generate, depending primarily on the size o
 
 The *Download progress* bar on the dashboard might show for only a short time, much shorter than in a normal application update. In the most common development patterns, there are usually very small changes between one version of the application image and the next (e.g. fixing typos, adding a new source file, or installing an extra OS package), so when using deltas these changes are downloaded much quicker than before.
 
-Devices using delta updates still follow the prescribed [update strategy](update-strategies).
+Devices using delta updates still follow the prescribed [update strategy][update-strategies].
 
 [esr]:/reference/OS/extended-support-release/
 [self-service-update]:/reference/OS/updates/self-service/
