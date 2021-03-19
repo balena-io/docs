@@ -12,7 +12,7 @@ title: Account management
 
 If you forget your password, you may request to reset it via the [password reset][password-reset] page. Enter the email address associated with your {{ $names.cloud.lower }} account. If the email address has an associated account, a password reset link will be sent to that address. Following the link, you will be able to enter a new password.
 
-## Add password to social login
+## Add a password to social login
 
 To add a password to an account created with a social login (Google, Github), navigate to the *Preferences* page found by clicking on your profile in the top right of the dashboard. Under the *Account details* tab you can set a password for your account.
 
