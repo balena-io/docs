@@ -65,3 +65,7 @@ Marking a device as `Inactive` is a [device action][device-action]. Device actio
 [device-action]:/learn/manage/actions/#device-specific-actions
 [inactive]:#inactive-devices
 [organizations]:/learn/manage/organizations/
+
+## Inactive vs Offline Devices
+
+If you have a device offline-but-active you will still be billed for that device. Those devices are still deployed in the field and ready to be used at any time, if you make the decision to have your devices offline intentionally, you will still have full visibility to remotely monitor the device and are able to update it. You will not be able to monitor inactive devices and won't be charged for them after the de-activation fee until you reactive them on balenaCloud.
