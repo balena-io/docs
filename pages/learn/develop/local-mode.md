@@ -5,7 +5,7 @@ excerpt: Use {{ $names.company.lower }} local mode to prototype quickly
 
 # Develop locally
 
-Local mode is the development mode for {{ $names.company.lower }}. It allows you to build and sync code to a single development device in your local network without having to go through the {{ $names.cloud.lower }} build service and deployment pipeline. It uses the Docker daemon on the device to build container images, and then the device Supervisor starts the containers in the same way as if it were deployed via the cloud.
+Local mode is the development mode for {{ $names.company.lower }}. It allows you to build and sync code to a single development device in your local network without having to go through the {{ $names.cloud.lower }} build service and deployment pipeline. It uses the Docker daemon on the device to build container images, and then the device Supervisor starts the containers in the same way as if they were deployed via the cloud.
 
 ## Local mode requirements
 

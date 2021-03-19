@@ -42,7 +42,7 @@ services:
       - "8080"
 ```
 
-Each service can either be built from a directory containing a `Dockerfile`, as shown here, or can use a **Docker** image that has already been built, by replacing `build:` with `image:`. If your containers need to started in a specific order, make sure to use the `depends_on:` [setting][depends-on].
+Each service can either be built from a directory containing a `Dockerfile`, as shown here, or can use a **Docker** image that has already been built, by replacing `build:` with `image:`. If your containers need to be started in a specific order, make sure to use the `depends_on:` [setting][depends-on].
 
 __Note:__ Note that `depends_on` only controls the startup order and will not restart services if a dependency restarts. Also if a service is expected to stop after performing some actions, do not include it as a dependency or the service that depends on it may not start.
 

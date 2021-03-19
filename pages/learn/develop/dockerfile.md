@@ -177,12 +177,12 @@ architecture not the build server's - this can be very useful for deploying
 non-javascript code or fulfilling package dependencies that your node code
 might require.
 
-We use [Raspbian][raspbian] as our contained operating system, so this scripts
+We use [Raspbian][raspbian] as our contained operating system, so this script
 uses [aptitude][aptitude] to install native packages before moving a script for
 our node code to use over to `/usr/bin` (the install scripts runs with root
 privileges within the container.)
 
-__Note:__ With plain Node.js project, our build server will automatically detect the specified node version in `package.json` file and build the container based on Docker image with satisfied node version installed. The default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here][base-images].
+__Note:__ With a plain Node.js project, our build server will detect compatible nodejs versions from the `package.json` and build the container using a Docker image that satisfies the version requirement. If no version is specified then the default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here][base-images].
 
 ![terminal-builder-window](/img/terminal-builder-window.PNG)
 
