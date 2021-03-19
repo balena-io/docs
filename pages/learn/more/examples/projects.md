@@ -193,7 +193,7 @@ A [bitcoin][bitcoin] miner for the [Raspberry Pi][rpi].
 
 A simple tool for reading temperatures from a USB-enabled thermometer. This
 project is used as the backend to [efwe][efwe]'s awesome temperature
-visualization at [123k.de](http://123k.de).
+visualization at [123k.de](http://123k.work/).
 
 ### Uptime Robot Dashboard
 [Repository][uptime-robot-dashboard] by [secanis][secanis]
