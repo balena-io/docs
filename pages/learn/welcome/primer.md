@@ -60,7 +60,7 @@ Once your services are up and running, you can use the dashboard to monitor and 
 Much of the device, service, and application information provided by the dashboard is managed through the [{{ $names.company.lower }} API][api], and can also be viewed and modified using the [CLI][cli] or the [Node.js][node] and [Python][python] SDKs. {{ $names.company.upper }} has been designed so users can build rich experiences, combining device-level data provided by {{ $names.company.lower }} with higher-level application-specific data that lives in other data domains.
 
 [os-docs]:/reference/OS/overview/2.x/
-[build]:/learn/deploy/deployment
+[build]:/learn/deploy/deployment/#the-balenacloud-build-server
 [dashboard]:{{ $links.dashboardUrl }}/
 [getting-started]:/learn/getting-started
 [os]:{{ $links.osSiteUrl }}
