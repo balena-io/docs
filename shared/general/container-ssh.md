@@ -18,7 +18,7 @@ __Note:__ To copy and paste in the terminal window, you cannot use the normal Ct
 
 __Note:__ `balena ssh` to application services/containers requires CLI version 11 or above.
 
-If you prefer to work from the command line, you can use [`{{ $names.company.short }} ssh`][balena-ssh] to connect to your application containers and the host OS. First, you will need to install the [{{ $names.company.lower }} Command Line Interface (CLI)](/tools/cli/). Once that is set up, run the following in your development machine's terminal:
+If you prefer to work from the command line, you can use [`{{ $names.company.short }} ssh`][balena-ssh] to connect to your application containers and the host OS. First, you will need to install the [{{ $names.company.lower }} Command Line Interface (CLI)](/tools/cli/). Next, you must have a SSH key configured on your development machine and [added to the {{ $names.cloud.lower }} dashboard][add-ssh-key]. Once that is set up, run the following in your development machine's terminal:
 
 ```shell
 $ {{ $names.company.short }} ssh <device-uuid>
@@ -34,7 +34,7 @@ This also works in multicontainer applications, simply pass the name of the appr
 
 __Note:__ To run a command in a non-interactive way, you can pipe commands to the CLI's stdin. For example, `echo "uptime; exit;" | balena ssh <device-uuid>`.
 
-When an application name or device UUID is used as above, `{{ $names.company.short }}` ssh uses the {{ $names.company.short }} VPN to create a secure tunnel to the device and then forward SSH traffic between the device and your development machine. For this method, you must have a SSH key configured on your development machine and [added to the {{ $names.cloud.lower }} dashboard][add-ssh-key].
+When an application name or device UUID is used as above, `{{ $names.company.short }}` ssh uses the {{ $names.company.short }} VPN to create a secure tunnel to the device and then forward SSH traffic between the device and your development machine.
 
 If an IP address or a .local hostname is used (instead of an application name or device UUID), `{{ $names.company.short }}` ssh establishes a direct connection that does not rely on the {{ $names.company.short }} VPN:
 
