@@ -4,13 +4,13 @@ title: Organization management
 
 # Organization management
 
-In balenaCloud, users manage applications and collaborate in _organizations_. An organization is a group of members, teams, and applications and is managed by one or more organization administrators. An organization can have any number of members that can be grouped into teams and granted varying levels of access to its applications according to their assigned role.
+In balenaCloud, users manage applications and collaborate in _organizations_. An organization is a group of members, teams, and applications that is managed by one or more organization administrators. An organization can have any number of members that can be grouped into teams and granted varying levels of access to its applications according to their assigned role.
 
-Administrators are implicitly granted the ability to perform any possible action to the organization and its associated resources. Actions include inviting and removing members, managing applications, teams, and billing of the organization.
+Administrators are implicitly granted the ability to perform any possible action to the organization and its associated resources. Actions include inviting and removing members, managing applications, teams, and billing of the organization. General members have much more limited administration capabilities and rely on Administrators to place them in teams, grant access to applications, and more.
 
-Each user can create or be a member of an unlimited number of organizations. A organization is automatically created upon user registration, and the user is assigned as its administrator. This organization is named after the user's balenaCloud username and is managed like any other but currently cannot be deleted.
+Each user can create or be a member of an unlimited number of organizations. A organization is automatically created upon user registration, and the user is assigned as its administrator. This organization is named after the user's balenaCloud username and is managed like any other but *currently cannot be deleted*.
 
-Billing applies to each organization separately. Administrators can upgrade an organization at any time to the appropriate billing plan as needed.
+**Note:** Billing applies to each organization separately. Administrators can upgrade an organization at any time to the appropriate billing plan as needed.
 
 ## What can you do with organizations?
 
@@ -27,7 +27,7 @@ To create a new organization, navigate to your balenaCloud dashboard and click t
 
 <img alt="Organizations tab" src="/img/common/app/organizations_tab.png">
 
-Next, click the `Create Organization` button to get the create organization modal below. Fill in the name of your organization, and you are all set. This is also the page where you can check all organizations that you have access to. The user creating an organization is, by default, given administrator access to that organization. 
+Next, click the `Create Organization` button to get the create organization modal below. Fill in the name of your organization, and you are all set. This is also the page where you can check all organizations that you have access to. The user creating an organization is, by default, given administrator access to that organization.
 
 <img alt="Organizations tab" src="/img/common/app/create_organization.png" width="100%">
 
@@ -47,7 +47,7 @@ With your organization created, let's invite some members. Only the administrato
 
 <img alt="Invite Organization Member Modal" src="/img/common/app/invite_org_member.png">
 
-Depending on the role assigned, they can access and manage both apps and other members inside the organization. To change a member's role, navigate to the `Organization Members` tab in the sidebar. Next, change the `Organization role` of the desired user using the dropdown list against their username.
+Depending on the role assigned, they can access and manage both apps and other members inside the organization. To change a member's role, navigate to the `Members` tab in the sidebar. Next, click the checkbox next to the member's name, and then go over to the `Actions` button, click that, and choose `Change membership`. Change the `Organization role` of the desired user using the dropdown list against their username.
 
 <img alt="Change Organization Member Roles" src="/img/common/app/modify_org_roles.png" width="100%">
 
@@ -56,7 +56,7 @@ Depending on the role assigned, they can access and manage both apps and other m
 
 Organization members can be grouped into teams. Teams provide the means to manage members according to their function effectively. Only administrators can create, modify or delete teams.
 
-To create a team, navigate to the `Organization Teams` page via the sidebar and click the `Create Team` button. In the create team modal, enter the team name being created and click the `create` button.
+To create a team, navigate to the `Teams` page via the sidebar and click the `Create Team` button. The sidebar navigation will change `Teams` to the selected team to give better context to how you're navigating your organization. In the create team modal, enter the team name being created and click the `create` button.
 
 <img alt="Create Team in Organization" src="/img/common/app/create_team.png" width="100%">
 
@@ -67,7 +67,7 @@ Once the team is created, add members or grant the team access to applications b
 
 ## Creating new applications under your organization
 
-With members invited to the organization, let's get started on creating new applications under an organization. Navigate to the `Organization Applications` tab in the sidebar to find the `Create application` button for creating a new application under your organization. Learn more about creating an application from the [getting started][getting-started] guide.
+With members invited to the organization, let's get started on creating new applications under an organization. Navigate to the `Applications` tab in the sidebar (under the correct Organization if you have multiple ones) to find the `Create application` button for creating a new application under your organization. Learn more about creating an application from the [getting started][getting-started] guide.
 
 <img alt="New Application under Organization" src="/img/common/app/create_app_under_org.png" width="100%">
 
