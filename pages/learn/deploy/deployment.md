@@ -127,7 +127,7 @@ The `--source` flag allows you do define a path to your source code folder. You 
 
 The `git push {{$names.company.lower}} master` method of deployment is the original deployment mechanism for {{$names.cloud.lower}}. While we continue to support git push, it is considered a legacy method for pushing code to an application, and if possible you should use [{{$names.company.lower}} push](#balena-push) as it makes for a consistent workflow and methodology.
 
-The `git push` workflow requires that you have [git][git] installed on your development machine and that you have an SSH key setup on your {{$names.cloud.lower}} account.
+The `git push` workflow requires that you have [git][git] installed on your development machine and that you have an SSH key [setup on your {{$names.cloud.lower}} account][add-ssh-key].
 
 ![how git push works](/img/common/deployment/git-push.png)
 
@@ -283,8 +283,9 @@ Much like with the device list, [filters][filters] can be added to the release l
 
 [Saved views][saved-views] can also be created to return to a specific collection of filters.
 
-[api]:/reference/api/overview/
+[add-ssh-key]:/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
 [amd64]:https://en.wikipedia.org/wiki/X86-64
+[api]:/reference/api/overview/
 [app-types]:/learn/manage/app-types
 [arm]:https://en.wikipedia.org/wiki/ARM_architecture
 [continuous-deployment]:https://en.wikipedia.org/wiki/Continuous_deployment
