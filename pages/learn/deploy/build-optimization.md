@@ -24,6 +24,32 @@ However, we recommend you find a balance between readability (and thus long-term
 ## Avoid installing unnecessary packages
 In order to reduce complexity, dependencies, file sizes, and build times, you should avoid installing extra or unnecessary packages just because they might be “nice to have.” For example, you don’t always need to include a text editor.
 
+## Multi-stage builds
+
+{{ $names.company }} supports [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/). As mentioned, when building your application you might require build-time dependencies, or other files which are not needed at _runtime_. With multi-stage builds , you can use multiple `FROM` statements to describe a new stage. Each stage can use a different base image and you can copy files and artifacts from one stage to another. This allows you to only copy necessary files and tools into the final image you want to ship, keeping it lean. Here is an example illustrating multi-stage build for a `golang` project. 
+
+```Dockerfile
+FROM balenalib/%%BALENA_MACHINE_NAME%%-golang:stretch-build AS build # define a build stage 
+
+WORKDIR /go/src/github.com/balena-io-projects/app
+
+COPY /app ./
+
+RUN go build
+
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:stretch # use a different, leaner image in final image
+
+COPY --from=build /go/src/github.com/balena-io-projects/app/ . # copy build artifacts from build stage
+
+CMD ["./app"]
+```
+
+{{ $names.company }} base images come in two variants, namely `build` and `run`. Refer to the docs on [the differences between the two variants][run-vs-build].
+
+### Using scratch
+
+Most Dockerfiles start from a parent(base) image. Docker has a [reserved  image][scratch] `scratch` which has no layers and can be used to create lightweight images. Note that there won't be a root filesystem(rootfs) in the sratch image. This typically means you have to _statically_ compile your application if possible or add all dependencies your application needs to run properly. 
+
 ## Cleaning up after yourself
 
 We can tidy up a bit by cleaning out the apt-cache and cleaning out tmp:
@@ -39,6 +65,8 @@ RUN apt-get update && apt-get install -y \
 __Note:__ The above command should never be split over two or more `RUN` commands, as the benefits will be lost.
 
 It is also wise to remove any .tar.gz or temporary files in a similar fashion to the above, as this will reduce build size.
+
+If you are using balenalib images, you can also use the [`install_packages`][install-packages] utility.
 
 ## Use .dockerignore
 
@@ -103,3 +131,6 @@ path-include /usr/share/locale/en*
 
 [docker-best-practices]:https://docs.docker.com/articles/dockerfile_best-practices/
 [services-masterclass]:/learn/more/masterclasses/services-masterclass/#6-multi-stage-builds
+[scratch]:https://hub.docker.com/_/scratch
+[run-vs-build]:/reference/base-images/base-images/#run-vs-build
+[install-packages]:/reference/base-images/base-images/#installing-packages
