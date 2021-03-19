@@ -1,7 +1,6 @@
 contents/
 node_modules/
 server/nav.json
-server/lunr_index.json
 npm-debug.log
 static/dist
 

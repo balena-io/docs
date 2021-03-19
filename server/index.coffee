@@ -36,8 +36,6 @@ app.use (req, res, next) ->
 getLocals = (extra) ->
   doxx.getLocals({ nav: navTree }, extra)
 
-doxx.loadLunrIndex()
-
 console.error('serving everything under pathPrefix:', "#{config.pathPrefix}")
 app.use("#{config.pathPrefix}/", express.static(contentsDir))
 
