@@ -43,4 +43,8 @@ stability overall.
 [bbb-wifi-list]:http://elinux.org/Beagleboard:BeagleBoneBlack#WIFI_Adapters
 [TL-WN725N]:https://www.amazon.com/TP-Link-wireless-network-Adapter-SoftAP/dp/B008IFXQFU
 [TL-AC600]:https://www.amazon.com/TP-Link-Mini-Wireless-Supports-10-9-10-14/dp/B07PB1X4CN
+<<<<<<< HEAD
 [beaglebone-green-link]:https://wiki.seeedstudio.com/BeagleBone_Green_Wireless/
+=======
+[beaglebone-green-link]: https://www.seeedstudio.com/Seeed-Studio-BeagleBone-Green.html
+>>>>>>> Fix link to beaglebone green in the wifi dongles documentation
