@@ -229,7 +229,8 @@ article .headroom {
 }
 
 .page-content p, ul, ol {
-  margin-bottom: 30px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .page-content a {
@@ -466,8 +467,8 @@ header.sticky {
 }
 
 img.device_icon {
-  display: inline-block; 
-  text-align: center; 
-  margin: 0; 
-  height: 1em 
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  height: 1em
 }
