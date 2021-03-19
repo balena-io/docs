@@ -57,7 +57,11 @@ In the tags, all of the fields are optional, and if they are left out, they will
 - `<lang_ver>` is the version of the language stack, for example, Node.js 10.10, it can also be substituted for `latest`.
 - `<distro_ver>` is the version of the Linux distro, for example in the case of Debian, there are 4 valid versions, namely `sid`, `jessie`, `buster` and `stretch`.
 - For each combination of distro and stack, we have two variants called `run` and `build`. The build variant is much heavier as it has a number of tools preinstalled to help with building source code. You can see an example of the tools that are included in the Debian Stretch variant [here]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/build/Dockerfile). The `run` variants are stripped down and only include a few useful runtime tools, see an example [here]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile). If no variant is specified, the image defaults to `run`
-- The last optional field on tags is the date tag `<yyyymmdd>`. This is useful for production deployments as these base images are non-moving tags, so no packages in these will update ever.
+- The last optional field on tags is the date tag `<yyyymmdd>`. If a date tag is specified, the pinned release will always be pulled from Docker Hub, even if there is a new one available. 
+
+
+__Note:__ Pinning to a date-frozen base image is highly recommended if you are running a fleet in production. This ensures that all your dependencies have a fixed version and won't get randomly updated until you decide to pin the image to a newer release.
+
 
 #### Examples
 
@@ -79,7 +83,7 @@ In the tags, all of the fields are optional, and if they are left out, they will
 - `<lang_ver>` : `latest` points to the latest Python 2 version, which currently is 2.7.17
 - `<distro_ver>` : bionic is Ubuntu 18.04
 - `(build|run)` : `build` - to include things like `build-essential` and `gcc`
-- `<yyyymmdd>` : 20191029 is a date frozen image - so this image will never be updated on Docker Hub. Pinning to a date frozen base image is a good idea if you are running a fleet in production and are sensitive to dependencies updating and/or bandwidth constrained.
+- `<yyyymmdd>` : 20191029 is a date frozen image - so this image will never be updated on Docker Hub. 
 
 ### run vs. build
 
