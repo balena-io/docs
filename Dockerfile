@@ -1,8 +1,8 @@
-FROM node:latest
+FROM node:14
 
 WORKDIR /src
 
-COPY package.json package-lock.json ./ 
+COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
