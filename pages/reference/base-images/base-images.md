@@ -22,11 +22,11 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
   - [Ubuntu](https://www.ubuntu.com/): xenial (16.04), bionic (18.04), cosmic (18.10), disco (19.04), eoan (19.10) and focal (20.04)
   - [Fedora](https://getfedora.org/): 30, 31, 32, 33 and 34
 - Multiple language stacks:
-  - [Node.js](https://nodejs.org/en/): 15.2.1, 14.15.1, 12.19.1 and 10.23.0
-  - [Python](https://www.python.org/): 2.7.18, 3.5.10, 3.6.12, 3.7.9, 3.8.6 and 3.9.0
+  - [Node.js](https://nodejs.org/en/): 15.7.0, 14.16.0, 12.21.0 and 10.23.1
+  - [Python](https://www.python.org/): 2.7.18, 3.5.10, 3.6.12, 3.7.9, 3.8.6 and 3.9.1
   - [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre and 11-jdk/jre
-  - [Golang](https://golang.org/): 1.15.3 and 1.14.10
-  - [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.1-sdk/runtime/aspnet, 2.2-sdk/runtime/aspnet and 3.1-sdk/runtime/aspnet
+  - [Golang](https://golang.org/): 1.16, 1.15.3 and 1.14.10
+  - [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.1-sdk/runtime/aspnet, 2.2-sdk/runtime/aspnet, 3.1-sdk/runtime/aspnet and 5.0-sdk/runtime/aspnet
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
 - Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
@@ -118,11 +118,11 @@ Currently, balenalib supports the following OS distributions and Language stacks
 
 | Language | Default (latest) | Supported Architectures                      |
 | -------- | ---------------- | -------------------------------------------- |
-| Node.js  | 15.2.1           | armv6, armv7hf, aarch64, amd64, i386         |
-| Python   | 3.9.0           | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
+| Node.js  | 15.7.0           | armv6, armv7hf, aarch64, amd64, i386         |
+| Python   | 3.9.1           | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
 | OpenJDK  | 11-jdk           | armv7hf, aarch64, amd64, i386, armv6         |
-| Go       | 1.15.3           | armv7hf, aarch64, amd64, i386, armv6         |
-| Dotnet   | 3.1-sdk          | armv7hf, aarch64, amd64                      |
+| Go       | 1.16           | armv7hf, aarch64, amd64, i386, armv6         |
+| Dotnet   | 5.0-sdk          | armv7hf, aarch64, amd64                      |
 
 #### Notes
 
