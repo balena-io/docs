@@ -8,19 +8,24 @@ excerpt: WiFi adapters known to work with {{ $names.company.lower }} devices
 {{> "meta-balena/supported-wifi-adapters" }}
 
 There are however many other USB wifi adapters that will work out of the box with {{ $names.company.lower }} 
-devices.
+devices. Generally speaking, WiFi devices listed over at the [elinux rpi wifi page][elinux] or devices which use one of the `linux-firmware-ath9k`, `linux-firmware-ralink` and `linux-firmware-rtl8192cu` firmwares should work correctly.
 
-## Known Working Devices
+Here are some notable devices known to work:
 
-* [Pi Hut USB WiFi Adapter][pi-hut-usb] - Small form-factor and works right out
-  of the box!
+* [Pi Hut USB WiFi Adapter][pi-hut-usb] - Small form-factor and works right out of the box!
+* [TP-Link WN725N][TL-WN725N] - Small, reliable and cheap TP Link device.
+* [TP-Link AC600][TL-AC600] - Dual band alternative to WN725N.
 * [TP-Link Nano Router][nano-router] - Though this isn't strictly a WiFi
   adapter, it does enable you to connect to WiFi network using the ethernet port
   of the Pi and is known to work correctly with {{ $names.company.upper }}. As a result no further
   configuration is required.
-* [Adafruit Miniature Wifi (802.11B/G/N) Module][adafruit]
-* [EP-N8531][epn8531]
-* Generally speaking, WiFi devices listed over at the [elinux rpi wifi page][elinux] or devices which use one of the `linux-firmware-ath9k`, `linux-firmware-ralink` and `linux-firmware-rtl8192cu` firmwares should work correctly.
+
+### Configuration
+
+__Important Note:__ Wifi adapters drain a lot of power which unfortunately
+causes power issues with many devices if you try to *hotswap* the adapters
+(adding a WiFi adapter to your device *after* power-on). Be __sure__ you connect
+your WiFi adapter prior to switching on your device to avoid instability.
 
 ### Notes on Beaglebone Black
 
@@ -31,23 +36,11 @@ Have a look at this list of [wifi dongles][bbb-wifi-list] that are known to be c
 __Note:__ We have seen that the [Beaglebone Green][beaglebone-green-link] does not exhibit these wifi issues and has much better wifi
 stability overall.
 
-### Configuration
 
-__Important Note:__ Wifi adapters drain a lot of power which unfortunately
-causes power issues with many devices if you try to *hotswap* the adapters
-(adding a WiFi adapter to your device *after* power-on). Be __sure__ you connect
-your WiFi adapter prior to switching on your device to avoid instability.
-
-
-[rpi]:http://www.raspberrypi.org/
 [nano-router]:http://www.amazon.com/TP-LINK-TL-WR702N-Wireless-Repeater-150Mpbs/dp/B007PTCFFW
-[adafruit]:http://www.adafruit.com/products/814
-[epn8531]:http://www.amazon.com/BestDealUSA-EP-N8531-150Mbps-802-11n-Wireless/dp/B00AT7S060
 [elinux]:http://elinux.org/RPi_USB_Wi-Fi_Adapters
 [pi-hut-usb]:http://thepihut.com/products/usb-wifi-adapter-for-the-raspberry-pi
 [bbb-wifi-list]:http://elinux.org/Beagleboard:BeagleBoneBlack#WIFI_Adapters
-[connman]:http://en.wikipedia.org/wiki/ConnMan
-[connman-format]:http://git.kernel.org/cgit/network/connman/connman.git/tree/doc/config-format.txt
-
-[rpi-official-wifi]:https://www.raspberrypi.org/products/raspberry-pi-usb-wifi-dongle/
+[TL-WN725N]:https://www.amazon.com/TP-Link-wireless-network-Adapter-SoftAP/dp/B008IFXQFU
+[TL-AC600]:https://www.amazon.com/TP-Link-Mini-Wireless-Supports-10-9-10-14/dp/B07PB1X4CN
 [beaglebone-green-link]:http://www.seeed.cc/beaglebone_green/
