@@ -8,7 +8,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 When complete, after a minute or two the device should appear on your {{$names.cloud.lower}} [dashboard][dashboard], and you should now be ready to deploy some code!
 
 ##### Help! My device won't show up.
-If your device still hasn't shown up on your dashboard after a few minutes, something is definitely wrong. First check, if using WiFi, you entered the credentials correctly, and ensure that your network meets these [basic requirements][networkRequirements]. See this for help with fixing your [WiFi credentials][wifiHelp] if you think you've mistyped something. Also, see our [troubleshooting guide][troubleshooting].
+If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly (if you need help fixing your credentials, see [WiFi Help][wifiHelp]) and ensure that your network meets these [basic requirements][networkRequirements]. It may also be worth checking the [LED error notifications][errorNotifications].
 
 If you still can't get your device online, come on over and talk to us on our [support channel][usingSupport].
 

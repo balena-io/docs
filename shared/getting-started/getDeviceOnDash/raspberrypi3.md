@@ -11,7 +11,7 @@ You should now be ready to deploy some code!
 {{>"getting-started/sd-card-recommendations"}}
 
 ##### Help! My device won't show up.
-If your device still hasn't shown up on your dashboard after a few minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly ([see this][wifiHelp] if you need help fixing your credentials) and ensure that your network meets these [basic requirements][networkRequirements]. It may also be worth checking the [LED error notifications][errorNotifications].
+If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly (if you need help fixing your credentials, see [WiFi Help][wifiHelp]) and ensure that your network meets these [basic requirements][networkRequirements]. It may also be worth checking the [LED error notifications][errorNotifications].
 
 If you still can't get your device online, come on over and talk to us on our [support channel][usingSupport].
 
