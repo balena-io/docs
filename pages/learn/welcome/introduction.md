@@ -18,7 +18,7 @@ As you develop your application, these guides will help you configure and packag
 
 ### [Deploy][deploy]
 
-When you're ready to bring your application from one to device to a fleet, read up on the basics of the {{ $names.company.lower }} build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
+When you're ready to bring your application from one device to a fleet, read up on the basics of the {{ $names.company.lower }} build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
 
 ### [Manage][manage]
 
