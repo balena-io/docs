@@ -26,6 +26,14 @@ Before devices can update using deltas, a delta must be generated between the re
 
 On-demand deltas may take a while to generate, depending primarily on the size of the images involved. While the delta is generating, the device keeps polling the API, checking if the delta is ready. If a delta already exists, this step is skipped.
 
+if the delta is being generated, and the supervisor tries to download it, you will get this line in your supervisor log file:
+
+'''
+Failed to download application 'registry2.resin.io/foo/bar' due to 'Delta server is still processing the delta, will retry
+'''
+
+Do not panic, the server is processing the delta, and it will be eventually downloaded.
+
 The *Download progress* bar on the dashboard might show for only a short time, much shorter than in a normal application update. In the most common development patterns, there are usually very small changes between one version of the application image and the next (e.g. fixing typos, adding a new source file, or installing an extra OS package), so when using deltas these changes are downloaded much quicker than before.
 
 Devices using delta updates still follow the prescribed [update strategy](update-strategies).
