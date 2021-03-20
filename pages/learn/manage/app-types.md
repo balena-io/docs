@@ -18,6 +18,8 @@ The three available application types for new applications are:
 
 Starter applications, available for free to all users, are full-featured, allowing you to run [multiple containers][multicontainer] and set up a [public URL][public-url] for each of your devices. You are limited to ten devices across all starter applications.
 
+__Note:__ Inactive devices count against your starter application device limit.
+
 ### Microservices
 
 Microservices applications, like starter applications, are full-featured, allowing you to run [multiple containers][multicontainer] and set up a [public URL][public-url], and are available to all paid plans.
@@ -25,8 +27,6 @@ Microservices applications, like starter applications, are full-featured, allowi
 ### Essentials
 
 Essentials applications allow you to run a single container and do not permit public device URLs. Like microservices applications, they are only available to paid plans.
-
-The prototype pricing plan includes 20 devices, in addition to the 10 starter devices included with all plans. The pilot plan includes 50 devices, and the production plan includes 100 devices. You can choose any combination of microservices and essentials devices within these limits. With the pilot and production plans, you can add additional devices at $1.50 for the microservices type, and $1 for the essentials type.
 
 __Note:__ All devices in starter, microservices, and essentials applications must run {{ $names.os.lower }} v2.12.0 or higher. If you do not have the option to choose one of these application types, the selected device type does not yet have a high enough {{ $names.os.lower }} version available. A [classic][classic] application type will be assigned by default.
 
@@ -45,6 +45,10 @@ To convert your application, first be sure all devices meet the {{ $names.os.low
 <img src="/img/common/app/change-app-type.png" width="80%">
 
 Select the application type you would like to convert to. If your application cannot be converted to the selected type, you will see an error message at the top of the *Actions* page.
+
+## Changing application types after upgrading to a paid plan
+
+If you've upgraded to a paid plan, the ten-device limit on Starter applications will still apply. In order to add more than ten devices after upgrading, you will either need to create new Microservices or Essentials applications, or convert your Starter application to a Microservices or Essentials application. 
 
 [pricing]:{{ $links.mainSiteUrl }}/pricing/
 [multicontainer]:/learn/develop/multicontainer

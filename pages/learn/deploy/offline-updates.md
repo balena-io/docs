@@ -5,13 +5,15 @@ excerpt: An efficient approach for updating previously deployed IoT devices when
 
 # Offline Updates
 
-Offline updates is a process to update devices without needing an internet connection. It involves preloading an image and reflashing it to on a device in a way that it retains its unique balena identity, apps, and configurations. This process helps in scenarios where device's internet access is unavailable, limited, blocked or even when it's air-gapped.
+Offline updates is a process to update devices without needing an internet connection. It involves preloading an image and reflashing it to on a device in a way that it retains its unique balena identity, apps, and configurations. This process helps in scenarios where a device's internet access is unavailable, limited, blocked, or even when it's air-gapped.
 
 ## Overview of the process
 
 When a device is reflashed, it defaults back to a factory state. The device is provisioned with a new identity, a new API key, and updated [`config.json`][config-file] settings. All services, data and logs stored on the device are erased permanently.
 
-With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`][config-file]. It uses [`balena preload`][balena-preload] to load an updated application release. That way, the device will pick up right where it left off with the same name and UUID but with an updated application release or/and balenaOS update. Broad steps of the process include:
+With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`][config-file]. It uses [`balena preload`][balena-preload] to load an updated application release. That way, the device will pick up right where it left off with the same name and UUID but with an updated application release or/and balenaOS update.
+
+Broad steps of the process include:
 
 1. Downloading appropriate balenaOS version (can be an upgrade or the same version).
 2. Generating a device-specific `config.json` file for the device.
@@ -26,7 +28,9 @@ When you insert the SD card or USB drive into your device and boot it, the devic
 
 Some consideration is required if an application requiring persistent data storage is being used to recover user data while using the offline update process. The application can't use the pre-provisioned [named volumes][named-volumes], since these will be wiped during the offline update process.
 
-If this is the case, mount an external mass storage (USB) device into a privileged data container and share it to other containers (if applicable) via NFS or similar network storage protocol for the data. These external storage devices are not part of the update process. Hence, data on them would be left intact, as long as they are temporarily disconnected during the update process. By contrast, a typical balena online update leaves services and data intact, and [persistent logging][persistent-logging] can be enabled to save your logs across device restarts.
+If this is the case, mount an external mass storage (USB) device into a privileged data container and share it with other containers (if applicable) via NFS or a similar network storage protocol for the data. These external storage devices are not a part of the update process. Hence, data on them would be left intact, as long as they are temporarily disconnected during the update process.
+
+By contrast, a typical balena online update leaves services and data intact, and [persistent logging][persistent-logging] can be enabled to save your logs across device restarts.
 
 ## Performing an Offline Update
 
@@ -46,7 +50,7 @@ Offline update includes the following steps:
 - [Process of reprovisioning](#process-of-reprovisioning)
 - [Update device registration(s)](#update-device-registrations)
 
-The process needs some prerequiste knowledge of the balena ecosystem, [balena-cli][balena-cli] commands and shell commands. Please read all instructions carefully and make sure to try the update process first on a test device.
+The process needs some prerequisite knowledge of the balena ecosystem, [balena-cli][balena-cli] commands and shell commands. Please read all instructions carefully and make sure to try the update process first on a test device.
 
 ### Setup
 
@@ -156,11 +160,11 @@ $ rm ${config}
 
 ### Create and Preload Release
 
-Offline update revolve around the concept of [balena preload][balena-preload]. Preload is used to flash the balenaOS image and your application release in a single step, so the device starts running your application containers as soon as it boots. Preloading removes the need for your devices to download the initial application images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image][preloading-device-image].
+Offline updates revolve around the concept of [balena preload][balena-preload]. Preload is used to flash the balenaOS image and your application release in a single step, so the device starts running your application containers as soon as it boots. Preloading removes the need for your devices to download the initial application images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image][preloading-device-image].
 
 > Important note: [balena preload](https://github.com/balena-io/balena-cli/blob/master/INSTALL-MAC.md#balena-preload) functionality requires Docker with AUFS support.
 
-Since preload involves flashing an application release with the balenaOS image, if the pre-existing application doesn't have any releases, then a release needs to be created using [`balena deploy`][balena-deploy]. Navigate to the directory of your source code folder and run the command below to deploy the latest release of your application. If a release is present already, then the next step can be skipped.
+Preload involves flashing an application release with the balenaOS image. If the pre-existing application doesn't have any releases, then a release needs to be created using [`balena deploy`][balena-deploy]. Navigate to the directory of your source code folder and run the command below to deploy the latest release of your application. If a release is present already, then the next step can be skipped.
 
 ```bash
 $ balena deploy ${app_slug} --build --emulated --source .
@@ -179,7 +183,7 @@ $ balena preload ${tmpimg} \
 
 ### Create Update Media
 
-Next, a USB flash drive, an SD card or any relevant storage media needs to be prepared and flashed. This storage media will be used to update the device through the offline process. Plug in your storage media and run the following the commands.
+Next, a USB flash drive, an SD card or any relevant storage media needs to be prepared and flashed. This storage media will be used to update the device through the offline process. Plug in your storage media and run the following commands.
 
 > Note: The process of flashing will delete all data stored on the storage media.
 
@@ -196,17 +200,17 @@ $ rm ${tmpimg}
 
 ### Process of Reprovisioning
 
-> Warning: For devices with internal storage, this procedure erases the internal media of your device. Hence, remove any mass storage devices containing user data.
+> Warning: For devices with internal storage, this procedure erases the internal media of your device. Remove any mass storage devices containing user data.
 
-With the update media ready having the latest release of the application preloaded. Follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
+With the update media already having the latest release of the application preloaded, follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
 
-For example: For Raspberry Pi devices, insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect application logs, etc.
+An example for Raspberry Pi devices: insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect application logs, etc.
 
 #### Strategies to remotely update with an SD card or USB device
 
 If a device isn't locally deployed, one can ship the flashed SD cards or USB sticks/drives to a remote location. There someone can run the update by simply inserting them into the devices and booting.
 
-If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys][insert-ssh-key] during the configuration step will allow fleet managers at the remote site to connect into the device directly via OpenSSH and verify the update by examining container logs, etc.
+If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys][insert-ssh-key] during the configuration step will allow fleet managers at the remote site to connect to the device directly via OpenSSH and verify the update by examining container logs, etc.
 
 If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal][web-terminal] commands and output container logs to the dashboard.
 
