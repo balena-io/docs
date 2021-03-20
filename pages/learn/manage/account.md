@@ -12,6 +12,10 @@ title: Account management
 
 If you forget your password, you may request to reset it via the [password reset][password-reset] page. Enter the email address associated with your {{ $names.cloud.lower }} account. If the email address has an associated account, a password reset link will be sent to that address. Following the link, you will be able to enter a new password.
 
+## Add a password to social login
+
+To add a password to an account created with a social login (Google, Github), navigate to the [*Preferences*][prefs] page found by clicking on your profile in the top right of the dashboard. Under the *Account details* tab you can set a password for your account.
+
 ## Access tokens
 
 Access tokens are used for authentication in the {{ $names.company.lower }} [API][api], [CLI][cli], and [Node.js][node-sdk] and [Python][python-sdk] SDKs. They are managed in the *Access tokens* tab of the [*Preferences*][prefs] page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
