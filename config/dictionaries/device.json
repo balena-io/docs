@@ -1319,6 +1319,26 @@
     ]
   },
   {
+    "id": "jetson-xavier-nx-devkit",
+    "name": "Nvidia Jetson Xavier NX Devkit SD-CARD",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "jetson-xavier-nx-devkit",
+    "community": false,
+    "icon": "/img/device/jetson-xavier-nx-devkit.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Remove power from the board and insert freshly burnt SD-CARD."
+      },
+      {
+        "i": "Power on the board."
+      }
+    ]
+  },
+  {
     "id": "ccimx8x-sbc-pro",
     "name": "Digi ConnnectCore 8X SBC Pro",
     "arch": "aarch64",
