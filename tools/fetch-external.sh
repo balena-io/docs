@@ -8,21 +8,6 @@ cd pages/reference/ && {
   cd -
 } &
 
-# get latest node SDK docs
-cd pages/reference/sdk/ && {
-  curl -O -L https://github.com/balena-io/balena-sdk/raw/master/DOCUMENTATION.md
-  echo "# Balena Node.js SDK" >node-sdk.md
-  tail -n +2 DOCUMENTATION.md >>node-sdk.md
-  cd -
-} &
-
-# get latest python SDK docs
-cd pages/reference/sdk/ && {
-  curl -O -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md
-  mv DOCUMENTATION.md python-sdk.md
-  cd -
-} &
-
 # get SDK README
 cd shared/sdk/ && {
   curl -O -L https://raw.githubusercontent.com/balena-io/balena-sdk/master/README.md
@@ -90,5 +75,20 @@ cd pages/learn/more/masterclasses/ && {
   mv README.md docker-masterclass.md
   cd -
 } &
+
+# get latest node SDK docs
+cd pages/reference/sdk/ && {
+  curl -O -L https://github.com/balena-io/balena-sdk/raw/master/DOCUMENTATION.md
+  echo "# Balena Node.js SDK" >node-sdk.md
+  tail -n +2 DOCUMENTATION.md >>node-sdk.md
+  cd -
+} 
+
+# get latest python SDK docs
+cd pages/reference/sdk/ && {
+  curl -O -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md
+  mv DOCUMENTATION.md python-sdk.md
+  cd -
+} 
 
 wait
