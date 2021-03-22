@@ -137,7 +137,7 @@ Discontinued devices will no longer be actively supported by {{ $names.company.l
 
 ##### I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?
 
-There are a few options for devices that do not have an official device type on {{ $names.company.lower }}. If your device has an x86 architecture, you can try the [Intel NUC][nuc] image, which is built to support generic x86 devices. For other devices, you can [build your own][build-your-own] version of {{ $names.os.lower }} using our [open source repos][balenaOS]. To discuss custom board support, please contact sales@{{ $names.email_domain }}.
+There are a few options for devices that do not have an official device type on {{ $names.company.lower }}. If your device has an x86 architecture, you can try either the [Intel NUC][nuc] image (which is built to support generic x86 devices with a minimum set of drivers), or the generic [genericx86-64][genericx86-64] image (that includes all the standard X86 drivers). For other devices, you can [build your own][build-your-own] version of {{ $names.os.lower }} using our [open source repos][balenaOS]. To discuss custom board support, please contact sales@{{ $names.email_domain }}.
 
 ##### What to keep in mind when choosing power supply units?
 
