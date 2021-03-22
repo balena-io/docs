@@ -535,6 +535,35 @@
     ]
   },
   {
+    "id": "nanopi-neo-air",
+    "name": "NanoPi Neo Air",
+    "arch": "armv7hf",
+    "bootMedia": "eMMC",
+    "state": "NEW",
+    "machine": "nanopi-neo-air",
+    "community": false,
+    "icon": "/img/device/nanopi-neo-air.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the NanoPi Neo Air"
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
     "id": "nanopc-t4",
     "name": "NanoPC-T4",
     "arch": "aarch64",
