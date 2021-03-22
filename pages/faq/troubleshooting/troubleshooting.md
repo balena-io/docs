@@ -14,6 +14,8 @@ title: Troubleshooting
   * [Connectivity](#connectivity)
   * [SD Card Corruption](#sd-card-corruption)
   * [Wifi doesn't connect on RPI3](#wifi-connection-problems-on-rpi3)
+* [Balena FIN](#balena-fin)
+  * [Balena FIN Internal eMMC/storage not showing up in Etcher (Linux systems) when trying to flash](#fin-flashing-problems-etcher)
 * [NVIDIA Jetson TX2](#nvidia-jetson-tx2)
   * [Unable to flash a board that was previously running L4T 28.x](#unable-to-flash-a-board-that-was-previously-running-l4t-28x)
 * [Intel Edison](#intel-edison)
@@ -67,6 +69,14 @@ to check that the 2.4 GHz channel on your wifi router is set to something less t
 the firmware on the Raspberry Pi doesn't support channel 12 and 13.
 
 ### Error Notifications
+
+## Balena FIN
+
+### Balena FIN Internal eMMC/storage not showing up in Etcher (Linux systems) when trying to flash
+If you are trying to flash a Balena FIN device with a Balena image, and you are running a Linux based OS on your system you may experience the following error after you connect the Balena FIN to your system: The `Select target` button of the Etcher application does not list the Compute Module memory storage (although the `Select target` button is active and clickable).
+You will need to open a command-line terminal and navigate to where the balenaEtcher application is stored on your file system and start it from the command line:
+`# sudo ./balenaEtcher-1.5.95-x64.AppImage` (balenaEtcher version - 1.5.95 - may differ)
+You will be prompted for your password and after a successful login the `Select target` modal will show a `Initializing...` label for a short period of time and the Compute Module memory storage will be selectable.
 
 #### Unable to Connect to the Internet
 If the Raspberry pi is unable to connect to the {{ $names.company.lower }} servers, the `ACT` LED will flash a repeated pattern of 4 short flashes followed by a pause (`*_*_*_*____*_*_*_*____`).
