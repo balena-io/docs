@@ -76,6 +76,16 @@ cd pages/learn/more/masterclasses/ && {
   cd -
 } &
 
+# pull in balenaLabs GitHub projects
+cd shared/projects/ && {
+  echo "Name|Description
+---|---" | tee balena-labs-projects.md balena-example-projects.md balenablocks.md >/dev/null
+  curl https://api.github.com/orgs/balenalabs/repos?per_page=30 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md
+  curl https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md
+  curl https://api.github.com/orgs/balenablocks/repos?per_page=30 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balenablocks.md
+  cd -
+} &
+
 # get latest node SDK docs
 cd pages/reference/sdk/ && {
   curl -O -L https://github.com/balena-io/balena-sdk/raw/master/DOCUMENTATION.md
@@ -92,13 +102,3 @@ cd pages/reference/sdk/ && {
 } 
 
 wait
-
-# pull in balenaLabs GitHub projects
-cd shared/projects/ && {
-  echo "Name|Description
----|---" | tee balena-labs-projects.md balena-example-projects.md balenablocks.md >/dev/null
-  curl https://api.github.com/orgs/balenalabs/repos?per_page=10 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md
-  curl https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md
-  curl https://api.github.com/orgs/balenablocks/repos?per_page=10 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balenablocks.md
-  cd -
-}
