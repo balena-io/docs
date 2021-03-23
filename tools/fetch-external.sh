@@ -1,6 +1,9 @@
 #!/bin/bash
 # This script pulls in external documentation that should be edited in the corresponding upstream repo
 
+# Use node-jq if jq is not pre-installed in the environment nor set in path
+which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
+
 # get latest CLI docs
 cd pages/reference/ && {
   curl -O -L https://github.com/balena-io/balena-cli/raw/master/doc/cli.markdown
@@ -80,9 +83,9 @@ cd pages/learn/more/masterclasses/ && {
 cd shared/projects/ && {
   echo "Name|Description
 ---|---" | tee balena-labs-projects.md balena-example-projects.md balenablocks.md >/dev/null
-  curl https://api.github.com/orgs/balenalabs/repos?per_page=30 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md
-  curl https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md
-  curl https://api.github.com/orgs/balenablocks/repos?per_page=30 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balenablocks.md
+  curl https://api.github.com/orgs/balenalabs/repos?per_page=30 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md
+  curl https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md
+  curl https://api.github.com/orgs/balenablocks/repos?per_page=30 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balenablocks.md
   cd -
 } &
 
