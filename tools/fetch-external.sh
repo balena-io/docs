@@ -5,11 +5,7 @@
 which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
 
 # get latest CLI docs
-cd pages/reference/ && {
-  curl -O -L https://github.com/balena-io/balena-cli/raw/master/doc/cli.markdown
-  mv cli.markdown balena-cli.md
-  cd -
-} &
+curl -o pages/reference/balena-cli.md -L https://github.com/balena-io/balena-cli/raw/master/doc/cli.markdown &
 
 # get SDK README
 cd shared/sdk/ && {
@@ -20,28 +16,17 @@ cd shared/sdk/ && {
 } &
 
 # get latest supervisor API docs
-cd pages/reference/supervisor/ && {
-  curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/API.md
-  mv API.md supervisor-api.md
-  cd -
-} &
+curl -o pages/reference/supervisor/supervisor-api.md -L https://github.com/balena-io/balena-supervisor/raw/master/docs/API.md &
 
 # get latest diagnostics docs
-cd pages/reference/ && {
-  curl -O -L https://github.com/balena-io/device-diagnostics/raw/master/diagnostics.md
-  cd -
-} &
+curl -o pages/reference/diagnostics.md -L https://github.com/balena-io/device-diagnostics/raw/master/diagnostics.md &
 
 # get latest supervisor update-lock docs
-cd pages/learn/deploy/release-strategy/ && {
-  curl -O -L https://github.com/balena-io/balena-supervisor/raw/master/docs/update-locking.md
-  cd -
-} &
+curl -o pages/learn/deploy/release-strategy/update-locking.md -L https://github.com/balena-io/balena-supervisor/raw/master/docs/update-locking.md &
 
 # get meta-balena README and extract partials
 cd shared/meta-balena/ && {
-  curl -O -L https://raw.githubusercontent.com/balena-os/meta-balena/master/README.md
-  mv README.md meta-balena.md
+  curl -o meta-balena.md -L https://raw.githubusercontent.com/balena-os/meta-balena/master/README.md
   # Extract modem text
   ../../tools/extract-markdown.sh "Modems" <meta-balena.md >supported-modems.md
   # Extract Wifi adapters
@@ -52,32 +37,17 @@ cd shared/meta-balena/ && {
 } &
 
 # get integrations
-cd pages/learn/develop/integrations/ && {
-  curl -O -L https://raw.githubusercontent.com/balenalabs/google-iot/master/README.md
-  mv README.md google-iot.md
-  curl -O -L https://raw.githubusercontent.com/balena-io-playground/balena-azure-iot-hub/master/README.md
-  mv README.md azure-iot-hub.md
-  cd -
-} &
+curl -o pages/learn/develop/integrations/google-iot.md -L https://raw.githubusercontent.com/balenalabs/google-iot/master/README.md &
+curl -o pages/learn/develop/integrations/azure-iot-hub.md -L https://raw.githubusercontent.com/balena-io-playground/balena-azure-iot-hub/master/README.md &
 
 # Masterclasses
-cd pages/learn/more/masterclasses/ && {
-  curl -O -L https://raw.githubusercontent.com/balena-io/balena-cli-masterclass/master/README.md
-  mv README.md cli-masterclass.md
-  curl -O -L https://raw.githubusercontent.com/balena-io/balena-cli-advanced-masterclass/master/README.md
-  mv README.md advanced-cli.md
-  curl -O -L https://raw.githubusercontent.com/balena-io/balenaos-masterclass/master/README.md
-  mv README.md host-os-masterclass.md
-  curl -O -L https://raw.githubusercontent.com/balena-io/services-masterclass/master/README.md
-  mv README.md services-masterclass.md
-  curl -O -L https://raw.githubusercontent.com/balena-io-projects/balena-fleet-management-masterclass/master/README.md
-  mv README.md fleet-management.md
-  curl -O -L https://raw.githubusercontent.com/balena-io/debugging-masterclass/master/README.md
-  mv README.md device-debugging.md
-  curl -O -L https://raw.githubusercontent.com/balena-io/docker-masterclass/master/README.md
-  mv README.md docker-masterclass.md
-  cd -
-} &
+curl -o pages/learn/more/masterclasses/cli-masterclass.md -L https://raw.githubusercontent.com/balena-io/balena-cli-masterclass/master/README.md &
+curl -o pages/learn/more/masterclasses/advanced-cli.md -L https://raw.githubusercontent.com/balena-io/balena-cli-advanced-masterclass/master/README.md &
+curl -o pages/learn/more/masterclasses/host-os-masterclass.md -L https://raw.githubusercontent.com/balena-io/balenaos-masterclass/master/README.md &
+curl -o pages/learn/more/masterclasses/services-masterclass.md -L https://raw.githubusercontent.com/balena-io/services-masterclass/master/README.md &
+curl -o pages/learn/more/masterclasses/fleet-management.md -L https://raw.githubusercontent.com/balena-io-projects/balena-fleet-management-masterclass/master/README.md &
+curl -o pages/learn/more/masterclasses/device-debugging.md -L https://raw.githubusercontent.com/balena-io/debugging-masterclass/master/README.md &
+curl -o pages/learn/more/masterclasses/docker-masterclass.md -L https://raw.githubusercontent.com/balena-io/docker-masterclass/master/README.md &
 
 # pull in balenaLabs GitHub projects
 cd shared/projects/ && {
@@ -94,14 +64,11 @@ cd pages/reference/sdk/ && {
   curl -O -L https://github.com/balena-io/balena-sdk/raw/master/DOCUMENTATION.md
   echo "# Balena Node.js SDK" >node-sdk.md
   tail -n +2 DOCUMENTATION.md >>node-sdk.md
+  rm DOCUMENTATION.md
   cd -
-} 
+} &
 
 # get latest python SDK docs
-cd pages/reference/sdk/ && {
-  curl -O -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md
-  mv DOCUMENTATION.md python-sdk.md
-  cd -
-} 
+curl -o pages/reference/sdk/python-sdk.md -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md &
 
 wait
