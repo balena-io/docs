@@ -30,7 +30,7 @@ __Note:__ On all {{ $names.os.lower }} versions of the OS, both `RESIN_` and `BA
 | `{{ $names.company.allCaps }}_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
 | `{{ $names.company.allCaps }}_API_KEY` 	          |  API key which can be used to authenticate requests to the {{ $names.company.lower }} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation][security-docs-link] for more details. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
 | `{{ $names.company.allCaps }}_HOST_OS_VERSION`     |  The version of the host OS. |
-| `{{ $names.company.allCaps }}_DEVICE_RESTART` 	    |  This is a internal mechanism for restarting containers and can be ignored as its not very useful to application code.  Example: `1.13.0`	|
+| `{{ $names.company.allCaps }}_DEVICE_RESTART` 	    |  This is an internal mechanism for restarting containers and can be ignored as it's not very useful to application code.  Example: `1.13.0`	|
 
 Here's an example from a Raspberry Pi 3:
 

@@ -23,7 +23,7 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
   - [Fedora](https://getfedora.org/): 30, 31, 32, 33 and 34
 - Multiple language stacks:
   - [Node.js](https://nodejs.org/en/): 15.10.0, 14.16.0, 12.21.0 and 10.24.0
-  - [Python](https://www.python.org/): 2.7.18, 3.5.10, 3.6.12, 3.7.9, 3.8.6 and 3.9.1
+  - [Python](https://www.python.org/): 2.7.18 (deprecated), 3.5.10, 3.6.12, 3.7.9, 3.8.6 and 3.9.1
   - [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre and 11-jdk/jre
   - [Golang](https://golang.org/): 1.16, 1.15.8 and 1.14.10
   - [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 2.1-sdk/runtime/aspnet, 2.2-sdk/runtime/aspnet, 3.1-sdk/runtime/aspnet and 5.0-sdk/runtime/aspnet
@@ -48,7 +48,7 @@ balenalib/<hw>-<distro>-<lang_stack>:<lang_ver>-<distro_ver>-(build|run)-<yyyymm
 
 - `<hw>` is either architecture or device type and is **mandatory**. If using `Dockerfile.template`, you can replace this with `%%BALENA_MACHINE_NAME%%` or `%%BALENA_ARCH%%`. For a list of available device names and architectures, see the [Device types](/reference/base-images/devicetypes/).
 - `<distro>` is the Linux distribution. Currently there are 4 distributions, namely Debian, Alpine, Ubuntu and Fedora. This field is optional and will default to Debian if left out.
-- `<lang_stack>` is the programming language pack, currently we support Node.js, Python, OpenJDK and Go. This field is optional, and if left out, no language pack will be installed, so you will just have the distribution.
+- `<lang_stack>` is the programming language pack, currently we support Node.js, Python, OpenJDK, .Net, and Go. This field is optional, and if left out, no language pack will be installed, so you will just have the distribution and you can later install and use any language in your image/container.
 
 #### Image Tags
 
@@ -57,7 +57,11 @@ In the tags, all of the fields are optional, and if they are left out, they will
 - `<lang_ver>` is the version of the language stack, for example, Node.js 10.10, it can also be substituted for `latest`.
 - `<distro_ver>` is the version of the Linux distro, for example in the case of Debian, there are 4 valid versions, namely `sid`, `jessie`, `buster` and `stretch`.
 - For each combination of distro and stack, we have two variants called `run` and `build`. The build variant is much heavier as it has a number of tools preinstalled to help with building source code. You can see an example of the tools that are included in the Debian Stretch variant [here]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/build/Dockerfile). The `run` variants are stripped down and only include a few useful runtime tools, see an example [here]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile). If no variant is specified, the image defaults to `run`
-- The last optional field on tags is the date tag `<yyyymmdd>`. This is useful for production deployments as these base images are non-moving tags, so no packages in these will update ever.
+- The last optional field on tags is the date tag `<yyyymmdd>`. If a date tag is specified, the pinned release will always be pulled from Docker Hub, even if there is a new one available. 
+
+
+__Note:__ Pinning to a date-frozen base image is highly recommended if you are running a fleet in production. This ensures that all your dependencies have a fixed version and won't get randomly updated until you decide to pin the image to a newer release.
+
 
 #### Examples
 
@@ -79,7 +83,7 @@ In the tags, all of the fields are optional, and if they are left out, they will
 - `<lang_ver>` : `latest` points to the latest Python 2 version, which currently is 2.7.17
 - `<distro_ver>` : bionic is Ubuntu 18.04
 - `(build|run)` : `build` - to include things like `build-essential` and `gcc`
-- `<yyyymmdd>` : 20191029 is a date frozen image - so this image will never be updated on Docker Hub. Pinning to a date frozen base image is a good idea if you are running a fleet in production and are sensitive to dependencies updating and/or bandwidth constrained.
+- `<yyyymmdd>` : 20191029 is a date frozen image - so this image will never be updated on Docker Hub. 
 
 ### run vs. build
 

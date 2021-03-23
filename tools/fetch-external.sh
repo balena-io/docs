@@ -8,26 +8,11 @@ cd pages/reference/ && {
   cd -
 } &
 
-# get latest node SDK docs
-cd pages/reference/sdk/ && {
-  curl -O -L https://github.com/balena-io/balena-sdk/raw/master/DOCUMENTATION.md
-  echo "# Balena Node.js SDK" >node-sdk.md
-  tail -n +2 DOCUMENTATION.md >>node-sdk.md
-  cd -
-} &
-
-# get latest python SDK docs
-cd pages/reference/sdk/ && {
-  curl -O -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md
-  mv DOCUMENTATION.md python-sdk.md
-  cd -
-} &
-
 # get SDK README
 cd shared/sdk/ && {
   curl -O -L https://raw.githubusercontent.com/balena-io/balena-sdk/master/README.md
   # Extract deprecation text
-  ../../tools/extract-markdown.sh "Deprecation policy" < README.md > deprecation-policy.md
+  ../../tools/extract-markdown.sh "Deprecation policy" <README.md >deprecation-policy.md
   cd -
 } &
 
@@ -55,11 +40,11 @@ cd shared/meta-balena/ && {
   curl -O -L https://raw.githubusercontent.com/balena-os/meta-balena/master/README.md
   mv README.md meta-balena.md
   # Extract modem text
-  ../../tools/extract-markdown.sh "Modems" < meta-balena.md > supported-modems.md
+  ../../tools/extract-markdown.sh "Modems" <meta-balena.md >supported-modems.md
   # Extract Wifi adapters
-  ../../tools/extract-markdown.sh "WiFi Adapters" < meta-balena.md > supported-wifi-adapters.md
+  ../../tools/extract-markdown.sh "WiFi Adapters" <meta-balena.md >supported-wifi-adapters.md
   # Extract config.json
-  ../../tools/extract-markdown.sh "config.json" < meta-balena.md > config-json.md
+  ../../tools/extract-markdown.sh "config.json" <meta-balena.md >config-json.md
   cd -
 } &
 
@@ -90,5 +75,30 @@ cd pages/learn/more/masterclasses/ && {
   mv README.md docker-masterclass.md
   cd -
 } &
+
+# pull in balenaLabs GitHub projects
+cd shared/projects/ && {
+  echo "Name|Description
+---|---" | tee balena-labs-projects.md balena-example-projects.md balenablocks.md >/dev/null
+  curl https://api.github.com/orgs/balenalabs/repos?per_page=30 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md
+  curl https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md
+  curl https://api.github.com/orgs/balenablocks/repos?per_page=30 | ../../node_modules/node-jq/bin/jq -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balenablocks.md
+  cd -
+} &
+
+# get latest node SDK docs
+cd pages/reference/sdk/ && {
+  curl -O -L https://github.com/balena-io/balena-sdk/raw/master/DOCUMENTATION.md
+  echo "# Balena Node.js SDK" >node-sdk.md
+  tail -n +2 DOCUMENTATION.md >>node-sdk.md
+  cd -
+} 
+
+# get latest python SDK docs
+cd pages/reference/sdk/ && {
+  curl -O -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md
+  mv DOCUMENTATION.md python-sdk.md
+  cd -
+} 
 
 wait

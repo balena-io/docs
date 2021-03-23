@@ -137,7 +137,7 @@ To add additional dynamic properties, see the files in `/config/dictionaries`.
 
 If you remove a page that may be linked to externally to the docs, remember to add it to the `redirects.txt` in the root of the docs, if you don’t, then links will break and people will have a bad time, m’kay.
 
-If you need to add image assets, add them to the `/static/img` folder, either under common if these images are general to all of the devices or resin, otherwise add them to the specific device folder.
+If you need to add image assets, add them to the `/static/img` folder, either under common if these images are general to all of the devices or balena, otherwise add them to the specific device folder.
 
 License
 -------

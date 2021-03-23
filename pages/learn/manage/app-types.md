@@ -18,6 +18,8 @@ The three available application types for new applications are:
 
 Starter applications, available for free to all users, are full-featured, allowing you to run [multiple containers][multicontainer] and set up a [public URL][public-url] for each of your devices. You are limited to ten devices across all starter applications.
 
+__Note:__ Inactive devices count against your starter application device limit.
+
 ### Microservices
 
 Microservices applications, like starter applications, are full-featured, allowing you to run [multiple containers][multicontainer] and set up a [public URL][public-url], and are available to all paid plans.

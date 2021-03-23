@@ -12,6 +12,10 @@ title: Account management
 
 If you forget your password, you may request to reset it via the [password reset][password-reset] page. Enter the email address associated with your {{ $names.cloud.lower }} account. If the email address has an associated account, a password reset link will be sent to that address. Following the link, you will be able to enter a new password.
 
+## Add a password to social login
+
+To add a password to an account created with a social login (Google, Github), navigate to the [*Preferences*][prefs] page found by clicking on your profile in the top right of the dashboard. Under the *Account details* tab you can set a password for your account.
+
 ## Access tokens
 
 Access tokens are used for authentication in the {{ $names.company.lower }} [API][api], [CLI][cli], and [Node.js][node-sdk] and [Python][python-sdk] SDKs. They are managed in the *Access tokens* tab of the [*Preferences*][prefs] page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
@@ -55,6 +59,13 @@ API keys can also be generated using the API, [CLI][cli-keys], and [Node.js][nod
 When an application needs to be shared with more than one user, the application owner can add new members. With paid accounts, it's possible to assign a level of access for a new member, based on the following types:
 
 ### Member types
+
+| Member Type | Add members   | Delete App  | Add/Remove device  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions |
+| ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
+| Owner      | Yes      | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Observer   | No       | No   | No   | No   | No   | No  | No  | No  | No  | No  |
+| Operator   | No       | No   | No   | Yes  | Yes  | Yes | Yes | No  | No  | No  |
+| Developer  | No       | No   | No   | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
 
 #### Owner
 
