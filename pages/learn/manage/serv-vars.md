@@ -14,7 +14,7 @@ Values defined for individual devices always override those defined for the flee
 
 __Note:__ Environment and service variables defined in the dashboard will not apply to devices in [local mode][local-mode].
 
-Values can be up to 1MB (or approximately 1 million characters) in size each. Note however that variables are communicated to a device every time it checks in with the API, which may potentially result in a lot of [network traffic][bandwidth-control]. The interval can be configured with the [BALENA_SUPERVISOR_POLL_INTERVAL configuration variable][poll-interval].
+Values can be up to 1MB (or approximately 1 million characters) in size each. Note that a device will re-download the variables every time the state changes in the API, which may potentially result in a lot of [network traffic][bandwidth-control]. The interval can be configured with the [BALENA_SUPERVISOR_POLL_INTERVAL configuration variable][poll-interval].
 
 ## Fleet environment and service variables
 
