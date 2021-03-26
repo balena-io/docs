@@ -3,7 +3,7 @@
   "private": true,
   "version": "5.12.5",
   "engines": {
-    "node": "^14.0.0"
+    "node": "^12.0.0"
   },
   "description": "This repo contains our public-facing documentation.",
   "main": "index.js",
@@ -13,7 +13,6 @@
     "test-spelling": "find . -iname \"*.*md\" -not -path \"./CHANGELOG*\" -not -path \"./node_modules/*\" | ./tools/test-spelling.sh",
     "build": "./tools/prepare.sh && ./tools/build.sh && webpack -p",
     "build:fast": "./tools/build.sh && webpack -p",
-    "heroku-prebuild": "apt update && apt install jq -y && apt clean",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
     "watch-assets": "webpack -w",
     "watch": "npm run watch-pages & npm run watch-assets"
