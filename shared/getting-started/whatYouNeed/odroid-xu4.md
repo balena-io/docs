@@ -2,7 +2,7 @@ __Warning:__ HDMI is currently not supported on the Odroid XU4.
 
 <img style="float: right;padding-left: 10px;" src="/img/odroid-xu4/odroid-xu4.jpg">
 
-* An [Odroid XU4][odroidXU4-link] Cortex-A7 quad core from [Hardkernel][hardkernel-link] (the same process will work for the older [Odroid XU3][xu3-link]).
+* An [Odroid XU4][odroidXU4-link] Cortex-A7 quad core from [Hardkernel][hardkernel-link] (the same process will work for the older Odroid XU3).
 * A 4GB or larger SD card. The [Odroid XU4][odroidXU4-link] uses a microSD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
 * A 5V, 4 Amp power supply unit from [Hardkernel][hardkernel-link] like this [one][XU4-PSU-link].
 * An ethernet cable or WiFi adapter to connect your device to the internet.
