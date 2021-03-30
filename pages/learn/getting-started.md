@@ -177,6 +177,7 @@ Your application will then be downloaded and executed by all the devices you hav
 
 ## Next steps
 
+- To easily find, deploy and publish your applications for {{ $names.company.lower }} [supported devices][supported-devices], head to [balenaHub](https://hub.balena.io)
 - Try out [local mode][local-mode], which allows you to build and sync code to your device locally for rapid development.
 - Develop an application with [multiple containers][multicontainer] to provide a more modular approach to application management.
 - Manage your device fleet with the use of [configuration][configuration], [environment][service], and [service variables][service].
@@ -205,3 +206,4 @@ Your application will then be downloaded and executed by all the devices you hav
 [service]:/learn/manage/serv-vars/
 [terminal]:/learn/manage/ssh-access
 [token]:/learn/manage/account/#access-tokens
+[supported-devices]:/reference/hardware/devices/
