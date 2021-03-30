@@ -8,7 +8,7 @@
     "community": true,
     "icon": "/img/device/n510-tx2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Aetina N510 TX2."
