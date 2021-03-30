@@ -2,16 +2,19 @@
 
 Thank you for contributing to the docs! We have a few guidelines which will allow your awesome PR to pass our CI checks and successfully merge.
 
+## (Important) Semantic Versioning
+
 The docs version numbering adheres to [Semantic Versioning](http://semver.org/). Please ensure that each commit in your pull request conforms to the following format.
 
 ```
-component: Description of my change
+component: Description of the change.
 
 Change-type: patch
-Signed-off-by: Joe Soap <joe.soap@example.com>
 ```
 
-This will allow the system to automatically version the documentation using the `Change-type`. The versioning follows [semver](https://semver.org/) and changes can be of type `patch`, `minor` or `major`.
+This will allow the system to automatically version the documentation using the `Change-type`. The versioning follows [semver](https://semver.org/) and changes can be of type `patch`, `minor` or `major`. Without the footer in place, the CI checks will fail. Add whichever change type that your pull request merits in the commit footer for the system to version the documentation. 
+
+## External Documentation
 
 It is also worth noting that some of the reference documentation is sourced from the individual component repositories and should be updated at the source.
 
