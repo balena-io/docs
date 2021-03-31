@@ -150,7 +150,7 @@ Once the code has been built on the device, it immediately starts executing, and
 
 Local mode also has another huge benefit, known as [Livepush][livepush]. Livepush makes intelligent decisions on how, or even if, to rebuild an image when changes are made. Instead of creating a new image and container with every code change, the Dockerfile commands are executed from within the running container. This means that, for example, if you added a dependency to your `package.json`, rather than having to install all of the dependencies again, only the new dependency would be installed.
 
-Once a file has been modified in the application, the Supervisor will immediately detect the change and then either rebuild the image or, for source files that run in-service, replace the changed files in-situ in the relevant container layer and restart the service. As this happens in a few seconds, it makes the process of developing much faster and more convenient.
+Once a file has been modified in the application, the Supervisor will immediately detect the change and then either rebuild the image or, for source files that run in-service, replace the changed files in situ in the relevant container layer and restart the service. As this happens in a few seconds, it makes the process of developing much faster and more convenient.
 
 ```bash
 [Live]    Detected changes for container main, updating...
@@ -173,7 +173,7 @@ When detached, the services continue to run on the device, and you can access th
 {{ $names.company.short }} logs 63ec46c.local
 ```
 
-This command will output logs for the system and all running services. You may optionally filter the output to only include system or specific service logs using the available `--system` (`-S`) and `--service` (`-s`) options. For example, to only output the system logs:
+This command will output logs for the system and all running services. You may optionally filter the output to include only system or specific service logs using the available `--system` (`-S`) and `--service` (`-s`) options. For example, to output only the system logs:
 
 ```bash
 {{ $names.company.short }} logs 63ec46c.local --service <service name>
