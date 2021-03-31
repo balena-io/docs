@@ -15,7 +15,7 @@ $ date
 Tue Mar  3 19:59:54 UTC 2020
 ```
 
-{{ $names.company.upper }} devices use [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) as their standard time zone. If you want to use a timezone other than UTC, you have to explicitly set the timezone using the tools available for the operating system running within your container. The [balena-timezone]({{ $links.githubPlayground }}/balena-timezone) project is an example of how to do this in Debian. The {{ $names.cloud.lower }} dashboard shows log timestamps using the local time for the browser you are viewing it on, and you can switch it to display the timestamps in UTC by using the toggle available in the log view.
+{{ $names.company.upper }} devices use [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) as their standard time zone. If you want to use a timezone other than UTC, you have to explicitly set the timezone for the operating system running within your container. To set the timezone on the container, find the name of your timezone from [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List), and set an environment variable called `TZ` with that value. This can be done either in the Dockerfile (hardcoded) by `ENV TZ <value>` or a new variable called `TZ` in the [dashboard][env-vars] with the value as the timezone you want to set. This will only work if `tzdata` package is installed in the container image. Refer to [balena-timezone]({{ $links.githubPlayground }}/balena-timezone) project for an example on setting the timezone in the container. The {{ $names.cloud.lower }} dashboard shows log timestamps using the local time for the browser you are viewing it on, and you can switch it to display the timestamps in UTC by using the toggle available in the log view.
 
 ![Change the logs to use UTC timezone](/img/common/main_dashboard/dashboard-utc.png)
 
@@ -76,6 +76,7 @@ Starting from {{ $names.os.lower }} 2.1.0, you can configure your own NTP server
 
 Starting from {{ $names.os.lower }} 2.30.0, NTP servers can be set over DHCP.
 
+[env-vars]:/management/env-vars
 [boot-partition]:/reference/OS/overview/2.x/#image-partition-layout
 [config-json]:/reference/OS/configuration/#ntpservers
 [chrony]:https://chrony.tuxfamily.org/
