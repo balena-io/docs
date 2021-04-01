@@ -54,7 +54,7 @@ The `layers` directory contains the git submodules of the yocto layers used in t
 - [poky](https://www.yoctoproject.org/tools-resources/projects/poky)  at the version/revision required by the board BSP
 - [meta-openembedded](https://github.com/openembedded/meta-openembedded) at the revision poky uses
 - [meta-balena]({{ $links.githubOS }}/meta-balena) using the master branch
-- [oe-meta-go]({{ $links.githubOS }}/oe-meta-go) using the master branch (there were no branches corresponding to the yocto releases at the time this howto was written)
+- [meta-rust](https://github.com/meta-rust/meta-rust) using the master branch
 - Yocto BSP layer for the board (for example, the BSP layer for Raspberry Pi is [meta-raspberrypi](https://github.com/agherzan/meta-raspberrypi))
 - any additional Yocto layers required by the board BSP (check the Yocto BSP layer of the respective board for instructions on how to build the BSP and what are the Yocto dependencies of that particular BSP layer)
 
@@ -72,7 +72,7 @@ The layout so far looks as follows:
 │   ├── meta-<board-family>
 │   ├── meta-balena
 │   ├── meta-balena-<board-family>
-│   ├── oe-meta-go
+│   ├── meta-rust
 │   └── poky
 ├── <board>.coffee
 └── balena-yocto-scripts
@@ -92,15 +92,7 @@ and a number of directories out of which the mandatory ones are:
     - `samples/bblayers.conf.sample` file in which all the required Yocto layers are listed, see this [bblayers.conf.sample]({{ $links.githubOS }}/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample) from `meta-balena-raspberrypi` for an example, and see the [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#var-BBLAYERS)
     - `samples/local.conf.sample` file which defines part of the build configuration (see the meta-balena [README.md]({{ $links.githubOS }}/meta-balena/blob/master/README.md) for an overview of some of the variables use in the `local.conf.sample` file). An existing file can be used (e.g. [local.conf.sample]({{ $links.githubOS }}/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/local.conf.sample)) but making sure the "Supported machines" area lists the appropriate machines this repository is used for. See also the [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#structure-build-conf-local.conf).
 
-- `recipes-containers/docker-disk` directory, which contains `docker-balena-supervisor-disk.bbappend` that shall define the following variable(s):
-
-    - `SUPERVISOR_REPOSITORY_<yocto-machine-name>`: this variable is used to specify the build of the supervisor. It can be one of (must match the architecture of the board):
-        *  **balena/armv7hf-supervisor** (for armv7 boards),
-        * **balena/i386-supervisor**
-        (for x86 boards),
-        * **balena/amd64-supervisor** (for x86-64 boards),
-        * **balena/rpi-supervisor** (for raspberry pi 1),
-        * **balena/armel-supervisor** (for armv5 boards).
+- `recipes-containers/docker-disk` directory, which contains `resin-supervisor.bbappend` that shall define the following variable(s):
 
     - `LED_FILE_<yocto-machine-name>`: this variable should point to the [Linux sysfs path of an unused LED](https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-led) if available for that particular board. This allows the unused LED to be flashed for quick visual device identification purposes. If no such unused LED exists, this variable shall not be used.
 
@@ -126,9 +118,9 @@ from external storage (these boards do not have internal storage to install bale
     - `IMAGE_FSTYPES_<yocto-machine-name>` (see above)
     - `BALENA_BOOT_PARTITION_FILES_<yocto-machine-name>` (see above). For example, if the board uses different bootloader configuration files for booting from SD/USB and internal storage (see below the use of `INTERNAL_DEVICE_BOOTLOADER_CONFIG` variable), then make sure these files end up in the boot partition (i.e. they should be listed in this `BALENA_BOOT_PARTITION_FILES_<yocto-machine-name>` variable)
 
-- `recipes-kernel/linux directory`: shall contain a `.bbappend` to the kernel recipe used by the respective board. This kernel `.bbappend` must "inherit kernel-balena" in order to add the necessary kernel configs for using with balena.
+- `recipes-kernel/linux directory`: shall contain a `.bbappend` to the kernel recipe used by the respective board. This kernel `.bbappend` must "inherit kernel-resin" in order to add the necessary kernel configs for using with balena.
 
-- `recipes-support/balena-init` directory - shall contain a `balena-init-flasher.bbappend` file if you intend to install balena to internal storage and hence use the flasher image. This shall define the following variables:
+- `recipes-support/resin-init` directory - shall contain a `resin-init-flasher.bbappend` file if you intend to install balena to internal storage and hence use the flasher image. This shall define the following variables:
 
   - `INTERNAL_DEVICE_KERNEL_<yocto-machine-name>`: this variable is used to identify the internal storage where balena will be written to.
   - `INTERNAL_DEVICE_BOOTLOADER_CONFIG_<yocto-machine-name>`: this variable is used to specify the filename of the bootloader configuration file used by your board when booting from internal media (must be the same with the *FilenameOnTheTarget* parameter of the bootloader internal config file used in the `BALENA_BOOT_PARTITION_FILES_<yocto-machine-name>` variable from `recipes-core/images/balena-image-flasher.bbappend`)
@@ -160,7 +152,7 @@ The directory structure then looks similar to this:
 │   └── bootfiles
 ├── recipes-containers
 │   └── docker-disk
-│       └── docker-balena-supervisor-disk.bbappend
+│       └── resin-supervisor.bbappend
 ├── recipes-core
 │   ├── images
 │   │   └── balena-image.bbappend
@@ -171,10 +163,10 @@ The directory structure then looks similar to this:
 │       ├── linux-<board-family>_%.bbappend
 │       └── linux-<board>_<version>.bbappend
 └── recipes-support
-    └── balena-init
+    └── resin-init
         ├── files
-        │   └── balena-init-board
-        └── balena-init-board.bbappend
+        │   └── resin-init-board
+        └── resin-init-board.bbappend
 ```
 
 ## Building
