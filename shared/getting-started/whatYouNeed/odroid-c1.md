@@ -6,7 +6,6 @@
 * An ethernet cable or WiFi adapter to connect your device to the internet.
 
 [odroidC1-link]:https://www.hardkernel.com/shop/odroid-c1/
-[hardkernel-link]:http://www.hardkernel.com/main/main.php
-[odroid-emmc]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143538061522
-[C1-PSU-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G134111972476
+[hardkernel-link]: https://www.hardkernel.com/
+[C1-PSU-link]: https://www.hardkernel.com/shop/5v-2a-power-supply-us-plug-2/
 [speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating

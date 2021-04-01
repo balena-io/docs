@@ -43,33 +43,35 @@ The `balena.yml` file can also be used to provide additional metadata to be used
 The file should be named `balena.yml` and be located in the root of the project repository, or the `configUrl` link must be specified. A full example of the `balena.yml` file is shown below:
 
 ```yaml
-name: "myApp"
-description: "balenaHub description for myApp goes here!"
-type: "sw.application"
+
+name: balenaSound
+type: sw.application
+description: >-
+  Build a single or multi-room streamer for an existing audio device using a
+  Raspberry Pi! Supports Bluetooth, Airplay and Spotify Connect
 assets:
   repository:
-    type: "blob.asset"
+    type: blob.asset
     data:
-      url: "https://github.com/myorg/myapp"
+      url: 'https://github.com/balenalabs/balena-sound'
   logo:
-    type: "blob.asset"
+    type: blob.asset
     data:
-      url: "https://raw.githubusercontent.com/myorg/myapp/main/logo.png"
+      url: >-
+        https://raw.githubusercontent.com/balenalabs/balena-sound/master/logo.png
 data:
-  applicationConfigVariables:
-    - BALENA_HOST_CONFIG_CONNECTIVITY_CHECK: true
   applicationEnvironmentVariables:
-    - ENV: "DEV"
-    - VIDEO_OUTPUT: "BROWSERBLOCK"
-    - THREAD_COUNT: 32
-  defaultDeviceType: "raspberry-pi"
+    - SOUND_VOLUME: 75
+    - AUDIO_OUTPUT: AUTO
+  defaultDeviceType: raspberry-pi
   supportedDeviceTypes:
-    - "raspberry-pi"
-    - "raspberry-pi2"
-    - "raspberrypi3"
-    - "raspberrypi4-64"
-    - "fincm3"
-    - "intel-nuc"
+    - raspberry-pi
+    - raspberry-pi2
+    - raspberrypi3
+    - raspberrypi4-64
+    - fincm3
+    - intel-nuc
+version: 3.5.2
 ```
 
 - `type` - Required field. In most cases this would be `sw.application`, unless you are implementing a block, in which case you need to use `sw.block`.

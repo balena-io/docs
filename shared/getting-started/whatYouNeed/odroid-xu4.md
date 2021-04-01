@@ -7,9 +7,8 @@ __Warning:__ HDMI is currently not supported on the Odroid XU4.
 * A 5V, 4 Amp power supply unit from [Hardkernel][hardkernel-link] like this [one][XU4-PSU-link].
 * An ethernet cable or WiFi adapter to connect your device to the internet.
 
-[hardkernel-link]:http://www.hardkernel.com/main/main.php
-[odroid-emmc]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143538061522
-[XU4-PSU-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143652955378
-[xu3-link]:http://www.hardkernel.com/main/products/prdt_info.php?g_code=G140448267127
-[odroidXU4-link]:https://www.hardkernel.com/shop/odroid-xu4-special-price/
-[speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
+[hardkernel-link]: https://www.hardkernel.com/
+[XU4-PSU-link]: https://www.hardkernel.com/shop/5v-4a-power-supply-us-plug-2/
+[xu3-link]: https://www.hardkernel.com/shop/odroid-xu3/
+[odroidXU4-link]: https://www.hardkernel.com/shop/odroid-xu4-special-price/
+[speed_class]: http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating

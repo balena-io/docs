@@ -31,7 +31,7 @@ Other smaller, but important changes to note are the following:
 
 
 <!-- links -->
-[connman-link]:https://01.org/connman
+[connman-link]: https://en.wikipedia.org/wiki/ConnMan
 [networkmanager-link]:https://developer.gnome.org/NetworkManager/
 [modemmanager-link]:https://www.freedesktop.org/wiki/Software/ModemManager/
 [wifi-connect-link]:{{ $links.githubMain }}/wifi-connect/
