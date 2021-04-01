@@ -2,7 +2,7 @@
 
 Thank you for contributing to the docs! We have a few guidelines which will allow your awesome PR to pass our CI checks and successfully merge.
 
-## Creating Commits & following Semantic Versioning
+## Creating Commits in line with Semantic Versioning
 
 The docs version numbering adheres to [Semantic Versioning](http://semver.org/). Please include  *atleast one commit* in your PR that marks the change-type for the system. 
 
@@ -42,9 +42,39 @@ Change-type: patch
 
 This will allow the system to automatically version the documentation using the `Change-type`. The versioning follows [semver](https://semver.org/) and changes can be of type `patch`, `minor` or `major`. Without the footer or the prefix in place, the CI checks will fail. Add whichever change type that your pull request merits in the commit footer or the prefix for the system to version the documentation. 
 
+## Adding images to the documentation
+
+> Choose whichever style that suits your need
+
+Images for the documetation are stored in [static/img](https://github.com/balena-io/docs/tree/master/static/img) directory.
+
+To add an image to the documentation,
+
+1. Upload/add the image(s) to one of the folder inside the [static/img](https://github.com/balena-io/docs/tree/master/static/img) directory. Usually, the [common](https://github.com/balena-io/docs/tree/master/static/img/common) directory is where most screenshot(s) tend to fit well. 
+2. Images need to be in the `PNG`, `JPEG` or `SVG` format to render properly in markdown. 
+3. When added, refer and add them to the relevant documentation page using either the markdown format.
+
+```markdown
+![Descrption of the image](/img/common/app/cool-looking-image.png)
+```
+
+OR use the HTML <img> tag
+
+```
+<img alt="Description about the image" src="/img/common/app/cool-looking-image.png">
+```
+
+## Adding links to the docs
+
+> Choose whichever style that suits your need
+
+To add links in markdown, use the format `[I'm an inline-style link](https://docs.balena.io)` which results in [I'm an inline-style link](https://www.docs.balena.io)
+
+OR using `[I'm a reference-style link][reference text]` which results in [I'm a reference-style link][reference text] where `reference text` is referred to in the bottom of the markdown file. These types of links can be re-used multiple times in the same document.
+
 ## External Documentation
 
-It is also worth noting that some of the reference documentation is sourced from the individual component repositories and should be updated at the source.
+It is worth noting that some of the reference documentation is sourced from the individual component repositories and should be updated at the source.
 
 Currently the following reference material is pulled from other repos:
 - [Device Supervisor API](https://www.balena.io/docs/reference/supervisor/supervisor-api/) and [Device Supervisor upgrades](https://www.balena.io/docs/reference/supervisor/supervisor-upgrades), sourced from https://github.com/balena-io/balena-supervisor/tree/master/docs
@@ -52,4 +82,10 @@ Currently the following reference material is pulled from other repos:
 - [Node SDK](https://www.balena.io/docs/reference/sdk/node-sdk/) sourced from https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md
 - [Python SDK](https://www.balena.io/docs/reference/sdk/python-sdk/) sourced from https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md
 
+And more. The updated list of external resources can be found in [tools/fetch-external.sh](https://github.com/balena-io/docs/blob/master/tools/fetch-external.sh)  
+
+## Version numbers & Changelogs
+
 Version numbers and commit messages are automatically added to the `CHANGELOG.md` file by the CI build flow, after a pull request is merged. It should not be manually edited.
+
+[reference text]: https://balena.io
