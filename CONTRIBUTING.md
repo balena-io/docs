@@ -2,17 +2,45 @@
 
 Thank you for contributing to the docs! We have a few guidelines which will allow your awesome PR to pass our CI checks and successfully merge.
 
-## (Important) Semantic Versioning
+## Creating Commits & following Semantic Versioning
 
-The docs version numbering adheres to [Semantic Versioning](http://semver.org/). Please ensure that each commit in your pull request conforms to the following format.
+The docs version numbering adheres to [Semantic Versioning](http://semver.org/). Please include  *atleast one commit* in your PR that marks the change-type for the system. 
+
+This change-type can be either specified through a `Change-type` footer, or by adding the change-type as a prefix to the commit, i.e. `minor: Add some new feature`. This is so the PR can be automatically versioned and a changelog generated for it by using versionbot. You have the option to choose one of the 3 `Change-type` when proposing a file change. 
+
+- `patch` - For tiny changes that include typo fixes, updating screenshots, and adding clarification notes etc.
+- `minor` - For moderate changes that include updating packages, rewriting documentation, adding new features.
+- `major`- For substantial changes that include updating large parts of the documentation or migrating to new frameworks. 
+
+### Creating Commits using the GitHub UI
+
+For folks using the Github UI to create new pull requests. Check out these guides in the following order to get you started. 
+
+1. [Editing files and proposing changes](https://docs.github.com/en/github/managing-files-in-a-repository/editing-files-in-your-repository) on a GitHub Repository. When committing changes, here's how you can add a `Change-type` as a prefix to the commit. Adding `patch:` before your commit will mark the change-type successfully. 
+
+![example-prefix-commit-githubui](https://user-images.githubusercontent.com/22801822/113337642-ac704f00-9345-11eb-9df3-43c07e06c9bf.png)
+
+Alternatively, if you want to add a Change-type footer. Here's how you can achieve that. Both methods are acceptable. 
+
+![example-footer-commit-githubui](https://user-images.githubusercontent.com/22801822/113337904-0bce5f00-9346-11eb-9575-a87b11f0a31f.png)
+  
+2. [Creating a pull request from the proposed changes](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request#creating-the-pull-request)
+
+
+### Using the Command-Line
+
+For folks who are experienced with the git command-line. While creating the commit, make sure to add the `Change-type` prefix to the commit or add a commit footer to designate a `Change-type`. Following any of the two methods for creating a commit is acceptable.
+
+1. Prefix `Change-type` to commit - `git commit -m "patch: Update v8 configuration for contracts"`
+2. Add `Change-type` footer to commit - `git commit -s` for you to write the commit message inside the terminal editor. 
 
 ```
-component: Description of the change.
+Update v8 configuration for contracts
 
 Change-type: patch
 ```
 
-This will allow the system to automatically version the documentation using the `Change-type`. The versioning follows [semver](https://semver.org/) and changes can be of type `patch`, `minor` or `major`. Without the footer in place, the CI checks will fail. Add whichever change type that your pull request merits in the commit footer for the system to version the documentation. 
+This will allow the system to automatically version the documentation using the `Change-type`. The versioning follows [semver](https://semver.org/) and changes can be of type `patch`, `minor` or `major`. Without the footer or the prefix in place, the CI checks will fail. Add whichever change type that your pull request merits in the commit footer or the prefix for the system to version the documentation. 
 
 ## External Documentation
 
