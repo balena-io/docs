@@ -4,7 +4,7 @@ Put the USB drive into your device and connect either the ethernet cable or WiFi
 
 __Warning:__ {{ $names.os.upper }} will completely overwrite the internal media of your NUC, so if you have important data on the device, we recommend that you make a backup before you attempt provisioning the NUC on {{ $names.company.lower }}.
 
-Now connect up the power supply and turn the device on by pushing the small round button on the top of the device.
+Now connect up the power supply and turn the device on. The power button may be a small round button on the top of the device or a square button on the front.
 
 Press the F10 key while the **BIOS** is loading in order to enter the boot menu. Next, select the `UEFI : USB` option from the boot menu so that the device will boot from your USB drive.
 
