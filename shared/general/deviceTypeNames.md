@@ -30,7 +30,6 @@
 | Nitrogen 6X Quad 2GB            | nitrogen6xq2g                             | armv7hf                           | [Link]({{ $links.githubBaseImages }}/nitrogen6xq2g)         |
 | Nitrogen 6x                     | nitrogen6x                                | armv7hf                           | [Link]({{ $links.githubBaseImages }}/nitrogen6x)            |
 | Nitrogen8M Mini SBC             | nitrogen8mm                               | aarch64                           | [Link]({{ $links.githubBaseImages }}/nitrogen8mm)           |
-| Nitrogen8MM DWE                 | nitrogen8mm-dwe                           | aarch64                           | [Link]({{ $links.githubBaseImages }}/nitrogen8mm-dwe)       |
 | Nvidia D3 TX2                   | srd3-tx2                                  | aarch64                           | [Link]({{ $links.githubBaseImages }}/srd3-tx2)              |
 | Nvidia Jetson Nano              | jetson-nano                               | aarch64                           | [Link]({{ $links.githubBaseImages }}/jetson-nano)           |
 | Nvidia Jetson TX1               | jetson-tx1                                | aarch64                           | [Link]({{ $links.githubBaseImages }}/jetson-tx1)            |
