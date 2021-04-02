@@ -4,9 +4,9 @@ Thank you for contributing to the docs! We have a few guidelines which will allo
 
 ## Creating Commits in line with Semantic Versioning
 
-The docs version numbering adheres to [Semantic Versioning](http://semver.org/). Please include *at least one commit* in your PR that marks the change-type for the system. 
+> **TL:DR** The docs version numbering adheres to [Semantic Versioning](http://semver.org/). **Please include *at least one commit* in your PR that marks the change-type for the system.** 
 
-This change-type can be specified by adding it as a prefix, i.e., `minor: Add some new feature` while creating your commit. This is so the PR can be automatically versioned and a changelog generated for it by using versionbot. You have the option to choose one of the 3 `Change-type` when proposing a file change. 
+This change-type can be specified by adding it as a prefix, i.e., `minor: Add some new feature` while creating your commit. This is so the PR can be automatically versioned and a changelog generated for it by using versionbot. You can choose one of 3 `Change-type` options on the nature of your file change. 
 
 - `patch` - For tiny changes that include typo fixes, updating screenshots, adding clarification notes, etc.
 - `minor` - For moderate changes that include updating packages, rewriting documentation, adding new features.
@@ -30,9 +30,9 @@ For folks experienced with the git command-line, when creating a commit, make su
 git commit -m "patch: Update v8 configuration for contracts"
 ```
 
-This will allow the system to version the documentation using the `Change-type` automatically. The versioning follows [semver](https://semver.org/), and changes can be of type `patch`, `minor` or `major`. Without the prefix in place, the CI checks will fail.
+This will allow the system to version the documentation using the `Change-type` automatically. The versioning follows [semver](https://semver.org/), and changes can be of type `patch`, `minor` or `major`. Adding it as a pull request message doesn't work. Without the prefix in place, the CI checks will fail. **Again, please make sure to include *at least one commit* in your PR that marks the change-type for the system.** 
 
-## Adding images/screenshots to the documentation
+## Adding images/screenshots to the docs
 
 > Choose whichever format that suits your need
 
@@ -48,7 +48,7 @@ To add an image to the documentation,
 ![Descrption of the image](/img/common/app/cool-looking-image.png)
 ```
 
-OR use the HTML <img> tag
+OR use the HTML `<img>` tag
 
 ```html
 <img alt="Description about the image" src="/img/common/app/cool-looking-image.png">
@@ -62,7 +62,7 @@ To add links in markdown, use the format `[I'm an inline-style link](https://doc
 
 OR using `[I'm a reference-style link][reference text]` which results in [I'm a reference-style link][reference text] where `reference text` is referred at the bottom of the markdown file. These link types can be used multiple times in the same document.
 
-More examples, 
+More examples are given below, 
 
 ```
 [multicontainer]:/learn/develop/multicontainer
@@ -78,12 +78,7 @@ It is worth noting that some of the reference documentation is sourced from the 
 To add additional external documentation, follow these steps:
 
 1. Update [`tools/fetch-external.sh`](https://github.com/balena-io/docs/blob/master/tools/fetch-external.sh) to add the additional external source. If required, rename the source document as this will be used in the docs URL. This dynamically determining the `Improve this Doc` link and has to be unique. 
-2. Update `externalDocs` in [`config/links.coffee`](https://github.com/balena-io/docs/blob/master/config/links.coffee) to add the link to edit the source file. This is the link presented in `Improve this Doc`. The key must match the name of the filename without the .md extension 
-
-```
-e.g. `"node-sdk": 'https://github.com/balena-io/balena-sdk/edit/master/DOCUMENTATION.md'` for a file named `node-sdk.md`.
-```
-
+2. Update `externalDocs` in [`config/links.coffee`](https://github.com/balena-io/docs/blob/master/config/links.coffee) to add the link to edit the source file. This is the link presented in `Improve this Doc`. The key must match the name of the filename without the .md extension. Example, for a file named `node-sdk.md`, the key must be added like `"node-sdk": 'https://github.com/balena-io/balena-sdk/edit/master/DOCUMENTATION.md'`.
 3. In [`config/index.coffee`](https://github.com/balena-io/docs/blob/master/config/index.coffee) add the filename (again without the .md extension) to the `EXTERNAL_DOCS` variable so that the system knows to identify this file as coming from an external source correctly.
 4. If the source is currently duplicated in this repo, then delete the content from this repo and add the files to `/.gitignore`.
 
