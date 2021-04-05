@@ -6,7 +6,7 @@ __Warning:__ {{ $names.os.upper }} will completely overwrite the internal media 
 
 Now connect up the power supply and turn the device on. The power button may be a small round button on the top of the device or a square button on the front.
 
-Press the F10 key while the **BIOS** is loading in order to enter the boot menu. Next, select the `UEFI : USB` option from the boot menu so that the device will boot from your USB drive.
+Press the F10 key while the **BIOS** is loading in order to enter the boot menu. Next, select the `UEFI : USB` (or `resinOS`) option from the boot menu so that the device will boot from your USB drive.
 
 Once the device boots, you should see it pop up on your {{ $names.company.lower }} dashboard. It will immediately go into a `flashing internal media` state. This means that the device is flashing the {{ $names.os.lower }} onto your internal flash media.
 
