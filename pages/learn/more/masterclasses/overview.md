@@ -7,7 +7,7 @@ excerpt: In-depth exercises designed to take you from a {{ $names.company.lower 
 
 Masterclasses are a series of self-contained, in-depth exercises designed to take you from a {{ $names.company.lower }} beginner to power user. Each masterclass focuses on providing in-depth knowledge on a specific part of the {{ $names.company.lower }} system.
 
-Feedback on the masterclasses are welcome and should be given by creating an issue in the respective masterclass repository.
+Feedback on the masterclasses is welcome and should be given by creating an issue in the respective masterclass repository.
 
 Currently, the following masterclasses are available:
 
