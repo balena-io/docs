@@ -31,22 +31,22 @@ When you push updates, the terminal session is automatically closed. To restart 
 In some cases social logins can be disrupted or completely borked by Adblocker or browser extensions such as [BrowserShark](https://chrome.google.com/webstore/detail/browsershark/jhbjnipjccjloncefdoknhicbnbjaefh?hl=en). Make sure to disable these extensions or whitelist the `*.{{ $names.cloud_domain }}` domains.
 
 ### I get `$'\r': command not found` when my device tries to run scripts
-Line endings differ between windows and the unix-y world (they used to be different again for mac but not for many years), which can result in issues. E.g. a user seeing something like:
+Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like:
 /usr/src/app/run.sh: line 2: $'\r': command not found
 
-To resolve this, you will need to configure git to auto convert line endings. In order to configure this for windows have a look here: https://help.github.com/articles/dealing-with-line-endings/#platform-windows.
+To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look here: https://help.github.com/articles/dealing-with-line-endings/#platform-windows.
 
 ### Device keeps dropping off wifi
-If your device keeps dropping offline, it may be worth switching to 5GHz band wifi dongle, as we have seen cases where 2.4GHz gets badly affected by surrounding noise.
+If your device keeps dropping offline, it may be worth switching to a 5GHz band wifi dongle, as we have seen cases where 2.4GHz gets badly affected by surrounding noise.
 
 ### Unsupported Syscall: 384 from qemu on builder
-The qemu: Unsupported syscall: 384 is a warning that the getrandom(2) system call is not implemented by our emulation layer, qemu. It can be safely ignored. Since it's a fairly new system call (introduced in kernel 3.17), apt and almost all programs automatically fall back to reading from `/dev/urandom` when this syscall fails.
+The qemu: Unsupported syscall: 384 is a warning that the getrandom(2) system call is not implemented by our emulation layer, qemu. It can be safely ignored. Since it's a fairly new system call (introduced in kernel 3.17), `apt` and almost all programs automatically fall back to reading from `/dev/urandom` when this syscall fails.
 
 ## Raspberry Pi
 
 ### My Device Doesn't Boot
 
-To determine the cause of this issue, check your ACT led for known [error notifications][error]. If no known errors are shown on the ACT led, attach a screen to your Pi's HDMI port.
+To determine the cause of this issue, check your ACT LED for known [error notifications][error]. If no known errors are shown on the ACT LED, attach a screen to your Pi's HDMI port.
 
 One other thing to confirm is that you are not trying to boot a Raspberry Pi 2 with an OS download designed for the Raspberry Pi B+. This will not work. The Raspberry Pi 2 requires an OS download specific to its architecture.
 
@@ -69,7 +69,7 @@ the firmware on the Raspberry Pi doesn't support channel 12 and 13.
 ### Error Notifications
 
 #### Unable to Connect to the Internet
-If the Raspberry pi is unable to connect to the {{ $names.company.lower }} servers, the `ACT` LED will flash a repeated pattern of 4 short flashes followed by a pause (`*_*_*_*____*_*_*_*____`).
+If the Raspberry Pi is unable to connect to the {{ $names.company.lower }} servers, the `ACT` LED will flash a repeated pattern of 4 short flashes followed by a pause (`*_*_*_*____*_*_*_*____`).
 
 This is either because it is not connected to the network or because the network ports which {{ $names.company.lower }} relies on are blocked in some way.
 
@@ -78,13 +78,13 @@ This is either because it is not connected to the network or because the network
 * If you still aren't able to get your device online, reach out to us in the [forums]({{ $names.forums_domain }}).
 
 #### Can't Boot the Kernel.img
-If the `ACT` LED blinks with the repeated pattern of 7 quick flashes and a pause (`*_*_*_*_*_*_*____*_*_*_*_*_*_*____`), this means that the raspberry pi boot loader is not able to load the correct kernel.img.
-* The first thing to check here is that you are using the right OS image for your board type. If you look small white print near the GPIO pins of the Raspberry pi you should see the type of raspberry pi you have. You need to ensure that this is the same as the device type that you selected when creating the Application on the {{ $names.company.lower }} dashboard. You can check the type of device for an existing Application by looking at the 'How to add devices' help text inside the Application, or the icon for that Application on your dashboard.
-* Its important to note that a Raspberry Pi 2 application OS image will not boot on a Raspberry Pi 1 board and vice versa.
-* For more in depth info the boot related LED patterns have a look at the [raspberry pi wiki](http://elinux.org/R-Pi_Troubleshooting#Green_LED_blinks_in_a_specific_pattern).
+If the `ACT` LED blinks with the repeated pattern of 7 quick flashes and a pause (`*_*_*_*_*_*_*____*_*_*_*_*_*_*____`), this means that the Raspberry Pi boot loader is not able to load the correct kernel.img.
+* The first thing to check here is that you are using the right OS image for your board type. If you look at the small white print near the GPIO pins of the Raspberry Pi you should see the type of Raspberry Pi you have. You need to ensure that this is the same as the device type that you selected when creating the Application on the {{ $names.company.lower }} dashboard. You can check the type of device for an existing Application by looking at the 'How to add devices' help text inside the Application, or the icon for that Application on your dashboard.
+* It's important to note that a Raspberry Pi 2 application OS image will not boot on a Raspberry Pi 1 board and vice versa.
+* For more in-depth info the boot related LED patterns have a look at the [Raspberry Pi wiki](http://elinux.org/R-Pi_Troubleshooting#Green_LED_blinks_in_a_specific_pattern).
 
 #### Poor Power Supply
-If you have a screen attached to your Raspberry Pi and notice that there is a small flashing colorful square in the top right of the screen, it could be the case that your power supply or USB cable is not suitable. Take a look at the [Troubleshooting Power Problems](http://elinux.org/R-Pi_Troubleshooting#Troubleshooting_power_problems) on the Raspberry Pi wiki. Additionally, if the onboard `PWR` LED is flashing intermittently, this too could indicate issues with the power supply.
+If you have a screen attached to your Raspberry Pi and notice that there is a small flashing colorful square in the top right of the screen, it could be the case that your power supply or USB cable is not suitable. Take a look at the [Troubleshooting Power Problems](http://elinux.org/R-Pi_Troubleshooting#Troubleshooting_power_problems) page on the Raspberry Pi wiki. Additionally, if the onboard `PWR` LED is flashing intermittently, this too could indicate issues with the power supply.
 
 ## NVIDIA Jetson TX2
 
