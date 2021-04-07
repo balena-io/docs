@@ -5,7 +5,7 @@
   "engines": {
     "node": "^12.0.0"
   },
-  "description": "This repo contains our public-facing documentation.",
+  "description": "This repo contains balenaCloud's public-facing documentation.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

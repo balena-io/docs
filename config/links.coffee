@@ -1,5 +1,5 @@
 # this is a normal CoffeeScript CommonJS module.
-# so you can use strings interpolation, reuse variables, and everything
+# Data here can be used for strings interpolation, or reuse variables across the documentation
 
 RPI_PRODUCTS = 'https://www.raspberrypi.org/products'
 BB_PRODUCTS = 'https://beagleboard.org'
