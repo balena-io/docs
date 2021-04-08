@@ -263,7 +263,7 @@ $ balena tag set 'offline:hostOS' "${os_version}" \
   --device ${uuid}
 ```
 
-Read more about how the process can work better for your usecase in the [offline updates](https://balena.io/blog/offline-updates-make-it-easier-to-update-balena-devices-without-the-internet) blog.
+Read more about how the process can work better for your use case in the [offline updates](https://balena.io/blog/offline-updates-make-it-easier-to-update-balena-devices-without-the-internet) blog.
 
 [named-volumes]: /learn/develop/multicontainer/#named-volumes
 [persistent-logging]: /reference/OS/configuration/#persistentlogging
