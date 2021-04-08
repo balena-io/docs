@@ -36,6 +36,14 @@ This will allow the system to version the documentation using the `Change-type` 
 
 > Choose whichever format that suits your need
 
+Images and screenshots helps the user in better understanding of the docs. Before adding a screenshot, make sure to keep the area in focus, without having any identifying information.  When done, rename the screenshot appropriately. If you are clicking screenshots of the entire dashboard then feel free to use the dummy account that has been created for use like in the screenshot below.
+
+![](./static/img/common/billing/plan_selection.png)
+
+Do mark the menu options, buttons or tabs with a red box when needed.
+
+![](./static/img/common/billing/current_plan.png)
+
 Images for the documentation are stored in [static/img](https://github.com/balena-io/docs/tree/master/static/img) directory. If these are screenshots of balenaCloud dashboard, then they are stored in the [common](https://github.com/balena-io/docs/tree/master/static/img/common) directory. If these images are general to all of the devices or balena, otherwise, add them to the specific device folder.
 
 To add an image to the documentation,
