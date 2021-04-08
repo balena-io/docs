@@ -701,10 +701,30 @@
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
       },
       {
-        "i": "Remove power from the board and insert freshly burnt SD-CARD."
+        "i": "Remove power from the board and insert the freshly burnt SD-CARD."
       },
       {
         "i": "Power on the board."
+      }
+    ]
+  },
+  {
+    "id": "jetson-nano-emmc",
+    "name": "Nvidia Jetson Nano eMMC",
+    "arch": "aarch64",
+    "bootMedia": "eMMC",
+    "state": "NEW",
+    "machine": "jetson-nano-emmc",
+    "community": false,
+    "icon": "/img/device/jetson-nano-emmc.svg",
+    "instructions": [{
+        "i": "Put the NVidia Jetson Nano Devkit eMMC board in recovery mode"
+      },
+      {
+        "i": "Unzip the BalenaOS image you downloaded from the dashboard and use the <a href=\"https://github.com/balena-os/jetson-flash\">Jetson Flash</a> tool to flash the board."
+      },
+      {
+        "i": "After flashing is completed, please wait until the board is rebooted."
       }
     ]
   },
