@@ -19,7 +19,7 @@ All device types that are not designated with `COMMUNITY` or `PRIVATE` are consi
 
 Official device types are:
 - Run through a full suite of testing on real hardware each time an OS version is released for the device type.
-- We endevour to ensure that all the hardware peripherals on the device type are functional and accessible. This includes things like i2c, SPI, audio, etc.
+- We endeavour to ensure that all the hardware peripherals on the device type are functional and accessible. This includes things like i2c, SPI, audio, etc.
 - Continually updated to new versions of the OS, usually within 2 or 3 minor versions of meta-balena master version.
 - Official devices are recommended for production deployments.
 
