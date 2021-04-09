@@ -58,7 +58,7 @@ OR use the HTML `<img>` tag
 
 > Choose whichever format that suits your need
 
-To add links in markdown, use the format `[I'm an inline-style link](https://docs.balena.io)` which results in [I'm an inline-style link](https://www.docs.balena.io)
+To add links in markdown, use the format `[I'm an inline-style link](https://docs.balena.io)` which results in [I'm an inline-style link](https://docs.balena.io)
 
 OR using `[I'm a reference-style link][reference text]` which results in [I'm a reference-style link][reference text] where `reference text` is referred at the bottom of the markdown file. These link types can be used multiple times in the same document.
 
