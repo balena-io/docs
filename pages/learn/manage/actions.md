@@ -147,6 +147,10 @@ Only organization [administrators][administrator] can initiate and complete appl
 
 __Note:__ If the **Transfer This Application** button is grayed out, ensure that you have created an empty application in the **target** organization with the same name as the source application, and that user that is transferring ownership of the application from the source organization has been added as a **Developer** to the **target** application.
 
+Once the transfer of ownership has been completed, the source application owner will no longer be a member of the target application. If required, you will need to invite them to become a member of the application again. All other members of the source application will retain their membership of the target application once the transfer is complete.
+
+During and after the transfer process, the devices state will remain unchanged from before the transfer process was started. For example, devices that were online before the process was started will remain online throughout.
+
 ### Grant Support Access
 
 This action allows you to [enable support access][support-access] to the entire application fleet for a set time period.
