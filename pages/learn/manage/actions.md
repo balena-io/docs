@@ -100,6 +100,20 @@ The `Delete Device` action is an extremely dangerous action and results in disas
 
 This action allows you to [enable support access][support-access] to an individual devices for a set time period.
 
+### Change device type
+
+If one or more devices has been added to an application with the wrong [device type](https://www.balena.io/docs/reference/hardware/versioning/#device-types), one can change the device-type for their devices through the dashboard. There are 2 ways to go about this,
+
+Option 1: On the application’s device list, select one or more devices and click the `Actions` drop-down menu on the top right corner. Select `Change device type` option from the list and follow the instructions on the modal.
+
+![Change the device type from the device list](/img/common/actions/change-device-type-device-list.png)
+
+Option 2: On the device page, click `Actions` tab on the left sidebar menu. Scroll down to the `Dangerous actions` section and click `Change device type` after which follow the instructions on the modal to change your device-type.
+
+![Change the device type from the device page](/img/common/actions/change-device-type-device-page.png)
+
+__Warning:__ Only change the device type if a device was incorrectly provisioned. This does not make any changes to the OS running on the device.
+
 ## Application-specific actions
 
 These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet.
