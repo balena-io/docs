@@ -29,7 +29,7 @@ In addition to the device status, there are indicators to show if the device is 
 
 For example, in case a device is connected to the API only, indicated by a status of Online (Heartbeat Only), you may still see logs being sent. This case indicates that the device is unable to connect to the {{ $names.cloud.lower }} VPN.
 
-**Note:** If the device is powered off or loses all network connectivity, it will remain in the Online (Heartbeat Only) state for an extended time based on the device [API polling interval][poll-interval]
+**Note:** If the device is powered off or loses all network connectivity, it will remain in the Online (Heartbeat Only) state for an extended time based on the device [API polling interval][poll-interval].
 
 [deactivated]: /learn/manage/billing/#inactive-devices
 [host-os-updates]: /reference/OS/updates/self-service/
