@@ -291,7 +291,7 @@ Much like with the device list, [filters][filters] can be added to the release l
 [continuous-deployment]:https://en.wikipedia.org/wiki/Continuous_deployment
 [cli]:/reference/cli/#install-the-cli
 [cli-masterclass]:/learn/more/masterclasses/cli-masterclass/
-[development-image]:/reference/OS/overview/2.x/#dev-vs-prod-images
+[development-image]:/reference/OS/overview/2.x/#development-vs-production-images
 [device-types]:/reference/base-images/devicetypes/
 [docker]:https://www.docker.com/
 [docker-install]:https://docs.docker.com/install/

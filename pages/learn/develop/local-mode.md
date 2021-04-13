@@ -228,7 +228,7 @@ Sample secrets YAML file:
   password: myPassword
 ```
 
-[development]:/reference/OS/overview/2.x/#dev-vs-prod-images
+[development]:/reference/OS/overview/2.x/#development-vs-production-images
 [cli]:/reference/cli
 [supervisor API]:/reference/supervisor/supervisor-api/
 [compose-remote]:{{ $links.githubPlayground }}/{{ $names.company.short }}os-compose

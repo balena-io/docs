@@ -86,4 +86,4 @@ $ ssh -p 4321 root@127.0.0.1
 [github-ssh]:https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [add-ssh-key]:/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
 [config-json-ssh]:/reference/OS/configuration/#sshkeys
-[development-image]:/reference/OS/overview/2.x/#dev-vs-prod-images
+[development-image]:/reference/OS/overview/2.x/#development-vs-production-images
