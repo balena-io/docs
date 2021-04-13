@@ -36,19 +36,19 @@ This will allow the system to version the documentation using the `Change-type` 
 
 > Choose whichever format that suits your need
 
-Images and screenshots helps the user in better understanding of the docs. Before adding a screenshot, make sure to keep the area in focus, without having any identifying information.  When done, rename the screenshot appropriately. If you are clicking screenshots of the entire dashboard then feel free to use the dummy account that has been created for use like in the screenshot below.
+Images and screenshots help the user in better understanding of the docs. Before adding a screenshot, make sure to keep the area in focus, text is clearly visible and doesn't have any identifying information. Rename the screenshot appropriately and make sure to upload them to the right path.
 
 ![](./static/img/common/billing/plan_selection.png)
 
-Do mark the menu options, buttons or tabs with a red box when needed.
+Do mark the menu options, buttons or tabs with a red box as and when needed.
 
 ![](./static/img/common/billing/current_plan.png)
 
-Images for the documentation are stored in [static/img](https://github.com/balena-io/docs/tree/master/static/img) directory. If these are screenshots of balenaCloud dashboard, then they are stored in the [common](https://github.com/balena-io/docs/tree/master/static/img/common) directory. If these images are general to all of the devices or balena, otherwise, add them to the specific device folder.
+Images for the documentation are stored in [static/img](https://github.com/balena-io/docs/tree/master/static/img) directory. Screenshots of the dashboard are commonly stored in the [common](https://github.com/balena-io/docs/tree/master/static/img/common) directory.  
 
 To add an image to the documentation,
 
-1. Upload/add the image(s) to one of the folder inside the [static/img](https://github.com/balena-io/docs/tree/master/static/img) directory.  One can also use the GitHub UI to [upload files](https://docs.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository). 
+1. Upload/add the image(s) to one of the folder inside the [static/img](https://github.com/balena-io/docs/tree/master/static/img) directory. One can also use the GitHub UI to [upload files](https://docs.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository). 
 2. Images need to be uploaded in `PNG`, `JPEG`, or `SVG` format to render correctly in markdown. 
 3. When added, refer and add them to the relevant documentation page using either the markdown format.
 
@@ -103,5 +103,20 @@ And more. The updated list of external resources can be found in [tools/fetch-ex
 ## Version numbers & Changelogs
 
 Version numbers and commit messages are automatically added to the `CHANGELOG.md` file by the CI build flow after a pull request is merged. It should not be manually edited.
+
+## [balenistas only] Using Versionbot to manage your pull request
+
+Verisionbot is a helper utility to make managing of your pull request easier. Here's a list of commands supported by VersionBot:
+
+- `@balena-ci I self-certify!` - use [the self-certification flow](https://docs.google.com/drawings/d/1aoXCdi8bzinxaLM0BoKMJaiZjIJj5Az02Npw_L2iQkE/edit?usp=sharing) for this PR
+- `@balena-ci test` - trigger the tests for this PR
+- `@balena-ci retest` - trigger retests for the PR
+- `@balena-ci version` - generate the versioned branch for your PR
+- `@balena-ci rebase` - rebase the PR (Use this to update your branch)
+
+![](https://user-images.githubusercontent.com/22801822/114602349-22fd3d00-9cb4-11eb-905b-721488e64dc6.png)
+
+One can use these commands to manage, rebase or merge their own PR's as and when needed. We recommend using these commands to merge the PR if it's ready to be merge. One can issue the commands in the comments dialog box present at the bottom of the PR. 
+
 
 [reference text]: https://balena.io

@@ -3,12 +3,12 @@
 
 ## About this issue tracker
 
-While creating a new issue, always make sure to provide as much context as possible with an
-expected solution or change that you would like to see for the issue. This helps contributors 
-in understanding an issue and executing a better solution. 
+*Before creating a issue, check for duplicates. If there is another issue describing
+the same bug or problem, please add comments to pre-existing issues or link them to add more context.*
 
-*Please also check that this issue is not a duplicate. If there is another issue describing
-the same problem or feature, please add comments to pre-existing issues or link them to add more context.*
+While creating a new issue, always make sure to provide as much context as possible with an
+expected solution or change that you would like to see in the documentation. This helps
+contributors understand the issue and execute a better solution. 
 
 If applicable, please add additional links to GitHub projects, forums.balena.io threads,
 gist.github.com, Google Drive attachments, screenshots, JF/FD/Front threads for reference, etc.
