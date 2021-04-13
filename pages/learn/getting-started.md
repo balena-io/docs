@@ -192,7 +192,7 @@ Your application will then be downloaded and executed by all the devices you hav
 [cli-install]:{{ $links.githubCli }}/blob/master/INSTALL.md
 [configuration]:/learn/manage/configuration/
 [dashboard]:{{ $links.dashboardUrl }}
-[devvprod]:/understanding/understanding-devices/2.0.0/#dev-vs-prod-images
+[devvprod]:/understanding/understanding-devices/2.0.0/#development-vs-production-images
 [dockerfile]:/learn/develop/dockerfile
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
 [gitdocs]:/learn/deploy/deployment/#git-push
