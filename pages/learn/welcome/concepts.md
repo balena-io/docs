@@ -11,7 +11,7 @@ An internet-connected, single-board computer running {{ $names.os.lower }} and p
 
 ### Release
 
-A snapshot of code collected into one or more Docker images.
+A snapshot of the code collected into one or more Docker images.
 
 ### Application
 
