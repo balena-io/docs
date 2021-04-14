@@ -8,4 +8,4 @@ title: balenaBlocks
 
 {{>"projects/balenablocks"}}
 
-To find the complete list of blocks to try and deploy, head to [balenaHub](https://hub.balena.io/blocks)! 
+To find the complete list of blocks to try and deploy, head to [balenaHub]({{ $links.balenaHubUrl }}/blocks)! 

@@ -177,11 +177,11 @@ Your application will then be downloaded and executed by all the devices you hav
 
 ## Next steps
 
-- To easily find, deploy and publish your applications for {{ $names.company.lower }} [supported devices][supported-devices], head to [balenaHub](https://hub.balena.io)
+- Head to [balenaHub][balenahub], for more ready-to-deploy applications, or have a go at building and sharing your own cool projects using [balenaBlocks][balenablocks].
 - Try out [local mode][local-mode], which allows you to build and sync code to your device locally for rapid development.
 - Develop an application with [multiple containers][multicontainer] to provide a more modular approach to application management.
 - Manage your device fleet with the use of [configuration][configuration], [environment][service], and [service variables][service].
-- Explore these [example projects][projects] to give you an idea of more things you can do with {{ $names.company.lower }}.
+- Visit our blog to find step-by-step tutorials for some [classic balena projects][projects].
 - If you find yourself stuck or confused, help is just a [click away][help].
 
 **Enjoy Balenafying All the Things!**
@@ -197,6 +197,8 @@ Your application will then be downloaded and executed by all the devices you hav
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
 [gitdocs]:/learn/deploy/deployment/#git-push
 [help]:{{ $links.supportUrl }}
+[balenahub]:{{ $links.balenaHubUrl }}
+[balenablocks]:{{ $links.balenaHubUrl }}/blocks
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
 [local-mode]:/learn/develop/local-mode
 [multicontainer]:/learn/develop/multicontainer
