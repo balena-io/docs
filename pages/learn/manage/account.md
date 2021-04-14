@@ -64,8 +64,8 @@ When an application needs to be shared with more than one user, the application 
 | ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
 | Owner      | Yes      | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
 | Observer   | No       | No   | No   | No   | No   | No  | No  | No  | No  | No  |
-| Operator   | No       | No   | No   | Yes  | Yes  | Yes | Yes | No  | No  | No  |
-| Developer  | No       | No   | No   | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Operator   | No       | No   | Yes   | Yes  | Yes  | Yes | Yes | No  | No  | No  |
+| Developer  | No       | No   | Yes   | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
 
 #### Owner
 
