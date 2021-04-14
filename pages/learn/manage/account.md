@@ -62,10 +62,9 @@ When an application needs to be shared with more than one user, the application 
 
 | Member Type | Add members   | Delete App  | Add/Remove device  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions |
 | ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
-| Owner      | Yes      | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Developer  | No       | No   | Yes   | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Operator   | No       | No   | Yes   | Yes  | Yes  | Yes | Yes | No  | No  | No  |
 | Observer   | No       | No   | No   | No   | No   | No  | No  | No  | No  | No  |
-| Operator   | No       | No   | No   | Yes  | Yes  | Yes | Yes | No  | No  | No  |
-| Developer  | No       | No   | No   | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
 
 #### Owner
 
