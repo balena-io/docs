@@ -9,7 +9,7 @@
   ga('send', 'pageview');
 </script>
 
-<script type="text/javascript" src="https://unpkg.com/analytics-client@0.11.2/dist/bundle.js"></script>
+<script type="text/javascript" src="https://unpkg.com/analytics-client@1.5.0/dist/bundle.js"></script>
 
 <!-- start balena analytics -->
 <script type="text/javascript">
@@ -28,14 +28,20 @@
     });
     urlParamsHandler.setClient(client);
 
-    analyticsClient.createWebTracker(client, 'Docs').trackPageView();
+    const webTracker = analyticsClient.createWebTracker(client, 'Docs');
+    webTracker.trackPageView();
 
     var dashboardBaseUrl = '{{ $links.dashboardUrl }}';
+    var githubBaseUrl = '{{ $links.githubMain }}';
 
     // Since the dashboard is on a different domain, we need to explicitly
     // set the anonymous id, so that we don't have disconnected timelines.
     window.jQuery('a[href^="' + dashboardBaseUrl + '"]').attr('href', function(i, h) {
-      return (h + (h.indexOf('?') != -1 ? '&' : '?') + urlParamsHandler.getDeviceIdsQueryString());
+      return (h + (h.indexOf('?') != -1 ? '&' : '?') + urlParamsHandler.getQueryString());
+    });
+    window.jQuery('a[href^="' + githubBaseUrl + '"]').click(function() {
+      var this_href = window.jQuery(this).attr('href'); 
+      webTracker.trackNavigationClick(href= this_href);
     });
   });
 </script>
