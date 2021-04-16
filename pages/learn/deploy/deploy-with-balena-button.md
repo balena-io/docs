@@ -88,4 +88,4 @@ version: 3.5.2
   - `defaultDeviceType` - The device type that will be pre-selected in the "Create application" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](/reference/hardware/devices/) here.
   - `supportedDeviceType` - The device types that the application supports. You can find a list of [device types](/reference/hardware/devices/) here.
 
-[balenahub]: https://hub.balena.io
+[balenahub]:{{ $links.balenaHubUrl }}
