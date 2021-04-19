@@ -29,8 +29,8 @@
   "homepage": "https://github.com/balena-io/docs",
   "dependencies": {
     "@balena/doxx": "^1.0.0",
-    "bootstrap": "4.6.0",
-    "bootstrap-select": "1.13.18",
+    "bootstrap": "^3.4.1",
+    "bootstrap-select": "^1.13.18",
     "coffeescript": "^2.5.1",
     "express": "^4.17.1",
     "express-http-to-https": "1.1.4",

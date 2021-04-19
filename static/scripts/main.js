@@ -1,5 +1,5 @@
 var Headroom = require('headroom.js')
-var hljs = require('highlight.js/lib/highlight')
+var hljs = require('highlight.js/lib/core')
 var languages = require('./langs.js')
 
 // Export jQuery
@@ -24,7 +24,7 @@ require('highlight.js/styles/obsidian.css');
 require('../css/main.css')
 require('../css/menu-top.css')
 
-hljs.initHighlightingOnLoad()
+hljs.highlightAll()
 
 function fixOldUrl(url) {
   return url
