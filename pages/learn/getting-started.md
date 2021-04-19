@@ -59,11 +59,16 @@ A toggle is also used to select whether your network connection will be through 
 
 <img alt="Network configuration" src="/img/common/app/network.png" width="80%">
 
-Clicking *Advanced* presents the option to select the rate at which your device checks for updates and the option to download just a configuration file (`config.json`) rather than an entire image:
+Clicking *Advanced* presents the option to select the rate at which your device checks for updates:
 
 <img alt="Advanced options" src="/img/common/app/advanced.png" width="80%">
 
 Once you have finished your image configuration, click the *Download {{ $names.os.lower }}* button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-App-2.47.1+rev1-v10.6.27.img.zip`, where `First-App` is the name you gave your application on the dashboard.
+Alternatively, by clicking on the toggle section of the download button, you also have the option to download just a configuration file (`config.json`) rather than an entire image.
+
+<img alt="Advanced options" src="/img/common/app/download_image_or_config.png" width="80%">
+
+
 
 ## Provision device
 
