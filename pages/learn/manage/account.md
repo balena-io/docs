@@ -60,15 +60,16 @@ When an application needs to be shared with more than one user, the application 
 
 ### Member types
 
-| Member Type | Add members   | Delete App  | Add/Remove device  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions |
+| Member Type   | Add members   | Delete App  | Add/Remove device  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions |
 | ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
-| Developer  | No       | No   | Yes   | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
-| Operator   | No       | No   | Yes   | Yes  | Yes  | Yes | Yes | No  | No  | No  |
-| Observer   | No       | No   | No   | No   | No   | No  | No  | No  | No  | No  |
+| Administrator | Yes      | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Developer     | No       | No   | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Operator      | No       | No   | Yes  | Yes  | Yes  | Yes | Yes | No  | No  | No  |
+| Observer      | No       | No   | No   | No   | No   | No  | No  | No  | No  | No  |
 
-#### Owner
+#### Administrator
 
-The application owner is the user who first creates an application. The owner is the only user who can add other application members or delete the application.
+A new application in balenaCloud can only be created by an [administrator][administrator] of an organization. Administrators are the only users who can add other application members or delete the application. Learn more about the [administrator role](adminstrator) in an organization.
 
 #### Observer
 
@@ -172,6 +173,7 @@ If you wish to delete your {{ $names.cloud.lower }} account, go to your [_Prefer
 
 [ssh]:/learn/manage/ssh-access
 [starter]:/learn/manage/app-types#starter
+[administrator]: /learn/manage/organizations/#managing-roles--access-in-an-organization
 
 [signup]:{{ $links.dashboardUrl }}/signup
 [login]:{{ $links.dashboardUrl }}/login
