@@ -24,7 +24,8 @@
     const client = analyticsClient.createClient({
       projectName: config.mixpanelToken,
       componentName: 'docs',
-      endpoint: 'data.{{ $names.cloud_domain }}'
+      endpoint: 'data.{{ $names.cloud_domain }}',
+      deviceId: urlParamsHandler.getPassedDeviceId(),
     });
     urlParamsHandler.setClient(client);
 
