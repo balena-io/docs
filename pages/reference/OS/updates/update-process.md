@@ -7,7 +7,7 @@ excerpt: Details of the {{ $names.os.lower }} self-service update process
 
 The ability to remotely update the entire host operating system (OS) of your device, rather than just the user application, is a core feature of {{ $names.company.lower }}. Performing updates may feel like an opaque process, so we thought it would be useful to break it down.
 
-__Note:__ Once a host OS update is successful, it is not possible to roll back to a previous OS version (except via [automatic rollbacks][automatic-rollbacks] as noted below).
+__Note:__ Once a host OS update is successful, it is not possible to roll back to a previous OS version (except via [automatic rollbacks](#automatic-rollbacks) as noted below).
 
 In general, host OS updates are meant to be atomic: if an update is run, it either finishes correctly or it fails and leaves the system in its previous, usable state. If deploying the new root file system is unsuccessful, the boot settings are not switched over to the new partition. This means the device can be rebooted with the previous OS version and no noticeable changes. For failures related to the boot partition, the latest versions of {{ $names.os.lower }} have a rollback feature that will leave the partition in a good state.
 
@@ -58,6 +58,11 @@ If the fingerprint check succeeds, the updater will use **Docker** to pull the t
 
 From here, the original updater script takes back control, and finishes up any other changes required by the update. When all this is done, the device is rebooted into the new system.
 
+## Automatic rollbacks
+Rollbacks is a framework designed to automatically roll back the OS update in case something goes wrong.
+
+There are two rollback mechanisms in the OS, covering different update failure modes. One based on health checks called the `rollback-health`, and the recognizing if the new system is unbootable for some reason, the `rollback-altboot`. Learn more about [rollback mechanisms][rollback-mechanism].
+
 [changes]:/reference/OS/updates/migrate-to-2.0/
 [wifi-connect]:{{ $links.githubMain }}/wifi-connect
-[automatic-rollbacks]:{{ $links.githubOS }}/meta-balena/blob/development/docs/rollbacks.md
+[rollback-mechanism]:{{ $links.githubOS }}/meta-balena/blob/master/docs/rollbacks.md
