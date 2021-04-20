@@ -16,4 +16,4 @@ After the internal media has been flashed, your device will shut itself down. At
 
 Your device should now start booting from internal eMMC and in a minute or so you should have a happy Beaglebone device in the `Idle` state on your dashboard. From here on you can deploy code to your device with ease.
 
-__Note:__ If you have an HDMI screen attached (Beaglebone Black only), you should see `"Booted - Check your {{ $names.company.lower }} dashboard."` on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](#create-a-bootable-sd-card) again. If the issue persists, come and get [help from our support team](/support/).
+__Note:__ If you have an HDMI screen attached, you should see balena logo on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted. Try [burning the SD card](#create-a-bootable-sd-card) again. If the issue persists, come and get [help from our support team](/support/).
