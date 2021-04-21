@@ -77,6 +77,7 @@ Additionally, you should whitelist the following domains for the relevant ports 
 * `*.{{ $names.cloud_domain }}`
 * `*.docker.com`
 * `*.docker.io`
+* `*.amazonaws.com`
 
 ##### Can I use {{ $names.cloud.lower }} in countries with restrictive firewalls such as China?
 
