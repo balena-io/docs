@@ -80,6 +80,8 @@ services:
       io.balena.features.dbus: '1'
 ```
 
+__Note:__ Please be aware that setting `DBUS_SYSTEM_BUS_ADDRESS` as a service or environment variable and enabling systemd at the same time might introduce unexpected side effects. Systemd might start to interact with the host system instead of the container. These interactions can potentially cause balenaOS devices to disconnect from balenaCloud or even fall offline. Hence, users are advised to prefer prepending the command with the variable definition.
+
 __Note:__ To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile if you are using the Debian image, or check under what name does your chosen operating system supply the `dbus-send` executable.
 
 #### Change the Device hostname
