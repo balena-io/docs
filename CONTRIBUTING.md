@@ -4,9 +4,9 @@ Thank you for contributing to the docs! We have a few guidelines which will allo
 
 ## Creating Commits in line with Semantic Versioning
 
-> **TL:DR** The docs version numbering adheres to [Semantic Versioning](http://semver.org/). **Please include *at least one commit* in your PR that marks the change-type for the system.** 
+> **TL:DR** The docs version numbering adheres to [Semantic Versioning](http://semver.org/). **Please include *at least one commit* in the PR that marks the change-type for the system.** 
 
-This change-type can be specified by adding it as a prefix, i.e., `minor: Add some new feature` while creating your commit. This is so the PR can be automatically versioned and a changelog generated for it by using versionbot. You can choose one of 3 `Change-type` options on the nature of your file change. 
+This change-type can be specified by adding it as a prefix, i.e., `minor: Add some new feature` while creating the commit. This is so the PR can be automatically versioned and a changelog generated for it by using versionbot. One can choose one of 3 `Change-type` options on the nature of the file change. 
 
 - `patch` - For tiny changes that include typo fixes, updating screenshots, adding clarification notes, etc.
 - `minor` - For moderate changes that include updating packages, rewriting documentation, adding new features.
@@ -16,7 +16,7 @@ This change-type can be specified by adding it as a prefix, i.e., `minor: Add so
 
 For folks using the Github UI to create new pull requests, check out the following guides in order to get started. 
 
-1. [Editing files and proposing changes](https://docs.github.com/en/github/managing-files-in-a-repository/editing-files-in-your-repository) on a GitHub Repository. When committing changes, here's how you can add a `Change-type` as a prefix to the commit. Adding `patch:` before your commit will mark the change-type as `patch` successfully. 
+1. [Editing files and proposing changes](https://docs.github.com/en/github/managing-files-in-a-repository/editing-files-in-your-repository) on a GitHub Repository. When committing changes, here's how one can add a `Change-type` as a prefix to the commit. Adding `patch:` before the commit will mark the change-type as `patch` successfully. 
 
 ![example-prefix-commit-githubui](https://user-images.githubusercontent.com/22801822/113337642-ac704f00-9345-11eb-9df3-43c07e06c9bf.png)
 
@@ -30,7 +30,7 @@ For folks experienced with the git command-line, when creating a commit, make su
 git commit -m "patch: Update v8 configuration for contracts"
 ```
 
-This will allow the system to version the documentation using the `Change-type` automatically. The versioning follows [semver](https://semver.org/), and changes can be of type `patch`, `minor` or `major`. Adding it as a pull request message doesn't work. Without the prefix in place, the CI checks will fail. **Again, please make sure to include *at least one commit* in your PR that marks the change-type for the system.** 
+This will allow the system to version the documentation using the `Change-type` automatically. The versioning follows [semver](https://semver.org/), and changes can be of type `patch`, `minor` or `major`. Adding it as a pull request message doesn't work. Without the prefix in place, the CI checks will fail. **Again, please make sure to include *at least one commit* in the PR that marks the change-type for the system.** 
 
 ## Adding images/screenshots to the docs
 
@@ -90,7 +90,7 @@ To add additional external documentation, follow these steps:
 3. In [`config/index.coffee`](https://github.com/balena-io/docs/blob/master/config/index.coffee) add the filename (again without the .md extension) to the `EXTERNAL_DOCS` variable so that the system knows to identify this file as coming from an external source correctly.
 4. If the source is currently duplicated in this repo, then delete the content from this repo and add the files to `/.gitignore`.
 
-If you remove a page that may be linked externally to some other docs, remember to add it to the `redirects.txt` in the root of the docs. If you don’t, then links will break, and folks will have an awful time.
+If a page is removed that may be linked externally to some other docs, do remember to add it to the `redirects.txt` in the root of the docs. If one doesn’t, then links will break, and folks will have an awful time.
 
 Currently, the following reference material is pulled from other repositories:
 - [Device Supervisor API](https://www.balena.io/docs/reference/supervisor/supervisor-api/) and [Device Supervisor upgrades](https://www.balena.io/docs/reference/supervisor/supervisor-upgrades), sourced from https://github.com/balena-io/balena-supervisor/tree/master/docs
@@ -102,11 +102,19 @@ And more. The updated list of external resources can be found in [tools/fetch-ex
 
 ## Version numbers & Changelogs
 
-Version numbers and commit messages are automatically added to the `CHANGELOG.md` file by the CI build flow after a pull request is merged. It should not be manually edited.
+Version numbers and commit messages are automatically added to the [`CHANGELOG.md`](CHANGELOG.md) file by the CI build flow after a pull request is merged. It should not be manually edited.
 
-## [balenistas only] Using Versionbot to manage your pull request
+## Best Practices to follow
 
-Verisionbot is a helper utility to make managing of your pull request easier. Here's a list of commands supported by VersionBot:
+Be sure to familiarize yourself with the style manual and conventions to be followed while contributing to balenaCloud documentation. This helps in maintaining consistency of the documentation already written by other contributors. These best practices also help avoid common mistakes and make sure one is using templates & partials the right way.
+
+- How to write [balena-specific words](README.md#balena-specific-words)
+- [Conventions & Best Practices](README.md#conventions--best-practices)
+- Using [Partials](README.md#using-partials) and [Templates](README.md#using-templates)
+
+## [balenistas only] Using Versionbot to manage the pull request
+
+Verisionbot is a helper utility to make managing of the pull request easier. Here's a list of commands supported by VersionBot:
 
 - `@balena-ci I self-certify!` - use [the self-certification flow](https://docs.google.com/drawings/d/1aoXCdi8bzinxaLM0BoKMJaiZjIJj5Az02Npw_L2iQkE/edit?usp=sharing) for this PR
 - `@balena-ci test` - trigger the tests for this PR
@@ -116,7 +124,7 @@ Verisionbot is a helper utility to make managing of your pull request easier. He
 
 ![](https://user-images.githubusercontent.com/22801822/114602349-22fd3d00-9cb4-11eb-905b-721488e64dc6.png)
 
-One can use these commands to manage, rebase or merge their own PR's as and when needed. We recommend using these commands to merge the PR if it's ready to be merge. One can issue the commands in the comments dialog box present at the bottom of the PR. 
+One can use these commands to manage, rebase or merge their own PR's as and when needed. We recommend using these commands to merge the PR if it's ready to be merged. One can issue the commands in the comments dialog box present at the bottom of the PR. 
 
 
 [reference text]: https://balena.io
