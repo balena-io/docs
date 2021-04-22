@@ -724,7 +724,7 @@
         "i": "Unzip the BalenaOS image you downloaded from the dashboard and use the <a href=\"https://github.com/balena-os/jetson-flash\">Jetson Flash</a> tool to flash the board."
       },
       {
-        "i": "After flashing is completed, please wait until the board is rebooted."
+        "i": "After flashing is completed, please wait until the board is rebooted. Remove recovery mode jumper."
       }
     ]
   },
