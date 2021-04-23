@@ -46,7 +46,7 @@ If you have pushed a repository called `project-A` to your application and at a 
 On the device we have a writable data partition that uses all the free space remaining after reserving the required amount for the host os. This data partition contains the Docker images for the {{ $names.company.lower }} device supervisor and the user applications so that they can be updated, along with containing the persistent `/data` for the application to use, this way it avoids reserving a specific amount of space for either images or data and then finding out that we have reserved too much or too little for one. So the space usage in `/data` being used but not accounted for will likely be due to the Docker images. (As a side note if you want the most accurate usage stats you should use `btrfs fi df /data` as `df` is not accurate for btrfs partitions).
 
 ##### What NTP servers do the devices use?
-NTP servers used by devices are enumerated [here][ntp-servers].
+NTP servers used by devices are enumerated on the [time management][ntp-servers] documentation page.
 
 ##### What network ports are required?
 
