@@ -138,8 +138,8 @@ For more information about common anti-patterns, see [Anti-patterns, or how to b
 [preregister]:/reference/cli/#device-register-application
 [staged-releases]:{{ $links.githubLabs }}/staged-releases
 [tags]:/learn/manage/filters-tags/#device-tags
-[esr-devices]:/reference/os/extended-support-release#supported-devices
-[esr]:/reference/os/extended-support-release
+[esr-devices]:/reference/OS/extended-support-release#supported-devices
+[esr]:/reference/OS/extended-support-release
 [filters]:/learn/manage/filters-tags/#device-filters
 [anti-patterns]:/learn/more/anti-patterns
 [cli-advanced-masterclass]:/learn/more/masterclasses/advanced-cli/#5-preloading-and-preregistering
