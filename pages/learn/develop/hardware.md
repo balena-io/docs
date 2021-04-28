@@ -13,13 +13,13 @@ As an example, here the `gpio` service is set up to use i2c and serial uart sens
 
 ```
 gpio:
-    build: ./gpio
-    devices:
-      - "/dev/i2c-1:/dev/i2c-1"
-      - "/dev/mem:/dev/mem"
-      - "/dev/ttyACM0:/dev/ttyACM0"
-    cap_add:
-      - SYS_RAWIO
+	build: ./gpio
+	devices:
+	  - "/dev/i2c-1:/dev/i2c-1"
+	  - "/dev/mem:/dev/mem"
+	  - "/dev/ttyACM0:/dev/ttyACM0"
+	cap_add:
+	  - SYS_RAWIO
 ```
 
 __Note:__ If you are not using one of the Docker base images recommended in our [base images wiki][base-image-wiki-link], then it's most likely you will need to handle the updating of `/dev` via [udev][udev-link] yourself.
@@ -27,8 +27,10 @@ __Note:__ If you are not using one of the Docker base images recommended in our 
 For more details on interacting with external hardware, check out these guides:
 - [GPIO][gpio]
 - [i2C and SPI][i2c-spi]
+- [USB][usb]
 
 [gpio]:/learn/develop/hardware/gpio
 [i2c-spi]:/learn/develop/hardware/i2c-and-spi
+[usb]:/learn/develop/hardware/usb
 [base-image-wiki-link]:/reference/base-images/base-images/
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
