@@ -69,7 +69,7 @@ When an application needs to be shared with more than one user, the application 
 
 #### Administrator
 
-A new application in balenaCloud can only be created by an [administrator][administrator] of an organization. Administrators are the only users who can add other application members or delete the application. Learn more about the [administrator role](adminstrator) in an organization.
+A new application in balenaCloud can only be created by an [administrator][administrator] of an organization. Administrators are the only users who can add other application members or delete the application. Learn more about the [administrator role][administrator] in an organization.
 
 #### Observer
 
