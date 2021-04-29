@@ -192,7 +192,7 @@ Since the release of multicontainer on the balenaCloud platform, we now recommen
 
 However, if your application relies on initsystem features, it is fairly easy to add this functionality to a balenalib base image. We have provided some examples for [systemd]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230) and [openRC]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/openrc). Please note that different systemd versions require different implementation so for Debian Jessie and older, please refer to this [example]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd ) and for Debian Stretch and later, please refer to this [example]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230).
 
-Generally, for systemd, it just requires installing the systemd package, masking a number of services and defining a new [`entry.sh`]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230/entry.sh) and a [`balena.service`]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230/balena.service). The `Dockerfile` below demonstrates this:
+Generally, for systemd, it just requires installing the systemd package, masking a number of services and defining a new [`entry.sh`]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230/entry.sh) and a [`balena.service`]({{ $links.githubLibrary }}/base-images/blob/master/examples/INITSYSTEM/systemd/systemd.v230/resin.service). The `Dockerfile` below demonstrates this:
 
 ```Dockerfile
 FROM balenalib/amd64-debian:buster
