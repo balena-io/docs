@@ -22,6 +22,8 @@ Setting `RESIN_SUPERVISOR_UPDATE_STRATEGY` to a valid value selects the update s
 
 which are explained below. `RESIN_SUPERVISOR_HANDOVER_TIMEOUT` is only used in the  `hand-over` strategy, and its use is explained in the [strategy's description](#hand-over).
 
+All update strategies below honor the [application update locks](/learn/deploy/release-strategy/update-locking/) which you can use prevent updates temporarily.
+
 ## download-then-kill
 
 This is the default strategy, and it is selected if the variable is not set or if it has an invalid value. Its behavior corresponds to the way balena traditionally works:
