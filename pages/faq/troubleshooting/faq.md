@@ -46,37 +46,11 @@ If you have pushed a repository called `project-A` to your application and at a 
 On the device we have a writable data partition that uses all the free space remaining after reserving the required amount for the host os. This data partition contains the Docker images for the {{ $names.company.lower }} device supervisor and the user applications so that they can be updated, along with containing the persistent `/data` for the application to use, this way it avoids reserving a specific amount of space for either images or data and then finding out that we have reserved too much or too little for one. So the space usage in `/data` being used but not accounted for will likely be due to the Docker images. (As a side note if you want the most accurate usage stats you should use `btrfs fi df /data` as `df` is not accurate for btrfs partitions).
 
 ##### What NTP servers do the devices use?
-Up to {{ $names.os.lower }} v2.0.6, the NTP service connects to the following time servers:
-
-- pool.ntp.org
-- time1.google.com
-- time2.google.com
-- time3.google.com
-- time4.google.com
-
-Starting from {{ $names.os.lower }} v2.0.7, the devices connect to the following NTP servers:
-
-- 0.resinio.pool.ntp.org
-- 1.resinio.pool.ntp.org
-- 2.resinio.pool.ntp.org
-- 3.resinio.pool.ntp.org
+NTP servers used by devices are enumerated on the [time management][ntp-servers] documentation page.
 
 ##### What network ports are required?
 
-In order for a {{ $names.company.lower }} device to get outside of the local network and connect to the {{ $names.company.lower }} API, there are a few core network requirements.
-
-{{ $names.company.upper }} makes use of the following ports:
-
-* `443` TCP - This is the most fundamental requirement - it is used to connect to the VPN and the web terminal, and many web endpoints using TLS (https://.)
-* `123` UDP - For NTP time synchronization.
-* `53` UDP - For DNS name resolution.
-
-Each of these should work with outward only (and inward once outward connection established) firewall settings.
-
-Additionally, you should whitelist the following domains for the relevant ports above:
-* `*.{{ $names.cloud_domain }}`
-* `*.docker.com`
-* `*.docker.io`
+Please take a look at the [networking requirements][networking-requirements] section of our documentation.
 
 ##### Can I use {{ $names.cloud.lower }} in countries with restrictive firewalls such as China?
 
@@ -150,6 +124,8 @@ Power supply units (PSUs) are a critical component to any widespread production 
 [dockerfile]:/learn/develop/dockerfile
 [multicontainer]:/learn/develop/multicontainer
 [app-types]:/learn/manage/app-types
+[ntp-servers]:/reference/OS/time/#networking-requirements
+[networking-requirements]:/reference/OS/network/2.x/#network-requirements
 [static-ip]:/reference/OS/network/2.x/#setting-a-static-ip
 [security]:/learn/welcome/security
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
