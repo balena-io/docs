@@ -8,7 +8,7 @@ excerpt: Choosing an update strategy for your {{ $names.company.lower }} devices
 With the {{ $names.company.lower }} device supervisor version 1.3, we added the ability to choose the update strategy on devices, that is, the order and way in which the steps to perform an update are executed. You can check whether your Supervisor has the appropriate version in the "Supervisor version" entry in the device dashboard page.
 These update strategies allow users to choose between four modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
 
-Update strategies are selected using [Fleet Configuration environment variables](/learn/manage/configuration/). The two variables that are involved are
+Update strategies are selected using [Fleet Configuration environment variables][fleet-envs]. The two variables that are involved are
 
 * `RESIN_SUPERVISOR_UPDATE_STRATEGY` and
 * `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`.
@@ -22,7 +22,7 @@ Setting `RESIN_SUPERVISOR_UPDATE_STRATEGY` to a valid value selects the update s
 
 which are explained below. `RESIN_SUPERVISOR_HANDOVER_TIMEOUT` is only used in the  `hand-over` strategy, and its use is explained in the [strategy's description](#hand-over).
 
-All update strategies below honor the [application update locks](/learn/deploy/release-strategy/update-locking/) which you can use prevent updates temporarily.
+All update strategies below honor the [application update locks][update-locks] which you can use prevent updates temporarily.
 
 ## download-then-kill
 
@@ -69,3 +69,6 @@ Its behavior is as follows:
 
 The `RESIN_SUPERVISOR_HANDOVER_TIMEOUT` variable defines this timeout in milliseconds, and defaults to 60000 (i.e. 1 minute).
 The communication between the old and new versions has to be implemented by the user in whatever way they see fit, for example by having the old version listen on a socket or port and having an endpoint for the new version to announce it's ready to take over. It is important to note that both versions will share the `/data` folder and network namespace, so they can use any of those to communicate.
+
+[update-locks]:/learn/deploy/release-strategy/update-locking/
+[fleet-envs]:/learn/manage/configuration/
