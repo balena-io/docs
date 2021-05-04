@@ -8,7 +8,7 @@ title: FAQs
 * [How do I push a new git repo to an Application](#how-do-i-push-a-new-git-repo-to-an-application)
 * [Why does `/data` report weird usage?](#why-does-data-report-weird-usage)
 * [What NTP servers do the devices use?](#what-ntp-servers-do-the-devices-use)
-* [What Network Ports are required?](#what-network-ports-are-required)
+* [What network ports are required?](#what-network-ports-are-required)
 * [Can I use {{ $names.cloud.lower }} in countries with restrictive firewalls such as China?](#can-i-use-balenacloud-in-countries-with-restrictive-firewalls-such-as-china)
 * [Can I access /dev and things like GPIO from the container?](#can-i-access-dev-and-things-like-gpio-from-the-container)
 * [Can I set a static IP address for my device?](#can-i-set-a-static-ip-address-for-my-device)
