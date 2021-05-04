@@ -128,7 +128,7 @@ In dynamically generated pages (the ones with the device-type and language dropd
 Here is an example:
 
 ```
-Getting started with {{ $device_details.name }} using {{ $language_details.name }}  
+Getting started with {{ $device.name }} using {{ $language.name }}
 
 Select the {{ $device.name }} device type`
 ```
