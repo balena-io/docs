@@ -133,7 +133,7 @@ Getting started with {{ $device_details.name }} using {{ $language_details.name 
 Select the {{ $device.name }} device type`
 ```
 
-To add additional dynamic properties, see the files in `/config/dictionaries`.
+To add additional dynamic properties, see the files in `/config/dictionaries`. To learn more about dynamically generated pages, see the [README](https://github.com/balena-io/doxx) for the Doxx project, which is used to generate those pages for the balenaCloud documentation.
 
 ## License
 
