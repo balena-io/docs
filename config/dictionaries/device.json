@@ -399,6 +399,47 @@
     ]
   },
   {
+    "id": "ccimx8x-sbc-pro",
+    "name": "Digi ConnnectCore 8X SBC Pro",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "ccimx8x-sbc-pro",
+    "community": true,
+    "icon": "/img/device/ccimx8x-sbc-pro.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt SD card into the Digi ConnectCore 8X SBC Pro."
+      },
+      {
+        "i": "Make sure your SBC contains a system-on-module with a 2GB i.MX8X quad B0 system-on-chip. Different module variants are not supported by this device type and will not boot."
+      },
+      {
+        "i": "Configure the boot microswitches (S2) for SD boot (SW1 OFF and SW2 ON)."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Connect your ConnectCore 8X SBC Pro to the internet, then power it up."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Configure the boot microswitches (S2) for internal (eMMC) boot (SW1 OFF and SW2 OFF)."
+      },
+      {
+        "i": "Remove and re-connect power to the board."
+      }
+    ]
+  },
+  {
     "id": "intel-edison",
     "name": "Intel Edison",
     "arch": "i386",
@@ -812,6 +853,26 @@
       },
       {
         "i": "After flashing is completed, please wait until the board is rebooted"
+      }
+    ]
+  },
+  {
+    "id": "jetson-xavier-nx-devkit",
+    "name": "Nvidia Jetson Xavier NX Devkit SD-CARD",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "state": "NEW",
+    "machine": "jetson-xavier-nx-devkit",
+    "community": false,
+    "icon": "/img/device/jetson-xavier-nx-devkit.svg",
+    "instructions": [{
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+      },
+      {
+        "i": "Remove power from the board and insert freshly burnt SD-CARD."
+      },
+      {
+        "i": "Power on the board."
       }
     ]
   },
@@ -1361,67 +1422,6 @@
       },
       {
         "i": "Set the SW1 BOOT SELECT switch to eMMC."
-      },
-      {
-        "i": "Remove and re-connect power to the board."
-      }
-    ]
-  },
-  {
-    "id": "jetson-xavier-nx-devkit",
-    "name": "Nvidia Jetson Xavier NX Devkit SD-CARD",
-    "arch": "aarch64",
-    "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "jetson-xavier-nx-devkit",
-    "community": false,
-    "icon": "/img/device/jetson-xavier-nx-devkit.svg",
-    "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
-      },
-      {
-        "i": "Remove power from the board and insert freshly burnt SD-CARD."
-      },
-      {
-        "i": "Power on the board."
-      }
-    ]
-  },
-  {
-    "id": "ccimx8x-sbc-pro",
-    "name": "Digi ConnnectCore 8X SBC Pro",
-    "arch": "aarch64",
-    "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "ccimx8x-sbc-pro",
-    "community": true,
-    "icon": "/img/device/ccimx8x-sbc-pro.svg",
-    "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
-      },
-      {
-        "i": "Insert the freshly burnt SD card into the Digi ConnectCore 8X SBC Pro."
-      },
-      {
-        "i": "Make sure your SBC contains a system-on-module with a 2GB i.MX8X quad B0 system-on-chip. Different module variants are not supported by this device type and will not boot."
-      },
-      {
-        "i": "Configure the boot microswitches (S2) for SD boot (SW1 OFF and SW2 ON)."
-      },
-      {
-        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
-      },
-      {
-        "i": "Connect your ConnectCore 8X SBC Pro to the internet, then power it up."
-      },
-      {
-        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
-      },
-      {
-        "i": "Remove the balenaOS installation media."
-      },
-      {
-        "i": "Configure the boot microswitches (S2) for internal (eMMC) boot (SW1 OFF and SW2 OFF)."
       },
       {
         "i": "Remove and re-connect power to the board."
