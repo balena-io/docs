@@ -16,7 +16,6 @@ Field | Details
 [command](https://docs.docker.com/compose/compose-file/compose-file-v2/#command) |
 [cpu_shares](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpu_quota](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
-[cpus](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpuset](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [devices](https://docs.docker.com/compose/compose-file/compose-file-v2/#devices) |
 [depends_on](https://docs.docker.com/compose/compose-file/compose-file-v2/#depends_on) | Only array form is supported
@@ -68,6 +67,7 @@ Field | Details
 [container_name](https://docs.docker.com/compose/compose-file/compose-file-v2/#container_name) | Used by the device supervisor
 [cpu_count](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpu_percent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
+[cpus](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) | Introduced by Docker Compose v2.2 and therefore not working
 [external_links](https://docs.docker.com/compose/compose-file/compose-file-v2/#external_links) |
 [isolation](https://docs.docker.com/compose/compose-file/compose-file-v2/#isolation-1) |
 [links](https://docs.docker.com/compose/compose-file/compose-file-v2/#links) |
