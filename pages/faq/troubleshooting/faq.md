@@ -120,8 +120,8 @@ Power supply units (PSUs) are a critical component to any widespread production 
 
 ##### Does {{ $names.company.lower }} have access to my device, source code and images?
 
-Device access is granted to a subset of {{ $names.company.lower }} employees to enable support and device troubleshooting. This access is controlled by ssh key access and only after access is granted to balena by the device fleet manager.
-Application source code and images are stored on {{ $names.company.lower }} backend servers with access limited only to administrative/operational staff and are not exposed to anyone outside of {{ $names.company.lower }}. It is also possible to bypass the {{ $names.company.lower }} builder entirely and push only pre-built artefacts, meaning that {{ $names.company.lower }} never has access to the code at any point.
+Device access is granted to a subset of {{ $names.company.lower }} employees to [enable support and device troubleshooting][support-access]. This access is controlled by ssh key access and only after access is explicitly granted to balena. 
+Application source code and images are stored on {{ $names.company.lower }} backend servers with access limited only to administrative/operational staff and are not exposed to anyone outside of {{ $names.company.lower }}. It is also possible to bypass the {{ $names.company.lower }} builder entirely and push only pre-built artifacts, meaning that {{ $names.company.lower }} never has access to the code at any point.
 
 [forums]:{{ $names.forums_domain }}/c/troubleshooting
 
