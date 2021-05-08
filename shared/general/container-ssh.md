@@ -30,7 +30,7 @@ $ {{ $names.company.short }} ssh <device-uuid>
 $ {{ $names.company.short }} ssh <device-uuid> main
 ```
 
-This also works in multicontainer applications, simply pass the name of the appropriate service (as defined in docker-compose.yml) instead of `main`.
+This also works in multicontainer applications; simply pass the name of the appropriate service (as defined in docker-compose.yml) instead of `main`.
 
 __Note:__ To run a command in a non-interactive way, you can pipe commands to the CLI's stdin. For example, `echo "uptime; exit;" | balena ssh <device-uuid>`.
 
