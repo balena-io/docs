@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for contributing to the docs! We have a few guidelines which will allow your PR to pass our CI checks and successfully merge.
+Thank you for contributing to the docs! We have a few guidelines which will allow your patch: Pull Request to pass our CI checks and successfully merge.
 
 ## Creating Commits in line with Semantic Versioning
 
