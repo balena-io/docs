@@ -28,7 +28,7 @@ You may also enable or disable public device URLs by clicking the _Public device
 
 ### Restart Application
 
-The `Restart Application` action restarts the currently running **application containers**. Your application (A.K.A it's running containers) will be shut down and restarted from scratch.
+The `Restart Application` action restarts the currently running **application containers**. Your application's running containers will be removed and recreated from scratch. This behavior is intended, and is different from running `balena restart [OPTIONS] CONTAINER [CONTAINER...]` in a host OS terminal instance from your dashboard, which will not remove your containers. If you are trying to persist data between container removals, see [persistent storage][persistent-storage] for strategies.
 
 When the containers are stopped, the application is politely asked to stop by sending a `SIGTERM` and after 10 seconds of wait time a `SIGKILL` is sent.
 
