@@ -232,7 +232,7 @@ $ os_version_semver=$(echo ${os_version_tag} | sed 's/v//g')
 $ os_revision=$(echo ${os_version} | awk -F'+' '{print $2}' | awk -F'.' '{print $1}')
 $ os_variant=$(echo ${os_version} | awk -F'+' '{print $2}' | awk -F'.' '{print $2}')
 
-$ supervisor_version=$(curl --silent https://raw.githubusercontent.com/balena-os/meta-balena/${os_version_tag}/meta-balena-common/recipes-containers/resin-supervisor/resin-supervisor.inc \
+$ supervisor_version=$(curl --silent https://raw.githubusercontent.com/balena-os/meta-balena/${os_version_tag}/meta-balena-common/recipes-containers/balena-supervisor/balena-supervisor.inc \
     | grep SUPERVISOR_TAG \
     | awk '{print $3}' \
     | sed 's/"//g' \
