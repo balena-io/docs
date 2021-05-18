@@ -16,7 +16,7 @@ __Warning:__ Making changes to running services and network configurations carri
 * `os-config.service` - Retrieves settings and configs from the API endpoint, including certificates, authorized keys, the VPN config, etc.
 * `openvpn.service` - The VPN service itself, which connects to the {{ $names.cloud.lower }} VPN, allowing a device to come online.
 * `balena.service` - The [{{ $names.engine.lower }}][balena-engine] service, the modified Docker daemon fork that allows the management and running of application service images, containers, volumes, and networking.
-* `resin-supervisor.service` - The {{ $names.company.short }} Supervisor service, responsible for the management of applications, including downloading updates for and self-healing (via monitoring) of those applications, variables (application/device/fleet), and exposure of these services to applications via an endpoint.
+* `balena-supervisor.service` - The {{ $names.company.short }} Supervisor service, responsible for the management of applications, including downloading updates for and self-healing (via monitoring) of those applications, variables (application/device/fleet), and exposure of these services to applications via an endpoint.
 * `dbus.service` - The DBus daemon socket which can be used by applications by applying the _io.balena.features.dbus_ [label][labels], which exposes it in-container. This allows applications to control several host OS features, including the Network Manager.
 
 Additionally, there are a couple of utility services that, while not required for a barebones operation, are also useful:
@@ -45,7 +45,7 @@ Information from a variety of services can be found using the **journalctl** uti
 A typical example of using **journalctl** might be following a service to see what’s occurring in real-time by using the `--follow` (`-f`) option. For example, to follow the latest supervisor logs on the device:
 
 ```shell
-$ journalctl --follow --unit resin-supervisor
+$ journalctl --follow --unit balena-supervisor
 ```
 
 To limit the output to the last *x* messages, use the `-n` option. The following example lists the last 10 messages from the `chronyd` service:
