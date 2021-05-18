@@ -16,12 +16,12 @@ This list contains configuration variables that can be used with {{ $names.compa
 
 Name | Default | Description | Valid from
 --- | --- | --- | ---
-RESIN_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
-RESIN_SUPERVISOR_LOCAL_MODE | false | Enable / Disable [local mode][local-mode] | v4.0.0
-RESIN_SUPERVISOR_LOG_CONTROL | true | Enable / Disable logs being sent to the {{ $names.company.lower }} API | v1.3.0
-RESIN_SUPERVISOR_POLL_INTERVAL | 900000 | Define the {{ $names.company.lower }} API poll interval in milliseconds. This interval will only matter if the device is not connected to the VPN at the time an update is pushed, or if RESIN_SUPERVISOR_INSTANT_UPDATE_TRIGGER is set to false. Starting from supervisor v9.13.0, the supervisor will use a random time between 0.5 and 1.5 times this poll interval each time it checks the balenaCloud API. The minimum value for this variable is defined by the balenaCloud backend, and may vary. | v1.3.0
-RESIN_SUPERVISOR_VPN_CONTROL | true | Enable / Disable VPN | v1.3.0
-RESIN_SUPERVISOR_INSTANT_UPDATE_TRIGGER | true | Enable / Disable instant triggering of updates when a new release is deployed. If set to false, the device will ignore the notification that is triggered when the device's target state has changed. In this case, the device will rely on polling to apply updates. Coupled with a large RESIN_SUPERVISOR_POLL_INTERVAL, this allows spreading out updates in large fleets to avoid overloading local networks when there is a large number of devices at one location. | v9.13.0
+BALENA_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
+BALENA_SUPERVISOR_LOCAL_MODE | false | Enable / Disable [local mode][local-mode] | v4.0.0
+BALENA_SUPERVISOR_LOG_CONTROL | true | Enable / Disable logs being sent to the {{ $names.company.lower }} API | v1.3.0
+BALENA_SUPERVISOR_POLL_INTERVAL | 900000 | Define the {{ $names.company.lower }} API poll interval in milliseconds. This interval will only matter if the device is not connected to the VPN at the time an update is pushed, or if BALENA_SUPERVISOR_INSTANT_UPDATE_TRIGGER is set to false. Starting from supervisor v9.13.0, the supervisor will use a random time between 0.5 and 1.5 times this poll interval each time it checks the balenaCloud API. The minimum value for this variable is defined by the balenaCloud backend, and may vary. | v1.3.0
+BALENA_SUPERVISOR_VPN_CONTROL | true | Enable / Disable VPN | v1.3.0
+BALENA_SUPERVISOR_INSTANT_UPDATE_TRIGGER | true | Enable / Disable instant triggering of updates when a new release is deployed. If set to false, the device will ignore the notification that is triggered when the device's target state has changed. In this case, the device will rely on polling to apply updates. Coupled with a large BALENA_SUPERVISOR_POLL_INTERVAL, this allows spreading out updates in large fleets to avoid overloading local networks when there is a large number of devices at one location. | v9.13.0
 
 In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these are a few of the values that apply to Raspberry Pi devices, corresponding to the contents of the [Raspberry Pi `config.txt` file](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md):
 

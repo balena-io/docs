@@ -22,7 +22,7 @@ To use local mode on a device:
 
 - In local mode, a device will not send logs back to the {{ $names.cloud.lower }} dashboard. Refer to the [local mode logs section](#local-mode-logs) to view logs in local mode.
 - Device and service environment variables set from the {{ $names.cloud.lower }} will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
-- Changes to device [configuration variables][configuration], for example, `RESIN_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
+- Changes to device [configuration variables][configuration], for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
 - Actions such as _Restart_ and _Purge data_ from the {{ $names.cloud.lower }} dashboard will not apply to local mode containers.
 - When switching out of local mode and back to tracking releases from {{ $names.cloud.lower }}, the Supervisor will destroy any local mode containers and  volumes, as well as clean up unneeded base images, and then start up the application that {{ $names.cloud.lower }} instructs it to run.
 
