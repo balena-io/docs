@@ -1,0 +1,122 @@
+[
+  {
+    "id": "aws",
+    "name": "AWS",
+    "fullName": "AWS",
+    "msgQueue": {
+        "shortName": "SQS",
+        "fullName": "Simple Queue Service",
+        "envVars": [{
+            "name": "AWS_SQS_QUEUE_NAME", "notes": "Name or topic of the queue in SQS"
+          },
+          {
+            "name": "AWS_SQS_REGION", "notes": "AWS region in which the queue is defined"
+          },
+          {
+            "name": "AWS_SQS_ACCESS_KEY", "notes": "IAM access key ID; user must at least be assigned the SQS *SendMessage* permission"
+          },
+          {
+            "name": "AWS_SQS_SECRET_KEY", "notes": "IAM secret key for access key"
+          }
+        ],
+        "setupNotes": "See the [SQS Developer Guide](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) for help setting up the queue service. See the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) for help setting up the identity."
+    },
+    "secretStore": {
+        "fullName": "Secrets Manager",
+        "envVars": [{
+            "name": "AWS_SECRETSMGR_REGION", "notes": "AWS region in which the secret store is defined"
+          },
+          {
+            "name": "AWS_SECRETSMGR_ACCESS_KEY", "notes": "IAM access key ID"
+          },
+          {
+            "name": "AWS_SECRETSMGR_SECRET_KEY", "notes": "IAM secret key for access key"
+          }
+        ],
+        "setupNotes": "See the AWS Secrets Manager [User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) for help with setup. See the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) for general help with users and security.\n\nWhen actually adding secrets, add them simply as Plaintext -- no separate key and value. AWS Secrets Manager console defaults to a \"compound\" secret that contains a *list* of key:value pairs rather than just a single plaintext value."
+    }
+  },
+  {
+    "id": "azure",
+    "name": "Azure",
+    "fullName": "Microsoft Azure",
+    "msgQueue": {
+        "shortName": "Event Hubs",
+        "fullName": "Event Hubs",
+        "envVars": [{
+            "name": "AZURE_EH_CONNECTIONSTRING", "notes": "Shared access policy for the event hub entity; must at least be assigned the *Send* right"
+          },
+          {
+            "name": "AZURE_EH_CONSUMER_GROUP", "notes": "Viewer for the event hub entity"
+          },
+          {
+            "name": "AZURE_EH_STORAGE_ACCOUNT", "notes": "Account to receive and checkpoint data"
+          },
+          {
+            "name": "AZURE_EH_STORAGE_ACCOUNT_KEY", "notes": "Access key for the storage account"
+          },
+          {
+            "name": "AZURE_EH_CONTAINER_NAME", "notes": "Container within the storage account"
+          }
+        ],
+        "setupNotes": "See the Azure Event Hubs [documentation](https://docs.microsoft.com/en-us/azure/event-hubs/) for help with setup."
+    },
+    "secretStore": {
+        "fullName": "Key Vault",
+        "envVars": [{
+            "name": "AZURE_VAULT_NAME", "notes": "Name for the key vault"
+          },
+          {
+            "name": "AZURE_VAULT_TENANT_ID", "notes": "Tenant ID for service principal; must have GET permission for the key vault"
+          },
+          {
+            "name": "AZURE_VAULT_CLIENT_ID", "notes": "appID for service principal"
+          }
+        ],
+        "setupNotes": "Use of Azure Key Vault also requires the PFX certificate file generated for the service principal. You must extend the cloud block Docker image to copy the PFX file to */app/components/azure-vault-cert.pfx*. See an example [docker-compose.yml](https://github.com/kb2ma/cloudBlock-test/blob/main/cputemp/docker-compose.yml) and [Dockerfile](https://github.com/kb2ma/cloudBlock-test/blob/main/cputemp/cloud/Dockerfile).\n\nSee the Azure Key Vault [documentation](https://docs.microsoft.com/en-us/azure/key-vault/) for help with setup. See the Azure Active Directory [documentation](https://docs.microsoft.com/en-us/azure/active-directory/) for more about service principals."
+    }
+  },
+  {
+    "id": "gcp",
+    "name": "GCP",
+    "fullName": "Google Cloud",
+    "msgQueue": {
+        "shortName": "Pub/Sub",
+        "fullName": "Pub/Sub",
+        "envVars": [{
+            "name": "GCP_PUBSUB_TOPIC", "notes": "Name or topic of the queue in Pub/Sub"
+          },
+          {
+            "name": "GCP_PUBSUB_TYPE", "notes": "Credentials type, like 'service_account'"
+          },
+          {
+            "name": "GCP_PUBSUB_PROJECT_ID", "notes": "GCP Project ID containing Pub/Sub topic"
+          },
+          {
+            "name": "GCP_PUBSUB_CLIENT_EMAIL", "notes": "Email address of IAM service account or member publishing to Pub/Sub topic; must at least have role of *Pub/Sub Publisher* for the topic"
+          },
+          {
+            "name": "GCP_PUBSUB_PRIVATE_KEY", "notes": "Credentials private key"
+          }
+        ],
+        "setupNotes": "See the Pub/Sub [documentation](https://cloud.google.com/pubsub/docs) for help getting started. See the IAM [documentation](https://cloud.google.com/iam/docs) for help setting up an identity."
+    },
+    "secretStore": {
+        "fullName": "Secret Manager",
+        "envVars": [{
+            "name": "GCP_SECRETMGR_TYPE", "notes": "Credentials type, like 'service_account'"
+          },
+          {
+            "name": "GCP_SECRETMGR_PROJECT_ID", "notes": "GCP Project ID for the Secret Store"
+          },
+          {
+            "name": "GCP_SECRETMGR_CLIENT_EMAIL", "notes": "Email address of IAM service account or member accessing Secret Store; must at least have role of *Secret Manager Secret Accessor* for contained secrets"
+          },
+          {
+            "name": "GCP_SECRETMGR_PRIVATE_KEY", "notes": "Credentials private key"
+          }
+        ],
+        "setupNotes": "See the Secret Manager [documentation](https://cloud.google.com/secret-manager/docs) for help getting started. See the IAM [documentation](https://cloud.google.com/iam/docs) for help setting up an identity."
+    }
+  }
+]
