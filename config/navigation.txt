@@ -127,7 +127,6 @@ Reference
     [/reference/base-images/base-images]
     [/reference/base-images/base-images-ref]
     [/reference/base-images/devicetypes]
-    [/reference/base-images/legacy-base-images]
 
   API
     [/reference/api/overview]
