@@ -2,35 +2,65 @@
 <script type="text/javascript">
 
   (function () {
+    var archAliasMap = {
+      rpi: 'armv6hf',
+    };
+    // The following pine cllient query was used to generate the OData url below.
+    // TODO: Start using the sdk in the docs and use the call directly.
+    // await sdk.pine.get({
+    //     resource: 'device_type',
+    //     options: {
+    //         $select: ['name', 'slug', 'logo'],
+    //         $expand: {
+    //             is_of__cpu_architecture: {
+    //                 $select: 'slug'
+    //             }
+    //         },
+    //         $filter: {
+    //             is_default_for__application: {
+    //                 $any: {
+    //                     $alias: 'idfa',
+    //                     $expr: {
+    //                         idfa: {
+    //                             is_host: true,
+    //                             is_archived: false,
+    //                         },
+    //                         $not: {
+    //                             idfa: {
+    //                                 app_name: {
+    //                                     $contains: 'esr',
+    //                                 }
+    //                             }
+    //                         }
+    //                     },
+    //                 },
+    //             },
+    //         },
+    //         $orderby: {
+    //             name: 'asc',
+    //         }
+    //     }
+    // })
     window.jQuery
       .ajax({
-        url: "https://api.balena-cloud.com/v6/application?$filter=is_host%20eq%20true%20and%20is_archived%20eq%20false%20and%20not(contains(app_name,%27esr%27))&$expand=is_for__device_type($select=name,slug,logo&$expand=is_of__cpu_architecture)"
+        url: "https://api.balena-cloud.com/v6/device_type?$select=name,slug,logo&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false))%20and%20not(contains(idfa/app_name,%27esr%27)))&$orderby=name%20asc"
       })
-      .done(function (deviceTypes) {
-
-
-        var table;
-
-        table = _(deviceTypes.d)
-          .sortBy([
-            function (deviceType) {
-              return (deviceType.is_for__device_type[0].name);
-            }
-          ])
+      .done(function (deviceTypesResponse) {
+        var table = _(deviceTypesResponse.d)
           .reduce(function (acc, deviceType) {
-            var tableCell;
-            if (deviceType.is_for__device_type[0].is_of__cpu_architecture[0].slug === "rpi") {
-              deviceType.is_for__device_type[0].is_of__cpu_architecture[0].slug = "armv6hf";
+            var archSlug = deviceType.is_of__cpu_architecture[0].slug;
+            if (archAliasMap[archSlug]) {
+              archSlug = archAliasMap[archSlug];
             }
-            tableCell =
+            var tableCell =
               "<tr> <td>" +
-              "<img class='device_icon' src=" + deviceType.is_for__device_type[0].logo + " />" +
+              "<img class='device_icon' src=" + deviceType.logo + " />" +
               "</td> <td>" +
-              deviceType.is_for__device_type[0].name +
+              deviceType.name +
               "</td> <td>" +
-              deviceType.is_for__device_type[0].slug +
+              deviceType.slug +
               "</td> <td>" +
-              deviceType.is_for__device_type[0].is_of__cpu_architecture[0].slug +
+              archSlug +
               "</td> </tr>";
             return acc + tableCell;
           }, "");
