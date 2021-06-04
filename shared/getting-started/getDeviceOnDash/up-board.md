@@ -15,7 +15,7 @@ Now that you have your board setup, apply power to it using the supplied 5 Vdc b
 
 <img src="/img/up-board/up-board-uefi-selection.jpg" width="60%">
 
-Using the keyboard arrow keys, select the `UEFI : USB` option and hit enter. Your **{{ $device.name }}** will now boot from the {{ $device.bootMedia }} and flash {{ $names.os.lower }} onto the internal [eMMC memory][emmc-link]. If your device is correctly connected to the internet, you should see progress of the flashing on your {{ $names.company.lower }} dashboard. Once {{ $names.os.lower }} is safely flashed onto the internal [eMMC memory][emmc-link], the device will shut itself down and you should see all the user LEDs on the board switch off.
+Using the keyboard arrow keys, select the `UEFI : USB` option and hit enter. Your **{{ $device.name }}** will now boot from the {{ $device.bootMedia }} and flash {{ $names.os.lower }} onto the internal [eMMC memory][emmc-link]. If your device is correctly connected to the internet, you should see progress of the flashing on your {{ $names.company.lower }} dashboard. Once {{ $names.os.lower }} is safely flashed onto the internal eMMC memory, the device will shut itself down and you should see all the user LEDs on the board switch off.
 
 __Note:__ The blue power LED will stay illuminated even once the device has shutdown. You can find the user LEDs on the underside of the board near the USB ports.
 
@@ -23,4 +23,4 @@ You can now remove the {{ $device.bootMedia }} and power up the board again. You
 
 Now it's time to deploy some code!
 
-[emmc-link]:http://www.datalight.com/solutions/technologies/emmc/what-is-emmc
+[emmc-link]:https://www.jedec.org/standards-documents/technology-focus-areas/flash-memory-ssds-ufs-emmc/e-mmc
