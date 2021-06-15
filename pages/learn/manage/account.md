@@ -60,7 +60,7 @@ When a fleet needs to be shared with more than one user, the fleet owner can add
 
 ### Member types
 
-| Member Type   | Add members   | Delete App  | Add/Remove device  | Manage provisioning keys  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions |
+| Member Type   | [Add members][administrator]   | Delete App  | Add/Remove device  | Manage provisioning keys  | [Device actions][device-actions]  | [Tags][tags] | [Variables][variables] | [SSH access][ssh] | [Push][deploy] | [Configuration][configuration] | Fleet actions |
 | ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
 | Administrator | Yes      | Yes  | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
 | Developer     | No       | No   | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
@@ -168,6 +168,11 @@ If you wish to delete your {{ $names.cloud.lower }} account, go to your [_Prefer
 [ssh]:/learn/manage/ssh-access
 [starter]:/learn/manage/app-types#starter
 [administrator]: /learn/manage/organizations/#managing-roles--access-in-an-organization
+[device-actions]:/learn/manage/actions/
+[variables]:/learn/manage/serv-vars/
+[configuration]:/learn/manage/configuration/
+[deploy]:/learn/deploy/deployment/
+[tags]:/learn/manage/filters-tags/
 
 [signup]:{{ $links.dashboardUrl }}/signup
 [login]:{{ $links.dashboardUrl }}/login
