@@ -92,9 +92,9 @@ __Note:__ For further information on UART device tree overlays, see the [Raspber
 
 The Raspberry Pi allows loading [custom device tree overlays][device-tree-overlay] using the `dtoverlay` setting in `config.txt`. It also allows setting parameters for the default overlay with the `dtparam` setting. For these settings, the syntax is different from other keys because several entries can be added, and the bootloader will use all of them.
 
-To allow setting several values, devices running {{ $names.os.lower }} version >= 2.12.0  (supervisor >= 7.0.0), will parse the values of `RESIN_HOST_CONFIG_dtoverlay` and `RESIN_HOST_CONFIG_dtparam` in a special way where the value of the configuration variable will be treated as the contents of a JSON array (without the enclosing braces `[]`), so a comma-separated list of quote-enclosed values will be split into several lines.
+To allow setting several values, devices running {{ $names.os.lower }} version >= 2.12.0  (supervisor >= 7.0.0), will parse the values of `BALENA_HOST_CONFIG_dtoverlay` and `BALENA_HOST_CONFIG_dtparam` in a special way where the value of the configuration variable will be treated as the contents of a JSON array (without the enclosing braces `[]`), so a comma-separated list of quote-enclosed values will be split into several lines.
 
-For example, the default value of `RESIN_HOST_CONFIG_dtparam = "i2c_arm=on","spi=on","audio=on"` will translate into the following entries in config.txt:
+For example, the default value of `BALENA_HOST_CONFIG_dtparam = "i2c_arm=on","spi=on","audio=on"` will translate into the following entries in config.txt:
 
 ```
 dtparam=i2c_arm=on
@@ -102,14 +102,14 @@ dtparam=spi=on
 dtparam=audio=on
 ```
 
-Another example would be setting several overlays with their own parameters, e.g. `RESIN_HOST_CONFIG_dtoverlay = "i2c-rtc,ds1307","lirc-rpi"` will translate to:
+Another example would be setting several overlays with their own parameters, e.g. `BALENA_HOST_CONFIG_dtoverlay = "i2c-rtc,ds1307","lirc-rpi"` will translate to:
 
 ```
 dtoverlay=i2c-rtc,ds1307
 dtoverlay=lirc-rpi
 ```
 
-This parsing will only be done if the value is a valid string, so if it doesn't begin with a quote `"`, the value will be parsed as a single string and not split into several lines. For instance `RESIN_HOST_CONFIG_dtoverlay = i2c-rtc,ds1307` will translate to:
+This parsing will only be done if the value is a valid string, so if it doesn't begin with a quote `"`, the value will be parsed as a single string and not split into several lines. For instance `BALENA_HOST_CONFIG_dtoverlay = i2c-rtc,ds1307` will translate to:
 
 ```
 dtoverlay=i2c-rtc,ds1307
