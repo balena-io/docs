@@ -47,7 +47,7 @@ From your balenaCloud account, create a Microservices or Starter application as 
    | {{{ name }}}              | {{{ notes }}}                              |
 {{/$cloud.msgQueue.envVars}}
 
-{{ $cloud.msgQueue.setupNotes }}
+See the {{ $cloud.msgQueue.shortName }} [documentation]({{$cloud.msgQueue.docUrl}}) for help with setup. {{ $cloud.msgQueue.setupNotes }}
 
 __Note:__ Alternatively you may define these values in a cloud based secret store as described in the cloud block [Reference](/learn/develop/integrations/cloud-block-reference/{{$cloud.id}}/#configuration-via-secret-store).
 

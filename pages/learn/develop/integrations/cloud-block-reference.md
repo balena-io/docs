@@ -31,7 +31,7 @@ The cloud block requires some configuration values to access the secret store's 
    | {{{ name }}}              | {{{ notes }}}                              |
 {{/$cloud.secretStore.envVars}}
 
-{{ $cloud.secretStore.setupNotes }}
+See the {{ $cloud.secretStore.fullName }} [documentation]({{$cloud.secretStore.docUrl}}) for help with setup. {{ $cloud.secretStore.setupNotes }}
 
 ### Why use a secret store?
 

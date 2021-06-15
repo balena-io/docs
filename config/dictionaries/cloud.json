@@ -19,7 +19,8 @@
             "name": "AWS_SQS_SECRET_KEY", "notes": "IAM secret key for access key"
           }
         ],
-        "setupNotes": "See the [SQS Developer Guide](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) for help setting up the queue service. See the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) for help setting up the identity."
+        "docUrl": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html",
+        "setupNotes": "See the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) for help setting up the identity."
     },
     "secretStore": {
         "fullName": "Secrets Manager",
@@ -33,7 +34,8 @@
             "name": "AWS_SECRETSMGR_SECRET_KEY", "notes": "IAM secret key for access key"
           }
         ],
-        "setupNotes": "See the AWS Secrets Manager [User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) for help with setup. See the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) for general help with users and security.\n\nWhen actually adding secrets, add them simply as Plaintext -- no separate key and value. AWS Secrets Manager console defaults to a \"compound\" secret that contains a *list* of key:value pairs rather than just a single plaintext value."
+        "docUrl": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html",
+        "setupNotes": "See the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) for general help with users and security.\n\nWhen actually adding secrets, add them simply as Plaintext -- no separate key and value. AWS Secrets Manager console defaults to a \"compound\" secret that contains a *list* of key:value pairs rather than just a single plaintext value."
     }
   },
   {
@@ -59,7 +61,8 @@
             "name": "AZURE_EH_CONTAINER_NAME", "notes": "Container within the storage account"
           }
         ],
-        "setupNotes": "See the Azure Event Hubs [documentation](https://docs.microsoft.com/en-us/azure/event-hubs/) for help with setup."
+        "docUrl": "https://docs.microsoft.com/en-us/azure/event-hubs/",
+        "setupNotes": ""
     },
     "secretStore": {
         "fullName": "Key Vault",
@@ -73,7 +76,8 @@
             "name": "AZURE_VAULT_CLIENT_ID", "notes": "appID for service principal"
           }
         ],
-        "setupNotes": "Use of Azure Key Vault also requires the PFX certificate file generated for the service principal. You must extend the cloud block Docker image to copy the PFX file to */app/components/azure-vault-cert.pfx*. See an example [docker-compose.yml](https://github.com/kb2ma/cloudBlock-test/blob/main/cputemp/docker-compose.yml) and [Dockerfile](https://github.com/kb2ma/cloudBlock-test/blob/main/cputemp/cloud/Dockerfile).\n\nSee the Azure Key Vault [documentation](https://docs.microsoft.com/en-us/azure/key-vault/) for help with setup. See the Azure Active Directory [documentation](https://docs.microsoft.com/en-us/azure/active-directory/) for more about service principals."
+        "docUrl": "https://docs.microsoft.com/en-us/azure/key-vault/",
+        "setupNotes": "Use of Azure Key Vault also requires the PFX certificate file generated for the service principal. You must extend the cloud block Docker image to copy the PFX file to */app/components/azure-vault-cert.pfx*. See an example [docker-compose.yml](https://github.com/balena-io-playground/cloudBlock/tree/main/examples/cputemp/docker-compose.yml) and [Dockerfile](https://github.com/balena-io-playground/cloudBlock/tree/main/examples/cputemp/cloud/Dockerfile).\n\nSee the Azure Active Directory [documentation](https://docs.microsoft.com/en-us/azure/active-directory/) for more about service principals."
     }
   },
   {
@@ -99,7 +103,8 @@
             "name": "GCP_PUBSUB_PRIVATE_KEY", "notes": "Credentials private key"
           }
         ],
-        "setupNotes": "See the Pub/Sub [documentation](https://cloud.google.com/pubsub/docs) for help getting started. See the IAM [documentation](https://cloud.google.com/iam/docs) for help setting up an identity."
+        "docUrl": "https://cloud.google.com/pubsub/docs",
+        "setupNotes": "See the IAM [documentation](https://cloud.google.com/iam/docs) for help setting up an identity."
     },
     "secretStore": {
         "fullName": "Secret Manager",
@@ -116,7 +121,8 @@
             "name": "GCP_SECRETMGR_PRIVATE_KEY", "notes": "Credentials private key"
           }
         ],
-        "setupNotes": "See the Secret Manager [documentation](https://cloud.google.com/secret-manager/docs) for help getting started. See the IAM [documentation](https://cloud.google.com/iam/docs) for help setting up an identity."
+        "docUrl": "https://cloud.google.com/secret-manager/docs",
+        "setupNotes": "See the IAM [documentation](https://cloud.google.com/iam/docs) for help setting up an identity."
     }
   }
 ]
