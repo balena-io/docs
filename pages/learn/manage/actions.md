@@ -12,6 +12,8 @@ Actions allow you to control the status of your applications and devices during 
 
 ## General actions
 
+> [Application members][application-members] with the Operator role and above can perform any of the actions listed below.
+
 ### Enable Public Device URL
 
 {{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
@@ -59,6 +61,8 @@ The `Shutdown` action allows you to safely shut down your devices. It should be 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
 ## Device-specific actions
+
+> [Application members][application-members] with the Operator role and above can perform any of the actions listed below.
 
 ### Update Locking
 
@@ -116,7 +120,7 @@ __Warning:__ Only change the device type if a device was incorrectly provisioned
 
 ## Application-specific actions
 
-These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet.
+These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet. [Application members][application-members] with the adminstrator role can perform any of the actions listed below.
 
 ### Change Application Type
 
@@ -175,3 +179,4 @@ __Warning:__ It is a good idea to [move your devices to another application][mov
 [developer]:/learn/manage/account/#developer
 [support-access]:/learn/manage/support-access
 [inactive-devices]:/learn/manage/billing/#inactive-devices
+[application-members]:/learn/manage/account/#application-members
