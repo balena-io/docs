@@ -120,7 +120,7 @@ __Warning:__ Only change the device type if a device was incorrectly provisioned
 
 ## Application-specific actions
 
-These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet. [Application members][application-members] with the Developer role and above can perform any of the actions listed below.
+These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet. [Application members][application-members] with the adminstrator role can perform any of the actions listed below.
 
 ### Change Application Type
 
