@@ -8,7 +8,7 @@
     "community": true,
     "icon": "/img/device/n510-tx2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Aetina N510 TX2."
@@ -40,7 +40,7 @@
     "community": false,
     "icon": "/img/device/asus-tinker-board.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Asus Tinker Board."
@@ -60,7 +60,7 @@
     "community": false,
     "icon": "/img/device/asus-tinker-board-s.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Asus Tinker Board S."
@@ -95,7 +95,7 @@
     "community": true,
     "icon": "/img/device/jn30b-nano.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Remove power from the board and insert freshly burnt SD-CARD."
@@ -121,7 +121,7 @@
         "i": "Power on the Fin by attaching power to either the Barrel or the Phoenix connector."
       },
       {
-        "i": "Write the OS to the internal MMC storage device. We recommend using <a href=http://www.etcher.io/>Etcher</a>."
+        "i": "Write the OS to the internal MMC storage device. We recommend using <a href=https://balena.io/etcher>Etcher</a>."
       },
       {
         "i": "When flashing is complete, power off the board by detaching the power and unplug the DGB micro-USB cable."
@@ -141,7 +141,7 @@
     "community": false,
     "icon": "/img/device/bananapi-m1-plus.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to an SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the BananaPi-M1+."
@@ -161,7 +161,7 @@
     "community": false,
     "icon": "/img/device/beagleboard-xm.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the BeagleBoard-XM."
@@ -181,7 +181,7 @@
     "community": false,
     "icon": "/img/device/beaglebone-black.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the BeagleBone Black."
@@ -213,7 +213,7 @@
     "community": false,
     "icon": "/img/device/beaglebone-green.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the BeagleBone Green."
@@ -245,7 +245,7 @@
     "community": false,
     "icon": "/img/device/beaglebone-green-wifi.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the BeagleBone Green Wireless."
@@ -277,7 +277,7 @@
     "community": false,
     "icon": "/img/device/orbitty-tx2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the CTI Orbitty TX2."
@@ -309,7 +309,7 @@
     "community": false,
     "icon": "/img/device/spacely-tx2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the CTI Spacely TX2."
@@ -341,7 +341,7 @@
     "community": false,
     "icon": "/img/device/cl-som-imx8.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Compulab MX8M."
@@ -376,7 +376,7 @@
         "i": "Set the BOOT_SELECT switch to the SD-CARD position."
       },
       {
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Google Coral Dev Board."
@@ -408,7 +408,7 @@
     "community": true,
     "icon": "/img/device/ccimx8x-sbc-pro.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Digi ConnectCore 8X SBC Pro."
@@ -469,7 +469,7 @@
     "community": false,
     "icon": "/img/device/intel-nuc.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt USB key into the Intel NUC."
@@ -501,7 +501,7 @@
     "community": false,
     "icon": "/img/device/surface-pro-6.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt USB key into the Microsoft Surface 6."
@@ -533,7 +533,7 @@
     "community": false,
     "icon": "/img/device/surface-go.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt USB key into the Microsoft Surface Go."
@@ -565,7 +565,7 @@
     "community": true,
     "icon": "/img/device/npe-x500-m3.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the NPE X500 M3."
@@ -585,7 +585,7 @@
     "community": false,
     "icon": "/img/device/nanopi-neo-air.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the NanoPi Neo Air"
@@ -614,7 +614,7 @@
     "community": false,
     "icon": "/img/device/nanopc-t4.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the NanoPC-T4."
@@ -643,7 +643,7 @@
     "community": false,
     "icon": "/img/device/nitrogen8mm.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Nitrogen8M Mini SBC."
@@ -704,7 +704,7 @@
     "community": false,
     "icon": "/img/device/srd3-tx2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Nvidia D3 TX2."
@@ -739,7 +739,7 @@
     "community": false,
     "icon": "/img/device/jetson-nano.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Remove power from the board and insert the freshly burnt SD-CARD."
@@ -779,7 +779,7 @@
     "community": false,
     "icon": "/img/device/jetson-tx1.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Nvidia Jetson TX1."
@@ -794,7 +794,7 @@
         "i": "The device is performing a shutdown. Please wait until all LEDs are off."
       },
       {
-        "i": "Remove the resinOS installation media."
+        "i": "Remove the balenaOS installation media."
       },
       {
         "i": "Remove and re-connect power to the board."
@@ -811,7 +811,7 @@
     "community": false,
     "icon": "/img/device/jetson-tx2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Nvidia Jetson TX2."
@@ -866,7 +866,7 @@
     "community": false,
     "icon": "/img/device/jetson-xavier-nx-devkit.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Remove power from the board and insert freshly burnt SD-CARD."
@@ -886,7 +886,7 @@
     "community": true,
     "icon": "/img/device/blackboard-tx2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Nvidia blackboard TX2."
@@ -921,7 +921,7 @@
     "community": false,
     "icon": "/img/device/odroid-c1.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the ODROID-C1+."
@@ -941,7 +941,7 @@
     "community": false,
     "icon": "/img/device/odroid-xu4.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the ODROID-XU4."
@@ -961,7 +961,7 @@
     "community": true,
     "icon": "/img/device/orange-pi-one.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Orange Pi One."
@@ -981,7 +981,7 @@
     "community": false,
     "icon": "/img/device/orangepi-plus2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Orange Pi Plus2."
@@ -996,7 +996,7 @@
         "i": "The device is performing a shutdown. Please wait until all LEDs are off."
       },
       {
-        "i": "Remove the resinOS installation media."
+        "i": "Remove the balenaOS installation media."
       },
       {
         "i": "Remove and re-connect power to the board."
@@ -1013,7 +1013,7 @@
     "community": true,
     "icon": "/img/device/orange-pi-zero.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Orange Pi Zero."
@@ -1033,7 +1033,7 @@
     "community": false,
     "icon": "/img/device/beaglebone-pocket.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the PocketBeagle."
@@ -1079,7 +1079,7 @@
     "community": false,
     "icon": "/img/device/raspberry-pi.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Raspberry Pi (v1 / Zero / Zero W)."
@@ -1099,7 +1099,7 @@
     "community": false,
     "icon": "/img/device/raspberry-pi2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Raspberry Pi 2."
@@ -1119,7 +1119,7 @@
     "community": false,
     "icon": "/img/device/raspberrypi3.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Raspberry Pi 3."
@@ -1139,7 +1139,7 @@
     "community": false,
     "icon": "/img/device/raspberrypi3-64.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Raspberry Pi 3 (using 64bit OS)."
@@ -1159,7 +1159,7 @@
     "community": false,
     "icon": "/img/device/raspberrypi4-64.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Raspberry Pi 4."
@@ -1185,7 +1185,7 @@
         "i": "Power on the Revolution Pi board."
       },
       {
-        "i": "Write the OS to the internal MMC storage device. We recommend using <a href=http://www.etcher.io/>Etcher</a>."
+        "i": "Write the OS to the internal MMC storage device. We recommend using <a href=https://balena.io/etcher>Etcher</a>."
       },
       {
         "i": "When flashing is complete, power off the board and unplug the micro-USB cable."
@@ -1205,7 +1205,7 @@
     "community": false,
     "icon": "/img/device/skx2.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the SKX2."
@@ -1237,7 +1237,7 @@
     "community": false,
     "icon": "/img/device/ts4900.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Technologic TS-4900."
@@ -1272,7 +1272,7 @@
     "community": false,
     "icon": "/img/device/up-board.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt USB key into the UP Board."
@@ -1304,7 +1304,7 @@
     "community": false,
     "icon": "/img/device/imx6ul-var-dart.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Variscite DART-6UL."
@@ -1336,7 +1336,7 @@
     "community": false,
     "icon": "/img/device/imx8m-var-dart.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Variscite DART-MX8M."
@@ -1374,7 +1374,7 @@
         "i": "Set the BOOT_SELECT switch to the MMC position"
       },
       {
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
@@ -1403,7 +1403,7 @@
     "community": false,
     "icon": "/img/device/imx7-var-som.svg",
     "instructions": [{
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"http://www.etcher.io/\">Etcher</a>."
+        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
         "i": "Insert the freshly burnt SD card into the Variscite VAR-SOM-MX7."
