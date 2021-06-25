@@ -100,6 +100,20 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
   org.freedesktop.systemd1.Manager.Reboot
 ```
 
+#### Stopping a systemd service
+At times, you may wish to stop a running service on the host OS, such as `bluetooth.service`, in order to run your own instance of bluez containerized.
+
+```Bash
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
+  dbus-send \
+  --system \
+  --print-reply \
+  --dest=org.freedesktop.systemd1 \
+  /org/freedesktop/systemd1 \
+  org.freedesktop.systemd1.Manager.StopUnit \
+  string:bluetooth.service string:replace
+```
+
 #### Checking if device time is NTP synchronized
 ```Bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
