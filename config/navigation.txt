@@ -118,6 +118,7 @@ Reference
 
   Device supervisor
     Supervisor API[/reference/supervisor/supervisor-api]
+    [/reference/supervisor/device-metrics]
     [/reference/supervisor/bandwidth-reduction]
     [/reference/supervisor/docker-compose]
     [/reference/supervisor/supervisor-upgrades]
