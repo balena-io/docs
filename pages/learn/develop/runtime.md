@@ -267,7 +267,7 @@ var server = app.listen(80, function () {
 ```
 
 ### Using DNS resolvers in your container
-In the {{ $names.company.lower }} host OS [dnsmasq][dnsmasq-link] is used to manage DNS since {{ $names.os.lower }} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](http://www.bind9.org/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0` which interferes with the host dnsmasq. To get around this you need to add `bind-interfaces` to your dnsmasq configuration in your container, or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
+In the {{ $names.company.lower }} host OS [dnsmasq][dnsmasq-link] is used to manage DNS since {{ $names.os.lower }} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
 
 ## Storage
 
