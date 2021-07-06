@@ -362,7 +362,7 @@ Note that currently it's not possible to share a mounted device across multiple 
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [supervisor-api-link]:/runtime/supervisor-api/
 [security-docs-link]:/learn/welcome/security/
-[supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
+[supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1devicehost-config
 [expressjs-link]:http://expressjs.com/
 [projects-github]:{{ $links.githubLabs }}
 [systemd-base-image-link]:https://hub.docker.com/r/{{ $names.company.short }}/raspberrypi-python/
