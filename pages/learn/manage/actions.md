@@ -32,7 +32,15 @@ You may also enable or disable public device URLs by clicking the _Public device
 
 The `Restart Application` action restarts the currently running **application containers**. Your application's running containers will be removed and recreated from scratch. This behavior is intended, and is different from running `balena restart [OPTIONS] CONTAINER [CONTAINER...]` in a host OS terminal instance from your dashboard, which will not remove your containers. If you are trying to persist data between container removals, see [persistent storage][persistent-storage] for strategies.
 
-When the containers are stopped, the application is politely asked to stop by sending a `SIGTERM` and after 10 seconds of wait time a `SIGKILL` is sent.
+By removing containers and recreating them from scratch, we see benefits like the following:
+
+- Containers are meant to be ephemeral, meaning that a new container should be a drop-in replacement for an old container with minimal to no impact. Removing and recreating containers adheres to this philosophy.
+
+- Because containers are removed and recreated with the restart action, you're encouraged to follow best practices in Docker data persistence. For more information, see our [persistent storage][persistent-storage] documentation or [Docker's data persistence strategies][docker-data-persistence-strategies]. These strategies also offer a performance boost over storing files in the container's writable layer.
+
+- Removing and recreating containers may allow recovery from application bugs where the application is stuck in an invalid state. For example, a process ID file that is no longer valid but is persisted to the container filesystem would be cleaned up when recreating the container.
+
+When the containers are stopped, the application is politely asked to stop by sending a `SIGTERM`. If the application hasn't stopped after 10 seconds, a `SIGKILL` is sent.
 
 __Note:__ During a restart any data that is not stored in `/data` will be lost.
 
@@ -180,3 +188,4 @@ __Warning:__ It is a good idea to [move your devices to another application][mov
 [support-access]:/learn/manage/support-access
 [inactive-devices]:/learn/manage/billing/#inactive-devices
 [application-members]:/learn/manage/account/#application-members
+[docker-data-persistence-strategies]:https://docs.docker.com/storage/
