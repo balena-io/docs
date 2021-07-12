@@ -32,7 +32,6 @@ jobs:
           args: >
             --exclude-mail
             --exclude
-            --accept 429
             localhost
             127.0.0.1
             https://github.com/balena-io-library/base-images
