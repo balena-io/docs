@@ -60,12 +60,12 @@ When an application needs to be shared with more than one user, the application 
 
 ### Member types
 
-| Member Type   | Add members   | Delete App  | Add/Remove device  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions |
-| ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
-| Administrator | Yes      | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
-| Developer     | No       | No   | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
-| Operator      | No       | No   | Yes  | Yes  | Yes  | Yes | Yes | No  | No  | No  |
-| Observer      | No       | No   | No   | No   | No   | No  | No  | No  | No  | No  |
+| Member Type   | Add members   | Delete App  | Add/Remove device  | Manage provisioning keys  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions |
+| ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
+| Administrator | Yes      | Yes  | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Developer     | No       | No   | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Operator      | No       | No   | Yes  | Yes  | Yes  | Yes  | Yes | Yes | No  | No  | No  |
+| Observer      | No       | No   | No   | No   | No   | No   | No  | No  | No  | No  | No  |
 
 #### Administrator
 
@@ -77,7 +77,7 @@ Observers are given read-only access to the application and its devices. They ar
 
 #### Operator
 
-Operators have all the access given to observers, plus the ability to manage an application's devices. This means operators can remove devices, perform device actions, and modify device tags, metadata, and environment variables. Operators also have full [SSH access][ssh] to the application's devices. This role can only be assigned by application owners on paid plans.
+Operators have all the access given to observers, plus the ability to manage an application's devices. This means operators can add and remove devices, generate & revoke provisioning API keys, perform device actions, and modify device tags, metadata, and environment variables. Operators also have full [SSH access][ssh] to the application's devices. This role can only be assigned by application owners on paid plans.
 
 #### Developer
 
