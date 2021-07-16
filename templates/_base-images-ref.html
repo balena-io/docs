@@ -1,0 +1,462 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  (function () {
+    window.jQuery
+      .ajax({
+        url: "https://api.balena-cloud.com/v6/device_type?$select=name,slug&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false))%20and%20not(contains(idfa/app_name,%27esr%27)))&$orderby=name%20asc"
+      })
+      .done(function (deviceTypes) {
+
+        // Device Types for which we don't have base images
+        var IGNORE_THESE_DEVICES = ["n310-tx2", "etcher-pro", "odroid-xu4"]
+        var table = "";
+        var deviceTypesByArch = {};
+
+        deviceTypes.d.forEach(function (device, idx) {
+          if (device.is_of__cpu_architecture[0].slug === "rpi") {
+            device.is_of__cpu_architecture[0].slug = "armv6hf";
+          }
+
+          if (!IGNORE_THESE_DEVICES.includes(device.slug)) {
+            if (device.is_of__cpu_architecture[0].slug in deviceTypesByArch) {
+              deviceTypesByArch[device.is_of__cpu_architecture[0].slug].push(device)
+            } else {
+              deviceTypesByArch[device.is_of__cpu_architecture[0].slug] = [device]
+            }
+          }
+        })
+
+        Object.keys(deviceTypesByArch).forEach(function (key) {
+          table += "<h2>" + key + "</h2>"
+          deviceTypesByArch[key].forEach(function (device) {
+              table += "<h3>" + device.name + "</h3>"
+              if (device.is_of__cpu_architecture[0].slug === "armv6hf") {
+                table += generateArmv6Table(device)
+              } else if (device.is_of__cpu_architecture[0].slug === "armv7hf") {
+                table += generateGenericTable(device)
+              } else if (device.is_of__cpu_architecture[0].slug === "aarch64") {
+                table += generateGenericTable(device)
+              } else if (device.is_of__cpu_architecture[0].slug === "amd64") {
+                table += generateGenericTable(device)
+              } else if (device.is_of__cpu_architecture[0].slug === "i386") {
+                table += generateI386Table(device)
+              } else {
+                table += "N/A"
+              }
+              
+            })
+        })
+
+        return window.jQuery("#base-images-ref").append(table);
+      })
+      .fail(function (error) {
+        return window
+          .jQuery("#base-images-ref")
+          .append(
+            '<h2>Something went wrong.</h2>'
+          );
+      });
+
+  }.call(this));
+
+  function generateGenericTable(deviceType) {
+    return '<table class="table table-bordered"> <thead> <tr> <th>Image</th> <th>Links</th> <th>Available Tag</th> </tr> </thead> <tbody>' +
+    
+    generateDebianTable(deviceType) +
+    generateAlpineTable(deviceType) +
+    generateFedoraTable(deviceType) +
+    generateUbuntuTable(deviceType) +
+
+    "</tbody> </table>";
+  }
+
+  function generateI386Table(deviceType) {
+    return '<table class="table table-bordered"> <thead> <tr> <th>Image</th> <th>Links</th> <th>Available Tag</th> </tr> </thead> <tbody>' +
+    
+    generateDebianTable(deviceType) +
+    generateAlpineTable(deviceType) +
+    generateUbuntuTable(deviceType) +
+
+    "</tbody> </table>";
+  }
+
+  function generateArmv6Table(deviceType) {
+    return '<table class="table table-bordered"> <thead> <tr> <th>Image</th> <th>Links</th> <th>Available Tag</th> </tr> </thead> <tbody>' +
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "buster (latest), bullseye, jessie, stretch" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-python" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-python">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubPythonBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-python/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-golang" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-golang">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubGolangBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-golang/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-openjdk" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-openjdk">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubOpenJDKBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-openjdk/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-node" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-node">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubNodeBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-node/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "buster (latest), bullseye, jessie, stretch" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian-python" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-python">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubPythonBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-python/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian-golang" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-golang">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubGolangBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-golang/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian-openjdk" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-openjdk">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubOpenJDKBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-openjdk/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian-node" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-node">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubNodeBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-node/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    generateAlpineTable(deviceType) +
+
+    "</tbody> </table>";
+  }
+
+  function generateDebianTable(deviceType) {
+    return "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "buster (latest), bullseye, jessie, stretch" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-python" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-python">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubPythonBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-python/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-golang" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-golang">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubGolangBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-golang/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-dotnet" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-dotnet">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubDotnetBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-dotnet/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-openjdk" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-openjdk">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubOpenJDKBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-openjdk/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-node" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-node">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubNodeBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-node/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "buster (latest), bullseye, jessie, stretch" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian-python" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-python">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubPythonBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-python/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian-golang" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-golang">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubGolangBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-golang/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian-dotnet" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-dotnet">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubDotnetBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-dotnet/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian-openjdk" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-openjdk">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubOpenJDKBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-openjdk/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-debian-node" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-node">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubNodeBaseImages }}/' + deviceType.slug + '/debian">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-debian-node/tags">' + "here </a>" +
+    "</td> </tr>"
+  }
+
+  function generateAlpineTable(deviceType) {
+    return "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-alpine" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-alpine">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "3.13 (latest), 3.11, 3.10, 3.12, edge" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-alpine-python" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-alpine-python">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubPythonBaseImages }}/' + deviceType.slug + '/alpine">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-alpine-python/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-alpine-golang" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-alpine-golang">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubGolangBaseImages }}/' + deviceType.slug + '/alpine">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-alpine-golang/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-alpine-openjdk" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-alpine-openjdk">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubOpenJDKBaseImages }}/' + deviceType.slug + '/alpine">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-alpine-openjdk/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-alpine-node" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-alpine-node">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubNodeBaseImages }}/' + deviceType.slug + '/alpine">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-alpine-node/tags">' + "here </a>" +
+    "</td> </tr>"
+  }
+
+  function generateFedoraTable(deviceType) {
+    return "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-fedora" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-fedora">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "32 (latest), 31, 33, 34, 30" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-fedora-python" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-fedora-python">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubPythonBaseImages }}/' + deviceType.slug + '/fedora">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-fedora-python/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-fedora-golang" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-fedora-golang">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubGolangBaseImages }}/' + deviceType.slug + '/fedora">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-fedora-golang/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-fedora-openjdk" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-fedora-openjdk">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubOpenJDKBaseImages }}/' + deviceType.slug + '/fedora">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-fedora-openjdk/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-fedora-node" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-fedora-node">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubNodeBaseImages }}/' + deviceType.slug + '/fedora">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-fedora-node/tags">' + "here </a>" +
+    "</td> </tr>"
+  }
+
+  function generateUbuntuTable(deviceType) {
+    return "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-ubuntu" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-ubuntu">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubBaseImages }}/' + deviceType.slug + '">' + "GitHub </a>" +
+    "</td> <td>" +
+    "bionic (latest), cosmic, xenial, disco, eoan, focal" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-ubuntu-python" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-ubuntu-python">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubPythonBaseImages }}/' + deviceType.slug + '/ubuntu">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-ubuntu-python/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-ubuntu-golang" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-ubuntu-golang">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubGolangBaseImages }}/' + deviceType.slug + '/ubuntu">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-ubuntu-golang/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-ubuntu-openjdk" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-ubuntu-openjdk">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubOpenJDKBaseImages }}/' + deviceType.slug + '/ubuntu">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-ubuntu-openjdk/tags">' + "here </a>" +
+    "</td> </tr>" +
+
+    "<tr> <td>" +
+    "{{ $names.base_images.lib }}/" + deviceType.slug + "-ubuntu-node" +
+    "</td> <td>" +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-ubuntu-node">' + "Docker Hub </a>, " +
+    '<a href="{{ $links.githubNodeBaseImages }}/' + deviceType.slug + '/ubuntu">' + "GitHub </a>" +
+    "</td> <td>" +
+    "For available image tags, refer " +
+    '<a href="{{ $links.balenalibDockerHub }}/' + deviceType.slug + '-ubuntu-node/tags">' + "here </a>" +
+    "</td> </tr>"
+  }
+
+</script>

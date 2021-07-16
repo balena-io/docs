@@ -18,6 +18,11 @@ module.exports =
   githubModules: 'https://github.com/balena-io-modules'
   githubOS: 'https://github.com/balena-os'
   githubBaseImages: 'https://github.com/balena-io-library/base-images/tree/master/balena-base-images/device-base'
+  githubPythonBaseImages: 'https://github.com/balena-io-library/base-images/tree/master/balena-base-images/python'
+  githubGolangBaseImages: 'https://github.com/balena-io-library/base-images/tree/master/balena-base-images/golang'
+  githubNodeBaseImages: 'https://github.com/balena-io-library/base-images/tree/master/balena-base-images/node'
+  githubOpenJDKBaseImages: 'https://github.com/balena-io-library/base-images/tree/master/balena-base-images/openjdk'
+  githubDotnetBaseImages: 'https://github.com/balena-io-library/base-images/tree/master/balena-base-images/dotnet'
   githubLibrary: 'https://github.com/balena-io-library'
   apiBase: process.env.API_BASE || 'https://api.balena-cloud.com'
   mainSiteUrl: 'https://balena.io'
@@ -29,6 +34,7 @@ module.exports =
   etcherSiteUrl: 'https://www.balena.io/etcher'
   githubCli: 'https://github.com/balena-io/balena-cli'
   supportUrl: 'https://www.balena.io/support'
+  balenalibDockerHub: 'https://hub.docker.com/r/balenalib'
   externalDocs:
     "python-sdk": 'https://github.com/balena-io/balena-sdk-python/edit/master/DOCUMENTATION.md'
     "node-sdk": 'https://github.com/balena-io/balena-sdk/edit/master/DOCUMENTATION.md'
@@ -45,3 +51,4 @@ module.exports =
     "fleet-management": "https://github.com/balena-io/balena-fleet-management-masterclass/edit/master/README.md"
     "device-debugging": "https://github.com/balena-io/debugging-masterclass/edit/master/README.md"
     "docker-masterclass": "https://github.com/balena-io/docker-masterclass/edit/master/README.md"
+
