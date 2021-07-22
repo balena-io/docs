@@ -13,7 +13,7 @@ DOMAIN = "https://#{process.env.DOMAIN || 'balena.io'}"
 
 MAIN_MENU_LINKS = [
   {
-    "title": "What is Balena",
+    "title": "What is balena?",
     "link": "#{DOMAIN}/what-is-balena"
   },
   {
