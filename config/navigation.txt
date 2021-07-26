@@ -71,7 +71,7 @@ Learn
     [/learn/manage/filters-tags]
     [/learn/manage/ssh-access]
     [/learn/manage/configuration]
-    [/learn/manage/serv-vars]
+    [/learn/manage/variables]
     [/learn/manage/actions]
     [/learn/manage/support-access]
 
