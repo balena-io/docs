@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "american-british-english-translator": "^0.1.4",
-    "css-loader": "5.2.6",
+    "css-loader": "6.2.0",
     "file-loader": "6.2.0",
     "mini-css-extract-plugin": "^1.6.2",
     "node-jq": "^1.12.0",
