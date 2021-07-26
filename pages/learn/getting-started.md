@@ -183,8 +183,8 @@ Your release will then be downloaded and started by all the devices you have con
 
 - Head to [balenaHub][balenahub], for more ready-to-deploy fleets, or have a go at building and sharing your own cool projects using [balenaBlocks][balenablocks].
 - Try out [local mode][local-mode], which allows you to build and sync code to your device locally for rapid development.
-- Develop an application with [multiple containers][multicontainer] to provide a more modular approach to fleet management.
-- Manage your device fleet with the use of [configuration][configuration], [environment][service], and [service variables][service].
+- Develop an application with [multiple containers][multicontainer] to provide a more modular approach to application management.
+- Manage your device fleet with the use of [configuration][configuration] and [environment variables][variables].
 - Visit our blog to find step-by-step tutorials for some [classic balena projects][projects].
 - If you find yourself stuck or confused, help is just a [click away][help].
 
@@ -209,7 +209,7 @@ Your release will then be downloaded and started by all the devices you have con
 [npminstall]:{{ $links.githubCli }}/blob/master/INSTALL.md#npm-installation
 [projects]:{{ $links.blogSiteUrl }}/tag/project/
 [releases]:{{ $links.githubCli }}/releases
-[service]:/learn/manage/serv-vars/
+[variables]:/learn/manage/variables/
 [terminal]:/learn/manage/ssh-access
 [token]:/learn/manage/account/#access-tokens
 [supported-devices]:/reference/hardware/devices/

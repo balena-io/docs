@@ -29,23 +29,23 @@ Fleet-wide variables can be found from the Fleet Summary page by clicking the *V
 
 To define a new variable, click the *Add variable* button in the upper-left corner.
 
-<img alt="Add service variable" src="/img/variables/add_application_variable.png" width="80%">
+<img alt="Add variable" src="/img/variables/add_application_variable.png" width="80%">
 
 In the dialog box that opens, select either a specific service or all services to apply the variable too.
 
 Define a name and value for your variable. Click the *Add* button to apply the variable to all devices in your fleet that do not have their own values defined:
 
-<img alt="Add service variable" src="/img/variables/variable_editor.png" width="80%">
+<img alt="Add variable" src="/img/variables/variable_editor.png" width="80%">
 
 Your new variable will show up in the list, where it can easily be modified or removed:
 
-<img alt="List service variables" src="/img/variables/variable_list.png" width="100%">
+<img alt="List variables" src="/img/variables/variable_list.png" width="100%">
 
 __Note:__ Deleting a fleet-level variable will not delete a device-level variable of the same name.
 
 If you have already defined variables at the device level, they will appear below the fleet variables of the same type. You can easily apply a device value to the entire fleet by clicking *Define fleet-wide*:
 
-<img alt="Define device service variable fleet-wide" src="/img/variables/define_app_wide.png" width="100%">
+<img alt="Define device variable fleet-wide" src="/img/variables/define_app_wide.png" width="100%">
 
 ## Device Variables
 
@@ -55,15 +55,15 @@ Adding a device variable is very similar to adding a fleet variable. From the De
 
 The variable list will include variables defined for that specific device, as well as any fleet variables of the same type:
 
-<img alt="Device service variables" src="/img/variables/device_variables.png" width="100%">
+<img alt="Device variables" src="/img/variables/device_variables.png" width="100%">
 
 You can override the value of a fleet variable by clicking *override* in the far-right column. This will pop up the variable editing dialog, where you can change the value:
 
-<img alt="Add device service variable" src="/img/variables/override.png" width="80%">
+<img alt="Add device variable" src="/img/variables/override.png" width="80%">
 
 ## Managing with the CLI & SDK
 
-The {{ $names.company.lower }} CLI and SDKs all include methods to easily read, add or update environment and service variables. Consult the appropriate reference for code examples.
+The {{ $names.company.lower }} CLI and SDKs all include methods to easily read, add or update variables. Consult the appropriate reference for code examples.
 
 * [CLI environment reference](/tools/cli/#envs)
 * [Node.js SDK environment reference](/reference/sdk/node-sdk/#balena.models.application.envVar)
