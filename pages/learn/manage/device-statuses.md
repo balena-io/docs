@@ -31,6 +31,10 @@ A device's status may include indicators of partial connectivity issues on the d
 
 <sup>2</sup> `Online (Heartbeat Only)` indicates that device is unable to connect to the {{ $names.cloud.lower }} VPN (e.g. a firewall is blocking VPN traffic), and won't be able to provide remote SSH connections.
 
+<sup>3</sup> `Online (heartbeat timeout)` suggests that the device may be offline as balenaCloud isn't receiving API communications, but the device is still connected to the VPN.
+
+<sup>4</sip> `Online (VPN disconnected, heartbeat timeout)` suggests that the device may be offline as balenaCloud isn't receiving the API communication, and it is no longer connected to the VPN and won't be able to provide an SSH connection.
+
 __Note:__ If the device is powered off or loses all network connectivity, it will remain in the `Online (Heartbeat Only)` state until the last target state fetch exceeds the device [API polling interval][poll-interval].
 
 ## Debugging Device Status
