@@ -1,13 +1,12 @@
-[{
+[
+  {
     "id": "n510-tx2",
     "name": "Aetina N510 TX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "n510-tx2",
-    "community": true,
     "icon": "/img/device/n510-tx2.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -35,11 +34,9 @@
     "name": "Asus Tinker Board",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "asus-tinker-board",
-    "community": false,
     "icon": "/img/device/asus-tinker-board.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -55,11 +52,9 @@
     "name": "Asus Tinker Board S",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "asus-tinker-board-s",
-    "community": false,
     "icon": "/img/device/asus-tinker-board-s.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -90,11 +85,9 @@
     "name": "Auvidea JN30B Nano",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "jn30b-nano",
-    "community": true,
     "icon": "/img/device/jn30b-nano.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -110,11 +103,9 @@
     "name": "Balena Fin (CM3)",
     "arch": "armv7hf",
     "bootMedia": "eMMC",
-    "state": "RELEASED",
-    "machine": "fincm3",
-    "community": false,
     "icon": "/img/device/fincm3.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "While not having the Fin board powered, connect your system to the board's DBG port via a micro-USB cable.."
       },
       {
@@ -136,11 +127,9 @@
     "name": "BananaPi-M1+",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "bananapi-m1-plus",
-    "community": false,
     "icon": "/img/device/bananapi-m1-plus.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -156,11 +145,9 @@
     "name": "BeagleBoard-XM",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "beagleboard-xm",
-    "community": false,
     "icon": "/img/device/beagleboard-xm.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -176,11 +163,9 @@
     "name": "BeagleBone Black",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "beaglebone",
-    "community": false,
     "icon": "/img/device/beaglebone-black.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -208,11 +193,9 @@
     "name": "BeagleBone Green",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "beaglebone-green",
-    "community": false,
     "icon": "/img/device/beaglebone-green.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -240,11 +223,9 @@
     "name": "BeagleBone Green Wireless",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "beaglebone-green-wifi",
-    "community": false,
     "icon": "/img/device/beaglebone-green-wifi.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -272,11 +253,9 @@
     "name": "CTI Orbitty TX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "orbitty-tx2",
-    "community": false,
     "icon": "/img/device/orbitty-tx2.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -304,11 +283,9 @@
     "name": "CTI Spacely TX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "spacely-tx2",
-    "community": false,
     "icon": "/img/device/spacely-tx2.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -336,11 +313,9 @@
     "name": "Compulab MX8M",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "cl-som-imx8",
-    "community": false,
     "icon": "/img/device/cl-som-imx8.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -368,11 +343,9 @@
     "name": "Coral Dev Board",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "coral-dev",
-    "community": false,
     "icon": "/img/device/coral-dev.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Set the BOOT_SELECT switch to the SD-CARD position."
       },
       {
@@ -403,11 +376,9 @@
     "name": "Digi ConnnectCore 8X SBC Pro",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "ccimx8x-sbc-pro",
-    "community": true,
     "icon": "/img/device/ccimx8x-sbc-pro.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -444,11 +415,9 @@
     "name": "Intel Edison",
     "arch": "i386",
     "bootMedia": "eMMC",
-    "state": "RELEASED",
-    "machine": "edison",
-    "community": false,
     "icon": "/img/device/intel-edison.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "windows"
       },
       {
@@ -464,11 +433,9 @@
     "name": "Intel NUC",
     "arch": "amd64",
     "bootMedia": "USB key",
-    "state": "RELEASED",
-    "machine": "genericx86-64",
-    "community": false,
     "icon": "/img/device/intel-nuc.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -496,11 +463,9 @@
     "name": "Microsoft Surface 6",
     "arch": "amd64",
     "bootMedia": "USB key",
-    "state": "NEW",
-    "machine": "surface-pro-6",
-    "community": false,
     "icon": "/img/device/surface-pro-6.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -528,11 +493,9 @@
     "name": "Microsoft Surface Go",
     "arch": "amd64",
     "bootMedia": "USB key",
-    "state": "NEW",
-    "machine": "surface-go",
-    "community": false,
     "icon": "/img/device/surface-go.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -560,11 +523,9 @@
     "name": "NPE X500 M3",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "npe-x500-m3",
-    "community": true,
     "icon": "/img/device/npe-x500-m3.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -580,11 +541,9 @@
     "name": "NanoPi Neo Air",
     "arch": "armv7hf",
     "bootMedia": "eMMC",
-    "state": "NEW",
-    "machine": "nanopi-neo-air",
-    "community": false,
     "icon": "/img/device/nanopi-neo-air.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -609,11 +568,9 @@
     "name": "NanoPC-T4",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "nanopc-t4",
-    "community": false,
     "icon": "/img/device/nanopc-t4.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -638,11 +595,9 @@
     "name": "Nitrogen8M Mini SBC",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "nitrogen8mm",
-    "community": false,
     "icon": "/img/device/nitrogen8mm.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -670,11 +625,9 @@
     "name": "Nitrogen8MM DWE",
     "arch": "aarch64",
     "bootMedia": "USB key",
-    "state": "NEW",
-    "machine": "nitrogen8mm-dwe",
-    "community": false,
     "icon": "/img/device/nitrogen8mm-dwe.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Unzip the image downloaded from the dashboard."
       },
       {
@@ -699,11 +652,9 @@
     "name": "Nvidia D3 TX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "srd3-tx2",
-    "community": false,
     "icon": "/img/device/srd3-tx2.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -734,11 +685,9 @@
     "name": "Nvidia Jetson Nano",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "jetson-nano",
-    "community": false,
     "icon": "/img/device/jetson-nano.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -754,11 +703,9 @@
     "name": "Nvidia Jetson Nano eMMC",
     "arch": "aarch64",
     "bootMedia": "eMMC",
-    "state": "NEW",
-    "machine": "jetson-nano-emmc",
-    "community": false,
     "icon": "/img/device/jetson-nano-emmc.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Put the NVidia Jetson Nano Devkit eMMC board in recovery mode"
       },
       {
@@ -774,11 +721,9 @@
     "name": "Nvidia Jetson TX1",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "jetson-tx1",
-    "community": false,
     "icon": "/img/device/jetson-tx1.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -806,11 +751,9 @@
     "name": "Nvidia Jetson TX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "jetson-tx2",
-    "community": false,
     "icon": "/img/device/jetson-tx2.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -841,11 +784,9 @@
     "name": "Nvidia Jetson Xavier",
     "arch": "aarch64",
     "bootMedia": "eMMC",
-    "state": "NEW",
-    "machine": "jetson-xavier",
-    "community": false,
     "icon": "/img/device/jetson-xavier.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Put the NVidia Jetson Xavier board in recovery mode"
       },
       {
@@ -861,11 +802,9 @@
     "name": "Nvidia Jetson Xavier NX Devkit SD-CARD",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "jetson-xavier-nx-devkit",
-    "community": false,
     "icon": "/img/device/jetson-xavier-nx-devkit.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -881,11 +820,9 @@
     "name": "Nvidia blackboard TX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "blackboard-tx2",
-    "community": true,
     "icon": "/img/device/blackboard-tx2.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -916,11 +853,9 @@
     "name": "ODROID-C1+",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "odroid-c1",
-    "community": false,
     "icon": "/img/device/odroid-c1.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -936,11 +871,9 @@
     "name": "ODROID-XU4",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "odroid-xu4",
-    "community": false,
     "icon": "/img/device/odroid-xu4.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -956,11 +889,9 @@
     "name": "Orange Pi One",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "orange-pi-one",
-    "community": true,
     "icon": "/img/device/orange-pi-one.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -976,11 +907,9 @@
     "name": "Orange Pi Plus2",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "orangepi-plus2",
-    "community": false,
     "icon": "/img/device/orangepi-plus2.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1008,11 +937,9 @@
     "name": "Orange Pi Zero",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "orange-pi-zero",
-    "community": true,
     "icon": "/img/device/orange-pi-zero.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1028,11 +955,9 @@
     "name": "PocketBeagle",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "beaglebone-pocket",
-    "community": false,
     "icon": "/img/device/beaglebone-pocket.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1048,37 +973,33 @@
     "name": "QEMU X86 32bit",
     "arch": "i386",
     "bootMedia": "HDD",
-    "state": "NEW",
-    "machine": "qemux86",
-    "community": false,
     "icon": "/img/device/qemux86.svg",
-    "instructions": [{
-      "i": "Run the following to start the image:\n<br>\nOn systems with KVM support:\n<br>\n<code>qemu-system-i386 -drive file=resin-image-qemux86.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host</code>\n<br>\nOn systems without KVM support:\n<br>\n<code>qemu-system-i386 -drive file=resin-image-qemux86.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4</code>\n<br>\nTweak <code>-smp</code> and <code>-cpu</code> parameters based on the CPU of the machine qemu is running on. <code>-cpu</code> parameter needs to be dropped on OSX and Windows.\n<br>\nTweak <code>-nographic</code> and <code>-m 512</code> to set the display of qemu and memory respectively.\n"
-    }]
+    "instructions": [
+      {
+        "i": "Run the following to start the image:\n<br>\nOn systems with KVM support:\n<br>\n<code>qemu-system-i386 -drive file=resin-image-qemux86.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host</code>\n<br>\nOn systems without KVM support:\n<br>\n<code>qemu-system-i386 -drive file=resin-image-qemux86.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4</code>\n<br>\nTweak <code>-smp</code> and <code>-cpu</code> parameters based on the CPU of the machine qemu is running on. <code>-cpu</code> parameter needs to be dropped on OSX and Windows.\n<br>\nTweak <code>-nographic</code> and <code>-m 512</code> to set the display of qemu and memory respectively.\n"
+      }
+    ]
   },
   {
     "id": "qemux86-64",
     "name": "QEMU X86 64bit",
     "arch": "amd64",
     "bootMedia": "HDD",
-    "state": "NEW",
-    "machine": "qemux86-64",
-    "community": false,
     "icon": "/img/device/qemux86-64.svg",
-    "instructions": [{
-      "i": "Run the following to start the image:\n<br>\nOn systems with KVM support:\n<br>\n<code>qemu-system-x86_64 -drive file=resin-image-qemux86-64.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host</code>\n<br>\nOn systems without KVM support:\n<br>\n<code>qemu-system-x86_64 -drive file=resin-image-qemux86-64.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4</code>\n<br>\nTweak <code>-smp</code> and <code>-cpu</code> parameters based on the CPU of the machine qemu is running on. <code>-cpu</code> parameter needs to be dropped on OSX and Windows.\n<br>\nTweak <code>-nographic</code> and <code>-m 512</code> to set the display of qemu and memory respectively.\n"
-    }]
+    "instructions": [
+      {
+        "i": "Run the following to start the image:\n<br>\nOn systems with KVM support:\n<br>\n<code>qemu-system-x86_64 -drive file=resin-image-qemux86-64.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host</code>\n<br>\nOn systems without KVM support:\n<br>\n<code>qemu-system-x86_64 -drive file=resin-image-qemux86-64.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4</code>\n<br>\nTweak <code>-smp</code> and <code>-cpu</code> parameters based on the CPU of the machine qemu is running on. <code>-cpu</code> parameter needs to be dropped on OSX and Windows.\n<br>\nTweak <code>-nographic</code> and <code>-m 512</code> to set the display of qemu and memory respectively.\n"
+      }
+    ]
   },
   {
     "id": "raspberry-pi",
     "name": "Raspberry Pi (v1 / Zero / Zero W)",
     "arch": "rpi",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "raspberrypi",
-    "community": false,
     "icon": "/img/device/raspberry-pi.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1094,11 +1015,9 @@
     "name": "Raspberry Pi 2",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "raspberrypi2",
-    "community": false,
     "icon": "/img/device/raspberry-pi2.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1114,11 +1033,9 @@
     "name": "Raspberry Pi 3",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "raspberrypi3",
-    "community": false,
     "icon": "/img/device/raspberrypi3.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1134,11 +1051,9 @@
     "name": "Raspberry Pi 3 (using 64bit OS)",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "raspberrypi3-64",
-    "community": false,
     "icon": "/img/device/raspberrypi3-64.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1154,11 +1069,9 @@
     "name": "Raspberry Pi 4",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "raspberrypi4-64",
-    "community": false,
     "icon": "/img/device/raspberrypi4-64.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1174,11 +1087,9 @@
     "name": "Revolution Pi Core 3",
     "arch": "armv7hf",
     "bootMedia": "USB key",
-    "state": "RELEASED",
-    "machine": "revpi-core-3",
-    "community": false,
     "icon": "/img/device/revpi-core-3.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "While not having the Revolution Pi board powered, connect your system to the board's USB port via a micro-USB cable."
       },
       {
@@ -1200,11 +1111,9 @@
     "name": "SKX2",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "skx2",
-    "community": false,
     "icon": "/img/device/skx2.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1232,11 +1141,9 @@
     "name": "Technologic TS-4900",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "RELEASED",
-    "machine": "ts4900",
-    "community": false,
     "icon": "/img/device/ts4900.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1267,11 +1174,9 @@
     "name": "UP Board",
     "arch": "amd64",
     "bootMedia": "USB key",
-    "state": "RELEASED",
-    "machine": "up-board",
-    "community": false,
     "icon": "/img/device/up-board.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1299,11 +1204,9 @@
     "name": "Variscite DART-6UL",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "imx6ul-var-dart",
-    "community": false,
     "icon": "/img/device/imx6ul-var-dart.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1331,11 +1234,9 @@
     "name": "Variscite DART-MX8M",
     "arch": "aarch64",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "imx8m-var-dart",
-    "community": false,
     "icon": "/img/device/imx8m-var-dart.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
@@ -1366,11 +1267,9 @@
     "name": "Variscite VAR-SOM-MX6",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "var-som-mx6",
-    "community": false,
     "icon": "/img/device/var-som-mx6.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Set the BOOT_SELECT switch to the MMC position"
       },
       {
@@ -1398,11 +1297,9 @@
     "name": "Variscite VAR-SOM-MX7",
     "arch": "armv7hf",
     "bootMedia": "SD card",
-    "state": "NEW",
-    "machine": "imx7-var-som",
-    "community": false,
     "icon": "/img/device/imx7-var-som.svg",
-    "instructions": [{
+    "instructions": [
+      {
         "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
       },
       {
