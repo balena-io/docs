@@ -232,7 +232,7 @@ $ os_version_semver=$(echo ${os_version_tag} | sed 's/v//g')
 $ os_revision=$(echo ${os_version} | awk -F'+' '{print $2}' | awk -F'.' '{print $1}')
 $ os_variant=$(echo ${os_version} | awk -F'+' '{print $2}' | awk -F'.' '{print $2}')
 
-$ supervisor_version=$(curl --silent https://raw.githubusercontent.com/balena-os/meta-balena/${os_version_tag}/meta-balena-common/recipes-containers/resin-supervisor/resin-supervisor.inc \
+$ supervisor_version=$(curl --silent https://raw.githubusercontent.com/balena-os/meta-balena/${os_version_tag}/meta-balena-common/recipes-containers/balena-supervisor/balena-supervisor.inc \
     | grep SUPERVISOR_TAG \
     | awk '{print $3}' \
     | sed 's/"//g' \
@@ -263,7 +263,7 @@ $ balena tag set 'offline:hostOS' "${os_version}" \
   --device ${uuid}
 ```
 
-Read more about how the process can work better for your usecase in the [offline updates](https://balena.io/blog/offline-updates-make-it-easier-to-update-balena-devices-without-the-internet) blog.
+Read more about how the process can work better for your use case in the [offline updates](https://balena.io/blog/offline-updates-make-it-easier-to-update-balena-devices-without-the-internet) blog.
 
 [named-volumes]: /learn/develop/multicontainer/#named-volumes
 [persistent-logging]: /reference/OS/configuration/#persistentlogging

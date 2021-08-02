@@ -92,7 +92,7 @@ and a number of directories out of which the mandatory ones are:
     - `samples/bblayers.conf.sample` file in which all the required Yocto layers are listed, see this [bblayers.conf.sample]({{ $links.githubOS }}/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample) from `meta-balena-raspberrypi` for an example, and see the [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#var-BBLAYERS)
     - `samples/local.conf.sample` file which defines part of the build configuration (see the meta-balena [README.md]({{ $links.githubOS }}/meta-balena/blob/master/README.md) for an overview of some of the variables use in the `local.conf.sample` file). An existing file can be used (e.g. [local.conf.sample]({{ $links.githubOS }}/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/local.conf.sample)) but making sure the "Supported machines" area lists the appropriate machines this repository is used for. See also the [Yocto documentation](http://www.yoctoproject.org/docs/2.0/mega-manual/mega-manual.html#structure-build-conf-local.conf).
 
-- `recipes-containers/docker-disk` directory, which contains `resin-supervisor.bbappend` that shall define the following variable(s):
+- `recipes-containers/docker-disk` directory, which contains `balena-supervisor.bbappend` that shall define the following variable(s):
 
     - `LED_FILE_<yocto-machine-name>`: this variable should point to the [Linux sysfs path of an unused LED](https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-led) if available for that particular board. This allows the unused LED to be flashed for quick visual device identification purposes. If no such unused LED exists, this variable shall not be used.
 
@@ -152,7 +152,7 @@ The directory structure then looks similar to this:
 │   └── bootfiles
 ├── recipes-containers
 │   └── docker-disk
-│       └── resin-supervisor.bbappend
+│       └── balena-supervisor.bbappend
 ├── recipes-core
 │   ├── images
 │   │   └── balena-image.bbappend

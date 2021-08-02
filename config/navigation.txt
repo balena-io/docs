@@ -118,6 +118,7 @@ Reference
 
   Device supervisor
     Supervisor API[/reference/supervisor/supervisor-api]
+    [/reference/supervisor/device-metrics]
     [/reference/supervisor/bandwidth-reduction]
     [/reference/supervisor/docker-compose]
     [/reference/supervisor/supervisor-upgrades]
@@ -127,7 +128,6 @@ Reference
     [/reference/base-images/base-images]
     [/reference/base-images/base-images-ref]
     [/reference/base-images/devicetypes]
-    [/reference/base-images/legacy-base-images]
 
   API
     [/reference/api/overview]

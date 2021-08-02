@@ -33,7 +33,7 @@ The `--source` flag allows you do define a path to your source code folder. This
 
 #### `--emulated, -e`
 
-The `--emulated` flag will force the [{{$names.cloud.lower}} builder](#the-balenacloud-build-server) to run an [qemu][qemu] emulated build. This means that your build will be executed on a `x86_64` CPU that emulates the target architecture of your application, rather than running on the native architecture of your device. You can see if the build is emulated in the first few lines of the builder output as below:
+The `--emulated` flag will force the [{{$names.cloud.lower}} builder](#the-balenacloud-build-server) to run an [qemu][qemu] emulated build. This means that your build will be executed on an `x86_64` CPU that emulates the target architecture of your application, rather than running on the native architecture of your device. You can see if the build is emulated in the first few lines of the builder output as below:
 
 ```shell
 $ {{$names.company.lower}} push myApp --emulated
@@ -115,7 +115,7 @@ This option will stream the Docker build log output for all your services to the
 
 #### `--nologupload`
 
-This option disables the uploading of all the service build logs to {{$names.cloud.lower}}, so they will not be visible in [release logs page](#view-past-deployments).
+This option disables the uploading of all the service build logs to {{$names.cloud.lower}}, so they will not be visible on the [release logs page](#view-past-deployments).
 
 #### `--source, -s <source>`
 
@@ -162,7 +162,7 @@ In order to allow options like emulation and nocache, the `git push` workflow us
 
 ### Additional Options
 
-Like `{{$names.company.lower}} push` the `git push` workflow also allows triggering a build that invalidates the Docker layer cache and build from scratch. This can be achieved by pushing to a special branch called `{{$names.company.lower}}-nocache` as shown in the example below:
+Like `{{$names.company.lower}} push` the `git push` workflow also allows triggering a build that invalidates the Docker layer cache and builds from scratch. This can be achieved by pushing to a special branch called `{{$names.company.lower}}-nocache` as shown in the example below:
 
 ```shell
 $ git push {{$names.company.lower}} master:{{$names.company.lower}}-nocache
@@ -176,7 +176,7 @@ $ git push {{$names.company.lower}} master:{{$names.company.lower}}-emulated
 
 ## Project Structure
 
-When deploying a {{$names.company.lower}} project, the build system will endeavor to build the most appropriate release for a specific set of devices. The following section will discuss some of the mechanisms you can use to control the type of builds that are produced.
+When deploying a {{$names.company.lower}} project, the build system will try to build the most appropriate release for a specific set of devices. The following section will discuss some of the mechanisms you can use to control the type of builds that are produced.
 
 ### Project Resolutions
 
@@ -203,7 +203,7 @@ project: $ tree -a
 └── Dockerfile
 ```
 
-When we push this project to an application which has its default device type selected as `Raspberry Pi 3`, the build system will use the device type specific `Dockerfile.raspberrypi3` file to build from. If we instead pushed this to an `Intel Edison` application, the build would use the `Dockerfile.i386` file. When pushing to any other device type, the regular `Dockerfile` would be used to perform the build. This type of project selection will also work in service folders of multicontainer deployments; you can see an example of that in our [Getting started with multicontainer project][multicontainer-project].
+When we push this project to an application that has its default device type set to `Raspberry Pi 3`, the build system will use the device type specific `Dockerfile.raspberrypi3` file to build from. If we instead pushed this to an `Intel Edison` application, the build would use the `Dockerfile.i386` file. When pushing to any other device type, the regular `Dockerfile` would be used to perform the build. This type of project selection will also work in service folders of multicontainer deployments; you can see an example of that in our [Getting started with multicontainer project][multicontainer-project].
 
 The file extensions are equivalent to `{{$names.company.allCaps}}_MACHINE_NAME` for `.<device-type>` and `{{$names.company.allCaps}}_ARCH` for `.<arch>` from the template files discussed in the next section. To find the correct name have a look at our [machine names and architectures list][device-types].
 
@@ -261,7 +261,7 @@ All code that is pushed using `{{$names.company.lower}} push <MY_APP>` or `git p
 
 The build server consists of a central build server and a number of Docker daemons on build slaves. When a build is triggered, the builder first determines the default application type, and based on that determines what build slave will be used for the build. For [ARM][arm] device types, there are build slaves with `armv6l`, `armv7l`, and `armv8l` architectures. For [amd64][amd64] based devices, native `x86_64` build slaves are used. Finally the `armv5e` and `i386` architecture device types are always built using emulation.
 
-In the case where the `--emulated` flag is used, the build is built on an `x86_64` machines with qemu emulation to match the application's default device type CPU architecture.
+In the case where the `--emulated` flag is used, the build is built on an `x86_64` machine with qemu emulation to match the application's default device type CPU architecture.
 
 If you push a project with only a `Dockerfile`, `Dockerfile.template`, or `package.json` file, a single container image will be built and sent to your device. The single container will show up on the device dashboard as a service with the name `main`.
 
@@ -291,7 +291,7 @@ Much like with the device list, [filters][filters] can be added to the release l
 [continuous-deployment]:https://en.wikipedia.org/wiki/Continuous_deployment
 [cli]:/reference/cli/#install-the-cli
 [cli-masterclass]:/learn/more/masterclasses/cli-masterclass/
-[development-image]:/reference/OS/overview/2.x/#dev-vs-prod-images
+[development-image]:/reference/OS/overview/2.x/#development-vs-production-images
 [device-types]:/reference/base-images/devicetypes/
 [docker]:https://www.docker.com/
 [docker-install]:https://docs.docker.com/install/

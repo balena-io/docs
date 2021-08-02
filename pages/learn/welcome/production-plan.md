@@ -126,7 +126,7 @@ For more information about common anti-patterns, see [Anti-patterns, or how to b
 
 [engine-link]:{{ $links.engineSiteUrl }}
 [docker-compose]:https://docs.docker.com/compose/overview/
-[dev-vs-prod]:/reference/OS/overview/2.x/#dev-vs-prod-images
+[dev-vs-prod]:/reference/OS/overview/2.x/#development-vs-production-images
 [local-mode]:/learn/develop/local-mode
 [wifi-connect]:{{ $links.githubMain }}/wifi-connect
 [supervisor-api]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
@@ -138,8 +138,8 @@ For more information about common anti-patterns, see [Anti-patterns, or how to b
 [preregister]:/reference/cli/#device-register-application
 [staged-releases]:{{ $links.githubLabs }}/staged-releases
 [tags]:/learn/manage/filters-tags/#device-tags
-[esr-devices]:/reference/os/extended-support-release#supported-devices
-[esr]:/reference/os/extended-support-release
+[esr-devices]:/reference/OS/extended-support-release#supported-devices
+[esr]:/reference/OS/extended-support-release
 [filters]:/learn/manage/filters-tags/#device-filters
 [anti-patterns]:/learn/more/anti-patterns
 [cli-advanced-masterclass]:/learn/more/masterclasses/advanced-cli/#5-preloading-and-preregistering

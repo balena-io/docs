@@ -214,7 +214,7 @@ __Note:__ With a plain Node.js project, our build server will detect compatible 
 
 [local-mode]:/learn/develop/local-mode
 [builders]:/learn/deploy/deployment
-[local-build]:/reference/cli/#build-source-
+[local-build]:/reference/cli/#build-source
 [multicontainer]:/learn/develop/multicontainer
 [base-images]:/reference/base-images/base-images
 

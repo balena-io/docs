@@ -73,4 +73,3 @@
 | Variscite DART-MX8M Mini        | imx8mm-var-dart                           | aarch64                           | [Link]({{ $links.githubBaseImages }}/imx8mm-var-dart)       |
 | Variscite VAR-SOM-MX6           | var-som-mx6                               | armv7hf                           | [Link]({{ $links.githubBaseImages }}/var-som-mx6)           |
 | Variscite VAR-SOM-MX7           | imx7-var-som                              | armv7hf                           | [Link]({{ $links.githubBaseImages }}/imx7-var-som)          |
-| Zynq zc702                      | zc702-zynq7                               | armv7hf                           | [Link]({{ $links.githubBaseImages }}/zc702-zynq7)           |

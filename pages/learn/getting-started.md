@@ -59,11 +59,16 @@ A toggle is also used to select whether your network connection will be through 
 
 <img alt="Network configuration" src="/img/common/app/network.png" width="80%">
 
-Clicking *Advanced* presents the option to select the rate at which your device checks for updates and the option to download just a configuration file (`config.json`) rather than an entire image:
+Clicking *Advanced* presents the option to select the rate at which your device checks for updates:
 
 <img alt="Advanced options" src="/img/common/app/advanced.png" width="80%">
 
 Once you have finished your image configuration, click the *Download {{ $names.os.lower }}* button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-App-2.47.1+rev1-v10.6.27.img.zip`, where `First-App` is the name you gave your application on the dashboard.
+Alternatively, by clicking on the toggle section of the download button, you also have the option to download just a configuration file (`config.json`) rather than an entire image.
+
+<img alt="Advanced options" src="/img/common/app/download_image_or_config.png" width="80%">
+
+
 
 ## Provision device
 
@@ -177,11 +182,11 @@ Your application will then be downloaded and executed by all the devices you hav
 
 ## Next steps
 
-- To easily find, deploy and publish your applications for {{ $names.company.lower }} [supported devices][supported-devices], head to [balenaHub](https://hub.balena.io)
+- Head to [balenaHub][balenahub], for more ready-to-deploy applications, or have a go at building and sharing your own cool projects using [balenaBlocks][balenablocks].
 - Try out [local mode][local-mode], which allows you to build and sync code to your device locally for rapid development.
 - Develop an application with [multiple containers][multicontainer] to provide a more modular approach to application management.
 - Manage your device fleet with the use of [configuration][configuration], [environment][service], and [service variables][service].
-- Explore these [example projects][projects] to give you an idea of more things you can do with {{ $names.company.lower }}.
+- Visit our blog to find step-by-step tutorials for some [classic balena projects][projects].
 - If you find yourself stuck or confused, help is just a [click away][help].
 
 **Enjoy Balenafying All the Things!**
@@ -192,11 +197,13 @@ Your application will then be downloaded and executed by all the devices you hav
 [cli-install]:{{ $links.githubCli }}/blob/master/INSTALL.md
 [configuration]:/learn/manage/configuration/
 [dashboard]:{{ $links.dashboardUrl }}
-[devvprod]:/understanding/understanding-devices/2.0.0/#dev-vs-prod-images
+[devvprod]:/understanding/understanding-devices/2.0.0/#development-vs-production-images
 [dockerfile]:/learn/develop/dockerfile
 [dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
 [gitdocs]:/learn/deploy/deployment/#git-push
 [help]:{{ $links.supportUrl }}
+[balenahub]:{{ $links.balenaHubUrl }}
+[balenablocks]:{{ $links.balenaHubUrl }}/blocks
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
 [local-mode]:/learn/develop/local-mode
 [multicontainer]:/learn/develop/multicontainer

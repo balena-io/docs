@@ -88,7 +88,7 @@ Subdirectories are supported in both the source (`.balena/secrets`) and the dest
 
 ### Build variables
 
-It is also possible to define build variables which will be added to your build from the balena.yml file:
+It is also possible to define build variables that will be added to your build from the balena.yml file:
 
 ```yaml
 build-variables:

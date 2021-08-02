@@ -1,5 +1,5 @@
 const path = require('path')
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack')
 const languages = require('./static/scripts/langs')
 
@@ -14,9 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: 'css-loader'
-        })
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       { test: /\.(woff2?|ttf|eot|svg|png|gif|jpg|jpeg)$/, use: 'url-loader?limit=10000' },
     ]
@@ -30,6 +28,6 @@ module.exports = {
       /highlight\.js\/lib\/languages$/,
       new RegExp(`^./(${languages.join('|')})$`)
     ),
-    new ExtractTextPlugin('style.css')
+    new MiniCssExtractPlugin({filename: 'style.css'})
   ]
 };

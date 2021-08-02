@@ -56,7 +56,7 @@ Depending on the role assigned, they can access and manage both apps and other m
 
 Organization members can be grouped into teams. Teams provide the means to manage members according to their function effectively. Only administrators can create, modify or delete teams.
 
-To create a team, navigate to the `Teams` page via the sidebar and click the `Create Team` button. The sidebar navigation will change `Teams` to the selected team to give better context to how you're navigating your organization. In the create team modal, enter the team name being created and click the `create` button.
+To create a team, navigate to the `Teams` page via the sidebar and click the `Create Team` button. In the create team modal, enter the team name being created and click the `Create Team` button.
 
 <img alt="Create Team in Organization" src="/img/common/app/create_team.png" width="100%">
 

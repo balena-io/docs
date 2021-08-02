@@ -12,4 +12,3 @@ docker:
     - path: .
       dockerfile: Dockerfile
       docker_repo: resin/docs
-

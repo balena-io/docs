@@ -27,6 +27,8 @@ jobs:
           # a result will always produce a failing link.
           # The myorg/myapp link is a dummy address used in an example contract,
           # so is omitted.
+          # The balena/resin API urls will not respond to unauthenticated requests
+          # Accept code 429 as returned by dockerhub rate limiting for our base images
           args: >
             --exclude-mail
             --exclude
@@ -37,6 +39,8 @@ jobs:
             https://raw.githubusercontent.com/balena-os/meta-balena
             https://github.com/myorg/myapp
             https://index.docker.io/v2/
+            http://api.resin.io/
+            https://api.balena-cloud.com/
             git://github.com/
             --verbose
             --no-progress

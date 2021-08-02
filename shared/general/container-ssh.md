@@ -30,7 +30,7 @@ $ {{ $names.company.short }} ssh <device-uuid>
 $ {{ $names.company.short }} ssh <device-uuid> main
 ```
 
-This also works in multicontainer applications, simply pass the name of the appropriate service (as defined in docker-compose.yml) instead of `main`.
+This also works in multicontainer applications; simply pass the name of the appropriate service (as defined in docker-compose.yml) instead of `main`.
 
 __Note:__ To run a command in a non-interactive way, you can pipe commands to the CLI's stdin. For example, `echo "uptime; exit;" | balena ssh <device-uuid>`.
 
@@ -86,4 +86,4 @@ $ ssh -p 4321 root@127.0.0.1
 [github-ssh]:https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [add-ssh-key]:/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
 [config-json-ssh]:/reference/OS/configuration/#sshkeys
-[development-image]:/reference/OS/overview/2.x/#dev-vs-prod-images
+[development-image]:/reference/OS/overview/2.x/#development-vs-production-images

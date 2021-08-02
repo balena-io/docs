@@ -12,6 +12,8 @@ Actions allow you to control the status of your applications and devices during 
 
 ## General actions
 
+> [Application members][application-members] with the Operator role and above can perform any of the actions listed below.
+
 ### Enable Public Device URL
 
 {{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
@@ -28,9 +30,17 @@ You may also enable or disable public device URLs by clicking the _Public device
 
 ### Restart Application
 
-The `Restart Application` action restarts the currently running **application containers**. Your application (A.K.A it's running containers) will be shut down and restarted from scratch.
+The `Restart Application` action restarts the currently running **application containers**. Your application's running containers will be removed and recreated from scratch. This behavior is intended, and is different from running `balena restart [OPTIONS] CONTAINER [CONTAINER...]` in a host OS terminal instance from your dashboard, which will not remove your containers. If you are trying to persist data between container removals, see [persistent storage][persistent-storage] for strategies.
 
-When the containers are stopped, the application is politely asked to stop by sending a `SIGTERM` and after 10 seconds of wait time a `SIGKILL` is sent.
+By removing containers and recreating them from scratch, we see benefits like the following:
+
+- Containers are meant to be ephemeral, meaning that a new container should be a drop-in replacement for an old container with minimal to no impact. Removing and recreating containers adheres to this philosophy.
+
+- Because containers are removed and recreated with the restart action, you're encouraged to follow best practices in Docker data persistence. For more information, see our [persistent storage][persistent-storage] documentation or [Docker's data persistence strategies][docker-data-persistence-strategies]. These strategies also offer a performance boost over storing files in the container's writable layer.
+
+- Removing and recreating containers may allow recovery from application bugs where the application is stuck in an invalid state. For example, a process ID file that is no longer valid but is persisted to the container filesystem would be cleaned up when recreating the container.
+
+When the containers are stopped, the application is politely asked to stop by sending a `SIGTERM`. If the application hasn't stopped after 10 seconds, a `SIGKILL` is sent.
 
 __Note:__ During a restart any data that is not stored in `/data` will be lost.
 
@@ -59,6 +69,8 @@ The `Shutdown` action allows you to safely shut down your devices. It should be 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
 ## Device-specific actions
+
+> [Application members][application-members] with the Operator role and above can perform any of the actions listed below.
 
 ### Update Locking
 
@@ -100,9 +112,23 @@ The `Delete Device` action is an extremely dangerous action and results in disas
 
 This action allows you to [enable support access][support-access] to an individual devices for a set time period.
 
+### Change device type
+
+If one or more devices has been added to an application with the wrong [device type](https://www.balena.io/docs/reference/hardware/versioning/#device-types), one can change the device-type for their devices through the dashboard. There are 2 ways to go about this,
+
+Option 1: On the application’s device list, select one or more devices and click the `Actions` drop-down menu on the top right corner. Select `Change device type` option from the list and follow the instructions on the modal.
+
+![Change the device type from the device list](/img/common/actions/change-device-type-device-list.png)
+
+Option 2: On the device page, click `Actions` tab on the left sidebar menu. Scroll down to the `Dangerous actions` section and click `Change device type` after which follow the instructions on the modal to change your device-type.
+
+![Change the device type from the device page](/img/common/actions/change-device-type-device-page.png)
+
+__Warning:__ Only change the device type if a device was incorrectly provisioned. This does not make any changes to the OS running on the device.
+
 ## Application-specific actions
 
-These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet.
+These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet. [Application members][application-members] with the adminstrator role can perform any of the actions listed below.
 
 ### Change Application Type
 
@@ -133,6 +159,10 @@ Only organization [administrators][administrator] can initiate and complete appl
 
 __Note:__ If the **Transfer This Application** button is grayed out, ensure that you have created an empty application in the **target** organization with the same name as the source application, and that user that is transferring ownership of the application from the source organization has been added as a **Developer** to the **target** application.
 
+Once the transfer of ownership has been completed, the source application owner will no longer be a member of the target application. If required, you will need to invite them to become a member of the application again. All other members of the source application will retain their membership of the target application once the transfer is complete.
+
+During and after the transfer process, the devices state will remain unchanged from before the transfer process was started. For example, devices that were online before the process was started will remain online throughout.
+
 ### Grant Support Access
 
 This action allows you to [enable support access][support-access] to the entire application fleet for a set time period.
@@ -157,3 +187,5 @@ __Warning:__ It is a good idea to [move your devices to another application][mov
 [developer]:/learn/manage/account/#developer
 [support-access]:/learn/manage/support-access
 [inactive-devices]:/learn/manage/billing/#inactive-devices
+[application-members]:/learn/manage/account/#application-members
+[docker-data-persistence-strategies]:https://docs.docker.com/storage/

@@ -67,7 +67,7 @@ Much of the device, service, and application information provided by the dashboa
 [engine-link]:{{ $links.engineSiteUrl }}
 [yocto]:https://www.yoctoproject.org/
 [docker]:https://www.docker.com/
-[docker-images]:https://hub.docker.com/u/resin/
+[docker-images]:https://hub.docker.com/u/balenalib/
 [multicontainer]:/learn/develop/multicontainer
 [update-process]:/reference/OS/updates/update-process
 [self-service]:/reference/OS/updates/self-service

@@ -8,7 +8,7 @@ title: FAQs
 * [How do I push a new git repo to an Application](#how-do-i-push-a-new-git-repo-to-an-application)
 * [Why does `/data` report weird usage?](#why-does-data-report-weird-usage)
 * [What NTP servers do the devices use?](#what-ntp-servers-do-the-devices-use)
-* [What Network Ports are required?](#what-network-ports-are-required)
+* [What network ports are required?](#what-network-ports-are-required)
 * [Can I use {{ $names.cloud.lower }} in countries with restrictive firewalls such as China?](#can-i-use-balenacloud-in-countries-with-restrictive-firewalls-such-as-china)
 * [Can I access /dev and things like GPIO from the container?](#can-i-access-dev-and-things-like-gpio-from-the-container)
 * [Can I set a static IP address for my device?](#can-i-set-a-static-ip-address-for-my-device)
@@ -25,6 +25,7 @@ title: FAQs
 * [What does it mean when a device type is discontinued?](#what-does-it-mean-when-a-device-type-is-discontinued)
 * [I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on-{{ $names.company.lower }})
 * [What to keep in mind when choosing power supply units?](#what-to-keep-in-mind-when-choosing-power-supply-units)
+* [Does {{ $names.company.lower }} have access to my device, source code and images?](#does-{{ $names.company.lower }}-have-access-to-my-device-source-code-and-images)
 
 ##### Can I use multiple containers?
 Multiple container applications are supported, beginning with {{ $names.os.lower }} v2.12.0. To run multiple containers, you will need to create or upgrade to a [starter or microservices type application][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
@@ -46,37 +47,11 @@ If you have pushed a repository called `project-A` to your application and at a 
 On the device we have a writable data partition that uses all the free space remaining after reserving the required amount for the host os. This data partition contains the Docker images for the {{ $names.company.lower }} device supervisor and the user applications so that they can be updated, along with containing the persistent `/data` for the application to use, this way it avoids reserving a specific amount of space for either images or data and then finding out that we have reserved too much or too little for one. So the space usage in `/data` being used but not accounted for will likely be due to the Docker images. (As a side note if you want the most accurate usage stats you should use `btrfs fi df /data` as `df` is not accurate for btrfs partitions).
 
 ##### What NTP servers do the devices use?
-Up to {{ $names.os.lower }} v2.0.6, the NTP service connects to the following time servers:
-
-- pool.ntp.org
-- time1.google.com
-- time2.google.com
-- time3.google.com
-- time4.google.com
-
-Starting from {{ $names.os.lower }} v2.0.7, the devices connect to the following NTP servers:
-
-- 0.resinio.pool.ntp.org
-- 1.resinio.pool.ntp.org
-- 2.resinio.pool.ntp.org
-- 3.resinio.pool.ntp.org
+NTP servers used by devices are enumerated on the [time management][ntp-servers] documentation page.
 
 ##### What network ports are required?
 
-In order for a {{ $names.company.lower }} device to get outside of the local network and connect to the {{ $names.company.lower }} API, there are a few core network requirements.
-
-{{ $names.company.upper }} makes use of the following ports:
-
-* `443` TCP - This is the most fundamental requirement - it is used to connect to the VPN and the web terminal, and many web endpoints using TLS (https://.)
-* `123` UDP - For NTP time synchronization.
-* `53` UDP - For DNS name resolution.
-
-Each of these should work with outward only (and inward once outward connection established) firewall settings.
-
-Additionally, you should whitelist the following domains for the relevant ports above:
-* `*.{{ $names.cloud_domain }}`
-* `*.docker.com`
-* `*.docker.io`
+Please take a look at the [networking requirements][networking-requirements] section of our documentation.
 
 ##### Can I use {{ $names.cloud.lower }} in countries with restrictive firewalls such as China?
 
@@ -143,6 +118,11 @@ There are a few options for devices that do not have an official device type on 
 
 Power supply units (PSUs) are a critical component to any widespread production deployment, as mentioned in our [Going to Production][go-to-production] guide. When buying a PSU for your hardware, be sure to inspect and understand the board's power requirements carefully. Current requirements (measured in Amps) are just as important as the voltage requirements (measured in Volts). A PSU that provides a higher voltage than required may damage the board, but a supplied voltage that is too low may cause the board to malfunction or fail to boot. If the PSU isn't capable of providing the maximum current that the board demands, then the board might eventually fail to perform under CPU-intensive loads. As the load increases, more current is drawn than the PSU can supply, which could lead to brown-outs (i.e., the board unexpectedly resetting, causing filesystem corruption). When buying PSUs or using the official power adapters, proper research is recommended to prevent scenarios like these in a production deployment.
 
+##### Does {{ $names.company.lower }} have access to my device, source code and images?
+
+Device access is granted to a subset of {{ $names.company.lower }} employees to [enable support and device troubleshooting](https://www.balena.io/docs/learn/manage/support-access). This access is controlled by ssh key access and only after access is explicitly granted to balena. 
+Application source code and images are stored on {{ $names.company.lower }} backend servers with access limited only to administrative/operational staff and are not exposed to anyone outside of {{ $names.company.lower }}. It is also possible to bypass the {{ $names.company.lower }} builder entirely and push only pre-built artifacts, meaning that {{ $names.company.lower }} never has access to the code at any point.
+
 [forums]:{{ $names.forums_domain }}/c/troubleshooting
 
 [device-types]:/reference/base-images/devicetypes
@@ -150,6 +130,8 @@ Power supply units (PSUs) are a critical component to any widespread production 
 [dockerfile]:/learn/develop/dockerfile
 [multicontainer]:/learn/develop/multicontainer
 [app-types]:/learn/manage/app-types
+[ntp-servers]:/reference/OS/time/#networking-requirements
+[networking-requirements]:/reference/OS/network/2.x/#network-requirements
 [static-ip]:/reference/OS/network/2.x/#setting-a-static-ip
 [security]:/learn/welcome/security
 [persistent-storage]:/learn/develop/runtime/#persistent-storage

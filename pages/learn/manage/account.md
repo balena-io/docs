@@ -60,16 +60,16 @@ When an application needs to be shared with more than one user, the application 
 
 ### Member types
 
-| Member Type | Add members   | Delete App  | Add/Remove device  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions |
-| ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
-| Owner      | Yes      | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
-| Observer   | No       | No   | No   | No   | No   | No  | No  | No  | No  | No  |
-| Operator   | No       | No   | No   | Yes  | Yes  | Yes | Yes | No  | No  | No  |
-| Developer  | No       | No   | No   | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Member Type   | Add members   | Delete App  | Add/Remove device  | Manage provisioning keys  | Device actions  | Tags | Dev Env Variables | SSH access | Push | Fleet Env Variables | Fleet actions |
+| ------------- |:-------------:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:| ----:|
+| Administrator | Yes      | Yes  | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Developer     | No       | No   | Yes  | Yes  | Yes  | Yes  | Yes | Yes | Yes | Yes | Yes |
+| Operator      | No       | No   | Yes  | Yes  | Yes  | Yes  | Yes | Yes | No  | No  | No  |
+| Observer      | No       | No   | No   | No   | No   | No   | No  | No  | No  | No  | No  |
 
-#### Owner
+#### Administrator
 
-The application owner is the user who first creates an application. The owner is the only user who can add other application members or delete the application.
+A new application in balenaCloud can only be created by an [administrator][administrator] of an organization. Administrators are the only users who can add other application members or delete the application. Learn more about the [administrator role][administrator] in an organization.
 
 #### Observer
 
@@ -77,7 +77,7 @@ Observers are given read-only access to the application and its devices. They ar
 
 #### Operator
 
-Operators have all the access given to observers, plus the ability to manage an application's devices. This means operators can remove devices, perform device actions, and modify device tags, metadata, and environment variables. Operators also have full [SSH access][ssh] to the application's devices. This role can only be assigned by application owners on paid plans.
+Operators have all the access given to observers, plus the ability to manage an application's devices. This means operators can add and remove devices, generate & revoke provisioning API keys, perform device actions, and modify device tags, metadata, and environment variables. Operators also have full [SSH access][ssh] to the application's devices. This role can only be assigned by application owners on paid plans.
 
 #### Developer
 
@@ -173,6 +173,7 @@ If you wish to delete your {{ $names.cloud.lower }} account, go to your [_Prefer
 
 [ssh]:/learn/manage/ssh-access
 [starter]:/learn/manage/app-types#starter
+[administrator]: /learn/manage/organizations/#managing-roles--access-in-an-organization
 
 [signup]:{{ $links.dashboardUrl }}/signup
 [login]:{{ $links.dashboardUrl }}/login

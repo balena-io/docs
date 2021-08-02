@@ -28,7 +28,7 @@ __Note:__ On all {{ $names.os.lower }} versions of the OS, both `RESIN_` and `BA
 | `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
 | `{{ $names.company.allCaps }}_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`. For multicontainer the service needs the [io.resin.features.supervisor-api][labels-link] set|
 | `{{ $names.company.allCaps }}_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
-| `{{ $names.company.allCaps }}_API_KEY` 	          |  API key which can be used to authenticate requests to the {{ $names.company.lower }} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation][security-docs-link] for more details. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
+| `{{ $names.company.allCaps }}_API_KEY` 	          |  API key which can be used to authenticate requests to the {{ $names.company.lower }} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation][security-docs-link] for more details. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.{{ $names.company.lower }}-api][labels-link] label set. |
 | `{{ $names.company.allCaps }}_HOST_OS_VERSION`     |  The version of the host OS. |
 | `{{ $names.company.allCaps }}_DEVICE_RESTART` 	    |  This is an internal mechanism for restarting containers and can be ignored as it's not very useful to application code.  Example: `1.13.0`	|
 
@@ -80,6 +80,8 @@ services:
       io.balena.features.dbus: '1'
 ```
 
+__Note:__ Please be aware that setting `DBUS_SYSTEM_BUS_ADDRESS` as a service or environment variable and enabling systemd at the same time might introduce unexpected side effects. Systemd might start to interact with the host system instead of the container. These interactions can potentially cause balenaOS devices to disconnect from balenaCloud or even fall offline. Hence, users are advised to prefer prepending the command with the variable definition.
+
 __Note:__ To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile if you are using the Debian image, or check under what name does your chosen operating system supply the `dbus-send` executable.
 
 #### Change the Device hostname
@@ -96,6 +98,20 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
   --dest=org.freedesktop.systemd1 \
   /org/freedesktop/systemd1 \
   org.freedesktop.systemd1.Manager.Reboot
+```
+
+#### Stopping a systemd service
+At times, you may wish to stop a running service on the host OS, such as `bluetooth.service`, in order to run your own instance of bluez containerized.
+
+```Bash
+DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
+  dbus-send \
+  --system \
+  --print-reply \
+  --dest=org.freedesktop.systemd1 \
+  /org/freedesktop/systemd1 \
+  org.freedesktop.systemd1.Manager.StopUnit \
+  string:bluetooth.service string:replace
 ```
 
 #### Checking if device time is NTP synchronized
@@ -251,7 +267,7 @@ var server = app.listen(80, function () {
 ```
 
 ### Using DNS resolvers in your container
-In the {{ $names.company.lower }} host OS [dnsmasq][dnsmasq-link] is used to manage DNS since {{ $names.os.lower }} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](http://www.bind9.org/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0` which interferes with the host dnsmasq. To get around this you need to add `bind-interfaces` to your dnsmasq configuration in your container, or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
+In the {{ $names.company.lower }} host OS [dnsmasq][dnsmasq-link] is used to manage DNS since {{ $names.os.lower }} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
 
 ## Storage
 
@@ -346,7 +362,7 @@ Note that currently it's not possible to share a mounted device across multiple 
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [supervisor-api-link]:/runtime/supervisor-api/
 [security-docs-link]:/learn/welcome/security/
-[supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
+[supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1devicehost-config
 [expressjs-link]:http://expressjs.com/
 [projects-github]:{{ $links.githubLabs }}
 [systemd-base-image-link]:https://hub.docker.com/r/{{ $names.company.short }}/raspberrypi-python/

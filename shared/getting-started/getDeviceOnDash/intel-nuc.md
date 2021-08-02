@@ -6,9 +6,11 @@ __Warning:__ {{ $names.os.upper }} will completely overwrite the internal media 
 
 Now connect up the power supply and turn the device on. The power button may be a small round button on the top of the device or a square button on the front.
 
-Press the F10 key while the **BIOS** is loading in order to enter the boot menu. Next, select the `UEFI : USB` option from the boot menu so that the device will boot from your USB drive.
+Press the F10 key while the **BIOS** is loading in order to enter the boot menu. Next, select the `UEFI : USB` (or `resinOS`) option from the boot menu so that the device will boot from your USB drive.
 
 Once the device boots, you should see it pop up on your {{ $names.company.lower }} dashboard. It will immediately go into a `flashing internal media` state. This means that the device is flashing the {{ $names.os.lower }} onto your internal flash media.
+
+__Note:__ You might encounter an error message when the device boots with the text, "Image Authorization Fail". This message appears when Secure Boot is enabled. Follow the steps present in the [Intel support document](https://www.intel.com/content/www/us/en/support/articles/000038401/intel-nuc/intel-nuc-kits.html) to access the BIOS setup screen and disable secure boot. After saving, press the F10 key once again when the NUC reboots to enter the boot menu and select to boot from USB/resinOS.
 
 After a few minutes, the OS will be fully flashed to the internal media and the device will shut itself down. At this point, you will see on the dashboard that the device is in a `Post-provisioning` state. You can now remove the USB drive and press the power button once again.
 
