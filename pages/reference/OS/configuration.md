@@ -71,7 +71,6 @@ The following example provides all customizable configuration options available 
 [country-codes]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [hostname]: /reference/supervisor/supervisor-api/#patch-v1devicehost-config
 [configuration]: /learn/manage/configuration/
-[nm-connectivity]: https://developer.gnome.org/NetworkManager/stable/NetworkManager.conf.html
 [configizer]:{{ $links.githubPlayground }}/configizer
 [masterclass-os]:/learn/more/masterclasses/host-os-masterclass/#12-advanced-editing-configjson-by-hand
 [provisioned]:/learn/welcome/primer/#device-provisioning
