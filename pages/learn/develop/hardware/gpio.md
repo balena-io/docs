@@ -18,7 +18,7 @@ The [Raspberry Pi][rpi]'s [General Purpose I/O][gpio] (GPIO) pins can be used to
 
 #### Library Access
 
-There are many libraries available for GPIO access, e.g. [Wiring Pi][wiring-pi]. For [node.js][node] users [npm][npm] has a number of [GPIO libraries][npm-gpio] available.
+There are many libraries available for GPIO access. For [node.js][node] users, [npm][npm] has a number of [GPIO libraries][npm-gpio] available.
 
 We recommend [Pi Pins][pi-pins] for node.js projects - we've found it works reliably on [{{ $names.company.lower }}][balena]. Check out our [example GPIO application][example-gpio-app] which uses this library.
 
@@ -162,7 +162,6 @@ To get started with GPIO on edison have a look at our ["Edison GPIO in node.js"]
 [sysfs]:http://en.wikipedia.org/wiki/Sysfs
 [level-converter]:https://www.sparkfun.com/products/12009
 [kernel-gpio]:https://www.kernel.org/doc/Documentation/gpio/sysfs.txt
-[wiring-pi]:http://wiringpi.com/
 [max7219]:https://github.com/victorporof/MAX7219.js
 [eeprom-diag]:http://www.raspberrypi.org/wp-content/uploads/2014/04/bplus-gpio.png
 [pi-pins]:https://www.npmjs.org/package/pi-pins
