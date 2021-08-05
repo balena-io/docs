@@ -66,7 +66,7 @@ While prototyping, you should start thinking about how your devices will be conn
 
 ### Multiple developers
 
-During the prototyping phase, you may want to allow multiple developers to share resources. With {{ $names.company.lower }}, you can add multiple developers as [collaborators][collaborators] to an application, giving them the ability to manage the application's devices and push code updates.
+During the prototyping phase, you may want to allow multiple developers to share resources. With {{ $names.company.lower }}, you can add multiple developers as [collaborators][collaborators] to a fleet, giving them the ability to manage the fleet's devices and push code updates.
 
 ## Phase 3: Pilot
 
@@ -90,7 +90,7 @@ If your application generates enough log data that you need an analytics platfor
 
 ### Update testing
 
-Make sure to test all the update functionality you can before your devices are out in the wild and inaccessible. For both application and host OS updates, {{ $names.company.lower }} includes a number of features to make sure the update process doesn't affect your ability to connect to your devices and restore functionality, but you'll still want to understand the factors that can affect the update process.
+Make sure to test all the update functionality you can before your devices are out in the wild and inaccessible. For both the application and host OS updates, {{ $names.company.lower }} includes a number of features to make sure the update process doesn't affect your ability to connect to your devices and restore functionality, but you'll still want to understand the factors that can affect the update process.
 
 Specifically, think about testing:
 
@@ -102,7 +102,7 @@ Understanding how your devices handle adverse conditions allows you to be confid
 
 ## Phase 4: Production
 
-Now that your testing is wrapping up, it's time to get your devices out into the world and have them do their job!  At this point you'll be moving from a primarily development-focused perspective to a primarily operations-focused perspective, at least for the current release of your application.  Of course, you may want to continue development on the next version, knowing that you can safely roll out updates to your fleet at any point with {{ $names.company.lower }}!
+Now that your testing is wrapping up, it's time to get your devices out into the world and have them do their job! At this point you'll be moving from a primarily development-focused perspective to a primarily operations-focused perspective, at least for the current release of your application. Of course, you may want to continue development on the next version, knowing that you can safely roll out updates to your fleet at any point with {{ $names.company.lower }}!
 
 ### Preloading images and preregistering devices
 
@@ -130,7 +130,7 @@ For more information about common anti-patterns, see [Anti-patterns, or how to b
 [local-mode]:/learn/develop/local-mode
 [wifi-connect]:{{ $links.githubMain }}/wifi-connect
 [supervisor-api]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
-[collaborators]:/learn/manage/account/#application-members
+[collaborators]:/learn/manage/account/#fleet-members
 [ssh]:/learn/manage/ssh-access
 [custom-logging]:{{ $links.blogSiteUrl }}/how-to-create-a-custom-logging-system-for-longer-log-retention/
 [cli]:/reference/cli
