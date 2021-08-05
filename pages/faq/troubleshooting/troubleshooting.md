@@ -79,8 +79,8 @@ This is either because it is not connected to the network or because the network
 
 #### Can't Boot the Kernel.img
 If the `ACT` LED blinks with the repeated pattern of 7 quick flashes and a pause (`*_*_*_*_*_*_*____*_*_*_*_*_*_*____`), this means that the Raspberry Pi boot loader is not able to load the correct kernel.img.
-* The first thing to check here is that you are using the right OS image for your board type. If you look at the small white print near the GPIO pins of the Raspberry Pi you should see the type of Raspberry Pi you have. You need to ensure that this is the same as the device type that you selected when creating the Application on the {{ $names.company.lower }} dashboard. You can check the type of device for an existing Application by looking at the 'How to add devices' help text inside the Application, or the icon for that Application on your dashboard.
-* It's important to note that a Raspberry Pi 2 application OS image will not boot on a Raspberry Pi 1 board and vice versa.
+* The first thing to check here is that you are using the right OS image for your board type. If you look at the small white print near the GPIO pins of the Raspberry Pi you should see the type of Raspberry Pi you have. You need to ensure that this is the same as the device type that you selected when creating the fleet on the {{ $names.company.lower }} dashboard. You can check the type of device for an existing fleet by looking at the 'How to add devices' help text inside the fleet or the icon for that fleet on your dashboard.
+* It's important to note that a Raspberry Pi 2 fleet's balenaOS image will not boot on a Raspberry Pi 1 board and vice versa.
 * For more in-depth info the boot related LED patterns have a look at the [Raspberry Pi wiki](http://elinux.org/R-Pi_Troubleshooting#Green_LED_blinks_in_a_specific_pattern).
 
 #### Poor Power Supply
