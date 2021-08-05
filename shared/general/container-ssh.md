@@ -1,10 +1,10 @@
-To help you debug and develop your applications, we've provided a browser-based terminal and a command line tool for easy SSH access to your devices. With these tools, you have console access to any of your running containers, as well as to the host OS, letting you test out small snippets of code and check system logs on your device. You can also access your device via a standalone SSH client.
+To help you debug and develop your fleets, we've provided a browser-based terminal and a command line tool for easy SSH access to your devices. With these tools, you have console access to any of your running containers, as well as to the host OS, letting you test out small snippets of code and check system logs on your device. You can also access your device via a standalone SSH client.
 
 __Note:__ Host OS SSH access is available for devices running {{ $names.os.lower }} version 2.7.5 and above.
 
 ## Using the dashboard web terminal
 
-To use this feature, navigate to your application and select the device you want to access. You will see a *Terminal* window below the *Logs* window:
+To use this feature, navigate to your fleet and select the device you want to access. You will see a *Terminal* window below the *Logs* window:
 
 ![SSH Terminal](/img/common/device/terminal.png)
 
@@ -16,9 +16,9 @@ __Note:__ To copy and paste in the terminal window, you cannot use the normal Ct
 
 ## Using `{{ $names.company.short }} ssh` from the CLI
 
-__Note:__ `balena ssh` to application services/containers requires CLI version 11 or above.
+__Note:__ `balena ssh` to fleet's services/containers requires CLI version 11 or above.
 
-If you prefer to work from the command line, you can use [`{{ $names.company.short }} ssh`][balena-ssh] to connect to your application containers and the host OS. First, you will need to install the [{{ $names.company.lower }} Command Line Interface (CLI)](/tools/cli/). Next, you must have a SSH key configured on your development machine and [added to the {{ $names.cloud.lower }} dashboard][add-ssh-key]. Once that is set up, run the following in your development machine's terminal:
+If you prefer to work from the command line, you can use [`{{ $names.company.short }} ssh`][balena-ssh] to connect to your fleet containers and the host OS. First, you will need to install the [{{ $names.company.lower }} Command Line Interface (CLI)](/tools/cli/). Next, you must have a SSH key configured on your development machine and [added to the {{ $names.cloud.lower }} dashboard][add-ssh-key]. Once that is set up, run the following in your development machine's terminal:
 
 ```shell
 $ {{ $names.company.short }} ssh <device-uuid>
@@ -30,13 +30,13 @@ $ {{ $names.company.short }} ssh <device-uuid>
 $ {{ $names.company.short }} ssh <device-uuid> main
 ```
 
-This also works in multicontainer applications; simply pass the name of the appropriate service (as defined in docker-compose.yml) instead of `main`.
+This also works in multicontainer fleets; simply pass the name of the appropriate service (as defined in docker-compose.yml) instead of `main`.
 
 __Note:__ To run a command in a non-interactive way, you can pipe commands to the CLI's stdin. For example, `echo "uptime; exit;" | balena ssh <device-uuid>`.
 
-When an application name or device UUID is used as above, `{{ $names.company.short }}` ssh uses the {{ $names.company.short }} VPN to create a secure tunnel to the device and then forward SSH traffic between the device and your development machine.
+When an fleet name or device UUID is used as above, `{{ $names.company.short }}` ssh uses the {{ $names.company.short }} VPN to create a secure tunnel to the device and then forward SSH traffic between the device and your development machine.
 
-If an IP address or a .local hostname is used (instead of an application name or device UUID), `{{ $names.company.short }}` ssh establishes a direct connection that does not rely on the {{ $names.company.short }} VPN:
+If an IP address or a .local hostname is used (instead of an fleet name or device UUID), `{{ $names.company.short }}` ssh establishes a direct connection that does not rely on the {{ $names.company.short }} VPN:
 
 ```shell
 $ balena ssh 192.168.1.23
