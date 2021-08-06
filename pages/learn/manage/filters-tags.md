@@ -6,11 +6,11 @@ title: Filters and tags
 
 ## Device filters
 
-As the number of devices in your application grows, the device list will become increasingly busy. Filters provide a convenient way to quickly find specific devices based on shared characteristics.
+As the number of devices in your fleet grows, the device list will become increasingly busy. Filters provide a convenient way to quickly find specific devices based on shared characteristics.
 
 ### Add and update filters
 
-To add a filter, click the *Add filter* button near the top-left corner of your application page. You'll be presented with a window to configure your filter:
+To add a filter, click the *Add filter* button near the top-left corner of your fleet page. You'll be presented with a window to configure your filter:
 
 <img src="/img/common/app/add-filter.png" width="80%">
 
