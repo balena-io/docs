@@ -1,57 +1,57 @@
 ---
-title: Application types
+title: Fleet types
 ---
 
-# Application types
+# Fleet types
 
-When you create an application, in addition to selecting a Device Type, you must select an Application Type:
+When you create a fleet, in addition to selecting a Device Type, you must select a Fleet Type:
 
 <img src="/img/common/app/create_app.png" width="80%">
 
-The type of application defines the capabilities of the devices provisioned to that application and is tied closely to the [pricing plans][pricing].
+The type of fleet defines the capabilities of the devices provisioned to that fleet and is tied closely to the [pricing plan][pricing].
 
-## New applications
+## New fleets
 
-The three available application types for new applications are:
+The three available fleet types for new fleets are:
 
 ### Starter
 
-Starter applications, available for free to all users, are full-featured, allowing you to run [multiple containers][multicontainer] and set up a [public URL][public-url] for each of your devices. You are limited to ten devices across all starter applications.
+Starter fleets, available for free to all users, are full-featured, allowing you to run [multiple containers][multicontainer] and set up a [public URL][public-url] for each of your devices. You are limited to ten devices across all starter fleets.
 
-__Note:__ Inactive devices count against your starter application device limit.
+__Note:__ Inactive devices **do count** against your starter fleet device limit.
 
 ### Microservices
 
-Microservices applications, like starter applications, are full-featured, allowing you to run [multiple containers][multicontainer] and set up a [public URL][public-url], and are available to all paid plans.
+Microservices fleets, like starter fleets, are full-featured, allowing you to run [multiple containers][multicontainer] and set up a [public URL][public-url], and are available to all paid plans.
 
 ### Essentials
 
-Essentials applications allow you to run a single container and do not permit public device URLs. Like microservices applications, they are only available to paid plans.
+Essentials fleets allow you to run a single container and do not permit public device URLs. Like microservices fleets, they are only available to paid plans.
 
-__Note:__ All devices in starter, microservices, and essentials applications must run {{ $names.os.lower }} v2.12.0 or higher. If you do not have the option to choose one of these application types, the selected device type does not yet have a high enough {{ $names.os.lower }} version available. A [classic][classic] application type will be assigned by default.
+__Note:__ All devices in starter, microservices, and essentials fleets must run {{ $names.os.lower }} v2.12.0 or higher. If you do not have the option to choose one of these fleet types, the selected device type does not yet have a high enough {{ $names.os.lower }} version available. A [classic][classic] fleet type will be assigned by default.
 
-## Classic and legacy applications
+## Classic and legacy fleets
 
-The classic and legacy application types allow for applications that don't meet the requirements for new applications. Classic applications support devices with {{ $names.os.lower }} v2.0.3 and above, and legacy applications support all earlier {{ $names.os.lower }} versions. Classic applications use Docker Registry V2, whereas legacy applications use the slower and less reliable Registry V1.
+The classic and legacy fleet types allow for fleets that don't meet the requirements for new fleet types. Classic fleets support devices with {{ $names.os.lower }} v2.0.3 and above, and legacy fleets support all earlier {{ $names.os.lower }} versions. Classic fleets use Docker Registry V2, whereas legacy fleets use the slower and less reliable Registry V1.
 
-While it is possible to provision new devices to these applications, it is not possible to create new legacy applications, and new classic applications can only be created for device types that do not yet have {{ $names.os.lower }} v2.12.0 or higher available. It is important to note that you cannot run multiple containers with these application types. However, for supported device types, you can convert a classic or legacy application to a microservices or essentials application, as described below.
+While it is possible to provision new devices to these fleets, it is not possible to create new legacy fleets, and new classic fleets can only be created for device types that do not yet have {{ $names.os.lower }} v2.12.0 or higher available. It is important to note that you cannot run multiple containers with these fleet types. However, for supported device types, you can convert a classic or legacy fleet to a microservices or essentials fleet, as described below.
 
-## Convert between application types
+## Convert between fleet types
 
-Existing applications can be converted to any of the types available for new applications, as long as all devices belonging to that application meet the OS version requirements, and the account has appropriate privileges. Users can convert any application to classic if they have an existing classic or legacy application, and to legacy, if they have an existing legacy application.
+Existing fleets can be converted to any of the types available for new fleets, as long as all devices belonging to that fleet meet the OS version requirements, and the account has appropriate privileges. Users can convert any fleet to classic if they have an existing classic or legacy fleet, and to legacy, if they have an existing legacy fleet.
 
-To convert your application, first be sure all devices meet the {{ $names.os.lower }} version requirements for the desired application type, [updating][update] if necessary. Then, from the application summary page, click *Actions*, followed by *Change Application Type*. A dialog will appear with the available application types:
+To convert your fleet, first be sure all devices meet the {{ $names.os.lower }} version requirements for the desired fleet type, [updating][update] if necessary. Then, from the fleet summary page, click *Settings*, followed by *Change Fleet Type*. A dialog will appear with the available fleet types:
 
 <img src="/img/common/app/change-app-type.png" width="80%">
 
-Select the application type you would like to convert to. If your application cannot be converted to the selected type, you will see an error message at the top of the *Actions* page.
+Select the fleet type you would like to convert to. If your fleet cannot be converted to the selected type, you will see an error message at the top of the *Settings* page.
 
-## Changing application types after upgrading to a paid plan
+## Changing fleet types after upgrading to a paid plan
 
-If you've upgraded to a paid plan, the ten-device limit on Starter applications will still apply. In order to add more than ten devices after upgrading, you will either need to create new Microservices or Essentials applications, or convert your Starter application to a Microservices or Essentials application. 
+If you've upgraded to a paid plan, the ten-device limit on Starter fleets will still apply. In order to add more than ten devices after upgrading, you will either need to create new Microservices or Essentials fleets, or convert your Starter fleet to a Microservices or Essentials fleet. 
 
 [pricing]:{{ $links.mainSiteUrl }}/pricing/
 [multicontainer]:/learn/develop/multicontainer
 [public-url]:/learn/manage/actions/#enable-public-device-url
 [update]:/reference/OS/updates/self-service
-[classic]:#classic-and-legacy-applications
+[classic]:#classic-and-legacy-fleets
