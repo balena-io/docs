@@ -60,7 +60,7 @@ assets:
       url: >-
         https://raw.githubusercontent.com/balenalabs/balena-sound/master/logo.png
 data:
-  applicationEnvironmentVariables:
+  fleetVariables:
     - SOUND_VOLUME: 75
     - AUDIO_OUTPUT: AUTO
   defaultDeviceType: raspberry-pi
@@ -83,8 +83,8 @@ version: 3.5.2
     - `data`:
       - `url` - The URL of the asset that is being uploaded.
 - `data`
-  - `applicationEnvironmentVariables` - Environment variables allow you to provide runtime configuration without having to modify your source code.
-  - `applicationConfigVariables` - Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
+  - `fleetVariables` - Variables allow you to provide runtime configuration without having to modify your source code.
+  - `fleetConfiguration` - Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
   - `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](/reference/hardware/devices/) here.
   - `supportedDeviceType` - The device types that the fleet supports. You can find a list of [device types](/reference/hardware/devices/) here.
 
