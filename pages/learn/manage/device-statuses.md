@@ -5,7 +5,7 @@ excerpt: Determine the status and connectivity of a device
 
 # Device statuses
 
-Device statuses are displayed on the Devices page and the Device Summary page. An overview of the device statuses of an application is shown on the Applications page. Each device can have one of the following statuses:
+Device statuses are displayed on the Devices page and the Device Summary page. An overview of the device statuses of a fleet is shown on the Fleets page. Each device can have one of the following statuses:
 
 <img src="/img/common/main_dashboard/application_device_status.png" alt="Application device status" width="40%" >
 
@@ -16,10 +16,10 @@ Device statuses are displayed on the Devices page and the Device Summary page. A
 | **Online (Heartbeat&#160;Only)**<sup>2</sup>| The device is online, has recent API communications, but is **not connected to the VPN**.                                                      |
 | **Offline**                | The device is offline.                                                                                                                                          |
 | **Configuring**            | The device is applying OS configuration.                                                                                                                        |
-| **Updating**               | The device is updating to a new application release.                                                                                                            |
+| **Updating**               | The device is updating to a new release.                                                                                                            |
 | **Post Provisioning**      | The device has been [provisioned][device-provisioning] but has not yet come online.                                                                             |
 | **Inactive**               | The device has been [deactivated][deactivated] or has been [preregistered][preregistered] but has not yet connected to the {{ $names.cloud.lower }} API.        |
-| **Frozen**                 | The device has been frozen because it's outside the organization's allowance, or is in a paid [application type][application type] on a free tier organization. |
+| **Frozen**                 | The device has been frozen because it's outside the organization's allowance, or is in a paid [fleet type][fleet type] on a free tier organization. |
 
 ## Device Connectivty states
 
@@ -41,6 +41,6 @@ If you find your device to be displaying a status which is unclear even with the
 [poll-interval]: /learn/manage/configuration/#variable-list
 [device-provisioning]: /learn/welcome/primer/#device-provisioning
 [preregistered]: /learn/more/masterclasses/advanced-cli/#52-preregistering-a-device
-[application type]: /learn/manage/app-types
+[fleet type]: /learn/manage/fleet-types
 [debugging-masterclass]:/learn/more/masterclasses/device-debugging
 [debugging-masterclass#device-status]:/learn/more/masterclasses/device-debugging#12-Device-connectivity-status
