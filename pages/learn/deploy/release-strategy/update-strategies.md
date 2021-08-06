@@ -1,5 +1,5 @@
 ---
-title: Application update strategy
+title: Fleet update strategy
 excerpt: Choosing an update strategy for your {{ $names.company.lower }} devices
 ---
 
@@ -22,7 +22,7 @@ Setting `BALENA_SUPERVISOR_UPDATE_STRATEGY` to a valid value selects the update 
 
 which are explained below. `BALENA_SUPERVISOR_HANDOVER_TIMEOUT` is only used in the  `hand-over` strategy, and its use is explained in the [strategy's description](#hand-over).
 
-All update strategies below honor the [application update locks][update-locks] which you can use prevent updates temporarily.
+All update strategies below honor the [fleet update locks][update-locks] which you can use prevent updates temporarily.
 
 ## download-then-kill
 
@@ -62,8 +62,8 @@ Its behavior is as follows:
 
 * When an update is available, the Supervisor downloads the new image.
 * When the download is complete, the Supervisor creates and starts the new container, *without killing the old one*.
-* The old and new applications should communicate between each other so that the old one frees any resources that the new one needs (e.g. device files, database locks, etc) and the new version can start running fully.
-* Once this "handover" is performed, the application (old or new) must signal to the Supervisor that the old version is ready to be killed, by creating a file at `/data/resin-kill-me`.
+* The old and new application containers should communicate between each other so that the old one frees any resources that the new one needs (e.g. device files, database locks, etc) and the new version can start running fully.
+* Once this "handover" is performed, the application containers (old or new) must signal to the Supervisor that the old version is ready to be killed, by creating a file at `/data/resin-kill-me`.
 * When the Supervisor detects that the file has been created, the Supervisor kills the old container and deletes it from disk.
 * If the file is not created after a time defined in `BALENA_SUPERVISOR_HANDOVER_TIMEOUT`, the Supervisor kills the old version.
 
