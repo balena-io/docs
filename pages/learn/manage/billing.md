@@ -52,7 +52,7 @@ For both devices and users, usage is calculated based on the maximum number in y
 
 As an example, let's say you are on the Pilot plan, which includes up to 50 devices and 3 users. In one month, your active device count steadily climbs from 43 to 52. During this same month, you temporarily increase your user count from 3 to 4, before returning it to 3 at the end of the month. Based on this usage, your dynamic billing charges for the month will include an additional 2 devices and 1 user.
 
-Furthermore, we charge a device or user only once for the most feature-rich usage tier within the same billing period. For example, a user was assigned a Developer role for the first half of the billing period and was later reassigned the Operator role for the second half of the billing period. In this scenario, we would charge the usage as a Developer role for the entire billing period. This is because the Developer role is a more feature-rich usage tier than the Operator role, as seen in [application membership types][app-membership-types]. It's important to note that we are not double charging for the same user.
+Furthermore, we charge a device or user only once for the most feature-rich usage tier within the same billing period. For example, a user was assigned a Developer role for the first half of the billing period and was later reassigned the Operator role for the second half of the billing period. In this scenario, we would charge the usage as a Developer role for the entire billing period. This is because the Developer role is a more feature-rich usage tier than the Operator role, as seen in [fleet membership types][fleet-membership-types]. It's important to note that we are not double charging for the same user.
 
 Charges for usage outside your plan will show up under the *Add-ons* section of your invoice. If you prefer, you can still contact us to pre-purchase devices and users and have them added to your plan, rather than be automatically billed in arrears for additional devices and users.
 
@@ -67,7 +67,7 @@ Marking a device as `Inactive` is a [device action][device-action]. Device actio
 [device-action]:/learn/manage/actions/#device-specific-actions
 [inactive]:#inactive-devices
 [organizations]:/learn/manage/organizations/
-[app-membership-types]: /learn/manage/account/#application-members
+[fleet-membership-types]: /learn/manage/account/#fleet-members
 
 ## Inactive vs Offline Devices
 
