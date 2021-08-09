@@ -9,10 +9,10 @@ As you are building your fleet and preparing for production, there are a number 
 One of the biggest causes of issues during deployment is either a misconfigured local network or otherwise a network that does not adhere to the {{ $names.os.lower }} [networking requirements][networking-reqs].
 
 ### Connectivity dependent on container (e.g. kernel module for wifi dongle, or udev rule for modem)
-Since there can be cases where fleet containers fail to start, having any networking configuration depend on those fleet containers without a fallback is generally discouraged. Using a project like [wifi-connect][wifi-connect] can help configure the networking stack after launch, but devices should be connected as reliably as possible at boot.
+Since there can be cases where containers fail to start, having any networking configuration depend on those containers without a fallback is generally discouraged. Using a project like [wifi-connect][wifi-connect] can help configure the networking stack after launch, but devices should be connected as reliably as possible at boot.
 
 ### Iptables rules that block supervisor/VPN traffic
-It is enticing to use custom iptables rules to filter traffic before it hits the fleet, to limit the surface of the API. Those rules combined with host networking however can prevent the supervisor or VPN from successfully connecting to {{ $names.cloud.lower }}, and therefore should be treated with caution. For a full list of networking requirements, consult [this document][networking-reqs].
+It is enticing to use custom iptables rules to filter traffic, to limit the surface of the API. Those rules combined with host networking however can prevent the supervisor or VPN from successfully connecting to {{ $names.cloud.lower }}, and therefore should be treated with caution. For a full list of networking requirements, consult [this document][networking-reqs].
 
 ### Manually changing the system clock, or blocking NTP requests
 Since {{ $names.os.lower }} and the supervisor communicate with {{ $names.cloud.lower }} using an HTTPS API, it is important that time is synchronized on the device. If the system date/time drifts substantially, SSL certificate validation may fail and the device may unexpectedly lose the ability to reach HTTPS websites or update the {{ $names.cloud.lower }} web dashboard, and may even no longer be reachable over ssh or the {{ $names.cloud.lower }} VPN. {{ $names.os.upper }} provides a [number of mechanisms][time-sync] to keep time as up-to-date as possible, but ensuring [NTP is accessible over the network][networking-reqs] is critical.
@@ -20,7 +20,7 @@ Since {{ $names.os.lower }} and the supervisor communicate with {{ $names.cloud.
 ## Local storage
 
 ### Writing to files in the container file system (and not a volume)
-Commonly, users misunderstand the distinction between the container's file system and a volume. Named volumes are preserved across updates unless specifically dereferenced or destroyed, while anything written to the container's file system will be purged during the next fleet update. In addition, the container's file system often uses the AUFS driver, which typically has worse performance both in disk space and CPU utilization when compared to a named volume's standard Linux ext4 file system. For an in-depth comparison of the two, it is recommended to complete the following [services masterclass][services-mc]. Additionally, the [supervisor provides an API][supervisor-api] to manage named volumes.
+Commonly, users misunderstand the distinction between the container's file system and a volume. Named volumes are preserved across updates unless specifically dereferenced or destroyed, while anything written to the container's file system will be purged during updates to new releases. In addition, the container's file system often uses the AUFS driver, which typically has worse performance both in disk space and CPU utilization when compared to a named volume's standard Linux ext4 file system. For an in-depth comparison of the two, it is recommended to complete the following [services masterclass][services-mc]. Additionally, the [supervisor provides an API][supervisor-api] to manage named volumes.
 
 ### Running out of disk space
 One of the most common issues moving from a project to a product is considering what is written to local disk. Often, either logs or important data are written locally but without giving thought to the data's lifecycle. It is important to ensure that some mitigations are in place to prevent any local storage from filling. [Some examples include][logging-solutions]:
@@ -28,7 +28,7 @@ One of the most common issues moving from a project to a product is considering 
 * external logging service
 * logging only to stderr/stdout to take advantage of {{ $names.engine.lower }}'s built-in logging features
 
-If the data partition (`/mnt/data`) fills up completely, {{ $names.engine.lower }} may not be able to restart the fleet container on device reboot, new fleet releases may fail to apply, and the only way to recover the device may be by deleting the fleet image through manual intervention, including loss of all data written to the container's file system (named volumes are preserved).
+If the data partition (`/mnt/data`) fills up completely, {{ $names.engine.lower }} may not be able to restart the container on device reboot, new releases may fail to apply, and the only way to recover the device may be by deleting the image through manual intervention, including loss of all data written to the container's file system (named volumes are preserved).
 
 ### Excessive writes causing SD / Flash failure / corruption
 If the device type uses flash memory or an SD card, any write-heavy workload will cause that storage medium to wear prematurely and may cause devices to crash irrecoverably. Limiting any writing to temporary locations in-memory is one strategy to avoid having to replace SD cards in the field. There are further SD card recommendations [available here][sd-cards]
@@ -39,7 +39,7 @@ If the device type uses flash memory or an SD card, any write-heavy workload wil
 Any modifications made to the host OS before flashing or at runtime carry undue risk. If the host OS has been modified in some way (other than connection details), any subsequent behavior cannot be guaranteed.
 
 ### Modifying the host’s systemd services via D-Bus
-While {{ $names.os.lower }} provides lots of flexibility in terms of interacting with the host OS via D-Bus, with great power comes great responsibility. Since these interactions can potentially cause {{ $names.os.lower }} devices to disconnect from {{ $names.cloud.lower }} or even fall offline, these API calls should be carefully guarded and considered in the fleet code.
+While {{ $names.os.lower }} provides lots of flexibility in terms of interacting with the host OS via D-Bus, with great power comes great responsibility. Since these interactions can potentially cause {{ $names.os.lower }} devices to disconnect from {{ $names.cloud.lower }} or even fall offline, these API calls should be carefully guarded and carefully considered.
 
 ### DoSing the supervisor with API requests
 Since the supervisor is the brain of the update process for {{ $names.os.lower }} devices, any interactions with the API provided should be carefully considered and rate-limited. If a container engages in denial-of-service style behavior, the supervisor may be unable to recover and perform any necessary updates.
@@ -58,7 +58,7 @@ When developing on low-footprint devices or for a heterogeneous fleet, it is eas
 ## Managing Fleets
 
 ### Not pinning base image versions
-It is important to make a conscious decision regarding pinning an fleet's base image to a specific version, for example:
+It is important to make a conscious decision regarding pinning a container's base image to a specific version, for example:
 
 ```
 FROM balenalib/raspberrypi3-debian-node:8-run-20200115

@@ -4,7 +4,7 @@ title: Collected Data
 # Data collected by {{ $names.company.lower }}
 
 In order to make data driven decisions, {{ $names.company.lower }} collects usage related events via a 3rd party 
-analytics service, [Amplitude][amplitude]. These events provide us context on the state of fleet execution steps. This 
+analytics service, [Amplitude][amplitude]. These events provide us context on the state of container execution steps. This 
 way we could observe the health of fleets in {{ $names.cloud.lower }} ecosystem and analyze the potential problems as 
 well as trends.
 
@@ -112,7 +112,7 @@ so it collects city, region and country information.
 See more in a [relevant article by Amplitude][amplitude-auto-collection].
 
 ## About logging
-Logs produced by the fleets deployed to the devices via {{ $names.company.lower }} supervisor application
+Logs produced by the releases deployed to the devices via {{ $names.company.lower }} supervisor application
 can be streamed to web dashboard or CLI user who has permissions to view them through our cloud.
 However, the logs are stored in the cloud temporarily only in order to allow the streaming
 functionality - {{ $names.company.lower }} does not process device application logs unless technical support is
