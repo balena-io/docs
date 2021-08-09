@@ -40,22 +40,15 @@ To perform an offline update, we will be using [balena-cli][balena-cli]. All com
 
 Offline update includes the following steps:
 
-- [Offline Updates](#offline-updates)
-  - [Overview of the process](#overview-of-the-process)
-  - [Configuration and Data Recovery](#configuration-and-data-recovery)
-  - [Performing an Offline Update](#performing-an-offline-update)
-    - [Setup](#setup)
-    - [Create/Use Pre-existing fleet's](#createuse-pre-existing-fleets)
-    - [Create/Use Pre-existing Offline Device](#createuse-pre-existing-offline-device)
-    - [Download balenaOS Image](#download-balenaos-image)
-    - [Configure balenaOS Image](#configure-balenaos-image)
-    - [Create and Preload Release](#create-and-preload-release)
-    - [Create Update Media](#create-update-media)
-    - [Process of Reprovisioning](#process-of-reprovisioning)
-      - [Strategies to remotely update with an SD card or USB device](#strategies-to-remotely-update-with-an-sd-card-or-usb-device)
-    - [Update Device Registration(s)](#update-device-registrations)
-      - [Patch State Endpoint - Update Device State in the Cloud](#patch-state-endpoint---update-device-state-in-the-cloud)
-      - [[Optional] Set Tags on Devices](#optional-set-tags-on-devices)
+- [Setup](#setup)
+- [Create/use pre-existing fleet](#createuse-pre-existing-fleet)
+- [Create/use pre-existing offline device](#createuse-pre-existing-offline-device)
+- [Download balenaOS image](#download-balenaos-image)
+- [Configure balenaOS image](#configure-balenaos-image)
+- [Create and preload release](#create-and-preload-release)
+- [Create update media](#create-update-media)
+- [Process of reprovisioning](#process-of-reprovisioning)
+- [Update device registration(s)](#update-device-registrations)
 
 The process needs some prerequisite knowledge of the balena ecosystem, [balena-cli][balena-cli] commands and shell commands. Please read all instructions carefully and make sure to try the update process first on a test device.
 
