@@ -24,13 +24,13 @@ To use local mode on a device:
 - Device and service environment variables set from the {{ $names.cloud.lower }} will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
 - Changes to device [configuration variables][configuration], for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
 - Actions such as _Restart_ and _Purge data_ from the {{ $names.cloud.lower }} dashboard will not apply to local mode containers.
-- When switching out of local mode and back to tracking releases from {{ $names.cloud.lower }}, the Supervisor will destroy any local mode containers and  volumes, as well as clean up unneeded base images, and then start up the application that {{ $names.cloud.lower }} instructs it to run.
+- When switching out of local mode and back to tracking releases from {{ $names.cloud.lower }}, the Supervisor will destroy any local mode containers and  volumes, as well as clean up unneeded base images, and then start the release that {{ $names.cloud.lower }} instructs it to run.
 
 ![Device in local mode](/img/local-mode/device-in-local-mode-20-01-09.png)
 
 ## Scan the network and find your device
 
-Before you can get your application running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the {{ $names.company.lower }} CLI and use `{{ $names.company.short }} scan` to find any local {{ $names.os.lower }} devices. All {{ $names.os.lower }} devices advertise themselves on the network using [Avahi][avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
+Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the {{ $names.company.lower }} CLI and use `{{ $names.company.short }} scan` to find any local {{ $names.os.lower }} devices. All {{ $names.os.lower }} devices advertise themselves on the network using [Avahi][avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
 
 __Note:__ You may need administrator privileges to run `{{ $names.company.short }} scan` as it requires access to all network interfaces.
 
@@ -150,14 +150,14 @@ Once the code has been built on the device, it immediately starts executing, and
 
 Local mode also has another huge benefit, known as [Livepush][livepush]. Livepush makes intelligent decisions on how, or even if, to rebuild an image when changes are made. Instead of creating a new image and container with every code change, the Dockerfile commands are executed from within the running container. This means that, for example, if you added a dependency to your `package.json`, rather than having to install all of the dependencies again, only the new dependency would be installed.
 
-Once a file has been modified in the application, the Supervisor will immediately detect the change and then either rebuild the image or, for source files that run in-service, replace the changed files in situ in the relevant container layer and restart the service. As this happens in a few seconds, it makes the process of developing much faster and more convenient.
+When a source file is modified, the Supervisor will immediately detect the change and then either rebuild the image or, for source files that run in-service, replace the changed files in situ in the relevant container layer and restart the service. As this happens in a few seconds, it makes the process of developing much faster and more convenient.
 
 ```bash
 [Live]    Detected changes for container main, updating...
 [Live]    [main] Restarting service..
 ```
 
-__Note:__ You can disable Livepush by passing the `--nolive` option to `{{ $names.company.short }} push`. To rebuild the application on the device you will need to perform another `{{ $names.company.short }} push`.
+__Note:__ You can disable Livepush by passing the `--nolive` option to `{{ $names.company.short }} push`. In this case to rebuild on the device you will need to perform another `{{ $names.company.short }} push`.
 
 ### Local mode logs
 
@@ -202,13 +202,13 @@ To access the local device over [SSH][ssh], use the `{{ $names.company.short }} 
 {{ $names.company.short }} ssh 192.168.86.45
 ```
 
-To connect to an application container, we can specify the service name e.g.
+To connect to a container, we can specify the service name e.g.
 
 ```bash
 sudo {{ $names.company.short }} ssh 63ec46c.local my-service
 ```
 
-__Note:__ If an IP address or a `.local` hostname is used (instead of an application name or device UUID), `{{ $names.company.short }} ssh` establishes a direct connection to the device on port `22222` that does not rely on the {{ $names.company.short }} VPN.
+__Note:__ If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }} ssh` establishes a direct connection to the device on port `22222` that does not rely on the {{ $names.company.short }} VPN.
 
 ## Using a Private Docker Registry
 
