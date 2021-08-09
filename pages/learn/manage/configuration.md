@@ -16,7 +16,7 @@ This list contains configuration variables that can be used with {{ $names.compa
 
 Name | Default | Description | Valid from
 --- | --- | --- | ---
-BALENA_OVERRIDE_LOCK | 0 | When set to 1 overrides any existing [update lock][update-locking] on the device. Allows updating devices in the case that the application locked updates but is stuck in an invalid state. | v1.0.0
+BALENA_OVERRIDE_LOCK | 0 | When set to 1 overrides any existing [update lock][update-locking] on the device. Allows updating devices in the case that the release locked updates but is stuck in an invalid state. | v1.0.0
 BALENA_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
 BALENA_SUPERVISOR_LOCAL_MODE | false | Enable / Disable [local mode][local-mode] | v4.0.0
 BALENA_SUPERVISOR_LOG_CONTROL | true | Enable / Disable logs being sent to the {{ $names.company.lower }} API | v1.3.0
