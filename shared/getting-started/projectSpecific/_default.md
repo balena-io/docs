@@ -1,4 +1,4 @@
-To give your device a public URL, access the device page, and choose the _Public Device URL_ toggle. You may also activate this for many devices in your fleet at the same time via the _Actions_ menu in the fleets dashboard.
+To give your device a public URL, access the device page, and choose the _Public Device URL_ toggle. You may also activate this for many devices in your fleet at the same time via the _Actions_ menu on the device list within a fleet.
 
 <img alt="Enable public URLs" src="/img/common/device/enable-public-url-device.png" width="60%">
 

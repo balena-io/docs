@@ -63,7 +63,7 @@ Clicking *Advanced* presents the option to select the rate at which your device 
 
 <img alt="Advanced options" src="/img/common/app/advanced.png" width="80%">
 
-Once you have finished your image configuration, click the *Download {{ $names.os.lower }}* button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-App-2.47.1+rev1-v10.6.27.img.zip`, where `First-App` is the name you gave your fleet on the dashboard.
+Once you have finished your image configuration, click the *Download {{ $names.os.lower }}* button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-Fleet-2.47.1+rev1-v10.6.27.img.zip`, where `First-Fleet` is the name you gave your fleet on the dashboard.
 Alternatively, by clicking on the toggle section of the download button, you also have the option to download just a configuration file (`config.json`) rather than an entire image.
 
 <img alt="Advanced options" src="/img/common/app/download_image_or_config.png" width="80%">
@@ -107,12 +107,12 @@ authorize the CLI, click the _Authorize_ button and head back to the terminal.
 
 __Note:__ Other authentication methods include using your username and password credentials or obtaining an [authentication token][token] from the dashboard. Authentication tokens come in two types, API tokens, and JSON Web Token (JWT) session tokens. While API tokens do not expire, JWT session tokens do after 7 days.
 
-After logging in, test out the {{ $names.company.lower }} CLI by running the `{{ $names.company.lower }} apps` command, which should return information about the fleet you created in the previous step. Take a note of the `APP NAME` as you'll need this in the next step to push the code to all devices in that fleet.
+After logging in, test out the {{ $names.company.lower }} CLI by running the `{{ $names.company.lower }} fleets` command, which should return information about the fleet you created in the previous step. Take a note of the `FLEET NAME` as you'll need this in the next step to push the code to all devices in that fleet.
 
 ```shell
-$ {{ $names.company.lower }} apps
-ID    APP NAME   DEVICE TYPE          ONLINE DEVICES DEVICE COUNT
-98264 First-App  {{ $device.name }}   0              0
+$ {{ $names.company.lower }} fleets
+ID    FLEET NAME   DEVICE TYPE          ONLINE DEVICES DEVICE COUNT
+98264 First-Fleet  {{ $device.name }}   0              0
 ```
 
 __Note:__ See all the commands available with {{ $names.company.lower }} CLI by running `{{ $names.company.lower }} help`
@@ -122,10 +122,10 @@ __Note:__ See all the commands available with {{ $names.company.lower }} CLI by 
 
 __Note:__ You may also use git to deploy code to a device. If you wish to deploy via git, see the instructions [here][gitdocs].
 
-Now to deploy this code to all device(s) in the fleet, use the `{{ $names.company.lower }} push First-App` command replacing `First-App` with the name of your fleet. Ensure you are in the root of the project directory before issuing this command or specify the `--source` option to provide an alternate location of the project directory.
+Now to deploy this code to all device(s) in the fleet, use the `{{ $names.company.lower }} push First-Fleet` command replacing `First-Fleet` with the name of your fleet. Ensure you are in the root of the project directory before issuing this command or specify the `--source` option to provide an alternate location of the project directory.
 
 ```shell
-$ {{ $names.company.lower }} push First-App
+$ {{ $names.company.lower }} push First-Fleet
 ```
 
 This command will package up and push the code from the local directory to the {{ $names.company.lower }} builders, where it will be compiled, built and deployed to every device in the fleet.
@@ -169,7 +169,7 @@ You'll know your code has been successfully compiled and built when our friendly
 			             <'
 ```
 
-Your application will then be downloaded and executed by all the devices you have connected in your fleet. The first push is slower to deploy, but all subsequent pushes are much faster due to [Docker layer sharing][dockerLayerDocs]. You can see the progress of the device code updates on the device dashboard:
+Your release will then be downloaded and started by all the devices you have connected in your fleet. The first push is slower to deploy, but all subsequent pushes are much faster due to [Docker layer sharing][dockerLayerDocs]. You can see the progress of the device code updates on the device dashboard:
 
 <img alt="Service download progress" src="/img/common/device/download-progress.png" width="100%">
 
