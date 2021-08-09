@@ -146,13 +146,13 @@ In many cases, you will want to deploy container images from a private Docker Hu
 For `{{$names.company.lower}} push`:
 
 ```shell
-$ {{$names.company.lower}} push myApp --registry-secrets ../registry-secrets.yml
+$ {{$names.company.lower}} push myFleet --registry-secrets ../registry-secrets.yml
 ```
 
 Or for `{{$names.company.lower}} deploy`:
 
 ```shell
-$ {{$names.company.lower}} deploy myApp --registry-secrets ../registry-secrets.yml
+$ {{$names.company.lower}} deploy myFleet --registry-secrets ../registry-secrets.yml
 ```
 
 and the `registry-secrets.yml` file is outside of the code repository and has the following format:

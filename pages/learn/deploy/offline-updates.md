@@ -5,7 +5,7 @@ excerpt: An efficient approach for updating previously deployed IoT devices when
 
 # Offline Updates
 
-Offline updates is a process to update devices without needing an internet connection. It involves preloading an image and reflashing it to on a device in a way that it retains its unique balena identity, apps, and configurations. This process helps in scenarios where a device's internet access is unavailable, limited, blocked, or even when it's air-gapped.
+Offline updates is a process to update devices without needing an internet connection. It involves preloading an image and reflashing it to on a device in a way that it retains its unique balena identity, releases, and configurations. This process helps in scenarios where a device's internet access is unavailable, limited, blocked, or even when it's air-gapped.
 
 ## Overview of the process
 
@@ -87,7 +87,7 @@ $ fleet_name=offline-${arch}
 These environment variables will be used later in the process. If a pre-existing fleet needs to be used, then the next step can be skipped. Otherwise, create a new balenaCloud fleet by running [`balena fleet create`](https://www.balena.io/docs/reference/balena-cli/#fleet-create-name).
 
 ```bash
-$ balena app create ${app_name} --type ${device_type}
+$ balena fleet create ${fleet_name} --type ${device_type}
 ```
 
 Initialize the `fleet_slug` environment variable with the command below to store the slug of the fleet.
@@ -148,7 +148,7 @@ $ cat < ${tmpconfig} \
     && cat < ${config} | jq .
 
 $ balena os configure ${tmpimg} \
-    --app ${app_slug} \
+    --fleet ${fleet_slug} \
     --device-type ${device_type} \
     --version ${os_version} \
     --config-network ethernet \
@@ -167,16 +167,16 @@ Offline updates revolve around the concept of [balena preload][balena-preload]. 
 Preload involves flashing a fleet's release with the balenaOS image. If the pre-existing fleet doesn't have any releases, then a release needs to be created using [`balena deploy`][balena-deploy]. Navigate to the directory of your source code folder and run the command below to deploy the latest release of your fleet. If a release is present already, then the next step can be skipped.
 
 ```bash
-$ balena deploy ${app_slug} --build --emulated --source .
+$ balena deploy ${fleet_slug} --build --emulated --source .
 ```
 
 The following steps will flash the latest release onto the balenaOS image downloaded in the previous steps and pin the device to mentioned release commit.
 
 ```bash
-$ commit=$(balena app ${app_slug} | grep COMMIT | awk '{print $2}')
+$ commit=$(balena fleet ${fleet_slug} | grep COMMIT | awk '{print $2}')
 
 $ balena preload ${tmpimg} \
-    --app ${app_slug} \
+    --fleet ${fleet_slug} \
     --commit ${commit} \
     --pin-device-to-release
 ```
