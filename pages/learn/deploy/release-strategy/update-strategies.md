@@ -57,13 +57,13 @@ It works as follows:
 ## hand-over
 
 This strategy is suited for scenarios where there are enough resources and it is critical that the downtime is *zero*, that is, that the app runs continually even during an update.
-For this strategy to work properly, the user has to consider the way the update works and include code to perform a handover between the old and new versions of the releases.
+For this strategy to work properly, the user has to consider the way the update works and include code to perform a handover between the old and new releases.
 Its behavior is as follows:
 
 * When an update is available, the Supervisor downloads the new image.
 * When the download is complete, the Supervisor creates and starts the new container, *without killing the old one*.
 * The old and new releases should communicate between each other so that the old one frees any resources that the new one needs (e.g. device files, database locks, etc) and the new version can start running fully.
-* Once this "handover" is performed between the releases (old or new), the fleet must signal to the Supervisor that the old version is ready to be killed, by creating a file at `/data/resin-kill-me`.
+* Once this "handover" is performed between the releases (old or new), your service must signal to the Supervisor that the old version is ready to be killed, by creating a file at `/data/resin-kill-me`.
 * When the Supervisor detects that the file has been created, the Supervisor kills the old container and deletes it from disk.
 * If the file is not created after a time defined in `BALENA_SUPERVISOR_HANDOVER_TIMEOUT`, the Supervisor kills the old version.
 

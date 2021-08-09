@@ -5,9 +5,9 @@ excerpt: Manage the fleet and device release policy
 
 # Release policy
 
-When managing an fleet, you may require devices to be running different releases. By default, fleets follow a rolling release policy where new releases are deployed to all devices in the fleet once successfully built. However, you can customize this behavior, so the fleet or individual devices remain on a fixed release by pinning them.
+When managing a fleet, you may require devices to be running different releases. By default, fleets follow a rolling release policy where new releases are deployed to all devices in the fleet once successfully built. However, you can customize this behavior, so the fleet or individual devices remain on a fixed release, by utlizing release pinning.
 
-You may define the fleet and device release policy via the [{{ $names.cloud.lower }} dashboard]({{ $links.dashboardUrl }}) or programmatically through the [API][api] or [SDKs][sdk].
+You may define the fleet and device release policies via the [{{ $names.cloud.lower }} dashboard]({{ $links.dashboardUrl }}) or programmatically through the [API][api] or [SDKs][sdk].
 
 __Note:__ It is currently not possible to specify the fleet or device release policy via the {{ $names.cli.lower }}.
 
@@ -25,7 +25,7 @@ To do so, from the Device dashboard, select the device menu and choose _Pin to r
 
 <img src="/img/common/release-policy/obsIjdo.png" width="80%" alt="Pin device to release">
 
-Selecting _Pin to release_ opens a modal window displaying a list of all successful fleet releases from which you can select a specific release to pin the device to.
+Selecting _Pin to release_ opens a modal window displaying a list of all successful releases from which you can select a specific release to pin the device to.
 
 <img src="/img/common/release-policy/T3Jy5l1.png" width="60%" alt="Pin to a specific device">
 

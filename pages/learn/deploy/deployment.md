@@ -1,11 +1,11 @@
 ---
 title: Deploy to your fleet
-excerpt: The process for deploying an application to your {{$names.cloud.lower}} managed fleet
+excerpt: The process for deploying to your {{$names.cloud.lower}} managed fleet
 ---
 
 # Deploy to your Fleet
 
-On {{$names.cloud.lower}}, when we deploy code to devices grouped under a single fleet, and they all run what we refer to as a "release". A release consists of a Docker image or set of images on our registry. These images are built from a source code repository, either locally or remotely on the [{{$names.cloud.lower}} build server](#the-balenacloud-build-server). When a successful release is created, all devices in the fleet are instructed to download and run the new deployment (according to the chosen [update strategy][update-strategy]).
+On {{$names.cloud.lower}}, when we deploy code to devices grouped in a fleet, they all run what we refer to as a "release". A release consists of a Docker image or set of images on our registry. These images are built from a source code repository, either locally or remotely on the [{{$names.cloud.lower}} build server](#the-balenacloud-build-server). When a successful release is created, all devices in the fleet are instructed to download and run the new release (according to the chosen [update strategy][update-strategy]).
 
 There are 3 ways to create and deploy a release, namely [{{$names.company.lower}} push](#balena-push), [{{$names.company.lower}} deploy](#balena-build--deploy) and [git push](#git-push). Each method has slightly different use cases and differ on how and where the container images are built. We'll explain each of the options in more detail below. If you are just starting out with {{$names.cloud.lower}}, we recommend using [{{$names.company.lower}} push](#balena-push).
 
@@ -49,13 +49,13 @@ __Note__: Refer to the [`{{$names.company.lower}} build`][cli-build-reference] a
 
 ### Overview
 
-The `git push {{$names.company.lower}} master` method of deployment is the original deployment mechanism for {{$names.cloud.lower}}. While we continue to support git push, it is considered a legacy method for pushing code to an fleet, and if possible you should use [{{$names.company.lower}} push](#balena-push) as it makes for a consistent workflow and methodology.
+The `git push {{$names.company.lower}} master` method of deployment is the original deployment mechanism for {{$names.cloud.lower}}. While we continue to support git push, it is considered a legacy method for pushing code to a fleet, and if possible you should use [{{$names.company.lower}} push](#balena-push) as it makes for a consistent workflow and methodology.
 
 The `git push` workflow requires that you have [git][git] installed on your development machine and that you have an SSH key [setup on your {{$names.cloud.lower}} account][add-ssh-key].
 
 ![how git push works](/img/common/deployment/git-push.png)
 
-Then, simply add your {{$names.cloud.lower}} app's git endpoint to your local git repository via `git remote add {{$names.company.lower}} <fleet git endpoint>` . You can find the fleet git remote endpoint at the top-right corner in the releases tab of the dashboard.
+Then, simply add your {{$names.cloud.lower}} app's git endpoint to your local git repository via `git remote add {{$names.company.lower}} <fleet git endpoint>` . You can find the fleet git remote endpoint by clicking the 'Create release' button in the releases tab of the dashboard.
 
 ![Where to find git remote](/img/common/deployment/git-remote.png)
 
@@ -78,7 +78,7 @@ $ git push {{$names.company.lower}} master -f
 
 ### Limitations
 
-The `git push` workflow is a great way to deploy code, but it has a number of limitations when compared to `{{$names.company.lower}} push` and `{{$names.company.lower}} deploy`. One is mentioned above, where it is necessary to rewrite the history and force push to change the application code.
+The `git push` workflow is a great way to deploy code, but it has a number of limitations when compared to `{{$names.company.lower}} push` and `{{$names.company.lower}} deploy`. One is mentioned above, where it is necessary to rewrite the history and force push to completely change the source code and build a new release from scratch.
 
 Another is that it's not possible to use the [build time secrets](#build-time-secrets-and-variables) or [private base images](#private-base-images) without having to commit your secrets into your code repository.
 
@@ -127,7 +127,7 @@ project: $ tree -a
 └── Dockerfile
 ```
 
-When we push this project to a fleet that has its default device type set to `Raspberry Pi 3`, the build system will use the device type specific `Dockerfile.raspberrypi3` file to build from. If we instead pushed this to an `Intel Edison` fleet, the build would use the `Dockerfile.i386` file. When pushing to any other device type, the regular `Dockerfile` would be used to perform the build. This type of project selection will also work in service folders of multicontainer deployments; you can see an example of that in our [Getting started with multicontainer project][multicontainer-project].
+When we push this project to a fleet that has its default device type set to `Raspberry Pi 3`, the build system will use the device type specific `Dockerfile.raspberrypi3` file to build from. If we instead pushed this to an `Intel NUC` fleet, the build would use the `Dockerfile.amd64` file. When pushing to any other device type, the regular `Dockerfile` would be used to perform the build. This type of project selection will also work in service folders of multicontainer deployments; you can see an example of that in our [Getting started with multicontainer project][multicontainer-project].
 
 The file extensions are equivalent to `{{$names.company.allCaps}}_MACHINE_NAME` for `.<device-type>` and `{{$names.company.allCaps}}_ARCH` for `.<arch>` from the template files discussed in the next section. To find the correct name have a look at our [machine names and architectures list][device-types].
 
@@ -181,19 +181,19 @@ Often it is necessary to use passwords or secrets during your build to fetch pro
 
 The build server is a powerful tool that compiles code specifically for your device's architecture. With our build servers, compiling a complex dependency tree can be done in seconds, as compared to the minutes or even hours it may take to build on your device.
 
-All code that is pushed using `{{$names.company.lower}} push <MY_APP>` or `git push` to your {{$names.cloud.lower}} devices is sent to a build server, and then, after it is built, the image is shipped to your devices.
+All code that is pushed using `{{$names.company.lower}} push <MY_FLEET>` or `git push` to your {{$names.cloud.lower}} devices is sent to a build server, and then, after the release is built, it is deployed to your devices.
 
-The build server consists of a central build server and a number of Docker daemons on build slaves. When a build is triggered, the builder first determines the fleet's default device type CPU architecture, and based on that determines what build slave will be used for the build. For [ARM][arm] device types, there are build slaves with `armv6l`, `armv7l`, and `armv8l` architectures. For [amd64][amd64] based devices, native `x86_64` build slaves are used. Finally the `armv5e` and `i386` architecture device types are always built using emulation.
+The build server consists of a central build server and a number of Docker daemons on build slaves. When a build is triggered, the builder first determines the CPU architecture of the fleet's default device type, and based on that determines what build slave will be used for the build. For [ARM][arm] device types, there are build slaves with `armv6l`, `armv7l`, and `armv8l` architectures. For [amd64][amd64] based devices, native `x86_64` build slaves are used. Finally the `armv5e` and `i386` architecture device types are always built using emulation.
 
-In the case where the `--emulated` flag is used, the build is built on an `x86_64` machine with qemu emulation to match the fleet's default device type CPU architecture.
+In the case where the `--emulated` flag is used, the build is built on an `x86_64` machine with qemu emulation to match the CPU architecture of the fleet's default device type.
 
-If you push a project with only a `Dockerfile`, `Dockerfile.template`, or `package.json` file, a single container image will be built and sent to your device. The single container will show up on the device dashboard as a service with the name `main`.
+If you push a project with only a `Dockerfile`, `Dockerfile.template`, or `package.json` file, a single container image will be built and deployed to your device. The single container will show up on the device dashboard as a service with the name `main`.
 
 For [multicontainer][multicontainer] fleets (Microservices and Starter [fleet types][app-types]), a `docker-compose.yml` file at the root of the project directory will start multiple simultaneous image builds, each with their own [build logs](#release-logs).
 
 ## View Past Deployments
 
-All successful deployments will result in a release being added to {{$names.cloud.lower}}. These releases are tracked in their own dashboard page. You can access this page by clicking *Releases* from the fleet dashboard:
+All successful deployments will result in a release being added to {{$names.cloud.lower}}. These releases are tracked in their own dashboard page accessed via the fleet:
 
 ![Release list](/img/common/app/release_list.png)
 

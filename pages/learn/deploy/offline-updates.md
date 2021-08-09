@@ -11,7 +11,7 @@ Offline updates is a process to update devices without needing an internet conne
 
 When a device is reflashed, it defaults back to a factory state. The device is provisioned with a new identity, a new API key, and updated [`config.json`][config-file] settings. All services, data and logs stored on the device are erased permanently.
 
-With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`][config-file]. It uses [`balena preload`][balena-preload] to load an updated fleet's release. That way, the device will pick up right where it left off with the same name and UUID but with an updated fleet's release or/and balenaOS update.
+With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`][config-file]. It uses [`balena preload`][balena-preload] to load an updated release. That way, the device will pick up right where it left off with the same name and UUID but with an updated release or/and balenaOS update.
 
 Broad steps of the process include:
 
@@ -26,7 +26,7 @@ When you insert the SD card or USB drive into your device and boot it, the devic
 
 ## Configuration and Data Recovery
 
-Some consideration is required if a fleet's requiring persistent data storage is being used to recover user data while using the offline update process. The fleet's can't use the pre-provisioned [named volumes][named-volumes], since these will be wiped during the offline update process.
+Some consideration is required if an application requiring persistent data storage is being used to recover user data while using the offline update process. The application can't use the pre-provisioned [named volumes][named-volumes], since these will be wiped during the offline update process.
 
 If this is the case, mount an external mass storage (USB) device into a privileged data container and share it with other containers (if applicable) via NFS or a similar network storage protocol for the data. These external storage devices are not a part of the update process. Hence, data on them would be left intact, as long as they are temporarily disconnected during the update process.
 
@@ -79,28 +79,28 @@ $ ssh-keygen -o -a 100 -t ed25519 -f id_ed25519 -C 'offline-updates' -N ''
 $ ssh_key=id_ed25519.pub
 ```
 
-### Create/Use Pre-existing fleet's
+### Create/Use Pre-existing Fleet
 
 Initialize the `arch` and `device-type` environment variable with correct CPU architecture (`aarch64`, `armv7l`, etc.) and device type (`raspberrypi4-64`, `raspberrypi3`, etc.). The list of names for supported device types and their architectures can be found on the [hardware][supported-devices-list] page.
 
-If a pre-existing fleet's needs to be re-used, then initialize the `app_name` variable with that fleet's's name.
+If a pre-existing fleet needs to be re-used, then initialize the `fleet_name` variable with that fleet's's name.
 
 ```bash
 $ arch=<CPU ARCHITECTURE TYPE>
 $ device_type=<DEVICE_TYPE>
-$ app_name=offline-${arch}
+$ fleet_name=offline-${arch}
 ```
 
-These environment variables will be used later in the process. If a pre-existing fleet's is needed to be used, then the next step can be skipped. Otherwise, create a new balenaCloud fleet's by running [`balena app create`](https://www.balena.io/docs/reference/balena-cli/#app-create-name).
+These environment variables will be used later in the process. If a pre-existing fleet needs to be used, then the next step can be skipped. Otherwise, create a new balenaCloud fleet by running [`balena fleet create`](https://www.balena.io/docs/reference/balena-cli/#fleet-create-name).
 
 ```bash
 $ balena app create ${app_name} --type ${device_type}
 ```
 
-Initialize the `app_slug` environment variable with the command below to store the slug of the fleet's.
+Initialize the `fleet_slug` environment variable with the command below to store the slug of the fleet.
 
 ```bash
-$ app_slug=$(balena app ${app_name} | grep SLUG | awk '{print $2}')
+$ fleet_slug=$(balena fleet ${fleet_name} | grep SLUG | awk '{print $2}')
 ```
 
 ### Create/Use Pre-existing Offline Device
@@ -115,10 +115,10 @@ OR
 $ uuid=<UUID OF YOUR DEVICE>
 ```
 
-With [`balena device register`][balena-device-register], devices can be preregistered to a balenaCloud fleet's involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass][balena-cli advanced masterclass]. This step can be skipped if a pre-existing device is needed to be updated.
+With [`balena device register`][balena-device-register], devices can be preregistered to a balenaCloud fleet involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass][balena-cli advanced masterclass]. This step can be skipped if a pre-existing device is needed to be updated.
 
 ```bash
-$ balena device register ${app_slug} --uuid ${uuid}
+$ balena device register ${fleet_slug} --uuid ${uuid}
 ```
 
 ### Download balenaOS Image
@@ -167,11 +167,11 @@ $ rm ${config}
 
 ### Create and Preload Release
 
-Offline updates revolve around the concept of [balena preload][balena-preload]. Preload is used to flash the balenaOS image and your fleet's release in a single step, so the device starts running your fleet's containers as soon as it boots. Preloading removes the need for your devices to download the initial fleet's images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image][preloading-device-image].
+Offline updates revolve around the concept of [balena preload][balena-preload]. Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image][preloading-device-image].
 
 > Important note: [balena preload](https://github.com/balena-io/balena-cli/blob/master/INSTALL-MAC.md#balena-preload) functionality requires Docker with AUFS support.
 
-Preload involves flashing a fleet's release with the balenaOS image. If the pre-existing fleet's doesn't have any releases, then a release needs to be created using [`balena deploy`][balena-deploy]. Navigate to the directory of your source code folder and run the command below to deploy the latest release of your fleet's. If a release is present already, then the next step can be skipped.
+Preload involves flashing a fleet's release with the balenaOS image. If the pre-existing fleet doesn't have any releases, then a release needs to be created using [`balena deploy`][balena-deploy]. Navigate to the directory of your source code folder and run the command below to deploy the latest release of your fleet. If a release is present already, then the next step can be skipped.
 
 ```bash
 $ balena deploy ${app_slug} --build --emulated --source .
@@ -209,9 +209,9 @@ $ rm ${tmpimg}
 
 > Warning: For devices with internal storage, this procedure erases the internal media of your device. Remove any mass storage devices containing user data.
 
-With the update media already having the latest release of the fleet's preloaded, follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
+With the update media already having the latest release of the fleet preloaded, follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
 
-An example for Raspberry Pi devices: insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect fleet's logs, etc.
+An example for Raspberry Pi devices: insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect logs, etc.
 
 #### Strategies to remotely update with an SD card or USB device
 

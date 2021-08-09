@@ -1,15 +1,15 @@
 ---
 title: Deploy with {{ $names.company.lower }} button
-excerpt: The Deploy with {{ $names.company.lower }} button allows users to do a single-click deployment and configuration of a fleet to {{ $names.cloud.lower }}
+excerpt: The Deploy with {{ $names.company.lower }} button allows users to do a single-click deployment and configuration of a fleet on {{ $names.cloud.lower }}
 ---
 
 # Deploy with {{ $names.company.lower }} button
 
-The **Deploy with {{ $names.company.lower }}** button allows users to perform a single-click deployment and configuration of a fleet to {{ $names.cloud.lower }}.
+The **Deploy with {{ $names.company.lower }}** button allows users to perform a single-click deployment and configuration of a fleet on {{ $names.cloud.lower }}.
 
 ![Deploy with {{ $names.company.lower }}](https://balena.io/deploy.svg)
 
-Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $names.cloud.lower }} dashboard with a modal window pre-populated with everything required to deploy the fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](#balenayml-configuration-file), they are pre-populated.
+Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $names.cloud.lower }} dashboard with a modal window pre-populated with everything required to deploy a fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](#balenayml-configuration-file), they are pre-populated.
 
 <img src="https://www.balena.io/docs/img/configuration/deploy-to-balena.png" width="80%">
 
@@ -31,7 +31,7 @@ You can further customize the behavior of the **Deploy with {{ $names.company.lo
 
 - `repoUrl` - The URL of the project repository. If you are placing the deploy button in a GitHub repo then {{ $names.cloud.lower }} can auto-determine the `repoUrl` from the referer info in the HTTP headers. However on Firefox and with some ad-blockers this may fail. So we recommend that you populate this query string parameter.
 - `tarballUrl` - The URL of the project tarball. Automatically determined from `repoUrl` if not provided.
-- `configUrl` - The URL of the configuration file of the fleet. Automatically determined from `repoUrl` if not provided.
+- `configUrl` - The URL of the configuration file for the fleet. Automatically determined from `repoUrl` if not provided.
 - `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types here](/reference/hardware/devices/).
 
 ### balena.yml configuration file
@@ -45,7 +45,7 @@ The file should be named `balena.yml` and be located in the root of the project 
 ```yaml
 
 name: balenaSound
-type: sw.fleet
+type: sw.application
 description: >-
   Build a single or multi-room streamer for an existing audio device using a
   Raspberry Pi! Supports Bluetooth, Airplay and Spotify Connect
@@ -60,7 +60,7 @@ assets:
       url: >-
         https://raw.githubusercontent.com/balenalabs/balena-sound/master/logo.png
 data:
-  fleetVariables:
+  applicationEnvironmentVariables:
     - SOUND_VOLUME: 75
     - AUDIO_OUTPUT: AUTO
   defaultDeviceType: raspberry-pi
@@ -74,7 +74,7 @@ data:
 version: 3.5.2
 ```
 
-- `type` - Required field. In most cases this would be `sw.fleet`, unless you are implementing a block, in which case you need to use `sw.block`.
+- `type` - Required field. In most cases this would be `sw.application`, unless you are implementing a block, in which case you need to use `sw.block`.
 - `name` - A user-friendly name of your fleet.
 - `description`: A description of what the fleet does. This is what is displayed if the fleet is published on [balenaHub][balenahub].
 - `assets`
@@ -83,8 +83,8 @@ version: 3.5.2
     - `data`:
       - `url` - The URL of the asset that is being uploaded.
 - `data`
-  - `fleetVariables` - Variables allow you to provide runtime configuration without having to modify your source code.
-  - `fleetConfiguration` - Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
+  - `applicationEnvironmentVariables` - Variables allow you to provide runtime configuration without having to modify your source code.
+  - `applicationConfigVariables` - Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
   - `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](/reference/hardware/devices/) here.
   - `supportedDeviceType` - The device types that the fleet supports. You can find a list of [device types](/reference/hardware/devices/) here.
 
