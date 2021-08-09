@@ -10,6 +10,6 @@ After a couple of seconds, the {{ $device.name }}'s eMMC should be detected on y
 
 After flash is complete, power off your {{ $device.name }} and unplug the micro-USB cable. Powering the {{ $device.name }} on will now result in the device booting from the freshly-written eMMC.
 
-__Note:__ You can flash several {{ $device.name }}s with the same OS image file and all the devices will boot and provision into your application's fleet. You can also disable the auto-ejecting or validation steps from the **Etcher** settings panel.
+__Note:__ You can flash several {{ $device.name }}s with the same OS image file and all the devices will boot and provision into your fleet. You can also disable the auto-ejecting or validation steps from the **Etcher** settings panel.
 
 [etcher-link]:https://www.balena.io/etcher
