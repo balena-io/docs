@@ -5,7 +5,7 @@ excerpt: Use Dockerfiles to package your {{ $names.company.lower }} services and
 
 # Define a container
 
-{{ $names.company.upper }} uses [Docker][docker] containers to manage applications. You can use one or more containers to package your services with whichever environments and tools they need to run.
+{{ $names.company.upper }} uses [Docker][docker] containers to manage fleets. You can use one or more containers to package your services with whichever environments and tools they need to run.
 
 To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image][docker-images-containers]. Whether the build process is done [on your device][local-mode], [on your workstation][local-build], or on the [{{ $names.company.lower }} builders][builders], the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the {{ $names.os.lower }} version) to kick off a running container.
 
@@ -27,13 +27,13 @@ Typically you will only need to use 4 instructions - [FROM][from], [RUN][run] an
 
 * [COPY][copy] is very similar to [ADD][add], but without the compression and url functionality. According to [the Dockerfile best practices][dockerfile-best-practices], you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
 
-* [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a {{ $names.company.lower }} application, this is typically used to execute a start script or entrypoint for the users application. [CMD][cmd] should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD][cmd] command and all processes that it spawns.
+* [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a {{ $names.company.lower }} service, this is typically used to execute a start script or entrypoint for the user's service. [CMD][cmd] should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD][cmd] command and all processes that it spawns.
 
 For details on other instructions, consult the official [Dockerfile documentation][dockerfile].
 
 ### Using Dockerfiles with {{ $names.company.lower }}
 
-To deploy a single-container application to {{ $names.company.lower }}, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
+To deploy a single-container fleet to {{ $names.company.lower }}, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
 
 {{> "general/labels-version-note"}}
 
@@ -59,7 +59,7 @@ services:
       io.balena.features.balena-api: '1'
 ```
 
-Applications with multiple containers should include a `Dockerfile` or `package.json` in each service directory. A `docker-compose.yml` file will need to be defined at the root of the repository, as discussed in our [multicontainer documentation][multicontainer].
+Fleets with multiple services should include a `Dockerfile` or `package.json` in each service directory. A `docker-compose.yml` file will need to be defined at the root of the repository, as discussed in our [multicontainer documentation][multicontainer].
 
 You can also include a `.dockerignore` file with your project if you wish the builder to ignore certain files.
 
@@ -86,7 +86,7 @@ CMD ["node", "/usr/src/app/main.js"]
 This template will build and deploy a Node.js project for any of the devices supported by {{ $names.company.lower }}, regardless of whether the device architecture is [ARM][ARM-link] or [x86][x86-link].
 In this example, you can see the build variable `%%{{ $names.company.allCaps }}_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. See below for a list of machine names.
 
-The machine name is inferred from the device type of the application you are pushing to. So if you have an Intel Edison application, the machine name will be `intel-edison` and an `i386` architecture base image will be built.
+The machine name is inferred from the device type of the fleet you are pushing to. So if you have an Intel Edison fleet, the machine name will be `intel-edison` and an `i386` architecture base image will be built.
 
 __Note:__ You need to ensure that your dependencies and Node.js modules are also multi-architecture, otherwise you will have a bad time.
 
@@ -94,7 +94,7 @@ Currently our builder supports the following build variables:
 
 {{> "deployment/build-variables" }}
 
-__Note:__ If your application contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your application containers are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the application, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your application.
+__Note:__ If your fleet contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your fleet services are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the fleet, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your fleet.
 
 If you want to see an example of build variables in action, have a look at this [basic openssh example]({{ $links.githubPlayground }}/balena-openssh).
 
@@ -106,36 +106,27 @@ Here are the supported machine names and architectures:
 
 There are cases when you would need a higher granularity of control when specifying build instructions for different devices and architectures than a single Dockerfile template can provide. An example of this would be when different configuration or installation files are required for each architecture or device.
 
-When deploying an application, the balenaCloud build servers or the balena CLI tool (depending on the deployment method used) look at all available Dockerfiles and build the appropriate image using the following order of preference:
+When deploying a fleet, the balenaCloud build servers or the balena CLI tool (depending on the deployment method used) look at all available Dockerfiles and build the appropriate image using the following order of preference:
 
 * Dockerfile.\<device-type>
 * Dockerfile.\<arch>
 * Dockerfile.template
 
-As an example, let's say you have two Dockerfiles available, `Dockerfile.raspberrypi3` and `Dockerfile.template`. Whenever you publish the application to balenaCloud, if the `device-type` is a Raspberry Pi 3, `Dockerfile.raspberrypi3` will be selected as an exact match and for all other devices the builder will automatically select `Dockerfile.template`.
+As an example, let's say you have two Dockerfiles available, `Dockerfile.raspberrypi3` and `Dockerfile.template`. Whenever you publish the application to balenaCloud, if the fleet `device-type` is a Raspberry Pi 3, `Dockerfile.raspberrypi3` will be selected as an exact match and for all other devices the builder will automatically select `Dockerfile.template`.
 
 Note that this feature works with the following commands: `git push`, `balena push`, `balena build`, and `balena deploy`.
 
 ## Node applications
 
-{{ $names.company.upper }} supports [Node.js][node] natively using the [package.json][package]
-file located in the root of the repository to determine how to build and execute
-node applications.
+{{ $names.company.upper }} supports [Node.js][node] natively using the [package.json][package] file located in the root of the repository to determine how to build and execute node applications.
 
-When you push your code to your application's git endpoint the deploy server
-generates a [container][container] for the environment your device operates in,
-deploys your code to it and runs `npm install` to resolve [npm][npm]
-dependencies, reporting progress to your terminal as it goes.
+When you push your code to your fleet, the build server generates a [container][container] for the environment your device operates in, deploys your code to it and runs `npm install` to resolve [npm][npm] dependencies, reporting progress to your terminal as it goes.
 
-If the build executes successfully the container is shipped over to your device
-where the supervisor runs it in place of any previously running containers,
-using `npm start` to execute your code (note that if no start script is
-specified, it defaults to running `node server.js`.)
+If the build executes successfully the container is shipped over to your device where the supervisor runs it in place of any previously running containers, using `npm start` to execute your code (note that if no start script is specified, it defaults to running `node server.js`.)
 
 ### Node.js Example
 
-A good example of this is the [text-to-speech][text-to-speech] application -
-here's its `package.json` file*:
+A good example of this is the [text-to-speech][text-to-speech] application - here's its `package.json` file*:
 
 ```JSON
 {
@@ -160,27 +151,17 @@ here's its `package.json` file*:
 }
 ```
 
-__Note:__ We don't specify a `start` script here which means node will default
-to running `server.js`.
-
-We execute a bash script called `deps.sh` before `npm install` tries to satisfy
-the code's dependencies. Let's have a look at that:-
+__Note:__ We don't specify a `start` script here which means node will default to running `server.js`. We execute a bash script called `deps.sh` before `npm install` tries to satisfy the code's dependencies. Let's have a look at that:-
 
 ```shell
 apt-get install -y alsa-utils libasound2-dev
 mv sound_start /usr/bin/sound_start
 ```
 
-These are shell commands that are run within the container on the build server
-which are configured such that dependencies are resolved for the target
-architecture not the build server's - this can be very useful for deploying
-non-javascript code or fulfilling package dependencies that your node code
-might require.
+These are shell commands that are run within the container on the build server which are configured such that dependencies are resolved for the target architecture not the build server's - this can be very useful for deploying
+non-javascript code or fulfilling package dependencies that your node code might require.
 
-We use [Raspbian][raspbian] as our contained operating system, so this script
-uses [aptitude][aptitude] to install native packages before moving a script for
-our node code to use over to `/usr/bin` (the install scripts runs with root
-privileges within the container.)
+We use [Raspbian][raspbian] as our contained operating system, so this script uses [aptitude][aptitude] to install native packages before moving a script for our node code to use over to `/usr/bin` (the install scripts runs with root privileges within the container.)
 
 __Note:__ With a plain Node.js project, our build server will detect compatible nodejs versions from the `package.json` and build the container using a Docker image that satisfies the version requirement. If no version is specified then the default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here][base-images].
 
