@@ -34,7 +34,7 @@ Multiple container fleets are supported, beginning with {{ $names.os.lower }} v2
 
 **Note:** If you do not see an option to choose a starter or microservices fleet type, a multicontainer compatible OS version has not yet been released for the selected device type.
 
-If you are running a Docker-in-Docker setup, which builds a single fleet container on the {{ $names.company.lower }} servers but has a `docker-compose.yml` file at the root of the project, you'll want to rename the file to something like `dind-compose.yml`. Then when you run Docker Compose in your container, you can use the `-f` flag with the new file name: `docker-compose -f dind-compose.yml up`.
+If you are running a Docker-in-Docker setup, which builds a single container on the {{ $names.company.lower }} servers but has a `docker-compose.yml` file at the root of the project, you'll want to rename the file to something like `dind-compose.yml`. Then when you run Docker Compose in your container, you can use the `-f` flag with the new file name: `docker-compose -f dind-compose.yml up`.
 
 ##### Can I mix device types in a fleet?
 
@@ -44,11 +44,11 @@ Regardless of type, all devices in your fleet will get the same container images
 
 ##### How do I push a new git repo to a fleet?
 
-If you have pushed a repository called `project-A` to your fleet and at a later stage you would like to push a new project called `project-B`, you can do this by adding the fleet remote (`git remote add {{ $names.company.short }} <USERNAME>@git.{{ $names.cloud_domain }}:<USERNAME>/<APPNAME>.git`) to `project-B`'s local repository. You can then easily push `project-B` to your fleet by just doing `git push {{ $names.company.short }} master -f`. The extra `-f` on the command forces the push and resets the git history on the git remote on {{ $names.company.lower }}'s backend. You should now have `project-B` running on all the devices in the fleet fleet. Note that once you have successfully switched to `project-B` you no longer need to add the `-f` on every push, for more info check out the docs on [forced git pushes](https://git-scm.com/docs/git-push#git-push--f).
+If you have pushed a repository called `project-A` to your fleet and at a later stage you would like to push a new project called `project-B`, you can do this by adding the remote (`git remote add {{ $names.company.short }} <USERNAME>@git.{{ $names.cloud_domain }}:<USERNAME>/<APPNAME>.git`) to `project-B`'s local repository. You can then easily push `project-B` to your fleet by just doing `git push {{ $names.company.short }} master -f`. The extra `-f` on the command forces the push and resets the git history on the git remote on {{ $names.company.lower }}'s backend. You should now have `project-B` running on all the devices in the fleet. Note that once you have successfully switched to `project-B` you no longer need to add the `-f` on every push, for more info check out the docs on [forced git pushes](https://git-scm.com/docs/git-push#git-push--f).
 
 ##### Why does /data report weird usage?
 
-On the device we have a writable data partition that uses all the free space remaining after reserving the required amount for the host os. This data partition contains the Docker images for the {{ $names.company.lower }} device supervisor and the user fleets so that they can be updated, along with containing the persistent `/data` for the fleet to use, this way it avoids reserving a specific amount of space for either images or data and then finding out that we have reserved too much or too little for one. So the space usage in `/data` being used but not accounted for will likely be due to the Docker images. (As a side note if you want the most accurate usage stats you should use `btrfs fi df /data` as `df` is not accurate for btrfs partitions).
+On the device we have a writable data partition that uses all the free space remaining after reserving the required amount for the host os. This data partition contains the Docker images for the {{ $names.company.lower }} device supervisor and the user containers so that they can be updated, along with containing the persistent `/data` for the services to use, this way it avoids reserving a specific amount of space for either images or data and then finding out that we have reserved too much or too little for one. So the space usage in `/data` being used but not accounted for will likely be due to the Docker images. (As a side note if you want the most accurate usage stats you should use `btrfs fi df /data` as `df` is not accurate for btrfs partitions).
 
 ##### What NTP servers do the devices use?
 
@@ -81,13 +81,13 @@ While you’ve always been able to SSH into your container, we had previously re
 - Configuration of network device drivers, mount points, security provisions, and many other details have been carefully chosen to serve the {{ $names.company.lower }} ecosystem and your containers. Rogue code running in the host OS might interfere with this, leading to issues or degradation of performance which we would likely not be able to help you with.
 - When troubleshooting issues we base our assumptions on the host OS behaving as we expect it to. If you have made changes here, there's a good chance we won't be able to reproduce the issues locally and therefore won't be able to help you.
 
-However, we've heard from users that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability starting with {{ $names.os.lower }} version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your fleet container, such as NetworkManager, Docker, the VPN, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
+However, we've heard from users that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability starting with {{ $names.os.lower }} version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your container, such as NetworkManager, Docker, the VPN, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
 
 ##### Which data is persisted on devices across updates/power cycles?
 
 The only data we [guarantee to be persisted][persistent-storage] across reboot, shutdown and device update/container restart is the contents of the `/data` folder, or any [named volumes][named-volumes] on devices running {{ $names.os.lower }} v2.12.0 and above.
 However, when a device is restarted or power cycled the container is not recreated, meaning all the data that was present in the container's filesystem before, remains.
-It's very important not to rely on this behavior, as containers are recreated on fleet updates, when environment variables are changed in the UI or API, or when a fleet restart is requested.
+It's very important not to rely on this behavior, as containers are recreated on release updates, when environment variables are changed in the UI or API, or when a fleet restart is requested.
 
 ##### Why does /data disappear when I move a device between fleets?
 
@@ -97,7 +97,7 @@ On devices running {{ $names.os.lower }} versions before 2.12.0, if you move the
 
 ##### It appears that there is a centralized master running (in cloud) and agents running on devices. Is that accurate?
 
-Yes. In fact there are multiple services running on the cloud and the devices communicate with some of them. On the device we run our agent in a Docker container, like a user fleet.
+Yes. In fact there are multiple services running on the cloud and the devices communicate with some of them. On the device we run our agent in a Docker container, like user-deployed containers.
 
 ##### What type of encryption do you use over OpenVPN? SSL/TLS/AES-256? Mutual key authentication? over SSH?
 
@@ -113,13 +113,13 @@ The update process currently depends on the size of the update and the speed of 
 
 ##### How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?
 
-The OS image you download from the UI has embedded credentials that allow the device to register to your fleet without user input on boot. You should keep your downloaded images private.
+The OS image you download from the UI has embedded credentials that allow the device to join your fleet without user input on boot. You should keep your downloaded images private.
 
 ##### If the device is installed behind a proxy/firewall and can’t be reachable on internet via direct connection, what are the pitfalls?
 
-The {{ $names.company.lower }} device supervisor needs to be able to access our cloud services in order for you to be able to manage your device. When the device is disconnected from the internet it still runs the fleet it has installed.
+The {{ $names.company.lower }} device supervisor needs to be able to access our cloud services in order for you to be able to manage your device. When the device is disconnected from the internet it still continues to run the last release it obtained.
 
-##### How do you secure your own cloud to prevent malicious attack which may allow attacker to break-in our systems?
+##### How do you secure your own cloud to prevent malicious attack which may allow attacker to break-in to our systems?
 
 Generally, we try to follow good OPSEC practices for our systems. We support 2FA for user accounts and force all the connections to be over HTTPS. More details on our approach can be found on our [security page][security].
 
@@ -138,7 +138,7 @@ Power supply units (PSUs) are a critical component to any widespread production 
 ##### Does {{ $names.company.lower }} have access to my device, source code and images?
 
 Device access is granted to a subset of {{ $names.company.lower }} employees to [enable support and device troubleshooting](https://www.balena.io/docs/learn/manage/support-access). This access is controlled by ssh key access and only after access is explicitly granted to balena.
-fleet source code and images are stored on {{ $names.company.lower }} backend servers with access limited only to administrative/operational staff and are not exposed to anyone outside of {{ $names.company.lower }}. It is also possible to bypass the {{ $names.company.lower }} builder entirely and push only pre-built artifacts, meaning that {{ $names.company.lower }} never has access to the code at any point.
+Release source code and images are stored on {{ $names.company.lower }} backend servers with access limited only to administrative/operational staff and are not exposed to anyone outside of {{ $names.company.lower }}. It is also possible to bypass the {{ $names.company.lower }} builder entirely and push only pre-built artifacts, meaning that {{ $names.company.lower }} never has access to the code at any point.
 
 [forums]:{{ $names.forums_domain }}/c/troubleshooting
 
@@ -158,4 +158,3 @@ fleet source code and images are stored on {{ $names.company.lower }} backend se
 [build-your-own]:{{ $links.githubOS }}/meta-balena/blob/master/contributing-device-support.md
 [nuc]:/learn/getting-started/intel-nuc/nodejs/
 [go-to-production]:/learn/welcome/production-plan/
-
