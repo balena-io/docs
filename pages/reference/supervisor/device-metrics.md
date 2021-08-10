@@ -25,7 +25,7 @@ The following table has descriptions for each metric reported by the {{ $names.c
 
 In the table above, you may have noticed that some metrics are optional while others are not. From the perspective of the Supervisor, hardware metrics reported from the device are divided into two categories: optional system metrics, and non-optional system checks. Starting with Supervisor v12.8.0, you can control whether optional metrics are reported to the cloud to save bandwidth by toggling `BALENA_SUPERVISOR_HARDWARE_METRICS`. When metrics reporting is enabled, metrics are reported as part of device state at most every 10 seconds when metrics changes have occurred. When metrics reporting is disabled, optional metrics are not reported, but system checks are still reported. 
 
-__Note__: The `BALENA_SUPERVISOR_HARDWARE_METRICS` configuration variable may be toggled on an fleet or device-specific level from `Fleet Variables` or `Device Configuration` tabs on the dashboard respectively. By default, metrics reporting is enabled.
+__Note__: The `BALENA_SUPERVISOR_HARDWARE_METRICS` configuration variable may be toggled at a fleet or device-specific level from the respective `Configuration` tabs on the dashboard. By default, metrics reporting is enabled.
 
 [api]:/reference/api/overview/
 [node-sdk]:/reference/sdk/node-sdk/

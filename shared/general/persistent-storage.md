@@ -12,7 +12,7 @@ Note that the `/data` folder is **not** mounted when your project is building on
 
 Beginning with {{ $names.os.lower }} v2.12.0, persistent storage is handled through [named volumes][multicontainer]. The behavior is much the same as persistent storage on older host OS versions. In fact, for single-container fleets, the default `docker-compose.yml` sets up a `resin-data` named volume that links to a `/data` directory in the container. The only difference between this and earlier versions is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<APP ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<APP ID>` location used with earlier host OS versions.
 
-Named volumes can be given arbitrary names and can be linked to a directory in one or more containers. As long as every release of the fleet includes a `docker-compose.yml` and the volume name does not change, the data in the volume will persist across updates.
+Named volumes can be given arbitrary names and can be linked to a directory in one or more containers. As long as every release includes a `docker-compose.yml` and the volume name does not change, the data in the volume will persist between updates.
 
 When using named volumes, note that:
 
@@ -21,9 +21,9 @@ When using named volumes, note that:
 
 #### Using a Supervisor with a version >= v10.0.0
 
-Since balena-supervisor v10.0.0, volumes are no longer automatically removed from disk when references to them are removed from an fleet's `docker-compose` file. This means that it's no longer possible for data to be lost due to the accidental rename of a volume.
+Since balena-supervisor v10.0.0, volumes are no longer automatically removed from disk when references to them are removed from a fleet's `docker-compose` file. This means that it's no longer possible for data to be lost due to the accidental rename of a volume.
 
-If you change volume names regularly, your device will now continue to retain all previous volumes from an fleet including their contents. To avoid this the supervisor API now provides an [endpoint to cleanup unreferenced volumes](https://www.balena.io/docs/reference/supervisor/supervisor-api/#cleanup-volumes-with-no-references). Additionally, it is possible to perform this action from the dashboard via the `Purge Data` action, found on the `Actions` tab for a device.
+If you change volume names regularly, your device will now continue to retain all previous volumes including their contents. To avoid this the supervisor API now provides an [endpoint to cleanup unreferenced volumes](https://www.balena.io/docs/reference/supervisor/supervisor-api/#cleanup-volumes-with-no-references). Additionally, it is possible to perform this action from the dashboard via the `Purge Data` action, found on the `Actions` tab for a device.
 
 **Note:** volumes will continue to be removed automatically when moving a device between fleets.
 

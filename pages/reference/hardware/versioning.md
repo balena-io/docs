@@ -8,7 +8,7 @@ A device type in balena describes a [SoC](https://en.wikipedia.org/wiki/System_o
 
 As an example the [Raspberry Pi 1 model B+](https://www.raspberrypi.org/products/raspberry-pi-1-model-b-plus/) and [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) are part of the same device type since they are both `armv6l` architecture SoCs and the boot loader is capable of booting both boards. However, the [Raspberry Pi 3 model B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) is by default a `armv7l` CPU and we therefore separate it into a new device type.
 
-In balenaCloud the device type is also used to define what architecture the built containers for each app will be. So in the above example RPi ZERO deployments are built for the `armv6l` architecture where as RPi 3 fleets will target the `armv7l` architecture and the Intel NUC device type will target `x86_64` architecture.
+In balenaCloud the device type is also used to define what architecture containers are built for. So in the above example, Raspberry Pi Zero deployments are built for the `armv6l` architecture whereas Raspberry Pi 3 fleets will target the `armv7l` architecture, and the Intel NUC device type will target `x86_64` architecture.
 
 ### Designations
 
