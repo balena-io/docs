@@ -1,11 +1,11 @@
 ---
 title: Deploy to your fleet
-excerpt: The process for deploying applications to your {{$names.cloud.lower}} managed fleet
+excerpt: The process for deploying to your {{$names.cloud.lower}} managed fleet
 ---
 
 # Deploy to your Fleet
 
-On {{$names.cloud.lower}}, when we deploy code to a fleet of devices, these devices are grouped under a single application, and they all run what we refer to as a "release". A release consists of a Docker image or set of images on our registry. These images are built from a source code repository, either locally or remotely on the [{{$names.cloud.lower}} build server](#the-balenacloud-build-server). When a successful release is created, all devices in the application are instructed to download and run the new deployment (according to the chosen [update strategy][update-strategy]).
+On {{$names.cloud.lower}}, when we deploy code to devices grouped in a fleet, they all run what we refer to as a "release". A release consists of a Docker image or set of images on our registry. These images are built from a source code repository, either locally or remotely on the [{{$names.cloud.lower}} build server](#the-balenacloud-build-server). When a successful release is created, all devices in the fleet are instructed to download and run the new release (according to the chosen [update strategy][update-strategy]).
 
 There are 3 ways to create and deploy a release, namely [{{$names.company.lower}} push](#balena-push), [{{$names.company.lower}} deploy](#balena-build--deploy) and [git push](#git-push). Each method has slightly different use cases and differ on how and where the container images are built. We'll explain each of the options in more detail below. If you are just starting out with {{$names.cloud.lower}}, we recommend using [{{$names.company.lower}} push](#balena-push).
 
@@ -37,7 +37,7 @@ The `{{$names.company.lower}} deploy` is functionally very similar to [{{$names.
 
 With `{{$names.company.lower}} build` container images are built on your development machine or on a remote machine, by specifying a docker daemon's IP address and port number with the relevant command-line options (for example a device running a {{$names.os.lower}} [development image][development-image]). Depending on your fleet's targeted CPU architecture builds will be run emulated via [qemu][qemu].
 
-If you are building your own container images, `{{$names.company.lower}} deploy` will upload the images to the {{$names.cloud.lower}} image registry and then create a release entry in the [{{$names.company.lower}} API][api] database. The devices in the application will then be notified of a new release and download it. Should `{{$names.company.lower}} deploy` not find the required images on the specified docker daemon it will automatically trigger a build.
+If you are building your own container images, `{{$names.company.lower}} deploy` will upload the images to the {{$names.cloud.lower}} image registry and then create a release entry in the [{{$names.company.lower}} API][api] database. The devices in the fleet will then be notified of a new release and download it. Should `{{$names.company.lower}} deploy` not find the required images on the specified docker daemon it will automatically trigger a build.
 
 Like `{{$names.company.lower}} push` it is also independent of git, and you can use any version control system you wish. It is also possible to make use of [private base images](#private-base-images).
 
@@ -49,13 +49,13 @@ __Note__: Refer to the [`{{$names.company.lower}} build`][cli-build-reference] a
 
 ### Overview
 
-The `git push {{$names.company.lower}} master` method of deployment is the original deployment mechanism for {{$names.cloud.lower}}. While we continue to support git push, it is considered a legacy method for pushing code to an application, and if possible you should use [{{$names.company.lower}} push](#balena-push) as it makes for a consistent workflow and methodology.
+The `git push {{$names.company.lower}} master` method of deployment is the original deployment mechanism for {{$names.cloud.lower}}. While we continue to support git push, it is considered a legacy method for pushing code to a fleet, and if possible you should use [{{$names.company.lower}} push](#balena-push) as it makes for a consistent workflow and methodology.
 
 The `git push` workflow requires that you have [git][git] installed on your development machine and that you have an SSH key [setup on your {{$names.cloud.lower}} account][add-ssh-key].
 
 ![how git push works](/img/common/deployment/git-push.png)
 
-Then, simply add your {{$names.cloud.lower}} app's git endpoint to your local git repository via `git remote add {{$names.company.lower}} <application git endpoint>` . You can find the application git remote endpoint at the top-right corner of the application page of the web dashboard.
+Then, simply add your {{$names.cloud.lower}} app's git endpoint to your local git repository via `git remote add {{$names.company.lower}} <fleet git endpoint>` . You can find the fleet git remote endpoint by clicking the 'Create release' button in the releases tab of the dashboard.
 
 ![Where to find git remote](/img/common/deployment/git-remote.png)
 
@@ -69,7 +69,7 @@ If you want to push a different local git branch to your {{$names.company.lower}
 
 ### Switching Between Apps
 
-To completely change the code you have pushed to an application with `git` you will need to force a rewrite of the git remote endpoint's history. To do this, you just need to run the same command with the `-f` flag from the new project you wish to deploy. For example:
+To completely change the code you have pushed to a fleet with `git` you will need to force a rewrite of the git remote endpoint's history. To do this, you just need to run the same command with the `-f` flag from the new project you wish to deploy. For example:
 
 ```shell
 $ cd project/my-new-project
@@ -78,7 +78,7 @@ $ git push {{$names.company.lower}} master -f
 
 ### Limitations
 
-The `git push` workflow is a great way to deploy code, but it has a number of limitations when compared to `{{$names.company.lower}} push` and `{{$names.company.lower}} deploy`. One is mentioned above, where it is necessary to rewrite the history and force push to change application code.
+The `git push` workflow is a great way to deploy code, but it has a number of limitations when compared to `{{$names.company.lower}} push` and `{{$names.company.lower}} deploy`. One is mentioned above, where it is necessary to rewrite the history and force push to completely change the source code and build a new release from scratch.
 
 Another is that it's not possible to use the [build time secrets](#build-time-secrets-and-variables) or [private base images](#private-base-images) without having to commit your secrets into your code repository.
 
@@ -115,7 +115,7 @@ All the deployment methods will always try to determine the project type based o
 
 This resolution mechanism looks at the files in the root of the directory you are deploying. If it finds a `docker-compose.yml` file, it will ignore all the other types and build a multicontainer release based on the service specification in the `docker-compose.yml` file.
 
-If `docker-compose.yml` is not specified, the resolution system will assume a single container deployment and will build based on a `Dockerfile.*` file. These Dockerfiles can have extensions of `.<device-type>`, `.<arch>` or `.template`, and the build system will use the most appropriate file based on the targeted device or application. This is best described with an example:
+If `docker-compose.yml` is not specified, the resolution system will assume a single container deployment and will build based on a `Dockerfile.*` file. These Dockerfiles can have extensions of `.<device-type>`, `.<arch>` or `.template`, and the build system will use the most appropriate file based on the targeted device or fleet. This is best described with an example:
 
 In our example at the root of our project repo we have the following `Dockerfile.*` files:
 
@@ -127,7 +127,7 @@ project: $ tree -a
 └── Dockerfile
 ```
 
-When we push this project to an application that has its default device type set to `Raspberry Pi 3`, the build system will use the device type specific `Dockerfile.raspberrypi3` file to build from. If we instead pushed this to an `Intel Edison` application, the build would use the `Dockerfile.i386` file. When pushing to any other device type, the regular `Dockerfile` would be used to perform the build. This type of project selection will also work in service folders of multicontainer deployments; you can see an example of that in our [Getting started with multicontainer project][multicontainer-project].
+When we push this project to a fleet that has its default device type set to `Raspberry Pi 3`, the build system will use the device type specific `Dockerfile.raspberrypi3` file to build from. If we instead pushed this to an `Intel NUC` fleet, the build would use the `Dockerfile.amd64` file. When pushing to any other device type, the regular `Dockerfile` would be used to perform the build. This type of project selection will also work in service folders of multicontainer deployments; you can see an example of that in our [Getting started with multicontainer project][multicontainer-project].
 
 The file extensions are equivalent to `{{$names.company.allCaps}}_MACHINE_NAME` for `.<device-type>` and `{{$names.company.allCaps}}_ARCH` for `.<arch>` from the template files discussed in the next section. To find the correct name have a look at our [machine names and architectures list][device-types].
 
@@ -146,13 +146,13 @@ In many cases, you will want to deploy container images from a private Docker Hu
 For `{{$names.company.lower}} push`:
 
 ```shell
-$ {{$names.company.lower}} push myApp --registry-secrets ../registry-secrets.yml
+$ {{$names.company.lower}} push myFleet --registry-secrets ../registry-secrets.yml
 ```
 
 Or for `{{$names.company.lower}} deploy`:
 
 ```shell
-$ {{$names.company.lower}} deploy myApp --registry-secrets ../registry-secrets.yml
+$ {{$names.company.lower}} deploy myFleet --registry-secrets ../registry-secrets.yml
 ```
 
 and the `registry-secrets.yml` file is outside of the code repository and has the following format:
@@ -181,19 +181,19 @@ Often it is necessary to use passwords or secrets during your build to fetch pro
 
 The build server is a powerful tool that compiles code specifically for your device's architecture. With our build servers, compiling a complex dependency tree can be done in seconds, as compared to the minutes or even hours it may take to build on your device.
 
-All code that is pushed using `{{$names.company.lower}} push <MY_APP>` or `git push` to your {{$names.cloud.lower}} devices is sent to a build server, and then, after it is built, the image is shipped to your devices.
+All code that is pushed using `{{$names.company.lower}} push <MY_FLEET>` or `git push` to your {{$names.cloud.lower}} devices is sent to a build server, and then, after the release is built, it is deployed to your devices.
 
-The build server consists of a central build server and a number of Docker daemons on build slaves. When a build is triggered, the builder first determines the default application type, and based on that determines what build slave will be used for the build. For [ARM][arm] device types, there are build slaves with `armv6l`, `armv7l`, and `armv8l` architectures. For [amd64][amd64] based devices, native `x86_64` build slaves are used. Finally the `armv5e` and `i386` architecture device types are always built using emulation.
+The build server consists of a central build server and a number of Docker daemons on build slaves. When a build is triggered, the builder first determines the CPU architecture of the fleet's default device type, and based on that determines what build slave will be used for the build. For [ARM][arm] device types, there are build slaves with `armv6l`, `armv7l`, and `armv8l` architectures. For [amd64][amd64] based devices, native `x86_64` build slaves are used. Finally the `armv5e` and `i386` architecture device types are always built using emulation.
 
-In the case where the `--emulated` flag is used, the build is built on an `x86_64` machine with qemu emulation to match the application's default device type CPU architecture.
+In the case where the `--emulated` flag is used, the build is built on an `x86_64` machine with qemu emulation to match the CPU architecture of the fleet's default device type.
 
-If you push a project with only a `Dockerfile`, `Dockerfile.template`, or `package.json` file, a single container image will be built and sent to your device. The single container will show up on the device dashboard as a service with the name `main`.
+If you push a project with only a `Dockerfile`, `Dockerfile.template`, or `package.json` file, a single container image will be built and deployed to your device. The single container will show up on the device dashboard as a service with the name `main`.
 
-For [multicontainer][multicontainer] applications (Microservices and Starter [application types][app-types]), a `docker-compose.yml` file at the root of the project directory will start multiple simultaneous image builds, each with their own [build logs](#release-logs).
+For [multicontainer][multicontainer] fleets (Microservices and Starter [fleet types][app-types]), a `docker-compose.yml` file at the root of the project directory will start multiple simultaneous image builds, each with their own [build logs](#release-logs).
 
 ## View Past Deployments
 
-All successful deployments will result in a release being added to {{$names.cloud.lower}}. These releases are tracked in their own dashboard page. You can access this page by clicking *Releases* from the application dashboard:
+All successful deployments will result in a release being added to {{$names.cloud.lower}}. These releases are tracked in their own dashboard page accessed via the fleet:
 
 ![Release list](/img/common/app/release_list.png)
 
@@ -215,7 +215,7 @@ Much like with the device list, [filters][filters] can be added to the release l
 [continuous-deployment]:https://en.wikipedia.org/wiki/Continuous_deployment
 [cli]:/reference/cli/#install-the-cli
 [cli-reference]:/reference/balena-cli/#deprecation-policy
-[cli-push-reference]:/reference/balena-cli/#push-applicationordevice
+[cli-push-reference]:/reference/balena-cli/#push-fleetordevice
 [cli-build-reference]:/reference/balena-cli/#build-source
 [cli-deploy-reference]:/reference/balena-cli/#build-source
 [cli-masterclass]:/learn/more/masterclasses/cli-masterclass/

@@ -5,13 +5,13 @@ excerpt: An efficient approach for updating previously deployed IoT devices when
 
 # Offline Updates
 
-Offline updates is a process to update devices without needing an internet connection. It involves preloading an image and reflashing it to on a device in a way that it retains its unique balena identity, apps, and configurations. This process helps in scenarios where a device's internet access is unavailable, limited, blocked, or even when it's air-gapped.
+Offline updates is a process to update devices without needing an internet connection. It involves preloading an image and reflashing it to on a device in a way that it retains its unique balena identity, releases, and configurations. This process helps in scenarios where a device's internet access is unavailable, limited, blocked, or even when it's air-gapped.
 
 ## Overview of the process
 
 When a device is reflashed, it defaults back to a factory state. The device is provisioned with a new identity, a new API key, and updated [`config.json`][config-file] settings. All services, data and logs stored on the device are erased permanently.
 
-With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`][config-file]. It uses [`balena preload`][balena-preload] to load an updated application release. That way, the device will pick up right where it left off with the same name and UUID but with an updated application release or/and balenaOS update.
+With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`][config-file]. It uses [`balena preload`][balena-preload] to load an updated release. That way, the device will pick up right where it left off with the same name and UUID but with an updated release or/and balenaOS update.
 
 Broad steps of the process include:
 
@@ -41,7 +41,7 @@ To perform an offline update, we will be using [balena-cli][balena-cli]. All com
 Offline update includes the following steps:
 
 - [Setup](#setup)
-- [Create/use pre-existing application](#createuse-pre-existing-application)
+- [Create/use pre-existing fleet](#createuse-pre-existing-fleet)
 - [Create/use pre-existing offline device](#createuse-pre-existing-offline-device)
 - [Download balenaOS image](#download-balenaos-image)
 - [Configure balenaOS image](#configure-balenaos-image)
@@ -72,28 +72,28 @@ $ ssh-keygen -o -a 100 -t ed25519 -f id_ed25519 -C 'offline-updates' -N ''
 $ ssh_key=id_ed25519.pub
 ```
 
-### Create/Use Pre-existing Application
+### Create/Use Pre-existing Fleet
 
 Initialize the `arch` and `device-type` environment variable with correct CPU architecture (`aarch64`, `armv7l`, etc.) and device type (`raspberrypi4-64`, `raspberrypi3`, etc.). The list of names for supported device types and their architectures can be found on the [hardware][supported-devices-list] page.
 
-If a pre-existing application needs to be re-used, then initialize the `app_name` variable with that application's name.
+If a pre-existing fleet needs to be re-used, then initialize the `fleet_name` variable with that fleet's's name.
 
 ```bash
 $ arch=<CPU ARCHITECTURE TYPE>
 $ device_type=<DEVICE_TYPE>
-$ app_name=offline-${arch}
+$ fleet_name=offline-${arch}
 ```
 
-These environment variables will be used later in the process. If a pre-existing application is needed to be used, then the next step can be skipped. Otherwise, create a new balenaCloud application by running [`balena app create`](https://www.balena.io/docs/reference/balena-cli/#app-create-name).
+These environment variables will be used later in the process. If a pre-existing fleet needs to be used, then the next step can be skipped. Otherwise, create a new balenaCloud fleet by running [`balena fleet create`](https://www.balena.io/docs/reference/balena-cli/#fleet-create-name).
 
 ```bash
-$ balena app create ${app_name} --type ${device_type}
+$ balena fleet create ${fleet_name} --type ${device_type}
 ```
 
-Initialize the `app_slug` environment variable with the command below to store the slug of the application.
+Initialize the `fleet_slug` environment variable with the command below to store the slug of the fleet.
 
 ```bash
-$ app_slug=$(balena app ${app_name} | grep SLUG | awk '{print $2}')
+$ fleet_slug=$(balena fleet ${fleet_name} | grep SLUG | awk '{print $2}')
 ```
 
 ### Create/Use Pre-existing Offline Device
@@ -108,10 +108,10 @@ OR
 $ uuid=<UUID OF YOUR DEVICE>
 ```
 
-With [`balena device register`][balena-device-register], devices can be preregistered to a balenaCloud application involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass][balena-cli advanced masterclass]. This step can be skipped if a pre-existing device is needed to be updated.
+With [`balena device register`][balena-device-register], devices can be preregistered to a balenaCloud fleet involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass][balena-cli advanced masterclass]. This step can be skipped if a pre-existing device is needed to be updated.
 
 ```bash
-$ balena device register ${app_slug} --uuid ${uuid}
+$ balena device register ${fleet_slug} --uuid ${uuid}
 ```
 
 ### Download balenaOS Image
@@ -148,7 +148,7 @@ $ cat < ${tmpconfig} \
     && cat < ${config} | jq .
 
 $ balena os configure ${tmpimg} \
-    --app ${app_slug} \
+    --fleet ${fleet_slug} \
     --device-type ${device_type} \
     --version ${os_version} \
     --config-network ethernet \
@@ -160,23 +160,23 @@ $ rm ${config}
 
 ### Create and Preload Release
 
-Offline updates revolve around the concept of [balena preload][balena-preload]. Preload is used to flash the balenaOS image and your application release in a single step, so the device starts running your application containers as soon as it boots. Preloading removes the need for your devices to download the initial application images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image][preloading-device-image].
+Offline updates revolve around the concept of [balena preload][balena-preload]. Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image][preloading-device-image].
 
 > Important note: [balena preload](https://github.com/balena-io/balena-cli/blob/master/INSTALL-MAC.md#balena-preload) functionality requires Docker with AUFS support.
 
-Preload involves flashing an application release with the balenaOS image. If the pre-existing application doesn't have any releases, then a release needs to be created using [`balena deploy`][balena-deploy]. Navigate to the directory of your source code folder and run the command below to deploy the latest release of your application. If a release is present already, then the next step can be skipped.
+Preload involves flashing a fleet's release with the balenaOS image. If the pre-existing fleet doesn't have any releases, then a release needs to be created using [`balena deploy`][balena-deploy]. Navigate to the directory of your source code folder and run the command below to deploy the latest release of your fleet. If a release is present already, then the next step can be skipped.
 
 ```bash
-$ balena deploy ${app_slug} --build --emulated --source .
+$ balena deploy ${fleet_slug} --build --emulated --source .
 ```
 
 The following steps will flash the latest release onto the balenaOS image downloaded in the previous steps and pin the device to mentioned release commit.
 
 ```bash
-$ commit=$(balena app ${app_slug} | grep COMMIT | awk '{print $2}')
+$ commit=$(balena fleet ${fleet_slug} | grep COMMIT | awk '{print $2}')
 
 $ balena preload ${tmpimg} \
-    --app ${app_slug} \
+    --fleet ${fleet_slug} \
     --commit ${commit} \
     --pin-device-to-release
 ```
@@ -202,9 +202,9 @@ $ rm ${tmpimg}
 
 > Warning: For devices with internal storage, this procedure erases the internal media of your device. Remove any mass storage devices containing user data.
 
-With the update media already having the latest release of the application preloaded, follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
+With the update media already having the latest release of the fleet preloaded, follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
 
-An example for Raspberry Pi devices: insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect application logs, etc.
+An example for Raspberry Pi devices: insert the recently flashed SD card and power up the device. When the process is complete, (re)connect any mass storage devices containing user data back to the device. Reconnect the device to the local air-gapped network(s). Later, use SSH to connect and inspect logs, etc.
 
 #### Strategies to remotely update with an SD card or USB device
 
@@ -274,7 +274,7 @@ Read more about how the process can work better for your use case in the [offlin
 [balenaOS]:{{ $links.osSiteUrl }}
 [insert-ssh-key]:/reference/OS/configuration/#sshkeys
 [balena-os-configure]:/reference/balena-cli/#os-configure-image
-[balena-device-register]:/reference/balena-cli/#device-register-application
+[balena-device-register]:/reference/balena-cli/#device-register-fleet
 [config-file]:/reference/OS/configuration/#valid-fields
 [balena-preload]:/reference/balena-cli/#preload
 [preloading-device-image]:/learn/more/masterclasses/advanced-cli/#51-preloading-a-device-image
