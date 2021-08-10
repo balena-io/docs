@@ -11,8 +11,6 @@ __Note:__ For additional information on working with multiple containers with {{
 
 This guide will cover the considerations you need to take into account when running multiple containers, including `docker-compose.yml` configuration and some important {{ $names.company.lower }} specific settings.
 
-__Note:__ Multicontainer functionality requires {{ $names.os.lower }} v2.12.0 or higher, and it is only available to microservices and starter [fleet types][app-types]. If you are creating a fleet and do not see microservices or starter as available fleet types, a multicontainer compatible OS version has not yet been released for the selected device type.
-
 ## docker-compose.yml file
 
 The multicontainer functionality provided by {{ $names.company.lower }} is built around the **[Docker Compose][docker-compose]** file format. The {{ $names.company.lower }} device supervisor implements a subset of the [Compose v2.1 feature set][compose-features]. You can find a full list of supported and known unsupported features in our [device supervisor reference docs][compose-support].
