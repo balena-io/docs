@@ -21,7 +21,7 @@ To run an update for an individual device, navigate to that device's *Actions* t
 
 ![Update device](/img/common/updates/update-os.png)
 
-Updates can also be made to multiple devices in the same application. From the device list, click the checkbox to the left of any online devices you wish to update. Then click the *Group Actions* button in the upper-right corner of the dashboard, followed by *Update {{ $names.os.lower }}*:
+Updates can also be made to multiple devices in the same fleet. From the device list, click the checkbox to the left of any online devices you wish to update. Then use the *Actions* dropdown in the upper-right corner of the dashboard, and choose the *Update {{ $names.os.lower }}* action:
 
 ![Device group update](/img/common/updates/group-update.png)
 

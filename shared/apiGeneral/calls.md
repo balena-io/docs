@@ -2,14 +2,14 @@
 
 The {{ $names.company.lower }} API uses the Open Data Protocol ([OData][odata]), which defines a standard set of tools for querying and modifying structured data. To help you get started, we'll go over some of the most common requests, but when you're ready to build more advanced API calls make sure to consult the [OData documentation][odata-docs].
 
-To construct an API call, it helps to understand a little about how the underlying data is structured. The {{ $names.company.lower }} data model consists of a number of connected resources. Resources include devices, applications, users, and more. When you make an API call, you are asking to either view, create, modify, or remove a resource. The *method* of the API call corresponds to the action you are trying to take:
+To construct an API call, it helps to understand a little about how the underlying data is structured. The {{ $names.company.lower }} data model consists of a number of connected resources. Resources include devices, fleets, users, and more. When you make an API call, you are asking to either view, create, modify, or remove a resource. The *method* of the API call corresponds to the action you are trying to take:
 
 - **GET:** view information about a resource
 - **POST:** create a new resource
 - **PATCH:** modify an existing resource
 - **DELETE:** remove a resource
 
-Knowing the resource you wish to act upon and the method you wish to act with is enough for some requests. For example, if you want to view all applications you have access to (which includes public applications), you can use the `GET` method and the `application` resource. Your API call would look like this:
+Knowing the resource you wish to act upon and the method you wish to act with is enough for some requests. For example, if you want to view all fleets you have access to (which includes public fleets), you can use the `GET` method and the `application` resource. Your API call would look like this:
 
 ```shell
 curl -X GET "{{ $links.apiBase }}/v5/application" \
@@ -17,7 +17,7 @@ curl -X GET "{{ $links.apiBase }}/v5/application" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
-If you want to limit this to only return applications related to the authenticated user, use the `my_application` resource. For example:
+If you want to limit this to only return fleets related to the authenticated user, use the `my_application` resource. For example:
 
 ```shell
 curl -X GET "{{ $links.apiBase }}/v5/my_application" \
@@ -25,7 +25,7 @@ curl -X GET "{{ $links.apiBase }}/v5/my_application" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
-Depending on the number of applications you have access to, this could return much more information than you need. There are two query methods that could help you with this: `$select` and `$filter`.
+Depending on the number of fleets you have access to, this could return much more information than you need. There are two query methods that could help you with this: `$select` and `$filter`.
 
 `$select` specifies which fields to return for each resource. By default, every field comes back as part of the response, but most use cases require only one or two of these pieces of information.
 

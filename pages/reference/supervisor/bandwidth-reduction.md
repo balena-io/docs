@@ -19,11 +19,11 @@ In order to give our power users control over data flow, we enabled a few `BALEN
 Side Effects / Warnings
 -------------------
 
-`BALENA_SUPERVISOR_VPN_CONTROL`: This defines the ability to send instantaneous updates to the device. Turning off the VPN means that any application or environment variable update is reflected only when the device polls for these changes. The Web Terminal does not function when the VPN is disabled. This also disables the public URLs functionality.
+`BALENA_SUPERVISOR_VPN_CONTROL`: This defines the ability to send instantaneous updates to the device. Turning off the VPN means that any configuration or variable update is reflected only when the device polls for these changes. The Web Terminal does not function when the VPN is disabled. This also disables the public URL functionality.
 
 `BALENA_SUPERVISOR_CONNECTIVITY_CHECK`: Defines the device's ability to test and indicate (via an LED when available) that it has issues with connectivity.
 
-`BALENA_SUPERVISOR_POLL_INTERVAL`: This defines the time interval when any changes made to the application, i.e either new code pushes or environment variables changes or VPN control changes are propagated to the device. Think of it as the interval when the device checks in with {{ $names.company.lower }} API to ask for new updates. Making this interval long, would mean that any change is only reflected in the device after this interval, if the VPN is not operational. (We suggest limiting this to less than 24 hours.)
+`BALENA_SUPERVISOR_POLL_INTERVAL`: This defines the time interval when any changes made to the fleet, i.e either new code pushes or environment variables changes or VPN control changes are propagated to the device. Think of it as the interval when the device checks in with {{ $names.company.lower }} API to ask for new updates. Making this interval long, would mean that any change is only reflected in the device after this interval, if the VPN is not operational. (We suggest limiting this to less than 24 hours.)
 
 `BALENA_SUPERVISOR_LOG_CONTROL`: Any logs written by the user container or the device Agent are not sent to the dashboard when this variable is set to false.
 
