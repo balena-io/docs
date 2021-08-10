@@ -32,8 +32,6 @@ title: FAQs
 
 Multiple container fleets are supported, beginning with {{ $names.os.lower }} v2.12.0. To run multiple containers, you will need to create or upgrade to a [starter or microservices type fleet][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
 
-**Note:** If you do not see an option to choose a starter or microservices fleet type, a multicontainer compatible OS version has not yet been released for the selected device type.
-
 If you are running a Docker-in-Docker setup, which builds a single container on the {{ $names.company.lower }} servers but has a `docker-compose.yml` file at the root of the project, you'll want to rename the file to something like `dind-compose.yml`. Then when you run Docker Compose in your container, you can use the `-f` flag with the new file name: `docker-compose -f dind-compose.yml up`.
 
 ##### Can I mix device types in a fleet?
