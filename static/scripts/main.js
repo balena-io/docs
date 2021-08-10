@@ -16,7 +16,6 @@ require('bootstrap')
 require('jquery-colorbox')
 require('bootstrap-select')
 
-require('../css/Montserrat.css')
 require('bootstrap/dist/css/bootstrap.min.css')
 require('jquery-colorbox/example3/colorbox.css')
 require('bootstrap-select/dist/css/bootstrap-select.min.css')

@@ -1,8 +1,9 @@
 body {
   margin-top: 61px;
-  font-family: "Open Sans", "Montserrat", Arial, sans-serif;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 14px;
   font-weight: 400;
-  background: #f7f7f9;
+  background: #f8f9fd;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -74,7 +75,7 @@ article .headroom {
   border: 0;
   border-left: 1px solid #9e9e9d;
   border-bottom: 1px solid transparent;
-  font-weight: bold;
+  font-weight: normal;
   color: white;
 }
 
@@ -94,7 +95,7 @@ article .headroom {
 
 .sidebar .nav-menu a {
   font-size: 13px;
-  color: #429ece;
+  color: #00aeef;
   display: block;
   padding: 0;
 }
@@ -112,7 +113,7 @@ article .headroom {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #6b6d73;
+  color: #527699;
   font-weight: 600;
   margin-bottom: 15px;
   margin-top: 15px;
@@ -155,17 +156,8 @@ article .headroom {
   text-decoration: none;
 }
 
-.sidebar .nav-menu li.active {
-  /*background: #429ece;*/
-}
-
-.sidebar .nav-menu li.active:hover {
-  /*background: #429ece;*/
-}
-
 .sidebar .nav-menu li.active a {
   font-weight: 600;
-  /*color: #fff;*/
   text-decoration: none;
 }
 
@@ -223,7 +215,7 @@ article .headroom {
 }
 
 .page-content {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   color: #606060;
 }
@@ -234,7 +226,11 @@ article .headroom {
 }
 
 .page-content a {
-  color: #429ece;
+  color: #00aeef;
+}
+
+.page-content a:hover {
+  color: #009dd7;
 }
 
 .page-content img {
@@ -243,16 +239,15 @@ article .headroom {
   display: block;
 }
 
-.page-content h1,
+/* .page-content h1,
 .page-content h2,
 .page-content h3,
 .page-content h4,
 .page-content h5,
 .page-content h6 {
-  font-family: "Montserrat";
-  font-weight: 600;
-  color: #444547;
-}
+  font-family: "Source Sans Pro";
+  color: #2a506f;
+} */
 
 .page-content h1,
 .page-content h2,
@@ -264,9 +259,11 @@ article .headroom {
 }
 
 .page-content h1 {
-  font-size: 36px;
+  font-size: 34px;
+  line-height: 44px;
   margin-top: 0;
   padding-top: 0;
+  letter-spacing: 0.1px;
 }
 
 .page-content h2 {
@@ -274,22 +271,24 @@ article .headroom {
   border-bottom: 1px solid #e6e8eb;
   padding-bottom: 17px;
   margin-top: 0;
+  letter-spacing: 0.1px;
 }
 
 .page-content h3 {
-  font-weight: 400;
-  font-size: 20px;
-  color: #444547;
+  font-size: 24px;
+  letter-spacing: 0.1px;
 }
 
 .page-content h4 {
+  font-size: 18px;
   margin-top: 33px;
   margin-bottom: 18px;
-  font-size: 18px;
+  letter-spacing: 0.1px;
 }
 
 .page-content h5 {
   font-size: 16px;
+  letter-spacing: 0.1px;
 }
 
 .page-content code {
@@ -394,24 +393,24 @@ header.sticky {
 
 .btn-primary {
   color: #474747;
-  background-color: #fcc100;
-  border-color: #fcc100;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 .btn-primary:hover {
   color: #474747;
-  background-color: #c99a00;
-  border-color: #bf9200;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 
 /* dynamic-switch */
 .dynamic-switch {
-  background: #545252;
+  background: #23445e;
   color: white;
 }
 
 .dynamic-switch a {
-  color: #429ece;
+  color: #00aeef;
 }
 
 .dynamic-switch .dynamic-switch__append {
