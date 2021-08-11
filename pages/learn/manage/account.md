@@ -22,7 +22,7 @@ Access tokens are used for authentication in the {{ $names.company.lower }} [API
 
 <img src="/img/common/preferences/access_tokens.png" width="100%">
 
-There are two types of access tokens: session tokens and API keys. Both authentication types provide user-level permissions, meaning any user or application with one of these tokens can make changes across devices, applications, and the user account.
+There are two types of access tokens: session tokens and API keys. Both authentication types provide user-level permissions, meaning any user or application with one of these tokens can make changes across devices, fleets, and the user account.
 
 ### Session tokens
 
@@ -54,9 +54,9 @@ To revoke one or more API keys, select the boxes to the left of the tokens you w
 
 API keys can also be generated using the API, [CLI][cli-keys], and [Node.js][node-sdk-keys] and [Python][python-sdk-keys] SDKs.
 
-## Application members
+## Fleet members
 
-When an application needs to be shared with more than one user, the application owner can add new members. With paid accounts, it's possible to assign a level of access for a new member, based on the following types:
+When a fleet needs to be shared with more than one user, the fleet owner can add new members. With paid accounts, it's possible to assign a level of access for a new member, based on the following types:
 
 ### Member types
 
@@ -69,53 +69,47 @@ When an application needs to be shared with more than one user, the application 
 
 #### Administrator
 
-A new application in balenaCloud can only be created by an [administrator][administrator] of an organization. Administrators are the only users who can add other application members or delete the application. Learn more about the [administrator role][administrator] in an organization.
+A new fleet in balenaCloud can only be created by an [administrator][administrator] of an organization. Administrators are the only users who can add other fleet members or delete the fleet. Learn more about the [administrator role][administrator] in an organization.
 
 #### Observer
 
-Observers are given read-only access to the application and its devices. They are not able to modify, add, or remove any devices, nor are they able to perform device actions. This role can only be assigned by application owners on paid plans.
+Observers are given read-only access to the fleet and its devices. They are not able to modify, add, or remove any devices, nor are they able to perform device actions. This role can only be assigned by fleet owners on paid plans.
 
 #### Operator
 
-Operators have all the access given to observers, plus the ability to manage an application's devices. This means operators can add and remove devices, generate & revoke provisioning API keys, perform device actions, and modify device tags, metadata, and environment variables. Operators also have full [SSH access][ssh] to the application's devices. This role can only be assigned by application owners on paid plans.
+Operators have all the access given to observers, plus the ability to manage a fleet's devices. This means operators can add and remove devices, generate & revoke provisioning API keys, perform device actions, and modify device tags, metadata, and environment variables. Operators also have full [SSH access][ssh] to the fleet's devices. This role can only be assigned by fleet owners on paid plans.
 
 #### Developer
 
-Developers are given, in addition to the access provided to operators, the ability to manage an application. This includes pushing new code, modifying fleet-wide environment variables, running application actions, and downloading application images. This role is the closest to an application owner—developers can do everything owners can except for deleting the application or adding new members. The Developer role can be assigned by application owners on free or paid accounts, and it is the only role available for [Starter][starter] applications.
+Developers are given, in addition to the access provided to operators, the ability to manage fleet software. This includes creating new releases, modifying fleet variables, and downloading balenaOS images. This role is the closest to a fleet owner—developers can do everything owners can except for deleting the fleet or adding new members. The Developer role can be assigned by fleet owners on free or paid accounts, and it is the only role available for [Starter][starter] fleets.
 
-### Add an application member
+### Add a fleet member
 
-To add a new member to your application, click on the *Members* tab of the application summary page:
+To add a new member to your fleet, click on the *Members* tab of the fleet:
 
 <img alt="Members Tab" src="/img/common/app/members_tab.png" width="15%">
 
-This brings up a list of all application members, if any have been assigned. Click on the *Add member* button in the top left:
+This brings up a list of all fleet members, if any have been assigned. Click on the *Add member* button in the top left:
 
 <img alt="Create Application Member" src="/img/common/app/add_member.png" width="100%">
 
-The *Add application member* dialog has a dropdown with descriptions of the member types, as well as information about which types are available based on your billing plan. Choose a level of access, then enter the username or email address of the new application member:
+The *Add member* dialog has a dropdown with descriptions of the member types, as well as information about which types are available based on your billing plan. Choose a level of access, then enter the username or email address of the new member:
 
 <img alt="Add Application Member" src="/img/common/app/member_dialog.png" width="60%">
 
-__Note:__ Application members must have already [signed up][signup] for a {{ $names.company.lower }} account before they can be added to an application.
+__Note:__ Fleet members must have already [signed up][signup] for a {{ $names.company.lower }} account before they can be added to a fleet.
 
-After you click *Add*, you will see the username of the new application member in the list. From here, you can edit access levels or remove the user if necessary:
+After you click *Add*, you will see the username of the new member in the list. From here, you can edit access levels or remove the user if necessary:
 
 <img alt="List Application Members" src="/img/common/app/member_list.png" width="100%">
 
-All users that have been added to an application will see that application in their dashboard, with an indicator to designate it has been shared by the application owner:
+All users that have been added to a fleet will see that fleet in their dashboard, with an indicator to designate it has been shared by the fleet owner:
 
 <img alt="Shared Application" src="/img/common/app/shared_app.png" width="40%">
 
-In addition to the application actions permitted by the assigned member role, application members will have the option to remove themselves from an application. This is done by clicking the *Actions* tab from the application summary page, then clicking *Remove Member Access*:
+Fleet members will have the option to remove themselves from a fleet by clicking on the members tab. Selecting their name from the member list, clicking on the *Actions* tab and selecting *delete member*.
 
-<img at="Remove Application Member" src="/img/common/app/remove_access.png" width="100%">
-
-Alternatively, members may remove themselves from an application by clicking on the delete (trash can) icon on the *Members* tab.
-
-<img alt="Remove Application Member Alternative" src="/img/common/app/remove_access_members.png" width="100%">
-
-__Warning:__ If you remove your member access to an application, you will not be able to undo the action. Only the application owner will be able to restore your access.
+__Warning:__ If you remove your member access to an fleet, you will not be able to undo the action. Only the fleet owner will be able to restore your access.
 
 ## Two-factor Authentication
 
@@ -135,11 +129,11 @@ __Note:__ Two-factor authentication will only be enabled once you have finished 
 
 <img alt="Two-factor authentication pairing" src="/img/common/preferences/pairing_2fa.png" width="80%">
 
-In order to use your phone/computer as your added layer of security you will need to download a free authenticator application. There are many available, but one that works well and has been successfully tested against {{ $names.company.lower }} is [Google Authenticator][google-auth] - download it for [Android][google-auth-android] or [iOS][google-auth-ios].
+In order to use your phone/computer as your added layer of security you will need to download a free authenticator app. There are many available, but one that works well and has been successfully tested against {{ $names.company.lower }} is [Google Authenticator][google-auth] - download it for [Android][google-auth-android] or [iOS][google-auth-ios].
 
 Once installed, navigate to the barcode scanner:
 
-__Note:__ The Android application is shown here - if you already have accounts installed, tap the 3 vertical dots in the top right-hand corner and select 'Set up account', otherwise you should be given the option when you first start the app.
+__Note:__ The Android app is shown here - if you already have accounts installed, tap the 3 vertical dots in the top right-hand corner and select 'Set up account', otherwise you should be given the option when you first start the app.
 
 ![Google Authenticator Scan Barcode Menu](/img/screenshots/2fa3mobile1.png)
 
@@ -149,7 +143,7 @@ Once configured, you'll see a 6 digit generated code with a graphic beside it in
 
 ![Google Authenticator Codes](/img/screenshots/2fa3mobile2.png)
 
-Next, you'll need to input the displayed code into the 'Pairing code' input on the preferences page. If successful, you will be shown recovery codes that may be used in the event that you cannot access your two-factor authentication application. These codes should be downloaded and stored in a safe place.
+Next, you'll need to input the displayed code into the 'Pairing code' input on the preferences page. If successful, you will be shown recovery codes that may be used in the event that you cannot access your two-factor authentication app. These codes should be downloaded and stored in a safe place.
 
 <img alt="Two-factor authentication recovery codes" src="/img/common/preferences/recovery_codes_2fa.png" width="100%">
 
@@ -159,7 +153,7 @@ To disable two-factor authentication, visit the _Two-factor Authentication_ tab 
 
 <img alt="Two-factor authentication recovery codes" src="/img/common/preferences/disable_2fa.png" width="100%">
 
-### List of verified authenticator applications
+### List of verified authenticator apps
 
 * [Google Authenticator](https://support.google.com/accounts/answer/1066447)
 * [Authy](https://www.authy.com)
@@ -167,7 +161,7 @@ To disable two-factor authentication, visit the _Two-factor Authentication_ tab 
 
 ## Delete account
 
-If you wish to delete your {{ $names.cloud.lower }} account, go to your [_Preferences_][prefs] page, and under the _Account Details_ tab, select the _Delete Account_ button. You will need to confirm this action by entering your password. If your account does not have a password, you will be prompted to set one in your account preferences. Upon confirmation, the account will be permanently deleted, including all applications and devices. If you would also like to request deletion of your data in accordance with GDPR, please refer to the instructions in our [privacy policy][privacy-policy].
+If you wish to delete your {{ $names.cloud.lower }} account, go to your [_Preferences_][prefs] page, and under the _Account Details_ tab, select the _Delete Account_ button. You will need to confirm this action by entering your password. If your account does not have a password, you will be prompted to set one in your account preferences. Upon confirmation, the account will be permanently deleted, including all fleets and devices. If you would also like to request deletion of your data in accordance with GDPR, please refer to the instructions in our [privacy policy][privacy-policy].
 
 ![Delete {{ $names.company.lower }} Account](/img/screenshots/delete-balena-account.png)
 
