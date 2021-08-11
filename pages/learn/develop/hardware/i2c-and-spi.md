@@ -84,7 +84,6 @@ This can be done in two ways:
 ```
 BALENA_HOST_CONFIG_dtoverlay = pi3-miniuart-bt
 ```
-If you can't find the where to add this configuration go to this page on your dashboard: dashboard.balena-cloud.com/apps/`APP_ID`/config but replace `APP_ID` with the number of your fleet.
 
 2. The second, more manual way to enable this configuration is to mount the SD card on your development machine. Find the `resin-boot` partition and in there you should see the Raspberry Pi's boot files, one of which is called `config.txt`. Open this file up and add the following line to the end of the file:
 ```
@@ -153,7 +152,7 @@ so won't work with the 16M GPU split.
 ### Customizing config.txt
 These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings in the `config.txt` file on the SD cards `boot` partition. See [here](/configuration/advanced/) for more details.
 
-You can also set all of these variables remotely in the Device Configuration (for a single device) or Fleet Configuration (for all devices within an fleet) menu. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `BALENA_HOST_CONFIG_variable` set to the value `value`. For example:
+You can also set all of these variables remotely in the Device Configuration (for a single device) or Fleet Configuration (for all devices within a fleet) menu. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `BALENA_HOST_CONFIG_variable` set to the value `value`. For example:
 
 ![Setting the device configuration for Raspberry Pi config.txt variables](/img/hardware/host_config.png)
 
@@ -272,7 +271,7 @@ The Edison needs a kernel module to be loaded to trigger the UBS HOST mode. This
 Your Edison will need to be powered externally for the USB host mode to be active - Either through the DC jack on the Arduino board or through the battery connector on the smaller Intel carrier board.
 
 ##### Software Pre-requisites:
-The following code needs to be placed at the start before any device operations run in the services.
+The following code needs to be placed at the start before any device operations run in the container.
 ```Bash
 #!/bin/bash
 

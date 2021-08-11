@@ -7,7 +7,7 @@ excerpt: A guide to using container contracts to enforce device compatibility
 
 **Note** Container contracts are available for devices running Supervisor versions >= 10.6.17. All prior versions will not enforce any contracts.
 
-Container contracts are used to ensure the compatibility of a device to run an individual service of a fleet. For example, container contracts may be used to ensure that the device is running a specific version of [Supervisor][supervisor] or has a specific version of the [NVIDIA Tegra Linux Driver Package][l4t] (L4T).
+Container contracts are used to ensure the compatibility of a device when it comes to run a service. For example, container contracts may be used to ensure that the device is running a specific version of [Supervisor][supervisor] or has a specific version of the [NVIDIA Tegra Linux Driver Package][l4t] (L4T).
 
 Container contracts are enforced on the device via the device Supervisor. Each service can define the contract requirements that it enforces, and if a contract's requirements are not met, the release is not deployed to the device, unless it contains services labeled as [optional](#optional-containers). You only need to define a contract for services that you wish to enforce a contract upon. Currently, you may define contract requirements based on the versions of Supervisor and L4T.
 
@@ -67,7 +67,7 @@ requires:
 
 **Note** Any `requires` type other than those listed in the [valid contract types][valid-contracts] table will result in the contract being invalid.
 
-When deploying a release, if the contract requirements are not met, the release will fail, and all services on the device will remain on their current release. This default behavior can be overridden by including an [optional label](#optional-containers) in the fleet docker-compose.yml file. This optional label specifies which services with unmet requirements will be ignored, with all other services on the device updating to the new release. If there are any existing running services with unmet requirements, they will not be destroyed and continue running the prior release.
+When deploying a release, if the contract requirements are not met, the release will fail, and all services on the device will remain on their current release. This default behavior can be overridden by including an [optional label](#optional-containers) in the docker-compose.yml file for the release. This optional label specifies which services with unmet requirements will be ignored, with all other services on the device updating to the new release. If there are any existing running services with unmet requirements, they will not be destroyed and continue running the prior release.
 
 Should a contract fail, the dashboard logs will contain detail about the failing contract:
 
@@ -80,9 +80,9 @@ Contracts: Services with unmet requirements: first-service
 
 ## Optional containers
 
-By default, when a container contract fails, none of the services are deployed to the device. However, in a multi-container fleet, it is possible to ignore those services that fail the contract requirements with the other services being deployed as normal. To do so, we make use of the `io.balena.features.optional: 1` [Supervisor label][labels] to indicate which services should be considered optional.
+By default, when a container contract fails, none of the services are deployed to the device. However, in a multi-container release, it is possible to ignore those services that fail the contract requirements with the other services being deployed as normal. To do so, we make use of the `io.balena.features.optional: 1` [Supervisor label][labels] to indicate which services should be considered optional.
 
-In the `docker-compose.yml` file of the fleet, add the `io.balena.features.optional: 1` to the labels list for each service you wish to mark as optional. In the following example, even if the `first-service` container contract fails, the `second-service` service will still be deployed (assuming it doesn’t have any failing contracts of its own).
+In the `docker-compose.yml` file, add the `io.balena.features.optional: 1` to the labels list for each service you wish to mark as optional. In the following example, even if the `first-service` container contract fails, the `second-service` service will still be deployed (assuming it doesn’t have any failing contracts of its own).
 
 ```Dockerfile
 version: '2'

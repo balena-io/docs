@@ -5,7 +5,7 @@ excerpt: Use Dockerfiles to package your {{ $names.company.lower }} services and
 
 # Define a container
 
-{{ $names.company.upper }} uses [Docker][docker] containers to manage fleets. You can use one or more containers to package your services with whichever environments and tools they need to run.
+{{ $names.company.upper }} uses [Docker][docker] containers to manage deployment and updates. You can use one or more containers to package your services with whichever environments and tools they need to run.
 
 To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image][docker-images-containers]. Whether the build process is done [on your device][local-mode], [on your workstation][local-build], or on the [{{ $names.company.lower }} builders][builders], the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the {{ $names.os.lower }} version) to kick off a running container.
 
@@ -33,7 +33,7 @@ For details on other instructions, consult the official [Dockerfile documentatio
 
 ### Using Dockerfiles with {{ $names.company.lower }}
 
-To deploy a single-container fleet to {{ $names.company.lower }}, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
+To deploy a single-container release to {{ $names.company.lower }}, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
 
 {{> "general/labels-version-note"}}
 
@@ -59,7 +59,7 @@ services:
       io.balena.features.balena-api: '1'
 ```
 
-Fleets with multiple services should include a `Dockerfile` or `package.json` in each service directory. A `docker-compose.yml` file will need to be defined at the root of the repository, as discussed in our [multicontainer documentation][multicontainer].
+Releases with multiple services should include a `Dockerfile` or `package.json` in each service directory. A `docker-compose.yml` file will need to be defined at the root of the repository, as discussed in our [multicontainer documentation][multicontainer].
 
 You can also include a `.dockerignore` file with your project if you wish the builder to ignore certain files.
 
@@ -86,7 +86,7 @@ CMD ["node", "/usr/src/app/main.js"]
 This template will build and deploy a Node.js project for any of the devices supported by {{ $names.company.lower }}, regardless of whether the device architecture is [ARM][ARM-link] or [x86][x86-link].
 In this example, you can see the build variable `%%{{ $names.company.allCaps }}_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. See below for a list of machine names.
 
-The machine name is inferred from the device type of the fleet you are pushing to. So if you have an Intel Edison fleet, the machine name will be `intel-edison` and an `i386` architecture base image will be built.
+The machine name is inferred from the device type of the fleet you are deploying on. So if you have a NanoPi Neo Air fleet, the machine name will be `nanopi-neo-air` and an `armv7hf` architecture base image will be built.
 
 __Note:__ You need to ensure that your dependencies and Node.js modules are also multi-architecture, otherwise you will have a bad time.
 
@@ -106,13 +106,13 @@ Here are the supported machine names and architectures:
 
 There are cases when you would need a higher granularity of control when specifying build instructions for different devices and architectures than a single Dockerfile template can provide. An example of this would be when different configuration or installation files are required for each architecture or device.
 
-When deploying a fleet, the balenaCloud build servers or the balena CLI tool (depending on the deployment method used) look at all available Dockerfiles and build the appropriate image using the following order of preference:
+When creating a release, the balenaCloud build servers or the balena CLI tool (depending on the deployment method used) look at all available Dockerfiles and build the appropriate image using the following order of preference:
 
 * Dockerfile.\<device-type>
 * Dockerfile.\<arch>
 * Dockerfile.template
 
-As an example, let's say you have two Dockerfiles available, `Dockerfile.raspberrypi3` and `Dockerfile.template`. Whenever you publish the application to balenaCloud, if the fleet `device-type` is a Raspberry Pi 3, `Dockerfile.raspberrypi3` will be selected as an exact match and for all other devices the builder will automatically select `Dockerfile.template`.
+As an example, let's say you have two Dockerfiles available, `Dockerfile.raspberrypi3` and `Dockerfile.template`. Whenever you publish the application to balenaCloud, if the fleet `device-type` is Raspberry Pi 3, `Dockerfile.raspberrypi3` will be selected as an exact match and for all other devices the builder will automatically select `Dockerfile.template`.
 
 Note that this feature works with the following commands: `git push`, `balena push`, `balena build`, and `balena deploy`.
 
@@ -122,7 +122,7 @@ Note that this feature works with the following commands: `git push`, `balena pu
 
 When you push your code to your fleet, the build server generates a [container][container] for the environment your device operates in, deploys your code to it and runs `npm install` to resolve [npm][npm] dependencies, reporting progress to your terminal as it goes.
 
-If the build executes successfully the container is shipped over to your device where the supervisor runs it in place of any previously running containers, using `npm start` to execute your code (note that if no start script is specified, it defaults to running `node server.js`.)
+If the build executes successfully the release is deployed to your device where the supervisor runs it in place of any previously running containers, using `npm start` to execute your code (note that if no start script is specified, it defaults to running `node server.js`.)
 
 ### Node.js Example
 

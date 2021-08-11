@@ -5,7 +5,7 @@ excerpt: A guide to running multiple containers with Docker Compose and {{ $name
 
 # Multiple containers
 
-As your apps grow more complex, you may find significant benefit in running some services in separate containers. Splitting your app into multiple containers allows you to better isolate and maintain key services, providing a more modular and secure approach to fleet management. Each service can be packaged with the operating environment and tools it specifically needs to run, and each service can be limited to the minimum system resources necessary to perform its task. The benefits of multicontainer fleets compound as the complexity of the app grows. With multicontainers, each service is updated independently. Hence, larger apps can be developed and maintained by separate teams, each free to work in a way that best supports their service.
+As your apps grow more complex, you may find significant benefit in running some services in separate containers. Splitting your app into multiple containers allows you to better isolate and maintain key services, providing a more modular and secure approach to fleet management. Each service can be packaged with the operating environment and tools it specifically needs to run, and each service can be limited to the minimum system resources necessary to perform its task. The benefits of multicontainer fleets compound as the complexity of the app grows. With multicontainer, each service is updated independently. Hence, larger apps can be developed and maintained by separate teams, each free to work in a way that best supports their service.
 
 __Note:__ For additional information on working with multiple containers with {{$names.company.lower}} see the [services masterclass][services-masterclass].
 
@@ -15,9 +15,9 @@ This guide will cover the considerations you need to take into account when runn
 
 The multicontainer functionality provided by {{ $names.company.lower }} is built around the **[Docker Compose][docker-compose]** file format. The {{ $names.company.lower }} device supervisor implements a subset of the [Compose v2.1 feature set][compose-features]. You can find a full list of supported and known unsupported features in our [device supervisor reference docs][compose-support].
 
-At the root of your multicontainer fleet, you'll use a `docker-compose.yml` file to specify the configuration of your containers. The `docker-compose.yml` defines the services you'll be building, as well as how the services interact with each other and the host OS.
+At the root of your multicontainer release, you'll use a `docker-compose.yml` file to specify the configuration of your containers. The `docker-compose.yml` defines the services you'll be building, as well as how the services interact with each other and the host OS.
 
-Here's an example `docker-compose.yml` for a [simple multicontainer fleet][simple-app], composed of a static site server, a websocket server, and a proxy:
+Here's an example `docker-compose.yml` for a [simple multicontainer release][simple-app], composed of a static site server, a websocket server, and a proxy:
 
 ```yaml
 version: '2'
@@ -86,7 +86,7 @@ services:
             - 'resin-data:/data'
 ```
 
-For devices upgraded from older versions of {{ $names.os.lower }} to v2.12.0 or higher, a link will automatically be created from the `/data` directory of the container to the `resin-data` named volume (similar to above). This ensures fleet behavior will remain consistent across host OS versions. One notable difference is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<APP ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<APP ID>` location used with earlier host OS versions.
+For devices upgraded from older versions of {{ $names.os.lower }} to v2.12.0 or higher, a link will automatically be created from the `/data` directory of the container to the `resin-data` named volume (similar to above). This ensures fleet behavior will remain consistent across host OS versions. One notable difference is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<FLEET ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<FLEET ID>` location used with earlier host OS versions.
 
 ### Labels
 

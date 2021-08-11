@@ -6,7 +6,7 @@ thumbnail: /img/common/device/running-webterminal-session.png
 
 # Communicate outside the container
 
-For many apps, the code running in your container will need some way to communicate with outside services and devices, whether this means the host OS, the device supervisor, the network, or internal and external storage. Below, you'll find different methods for external communication, as well as some tips and tricks to keep in mind.
+In many situations, the code running in your container will need some way to communicate with outside services and devices, whether this means the host OS, the device supervisor, the network, or internal and external storage. Below, you'll find different methods for external communication, as well as some tips and tricks to keep in mind.
 
 ## Host OS
 
@@ -189,7 +189,7 @@ Alternatively, it is possible to reboot the device via the D-Bus interface as de
 
 ### Writing to logs on the Dashboard
 
-Anything written from the app to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our [example projects][projects-github] on GitHub to get an idea of how to do this.
+Anything written to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our [example projects][projects-github] on GitHub to get an idea of how to do this.
 
 ## Network
 
@@ -198,17 +198,17 @@ Anything written from the app to `stdout` and `stderr` should appear on the devi
 * Host mode allows a service to use all host network interfaces.
 * Bridge mode uses a user-defined bridge network interface, to which service containers are connected.
 
-Any service that uses host networking does not have to define ports for traffic ingress, and a service can bind to all interfaces of the host. Single container fleets always use host networking.
+Any service that uses host networking does not have to define ports for traffic ingress, and a service can bind to all interfaces of the host. Single container releases always use host networking.
 
-In contrast to host networking, bridge networks isolate all services from the host, requiring services to explicitly define open ports to allow traffic from the host to be passed to them (all outgoing traffic is permitted). By default, multicontainer fleets use a bridge network.
+In contrast to host networking, bridge networks isolate all services from the host, requiring services to explicitly define open ports to allow traffic from the host to be passed to them (all outgoing traffic is permitted). By default, multicontainer releases use a bridge network.
 
-### Single container fleets
+### Single container
 
-Single container fleets always use host networking, allowing them to bind to any of the host's network interfaces. If security and sandboxing are required for either privilege level or to ensure self-contained networking, then a multicontainer fleet should be used, even if only a single service is required.
+Single container releases always use host networking, allowing them to bind to any of the host's network interfaces. If security and sandboxing are required for either privilege level or to ensure self-contained networking, then a multicontainer release should be created, even if only a single service is required.
 
-### Multicontainer fleets
+### Multicontainer
 
-Multicontainer fleets use a user-defined bridge network by default. No ports are exposed to the host and must be explicitly enabled through the `ports` [keyword][network-ports]. Services on the same bridge network have access to all other services' ports.
+Multicontainer releases use a user-defined bridge network by default. No ports are exposed to the host and must be explicitly enabled through the `ports` [keyword][network-ports]. Services on the same bridge network have access to all other services' ports.
 
 The following [sample multicontainer][multicontainer] `docker-compose.yml` file allows incoming traffic on port 80 to the `proxy` service, but the `frontend` and `data` services are isolated from the host and only accessible via the bridge network, which all services are connected to.
 
@@ -234,7 +234,7 @@ services:
 
 __Note:__ Exposing ports via the expose keyword is optional and a way of documenting which ports are used, but does not map or open any ports. By default, services on the same bridge network have access to all other services' ports.
 
-For multicontainer fleets, setting the service `network_mode` to `host` in `docker-compose.yml` allows the container to share the same network namespace as the host OS.
+For multicontainer releases, setting the service `network_mode` to `host` in `docker-compose.yml` allows the container to share the same network namespace as the host OS.
 
 {{ $names.company.upper }} `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` [keyword][network-aliases] for providing alias names for services (including FQDNs) and [IPAM bridge networks][network-ipam] are also supported.
 
