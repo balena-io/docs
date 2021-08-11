@@ -29,7 +29,7 @@ Fleet-wide variables can be found from the Fleet Summary page by clicking the *V
 
 To define a new variable, click the *Add variable* button in the upper-left corner.
 
-<img alt="Add variable" src="/img/variables/add_application_variable.png" width="80%">
+<img alt="Add variable" src="/img/variables/add_fleet_variable.png" width="80%">
 
 In the dialog box that opens, select either a specific service or all services to apply the variable too.
 
@@ -66,7 +66,7 @@ You can override the value of a fleet variable by clicking *override* in the far
 The {{ $names.company.lower }} CLI and SDKs all include methods to easily read, add or update variables. Consult the appropriate reference for code examples.
 
 * [CLI environment reference](/tools/cli/#envs)
-* [Node.js SDK environment reference](/reference/sdk/node-sdk/#balena.models.application.envVar)
+* [Node.js SDK environment reference](/reference/sdk/node-sdk/#balena.models.fleet.envVar)
 * [Python SDK environment reference](/reference/sdk/python-sdk/#environmentvariable)
 
 [local-mode]:/learn/develop/local-mode
