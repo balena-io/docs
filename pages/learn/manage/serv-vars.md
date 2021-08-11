@@ -18,9 +18,9 @@ Values can be up to 1MB (or approximately 1 million characters) in size each. No
 
 ## Fleet environment and service variables
 
-Environment and service variables defined at the fleet level are available to all devices in that fleet unless they are redefined with a variable of the same name at the device level.
+Variables defined at the fleet level are available to all devices in that fleet unless they are redefined with a variable of the same name at the device level.
 
-They can be found from the application summary page under the *Environment Variables* and *Service Variables* tabs.
+They can be found from the fleet summary page under the *Variables* tab.
 
 To define a new variable, click the *Add variable* button in the upper-left corner:
 
