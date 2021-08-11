@@ -90,7 +90,7 @@ If your application generates enough log data that you need an analytics platfor
 
 ### Update testing
 
-Make sure to test all the update functionality you can before your devices are out in the wild and inaccessible. For both the application and host OS updates, {{ $names.company.lower }} includes a number of features to make sure the update process doesn't affect your ability to connect to your devices and restore functionality, but you'll still want to understand the factors that can affect the update process.
+Make sure to test all the update functionality you can before your devices are out in the wild and inaccessible. For both release and host OS updates, {{ $names.company.lower }} includes a number of features to make sure the update process doesn't affect your ability to connect to your devices and restore functionality, but you'll still want to understand the factors that can affect the update process.
 
 Specifically, think about testing:
 

@@ -15,11 +15,11 @@ A snapshot of code collected into one or more Docker images.
 
 ### Fleet
 
-A set of releases and a set of devices, encompassing the code and history of the code that applies to a fleet.
+A group of devices sharing the same releases, variables, configuration, settings and members.
 
 ### Service
 
-An independently deployable component of a fleet, packaged into a Docker image and run as a container.
+A component of a release, packaged into a Docker image and run as a container.
 
 ### Device supervisor
 
@@ -27,7 +27,7 @@ An independently deployable component of a fleet, packaged into a Docker image a
 
 ### {{ $names.os.upper }} image
 
-A versioned build of the host OS, specific to an fleet and device type.
+A versioned build of the host OS, specific to a fleet and device type.
 
 ### Base image
 
