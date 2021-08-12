@@ -8,17 +8,17 @@ title: Welcome
 
 Our [{{ $names.company.lower }} primer][primer] covers the platform from end to end, walking through all the pieces and how they fit together. We've also defined some [core concepts][concepts] you'll see throughout the documentation.
 
-Ready to dive in? The [getting started guides][getting-started] take you step-by-step through provisioning your first device and deploying your first application.
+Ready to dive in? The [getting started guides][getting-started] take you step-by-step through creating your first fleet, provisioning your first device and deploying your first release.
 
-Once you're up on the basics, we've got all the info you need to build even the most advanced applications and manage larger fleets:
+Once you're up on the basics, we've got all the info you need to build and manage larger fleets with more advanced functionality:
 
 ### [Develop][develop]
 
-As you develop your application, these guides will help you configure and package your services, ensuring you have the proper container setup and that you can interact with hardware and system resources.
+As you develop your application and grow your fleet, these guides will help you configure and package your services, ensuring you have the proper container setup and that you can interact with hardware and system resources.
 
 ### [Deploy][deploy]
 
-When you're ready to bring your application from one device to a fleet, read up on the basics of the {{ $names.company.lower }} build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
+When you're ready to bring your application from one device to an entire fleet, read up on the basics of the {{ $names.company.lower }} build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
 
 ### [Manage][manage]
 
@@ -43,4 +43,3 @@ You can also check out our [public roadmap][roadmap] and share your ideas and fe
 [reference]:/reference
 [help]:/learn/welcome/support
 [roadmap]:https://trello.com/b/9CSzdCXQ/balena-product-roadmap
-
