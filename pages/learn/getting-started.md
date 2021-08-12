@@ -29,11 +29,11 @@ A fleet is a group of devices that share the same [architecture][architecture] a
 
 To create your first fleet, log into your [{{ $names.cloud.lower }} dashboard][dashboard] and click the _Create fleet_ button.
 
-<img alt="Create a fleet" src="/img/common/create-first-application.png" width="100%">
+<img alt="Create a fleet" src="/img/common/create-first-fleet.png" width="100%">
 
 Select the **{{ $device.name }}** device type, choose a [fleet type][app-types], enter a name, and click *Create new fleet*:
 
-<img src="/img/getting-started/create-application/{{ $device.id }}.png" width="80%">
+<img src="/img/getting-started/create-fleet/{{ $device.id }}.png" width="80%">
 
 __Note:__ To create a fleet with multiple containers, you'll want to use the Starter or Microservices fleet type. The Starter fleets are full-featured and free for all users, with a limit of up to 10 total devices across all Starter fleets.
 
