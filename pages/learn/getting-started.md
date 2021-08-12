@@ -45,7 +45,7 @@ After the fleet has been created, you will be redirected to the dashboard for th
 
 To connect with {{ $names.cloud.lower }}, your **{{ $device.name }}** needs a {{ $names.os.lower }} image configured for your device type, fleet, and network. Start by clicking *Add device* in your fleet dashboard:
 
-<img alt="Add a device" src="/img/getting-started/application/{{ $device.id }}.png" width="100%">
+<img alt="Add a device" src="/img/getting-started/fleet/{{ $device.id }}.png" width="100%">
 
 For most fleets, you will have the option to select a device type. By default, the device type you chose when you first created the fleet will be selected. Fleets can, however, support any devices that share the same [architecture][architecture], so you can choose another device type if needed.
 
