@@ -183,8 +183,9 @@ Your release will then be downloaded and started by all the devices you have con
 
 - Head to [balenaHub][balenahub], for more ready-to-deploy fleets, or have a go at building and sharing your own cool projects using [balenaBlocks][balenablocks].
 - Try out [local mode][local-mode], which allows you to build and sync code to your device locally for rapid development.
-- Develop an application with [multiple containers][multicontainer] to provide a more modular approach to application management.
-- Manage your device fleet with the use of [configuration][configuration] and [environment variables][variables].
+- Take a modular approach to application development with [multiple containers][multicontainer].
+- Manage your device fleet with the use of [configuration][configuration].
+- Pass named values, parameters and data to your application using [variables][variables].
 - Visit our blog to find step-by-step tutorials for some [classic balena projects][projects].
 - If you find yourself stuck or confused, help is just a [click away][help].
 

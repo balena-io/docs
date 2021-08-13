@@ -1,17 +1,17 @@
 ---
 title: Variables
-excerpt: Set dynamic-named values on the dashboard that affect the way running processes will behave on the device by using variables.
+excerpt: Use variables to pass named values to the device which can be used to affect the way running apps and processes will behave.
 ---
 
 # Variables
 
 Variables allow you to provide runtime configuration to one or more running services without having to modify your source code. Variables can be added onto the device using the balenaCloud dashboard and can be assigned to either a specific service or all services running on the device. You can use variables to store secrets and other sensitive values out of your codebase and configure them when needed from the dashboard.
  
-Variables defined in the dashboard are added to the device as environement variables and can be accessed within the service that they were defined for as shown below:
+Variables defined in the dashboard are exposed on the device as environment variables and can be accessed within the service or services that they were defined for as shown below:
  
 <img alt="Accessing variable" src="/img/variables/accessing_variables.png">
 
-__Note:__ Adding or modifying a variable for all services will restart all services on the device. Similarly for variables defined for specific services will only restart the affected service.
+__Note:__ Adding or modifying a variable for all services will restart all services on the device. Similarly, changing variables defined only for a specific service will only restart the affected service.
 
 Variables can be applied at the fleet or the individual device level through the Variables page. You can apply Variables to the entire fleet by navigating to the Variables page for that fleet. 
 
@@ -25,13 +25,13 @@ Values can be up to 1MB (or approximately 1 million characters) in size each. A 
 
 Variables defined at the fleet level are available to all devices in that fleet unless they are redefined with a variable of the same name at the device level.
 
-Fleet-wide variables can be found from the Fleet Summary page by clicking the *Variables* tabs.
+Fleet-wide variables can be found from the Fleet Summary page by clicking the *Variables* tab.
 
 To define a new variable, click the *Add variable* button in the upper-left corner.
 
 <img alt="Add variable" src="/img/variables/add_fleet_variable.png" width="80%">
 
-In the dialog box that opens, select either a specific service or all services to apply the variable too.
+In the dialog box that opens, select either 'All services' or a specific service to which the variable will be applied.
 
 Define a name and value for your variable. Click the *Add* button to apply the variable to all devices in your fleet that do not have their own values defined:
 

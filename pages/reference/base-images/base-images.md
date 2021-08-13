@@ -168,7 +168,7 @@ At the end of a container's lifecycle, when a request to container restart, rebo
 
 ## Working with Dynamically Plugged Devices
 
-In many IoT projects, your containers will want to interact with some hardware, often this hardware is plugged in at runtime, in the case of USB or serial devices. In these cases, you will want to enable [`udevd`][udevd-link] in your container. In `balenalib` images this can easily be done either by adding `ENV UDEV=1` in your `Dockerfile` or by setting an [environment variable][variables].
+In many IoT projects, your containers will want to interact with some hardware, often this hardware is plugged in at runtime, in the case of USB or serial devices. In these cases, you will want to enable [`udevd`][udevd-link] in your container. In `balenalib` images this can easily be done either by adding `ENV UDEV=1` in your `Dockerfile` or by setting an environment variable using [variables][variables].
 
 You will also need to run your container `privileged`. By default, any [balenaCloud](https://www.balena.io/cloud/) projects that don't contain a `docker-compose.yml` will run their containers `privileged`. If you are using a multicontainer project, you will need to add `privileged: true` to each of the service definitions for the services that need hardware access.
 

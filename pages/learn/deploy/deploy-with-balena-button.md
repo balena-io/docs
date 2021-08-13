@@ -36,7 +36,7 @@ You can further customize the behavior of the **Deploy with {{ $names.company.lo
 
 ### balena.yml configuration file
 
-Through the use of a `balena.yml` config file, you may also provide application [configuration](/learn/manage/configuration/) and [environment](/learn/manage/variables/) variables. If provided, they are pre-populated in the advanced modal dialog when using the **Deploy with {{ $names.company.lower }}** button.
+Through the use of a `balena.yml` config file, you may also specify [configuration](/learn/manage/configuration/) defaults and provide [variables](/learn/manage/variables/). If provided, these are pre-populated in the advanced modal dialog when using the **Deploy with {{ $names.company.lower }}** button.
 
 The `balena.yml` file can also be used to provide additional metadata to be used if the app is submitted to [balenaHub][balenahub].
 
