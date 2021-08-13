@@ -1,7 +1,7 @@
 [
   {
-    "id": "application",
-    "name": "Application",
+    "id": "fleet",
+    "name": "Fleet",
     "fields": [
       "id",
       "uuid",
@@ -25,7 +25,7 @@
     "examples": [
       {
         "id": "get-all-apps",
-        "summary": "Get all applications",
+        "summary": "Get all fleets",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application",
@@ -33,7 +33,7 @@
       },
       {
         "id": "get-my-apps",
-        "summary": "Get all applications associated with authenticated user",
+        "summary": "Get all fleets associated with authenticated user",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application",
@@ -41,7 +41,7 @@
       },
       {
         "id": "app-by-id",
-        "summary": "Get application by ID",
+        "summary": "Get fleet by ID",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application(<ID>)",
@@ -49,7 +49,7 @@
       },
       {
         "id": "app-by-name",
-        "summary": "Get application by name",
+        "summary": "Get fleet by name",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application",
@@ -57,7 +57,7 @@
       },
       {
         "id": "app-with-devices",
-        "summary": "Get application by id along with its devices",
+        "summary": "Get fleet by id along with its devices",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application(<ID>)",
@@ -65,7 +65,7 @@
       },
       {
         "id": "app-filter-public",
-        "summary": "Filter public applications from returned applications",
+        "summary": "Filter public fleets from result",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application",
@@ -73,7 +73,7 @@
       },
       {
         "id": "create-app",
-        "summary": "Create application",
+        "summary": "Create fleet",
         "description": "",
         "method": "POST",
         "endpoint": "/v6/application",
@@ -82,7 +82,7 @@
       },
       {
         "id": "delete-app",
-        "summary": "Delete application",
+        "summary": "Delete fleet",
         "description": "",
         "method": "DELETE",
         "endpoint": "/v6/application(<ID>)",
@@ -90,7 +90,7 @@
       },
       {
         "id": "disable-auto-update",
-        "summary": "Disable automatic update tracking for an application",
+        "summary": "Disable automatic update tracking for a fleet",
         "description": "",
         "method": "PATCH",
         "endpoint": "/v6/application(<ID>)",
@@ -99,7 +99,7 @@
       },
       {
         "id": "enable-auto-update",
-        "summary": "Enable automatic update tracking for an application",
+        "summary": "Enable automatic update tracking for a fleet",
         "description": "",
         "method": "PATCH",
         "endpoint": "/v6/application(<ID>)",
@@ -118,16 +118,16 @@
     ]
   },
   {
-    "id": "application_membership_role",
-    "name": "Application membership role",
+    "id": "fleet_membership_role",
+    "name": "Fleet membership role",
     "fields": [
       "id",
       "name"
     ],
     "examples": [
       {
-        "id": "get-application-membership_role",
-        "summary": "Get all application membership roles",
+        "id": "get-fleet-membership_role",
+        "summary": "Get all fleet membership roles",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application_membership_role",
@@ -136,8 +136,8 @@
     ]
   },
   {
-    "id": "application_tag",
-    "name": "Application tag",
+    "id": "fleet_tag",
+    "name": "Fleet tag",
     "fields": [
       "id",
       "application",
@@ -146,25 +146,25 @@
     ],
     "examples": [
       {
-        "id": "get-application-tags",
-        "summary": "Get all tags by application name",
+        "id": "get-fleet-tags",
+        "summary": "Get all tags by fleet name",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application_tag",
         "filters": "?\\$filter=application/app_name%20eq%20'<NAME>'"
       },
       {
-        "id": "create-application-tag",
-        "summary": "Create a new application tag",
+        "id": "create-fleet-tag",
+        "summary": "Create a new fleet tag",
         "description": "",
         "method": "POST",
         "endpoint": "/v6/application_tag",
         "filters": "",
-        "data": "{\n    \"application\": \"<APP ID>\",\n    \"tag_key\": \"<KEY>\",\n    \"value\": \"<VALUE>\"\n}"
+        "data": "{\n    \"application\": \"<FLEET ID>\",\n    \"tag_key\": \"<KEY>\",\n    \"value\": \"<VALUE>\"\n}"
       },
       {
-        "id": "update-application-tag",
-        "summary": "Update an application tag",
+        "id": "update-fleet-tag",
+        "summary": "Update a fleet tag",
         "description": "",
         "method": "PATCH",
         "endpoint": "/v6/application_tag/(<ID>)",
@@ -172,8 +172,8 @@
         "data": "{\n    \"value\": \"<NEW VALUE>\"\n}"
       },
       {
-        "id": "delete-application-tag",
-        "summary": "Delete an application tag",
+        "id": "delete-fleet-tag",
+        "summary": "Delete a fleet tag",
         "description": "",
         "method": "DELETE",
         "endpoint": "/v6/application_tag/(<ID>)",
@@ -276,12 +276,12 @@
         "filters": ""
       },
       {
-        "id": "devices-by-application",
-        "summary": "Get all devices by application",
+        "id": "devices-by-fleet",
+        "summary": "Get all devices by fleet",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/device",
-        "filters": "?\\$filter=belongs_to__application%20eq%20'<APP_ID>'"
+        "filters": "?\\$filter=belongs_to__application%20eq%20'<FLEET ID>'"
       },
       {
         "id": "device-by-id",
@@ -327,12 +327,12 @@
       },
       {
         "id": "move-device",
-        "summary": "Move device to another application",
+        "summary": "Move device to another fleet",
         "description": "",
         "method": "PATCH",
         "endpoint": "/v6/device(<ID>)",
         "filters": "",
-        "data": "{\n    \"belongs_to__application\": \"<APP ID>\"\n}"
+        "data": "{\n    \"belongs_to__application\": \"<FLEET ID>\"\n}"
       },
       {
         "id": "get-target-release",
@@ -550,7 +550,7 @@
     ]
   },
   {
-    "id": "application_config_variable",
+    "id": "fleet_config_variable",
     "name": "Fleet config variable",
     "fields": [
       "id",
@@ -561,11 +561,11 @@
     "examples": [
       {
         "id": "get-fleet-config-vars",
-        "summary": "Get all fleet config variables for an application",
+        "summary": "Get all fleet config variables for a fleet",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application_config_variable",
-        "filters": "?\\$filter=application%20eq%20<APP ID>"
+        "filters": "?\\$filter=application%20eq%20<FLEET ID>"
       },
       {
         "id": "create-fleet-config-var",
@@ -574,7 +574,7 @@
         "method": "POST",
         "endpoint": "/v6/application_config_variable",
         "filters": "",
-        "data": "{\n    \"application\": \"<APP ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
+        "data": "{\n    \"application\": \"<FLEET ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
       {
         "id": "update-fleet-config-var",
@@ -596,7 +596,7 @@
     ]
   },
   {
-    "id": "application_environment_variable",
+    "id": "fleet_environment_variable",
     "name": "Fleet environment variable",
     "fields": [
       "id",
@@ -608,11 +608,11 @@
     "examples": [
       {
         "id": "get-fleet-env-vars",
-        "summary": "Get all fleet environment variables for an application",
+        "summary": "Get all fleet environment variables for a fleet",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application_environment_variable",
-        "filters": "?\\$filter=application%20eq%20<APP ID>"
+        "filters": "?\\$filter=application%20eq%20<FLEET ID>"
       },
       {
         "id": "create-fleet-env-var",
@@ -621,7 +621,7 @@
         "method": "POST",
         "endpoint": "/v6/application_environment_variable",
         "filters": "",
-        "data": "{\n    \"application\": \"<APP ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
+        "data": "{\n    \"application\": \"<FLEET ID>\",\n    \"name\": \"<NAME>\",\n    \"value\": \"<VALUE>\"\n}"
       },
       {
         "id": "update-fleet-env-var",
@@ -773,20 +773,20 @@
     ],
     "examples": [
       {
-        "id": "releases-in-application",
-        "summary": "Get all releases for an application",
+        "id": "releases-in-fleet",
+        "summary": "Get all releases for a fleet",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/release",
-        "filters": "?\\$filter=belongs_to__application%20eq%20<APP ID>"
+        "filters": "?\\$filter=belongs_to__application%20eq%20<FLEET ID>"
       },
       {
-        "id": "release-from-app-and-commit",
-        "summary": "Get a release ID given a specific application and commit",
+        "id": "release-from-fleet-and-commit",
+        "summary": "Get a release ID given a specific fleet and commit",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/release",
-        "filters": "?\\$filter=belongs_to__application%20eq%20<APP ID>%20and%20commit%20eq%20'<COMMIT HASH>'&\\$select=id"
+        "filters": "?\\$filter=belongs_to__application%20eq%20<FLEET ID>%20and%20commit%20eq%20'<COMMIT HASH>'&\\$select=id"
       }
     ]
   },
@@ -876,12 +876,12 @@
     ],
     "examples": [
       {
-        "id": "services-of-application",
-        "summary": "Get all services belonging to an application",
+        "id": "services-of-fleet",
+        "summary": "Get all services belonging to a fleet",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/service",
-        "filters": "?\\$filter=application/app_name%20eq%20'<APP NAME>'"
+        "filters": "?\\$filter=application/app_name%20eq%20'<FLEET NAME>'"
       }
     ]
   },
@@ -944,16 +944,16 @@
         "filters": ""
       },
       {
-        "id": "get-users-application",
-        "summary": "Get users associated with application",
+        "id": "get-users-fleet",
+        "summary": "Get users associated with fleet",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/user__is_member_of__application",
         "filters": "?\\$expand=user(\\$select=id,username,actor),application_membership_role(\\$select=id,name,actor)&\\$filter=is_member_of__application%20eq%20<ID>"
       },
       {
-        "id": "create-application-membership",
-        "summary": "Create application membership",
+        "id": "create-fleet-membership",
+        "summary": "Create fleet membership",
         "description": "",
         "method": "POST",
         "endpoint": "/v6/user__is_member_of__application",
@@ -961,8 +961,8 @@
         "data": "{\n    \"is_member_of_application\": <ID>,\n    \"username\": \"<USERNAME>\",\n    \"application_membership_role\": <ROLE ID>\n}"
       },
       {
-        "id": "delete-application-membership",
-        "summary": "Delete application membership",
+        "id": "delete-fleet-membership",
+        "summary": "Delete fleet membership",
         "description": "",
         "method": "DELETE",
         "endpoint": "/v6/user__is_member_of__application",
@@ -1017,8 +1017,8 @@
     ]
   },
   {
-    "id": "team_application_access",
-    "name": "Team Application Access",
+    "id": "team_fleet_access",
+    "name": "Team Fleet Access",
     "fields": [
       "id",
       "created_at",
@@ -1028,8 +1028,8 @@
     ],
     "examples": [
       {
-        "id": "get-team-application-access",
-        "summary": "Get Team's Applications Access",
+        "id": "get-team-fleet-access",
+        "summary": "Get Team's fleet access",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/team_application_access",
