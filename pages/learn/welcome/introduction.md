@@ -22,7 +22,7 @@ When you're ready to bring your application from one device to an entire fleet, 
 
 ### [Manage][manage]
 
-Check here for details on all the tools we provide for managing your device fleet, including configuration variables, service variables, SSH access, and device logs.
+Check here for details on all the tools we provide for managing your device fleet, including configuration, variables, SSH access, and checking device logs all from the dashboard.
 
 Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][reference] sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help][help] is always available!
 
