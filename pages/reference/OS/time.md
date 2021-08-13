@@ -51,7 +51,7 @@ When you first provision a device, as a fallback, `/var/lib/systemd/clock` is se
 
 There are certain networking requirements to ensure that the NTP service can properly function, and the device time may be kept synchronized.
 
-The NTP service requires UDP port `123` to be open. See more [network requirements here](/deployment/network/2.0.0/#network-requirements).
+The NTP service requires UDP port `123` to be open for outgoing connections from the device. See more [network requirements here](/deployment/network/2.0.0/#network-requirements).
 
 Starting from {{ $names.os.lower }} 2.0.7, the devices connect to the following NTP servers:
 
