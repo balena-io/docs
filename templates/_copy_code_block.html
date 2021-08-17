@@ -4,15 +4,12 @@
     // Creating the clipboard button 
     function button(label, ariaLabel, icon, className) {
       const btn = document.createElement('button');
-      btn.classList.add('btnIcon', className);
+      btn.classList.add('btnIcon', className, "tooltipped", "tooltipped-w", "tooltipped-no-delay", "m-2", "p-2", "border");
+      btn.setAttribute('aria-label', 'Copied!');
       btn.setAttribute('type', 'button');
-      btn.setAttribute('aria-label', ariaLabel);
       btn.innerHTML =
         '<div class="btnIcon__body">' +
         icon +
-        // '<strong class="btnIcon__label">' +
-        // label +
-        // '</strong>' +
         '</div>';
       return btn;
     }
@@ -29,7 +26,7 @@
 
     addButtons(
       '.hljs',
-      button('Copy', 'Copy code to clipboard', copyIcon, 'btnClipboard'),
+      button('Copy', 'Copied!', copyIcon, 'btnClipboard'),
     );
 
     const clipboard = new ClipboardJS('.btnClipboard', {
@@ -40,10 +37,12 @@
 
     clipboard.on('success', function (event) {
       event.clearSelection();
-      // const textEl = event.trigger.querySelector('.btnIcon__label');
+      // copyButton.classList.add("tooltipped", "tooltipped-w", "tooltipped-no-delay", "m-2", "p-2", "border");
+      // copyButton.setAttribute('aria-label', 'Copied!');
       // textEl.textContent = 'Copied';
       // setTimeout(function () {
-      //   textEl.textContent = 'Copy';
+        // copyButton.classList.remove("tooltipped", "tooltipped-w", "tooltipped-no-delay", "m-2", "p-2", "border");
+        // copyButton.removeAttribute('aria-label', 'Copied!');
       // }, 2000);
     });
   });
