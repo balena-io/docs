@@ -508,6 +508,7 @@ pre:hover .btnClipboard {
   background-position: center center;
   border-radius: 8px;
   padding-left: 8px;
+  padding-top: 3px;
 }
 
 .btnIcon__body {
