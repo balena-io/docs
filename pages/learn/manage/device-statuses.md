@@ -35,7 +35,7 @@ __Note:__ If the device is powered off or loses all network connectivity, it wil
 
 ## Debugging Device Status
 
-If you find your device to be displaying a status which is unclear even with the above notes, visit the [device status][debugging-masterclass#device-status] section in the[device debugging masterclass][debugging-masterclass] for more information.
+If you find your device to be displaying a status which is unclear even with the above notes, visit the [device status][debugging-masterclass#device-status] section in the [device debugging masterclass][debugging-masterclass] for more information.
 
 [deactivated]: /learn/manage/billing/#inactive-devices
 [poll-interval]: /learn/manage/configuration/#variable-list
