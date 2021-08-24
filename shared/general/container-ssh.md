@@ -16,9 +16,7 @@ __Note:__ To copy and paste in the terminal window, you cannot use the normal Ct
 
 ## Using `{{ $names.company.short }} ssh` from the CLI
 
-__Note:__ `balena ssh` to a release's services/containers requires CLI version 11 or above.
-
-If you prefer to work from the command line, you can use [`{{ $names.company.short }} ssh`][balena-ssh] to connect to your release's containers and the host OS. First, you will need to install the [{{ $names.company.lower }} Command Line Interface (CLI)](/tools/cli/). Next, you must have a SSH key configured on your development machine and [added to the {{ $names.cloud.lower }} dashboard][add-ssh-key]. Once that is set up, run the following in your development machine's terminal:
+To use the CLI, first [install it][cli-install] and [add an SSH key to {{ $names.cloud.lower }}][add-ssh-key]. Then run the following command on your development machine's terminal:
 
 ```shell
 $ {{ $names.company.short }} ssh <device-uuid>
@@ -43,35 +41,50 @@ $ balena ssh 192.168.1.23
 $ balena ssh <device-uuid>.local
 ```
 
-This should work without further configuration in the case of devices running a [development {{ $names.os.lower }} image][development-image], which allows passwordless root SSH access (and for this reason, should never be directly exposed to the public internet). In the case of a production {{ $names.os.lower }} image, an SSH key needs to be present in the config.json file of the device. More details about configuring SSH keys in config.json may be found [here][config-json-ssh].
-
-## Add an SSH key to {{ $names.cloud.lower }}
-
-To add an SSH key, go to the _Preferences_ page of {{ $names.cloud.lower }} and select the _SSH Keys_ tab.
-
-![SSH key preferences](/img/common/main_dashboard/eekVBTI.png)
-
-You may either import an existing SSH key from GitHub or manually enter the public SSH key of an existing SSH key on your development machine.
-
-If you do not have an existing key, you can follow [GitHub's documentation][github-ssh], skipping the step about adding the key to your GitHub account, and instead adding the key to your {{ $names.cloud.lower }} account.
+This should work without further configuration in the case of devices running a [development
+{{ $names.os.lower }} image][development-image], which allows unauthenticated `root` access
+(and for this reason, should never be directly exposed to the public internet). In the case of
+a production {{ $names.os.lower }} image, an SSH key must have been previously added to the
+device's `config.json` file, [sshKeys section][config-json-ssh].
 
 ## Using a standalone SSH client
 
-If you prefer to use a standalone SSH client to connect to the device, the SSH server on a device listens on TCP port `22222`. While development images have passwordless root access enabled, production images require an SSH key to be added to the `config.json` file.
+The SSH server of a {{ $names.os.lower }} device (host OS) listens on TCP port `22222`, and
+access is also possible with a standalone ssh client:
 
 ```shell
-$ ssh -p 22222 root@<device_ip_address>
+$ ssh -p 22222 <username>@<device_ip_address>
 ```
+
+When the username is `root`, [production {{ $names.os.lower }} images][development-image]
+perform authentication against public SSH keys previously added to the device's `config.json`
+file, [sshKeys section][config-json-ssh]. When the username matches a valid
+{{$names.cloud.lower}} user account, authentication is also performed against that user's
+public SSH keys [stored in {{$names.cloud.lower}}][add-ssh-key]. The username can be found in
+the profile or preferences section of the web dashboard, or with the `{{$names.company.short}}
+whoami` CLI command.
+
+Development {{ $names.os.lower }} images allow unauthenticated access and should never be
+directly exposed to the public internet.
+
+The IP address will typically be a private IP address of a local network. For remote devices,
+see [{{ $names.company.short }} tunnel][balena-tunnel].
 
 ## {{ $names.company.short }} tunnel
 
-The SSH server of the host OS will always be accessible on TCP port `22222` unless this has been blocked at the network level. To get around this, you can use the `{{ $names.company.short }} tunnel` command of the {{ $names.cli.lower }}, which may be used to map local ports to listening ports on the device. For example, the following command maps the local port `4321` to port `22222` on the device:
+The SSH server of a {{ $names.os.lower }} device (host OS) listens on TCP port `22222`.
+This port is not blocked by any firewall on the device itself, but external firewalls or NAT
+routers will often block access at the network level. To get around this, you can use the
+`{{$names.company.short }} tunnel` command of the {{ $names.cli.lower }}, which tunnels a
+TCP connection between a localhost port and a port on the device. For example, the following
+command maps local port `4321` to remote port `22222` on the device:
 
 ```shell
 $ balena tunnel <device-uuid> -p 22222:4321
 ```
 
-The device can then be accessed on port `4321` via the `balena ssh` command of the {{ $names.cli.lower }} or standalone SSH client:
+The device can then be accessed on local port `4321` via the `balena ssh` command or
+standalone SSH client:
 
 ```shell
 $ balena ssh 127.0.0.1 -p 4321
@@ -83,7 +96,19 @@ $ ssh -p 4321 root@127.0.0.1
 
 [balena-ssh]:/reference/cli/#ssh-uuid-
 [balena-openssh]:{{ $links.githubPlayground }}/balena-openssh
+[balena-tunnel]:/learn/manage/ssh-access/#{{ $names.company.short }}-tunnel
+[cli-install]:{{ $links.githubCli }}/blob/master/INSTALL.md
 [github-ssh]:https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [add-ssh-key]:/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
 [config-json-ssh]:/reference/OS/configuration/#sshkeys
 [development-image]:/reference/OS/overview/2.x/#development-vs-production-images
+
+## Add an SSH key to {{ $names.cloud.lower }}
+
+To add an SSH key, go to the _Preferences_ page of {{ $names.cloud.lower }} and select the _SSH Keys_ tab.
+
+![SSH key preferences](/img/common/main_dashboard/eekVBTI.png)
+
+You may either import an existing SSH key from GitHub or manually enter the public SSH key of an existing SSH key on your development machine.
+
+If you do not have an existing key, you can follow [GitHub's documentation][github-ssh], skipping the step about adding the key to your GitHub account, and instead adding the key to your {{ $names.cloud.lower }} account.
