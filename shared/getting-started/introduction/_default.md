@@ -1,8 +1,7 @@
-In this guide, we will build a simple **{{ $language.name }}** web server project on a **{{ $device.name }}**. At its most basic, the process for deploying code to a **{{ $device.name }}** consists of two major steps:
+In this guide we'll cover:
 
-- Setting up your **{{ $device.name }}** with {{ $names.os.lower }}, the [host OS][host-os] that manages communication with {{ $names.cloud.lower }} and runs the core device operations.
-- Pushing your **{{ $language.name }}** project to the {{ $names.company.lower }} image builder, which pulls in all necessary dependencies and creates the container image for your fleet.
+- Setting up your **{{ $device.name }}**, bringing it online in the {{ $names.cloud.lower }} dashboard
+- Deploying a simple **{{ $language.name }}** hello-world project
+- Developing the sample project: making changes and testing them on your device
 
-Once you complete these steps, your **{{ $device.name }}** will download the container image, start your application, and begin sending logs to your {{ $names.company.lower }} dashboard!
-
-[host-os]:/reference/OS/overview/2.x/
+Once you've completed this guide you'll be armed with the fundamentals needed to continue developing your application using {{ $names.cloud.lower }} and be on the path to production.
