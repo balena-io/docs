@@ -1,6 +1,6 @@
 <div>
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#cli-osx" aria-controls="cli-osx" role="tab" data-toggle="tab">Mac OSX</a></li>
+    <li role="presentation" class="active"><a href="#cli-osx" aria-controls="cli-osx" role="tab" data-toggle="tab">macOS</a></li>
     <li role="presentation"><a href="#cli-windows" aria-controls="cli-windows" role="tab" data-toggle="tab">Windows</a></li>
     <li role="presentation"><a href="#cli-linux" aria-controls="cli-linux" role="tab" data-toggle="tab">Linux</a></li>
   </ul>
@@ -9,13 +9,13 @@
       <p>
         <ol>
           <li>
-            Download the latest CLI installer <a href="" class="cli-download-link">here</a>.
+            <a href="" class="cli-download-link">Download the CLI installer</a>.
           </li>
           <li>
-            Double click the downloaded file to run the installer. After the installation is complete, close and re-open any open command terminal windows so that changes made by the installer to the PATH environment variable can take effect.
+            Double click the downloaded file to run the installer and follow the installer's instructions.
           </li>
           <li>
-            Check that the installation was successful by running <code>balena version</code>.
+            To run balena CLI commands, open the Terminal app ([Terminal User Guide](https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac)).
           </li>
         </ol>
       </p>
@@ -30,21 +30,15 @@
             Download the latest CLI installer <a href="" class="cli-download-link">here</a>.
           </li>
           <li>
-            Double click the downloaded file to run the installer. After the installation is complete, close and re-open any open command terminal windows so that changes made by the installer to the PATH environment variable can take effect.
+            Double click the downloaded file to run the installer and follow the installer's instructions.
           </li>
           <li>
-            Check that the installation was successful by running <code>balena version</code>.
+            To run balena CLI commands, open a command prompt: Click on the Windows Start Menu, type PowerShell, and then click on Windows PowerShell.
           </li>
         </ol>
       </p>
-      <p>
-        For more detailed information, visit the <a href="https://github.com/balena-io/balena-cli/blob/master/INSTALL-WINDOWS.md" target="_blank">detailed Windows installation instructions</a>. 
-      </p>
     </div>
     <div role="tabpanel" class="tab-pane" id="cli-linux">
-      <p>
-        These instructions are suitable for most Linux distributions on Intel x86, except notably for Linux Alpine or Busybox. For these distros or for the ARM architecture, follow the <a href="https://github.com/balena-io/balena-cli/blob/master/INSTALL-ADVANCED.md#npm-installation" target="_blank">NPM Installation</a> method.
-      </p>
       <p>
         <ol>
           <li>

@@ -74,13 +74,13 @@ Alternatively, by clicking on the toggle section of the download button, you als
 <!-- This section is heavily customized based on the device -->
 {{import "getting-started/getDeviceOnDash"}}
 
-## Install {{ $names.cli.lower }}
+## Install the {{ $names.cli.lower }}
 
-Now that we have a device or two connected to a {{ $names.company.lower }} fleet, It's time to install the {{ $names.cli.lower }}. This is the recommended way to deploy code to your devices. Follow the instructions below according to your machine's operating system.
+Now that we have a device or two connected to a {{ $names.company.lower }} fleet, it's time to install the {{ $names.cli.lower }}. This is the recommended way to deploy code to your devices. Follow the instructions below according to your machine's operating system.
 
 {{import "getting-started/cliInstructions"}}
 
-After {{ $names.cli.lower }} is installed, login to your {{ $names.company.lower}} account
+After the {{ $names.cli.lower }} is installed, login to your {{ $names.company.lower}} account
 with the `{{ $names.company.lower }} login` command on the terminal:
 
 ```shell
