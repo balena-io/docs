@@ -9,13 +9,13 @@
       <p>
         <ol>
           <li>
-            Download the latest CLI installer <a href="test" class="cli-download-link">here</a>
+            Download the latest CLI installer <a href="test" class="cli-download-link">here</a>.
           </li>
           <li>
-            Double click the downloaded file to run the installer. After the installation completes, close and re-open any open command terminal windows (so that the changes made by the installer to the PATH environment variable can take effect).
+            Double click the downloaded file to run the installer. After the installation is complete, close and re-open any open command terminal windows so that changes made by the installer to the PATH environment variable can take effect.
           </li>
           <li>
-            Check that the installation was successful by running <code>balena version</code>
+            Check that the installation was successful by running <code>balena version</code>.
           </li>
         </ol>
       </p>
@@ -27,13 +27,13 @@
       <p>
         <ol>
           <li>
-            Download the latest CLI installer <a href="test" class="cli-download-link">here</a>
+            Download the latest CLI installer <a href="test" class="cli-download-link">here</a>.
           </li>
           <li>
-            Double click the downloaded file to run the installer. After the installation completes, close and re-open any open command terminal windows (so that the changes made by the installer to the PATH environment variable can take effect).
+            Double click the downloaded file to run the installer. After the installation is complete, close and re-open any open command terminal windows so that changes made by the installer to the PATH environment variable can take effect.
           </li>
           <li>
-            Check that the installation was successful by running <code>balena version</code>
+            Check that the installation was successful by running <code>balena version</code>.
           </li>
         </ol>
       </p>
@@ -48,16 +48,16 @@
       <p>
         <ol>
           <li>
-            Download the latest CLI installer <a href="test" class="cli-download-link">here</a>
+            Download the latest CLI installer <a href="test" class="cli-download-link">here</a>.
           </li>
           <li>
-            Extract the zip file contents to any folder you choose, for example <code>/home/james</code>. The extracted contents will include a <code>balena-cli</code> folder.
+            Extract the contents of the zip file to any folder you choose, for example <code>/home/james</code>. The extracted contents will include a <code>balena-cli</code> folder.
           </li>
           <li>
-            Add that folder (e.g. <code>/home/james/balena-cli</code>) to the PATH environment variable. Check this <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix" target="_blank">StackOverflow</a> post for instructions. Close and reopen the terminal window so that the changes to PATH can take effect.
+            Add that folder (e.g. <code>/home/james/balena-cli</code>) to the PATH environment variable. Check this <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix" target="_blank">StackOverflow</a> post for instructions. Close and re-open the terminal window so that the changes to PATH can take effect.
           </li>
           <li>
-            Check that the installation was successful by running <code>balena version</code>
+            Check that the installation was successful by running <code>balena version</code>.
           </li>
         </ol>
       </p>

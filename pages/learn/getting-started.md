@@ -76,7 +76,7 @@ Alternatively, by clicking on the toggle section of the download button, you als
 
 ## Install {{ $names.cli.lower }}
 
-Now that we have a device or two connected to a {{ $names.company.lower }} fleet, It's time to install the {{ $names.cli.lower }}. This recommended way to deploy code. Follow the instructions below according to your machines operating system.
+Now that we have a device or two connected to a {{ $names.company.lower }} fleet, It's time to install the {{ $names.cli.lower }}. This is the recommended way to deploy code to your devices. Follow the instructions below according to your machine's operating system.
 
 {{import "getting-started/cliInstructions"}}
 
@@ -110,7 +110,7 @@ __Note:__ Other authentication methods include using your username and password 
 
 ## Add release
 
-After logging in, test out the {{ $names.cli.lower }} by running the `{{ $names.company.lower }} fleets` command, which should return information about the fleet you created in the previous step. Take a note of the `FLEET NAME` as you'll need this in the next step to push the code to all devices in that fleet.
+After logging in, test out the {{ $names.cli.lower }} by running the `{{ $names.company.lower }} fleets` command, which should return information about the fleet you created in the previous step. Take note of the `FLEET NAME` as you'll need this in the next step to push your code to all devices in that fleet.
 
 ```shell
 $ {{ $names.company.lower }} fleets
