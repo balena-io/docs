@@ -9,7 +9,7 @@
       <p>
         <ol>
           <li>
-            Download the latest CLI installer <a href="test" class="cli-download-link">here</a>.
+            Download the latest CLI installer <a href="" class="cli-download-link">here</a>.
           </li>
           <li>
             Double click the downloaded file to run the installer. After the installation is complete, close and re-open any open command terminal windows so that changes made by the installer to the PATH environment variable can take effect.
@@ -27,7 +27,7 @@
       <p>
         <ol>
           <li>
-            Download the latest CLI installer <a href="test" class="cli-download-link">here</a>.
+            Download the latest CLI installer <a href="" class="cli-download-link">here</a>.
           </li>
           <li>
             Double click the downloaded file to run the installer. After the installation is complete, close and re-open any open command terminal windows so that changes made by the installer to the PATH environment variable can take effect.
@@ -48,7 +48,7 @@
       <p>
         <ol>
           <li>
-            Download the latest CLI installer <a href="test" class="cli-download-link">here</a>.
+            Download the latest CLI installer <a href="" class="cli-download-link">here</a>.
           </li>
           <li>
             Extract the contents of the zip file to any folder you choose, for example <code>/home/james</code>. The extracted contents will include a <code>balena-cli</code> folder.
