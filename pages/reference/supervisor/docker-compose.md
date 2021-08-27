@@ -5,6 +5,8 @@ excerpt: docker-compose.yml fields supported by {{ $names.company.lower }}
 
 # docker-compose.yml fields
 
+Our compose-file support is currently based on [version 2.2](https://docs.docker.com/compose/compose-file/compose-versioning/#version-22), as such any fields that depend on version >=2.3 are not supported.
+
 ## Supported fields
 
 Field | Details
