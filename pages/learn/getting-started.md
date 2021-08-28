@@ -76,7 +76,7 @@ Alternatively, by clicking on the toggle section of the download button, you als
 
 ## Install the {{ $names.cli.lower }}
 
-Now that we have a device or two connected to a {{ $names.company.lower }} fleet, it's time to install the {{ $names.cli.lower }}. This is the recommended way to deploy code to your devices. Follow the instructions below according to your machine's operating system.
+Now that we have a device or two connected to a {{ $names.company.lower }} fleet, it's time to deploy code. The recommended way to deploy code is to use {{ $names.cli.lower }}. Follow the instructions below to install {{ $names.cli.lower }} to your machine's operating system.
 
 {{import "getting-started/cliInstructions"}}
 
