@@ -35,7 +35,7 @@
     "express": "^4.17.1",
     "express-http-to-https": "1.1.4",
     "headroom.js": "0.12.0",
-    "highlight.js": "10.7.1",
+    "highlight.js": "10.7.3",
     "jquery": "3.6.0",
     "jquery-colorbox": "1.6.4",
     "lodash": "^4.17.21",
