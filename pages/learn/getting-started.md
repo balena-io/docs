@@ -74,12 +74,13 @@ Alternatively, by clicking on the toggle section of the download button, you als
 <!-- This section is heavily customized based on the device -->
 {{import "getting-started/getDeviceOnDash"}}
 
-## Add release
+## Install the {{ $names.cli.lower }}
 
-Now that we have a device or two connected to a {{ $names.company.lower }} fleet, let's deploy some code.
+Now that we have a device or two connected to a {{ $names.company.lower }} fleet, it's time to deploy some code. We will use the {{ $names.cli.lower }} for this. Follow the instructions below to install it on your computer (development workstation). Choose the tab for your operating system.
 
-The recommended way to deploy code is to use the {{ $names.cli.lower }}. Follow the [installation
-instructions][cli-install]. After it is installed, login to your {{ $names.company.lower}} account
+{{import "getting-started/cliInstructions"}}
+
+After the {{ $names.cli.lower }} is installed, login to your {{ $names.company.lower}} account
 with the `{{ $names.company.lower }} login` command on the terminal:
 
 ```shell
@@ -107,7 +108,9 @@ authorize the CLI, click the _Authorize_ button and head back to the terminal.
 
 __Note:__ Other authentication methods include using your username and password credentials or obtaining an [authentication token][token] from the dashboard. Authentication tokens come in two types, API tokens, and JSON Web Token (JWT) session tokens. While API tokens do not expire, JWT session tokens do after 7 days.
 
-After logging in, test out the {{ $names.company.lower }} CLI by running the `{{ $names.company.lower }} fleets` command, which should return information about the fleet you created in the previous step. Take a note of the `FLEET NAME` as you'll need this in the next step to push the code to all devices in that fleet.
+## Add release
+
+After logging in, test out the {{ $names.cli.lower }} by running the `{{ $names.company.lower }} fleets` command, which should return information about the fleet you created in the previous step. Take note of the `FLEET NAME` as you'll need this in the next step to push your code to all devices in that fleet.
 
 ```shell
 $ {{ $names.company.lower }} fleets
