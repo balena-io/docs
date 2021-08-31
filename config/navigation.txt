@@ -122,6 +122,7 @@ Reference
     [/reference/supervisor/bandwidth-reduction]
     [/reference/supervisor/docker-compose]
     [/reference/supervisor/supervisor-upgrades]
+    [/reference/supervisor/configuration-variables]
 
   Base images
     [/reference/base-images/base-images]

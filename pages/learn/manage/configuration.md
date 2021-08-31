@@ -1,34 +1,16 @@
 ---
-title: Configuration variables
+title: Configuration
 ---
 
-# Configuration variables
+# Configuration
 
-Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `{{ $names.company.allCaps}}_` or `RESIN_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
+Beyond [service variables][service-variables], you can also configure a lot of the device's behaviour with Supervisor and device specific variables.
 
-Configuration variables can be managed at both the fleet and device level.
+To see the complete list of variables available go to the [Configuration Variables][configuration-reference] reference. 
 
-__Note:__ Configuration variables defined in the dashboard will not apply to devices in [local mode][local-mode].
+**Note:** Some of these settings can potentially brick your device so we encourage that you read our [Advanced boot settings][boot-config-guide] guide.  
 
-## Variable list
-
-This list contains configuration variables that can be used with {{ $names.company.lower }} devices, some of which will automatically appear for devices with supervisor v7.0.0 and greater. While they may not automatically populate in the dashboard, most of these variables can still be used with older supervisor versions, so be sure to check the *Valid from* column:
-
-Name | Default | Description | Valid from
---- | --- | --- | ---
-BALENA_OVERRIDE_LOCK | 0 | When set to 1 overrides any existing [update lock][update-locking] on the device. Allows updating devices in the case that the release locked updates but is stuck in an invalid state. | v1.0.0
-BALENA_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
-BALENA_SUPERVISOR_LOCAL_MODE | false | Enable / Disable [local mode][local-mode] | v4.0.0
-BALENA_SUPERVISOR_LOG_CONTROL | true | Enable / Disable logs being sent to the {{ $names.company.lower }} API | v1.3.0
-BALENA_SUPERVISOR_POLL_INTERVAL | 900000 | Define the {{ $names.company.lower }} API poll interval in milliseconds. This interval will only matter if the device is not connected to the VPN at the time an update is pushed, or if BALENA_SUPERVISOR_INSTANT_UPDATE_TRIGGER is set to false. Starting from supervisor v9.13.0, the supervisor will use a random time between 0.5 and 1.5 times this poll interval each time it checks the balenaCloud API. The minimum value for this variable is defined by the balenaCloud backend, and may vary. | v1.3.0
-BALENA_SUPERVISOR_VPN_CONTROL | true | Enable / Disable VPN | v1.3.0
-BALENA_SUPERVISOR_INSTANT_UPDATE_TRIGGER | true | Enable / Disable instant triggering of updates when a new release is deployed. If set to false, the device will ignore the notification that is triggered when the device's target state has changed. In this case, the device will rely on polling to apply updates. Coupled with a large BALENA_SUPERVISOR_POLL_INTERVAL, this allows spreading out updates in large fleets to avoid overloading local networks when there is a large number of devices at one location. | v9.13.0
-
-In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these are a few of the values that apply to Raspberry Pi devices, corresponding to the contents of the [Raspberry Pi `config.txt` file](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md):
-
-{{> "general/config-variables-pi" }}
-
-You can find more information on updating `config.txt` through configuration variables in our [Advanced Boot Configuration Guide][boot-config-guide].
+Setting these values can be done much like service variables in that you can manage them at the fleet or device level.
 
 ## Managing fleet configuration variables
 
@@ -76,4 +58,6 @@ You can override the value of a custom fleet configuration variable by clicking 
 
 [local-mode]:/learn/develop/local-mode
 [update-locking]:/learn/deploy/release-strategy/update-locking
-[boot-config-guide]:/reference/OS/advanced/#modifying-configtxt-remotely
+[boot-config-guide]:/reference/OS/advanced
+[service-variables]:/learn/manage/variables
+[configuration-reference]:/reference/supervisor/configuration-variables

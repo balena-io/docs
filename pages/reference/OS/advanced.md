@@ -9,9 +9,7 @@ __Warning:__ This page contains details of advanced configuration options that e
 
 ## Raspberry Pi
 
-The Raspberry Pi exposes device [configuration options][config-txt] via a text file on the [boot partition][boot-partition] named [`config.txt`][config-txt]. You can change boot options in this file, either by manually editing it before the device's first boot or editing the device [configuration variables][config-vars]. By default, the following values are set for Raspberry Pi devices:
-
-{{> "general/config-variables-pi" }}
+The Raspberry Pi exposes device configuration options via a text file on the [boot partition][boot-partition] named [`config.txt`][config-txt-docs]. You can change boot options in this file, either by manually editing it before the device's first boot or editing the default [configuration][config-vars-config-txt] values. 
 
 The boot partition is mounted on the device at `/mnt/boot`, and so on the device, the file is located at `/mnt/boot/config.txt`. For example, to view the contents of `config.txt` on a provisioned device use the following commands:
 
@@ -26,7 +24,7 @@ Before the device is [provisioned][device-provisioning], you may edit `config.tx
 
 ### Modifying `config.txt` using configuration variables
 
-After the device has been [provisioned][device-provisioning], you can modify the values in `config.txt` using [configuration variables][config-vars].
+After the device has been [provisioned][device-provisioning], you can modify the values in `config.txt` using [configuration variables][config-vars-config-txt].
 
 __Note:__ After modifying a `config.txt` variable, the device supervisor will apply the changes and reboot the device.
 
@@ -36,7 +34,7 @@ Variables that start with the `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` pref
 start_x=1
 ```
 
-To manage configuration variables via the dashboard, add/edit variables via the *Fleet Configuration* page for [fleet-wide config variables][config-vars-fleet] and *Device Configuration* for [device specific variables][config-vars-device]. The device-specific variables, if defined, will override the fleet-wide variables of the same name. See the [configuration variables documentation][config-vars] for more details.
+To manage configuration variables via the dashboard, add/edit variables via the *Fleet Configuration* page for [fleet-wide config variables][config-fleet] and *Device Configuration* for [device specific variables][config-device]. The device-specific variables, if defined, will override the fleet-wide variables of the same name. See the [configuration variables documentation][config] for more details.
 
 Configuration values that are prepopulated may be edited or toggled (enabled/disabled):
 
@@ -80,7 +78,7 @@ This has a number of consequences for users of the serial interface:
   - 16550 like registers.
   - Baudrate derived from system clock.
 
-The mini UART is enabled by default for development images. For production images either enable it using [configuration variables][config-vars] or before device provisioning by adding the following entry to `config.txt`:
+The mini UART is enabled by default for development images. For production images either enable it using [configuration variables][config] or before device provisioning by adding the following entry to `config.txt`:
 
 ```
 enable_uart=1
@@ -123,10 +121,11 @@ __Note:__ This setting disables the Raspberry Pi rainbow splash screen but does 
 
 [boot-partition]:/reference/OS/overview/2.x/#image-partition-layout
 [cli]:/reference/cli/reference/balena-cli/#envs
-[config-txt]:https://www.raspberrypi.org/documentation/configuration/config-txt/
-[config-vars]:/learn/manage/configuration
-[config-vars-fleet]:/learn/manage/configuration/#managing-fleet-configuration-variables
-[config-vars-device]:/learn/manage/configuration/#managing-device-configuration-variables
+[config-txt-docs]:https://www.raspberrypi.org/documentation/configuration/config-txt/
+[config]:/learn/manage/configuration
+[config-fleet]:/learn/manage/configuration/#managing-fleet-configuration-variables
+[config-device]:/learn/manage/configuration/#managing-device-configuration-variables
+[config-vars-config-txt]:/reference/supervisor/configuration-variables/#configtxt
 [device-provisioning]:/learn/welcome/primer/#device-provisioning
 [device-tree-overlay]:https://github.com/raspberrypi/linux/blob/rpi-4.19.y/arch/arm/boot/dts/overlays/README
 [gpu-memory]:https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md

@@ -18,6 +18,9 @@ cd shared/sdk/ && {
 # get latest supervisor API docs
 curl -o pages/reference/supervisor/supervisor-api.md -L https://github.com/balena-io/balena-supervisor/raw/master/docs/API.md &
 
+# get latest configuration variable docs
+curl -o pages/reference/supervisor/configuration-variables.md -L https://github.com/balena-io/balena-supervisor/raw/master/docs/configurations.md & 
+
 # get latest diagnostics docs
 curl -o pages/reference/diagnostics.md -L https://github.com/balena-io/device-diagnostics/raw/master/diagnostics.md &
 
