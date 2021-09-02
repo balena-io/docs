@@ -14,23 +14,23 @@ Once you have the Flash tool setup and your new Edison image is downloaded, unzi
 
 Select the blue browse button in the top right of the flash tool and find the folder that contains the extracted Edison OS files, select `FlashEdison.json` as the 'Flash file' and click __Start to Flash__ to kick off the process:
 
-![Select FlashEdison.json](/img/edison/flashtool-file-selected.png)
+<img src="/img/intel-edison/flashtool-file-selected.png" alt="Select FlashEdison.json" />
 
-A small warning wipp pop up indicating that no device is connected - fix this by connecting your Edison via micro usb cable:
+A small warning wipp pop up indicating that no device is connected - fix this by connecting your intel-Edison via micro usb cable:
 
-![Start Flashing](/img/edison/flashtool-device-unconnected.png)
+<img src="/img/intel-edison/flashtool-device-unconnected.png" alt="Start Flashing" />
 
 After a short delay your device will be detected and a progress bar will track the process of flashing your device, so sit back and relax:
 
-![Flashing progress](/img/edison/flashtool-flashing.png)
+<img src="/img/intel-edison/flashtool-flashing.png" alt="Flashing progress" />
 
 After a few minutes the flashing process will be complete and the flash tool will look something like this:
 
-![Flashing complete](/img/edison/flashtool-complete.png)
+<img src="/img/intel-edison/flashtool-complete.png" alt="Flashing complete" />
 
 At this point your Edison will reboot. Once it's rebooted you might get a warning like this:
 
-<img src="/img/edison/edison-restart-warning.png" alt="eject warning" style="width: 70%" />
+<img src="/img/intel-edison/edison-restart-warning.png" alt="eject warning" style="width: 70%" />
 
 If so, simply click __Ignore__ - it means that the file system applied to your Edison is not one your OS is familiar with.
 
@@ -40,7 +40,7 @@ You should now have a Edison running the factory default Yocto build from Intel.
 
 If you've had to follow this guide due to an issue with {{ $names.company.lower }}, please let us know so we can improve the experience!
 
-**Drop us a note at [{{ $names.company.lower }}/contact]({{ layoutLocals.mainSiteURL }}/contact/)**
+**Drop us a note at [Forums]({{ $names.forums_domain }})**
 
 [edison-dl-page]:https://software.intel.com/en-us/iot/hardware/edison/downloads
 [dl-link]:http://downloadmirror.intel.com/25028/eng/edison-image-ww25.5-15.zip
