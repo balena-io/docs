@@ -40,7 +40,7 @@
 ^\/deployment\/network\/1.x.x\/?(\?.+)?(#.+)?$-> /reference/OS/network/1.x/$1$2
 ^\/understanding\/understanding-devices\/2\.0.*\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/2.x/$1$2
 ^\/understanding\/understanding-devices\/1.x.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/1.x/$1$2
-^\/reference\/api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
+^\/reference\/api\/?(\?.+)?(#.+)?$ -> /reference/api/overview/$1$2
 
 # Renamed pages
 ^\/using\/dockerfile\/?(\?.+)?(#.+)?$ -> /learn/develop/dockerfile/$1$2
@@ -95,7 +95,7 @@
 ^\/troubleshooting\/cli-troubleshooting\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/troubleshooting/$1$2
 ^\/hardware\/devices\/?(\?.+)?(#.+)?$ -> /reference/hardware/devices/$1$2
 ^\/runtime\/supervisor-api\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-api/$1$2
-^\/runtime\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
+^\/runtime\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/overview/$1$2
 ^\/tools\/cli\/?(\?.+)?(#.+)?$ -> /reference/balena-cli/$1$2
 ^\/tools\/sdk\/?(\?.+)?(#.+)?$ -> /reference/sdk/node-sdk/$1$2
 ^\/tools\/python-sdk\/?(\?.+)?(#.+)?$ -> /reference/sdk/python-sdk/$1$2
@@ -105,6 +105,6 @@
 ^\/support\/?(\?.+)?(#.+)?$ -> /learn/welcome/support/$1$2
 ^\/devicetypes\/?(\?.+)?(#.+)?$ -> /reference/base-images/devicetypes/$1$2
 ^\/deployment\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2
-^\/reference\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
+^\/reference\/data-api\/?(\?.+)?(#.+)?$ -> reference/api/overview/$1$2
 ^\/reference\/resinOS\/?(.*) -> /reference/OS/$1
 ^\/reference\/base-images\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2

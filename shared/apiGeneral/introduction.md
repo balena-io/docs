@@ -6,4 +6,4 @@ This guide is split into two parts. On this page, you will find a basic tutorial
 
 __Warning:__ When using the API to make changes, take great care in selecting the appropriate resources, as there are *no checks* to prevent you from accidentally making widespread, irreversible mistakes. Test filters with a `GET` call *before* you use them in a `PATCH` or `DELETE` request.
 
-[resources]:/reference/api/resources/application
+[resources]:/reference/api/resources/fleet
