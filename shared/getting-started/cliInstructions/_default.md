@@ -2,7 +2,7 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation"><a id="cli-osx-tab" href="#cli-osx" aria-controls="cli-osx" role="tab" data-toggle="tab">macOS</a></li>
     <li role="presentation"><a id="cli-windows-tab" href="#cli-windows" aria-controls="cli-windows" role="tab" data-toggle="tab">Windows</a></li>
-    <li role="presentation" class="active"><a id="cli-osx-linux" href="#cli-linux" aria-controls="cli-linux" role="tab" data-toggle="tab">Linux</a></li>
+    <li role="presentation" class="active"><a id="cli-linux-tab" href="#cli-linux" aria-controls="cli-linux" role="tab" data-toggle="tab">Linux</a></li>
   </ul>
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="cli-osx">
