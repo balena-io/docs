@@ -13,9 +13,9 @@ __Note:__ It is currently not possible to specify the fleet or device release po
 
 ## Pin fleet to a release
 
-In the fleets dashboard, there is a _Release policy_ header. By default, this policy is set to `track latest`, which means that new releases are immediately deployed to all devices in the fleet when built. Expanding this _Release policy_ dropdown menu displays all releases for the fleet, and you can select a specific release to pin the fleet to.  When the fleet is pinned, all devices are updated to run the pinned release, and in the future, releases will not be deployed until the _Release policy_ is updated to a newer release or set to `track latest`.
+In the fleets dashboard summary, there is a _Releases_ header where you can manage the _Release policy_. By default, this policy is set to `track latest`, which means that new releases are immediately deployed to all devices in the fleet when built. Expanding this dropdown menu displays all releases for the fleet, and you can select a specific release to pin the fleet to.  When the fleet is pinned, all devices are updated to run the pinned release, and in the future, releases will not be deployed until the _Release policy_ is updated to a newer release or set to `track latest`.
 
-<img src="/img/common/release-policy/mNCaLF8.gif" width="100%" alt="Pin fleet to release">
+<img src="/img/common/release-policy/U95dXrS.png" width="100%" alt="Pin fleet to release">
 
 ## Pin device to a release
 
