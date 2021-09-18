@@ -83,16 +83,14 @@ command maps local port `4321` to remote port `22222` on the device:
 $ balena tunnel <device-uuid> -p 22222:4321
 ```
 
-The device can then be accessed on local port `4321` via the `balena ssh` command or
-standalone SSH client:
+The device can then be accessed on local port `4321` with a standalone SSH client:
 
 ```shell
-$ balena ssh 127.0.0.1 -p 4321
+$ ssh -p 4321 <username>@127.0.0.1
 ```
 
-```shell
-$ ssh -p 4321 root@127.0.0.1
-```
+See note in the [previous section](#using-a-standalone-ssh-client) regarding the username
+(`root` _vs._ {{$names.cloud.lower}} user account).
 
 [balena-ssh]:/reference/cli/#ssh-uuid-
 [balena-openssh]:{{ $links.githubPlayground }}/balena-openssh
