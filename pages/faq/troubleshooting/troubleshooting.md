@@ -14,8 +14,14 @@ title: Troubleshooting
   * [Connectivity](#connectivity)
   * [SD Card Corruption](#sd-card-corruption)
   * [Wifi doesn't connect on RPI3](#wifi-connection-problems-on-rpi3)
-* [NVIDIA Jetson TX2](#nvidia-jetson-tx2)
+* [Jetson TX2](#jetson-tx2)
   * [Unable to flash a board that was previously running L4T 28.x](#unable-to-flash-a-board-that-was-previously-running-l4t-28x)
+  * [Are L4T 28.4 and 28.5 relases supported in BalenaOS](#are-L4T-28.4-and-28.5-releases-supported-in-BalenaOS)
+  * [Can a hostOS update from an older L4T 28.X based release to a newer L4T 32.X be interrupted? Can I boot back into the old OS?](#can-a-hostOS-update-from-an-older-L4T-28.X-based-release-to-a-newer-L4T-32.X-be-interrupted?-Can-I-boot-back-into-the-old-OS?)
+* [Jetson Nano SD-CARD and Jetson Nano 2GB](#jetson-nano-sd-card-and-jetson-nano-2GB)
+  * [Unable to boot BalenaOS image downloaded from the Balena cloud](#unable-to-boot-balenaos-image-downloaded-from-balena-cloud)
+* [Jetson L4T versions](#jetson-l4t-versions)
+  * [How can I determine which L4T a BalenaOS image uses?](#how-can-i-determine-which-l4t-a-balenaos-image-uses?)
 * [Intel Edison](#intel-edison)
   * [Help!!! I want to restore my Edison to factory Yocto](#help-i-want-to-restore-my-edison-to-factory-yocto)
   * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
@@ -86,16 +92,43 @@ If the `ACT` LED blinks with the repeated pattern of 7 quick flashes and a pause
 #### Poor Power Supply
 If you have a screen attached to your Raspberry Pi and notice that there is a small flashing colorful square in the top right of the screen, it could be the case that your power supply or USB cable is not suitable. Take a look at the [Troubleshooting Power Problems](http://elinux.org/R-Pi_Troubleshooting#Troubleshooting_power_problems) page on the Raspberry Pi wiki. Additionally, if the onboard `PWR` LED is flashing intermittently, this too could indicate issues with the power supply.
 
-## NVIDIA Jetson TX2
+## Jetson TX2
 
 ### Unable to flash a board that was previously running L4T 28.x
 
-With {{ $names.os.lower }} 2.47, the [NVIDIA Tegra Linux Driver Package][l4t] (L4T) was upgraded to version 32.2 from a previous version of 28.x. Trying to flash a board that was previously running L4T 28.x with an SD card containing L4T 32.2 will fail. This failure happens because the new 32.2 kernel is incompatible with the NVIDIA eMMC partitions from L4T 28.x.
+With {{ $names.os.lower }} 2.47, the [Tegra Linux Driver Package][l4t] (L4T) was upgraded to version 32.2 from a previous version of 28.x. Trying to flash a board that was previously running L4T 28.x with an SD card containing L4T 32.2 or newer will fail. This failure happens because L4T 32.2 and newer kernels are incompatible with the eMMC partitions from L4T 28.x, and vice-versa.
 
 To resolve, either:
 
 * Perform a [self-service update][self-service-update] to update {{ $names.os.lower }} to >=2.47.
 * Update the Tegra partitions on the eMMC by [downloading the L4T Driver Package][l4t-download] (BSP), unpack it, put the board in recovery mode and execute `sudo ./flash.sh jetson-tx2 mmcblk0p1`. Once this completes, you can reboot the board with the SD card inserted and flash the board as normal. You only need to perform this process once.
+
+### Are L4T 28.4 and 28.5 releases supported in BalenaOS?
+
+The L4T versions 28.4 and 28.5 did not follow the usual incremental release process, instead these version were released in July 2020 and July 2021 respectively, after the first iterations of L4T 32.X were released.
+Since BalenaOS uses the [OE4T/meta-tegra][meta-tegra] yocto repository and only updates to incremetal versions of L4T, BalenaOS images based on 28.4 and and 28.5 which were released after L4T 32.1 are not available in the Balena cloud.
+
+### Can a hostOS update from an older L4T 28.X based release to a newer L4T 32.X be interrupted? Can I boot back into the old OS?
+
+Starting with L4T 32.1 the L4T partition layout has changed as well as the firmware and bootloaders stored on the raw partitions. The hostOS update process thus needs to re-create all the L4T partitions that were modified in the newer L4T, to allow for the newer bootloaders and kernels to run. The L4T 28.x partition layout is not compatible with the L4T 32.x format and vice-versa, which means that a newer kernel cannot boot with the older partition format, nor can an older kernel boot with the new layout and contents. Therefore, the hostOS update process should not interrupted on the Jetson family of boards, otherwise the device may not boot. Please ensure the device is powered correctly or has sufficient battery, the internet connectivity is stable and that it is not powered-off or rebooted manually during the hostOS update.
+
+In the case of a device that will not boot because of an interrupted update procedure, it will need to be re-flashed. This can be done by [downloading the L4T Driver Package][l4t-download] (BSP), unpacking it, putting the device in recovery mode and executing `sudo ./flash.sh jetson-tx2 mmcblk0p1`. Once the L4T partitions are finished writing, the device can be booted using the appropriate BalenaOS flasher SD-CARD image for the targeted L4T version.
+
+## Jetson Nano SD-CARD and Jetson Nano 2GB
+
+### Unable to boot BalenaOS image downloaded from Balena cloud
+
+Starting with L4T 32.5, all bootloaders and firmware on the Jetson Nano family of boards have been moved from the sd-card/eMMC to the device's QSPI flash memory. L4T 32.5 and newer bootloaders are not compatible with previous L4T releases.
+
+If you purchased a Jetson Nano SD-CARD device that won't boot BalenaOS but boots the L4T Ubuntu image, or if you used an L4T 32.5 or newer Ubuntu image with your Jetson Nano and wish to run BalenaOS, please first [download][l4t-download] the L4T 32.4.4 BSP archive for Jetson Nano, unpack it and flash the device's QSPI memory by executing `sudo ./flash.sh jetson-nano-qspi-sd mmcblk0p1`. You can then boot BalenaOS v2.75.0+rev1 which is based on L4T 32.4.4. Also, you can further switch to a newer L4T version by performing a hostOS update from the dashboard. You can always see what L4T version the device runs by issuing `uname -a`.
+
+NOTE: On Jetson devices it is important to not interrupt the HostOS update process. Please ensure the device is powered correctly or has sufficient battery, the internet connectivity is stable and that the device is not rebooted or shutdown during the hostOS update, otherwise the device may fail to boot and will need to be re-flashed.
+
+## Jetson L4T versions
+
+### How can I determine which L4T a BalenaOS image uses?
+
+If the device is running, typing `uname -a` will show the L4T in the kernel version string. Additionally, the L4T version is visible in the [balena-jetson github repository][tegra-binaries-version] for every release tag.
 
 ## Intel Edison
 
@@ -109,5 +142,7 @@ Make sure you have [Intel Edison drivers](https://software.intel.com/en-us/iot/h
 
 [error]:#error-notifications
 [l4t]:https://developer.nvidia.com/embedded/linux-tegra
-[l4t-download]:https://developer.nvidia.com/embedded/linux-tegra-r322
+[l4t-download]:https://developer.nvidia.com/embedded/linux-tegra-archive
+[meta-tegra]:https://github.com/OE4T/meta-tegra
 [self-service-update]:/reference/OS/updates/self-service/
+[tegra-binaries-version]:https://github.com/balena-os/balena-jetson/tree/master/layers/meta-balena-jetson/recipes-bsp/tegra-binaries
