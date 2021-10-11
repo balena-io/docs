@@ -50,7 +50,7 @@
     "url-loader": "4.1.1",
     "watch": "^1.0.2",
     "webpack": "5.52.0",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^4.9.0"
   },
   "versionist": {
     "publishedAt": "2021-10-08T12:31:12.324Z"
