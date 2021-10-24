@@ -34,7 +34,6 @@
     clipboard.on('success', function (event) {
       event.clearSelection();
       const copyButton = event.trigger.querySelector('.btnIcon')
-      console.log(copyButton)
       copyButton.classList.add("tooltipped", "tooltipped-w", "tooltipped-no-delay", "m-2", "p-2", "border");
       copyButton.setAttribute('aria-label', 'Copied!');
       setTimeout(function () {
