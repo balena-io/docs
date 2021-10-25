@@ -1,0 +1,96 @@
+###
+### Display
+###
+# Verbose program output
+verbose = true
+
+# Show progress
+progress = false
+
+
+###
+### Runtime
+###
+# Number of threads to utilize.
+# Defaults to number of cores available to the system if omitted.
+#threads = 2
+
+# Maximum number of allowed redirects [default: 10]
+max_redirects = 10
+
+# Maximum number of concurrent network requests [default: 128]
+max_concurrency = 20
+
+
+###
+### Requests
+###
+# User agent to send with each request
+user_agent = "curl/7.71.1"
+
+# Website timeout from connect to response finished
+timeout = 20
+
+# Comma-separated list of accepted status codes for valid links.
+# Omit to accept all response types.
+#accept = "text/html"
+
+# Proceed for server connections considered insecure (invalid TLS)
+insecure = false
+
+# Only test links with the given scheme (e.g. https)
+# Omit to check links with any scheme
+#scheme = "https"
+
+# Request method
+method = "get"
+
+# Custom request headers
+headers = []
+
+
+###
+### Exclusions
+###
+# Exclude URLs from checking (supports regex)
+
+# balena base images account for ~1400 request to GitHub, they are
+# omitted to avoid being rate limited.
+# See https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
+# The openvpn link is omitted as trying to auto chek it results in
+# a 503, even when it is available.
+# The meta-balena link is included in parameterized scripts and as
+# a result will always produce a failing link.
+# The myorg/myapp link is a dummy address used in an example contract,
+# so is omitted.
+# The balena/resin API urls will not respond to unauthenticated requests
+exclude = [
+    "https://github.com/balena-io-library/base-images",
+    "https://community.openvpn.net/openvpn",
+    "https://raw.githubusercontent.com/balena-os/meta-balena",
+    "https://github.com/myorg/myapp",
+    "https://index.docker.io/v2/",
+    "https://api.balena-cloud.com/",
+    "git://github.com/",
+]
+
+# Exclude URLs contained in a file from checking
+exclude_file = []
+
+include = []
+
+# Exclude all private IPs from checking
+# Equivalent to setting `exclude_private`, `exclude_link_local`, and `exclude_loopback` to true
+exclude_all_private = true
+
+# # Exclude private IP address ranges from checking
+# exclude_private = false
+
+# # Exclude link-local IP address range from checking
+# exclude_link_local = false
+
+# # Exclude loopback IP address range and localhost from checking
+# exclude_loopback = false
+
+# Exclude all mail addresses from checking
+exclude_mail = true
