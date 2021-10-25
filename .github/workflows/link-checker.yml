@@ -10,7 +10,6 @@ on:
 
 jobs:
   unit:
-    name: Run link checker
     runs-on: ubuntu-latest
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
