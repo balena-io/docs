@@ -42,7 +42,9 @@ ESR host OS versions are currently available for the following devices with addi
 
 * Raspberry Pi (v1 / Zero / Zero W)
 * Raspberry Pi 3
+* Raspberry Pi 3 (64 bit OS)
 * Raspberry Pi 4
+* RockPi 4B
 * Beaglebone Black
 * Balena Fin (CM3)
 * Intel NUC
