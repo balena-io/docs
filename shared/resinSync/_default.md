@@ -42,5 +42,5 @@ Logging in to {{ $names.company.lower }}
 ```
 
 [cli-ref-link]:/tools/cli/
-[windows-support]:{{ $links.githubMain }}-modules/resin-sync/blob/feat/windows-support/README.md#windows
+[windows-support]:{{ $links.githubModules }}/resin-sync/blob/feat/windows-support/README.md#windows
 [nodejs-link]:https://nodejs.org/en/

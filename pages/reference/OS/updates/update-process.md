@@ -59,10 +59,11 @@ If the fingerprint check succeeds, the updater will use **Docker** to pull the t
 From here, the original updater script takes back control, and finishes up any other changes required by the update. When all this is done, the device is rebooted into the new system.
 
 ## Automatic rollbacks
+
 Rollbacks is a framework designed to automatically roll back the OS update in case something goes wrong.
 
 There are two rollback mechanisms in the OS, covering different update failure modes. One based on health checks called the `rollback-health`, and the recognizing if the new system is unbootable for some reason, the `rollback-altboot`. Learn more about [rollback mechanisms][rollback-mechanism].
 
 [changes]:/reference/OS/updates/migrate-to-2.0/
-[wifi-connect]:{{ $links.githubMain }}/wifi-connect
-[rollback-mechanism]:{{ $links.githubOS }}/meta-balena/blob/master/docs/rollbacks.md
+[wifi-connect]:{{ $links.githubOS }}/wifi-connect
+[rollback-mechanism]:/reference/OS/updates/rollbacks/

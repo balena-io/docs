@@ -5,7 +5,7 @@ npm:
       os: alpine
       architecture: x86_64
       node_versions:
-        - "10"
+        - "12"
 
 docker:
   builds:
