@@ -12,6 +12,7 @@ cd shared/sdk/ && {
   curl -O -L https://raw.githubusercontent.com/balena-io/balena-sdk/master/README.md
   # Extract deprecation text
   ../../tools/extract-markdown.sh "Deprecation policy" <README.md >deprecation-policy.md
+  rm README.md
   cd -
 } &
 
@@ -33,6 +34,7 @@ cd shared/meta-balena/ && {
   ../../tools/extract-markdown.sh "WiFi Adapters" <meta-balena.md >supported-wifi-adapters.md
   # Extract config.json
   ../../tools/extract-markdown.sh "config.json" <meta-balena.md >config-json.md
+  rm meta-balena.md
   cd -
 } &
 
