@@ -5,7 +5,7 @@
 which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
 
 # get latest CLI docs
-curl -o pages/reference/balena-cli.md -L https://github.com/balena-io/balena-cli/raw/master/doc/cli.markdown &
+curl -o pages/reference/balena-cli.md -L https://github.com/balena-io/balena-cli/raw/master/docs/balena-cli.md &
 
 # get SDK README
 cd shared/sdk/ && {
