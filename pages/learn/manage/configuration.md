@@ -24,7 +24,7 @@ BALENA_SUPERVISOR_POLL_INTERVAL | 900000 | Define the {{ $names.company.lower }}
 BALENA_SUPERVISOR_VPN_CONTROL | true | Enable / Disable VPN | v1.3.0
 BALENA_SUPERVISOR_INSTANT_UPDATE_TRIGGER | true | Enable / Disable instant triggering of updates when a new release is deployed. If set to false, the device will ignore the notification that is triggered when the device's target state has changed. In this case, the device will rely on polling to apply updates. Note: You can spread out updates on devices if you disable instant updates and specify a different poll interval for each device in your fleet. This avoids overloading local networks if they are all at one location. | v9.13.0
 
-In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these are a few of the values that apply to Raspberry Pi devices, corresponding to the contents of the [Raspberry Pi `config.txt` file](https://www.raspberrypi.org/documentation/configuration/config-txt/README.md):
+In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these are a few of the values that apply to Raspberry Pi devices, corresponding to the contents of the [Raspberry Pi `config.txt` file](https://www.raspberrypi.com/documentation/computers/config_txt.html):
 
 {{> "general/config-variables-pi" }}
 
