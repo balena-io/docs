@@ -26,7 +26,7 @@ Before the device is [provisioned][device-provisioning], you may edit `config.tx
 
 ### Modifying `config.txt` using configuration variables
 
-After the device has been [provisioned][device-provisioning], you can modify the values in `config.txt` using [configuration variables][config-vars].
+After the device has been [provisioned][device-provisioning], you can modify the values in `config.txt` using the [configuration][config-vars] tab on the dashboard.
 
 __Note:__ After modifying a `config.txt` variable, the device supervisor will apply the changes and reboot the device.
 
@@ -36,17 +36,17 @@ Variables that start with the `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` pref
 start_x=1
 ```
 
-To manage configuration variables via the dashboard, add/edit variables via the *Fleet Configuration* page for [fleet-wide config variables][config-vars-fleet] and *Device Configuration* for [device specific variables][config-vars-device]. The device-specific variables, if defined, will override the fleet-wide variables of the same name. See the [configuration variables documentation][config-vars] for more details.
+To manage the configuration via the dashboard, add/edit variables via the *Configuration* tab on the [fleet][config-vars-fleet] or [device][config-vars-device] level. The variables with the same named defined at the device level, will override the variables defined fleet wide. See [configuration documentation][config-vars] for more details.
 
 Configuration values that are prepopulated may be edited or toggled (enabled/disabled):
 
-<img alt="Prepopulated device configuration variables" src="/img/configuration/default_configuration.png" width="100%">
+<img alt="Prepopulated device configuration" src="/img/configuration/default_configuration.png" width="100%">
 
-Custom configuration variables may be added by clicking _Add custom variable_ and entering a name with the prefix of `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` as shown below:
+Custom configuration may be added by clicking _Add custom variable_ and entering a variale with name having the prefix of `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` as shown below:
 
-<img alt="Add fleet configuration variable" src="/img/configuration/variable_editor_config.png" width="60%">
+<img alt="Add custom configuration" src="/img/configuration/variable_editor_config.png" width="60%">
 
-__Note:__ In addition to the dashboard, these configuration variables can be also be set using the API or any of its clients, including the [SDK][sdk] and [CLI][cli].
+__Note:__ In addition to the dashboard, this configuration can be also be set using the API or any of its clients, including the [SDK][sdk] and [CLI][cli].
 
 ### GPU Memory
 
