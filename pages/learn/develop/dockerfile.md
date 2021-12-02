@@ -98,9 +98,7 @@ __Note:__ If your fleet contains devices of different types, the `%%{{ $names.co
 
 If you want to see an example of build variables in action, have a look at this [basic openssh example]({{ $links.githubPlayground }}/balena-openssh).
 
-Here are the supported machine names and architectures:
-
-{{> "general/deviceTypeNames"}}
+Here are the [supported machine names and architectures][supported-devices].
 
 ## Multiple Dockerfiles
 
@@ -198,12 +196,12 @@ __Note:__ With a plain Node.js project, our build server will detect compatible 
 [local-build]:/reference/cli/#build-source
 [multicontainer]:/learn/develop/multicontainer
 [base-images]:/reference/base-images/base-images
+[supported-devices]:/reference/base-images/devicetypes/
 
 [init-system-link]:https://en.wikipedia.org/wiki/Init
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
 [openrc-link]:https://en.wikipedia.org/wiki/OpenRC
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
-
 [package]:https://docs.npmjs.com/files/package.json
 [container]:https://wiki.archlinux.org/index.php/Linux_Containers
 [npm]:https://www.npmjs.org/
