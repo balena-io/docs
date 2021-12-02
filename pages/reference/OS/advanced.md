@@ -123,13 +123,13 @@ __Note:__ This setting disables the Raspberry Pi rainbow splash screen but does 
 
 [boot-partition]:/reference/OS/overview/2.x/#image-partition-layout
 [cli]:/reference/cli/reference/balena-cli/#envs
-[config-txt]:https://www.raspberrypi.org/documentation/configuration/config-txt/
+[config-txt]:https://www.raspberrypi.com/documentation/computers/config_txt.html
 [config-vars]:/learn/manage/configuration
 [config-vars-fleet]:/learn/manage/configuration/#managing-fleet-configuration-variables
 [config-vars-device]:/learn/manage/configuration/#managing-device-configuration-variables
 [device-provisioning]:/learn/welcome/primer/#device-provisioning
 [device-tree-overlay]:https://github.com/raspberrypi/linux/blob/rpi-4.19.y/arch/arm/boot/dts/overlays/README
-[gpu-memory]:https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md
+[gpu-memory]:https://www.raspberrypi.com/documentation/computers/config_txt.html#memory-options
 [image-variants]:/reference/OS/overview/2.x/#variants-of-balenaos
 [sdk]:/reference/sdk/node-sdk
-[uart]:https://www.raspberrypi.org/documentation/configuration/uart.md
+[uart]:https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts
