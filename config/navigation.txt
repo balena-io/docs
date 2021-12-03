@@ -70,6 +70,7 @@ Learn
     [/learn/manage/device-statuses]
     [/learn/manage/filters-tags]
     [/learn/manage/ssh-access]
+    [/learn/manage/device-logs]
     [/learn/manage/configuration]
     [/learn/manage/variables]
     [/learn/manage/actions]
