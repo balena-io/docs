@@ -85,4 +85,6 @@ __Note:__ In addition to the dashboard, this configuration can be also be set us
 [cli]:/reference/cli/reference/balena-cli/#envs
 [local-mode]:/learn/develop/local-mode
 [update-locking]:/learn/deploy/release-strategy/update-locking
-[boot-config-guide]:/reference/OS/advanced/#modifying-configtxt-using-configuration-variables
+[boot-config-guide]:/reference/OS/advanced
+[service-variables]:/learn/manage/variables
+[configuration-reference]:/reference/supervisor/configuration-variables
