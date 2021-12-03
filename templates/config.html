@@ -1,0 +1,24 @@
+{% extends "default.html" %}
+
+{% block dynamicSwitchCustom %}
+  <p class="dynamic-switch__append">
+  </p>
+{% endblock %}
+
+{% block "contents" %}
+
+<h1>
+  Configuration List for {{ $device.name }}
+</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Configuration</th>
+      <th>Value</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody id="support_devices_table"></tbody>
+</table>
+{% endblock %}

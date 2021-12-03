@@ -1,0 +1,32 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  (function () {
+    window.jQuery
+      .ajax({
+        url: `https://api.balena-cloud.com/config/vars?deviceType={{ $device.id }}`
+      })
+      .done(function (deviceTypeVars) {
+        let table = ""
+        var properties = deviceTypeVars.configVarSchema.properties
+            Object.keys(properties).forEach(function (key) {
+              let property = properties[key]
+            table += 
+              `<tr>
+              <td>${key}</td>
+              <td>${property.hasOwnProperty("enum") ? "boolean" : property.type }</td>
+              <td>${property.hasOwnProperty("description") ? property.description : "No description available"}</td>
+              <td>${property.hasOwnProperty("default") ? property.default : "No default value" }</td>
+              </tr>`
+          })
+          return window.jQuery("#support_devices_table").append(table);
+      })
+      .fail(function (error) {
+        return window
+          .jQuery("#support_devices_table")
+          .append(
+            '<tr><td colspan="4">Something went wrong.</td></tr>'
+          );
+      });
+  }.call(this))
+</script>
