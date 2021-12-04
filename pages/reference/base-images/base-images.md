@@ -34,7 +34,11 @@ excerpt: Docker images maintained by {{ $names.company.lower }}
 ## How to Pick a Base Image
 
 <!-- TODO: Add image on how image hierarchy and discuss -->
-When starting out a project, it's generally easier to have a "fatter" image, which contains a lot of prebuilt dependencies and tools. These images help you get setup faster and work out the requirements for your project. For this reason, it's recommended to start with `-build` variants, and as your project progresses, switch to a `-run` variant with some [docker multistage build magic][multistage-build-docs] to slim your deploy image down. In most cases, your project can just use a Debian based distribution, which is the default if not specified, but if you know the requirements of your project or prefer specific distros, Ubuntu, Alpine, and Fedora images are available. The set of `balenalib` base images follow a simple naming scheme described below, which will help you select a base image for your specific needs.
+When starting out a project, it's generally easier to have a "fatter" image, which contains a lot of prebuilt dependencies and tools. These images help you get setup faster and work out the requirements for your project. For this reason, it's recommended to start with `-build` variants. Also, images whose name begins with `%%BALENA_MACHINE_NAME%%` generally include more tools, while `%%BALENA_ARCH%%` named images are kept as small as possible.
+
+In most cases your project can just use a Debian based distribution, which is the default if not specified. However, if you know the requirements of your project or prefer specific distros, Ubuntu, Alpine, and Fedora images are available. Finally, as your project progresses, switch to a `-run` variant with some [docker multistage build magic][multistage-build-docs] to slim your deploy image down.
+
+The next section describes the simple image naming scheme for `balenalib` base images, which will help you select one for your specific needs.
 
 ### How the Image Naming Scheme Works
 
