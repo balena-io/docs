@@ -1,7 +1,7 @@
 {
   "name": "resin-docs",
   "private": true,
-  "version": "5.30.36",
+  "version": "5.30.37",
   "engines": {
     "node": "^12.0.0"
   },
@@ -53,6 +53,6 @@
     "webpack-cli": "^4.8.0"
   },
   "versionist": {
-    "publishedAt": "2021-12-03T10:58:47.442Z"
+    "publishedAt": "2021-12-06T18:05:19.391Z"
   }
 }
