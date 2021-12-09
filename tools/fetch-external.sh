@@ -5,13 +5,14 @@
 which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
 
 # get latest CLI docs
-curl -o pages/reference/balena-cli.md -L https://github.com/balena-io/balena-cli/raw/master/doc/cli.markdown &
+curl -o pages/reference/balena-cli.md -L https://github.com/balena-io/balena-cli/raw/master/docs/balena-cli.md &
 
 # get SDK README
 cd shared/sdk/ && {
   curl -O -L https://raw.githubusercontent.com/balena-io/balena-sdk/master/README.md
   # Extract deprecation text
   ../../tools/extract-markdown.sh "Deprecation policy" <README.md >deprecation-policy.md
+  rm README.md
   cd -
 } &
 
@@ -33,8 +34,12 @@ cd shared/meta-balena/ && {
   ../../tools/extract-markdown.sh "WiFi Adapters" <meta-balena.md >supported-wifi-adapters.md
   # Extract config.json
   ../../tools/extract-markdown.sh "config.json" <meta-balena.md >config-json.md
+  rm meta-balena.md
   cd -
 } &
+
+# get meta-balena rollbacks docs
+curl -o pages/reference/OS/updates/rollbacks.md -L https://raw.githubusercontent.com/balena-os/meta-balena/master/docs/rollbacks.md
 
 # get integrations
 curl -o pages/learn/develop/integrations/google-iot.md -L https://raw.githubusercontent.com/balenalabs/google-iot/master/README.md &

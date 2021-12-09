@@ -128,7 +128,7 @@ For more information about common anti-patterns, see [Anti-patterns, or how to b
 [docker-compose]:https://docs.docker.com/compose/overview/
 [dev-vs-prod]:/reference/OS/overview/2.x/#development-vs-production-images
 [local-mode]:/learn/develop/local-mode
-[wifi-connect]:{{ $links.githubMain }}/wifi-connect
+[wifi-connect]:{{ $links.githubOS }}/wifi-connect
 [supervisor-api]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
 [collaborators]:/learn/manage/account/#fleet-members
 [ssh]:/learn/manage/ssh-access

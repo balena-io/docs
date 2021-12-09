@@ -1,6 +1,6 @@
 The next step is to flash the downloaded image onto your {{ $device.name }}'s internal eMMC. The easiest way to flash the image onto the device is using {{ $names.company.lower }}’s [Etcher][etcher-link]. Support for the CM3L is available on Etcher starting from version 1.2.1 for OSX and Windows (Windows still needs the Raspberry Pi Foundation [usbboot drivers](https://github.com/raspberrypi/usbboot/blob/master/win32/rpiboot_setup.exe) installed).
 
-The Raspberry Pi Foundation provides a tool that allows the Compute Module to expose the eMMC as a mass storage device that can be flashed like any other media. If you want to use the tool provided by the Raspberry Pi Foundation instead, please follow their instructions [here](https://www.raspberrypi.org/documentation/hardware/computemodule/cm-emmc-flashing.md).
+The Raspberry Pi Foundation provides a tool that allows the Compute Module to expose the eMMC as a mass storage device that can be flashed like any other media. If you want to use the tool provided by the Raspberry Pi Foundation instead, please follow their instructions [here](https://www.raspberrypi.com/documentation/computers/compute-module.html#flashing-the-compute-module-emmc).
 
 Once you have everything set up, run Etcher on your computer, connect your {{ $device.name }} to your laptop via a micro usb cable plugged into the port next to the label `MAX ADD`. Now power the {{ $device.name }} via the 10.7 - 28.8V power connectors.
 

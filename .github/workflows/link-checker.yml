@@ -9,7 +9,7 @@ on:
       - "master"
 
 jobs:
-  unit:
+  Checking Links:
     runs-on: ubuntu-latest
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
@@ -17,12 +17,12 @@ jobs:
         uses: actions/checkout@v2
 
       # fetch external files
-      - name: Prepare
+      - name: Fetching External files
         run: ./tools/prepare.sh
 
       - name: Link Checker
         id: lychee
-        uses: lycheeverse/lychee-action@v1.0.6
+        uses: lycheeverse/lychee-action@v1.1.1
         with:
           args: >
             --config ./lychee.toml
@@ -31,7 +31,7 @@ jobs:
 
       - name: Create Issue From File
         if: github.event_name != 'pull_request'
-        uses: peter-evans/create-issue-from-file@v2
+        uses: peter-evans/create-issue-from-file@v3
         with:
           title: Link Checker Report
           content-filepath: ./lychee/out.md

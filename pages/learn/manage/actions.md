@@ -12,7 +12,7 @@ Actions allow you to control the status of your fleets and the devices that are 
 
 ## General actions
 
-> [Fleet members][fleet-members] with the Operator role and above can perform any of the actions listed below.
+[Fleet members][fleet-members] with the Operator role and above can perform any of the actions listed below.
 
 ### Enable Public Device URL
 
@@ -70,7 +70,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ## Device-specific actions
 
-> [Fleet members][fleet-members] with the Operator role and above can perform any of the actions listed below.
+[Fleet members][fleet-members] with the Operator role and above can perform any of the actions listed below.
 
 ### Update Locking
 

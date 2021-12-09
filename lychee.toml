@@ -67,7 +67,6 @@ headers = []
 exclude = [
     "https://github.com/balena-io-library/base-images",
     "https://community.openvpn.net/openvpn",
-    "https://raw.githubusercontent.com/balena-os/meta-balena",
     "https://github.com/myorg/myapp",
     "https://index.docker.io/v2/",
     "https://api.balena-(cloud|staging).com/",

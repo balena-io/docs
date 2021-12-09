@@ -83,4 +83,4 @@ During app development, pinning versions of various components as much as possib
 [supervisor-api]:/reference/supervisor/supervisor-api/#cleanup-volumes-with-no-references
 [time-sync]:/reference/OS/time/#time-management
 [watchdog]:{{ $links.blogSiteUrl }}/keeping-your-system-running-watchdog/
-[wifi-connect]:{{ $links.githubMain }}/wifi-connect
+[wifi-connect]:{{ $links.githubOS }}/wifi-connect
