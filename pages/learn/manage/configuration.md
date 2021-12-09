@@ -4,7 +4,7 @@ title: Configuration
 
 # Configuration
 
-Variables in the configuration page allows you to provide runtime configuration to the host OS and supervisor. These variables all begin with `{{ $names.company.allCaps}}_` or `RESIN_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
+Variables on the configuration page allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `{{ $names.company.allCaps}}_` or `RESIN_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
 
 Configuration can be managed at both the fleet and device level.
 
@@ -30,31 +30,23 @@ In addition to these values, there may be some device-type specific configuratio
 
 You can find more information on updating `config.txt` through the configuration tab in our [Advanced Boot Configuration Guide][boot-config-guide].
 
-## Managing fleet level configuration
+## Fleet configuration management
 
-Variables defined on the fleet wide configuration control the behavior of any devices running in that fleet unless they are redefined with a device level variable of the same name.
+Configuration defined at the fleet level controls the behavior of any devices running in that fleet unless it is overridden with device configuration of the same name.
 
-If you want to change the default value for one of the prepopulated configuration, make sure you are in the *Configuration* tab on the fleet level, then click *activate* for the variable you wish to define:
+If you want to change the default value for any of the pre-populated configuration, make sure you are in the *Configuration* tab on the fleet, then click *activate* for the variable you wish to define:
 
 <img alt="Activate fleet level configuration" src="/img/configuration/activate_default_config.png" width="100%">
 
 After activating, the variable will be populated with the default value. Variables that can be enabled or disabled can be switched with the provided toggles. Other values can be edited by clicking the small edit (pencil) icon. To remove the fleet wide configuration, and reset it to its default value, click the delete (trash can) icon.
 
-To define a custom fleet wide configuration, scroll past the automatically populated variables, then click the *Add custom variable* button in the lower-right corner:
-
-<img alt="Add custom fleet variable" src="/img/configuration/add_fleet_configuration.png" width="100%">
-
-A dialog pops up giving you the option to define a name and value (remember, all config variable names must begin with `{{ $names.company.allCaps}}_` or `RESIN_`). Click *Add* to apply:
-
-<img alt="Add custom fleet configuration" src="/img/configuration/variable_editor_config.png" width="60%">
-
 If you have already defined configuration at the device level, they will appear in a list below your fleet wide configuration. You can easily apply a device value to the entire fleet by clicking *Define fleet-wide*:
 
 <img alt="Define device level configuration fleet-wide" src="/img/configuration/define_app_wide.png" width="100%">
 
-## Managing device level configuration
+## Device configuration management
 
-Device specific configuration define the behavior of a single device. If both the fleet and the device have configuration of the same name, the code on the device will use the value of the device level configuration. In other words, device level configuration variables redefine (or override) fleet wide configuration.
+Device configuration defines the behavior of a single device. If both the fleet and the device have configuration of the same name, the code on the device will use the value given in the device configuration. In other words, device level configuration redefines (or overrides) fleet wide configuration.
 
 The device level configuration list includes the prepopulated default values. Variables that can be enabled or disabled can be easily switched with the provided toggles. Other values can be edited by clicking the small edit (pencil) icon.
 
@@ -66,13 +58,23 @@ Clicking the edit icon will pop up a small dialog for editing the value:
 
 To remove the device level configuration, and reset it to its default value, click the delete (trash can) icon.
 
-Adding custom device configuration is very similar to adding a custom fleet configuration. Scroll past the prepopulated configuration, click *Add custom variable*, define a name and value, and click *Add*.
+### Adding custom configuration
+
+To define custom fleet wide configuration, scroll past the automatically populated variables, then click the *Add custom variable* button in the lower-right corner:
+
+<img alt="Add custom fleet" src="/img/configuration/add_fleet_configuration.png" width="100%">
+
+A dialog pops up giving you the option to define a name and value (remember, all config variable names must begin with `{{ $names.company.allCaps}}_` or `RESIN_`). Click *Add* to apply:
+
+<img alt="Add custom fleet configuration" src="/img/configuration/variable_editor_config.png" width="60%">
+
+Adding custom device configuration is similar to adding custom fleet configuration. You can override the value of custom fleet configuration by clicking *override* inside device configuration. This will pop up the variable editing dialog, where you can change the value:
+
+<img alt="Override device configuration" src="/img/configuration/override_config.png" width="60%">
 
 <img alt="Add custom device configuration" src="/img/configuration/add_device_custom_variable.png" width="100%">
 
-You can override the value of a custom fleet configuration by clicking *override*. This will pop up the variable editing dialog, where you can change the value:
 
-<img alt="Override device configuration" src="/img/configuration/override_config.png" width="60%">
 
 [local-mode]:/learn/develop/local-mode
 [update-locking]:/learn/deploy/release-strategy/update-locking

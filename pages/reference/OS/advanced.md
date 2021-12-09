@@ -42,7 +42,7 @@ Configuration values that are prepopulated may be edited or toggled (enabled/dis
 
 <img alt="Prepopulated device configuration" src="/img/configuration/default_configuration.png" width="100%">
 
-Custom configuration may be added by clicking _Add custom variable_ and entering a variale with name having the prefix of `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` as shown below:
+Custom configuration may be added by clicking _Add custom variable_ and entering a variable with name having the prefix of `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` as shown below:
 
 <img alt="Add custom configuration" src="/img/configuration/variable_editor_config.png" width="60%">
 
