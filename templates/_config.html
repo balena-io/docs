@@ -14,8 +14,11 @@
             table += 
               `<tr>
               <td>${key}</td>
-              <td>${property.hasOwnProperty("enum") ? "boolean" : property.type }</td>
-              <td>${property.hasOwnProperty("description") ? property.description : "No description available"}</td>
+              <td>${Array.isArray(property. enum) ? property. enum.join(', ') : property.type}</td>
+              <td>
+                  ${property.hasOwnProperty("description") ? property.description : "No description available"}
+                  ${property.examples != null && property.examples.length > 0 ? '<br /> Example:' + property.examples[0] : ''}
+              </td>
               <td>${property.hasOwnProperty("default") ? property.default : "No default value" }</td>
               </tr>`
           })
