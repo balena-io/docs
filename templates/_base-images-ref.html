@@ -51,6 +51,7 @@
         return window.jQuery("#base-images-ref").append(table);
       })
       .fail(function (error) {
+        console.error(error);
         return window
           .jQuery("#base-images-ref")
           .append(

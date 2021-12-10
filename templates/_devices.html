@@ -68,6 +68,7 @@
         return window.jQuery("#support_devices_table").append(table);
       })
       .fail(function (error) {
+        console.error(error)
         return window
           .jQuery("#support_devices_table")
           .append(

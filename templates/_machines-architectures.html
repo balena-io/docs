@@ -29,6 +29,7 @@
         return window.jQuery("#machines_architectures").append(table);
       })
       .fail(function (error) {
+        console.error(error);
         return window
           .jQuery("#machines_architectures")
           .append(

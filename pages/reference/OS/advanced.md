@@ -9,7 +9,7 @@ __Warning:__ This page contains details of advanced configuration options that e
 
 ## Raspberry Pi
 
-The Raspberry Pi exposes device configuration options via a text file on the [boot partition][boot-partition] named [`config.txt`][config-txt-docs]. You can change boot options in this file, either by manually editing it before the device's first boot or editing the default [configuration][configuration] values.
+The Raspberry Pi exposes device configuration options via a text file on the [boot partition][boot-partition] named [`config.txt`][config-txt-docs]. You can change boot options in this file, either by manually editing it before the device's first boot or editing the default [configuration][configuration-list] values using the device [Configuration][configuration] tab in the balenaCloud dashboard. 
 
 The boot partition is mounted on the device at `/mnt/boot`, so the file is located at `/mnt/boot/config.txt` on the device. To view the contents of `config.txt` on a provisioned device, use the following commands:
 
