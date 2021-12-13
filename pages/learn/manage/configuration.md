@@ -48,7 +48,7 @@ If you have already defined configuration at the device level, they will appear 
 
 Device configuration defines the behavior of a single device. If both the fleet and the device have configuration of the same name, the code on the device will use the value given in the device configuration. In other words, device level configuration redefines (or overrides) fleet wide configuration.
 
-The device level configuration list includes the prepopulated default values. Variables that can be enabled or disabled can be easily switched with the provided toggles. Other values can be edited by clicking the small edit (pencil) icon.
+The device level configuration list includes the pre-populated default values. Variables that can be enabled or disabled can be easily switched with the provided toggles. Other values can be edited by clicking the small edit (pencil) icon.
 
 <img alt="Device configuration" src="/img/configuration/device_config_variables.png" width="100%">
 
@@ -60,7 +60,9 @@ To remove the device level configuration, and reset it to its default value, cli
 
 ### Adding custom configuration
 
-To define custom fleet wide configuration, scroll past the automatically populated variables, then click the *Add custom variable* button in the lower-right corner:
+Custom configuration section can be used to modify configuration options beyond the ones pre-populated for your device using the balenaCloud dashboard. Examples include, [modifying config.txt using configuration variables][boot-config-guide] for Raspberry Pi devices.
+
+To define custom fleet wide configuration, scroll past the automatically populated options, then click the *Add custom configuration* button in the lower-right corner:
 
 <img alt="Add custom fleet" src="/img/configuration/add_fleet_configuration.png" width="100%">
 
@@ -75,7 +77,10 @@ Adding custom device configuration is similar to adding custom fleet configurati
 <img alt="Add custom device configuration" src="/img/configuration/add_device_custom_variable.png" width="100%">
 
 
+__Note:__ In addition to the dashboard, this configuration can be also be set using the API or any of its clients, including the [SDK][sdk] and [CLI][cli].
 
+[sdk]:/reference/sdk/node-sdk
+[cli]:/reference/cli/reference/balena-cli/#envs
 [local-mode]:/learn/develop/local-mode
 [update-locking]:/learn/deploy/release-strategy/update-locking
-[boot-config-guide]:/reference/OS/advanced/#modifying-configtxt-remotely
+[boot-config-guide]:/reference/OS/advanced/#modifying-configtxt-using-configuration-variables
