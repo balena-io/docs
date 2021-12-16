@@ -14,17 +14,17 @@
             `<tr>
               <td>${key}</td>
               <td>
-                ${Array.isArray(property.enum) ? property.enum.join(', ') : property.type}
+                ${property.hasOwnProperty("description") ? property.description : "No description available"}
+                ${property.examples != null && property.examples.length > 0 ? '<br /> Example:' + property.examples[0] : ''}
               </td>
               <td>
                 ${property.hasOwnProperty("will_reboot") ? "Yes" : "No"}
               </td>
               <td>
-                ${property.hasOwnProperty("default") ? property.default : ""}
+                ${Array.isArray(property.enum) ? property.enum.join(', ') : property.type}
               </td>
               <td>
-                ${property.hasOwnProperty("description") ? property.description : "No description available"}
-                ${property.examples != null && property.examples.length > 0 ? '<br /> Example:' + property.examples[0] : ''}
+                ${property.hasOwnProperty("default") ? property.default : ""}
               </td>
             </tr>`
         })

@@ -126,7 +126,7 @@ Reference
     # Handled in redirects.txt
     Configuration List[/reference/supervisor/configuration-list/]
       # with $device being dynamic
-      Configuration List for {{ $device.name }}[/reference/supervisor/configuration-list/$device/]
+      Configuration list for {{ $device.name }}[/reference/supervisor/configuration-list/$device/]
 
       
   Base images
