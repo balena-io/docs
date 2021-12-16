@@ -44,6 +44,10 @@ If you have already defined configuration at the device level, they will appear 
 
 <img alt="Define device level configuration fleet-wide" src="/img/configuration/define_app_wide.png" width="100%">
 
+In order to delete device level overrides of a fleet wide configuration, click the "overrides" button in the list to delete device configuration for specific devices and enforce fleet wide configuration back on those device.
+
+<img alt="Override device configuration" src="/img/configuration/override_config.png" width="80%">
+
 ## Device configuration management
 
 Device configuration defines the behavior of a single device. If both the fleet and the device have configuration of the same name, the code on the device will use the value given in the device configuration. In other words, device level configuration redefines (or overrides) fleet wide configuration.
@@ -54,13 +58,13 @@ The device level configuration list includes the pre-populated default values. V
 
 Clicking the edit icon will pop up a small dialog for editing the value:
 
-<img alt="Edit device configuration" src="/img/configuration/edit_device_config.png" width="60%">
+<img alt="Edit device configuration" src="/img/configuration/edit_device_config.png" width="80%">
 
 To remove the device level configuration, and reset it to its default value, click the delete (trash can) icon.
 
 ### Adding custom configuration
 
-Custom configuration section can be used to modify configuration options beyond the ones pre-populated for your device using the balenaCloud dashboard. Examples include, [modifying config.txt using configuration variables][boot-config-guide] for Raspberry Pi devices.
+The custom configuration section can be used to modify configuration options beyond the ones pre-populated for your device using the balenaCloud dashboard. Examples include, [modifying config.txt using configuration variables][boot-config-guide] for Raspberry Pi devices.
 
 To define custom fleet wide configuration, scroll past the automatically populated options, then click the *Add custom configuration* button in the lower-right corner:
 
@@ -68,11 +72,9 @@ To define custom fleet wide configuration, scroll past the automatically populat
 
 A dialog pops up giving you the option to define a name and value (remember, all config variable names must begin with `{{ $names.company.allCaps}}_` or `RESIN_`). Click *Add* to apply:
 
-<img alt="Add custom fleet configuration" src="/img/configuration/variable_editor_config.png" width="60%">
+<img alt="Add custom fleet configuration" src="/img/configuration/variable_editor_config.png" width="80%">
 
 Adding custom device configuration is similar to adding custom fleet configuration. You can override the value of custom fleet configuration by clicking *override* inside device configuration. This will pop up the variable editing dialog, where you can change the value:
-
-<img alt="Override device configuration" src="/img/configuration/override_config.png" width="60%">
 
 <img alt="Add custom device configuration" src="/img/configuration/add_device_custom_variable.png" width="100%">
 

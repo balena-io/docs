@@ -83,7 +83,7 @@ version: 3.5.2
     - `data`:
       - `url` - The URL of the asset that is being uploaded.
 - `data`
-  - `applicationEnvironmentVariables` - [Variables][variable] allow you to provide runtime configuration without having to modify your source code.
+  - `applicationEnvironmentVariables` - [Variables][variables] allow you to provide runtime configuration without having to modify your source code.
   - `applicationConfigVariables` - [Configuration variables][configuration] allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
   - `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](/reference/hardware/devices/) here.
   - `supportedDeviceType` - The device types that the fleet supports. You can find a list of [device types](/reference/hardware/devices/) here.
