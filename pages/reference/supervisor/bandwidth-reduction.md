@@ -6,7 +6,7 @@ title: Reduce bandwidth usage
 
 In order to provide users with essential information about their devices, the {{ $names.company.lower }} Supervisor on the device regularly keeps the API informed about the device's state. Upon receiving a target device state which differs from the current device state, the Supervisor applies changes, such as downloading new application updates or setting environment variables. While a quick response to actions is great during development, it also leads to of increased data usage.
 
-In order to give our power users control over data flow, we enabled a few `BALENA_` [configuration variables][configuration-variables].
+In order to give our power users control over data flow, we enabled a few `BALENA_` variables in the [configuration][configuration] tab.
 
 | Variable                               | Allowed Value      |   Action                                             | Default | Available with Supervisor Version |
 |----------------------------------------|--------------------|------------------------------------------------------|---------|-----------------------------------|
@@ -52,4 +52,4 @@ The following settings lead to data usage of approximately 1.3MB per month:
 * Disable `BALENA_SUPERVISOR_HARDWARE_METRICS`
 
 [device-metrics]:/reference/supervisor/device-metrics
-[configuration-variables]:/learn/manage/configuration
+[configuration]:/learn/manage/configuration

@@ -8,7 +8,7 @@ excerpt: Choosing an update strategy for your {{ $names.company.lower }} devices
 With the {{ $names.company.lower }} device supervisor version 1.3, we added the ability to choose the update strategy on devices, that is, the order and way in which the steps to perform an update are executed. You can check whether your Supervisor has the appropriate version in the "Supervisor version" entry in the device dashboard page.
 These update strategies allow users to choose between four modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
 
-Update strategies are selected using [Fleet Configuration environment variables][fleet-envs]. The two variables that are involved are
+Update strategies can be applied in the [Configuration][configuration] section. The two variables that are involved are:
 
 * `BALENA_SUPERVISOR_UPDATE_STRATEGY` and
 * `BALENA_SUPERVISOR_HANDOVER_TIMEOUT`.
@@ -71,4 +71,4 @@ The `BALENA_SUPERVISOR_HANDOVER_TIMEOUT` variable defines this timeout in millis
 The communication between the old and new versions has to be implemented by the user in whatever way they see fit, for example by having the old version listen on a socket or port and having an endpoint for the new version to announce it's ready to take over. It is important to note that both versions will share the `/data` folder and network namespace, so they can use any of those to communicate.
 
 [update-locks]:/learn/deploy/release-strategy/update-locking/
-[fleet-envs]:/learn/manage/configuration/
+[configuration]:/learn/manage/configuration/

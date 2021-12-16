@@ -49,7 +49,7 @@ To get you started, here is an [example][i2c-example] that uses i2c to communica
 
 ### SPI
 
-SPI is enabled by default on {{ $names.os.lower }} via the `dtparam=spi=on` [device tree parameter][dt-params]. This default behavior can be modified by editing the [device configuration variables][device-configuration].
+SPI is enabled by default on {{ $names.os.lower }} via the `dtparam=spi=on` [device tree parameter][dt-params]. This default behavior can be modified by editing the [device configuration][device-configuration].
 
 For Node.js applications it should work out of the box with the [spi node module][spi-npm]. For an example of this, check out this project: [digitiser][digitiser-link].
 
@@ -152,7 +152,7 @@ so won't work with the 16M GPU split.
 ### Customizing config.txt
 These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings in the `config.txt` file on the SD cards `boot` partition. See [here](/configuration/advanced/) for more details.
 
-You can also set all of these variables remotely in the Device Configuration (for a single device) or Fleet Configuration (for all devices within a fleet) menu. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `BALENA_HOST_CONFIG_variable` set to the value `value`. For example:
+You can also set all of these variables remotely for a single device or the entire fleet using the Configuration tab on the device or fleet level respectively. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `BALENA_HOST_CONFIG_variable` set to the value `value`. For example:
 
 ![Setting the device configuration for Raspberry Pi config.txt variables](/img/hardware/host_config.png)
 
@@ -307,4 +307,4 @@ After this you should be able to easily use your Intel Edison in USB host mode.
 [dockerbase-node]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-node/
 [dockerbase-python]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-python/
 [dt-params]:/reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam
-[device-configuration]:/learn/manage/configuration/#managing-device-configuration-variables
+[device-configuration]:/learn/manage/configuration/#device-configuration-management

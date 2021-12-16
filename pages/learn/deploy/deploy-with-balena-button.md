@@ -9,7 +9,7 @@ The **Deploy with {{ $names.company.lower }}** button allows users to perform a 
 
 ![Deploy with {{ $names.company.lower }}](https://balena.io/deploy.svg)
 
-Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $names.cloud.lower }} dashboard with a modal window pre-populated with everything required to deploy a fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](#balenayml-configuration-file), they are pre-populated.
+Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $names.cloud.lower }} dashboard with a modal window pre-populated with everything required to deploy a fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](#balenayml-configuration-file), then they are pre-populated in this section.
 
 <img src="https://www.balena.io/docs/img/configuration/deploy-to-balena.png" width="80%">
 
@@ -83,9 +83,11 @@ version: 3.5.2
     - `data`:
       - `url` - The URL of the asset that is being uploaded.
 - `data`
-  - `applicationEnvironmentVariables` - Variables allow you to provide runtime configuration without having to modify your source code.
-  - `applicationConfigVariables` - Configuration variables allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
+  - `applicationEnvironmentVariables` - [Variables][variables] allow you to provide runtime configuration without having to modify your source code.
+  - `applicationConfigVariables` - [Configuration variables][configuration] allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
   - `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](/reference/hardware/devices/) here.
   - `supportedDeviceType` - The device types that the fleet supports. You can find a list of [device types](/reference/hardware/devices/) here.
 
 [balenahub]:{{ $links.balenaHubUrl }}
+[configuration]:/learn/manage/configuration
+[variables]:/learn/manage/variables

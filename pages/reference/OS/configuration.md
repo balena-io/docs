@@ -21,7 +21,7 @@ cat /mnt/boot/config.json | jq '.'
 After provisioning, editing `config.json` as described above is not reliable or advisable because the [supervisor][supervisor] may overwrite certain fields, such as `persistentLogging`, with values read from the {{ $names.cloud.lower }} API. To safely modify the values of `config.json` on a provisioned device use one of the following methods:
 
 - Update the device [hostname](#hostname) via the [supervisor API][hostname].
-- Modify the [persistent logging](#persistentlogging) setting via the device dashboard [configuration variables][configuration].
+- Modify the [persistent logging](#persistentlogging) configuration via device [configuration][configuration] tab in the balenaCloud dashboard.
 - Apply `config.json` updates remotely via the {{ $names.cli.lower }} using the [configizer project][configizer].
 
 Alternatively, you can always reprovision a device with an updated `config.json` file.
@@ -66,11 +66,11 @@ The following example provides all customizable configuration options available 
 
 {{> "meta-balena/config-json" }}
 
-[boot-partition]: /reference/OS/overview/2.x/#stateless-and-read-only-rootfs
-[config-txt]: /reference/OS/advanced/#configtxt
-[country-codes]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-[hostname]: /reference/supervisor/supervisor-api/#patch-v1devicehost-config
-[configuration]: /learn/manage/configuration/
+[boot-partition]:/reference/OS/overview/2.x/#stateless-and-read-only-rootfs
+[config-txt]:/reference/OS/advanced/#configtxt
+[country-codes]:https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+[hostname]:/reference/supervisor/supervisor-api/#patch-v1devicehost-config
+[configuration]:/learn/manage/configuration/
 [configizer]:{{ $links.githubPlayground }}/configizer
 [masterclass-os]:/learn/more/masterclasses/host-os-masterclass/#12-advanced-editing-configjson-by-hand
 [provisioned]:/learn/welcome/primer/#device-provisioning
