@@ -10,7 +10,6 @@ static/dist
 *.swp
 *.swo
 tmp
-docs_env
 
 # Ignore external docs that are pulled via tools/fetch-external.sh
 pages/reference/cli.md
