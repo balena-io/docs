@@ -30,6 +30,7 @@
 
 # Default redirects
 ^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi3/nodejs/$1$2
+^\/reference\/supervisor\/configuration-list\/?(\?.+)?(#.+)?$ -> /reference/supervisor/configuration-list/raspberrypi3/$1$2
 ^\/learn\/develop\/?(\?.+)?(#.+)?$ -> /learn/develop/local-mode/$1$2
 ^\/learn\/deploy\/?(\?.+)?(#.+)?$ -> /learn/deploy/deployment/$1$2
 ^\/learn\/deploy\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2

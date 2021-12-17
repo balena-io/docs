@@ -9,11 +9,9 @@ __Warning:__ This page contains details of advanced configuration options that e
 
 ## Raspberry Pi
 
-The Raspberry Pi exposes device [configuration options][config-txt] via a text file on the [boot partition][boot-partition] named [`config.txt`][config-txt]. You can change boot options in this file, either by manually editing it before the device's first boot or editing the device [configuration variables][config-vars]. By default, the following values are set for Raspberry Pi devices:
+The Raspberry Pi exposes device configuration options via a text file on the [boot partition][boot-partition] named [`config.txt`][config-txt]. You can change boot options in this file, either by manually editing it before the device's first boot or editing the default [configuration][configuration-list] values using the device [Configuration][configuration] tab in the balenaCloud dashboard. 
 
-{{> "general/config-variables-pi" }}
-
-The boot partition is mounted on the device at `/mnt/boot`, and so on the device, the file is located at `/mnt/boot/config.txt`. For example, to view the contents of `config.txt` on a provisioned device use the following commands:
+The boot partition is mounted on the device at `/mnt/boot`, so the file is located at `/mnt/boot/config.txt` on the device. To view the contents of `config.txt` on a provisioned device, use the following commands:
 
 ```shell
 $ balena ssh <uuid>
@@ -112,6 +110,7 @@ __Note:__ This setting disables the Raspberry Pi rainbow splash screen but does 
 [boot-partition]:/reference/OS/overview/2.x/#image-partition-layout
 [config-txt]:https://www.raspberrypi.com/documentation/computers/config_txt.html
 [configuration]:/learn/manage/configuration
+[configuration-list]:/reference/supervisor/configuration-list
 [configuration-fleet]:/learn/manage/configuration/#fleet-configuration-management
 [configuration-device]:/learn/manage/configuration/#device-configuration-management
 [custom-configuration]:/learn/manage/configuration/#adding-custom-configuration

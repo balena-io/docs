@@ -1,0 +1,42 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  (function () {
+    window.jQuery
+      .ajax({
+        url: `https://api.balena-cloud.com/config/vars?deviceType={{ $device.id }}`
+      })
+      .done(function (deviceTypeVars) {
+        let table = ""
+        var properties = deviceTypeVars.configVarSchema.properties
+        Object.keys(properties).forEach(function (key) {
+          let property = properties[key]
+          table +=
+            `<tr>
+              <td>${key}</td>
+              <td>
+                ${property.hasOwnProperty("description") ? property.description : "No description available"}
+                ${property.examples != null && property.examples.length > 0 ? '<br /> Example:' + property.examples[0] : ''}
+              </td>
+              <td>
+                ${property.hasOwnProperty("will_reboot") ? "Yes" : "No"}
+              </td>
+              <td>
+                ${Array.isArray(property.enum) ? property.enum.join(', ') : property.type}
+              </td>
+              <td>
+                ${property.hasOwnProperty("default") ? property.default : ""}
+              </td>
+            </tr>`
+        })
+        return window.jQuery("#config_table").append(table);
+      })
+      .fail(function (error) {
+        console.error(error)
+        return window
+          .jQuery("#config_table")
+          .append(
+            '<tr><td colspan="4">Something went wrong.</td></tr>'
+          );
+      });
+  }.call(this))
+</script>

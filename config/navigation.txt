@@ -123,7 +123,12 @@ Reference
     [/reference/supervisor/bandwidth-reduction]
     [/reference/supervisor/docker-compose]
     [/reference/supervisor/supervisor-upgrades]
+    # Handled in redirects.txt
+    Configuration List[/reference/supervisor/configuration-list/]
+      # with $device being dynamic
+      Configuration list for {{ $device.name }}[/reference/supervisor/configuration-list/$device/]
 
+      
   Base images
     [/reference/base-images/base-images]
     [/reference/base-images/base-images-ref]

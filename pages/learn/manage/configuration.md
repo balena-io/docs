@@ -12,29 +12,13 @@ __Note:__ Configuration defined in the dashboard will not apply to devices in [l
 
 ## Variable list
 
-This list contains variables that can be used with {{ $names.company.lower }} devices, some of which will automatically appear for devices with supervisor v7.0.0 and greater. While they may not automatically populate in the dashboard, most of these variables can still be used with older supervisor versions, so be sure to check the *Valid from* column:
+Aside from [variables][variables], you can also configure device behavior with Supervisor or device type specific variables.
 
-Name | Default | Description | Valid from
---- | --- | --- | ---
-BALENA_OVERRIDE_LOCK | 0 | When set to 1 overrides any existing [update lock][update-locking] on the device. Allows updating devices in the case that the release locked updates but is stuck in an invalid state. | v1.0.0
-BALENA_SUPERVISOR_CONNECTIVITY_CHECK | true | Enable / Disable VPN connectivity check | v1.3.0
-BALENA_SUPERVISOR_LOCAL_MODE | false | Enable / Disable [local mode][local-mode] | v4.0.0
-BALENA_SUPERVISOR_LOG_CONTROL | true | Enable / Disable logs being sent to the {{ $names.company.lower }} API | v1.3.0
-BALENA_SUPERVISOR_POLL_INTERVAL | 900000 | Define the {{ $names.company.lower }} API poll interval in milliseconds. This value can increase if the device needs to backoff due to server errors. The minimum value for this variable is defined by the balenaCloud backend, and may vary. | v1.3.0
-BALENA_SUPERVISOR_VPN_CONTROL | true | Enable / Disable VPN | v1.3.0
-BALENA_SUPERVISOR_INSTANT_UPDATE_TRIGGER | true | Enable / Disable instant triggering of updates when a new release is deployed. If set to false, the device will ignore the notification that is triggered when the device's target state has changed. In this case, the device will rely on polling to apply updates. Note: You can spread out updates on devices if you disable instant updates and specify a different poll interval for each device in your fleet. This avoids overloading local networks if they are all at one location. | v9.13.0
-
-In addition to these values, there may be some device-type specific configuration variables that can be set. For example, these are a few of the values that apply to Raspberry Pi devices, corresponding to the contents of the [Raspberry Pi `config.txt` file](https://www.raspberrypi.com/documentation/computers/config_txt.html):
-
-{{> "general/config-variables-pi" }}
-
-You can find more information on updating `config.txt` through the configuration tab in our [Advanced Boot Configuration Guide][boot-config-guide].
+For a complete list of valid configuration variables that can be configured, check the [configuration list][configuration-list].
 
 ## Fleet configuration management
 
-Configuration defined at the fleet level controls the behavior of any devices running in that fleet unless it is overridden with device configuration of the same name.
-
-If you want to change the default value for any of the pre-populated configuration, make sure you are in the *Configuration* tab on the fleet, then click *activate* for the variable you wish to define:
+Configuration defined at the fleet level controls the behavior of any devices running in that fleet unless it is overridden with device configuration of the same name. If you want to change the default value for any of the pre-populated configuration, make sure you are in the *Configuration* tab on the fleet, then click *activate* for the variable you wish to define:
 
 <img alt="Activate fleet level configuration" src="/img/configuration/activate_default_config.png" width="100%">
 
@@ -56,13 +40,13 @@ The device level configuration list includes the pre-populated default values. V
 
 <img alt="Device configuration" src="/img/configuration/device_config_variables.png" width="100%">
 
-Clicking the edit icon will pop up a small dialog for editing the value:
+Clicking the small edit (pencil) icon will pop up a small dialog for editing the value:
 
 <img alt="Edit device configuration" src="/img/configuration/edit_device_config.png" width="80%">
 
 To remove the device level configuration, and reset it to its default value, click the delete (trash can) icon.
 
-### Adding custom configuration
+## Adding custom configuration
 
 The custom configuration section can be used to modify configuration options beyond the ones pre-populated for your device using the balenaCloud dashboard. Examples include, [modifying config.txt using configuration variables][boot-config-guide] for Raspberry Pi devices.
 
@@ -85,4 +69,7 @@ __Note:__ In addition to the dashboard, this configuration can be also be set us
 [cli]:/reference/cli/reference/balena-cli/#envs
 [local-mode]:/learn/develop/local-mode
 [update-locking]:/learn/deploy/release-strategy/update-locking
-[boot-config-guide]:/reference/OS/advanced/#modifying-configtxt-using-configuration-variables
+[boot-config-guide]:/reference/OS/advanced#modifying-configtxt-using-configuration-variables
+[service-variables]:/learn/manage/variables
+[configuration-list]:/reference/supervisor/configuration-list
+[variables]:/learn/manage/variables
