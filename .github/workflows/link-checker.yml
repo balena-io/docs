@@ -9,7 +9,7 @@ on:
       - "master"
 
 jobs:
-  Checking Links:
+  Checking-Links:
     runs-on: ubuntu-latest
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
