@@ -22,15 +22,16 @@ jobs:
 
       - name: Link Checker
         id: lychee
-        uses: lycheeverse/lychee-action@v1.1.1
+        uses: lycheeverse/lychee-action@v1.2.0
         with:
           args: >
             --config ./lychee.toml
             --github-token ${{ secrets.GITHUB_TOKEN }}
-            **/*.md
+            '**/*.md'
 
       - name: Create Issue From File
-        if: github.event_name != 'pull_request'
+        if: steps.lychee.outputs.exit_code != 0 \
+            && github.event_name != 'pull_request'
         uses: peter-evans/create-issue-from-file@v3
         with:
           title: Link Checker Report
