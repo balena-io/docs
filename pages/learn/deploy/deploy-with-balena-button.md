@@ -29,7 +29,7 @@ The above example uses a SVG logo as this renders better on GitHub - however, yo
 
 You can further customize the behavior of the **Deploy with {{ $names.company.lower }}** button by providing additional URL parameters. The following URL parameters are available and may be appended to the `https://dashboard.balena-cloud.com/deploy` link:
 
-- `repoUrl` - The URL of the project repository. If you are placing the deploy button in a GitHub repo then {{ $names.cloud.lower }} can auto-determine the `repoUrl` from the referer info in the HTTP headers. However on Firefox and with some ad-blockers this may fail. So we recommend that you populate this query string parameter.
+- `repoUrl` - The URL of the project repository. If you are placing the deploy button in a GitHub repo then {{ $names.cloud.lower }} can auto-determine the `repoUrl` from the referrer info in the HTTP headers. However on Firefox and with some ad-blockers this may fail. We recommend that you populate this query string parameter.
 - `tarballUrl` - The URL of the project tarball. Automatically determined from `repoUrl` if not provided.
 - `configUrl` - The URL of the configuration file for the fleet. Automatically determined from `repoUrl` if not provided.
 - `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types here](/reference/hardware/devices/).
