@@ -5,7 +5,7 @@ excerpts: Configuration options to expose more device functionality to {{ $names
 
 # Advanced boot settings
 
-__Warning:__ This page contains details of advanced configuration options that expose more functionality, but any mistakes may potentially leave a device inaccessible.
+__Warning:__ This page contains details of advanced configuration options that expose more functionality, but any mistakes may potentially leave a device inaccessible. Be sure to try your changes in a controlled environment before applying them to production devices.
 
 ## Raspberry Pi
 
