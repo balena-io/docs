@@ -885,6 +885,37 @@
     ]
   },
   {
+    "id": "odyssey-x86",
+    "type": "hw.device-type",
+    "name": "Seeed ODYSSEY-X86",
+    "arch": "amd64",
+    "bootMedia": "USB key",
+    "icon": "/img/device/odyssey-x86.svg",
+    "instructions": [
+      {
+        "i": "Write the OS file you downloaded to your USB key. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
+      },
+      {
+        "i": "Insert the freshly burnt USB key into the Intel NUC."
+      },
+      {
+        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
+      },
+      {
+        "i": "Please make sure you do not have any other USB keys inserted.\nPower up the Intel NUC. Make sure you have a keyboard connected.\nPress the F10 key (may differ on some platforms) while BIOS is loading in order to enter the boot menu.\nNext, select the name of your USB key."
+      },
+      {
+        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
+      },
+      {
+        "i": "Remove the balenaOS installation media."
+      },
+      {
+        "i": "Power on your device."
+      }
+    ]
+  },
+  {
     "id": "orange-pi-one",
     "name": "Orange Pi One",
     "arch": "armv7hf",
