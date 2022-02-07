@@ -47,9 +47,9 @@ and therefore:
 * The folder will be available "for the duration of `RUN` directives", such that secrets can be
   accessed by scripts/code at image build time, for example:
 
-` ``shell
+```Dockerfile
 RUN cat /run/secrets/my-recipe | secret_processing_script.sh
-` ``
+```
 
 To add a secret file to a specific service's build:
 
@@ -117,7 +117,7 @@ __Warning:__ It is not recommended to use build-time variables for passing secre
 However, secrets like tokens and passwords can be used in instructions like RUN through the mounted secret files, for example:
 
 ```Dockerfile
-RUN /bin/cat /run/secrets/my-recipe/secret-recipe | command_that_reads_secrets_from_stdin
+RUN /bin/cat /run/secrets/my-recipe | command_that_reads_secrets_from_stdin
 ```
 
 Files under the .balena folders are not saved in the final image, hence being more secure than ARG.
