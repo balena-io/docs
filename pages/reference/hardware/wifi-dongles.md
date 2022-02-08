@@ -8,17 +8,22 @@ excerpt: WiFi adapters known to work with {{ $names.company.lower }} devices
 {{> "meta-balena/supported-wifi-adapters" }}
 
 There are however many other USB wifi adapters that will work out of the box with {{ $names.company.lower }} 
-devices. Generally speaking, WiFi devices listed over at the [elinux rpi wifi page][elinux] or devices which use one of the `linux-firmware-ath9k`, `linux-firmware-ralink` and `linux-firmware-rtl8192cu` firmwares should work correctly.
+devices. Generally speaking, WiFi devices listed over at the [elinux rpi wifi page][elinux] or devices which use one of the `linux-firmware-ath9k` and `linux-firmware-ralink` firmwares should work correctly.
 
-Here are some notable devices known to work:
+Here are some notable devices which used to work (cf notes) :
 
 * [Pi Hut USB WiFi Adapter][pi-hut-usb] - Small form-factor and works right out of the box!
-* [TP-Link WN725N][TL-WN725N] - Small, reliable and cheap TP Link device.
+* [TP-Link WN725N][TL-WN725N] - Small, reliable and cheap TP Link device (no AP mode, cf notes)
 * [TP-Link AC600][TL-AC600] - Dual band alternative to WN725N.
 * [TP-Link Nano Router][nano-router] - Though this isn't strictly a WiFi
   adapter, it does enable you to connect to WiFi network using the ethernet port
   of the Pi and is known to work correctly with {{ $names.company.upper }}. As a result no further
   configuration is required.
+
+Notes : 
+* Two devices with same commercial name but different version can use different wifi chips and therefore provide different functionalities (i.e. TP-Link WN225N can be either based on Atheros ath9k_htc or Realtek rtl8188eus)
+* Devices using `rtl8192cu` drivers are not shipped with recent version of {{ $names.company.lower }} os anymore. It should be possible to compile and load a driver but it's not trivial and beyond the scope of this documentation.
+* Devices using `rtl8188eu` drivers (such as some [TP-Link WN725N][TL-WN725N] doesn't support AP Mode, and are not suitable to make a Captive Portal.
 
 ### Configuration
 
