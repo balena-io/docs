@@ -82,7 +82,7 @@ Learn
     [/learn/more/examples/balenablocks]
     [/learn/more/collected-data]
     Masterclasses
-      [/learn/more/masterclasses/overview]
+      [/learn/more/masterclasses/masterclass-intro]
       CLI[/learn/more/masterclasses/cli-masterclass]
       Advanced CLI[/learn/more/masterclasses/advanced-cli]
       BalenaOS[/learn/more/masterclasses/host-os-masterclass]
