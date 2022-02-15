@@ -14,6 +14,7 @@ title: Troubleshooting
   * [Connectivity](#connectivity)
   * [SD Card Corruption](#sd-card-corruption)
   * [Wifi doesn't connect on RPI3](#wifi-connection-problems-on-rpi3)
+  * [BalenaOS boot issues with new hardware revision of RPi4](#balenaos-boot-issues-with-new-hardware-revision-of-rpi4)
 * [Jetson TX2](#jetson-tx2)
   * [Unable to flash a board that was previously running L4T 28.x](#unable-to-flash-a-board-that-was-previously-running-l4t-28x)
   * [Are L4T 28.4 and 28.5 relases supported in balenaOS](#are-L4T-28.4-and-28.5-releases-supported-in-BalenaOS)
@@ -68,9 +69,29 @@ If you are presented with a 'recovery login' prompt this usually indicates an is
 * The SD card itself is faulty - older SD cards, especially ones which have been used a lot and thus may also be *physically* worn at the pins can be unreliable, resulting in data corruption. Try using a new SD card.
 
 ### Wifi connection problems on RPI3
+
 If you are having issues with your RPI3 connecting to your wifi, make sure
 to check that the 2.4 GHz channel on your wifi router is set to something less than 11, since
 the firmware on the Raspberry Pi doesn't support channel 12 and 13.
+
+### balenaOS boot issues with new hardware revision of RPi4
+
+[Raspberry Pi](https://www.raspberrypi.com/) recently released [hardware Rev 1.5](https://forums.raspberrypi.com/viewtopic.php?t=329299) of the Raspberry Pi 4 Model B. This revision of the board requires a relatively recent version of [balenaOS](https://balena.io/os). We recommend using balenaOS v2.88.5+rev1 or later that contains the updated firmware version. BalenaOS v2.75.0+rev1 and earlier versions aren't tested and possibly won't boot on this revision of the board.
+
+To determine if you have hardware Rev 1.5 of the Raspberry Pi 4 Model B, follow the steps below:
+
+1. Run the following command in balenaOS v2.88.5+rev1 or later. The output should confirm the hardware revision.
+
+```
+$ cat /proc/cpuinfo | grep Model 
+Raspberry Pi 4 Model B Rev 1.5
+```
+
+2. Look for the Dialog DA9090 power management controller next to the USB-C port. Check the picture below for reference.
+
+<img src="/img/troubleshooting/DA9090_identified.jpg" width="50%">
+
+For more information about Raspberry Pi 4 Model B Rev 1.5, please refer the Raspberry Pi’s [Product Information Portal](https://pip.raspberrypi.com/restricted).
 
 ### Error Notifications
 
