@@ -55,7 +55,7 @@
 ^\/learn\/develop\/integrations\/google\/?(\?.+)?(#.+)?$ -> /learn/develop/integrations/google-iot/$1$2
 ^\/docs\/learn\/deploy\/release-strategy\/update-locking\/API\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-api/$1$2
 ^\/learn\/more\/masterclass\/?(\?.+)?(#.+)?$ -> /learn/more/masterclasses/overview/$1$2
-^\/learn\/more\/masterclasses\/overview/\?(\?.+)?(#.+)?$ -> /learn/more/masterclasses/masterclass-intro/$1$2
+^\/learn\/more\/masterclasses\/overview\/?(\?.+)?(#.+)?$ -> /learn/more/masterclasses/masterclass-intro/$1$2
 ^\/learn\/manage\/serv-vars\/?(\?.+)?(#.+)?$ -> /learn/manage/variables/$1$2
 ^\/reference\/supervisor\/upgrade-policy\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-upgrades/$1$2
 

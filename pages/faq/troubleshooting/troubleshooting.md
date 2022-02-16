@@ -91,7 +91,7 @@ Raspberry Pi 4 Model B Rev 1.5
 
 <img src="/img/troubleshooting/DA9090_identified.jpg" width="50%">
 
-For more information about Raspberry Pi 4 Model B Rev 1.5, please refer the Raspberry Pi’s [Product Information Portal](https://pip.raspberrypi.com/restricted).
+For more information about Raspberry Pi 4 Model B Rev 1.5, please refer to the [Product Information Portal](https://pip.raspberrypi.com/restricted) by Raspberry Pi.
 
 ### Error Notifications
 
