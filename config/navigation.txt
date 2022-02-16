@@ -44,6 +44,7 @@ Learn
     [/learn/develop/runtime]
     [/learn/develop/hardware]
       [/learn/develop/hardware/gpio]
+      [/learn/develop/hardware/usb]
       [/learn/develop/hardware/i2c-and-spi]
     [/learn/develop/integrations]
       Amazon AWS IoT[/learn/develop/integrations/aws]
