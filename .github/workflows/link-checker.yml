@@ -16,10 +16,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # fetch external files
-      - name: Fetching External files
-        run: ./tools/prepare.sh
-
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v1.3.0
