@@ -1,0 +1,22 @@
+name: fetch externals
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  pull_request:
+    branches:
+      - "master"
+
+jobs:
+  fetch-externals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: technote-space/create-pr-action@v2
+        with:
+         EXECUTE_COMMANDS: |
+           ./tools/fetch-external.sh
+         COMMIT_MESSAGE: 'patch: Update external markdown files'
+         PR_TITLE: 'patch: Update external markdown files'
+         PR_BRANCH_PREFIX: github-actions/
+         PR_BRANCH_NAME: 'fetch-externals-${PR_ID}'
