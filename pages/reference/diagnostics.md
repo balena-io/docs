@@ -107,17 +107,6 @@ This test confirms that the data partition for the device has been mounted prope
 ##### Triage
 Failure to mount the data partition can indicate an unhealthy storage medium or other problems on the device.  It is best to contact support to investigate further.
 
-### check_service_restarts
-#### Summary
-This check interrogates the engine to see if any services are restarting uncleanly/unexpectedly.
-
-#### Triage
-Investigate the logs of whichever service(s) are restarting uncleanly; this issue could be a bug in the error handling
-or start-up of the aforementioned unhealthy services.
-
-#### Depends on
-This check depends on the container engine being healthy (see [check_container_engine](#check_container_engine)).
-
 ### check_timesync
 #### Summary
 This check confirms that the system clock is actively disciplined.
@@ -157,13 +146,21 @@ This check tests various common failures at install locations required for a hea
 More information on networking requirements can be found [here](https://www.balena.io/docs/reference/OS/network/2.x/#network-requirements).
 
 ##### test_upstream_dns
-This test confirms that certain FQDNs are resolvable by each configured upstream DNS server.
+This test confirms that certain FQDNs are resolvable by each of the configured upstream DNS addresses.
+Only the failed upstream DNS addresses will be shown in the test results.
 
 ##### test_wifi
 This test confirms that if a device is using wifi, the signal level is above a threshold.
 
 ##### test_ping
 This test confirms that packets are not dropped during a ICMP ping.
+
+##### test_ipv4_stack
+This test confirms that the device can reach a public IPv4 endpoint when an IPv4 route is detected.
+
+##### test_ipv6_stack
+This test confirms that the device can reach a public IPv6 endpoint when an IPv6 route is detected.
+If necessary you can [disable IPv6 entirely](https://www.balena.io/docs/reference/OS/network/2.x/#disable-ipv6) on a device if it is experiencing issues.
 
 ##### test_balena_api
 This test confirms that the device can communicate with the balenaCloud API. Commonly, firewalls or MiTM devices can
@@ -187,13 +184,23 @@ Depending on what part of this check failed, there are various fixes and workaro
 restrictive local network, or an unreliable connection.
 
 ### check_user_services
+
 #### Summary
-Any checks with names beginning with `service_` come from user services. These checks allow users to provide their
-own health checks using the [HEALTHCHECK directive](https://docs.docker.com/engine/reference/builder/#healthcheck)
-defined in the Dockerfile. Any healthcheck output will be collected as-is, truncated to 100 characters, and shown as
-output along with the exit code of the healthcheck.
+
+Any checks with names beginning with `service_` come from user-defined services.
+These checks interrogate the engine to see if any services are restarting uncleanly/unexpectedly or failing health checks.
+We allow users to provide their own health checks using the [HEALTHCHECK directive](https://docs.docker.com/engine/reference/builder/#healthcheck)
+defined in the Dockerfile or docker-compose file.
+Any health check output will be collected as-is, truncated to 100 characters, and shown as output along with the exit code.
 
 #### Triage
+
+Investigate the logs of whichever service(s) are restarting uncleanly or failing healthchecks.
+This issue could be a bug in the error handling or start-up of the aforementioned unhealthy services.
 These checks are wholly limited in scope to user services and should be triaged by the developer.
 
-#### DIAGNOSE_VERSION=4.22.6
+#### Depends on
+
+This check depends on the container engine being healthy (see [check_container_engine](#check_container_engine)).
+
+#### DIAGNOSE_VERSION=4.22.9
