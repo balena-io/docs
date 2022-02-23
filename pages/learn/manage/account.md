@@ -169,7 +169,7 @@ If you wish to delete your {{ $names.cloud.lower }} account, go to your [_Prefer
 [starter]:/learn/manage/app-types#starter
 [administrator]: /learn/manage/organizations/#managing-roles--access-in-an-organization
 [device-actions]:/learn/manage/actions
-[device-actions]:/learn/manage/actions/#fleet-specific-actions
+[fleet-actions]:/learn/manage/actions/#fleet-specific-actions
 [variables]:/learn/manage/serv-vars/
 [configuration]:/learn/manage/configuration/
 [deploy]:/learn/deploy/deployment/
