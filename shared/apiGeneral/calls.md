@@ -46,6 +46,8 @@ curl -X GET "{{ $links.apiBase }}/v5/device(<ID>)" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
+## Resource IDs
+
 Many times, however, you won't know the internal ID used by the API, and you'll want to use some other piece of information to find the appropriate resource. In these cases, you can use the `$filter` method to select resources based on any field. For example, if you are looking for a specific device, it's more likely that you'll have the device UUID than the device ID:
 
 ```shell
@@ -56,6 +58,10 @@ curl -X GET \
 ```
 
 Notice the construction here: `$filter=` is used to define the field, and then the value is specified after the `eq` keyword. This is the most straightforward example—there are many other ways to build filters, which you can find in the OData documentation.
+
+The resource returned from this call contains the internal ID you can use to make subsequent calls, under the "id" key.
+
+`{"d":[{"id":1234567, ...`
 
 A final tip for constructing API calls: for some of the fields in the API response, a link to another resource is provided rather than the complete information about that resource. For example, if you make a call requesting information about a specific device, the `belongs_to__application` field will return a link to an application, but not all the information about that application. To get all the fields for the application resource, you can use the `$expand` method:
 
