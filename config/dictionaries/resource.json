@@ -234,7 +234,6 @@
       "last_vpn_event",
       "ip_address",
       "mac_address",
-      "vpn_address",
       "public_address",
       "os_version",
       "os_variant",
