@@ -109,7 +109,7 @@ Blocks by default are set to private. Blocks when made public are neither joinab
 
 With blocks being private, you can iterate, test and build more functionality into your block before making it available to the world. When you are ready for your block to be made public, head to the `Settings` tab in the sidebar and click the ‘Make public’ button to toggle the visibility on balenaHub; you’re free to toggle the visibility on and off as necessary at any time.
 
-This would lead to your block being available on balenaHub for folks to use and build upon. BalenaHub is the ever-growing library of blocks, projects and fleets contributed by the community.
+This would lead to your block being available on [balenaHub](https://hub.balena.io) for folks to use and build upon as soon as your submission has been marked as public. BalenaHub is the ever-growing library of blocks, projects and fleets contributed by the community.
 
 [browser]:https://github.com/balenablocks/browser
 [multicontainer]:/learn/develop/multicontainer/#docker-composeyml-file
