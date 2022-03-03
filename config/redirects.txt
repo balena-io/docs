@@ -107,6 +107,6 @@
 ^\/support\/?(\?.+)?(#.+)?$ -> /learn/welcome/support/$1$2
 ^\/devicetypes\/?(\?.+)?(#.+)?$ -> /reference/base-images/devicetypes/$1$2
 ^\/deployment\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2
-^\/reference\/data-api\/?(\?.+)?(#.+)?$ -> reference/api/overview/$1$2
+^\/reference\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/overview/$1$2
 ^\/reference\/resinOS\/?(.*) -> /reference/OS/$1
 ^\/reference\/base-images\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2
