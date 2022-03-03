@@ -163,9 +163,22 @@ Once the transfer of ownership has been completed, the source fleet owner will n
 
 During and after the transfer process, the devices state will remain unchanged from before the transfer process was started. For example, devices that were online before the process was started will remain online throughout.
 
-### Grant Support Access
+### Transfer Block Ownership
 
-This action allows you to [enable support access][support-access] to the entire fleet for a set time period.
+Blocks with all their associated releases and members can be transferred to any other balenaCloud [organization][organization]. Block transfers are between a **source** and a **target** organization.
+
+Only organization [administrators][administrator] can initiate and complete block transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
+
+1. Take note of the block name in the **source** organization and your balenaCloud username (*in the top-right drop-down menu*).
+2. Ask an administrator of the **target** balenaCloud organization to create a new empty block using the same block name (the [block type][block-types] doesn't need to match).
+3. Ask the administrator of the **target** balenaCloud organization to [add you as a member][add-application-member] of the newly created block with a [`Developer`][developer] role, using your username. If you are an administrator of the **target** organization, you already have access to the new block & this step can be skipped.
+4. In the **source** organization, select **<block>** --> **Actions** --> **Transfer This block** and pick the **target** organization from the list to complete the transfer.
+
+__Note:__ If the **Transfer This block** button is grayed out, ensure that you have created an empty block in the **target** organization with the same name as the source block, and that user that is transferring ownership of the block from the source organization has been added as a **Developer** to the **target** block.
+
+Once the transfer of ownership has been completed, the source block owner will no longer be a member of the target block. If required, you will need to invite them to become a member of the block again. All other members of the source block will retain their membership of the target block once the transfer is complete.
+
+During and after the transfer process, the devices state will remain unchanged from before the transfer process was started. For example, devices that were online before the process was started will remain online throughout.
 
 ### Delete Fleet
 
