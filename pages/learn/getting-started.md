@@ -211,7 +211,7 @@ Your release will then be downloaded and started by all the devices you have con
 [local-mode]:/learn/develop/local-mode
 [multicontainer]:/learn/develop/multicontainer
 [npminstall]:{{ $links.githubCli }}/blob/master/INSTALL.md#npm-installation
-[projects]:{{ $links.blogSiteUrl }}/tag/project/
+[projects]:{{ $links.blogSiteUrl }}/tags/project/
 [releases]:{{ $links.githubCli }}/releases
 [variables]:/learn/manage/variables/
 [terminal]:/learn/manage/ssh-access
