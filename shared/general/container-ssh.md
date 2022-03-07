@@ -41,11 +41,12 @@ $ balena ssh 192.168.1.23
 $ balena ssh <device-uuid>.local
 ```
 
-This should work without further configuration in the case of devices running a [development
-{{ $names.os.lower }} image][development-image], which allows unauthenticated `root` access
-(and for this reason, should never be directly exposed to the public internet). In the case of
-a production {{ $names.os.lower }} image, an SSH key must have been previously added to the
-device's `config.json` file, [sshKeys section][config-json-ssh].
+When used with a [production variant of {{ $names.os.lower }}][development-image], this
+feature requires balena CLI v13.3.0 or later, and balenaOS v2.44.0 or later. Otherwise, an
+SSH key must be added to the device's `config.json` file, [sshKeys
+section][config-json-ssh]. These restrictions do not apply to [development variants of {{
+$names.os.lower }}][development-image], which allow unauthenticated `root` access (and for
+this reason, should never be directly exposed to the public internet).
 
 ## Using a standalone SSH client
 
@@ -56,15 +57,16 @@ access is also possible with a standalone ssh client:
 $ ssh -p 22222 <username>@<device_ip_address>
 ```
 
-When the username is `root`, [production {{ $names.os.lower }} images][development-image]
+When the username is `root`, [production variants of {{ $names.os.lower }}][development-image]
 perform authentication against public SSH keys previously added to the device's `config.json`
 file, [sshKeys section][config-json-ssh]. When the username matches a valid
 {{$names.cloud.lower}} user account, authentication is also performed against that user's
-public SSH keys [stored in {{$names.cloud.lower}}][add-ssh-key]. The username can be found in
+public SSH keys [stored in {{$names.cloud.lower}}][add-ssh-key]
+(this feature requires balenaOS v2.44.0 or later). The username can be found in
 the profile or preferences section of the web dashboard, or with the `{{$names.company.short}}
 whoami` CLI command.
 
-Development {{ $names.os.lower }} images allow unauthenticated access and should never be
+Development variants of {{ $names.os.lower }} allow unauthenticated access and should never be
 directly exposed to the public internet.
 
 The IP address will typically be a private IP address of a local network. For remote devices,
@@ -99,7 +101,7 @@ See note in the [previous section](#using-a-standalone-ssh-client) regarding the
 [github-ssh]:https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [add-ssh-key]:/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
 [config-json-ssh]:/reference/OS/configuration/#sshkeys
-[development-image]:/reference/OS/overview/2.x/#development-vs-production-images
+[development-image]:/reference/OS/overview/2.x/#development-vs-production-mode
 
 ## Add an SSH key to {{ $names.cloud.lower }}
 
