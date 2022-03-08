@@ -31,8 +31,8 @@
     "@balena/doxx": "^1.0.0",
     "bootstrap": "^3.4.1",
     "bootstrap-select": "^1.13.18",
-    "coffeescript": "^2.5.1",
-    "express": "^4.17.1",
+    "coffeescript": "^2.6.1",
+    "express": "^4.17.3",
     "express-http-to-https": "1.1.4",
     "headroom.js": "0.12.0",
     "highlight.js": "10.7.3",
@@ -50,7 +50,7 @@
     "url-loader": "4.1.1",
     "watch": "^1.0.2",
     "webpack": "5.52.0",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^4.9.2"
   },
   "versionist": {
     "publishedAt": "2022-04-18T13:45:14.353Z"
