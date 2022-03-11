@@ -50,7 +50,7 @@ Both the Docker pull request and the actual image download process are performed
 
 When the VPN is enabled, SSH access is available to the service using the {{ $names.company.lower }} dashboard or the CLI.
 
-The {{ $names.company.lower }} VPN disallows device-to-device traffic and prohibits outbound traffic to the Internet.  If a device were compromised, this ensures that it cannot contaminate another device.
+The {{ $names.company.lower }} VPN disallows device-to-device traffic and prohibits outbound traffic to the Internet.  If a device were compromised, this ensures that it cannot contaminate another device. To achieve this the VPN service is configured to run with iptables default `FORWARD` policy set to `DROP` and we do not enable OpenVPN [--client-to-client](https://www.mankier.com/8/openvpn#--client-to-client) config option server side, so there is no way for the traffic between clients to traverse the interface(s).
 
 Currently, authentication against the VPN is performed with API token authentication.  API keys can be managed and revoked in the {{ $names.company.lower }} dashboard.
 
