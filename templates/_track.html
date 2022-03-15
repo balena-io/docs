@@ -15,7 +15,7 @@
 <script type="text/javascript">
   var urlParamsHandler = new analyticsClient.AnalyticsUrlParams();
   var newQuery = urlParamsHandler.consumeUrlParameters(window.location.search);
-  if (newQuery != null) {
+  if (newQuery != null && `?${newQuery` != window.location.search) {
     window.location.search = newQuery;
   }
 
