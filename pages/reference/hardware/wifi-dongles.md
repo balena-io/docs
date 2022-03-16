@@ -22,7 +22,7 @@ Here are some notable devices which used to work (cf notes) :
 
 Notes : 
 * Two devices with same commercial name but different version can use different wifi chips and therefore provide different functionalities (i.e. TP-Link WN225N can be either based on Atheros ath9k_htc or Realtek rtl8188eus)
-* Devices using `rtl8192cu` drivers are not shipped with recent version of {{ $names.company.lower }} os anymore. It should be possible to compile and load a driver but it's not trivial and beyond the scope of this documentation.
+* `rtl8192cu` drivers are not shipped with recent version of {{ $names.company.lower }} os anymore. It should be possible to compile and load a driver but it's not trivial and beyond the scope of this documentation.
 * Devices using `rtl8188eu` drivers (such as some [TP-Link WN725N][TL-WN725N] doesn't support AP Mode, and are not suitable to make a Captive Portal.
 
 ### Configuration
