@@ -19,6 +19,8 @@ title: I2C and Other Interfaces
 * [Intel Edison](/hardware/i2c-and-spi#intel-edison)
   * [MRAA for GPIO and hardware access](/hardware/i2c-and-spi#mraa-for-gpio-and-hardware-access)
   * [Edison in USB Host mode](/hardware/i2c-and-spi#edison-in-usb-host-mode)
+* [Jetson Devices](/hardware/i2c-and-spi#jetson-devices)
+  * [Custom device trees](/hardware/i2c-and-spi#custom-device-trees)
 
 ## Raspberry Pi Family
 
@@ -293,6 +295,30 @@ sleep 5s && ifconfig usb0 down
 ```
 
 After this you should be able to easily use your Intel Edison in USB host mode.
+
+## Jetson Devices
+
+### Custom device trees
+Loading of custom device trees in balenaOS is supported by the Jetson Nano and Jetson TX2 family of devices. The list of devices that support this function includes:
+- Floyd  Nano
+- Jetson Nano SD-CARD
+- Jetson Nano eMMC
+- Jetson Nano 2GB Devkit SD
+- JN30B  Nano
+- Photon Nano
+- Astro   TX2
+- Jetson  TX2
+- Jetson  TX2 NX (with Xavier NX Devkit)
+- Orbitty TX2
+- Photon  TX2 NX
+- Spacely TX2
+
+Loading of custom device trees is not supported for the Jetson Xavier family of devices in balenaOS. U-Boot provides the complete set of functionality necessary for loading custom device-trees in balenaOS for the Jetson Nano and TX2 devices, and this bootloader is not supported by the Jetson Xavier BSP.
+
+To test a custom device tree on a Jetson Nano or TX2 device, place your custom compiled device tree in the host operating system of your device, in the following path: /mnt/sysroot/active/current/boot/
+After that, navigate to the `Device Configuration` tab in the balenaCloud dashboard, activate the following configuration with the description `Define the file name of the DTB to be used`, and specify the file name of the custom device tree. The value of this configuration should contain the file name only. After the change is applied, the device will automatically reboot and load the new device tree.
+
+After the custom device tree has been validated, it can be included in newer balenaOS images. Open a pull request in the [balena Jetson device](https://github.com/balena-os/balena-jetson) repository following this [example commit](https://github.com/balena-os/balena-jetson/commit/3dbf9c96e5986c2138f318d1ee9f0d5c1a2fc3c8). Once your PR is approved and merged, a new balenaOS image that includes your custom device tree will become available shortly.
 
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
