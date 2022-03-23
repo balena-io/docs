@@ -25,7 +25,7 @@ version: '2'
 services:
   # Browser block service added to the multicontainer fleet
   browser:
-    image: balenablocks/browser
+    image: bh.cr/balenablocks/browser-aarch64
     privileged: true
     network_mode: host
 
