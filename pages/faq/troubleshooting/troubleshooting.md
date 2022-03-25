@@ -23,6 +23,7 @@ title: Troubleshooting
   * [Unable to boot balenaOS image downloaded from the Balena cloud](#unable-to-boot-balenaos-image-downloaded-from-balena-cloud)
 * [Jetson L4T versions](#jetson-l4t-versions)
   * [How can I determine which L4T a balenaOS image uses?](#how-can-i-determine-which-l4t-a-balenaos-image-uses?)
+  * [Custom device tree support](#custom-device-tree-support)
 * [Intel Edison](#intel-edison)
   * [Help!!! I want to restore my Edison to factory Yocto](#help-i-want-to-restore-my-edison-to-factory-yocto)
   * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
@@ -151,6 +152,10 @@ NOTE: On Jetson devices it is important to not interrupt the balenaOS update pro
 
 If the device is running, typing `uname -a` will show the L4T in the kernel version string. Additionally, the L4T version is visible in the [balena-jetson github repository][tegra-binaries-version] for every release tag.
 
+### Custom device tree support
+
+Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section][hardware section].
+
 ## Intel Edison
 
 ### Help, I want to restore my Edison to factory Yocto
@@ -168,3 +173,4 @@ Make sure you have [Intel Edison drivers](https://software.intel.com/en-us/iot/h
 [self-service-update]:/reference/OS/updates/self-service/
 [tegra-binaries-version]:https://github.com/balena-os/balena-jetson/tree/master/layers/meta-balena-jetson/recipes-bsp/tegra-binaries
 [jetson-flash]:https://github.com/balena-os/jetson-flash
+[hardware section]:/learn/develop/hardware/i2c-and-spi/#jetson-devices
