@@ -31,7 +31,7 @@ jobs:
 
       - name: Create Issue From File
         if: github.event_name != 'pull_request'
-        uses: peter-evans/create-issue-from-file@v3
+        uses: peter-evans/create-issue-from-file@v4
         with:
           title: Link Checker Report
           content-filepath: ./lychee/out.md
