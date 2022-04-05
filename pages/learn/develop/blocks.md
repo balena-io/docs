@@ -19,7 +19,7 @@ Since blocks are container images, they can be added to a multicontainer fleet. 
 
 Here's an example of using the [browser block][browser] in a sample multicontainer fleet already running 2 services.
 
-```
+```yaml
 version: '2'
 
 services:
@@ -111,13 +111,60 @@ By default, the block is set to `track latest`, which means that new releases ar
 
 ## Making your block public
 
-When a block is created on balenaCloud it will not automatically be publicly visible on balenaHub. When a block is made public it is listed in the [Blocks section][blockhub] of balenaHub, but is not joinable like fleets or forkable like projects. Instead the card for the block allows users to find the source code for the block, and learn how to deploy and use it in their own fleet.
+When a block is created on balenaCloud, it won't automatically be visible on balenaHub. When the block's visibility is toggled to `public`, it will get listed in the [Blocks section][blockhub] of balenaHub. Blocks aren't joinable like fleets or forkable like projects. Instead, the balenaHub page would provide the container image reference for the block, and instructions on how to deploy and use the block in your own fleet.
 
 When blocks are private, you can iterate, test and build more functionality before making it available to the world. When you are ready to release, head to the `Settings` tab in the sidebar and add your block's GitHub repository to the `Repository URL`  section. Next, toggle the `Block visibility` button to `on` for your block to be visible on balenaHub. You’re free to toggle the visibility on and off as necessary at any time.
 
 <img src="/img/blocks/settings.png" width="100%">
 
 This would lead to your block being available on [balenaHub][blockhub] for folks to use and build upon as soon as your submission has been marked as public. BalenaHub is the ever-growing library of blocks, projects and fleets contributed by the community.
+
+## Using your block in other projects
+
+The URL to pull your block image is available in balenaHub under the `Image Reference` field.
+
+<img src="/img/blocks/image-ref.png" width="100%">
+
+This image reference can be used in a Dockerfile or docker-compose file to pull the _default release_ image of your block.
+
+Here's how to pull a specific release version given several available releases in the dashboard.
+
+```yaml
+services:
+  # Browser block service added to the multicontainer fleet
+  browser:
+    image: bh.cr/balenablocks/browser-aarch64/2.3.8
+    privileged: true
+    network_mode: host
+```
+
+Note that specifying a revision via `+rev_` is not supported in image URLs as the plus sign is considered a special character. Instead, we will default to pulling the latest revision when a release version is provided.
+
+So if there are multiple revisions of a release, for example `2.3.8`, `2.3.8+rev1`, and `2.3.8+rev2`, specifying `2.3.8` in the image reference will result in `2.3.8+rev2` being pulled.
+
+During development you may want to pull a draft release for testing. Since draft releases are not included in the latest release track, you must specify the whole version string including the build stamp.
+
+```yaml
+services:
+  # Browser block service added to the multicontainer fleet
+  browser:
+    image: bh.cr/balenablocks/browser-aarch64/2.4.1-1648554962021
+    privileged: true
+    network_mode: host
+```
+
+You can also refer to a release by its build commit by copying the commit hash from the first column of the releases dashboard.
+
+```yaml
+services:
+  # Browser block service added to the multi-container fleet
+  browser:
+    image: bh.cr/balenablocks/browser-aarch64/11e1ee23d7ddf6ab6da99bac26c9d274
+    privileged: true
+    network_mode: host
+```
+
+Having the image reference available on balenaHub block page makes it easy to develop with blocks.
 
 [browser]:https://github.com/balenablocks/browser
 [multicontainer]:/learn/develop/multicontainer/#docker-composeyml-file
