@@ -31,7 +31,7 @@
     "@balena/doxx": "^1.0.0",
     "bootstrap": "^3.4.1",
     "bootstrap-select": "^1.13.18",
-    "coffeescript": "^2.5.1",
+    "coffeescript": "^2.6.1",
     "express": "^4.17.1",
     "express-http-to-https": "1.1.4",
     "headroom.js": "0.12.0",
