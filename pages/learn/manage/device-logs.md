@@ -67,12 +67,14 @@ Jan 13 11:05:07 dee2945 kernel[664]: [   14.974497] i2c /dev entries driver
 
 ## Increasing size of persistent logs store
 
-Depending on the OS version, the size of persistent logs can also be increased to store more logs than the default size (32 MB currently). Do keep in mind persistent logging increases the wear on the storage medium due to increased writes. Refer to [long term storage of device logs](#long-term-device-logs-storage) for ways to offset this.
+If you are running in [development mode][devvprod], and depending on the OS version, the size of persistent logs can also be increased to store more logs than the default size (32 MB currently). This can be done by adjusting the `SystemMaxUse=` setting in `/etc/systemd/journald.conf.d/journald-balena-os.conf` (refer to [journald.conf docs](https://www.freedesktop.org/software/systemd/man/journald.conf.html) for more information).
 
-The `RuntimeMaxUse=` in `/etc/systemd/journald.conf` can be increased to potentially increase the amount of logs that can be stored. Refer to [journald.conf docs](https://www.freedesktop.org/software/systemd/man/journald.conf.html) for more information regarding the same.
+Do keep in mind persistent logging increases the wear on the storage medium due to increased writes. Refer to [long term storage of device logs](#long-term-device-logs-storage) for ways to offset this.
 
 ## Long term device logs storage
 
 If you are dealing with excessive logs, persistent logging might not be a reliable long-term solution. Persistent logging increases writes on the device's storage media, which results in higher wear and tear over time.
 
 Instead, device logs can be streamed using the supervisor API. Refer to the [Supervisor's journald](https://www.balena.io/docs/reference/supervisor/supervisor-api/#journald-logs) endpoint. Through this endpoint, device logs can be streamed to whichever cloud monitoring platform you use to store logs reliably over time. For example, using a solution like [Datadog](https://www.balena.io/blog/iot-fleet-monitoring-with-datadog-and-balenacloud-how-small-agent-containers-make-a-big-impact/).
+
+[devvprod]:/reference/OS/overview/2.x/#development-vs-production-mode
