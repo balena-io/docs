@@ -8,19 +8,22 @@ excerpt: Choosing an update strategy for your {{ $names.company.lower }} devices
 With the {{ $names.company.lower }} device supervisor version 1.3, we added the ability to choose the update strategy on devices, that is, the order and way in which the steps to perform an update are executed. You can check whether your Supervisor has the appropriate version in the "Supervisor version" entry in the device dashboard page.
 These update strategies allow users to choose between four modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
 
-Update strategies can be applied in the [Configuration][configuration] section. The two variables that are involved are:
+Update strategies can be applied by setting a [docker-compose label](labels). The two labels that are involved are:
 
-* `BALENA_SUPERVISOR_UPDATE_STRATEGY` and
-* `BALENA_SUPERVISOR_HANDOVER_TIMEOUT`.
+* `io.balena.update.strategy`, and
+* `io.balena.update.handover-timeout`.
 
-Setting `BALENA_SUPERVISOR_UPDATE_STRATEGY` to a valid value selects the update strategy. The possible values are:
+Setting the `io.balena.update.strategy` label to a valid value selects the update strategy. The possible values are:
 
 * [`download-then-kill`](#download-then-kill),
 * [`kill-then-download`](#kill-then-download),
 * [`delete-then-download`](#delete-then-download), and
 * [`hand-over`](#hand-over),
 
-which are explained below. `BALENA_SUPERVISOR_HANDOVER_TIMEOUT` is only used in the  `hand-over` strategy, and its use is explained in the [strategy's description](#hand-over).
+which are explained below. The `io.balena.update.handover-timeout` label is only used in the  `hand-over` strategy, and its use is explained in the [strategy's description](#hand-over).
+
+__Note:__ Prior to Balena Supervisor v7.23.0 the strategy was controlled by two [configuration](configuration) variables, `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`, which had the same effect as the labels do today. 
+This mechanism for controlling the strategy is considered _deprecated_ and may be removed in the future.
 
 All update strategies below honor the [fleet update locks][update-locks] which you can use prevent updates temporarily.
 
@@ -65,10 +68,11 @@ Its behavior is as follows:
 * The old and new releases should communicate between each other so that the old one frees any resources that the new one needs (e.g. device files, database locks, etc) and the new version can start running fully.
 * Once this "handover" is performed between the releases (old or new), your service must signal to the Supervisor that the old version is ready to be killed, by creating a file at `/data/resin-kill-me`.
 * When the Supervisor detects that the file has been created, the Supervisor kills the old container and deletes it from disk.
-* If the file is not created after a time defined in `BALENA_SUPERVISOR_HANDOVER_TIMEOUT`, the Supervisor kills the old version.
+* If the file is not created after a time defined by the `io.balena.update.handover-timeout` label, the Supervisor kills the old version.
 
-The `BALENA_SUPERVISOR_HANDOVER_TIMEOUT` variable defines this timeout in milliseconds, and defaults to 60000 (i.e. 1 minute).
+The `io.balena.update.handover-timeout` label defines this timeout in milliseconds, and defaults to 60000 (i.e. 1 minute).
 The communication between the old and new versions has to be implemented by the user in whatever way they see fit, for example by having the old version listen on a socket or port and having an endpoint for the new version to announce it's ready to take over. It is important to note that both versions will share the `/data` folder and network namespace, so they can use any of those to communicate.
 
 [update-locks]:/learn/deploy/release-strategy/update-locking/
 [configuration]:/learn/manage/configuration/
+[labels]: /reference/supervisor/docker-compose/#labels
