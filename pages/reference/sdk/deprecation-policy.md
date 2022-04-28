@@ -1,5 +1,5 @@
 ---
-title: {{ $names.company.upper }} SDK deprecation policy
+title: Balena SDK deprecation policy
 ---
 
 # {{ $names.company.upper }} SDK deprecation policy
