@@ -1,6 +1,6 @@
 ---
-title: {{ $names.company.upper }} base images
-excerpt: Docker images maintained by {{ $names.company.lower }}
+title: Balena base images
+excerpt: Docker images maintained by balena
 ---
 
 # {{ $names.company.upper }} base images
