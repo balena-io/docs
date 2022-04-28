@@ -15,11 +15,15 @@ jobs:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v3
+      
+      # fetch external files && Building the docs
+      - name: Build the docs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - run: npm ci && npm run build
 
-      # fetch external files
-      - name: Fetching External files
-        run: ./tools/prepare.sh
-
+      # Run link checker on the generated HTML
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v1.4.1
@@ -27,7 +31,7 @@ jobs:
           args: >
             --config ./lychee.toml
             --github-token ${{ secrets.GITHUB_TOKEN }}
-            "**/*.md"
+            "content/**" 
 
       - name: Create Issue From File
         if: github.event_name != 'pull_request'
