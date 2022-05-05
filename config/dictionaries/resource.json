@@ -535,8 +535,8 @@
         "description": "",
         "method": "PATCH",
         "endpoint": "/v6/device_tag",
-        "filters": "?\\$filter=device/uuid%20eq%20'<UUID>'",
-        "data": "{\n    \"tag_key\": \"<EXISTING-KEY>\",\n    \"value\": \"<NEW-VALUE>\"\n}"
+        "filters": "?\\$filter=(tag_key%20eq%20'<EXISTING-KEY>')%20and%20(device%20eq%20<DEVICE_ID>)",
+        "data": "{\n    \"value\": \"<NEW-VALUE>\"\n}"
       },
       {
         "id": "delete-tag",
