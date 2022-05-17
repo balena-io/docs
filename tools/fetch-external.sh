@@ -76,4 +76,7 @@ cd pages/reference/sdk/ && {
 # get latest python SDK docs
 curl -o pages/reference/sdk/python-sdk.md -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md &
 
+# get latest custom board support docs
+curl -o pages/reference/OS/custom-device-support.md -L https://github.com/balena-os/meta-balena/raw/master/contributing-device-support.md &
+
 wait

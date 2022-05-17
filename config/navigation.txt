@@ -118,7 +118,7 @@ Reference
     [/reference/OS/configuration]
     [/reference/OS/time]
     [/reference/OS/advanced]
-    [/reference/OS/meta-balena]
+    [/reference/OS/custom-device-support]
 
   Device supervisor
     Supervisor API[/reference/supervisor/supervisor-api]
