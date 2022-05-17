@@ -19,6 +19,8 @@ title: I2C and Other Interfaces
 * [Intel Edison](/hardware/i2c-and-spi#intel-edison)
   * [MRAA for GPIO and hardware access](/hardware/i2c-and-spi#mraa-for-gpio-and-hardware-access)
   * [Edison in USB Host mode](/hardware/i2c-and-spi#edison-in-usb-host-mode)
+* [IOT-GATE-iMX8](/hardware/i2c-and-spi#iot-gate-imx8)
+  * [Serial ports](/hardware/i2c-and-spi#serial-ports)
 * [Jetson Devices](/hardware/i2c-and-spi#jetson-devices)
   * [Custom device trees](/hardware/i2c-and-spi#custom-device-trees)
 
@@ -295,6 +297,18 @@ sleep 5s && ifconfig usb0 down
 ```
 
 After this you should be able to easily use your Intel Edison in USB host mode.
+
+## IOT-GATE-iMX8
+
+### Serial ports
+
+The IOT-GATE-iMX8 has at least one serial port that can be configured as either RS232 or RS485. To select the RS232 operating mode, in the host operating system, add the following line to `/mnt/boot/extra_uEnv.txt`:
+
+```Bash
+uart_mode=rs232
+```
+
+Similarly, rs485 can be selected in the environment file as well. The device should be rebooted after setting the uart operating mode the for the changes to take effect.
 
 ## Jetson Devices
 
