@@ -43,7 +43,6 @@ The `balena.yml` file can also be used to provide additional metadata to be used
 The file should be named `balena.yml` and be located in the root of the project repository, or the `configUrl` link must be specified. A full example of the `balena.yml` file is shown below:
 
 ```yaml
-
 name: balenaSound
 type: sw.application
 description: >-
@@ -74,7 +73,7 @@ data:
 version: 3.5.2
 ```
 
-- `type` - Required field. In most cases this would be `sw.application`, unless you are implementing a block, in which case you need to use `sw.block`.
+- `type` - Required field. In most cases this would be `sw.application`, unless you are implementing a block, in which case you need to use `sw.block`. For reference, check [balena.yml file for a block][create-your-block]. 
 - `name` - A user-friendly name of your fleet.
 - `description`: A description of what the fleet does. This is what is displayed if the fleet is published on [balenaHub][balenahub].
 - `assets`
@@ -104,3 +103,4 @@ version: 3.5.2
 [balenahub]:{{ $links.balenaHubUrl }}
 [configuration]:/learn/manage/configuration
 [variables]:/learn/manage/variables
+[create-your-block]:/learn/develop/blocks/#creating-your-own-block
