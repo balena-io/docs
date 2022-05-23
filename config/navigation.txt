@@ -107,14 +107,14 @@ Reference
     [/reference/hardware/wifi-dongles]
 
   Host OS
-    Overview[/reference/OS/overview/$os_version]
+    Overview[/reference/OS/overview]
     Host OS updates
       [/reference/OS/updates/self-service]
       [/reference/OS/updates/update-process]
       [/reference/OS/updates/migrate-to-2.0]
       [/reference/OS/updates/rollbacks]
     Extended support release process[/reference/OS/extended-support-release]  
-    Network[/reference/OS/network/$os_version]
+    Network[/reference/OS/network]
     [/reference/OS/configuration]
     [/reference/OS/time]
     [/reference/OS/advanced]
