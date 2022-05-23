@@ -1,5 +1,5 @@
 ---
-title: Network Setup on {{ $os_version.name }}
+title: Network Setup on balenaOS 2.x
 
 ---
 
