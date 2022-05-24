@@ -111,7 +111,6 @@ Reference
     Host OS updates
       [/reference/OS/updates/self-service]
       [/reference/OS/updates/update-process]
-      [/reference/OS/updates/migrate-to-2.0]
       [/reference/OS/updates/rollbacks]
     Extended support release process[/reference/OS/extended-support-release]  
     Network[/reference/OS/network]
