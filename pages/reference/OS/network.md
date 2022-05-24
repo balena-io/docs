@@ -3,7 +3,7 @@ title: Network Setup on balenaOS
 
 ---
 
-# Networking on {{ $names.os.lower }} 2.x
+# Networking on {{ $names.os.lower }}
 
 * [Introduction](#introduction)
 * [WiFi Setup](#wifi-setup)
