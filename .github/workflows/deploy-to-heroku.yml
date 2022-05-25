@@ -1,15 +1,16 @@
 name: Deploy to Heroku
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types:
+      - closed
   # Deploys to Heroku once each day
   schedule:
     - cron: "0 0 * * *"
 
 jobs:
-  build:
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     environment: balena-docs
     steps:
