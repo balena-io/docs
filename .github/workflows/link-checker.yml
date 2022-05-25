@@ -31,7 +31,7 @@ jobs:
           args: >
             --config ./lychee.toml
             --github-token ${{ secrets.GITHUB_TOKEN }}
-            "contents/**" 
+            "contents/**/*" 
 
       - name: Create Issue From File
         if: github.event_name != 'pull_request'
