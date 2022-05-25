@@ -5,21 +5,20 @@
 verbose = true
 
 # Show progress
-progress = false
-
+progress = true
 
 ###
 ### Runtime
 ###
 # Number of threads to utilize.
 # Defaults to number of cores available to the system if omitted.
-#threads = 2
+threads = 6
 
 # Maximum number of allowed redirects [default: 10]
 max_redirects = 10
 
 # Maximum number of concurrent network requests [default: 128]
-max_concurrency = 20
+max_concurrency = 50
 
 
 ###
@@ -29,7 +28,7 @@ max_concurrency = 20
 user_agent = "curl/7.71.1"
 
 # Website timeout from connect to response finished
-timeout = 20
+timeout = 10
 
 # Comma-separated list of accepted status codes for valid links.
 # Omit to accept all response types.
@@ -48,7 +47,6 @@ method = "get"
 # Custom request headers
 headers = []
 
-
 ###
 ### Exclusions
 ###
@@ -61,9 +59,11 @@ headers = []
 # a 503, even when it is available.
 # The meta-balena link is included in parameterized scripts and as
 # a result will always produce a failing link.
-# The myorg/myapp link is a dummy address used in an example contract,
-# so is omitted.
+# The myorg/myapp link is a dummy address used in an example contract so is omitted.
 # The balena/resin API urls will not respond to unauthenticated requests
+# The gstatic and googleapis links go 404 and are excluded ever since we started checking HTML
+# balenaCLI linux binary URLs always error out since they are generated on run time only
+# File URLs are excluded as they aren't checked properly and error out
 exclude = [
     "https://github.com/balena-io-library/base-images",
     "https://community.openvpn.net/openvpn",
@@ -80,7 +80,12 @@ exclude = [
     "http://backend:1234",
     "http:/%25s:%25s",
     "git://github.com/",
-]
+    "https://fonts.googleapis.com/*",
+    "https://fonts.gstatic.com/*",
+    "https://bob:secret@proxy.company.com:12345",
+    "https://github.com/balena-io/balena-cli/releases/download/*",
+    "file://*"
+    ]
 
 # Exclude URLs contained in a file from checking
 exclude_file = []
