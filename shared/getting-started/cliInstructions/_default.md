@@ -2,10 +2,10 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation"><a id="cli-osx-tab" href="#cli-osx" aria-controls="cli-osx" role="tab" data-toggle="tab">macOS</a></li>
     <li role="presentation"><a id="cli-windows-tab" href="#cli-windows" aria-controls="cli-windows" role="tab" data-toggle="tab">Windows</a></li>
-    <li role="presentation" class="active"><a id="cli-linux-tab" href="#cli-linux" aria-controls="cli-linux" role="tab" data-toggle="tab">Linux</a></li>
+    <li role="presentation"><a id="cli-linux-tab" href="#cli-linux" aria-controls="cli-linux" role="tab" data-toggle="tab">Linux</a></li>
   </ul>
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="cli-osx">
+    <div role="tabpanel" class="tab-pane" id="cli-osx">
       <p>
         <ol>
           <li>
@@ -58,9 +58,16 @@
 <script type="text/javascript">
   window.addEventListener('load', function () {
     var appVersion = navigator.appVersion
-    if (appVersion.indexOf('Mac')!== -1) jQuery('#cli-osx-tab').tab('show')
-    if (appVersion.indexOf('Win')!== -1) jQuery('#cli-windows-tab').tab('show')
-    if (appVersion.indexOf('Linux')!== -1 || appVersion.indexOf('X11')!== -1) jQuery('#cli-linux-tab').tab('show')
+    jQuery('#cli-osx-tab').tab('show') // initiate the first tab, not sure why you have to do this.
+    if (appVersion.indexOf('Mac')!== -1) {
+      jQuery('#cli-osx-tab').tab('show')
+    }
+    if (appVersion.indexOf('Win')!== -1) {
+      jQuery('#cli-windows-tab').tab('show')
+    }
+    if (appVersion.indexOf('Linux')!== -1 || appVersion.indexOf('X11')!== -1) {
+      jQuery('#cli-linux-tab').tab('show')
+    }
     jQuery.getJSON('https://api.github.com/repos/balena-io/balena-cli/releases/latest', function (results) {
       var baseDownloadString = `https://github.com/balena-io/balena-cli/releases/download/${results.tag_name}/balena-cli-${results.tag_name}`
       jQuery('#cli-osx .cli-download-link').attr('href', `${baseDownloadString}-macOS-x64-installer.pkg`)
