@@ -47,7 +47,7 @@ Field | Details
 [ports](https://docs.docker.com/compose/compose-file/compose-file-v2/#ports) |
 [privileged](https://docs.docker.com/compose/compose-file/compose-file-v2/#privileged) |
 [read_only](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
-[restart](https://docs.docker.com/compose/compose-file/compose-file-v2/#restart) |
+[restart](https://docs.docker.com/compose/compose-file/compose-file-v2/#restart) | Defaults to `always`
 [security_opt](https://docs.docker.com/compose/compose-file/compose-file-v2/#security_opt) |
 [shm_size](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [stop_grace_period](https://docs.docker.com/compose/compose-file/compose-file-v2/#stop_grace_period) |
