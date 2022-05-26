@@ -16,9 +16,9 @@ Three lines of ESR versions are supported, known as _next_, _current_, and _suns
 
 ![ESR schedule](/img/common/esr-process.png)
 
-ESR versions are named by year and month `yyyy.mm` and contain a patch version number starting at 0. So, `2019.10.4` would be the fifth release of the `2019.10` ESR version. Since ESR versions will only receive backports for high-risk security vulnerabilities and critical bug fixes, new releases during the lifecycle of an ESR version will only increment the patch number.
+ESR versions are named by year and month `yyyy.m` and contain a patch version number starting at 0. So, `2022.1.4` would be the fifth release of the `2022.1` ESR version. Since ESR versions will only receive backports for high-risk security vulnerabilities and critical bug fixes, new releases during the lifecycle of an ESR version will only increment the patch number.
 
-For example, an ESR version is released known as `2019.10`, which becomes the _next-ESR_. In three months, a new ESR version, i.e., `2020.01`, becomes the _next-ESR_ line, while `2019.10` transitions to become the _current-ESR_. Similarly, three months after that, there is a new ESR version, and `2019.10` becomes the _sunset-ESR_. Three months later and nine months after release, the `2019.10` ESR version will reach its end-of-life, and no further updates will be offered, and users should update to one of the supported releases to receive future updates by performing a [self-service update][self-service-updates].
+For example, an ESR version is released known as `2022.10`, which becomes the _next-ESR_. In three months, a new ESR version, i.e., `2023.1`, becomes the _next-ESR_ line, while `2022.10` transitions to become the _current-ESR_. Similarly, three months after that, there is a new ESR version, and `2022.10` becomes the _sunset-ESR_. Three months later and nine months after release, the `2022.10` ESR version will reach its end-of-life, and no further updates will be offered, and users should update to one of the supported releases to receive future updates by performing a [self-service update][self-service-updates].
 
 ## Using an ESR host OS version
 
@@ -49,6 +49,7 @@ ESR host OS versions are currently available for the following devices with addi
 * Balena Fin (CM3)
 * Intel NUC
 * Nvidia Jetson TX2
+* ROCK Pi 4B
 
 [self-service-updates]:/reference/OS/updates/self-service/#running-an-update
 [billing]:{{ $links.mainSiteUrl }}/pricing/
