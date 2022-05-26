@@ -46,9 +46,9 @@ __Note:__ Note that `depends_on` only controls the startup order and will not re
 
 Unlike single container fleets, multicontainer fleets do not run containers in privileged mode by default. If you want to make use of hardware, you will either have to set some services to privileged, using `privileged: true`, or use the `cap_add` and `devices` settings to map in the correct hardware access to the container. 
 
-Also containers don't restart by default if their process crashes. This can be changed by setting e.g. `restart: always` or to another [value supported by the engine](https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy).
+Also, in a balena device, unlike with regular docker compose, containers restart by default if their process crashes or the device is restarted. This behavior can be changed by setting the restart policy to one of the [values supported by the engine](https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy) (the default is `restart: always`).
 
-As an example, here the `gpio` service is set up to use i2c and serial uart sensors:
+As an example, here the `gpio` service is set up to use i2c and serial uart sensors and a restart policy of `on-failure`. 
 
 ```Dockerfile
 gpio:
@@ -59,6 +59,7 @@ gpio:
       - "/dev/ttyACM0:/dev/ttyACM0"
     cap_add:
       - SYS_RAWIO
+    restart: on-failure
 ```
 
 ## {{ $names.company.upper }} settings
