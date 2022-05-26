@@ -438,7 +438,7 @@ In order for a {{ $names.company.lower }} device to get outside of the local net
 
 Each of these should work with outward only (and inward once outward connection established) firewall settings. Additionally, the NTP (`123`) and DNS (`53`) ports may be blocked if a local NTP and DNS server are provided.
 
-Additionally, you should whitelist the following domains for the relevant ports above:
+Additionally, you should allowlist the following domains for the relevant ports above:
 * `*.{{ $names.cloud_domain }}`
 
 For older devices using `*.resin.io`, a `301 Moved Permanently` redirection to `*.{{ $names.cloud_domain }}` is in place so they remain compatible. Your systems should be able to handle this redirect so they can connect to the API.

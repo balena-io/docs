@@ -181,7 +181,7 @@ The build server is a powerful tool that compiles code specifically for your dev
 
 All code that is pushed using `{{$names.company.lower}} push <MY_FLEET>` or `git push` to your {{$names.cloud.lower}} devices is sent to a build server, and then, after the release is built, it is deployed to your devices.
 
-The build server consists of a central build server and a number of Docker daemons on build slaves. When a build is triggered, the builder first determines the CPU architecture of the fleet's default device type, and based on that determines what build slave will be used for the build. For [ARM][arm] device types, there are build slaves with `armv6l`, `armv7l`, and `armv8l` architectures. For [amd64][amd64] based devices, native `x86_64` build slaves are used. Finally the `armv5e` and `i386` architecture device types are always built using emulation.
+The build server consists of a central build server and a number of Docker daemons on build workers. When a build is triggered, the builder first determines the CPU architecture of the fleet's default device type, and based on that determines what build worker will be used for the build. For [ARM][arm] device types, there are build workers with `armv6l`, `armv7l`, and `armv8l` architectures. For [amd64][amd64] based devices, native `x86_64` build workers are used. Finally the `armv5e` and `i386` architecture device types are always built using emulation.
 
 In the case where the `--emulated` flag is used, the build is built on an `x86_64` machine with qemu emulation to match the CPU architecture of the fleet's default device type.
 
