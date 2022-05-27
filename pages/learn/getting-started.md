@@ -1,16 +1,16 @@
 ---
-title: Get started with {{ $device.name }} and {{ $language.name }}
+title: Get started with {{ $device.name }} and {{ $os.name }}
 
 layout: getting-started.html
 
 dynamic:
-  variables: [ $device, $language ]
-  ref: $original_ref/$device/$language
-  $switch_text: Get started with $device and $language
+  variables: [ $device, $os ]
+  ref: $original_ref/$device/$os
+  $switch_text: Get started with $device and $os
 ---
 
 # {{ title }}
-
+Network Setup on {{ $os_version.name }}
 ## Introduction
 
 {{import "getting-started/introduction"}}
@@ -120,7 +120,7 @@ ID    FLEET NAME   DEVICE TYPE          ONLINE DEVICES DEVICE COUNT
 
 __Note:__ See all the commands available with {{ $names.company.lower }} CLI by running `{{ $names.company.lower }} help`
 
-<!-- This is language specific -->
+<!-- This is os specific -->
 {{import "getting-started/deployingCode"}}
 
 __Note:__ You may also use git to deploy code to a device. If you wish to deploy via git, see the instructions [here][gitdocs].
@@ -176,7 +176,7 @@ Your release will then be downloaded and started by all the devices you have con
 
 <img alt="Service download progress" src="/img/common/device/download-progress.png" width="100%">
 
-<!-- This is language/project specific -->
+<!-- This is os/project specific -->
 {{import "getting-started/postPush"}}
 
 <!-- This is project specific -->

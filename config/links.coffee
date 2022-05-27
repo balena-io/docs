@@ -52,4 +52,5 @@ module.exports =
     "device-debugging": "https://github.com/balena-io/debugging-masterclass/edit/master/README.md"
     "docker-masterclass": "https://github.com/balena-io/docker-masterclass/edit/master/README.md"
     "rollback-mechanism": "https://github.com/balena-os/meta-balena/edit/master/docs/rollbacks.md"
+    "custom-board-support": "https://github.com/balena-os/meta-balena/raw/master/contributing-device-support.md"
 
