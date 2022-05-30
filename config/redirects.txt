@@ -109,7 +109,8 @@
 ^\/deployment\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2
 ^\/reference\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/overview/$1$2
 ^\/reference\/resinOS\/?(\?.+)?(#.+)?$ -> /reference/OS/$1
-^\/reference\/OS\/meta-balena\/?(\?.+)?(#.+)?$ -> /reference/OS/custom-device-support/$1$2
+^\/reference\/OS\/meta-balena\/?(\?.+)?(#.+)?$ -> /reference/OS/customer-board-support/$1$2
+^\/reference\/OS\/custom-device-support\/?(\?.+)?(#.+)?$ -> /reference/OS/customer-board-support/$1$2
 ^\/reference\/base-images\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2
 ^\/reference\/OS\/overview\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
 ^\/reference\/OS\/overview\/2.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2

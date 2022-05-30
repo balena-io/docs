@@ -117,7 +117,7 @@ Reference
     [/reference/OS/configuration]
     [/reference/OS/time]
     [/reference/OS/advanced]
-    [/reference/OS/custom-device-support]
+    [/reference/OS/customer-board-support]
 
   Device supervisor
     Supervisor API[/reference/supervisor/supervisor-api]
