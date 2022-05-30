@@ -51,5 +51,6 @@ module.exports =
     "fleet-management": "https://github.com/balena-io/balena-fleet-management-masterclass/edit/master/README.md"
     "device-debugging": "https://github.com/balena-io/debugging-masterclass/edit/master/README.md"
     "docker-masterclass": "https://github.com/balena-io/docker-masterclass/edit/master/README.md"
-    "rollback-mechanism": "https://github.com/balena-os/meta-balena/edit/master/docs/rollbacks.md"
+    "rollbacks": "https://github.com/balena-os/meta-balena/edit/master/docs/rollbacks.md"
+    "customer-board-support": "https://github.com/balena-os/meta-balena/edit/master/contributing-device-support.md"
 
