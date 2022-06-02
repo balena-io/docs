@@ -1,6 +1,6 @@
 In this guide we'll cover:
 
-- Setting up your **{{ $device.name }}**, bringing it online in the {{ $names.cloud.lower }} dashboard
+- Setting up your **{{ $device.name }}** device and bringing it online on the {{ $names.cloud.lower }} dashboard
 - Deploying a simple **{{ $language.name }}** hello-world project
 - Developing the sample project: making changes and testing them on your device
 
