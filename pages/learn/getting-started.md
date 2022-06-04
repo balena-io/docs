@@ -11,8 +11,6 @@ dynamic:
 
 # {{ title }}
 
-## Introduction
-
 {{import "getting-started/introduction"}}
 
 ## What you'll need
@@ -23,56 +21,47 @@ dynamic:
 
 If you don't already have a {{ $names.company.lower }} account, make sure to [sign up][link-to-signup] before continuing.
 
-## Create a fleet
+A fleet is a group of devices that share the same [architecture][architecture] and run the same code. Devices are added to fleets and can be moved between fleets at any time.
 
-A fleet is a group of devices that share the same [architecture][architecture] and run the same code. When you provision a device, it is added to a specific fleet, but can be migrated to another fleet at any time.
-
-To create your first fleet, log into your [{{ $names.cloud.lower }} dashboard][dashboard] and click the _Create fleet_ button.
+To create your first fleet, log into your [{{ $names.cloud.lower }} dashboard][dashboard] and click the **Create fleet** button.
 
 <img alt="Create a fleet" src="/img/common/create-first-fleet.png" width="100%">
 
-Select the **{{ $device.name }}** device type, choose a [fleet type][app-types], enter a name, and click *Create new fleet*:
+Enter a fleet name, select the **{{ $device.name }}** device type, choose the *Starter* [fleet type][fleet-types], and click **Create new fleet**:
 
 <img src="/img/getting-started/create-fleet/{{ $device.id }}.png" width="80%">
 
-__Note:__ To create a fleet with multiple containers, you'll want to use the Starter or Microservices fleet type. The Starter fleets are full-featured and free for all users, with a limit of up to 10 total devices across all Starter fleets.
+You'll then be redirected to the summary of the newly created fleet, where you can add your first {{ $device.name }}.
 
-After the fleet has been created, you will be redirected to the dashboard for the newly created fleet, where you can add your first **{{ $device.name }}**.
-
-## Add your first device
+## Add a device and download OS
 
 <!--add an anchor here to redirect old links-->
 <a name="adding-your-first-device"></a>
 
-To connect with {{ $names.cloud.lower }}, your **{{ $device.name }}** needs a {{ $names.os.lower }} image configured for your device type, fleet, and network. Start by clicking *Add device* in your fleet dashboard:
-
 <img alt="Add a device" src="/img/getting-started/fleet/{{ $device.id }}.png" width="100%">
 
-For most fleets, you will have the option to select a device type. By default, the device type you chose when you first created the fleet will be selected. Fleets can, however, support any devices that share the same [architecture][architecture], so you can choose another device type if needed.
-
-After selecting a device type, select an OS type of _balenaOS_, and you will see a list of available {{ $names.os.lower }} versions. In general, you should use the most recent version available. You can also select whether to use a *Development* or *Production* edition with the respective toggle:
+To connect with {{ $names.cloud.lower }}, your **{{ $device.name }}** needs a {{ $names.os.lower }} image configured for your device type, fleet, and network. Start by clicking *Add device* in your fleet dashboard:
 
 <img alt="Add new device" src="/img/getting-started/devices/{{ $device.id }}.png" width="80%">
 
-__Note:__ When you're getting started, a Development image is the most useful, as it permits many testing and troubleshooting features. For production use, be sure to switch to a Production image. More details on the differences between Development and Production images are detailed [here][devvprod].
-
-A toggle is also used to select whether your network connection will be through *Ethernet Only* or with the option for *Wifi + Ethernet*. Selecting *Wifi + Ethernet* allows you to enter a *Wifi SSID* and *Wifi Passphrase*:
+Select an OS type of _balenaOS_, and you will see a list of available {{ $names.os.lower }} versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images][devvprod].
 
 <img alt="Network configuration" src="/img/common/app/network.png" width="80%">
 
-Clicking *Advanced* presents the option to select the rate at which your device checks for updates:
+Select the type of network connection you'll be using: *Ethernet Only* or *Wifi + Ethernet*. A network connection is required to allow the device to connect to {{ $names.cloud.lower }}. Selecting *Wifi + Ethernet* allows you to enter a *Wifi SSID* and *Wifi Passphrase* which is then built into the image.
 
 <img alt="Advanced options" src="/img/common/app/advanced.png" width="80%">
 
-Once you have finished your image configuration, click the *Download {{ $names.os.lower }}* button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-Fleet-2.47.1+rev1-v10.6.27.img.zip`, where `First-Fleet` is the name you gave your fleet on the dashboard.
-Alternatively, by clicking on the toggle section of the download button, you also have the option to download just a configuration file (`config.json`) rather than an entire image.
+Finally, click the **Download {{ $names.os.lower }}** button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
 
-<img alt="Advanced options" src="/img/common/app/download_image_or_config.png" width="80%">
 
 ## Provision device
 
 <!-- This section is heavily customized based on the device -->
 {{import "getting-started/getDeviceOnDash"}}
+
+**Troubleshooting:** If you're not able to get the device to appear in the dashboard, take a look at [our troubleshooting guide][troubleshooting] or try our [support channels][support].
+
 
 ## Install the {{ $names.cli.lower }}
 
@@ -81,7 +70,7 @@ Now that a device online in your fleet, it's time to deploy some code. We will u
 {{import "getting-started/cliInstructions"}}
 
 After {{ $names.cli.lower }} is installed, login to your {{ $names.company.lower}} account
-with the `{{ $names.company.lower }} login` command on the terminal:
+using the `{{ $names.company.lower }} login` command on the terminal:
 
 ```shell
 $ {{ $names.company.lower }} login
