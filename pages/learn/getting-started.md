@@ -1,12 +1,12 @@
 ---
-title: Get started with {{ $device.name }} and {{ $language.name }}
+title: Get started on developing with {{ $device.name }} and {{ $language.name }}
 
 layout: getting-started.html
 
 dynamic:
   variables: [ $device, $language ]
   ref: $original_ref/$device/$language
-  $switch_text: Get started with $device and $language
+  $switch_text: I want to get started with a $device using $language
 ---
 
 # {{ title }}
@@ -15,7 +15,7 @@ dynamic:
 
 {{import "getting-started/introduction"}}
 
-## What you will need
+## What you'll need
 
 {{import "getting-started/whatYouNeed"}}
 
@@ -92,7 +92,7 @@ $ {{ $names.company.lower }} login
 |_.__/ \__,_||_| \____/|_| |_| \__,_|
 
 
-Logging in to balena-cloud.com
+Logging in to cloud.com
 ? How would you like to login? (Use arrow keys)
 ❯ Web authorization (recommended)
   Credentials
@@ -143,7 +143,7 @@ You'll know your code has been successfully compiled and built when our friendly
 [Info]       ┌────────────────────┬────────────┬────────────┐
 [Info]       │ Service            │ Image Size │ Build Time │
 [Info]       ├────────────────────┼────────────┼────────────┤
-[Info]       │ balena-hello-world │ 190.04 MB  │ 50 seconds │
+[Info]       │ hello-world        │ 190.04 MB  │ 50 seconds │
 [Info]       └────────────────────┴────────────┴────────────┘
 [Info]       Build finished in 1 minutes, 4 seconds
                             \
@@ -201,20 +201,28 @@ The same build process as before is carried out, but this time instead of using 
 [Live]    Watching for file changes...
 [Live]    Waiting for device state to settle...
 [Logs]    [8/26/2021, 11:58:18 AM] Creating network 'default'
-[Logs]    [8/26/2021, 11:58:18 AM] Creating volume 'resin-data'
-[Logs]    [8/26/2021, 11:58:19 AM] Installing service 'main sha256:...'
-[Logs]    [8/26/2021, 11:58:20 AM] Installed service 'main sha256:...'
-[Logs]    [8/26/2021, 11:58:20 AM] Starting service 'main sha256:...'
-[Logs]    [8/26/2021, 11:58:23 AM] Started service 'main sha256:...'
+[Logs]    [8/26/2021, 11:58:19 AM] Installing service 'hello-world sha256:...'
+[Logs]    [8/26/2021, 11:58:20 AM] Installed service 'hello-world sha256:...'
+[Logs]    [8/26/2021, 11:58:20 AM] Starting service 'hello-world sha256:...'
+[Logs]    [8/26/2021, 11:58:23 AM] Started service 'hello-world sha256:...'
+[Logs]    [8/26/2021, 11:58:24 AM] [hello-world] Starting server on port 80
 [Live]    Device state settled
 ```
 
-The {{ $names.cli.lower }} will now watch for changes to all the files within the project, and automatically push changes to the device when detected. Let's try making a change to title of our balena welcome page. Navigate to the `index.html` file present in the `static` directory of the project. Open the file and change the title from `Welcome to balena!` to `Hello balena!` and save the file. After saving the changes, you will be {{ $names.cli.lower }} automatically start rebuilding.
+The {{ $names.cli.lower }} will now watch for changes to all the files within the project, and automatically push changes to the device when detected. Let's try making a change to title of our balena welcome page. Navigate to the `index.html` file present in the `static` directory of the project. Open the file and change the title from `Welcome to balena!` to `Hello balena!` and save the file. After saving the changes, you can observe {{ $names.cli.lower }} automatically start rebuilding only the parts of the Dockerfile that has been changed.
 
 ```shell
-[Live]    Detected changes for container main, updating...
-[Live]    [main] Restarting service...
+[Live]    Detected changes for container hello-world, updating...
+
+...
+
+[Live]    [hello-world] Restarting service...
+[Logs]    [8/26/2021, 11:59:01 AM, 2:42:32 AM] Service exited 'hello-world sha256:...'
+[Logs]    [8/26/2021, 11:59:04 AM, 2:42:35 AM] Restarting service 'hello-world sha256:...'
+[Logs]    [8/26/2021, 11:59:05 AM, 2:42:36 AM] [hello-world] Starting server on port 80
 ```
+
+When the rebuild is complete, take a look at the public device URL again to see your changes. The welcome page should have been updated with the new title.
 
 <img alt="Success screen 2" src="/img/getting-started/success-change.png" width="60%">
 
