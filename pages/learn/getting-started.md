@@ -17,7 +17,7 @@ dynamic:
 
 {{import "getting-started/whatYouNeed"}}
 
-## Account setup
+## Create a fleet 
 
 If you don't already have a {{ $names.company.lower }} account, make sure to [sign up][link-to-signup] before continuing.
 
@@ -32,6 +32,7 @@ Enter a fleet name, select the **{{ $device.name }}** device type, choose the *S
 <img src="/img/getting-started/create-fleet/{{ $device.id }}.png" width="80%">
 
 You'll then be redirected to the summary of the newly created fleet, where you can add your first {{ $device.name }}.
+
 
 ## Add a device and download OS
 
@@ -50,7 +51,7 @@ Select an OS type of _balenaOS_, and you will see a list of available {{ $names.
 
 Select the type of network connection you'll be using: *Ethernet Only* or *Wifi + Ethernet*. A network connection is required to allow the device to connect to {{ $names.cloud.lower }}. Selecting *Wifi + Ethernet* allows you to enter a *Wifi SSID* and *Wifi Passphrase* which is then built into the image.
 
-<img alt="Advanced options" src="/img/common/app/advanced.png" width="80%">
+<img alt="Download Image" src="/img/common/app/download_image.png" width="50%">
 
 Finally, click the **Download {{ $names.os.lower }}** button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
 
@@ -59,8 +60,6 @@ Finally, click the **Download {{ $names.os.lower }}** button. When the download 
 
 <!-- This section is heavily customized based on the device -->
 {{import "getting-started/getDeviceOnDash"}}
-
-**Troubleshooting:** If you're not able to get the device to appear in the dashboard, take a look at [our troubleshooting guide][troubleshooting] or try our [support channels][support].
 
 
 ## Install the {{ $names.cli.lower }}
@@ -233,7 +232,7 @@ When it's finished building the device(s) will update as before. Remember anythi
 **Enjoy balenafying all the things!**
 
 
-[app-types]:/learn/manage/app-types
+[fleet-types]:/learn/manage/fleet-types
 [architecture]:/reference/base-images/devicetypes/#machine-names-and-architectures
 [balenablocks]:{{ $links.balenaHubUrl }}/blocks
 [balenahub]:{{ $links.balenaHubUrl }}
