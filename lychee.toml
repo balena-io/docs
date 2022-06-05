@@ -1,15 +1,22 @@
-###
-### Display
-###
+#############################  Display  #############################
+
 # Verbose program output
 verbose = true
 
 # Show progress
 progress = true
 
-###
-### Runtime
-###
+#############################  Cache  ###############################
+
+# Enable link caching. This can be helpful to avoid checking the same links on
+# multiple runs.
+cache = true
+
+# Discard all cached requests older than this duration.
+max_cache_age = "2d"
+
+#############################  Runtime  #############################
+
 # Number of threads to utilize.
 # Defaults to number of cores available to the system if omitted.
 threads = 6
@@ -36,6 +43,9 @@ timeout = 10
 
 # Proceed for server connections considered insecure (invalid TLS)
 insecure = false
+
+# Comma-separated list of accepted status codes for valid links.
+accept = [200, 429]
 
 # Only test links with the given scheme (e.g. https)
 # Omit to check links with any scheme
@@ -91,6 +101,8 @@ exclude = [
 exclude_file = []
 
 include = []
+
+include_verbatim = true
 
 # Exclude all private IPs from checking
 # Equivalent to setting `exclude_private`, `exclude_link_local`, and `exclude_loopback` to true
