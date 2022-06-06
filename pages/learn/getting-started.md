@@ -125,7 +125,7 @@ You'll know your code has been successfully compiled and built when our friendly
 [Success]    Successfully generated image deltas
 [Info]       Uploading images
 [Success]    Successfully uploaded images
-[Info]       Built on arm05
+[Info]       Built on builder05
 [Success]    Release successfully created!
 [Info]       Release: c0c593803588a304c173124827d96b99 (id: 2186339)
 [Info]       ┌────────────────────┬────────────┬────────────┐
@@ -172,7 +172,7 @@ Now, let's try making some changes to this project and testing them right on the
 
 Activate local mode on the device via the dashboard.
 
-![Enable local mode](/img/local-mode/enable-local-mode.png)
+<img alt="Enable Local Mode" src="/img/local-mode/enable-local-mode.png" width="60%">
 
 Once enabled, you can now use `balena push` again, but this time we will push directly to the local IP address of the device obtained via the dashboard.
 

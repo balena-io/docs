@@ -6,4 +6,4 @@ To give your device a public URL, click the _Public Device URL_ toggle on the de
 
 Follow the URL to view the welcome page with additional resources. Alternatively, you can point your browser to your device's local IP address to access the server running on your device. You can find the device's IP address on the device dashboard page. This is what you should be seeing. 
 
-<img alt="Success screen 1" src="/img/getting-started/success.png" width="80%">
+<img alt="Success screen 1" src="/img/getting-started/success.png" width="60%">
