@@ -26,7 +26,7 @@ jobs:
       # Run link checker on the generated HTML
       - name: Link Checker
         id: lychee
-        uses: lycheeverse/lychee-action@v1.4.1
+        uses: lycheeverse/lychee-action@v1.5.0
         with:
           args: >
             --config ./lychee.toml
