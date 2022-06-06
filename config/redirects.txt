@@ -116,3 +116,4 @@
 ^\/reference\/OS\/overview\/2.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
 ^\/reference\/OS\/network\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/network/$1$2
 ^\/reference\/OS\/network\/2.x\/?(\?.+)?(#.+)?$ -> /reference/OS/network/$1$2
+^\/learn\/manage\/app-types\/?(\?.+)?(#.+)?$ -> /learn/manage/fleet-types/$1$2
