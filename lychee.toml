@@ -6,14 +6,14 @@ verbose = true
 # Show progress
 progress = true
 
+# Path to summary output file.
+output = "report.md"
+
 #############################  Cache  ###############################
 
 # Enable link caching. This can be helpful to avoid checking the same links on
 # multiple runs.
 cache = true
-
-# Discard all cached requests older than this duration.
-max_cache_age = "2d"
 
 #############################  Runtime  #############################
 
@@ -25,14 +25,12 @@ threads = 6
 max_redirects = 10
 
 # Maximum number of concurrent network requests [default: 128]
-max_concurrency = 50
+max_concurrency = 30
 
+#############################  Requests  ############################
 
-###
-### Requests
-###
 # User agent to send with each request
-user_agent = "curl/7.71.1"
+user_agent = "curl/7.83.1"
 
 # Website timeout from connect to response finished
 timeout = 10
@@ -45,7 +43,7 @@ timeout = 10
 insecure = false
 
 # Comma-separated list of accepted status codes for valid links.
-accept = [200, 429]
+accept = "200, 204, 301, 429"
 
 # Only test links with the given scheme (e.g. https)
 # Omit to check links with any scheme
@@ -57,9 +55,8 @@ method = "get"
 # Custom request headers
 headers = []
 
-###
-### Exclusions
-###
+#############################  Exclusions  ##########################
+
 # Exclude URLs from checking (supports regex)
 
 # balena base images account for ~1400 request to GitHub, they are

@@ -10,6 +10,7 @@ static/dist
 *.swp
 *.swo
 tmp
+.lycheecache
 
 # Ignore external docs that are pulled via tools/fetch-external.sh
 pages/reference/cli.md
