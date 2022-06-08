@@ -105,7 +105,9 @@ ID    FLEET NAME   DEVICE TYPE          ONLINE DEVICES DEVICE COUNT
 98264 First-Fleet  {{ $device.name }}   0              0
 ```
 
-{{import "getting-started/deployingCode"}}
+A nice project to try is the [balena-{{ $language.id }}-hello-world][balena-{{ $language.id }}-hello-world] project.
+It's a {{ $language.name }} web server that serves a static page on port 80. To get started, [download the project][github-download-{{ $language.id }}]
+as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 
 To create a release, use the `{{ $names.company.lower }} push First-Fleet` command replacing 
 `First-Fleet` with the name of your fleet. Ensure you are working from the root of the extracted 
@@ -163,7 +165,15 @@ The release will then be downloaded and started by all the devices in the fleet.
 
 <img alt="Service download progress" src="/img/common/device/download-progress.png" width="100%">
 
-{{import "getting-started/postPush"}}
+After the download, you should now have a {{ $language.name }} web server running on your device and see some logs on your dashboard. 
+
+To give your device a public URL, click the _Public Device URL_ toggle on the device dashboard. Public device URL allow you to serve content from the device to the world easily without configuration as long as the server is running on port 80. 
+
+<img alt="Enable public URLs" src="/img/common/device/enable-public-url-device.png" width="60%">
+
+Follow the URL to view the welcome page with additional resources. Alternatively, you can point your browser to your device's local IP address to access the server running on your device. You can find the device's IP address on the device dashboard page. This is what you should be seeing. 
+
+<img alt="Success screen 1" src="/img/getting-started/success.png" width="60%">
 
 
 ## Developing your project
@@ -259,3 +269,8 @@ When it's finished building the device(s) will update as before. Remember anythi
 [troubleshooting]:/faq/troubleshooting/troubleshooting/
 [variables]:/learn/manage/variables/
 
+
+<!-- Language related links -->
+
+[balena-{{ $language.id }}-hello-world]:{{ $links.githubExamples }}/balena-{{ $language.id }}-hello-world
+[github-download-{{ $language.id }}]:{{ $links.githubExamples }}/balena-{{ $language.id }}-hello-world/archive/master.zip
