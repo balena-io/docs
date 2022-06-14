@@ -44,17 +44,17 @@ A device API key also allows a device to request the latest release. When a devi
 Both the Docker pull request and the actual image download process are performed using HTTPS, so are TLS encrypted. HTTPS connections are always outbound from the device to the {{ $names.company.lower }} service, meaning that no inbound connections are created and no inbound ports on the firewall are required.
 ## Runtime management
 
-### VPN
+### Cloudlink
 
-{{ $names.company.upper }} uses [OpenVPN](https://openvpn.net/) to control the device state (e.g. device reboot, device shutdown, service(s) restart, etc.). As mentioned above, devices only connect outbound to the VPN and all traffic over the VPN is encrypted with TLS.
+{{ $names.company.upper }} uses Cloudlink to control the device state (e.g. device reboot, device shutdown, service(s) restart, etc.). Currently, Cloudlink uses [OpenVPN](https://openvpn.net/) as an underlying technology to achieve these things but this is subject to change with better technology, this is why we abstract away from the technology and call the component as Cloudlink. As mentioned above, devices only connect outbound to the Cloudlink and all traffic over the Cloudlink is encrypted with TLS.
 
-When the VPN is enabled, SSH access is available to the service using the {{ $names.company.lower }} dashboard or the CLI.
+When Cloudlink is enabled, SSH access is available to the service using the {{ $names.company.lower }} dashboard or the CLI.
 
-The {{ $names.company.lower }} VPN disallows device-to-device traffic and prohibits outbound traffic to the Internet.  If a device were compromised, this ensures that it cannot contaminate another device. To achieve this the VPN service is configured to run with iptables default `FORWARD` policy set to `DROP` and we do not enable OpenVPN [--client-to-client](https://www.mankier.com/8/openvpn#--client-to-client) config option server side, so there is no way for the traffic between clients to traverse the interface(s).
+Cloudlink disallows device-to-device traffic and prohibits outbound traffic to the Internet.  If a device were compromised, this ensures that it cannot contaminate another device. To achieve this the Cloudlink service is configured to run with iptables default `FORWARD` policy set to `DROP` and we do not enable OpenVPN [--client-to-client](https://www.mankier.com/8/openvpn#--client-to-client) config option server side, so there is no way for the traffic between clients to traverse the interface(s).
 
-Currently, authentication against the VPN is performed with API token authentication.  API keys can be managed and revoked in the {{ $names.company.lower }} dashboard.
+Currently, authentication against Cloudlink is performed with API token authentication.  API keys can be managed and revoked in the {{ $names.company.lower }} dashboard.
 
-This VPN connection is optional and [can be disabled](/reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the {{ $names.company.lower }} dashboard or API.  When disabled, the VPN connection is not established from the device and no traffic will be transmitted or received through this channel.  If desired, the VPN can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
+This Cloudlink connection is optional and [can be disabled](/reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the {{ $names.company.lower }} dashboard or API.  When disabled, the Cloudlink connection is not established from the device and no traffic will be transmitted or received through this channel.  If desired, the Cloudlink can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
 
 ### Support access
 
@@ -71,7 +71,7 @@ Port | Protocol | Status | Description
 --- | --- | --- | ---
 53 | UDP | Required | DNS: used by devices to resolve {{ $names.company.lower }} hostnames for connection to the {{ $names.company.lower }} service
 123 | UDP | Required | NTP: used by devices to synchronize time
-443 | TCP | Required | HTTPS: used by devices to poll {{ $names.company.lower }} for updates and to download releases and host OS updates.<br><br>OpenVPN: used by devices to connect to {{ $names.company.lower }} to provide real-status, control, and an interactive terminal (optional service)
+443 | TCP | Required | HTTPS: used by devices to poll {{ $names.company.lower }} for updates and to download releases and host OS updates.<br><br>Cloudlink: used by devices to connect to {{ $names.company.lower }} to provide real-status, control, and an interactive terminal (optional service)
 
 ### Device metadata
 

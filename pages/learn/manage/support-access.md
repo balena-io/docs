@@ -9,7 +9,7 @@ It is possible to grant support access to a device, all devices in a fleet or to
 
 Access is granted for a set, user-defined period, and access may be revoked at any time. Access for support agents is limited, which includes restrictions on the changing of service and environment variables and configurations, and ensures that a device under investigation cannot be unnecessarily altered or modified.
 
-Once support access has been granted, a support agent will be able to use the UUID of a device to gain access to it. Support access is enabled via SSH over the {{ $names.company.lower }} VPN, so the device must be online and connected to the VPN. Alternatively, it may be possible to access a problematic device from a gateway device operating on the same network.
+Once support access has been granted, a support agent will be able to use the UUID of a device to gain access to it. Support access is enabled via SSH over cloudlink, so the device must be online and connected to cloudlink. Alternatively, it may be possible to access a problematic device from a gateway device operating on the same network.
 
 __Note:__ It is possible to disable support access functionality by removing the {{ $names.company.lower }} SSH public key from the device. However, this will render the device inaccessible remotely for the purposes of support and updates to the host OS. For more details see our [security documentation][security].
 

@@ -208,7 +208,7 @@ To connect to a container, we can specify the service name e.g.
 sudo {{ $names.company.short }} ssh 63ec46c.local my-service
 ```
 
-__Note:__ If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }} ssh` establishes a direct connection to the device on port `22222` that does not rely on the {{ $names.company.short }} VPN.
+__Note:__ If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }} ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
 
 ## Using a Private Docker Registry
 
