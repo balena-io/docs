@@ -32,3 +32,7 @@ A versioned build of the host OS, specific to a fleet and device type.
 ### Base image
 
 A specific combination of a Linux distribution and additional packages, used as the base operating environment for a service.
+
+### Cloudlink
+
+Previously called {{ $names.company.lower }}VPN, this is the connection that allows {{ $names.company.lower }} to have a secure tunnel to the device. Cloudlink uses openVPN as an underlying technology to enable features like [SSH access](https://www.balena.io/docs/learn/develop/local-mode/#ssh-into-the-running-app-container-or-host-os), the [public device URL](https://www.balena.io/docs/learn/manage/actions/#enable-public-device-url), and the [web terminal](https://www.balena.io/docs/learn/manage/ssh-access/#using-the-dashboard-web-terminal) in balenaCloud.
