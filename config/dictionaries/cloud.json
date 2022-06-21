@@ -1,0 +1,35 @@
+[
+  {
+    "id": "aws",
+    "name": "AWS",
+    "shortName": "AWS",
+    "platformUrl": "https://aws.amazon.com/iot",
+    "iotCoreName": "IoT Core",
+    "iotCoreUrl": "https://aws.amazon.com/iot-core",
+    "credentialType": "public key certificate",
+    "provisionRepoName": "aws-iot-provision",
+    "cloudFunctionName": "Lambda"
+  },
+  {
+    "id": "azure",
+    "name": "Azure",
+    "shortName": "Azure",
+    "platformUrl": "https://docs.microsoft.com/en-us/azure/iot-fundamentals/",
+    "iotCoreName": "IoT Hub",
+    "iotCoreUrl": "https://docs.microsoft.com/en-us/azure/iot-hub/iot-concepts-and-iot-hub",
+    "credentialType": "public key certificate",
+    "provisionRepoName": "azure-iot-provision",
+    "cloudFunctionName": "Azure"
+  },
+  {
+    "id": "gcp",
+    "name": "Google Cloud",
+    "shortName": "GCP",
+    "platformUrl": "https://cloud.google.com/solutions/iot",
+    "iotCoreName": "IoT Core",
+    "iotCoreUrl": "https://cloud.google.com/iot-core",
+    "credentialType": "public key pair",
+    "provisionRepoName": "gcp-iot-provision",
+    "cloudFunctionName": "Cloud"
+  }
+]
