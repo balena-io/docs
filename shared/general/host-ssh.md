@@ -8,13 +8,13 @@ __Warning:__ Making changes to running services and network configurations carri
 
 ### {{ $names.os.upper }} services
 
-{{ $names.os.upper }} uses **systemd** as its init system, and as such, almost all the fundamental components in {{ $names.os.lower }} run as systemd services. In general, some core services need to execute for a device to come online, connect to the {{ $names.cloud.lower }} VPN, download applications, and then run them:
+{{ $names.os.upper }} uses **systemd** as its init system, and as such, almost all the fundamental components in {{ $names.os.lower }} run as systemd services. In general, some core services need to execute for a device to come online, connect to Cloudlink, download applications, and then run them:
 
 * `chronyd.service` - Responsible for NTP duties and syncing 'real' network time to the device.
 * `dnsmasq.service` - The local DNS service which is used for all host OS lookups.
 * `NetworkManager.service` - The underlying Network Manager service, ensuring that configured connections are used for networking.
-* `os-config.service` - Retrieves settings and configs from the API endpoint, including certificates, authorized keys, the VPN config, etc.
-* `openvpn.service` - The VPN service itself, which connects to the {{ $names.cloud.lower }} VPN, allowing a device to come online.
+* `os-config.service` - Retrieves settings and configs from the API endpoint, including certificates, authorized keys, the cloudlink config, etc.
+* `openvpn.service` - The VPN service itself, which connects to cloudlink, allowing a device to come online.
 * `balena.service` - The [{{ $names.engine.lower }}][balena-engine] service, the modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking.
 * `balena-supervisor.service` - The {{ $names.company.short }} Supervisor service, responsible for the management of releases, including downloading updates for and self-healing (via monitoring), variables (fleet/device), and exposure of these services to fleets via an API endpoint.
 * `dbus.service` - The DBus daemon socket which can be used by containers by applying the _io.balena.features.dbus_ [label][labels], which exposes it in-container. This allows you to control several host OS features, including the Network Manager.

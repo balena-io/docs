@@ -32,7 +32,7 @@ __Note:__ Raspberry Pi devices don’t have Getty attached to serial by default,
 
 __Warning:__ Development mode has an exposed Docker socket and enable passwordless root SSH access and should never be used in production.
 
-Production mode disables passwordless root access, and an SSH key must be [added][config-json-ssh] to `config.json` to access a production image using a direct SSH connection. You may still access a production image by tunneling SSH through the {{ $names.company.lower }} VPN via the CLI (using `balena ssh <uuid>`) or the {{ $names.cloud.lower }} [web terminal][ssh-host]. To use SSH via the VPN, you need to have an SSH key configured on your development machine and [added][ssh-key-add] to the {{ $names.cloud.lower }} dashboard.
+Production mode disables passwordless root access, and an SSH key must be [added][config-json-ssh] to `config.json` to access a production image using a direct SSH connection. You may still access a production image by tunneling SSH through the cloudlink via the CLI (using `balena ssh <uuid>`) or the {{ $names.cloud.lower }} [web terminal][ssh-host]. To use SSH via cloudlink, you need to have an SSH key configured on your development machine and [added][ssh-key-add] to the {{ $names.cloud.lower }} dashboard.
 
 ### Logging
 
@@ -98,7 +98,7 @@ __Note__: {{ $names.os.upper }} versions less than v2.13.0 used systemd-timesync
 
 ### OpenVPN
 
-[OpenVPN][open-vpn] is used as the VPN service by {{ $names.os.lower }}, which connects to the {{ $names.cloud.lower }} VPN, allowing a device to be connected to remotely and enabling remote SSH access.
+[OpenVPN][open-vpn] is used as the VPN service by {{ $names.os.lower }}, which connects to cloudlink, allowing a device to be connected to remotely and enabling remote SSH access.
 
 ### OpenSSH
 

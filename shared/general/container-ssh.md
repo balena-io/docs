@@ -32,9 +32,9 @@ This also works in multicontainer fleets; simply pass the name of the appropriat
 
 __Note:__ To run a command in a non-interactive way, you can pipe commands to the CLI's stdin. For example, `echo "uptime; exit;" | balena ssh <device-uuid>`.
 
-When a fleet name or device UUID is used as above, `{{ $names.company.short }}` ssh uses the {{ $names.company.short }} VPN to create a secure tunnel to the device and then forward SSH traffic between the device and your development machine.
+When a fleet name or device UUID is used as above, `{{ $names.company.short }}` ssh uses Cloudlink to create a secure tunnel to the device and then forward SSH traffic between the device and your development machine.
 
-If an IP address or a .local hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }}` ssh establishes a direct connection that does not rely on the {{ $names.company.short }} VPN:
+If an IP address or a .local hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }}` ssh establishes a direct connection that does not rely on Cloudlink:
 
 ```shell
 $ balena ssh 192.168.1.23

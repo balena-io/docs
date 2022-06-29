@@ -11,11 +11,11 @@ One of the biggest causes of issues during deployment is either a misconfigured 
 ### Connectivity dependent on container (e.g. kernel module for wifi dongle, or udev rule for modem)
 Since there can be cases where containers fail to start, having any networking configuration depend on those containers without a fallback is generally discouraged. Using a project like [wifi-connect][wifi-connect] can help configure the networking stack after launch, but devices should be connected as reliably as possible at boot.
 
-### Iptables rules that block supervisor/VPN traffic
-It is enticing to use custom iptables rules to filter traffic, to limit the surface of the API. Those rules combined with host networking however can prevent the supervisor or VPN from successfully connecting to {{ $names.cloud.lower }}, and therefore should be treated with caution. For a full list of networking requirements, consult [this document][networking-reqs].
+### Iptables rules that block supervisor/cloudlink traffic
+it is enticing to use custom iptables rules to filter traffic, to limit the surface of the api. those rules combined with host networking however can prevent the supervisor or cloudlink from successfully connecting to {{ $names.cloud.lower }}, and therefore should be treated with caution. for a full list of networking requirements, consult [this document][networking-reqs].
 
 ### Manually changing the system clock, or blocking NTP requests
-Since {{ $names.os.lower }} and the supervisor communicate with {{ $names.cloud.lower }} using an HTTPS API, it is important that time is synchronized on the device. If the system date/time drifts substantially, SSL certificate validation may fail and the device may unexpectedly lose the ability to reach HTTPS websites or update the {{ $names.cloud.lower }} web dashboard, and may even no longer be reachable over ssh or the {{ $names.cloud.lower }} VPN. {{ $names.os.upper }} provides a [number of mechanisms][time-sync] to keep time as up-to-date as possible, but ensuring [NTP is accessible over the network][networking-reqs] is critical.
+Since {{ $names.os.lower }} and the supervisor communicate with {{ $names.cloud.lower }} using an HTTPS API, it is important that time is synchronized on the device. If the system date/time drifts substantially, SSL certificate validation may fail and the device may unexpectedly lose the ability to reach HTTPS websites or update the {{ $names.cloud.lower }} web dashboard, and may even no longer be reachable over ssh or cloudlink. {{ $names.os.upper }} provides a [number of mechanisms][time-sync] to keep time as up-to-date as possible, but ensuring [NTP is accessible over the network][networking-reqs] is critical.
 
 ## Local storage
 

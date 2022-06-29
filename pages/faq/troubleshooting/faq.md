@@ -79,7 +79,7 @@ While you’ve always been able to SSH into your container, we had previously re
 - Configuration of network device drivers, mount points, security provisions, and many other details have been carefully chosen to serve the {{ $names.company.lower }} ecosystem and your containers. Rogue code running in the host OS might interfere with this, leading to issues or degradation of performance which we would likely not be able to help you with.
 - When troubleshooting issues we base our assumptions on the host OS behaving as we expect it to. If you have made changes here, there's a good chance we won't be able to reproduce the issues locally and therefore won't be able to help you.
 
-However, we've heard from users that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability starting with {{ $names.os.lower }} version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your container, such as NetworkManager, Docker, the VPN, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
+However, we've heard from users that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability starting with {{ $names.os.lower }} version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your container, such as NetworkManager, Docker, cloudlink, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
 
 ##### Which data is persisted on devices across updates/power cycles?
 

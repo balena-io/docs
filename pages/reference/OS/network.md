@@ -432,7 +432,7 @@ In order for a {{ $names.company.lower }} device to get outside of the local net
 
 {{ $names.company.upper }} makes use of the following ports:
 
-* `443` TCP - This is the most fundamental requirement - it is used to connect to the VPN and the web terminal, and many web endpoints using TLS (https://.)
+* `443` TCP - This is the most fundamental requirement - it is used to connect to Cloudlink and the web terminal, and many web endpoints using TLS (https://.)
 * `123` UDP - For NTP time synchronization.
 * `53` UDP - For DNS name resolution.
 
