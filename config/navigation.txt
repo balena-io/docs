@@ -47,8 +47,7 @@ Learn
       [/learn/develop/hardware/gpio]
       [/learn/develop/hardware/usb]
       [/learn/develop/hardware/i2c-and-spi]
-    [/learn/develop/integrations]
-      Cloud IoT Provisioning[/learn/develop/integrations/cloud-iot-provisioning/$cloud]
+    Provision with cloud IoT[/learn/develop/cloud-iot-provisioning/$cloud]
 
   DEPLOY
     [/learn/deploy/deployment]

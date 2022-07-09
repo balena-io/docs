@@ -2,10 +2,10 @@
 dynamic:
   variables: [ $cloud ]
   ref: $original_ref/$cloud
-  $switch_text: I want to provision a Cloud IoT device for $cloud
+  $switch_text: I want to provision a device with $cloud IoT
 ---
 
-# Cloud IoT Provisioning for {{ $cloud.name }}
+# Cloud IoT Provisioning with {{ $cloud.name }}
 
 The [{{ $cloud.name }} {{#is $cloud.shortName "GCP"}}(GCP){{/is}} IoT]({{ $cloud.platformUrl }}) platform provides a valuable suite of services to collect, store, and distribute IoT data and actions. Its [{{ $cloud.iotCoreName }}]({{ $cloud.iotCoreUrl }}) service is the portal for registration and messaging with Internet-connected things. We want to make it easy for balena devices to register and interact with {{ $cloud.iotCoreName }}.
 
@@ -13,7 +13,7 @@ Our IoT provisioning tools automate device registration to {{ $cloud.iotCoreName
 
 ## How It Works
 
-![summary](/img/integrations/iot-overview.png)
+![summary](/img/cloud-iot/iot-overview.png)
 
 Provisioning includes three components:
 

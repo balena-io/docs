@@ -32,6 +32,7 @@
 ^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi3/nodejs/$1$2
 ^\/reference\/supervisor\/configuration-list\/?(\?.+)?(#.+)?$ -> /reference/supervisor/configuration-list/raspberrypi3/$1$2
 ^\/learn\/develop\/?(\?.+)?(#.+)?$ -> /learn/develop/local-mode/$1$2
+^\/learn\/develop\/cloud-iot-provisioning\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/aws/$1$2
 ^\/learn\/deploy\/?(\?.+)?(#.+)?$ -> /learn/deploy/deployment/$1$2
 ^\/learn\/deploy\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2
 ^\/learn\/manage\/?(\?.+)?(#.+)?$ -> /learn/manage/account/$1$2
@@ -57,6 +58,11 @@
 ^\/learn\/more\/masterclasses\/overview\/?(\?.+)?(#.+)?$ -> /learn/more/masterclasses/masterclass-intro/$1$2
 ^\/learn\/manage\/serv-vars\/?(\?.+)?(#.+)?$ -> /learn/manage/variables/$1$2
 ^\/reference\/supervisor\/upgrade-policy\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-upgrades/$1$2
+^\/learn\/develop\/integrations\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
+^\/learn\/develop\/integrations\/aws\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/aws/$1$2
+^\/learn\/develop\/integrations\/azure-iot-hub\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/azure/$1$2
+^\/learn\/develop\/integrations\/google-iot\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/gcp/$1$2
+^\/learn\/develop\/integrations\/bluemix\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
 
 # Restructure
 ^\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
