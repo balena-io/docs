@@ -35,7 +35,7 @@ To create your first fleet, log into your [{{ $names.cloud.lower }} dashboard][d
 
 Enter a fleet name, select the **{{ $device.name }}** device type, choose the *Starter* [fleet type][fleet-types], and click **Create new fleet**:
 
-<img src="/img/getting-started/create-fleet/{{ $device.id }}.png" width="80%">
+<img src="/img/getting-started/create-fleet.png" width="80%">
 
 You'll then be redirected to the summary of the newly created fleet, where you can add your first {{ $device.name }}.
 
@@ -45,11 +45,11 @@ You'll then be redirected to the summary of the newly created fleet, where you c
 <!--add an anchor here to redirect old links-->
 <a name="adding-your-first-device"></a>
 
-<img alt="Add a device" src="/img/getting-started/fleet/{{ $device.id }}.png" width="100%">
+<img alt="Add a device" src="/img/getting-started/fleet-view.png" width="100%">
 
 To connect with {{ $names.cloud.lower }}, your **{{ $device.name }}** needs a {{ $names.os.lower }} image configured for your device type, fleet, and network. Start by clicking *Add device* in your fleet dashboard:
 
-<img alt="Add new device" src="/img/getting-started/devices/{{ $device.id }}.png" width="80%">
+<img alt="Add new device" src="/img/getting-started/add-device.png" width="80%">
 
 Select an OS type of _balenaOS_, and you will see a list of available {{ $names.os.lower }} versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images][devvprod].
 
