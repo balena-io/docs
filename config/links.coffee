@@ -42,8 +42,6 @@ module.exports =
     "supervisor-api": 'https://github.com/balena-io/balena-supervisor/edit/master/docs/API.md'
     "update-locking": "https://github.com/balena-io/balena-supervisor/edit/master/docs/update-locking.md"
     "diagnostics": "https://github.com/balena-io/device-diagnostics/edit/master/diagnostics.md"
-    "google-iot": "https://github.com/balenalabs/google-iot/edit/master/README.md"
-    "azure-iot-hub": "https://github.com/balena-io-playground/balena-azure-iot-hub"
     "cli-masterclass": "https://github.com/balena-io/balena-cli-masterclass/edit/master/README.md"
     "advanced-cli": "https://github.com/balena-io/balena-cli-advanced-masterclass/edit/master/README.md"
     "host-os-masterclass": "https://github.com/balena-io/balenaos-masterclass/edit/master/README.md"

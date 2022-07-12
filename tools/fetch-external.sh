@@ -41,10 +41,6 @@ cd shared/meta-balena/ && {
 # get meta-balena rollbacks docs
 curl -o pages/reference/OS/updates/rollbacks.md -L https://raw.githubusercontent.com/balena-os/meta-balena/master/docs/rollbacks.md
 
-# get integrations
-curl -o pages/learn/develop/integrations/google-iot.md -L https://raw.githubusercontent.com/balenalabs/google-iot/master/README.md &
-curl -o pages/learn/develop/integrations/azure-iot-hub.md -L https://raw.githubusercontent.com/balena-io-playground/balena-azure-iot-hub/master/README.md &
-
 # Masterclasses
 curl -o pages/learn/more/masterclasses/cli-masterclass.md -L https://raw.githubusercontent.com/balena-io/balena-cli-masterclass/master/README.md &
 curl -o pages/learn/more/masterclasses/advanced-cli.md -L https://raw.githubusercontent.com/balena-io/balena-cli-advanced-masterclass/master/README.md &
