@@ -29,7 +29,7 @@ __Note:__ A service container like Cloud Relay on the device is not *required* t
 
 ## Getting Started
 
-The tools described here automate *per-device* integration with {{ $cloud.platformName }}. However, first you must complete some initial one-time configuration on your {{ $cloud.shortName }} account. See the [{{$cloud.shortName}} setup](https://github.com/balena-io-examples/{{ $cloud.provisionRepoName }}/#{{lowercase $cloud.shortName}}-setup) section of the provisioning repo documentation for details.
+The tools described here automate *per-device* integration with {{ $cloud.name }}. However, first you must complete some initial one-time configuration on your {{ $cloud.shortName }} account. See the [{{$cloud.shortName}} setup](https://github.com/balena-io-examples/{{ $cloud.provisionRepoName }}/#{{lowercase $cloud.shortName}}-setup) section of the provisioning repo documentation for details.
 
 ## Create, Deploy, and Test {{ $cloud.cloudFunctionName }} function
 
