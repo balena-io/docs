@@ -117,7 +117,8 @@
 ^\/reference\/OS\/meta-balena\/?(\?.+)?(#.+)?$ -> /reference/OS/customer-board-support/$1$2
 ^\/reference\/OS\/custom-device-support\/?(\?.+)?(#.+)?$ -> /reference/OS/customer-board-support/$1$2
 ^\/reference\/base-images\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2
-^\/reference\/api\/resources\/application\/?$ -> /reference/api/resources/fleet
+^\/reference\/api\/resources\/application\/?(\?.+)?(#.+)?$ -> /reference/api/resources/fleet/$1$2
+^\/reference\/OS\/overview\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
 ^\/reference\/OS\/overview\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
 ^\/reference\/OS\/overview\/2.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
 ^\/reference\/OS\/network\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/network/$1$2
