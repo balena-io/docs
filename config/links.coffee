@@ -51,4 +51,4 @@ module.exports =
     "docker-masterclass": "https://github.com/balena-io/docker-masterclass/edit/master/README.md"
     "rollbacks": "https://github.com/balena-os/meta-balena/edit/master/docs/rollbacks.md"
     "customer-board-support": "https://github.com/balena-os/meta-balena/edit/master/contributing-device-support.md"
-
+    "resources": "https://github.com/balena-io/docs/edit/master/pages/reference/api/resources.md"
