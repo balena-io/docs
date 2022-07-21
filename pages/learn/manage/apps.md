@@ -115,7 +115,7 @@ Only organization administrators can initiate and complete App transfers. You mu
 * Ask the administrator of the target balenaCloud organization to add you as a member of the newly created App with a Developer role, using your username. If you are an administrator of the target organization, you already have access to the new App & this step can be skipped.
 * In the source organization, select Settings --> Set App ownership and pick the target organization from the list to complete the transfer.
 
-__Note:__ If the dropdown for the destination organization is empty and greyed out, ensure that you have created an empty App in the target organization with the same name as the source App, and that the user that is transferring ownership of the App from the source organization has been added as a Developer to the target App.
+__Note:__ If the dropdown for the destination organization is empty and grayed out, ensure that you have created an empty App in the target organization with the same name as the source App, and that the user that is transferring ownership of the App from the source organization has been added as a Developer to the target App.
 
 Once the ownership has been set to the new owner, the source App owner will no longer be a member of the target App. If required, you will need to invite them to become a member of the App again. All other members of the source App will retain their membership of the target App once the transfer is complete.
 
