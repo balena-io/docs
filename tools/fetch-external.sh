@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script pulls in external documentation that should be edited in the corresponding upstream repo
 
 # Use node-jq if jq is not pre-installed in the environment nor set in path
