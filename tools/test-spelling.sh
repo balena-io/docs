@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 consolidatedOutput=""
 exitCode=0
 while read -r file
