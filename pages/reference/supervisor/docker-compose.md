@@ -19,7 +19,7 @@ Field | Details
 [build.extra_hosts](https://docs.docker.com/compose/compose-file/compose-file-v2/#extra_hosts) |
 [build.labels](https://docs.docker.com/compose/compose-file/compose-file-v2/#labels) |
 [build.shm_size](https://docs.docker.com/compose/compose-file/compose-file-v2/#shm_size) |
-[build.target](https://docs.docker.com/compose/compose-file/compose-file-v2/#target) |
+[build.target](https://docs.docker.com/compose/compose-file/compose-file-v2/#target) | currently incompatible with [Livepush](/learn/develop/local-mode/#livepush)
 [cap_add](https://docs.docker.com/compose/compose-file/compose-file-v2/#cap_add-cap_drop) |
 [cap_drop](https://docs.docker.com/compose/compose-file/compose-file-v2/#cap_add-cap_drop) |
 [cgroup_parent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cgroup_parent) |
