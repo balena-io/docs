@@ -8,7 +8,7 @@ excerpt: Choosing an update strategy for your {{ $names.company.lower }} devices
 With the {{ $names.company.lower }} device supervisor version 1.3, we added the ability to choose the update strategy on devices, that is, the order and way in which the steps to perform an update are executed. You can check whether your Supervisor has the appropriate version in the "Supervisor version" entry in the device dashboard page.
 These update strategies allow users to choose between four modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
 
-Update strategies can be applied by setting a [docker-compose label](labels). The two labels that are involved are:
+Update strategies can be applied by setting a [docker-compose label][labels]. The two labels that are involved are:
 
 * `io.balena.update.strategy`, and
 * `io.balena.update.handover-timeout`.
