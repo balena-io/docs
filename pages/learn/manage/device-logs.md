@@ -21,7 +21,7 @@ To alleviate this, balenaOS allows persistent journals (logs). Persistent logs p
 
 Persistent logging can be enabled using the Configuration tab on the sidebar for either a specific device or fleet-wide. Select 'Activate' to enable persistent logging on a specific device or on all devices in a fleet.
 Since logs are stored in the data partition of the hostOS, the device(s) will reboot to activate persistent logging and apply the related settings.
-Once persistent logging is enabled, the logs are stored as part of the data partition on the device (either on SD card, eMMC, hard disk, etc.). Logs are located on-device at `/var/log/journal/<uuid>` where the UUID is device UUID.
+Once persistent logging is enabled, the logs are stored as part of the data partition on the device (either on SD card, eMMC, hard disk, etc.). Logs are located on-device at `/var/log/journal/<uuid>`,where `<uuid>` matches the contents of the `/etc/machine-id` and is not related with the balena device UUID.
 
 Journals can be read like those for any unit file, using journalctl, although the flags passed to the command are slightly different. Here's an example of how to read persistent journals:
 
