@@ -148,7 +148,9 @@ You may also enable or disable public URLs for a subset of devices by selecting 
 
 ### Transfer Fleet Ownership
 
-Fleets with all their associated devices, releases and members can be transferred to any other balenaCloud [organization][organization]. Fleet transfers are between a **source** and a **target** organization.
+Fleets with all their associated devices, releases and members can be transferred to any other balenaCloud [organization][organization]. Upon transfer, your fleet ID and UUID will remain the same, fleet history will be maintained, and you will be able to roll back to a prior release.
+
+Fleet transfers are between a **source** and a **target** organization. If you are transferring a **source** fleet from a [paid plan to a free plan](https://www.balena.io/pricing/) and your fleet exceeds the device limit, your fleet will be frozen until a plan is purchased for the **target** organization.
 
 Only organization [administrators][administrator] can initiate and complete fleet transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
 
