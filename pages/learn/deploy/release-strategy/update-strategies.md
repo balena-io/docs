@@ -48,12 +48,14 @@ It works as follows:
 
 ## delete-then-download
 
-This strategy is meant for resource-constrained scenarios or when the images be pulled are particularly large, so we need to keep disk usage to the minimum, albeit at the cost of a extra downtime and higher bandwidth usage.
+This strategy is meant for resource-constrained scenarios or when the images be pulled are particularly large, so we need to keep disk usage to the minimum, albeit at the **cost of extra downtime and higher bandwidth usage.**
 It works as follows:
 
 * When an update is available, the Supervisor kills the container for the old version, and then deletes the corresponding image.
 * After this, the Supervisor downloads the image for the new version.
 * Once the download is complete, the Supervisor creates and starts the new container.
+
+__Note:__ This strategy is only recommended for extreme low storage scenarios, where the available storage cannot even fit the target [image deltas][update-deltas]. For most cases, using the default strategy or the `kill-then-download` strategy (if memory usage is a concern), and ensuring [deltas are enabled][update-deltas] is the recommended approach.
 
 **Note: Requires Supervisor >= v2.5.1**
 
@@ -76,3 +78,4 @@ The communication between the old and new versions has to be implemented by the 
 [update-locks]:/learn/deploy/release-strategy/update-locking/
 [configuration]:/learn/manage/configuration/
 [labels]: /reference/supervisor/docker-compose/#labels
+[update-deltas]: /learn/deploy/delta/
