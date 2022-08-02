@@ -52,3 +52,5 @@ module.exports =
     "rollbacks": "https://github.com/balena-os/meta-balena/edit/master/docs/rollbacks.md"
     "customer-board-support": "https://github.com/balena-os/meta-balena/edit/master/contributing-device-support.md"
     "resources": "https://github.com/balena-io/docs/edit/master/pages/reference/api/resources.md"
+    "cloud-iot-provisioning": "https://github.com/balena-io/docs/edit/master/pages/learn/develop/cloud-iot-provisioning.md"
+    "getting-started": "https://github.com/balena-io/docs/edit/master/pages/learn/getting-started.md"
