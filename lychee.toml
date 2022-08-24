@@ -43,9 +43,7 @@ timeout = 10
 insecure = false
 
 # Comma-separated list of accepted status codes for valid links.
-# Don't work as of yet until https://github.com/lycheeverse/lychee/issues/644
-# is resolved
-#accept = "200, 204, 301, 429"
+accept = [200, 204, 301, 429]
 
 # Only test links with the given scheme (e.g. https)
 # Omit to check links with any scheme

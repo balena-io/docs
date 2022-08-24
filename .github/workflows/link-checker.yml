@@ -30,7 +30,6 @@ jobs:
         with:
           args: >
             --config ./lychee.toml
-            --accept 200,204,301,429
             --github-token ${{ secrets.GITHUB_TOKEN }}
             "contents/**/*" 
 
