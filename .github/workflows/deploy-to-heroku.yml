@@ -25,7 +25,7 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} # Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_DEPLOYMENT_EMAIL}}
           dontautocreate: true
-          healthcheck: https://docs.balena.io/
+          healthcheck: https://${{secrets.HEROKU_APP_NAME}}.herokuapp.com/docs/learn/welcome/introduction/
           rollbackonhealthcheckfailed: true
 
       # Most of the times, docs won't have any updates and Heroku won't do a fresh deployment
