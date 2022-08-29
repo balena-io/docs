@@ -24,3 +24,16 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} # Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_DEPLOYMENT_EMAIL}}
+          dontautocreate: true
+          healthcheck: https://docs.balena.io/
+          rollbackonhealthcheckfailed: true
+
+      # Most of the times, docs won't have any updates and Heroku won't do a fresh deployment
+      # This results in external references in docs not updating in prod 
+      # To force this, we are getting Heroku to rebuild the app once daily.
+      # https://help.heroku.com/I3E6QPQN/how-do-i-force-a-new-deploy-without-adding-a-commit-to-my-github-repo
+      - name: Force a rebuild in Heroku
+        run: |
+          set -ue
+          heroku plugins:install heroku-builds
+          heroku builds:create --source-url https://api.github.com/repos/balena-io/docs/tarball/master --app ${{secrets.HEROKU_APP_NAME}}
