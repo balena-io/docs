@@ -48,6 +48,14 @@ section][config-json-ssh]. These restrictions do not apply to [development varia
 $names.os.lower }}][development-image], which allow unauthenticated `root` access (and for
 this reason, should never be directly exposed to the public internet).
 
+Once you have added a key your your account, you should also add an entry for `ssh.balena-devices.com` to your `~/.ssh/config` file so that the `balena ssh` command knows to use this key:
+
+```shell
+Host ssh.balena-devices.com
+  User <USER>
+  IdentityFile ~/.ssh/<PRIVATE_KEY>
+```
+
 ## Using a standalone SSH client
 
 The SSH server of a {{ $names.os.lower }} device (host OS) listens on TCP port `22222`, and
