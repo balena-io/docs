@@ -2,10 +2,8 @@ DOCS_SOURCE_DIR = 'pages'
 TEMPLATES_DIR = 'templates'
 PARTIALS_DIR = 'shared'
 
-DYNAMIC_DOCS = /.*(getting-started|cloud-iot-provisioning).*/
-
 # These files are pulled in externally and so cannot be edited in the base repo
-EXTERNAL_DOCS = /.*(python-sdk|node-sdk|balena-cli|supervisor-api|rollbacks|update-locking|diagnostics|cli-masterclass|advanced-cli|host-os-masterclass|services-masterclass|fleet-management|device-debugging|docker-masterclass|customer-board-support|resources).*/
+EXTERNAL_DOCS = /.*(python-sdk|node-sdk|balena-cli|supervisor-api|rollbacks|update-locking|diagnostics|cli-masterclass|advanced-cli|host-os-masterclass|services-masterclass|fleet-management|device-debugging|docker-masterclass|customer-board-support|resources|cloud-iot-provisioning|getting-started).*/
 
 FB_APP_ID = '221218511385682'
 
@@ -44,7 +42,6 @@ module.exports =
   docsDestDir: 'contents'
   templatesDir: TEMPLATES_DIR
   partialsDir: PARTIALS_DIR
-  dynamicDocs: DYNAMIC_DOCS
   externalDocs: EXTERNAL_DOCS
   editPageLink: 'https://github.com/balena-io/docs/edit/master'
   links: require('./links')
