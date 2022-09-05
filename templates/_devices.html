@@ -8,42 +8,52 @@
     // The following pine cllient query was used to generate the OData url below.
     // TODO: Start using the sdk in the docs and use the call directly.
     // await sdk.pine.get({
-    //     resource: 'device_type',
-    //     options: {
-    //         $select: ['name', 'slug', 'logo'],
-    //         $expand: {
-    //             is_of__cpu_architecture: {
-    //                 $select: 'slug'
-    //             }
-    //         },
-    //         $filter: {
-    //             is_default_for__application: {
-    //                 $any: {
-    //                     $alias: 'idfa',
-    //                     $expr: {
-    //                         idfa: {
-    //                             is_host: true,
-    //                             is_archived: false,
-    //                         },
-    //                         $not: {
-    //                             idfa: {
-    //                                 app_name: {
-    //                                     $contains: 'esr',
-    //                                 }
-    //                             }
-    //                         }
-    //                     },
-    //                 },
-    //             },
-    //         },
-    //         $orderby: {
-    //             name: 'asc',
-    //         }
-    //     }
+    //   resource: 'device_type',
+    //   options: {
+    //       $select: ['name', 'slug', 'logo'],
+    //       $expand: {
+    //           is_of__cpu_architecture: {
+    //               $select: 'slug'
+    //           }
+    //       },
+    //       $filter: {
+    //           is_default_for__application: {
+    //               $any: {
+    //                   $alias: 'idfa',
+    //                   $expr: {
+    //                       idfa: {
+    //                           is_host: true,
+    //                           is_archived: false,
+    //                           owns__release: {
+    //                               $any: {
+    //                                   $alias: 'r',
+    //                                   $expr: {
+    //                                       status: 'success',
+    //                                       is_final: true,
+    //                                       is_invalidated: false,
+    //                                   }
+    //                               }
+    //                           }
+    //                       },
+    //                       $not: {
+    //                           idfa: {
+    //                               app_name: {
+    //                                   $contains: '-esr',
+    //                               }
+    //                           }
+    //                       }
+    //                   },
+    //               },
+    //           },
+    //       },
+    //       $orderby: {
+    //           name: 'asc',
+    //       }
+    //   }
     // })
     window.jQuery
       .ajax({
-        url: "https://api.balena-cloud.com/v6/device_type?$select=name,slug,logo&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false))%20and%20not(contains(idfa/app_name,%27esr%27)))&$orderby=name%20asc"
+        url: "https://api.balena-cloud.com/v6/device_type?$select=name,slug,logo&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false)%20and%20(idfa/owns__release/any(r:(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false))))%20and%20not(contains(idfa/app_name,%27-esr%27)))&$orderby=name%20asc"
       })
       .done(function (deviceTypesResponse) {
         var table = _(deviceTypesResponse.d)
