@@ -17,15 +17,15 @@ excerpt: Docker images maintained by balena
   - amd64
   - i386
 - Multiple Distributions:
-  - [Debian](https://www.debian.org/): stretch (9), buster (10), bullseye (11), bookworm (12) and sid
-  - [Alpine](https://alpinelinux.org/): 3.11, 3.12, 3.13, 3.14 and edge
-  - [Ubuntu](https://www.ubuntu.com/): xenial (16.04), bionic (18.04), focal (20.04), hirsute (21.04) and impish (21.10)
-  - [Fedora](https://getfedora.org/): 32, 33, 34 and 35
+  - [Debian](https://www.debian.org/): buster (10), bullseye (11), bookworm (12) and sid
+  - [Alpine](https://alpinelinux.org/): 3.12, 3.13, 3.14, 3.15, 3.16 and edge
+  - [Ubuntu](https://www.ubuntu.com/): xenial (16.04), bionic (18.04), focal (20.04), impish (21.10), kinetic (22.10) and jammy (22.04)
+  - [Fedora](https://getfedora.org/): 33, 34, 35 and 36
 - Multiple language stacks:
-  - [Node.js](https://nodejs.org/en/): 17.4.0, 16.13.2, 14.18.3 and 12.22.9
-  - [Python](https://www.python.org/): 3.6.15, 3.7.12, 3.8.12, 3.9.10 and 3.10.2
+  - [Node.js](https://nodejs.org/en/): 18.7.0, 16.17.0, 14.20.0 and 12.22.12
+  - [Python](https://www.python.org/):  3.10.5, 3.9.13, 3.8.13, 3.7.13 and 3.6.15
   - [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 11-jdk/jre and 16-jdk
-  - [Golang](https://golang.org/): 1.17.6 and 1.16.13
+  - [Golang](https://golang.org/): 1.19, 1.18.15 and 1.17.12
   - [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 6.0-sdk/runtime/aspnet, 3.1-sdk/runtime/aspnet and 5.0-sdk/runtime/aspnet
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
@@ -116,16 +116,16 @@ Currently, balenalib supports the following OS distributions and Language stacks
 | Distribution | Default (latest)             | Supported Architectures                      |
 | ------------ | ---------------------------- | -------------------------------------------- |
 | Debian       | Debian GNU/Linux 11 (bullseye) | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
-| Alpine       | Alpine Linux v3.14           | armv6, armv7hf, aarch64, amd64, i386         |
-| Ubuntu       | 20.04 LTS (focal)           | armv7hf, aarch64, amd64, i386                |
-| Fedora       | Fedora 34                    | armv7hf, aarch64, amd64, i386                |
+| Alpine       | Alpine Linux v3.16           | armv6, armv7hf, aarch64, amd64, i386         |
+| Ubuntu       | 22.04 LTS (jammy)           | armv7hf, aarch64, amd64, i386                |
+| Fedora       | Fedora 35                    | armv7hf, aarch64, amd64, i386                |
 
 | Language | Default (latest) | Supported Architectures                      |
 | -------- | ---------------- | -------------------------------------------- |
-| Node.js  | 17.4.0           | armv6, armv7hf, aarch64, amd64, i386         |
-| Python   | 3.10.2           | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
+| Node.js  | 18.7.0           | armv6, armv7hf, aarch64, amd64, i386         |
+| Python   | 3.10.5           | armv5e, armv6, armv7hf, aarch64, amd64, i386 |
 | OpenJDK  | 11-jdk           | armv7hf, aarch64, amd64, i386, armv6         |
-| Go       | 1.17.6           | armv7hf, aarch64, amd64, i386, armv6         |
+| Go       | 1.19             | armv7hf, aarch64, amd64, i386, armv6         |
 | Dotnet   | 6.0-sdk          | armv7hf, aarch64, amd64                      |
 
 #### Notes
