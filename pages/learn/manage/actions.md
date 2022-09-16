@@ -157,7 +157,7 @@ Only organization [administrators][administrator] can initiate and complete flee
 1. Take note of the fleet name in the **source** organization and your balenaCloud username (*in the top-right drop-down menu*).
 2. Ask an administrator of the **target** balenaCloud organization to create a new empty fleet using the same fleet name (the [fleet type][fleet-types] doesn't need to match).
 3. Ask the administrator of the **target** balenaCloud organization to [add you as a member][add-application-member] of the newly created fleet with a [`Developer`][developer] role, using your username. If you are an administrator of the **target** organization, you already have access to the new fleet & this step can be skipped.
-4. In the **source** organization, select **<Fleet>** --> **Actions** --> **Transfer This Fleet** and pick the **target** organization from the list to complete the transfer.
+4. In the **source** organization, select **<Fleet>** --> **Settings** --> **Set fleet ownership** and pick the **target** organization from the list to complete the transfer.
 
 __Note:__ If the **Transfer This Fleet** button is grayed out, ensure that you have created an empty fleet in the **target** organization with the same name as the source fleet, and that user that is transferring ownership of the fleet from the source organization has been added as a **Developer** to the **target** fleet.
 
