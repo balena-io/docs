@@ -1,32 +1,18 @@
 ---
-title: Actions
+title: Actions and Settings
 ---
 
-# Actions
+# Actions and Settings
 
-Actions allow you to control the status of your fleets and the devices that are part of it during runtime. Most actions can be applied in one of three ways:
+Actions and Settings allow you to control the status of your fleets and the devices that are part of it during runtime. Most operations can be applied in one of three ways:
 
-1. Accessing the *Actions* tab from the fleet summary page allows you to make changes to the fleet in general, and to all the devices in that fleet.
-2. The *Actions* menu on the device summary page lets you apply changes that only affect that one device.
-3. To apply actions on a subset of devices, you can specify which devices will be affected by clicking the check boxes next to the devices in the devices list. When selected, use the *Actions* dropdown menu on the fleet summary page to apply the action on only the selected devices. This is helpful in case you use filters or a saved view to run action frequently on a subset of devices. 
+1. Accessing the *Settings* tab from the fleet summary page allows you to make changes to the fleet in general, and to all the devices in that fleet.
+2. The *Actions* or *Settings* menu on the device summary page lets you apply changes that only affect that one device.
+3. To apply operations on a subset of devices, you can specify which devices will be affected by clicking the check boxes next to the devices in the devices list. When selected, use the *Modify* dropdown menu on the devices list to apply the operation on only the selected devices. This is helpful in case you use filters or a saved view to run operations frequently on a subset of devices. 
 
-## General actions
+## Device actions
 
-[Fleet members][fleet-members] with the Operator role and above can perform any of the actions listed below.
-
-### Enable Public Device URL
-
-{{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
-
-<img alt="Enable public device URL" src="/img/common/actions/device-public-url-enabled.png">
-
-To see what your device is serving on port 80, click on the [public URL][public-url]. If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
-
-<img alt="Public URL error" src="/img/common/actions/public-url-error.png" width="80%">
-
-You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
-
-<img alt="Public URL toggle" src="/img/common/actions/public-url-toggle.png" width="80%">
+[Fleet members][fleet-members] with the Operator role and above can perform any of the actions or settings listed below.
 
 ### Restart Fleet
 
@@ -68,21 +54,31 @@ The `Shutdown` action allows you to safely shut down your devices. It should be 
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
-## Device-specific actions
+### Delete Device
+
+The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the fleet and remote endpoint. Once you have deleted a device from the fleet it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the {{ $names.company.lower }} dashboard or API.
+
+## Device settings
 
 [Fleet members][fleet-members] with the Operator role and above can perform any of the actions listed below.
 
-### Update Locking
+### Public Device URL
 
-In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we added the [update lock functionality][update-locks] in the {{ $names.company.lower }} device supervisor. This allows your services to pick and choose when and where it would like to allow updates to happen.
+{{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
 
-Added to this functionality we provided a convenient button to override the lock on the device and essentially force an update. This is a precautionary measure for those times when your services crash and haven't released the update lock. This gives you a nice safety net to ensure you can always push new updates.
+<img alt="Toggle public device URL" src="/img/common/settings/toggle-public-url.png">
 
-__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+To see what your device is serving on port 80, click on the [public URL][public-url]. If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
-### Move to Another Fleet
+<img alt="Public URL error" src="/img/common/settings/public-url-error.png" width="80%">
 
-With the `Move Device` action it is possible to transfer a device from one fleet to another. This allows you incrementally rollout devices or move certain devices to specific branches of functionality. To move a device from one fleet to another, click the `Move to another fleet…` button and you will be presented with a list of compatible architecture fleets that you can move your device to.
+You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
+
+<img alt="Public URL toggle" src="/img/common/settings/public-url-toggle.png" width="80%">
+
+### Move device to another Fleet
+
+With the `Fleet` setting it is possible to transfer a device from one fleet to another. This allows you to incrementally rollout devices or move certain devices to specific branches of functionality. To move a device from one fleet to another, click the `Fleet` dropdown on the Device Settings page and you will be presented with a list of compatible architecture fleets that you can move your device to.
 
 Note that you are only able to move devices between fleets with device types that share the same architecture. For example, a Raspberry Pi 3 device could be moved to a BeagleBone Black fleet, but not to an Intel NUC fleet.
 
@@ -90,11 +86,9 @@ Obviously you may only select one fleet to transfer your device to. Once you sel
 
 __Warning:__ For devices running {{ $names.os.lower }} version 2.12.0 and above, data in [persistent storage][persistent-storage] (named volumes) is automatically purged when a device is moved to a new fleet. On older host OS versions, the `/data` folder in the new fleet will not contain any of the old fleet data, but it can still be accessed via the host OS and if the device is switched back to the original fleet. Unless you plan to revert back to the original fleet, be sure to [purge][purge-data] the `/data` folder.
 
-To see a demonstration of moving devices between fleet and a little more on the motivation behind the feature have a look at our blog post: [Canary Rollouts with {{ $names.company.lower }}][move-app-blog-post]
-
 ### {{ $names.os.upper }} Update
 
-This action allows you to remotely update the host OS running on your device. For more details on supported devices and the update process, check out our {{ $names.os.lower }} [update documentation][updates].
+This setting allows you to remotely update the host OS running on your device. For more details on supported devices and the update process, check out our {{ $names.os.lower }} [update documentation][updates].
 
 ### Local Mode
 
@@ -102,33 +96,15 @@ Turning on local mode is useful when you are prototyping your services, as it al
 
 ### Deactivate Device
 
-This action will [deactivate the device][inactive-devices] and charge a one-time deactivation fee. To deactivate, the device must be offline, not be part of a Starter fleet, and be attached to a valid billing account.
-
-### Delete Device
-
-The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the fleet and remote endpoint. Once you have deleted a device from the fleet it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the {{ $names.company.lower }} dashboard or API.
+This setting will [deactivate the device][inactive-devices] and charge a one-time deactivation fee. To deactivate, the device must be offline, not be part of a Starter fleet, and be attached to a valid billing account.
 
 ### Grant Support Access
 
-This action allows you to [enable support access][support-access] to an individual devices for a set time period.
+This setting allows you to [enable support access][support-access] for one or more devices for a set time period.
 
-### Change device type
+## Fleet/Block/App settings
 
-If one or more devices has been added to a fleet with the wrong [device type](https://www.balena.io/docs/reference/hardware/versioning/#device-types), one can change the device-type for their devices through the dashboard. There are 2 ways to go about this,
-
-Option 1: On the fleet’s device list, select one or more devices and click the `Actions` drop-down menu on the top right corner. Select `Change device type` option from the list and follow the instructions on the modal.
-
-![Change the device type from the device list](/img/common/actions/change-device-type-device-list.png)
-
-Option 2: On the device page, click `Actions` tab on the left sidebar menu. Scroll down to the `Dangerous actions` section and click `Change device type` after which follow the instructions on the modal to change your device-type.
-
-![Change the device type from the device page](/img/common/actions/change-device-type-device-page.png)
-
-__Warning:__ Only change the device type if a device was incorrectly provisioned. This does not make any changes to the OS running on the device.
-
-## Fleet-specific actions
-
-These actions can be found on the "Actions" menu for each fleet and apply to the fleet and all the devices in the fleet. [Fleet members][fleet-members] with the adminstrator role can perform any of the actions listed below.
+These settings can be found on the "Settings" menu for each fleet and apply to the fleet and all the devices in the fleet. [Fleet members][fleet-members] with the adminstrator role can perform any of the settings listed below.
 
 ### Change Fleet Type
 
@@ -136,15 +112,7 @@ This option allows you to convert your fleet to [another type][fleet-types], as 
 
 ### Rename Fleet
 
-This action allows you to rename your fleet. This action is only available for new [fleet types][fleet-types] such as `Starter`, `Microservices` or `Essentials`. It's not currently possible to rename `Legacy` or `Classic` fleets, you will first need to upgrade your fleet type.
-
-### Enable/Disable All Public Device URLs
-
-This action allows you to enable or disable all the device URLs for the devices in your fleet. Note that this will only apply to already provisioned devices in the fleet, any devices added after you enabled this fleet wide will need to have their device URL manually enabled.
-
-You may also enable or disable public URLs for a subset of devices by selecting them on the fleet summary page and clicking  _Enable public device URL_ in the _Actions_ menu.
-
-<img alt="Enable public device URLs for a fleet" src="/img/common/actions/application-public-urls.png">
+This operation allows you to rename your fleet. This operation is only available for new [fleet types][fleet-types] such as `Starter`, `Microservices` or `Essentials`. It's not currently possible to rename `Legacy` or `Classic` fleets, you will first need to upgrade your fleet type.
 
 ### Transfer Fleet Ownership
 
@@ -157,9 +125,9 @@ Only organization [administrators][administrator] can initiate and complete flee
 1. Take note of the fleet name in the **source** organization and your balenaCloud username (*in the top-right drop-down menu*).
 2. Ask an administrator of the **target** balenaCloud organization to create a new empty fleet using the same fleet name (the [fleet type][fleet-types] doesn't need to match).
 3. Ask the administrator of the **target** balenaCloud organization to [add you as a member][add-application-member] of the newly created fleet with a [`Developer`][developer] role, using your username. If you are an administrator of the **target** organization, you already have access to the new fleet & this step can be skipped.
-4. In the **source** organization, select **<Fleet>** --> **Actions** --> **Transfer This Fleet** and pick the **target** organization from the list to complete the transfer.
+4. In the **source** organization, select **<Fleet>** --> **Settings** --> **Set this fleet's ownership** and pick the **target** organization from the list to complete the transfer.
 
-__Note:__ If the **Transfer This Fleet** button is grayed out, ensure that you have created an empty fleet in the **target** organization with the same name as the source fleet, and that user that is transferring ownership of the fleet from the source organization has been added as a **Developer** to the **target** fleet.
+__Note:__ If the **Set this fleet's ownership** button is grayed out, ensure that you have created an empty fleet in the **target** organization with the same name as the source fleet, and that the user that is transferring ownership of the fleet from the source organization has been added as a **Developer** to the **target** fleet.
 
 Once the transfer of ownership has been completed, the source fleet owner will no longer be a member of the target fleet. If required, you will need to invite them to become a member of the fleet again. All other members of the source fleet will retain their membership of the target fleet once the transfer is complete.
 
@@ -172,23 +140,20 @@ Blocks with all their associated releases and members can be transferred to any 
 Only organization [administrators][administrator] can initiate and complete block transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
 
 1. Take note of the block name in the **source** organization and your balenaCloud username (*in the top-right drop-down menu*).
-2. Ask an administrator of the **target** balenaCloud organization to create a new empty block using the same block name (the [block type][block-types] doesn't need to match).
+2. Ask an administrator of the **target** balenaCloud organization to create a new empty block using the same block name.
 3. Ask the administrator of the **target** balenaCloud organization to [add you as a member][add-application-member] of the newly created block with a [`Developer`][developer] role, using your username. If you are an administrator of the **target** organization, you already have access to the new block & this step can be skipped.
-4. In the **source** organization, select **<block>** --> **Actions** --> **Transfer This block** and pick the **target** organization from the list to complete the transfer.
+4. In the **source** organization, select **<block>** --> **Settings** --> **Set this block's ownership** and pick the **target** organization from the list to complete the transfer.
 
-__Note:__ If the **Transfer This block** button is grayed out, ensure that you have created an empty block in the **target** organization with the same name as the source block, and that user that is transferring ownership of the block from the source organization has been added as a **Developer** to the **target** block.
+__Note:__ If the **Set this block's ownership** button is grayed out, ensure that you have created an empty block in the **target** organization with the same name as the source block, and that user that is transferring ownership of the block from the source organization has been added as a **Developer** to the **target** block.
 
 Once the transfer of ownership has been completed, the source block owner will no longer be a member of the target block. If required, you will need to invite them to become a member of the block again. All other members of the source block will retain their membership of the target block once the transfer is complete.
-
-During and after the transfer process, the devices state will remain unchanged from before the transfer process was started. For example, devices that were online before the process was started will remain online throughout.
 
 ### Delete Fleet
 
 This option permanently deletes your fleet.
 
-__Warning:__ It is a good idea to [move your devices to another fleet][move-devices] before deleting your current fleet. If you do not, **all devices attached to the fleet will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device actions from {{ $names.company.lower }}.
+__Warning:__ It is a good idea to [move your devices to another fleet][move-devices] before deleting your current fleet. If you do not, **all devices attached to the fleet will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device operations from {{ $names.company.lower }}.
 
-[update-locks]:/learn/deploy/release-strategy/update-locking
 [move-app-blog-post]:{{ $links.blogSiteUrl }}/canary-rollouts-on-resin-io/
 [updates]:/reference/OS/updates/self-service
 [local-mode]:/learn/develop/local-mode
