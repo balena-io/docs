@@ -32,6 +32,8 @@ cd shared/meta-balena/ && {
   ../../tools/extract-markdown.sh "Modems" <meta-balena.md >supported-modems.md
   # Extract Wifi adapters
   ../../tools/extract-markdown.sh "WiFi Adapters" <meta-balena.md >supported-wifi-adapters.md
+  # Extract Recommended WiFi USB dongle
+  ../../tools/extract-markdown.sh "Recommended WiFi USB dongle" <meta-balena.md >supported-wifi-usb-dongle.md
   # Extract config.json
   ../../tools/extract-markdown.sh "config.json" <meta-balena.md >config-json.md
   rm meta-balena.md
