@@ -22,7 +22,7 @@ Setting the `io.balena.update.strategy` label to a valid value selects the updat
 
 which are explained below. The `io.balena.update.handover-timeout` label is only used in the  `hand-over` strategy, and its use is explained in the [strategy's description](#hand-over).
 
-__Note:__ Prior to Balena Supervisor v7.23.0 the strategy was controlled by two [configuration](configuration) variables, `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`, which had the same effect as the labels do today. 
+__Note:__ Prior to Balena Supervisor v7.23.0 the strategy was controlled by two configuration variables, `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`, which had the same effect as the labels do today. 
 This mechanism for controlling the strategy is considered _deprecated_ and may be removed in the future.
 
 All update strategies below honor the [fleet update locks][update-locks] which you can use prevent updates temporarily.
@@ -76,6 +76,5 @@ The `io.balena.update.handover-timeout` label defines this timeout in millisecon
 The communication between the old and new versions has to be implemented by the user in whatever way they see fit, for example by having the old version listen on a socket or port and having an endpoint for the new version to announce it's ready to take over. It is important to note that both versions will share the `/data` folder and network namespace, so they can use any of those to communicate.
 
 [update-locks]:/learn/deploy/release-strategy/update-locking/
-[configuration]:/learn/manage/configuration/
 [labels]: /reference/supervisor/docker-compose/#labels
 [update-deltas]: /learn/deploy/delta/
