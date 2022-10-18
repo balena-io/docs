@@ -1,0 +1,25 @@
+{
+    "language": "en",
+    "caseSensitive": false,
+    "dictionaries": [
+        "balena", 
+        "en_US",
+        "companies", "softwareTerms", "misc",
+        "javascript", "python", "typescript", "go",
+        "npm", "node", "html", "css", "cpp"
+    ],
+    "dictionaryDefinitions": [
+        {
+            "name": "balena",
+            "path": "./.cspell/balena-words.txt",
+            "addWords": true
+        },
+        {
+            "name": "computerTerms",
+            "path": "./.cspell/computer-terms.txt",
+            "addWords": true
+        }
+    ],
+    "exclude": ["*/*.svg"],
+    "ignorePaths": ["node_modules","CHANGELOG.md"]
+}
