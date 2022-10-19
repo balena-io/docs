@@ -1,7 +1,7 @@
 {
   "name": "balena-docs",
   "private": true,
-  "version": "5.44.2",
+  "version": "5.44.3",
   "engines": {
     "node": "^16.0.0"
   },
@@ -53,6 +53,6 @@
     "webpack-cli": "^4.9.2"
   },
   "versionist": {
-    "publishedAt": "2022-10-18T20:16:31.409Z"
+    "publishedAt": "2022-10-19T03:22:44.503Z"
   }
 }
