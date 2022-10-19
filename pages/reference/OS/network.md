@@ -302,13 +302,7 @@ method=auto
 
 ### Known Tested Modems
 
-{{> "meta-balena/supported-modems"}}
-
-These modems should work on other device types but they are not tested on every release and we can't guarantee their functionality on every release, so please ensure you test OS upgrades with your modem before upgrading production units.
-
-__Note:__ If you are powering your USB modem from a Raspberry Pi, it is a good idea to enable the full 1.2A current throughput for the USB ports, you can see how to do this [here](/learn/develop/hardware/i2c-and-spi/#increase-usb-current-throughput)
-
-With some of the modems listed in the [**ModemManager** Supported Devices list][modemmanager-supported-devices] you may find they struggle to connect, this is most likely due to [usb_modeswitch][usb_modeswitch-link] not knowing how to automatically switch the device to modem mode. In these cases you will need to have a look at your modem's data sheet and figure out how to force it to stay in modem mode.
+Check out the list of [balena supported modems](wifi-dongles).
 
 ## Changing the Network at Runtime
 
@@ -547,8 +541,6 @@ To re-enable IPv6 follow the same commands but with `set ipv6.method enable`.
 [connman-link]: https://en.wikipedia.org/wiki/ConnMan
 [networkmanager-link]:https://developer-old.gnome.org/NetworkManager/
 [modemmanager-link]:https://www.freedesktop.org/wiki/Software/ModemManager/
-[modemmanager-supported-devices]:https://www.freedesktop.org/wiki/Software/ModemManager/SupportedDevices/
-[usb_modeswitch-link]:https://linux.die.net/man/1/usb_modeswitch
 [wifi-connect]:{{ $links.githubOS }}/wifi-connect
 [dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/
 [network-manager-examples]:https://wiki.gnome.org/Projects/NetworkManager/Developers#Show_me_more_examples.21 "NetworkManager: Show me more examples!"
@@ -557,4 +549,6 @@ To re-enable IPv6 follow the same commands but with `set ipv6.method enable`.
 [python-base-images]:/reference/base-images/base-images/
 [python-build-images]:/reference/base-images/base-images/#run-vs-build
 [nm-connectivity]:https://manpages.debian.org/jessie/network-manager/NetworkManager.conf.5.en.html#CONNECTIVITY_SECTION
+[wifi-dongles]:/reference/hardware/wifi-dongles
 [meta-balena-connectivity]:{{ $links.githubOS }}/meta-balena#connectivity
+
