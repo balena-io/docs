@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Fix link for supported modems in network docs"
+      hash: 05a2b5cced1d10034e728e77b5bd2db4d306a582
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 5.44.8
+  title: ""
+  date: 2022-10-20T11:46:22.093Z
+- commits:
     - subject: "patch: Replace balenaCI with flowzone"
       hash: 29606a5fed2018b78d0e7c62176e93b28cccbf6b
       body: ""
