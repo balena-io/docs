@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Replace balenaCI with flowzone"
+      hash: 29606a5fed2018b78d0e7c62176e93b28cccbf6b
+      body: ""
+      footer:
+        Signed-off-by: zoobot <rommims@gmail.com>
+        signed-off-by: zoobot <rommims@gmail.com>
+      author: zoobot
+      nested: []
+  version: 5.44.7
+  title: ""
+  date: 2022-10-20T05:41:51.280Z
+- commits:
     - subject: Add .versionbot/CHANGELOG.yml
       hash: dd769e453996684e363c1d159f49a2520c6d3905
       body: ""
@@ -737,8 +749,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [actions/checkout](https://github.com/actions/checkout) from 2 to
-        3.
+        Bumps [actions/checkout](https://github.com/actions/checkout) from 2 to 3.
 
         - [Release notes](https://github.com/actions/checkout/releases)
 
@@ -988,8 +999,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [actions/checkout](https://github.com/actions/checkout) from 2 to
-        3.
+        Bumps [actions/checkout](https://github.com/actions/checkout) from 2 to 3.
 
         - [Release notes](https://github.com/actions/checkout/releases)
 
@@ -1627,8 +1637,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.51.1 to
-        5.52.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.51.1 to 5.52.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -1664,8 +1673,8 @@
 - commits:
     - author: Vipul Gupta (@vipulgupta2048)
       body: >-
-        Namely, insturctions, machine and state were properties aren't being
-        used anywhere
+        Namely, insturctions, machine and state were properties aren't being used
+        anywhere
 
         in the documentation and hence were removed.
       footers:
@@ -1832,8 +1841,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.7.2
-        to 4.8.0.
+        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.7.2 to
+        4.8.0.
 
         - [Release notes](https://github.com/webpack/webpack-cli/releases)
 
@@ -1861,8 +1870,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.48.0 to
-        5.51.1.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.48.0 to 5.51.1.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -2335,8 +2343,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.46.0 to
-        5.48.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.46.0 to 5.48.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -2397,8 +2404,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.45.1 to
-        5.46.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.45.1 to 5.46.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -2477,8 +2483,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.44.0 to
-        5.45.1.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.44.0 to 5.45.1.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -2514,8 +2519,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.42.1 to
-        5.44.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.42.1 to 5.44.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -2607,8 +2611,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.42.0 to
-        5.42.1.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.42.0 to 5.42.1.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -2654,8 +2657,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.41.0 to
-        5.42.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.41.0 to 5.42.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -2732,8 +2734,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.6.0
-        to 4.7.2.
+        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.6.0 to
+        4.7.2.
 
         - [Release notes](https://github.com/webpack/webpack-cli/releases)
 
@@ -2761,8 +2763,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [bootstrap](https://github.com/twbs/bootstrap) from 3.4.1 to
-        5.0.2.
+        Bumps [bootstrap](https://github.com/twbs/bootstrap) from 3.4.1 to 5.0.2.
 
         - [Release notes](https://github.com/twbs/bootstrap/releases)
 
@@ -2818,8 +2819,7 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.28.0 to
-        5.41.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.28.0 to 5.41.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -4759,8 +4759,7 @@
 - commits:
     - author: Alex Gonzalez
       body: >-
-        Provide a list to the blacklisted items directly from github so it is
-        kept
+        Provide a list to the blacklisted items directly from github so it is kept
 
         up-to-date.
 
@@ -4981,8 +4980,7 @@
       subject: Add Offline Updates documentation
     - author: Vipul Gupta (@vipulgupta2048)
       body: >-
-        - Lots of optional stages in the process where pre-existing
-        applications,
+        - Lots of optional stages in the process where pre-existing applications,
 
         devices, keys can be used by users. All of them documented accordingly.
       footers:
@@ -5168,8 +5166,7 @@
 - commits:
     - author: Vipul Gupta (@vipulgupta2048)
       body: >-
-        npm install in the dockerfile triggers the prepare.sh script, which
-        needs
+        npm install in the dockerfile triggers the prepare.sh script, which needs
 
         to be copied before the install starts. Later as the prepare.sh triggers
 
