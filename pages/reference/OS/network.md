@@ -302,7 +302,7 @@ method=auto
 
 ### Known Tested Modems
 
-Check out the list of [balena supported modems](wifi-dongles).
+Check out the list of [balena supported modems][wifi-dongles]
 
 ## Changing the Network at Runtime
 
