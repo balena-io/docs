@@ -1,4 +1,15 @@
 - commits:
+    - subject: "patch: clarifying offline vs inactive"
+      hash: 4463c74c17a59a62caa05cb51a9983f5ba0f0a4a
+      body: Modified the section Inactive vs. Offline to make it more clear how it
+        works, when it's billed and when the billing is resumed.
+      footer: {}
+      author: rmorillo24
+      nested: []
+  version: 5.44.9
+  title: ""
+  date: 2022-10-22T16:00:00.504Z
+- commits:
     - subject: "patch: Fix link for supported modems in network docs"
       hash: 05a2b5cced1d10034e728e77b5bd2db4d306a582
       body: ""
