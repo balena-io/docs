@@ -64,7 +64,7 @@
         "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
       },
       {
-        "i": "Before powering up the Asus Tinker Board S, make sure that the jumper between the 5V power supply and the HDMI connector is in the MASKROM mode, as ilustrated in this link https://tinkerboarding.co.uk/wiki/index.php/Setup"
+        "i": "Before powering up the Asus Tinker Board S, make sure that the jumper between the 5V power supply and the HDMI connector is in the MASKROM mode, as illustrated in this link https://tinkerboarding.co.uk/wiki/index.php/Setup"
       },
       {
         "i": "The device is performing a shutdown. Please wait until all LEDs are off."
@@ -73,7 +73,7 @@
         "i": "Remove the balenaOS installation media."
       },
       {
-        "i": "Before powering up the Asus Tinker Board S, make sure that the jumper between the 5V power supply and the HDMI connector is in the parking (no function) mode, as ilustrated in this link https://tinkerboarding.co.uk/wiki/index.php/Setup"
+        "i": "Before powering up the Asus Tinker Board S, make sure that the jumper between the 5V power supply and the HDMI connector is in the parking (no function) mode, as illustrated in this link https://tinkerboarding.co.uk/wiki/index.php/Setup"
       },
       {
         "i": "Remove and re-connect power to the board."
