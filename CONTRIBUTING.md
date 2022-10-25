@@ -53,7 +53,7 @@ To add an image to the documentation,
 3. When added, refer and add them to the relevant documentation page using either the markdown format.
 
 ```markdown
-![Descrption of the image](/img/common/app/cool-looking-image.png)
+![Description of the image](/img/common/app/cool-looking-image.png)
 ```
 
 OR use the HTML `<img>` tag
@@ -114,7 +114,7 @@ Be sure to familiarize yourself with the style manual and conventions to be foll
 
 ## [balenistas only] Using Versionbot to manage the pull request
 
-Verisionbot is a helper utility to make managing of the pull request easier. Here's a list of commands supported by VersionBot:
+Versionbot is a helper utility to make managing of the pull request easier. Here's a list of commands supported by VersionBot:
 
 - `@balena-ci I self-certify!` - use [the self-certification flow](https://docs.google.com/drawings/d/1aoXCdi8bzinxaLM0BoKMJaiZjIJj5Az02Npw_L2iQkE/edit?usp=sharing) for this PR
 - `@balena-ci test` - trigger the tests for this PR
