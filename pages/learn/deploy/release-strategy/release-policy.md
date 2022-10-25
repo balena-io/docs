@@ -5,7 +5,7 @@ excerpt: Manage the fleet and device release policy
 
 # Release policy
 
-When managing a fleet, you may require devices to be running different releases. By default, fleets follow a rolling release policy where new releases are deployed to all devices in the fleet once successfully built. However, you can customize this behavior, so the fleet or individual devices remain on a fixed release, by utlizing release pinning.
+When managing a fleet, you may require devices to be running different releases. By default, fleets follow a rolling release policy where new releases are deployed to all devices in the fleet once successfully built. However, you can customize this behavior, so the fleet or individual devices remain on a fixed release, by utilizing release pinning.
 
 You may define the fleet and device release policies via the [{{ $names.cloud.lower }} dashboard]({{ $links.dashboardUrl }}) or programmatically through the [API][api] or [SDKs][sdk].
 

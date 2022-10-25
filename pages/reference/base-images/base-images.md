@@ -250,7 +250,7 @@ RUN pip install virtualenv
 RUN [ "cross-build-end" ]
 ```
 
-can run on your x86 machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. This approach works only if the image is being built on x86 systems. Use the [`--emulated`](https://www.balena.io/docs/learn/deploy/deployment/#--emulated--e) flag in `balena push` to trigger a qemu emulated build targetting the x86 architecture. More details can be found in our [blog post here]({{ $links.mainSiteUrl }}/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/). You can find the full source code for the two cross-build scripts [here]({{ $links.githubPlayground }}/armv7hf-debian-qemu).
+can run on your x86 machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. This approach works only if the image is being built on x86 systems. Use the [`--emulated`](https://www.balena.io/docs/learn/deploy/deployment/#--emulated--e) flag in `balena push` to trigger a qemu emulated build targeting the x86 architecture. More details can be found in our [blog post here]({{ $links.mainSiteUrl }}/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/). You can find the full source code for the two cross-build scripts [here]({{ $links.githubPlayground }}/armv7hf-debian-qemu).
 
 [udevd-link]:https://linux.die.net/man/8/udevd
 [entry-sh-link]:{{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/entry.sh

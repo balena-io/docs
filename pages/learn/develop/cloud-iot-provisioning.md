@@ -25,7 +25,7 @@ The cloud function first validates the device UUID in the provision request with
 
 In addition to registration, Cloud Relay block makes it easy to send data to {{ $cloud.name }}. It integrates with balena's block [ecosystem](https://hub.balena.io/blocks) for application development and messaging. So you only need to send your data to an MQTT container on the device, and the block handles all of the interaction with {{ $cloud.iotCoreName }}.
 
-__Note:__ A service container like Cloud Relay on the device is not *required* to send the provisioning request. You may call the cloud function HTTP endpoint from your compute infrastucture to pre-generate the key/certificate for the cloud. However, the device must be registered already with balenaCloud.
+__Note:__ A service container like Cloud Relay on the device is not *required* to send the provisioning request. You may call the cloud function HTTP endpoint from your compute infrastructure to pre-generate the key/certificate for the cloud. However, the device must be registered already with balenaCloud.
 
 ## Getting Started
 

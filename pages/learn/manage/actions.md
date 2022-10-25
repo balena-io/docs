@@ -104,7 +104,7 @@ This setting allows you to [enable support access][support-access] for one or mo
 
 ## Fleet/Block/App settings
 
-These settings can be found on the "Settings" menu for each fleet and apply to the fleet and all the devices in the fleet. [Fleet members][fleet-members] with the adminstrator role can perform any of the settings listed below.
+These settings can be found on the "Settings" menu for each fleet and apply to the fleet and all the devices in the fleet. [Fleet members][fleet-members] with the administrator role can perform any of the settings listed below.
 
 ### Change Fleet Type
 
