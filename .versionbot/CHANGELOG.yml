@@ -1,4 +1,20 @@
 - commits:
+    - subject: message
+      hash: 21a8e98612bb4b6e19743a6069d04df148c0cfff
+      body: ""
+      footer:
+        Changelog-entry: message
+        changelog-entry: message
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: zoobot <rommims@gmail.com>
+        signed-off-by: zoobot <rommims@gmail.com>
+      author: zoobot
+      nested: []
+  version: 5.44.11
+  title: ""
+  date: 2022-10-25T14:05:35.630Z
+- commits:
     - subject: "patch: Update dependencies & lockfile"
       hash: dc95fb611da51e9c1e4e2071f8450d4e7e266700
       body: ""
