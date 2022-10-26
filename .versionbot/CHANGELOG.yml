@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update Dockerfile to v16"
+      hash: 3baca34083a78cda497df2bb28928a644133e613
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.44.12
+  title: ""
+  date: 2022-10-26T09:13:12.609Z
+- commits:
     - subject: message
       hash: 21a8e98612bb4b6e19743a6069d04df148c0cfff
       body: ""
