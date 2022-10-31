@@ -2,11 +2,23 @@
     "language": "en",
     "caseSensitive": false,
     "dictionaries": [
-        "balena", "computerTerms",
+        "balena",
+        "computerTerms",
         "en_US",
-        "companies", "softwareTerms", "misc",
-        "javascript", "python", "typescript", "go",
-        "npm", "node", "html", "css", "cpp"
+        "companies",
+        "softwareTerms",
+        "python",
+        "cpp",
+        "go",
+        "npm",
+        "node",
+        "javascript",
+        "typescript",
+        "filestypes",
+        "html",
+        "css",
+        "bash",
+        "powershell"
     ],
     "dictionaryDefinitions": [
         {
@@ -21,12 +33,18 @@
         }
     ],
     "files": [
-        "config/*.md",
-        "pages/*.md",
-        "shared/*.md",
-        "templates/*.md",
-        "*.md"
+        "config/**",
+        "pages/**/*.md",
+        "shared/**/*.md",
+        "templates/*",
+        "README.md",
+        "CONTRIBUTING.md"
     ],
-    "exclude": ["*/*.svg"],
-    "ignorePaths": ["node_modules","CHANGELOG.md"]
+    "exclude": [
+        "*/*.svg"
+    ],
+    "ignorePaths": [
+        "node_modules",
+        "CHANGELOG.md"
+    ]
 }

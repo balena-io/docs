@@ -97,7 +97,7 @@ Logging in to cloud.com
 You will be asked to choose an authentication method, choose _Web authorization_ which will 
 bring up a web browser window that allows you to login to your {{ $names.cloud.lower }} 
 account. Click the **Authorize** button, and head back to the terminal after the login 
-ssuccessful message appears.
+successful message appears.
 
 <img alt="Web authorization" src="/img/common/cli/web_authorization.png" width="70%">
 
