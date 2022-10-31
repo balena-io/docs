@@ -10,7 +10,7 @@ If you are using a {{ $device.name }} v1.0.x, you will also need to connect eith
 The {{ $device.name }} eMMC should be detected on your computer by Etcher, after a couple of seconds, which will initialize and list the board as a Compute Module based device.
 Select the downloaded image and press the "Flash!" button.
 
-<img src="/img/fincm3/etcher-usboot.png" width="100%">
+<img src="/img/fincm3/etcher-usbboot.png" width="100%">
 
 After flashing is complete, power off your {{ $device.name }} and unplug the programming micro-USB cable.
 Powering the {{ $device.name }} on will now allow the device to boot the balena OS image from the eMMC.

@@ -9,8 +9,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "npm run test-spelling",
-    "test-spelling": "find . -iname \"*.*md\" -not -path \"./CHANGELOG*\" -not -path \"./node_modules/*\" | ./tools/test-spelling.sh",
+    "test": "npm run test:spelling",
+    "test:spelling": "cspell lint --gitignore -c cspell.json",
     "build": "./tools/prepare.sh && ./tools/build.sh && webpack --mode production",
     "build:fast": "./tools/build.sh && webpack --mode production",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
@@ -41,7 +41,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "american-british-english-translator": "^0.1.4",
+    "cspell": "^6.12.0",
     "css-loader": "5.2.7",
     "file-loader": "6.2.0",
     "mini-css-extract-plugin": "^1.6.2",

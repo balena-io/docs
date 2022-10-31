@@ -6,7 +6,7 @@ Once you have everything set up, run Etcher on your computer, connect your {{ $d
 
 After a couple of seconds, the {{ $device.name }}'s eMMC should be detected on your computer by Etcher, which will initialize and list the board as a Compute Module based device (naming might change in the future). Select the downloaded image and press the “Flash!” button.
 
-<img src="/img/fincm3/etcher-usboot.png" width="100%">
+<img src="/img/fincm3/etcher-usbboot.png" width="100%">
 
 After flash is complete, power off your {{ $device.name }} and unplug the micro-USB cable. Powering the {{ $device.name }} on will now result in the device booting from the freshly-written eMMC.
 
