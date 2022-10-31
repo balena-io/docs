@@ -549,6 +549,31 @@
     ]
   },
   {
+    "id": "download",
+    "name": "Download balenaOS",
+    "fields": [],
+    "examples": [
+      {
+        "id": "download-private-balenaos",
+        "summary": "Download unmanaged releases of balenaOS for private device types",
+        "description": "Unmanaged releases of balenaOS for private device types are not released publically. If you have access to a private device type, then images can be downloaded by providing an API key. Add an `--output` flag to provide a path for the image to be downloaded in the curl command below.",
+        "method": "GET",
+        "endpoint": "/download",
+        "content-type": "application/zip",
+        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.zip'"
+      },
+      {
+        "id": "download-balenaos",
+        "summary": "Download unmanaged releases of balenaOS for public device types",
+        "description": "Same as above but the auth header is optional to use. These releases are available on [balena.io/os](balena.io/os)",
+        "method": "GET",
+        "endpoint": "/download",
+        "content-type": "application/zip",
+        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.zip'"
+      }
+    ]
+  },
+  {
     "id": "fleet_config_variable",
     "name": "Fleet config variable",
     "fields": [
