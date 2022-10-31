@@ -555,21 +555,21 @@
     "examples": [
       {
         "id": "download-private-balenaos",
-        "summary": "Download unmanaged releases of balenaOS for private device types",
-        "description": "Unmanaged releases of balenaOS for private device types are not released publically. If you have access to a private device type, then images can be downloaded by providing an API key. Add an `--output` flag to provide a path for the image to be downloaded in the curl command below.",
+        "summary": "Download private or ESR balenaOS images",
+        "description": "In order to download an ESR or private balenaOS image, you need to provide your [bearer token](https://www.balena.io/docs/learn/manage/account/#api-keys). The `deviceType` and `version` parameters are required. Add an `--output` flag to provide a path for the image to be downloaded.",
         "method": "GET",
         "endpoint": "/download",
-        "content-type": "application/zip",
+        "content-type": "application/octet-stream",
         "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.zip'"
       },
       {
         "id": "download-balenaos",
-        "summary": "Download unmanaged releases of balenaOS for public device types",
-        "description": "Same as above but the auth header is optional to use. These releases are available on [balena.io/os](balena.io/os)",
+        "summary": "Download public balenaOS images",
+        "description": "Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also  available for download on [balena.io/os](balena.io/os) and the dashboard.",
         "method": "GET",
         "endpoint": "/download",
-        "content-type": "application/zip",
-        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.zip'"
+        "content-type": "application/octet-stream",
+        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'"
       }
     ]
   },
