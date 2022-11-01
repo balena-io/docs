@@ -1,4 +1,26 @@
 - commits:
+    - subject: "patch: Change content-type to octet stream"
+      hash: 8774214ecf13604811fa071f5df1d0b3668eb735
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+    - subject: "patch: Add docs for download endpoint"
+      hash: f3e436b2ef0f3d31f3fd2a1f570cc7035085d3a3
+      body: >
+        Added 2 examples explaining how balenaOS can be downloaded using the
+        /download endpoint for both public and private device types.
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.44.14
+  title: ""
+  date: 2022-11-01T11:55:16.784Z
+- commits:
     - subject: Add cspell for spellcheck test
       hash: d9ff35ce91d012927585715a187b99d6125153fd
       body: ""
