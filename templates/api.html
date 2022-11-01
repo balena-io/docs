@@ -20,7 +20,7 @@
 				{% endif %}
 				<pre><code>curl -X {{ example.method }} \
 "{{ $links.apiBase }}{{ example.endpoint }}{{ example.filters }}" \
--H "Content-Type: application/json" \
+-H {% if example.content-type %} "Content-Type: {{example.content-type}}" {% else %} "Content-Type: application/json" {% endif %} \
 -H "Authorization: Bearer &lt;AUTH_TOKEN&gt;" {% if example.data %}\
 --data '{{ example.data }}'{% endif %}</code></pre>
 			{% endfor %}
