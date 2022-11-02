@@ -1,4 +1,19 @@
 - commits:
+    - subject: Redirect supported SBC list to balenaHub
+      hash: 9839b0d00e079c0ec7fe4ec0969c78da3406afad
+      body: |
+        Update the tables showing device-types to direct user to balenaHub
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+        signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+      author: Ryan H
+      nested: []
+  version: 5.44.15
+  title: ""
+  date: 2022-11-02T19:46:13.180Z
+- commits:
     - subject: "patch: Change content-type to octet stream"
       hash: 8774214ecf13604811fa071f5df1d0b3668eb735
       body: ""
