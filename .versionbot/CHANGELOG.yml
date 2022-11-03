@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Redirect base images arch page to balenaHub"
+      hash: 584be286742d84855af8c8a133b7a00d9e6c163b
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.44.16
+  title: ""
+  date: 2022-11-03T11:18:49.108Z
+- commits:
     - subject: Redirect supported SBC list to balenaHub
       hash: 9839b0d00e079c0ec7fe4ec0969c78da3406afad
       body: |
