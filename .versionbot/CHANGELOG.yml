@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Remove links from API docs"
+      hash: 16ef4e9afd33d4ca0a13ec6c4df28542be8f8aaa
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.44.17
+  title: ""
+  date: 2022-11-07T20:54:04.183Z
+- commits:
     - subject: "patch: Redirect base images arch page to balenaHub"
       hash: 584be286742d84855af8c8a133b7a00d9e6c163b
       body: ""
