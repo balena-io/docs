@@ -556,7 +556,7 @@
       {
         "id": "download-private-balenaos",
         "summary": "Download private or ESR balenaOS images",
-        "description": "In order to download an ESR or private balenaOS image, you need to provide your [bearer token](https://www.balena.io/docs/learn/manage/account/#api-keys). The `deviceType` and `version` parameters are required. Add an `--output` flag to provide a path for the image to be downloaded.",
+        "description": "In order to download an ESR or private balenaOS image, you need to provide your bearer token. The `deviceType` and `version` parameters are required. Add an `--output` flag to provide a path for the image to be downloaded.",
         "method": "GET",
         "endpoint": "/download",
         "content-type": "application/octet-stream",
@@ -565,7 +565,7 @@
       {
         "id": "download-balenaos",
         "summary": "Download public balenaOS images",
-        "description": "Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also  available for download on [balena.io/os](balena.io/os) and the dashboard.",
+        "description": "Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also available for download on balena.io/os and the dashboard.",
         "method": "GET",
         "endpoint": "/download",
         "content-type": "application/octet-stream",
