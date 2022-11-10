@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Bump analytics-client to version 2"
+      hash: 5c84f839947bdecf142e48288ac9bce786ed5f6a
+      body: ""
+      footer: {}
+      author: Otávio Jacobi
+      nested: []
+  version: 5.44.18
+  title: ""
+  date: 2022-11-10T12:33:09.758Z
+- commits:
     - subject: "patch: Remove links from API docs"
       hash: 16ef4e9afd33d4ca0a13ec6c4df28542be8f8aaa
       body: ""
