@@ -1,4 +1,16 @@
 - commits:
+    - subject: Specify the default update strategy in the list of options
+      hash: 3304a2a63df9056693341a79db2dbb0e6bcd15f3
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Page-
+      nested: []
+  version: 5.44.20
+  title: ""
+  date: 2022-11-16T13:42:07.190Z
+- commits:
     - subject: Update latest base images stack versions
       hash: c22dd1c63fca567ed5e6f6df441522917e2e6b2b
       body: ""
