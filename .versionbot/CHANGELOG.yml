@@ -1,4 +1,16 @@
 - commits:
+    - subject: "minor: Upgrade docsearch to v3"
+      hash: 9ed2be2d968e645e4150273935255ad64ed4e8a6
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.45.0
+  title: ""
+  date: 2022-11-16T15:47:41.737Z
+- commits:
     - subject: Specify the default update strategy in the list of options
       hash: 3304a2a63df9056693341a79db2dbb0e6bcd15f3
       body: ""
