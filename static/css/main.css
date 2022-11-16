@@ -16,6 +16,7 @@ body {
 
 .content-wrapper {
   min-height: 1371px;
+  max-height: 100%;
   background: white;
   border-right: 1px solid #e7e9ec;
 }
@@ -26,6 +27,8 @@ body {
   padding-bottom: 100px;
   padding-left: 55px;
   padding-right: 55px;
+  overflow: scroll;
+  max-height: 100%;
 }
 
 .header-wrapper {
@@ -431,6 +434,8 @@ header.sticky {
 
   .page-content-wrapper {
     padding: 24px 16px 0;
+    overflow: scroll;
+    max-height: 100%;
   }
 }
 
