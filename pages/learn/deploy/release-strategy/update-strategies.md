@@ -15,10 +15,10 @@ Update strategies can be applied by setting a [docker-compose label][labels]. Th
 
 Setting the `io.balena.update.strategy` label to a valid value selects the update strategy. The possible values are:
 
-* [`download-then-kill`](#download-then-kill),
-* [`kill-then-download`](#kill-then-download),
-* [`delete-then-download`](#delete-then-download), and
-* [`hand-over`](#hand-over),
+* [`download-then-kill`](#download-then-kill) (default)
+* [`kill-then-download`](#kill-then-download)
+* [`delete-then-download`](#delete-then-download)
+* [`hand-over`](#hand-over)
 
 which are explained below. The `io.balena.update.handover-timeout` label is only used in the  `hand-over` strategy, and its use is explained in the [strategy's description](#hand-over).
 
