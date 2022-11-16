@@ -1,18 +1,30 @@
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="text/javascript">
-docsearch({
- apiKey: 'dabd8d15d83b81d05cfb4a1f16689b7f',
- indexName: 'balena',
- inputSelector: 'input[name=searchTerm]'
-});
-docsearch({
- apiKey: 'dabd8d15d83b81d05cfb4a1f16689b7f',
- indexName: 'balena',
- inputSelector: 'input[name=searchTerm404]'
-});
-docsearch({
- apiKey: 'dabd8d15d83b81d05cfb4a1f16689b7f',
- indexName: 'balena',
- inputSelector: 'input[name=searchTermMobile]'
-});
+  docsearch({
+    container: '.search-default-wrapper',
+    appId: 'BH4D9OD16A',
+    indexName: 'balena',
+    apiKey: 'dabd8d15d83b81d05cfb4a1f16689b7f',
+    getMissingResultsUrl: ({ query }) => {
+      return `https://github.com/balena-io/docs/issues/new?title=${query}`;
+    },
+  });
+  docsearch({
+    container: '.search-404-wrapper',
+    appId: 'BH4D9OD16A',
+    indexName: 'balena',
+    apiKey: 'dabd8d15d83b81d05cfb4a1f16689b7f',
+    getMissingResultsUrl: ({ query }) => {
+      return `https://github.com/balena-io/docs/issues/new?title=${query}`;
+    },
+  });
+  docsearch({
+    container: '.search-mobile-wrapper',
+    appId: 'BH4D9OD16A',
+    indexName: 'balena',
+    apiKey: 'dabd8d15d83b81d05cfb4a1f16689b7f',
+    getMissingResultsUrl: ({ query }) => {
+      return `https://github.com/balena-io/docs/issues/new?title=${query}`;
+    },
+  });
 </script>

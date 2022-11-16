@@ -22,6 +22,7 @@ require('bootstrap-select/dist/css/bootstrap-select.min.css')
 require('highlight.js/styles/obsidian.css');
 require('../css/main.css')
 require('../css/menu-top.css')
+require('../css/search.css')
 
 hljs.highlightAll()
 

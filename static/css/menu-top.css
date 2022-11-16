@@ -334,10 +334,6 @@ fieldset[disabled] .menu__nav .btn-link:focus {
   border: 0;
 }
 
-.navbar--mobile .navbar-collapse .algolia-autocomplete {
-  width: 100%;
-}
-
 .navbar--mobile .navbar-toggle {
   background: none !important;
   border: none;
@@ -490,7 +486,7 @@ fieldset[disabled] .menu__nav .btn-link:focus {
   display: block;
 }
 
-.sidebar-mobile .search-wrapper {
+.sidebar-mobile .search-mobile {
   width: 100%;
 }
 

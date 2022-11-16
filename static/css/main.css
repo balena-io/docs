@@ -176,26 +176,8 @@ article .headroom {
   color: #6b6d73;
 }
 
-.sidebar .search-wrapper .algolia-wrapper {
-  border-bottom: 1px solid #e6e8eb;
-  border-right: 1px solid #e6e8eb;
-  padding: 10px;
-  padding-bottom: 9px;
-  background: #f7f7f7;
-}
-
-.sidebar .search-wrapper .algolia-wrapper .algolia-autocomplete {
-  width: 100%;
-}
-
 .sidebar .search-wrapper {
-  min-height: 57px;
-  width: 231px;
-  z-index: 100;
-}
-
-.sidebar .search-wrapper input {
-  height: 37px;
+  width: 100%;
 }
 
 .breadcrumb {

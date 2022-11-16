@@ -1,0 +1,16 @@
+/* CSS related to customing the Algolia Search bar */
+
+.DocSearch-Button {
+    width: -webkit-fill-available;
+    margin: 10px !important;
+}
+
+.search-404-wrapper .DocSearch-Button {
+    margin: 0px !important;
+}
+
+.search-wrapper {
+    border-bottom: 1px solid #e6e8eb;
+    border-right: 1px solid #e6e8eb;
+    background: #f7f7f7;
+}
