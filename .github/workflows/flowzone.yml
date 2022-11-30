@@ -6,9 +6,14 @@ on:
     branches:
       - "main"
       - "master"
+  # Deploys to Cloudflare once each day
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   flowzone:
     name: Flowzone
     uses: product-os/flowzone/.github/workflows/flowzone.yml@master
     secrets: inherit
+    with:
+      cloudflare_website: "balenacloud-docs"
