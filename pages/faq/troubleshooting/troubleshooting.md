@@ -93,7 +93,7 @@ Raspberry Pi 4 Model B Rev 1.5
 
 <img src="/img/troubleshooting/DA9090_identified.jpg" width="50%">
 
-For more information about Raspberry Pi 4 Model B Rev 1.5, please refer to the [Product Information Portal](https://pip.raspberrypi.com/restricted) by Raspberry Pi.
+For more information about Raspberry Pi 4 Model B Rev 1.5, please refer to "PCN Raspberry Pi 4B Rev 9" in the [Product Information Portal](https://pip.raspberrypi.com) by Raspberry Pi.
 
 ### balenaOS boot issues with Rev 1.1 of Raspberry Pi Compute Module 4 hardware
 
@@ -112,7 +112,7 @@ $ cat /proc/cpuinfo | grep Model
 Raspberry Pi Compute Module 4 Rev 1.1
 ```
 
-For more information about the CM4 Rev 1.1, please refer to the [Product Information Portal](https://pip.raspberrypi.com/) by Raspberry Pi.
+For more information about the CM4 Rev 1.1, please refer to the "CM4 Revision 5 PCN" in the [Product Information Portal](https://pip.raspberrypi.com/) by Raspberry Pi.
 
 ### Error Notifications
 
