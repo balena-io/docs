@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Fix PIP link, make more robust."
+      hash: 3d88febf8ff8db56eb056a3bc5f579adee387ed7
+      body: ""
+      footer: {}
+      author: Heath Raftery
+      nested: []
+  version: 5.45.1
+  title: ""
+  date: 2022-11-30T11:47:24.529Z
+- commits:
     - subject: "minor: Upgrade docsearch to v3"
       hash: 9ed2be2d968e645e4150273935255ad64ed4e8a6
       body: ""
