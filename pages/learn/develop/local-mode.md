@@ -14,9 +14,9 @@ To use local mode on a device:
 - The device must be running {{ $names.os.lower }} v2.29.0 or higher.
 - The device must be running a [development][development] variant of the OS.
 - You must have the [{{ $names.company.lower }} CLI][cli] installed on your development machine.
-- Local mode must be enabled through the {{ $names.cloud.lower }} dashboard. You can enable it from either the *Actions* menu of the device dashboard or click to expand the arrow located on the device dashboard and select *Enable Local Mode*.
+- Local mode must be enabled through the {{ $names.cloud.lower }} dashboard. You can enable it from either the *Settings* menu of the device dashboard and go to the *Local Mode* section.
 
-![Enable local mode](/img/local-mode/enable-local-mode.png)
+![Enable local mode](/img/local-mode/enable-local-mode-settings.png)
 
 ## Local mode caveats
 
