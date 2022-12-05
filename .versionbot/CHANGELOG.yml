@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add support for manaul workflow runs"
+      hash: 03937f9233bd5245640d5545cd2335a31f15eb14
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.45.2
+  title: ""
+  date: 2022-12-05T09:56:05.963Z
+- commits:
     - subject: "patch: Fix PIP link, make more robust."
       hash: 3d88febf8ff8db56eb056a3bc5f579adee387ed7
       body: ""
