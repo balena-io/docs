@@ -1,4 +1,19 @@
 - commits:
+    - subject: "develop/hardware: Add Jetson AGX Orin to the list of devices"
+      hash: 012beb22b88f8d0029c83c9990546db006165ef9
+      body: |
+        ... that support custom device-tree loading.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 5.45.3
+  title: ""
+  date: 2022-12-06T09:01:06.583Z
+- commits:
     - subject: "patch: Add support for manaul workflow runs"
       hash: 03937f9233bd5245640d5545cd2335a31f15eb14
       body: ""
