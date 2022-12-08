@@ -41,8 +41,6 @@ If you are building your own container images, `{{$names.company.lower}} deploy`
 
 Like `{{$names.company.lower}} push` it is also independent of git, and you can use any version control system you wish. It is also possible to make use of [private base images](#private-base-images).
 
-__Note:__ Currently `{{$names.company.lower}} deploy` does not support the [build time secrets](#build-time-secrets-and-variables) feature. Refer to the [`{{$names.company.lower}} build`][cli-build-reference] and [`{{$names.company.lower}} deploy`][cli-deploy-reference] command references for additional documentation.
-
 ## Git Push
 
 ### Overview
@@ -171,7 +169,7 @@ It should be noted that in this case, the devices will still pull the container 
 
 ## Build Time Secrets and Variables
 
-Often it is necessary to use passwords or secrets during your build to fetch proprietary files or code but not have these sensitive files be downloaded to all the devices. For this reason `{{$names.company.lower}} push` allows defining a `.{{$names.company.lower}}` folder to hold secret files that will get exposed to the image build but not propagate down to devices.
+Often it is necessary to use passwords or secrets during your build to fetch proprietary files or code but not have these sensitive files be downloaded to all the devices. For this reason `{{$names.company.lower}} push` and `{{$names.company.lower}} deploy` allow defining a `.{{$names.company.lower}}` folder to hold secret files and variables that will get exposed to the image build but not propagate down to devices.
 
 {{import "deployment/secrets"}}
 
@@ -222,6 +220,7 @@ Much like with the device list, [filters][filters] can be added to the release l
 [docker]:https://www.docker.com/
 [docker-install]:https://docs.docker.com/install/
 [docker-post-install]:https://docs.docker.com/install/linux/linux-postinstall/
+[engine-link]:{{ $links.engineSiteUrl }}
 [filters]:/learn/manage/filters-tags/#filters-and-tags
 [getting-started]:/learn/getting-started
 [git]:http://git-scm.com
