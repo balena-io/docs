@@ -1,4 +1,16 @@
 - commits:
+    - subject: Clarify balena deploy's build time secrets limitation is only for files
+      hash: 93295a8dd7787d530e1ae7c77c71608ac6f4a651
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.45.4
+  title: ""
+  date: 2022-12-08T14:43:04.677Z
+- commits:
     - subject: "develop/hardware: Add Jetson AGX Orin to the list of devices"
       hash: 012beb22b88f8d0029c83c9990546db006165ef9
       body: |
