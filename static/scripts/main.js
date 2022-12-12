@@ -39,48 +39,6 @@ if (location.hash && location.hash.substring(0, 2) === '#/') {
   location.href = fixOldUrl(location.hash.substring(1))
 }
 
-var UNPIN_OFFSET = 400
-
-// setup sticky header
-var stickyHeaderElements = $('.js-sticky-header')
-new Headroom(stickyHeaderElements, {
-  offset: UNPIN_OFFSET,
-  tolerance: 0
-})
-
-var searchbarTop = $('.search-wrapper').offset().top
-var prevScrollTop = 0
-var $window = $(window)
-
-function handleScrollUp(scrollTop) {
-  if (scrollTop > searchbarTop && scrollTop <= UNPIN_OFFSET) {
-    stickyHeaderElements.addClass('sticky')
-  } else {
-    stickyHeaderElements.removeClass('sticky')
-  }
-}
-
-function handleScrollDown(scrollTop) {
-  if (scrollTop >= UNPIN_OFFSET) {
-    stickyHeaderElements.removeClass('sticky')
-  } else if (scrollTop > searchbarTop) {
-    stickyHeaderElements.addClass('sticky')
-  }
-}
-
-$window.scroll(function() {
-  var scrollTop = $window.scrollTop()
-  var isScrollUp = scrollTop < prevScrollTop
-
-  if (isScrollUp) {
-    handleScrollUp(scrollTop)
-  } else {
-    handleScrollDown(scrollTop)
-  }
-
-  prevScrollTop = scrollTop
-})
-
 // enhance content elements
 
 function fixLinksHref(links) {
