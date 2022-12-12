@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Remove redudant search partials"
+      hash: c9bb16747f4aebf33617779d5676f7037e30a271
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.45.5
+  title: ""
+  date: 2022-12-12T11:33:23.853Z
+- commits:
     - subject: Clarify balena deploy's build time secrets limitation is only for files
       hash: 93295a8dd7787d530e1ae7c77c71608ac6f4a651
       body: ""
