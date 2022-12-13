@@ -11,8 +11,8 @@
     "start": "node index.js",
     "test": "npm run test:spelling",
     "test:spelling": "cspell lint --gitignore -c cspell.json",
-    "build": "./tools/prepare.sh && ./tools/build.sh && webpack --mode production",
-    "build:fast": "./tools/build.sh && webpack --mode production",
+    "build": "./tools/prepare.sh && npm run build:fast",
+    "build:fast": "./tools/build.sh && webpack --mode production && ./tools/deploy-static.sh",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
     "watch-assets": "webpack --mode=development -w",
     "watch": "npm run watch-pages & npm run watch-assets"

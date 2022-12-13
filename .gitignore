@@ -1,4 +1,4 @@
-contents/
+build/
 node_modules/
 server/nav.json
 npm-debug.log
