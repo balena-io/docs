@@ -23,6 +23,7 @@ require('highlight.js/styles/obsidian.css');
 require('../css/main.css')
 require('../css/menu-top.css')
 require('../css/search.css')
+require('../css/tooltips.css')
 
 hljs.highlightAll()
 
