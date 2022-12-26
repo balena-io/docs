@@ -79,7 +79,7 @@ For all instances, we use `balena` as lower-case capitalization unless beginning
 * **balenaCloud**
 * the **balena CLI**
 * the **balena Supervisor**
-* **openbalena**
+* **openBalena**
 
 ### Conventions & Best Practices
 
