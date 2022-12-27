@@ -28,7 +28,7 @@ __Note:__ It is possible to disable support access functionality by removing the
 
 To enable support access for a single device, select the _Actions_ menu in the Device dashboard, and choose the _Grant Support Access_ button and choose the period to grant device access. You may revoke access at any time by selecting _Revoke Support Access_ on the same page.
 
-![Grant support for a device](/img/common/support/enable-support-access-device.gif)
+![Grant support for a device](/img/common/support/enable-support-access-device.png)
 
 ## Grant support access for a fleet
 
