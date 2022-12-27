@@ -95,6 +95,7 @@ FAQ
 
   [/faq/troubleshooting/faq]
   [/faq/troubleshooting/troubleshooting]
+  [/faq/troubleshooting/device-gateway.md]
 
 Reference
 
