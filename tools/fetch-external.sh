@@ -23,6 +23,10 @@ cd shared/sdk/ && {
 curl -o pages/reference/supervisor/supervisor-api.md -L https://github.com/balena-io/balena-supervisor/raw/master/docs/API.md &
 
 # get latest diagnostics docs
+curl -o shared/reference/supervisor-state.md -L https://github.com/balena-io/device-diagnostics/raw/master/supervisor-state.md &
+
+curl -o pages/reference/device-diagnostics.md -L https://github.com/balena-io/device-diagnostics/raw/master/device-diagnostics.md &
+
 curl -o pages/reference/diagnostics.md -L https://github.com/balena-io/device-diagnostics/raw/master/diagnostics.md &
 
 # get latest supervisor update-lock docs

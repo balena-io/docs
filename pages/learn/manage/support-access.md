@@ -19,7 +19,7 @@ This ensures that a device under investigation cannot be unnecessarily altered o
 
 Once support access has been granted, a support agent will be able to use the UUID of a device to gain access to it. Support access is enabled via SSH over cloudlink, so the device must be online and connected to cloudlink. Alternatively, it may be possible to access a problematic device from a gateway device operating on the same network.
 
-__Note:__ It is possible to disable support access functionality by removing the {{ $names.company.lower }} SSH public key from the device. However, this will render the device inaccessible remotely for the purposes of support and updates to the host OS. For more details see our [security documentation][security].
+__Note:__ It is possible to disable support access functionality by removing the {{ $names.company.lower }} SSH public key from the device. However, this will render the device inaccessible remotely for the purposes of support and updates to the host OS. For more details see our [security documentation](/learn/welcome/security/#support-access).
 
 ### Grant support access for a device
 
@@ -41,7 +41,7 @@ To enable support access for block, select the _Grant Support Access_ from the _
 
 ### Grant support access using the CLI
 
-To grant or revoke support access for devices or fleets, use the `balena support <action>` command. Refer to [CLI Support access][CLI-support-access] docs for more information. 
+To grant or revoke support access for devices or fleets, use the `balena support <action>` command. Refer to [CLI Support access](/reference/balena-cli/#support-action) docs for more information. 
 
 ## Feeling Stuck?
 
@@ -49,7 +49,3 @@ If you find yourself stuck or confused, help is just a click away:
 
 - The [balenaCloud]({{ $names.forums_domain }}/c/product-support) section of the forums is where our engineers address any issues you may be having with {{ $names.company.lower }}.
 - You can read more about our [approach to support]({{ $links.mainSiteUrl }}/support).
-
-
-[CLI-support-access]: /reference/balena-cli/#support-action
-[security]: /learn/welcome/security/#support-access
