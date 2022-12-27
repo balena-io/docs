@@ -30,3 +30,6 @@ pages/learn/more/masterclasses/device-debugging.md
 pages/learn/more/masterclasses/docker-masterclass.md
 pages/reference/OS/updates/rollbacks.md
 pages/reference/OS/customer-board-support.md
+
+# Ignore dynamic docs created for masterclasses
+shared/masterclass

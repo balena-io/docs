@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # This script pulls in external documentation that should be edited in the corresponding upstream repo
 
+# exit on error, unassigned vars, or pipe fails
+set -euo pipefail
+
 # Use node-jq if jq is not pre-installed in the environment nor set in path
 which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
 
