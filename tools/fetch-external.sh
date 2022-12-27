@@ -20,7 +20,14 @@ cd shared/sdk/ && {
 } &
 
 # get latest supervisor API docs
-curl -o pages/reference/supervisor/supervisor-api.md -L https://github.com/balena-io/balena-supervisor/raw/master/docs/API.md &
+curl -o pages/reference/supervisor/supervisor-api.md -L https://github.com/balena-os/balena-supervisor/raw/master/docs/API.md &
+
+# get latest supervisor debugging docs
+curl -o pages/reference/supervisor/debugging-supervisor.md -L https://github.com/balena-os/balena-supervisor/raw/master/docs/debugging-supervisor.md &
+
+# get latest supervisor debugging docs
+mkdir pages/reference/engine/
+curl -o pages/reference/engine/debugging-balenaengine.md -L https://github.com/balena-os/balena-supervisor/raw/master/balena-docs/debugging-engine.md &
 
 # get latest diagnostics docs
 curl -o shared/reference/supervisor-state.md -L https://github.com/balena-io/device-diagnostics/raw/master/supervisor-state.md &
