@@ -24,23 +24,29 @@ cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Granting Support Acces
 
 cd pages/reference/ && $SCRIPT_DIR/extract-markdown.sh "Getting Started" <diagnostics.md >initial-diagnosis.md && mv initial-diagnosis.md $masterclass_path/debugging/ &
 
-cd pages/reference/ && $SCRIPT_DIR/extract-markdown.sh "Device Diagnostics" <device-diagnostics.md >device-diagnostics.md && mv device-diagnostics.md $masterclass_path/debugging/ &
+cd pages/reference/ && $SCRIPT_DIR/extract-markdown.sh "Device Diagnostics" <device-diagnostics.md >device-diagnostics-partial.md && mv device-diagnostics-partial.md $masterclass_path/debugging/ &
 
-cd pages/reference/ && $SCRIPT_DIR/extract-markdown.sh "Supervisor State" <supervisor-state.md >supervisor-state.md && mv supervisor-state.md $masterclass_path/debugging/ &
+cd pages/reference/ && $SCRIPT_DIR/extract-markdown.sh "Supervisor State" <supervisor-state.md >supervisor-diagnostics.md && mv supervisor-diagnostics.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Accessing a Device using a Gateway Device" <device-gateway.md >device-gateway.md && mv device-gateway.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Accessing a Device using a Gateway Device" <device-gateway.md >device-gateway-partial.md && mv device-gateway-partial.md $masterclass_path/debugging/ &
 
-cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Device Logs" <device-logs.md >device-logs.md && mv device-logs.md $masterclass_path/debugging/ &
+cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Device Logs" <device-logs.md >device-logs-partial.md && mv device-logs-partial.md $masterclass_path/debugging/ &
 
-cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Network Debugging" <debugging-network.md >debugging-network.md && mv debugging-network.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Network Debugging" <debugging-network.md >network.md && mv network.md $masterclass_path/debugging/ &
 
-cd pages/reference/OS && $SCRIPT_DIR/extract-markdown.sh "Configuring balenaOS" <configuration.md >configuration.md && mv configuration.md $masterclass_path/debugging/ &
+cd pages/reference/OS && $SCRIPT_DIR/extract-markdown.sh "Configuring balenaOS" <configuration.md >configuration-partial.md && mv configuration-partial.md $masterclass_path/debugging/ &
 
-# cd pages/reference/supervisor && $SCRIPT_DIR/extract-markdown.sh "Debugging Supervisor" <debugging-supervisor.md >debugging-supervisor.md && mv debugging-supervisor.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Working with the Supervisor" <debugging-supervisor.md >supervisor.md && mv supervisor.md $masterclass_path/debugging/ &
 
-# cd pages/reference/engine && $SCRIPT_DIR/extract-markdown.sh "Debugging BalenaEngine" <debugging-BalenaEngine.md >debugging-BalenaEngine.md && mv debugging-BalenaEngine.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Working with balenaEngine" <engine-debugging.md >engine.md && mv engine.md $masterclass_path/debugging/ &
 
 cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Device Connectivty states" <device-statuses.md >device-connectivity.md && mv device-connectivity.md $masterclass_path/debugging/ &
+
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Journal Logs" <balenaos-debugging.md >journal-logs.md && mv journal-logs.md $masterclass_path/debugging/ &
+
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Using the Kernel Logs" <balenaos-debugging.md >kernel-logs.md && mv kernel-logs.md $masterclass_path/debugging/ &
+
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Storage Media Debugging" <storage-media-debugging.md >storage-media.md && mv storage-media.md $masterclass_path/debugging/ &
 
 
 

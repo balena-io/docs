@@ -92,10 +92,8 @@ Learn
     [/learn/more/anti-patterns]
 
 FAQ
-
   [/faq/troubleshooting/faq]
   [/faq/troubleshooting/troubleshooting]
-  [/faq/troubleshooting/device-gateway.md]
 
 Reference
 
@@ -110,7 +108,7 @@ Reference
       [/reference/OS/updates/self-service]
       [/reference/OS/updates/update-process]
       [/reference/OS/updates/rollbacks]
-    Extended support release process[/reference/OS/extended-support-release]  
+    Extended support release process[/reference/OS/extended-support-release]
     Network[/reference/OS/network]
     [/reference/OS/configuration]
     [/reference/OS/time]
@@ -128,7 +126,7 @@ Reference
       # with $device being dynamic
       Configuration list for {{ $device.name }}[/reference/supervisor/configuration-list/$device/]
 
-      
+
   Base images
     [/reference/base-images/base-images]
     [/reference/base-images/base-images-ref]
@@ -142,6 +140,6 @@ Reference
   SDKs
     Node.js SDK[/reference/sdk/node-sdk]
     Python SDK[/reference/sdk/python-sdk]
-    Deprecation Policy[/reference/sdk/deprecation-policy] 
+    Deprecation Policy[/reference/sdk/deprecation-policy]
 
   Device Diagnostics[/reference/diagnostics]
