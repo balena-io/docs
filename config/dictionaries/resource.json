@@ -363,6 +363,30 @@
     ]
   },
   {
+    "id": "delta",
+    "name": "Release/Image Deltas",
+    "fields": [
+    ],
+    "examples": [
+      {
+        "id": "get-deltas-with-imageid",
+        "summary": "Query Size of Release Delta with Image ID",
+        "description": "A delta is unique between any combination of (delta version, source image ID, destination image ID), so you'll need to determine the appropriate values before testing. Important to know, for the current deltas version (v3), the size given by the API is the uncompressed delta size, but during a pull the data will be compressed. The number given by the API can be substantially larger than the amount of data that will be actually transmitted.",
+        "method": "GET",
+        "endpoint": "/delta",
+        "filters": "?\\$filter=((status%20eq%20'success')%20and%20(version%20eq%20'${DELTA_VERSION}')%20and%20(originates_from__image%20eq%20'${SRC_RELEASE_ID}')%20and%20(produces__image%20eq%20'${DST_RELEASE_ID}'))"
+      },
+      {
+        "id": "get-deltas-with-image-name",
+        "summary": "Query Size of Release Delta with Image Name",
+        "description": "A delta is unique between any combination of (delta version, source image ID, destination image ID), so you'll need to determine the appropriate values before testing. Here, SRC_RELEASE_NAME & DST_RELEASE_NAME would be the image name complete with the registry without a tag or SHA reference. Important to know, for the current deltas version (v3), the size given by the API is the uncompressed delta size, but during a pull the data will be compressed. The number given by the API can be substantially larger than the amount of data that will be actually transmitted.",
+        "method": "GET",
+        "endpoint": "/delta",
+        "filters": "?\\$filter=((status%20eq%20'success')%20and%20(version%20eq%20'${DELTA_VERSION}')%20and%20(originates_from__image/any(source:source/is_stored_at__image_location%20eq%20''${SRC_RELEASE_NAME}''))%2520and%2520(produces__image/any(destination:destination/is_stored_at__image_location%2520eq%2520%2527'${DST_RELEASE_NAME}'%2527)))"
+      }
+    ]
+  },
+  {
     "id": "device_config_variable",
     "name": "Device config variable",
     "fields": [
