@@ -369,7 +369,7 @@
     ],
     "examples": [
       {
-        "id": "get-deltas-with-imageid",
+        "id": "get-deltas-with-image-id",
         "summary": "Query Size of Release Delta with Image ID",
         "description": "A delta is unique between any combination of (delta version, source image ID, destination image ID), so you'll need to determine the appropriate values before testing. Important to know, for the current deltas version (v3), the size given by the API is the uncompressed delta size, but during a pull the data will be compressed. The number given by the API can be substantially larger than the amount of data that will be actually transmitted.",
         "method": "GET",
