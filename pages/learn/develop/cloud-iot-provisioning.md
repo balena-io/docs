@@ -7,6 +7,10 @@ dynamic:
 
 # Cloud IoT Provisioning with {{ $cloud.name }}
 
+{{#is $cloud.shortName "GCP"}}
+  __Note:__ Google has issued a [deprecation notice](https://cloud.google.com/iot/docs/release-notes#August_16_2022) for the Cloud IoT service due to shutdown in August 2023. Balena's provisioning support for GCP IoT Core will not receive further updates.
+{{/is}}
+
 The [{{ $cloud.name }} {{#is $cloud.shortName "GCP"}}(GCP){{/is}} IoT]({{ $cloud.platformUrl }}) platform provides a valuable suite of services to collect, store, and distribute IoT data and actions. Its [{{ $cloud.iotCoreName }}]({{ $cloud.iotCoreUrl }}) service is the portal for registration and messaging with Internet-connected things. We want to make it easy for balena devices to register and interact with {{ $cloud.iotCoreName }}.
 
 Our IoT provisioning tools automate device registration to {{ $cloud.iotCoreName }}, and leverage balenaCloud and environment variables to store and access the registration credentials. This guide shows you how provisioning works and gets you started with the tools in the [{{ $cloud.provisionRepoName }}](https://github.com/balena-io-examples/{{ $cloud.provisionRepoName}}) repository.
