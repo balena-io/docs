@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add deprecation notice for GCP IoT provisioning
+      hash: 84d9f29077c25eb6d3f409706af7a4b55bbdbace
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 5.45.6
+  title: ""
+  date: 2022-12-30T22:57:03.911Z
+- commits:
     - subject: "patch: Remove redudant search partials"
       hash: c9bb16747f4aebf33617779d5676f7037e30a271
       body: ""
