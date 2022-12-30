@@ -46,7 +46,7 @@ Field | Details
 [mac_address](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [mem_limit](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [mem_reservation](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
-[network_mode](https://docs.docker.com/compose/compose-file/compose-file-v2/#network_mode) | Only support `bridge`, `host`, or none
+[network_mode](https://docs.docker.com/compose/compose-file/compose-file-v2/#network_mode) | Only support `bridge`, `host`, `service:[service name]`, or none
 [networks](https://docs.docker.com/compose/compose-file/compose-file-v2/#networks) | Only support specifying network names
 [oom_kill_disable](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [oom_score_adj](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
