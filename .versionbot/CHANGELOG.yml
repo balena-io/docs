@@ -1,4 +1,16 @@
 - commits:
+    - subject: "minor: Migrate to fully dynamic debugging masterclass"
+      hash: c1e0bd805b8ef02a9b0e7e157633d7021b0e814e
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.46.0
+  title: ""
+  date: 2023-01-02T13:14:51.040Z
+- commits:
     - subject: Add deprecation notice for GCP IoT provisioning
       hash: 84d9f29077c25eb6d3f409706af7a4b55bbdbace
       body: ""
