@@ -28,7 +28,7 @@ cd pages/reference/ && $SCRIPT_DIR/extract-markdown.sh "Device Diagnostics" <dev
 
 cd pages/reference/ && $SCRIPT_DIR/extract-markdown.sh "Supervisor State" <supervisor-state.md >supervisor-diagnostics.md && mv supervisor-diagnostics.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Accessing a Device using a Gateway Device" <device-gateway.md >device-gateway-partial.md && mv device-gateway-partial.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Accessing a Device using a Gateway Device" <debugging-device-gateway.md >device-gateway-partial.md && mv device-gateway-partial.md $masterclass_path/debugging/ &
 
 cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Device Logs" <device-logs.md >device-logs-partial.md && mv device-logs-partial.md $masterclass_path/debugging/ &
 
@@ -38,15 +38,15 @@ cd pages/reference/OS && $SCRIPT_DIR/extract-markdown.sh "Configuring balenaOS" 
 
 cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Working with the Supervisor" <debugging-supervisor.md >supervisor.md && mv supervisor.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Working with balenaEngine" <engine-debugging.md >engine.md && mv engine.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Working with balenaEngine" <debugging-engine.md >engine.md && mv engine.md $masterclass_path/debugging/ &
 
 cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Device Connectivty states" <device-statuses.md >device-connectivity.md && mv device-connectivity.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Journal Logs" <balenaos-debugging.md >journal-logs.md && mv journal-logs.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Journal Logs" <debugging-balenaos.md >journal-logs.md && mv journal-logs.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Using the Kernel Logs" <balenaos-debugging.md >kernel-logs.md && mv kernel-logs.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Using the Kernel Logs" <debugging-balenaos.md >kernel-logs.md && mv kernel-logs.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Storage Media Debugging" <storage-media-debugging.md >storage-media.md && mv storage-media.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Storage Media Debugging" <debugging-storage-media.md >storage-media.md && mv storage-media.md $masterclass_path/debugging/ &
 
 
 

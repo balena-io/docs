@@ -10,14 +10,22 @@ which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
 # get latest CLI docs
 curl -o pages/reference/balena-cli.md -L https://github.com/balena-io/balena-cli/raw/master/docs/balena-cli.md &
 
-# get SDK README
-cd shared/sdk/ && {
-  curl -O -L https://raw.githubusercontent.com/balena-io/balena-sdk/master/README.md
-  # Extract deprecation text
-  ../../tools/extract-markdown.sh "Deprecation policy" <README.md >deprecation-policy.md
-  rm README.md
-  cd -
-} &
+# Engine
+# get latest balena-engine debugging docs
+# mkdir pages/reference/engine/
+# curl -o pages/reference/engine/debugging-balenaengine.md -L https://github.com/balena-os/balena-supervisor/raw/master/balena-docs/debugging-engine.md &
+
+# diagnostics
+
+curl -o shared/reference/supervisor-dignostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/supervisor-state.md &
+
+curl -o pages/reference/device-diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/device-diagnostics.md &
+
+curl -o pages/reference/diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/diagnostics.md &
+
+# Supervisor
+# get latest supervisor update-lock docs
+curl -o pages/learn/deploy/release-strategy/update-locking.md -L https://github.com/balena-io/balena-supervisor/raw/master/docs/update-locking.md &
 
 # get latest supervisor API docs
 curl -o pages/reference/supervisor/supervisor-api.md -L https://github.com/balena-os/balena-supervisor/raw/master/docs/API.md &
@@ -25,20 +33,7 @@ curl -o pages/reference/supervisor/supervisor-api.md -L https://github.com/balen
 # get latest supervisor debugging docs
 # curl -o pages/reference/supervisor/debugging-supervisor.md -L https://github.com/balena-os/balena-supervisor/raw/master/docs/debugging-supervisor.md &
 
-# get latest balena-engine debugging docs
-# mkdir pages/reference/engine/
-# curl -o pages/reference/engine/debugging-balenaengine.md -L https://github.com/balena-os/balena-supervisor/raw/master/balena-docs/debugging-engine.md &
-
-# get latest diagnostics docs
-# curl -o shared/reference/supervisor-dignostics.md -L https://github.com/balena-io/device-diagnostics/raw/master/supervisor-state.md &
-
-# curl -o pages/reference/device-diagnostics.md -L https://github.com/balena-io/device-diagnostics/raw/master/device-diagnostics.md &
-
-curl -o pages/reference/diagnostics.md -L https://github.com/balena-io/device-diagnostics/raw/master/diagnostics.md &
-
-# get latest supervisor update-lock docs
-curl -o pages/learn/deploy/release-strategy/update-locking.md -L https://github.com/balena-io/balena-supervisor/raw/master/docs/update-locking.md &
-
+# balenaOS
 # get meta-balena README and extract partials
 cd shared/meta-balena/ && {
   curl -o meta-balena.md -L https://raw.githubusercontent.com/balena-os/meta-balena/master/README.md
@@ -56,6 +51,10 @@ cd shared/meta-balena/ && {
 
 # get meta-balena rollbacks docs
 curl -o pages/reference/OS/updates/rollbacks.md -L https://raw.githubusercontent.com/balena-os/meta-balena/master/docs/rollbacks.md
+
+# get latest custom board support docs
+curl -o pages/reference/OS/customer-board-support.md -L https://github.com/balena-os/meta-balena/raw/master/contributing-device-support.md &
+
 
 # Masterclasses
 curl -o pages/learn/more/masterclasses/cli-masterclass.md -L https://raw.githubusercontent.com/balena-io/balena-cli-masterclass/master/README.md &
@@ -85,10 +84,16 @@ cd pages/reference/sdk/ && {
   cd -
 } &
 
+# get SDK README
+cd shared/sdk/ && {
+  curl -O -L https://raw.githubusercontent.com/balena-io/balena-sdk/master/README.md
+  # Extract deprecation text
+  ../../tools/extract-markdown.sh "Deprecation policy" <README.md >deprecation-policy.md
+  rm README.md
+  cd -
+} &
+
 # get latest python SDK docs
 curl -o pages/reference/sdk/python-sdk.md -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md &
-
-# get latest custom board support docs
-curl -o pages/reference/OS/customer-board-support.md -L https://github.com/balena-os/meta-balena/raw/master/contributing-device-support.md &
 
 wait

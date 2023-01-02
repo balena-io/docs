@@ -45,6 +45,7 @@
     ],
     "ignorePaths": [
         "node_modules",
-        "CHANGELOG.md"
+        "CHANGELOG.md",
+        "pages/faq/troubleshooting/debugging-*.md"
     ]
 }

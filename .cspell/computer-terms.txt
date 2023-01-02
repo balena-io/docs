@@ -1,4 +1,3 @@
-
 AAAAB
 Adblocker
 Aetina
@@ -49,6 +48,7 @@ Bluemix
 bluez
 bootable
 bootcount
+bootfiles
 bootloader
 bootloaders
 bootswitch
@@ -116,6 +116,8 @@ domelementtype
 domhandler
 domutils
 driftfile
+drwxr
+drwxr
 dtoverlay
 dtparam
 eduroam
@@ -149,6 +151,7 @@ flashtool
 fleetordevice
 forkable
 FORMATED
+fseventsd
 gcloud
 genericx
 getrandom
@@ -162,6 +165,7 @@ GSUNBVE
 harddisk
 Hardkernel
 healthcheck
+healthchecks
 highspeed
 HKAH
 homeassistant
@@ -249,6 +253,7 @@ nographic
 nolive
 ntpdata
 ntpservers
+nuctest
 OCPDIR
 Octalbonescript
 odroid
@@ -279,6 +284,7 @@ printenv
 promtail
 pseudomap
 publicurl
+pubnub
 pulseaudio
 qemu
 qemux
@@ -309,6 +315,7 @@ roadmap
 rollouts
 rulefilename
 ruuvitag
+rwxr
 sandboxing
 SATA
 SCESU
