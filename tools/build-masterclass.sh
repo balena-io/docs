@@ -32,7 +32,7 @@ cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Accessing a De
 
 cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Device Logs" <device-logs.md >device-logs-partial.md && mv device-logs-partial.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Network Debugging" <debugging-network.md >network.md && mv network.md $masterclass_path/debugging/ &
+cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Network debugging" <debugging-network.md >network.md && mv network.md $masterclass_path/debugging/ &
 
 cd pages/reference/OS && $SCRIPT_DIR/extract-markdown.sh "Configuring balenaOS" <configuration.md >configuration-partial.md && mv configuration-partial.md $masterclass_path/debugging/ &
 
