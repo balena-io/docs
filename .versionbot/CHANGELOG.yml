@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix Networking section debugging masterclass"
+      hash: 48c60281e246b620161acaef512ecadeb2a0537c
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.46.1
+  title: ""
+  date: 2023-01-02T20:46:00.139Z
+- commits:
     - subject: "minor: Migrate to fully dynamic debugging masterclass"
       hash: c1e0bd805b8ef02a9b0e7e157633d7021b0e814e
       body: ""
