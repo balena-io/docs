@@ -124,3 +124,4 @@
 ^\/reference\/OS\/network\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/network/$1$2
 ^\/reference\/OS\/network\/2.x\/?(\?.+)?(#.+)?$ -> /reference/OS/network/$1$2
 ^\/learn\/manage\/app-types\/?(\?.+)?(#.+)?$ -> /learn/manage/fleet-types/$1$2
+^\/learn\/welcome\/support\/?(\?.+)?(#.+)?$ -> /learn/manage/support-access/$1$2

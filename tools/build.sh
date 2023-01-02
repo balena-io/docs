@@ -5,6 +5,8 @@ set -euo pipefail
 
 # get the absolute path to the script in case it is called from elsewhere
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/.."
+./tools/build-masterclass.sh
 
 # run cd in a subshell so we don't end up in another directory on failure
 (
