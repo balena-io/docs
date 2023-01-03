@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/balena-io/docs",
   "dependencies": {
-    "@balena/doxx": "^1.0.1",
+    "@balena/doxx": "^1.0.3",
     "bootstrap": "^3.4.1",
     "bootstrap-select": "^1.13.18",
     "coffeescript": "^2.6.1",
@@ -41,7 +41,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "cspell": "^6.12.0",
+    "cspell": "^6.18.0",
     "css-loader": "5.2.7",
     "file-loader": "6.2.0",
     "mini-css-extract-plugin": "^1.6.2",
