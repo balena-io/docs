@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Fix local mode settings location"
+      hash: bb9c66adee689ffac695fb42f7961317bf303353
+      body: ""
+      footer: {}
+      author: James-xyz
+      nested: []
+  version: 5.46.3
+  title: ""
+  date: 2023-01-03T12:13:15.081Z
+- commits:
     - subject: Update supported network_mode
       hash: df4639685162d963a019731834b0868c96dd66d8
       body: >
