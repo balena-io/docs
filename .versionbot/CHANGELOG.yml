@@ -1,4 +1,20 @@
 - commits:
+    - subject: Update supported network_mode
+      hash: df4639685162d963a019731834b0868c96dd66d8
+      body: >
+        `network_mode: service:[service name]` has been supported since Supervisor
+        v10.1.0.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Christina Ying Wang <christina@balena.io>
+        signed-off-by: Christina Ying Wang <christina@balena.io>
+      author: Christina Wang
+      nested: []
+  version: 5.46.2
+  title: ""
+  date: 2023-01-03T11:57:03.674Z
+- commits:
     - subject: "patch: Fix Networking section debugging masterclass"
       hash: 48c60281e246b620161acaef512ecadeb2a0537c
       body: ""
