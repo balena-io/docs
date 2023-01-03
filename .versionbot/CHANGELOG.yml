@@ -1,4 +1,16 @@
 - commits:
+    - subject: "minor: Add Seeed Odyssey x86 getting started guide"
+      hash: dbbc62cf7f335f437c36f5e4a4a136481127a5eb
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.47.0
+  title: ""
+  date: 2023-01-03T12:59:28.288Z
+- commits:
     - subject: "patch: Fix local mode settings location"
       hash: bb9c66adee689ffac695fb42f7961317bf303353
       body: ""
