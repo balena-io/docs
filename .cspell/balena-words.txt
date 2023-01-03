@@ -21,6 +21,7 @@ multicontainer
 openbalena
 private-contracts
 resinio
+Seeed
 sshproxy
 versionbot
 Versionist
