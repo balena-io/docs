@@ -14,7 +14,7 @@ To use local mode on a device:
 - The device must be running {{ $names.os.lower }} v2.29.0 or higher.
 - The device must be running a [development][development] variant of the OS.
 - You must have the [{{ $names.company.lower }} CLI][cli] installed on your development machine.
-- Local mode must be enabled through the {{ $names.cloud.lower }} dashboard. You can enable it from either the *Actions* menu of the device dashboard or click to expand the arrow located on the device dashboard and select *Enable Local Mode*.
+- Local mode must be enabled through the {{ $names.cloud.lower }} dashboard. You can enable it from the device _Settings_ tab.
 
 ![Enable local mode](/img/local-mode/enable-local-mode.png)
 
@@ -24,7 +24,7 @@ To use local mode on a device:
 - Device and service environment variables set from the {{ $names.cloud.lower }} will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
 - Changes to device [configuration][configuration], for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
 - Actions such as _Restart_ and _Purge data_ from the {{ $names.cloud.lower }} dashboard will not apply to local mode containers.
-- When switching out of local mode and back to tracking releases from {{ $names.cloud.lower }}, the Supervisor will destroy any local mode containers and  volumes, as well as clean up unneeded base images, and then start the release that {{ $names.cloud.lower }} instructs it to run.
+- When switching out of local mode and back to tracking releases from {{ $names.cloud.lower }}, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that {{ $names.cloud.lower }} instructs it to run.
 
 ![Device in local mode](/img/local-mode/device-in-local-mode-20-01-09.png)
 
@@ -192,11 +192,11 @@ These options can be combined to output system and selected service logs e.g.
 {{ $names.company.short }} logs 827b231.local --system --service first --service second
 ```
 
-__Note:__ You may also specify the `--service` and `--system` options using the  `{{ $names.company.short }} push` command to filter the log output.
+__Note:__ You may also specify the `--service` and `--system` options using the `{{ $names.company.short }} push` command to filter the log output.
 
 ## SSH into the running app container or host OS
 
-To access the local device over [SSH][ssh], use the `{{ $names.company.short }} ssh` command specifying the device IP address or `<short-uuid>.local`.  By default, SSH access is routed into the host OS shell and, from there, we can check system logs and [perform other troubleshooting tasks][troubleshooting]:
+To access the local device over [SSH][ssh], use the `{{ $names.company.short }} ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and [perform other troubleshooting tasks][troubleshooting]:
 
 ```bash
 {{ $names.company.short }} ssh 192.168.86.45
@@ -230,7 +230,6 @@ Sample secrets YAML file:
 
 [development]:/reference/OS/overview/2.x/#development-vs-production-images
 [cli]:/reference/cli
-[supervisor API]:/reference/supervisor/supervisor-api/
 [compose-remote]:{{ $links.githubPlayground }}/{{ $names.company.short }}os-compose
 [troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access
 [configuration]:/learn/manage/configuration/
