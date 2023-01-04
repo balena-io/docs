@@ -15,6 +15,9 @@ progress = true
 # multiple runs.
 cache = true
 
+# Discard all cached requests older than this duration.
+max_cache_age = "2d"
+
 #############################  Runtime  #############################
 
 # Number of threads to utilize.
@@ -74,6 +77,9 @@ headers = []
 exclude = [
     "https://github.com/balena-io-library/base-images",
     "https://community.openvpn.net/openvpn",
+    "https://cloudlink.balena-cloud.com/",
+    "https://vpn.balena-cloud.com/ping",
+    "https://chrome.google.com/webstore/*",
     "https://github.com/myorg/myapp",
     "https://index.docker.io/v2/",
     "https://api.balena-(cloud|staging).com/",
@@ -91,7 +97,8 @@ exclude = [
     "https://fonts.gstatic.com/*",
     "https://bob:secret@proxy.company.com:12345",
     "https://github.com/balena-io/balena-cli/releases/download/*",
-    "file://*"
+    "file://*",
+    "https://github.com/balena-io/docs/edit/master/pages/reference/supervisor/configuration-list/*"
     ]
 
 # Exclude URLs contained in a file from checking
