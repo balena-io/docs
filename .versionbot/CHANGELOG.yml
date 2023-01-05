@@ -1,4 +1,28 @@
 - commits:
+    - subject: Deploy website to Cloudflare
+      hash: 8f599cf1745256794554d5381a3088dafe474491
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+    - subject: Convert docs to full static
+      hash: 1b0bafffb3046b957ed7e01f36c8de083c0637e1
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.0
+  title: ""
+  date: 2023-01-05T20:00:48.961Z
+- commits:
     - subject: "patch: Delete/Deprecate Intel Edison related docs"
       hash: 41e3524ea40896579306a3eed9cc3d4a19f6f567
       body: ""
