@@ -1,3 +1,131 @@
+###############################################
+# Cloudflare Style Redirects
+###############################################
+
+# Legacy URLs
+/pages/ /
+/introduction/introduction/ /learn/welcome/introduction/
+/ /learn/welcome/introduction/ 301
+/learn/ /learn/welcome/introduction/ 301
+/installing/gettingStarted/ /learn/getting-started/raspberrypi3/nodejs/
+/installing/gettingStarted-BBB/ /learn/getting-started/beaglebone-black/nodejs/
+/installing/gettingStarted-Humming/ /learn/getting-started/hummingboard/nodejs/
+/installing/gettingStarted-NUC/ /learn/getting-started/intel-nuc/nodejs/
+/installing/gettingStarted-Nitrogen6x/ /learn/getting-started/nitrogen6x/nodejs/
+/installing/gettingStarted-Edison/ /learn/getting-started/intel-edison/nodejs/
+/installing/gettingStarted-Odroid-C1/ /learn/getting-started/odroid-c1/nodejs/
+/installing/gettingStarted-Odroid-XU4/ /learn/getting-started/odroid-XU4/nodejs/
+/installing/gettingStarted-TS4900/ /learn/getting-started/ts4900/nodejs/
+/installing/otherboards/ /learn/getting-started/raspberrypi3/nodejs/
+
+# Device name changes
+/raspberrypi/ /raspberry-pi/
+/raspberrypi2/ /raspberry-pi2/
+/raspberrypi4/ /raspberrypi4-64/
+/edison/ /intel-edison/
+/nuc/ /intel-nuc/
+/beaglebone/ /beaglebone-black/
+/dart6ul/ /imx6ul-var-dart/
+
+# Default redirects
+/learn/getting-started/ /learn/getting-started/raspberrypi3/nodejs/ 301
+/learn/getting-started /learn/getting-started/raspberrypi3/nodejs/ 301
+/reference/supervisor/configuration-list/ /reference/supervisor/configuration-list/raspberrypi3/
+/reference/supervisor/configuration-list /reference/supervisor/configuration-list/raspberrypi3/
+/learn/develop/ /learn/develop/local-mode/
+/learn/develop/cloud-iot-provisioning/ /learn/develop/cloud-iot-provisioning/aws/
+/learn/deploy/ /learn/deploy/deployment/
+/learn/deploy/build-optimisation/ /learn/deploy/build-optimization/
+/learn/manage/ /learn/manage/account/
+/faq/ /faq/troubleshooting/faq/
+/reference/ /reference/hardware/devices/
+/deployment/network/:version/ /reference/OS/network/
+/understanding/understanding-devices/:version/ /reference/OS/overview/
+/reference/api/ /reference/api/overview/
+
+# Renamed pages
+/using/dockerfile/ /learn/develop/dockerfile/
+/runtime/migrate-to-2.0/ /reference/OS/updates/migrate-to-2.0/
+/configuration/resin-base-images/ /reference/base-images/resin-base-images/
+/deployment/wifi/ /reference/OS/network/2.x/
+/runtime/terminal/ /learn/manage/ssh-access/
+/using/cli/ /reference/balena-cli/
+/learn/deploy/release-strategy/update-locking/API/ /reference/supervisor/supervisor-api/
+/reference/cli/ /reference/balena-cli/
+/docs/learn/deploy/release-strategy/update-locking/API/ /reference/supervisor/supervisor-api/
+/learn/more/masterclass/ /learn/more/masterclasses/overview/
+/learn/more/masterclasses/overview/ /learn/more/masterclasses/masterclass-intro/
+/learn/manage/serv-vars/ /learn/manage/variables/
+/reference/supervisor/upgrade-policy/ /reference/supervisor/supervisor-upgrades/
+/learn/develop/integrations/ /learn/develop/cloud-iot-provisioning/
+/learn/develop/integrations/aws/ /learn/develop/cloud-iot-provisioning/aws/
+/learn/develop/integrations/azure-iot-hub/ /learn/develop/cloud-iot-provisioning/azure/
+/learn/develop/integrations/google-iot/ /learn/develop/cloud-iot-provisioning/gcp/
+/learn/develop/integrations/bluemix/ /learn/develop/cloud-iot-provisioning/
+
+# Restructure
+/introduction/ /learn/welcome/introduction/
+/getting-started/ /learn/getting-started/
+/understanding/understanding-code-deployment/ /learn/deploy/deployment/
+/deployment/deployment/ /learn/deploy/deployment/
+/deployment/dockerfile/ /learn/develop/dockerfile/
+/runtime/runtime/ /learn/develop/runtime/
+/runtime/time/ /reference/OS/time/
+/runtime/update-strategies/ /learn/deploy/release-strategy/update-strategies/
+/runtime/delta/ /learn/deploy/delta/
+/runtime/bandwidth-reduction/ /reference/supervisor/bandwidth-reduction/
+/runtime/update-locking/ /learn/deploy/release-strategy/update-locking/
+/development/local-mode/ /learn/develop/local-mode/
+/understanding/understanding-devices/ /reference/OS/overview/
+/updates/self-service/ /reference/OS/updates/self-service/
+/updates/update-process/ /reference/OS/updates/update-process/
+/update/migrate-to-2.0/ /reference/OS/updates/migrate-to-2.0/
+/hardware/gpio/ /learn/develop/hardware/gpio/
+/hardware/i2c-and-spi/ /learn/develop/hardware/i2c-and-spi/
+/hardware/wifi-dongles/ /reference/hardware/wifi-dongles/
+/management/env-vars/ /learn/manage/serv-vars/
+/management/applications/ /learn/manage/actions/
+/management/devices/ /learn/manage/actions/
+/management/preferences/ /learn/manage/account/
+/configuration/advanced/ /reference/OS/advanced/
+/deployment/network/ /reference/OS/network/
+/security/ /learn/welcome/security/
+/integrations/ /learn/develop/integrations/
+/hardware/meta-resin/ /reference/OS/meta-balena/
+/advanced/resources/ /learn/more/resources/
+/examples/ /learn/more/examples/
+/troubleshooting/faq/ /faq/troubleshooting/faq/
+/troubleshooting/troubleshooting/ /faq/troubleshooting/troubleshooting/
+/troubleshooting/error/ /faq/troubleshooting/troubleshooting/
+/troubleshooting/cli-troubleshooting/ /faq/troubleshooting/troubleshooting/
+/hardware/devices/ /reference/hardware/devices/
+/runtime/supervisor-api/ /reference/supervisor/supervisor-api/
+/runtime/data-api/ /reference/api/overview/
+/tools/cli/ /reference/balena-cli/
+/tools/sdk/ /reference/sdk/node-sdk/
+/tools/python-sdk/ /reference/sdk/python-sdk/
+/runtime/resin-base-images/ /reference/base-images/base-images/
+/configuration/custom-docker-base-images/ /reference/base-images/customer-docker-base-images/
+/deployment/docker-templates/ /learn/develop/dockerfile/
+/support/ /learn/welcome/support/
+/devicetypes/ /reference/base-images/devicetypes/
+/deployment/build-optimisation/ /learn/deploy/build-optimization/
+/reference/data-api/ /reference/api/overview/
+/reference/resinOS/ /reference/OS/
+/reference/OS/meta-balena/ /reference/OS/customer-board-support/
+/reference/OS/custom-device-support/ /reference/OS/customer-board-support/
+/reference/base-images/resin-base-images/ /reference/base-images/base-images/
+/reference/api/resources/application/ /reference/api/resources/fleet/
+/reference/OS/overview/:version/ /reference/OS/overview/
+/reference/OS/network/:version/ /reference/OS/network/
+/learn/manage/app-types/ /learn/manage/fleet-types/
+/learn/welcome/support/ /learn/manage/support-access/
+
+
+###############################################
+# Legacy Server Style Redirects
+###############################################
+
 # the file defines a series of rewrite rules
 # LHS is a RegExp and RHS is the replacement string
 # because of RegExp slashes and dots must be escaped
@@ -118,7 +246,6 @@
 ^\/reference\/OS\/custom-device-support\/?(\?.+)?(#.+)?$ -> /reference/OS/customer-board-support/$1$2
 ^\/reference\/base-images\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2
 ^\/reference\/api\/resources\/application\/?(\?.+)?(#.+)?$ -> /reference/api/resources/fleet/$1$2
-^\/reference\/OS\/overview\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
 ^\/reference\/OS\/overview\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
 ^\/reference\/OS\/overview\/2.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
 ^\/reference\/OS\/network\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/network/$1$2

@@ -88,7 +88,7 @@ Learn
       Services[/learn/more/masterclasses/services-masterclass]
       Fleet management[/learn/more/masterclasses/fleet-management]
       Device debugging[/learn/more/masterclasses/device-debugging]
-      Docker[/learn/more/masterclasses/docker-masterclass/]
+      Docker[/learn/more/masterclasses/docker-masterclass]
     [/learn/more/anti-patterns]
 
 FAQ
@@ -122,9 +122,9 @@ Reference
     [/reference/supervisor/docker-compose]
     [/reference/supervisor/supervisor-upgrades]
     # Handled in redirects.txt
-    Configuration List[/reference/supervisor/configuration-list/]
+    Configuration List[/reference/supervisor/configuration-list]
       # with $device being dynamic
-      Configuration list for {{ $device.name }}[/reference/supervisor/configuration-list/$device/]
+      Configuration list for {{ $device.name }}[/reference/supervisor/configuration-list/$device]
 
 
   Base images

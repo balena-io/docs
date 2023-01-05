@@ -39,14 +39,14 @@ MAIN_MENU_LINKS = [
 module.exports =
   docsExt: 'md'
   docsSourceDir: DOCS_SOURCE_DIR
-  docsDestDir: 'contents'
+  docsDestDir: 'build'
   templatesDir: TEMPLATES_DIR
   partialsDir: PARTIALS_DIR
   externalDocs: EXTERNAL_DOCS
   editPageLink: 'https://github.com/balena-io/docs/edit/master'
   links: require('./links')
   names: require('./names')
-  pathPrefix: process.env.PATH_PREFIX || '/docs'
+  pathPrefix: process.env.PATH_PREFIX || ''
   layoutLocals:
     dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
     logo: '/img/logo.svg'

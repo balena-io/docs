@@ -63,7 +63,9 @@ One can open or check existing issues on [GitHub issues](https://github.com/bale
 
 ## Deploying
 
-Shortly after merging a PR to the `master` branch, the Heroku app which hosts the [production instance](https://www.balena.io/docs/) will pick up the changes and deploy them. This should only take a few minutes.
+Shortly after merging a PR to the `master` branch, Flowzone will run on the deploy script `npm run deploy-docs` on master branch and deploy the docs on [balenacloud-docs.pages.dev](https://balenacloud-docs.pages.dev).
+
+The docs are hosted on Cloudflare Pages as a static site. 
 
 ## Style manual
 

@@ -13,6 +13,7 @@ contracts
 docsearch
 doxx
 Fincm
+flowzone
 generic
 landr
 metalsmith
