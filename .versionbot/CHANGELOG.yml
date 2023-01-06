@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add fetch-external script to link checker"
+      hash: 75414f702a4de08cc3711b185e38b584496bd1fd
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.1
+  title: ""
+  date: 2023-01-06T12:43:39.174Z
+- commits:
     - subject: Deploy website to Cloudflare
       hash: 8f599cf1745256794554d5381a3088dafe474491
       body: ""
