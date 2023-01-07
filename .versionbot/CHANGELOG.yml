@@ -1,4 +1,18 @@
 - commits:
+    - subject: Revise bandwidth reduction page with cellular measurements
+      hash: 9c3439ef439d4bb89b39ccd1496df85931b3b259
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 5.48.2
+  title: ""
+  date: 2023-01-07T17:38:56.031Z
+- commits:
     - subject: "patch: Add fetch-external script to link checker"
       hash: 75414f702a4de08cc3711b185e38b584496bd1fd
       body: ""
