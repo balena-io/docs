@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update obsolete link
+      hash: 7185896a100c6c810cf9c51f7c697c604bd0ec94
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 5.48.2
+  title: ""
+  date: 2023-01-09T08:40:37.884Z
+- commits:
     - subject: "patch: Add fetch-external script to link checker"
       hash: 75414f702a4de08cc3711b185e38b584496bd1fd
       body: ""
