@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update lychee config to scan relative links"
+      hash: f2bbca35d74659c5b1182a452b1f451e6004cfa9
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.3
+  title: ""
+  date: 2023-01-09T17:26:57.100Z
+- commits:
     - subject: Update obsolete link
       hash: 7185896a100c6c810cf9c51f7c697c604bd0ec94
       body: ""
