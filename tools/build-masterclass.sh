@@ -10,10 +10,11 @@ cd "$SCRIPT_DIR/.."
 # Creating masterclass partials and wiping old ones
 if [ -d "$SCRIPT_DIR/../shared/masterclass/" ]; then
     rm -rf $SCRIPT_DIR/../shared/masterclass/
+    echo "Generating masterclass partials"
 fi
-mkdir $SCRIPT_DIR/../shared/masterclass/
 
 masterclass_path=$SCRIPT_DIR/../shared/masterclass
+mkdir $masterclass_path
 
 # Debugging Masterclass
 mkdir $masterclass_path/debugging/ &
