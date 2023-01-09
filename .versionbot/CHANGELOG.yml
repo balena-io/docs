@@ -1,4 +1,26 @@
 - commits:
+    - subject: "patch: bump json5 from 2.2.1 to 2.2.3"
+      hash: b38029d985d312342907d561be2fe9c470cac387
+      body: |
+        Bumps [json5](https://github.com/json5/json5) from 2.2.1 to 2.2.3.
+        - [Release notes](https://github.com/json5/json5/releases)
+        - [Changelog](https://github.com/json5/json5/blob/main/CHANGELOG.md)
+        - [Commits](https://github.com/json5/json5/compare/v2.2.1...v2.2.3)
+
+        ---
+        updated-dependencies:
+        - dependency-name: json5
+          dependency-type: indirect
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 5.48.4
+  title: ""
+  date: 2023-01-09T18:00:59.051Z
+- commits:
     - subject: "patch: Update lychee config to scan relative links"
       hash: f2bbca35d74659c5b1182a452b1f451e6004cfa9
       body: ""
