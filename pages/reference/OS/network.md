@@ -502,7 +502,7 @@ We've published an example [here](https://github.com/balenalabs/proxy-tunnel) de
 
 ## Checking connectivity
 
-You can configure a connectivity check using NetworkManager's builtin [feature][nm-connectivity]. In order to configure
+You can configure a connectivity check using NetworkManager's builtin [feature][nm-connectivity] (see "connectivity section"). In order to configure
 custom endpoints, the URL, expected response, and check interval can be set in `config.json` (more information available
 [here][meta-balena-connectivity]). By default, NetworkManager is configured to use {{ $names.cloud.lower }} to perform the check.
 
@@ -548,7 +548,7 @@ To re-enable IPv6 follow the same commands but with `set ipv6.method enable`.
 [redsocks-conf-example]:https://github.com/darkk/redsocks/blob/master/redsocks.conf.example
 [python-base-images]:/reference/base-images/base-images/
 [python-build-images]:/reference/base-images/base-images/#run-vs-build
-[nm-connectivity]:https://manpages.debian.org/jessie/network-manager/NetworkManager.conf.5.en.html#CONNECTIVITY_SECTION
+[nm-connectivity]:https://developer-old.gnome.org/NetworkManager/stable/NetworkManager.conf.html
 [wifi-dongles]:/reference/hardware/wifi-dongles
 [meta-balena-connectivity]:{{ $links.githubOS }}/meta-balena#connectivity
 
