@@ -15,3 +15,4 @@ jobs:
     with:
       cloudflare_website: "balenacloud-docs"
       docusaurus_website: false
+      repo_config: true
