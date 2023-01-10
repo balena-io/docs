@@ -75,9 +75,9 @@ Learn
     [/learn/manage/support-access]
 
   MORE RESOURCES
-    [/learn/more/examples/seed-projects]
-    [/learn/more/examples/projects]
-    [/learn/more/examples/balenablocks]
+    [/learn/more/examples/labs-projects]
+      [/learn/more/examples/balenablocks]
+      [/learn/more/examples/example-projects]
     [/learn/more/glossary]
     [/learn/more/collected-data]
     Masterclasses

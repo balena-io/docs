@@ -9,7 +9,7 @@ The {{ $names.company.lower }} platform encompasses device, server, and client s
 
 If you're eager to learn more about the inner workings, you're in luck! This guide covers the components and workflows involved in a typical {{ $names.company.lower }} deployment, with enough detail to answer the most common questions. If you're ready to dig in deeper, why not [get started][getting-started] with a project of your own?
 
-Refer to the [**balena Glossary**][balena-glossary] for definition on any of the terms referred in the docs.
+Refer to the [balena Glossary][balena-glossary] for definition on any of the terms referred in the docs.
 
 ## On your device
 
