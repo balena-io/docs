@@ -26,7 +26,6 @@ Learn
   WELCOME
     [/learn/welcome/introduction]
     [/learn/welcome/primer]
-    [/learn/welcome/glossary]
     [/learn/welcome/production-plan]
     [/learn/welcome/security]
     [/learn/welcome/support]
@@ -76,7 +75,8 @@ Learn
     [/learn/manage/support-access]
 
   MORE RESOURCES
-    [/learn/more/examples/seed-projects]
+    [/learn/welcome/glossary]
+    [/learn/more/examples/example-projects]
     [/learn/more/examples/projects]
     [/learn/more/examples/balenablocks]
     [/learn/more/collected-data]
