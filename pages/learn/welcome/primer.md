@@ -83,4 +83,4 @@ Much of the device, service, and fleet information provided by the dashboard is 
 [cli]:/reference/cli/
 [node]:/reference/sdk/node-sdk/
 [python]:/reference/sdk/python-sdk/
-[balena-glossary]:/learn/more/balena-glossary/
+[balena-glossary]:/learn/more/glossary/
