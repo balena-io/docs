@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Redirect balenablocks to balenaHub"
+      hash: 951620f7122a618ebec3b4b1672a5d6160ccc5c6
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.6
+  title: ""
+  date: 2023-01-10T19:26:01.215Z
+- commits:
     - subject: "patch: Update primer with Core Concepts"
       hash: 210e0174a014286639ad51655ff90113b8d19948
       body: ""
