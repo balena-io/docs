@@ -1,4 +1,21 @@
 - commits:
+    - subject: "deploy-static: Exit with error if any redirects are missing"
+      hash: d2d2e9ec03b8b90e417eb2d6fa112d15ab8ce500
+      body: |
+        Cloudflare Pages treats redirects with and without trailing slashes
+        separately as per their documentation. So for every redirect we need
+        to check that we have included both variations.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 5.48.6
+  title: ""
+  date: 2023-01-10T19:17:35.466Z
+- commits:
     - subject: "patch: Update primer with Core Concepts"
       hash: 210e0174a014286639ad51655ff90113b8d19948
       body: ""
