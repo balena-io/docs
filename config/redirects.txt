@@ -120,7 +120,9 @@
 /reference/OS/network/:version/ /reference/OS/network/
 /learn/manage/app-types/ /learn/manage/fleet-types/
 /learn/welcome/support/ /learn/manage/support-access/ 301
-/learn/welcome/glossary/ https://handbook.balena.io/glossary 301
+/learn/welcome/core-concepts/ /learn/more/glossary/ 301
+/learn/welcome/glossary/ /learn/more/glossary/ 301
+/learn/more/masterclasses/ /learn/more/masterclasses/masterclass-intro/ 301 
 
 ###############################################
 # Legacy Server Style Redirects

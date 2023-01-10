@@ -4,6 +4,3 @@ cd $dirname/..
 
 # Pulls in external documentation 
 ./tools/fetch-external.sh
-
-# Generate Masterclasses Dynamically
-./tools/build-masterclass.sh
