@@ -123,6 +123,9 @@
 /learn/welcome/core-concepts/ /learn/more/glossary/ 301
 /learn/welcome/glossary/ /learn/more/glossary/ 301
 /learn/more/masterclasses/ /learn/more/masterclasses/masterclass-intro/ 301 
+/learn/more/examples/projects /learn/more/examples/labs-projects
+/learn/more/examples/seed-projects /learn/more/examples/labs-projects
+
 
 ###############################################
 # Legacy Server Style Redirects
