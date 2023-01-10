@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update primer with Core Concepts"
+      hash: 210e0174a014286639ad51655ff90113b8d19948
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.5
+  title: ""
+  date: 2023-01-10T16:55:51.218Z
+- commits:
     - subject: "patch: Redirect Core Concept to Handbook Glossary"
       hash: 93a6eaf54af4dd6f8e7d754366df0fd889d61268
       body: ""
