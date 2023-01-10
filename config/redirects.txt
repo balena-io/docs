@@ -29,9 +29,7 @@
 
 # Default redirects
 /learn/getting-started/ /learn/getting-started/raspberrypi3/nodejs/ 301
-/learn/getting-started /learn/getting-started/raspberrypi3/nodejs/ 301
 /reference/supervisor/configuration-list/ /reference/supervisor/configuration-list/raspberrypi3/
-/reference/supervisor/configuration-list /reference/supervisor/configuration-list/raspberrypi3/
 /learn/develop/ /learn/develop/local-mode/
 /learn/develop/cloud-iot-provisioning/ /learn/develop/cloud-iot-provisioning/aws/
 /learn/deploy/ /learn/deploy/deployment/
@@ -39,8 +37,6 @@
 /learn/manage/ /learn/manage/account/
 /faq/ /faq/troubleshooting/faq/
 /reference/ /reference/hardware/devices/
-/deployment/network/:version/ /reference/OS/network/
-/understanding/understanding-devices/:version/ /reference/OS/overview/
 /reference/api/ /reference/api/overview/
 
 # Renamed pages
@@ -116,8 +112,6 @@
 /reference/OS/custom-device-support/ /reference/OS/customer-board-support/
 /reference/base-images/resin-base-images/ /reference/base-images/base-images/
 /reference/api/resources/application/ /reference/api/resources/fleet/
-/reference/OS/overview/:version/ /reference/OS/overview/
-/reference/OS/network/:version/ /reference/OS/network/
 /learn/manage/app-types/ /learn/manage/fleet-types/
 /learn/welcome/support/ /learn/manage/support-access/ 301
 /learn/welcome/core-concepts/ /learn/more/glossary/ 301
@@ -126,6 +120,15 @@
 /learn/more/examples/projects /learn/more/examples/labs-projects
 /learn/more/examples/seed-projects /learn/more/examples/labs-projects
 
+
+# Important: keep dynamic redirect below the static redirects
+# https://developers.cloudflare.com/pages/platform/redirects/
+# Dynamic redirects
+
+/deployment/network/:version/ /reference/OS/network/
+/understanding/understanding-devices/:version/ /reference/OS/overview/
+/reference/OS/overview/:version/ /reference/OS/overview/
+/reference/OS/network/:version/ /reference/OS/network/
 
 ###############################################
 # Legacy Server Style Redirects
