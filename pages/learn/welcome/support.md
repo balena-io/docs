@@ -6,7 +6,7 @@ excerpt: Additional resources in case you get stuck
 # Getting Help
 
 <!-- No one should be seeing this page -->
-<!-- Instead this page is redirected to /learn/manage/support-access -->
+<!-- Instead this page is redirected to /learn/manage/support-access using the redirects listed in redirects.txt file -->
 
 If you find yourself stuck or confused, help is just a click away:
 

@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:cloudflare": "npm run build:fast && npx wrangler pages dev build/",
+    "start:cloudflare": "npx wrangler pages dev build/",
     "test": "npm run test:spelling",
     "test:spelling": "cspell lint --gitignore -c cspell.json",
     "build": "./tools/prepare.sh && npm run build:fast",
