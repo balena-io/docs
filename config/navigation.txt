@@ -75,10 +75,10 @@ Learn
     [/learn/manage/support-access]
 
   MORE RESOURCES
-    [/learn/welcome/glossary]
-    [/learn/more/examples/example-projects]
+    [/learn/more/examples/seed-projects]
     [/learn/more/examples/projects]
     [/learn/more/examples/balenablocks]
+    [/learn/more/glossary]
     [/learn/more/collected-data]
     Masterclasses
       [/learn/more/masterclasses/masterclass-intro]

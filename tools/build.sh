@@ -5,6 +5,8 @@ set -euo pipefail
 
 # get the absolute path to the script in case it is called from elsewhere
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Generate Masterclasses Dynamically
 cd "$SCRIPT_DIR/.."
 ./tools/build-masterclass.sh
 
