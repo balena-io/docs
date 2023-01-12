@@ -25,9 +25,6 @@ title: Troubleshooting
 * [Jetson L4T versions](#jetson-l4t-versions)
   * [How can I determine which L4T a balenaOS image uses?](#how-can-i-determine-which-l4t-a-balenaos-image-uses?)
   * [Custom device tree support](#custom-device-tree-support)
-* [Intel Edison](#intel-edison)
-  * [Help!!! I want to restore my Edison to factory Yocto](#help-i-want-to-restore-my-edison-to-factory-yocto)
-  * [I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows](#i-get-dfu-util-device-has-dfu-interface-but-has-no-dfu-functional-descriptor-in-windows)
 
 ## General
 
@@ -175,16 +172,6 @@ If the device is running, typing `uname -a` will show the L4T in the kernel vers
 ### Custom device tree support
 
 Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section][hardware section].
-
-## Intel Edison
-
-### Help, I want to restore my Edison to factory Yocto
-
-If you are one of the unfortunate people who feel they want to return to the old Yocto build of the Edison you can have a look over here on our guide to [restore original Edison firmware](/faq/troubleshooting/restore-edison).
-
-### I get "dfu-util: Device has DFU interface, but has no DFU functional descriptor" in Windows
-
-Make sure you have [Intel Edison drivers](https://software.intel.com/en-us/iot/hardware/edison/downloads) installed in your computer.
 
 [error]:#error-notifications
 [l4t]:https://developer.nvidia.com/embedded/linux-tegra
