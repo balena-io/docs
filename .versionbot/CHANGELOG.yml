@@ -1,4 +1,42 @@
 - commits:
+    - subject: Add redirects without trailing slashes
+      hash: 92290244bdc4d3b9d08f4f23c791faa6e5b13823
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: "deploy-static: Exit with error if any redirects are missing"
+      hash: 5bef9817adb941d010b4a566d213f6f9dcc6740c
+      body: |
+        Cloudflare Pages treats redirects with and without trailing slashes
+        separately as per their documentation. So for every redirect we need
+        to check that we have included both variations.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Keep dynamic redirects below static redirects
+      hash: 6cf02a313dd0e87c9b1784a26f769ee2d681617c
+      body: |
+        This is a Cloudflare Pages requirement.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 5.48.7
+  title: ""
+  date: 2023-01-12T18:42:06.836Z
+- commits:
     - subject: "patch: Redirect balenablocks to balenaHub"
       hash: 951620f7122a618ebec3b4b1672a5d6160ccc5c6
       body: ""
