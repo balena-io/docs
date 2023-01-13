@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix broken links"
+      hash: 4c092839fa49ec595fe2e652c95fbf304f5ea607
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.8
+  title: ""
+  date: 2023-01-13T13:07:42.805Z
+- commits:
     - subject: Add redirects without trailing slashes
       hash: 92290244bdc4d3b9d08f4f23c791faa6e5b13823
       body: ""
