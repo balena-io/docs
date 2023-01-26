@@ -4,52 +4,53 @@ title: Reduce bandwidth usage
 
 # Reduce bandwidth usage
 
-In order to provide users with essential information about their devices, the {{ $names.company.lower }} Supervisor on the device regularly keeps the API informed about the device's state. Upon receiving a target device state which differs from the current device state, the Supervisor applies changes, such as downloading new application updates or setting environment variables. While a quick response to actions is great during development, it also leads to of increased data usage.
+BalenaOS and the device Supervisor make it easy to manage a device remotely with features like  container logs forwarding, hardware metrics reporting, and Cloudlink for on-demand external access. However, these features consume network bandwidth, and typically cellular providers charge by the megabyte. So to reduce bandwidth usage, a trade-off can be made between cost and features using the configuration options below.
 
-In order to give our power users control over data flow, we enabled a few `BALENA_` variables in the [configuration][configuration] tab.
+To help you understand the costs, we measured data use over a cellular connection for features that require network transfer. **The minimum bandwidth required is approximately 1 MB per month** for balenaOS v2.108.18 and Supervisor v14.4.4 when all of the features in the table below are turned off and API Polling is set to the minimum value of once per day.
 
-| Variable                               | Allowed Value      | Action                                             | Default | Available with Supervisor Version |
-|----------------------------------------|--------------------|----------------------------------------------------|---------|-----------------------------------|
-| `BALENA_SUPERVISOR_VPN_CONTROL`        | true/false         | Enable / Disable cloudlink                         | true    | v1.1.0                            |
-| `BALENA_SUPERVISOR_CONNECTIVITY_CHECK` | true/false         | Enable / Disable cloudlink connectivity check      | true    | v1.3.0                            |
-| `BALENA_SUPERVISOR_POLL_INTERVAL`      | 600000 to 86400000 | API Poll interval in milliseconds                  | 900000  | v1.3.0                            |
-| `BALENA_SUPERVISOR_LOG_CONTROL`        | true/false         | Enable / Disable logs from being sent to API       | true    | v1.3.0                            |
-| `BALENA_SUPERVISOR_HARDWARE_METRICS`   | true/false         | Enable / Disable device hardware metrics reporting | true    | v12.8.0                           |
+You may configure these features from the fleet/device configuration tabs on the dashboard and as configuration variables. Refer to the [Device Configuration docs][device-configuration] and the [Configuration List][configuration-list] for more information. Below the table, we describe our measurement tool so you can repeat the tests. Finally, be sure to read the [Side Effects](#side-effects--warnings) section for the impact of turning off each feature, particularly Cloudlink.
 
-Side Effects / Warnings
--------------------
+| Feature / Variable Name | Monthly Bandwidth if enabled | Measurement Notes |
+| ------- | --------- | -------- |
+| Cloudlink<br>`BALENA_SUPERVISOR_VPN_CONTROL` | 80 MB | No use of Cloudlink, just bandwidth required to maintain the connection  |
+| Device Metrics<br>`BALENA_SUPERVISOR_HARDWARE_METRICS` | 72 MB | Measured with minimal application activity |
+| API Poll Interval<br>`BALENA_SUPERVISOR_POLL_INTERVAL` |4x/hour: 28 MB<br>1x/day: 1 MB | 4x/hour is default; 1x/day is minimum   |
+| NetworkManager connectivity check<br>(no variable; see [`config.json` docs][networking-connectivity]) | 1x/hour: 8 MB | 1x/hour is default |
+| Device Logging<br>`BALENA_SUPERVISOR_LOG_CONTROL`| 8 MB | Measured with one short message per hour; depends on application use |
+| Cloudlink connectivity check<br>`BALENA_SUPERVISOR_CONNECTIVITY_CHECK` | N/A  | Requires bandwidth only under error conditions |
 
-`BALENA_SUPERVISOR_VPN_CONTROL`: This defines the ability to send instantaneous updates to the device. Turning off cloudlink means that any configuration or variable update is reflected only when the device polls for these changes. The Web Terminal does not function when cloudlink is disabled. This also disables the public URL functionality.
 
-`BALENA_SUPERVISOR_CONNECTIVITY_CHECK`: Defines the device's ability to test and indicate (via an LED when available) that it has issues with connectivity.
+## Setup and Rationale
 
-`BALENA_SUPERVISOR_POLL_INTERVAL`: This defines the time interval when any changes made to the fleet, i.e either new code pushes or environment variables changes or cloudlink control changes are propagated to the device. Think of it as the interval when the device checks in with {{ $names.company.lower }} API to ask for new updates. Making this interval long, would mean that any change is only reflected in the device after this interval, if cloudlink is not operational. (We suggest limiting this to less than 24 hours.)
+These measurements were made with a Quectel modem on a SixFab HAT on a Raspberry Pi4, and used a Twilio North American SIM. Refer to this [blog post](https://www.balena.io/blog/cellular-iot-isnt-as-hard-as-you-think/) for a similar setup to reproduce results. The device was running balenaOS v2.108.18 and Supervisor v14.4.4. To keep the results generic, the device ran ***only*** the application that measures bandwidth: [Network Metrics Logger](https://github.com/balena-io-examples/network-metrics-logger). We verified our results against the statistics provided by Twilio on the server side.
 
-`BALENA_SUPERVISOR_LOG_CONTROL`: Any logs written by the user container or the device Agent are not sent to the dashboard when this variable is set to false.
+Your bandwidth measurements may vary based on hardware, location, or cellular provider, but we expect them to be comparable. Of course, your own app may add to network use. We encourage you to measure with your own device and workload! We recommend deploying the [Network Metrics Logger](https://github.com/balena-io-examples/network-metrics-logger) to test your setup.
 
-`BALENA_SUPERVISOR_HARDWARE_METRICS`: [Device metrics][device-metrics] such as CPU temperature and memory usage won't be reported to the API, and won't be displayed on the summary page of the device dashboard.
+The Network Metrics Logger is a generic, client-side tool to measure bandwidth. It uses the [NodeJS system information](https://systeminformation.io/) package, which in turn reads network statistics from `/sys/class/net/{iface}/statistics`. Twilio provides an ideal interface for their server-side statistics, but we wanted a tool that works across providers.
 
-Data usage impact
------------------
 
-| Service                                                                 | Usage (Including DNS overhead)                          | Related Configuration Variable       |
-|-------------------------------------------------------------------------|---------------------------------------------------------|--------------------------------------|
-| API poll (Once per 15min)                                               | 6650 Bytes per request                                  | BALENA_SUPERVISOR_POLL_INTERVAL      |
-| {{ $names.company.lower }} Supervisor update poll (Once every 24 hours) | 6693 Bytes per request                                  | Not configurable via variables       |
-| cloudlink enabled                                                       | 43 Bytes / second                                       | BALENA_SUPERVISOR_VPN_CONTROL        |
-| TCP check cost (When cloudlink disabled)                                | 47.36 Bytes / second                                    | BALENA_SUPERVISOR_CONNECTIVITY_CHECK |
-| Hardware metrics reporting                                              | ~66 Bytes every 10 seconds when there have been changes | BALENA_SUPERVISOR_HARDWARE_METRICS   |
+## Side Effects / Warnings
 
-Example minimum bandwidth settings
-----------------------------------
+**Cloudlink:** Allows the device to be notified instantly of state changes. Turning off Cloudlink has several consequences:
 
-The following settings lead to data usage of approximately 1.3MB per month:
+- CLI access via the web terminal or SSH is disabled.
+- Updates to configuration, environment variables, and other states are not picked up by the device immediately; instead, they are delayed until the next time the device polls the API.
+- The Device Public URL feature is not available.
 
-* Disable `BALENA_SUPERVISOR_VPN_CONTROL`
-* Disable `BALENA_SUPERVISOR_CONNECTIVITY_CHECK`
-* Change `BALENA_SUPERVISOR_POLL_INTERVAL` to 24 hours (86400000 ms)
-* Disable `BALENA_SUPERVISOR_LOG_CONTROL`
-* Disable `BALENA_SUPERVISOR_HARDWARE_METRICS`
+You can re-enable Cloudlink via the dashboard after turning it off. The device will re-establish the link the next time it polls the API, as defined by the poll interval.
 
+**[Device metrics:][device-metrics]** Defines whether metrics such as CPU temperature and memory usage are reported to the API and displayed on the summary page of the device dashboard. If turned off, the metrics panel on the dashboard is hidden since the data has not been reported.
+
+**API Poll Interval:** Defines the time interval between device checks for updates to the fleet, for example, new code pushes, environment variables changes or Cloudlink control changes for the device. If Cloudlink is disabled, lengthening this interval increases the latency of propagating these updates to the device.
+
+**NetworkManager connectivity check:** When enabled for devices with multiple network interfaces, instructs NetworkManager to use routing metrics to avoid using an interface that fails the check. This adaptability is crucial to retain connectivity. However, for a single network interface, NetworkManager can provide only interface status from the check via DBus.
+
+**Device Logging:** When disabled, any logs written by your application or components of balenaOS are not sent to the dashboard.
+
+**Cloudlink connectivity check:** Defines the device's ability to test and indicate (via an LED when available) that it has connectivity issues.
+
+
+[configuration-list]:/reference/supervisor/configuration-list
+[device-configuration]:/learn/manage/configuration
 [device-metrics]:/reference/supervisor/device-metrics
-[configuration]:/learn/manage/configuration
+[networking-connectivity]:https://github.com/balena-os/meta-balena#connectivity
