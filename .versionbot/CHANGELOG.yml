@@ -1,4 +1,18 @@
 - commits:
+    - subject: Revise bandwidth reduction page with cellular measurements
+      hash: d248e78ccfd1fcae6b8c85fdc4da590df4c41b58
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 5.48.10
+  title: ""
+  date: 2023-01-26T23:30:22.509Z
+- commits:
     - subject: Added Devcie Freezing to Billing Page
       hash: f3323a6940cb4507e1dc7b0bb736284f98ce1d75
       body: ""
