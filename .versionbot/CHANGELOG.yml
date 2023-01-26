@@ -1,4 +1,18 @@
 - commits:
+    - subject: Added Devcie Freezing to Billing Page
+      hash: f3323a6940cb4507e1dc7b0bb736284f98ce1d75
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+        signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+      author: Ryan H
+      nested: []
+  version: 5.48.9
+  title: ""
+  date: 2023-01-26T13:44:10.596Z
+- commits:
     - subject: "patch: Fix broken links"
       hash: 4c092839fa49ec595fe2e652c95fbf304f5ea607
       body: ""
