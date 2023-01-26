@@ -82,6 +82,6 @@ Once you deactivate a device, you will not be able to monitor nor apply updates 
 
 ## Frozen devices
 
-In the event that your balena invoices are overdue, all devices under that organization in the balenaCloud dashboard may be "frozen". Frozen devices will continue to run their application containers as usual, but users will no longer be able to access or manage those devices from the dashboard until the overdue invoices are paid and the devices are unfrozen. Frozen devices are shown in the dashboard with a snoflake icon.
+In the event that your balena invoices are overdue, all devices under that organization in the balenaCloud dashboard may be "frozen". Frozen devices will continue to run their application containers as usual, but users will no longer be able to access or manage those devices from the dashboard until the overdue invoices are paid and the devices are unfrozen. Frozen devices are shown in the dashboard with a snowflake icon.
 
 Users can determine which invoices are overdue under their organization's billing page. To settle overdue payments, update your payment method or contact the sales team at sales@balena.io.
