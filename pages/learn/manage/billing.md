@@ -79,3 +79,11 @@ To understand the difference between inactive and offline devices, we define the
 If you have a device **offline and active**, you will **still be billed for that device**. Those devices are usually still deployed in the field and ready to be used at any time. If you make the decision to have your devices offline intentionally, you will still be able see them in your fleet and can take some actions such as applying updates, that will take effect as soon as they come online.
 
 Once you deactivate a device, you will not be able to monitor nor apply updates to that device. After the de-activation fee is charged, you won't be charged again until the device comes back online.
+
+## Frozen devices
+
+In the event that your balena invoices are overdue the devices within your org may be marked as Frozen. This means that these devices will continue to run their application containers normally, but you won't be able to perform any actions with these devices from the dashboard.
+
+Devices will automatically return to a normal state once all your pending ivoices have being paid.
+
+You can check if you have Unpaid invoices under your Org's billing section, in the left hand side menu. To settle the payment, update your billing details or contact out sales team at sales@balena.io
