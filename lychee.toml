@@ -115,8 +115,8 @@ exclude = [
     "https://github.com/balena-io/docs/edit/master/pages/reference/supervisor/configuration-list/*"
     ]
 
-# Exclude URLs contained in a file from checking
-exclude_file = []
+# Exclude these filesystem paths from getting checked.
+exclude_path = ["./build/img/", "./build/css/", "./build/favicon.png", "./build/dist/"]
 
 include = []
 
