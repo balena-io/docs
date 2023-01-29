@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update lychee to commit v1.5.4"
+      hash: bfef5f95f8f4df97afa19d6a6c23a634f9741ce8
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.11
+  title: ""
+  date: 2023-01-29T22:25:12.399Z
+- commits:
     - subject: Revise bandwidth reduction page with cellular measurements
       hash: d248e78ccfd1fcae6b8c85fdc4da590df4c41b58
       body: ""
