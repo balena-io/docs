@@ -10,10 +10,10 @@ FB_APP_ID = '221218511385682'
 DOMAIN = "https://#{process.env.DOMAIN || 'balena.io'}"
 
 MAIN_MENU_LINKS = [
-  {
-    "title": "What is balena?",
-    "link": "#{DOMAIN}/what-is-balena"
-  },
+  # {
+  #   "title": "What is balena?",
+  #   "link": "#{DOMAIN}/what-is-balena"
+  # },
   {
     "title": "Forums",
     "link": "https://forums.balena.io"
