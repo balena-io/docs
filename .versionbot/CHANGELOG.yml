@@ -1,4 +1,18 @@
 - commits:
+    - subject: Updated Billing Docs With Credits
+      hash: e9ac2202d88ca84c62d2ccb3342deccee83c102c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+        signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+      author: Ryan H
+      nested: []
+  version: 5.48.12
+  title: ""
+  date: 2023-01-30T10:41:51.746Z
+- commits:
     - subject: "patch: Update lychee to commit v1.5.4"
       hash: bfef5f95f8f4df97afa19d6a6c23a634f9741ce8
       body: ""
