@@ -24,6 +24,8 @@ When you're ready to bring your application from one device to an entire fleet, 
 
 Check here for details on all the tools we provide for managing your device fleet, including configuration, variables, SSH access, and checking device logs all from the dashboard.
 
+Checkout our [public roadmap](https://roadmap.balena.io) for features being worked on by the team & be sure to add new features that you want.
+
 ## Masterclasses & balenaHub
 
 To gain mastery in various products and workflows supported by {{ $names.company.lower }}, head on over to [{{ $names.company.lower }} Masterclasses][masterclass] and checkout out projects made by the team on [balenaHub][hub]. 
