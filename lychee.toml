@@ -103,6 +103,7 @@ exclude = [
     ".balenadevice.io",
     "https://index.docker.io/v1/",
     "http://api.resin.io",
+    "http://api/",
     ".local",
     "http://backend:1234",
     "http:/%25s:%25s",
@@ -112,6 +113,7 @@ exclude = [
     "https://bob:secret@proxy.company.com:12345",
     "https://github.com/balena-io/balena-cli/releases/download/*",
     "file://*",
+    "system@*",
     "https://github.com/balena-io/docs/edit/master/pages/reference/supervisor/configuration-list/*"
     ]
 

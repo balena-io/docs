@@ -37,7 +37,7 @@ cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Network debugg
 
 cd pages/reference/OS && $SCRIPT_DIR/extract-markdown.sh "Configuring balenaOS" <configuration.md >configuration-partial.md && mv configuration-partial.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Working with the Supervisor" <debugging-supervisor.md >supervisor.md && mv supervisor.md $masterclass_path/debugging/ &
+cd pages/reference/supervisor && $SCRIPT_DIR/extract-markdown.sh "Working with the Supervisor" <debugging-supervisor.md >supervisor.md && mv supervisor.md $masterclass_path/debugging/ &
 
 cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Working with balenaEngine" <debugging-engine.md >engine.md && mv engine.md $masterclass_path/debugging/ &
 
@@ -48,9 +48,6 @@ cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Journal Logs" <
 cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Using the Kernel Logs" <debugging-balenaos.md >kernel-logs.md && mv kernel-logs.md $masterclass_path/debugging/ &
 
 cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Storage Media Debugging" <debugging-storage-media.md >storage-media.md && mv storage-media.md $masterclass_path/debugging/ &
-
-
-
 
 
 

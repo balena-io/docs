@@ -7,8 +7,9 @@
 * **[Optional]** A [2A micro USB power supply][psu].
 * A [{{ $names.company.lower }} account][link-to-signup].
 
-[device]:{{ $device.link }}
 [psu]:https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [supportedDevicesList]:/reference/hardware/devices/
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
+
+[device]:{{ $device.link }}

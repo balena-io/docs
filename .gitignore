@@ -19,8 +19,11 @@ pages/reference/sdk/node-sdk.md
 pages/reference/sdk/python-sdk.md
 pages/reference/supervisor/supervisor-api.md
 pages/reference/supervisor/upgrade-policy.md
+pages/reference/supervisor/debugging-supervisor.md
 pages/learn/deploy/release-strategy/update-locking.md
 pages/reference/diagnostics.md
+pages/reference/device-diagnostics.md
+pages/reference/supervisor-state.md
 pages/learn/more/masterclasses/cli-masterclass.md
 pages/learn/more/masterclasses/advanced-cli.md
 pages/learn/more/masterclasses/host-os-masterclass.md
@@ -33,3 +36,6 @@ pages/reference/OS/customer-board-support.md
 
 # Ignore dynamic docs created for masterclasses
 shared/masterclass
+
+# Curl error output
+output
