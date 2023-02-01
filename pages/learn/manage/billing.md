@@ -48,7 +48,7 @@ At the bottom of this page, you'll find more information on the available [plans
 
 To enable customers to drive down their device usage costs, balena has enabled a system known as "credits". A credit is a pre-purchased unit that corresponds to the usage of one Microservices device exceeding plan allowance for one month. Any unused credits would be used before a dynamic charge is initiated at the end of your monthly billing cycle.
 
-The discount premise is simple—the greater your volume in a single purchase, the lower your per-credit cost will be. The discount computation also takes into account the previously purchased and unused credits. Credit purchases of any size will result in paying less for device usage on the platform. To estimate credit pricing at different volumes, head over to the [Paying With Credits](https://www.balena.io/pricing/#devices).
+The discount premise is simple—the greater your volume in a single purchase, the lower your per-credit cost will be. The discount computation also takes into account the previously purchased and unused credits. Credit purchases of any size will result in paying less for device usage on the platform. To estimate credit pricing at different volumes, head over to the [Paying With Credits](https://www.balena.io/pricing/#devices) section of our pricing page.
 
 This system is available to all non-Prototype customers. Our Pilot, Production, and Enterprise customers have full access to credit discounts by paying in advance for device usage for any volume.
 
