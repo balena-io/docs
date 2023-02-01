@@ -1,4 +1,28 @@
 - commits:
+    - subject: Fixed text
+      hash: ec86c68113142bd7cecd370c8194f650e61d213a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+        signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+      author: Ryan H
+      nested: []
+    - subject: Credit calc label tweak
+      hash: ad3ae710dc9f43113e3ecfffb8c0c0eabfcfdf2b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+        signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+      author: Ryan H
+      nested: []
+  version: 5.48.15
+  title: ""
+  date: 2023-02-01T19:28:52.204Z
+- commits:
     - subject: Added more context/terms for Credits
       hash: 5629dca6aa2207c5afb485de20a7d209c2da4b53
       body: ""
