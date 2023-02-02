@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Patch links in masterclasses"
+      hash: ba395c623bbce1225c305f063d398f4ec87b4a1f
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.16
+  title: ""
+  date: 2023-02-02T17:53:23.242Z
+- commits:
     - subject: Fixed text
       hash: ec86c68113142bd7cecd370c8194f650e61d213a
       body: ""
