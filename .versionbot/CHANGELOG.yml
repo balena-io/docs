@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: add good-first-issue tag to Link Checker issues"
+      hash: d81b3bc0b72ab8a52f4d0be10a9e8083aa769a5e
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 5.48.17
+  title: ""
+  date: 2023-02-07T07:46:23.078Z
+- commits:
     - subject: "patch: Patch links in masterclasses"
       hash: ba395c623bbce1225c305f063d398f4ec87b4a1f
       body: ""
