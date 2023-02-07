@@ -51,4 +51,4 @@ jobs:
         with:
           title: Link Checker Report
           content-filepath: ./lychee/out.md
-          labels: report, automated issue
+          labels: good-first-issue, automated issue
