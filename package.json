@@ -43,7 +43,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "cspell": "^6.19.2",
+    "cspell": "^6.22.0",
     "css-loader": "5.2.7",
     "file-loader": "6.2.0",
     "mini-css-extract-plugin": "^1.6.2",
@@ -52,7 +52,7 @@
     "watch": "^1.0.2",
     "webpack": "5.75.0",
     "webpack-cli": "^4.10.0",
-    "wrangler": "^2.8.1"
+    "wrangler": "^2.9.0"
   },
   "versionist": {
     "publishedAt": "2023-02-07T07:46:24.140Z"
