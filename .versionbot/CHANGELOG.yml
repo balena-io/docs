@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update introduction page with links"
+      hash: bf84d63385cc5dc69bf87841bcceaf15a13e39d9
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.18
+  title: ""
+  date: 2023-02-12T07:08:20.426Z
+- commits:
     - subject: "patch: add good-first-issue tag to Link Checker issues"
       hash: d81b3bc0b72ab8a52f4d0be10a9e8083aa769a5e
       body: ""
