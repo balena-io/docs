@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update latest base images versions
+      hash: aa23e9373dfd20d586d9c7f41670343d3a9082d8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+        signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+      author: Trong Nghia Nguyen
+      nested: []
+  version: 5.48.19
+  title: ""
+  date: 2023-02-13T10:32:45.248Z
+- commits:
     - subject: "patch: Update introduction page with links"
       hash: bf84d63385cc5dc69bf87841bcceaf15a13e39d9
       body: ""
