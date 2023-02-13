@@ -1,4 +1,18 @@
 - commits:
+    - subject: Updated fleet type docs for sunset
+      hash: f541fdbc31b71565ee230dbf67bb2867148b3f24
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+        signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+      author: Ryan H
+      nested: []
+  version: 5.48.20
+  title: ""
+  date: 2023-02-13T18:57:37.361Z
+- commits:
     - subject: Update latest base images versions
       hash: aa23e9373dfd20d586d9c7f41670343d3a9082d8
       body: ""
