@@ -1,17 +1,16 @@
 name: Flowzone
-
 on:
   pull_request:
     types: [opened, synchronize, closed]
     branches:
       - "main"
       - "master"
-
 jobs:
   flowzone:
     name: Flowzone
-    uses: product-os/flowzone/.github/workflows/flowzone.yml@master
+    uses: product-os/flowzone/.github/workflows/flowzone.yml@a6308aacc49221715c268471725d59fc4b41bccf # 4165749304-1
     secrets: inherit
     with:
       cloudflare_website: "balenacloud-docs"
       docusaurus_website: false
+      protect_branch: false
