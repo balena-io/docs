@@ -1,4 +1,18 @@
 - commits:
+    - subject: Removed upgrade section
+      hash: dd22fd8d769a37f9552693803bec784c2c878b2d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+        signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+      author: Ryan H
+      nested: []
+  version: 5.48.21
+  title: ""
+  date: 2023-02-13T19:16:38.919Z
+- commits:
     - subject: Updated fleet type docs for sunset
       hash: f541fdbc31b71565ee230dbf67bb2867148b3f24
       body: ""
