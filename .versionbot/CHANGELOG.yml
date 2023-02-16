@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Run Flowzone on schedule to deploy docs daily"
+      hash: 519a18a136fdfa342cbfd07b0d08883f67c86445
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 5.48.22
+  title: ""
+  date: 2023-02-16T16:16:33.471Z
+- commits:
     - subject: Removed upgrade section
       hash: dd22fd8d769a37f9552693803bec784c2c878b2d
       body: ""
