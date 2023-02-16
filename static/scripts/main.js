@@ -154,3 +154,13 @@ if ($dynamicSwitch.length) {
     location.href = populateTemplate(urlTemplate, getDynamicContext())
   })
 }
+
+const {getSdk} = require('balena-sdk')
+
+const balena = getSdk({
+  apiUrl: "https://api.balena-cloud.com/",
+  dataDirectory: "/opt/local/balena"
+});
+
+console.log(balena.models.deviceType.getInstructions('raspberrypi3'))
+
