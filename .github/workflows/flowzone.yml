@@ -1,6 +1,9 @@
 name: Flowzone
 
 on:
+  # Meant to deploy docs to Cloudflare Pages once each day
+  schedule:
+    - cron: "0 0 * * *"
   pull_request:
     types: [opened, synchronize, closed]
     branches:
