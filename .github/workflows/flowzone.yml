@@ -1,5 +1,4 @@
 name: Flowzone
-
 on:
   # Meant to deploy docs to Cloudflare Pages once each day
   schedule:
@@ -9,12 +8,12 @@ on:
     branches:
       - "main"
       - "master"
-
 jobs:
   flowzone:
     name: Flowzone
-    uses: product-os/flowzone/.github/workflows/flowzone.yml@master
+    uses: product-os/flowzone/.github/workflows/flowzone.yml@47011f206189a68a1a956554d3c5f8c4813e0967 # 4199668598-1
     secrets: inherit
     with:
       cloudflare_website: "balenacloud-docs"
       docusaurus_website: false
+      protect_branch: false
