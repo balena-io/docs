@@ -1,0 +1,29 @@
+name: Daily deploy to CF Pages
+
+on:
+  # Deploy once every day
+  schedule:
+    - cron: "0 0 * * *"
+
+
+jobs:
+  deploy-cloudflare-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
+        with:
+          node-version: 18
+      
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build docs
+        uses: npm run deploy-docs --if-present
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@4c10c1822abba527d820b29e6333e7f5dac2cabd # 2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages publish --branch master --project-name=balenacloud-docs build/ >> $GITHUB_STEP_SUMMARY
