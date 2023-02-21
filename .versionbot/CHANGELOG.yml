@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix error with uses attribute"
+      hash: 3559dc13254be3ca00be9b8a572df23d3550d25b
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.48.24
+  title: ""
+  date: 2023-02-21T11:11:34.141Z
+- commits:
     - subject: "patch: Deploy daily to Cloudflare using custom action"
       hash: 1526d24b12fb425feb82beee4e290987dd76240f
       body: ""
