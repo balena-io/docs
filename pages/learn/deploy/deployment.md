@@ -185,7 +185,7 @@ In the case where the `--emulated` flag is used, the build is built on an `x86_6
 
 If you push a project with only a `Dockerfile`, `Dockerfile.template`, or `package.json` file, a single container image will be built and deployed to your device. The single container will show up on the device dashboard as a service with the name `main`.
 
-For [multicontainer][multicontainer] fleets (Microservices and Starter [fleet types][app-types]), a `docker-compose.yml` file at the root of the project directory will start multiple simultaneous image builds, each with their own [build logs](#release-logs).
+For [multicontainer][multicontainer] fleets (Microservices [fleet types][app-types]), a `docker-compose.yml` file at the root of the project directory will start multiple simultaneous image builds, each with their own [build logs](#release-logs).
 
 ## View Past Deployments
 

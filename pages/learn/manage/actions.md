@@ -96,7 +96,7 @@ Turning on local mode is useful when you are prototyping your services, as it al
 
 ### Deactivate Device
 
-This setting will [deactivate the device][inactive-devices] and charge a one-time deactivation fee. To deactivate, the device must be offline, not be part of a Starter fleet, and be attached to a valid billing account.
+This setting will [deactivate the device][inactive-devices] and charge a one-time deactivation fee. To deactivate, the device must be offline and be attached to a valid billing account.
 
 ### Grant Support Access
 
@@ -112,7 +112,7 @@ This option allows you to convert your fleet to [another type][fleet-types], as 
 
 ### Rename Fleet
 
-This operation allows you to rename your fleet. This operation is only available for new [fleet types][fleet-types] such as `Starter`, `Microservices` or `Essentials`. It's not currently possible to rename `Legacy` or `Classic` fleets, you will first need to upgrade your fleet type.
+This operation allows you to rename your fleet. This operation is only available `Microservices` and `Essentials` [fleet types][fleet-types]. It's not currently possible to rename `Legacy` or `Classic` fleets, you will first need to upgrade your fleet type.
 
 ### Transfer Fleet Ownership
 
