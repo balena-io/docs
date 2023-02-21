@@ -20,7 +20,6 @@ Existing fleets can be converted to Microservices, as long as all devices belong
 
 To convert your fleet, first be sure all devices meet the {{ $names.os.lower }} version requirements for the desired fleet type, [updating][update] if necessary. Then, from the fleet summary page, click *Settings*, and scroll down to the *Fleet type* section. Select the fleet type you would like to convert to from the dropdown. If your fleet cannot be converted to the selected type, you will see it marked as unavailable.
 
-[pricing]:{{ $links.mainSiteUrl }}/pricing/
 [multicontainer]:/learn/develop/multicontainer
 [public-url]:/learn/manage/actions/#enable-public-device-url
 [update]:/reference/OS/updates/self-service

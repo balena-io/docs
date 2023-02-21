@@ -81,7 +81,7 @@ Operators have all the access given to observers, plus the ability to manage a f
 
 #### Developer
 
-Developers are given, in addition to the access provided to operators, the ability to manage fleet software. This includes creating new releases, modifying fleet variables, and downloading balenaOS images. This role is the closest to a fleet owner—developers can do everything owners can except for deleting the fleet or adding new members. The Developer role can be assigned by fleet owners on free or paid accounts, and it is the only role available for [Starter][starter] fleets.
+Developers are given, in addition to the access provided to operators, the ability to manage fleet software. This includes creating new releases, modifying fleet variables, and downloading balenaOS images. This role is the closest to a fleet owner—developers can do everything owners can except for deleting the fleet or adding new members. The Developer role can be assigned by fleet owners on free or paid accounts.
 
 ### Add a fleet member
 
@@ -166,7 +166,6 @@ If you wish to delete your {{ $names.cloud.lower }} account, go to your [_Prefer
 ![Delete {{ $names.company.lower }} Account](/img/screenshots/delete-balena-account.png)
 
 [ssh]:/learn/manage/ssh-access
-[starter]:/learn/manage/app-types#starter
 [administrator]: /learn/manage/organizations/#managing-roles--access-in-an-organization
 [device-actions]:/learn/manage/actions
 [fleet-actions]:/learn/manage/actions/#fleet-specific-actions
