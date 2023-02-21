@@ -1,4 +1,18 @@
 - commits:
+    - subject: updates to prep for Pricing changes
+      hash: abf83fd42c33634adb049c48e6ddc34137e80030
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+        signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+      author: Ryan H
+      nested: []
+  version: 5.48.25
+  title: ""
+  date: 2023-02-21T14:53:29.790Z
+- commits:
     - subject: "patch: Fix error with uses attribute"
       hash: 3559dc13254be3ca00be9b8a572df23d3550d25b
       body: ""
