@@ -93,7 +93,11 @@ Learn
 
 FAQ
   [/faq/troubleshooting/faq]
-  [/faq/troubleshooting/troubleshooting]
+  # Handled in redirects.txt
+  Troubleshooting[/faq/troubleshooting/troubleshooting]
+    # with $device being dynamic
+    Troubleshooting for {{ $device.name }}[/faq/troubleshooting/troubleshooting/$device]
+
 
 Reference
 
