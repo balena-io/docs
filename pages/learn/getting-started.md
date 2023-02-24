@@ -65,8 +65,15 @@ Finally, click the **Download {{ $names.os.lower }}** button. When the download 
 ## Provision device
 
 <!-- This section is heavily customized based on the device -->
-{{import "getting-started/getDeviceOnDash"}}
 
+Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
+
+<!-- Loop through device instructions-->
+{{#$device.instructions}}
+{{this}}<br>
+{{/$device.instructions}}
+
+When complete, after a minute or two the device should appear on your {{$names.cloud.lower}} [dashboard]({{ $links.dashboardUrl }}), and you should now be ready to deploy some code! If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. Check out our [troubleshooting guide for {{ $device.name }}][troubleshooting-{{ $device.id }}] for more information.
 
 ## Install the {{ $names.cli.lower }}
 
@@ -272,7 +279,6 @@ When it's finished building the device(s) will update as before. Remember anythi
 [supported-devices]:/reference/hardware/devices/
 [terminal]:/learn/manage/ssh-access
 [token]:/learn/manage/account/#access-tokens
-[troubleshooting]:/faq/troubleshooting/troubleshooting/
 [variables]:/learn/manage/variables/
 
 
@@ -280,3 +286,7 @@ When it's finished building the device(s) will update as before. Remember anythi
 
 [balena-{{ $language.id }}-hello-world]:{{ $links.githubExamples }}/balena-{{ $language.id }}-hello-world
 [github-download-{{ $language.id }}]:{{ $links.githubExamples }}/balena-{{ $language.id }}-hello-world/archive/master.zip
+
+<!-- Provison device links -->
+
+[troubleshooting-{{ $device.id }}]:/faq/troubleshooting/troubleshooting/{{ $device.id }}
