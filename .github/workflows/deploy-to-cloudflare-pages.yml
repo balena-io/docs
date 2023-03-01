@@ -27,4 +27,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages publish --branch master --project-name=balenacloud-docs build/ >> $GITHUB_STEP_SUMMARY
+          wranglerVersion: '2.12.0' # latest - https://www.npmjs.com/package/wrangler
+          preCommands: wrangler --version
+          command: pages publish --branch ${{ env.CF_BRANCH }} --project-name=${{ inputs.cloudflare_website }} build/ | tee -a $GITHUB_STEP_SUMMARY
