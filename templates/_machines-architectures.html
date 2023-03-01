@@ -1,0 +1,42 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  (function () {
+    window.jQuery
+      .ajax({
+        url: "https://api.balena-cloud.com/v6/device_type?$select=name,slug&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false))%20and%20not(contains(idfa/app_name,%27esr%27)))&$orderby=name%20asc"
+      })
+      .done(function (deviceTypes) {
+        var table = _(deviceTypes.d)
+          .reduce(function (acc, deviceType) {
+            var tableCell;
+            if (deviceType.is_of__cpu_architecture[0].slug === "rpi") {
+              deviceType.is_of__cpu_architecture[0].slug = "armv6hf";
+            }
+            tableCell =
+              "<tr> <td>" +
+              deviceType.name +
+              "</td> <td>" +
+              deviceType.slug +
+              "</td> <td>" +
+              deviceType.is_of__cpu_architecture[0].slug +
+              "</td> <td>" +
+              '<a href="' + "{{ $links.githubBaseImages }}/" + deviceType.slug + '">' +
+              "Link </a>" +
+              "</td></tr>";
+            return acc + tableCell;
+          }, "");
+
+        return window.jQuery("#machines_architectures").append(table);
+      })
+      .fail(function (error) {
+        console.error(error);
+        return window
+          .jQuery("#machines_architectures")
+          .append(
+            '<tr><td colspan="4">Something went wrong.</td></tr>'
+          );
+      });
+
+  }.call(this));
+
+</script>
