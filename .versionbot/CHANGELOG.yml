@@ -1,4 +1,18 @@
 - commits:
+    - subject: Added 24 hour credit note
+      hash: 6b669bb934d810a659fb110282bb2738a685d328
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+        signed-off-by: Ryan Hampton (@rhampt) <rhampt@balena.io>
+      author: Ryan H
+      nested: []
+  version: 5.49.2
+  title: ""
+  date: 2023-03-01T17:45:37.076Z
+- commits:
     - subject: "patch: Install latest wrangler version"
       hash: 48dc2c6e5e54988f68189212652366b750be304d
       body: ""
