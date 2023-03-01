@@ -56,7 +56,7 @@ To manage credits, navigate to the organization and select the `Credits` tab fro
 
 On the Credits page, you're able to see credit purchase history and the number of credits that have been purchased and are still allocatable for device usage. This is also where you can initiate credit purchases. An invoice will be automatically generated and listed on the Billing page when a credit purchase is initiated.
 
-__Note:__ Unused credits will expire 10 years after the date of purchase. If there is no activity for 2 years we may at our discretion cancel any outstanding credits and will provide 60 days notice to the customer of our intention to do so. Credit purchases are non-refundable and cannot be refunded due to project or plan cancellation. Credits are also non-transferrable between organizations. Credits only apply to `Microservices` [fleet types][fleet-types].
+__Note:__ Unused credits will expire 10 years after the date of purchase. If there is no activity for 2 years we may at our discretion cancel any outstanding credits and will provide 60 days notice to the customer of our intention to do so. Credit purchases are non-refundable and cannot be refunded due to project or plan cancellation. Credits are also non-transferrable between organizations. Credits only apply to `Microservices` [fleet types][fleet-types] and must be purchased at least 24 hours before your monthly billing renewal date.
 
 ## Dynamic billing
 
