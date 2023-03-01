@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Install latest wrangler version"
+      hash: 48dc2c6e5e54988f68189212652366b750be304d
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.49.1
+  title: ""
+  date: 2023-03-01T07:07:31.116Z
+- commits:
     - subject: "minor: Convert to device-type specific troubleshooting"
       hash: 818880d2252e76e3b79d5c574f0d6b1c55c649ea
       body: ""
