@@ -1,7 +1,5 @@
 ---
 title: Machine names and architectures
+layout: machines-architectures.html
+extras: machines-architectures-js
 ---
-
-# Machine names and architectures
-
-All machine names and architectures are now available on [balenaHub](https://hub.balena.io/device-types)!
