@@ -1,4 +1,16 @@
 - commits:
+    - subject: "minor: Add Supported Device Type list"
+      hash: 306591152b95c1b505b645af5d568a95ea81fcf5
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.50.0
+  title: ""
+  date: 2023-03-02T05:43:16.222Z
+- commits:
     - subject: Added 24 hour credit note
       hash: 6b669bb934d810a659fb110282bb2738a685d328
       body: ""
