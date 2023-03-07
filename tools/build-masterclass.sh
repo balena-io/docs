@@ -33,7 +33,7 @@ cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Accessing a De
 
 cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Device Logs" <device-logs.md >device-logs-partial.md && mv device-logs-partial.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Network debugging" <debugging-network.md >network.md && mv network.md $masterclass_path/debugging/ &
+cd pages/learn/more/masterclasses/ && $SCRIPT_DIR/extract-markdown.sh "Network debugging" <network-masterclass.md >network.md && mv network.md $masterclass_path/debugging/ &
 
 cd pages/reference/OS && $SCRIPT_DIR/extract-markdown.sh "Configuring balenaOS" <configuration.md >configuration-partial.md && mv configuration-partial.md $masterclass_path/debugging/ &
 
@@ -43,12 +43,10 @@ cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Working with ba
 
 cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Device Connectivty states" <device-statuses.md >device-connectivity.md && mv device-connectivity.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Journal Logs" <debugging-balenaos.md >journal-logs.md && mv journal-logs.md $masterclass_path/debugging/ &
+cd pages/reference/OS && $SCRIPT_DIR/extract-markdown.sh "Journal Logs" <debugging-balenaos.md >journal-logs.md && mv journal-logs.md $masterclass_path/debugging/ &
 
-cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Using the Kernel Logs" <debugging-balenaos.md >kernel-logs.md && mv kernel-logs.md $masterclass_path/debugging/ &
+cd pages/reference/OS && $SCRIPT_DIR/extract-markdown.sh "Using the Kernel Logs" <debugging-balenaos.md >kernel-logs.md && mv kernel-logs.md $masterclass_path/debugging/ &
 
 cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Storage Media Debugging" <debugging-storage-media.md >storage-media.md && mv storage-media.md $masterclass_path/debugging/ &
-
-
 
 wait

@@ -16,6 +16,7 @@ artik
 aspnet
 assets
 Asus
+ASYNCDNS
 aufs
 Authy
 autoconnect
@@ -43,6 +44,7 @@ bblayers
 beagleboard
 Beaglebone
 blkio
+blocklists
 blox
 Bluemix
 bluez
@@ -76,6 +78,7 @@ ciphersuite
 client
 cloudiotcore
 Cloudlink
+CMDMON
 colorbox
 colorette
 composeyml
@@ -144,6 +147,7 @@ fdtfile
 filenamify
 finalhandler
 fincm
+firewalled
 firmwares
 fkms
 flashall
@@ -166,6 +170,7 @@ harddisk
 Hardkernel
 healthcheck
 healthchecks
+healthdog
 highspeed
 HKAH
 homeassistant
@@ -176,6 +181,7 @@ Hotspot
 hotswap
 hugepages
 hummingboard
+HWADDR
 hyperpixel
 icss
 idfa
@@ -240,6 +246,7 @@ mynewhostname
 myorg
 myproxy
 myregistryuser
+nameservices
 nanopc
 nanopi
 NDJSON
@@ -257,6 +264,7 @@ nuctest
 OCPDIR
 Octalbonescript
 odroid
+onlookupall
 opencollective
 openembedded
 openrc
@@ -281,6 +289,7 @@ preconfigured
 prefixoid
 preinstall
 printenv
+PRIVDROP
 promtail
 pseudomap
 publicurl
@@ -294,8 +303,10 @@ ralink
 randomatic
 raspberrypi
 RAWIO
+RCSI
 rechoir
 redsocks
+REFCLOCK
 reflashed
 reflashing
 reinterpolate
@@ -319,12 +330,15 @@ rwxr
 sandboxing
 SATA
 SCESU
+SCFILTER
 SDCARD
 sdjournal
 sdram
+SECHASH
 secretpassword
 selectpicker
 serivce
+SIGND
 signup
 sindresorhus
 someservice
@@ -332,6 +346,7 @@ Spacely
 sshkeys
 ssid
 Standardise
+statem
 striptags
 subshell
 successful
@@ -348,6 +363,7 @@ Technologic
 tegra
 templatesettings
 timedate
+timesetting
 timestampd
 timesyncd
 timsort
@@ -379,6 +395,7 @@ unyield
 updatability
 updateable
 upgradability
+upscript
 usbboot
 usbutils
 userns
