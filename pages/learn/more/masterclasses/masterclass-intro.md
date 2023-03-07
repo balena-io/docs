@@ -18,3 +18,4 @@ Currently, the following masterclasses are available:
 * [{{ $names.company.upper }} debugging masterclass](/learn/more/masterclasses/device-debugging/) - a guide to debugging {{ $names.company.lower }} device issues.
 * [Docker masterclass](/learn/more/masterclasses/docker-masterclass/) - a guide covering the basics of Docker.
 * [Services masterclass](/learn/more/masterclasses/services-masterclass/) - a guide to developing and deploying services on a {{ $names.company.lower }} device.
+* [Network masterclass](/learn/more/masterclasses/network-masterclass/) - A standalone debugging guide to debugging network for a {{ $names.company.lower }} device.
