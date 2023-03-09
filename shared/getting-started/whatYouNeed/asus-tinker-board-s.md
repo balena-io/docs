@@ -6,5 +6,5 @@
 * **[Optional]** An ethernet cable.
 * A [{{ $names.company.lower }} account][link-to-signup].
 
-[supportedDevicesList]:/reference/hardware/devices/
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
+[supportedDevicesList]:/reference/hardware/devices/

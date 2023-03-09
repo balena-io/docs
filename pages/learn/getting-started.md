@@ -13,19 +13,19 @@ dynamic:
 
 In this guide we'll cover:
 
-- Setting up your **{{ $device.name }}** device and bringing it online on the {{ $names.cloud.lower }} dashboard
-- Deploying a **{{ $language.name }}** hello-world project on the device
-- Developing the sample project: making changes and testing them on the device in real-time
+- Setting up your **{{ $device.name }}** device and bringing it online on the {{ $names.cloud.lower }} dashboard.
+- Deploying a **{{ $language.name }}** hello-world project on the device.
+- Developing the sample project: making changes and testing them on the device in real-time.
 
-Once you've completed this guide you'll be equipped with the fundamentals needed to continue developing your application using {{ $names.cloud.lower }} and be on the path to deploying fleets of devices to production.
+Once you've completed this guide you'll be equipped with the fundamentals needed to continue developing your application using {{ $names.cloud.lower }} and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary][balena-glossary].
+
 
 ## What you'll need
 
 {{import "getting-started/whatYouNeed"}}
 
-## Create a fleet 
 
-If you don't already have a {{ $names.company.lower }} account, make sure to [sign up][link-to-signup] before continuing.
+## Create a fleet 
 
 A fleet is a group of devices that share the same [architecture][architecture] and run the same code. Devices are added to fleets and can be moved between fleets at any time.
 
@@ -47,7 +47,7 @@ You'll then be redirected to the summary of the newly created fleet, where you c
 
 <img alt="Add a device" src="/img/getting-started/fleet-view.png" width="100%">
 
-To connect with {{ $names.cloud.lower }}, your **{{ $device.name }}** needs a {{ $names.os.lower }} image configured for your device type, fleet, and network. Start by clicking *Add device* in your fleet dashboard:
+{{ $names.cloud.lower }} builds a custom {{ $names.os.lower }} image configured for {{ $device.name }} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture][architecture] can also be picked to join the fleet.
 
 <img alt="Add new device" src="/img/getting-started/add-device.png" width="80%">
 
@@ -73,7 +73,10 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 {{this}}<br>
 {{/$device.instructions}}
 
-When complete, after a minute or two the device should appear on your {{$names.cloud.lower}} [dashboard]({{ $links.dashboardUrl }}), and you should now be ready to deploy some code! If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. Check out our [troubleshooting guide for {{ $device.name }}][troubleshooting-{{ $device.id }}] for more information.
+When complete, after a minute or two the device should appear on your {{$names.cloud.lower}} [dashboard]({{ $links.dashboardUrl }}), and you should now be ready to deploy some code! 
+
+If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for {{ $device.name }}][troubleshooting-{{ $device.id }}] or try our [support channels][support].
+
 
 ## Install the {{ $names.cli.lower }}
 
@@ -108,6 +111,7 @@ successful message appears.
 
 <img alt="Web authorization" src="/img/common/cli/web_authorization.png" width="70%">
 
+
 ## Create a release
 
 After login, test the {{ $names.cli.lower }} by running the `{{ $names.company.lower }} fleets` command, which should return information about the fleet you created in the previous step. Take a note of the `FLEET NAME` as you'll need this in the next step to push the code to your device(s) in that fleet.
@@ -123,8 +127,7 @@ It's a {{ $language.name }} web server that serves a static page on port 80. To 
 as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 
 To create a release, use the `{{ $names.company.lower }} push First-Fleet` command replacing 
-`First-Fleet` with the name of your fleet. Ensure you are working from the root of the extracted 
-project directory.
+`First-Fleet` with the name of your fleet. Ensure you are working from the root of the extracted project directory.
 
 ```shell
 $ {{ $names.company.lower }} push First-Fleet
@@ -226,7 +229,6 @@ The {{ $names.cli.lower }} will now watch for changes to all the files within th
 [Live]    Detected changes for container hello-world, updating...
 
 ...
-
 [Live]    [hello-world] Restarting service...
 [Logs]    [8/26/2021, 11:59:01 AM, 2:42:32 AM] Service exited 'hello-world sha256:...'
 [Logs]    [8/26/2021, 11:59:04 AM, 2:42:35 AM] Restarting service 'hello-world sha256:...'
@@ -280,7 +282,7 @@ When it's finished building the device(s) will update as before. Remember anythi
 [terminal]:/learn/manage/ssh-access
 [token]:/learn/manage/account/#access-tokens
 [variables]:/learn/manage/variables/
-
+[balena-glossary]:/learn/more/glossary/
 
 <!-- Language related links -->
 
