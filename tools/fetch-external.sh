@@ -16,7 +16,7 @@ curl --fail --show-error -o pages/reference/balena-cli.md -L https://github.com/
 # curl --fail --show-error -o pages/reference/engine/debugging-balenaengine.md -L https://github.com/balena-os/balena-supervisor/raw/master/balena-docs/debugging-engine.md &
 
 # diagnostics
-curl --fail --show-error -o pages/reference/supervisor-diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/supervisor-state.md &
+curl --fail --show-error -o pages/reference/supervisor-state.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/supervisor-state.md &
 curl --fail --show-error -o pages/reference/device-diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/device-diagnostics.md &
 curl --fail --show-error -o pages/reference/diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/diagnostics.md &
 
@@ -47,10 +47,13 @@ cd shared/meta-balena/ && {
 } &
 
 # get meta-balena rollbacks docs
-curl --fail --show-error -o pages/reference/OS/updates/rollbacks.md -L https://raw.githubusercontent.com/balena-os/meta-balena/master/docs/rollbacks.md
+curl --fail --show-error -o pages/reference/OS/updates/rollbacks.md -L https://raw.githubusercontent.com/balena-os/meta-balena/master/docs/rollbacks.md &
 
 # get latest custom board support docs
 curl --fail --show-error -o pages/reference/OS/customer-board-support.md -L https://github.com/balena-os/meta-balena/raw/master/contributing-device-support.md &
+
+# get latest balenaOS debugging docs
+curl --fail --show-error -o pages/reference/OS/debugging-balenaos.md -L https://github.com/balena-os/meta-balena/raw/master/docs/debugging-balenaos.md &
 
 
 # Masterclasses

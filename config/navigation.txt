@@ -88,6 +88,7 @@ Learn
       Services[/learn/more/masterclasses/services-masterclass]
       Fleet management[/learn/more/masterclasses/fleet-management]
       Device debugging[/learn/more/masterclasses/device-debugging]
+      Network[/learn/more/masterclasses/network-masterclass]
       Docker[/learn/more/masterclasses/docker-masterclass]
     [/learn/more/anti-patterns]
 
@@ -97,10 +98,11 @@ FAQ
   Troubleshooting[/faq/troubleshooting/troubleshooting]
     # with $device being dynamic
     Troubleshooting for {{ $device.name }}[/faq/troubleshooting/troubleshooting/$device]
+  [/faq/troubleshooting/debugging-device-gateway]
+  [/faq/troubleshooting/debugging-storage-media]
 
 
 Reference
-
   Supported devices
     [/reference/hardware/versioning]
     [/reference/hardware/devices]
