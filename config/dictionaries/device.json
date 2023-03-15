@@ -1138,69 +1138,6 @@
     ]
   },
   {
-    "id": "skx2",
-    "name": "SKX2",
-    "arch": "aarch64",
-    "bootMedia": "SD card",
-    "icon": "/img/device/skx2.svg",
-    "instructions": [
-      {
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
-      },
-      {
-        "i": "Insert the freshly burnt SD card into the SKX2."
-      },
-      {
-        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
-      },
-      {
-        "i": "Press and hold for 1 second the POWER push button."
-      },
-      {
-        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
-      },
-      {
-        "i": "Remove the balenaOS installation media."
-      },
-      {
-        "i": "Remove and re-connect power to the board."
-      }
-    ]
-  },
-  {
-    "id": "ts4900",
-    "name": "Technologic TS-4900",
-    "arch": "armv7hf",
-    "bootMedia": "SD card",
-    "icon": "/img/device/ts4900.svg",
-    "instructions": [
-      {
-        "i": "Write the OS file you downloaded to your SD card. We recommend using <a href=\"https://balena.io/etcher\">Etcher</a>."
-      },
-      {
-        "i": "Insert the freshly burnt SD card into the Technologic TS-4900."
-      },
-      {
-        "i": "<strong role=\"alert\">Warning!</strong> This will also completely erase internal storage media, so please make a backup first."
-      },
-      {
-        "i": "Enable the SD boot jumper present on your specific base board."
-      },
-      {
-        "i": "The device is performing a shutdown. Please wait until all LEDs are off."
-      },
-      {
-        "i": "Remove the balenaOS installation media."
-      },
-      {
-        "i": "Disable the SD boot jumper present on your specific base board."
-      },
-      {
-        "i": "Remove and re-connect power to the board."
-      }
-    ]
-  },
-  {
     "id": "up-board",
     "name": "UP Board",
     "arch": "amd64",
