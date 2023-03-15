@@ -236,6 +236,7 @@
 /learn/more/examples/seed-projects/ /learn/more/examples/labs-projects
 
 
+
 # Important: keep dynamic redirect below the static redirects
 # https://developers.cloudflare.com/pages/platform/redirects/
 # Dynamic redirects
@@ -248,6 +249,13 @@
 /reference/OS/overview/:version /reference/OS/overview/
 /reference/OS/network/:version/ /reference/OS/network/
 /reference/OS/network/:version /reference/OS/network/
+
+## Removed Getting Started guides
+
+/learn/getting-started/skx2/:language/ /learn/getting-started/raspberrypi3/:language/
+/learn/getting-started/skx2/:language /learn/getting-started/raspberrypi3/:language/
+/learn/getting-started/ts4900/:language/ /learn/getting-started/raspberrypi3/:language/
+/learn/getting-started/ts4900/:language /learn/getting-started/raspberrypi3/:language/
 
 ###############################################
 # Legacy Server Style Redirects
