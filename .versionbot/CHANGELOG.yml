@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Redirect deleted Getting Started guides"
+      hash: 26f2c9b17955c37998edc48f3841b2cb20d48691
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.50.2
+  title: ""
+  date: 2023-03-15T13:22:26.954Z
+- commits:
     - subject: "patch: Remove getting started guides for private device types"
       hash: f1580547abb3b2b16499770bd0028067c6494609
       body: ""
