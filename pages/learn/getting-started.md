@@ -289,6 +289,6 @@ When it's finished building the device(s) will update as before. Remember anythi
 [balena-{{ $language.id }}-hello-world]:{{ $links.githubExamples }}/balena-{{ $language.id }}-hello-world
 [github-download-{{ $language.id }}]:{{ $links.githubExamples }}/balena-{{ $language.id }}-hello-world/archive/master.zip
 
-<!-- Provison device links -->
+<!-- Provision device links -->
 
 [troubleshooting-{{ $device.id }}]:/faq/troubleshooting/troubleshooting/{{ $device.id }}

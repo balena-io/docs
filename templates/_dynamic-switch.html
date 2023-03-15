@@ -7,7 +7,7 @@
   {% for entry in dict %}
   <option value="{{ entry.id }}" {% if entry.id===currentValue%}selected{% endif %} data-content="
           {% if entry.icon %}
-            <img alt='' src='{{ entry.icon }}' class='dynamic-switch__select__icon'>
+            <img src='{{ entry.icon }}' class='dynamic-switch__select__icon'>
           {% endif %}
           {{ entry.name }}
           ">

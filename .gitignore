@@ -43,9 +43,5 @@ pages/reference/OS/debugging-balenaos.md
 # Ignore dynamic docs created for masterclasses
 shared/masterclass
 
-# Ignore getting started assets created dynamically
-static/img/device/**
-config/dictionaries/device.json
-
 # Curl error output
 output
