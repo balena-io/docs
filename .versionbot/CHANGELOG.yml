@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add Network Debugging Masterclass"
+      hash: 013b31474a6bd8f9ff8a532ac4281b2a4b3eb39e
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.50.3
+  title: ""
+  date: 2023-03-15T15:39:01.128Z
+- commits:
     - subject: "patch: Redirect deleted Getting Started guides"
       hash: 26f2c9b17955c37998edc48f3841b2cb20d48691
       body: ""
