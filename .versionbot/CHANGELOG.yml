@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Remove getting started guides for private device types"
+      hash: f1580547abb3b2b16499770bd0028067c6494609
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.50.1
+  title: ""
+  date: 2023-03-15T12:50:00.076Z
+- commits:
     - subject: "minor: Add Supported Device Type list"
       hash: 306591152b95c1b505b645af5d568a95ea81fcf5
       body: ""
