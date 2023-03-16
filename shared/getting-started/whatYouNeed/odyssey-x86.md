@@ -1,6 +1,6 @@
 <img height=150px style="float: right;padding-left: 10px;" src="/img/odyssey-x86/odyssey-x86.png">
 
-* An [Odyssey x86][board-link] board from Seeed.
+* An [Odyssey x86][board-link] board from Seeed. Check out our [supported devices list][supportedDevicesList].
 * A 4GB or larger USB thumb drive.
 * A [HDMI][hdmi-link] enabled LCD screen and HDMI cable.
 * A simple USB keyboard.
@@ -12,3 +12,4 @@
 [hdmi-link]:https://en.wikipedia.org/wiki/HDMI
 [wifi]:/reference/hardware/wifi-dongles/
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
+[supportedDevicesList]:/reference/hardware/devices/

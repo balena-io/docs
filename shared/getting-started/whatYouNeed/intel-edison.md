@@ -6,3 +6,6 @@
     - [Intel® Edison and Arduino Breakout Kit](https://www.sparkfun.com/products/13097)
     - [SparkFun Block for Intel® Edison](https://www.sparkfun.com/products/13045)
 * A micro-usb cable
+* A [{{ $names.company.lower }} account][link-to-signup].
+
+[link-to-signup]:{{ $links.dashboardUrl }}/signup

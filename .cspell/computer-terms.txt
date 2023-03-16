@@ -1,6 +1,8 @@
+
 AAAAB
 Adblocker
 Aetina
+ahci
 allwinner
 alsa
 alwaysai
@@ -160,6 +162,7 @@ gcloud
 genericx
 getrandom
 giffgaff
+gifs
 githubui
 gpio
 groff
@@ -195,6 +198,7 @@ initsystem
 Initsystem
 INITSYSTEM
 internetspeedtest
+ioboard
 iojs
 IPAM
 isexe
@@ -273,6 +277,7 @@ orangepi
 Orbitty
 otherboards
 overscan
+Owasys
 pageview
 parititon
 parseurl
@@ -302,6 +307,7 @@ Quectel
 ralink
 randomatic
 raspberrypi
+raspberrypicm
 RAWIO
 RCSI
 rechoir
@@ -323,6 +329,9 @@ retrun
 revpi
 rmmod
 roadmap
+rockpi
+rockpro
+Rocktech
 rollouts
 rulefilename
 ruuvitag
@@ -341,6 +350,7 @@ serivce
 SIGND
 signup
 sindresorhus
+smarc
 someservice
 Spacely
 sshkeys
@@ -359,6 +369,7 @@ tagkey
 tapable
 tarbz
 targz
+tdpzu
 Technologic
 tegra
 templatesettings
