@@ -1,4 +1,16 @@
 - commits:
+    - subject: "minor: Fully Automated Getting Started guides"
+      hash: b195560bb6761b02bb5a75b6ed4c6d68c618f264
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.51.0
+  title: ""
+  date: 2023-03-16T19:48:15.633Z
+- commits:
     - subject: "patch: Add Network Debugging Masterclass"
       hash: 013b31474a6bd8f9ff8a532ac4281b2a4b3eb39e
       body: ""
