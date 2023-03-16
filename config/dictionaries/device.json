@@ -5,18 +5,18 @@
     "arch": "aarch64",
     "icon": "/img/device/n510-tx2.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Aetina N510 TX2.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Aetina N510 TX2.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the Aetina N510 TX2 ",
-      "Wait for the Aetina N510 TX2 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Aetina N510 TX2.",
-      "Remove and re-connect power to the Aetina N510 TX2 to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the Aetina N510 TX2 ",
+      "- Wait for the Aetina N510 TX2 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Aetina N510 TX2.",
+      "- Remove and re-connect power to the Aetina N510 TX2 to boot the device."
     ]
   },
   {
@@ -25,14 +25,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/asus-tinker-board.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Asus Tinker Board.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Asus Tinker Board.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Asus Tinker Board to boot the device."
+      "- Connect power to the Asus Tinker Board to boot the device."
     ]
   },
   {
@@ -41,18 +41,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/asus-tinker-board-s.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Asus Tinker Board S.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Asus Tinker Board S.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Make sure that the jumper between the 5V power supply and the HDMI connect is in the MASKROM mode as illustrated on the [Tinker Board Wiki](https://tinkerboarding.co.uk/wiki/index.php/Setup). Connect power to the Asus Tinker Board S. ",
-      "Wait for the Asus Tinker Board S to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Asus Tinker Board S.",
-      "Make sure that the jumper between the 5V power supply and the HDMI connect is in the parking (no function) mode as illustrated on the [Tinker Board Wiki](https://tinkerboarding.co.uk/wiki/index.php/Setup).,Remove and re-connect power to the Asus Tinker Board S. to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Make sure that the jumper between the 5V power supply and the HDMI connect is in the MASKROM mode as illustrated on the [Tinker Board Wiki](https://tinkerboarding.co.uk/wiki/index.php/Setup). Connect power to the Asus Tinker Board S. ",
+      "- Wait for the Asus Tinker Board S to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Asus Tinker Board S.",
+      "- Make sure that the jumper between the 5V power supply and the HDMI connect is in the parking (no function) mode as illustrated on the [Tinker Board Wiki](https://tinkerboarding.co.uk/wiki/index.php/Setup).,Remove and re-connect power to the Asus Tinker Board S. to boot the device."
     ]
   },
   {
@@ -61,18 +61,18 @@
     "arch": "aarch64",
     "icon": "/img/device/asus-tinker-edge-t.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the ASUS Tinker Edge T.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the ASUS Tinker Edge T.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Set the BOOT\\_SELECT switch to the SD-CARD position. Connect power to the ASUS Tinker Edge T. ",
-      "Wait for the ASUS Tinker Edge T to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the ASUS Tinker Edge T.",
-      "Set the BOOT\\_SELECT switch to the eMMC position.,Remove and re-connect power to the ASUS Tinker Edge T. to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Set the BOOT\\_SELECT switch to the SD-CARD position. Connect power to the ASUS Tinker Edge T. ",
+      "- Wait for the ASUS Tinker Edge T to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the ASUS Tinker Edge T.",
+      "- Set the BOOT\\_SELECT switch to the eMMC position.,Remove and re-connect power to the ASUS Tinker Edge T. to boot the device."
     ]
   },
   {
@@ -81,10 +81,10 @@
     "arch": "aarch64",
     "icon": "/img/device/cnx100-xavier-nx.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Auvidea CNX100 Xavier NX found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Auvidea CNX100 Xavier NX to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Auvidea CNX100 Xavier NX.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Auvidea CNX100 Xavier NX to boot the device."
     ]
   },
   {
@@ -93,10 +93,10 @@
     "arch": "aarch64",
     "icon": "/img/device/jn30b-nano.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Auvidea JN30B Nano found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Auvidea JN30B Nano to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Auvidea JN30B Nano.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Auvidea JN30B Nano to boot the device."
     ]
   },
   {
@@ -105,12 +105,12 @@
     "arch": "armv7hf",
     "icon": "/img/device/fincm3.svg",
     "instructions": [
-      "While not having the Balena Fin (CM3) board powered, connect your system to the board's DBG/PRG port via a micro-USB cable. _Note: for the Balena Fin (CM3) v1.1, only power the board from the PRG port for flashing. For the Balena Fin (CM3) v1.0, power on the board by attaching power to either the Barrel or the Phoenix connector._ ",
-      "Write the balenaOS file you downloaded to the Balena Fin (CM3). We recommend using [Etcher](http://www.etcher.io/).",
+      "- While not having the Balena Fin (CM3) board powered, connect your system to the board's DBG/PRG port via a micro-USB cable. _Note: for the Balena Fin (CM3) v1.1, only power the board from the PRG port for flashing. For the Balena Fin (CM3) v1.0, power on the board by attaching power to either the Barrel or the Phoenix connector._ ",
+      "- Write the balenaOS file you downloaded to the Balena Fin (CM3). We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Power off the Balena Fin (CM3) by detaching the power if connected and unplug the DGB micro-USB cable. ",
-      "Remove and re-connect power to the Balena Fin (CM3) to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Power off the Balena Fin (CM3) by detaching the power if connected and unplug the DGB micro-USB cable. ",
+      "- Remove and re-connect power to the Balena Fin (CM3) to boot the device."
     ]
   },
   {
@@ -119,14 +119,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/bananapi-m1-plus.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the BananaPi-M1+.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the BananaPi-M1+.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the BananaPi-M1+ to boot the device."
+      "- Connect power to the BananaPi-M1+ to boot the device."
     ]
   },
   {
@@ -135,14 +135,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/beagleboard-xm.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the BeagleBoard-XM.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the BeagleBoard-XM.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the BeagleBoard-XM to boot the device."
+      "- Connect power to the BeagleBoard-XM to boot the device."
     ]
   },
   {
@@ -151,18 +151,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/beaglebone-black.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the BeagleBone Black.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the BeagleBone Black.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Power up the BeagleBone Black while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly. ",
-      "Wait for the BeagleBone Black to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the BeagleBone Black.",
-      "Remove and re-connect power to the BeagleBone Black to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Power up the BeagleBone Black while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly. ",
+      "- Wait for the BeagleBone Black to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the BeagleBone Black.",
+      "- Remove and re-connect power to the BeagleBone Black to boot the device."
     ]
   },
   {
@@ -171,18 +171,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/beaglebone-green.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the BeagleBone Green.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the BeagleBone Green.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Power up the BeagleBone Green while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly. ",
-      "Wait for the BeagleBone Green to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the BeagleBone Green.",
-      "Remove and re-connect power to the BeagleBone Green to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Power up the BeagleBone Green while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly. ",
+      "- Wait for the BeagleBone Green to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the BeagleBone Green.",
+      "- Remove and re-connect power to the BeagleBone Green to boot the device."
     ]
   },
   {
@@ -191,18 +191,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/beaglebone-green-gateway.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the BeagleBone Green Gateway.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the BeagleBone Green Gateway.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Power up the BeagleBone Green Gateway while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly. ",
-      "Wait for the BeagleBone Green Gateway to finish flashing and shutdown. Please wait until 5 seconds after the LEDs have stopped flashing wildly. On some boards the leds will shut down completely..",
-      "Remove the sdcard from the BeagleBone Green Gateway.",
-      "Remove and re-connect power to the BeagleBone Green Gateway to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Power up the BeagleBone Green Gateway while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly. ",
+      "- Wait for the BeagleBone Green Gateway to finish flashing and shutdown. Please wait until 5 seconds after the LEDs have stopped flashing wildly. On some boards the leds will shut down completely..",
+      "- Remove the sdcard from the BeagleBone Green Gateway.",
+      "- Remove and re-connect power to the BeagleBone Green Gateway to boot the device."
     ]
   },
   {
@@ -211,18 +211,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/beaglebone-green-wifi.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the BeagleBone Green Wireless.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the BeagleBone Green Wireless.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Power up the BeagleBone Green Wireless while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly. ",
-      "Wait for the BeagleBone Green Wireless to finish flashing and shutdown. Please wait until 5 seconds after the LEDs have stopped flashing wildly. On some boards the leds will shut down completely..",
-      "Remove the sdcard from the BeagleBone Green Wireless.",
-      "Remove and re-connect power to the BeagleBone Green Wireless to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Power up the BeagleBone Green Wireless while holding down the small button near the SD slot. You need to keep it pressed until the blue LEDs start flashing wildly. ",
+      "- Wait for the BeagleBone Green Wireless to finish flashing and shutdown. Please wait until 5 seconds after the LEDs have stopped flashing wildly. On some boards the leds will shut down completely..",
+      "- Remove the sdcard from the BeagleBone Green Wireless.",
+      "- Remove and re-connect power to the BeagleBone Green Wireless to boot the device."
     ]
   },
   {
@@ -231,17 +231,17 @@
     "arch": "aarch64",
     "icon": "/img/device/iot-gate-imx8.svg",
     "instructions": [
-      "Insert the usb\\_mass\\_storage to the host machine.",
-      "Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the usb\\_mass\\_storage to the host machine.",
+      "- Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the usb\\_mass\\_storage from the host machine.",
-      "Insert the freshly flashed usb\\_mass\\_storage into the Compulab IOT-gate-imx8.",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the Compulab IOT-gate-imx8 ",
-      "Wait for the Compulab IOT-gate-imx8 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the usb\\_mass\\_storage from the Compulab IOT-gate-imx8.",
-      "Remove and re-connect power to the Compulab IOT-gate-imx8 to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the usb\\_mass\\_storage from the host machine.",
+      "- Insert the freshly flashed usb\\_mass\\_storage into the Compulab IOT-gate-imx8.",
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the Compulab IOT-gate-imx8 ",
+      "- Wait for the Compulab IOT-gate-imx8 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the usb\\_mass\\_storage from the Compulab IOT-gate-imx8.",
+      "- Remove and re-connect power to the Compulab IOT-gate-imx8 to boot the device."
     ]
   },
   {
@@ -250,7 +250,7 @@
     "arch": "aarch64",
     "icon": "/img/device/iot-gate-imx8plus.svg",
     "instructions": [
-      "Connect the PROG port to your PC using a micro USB cable. Download imx-boot.bin from the device repository and use imx uuu to boot this binary on the IOT-GATE-IMX8PLUS. Once imx-boot is running on the IOT-GATE-IMX8PLUS, the eMMC will be exposed as a USB MASS STORAGE device on your PC. Write the image downloaded from balena cloud to the device. We recommend using [](http://www.etcher.io)Etcher. After flashing is completed, disconnect the micro USB cable from the PROG port and reboot the device. "
+      "- Connect the PROG port to your PC using a micro USB cable. Download imx-boot.bin from the device repository and use imx uuu to boot this binary on the IOT-GATE-IMX8PLUS. Once imx-boot is running on the IOT-GATE-IMX8PLUS, the eMMC will be exposed as a USB MASS STORAGE device on your PC. Write the image downloaded from balena cloud to the device. We recommend using [](http://www.etcher.io)Etcher. After flashing is completed, disconnect the micro USB cable from the PROG port and reboot the device. "
     ]
   },
   {
@@ -259,18 +259,18 @@
     "arch": "aarch64",
     "icon": "/img/device/cl-som-imx8.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Compulab MX8M.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Compulab MX8M.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the Compulab MX8M Press and hold SW5 followed by SW6 Release SW5 followed by SW6 ",
-      "Wait for the Compulab MX8M to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Compulab MX8M.",
-      "Remove and re-connect power to the Compulab MX8M to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the Compulab MX8M Press and hold SW5 followed by SW6 Release SW5 followed by SW6 ",
+      "- Wait for the Compulab MX8M to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Compulab MX8M.",
+      "- Remove and re-connect power to the Compulab MX8M to boot the device."
     ]
   },
   {
@@ -279,18 +279,18 @@
     "arch": "aarch64",
     "icon": "/img/device/coral-dev.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Coral Dev Board.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Coral Dev Board.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Set the BOOT\\_SELECT switch to the SD-CARD position Connect power to the Coral Dev Board ",
-      "Wait for the Coral Dev Board to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Coral Dev Board.",
-      "Set the BOOT\\_SELECT switch to the eMMC position,Remove and re-connect power to the Coral Dev Board to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Set the BOOT\\_SELECT switch to the SD-CARD position Connect power to the Coral Dev Board ",
+      "- Wait for the Coral Dev Board to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Coral Dev Board.",
+      "- Set the BOOT\\_SELECT switch to the eMMC position,Remove and re-connect power to the Coral Dev Board to boot the device."
     ]
   },
   {
@@ -299,18 +299,18 @@
     "arch": "aarch64",
     "icon": "/img/device/astro-tx2.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the CTI Astro TX2 G+.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the CTI Astro TX2 G+.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the CTI Astro TX2 G+ ",
-      "Wait for the CTI Astro TX2 G+ to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the CTI Astro TX2 G+.",
-      "Remove and re-connect power to the CTI Astro TX2 G+ to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the CTI Astro TX2 G+ ",
+      "- Wait for the CTI Astro TX2 G+ to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the CTI Astro TX2 G+.",
+      "- Remove and re-connect power to the CTI Astro TX2 G+ to boot the device."
     ]
   },
   {
@@ -319,18 +319,18 @@
     "arch": "aarch64",
     "icon": "/img/device/orbitty-tx2.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the CTI Orbitty TX2.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the CTI Orbitty TX2.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the CTI Orbitty TX2 ",
-      "Wait for the CTI Orbitty TX2 to finish flashing and shutdown. Please wait until the SYS LED is turned off.",
-      "Remove the sdcard from the CTI Orbitty TX2.",
-      "Remove and re-connect power to the CTI Orbitty TX2 to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the CTI Orbitty TX2 ",
+      "- Wait for the CTI Orbitty TX2 to finish flashing and shutdown. Please wait until the SYS LED is turned off.",
+      "- Remove the sdcard from the CTI Orbitty TX2.",
+      "- Remove and re-connect power to the CTI Orbitty TX2 to boot the device."
     ]
   },
   {
@@ -339,10 +339,10 @@
     "arch": "aarch64",
     "icon": "/img/device/photon-nano.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the CTI Photon Nano found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the CTI Photon Nano to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the CTI Photon Nano.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the CTI Photon Nano to boot the device."
     ]
   },
   {
@@ -351,10 +351,10 @@
     "arch": "aarch64",
     "icon": "/img/device/photon-tx2-nx.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the CTI Photon TX2 NX found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the CTI Photon TX2 NX to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the CTI Photon TX2 NX.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the CTI Photon TX2 NX to boot the device."
     ]
   },
   {
@@ -363,10 +363,10 @@
     "arch": "aarch64",
     "icon": "/img/device/photon-xavier-nx.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the CTI Photon Xavier NX found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the CTI Photon Xavier NX to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the CTI Photon Xavier NX.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the CTI Photon Xavier NX to boot the device."
     ]
   },
   {
@@ -375,18 +375,18 @@
     "arch": "aarch64",
     "icon": "/img/device/spacely-tx2.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the CTI Spacely TX2.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the CTI Spacely TX2.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the CTI Spacely TX2 ",
-      "Wait for the CTI Spacely TX2 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the CTI Spacely TX2.",
-      "Remove and re-connect power to the CTI Spacely TX2 to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the CTI Spacely TX2 ",
+      "- Wait for the CTI Spacely TX2 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the CTI Spacely TX2.",
+      "- Remove and re-connect power to the CTI Spacely TX2 to boot the device."
     ]
   },
   {
@@ -395,18 +395,18 @@
     "arch": "aarch64",
     "icon": "/img/device/ccimx8x-sbc-pro.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Digi ConnectCore 8X SBC Pro.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Digi ConnectCore 8X SBC Pro.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Make sure your Digi ConnectCore 8X SBC Pro contains a system-on-module with a 2GB i.MX8X quad B0 system-on-chip. Different module variants are not supported and will not boot. Configure the boot microswitches (S2) for SD boot (SW1 OFF and SW2 ON) Connect power to the Digi ConnectCore 8X SBC Pro ",
-      "Wait for the Digi ConnectCore 8X SBC Pro to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Digi ConnectCore 8X SBC Pro.",
-      "Configure the boot microswitches (S2) for internal (eMMC) boot (SW1 OFF and SW2 OFF),Remove and re-connect power to the Digi ConnectCore 8X SBC Pro to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Make sure your Digi ConnectCore 8X SBC Pro contains a system-on-module with a 2GB i.MX8X quad B0 system-on-chip. Different module variants are not supported and will not boot. Configure the boot microswitches (S2) for SD boot (SW1 OFF and SW2 ON) Connect power to the Digi ConnectCore 8X SBC Pro ",
+      "- Wait for the Digi ConnectCore 8X SBC Pro to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Digi ConnectCore 8X SBC Pro.",
+      "- Configure the boot microswitches (S2) for internal (eMMC) boot (SW1 OFF and SW2 OFF),Remove and re-connect power to the Digi ConnectCore 8X SBC Pro to boot the device."
     ]
   },
   {
@@ -415,18 +415,18 @@
     "arch": "aarch64",
     "icon": "/img/device/etcher-pro.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Etcher Pro.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Etcher Pro.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Set the DSW1 switch to the ON position Connect power to the Etcher Pro ",
-      "Wait for the Etcher Pro to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Etcher Pro.",
-      "Set the DSW1 switch to the OFF position,Remove and re-connect power to the Etcher Pro to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Set the DSW1 switch to the ON position Connect power to the Etcher Pro ",
+      "- Wait for the Etcher Pro to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Etcher Pro.",
+      "- Set the DSW1 switch to the OFF position,Remove and re-connect power to the Etcher Pro to boot the device."
     ]
   },
   {
@@ -435,14 +435,14 @@
     "arch": "aarch64",
     "icon": "/img/device/generic-aarch64.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Generic AARCH64.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Generic AARCH64.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Generic AARCH64 to boot the device."
+      "- Connect power to the Generic AARCH64 to boot the device."
     ]
   },
   {
@@ -451,17 +451,17 @@
     "arch": "amd64",
     "icon": "/img/device/generic-amd64.svg",
     "instructions": [
-      "Insert the usb\\_mass\\_storage to the host machine.",
-      "Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the usb\\_mass\\_storage to the host machine.",
+      "- Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the usb\\_mass\\_storage from the host machine.",
-      "Insert the freshly flashed usb\\_mass\\_storage into the Generic x86\\_64 (GPT).",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Ensure there are no other USB keys are inserted. Power on the Generic x86\\_64 (GPT) with a keyboard connected. Press the F10 key while BIOS is loading to enter the boot menu. Select the USB key from the boot menu. ",
-      "Wait for the Generic x86\\_64 (GPT) to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the usb\\_mass\\_storage from the Generic x86\\_64 (GPT).",
-      "Power up the Generic x86\\_64 (GPT) to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the usb\\_mass\\_storage from the host machine.",
+      "- Insert the freshly flashed usb\\_mass\\_storage into the Generic x86\\_64 (GPT).",
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Ensure there are no other USB keys are inserted. Power on the Generic x86\\_64 (GPT) with a keyboard connected. Press the F10 key while BIOS is loading to enter the boot menu. Select the USB key from the boot menu. ",
+      "- Wait for the Generic x86\\_64 (GPT) to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the usb\\_mass\\_storage from the Generic x86\\_64 (GPT).",
+      "- Power up the Generic x86\\_64 (GPT) to boot the device."
     ]
   },
   {
@@ -470,17 +470,17 @@
     "arch": "amd64",
     "icon": "/img/device/genericx86-64-ext.svg",
     "instructions": [
-      "Insert the usb\\_mass\\_storage to the host machine.",
-      "Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the usb\\_mass\\_storage to the host machine.",
+      "- Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the usb\\_mass\\_storage from the host machine.",
-      "Insert the freshly flashed usb\\_mass\\_storage into the Generic x86\\_64 (legacy MBR).",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Ensure there are no other USB keys are inserted. Power on the Generic x86\\_64 (legacy MBR) with a keyboard connected. Press the F10 key while BIOS is loading to enter the boot menu. Select the USB key from the boot menu. ",
-      "Wait for the Generic x86\\_64 (legacy MBR) to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the usb\\_mass\\_storage from the Generic x86\\_64 (legacy MBR).",
-      "Power up the Generic x86\\_64 (legacy MBR) to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the usb\\_mass\\_storage from the host machine.",
+      "- Insert the freshly flashed usb\\_mass\\_storage into the Generic x86\\_64 (legacy MBR).",
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Ensure there are no other USB keys are inserted. Power on the Generic x86\\_64 (legacy MBR) with a keyboard connected. Press the F10 key while BIOS is loading to enter the boot menu. Select the USB key from the boot menu. ",
+      "- Wait for the Generic x86\\_64 (legacy MBR) to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the usb\\_mass\\_storage from the Generic x86\\_64 (legacy MBR).",
+      "- Power up the Generic x86\\_64 (legacy MBR) to boot the device."
     ]
   },
   {
@@ -489,17 +489,17 @@
     "arch": "amd64",
     "icon": "/img/device/intel-nuc.svg",
     "instructions": [
-      "Insert the usb\\_mass\\_storage to the host machine.",
-      "Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the usb\\_mass\\_storage to the host machine.",
+      "- Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the usb\\_mass\\_storage from the host machine.",
-      "Insert the freshly flashed usb\\_mass\\_storage into the Intel NUC.",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Ensure there are no other USB keys are inserted. Power on the Intel NUC with a keyboard connected. Press the F10 key while BIOS is loading to enter the boot menu. Select the USB key from the boot menu. ",
-      "Wait for the Intel NUC to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the usb\\_mass\\_storage from the Intel NUC.",
-      "Power up the Intel NUC to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the usb\\_mass\\_storage from the host machine.",
+      "- Insert the freshly flashed usb\\_mass\\_storage into the Intel NUC.",
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Ensure there are no other USB keys are inserted. Power on the Intel NUC with a keyboard connected. Press the F10 key while BIOS is loading to enter the boot menu. Select the USB key from the boot menu. ",
+      "- Wait for the Intel NUC to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the usb\\_mass\\_storage from the Intel NUC.",
+      "- Power up the Intel NUC to boot the device."
     ]
   },
   {
@@ -508,14 +508,14 @@
     "arch": "aarch64",
     "icon": "/img/device/smarc-px30.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the I-Pi SMARC PX30 SD-CARD.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the I-Pi SMARC PX30 SD-CARD.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the I-Pi SMARC PX30 SD-CARD to boot the device."
+      "- Connect power to the I-Pi SMARC PX30 SD-CARD to boot the device."
     ]
   },
   {
@@ -524,17 +524,17 @@
     "arch": "amd64",
     "icon": "/img/device/surface-pro-6.svg",
     "instructions": [
-      "Insert the usb\\_mass\\_storage to the host machine.",
-      "Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the usb\\_mass\\_storage to the host machine.",
+      "- Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the usb\\_mass\\_storage from the host machine.",
-      "Insert the freshly flashed usb\\_mass\\_storage into the Microsoft Surface 6.",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Press and hold the Volume Down button and press the Power button. Release the power button but keep pressing the Volume Down button until the windows logo disappears. ",
-      "Wait for the Microsoft Surface 6 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the usb\\_mass\\_storage from the Microsoft Surface 6.",
-      "Press the Power button on the Microsoft Surface 6 to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the usb\\_mass\\_storage from the host machine.",
+      "- Insert the freshly flashed usb\\_mass\\_storage into the Microsoft Surface 6.",
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Press and hold the Volume Down button and press the Power button. Release the power button but keep pressing the Volume Down button until the windows logo disappears. ",
+      "- Wait for the Microsoft Surface 6 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the usb\\_mass\\_storage from the Microsoft Surface 6.",
+      "- Press the Power button on the Microsoft Surface 6 to boot the device."
     ]
   },
   {
@@ -543,17 +543,17 @@
     "arch": "amd64",
     "icon": "/img/device/surface-go.svg",
     "instructions": [
-      "Insert the usb\\_mass\\_storage to the host machine.",
-      "Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the usb\\_mass\\_storage to the host machine.",
+      "- Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the usb\\_mass\\_storage from the host machine.",
-      "Insert the freshly flashed usb\\_mass\\_storage into the Microsoft Surface Go.",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Press and hold the Volume Down button and press the Power button. Release the power button but keep pressing the Volume Down button until the windows logo disappears. ",
-      "Wait for the Microsoft Surface Go to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the usb\\_mass\\_storage from the Microsoft Surface Go.",
-      "Press the Power button on the Microsoft Surface Go to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the usb\\_mass\\_storage from the host machine.",
+      "- Insert the freshly flashed usb\\_mass\\_storage into the Microsoft Surface Go.",
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Press and hold the Volume Down button and press the Power button. Release the power button but keep pressing the Volume Down button until the windows logo disappears. ",
+      "- Wait for the Microsoft Surface Go to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the usb\\_mass\\_storage from the Microsoft Surface Go.",
+      "- Press the Power button on the Microsoft Surface Go to boot the device."
     ]
   },
   {
@@ -562,18 +562,18 @@
     "arch": "aarch64",
     "icon": "/img/device/nanopc-t4.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the NanoPC-T4.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the NanoPC-T4.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the NanoPC-T4 ",
-      "Wait for the NanoPC-T4 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the NanoPC-T4.",
-      "Remove and re-connect power to the NanoPC-T4 to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the NanoPC-T4 ",
+      "- Wait for the NanoPC-T4 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the NanoPC-T4.",
+      "- Remove and re-connect power to the NanoPC-T4 to boot the device."
     ]
   },
   {
@@ -582,18 +582,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/nanopi-neo-air.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Nanopi Neo Air.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Nanopi Neo Air.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the Nanopi Neo Air ",
-      "Wait for the Nanopi Neo Air to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Nanopi Neo Air.",
-      "Remove and re-connect power to the Nanopi Neo Air to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the Nanopi Neo Air ",
+      "- Wait for the Nanopi Neo Air to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Nanopi Neo Air.",
+      "- Remove and re-connect power to the Nanopi Neo Air to boot the device."
     ]
   },
   {
@@ -602,14 +602,14 @@
     "arch": "aarch64",
     "icon": "/img/device/nanopi-r2c.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the NanoPi R2C.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the NanoPi R2C.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect the NanoPi R2C to the internet, then power it up to boot the device."
+      "- Connect the NanoPi R2C to the internet, then power it up to boot the device."
     ]
   },
   {
@@ -618,14 +618,14 @@
     "arch": "aarch64",
     "icon": "/img/device/nanopi-r2s.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the NanoPi R2S.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the NanoPi R2S.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect the NanoPi R2S to the internet, then power it up to boot the device."
+      "- Connect the NanoPi R2S to the internet, then power it up to boot the device."
     ]
   },
   {
@@ -634,18 +634,18 @@
     "arch": "aarch64",
     "icon": "/img/device/nitrogen8mm.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Nitrogen8M Mini SBC.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Nitrogen8M Mini SBC.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the Nitrogen8M Mini SBC ",
-      "Wait for the Nitrogen8M Mini SBC to finish flashing and shutdown. ",
-      "Remove the sdcard from the Nitrogen8M Mini SBC.",
-      "Remove and re-connect power to the Nitrogen8M Mini SBC to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the Nitrogen8M Mini SBC ",
+      "- Wait for the Nitrogen8M Mini SBC to finish flashing and shutdown. ",
+      "- Remove the sdcard from the Nitrogen8M Mini SBC.",
+      "- Remove and re-connect power to the Nitrogen8M Mini SBC to boot the device."
     ]
   },
   {
@@ -654,14 +654,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/npe-x500-m3.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the NPE X500 M3.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the NPE X500 M3.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the NPE X500 M3 to boot the device."
+      "- Connect power to the NPE X500 M3 to boot the device."
     ]
   },
   {
@@ -670,10 +670,10 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-agx-orin-devkit.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Nvidia Jetson AGX Orin Devkit found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Nvidia Jetson AGX Orin Devkit to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Nvidia Jetson AGX Orin Devkit.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Nvidia Jetson AGX Orin Devkit to boot the device."
     ]
   },
   {
@@ -682,10 +682,10 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-nano-2gb-devkit.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Nvidia Jetson Nano 2GB Devkit SD found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Nvidia Jetson Nano 2GB Devkit SD to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Nvidia Jetson Nano 2GB Devkit SD.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Nvidia Jetson Nano 2GB Devkit SD to boot the device."
     ]
   },
   {
@@ -694,10 +694,10 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-nano-emmc.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Nvidia Jetson Nano eMMC found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Nvidia Jetson Nano eMMC to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Nvidia Jetson Nano eMMC.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Nvidia Jetson Nano eMMC to boot the device."
     ]
   },
   {
@@ -706,10 +706,10 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-nano.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Nvidia Jetson Nano SD-CARD found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Nvidia Jetson Nano SD-CARD to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Nvidia Jetson Nano SD-CARD.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Nvidia Jetson Nano SD-CARD to boot the device."
     ]
   },
   {
@@ -718,18 +718,18 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-tx2.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Nvidia Jetson TX2.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Nvidia Jetson TX2.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the Nvidia Jetson TX2 and press and hold the POWER push button for 1 second ",
-      "Wait for the Nvidia Jetson TX2 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Nvidia Jetson TX2.",
-      "Remove and re-connect power to the Nvidia Jetson TX2 to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the Nvidia Jetson TX2 and press and hold the POWER push button for 1 second ",
+      "- Wait for the Nvidia Jetson TX2 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Nvidia Jetson TX2.",
+      "- Remove and re-connect power to the Nvidia Jetson TX2 to boot the device."
     ]
   },
   {
@@ -738,10 +738,10 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-tx2-nx-devkit.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Nvidia Jetson TX2 NX (with Xavier NX Devkit) found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Nvidia Jetson TX2 NX (with Xavier NX Devkit) to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Nvidia Jetson TX2 NX (with Xavier NX Devkit).",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Nvidia Jetson TX2 NX (with Xavier NX Devkit) to boot the device."
     ]
   },
   {
@@ -750,10 +750,10 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-xavier.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Nvidia Jetson Xavier found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Nvidia Jetson Xavier to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Nvidia Jetson Xavier.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Nvidia Jetson Xavier to boot the device."
     ]
   },
   {
@@ -762,10 +762,10 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-xavier-nx-devkit-emmc.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Nvidia Jetson Xavier NX Devkit eMMC found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Nvidia Jetson Xavier NX Devkit eMMC to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Nvidia Jetson Xavier NX Devkit eMMC.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Nvidia Jetson Xavier NX Devkit eMMC to boot the device."
     ]
   },
   {
@@ -774,10 +774,10 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-xavier-nx-devkit.svg",
     "instructions": [
-      "Put the device in recovery mode and connect to the host computer via USB",
-      "Unzip the balenaOS image and use the Jetson Flash tool to flash the Nvidia Jetson Xavier NX Devkit SD-CARD found at <https://github.com/balena-os/jetson-flash>.",
-      "Wait for writing of balenaOS to complete.",
-      "Connect power to the Nvidia Jetson Xavier NX Devkit SD-CARD to boot the device."
+      "- Put the device in recovery mode and connect to the host computer via USB",
+      "- Unzip the balenaOS image and use the [Jetson Flash tool](https://github.com/balena-os/jetson-flash) to flash the Nvidia Jetson Xavier NX Devkit SD-CARD.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Connect power to the Nvidia Jetson Xavier NX Devkit SD-CARD to boot the device."
     ]
   },
   {
@@ -786,14 +786,14 @@
     "arch": "aarch64",
     "icon": "/img/device/jetson-xavier-nx-devkit-seeed-2mic-hat.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Nvidia Jetson Xavier NX Devkit SD Seeed ReSpeaker-2Mic.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Nvidia Jetson Xavier NX Devkit SD Seeed ReSpeaker-2Mic.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Nvidia Jetson Xavier NX Devkit SD Seeed ReSpeaker-2Mic to boot the device."
+      "- Connect power to the Nvidia Jetson Xavier NX Devkit SD Seeed ReSpeaker-2Mic to boot the device."
     ]
   },
   {
@@ -802,14 +802,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/odroid-xu4.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the ODROID-XU4.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the ODROID-XU4.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the ODROID-XU4 to boot the device."
+      "- Connect power to the ODROID-XU4 to boot the device."
     ]
   },
   {
@@ -818,14 +818,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/orange-pi-one.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Orange Pi One.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Orange Pi One.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Orange Pi One to boot the device."
+      "- Connect power to the Orange Pi One to boot the device."
     ]
   },
   {
@@ -834,18 +834,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/orangepi-plus2.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Orange Pi Plus2.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Orange Pi Plus2.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the Orange Pi Plus2 ",
-      "Wait for the Orange Pi Plus2 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Orange Pi Plus2.",
-      "Remove and re-connect power to the Orange Pi Plus2 to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the Orange Pi Plus2 ",
+      "- Wait for the Orange Pi Plus2 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Orange Pi Plus2.",
+      "- Remove and re-connect power to the Orange Pi Plus2 to boot the device."
     ]
   },
   {
@@ -854,14 +854,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/orange-pi-zero.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Orange Pi Zero.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Orange Pi Zero.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Orange Pi Zero to boot the device."
+      "- Connect power to the Orange Pi Zero to boot the device."
     ]
   },
   {
@@ -870,18 +870,18 @@
     "arch": "aarch64",
     "icon": "/img/device/owa5x.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Owasys owa5X.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Owasys owa5X.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Erase internal NAND content. Insert an SD card with a bootable image. ",
-      "Wait for the Owasys owa5X to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Owasys owa5X.",
-      "Remove and re-connect power to the Owasys owa5X to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Erase internal NAND content. Insert an SD card with a bootable image. ",
+      "- Wait for the Owasys owa5X to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Owasys owa5X.",
+      "- Remove and re-connect power to the Owasys owa5X to boot the device."
     ]
   },
   {
@@ -890,14 +890,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/beaglebone-pocket.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the PocketBeagle.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the PocketBeagle.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the PocketBeagle to boot the device."
+      "- Connect power to the PocketBeagle to boot the device."
     ]
   },
   {
@@ -906,7 +906,7 @@
     "arch": "i386",
     "icon": "/img/device/qemux86.svg",
     "instructions": [
-      "Run the following to start the image:  \nOn systems with KVM support:  \n`qemu-system-i386 -device ahci,id=ahci -drive file=balena-image-qemux86.img,media=disk,cache=none,format=raw,if=none,id=disk -device ide-hd,drive=disk,bus=ahci.0 -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host`   \nOn systems without KVM support:  \n`qemu-system-i386 -device ahci,id=ahci -drive file=balena-image-qemux86.img,media=disk,cache=none,format=raw,if=none,id=disk -device ide-hd,drive=disk,bus=ahci.0 -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4`   \nTweak `-smp` and `-cpu` parameters based on the CPU of the machine qemu is running on. `-cpu` parameter needs to be dropped on OSX and Windows.  \nTweak `-nographic` and `-m 512` to set the display of qemu and memory respectively."
+      "- Run the following to start the image:  \nOn systems with KVM support:  \n`qemu-system-i386 -device ahci,id=ahci -drive file=balena-image-qemux86.img,media=disk,cache=none,format=raw,if=none,id=disk -device ide-hd,drive=disk,bus=ahci.0 -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host`   \nOn systems without KVM support:  \n`qemu-system-i386 -device ahci,id=ahci -drive file=balena-image-qemux86.img,media=disk,cache=none,format=raw,if=none,id=disk -device ide-hd,drive=disk,bus=ahci.0 -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4`   \nTweak `-smp` and `-cpu` parameters based on the CPU of the machine qemu is running on. `-cpu` parameter needs to be dropped on OSX and Windows.  \nTweak `-nographic` and `-m 512` to set the display of qemu and memory respectively."
     ]
   },
   {
@@ -915,7 +915,7 @@
     "arch": "amd64",
     "icon": "/img/device/qemux86-64.svg",
     "instructions": [
-      "Run the following to start the image:  \nOn systems with KVM support:  \n`qemu-system-x86_64 -device ahci,id=ahci -drive file=balena-image-qemux86-64.img,media=disk,cache=none,format=raw,if=none,id=disk -device ide-hd,drive=disk,bus=ahci.0 -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host`   \nOn systems without KVM support:  \n`qemu-system-x86_64 -device ahci,id=ahci -drive file=balena-image-qemux86-64.img,media=disk,cache=none,format=raw,if=none,id=disk -device ide-hd,drive=disk,bus=ahci.0 -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4`   \nTweak `-smp` and `-cpu` parameters based on the CPU of the machine qemu is running on. `-cpu` parameter needs to be dropped on OSX and Windows.  \nTweak `-nographic` and `-m 512` to set the display of qemu and memory respectively."
+      "- Run the following to start the image:  \nOn systems with KVM support:  \n`qemu-system-x86_64 -device ahci,id=ahci -drive file=balena-image-qemux86-64.img,media=disk,cache=none,format=raw,if=none,id=disk -device ide-hd,drive=disk,bus=ahci.0 -net nic,model=virtio -net user -m 512 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host`   \nOn systems without KVM support:  \n`qemu-system-x86_64 -device ahci,id=ahci -drive file=balena-image-qemux86-64.img,media=disk,cache=none,format=raw,if=none,id=disk -device ide-hd,drive=disk,bus=ahci.0 -net nic,model=virtio -net user -m 512 -nographic -machine type=pc -smp 4`   \nTweak `-smp` and `-cpu` parameters based on the CPU of the machine qemu is running on. `-cpu` parameter needs to be dropped on OSX and Windows.  \nTweak `-nographic` and `-m 512` to set the display of qemu and memory respectively."
     ]
   },
   {
@@ -924,14 +924,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/raspberry-pi2.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Raspberry Pi 2.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Raspberry Pi 2.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Raspberry Pi 2 to boot the device."
+      "- Connect power to the Raspberry Pi 2 to boot the device."
     ]
   },
   {
@@ -940,14 +940,14 @@
     "arch": "armv7hf",
     "icon": "/img/device/raspberrypi3.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Raspberry Pi 3.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Raspberry Pi 3.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Raspberry Pi 3 to boot the device."
+      "- Connect power to the Raspberry Pi 3 to boot the device."
     ]
   },
   {
@@ -956,14 +956,14 @@
     "arch": "aarch64",
     "icon": "/img/device/raspberrypi3-64.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Raspberry Pi 3 (using 64bit OS).",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Raspberry Pi 3 (using 64bit OS).",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Raspberry Pi 3 (using 64bit OS) to boot the device."
+      "- Connect power to the Raspberry Pi 3 (using 64bit OS) to boot the device."
     ]
   },
   {
@@ -972,14 +972,14 @@
     "arch": "aarch64",
     "icon": "/img/device/raspberrypi400-64.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Raspberry Pi 400.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Raspberry Pi 400.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Raspberry Pi 400 to boot the device."
+      "- Connect power to the Raspberry Pi 400 to boot the device."
     ]
   },
   {
@@ -988,14 +988,14 @@
     "arch": "aarch64",
     "icon": "/img/device/raspberrypi4-64.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Raspberry Pi 4 (using 64bit OS).",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Raspberry Pi 4 (using 64bit OS).",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Raspberry Pi 4 (using 64bit OS) to boot the device."
+      "- Connect power to the Raspberry Pi 4 (using 64bit OS) to boot the device."
     ]
   },
   {
@@ -1004,12 +1004,12 @@
     "arch": "aarch64",
     "icon": "/img/device/raspberrypicm4-ioboard.svg",
     "instructions": [
-      "Fit the jumper to disable eMMC boot on J2 and connect the Raspberry Pi CM4 IO Board's microUSB port to your PC. Power the board and use [usbboot](https://github.com/raspberrypi/usbboot) to put the eMMC in mass storage mode. ",
-      "Write the balenaOS file you downloaded to the Raspberry Pi CM4 IO Board. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Fit the jumper to disable eMMC boot on J2 and connect the Raspberry Pi CM4 IO Board's microUSB port to your PC. Power the board and use [usbboot](https://github.com/raspberrypi/usbboot) to put the eMMC in mass storage mode. ",
+      "- Write the balenaOS file you downloaded to the Raspberry Pi CM4 IO Board. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Disconnect the power source and eMMC boot jumper. ",
-      "Remove and re-connect power to the Raspberry Pi CM4 IO Board. to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Disconnect the power source and eMMC boot jumper. ",
+      "- Remove and re-connect power to the Raspberry Pi CM4 IO Board. to boot the device."
     ]
   },
   {
@@ -1018,14 +1018,14 @@
     "arch": "rpi",
     "icon": "/img/device/raspberry-pi.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Raspberry Pi (v1 / Zero / Zero W).",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Raspberry Pi (v1 / Zero / Zero W).",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Raspberry Pi (v1 / Zero / Zero W) to boot the device."
+      "- Connect power to the Raspberry Pi (v1 / Zero / Zero W) to boot the device."
     ]
   },
   {
@@ -1034,14 +1034,14 @@
     "arch": "aarch64",
     "icon": "/img/device/raspberrypi0-2w-64.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Raspberry Pi Zero 2 W (64bit).",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Raspberry Pi Zero 2 W (64bit).",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Raspberry Pi Zero 2 W (64bit) to boot the device."
+      "- Connect power to the Raspberry Pi Zero 2 W (64bit) to boot the device."
     ]
   },
   {
@@ -1050,12 +1050,12 @@
     "arch": "armv7hf",
     "icon": "/img/device/revpi-connect.svg",
     "instructions": [
-      "While not having the Revolution Pi Connect board powered, connect your system to the board's USB port via a micro-USB cable. Power on the Revolution Pi Connect. ",
-      "Write the balenaOS file you downloaded to the Revolution Pi Connect. We recommend using [Etcher](http://www.etcher.io/).",
+      "- While not having the Revolution Pi Connect board powered, connect your system to the board's USB port via a micro-USB cable. Power on the Revolution Pi Connect. ",
+      "- Write the balenaOS file you downloaded to the Revolution Pi Connect. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Power off the Revolution Pi Connect and unplug the micro-USB cable ",
-      "Remove and re-connect power to the Revolution Pi Connect to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Power off the Revolution Pi Connect and unplug the micro-USB cable ",
+      "- Remove and re-connect power to the Revolution Pi Connect to boot the device."
     ]
   },
   {
@@ -1064,12 +1064,12 @@
     "arch": "armv7hf",
     "icon": "/img/device/revpi-core-3.svg",
     "instructions": [
-      "While not having the Revolution Pi Core 3 board powered, connect your system to the board's USB port via a micro-USB cable. Power on the Revolution Pi Core 3\\. ",
-      "Write the balenaOS file you downloaded to the Revolution Pi Core 3\\. We recommend using [Etcher](http://www.etcher.io/).",
+      "- While not having the Revolution Pi Core 3 board powered, connect your system to the board's USB port via a micro-USB cable. Power on the Revolution Pi Core 3\\. ",
+      "- Write the balenaOS file you downloaded to the Revolution Pi Core 3\\. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Power off the Revolution Pi Core 3 and unplug the micro-USB cable. ",
-      "Remove and re-connect power to the Revolution Pi Core 3\\. to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Power off the Revolution Pi Core 3 and unplug the micro-USB cable. ",
+      "- Remove and re-connect power to the Revolution Pi Core 3\\. to boot the device."
     ]
   },
   {
@@ -1078,18 +1078,18 @@
     "arch": "aarch64",
     "icon": "/img/device/rockpi-4b-rk3399.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the ROCK Pi 4B.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the ROCK Pi 4B.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the ROCK Pi 4B ",
-      "Wait for the ROCK Pi 4B to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the ROCK Pi 4B.",
-      "Remove and re-connect power to the ROCK Pi 4B to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the ROCK Pi 4B ",
+      "- Wait for the ROCK Pi 4B to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the ROCK Pi 4B.",
+      "- Remove and re-connect power to the ROCK Pi 4B to boot the device."
     ]
   },
   {
@@ -1098,14 +1098,14 @@
     "arch": "aarch64",
     "icon": "/img/device/rockpro64.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the ROCKPro64.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the ROCKPro64.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect the ROCKPro64 to the internet and power it on to boot the device."
+      "- Connect the ROCKPro64 to the internet and power it on to boot the device."
     ]
   },
   {
@@ -1114,18 +1114,18 @@
     "arch": "aarch64",
     "icon": "/img/device/isg-503.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Rocktech ISG 503.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Rocktech ISG 503.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Power on the Rocktech ISG 503 ",
-      "Wait for the Rocktech ISG 503 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Rocktech ISG 503.",
-      "Remove and re-connect power to the Rocktech ISG 503 to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Power on the Rocktech ISG 503 ",
+      "- Wait for the Rocktech ISG 503 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Rocktech ISG 503.",
+      "- Remove and re-connect power to the Rocktech ISG 503 to boot the device."
     ]
   },
   {
@@ -1134,17 +1134,17 @@
     "arch": "amd64",
     "icon": "/img/device/odyssey-x86.svg",
     "instructions": [
-      "Insert the usb\\_mass\\_storage to the host machine.",
-      "Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the usb\\_mass\\_storage to the host machine.",
+      "- Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the usb\\_mass\\_storage from the host machine.",
-      "Insert the freshly flashed usb\\_mass\\_storage into the Seeed ODYSSEY-X86.",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Make sure Secure Boot is disabled in BIOS. Ensure there are no other USB keys are inserted. Power on the Seeed ODYSSEY-X86 with a keyboard connected. Press the F7 key (may differ on some platforms) while BIOS is loading to enter the boot menu. Select the USB key from the boot menu. ",
-      "Wait for the Seeed ODYSSEY-X86 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the usb\\_mass\\_storage from the Seeed ODYSSEY-X86.",
-      "Power up the Seeed ODYSSEY-X86 to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the usb\\_mass\\_storage from the host machine.",
+      "- Insert the freshly flashed usb\\_mass\\_storage into the Seeed ODYSSEY-X86.",
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Make sure Secure Boot is disabled in BIOS. Ensure there are no other USB keys are inserted. Power on the Seeed ODYSSEY-X86 with a keyboard connected. Press the F7 key (may differ on some platforms) while BIOS is loading to enter the boot menu. Select the USB key from the boot menu. ",
+      "- Wait for the Seeed ODYSSEY-X86 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the usb\\_mass\\_storage from the Seeed ODYSSEY-X86.",
+      "- Power up the Seeed ODYSSEY-X86 to boot the device."
     ]
   },
   {
@@ -1153,14 +1153,14 @@
     "arch": "aarch64",
     "icon": "/img/device/tdpzu9.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Topic Florida Plus (tdpzu9).",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Topic Florida Plus (tdpzu9).",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "Connect power to the Topic Florida Plus (tdpzu9) to boot the device."
+      "- Connect power to the Topic Florida Plus (tdpzu9) to boot the device."
     ]
   },
   {
@@ -1169,17 +1169,17 @@
     "arch": "amd64",
     "icon": "/img/device/up-board.svg",
     "instructions": [
-      "Insert the usb\\_mass\\_storage to the host machine.",
-      "Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the usb\\_mass\\_storage to the host machine.",
+      "- Write the balenaOS file you downloaded to the usb\\_mass\\_storage. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the usb\\_mass\\_storage from the host machine.",
-      "Insert the freshly flashed usb\\_mass\\_storage into the UP Board.",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Power on the UP Board with a keyboard connected. Press the F7 key while BIOS is loading to enter the boot menu. Select the \"UEFI:\" option from the boot menu. ",
-      "Wait for the UP Board to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the usb\\_mass\\_storage from the UP Board.",
-      "Power up the UP Board to boot the device."
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the usb\\_mass\\_storage from the host machine.",
+      "- Insert the freshly flashed usb\\_mass\\_storage into the UP Board.",
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Power on the UP Board with a keyboard connected. Press the F7 key while BIOS is loading to enter the boot menu. Select the \"UEFI:\" option from the boot menu. ",
+      "- Wait for the UP Board to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the usb\\_mass\\_storage from the UP Board.",
+      "- Power up the UP Board to boot the device."
     ]
   },
   {
@@ -1188,18 +1188,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/imx6ul-var-dart.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Variscite DART-6UL.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Variscite DART-6UL.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Connect power to the Variscite DART-6UL. Press and hold the SW2 button followed by the SW1 button. Release the SW1 button followed by the SW2 button. ",
-      "Wait for the Variscite DART-6UL to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Variscite DART-6UL.",
-      "Remove and re-connect power to the Variscite DART-6UL to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Connect power to the Variscite DART-6UL. Press and hold the SW2 button followed by the SW1 button. Release the SW1 button followed by the SW2 button. ",
+      "- Wait for the Variscite DART-6UL to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Variscite DART-6UL.",
+      "- Remove and re-connect power to the Variscite DART-6UL to boot the device."
     ]
   },
   {
@@ -1208,18 +1208,18 @@
     "arch": "aarch64",
     "icon": "/img/device/imx8m-var-dart.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Variscite DART-MX8M.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Variscite DART-MX8M.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Set the SW7 BOOT-SELECT switch to SD-CARD. Connect power to the Variscite DART-MX8M. ",
-      "Wait for the Variscite DART-MX8M to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Variscite DART-MX8M.",
-      "Set the SW7 BOOT-SELECT switch to eMMC.,Remove and re-connect power to the Variscite DART-MX8M. to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Set the SW7 BOOT-SELECT switch to SD-CARD. Connect power to the Variscite DART-MX8M. ",
+      "- Wait for the Variscite DART-MX8M to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Variscite DART-MX8M.",
+      "- Set the SW7 BOOT-SELECT switch to eMMC.,Remove and re-connect power to the Variscite DART-MX8M. to boot the device."
     ]
   },
   {
@@ -1228,18 +1228,18 @@
     "arch": "aarch64",
     "icon": "/img/device/imx8mm-var-dart.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Variscite DART-MX8M Mini.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Variscite DART-MX8M Mini.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Set the SW7 BOOT-SELECT switch to EXT. Connect power to the Variscite DART-MX8M Mini. ",
-      "Wait for the Variscite DART-MX8M Mini to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Variscite DART-MX8M Mini.",
-      "Set the SW7 BOOT-SELECT switch to INT.,Remove and re-connect power to the Variscite DART-MX8M Mini. to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Set the SW7 BOOT-SELECT switch to EXT. Connect power to the Variscite DART-MX8M Mini. ",
+      "- Wait for the Variscite DART-MX8M Mini to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Variscite DART-MX8M Mini.",
+      "- Set the SW7 BOOT-SELECT switch to INT.,Remove and re-connect power to the Variscite DART-MX8M Mini. to boot the device."
     ]
   },
   {
@@ -1248,18 +1248,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/var-som-mx6.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Variscite VAR-SOM-MX6.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Variscite VAR-SOM-MX6.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Set the BOOT-SELECT switch to eMMC. Connect power to the Variscite VAR-SOM-MX6\\. ",
-      "Wait for the Variscite VAR-SOM-MX6 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Variscite VAR-SOM-MX6.",
-      "Set the BOOT-SELECT switch to NAND,Remove and re-connect power to the Variscite VAR-SOM-MX6 to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Set the BOOT-SELECT switch to eMMC. Connect power to the Variscite VAR-SOM-MX6\\. ",
+      "- Wait for the Variscite VAR-SOM-MX6 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Variscite VAR-SOM-MX6.",
+      "- Set the BOOT-SELECT switch to NAND,Remove and re-connect power to the Variscite VAR-SOM-MX6 to boot the device."
     ]
   },
   {
@@ -1268,18 +1268,18 @@
     "arch": "armv7hf",
     "icon": "/img/device/imx7-var-som.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Variscite VAR-SOM-MX7.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Variscite VAR-SOM-MX7.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Set the SW1 BOOT-SELECT switch to SD-CARD. Connect power to the Variscite VAR-SOM-MX7\\. ",
-      "Wait for the Variscite VAR-SOM-MX7 to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Variscite VAR-SOM-MX7.",
-      "Set the SW1 BOOT-SELECT switch to eMMC.,Remove and re-connect power to the Variscite VAR-SOM-MX7\\. to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Set the SW1 BOOT-SELECT switch to SD-CARD. Connect power to the Variscite VAR-SOM-MX7\\. ",
+      "- Wait for the Variscite VAR-SOM-MX7 to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Variscite VAR-SOM-MX7.",
+      "- Set the SW1 BOOT-SELECT switch to eMMC.,Remove and re-connect power to the Variscite VAR-SOM-MX7\\. to boot the device."
     ]
   },
   {
@@ -1288,18 +1288,18 @@
     "arch": "aarch64",
     "icon": "/img/device/imx8mm-var-som.svg",
     "instructions": [
-      "Insert the sdcard to the host machine.",
-      "Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
+      "- Insert the sdcard to the host machine.",
+      "- Write the balenaOS file you downloaded to the sdcard. We recommend using [Etcher](http://www.etcher.io/).",
       "![etcher flashing](/img/common/etcher/etcher.gif)",
-      "Wait for writing of balenaOS to complete.",
-      "Remove the sdcard from the host machine.",
-      "Insert the freshly flashed sdcard into the Variscite VAR-SOM-MX8M-MINI Devkit.",
+      "- Wait for writing of balenaOS to complete.",
+      "- Remove the sdcard from the host machine.",
+      "- Insert the freshly flashed sdcard into the Variscite VAR-SOM-MX8M-MINI Devkit.",
       "![insert SD card](/img/gifs/insert-sd.gif)",
-      "**Warning!** This will also completely erase internal storage medium, so please make a backup first.",
-      "Set the BOOT-SELECT switch to EXT. Connect power to the Variscite VAR-SOM-MX8M-MINI Devkit. ",
-      "Wait for the Variscite VAR-SOM-MX8M-MINI Devkit to finish flashing and shutdown. Please wait until all LEDs are off.",
-      "Remove the sdcard from the Variscite VAR-SOM-MX8M-MINI Devkit.",
-      "Set the BOOT-SELECT switch to INT.,Remove and re-connect power to the Variscite VAR-SOM-MX8M-MINI Devkit. to boot the device."
+      "- **Warning!** This will also completely erase internal storage medium, so please make a backup first.",
+      "- Set the BOOT-SELECT switch to EXT. Connect power to the Variscite VAR-SOM-MX8M-MINI Devkit. ",
+      "- Wait for the Variscite VAR-SOM-MX8M-MINI Devkit to finish flashing and shutdown. Please wait until all LEDs are off.",
+      "- Remove the sdcard from the Variscite VAR-SOM-MX8M-MINI Devkit.",
+      "- Set the BOOT-SELECT switch to INT.,Remove and re-connect power to the Variscite VAR-SOM-MX8M-MINI Devkit. to boot the device."
     ]
   }
 ]

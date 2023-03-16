@@ -70,12 +70,10 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 <!-- Loop through device instructions-->
 {{#$device.instructions}}
-{{this}}<br>
+{{this}}
 {{/$device.instructions}}
 
-When complete, after a minute or two the device should appear on your {{$names.cloud.lower}} [dashboard]({{ $links.dashboardUrl }}), and you should now be ready to deploy some code! 
-
-If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for {{ $device.name }}][troubleshooting-{{ $device.id }}] or try our [support channels][support].
+When complete, after a minute or two the device should appear on your {{$names.cloud.lower}} [dashboard]({{ $links.dashboardUrl }}), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for {{ $device.name }}][troubleshooting-{{ $device.id }}] or try our [support channels][support].
 
 
 ## Install the {{ $names.cli.lower }}

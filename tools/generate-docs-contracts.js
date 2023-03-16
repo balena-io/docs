@@ -8,6 +8,42 @@ const balena = getSdk({
   dataDirectory: "/opt/local/balena"
 });
 
+
+/**
+ * Wrote logic to accurately output the default bootMedia being used by the device type as 
+ * provided by the instructions mentioned in contracts README. 
+ * 
+ * After cleaning up the partials, chose to not use the following code since there wasn no need 
+ * for it. 
+ * 
+ * @param {*} media 
+ * @param {*} flashProtocol 
+ * @returns 
+ */
+// function bootMediaDecider(media, flashProtocol) {
+//   if (media.defaultBoot === "sdcard") {
+//     return "SD card"
+//   }
+//   if (media.defaultBoot === "image") {
+//     return "image"
+//   }
+//   else if (media.defaultBoot === "internal") {
+//     if (media.altBoot === undefined) {
+//       if (flashProtocol === "jetsonFlash" || flashProtocol === "RPIBOOT") {
+//         return "eMMC"
+//       }
+//     } else {
+//       if (media.altBoot.length === 1 && media.altBoot[0] === "sdcard") {
+//         return "SD Card"
+//       }
+//       else if (media.altBoot.length === 1 && media.altBoot[0] === "usb_mass_storage") {
+//         return "USB key"
+//       } else if (media.altBoot.includes('usb_mass_storage'))
+//         return "USB Key"
+//     }
+//   }
+// }
+
 /**
  * Code from https://github.com/douzi8/base64-img/blob/master/base64-img.js
  */
@@ -72,8 +108,11 @@ const sdCardInstruction = `Insert the freshly flashed sdcard into`
  * @returns 
  */
 function prepareInstructions(instructions) {
+  // Convert HTML to markdown 
+  // Create a markdown list of all instructions
+  instructions = instructions.map(instruction => `- ${NodeHtmlMarkdown.translate(instruction)}`)
+  
   // Add etcher flashing GIF to instructions
-  instructions = instructions.map(instruction => NodeHtmlMarkdown.translate(instruction))
   const etcherIndex = instructions.findIndex((instruction) => instruction.includes(etcherLinkInstruction))
   // findIndex returns -1 as output when the element can't be found 
   if (etcherIndex != -1) {
@@ -88,41 +127,6 @@ function prepareInstructions(instructions) {
 
   return instructions
 }
-
-/**
- * Wrote logic to accurately output the default bootMedia being used by the device type as 
- * provided by the instructions mentioned in contracts README. 
- * 
- * After cleaning up the partials, chose to not use the following code since there wasn no need 
- * for it. 
- * 
- * @param {*} media 
- * @param {*} flashProtocol 
- * @returns 
- */
-// function bootMediaDecider(media, flashProtocol) {
-//   if (media.defaultBoot === "sdcard") {
-//     return "SD card"
-//   }
-//   if (media.defaultBoot === "image") {
-//     return "image"
-//   }
-//   else if (media.defaultBoot === "internal") {
-//     if (media.altBoot === undefined) {
-//       if (flashProtocol === "jetsonFlash" || flashProtocol === "RPIBOOT") {
-//         return "eMMC"
-//       }
-//     } else {
-//       if (media.altBoot.length === 1 && media.altBoot[0] === "sdcard") {
-//         return "SD Card"
-//       }
-//       else if (media.altBoot.length === 1 && media.altBoot[0] === "usb_mass_storage") {
-//         return "USB key"
-//       } else if (media.altBoot.includes('usb_mass_storage'))
-//         return "USB Key"
-//     }
-//   }
-// }
 
 
 /**
