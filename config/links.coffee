@@ -54,3 +54,4 @@ module.exports =
     "resources": "https://github.com/balena-io/docs/edit/master/pages/reference/api/resources.md"
     "cloud-iot-provisioning": "https://github.com/balena-io/docs/edit/master/pages/learn/develop/cloud-iot-provisioning.md"
     "getting-started": "https://github.com/balena-io/docs/edit/master/pages/learn/getting-started.md"
+    "troubleshooting": "https://github.com/balena-io/docs/edit/master/pages/faq/troubleshooting/troubleshooting.md"
