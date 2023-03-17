@@ -8,6 +8,8 @@ set -euo pipefail
 dirname=$(dirname $0)
 cd $dirname/..
 
+mkdir -p shared/masterclass/debugging/
+
 # Use node-jq if jq is not pre-installed in the environment nor set in path
 which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
 
@@ -20,8 +22,8 @@ curl --fail --show-error -o pages/reference/balena-cli.md -L https://github.com/
 # curl --fail --show-error -o pages/reference/engine/debugging-balenaengine.md -L https://github.com/balena-os/balena-supervisor/raw/master/balena-docs/debugging-engine.md &
 
 # diagnostics
-curl --fail --show-error -o pages/reference/supervisor-state.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/supervisor-state.md &
-curl --fail --show-error -o pages/reference/device-diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/device-diagnostics.md &
+curl --fail --show-error -o shared/masterclass/debugging/supervisor-diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/supervisor-state.md &
+curl --fail --show-error -o shared/masterclass/debugging/device-diagnostics-partial.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/device-diagnostics.md &
 curl --fail --show-error -o pages/reference/diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/diagnostics.md &
 
 # Supervisor
@@ -32,7 +34,7 @@ curl --fail --show-error -o pages/learn/deploy/release-strategy/update-locking.m
 curl --fail --show-error -o pages/reference/supervisor/supervisor-api.md -L https://github.com/balena-os/balena-supervisor/raw/master/docs/API.md &
 
 # get latest supervisor debugging docs
-curl --fail --show-error -o pages/reference/supervisor/debugging-supervisor.md -L https://github.com/balena-os/balena-supervisor/raw/master/docs/debugging-supervisor.md &
+curl --fail --show-error -o shared/masterclass/debugging/supervisor.md -L https://github.com/balena-os/balena-supervisor/raw/master/docs/debugging-supervisor.md &
 
 # balenaOS
 # get meta-balena README and extract partials
@@ -57,8 +59,15 @@ curl --fail --show-error -o pages/reference/OS/updates/rollbacks.md -L https://r
 curl --fail --show-error -o pages/reference/OS/customer-board-support.md -L https://github.com/balena-os/meta-balena/raw/master/contributing-device-support.md &
 
 # get latest balenaOS debugging docs
-curl --fail --show-error -o pages/reference/OS/debugging-balenaos.md -L https://github.com/balena-os/meta-balena/raw/master/docs/debugging-balenaos.md &
+curl --fail --show-error -o pages/reference/OS/debugging-balenaos.md -L https://github.com/balena-os/meta-balena/raw/master/docs/debugging-balenaos.md && {
+  cd pages/reference/OS
 
+  ../../../tools/extract-markdown.sh "Journal Logs" <debugging-balenaos.md >journal-logs.md 
+  mv journal-logs.md ../../../shared/masterclass/debugging/
+  ../../../tools/extract-markdown.sh "Using the Kernel Logs" <debugging-balenaos.md >kernel-logs.md 
+  mv kernel-logs.md ../../../shared/masterclass/debugging/
+  rm debugging-balenaos.md
+} &
 
 # Masterclasses
 curl --fail --show-error -o pages/learn/more/masterclasses/cli-masterclass.md -L https://raw.githubusercontent.com/balena-io/balena-cli-masterclass/master/README.md &
