@@ -4,6 +4,10 @@
 # exit on error, unassigned vars, or pipe fails
 set -euo pipefail
 
+#!/usr/bin/env bash
+dirname=$(dirname $0)
+cd $dirname/..
+
 # Use node-jq if jq is not pre-installed in the environment nor set in path
 which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
 
