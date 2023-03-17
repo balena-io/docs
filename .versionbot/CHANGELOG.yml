@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update lychee to 1.6.1"
+      hash: 89f6a91e64ddc8f02024dae151f06423d36522b8
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.51.3
+  title: ""
+  date: 2023-03-17T23:51:38.533Z
+- commits:
     - subject: "patch: Fix troubleshooting edit links"
       hash: 18e3791668ebb99a4daee6e0d86bda8ea527cb51
       body: ""
