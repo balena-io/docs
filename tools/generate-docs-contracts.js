@@ -144,7 +144,7 @@ async function supportedDeviceTypeContract() {
     ]
   })
 
-  console.log("Generating docs specific contracts from scratch ... this will take a minute.\nTip: Use npm run build:fast to test documentation changes faster...")
+  console.log("Generating docs specific contracts from scratch ... this will take a moment.")
   return await Promise.all(contracts.map(async (contract) => ({
     id: contract.contract.slug,
     name: contract.contract.name,
