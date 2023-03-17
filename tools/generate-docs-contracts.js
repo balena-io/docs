@@ -1,5 +1,5 @@
 const { getSdk } = require('balena-sdk')
-const { writeFile, access, constants } = require('node:fs/promises')
+const { writeFile, access, constants } = require('fs/promises')
 const path = require('path')
 const { NodeHtmlMarkdown } = require('node-html-markdown')
 
@@ -44,17 +44,20 @@ const balena = getSdk({
 //   }
 // }
 
+const baseType = {
+  'png': 'png', 
+  'jpg': 'jpg',
+  'jpeg': 'jpg',
+  'svg+xml': 'svg',
+  'svg': 'svg'
+};
+
 /**
- * Code from https://github.com/douzi8/base64-img/blob/master/base64-img.js
+ * Code modified from https://github.com/douzi8/base64-img/blob/master/base64-img.js
  */
 function img(data) {
   const reg = /^data:image\/([\w+]+);base64,([\s\S]+)/;
   const match = data.match(reg);
-  const baseType = {
-    jpeg: 'jpg'
-  };
-
-  baseType['svg+xml'] = 'svg'
 
   if (!match) {
     throw new Error('image base64 data error');
@@ -90,10 +93,9 @@ const svgCreator = async function (data, destpath, name) {
   } catch (e) {
     // If it doesn't exist then create the image
     await writeFile(filePathActual, result.base64, { encoding: 'base64' });
-  } finally {
-    // return path of the image for the contracts
-    return filePathContract;
   }
+  // return path of the image for the contracts
+  return filePathContract
 };
 
 const etcherLinkInstruction = `[Etcher](http://www.etcher.io/)`
@@ -111,17 +113,17 @@ function prepareInstructions(instructions) {
   // Convert HTML to markdown 
   // Create a markdown list of all instructions
   instructions = instructions.map(instruction => `- ${NodeHtmlMarkdown.translate(instruction)}`)
-  
+
   // Add etcher flashing GIF to instructions
   const etcherIndex = instructions.findIndex((instruction) => instruction.includes(etcherLinkInstruction))
   // findIndex returns -1 as output when the element can't be found 
-  if (etcherIndex != -1) {
+  if (etcherIndex !== -1) {
     instructions.splice(etcherIndex + 1, 0, `![etcher flashing](/img/common/etcher/etcher.gif)`)
   }
 
   // Add SD card GIF to instructions
   const sdCardIndex = instructions.findIndex((instruction) => instruction.includes(sdCardInstruction))
-  if (sdCardIndex != -1) {
+  if (sdCardIndex !== -1) {
     instructions.splice(sdCardIndex + 1, 0, `![insert SD card](/img/gifs/insert-sd.gif)`)
   }
 
@@ -130,13 +132,11 @@ function prepareInstructions(instructions) {
 
 
 /**
- * This is where the script starts
  * 
  * Creates a device type contracts specifically to be used for Docs at build time
  * These contracts are used to populate dropdown present in 
  */
-(async function supportedDeviceTypeContract() {
-  let deviceType = []
+async function supportedDeviceTypeContract() {
   const contracts = await balena.models.deviceType.getAllSupported({
     $select: [
       'contract',
@@ -145,21 +145,22 @@ function prepareInstructions(instructions) {
   })
 
   console.log("Generating docs specific contracts from scratch ... this will take a minute.\nTip: Use npm run build:fast to test documentation changes faster...")
-  for (const contract of contracts) {
-    deviceType = [
-      ...deviceType,
-      {
-        id: contract.contract.slug,
-        name: contract.contract.name,
-        arch: contract.contract.data.arch,
-        // bootMedia: bootMediaDecider(contract.contract.data.media, contract.contract.data.flashProtocol),
-        icon: await svgCreator(contract.logo, '/img/device/', contract.contract.slug),
-        // icon: base64Decorder(contract.logo),
-        instructions: prepareInstructions(await balena.models.deviceType.getInstructions(contract.contract.slug))
-      }
-    ]
-  }
+  return await Promise.all(contracts.map(async (contract) => ({
+    id: contract.contract.slug,
+    name: contract.contract.name,
+    arch: contract.contract.data.arch,
+    // bootMedia: bootMediaDecider(contract.contract.data.media, contract.contract.data.flashProtocol),
+    icon: await svgCreator(contract.logo, '/img/device/', contract.contract.slug),
+    // icon: base64Decorder(contract.logo),
+    instructions: prepareInstructions(await balena.models.deviceType.getInstructions(contract.contract.slug))
+  })
+  ))
+}
 
-
-  await writeFile(path.join(__dirname, '../config/dictionaries/device.json'), JSON.stringify(deviceType))
+/**
+ * This is where the script starts
+ */
+(async () => {
+  const docsContracts = await supportedDeviceTypeContract()
+  await writeFile(path.join(__dirname, '../config/dictionaries/device.json'), JSON.stringify(docsContracts))
 })()
