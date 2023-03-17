@@ -1,23 +1,23 @@
 ---
-title: Get started on developing with {{ $device.name }} and {{ $language.name }}
+title: Get Started with {{ $names.cloud.lower }} using {{ $device.name }} and {{ $language.name }}
 
 layout: getting-started.html
 
 dynamic:
   variables: [ $device, $language ]
   ref: $original_ref/$device/$language
-  $switch_text: I want to get started with a $device using $language
+  $switch_text: I want to develop on balena with $device using $language
 ---
 
 # {{ title }}
 
-In this guide we'll cover:
+In this guide, we will help you get started with {{ $names.cloud.lower }} by:
 
 - Setting up your **{{ $device.name }}** device and bringing it online on the {{ $names.cloud.lower }} dashboard.
 - Deploying a **{{ $language.name }}** hello-world project on the device.
 - Developing the sample project: making changes and testing them on the device in real-time.
 
-Once you've completed this guide you'll be equipped with the fundamentals needed to continue developing your application using {{ $names.cloud.lower }} and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary][balena-glossary].
+Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using {{ $names.cloud.lower }} and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary][balena-glossary].
 
 
 ## What you'll need
