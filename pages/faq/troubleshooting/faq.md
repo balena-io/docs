@@ -139,6 +139,19 @@ Power supply units (PSUs) are a critical component to any widespread production 
 Device access is granted to a subset of {{ $names.company.lower }} employees to [enable support and device troubleshooting](https://www.balena.io/docs/learn/manage/support-access). This access is controlled by ssh key access and only after access is explicitly granted to balena.
 Release source code and images are stored on {{ $names.company.lower }} backend servers with access limited only to administrative/operational staff and are not exposed to anyone outside of {{ $names.company.lower }}. It is also possible to bypass the {{ $names.company.lower }} builder entirely and push only pre-built artifacts, meaning that {{ $names.company.lower }} never has access to the code at any point.
 
+### Difference between Device Type images and Generic Architecture images? Example: intel-nuc and generic x86 balenaOS images.
+
+BalenaOS provides support for specific device types in the form of device type specific images. Some images like Generic x86_64 or 
+Generic AARCH64 target all devices for that architecture. These are general purpose images that could be used to run balenaOS on virtualized with QEMU, servers, or even consumer motherboards. This is not to say a generic image might not work on a device type. But, we don't recommend it. 
+
+In our example, a Intel NUC image provides generic x86 device support but not the other way around. You can follow the same Getting Started instructions as the Intel NUC device to provision other devices with an x86 architecture, such as the VIA AMOS-3005 and the Intel Compute Stick STK1A32SC.
+
+The Intel NUC will have drivers related to the specific device type. You can use Generic x86_64 that supports a wider variant of drivers and would be more compatible. Feel free to reach out if your device type is not supported or not provisioning with the images available on [balena.io/os](https://balena.io/os)
+
+
+
+
+
 [forums]:{{ $names.forums_domain }}/c/troubleshooting
 
 [device-types]: /reference/base-images/devicetypes
