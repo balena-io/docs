@@ -1,7 +1,8 @@
 #############################  Display  #############################
 
 # Verbose program output
-verbose = true
+# Accepts log level: "error", "warn", "info", "debug", "trace"
+verbose = "info"
 
 # Show progress
 progress = true
