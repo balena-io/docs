@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add Generic x Device Type difference"
+      hash: aec019789845d10cc82cb8a7db8ca00e1baf2c71
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.51.5
+  title: ""
+  date: 2023-03-20T10:03:48.166Z
+- commits:
     - subject: "patch: Add verbose level to lychee output"
       hash: 27a02758696bf365029902a015b8cca1cd5ba765
       body: ""
