@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add verbose level to lychee output"
+      hash: 27a02758696bf365029902a015b8cca1cd5ba765
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.51.4
+  title: ""
+  date: 2023-03-20T08:59:34.721Z
+- commits:
     - subject: "patch: Update lychee to 1.6.1"
       hash: 89f6a91e64ddc8f02024dae151f06423d36522b8
       body: ""
