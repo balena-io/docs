@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix intel-nuc getting started"
+      hash: 453c41ae166bfd2db36bbaf15ce2ccb7a3700a3a
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.51.6
+  title: ""
+  date: 2023-03-21T16:22:08.796Z
+- commits:
     - subject: "patch: Add Generic x Device Type difference"
       hash: aec019789845d10cc82cb8a7db8ca00e1baf2c71
       body: ""
