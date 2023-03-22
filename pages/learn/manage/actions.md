@@ -154,10 +154,26 @@ This option permanently deletes your fleet.
 
 __Warning:__ It is a good idea to [move your devices to another fleet][move-devices] before deleting your current fleet. If you do not, **all devices attached to the fleet will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device operations from {{ $names.company.lower }}.
 
+## Release settings
+
+These settings can be found on the "Settings" menu for each release.
+
+### Validation Status
+
+This option can be used to mark your release as valid or invalid. Entities can only be pinned to valid releases. If you invalidate a release, any devices that are running it and are not pinned to it will be updated to the fleet's target release. If an entity is pinned to a release when it is invalidated, it will not be affected. If you wish to allow pinning to the release again, you could re-validate it via this same setting.
+
+### Delete Release
+
+This option permanently deletes your release. This may be the setting you want to use if you want to clean up releases beyond simply [invalidating releases][invalidate-releases].
+
+__Info:__ If you have a device [preloaded][preload-devices] with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.
+
 [move-app-blog-post]:{{ $links.blogSiteUrl }}/canary-rollouts-on-resin-io/
 [updates]:/reference/OS/updates/self-service
 [local-mode]:/learn/develop/local-mode
 [move-devices]:#move-to-another-application
+[invalidate-releases]:#validation-status
+[preload-devices]:/learn/more/masterclasses/advanced-cli/#5-preloading-and-preregistering
 [fleet-types]:/learn/manage/app-types
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [purge-data]:#purge-data
