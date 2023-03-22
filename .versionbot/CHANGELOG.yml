@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Clarify how interfaces are configured"
+      hash: 79c115f89110fffbd4532a1b35b81c4fe7ef0d59
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.51.7
+  title: ""
+  date: 2023-03-22T10:02:48.572Z
+- commits:
     - subject: "patch: Fix intel-nuc getting started"
       hash: 453c41ae166bfd2db36bbaf15ce2ccb7a3700a3a
       body: ""
