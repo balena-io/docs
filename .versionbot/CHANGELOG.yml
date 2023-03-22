@@ -1,4 +1,16 @@
 - commits:
+    - subject: Add Release Settings documentation for `Validation status` and `Delete`
+      hash: c21e22802190072fd8057c77dee3a14254344bbf
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: myarmolinsky
+      nested: []
+  version: 5.52.0
+  title: ""
+  date: 2023-03-22T11:17:02.563Z
+- commits:
     - subject: "patch: Clarify how interfaces are configured"
       hash: 79c115f89110fffbd4532a1b35b81c4fe7ef0d59
       body: ""
