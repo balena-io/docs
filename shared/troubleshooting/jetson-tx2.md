@@ -18,9 +18,22 @@ Starting with L4T 32.1 the L4T partition layout has changed as well as the firmw
 
 In the case of a device that will not boot because of an interrupted update procedure, it will need to be re-flashed. This can be done by [downloading the L4T Driver Package][l4t-download] (BSP), unpacking it, putting the device in recovery mode and executing `sudo ./flash.sh jetson-tx2 mmcblk0p1`. Once the L4T partitions are finished writing, the device can be booted using the appropriate balenaOS flasher SD-CARD image for the targeted L4T version.
 
-[l4t-download]:https://developer.nvidia.com/embedded/linux-tegra-archive
-[meta-tegra]:https://github.com/OE4T/meta-tegra
-[self-service-update]:/reference/OS/updates/self-service/
+## Jetson L4T versions
+
+### How can I determine which L4T a balenaOS image uses?
+
+If the device is running, typing `uname -a` will show the L4T in the kernel version string. Additionally, the L4T version is visible in the [balena-jetson github repository][tegra-binaries-version] for every release tag.
+
+### Custom device tree support
+
+Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section][hardware section].
+
+
 [tegra-binaries-version]:https://github.com/balena-os/balena-jetson/tree/master/layers/meta-balena-jetson/recipes-bsp/tegra-binaries
 [jetson-flash]:https://github.com/balena-os/jetson-flash
 [hardware section]:/learn/develop/hardware/i2c-and-spi/#jetson-devices
+
+[l4t]:https://developer.nvidia.com/embedded/linux-tegra
+[l4t-download]:https://developer.nvidia.com/embedded/linux-tegra-archive
+[meta-tegra]:https://github.com/OE4T/meta-tegra
+[self-service-update]:/reference/OS/updates/self-service/
