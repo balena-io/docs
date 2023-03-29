@@ -1,4 +1,24 @@
 - commits:
+    - subject: "minor: Move Algolia search to new infra"
+      hash: 8ccaa167695f123524b4dc8c85549ebe99edee82
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+    - subject: "patch: Fix broken links on crawls"
+      hash: 459cc583b2ee9cadaf7e864f0f4d484042850db3
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.53.0
+  title: ""
+  date: 2023-03-29T21:04:36.898Z
+- commits:
     - subject: "patch: Add sitemap.xml"
       hash: b1c525e2fe00a6034e0ab0f6d2b2a30f31fd98e1
       body: ""
