@@ -185,4 +185,4 @@ __Info:__ If you have a device [preloaded][preload-devices] with an OS version l
 [inactive-devices]:/learn/manage/billing/#inactive-devices
 [fleet-members]:/learn/manage/account/#fleet-members
 [docker-data-persistence-strategies]:https://docs.docker.com/storage/
-[public-url]:learn/develop/runtime/#public-device-urls
+[public-url]:/learn/develop/runtime/#public-device-urls

@@ -66,7 +66,7 @@ Adding custom device configuration is similar to adding custom fleet configurati
 __Note:__ In addition to the dashboard, this configuration can be also be set using the API or any of its clients, including the [SDK][sdk] and [CLI][cli].
 
 [sdk]:/reference/sdk/node-sdk
-[cli]:/reference/cli/reference/balena-cli/#envs
+[cli]:/reference/balena-cli/#envs
 [local-mode]:/learn/develop/local-mode
 [update-locking]:/learn/deploy/release-strategy/update-locking
 [boot-config-guide]:/reference/OS/advanced#modifying-configtxt-using-configuration-variables
