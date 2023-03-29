@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Add Algolia crawler verification code"
+      hash: 64ec33e1228e230c489c15c64f323a90420bccf6
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 5.53.1
+  title: ""
+  date: 2023-03-29T21:14:23.512Z
+- commits:
     - subject: "minor: Move Algolia search to new infra"
       hash: 8ccaa167695f123524b4dc8c85549ebe99edee82
       body: ""
