@@ -2,7 +2,7 @@
 
 # Verbose program output
 # Accepts log level: "error", "warn", "info", "debug", "trace"
-verbose = "info"
+verbose = false
 
 # Show progress
 progress = true
