@@ -115,7 +115,6 @@ exclude = [
     "https://github.com/balena-io/balena-cli/releases/download/*",
     "file://*",
     "system@*",
-    "https://github.com/balena-io/docs/edit/master/pages/reference/supervisor/configuration-list/*"
     ]
 
 # Exclude these filesystem paths from getting checked.
