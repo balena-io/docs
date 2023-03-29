@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add back troubleshooting content for jetson devices"
+      hash: 11ec6081858388675493d9f1cee5f2193e95b7c2
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.53.2
+  title: ""
+  date: 2023-03-29T21:36:09.322Z
+- commits:
     - subject: "patch: Add Algolia crawler verification code"
       hash: 64ec33e1228e230c489c15c64f323a90420bccf6
       body: ""
