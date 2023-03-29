@@ -35,3 +35,6 @@ fi
 
 # Copy the 404 page to root of the build folder for CF pages to find it
 cp build/404/index.html build/404.html
+
+# generate sitemap
+npx sscli -b https://docs.balena.io -r build/ --concurrent 16 --slash -f xml
