@@ -9,6 +9,10 @@ jobs:
   deploy-cloudflare-pages:
     name: Daily deploy to CF Pages
     runs-on: ubuntu-latest
+    env:
+      CF_BRANCH: master
+      cloudflare_website: balenacloud-docs
+
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
@@ -29,4 +33,4 @@ jobs:
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           wranglerVersion: '2.12.0' # latest - https://www.npmjs.com/package/wrangler
           preCommands: wrangler --version
-          command: pages publish --branch ${{ env.CF_BRANCH }} --project-name=${{ inputs.cloudflare_website }} build/ | tee -a $GITHUB_STEP_SUMMARY
+          command: pages publish --branch $CF_BRANCH --project-name=$cloudflare_website  build/ | tee -a $GITHUB_STEP_SUMMARY
