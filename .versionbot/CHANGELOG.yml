@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Supply Cloudflare Pages project name"
+      hash: ff9b679aacb1774894231321adfb42aece22448c
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.52.1
+  title: ""
+  date: 2023-03-29T10:02:29.045Z
+- commits:
     - subject: Add Release Settings documentation for `Validation status` and `Delete`
       hash: c21e22802190072fd8057c77dee3a14254344bbf
       body: ""
