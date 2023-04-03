@@ -53,7 +53,7 @@
     "static-sitemap-cli": "^2.2.1",
     "url-loader": "4.1.1",
     "watch": "^1.0.2",
-    "webpack": "5.76.2",
+    "webpack": "5.77.0",
     "webpack-cli": "^4.10.0",
     "wrangler": "^2.13.0"
   },
