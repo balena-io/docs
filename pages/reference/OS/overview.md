@@ -42,7 +42,7 @@ To persist logs on the device, enable persistent logging via the [configuration]
 
 ### Hostname
 
-{{ $names.os.lower }} allows the setting of a custom [hostname][config-json-hostname] via `config.json`, by setting `"hostname": "my-new-hostname"`. Your device will then broadcast (via Avahi) on the network as `my-new-hostname.local`. If you don't set a custom hostname, the device will default to `<short-UUID>.local`. You can also set a custom hostname via the [Supervisor API][supervisor-api] on device.
+{{ $names.os.lower }} allows the setting of a custom [hostname][config-json-hostname] via `config.json`, by setting `"hostname": "my-new-hostname"`. Your device will then broadcast (via Avahi) on the network as `my-new-hostname.local`. If you don't set a custom hostname, the device hostname will default to `<short-UUID>`. You can also set a custom hostname via the [Supervisor API][supervisor-api] on device.
 
 ### Logo
 
