@@ -31,9 +31,9 @@ Learn
     [/learn/welcome/support]
 
   # this URL is handled in redirects.txt
-  GET STARTED[/learn/getting-started]
+  GETTING STARTED[/learn/getting-started]
     # with $device and $language being dynamic
-    Getting started guide ~ {{ $device.name }} and {{ $language.name }}[/learn/getting-started/$device/$language]
+    Getting started guide ~ {{ $device.name }} on balenaCloud[/learn/getting-started/$device/$language]
 
   DEVELOP
     [/learn/develop/local-mode]
