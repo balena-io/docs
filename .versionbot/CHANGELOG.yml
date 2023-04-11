@@ -1,4 +1,26 @@
 - commits:
+    - subject: "patch: Improve SEO ranking of Getting Started guide"
+      hash: b5c4cf236d6089850ce4412563a182121e03ae9e
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+    - subject: Clarify default value for device hostname
+      hash: a0764549b0f0e14a4482b54fa7f630bd06cbcecd
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 5.53.3
+  title: ""
+  date: 2023-04-11T06:53:58.205Z
+- commits:
     - subject: "patch: Add back troubleshooting content for jetson devices"
       hash: 11ec6081858388675493d9f1cee5f2193e95b7c2
       body: ""
