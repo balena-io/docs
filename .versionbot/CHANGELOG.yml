@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Clarify variant for increasing size of persistent logs store"
+      hash: b64c837d03d64eccfa785a08bebc5013609a0d77
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.53.4
+  title: ""
+  date: 2023-04-11T07:18:12.352Z
+- commits:
     - subject: "patch: Improve SEO ranking of Getting Started guide"
       hash: b5c4cf236d6089850ce4412563a182121e03ae9e
       body: ""
