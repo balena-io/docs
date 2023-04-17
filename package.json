@@ -44,7 +44,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "cspell": "^6.30.2",
+    "cspell": "^6.31.1",
     "css-loader": "5.2.7",
     "file-loader": "6.2.0",
     "mini-css-extract-plugin": "^1.6.2",
