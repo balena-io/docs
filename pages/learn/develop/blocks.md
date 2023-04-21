@@ -121,9 +121,9 @@ This would lead to your block being available on [balenaHub][blockhub] for folks
 
 ## Using your block in other projects
 
-The URL to pull your block image is available in balenaHub under the `Image Reference` field.
+The URL to pull your block image (the _image reference_) is available in balenaHub by clicking the `Use` button.
 
-<img src="/img/blocks/image-ref.png" width="100%">
+<img src="/img/blocks/use-button.png" width="100%">
 
 This image reference can be used in a Dockerfile or docker-compose file to pull the _default release_ image of your block.
 
