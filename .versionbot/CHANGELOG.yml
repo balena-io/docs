@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add ClearBlade-GCP selection to cloud IoT provisioning page
+      hash: 20377477ef0d3dd11c7e0d97cb22ceb829691e2b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 5.53.5
+  title: ""
+  date: 2023-04-23T11:37:15.380Z
+- commits:
     - subject: "patch: Clarify variant for increasing size of persistent logs store"
       hash: b64c837d03d64eccfa785a08bebc5013609a0d77
       body: ""
