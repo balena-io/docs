@@ -51,7 +51,7 @@ The `git push` workflow requires that you have [git][git] installed on your deve
 
 ![how git push works](/img/common/deployment/git-push.png)
 
-Then, simply add your {{$names.cloud.lower}} app's git endpoint to your local git repository via `git remote add {{$names.company.lower}} <fleet git endpoint>` . You can find the fleet git remote endpoint by clicking the 'Create release' button in the releases tab of the dashboard.
+Then, simply add your {{$names.cloud.lower}} app's git endpoint to your local git repository via `git remote add {{$names.company.lower}} <fleet git endpoint>` . You can find the fleet git remote endpoint by clicking the 'Add release' button in the releases tab of the dashboard.
 
 ![Where to find git remote](/img/common/deployment/git-remote.png)
 
