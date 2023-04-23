@@ -1,4 +1,16 @@
 - commits:
+    - subject: "Deployment: Update screenshots"
+      hash: c04a750ccefddd77a96233de71ece4b69c5ade78
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: myarmolinsky
+      nested: []
+  version: 5.53.6
+  title: ""
+  date: 2023-04-23T12:01:06.732Z
+- commits:
     - subject: Add ClearBlade-GCP selection to cloud IoT provisioning page
       hash: 20377477ef0d3dd11c7e0d97cb22ceb829691e2b
       body: ""
