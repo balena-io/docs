@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Local Mode docs phrasing and screenshots
+      hash: 1744b8fc3bf5a2ac0458c0d9a31490745ca2a1c8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: myarmolinsky
+      nested: []
+  version: 5.53.7
+  title: ""
+  date: 2023-04-23T12:29:05.482Z
+- commits:
     - subject: "Deployment: Update screenshots"
       hash: c04a750ccefddd77a96233de71ece4b69c5ade78
       body: ""
