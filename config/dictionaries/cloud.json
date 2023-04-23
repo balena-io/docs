@@ -3,6 +3,7 @@
     "id": "aws",
     "name": "AWS",
     "shortName": "AWS",
+    "platformName": "AWS",
     "platformUrl": "https://aws.amazon.com/iot",
     "iotCoreName": "IoT Core",
     "iotCoreUrl": "https://aws.amazon.com/iot-core",
@@ -14,6 +15,7 @@
     "id": "azure",
     "name": "Azure",
     "shortName": "Azure",
+    "platformName": "Azure",
     "platformUrl": "https://docs.microsoft.com/en-us/azure/iot-fundamentals/",
     "iotCoreName": "IoT Hub",
     "iotCoreUrl": "https://docs.microsoft.com/en-us/azure/iot-hub/iot-concepts-and-iot-hub",
@@ -25,11 +27,24 @@
     "id": "gcp",
     "name": "Google Cloud",
     "shortName": "GCP",
+    "platformName": "GCP",
     "platformUrl": "https://cloud.google.com/solutions/iot",
     "iotCoreName": "IoT Core",
     "iotCoreUrl": "https://cloud.google.com/iot-core",
     "credentialType": "public key pair",
     "provisionRepoName": "gcp-iot-provision",
+    "cloudFunctionName": "Cloud"
+  },
+  {
+    "id": "cb-gcp",
+    "name": "ClearBlade-GCP",
+    "shortName": "ClearBlade",
+    "platformName": "GCP",
+    "platformUrl": "https://www.clearblade.com/iot-core/",
+    "iotCoreName": "IoT Core",
+    "iotCoreUrl": "https://iot.clearblade.com/iot-core",
+    "credentialType": "public key pair",
+    "provisionRepoName": "cb-gcp-iot-provision",
     "cloudFunctionName": "Cloud"
   }
 ]

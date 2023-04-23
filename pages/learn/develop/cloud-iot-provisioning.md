@@ -8,12 +8,16 @@ dynamic:
 # Cloud IoT Provisioning with {{ $cloud.name }}
 
 {{#is $cloud.shortName "GCP"}}
-  __Note:__ Google has issued a [deprecation notice](https://cloud.google.com/iot/docs/release-notes#August_16_2022) for the Cloud IoT service due to shutdown in August 2023. Balena's provisioning support for GCP IoT Core will not receive further updates.
+  __Note:__ Google has issued a [deprecation notice](https://cloud.google.com/iot/docs/release-notes#August_16_2022) for the Cloud IoT service due to shutdown in August 2023. Balena's provisioning support for GCP IoT Core will not receive further updates. See [ClearBlade-GCP](../cb-gcp) for a replacement service.
 {{/is}}
 
 The [{{ $cloud.name }} {{#is $cloud.shortName "GCP"}}(GCP){{/is}} IoT]({{ $cloud.platformUrl }}) platform provides a valuable suite of services to collect, store, and distribute IoT data and actions. Its [{{ $cloud.iotCoreName }}]({{ $cloud.iotCoreUrl }}) service is the portal for registration and messaging with Internet-connected things. We want to make it easy for balena devices to register and interact with {{ $cloud.iotCoreName }}.
 
-Our IoT provisioning tools automate device registration to {{ $cloud.iotCoreName }}, and leverage balenaCloud and environment variables to store and access the registration credentials. This guide shows you how provisioning works and gets you started with the tools in the [{{ $cloud.provisionRepoName }}](https://github.com/balena-io-examples/{{ $cloud.provisionRepoName}}) repository.
+Our IoT provisioning tools automate device registration to {{ $cloud.shortName }} {{ $cloud.iotCoreName }}, and leverage balenaCloud and environment variables to store and access the registration credentials. This guide shows you how provisioning works and gets you started with the tools in the [{{ $cloud.provisionRepoName }}](https://github.com/balena-io-examples/{{ $cloud.provisionRepoName}}) repository.
+
+{{#is $cloud.shortName "ClearBlade"}}
+  As its name suggests, {{ $cloud.name }} is a hybrid platform. {{ $cloud.shortName }} provides the IoT Core service, while Google Cloud (GCP) provides the underlying host platform for other services like the cloud function described below. {{ $cloud.shortName }} {{ $cloud.iotCoreName }} is a replacement for Google's [deprecated](https://cloud.google.com/iot/docs/release-notes#August_16_2022) IoT Core service due to shutdown in August 2023. See our [blog post](https://blog.balena.io/replace-google-iot-core-with-clearblade/) on migrating to {{ $cloud.shortName }}.
+{{/is}}
 
 ## How It Works
 
@@ -22,7 +26,7 @@ Our IoT provisioning tools automate device registration to {{ $cloud.iotCoreName
 Provisioning includes three components:
 
 * **Service Container** like [Cloud Relay block](https://github.com/balena-io-examples/cloud-relay) on a device to request the provisioning and use the credential environment variables from balenaCloud
-* **{{ $cloud.cloudFunctionName }} {{#isnt $cloud.shortName "GCP"}}(cloud){{/isnt}} function** to securely validate device identity and register the device with {{ $cloud.iotCoreName }}, triggered by an HTTP request ([source code](https://github.com/balena-io-examples/{{$cloud.provisionRepoName}}/blob/master/index.js))
+* **{{ $cloud.cloudFunctionName }} {{#isnt $cloud.cloudFunctionName "Cloud"}}(cloud){{/isnt}} function** to securely validate device identity and register the device with {{ $cloud.iotCoreName }}, triggered by an HTTP request ([source code](https://github.com/balena-io-examples/{{$cloud.provisionRepoName}}/blob/master/index.js))
 * **balenaCloud** to accept and store the generated key/certificate credentials for the device
 
 The cloud function first validates the device UUID in the provision request with balenaCloud. Then it generates a {{ $cloud.credentialType }} and registers with the {{ $cloud.iotCoreName }} service. The function then provides the generated credentials to balenaCloud, which stores and pushes them to the device as environment variables for use by the service container.
@@ -33,7 +37,7 @@ __Note:__ A service container like Cloud Relay on the device is not *required* t
 
 ## Getting Started
 
-The tools described here automate *per-device* integration with {{ $cloud.name }}. However, first you must complete some initial one-time configuration on your {{ $cloud.shortName }} account. See the [{{$cloud.shortName}} setup](https://github.com/balena-io-examples/{{ $cloud.provisionRepoName }}/#{{lowercase $cloud.shortName}}-setup) section of the provisioning repo documentation for details.
+The tools described here automate *per-device* integration with {{ $cloud.name }}. However, first you must complete some initial one-time configuration on your {{ $cloud.shortName }} account. See the [{{$cloud.shortName}} setup](https://github.com/balena-io-examples/{{ $cloud.provisionRepoName }}/#setup-and-testing) section of the provisioning repo documentation for details.
 
 ## Create, Deploy, and Test {{ $cloud.cloudFunctionName }} function
 
@@ -42,9 +46,9 @@ The provisioning tools set up the {{ $cloud.cloudFunctionName }} function itself
 
 * configuration of the tools for testing and deployment
 * testing the function locally
-* deployment to {{ $cloud.shortName }} and end-to-end testing
+* deployment to {{ $cloud.platformName }} and end-to-end testing
 
-The result is a functioning HTTP endpoint on {{ $cloud.name }}, ready for provisioning requests.
+The result is a functioning HTTP endpoint on {{ $cloud.platformName }}, ready for provisioning requests.
 
 ## Try a Tutorial
 
