@@ -1,4 +1,16 @@
 - commits:
+    - subject: "Blocks: Update hub image and text"
+      hash: 007a7050ff988287e37f42e0daf43faa7a262b35
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: myarmolinsky
+      nested: []
+  version: 5.53.8
+  title: ""
+  date: 2023-04-24T11:30:20.581Z
+- commits:
     - subject: Update Local Mode docs phrasing and screenshots
       hash: 1744b8fc3bf5a2ac0458c0d9a31490745ca2a1c8
       body: ""
