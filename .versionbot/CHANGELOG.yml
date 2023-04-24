@@ -1,4 +1,16 @@
 - commits:
+    - subject: "Release Policy: Update docs and screenshots"
+      hash: c1e7fd5722269bb043df410fd981a058588285b6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: myarmolinsky
+      nested: []
+  version: 5.53.9
+  title: ""
+  date: 2023-04-24T12:16:10.796Z
+- commits:
     - subject: "Blocks: Update hub image and text"
       hash: 007a7050ff988287e37f42e0daf43faa7a262b35
       body: ""
