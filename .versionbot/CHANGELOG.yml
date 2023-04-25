@@ -1,4 +1,20 @@
 - commits:
+    - subject: Document how to enable core dumps for containers
+      hash: 0f4af4f0acc82eaa45214d2504ad8bf9e2b15054
+      body: |
+        This documents a change to balenaOS introduced by
+        https://github.com/balena-os/meta-balena/pull/2849
+      footer:
+        Signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        Change-type: minor
+        change-type: minor
+      author: Leandro Motta Barros
+      nested: []
+  version: 5.54.0
+  title: ""
+  date: 2023-04-25T19:05:04.834Z
+- commits:
     - subject: "Release Policy: Update docs and screenshots"
       hash: c1e7fd5722269bb043df410fd981a058588285b6
       body: ""
@@ -766,8 +782,8 @@
     - subject: Update supported network_mode
       hash: df4639685162d963a019731834b0868c96dd66d8
       body: >
-        `network_mode: service:[service name]` has been supported since Supervisor
-        v10.1.0.
+        `network_mode: service:[service name]` has been supported since
+        Supervisor v10.1.0.
       footer:
         Change-type: patch
         change-type: patch
@@ -1814,7 +1830,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [actions/checkout](https://github.com/actions/checkout) from 2 to 3.
+        Bumps [actions/checkout](https://github.com/actions/checkout) from 2 to
+        3.
 
         - [Release notes](https://github.com/actions/checkout/releases)
 
@@ -2064,7 +2081,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [actions/checkout](https://github.com/actions/checkout) from 2 to 3.
+        Bumps [actions/checkout](https://github.com/actions/checkout) from 2 to
+        3.
 
         - [Release notes](https://github.com/actions/checkout/releases)
 
@@ -2702,7 +2720,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.51.1 to 5.52.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.51.1 to
+        5.52.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -2738,8 +2757,8 @@
 - commits:
     - author: Vipul Gupta (@vipulgupta2048)
       body: >-
-        Namely, insturctions, machine and state were properties aren't being used
-        anywhere
+        Namely, insturctions, machine and state were properties aren't being
+        used anywhere
 
         in the documentation and hence were removed.
       footers:
@@ -2906,8 +2925,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.7.2 to
-        4.8.0.
+        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.7.2
+        to 4.8.0.
 
         - [Release notes](https://github.com/webpack/webpack-cli/releases)
 
@@ -2935,7 +2954,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.48.0 to 5.51.1.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.48.0 to
+        5.51.1.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -3408,7 +3428,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.46.0 to 5.48.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.46.0 to
+        5.48.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -3469,7 +3490,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.45.1 to 5.46.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.45.1 to
+        5.46.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -3548,7 +3570,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.44.0 to 5.45.1.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.44.0 to
+        5.45.1.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -3584,7 +3607,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.42.1 to 5.44.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.42.1 to
+        5.44.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -3676,7 +3700,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.42.0 to 5.42.1.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.42.0 to
+        5.42.1.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -3722,7 +3747,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.41.0 to 5.42.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.41.0 to
+        5.42.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -3799,8 +3825,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.6.0 to
-        4.7.2.
+        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.6.0
+        to 4.7.2.
 
         - [Release notes](https://github.com/webpack/webpack-cli/releases)
 
@@ -3828,7 +3854,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [bootstrap](https://github.com/twbs/bootstrap) from 3.4.1 to 5.0.2.
+        Bumps [bootstrap](https://github.com/twbs/bootstrap) from 3.4.1 to
+        5.0.2.
 
         - [Release notes](https://github.com/twbs/bootstrap/releases)
 
@@ -3884,7 +3911,8 @@
 - commits:
     - author: dependabot[bot]
       body: >-
-        Bumps [webpack](https://github.com/webpack/webpack) from 5.28.0 to 5.41.0.
+        Bumps [webpack](https://github.com/webpack/webpack) from 5.28.0 to
+        5.41.0.
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
@@ -5824,7 +5852,8 @@
 - commits:
     - author: Alex Gonzalez
       body: >-
-        Provide a list to the blacklisted items directly from github so it is kept
+        Provide a list to the blacklisted items directly from github so it is
+        kept
 
         up-to-date.
 
@@ -6045,7 +6074,8 @@
       subject: Add Offline Updates documentation
     - author: Vipul Gupta (@vipulgupta2048)
       body: >-
-        - Lots of optional stages in the process where pre-existing applications,
+        - Lots of optional stages in the process where pre-existing
+        applications,
 
         devices, keys can be used by users. All of them documented accordingly.
       footers:
@@ -6231,7 +6261,8 @@
 - commits:
     - author: Vipul Gupta (@vipulgupta2048)
       body: >-
-        npm install in the dockerfile triggers the prepare.sh script, which needs
+        npm install in the dockerfile triggers the prepare.sh script, which
+        needs
 
         to be copied before the install starts. Later as the prepare.sh triggers
 
