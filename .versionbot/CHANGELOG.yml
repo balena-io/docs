@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Upgrade Lychee to v1.7.0"
+      hash: ec65436de249a376e312064141e6d943d4bd74fa
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.54.1
+  title: ""
+  date: 2023-04-25T19:18:45.840Z
+- commits:
     - subject: Document how to enable core dumps for containers
       hash: 0f4af4f0acc82eaa45214d2504ad8bf9e2b15054
       body: |
