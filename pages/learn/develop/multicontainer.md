@@ -89,6 +89,22 @@ services:
 
 For devices upgraded from older versions of {{ $names.os.lower }} to v2.12.0 or higher, a link will automatically be created from the `/data` directory of the container to the `resin-data` named volume (similar to above). This ensures fleet behavior will remain consistent across host OS versions. One notable difference is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<FLEET ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<FLEET ID>` location used with earlier host OS versions.
 
+### Core dumps for containers
+
+{{ $names.os.upper }} v2.113.31 and later, by default, will not generate core dump files when a container crashes. This prevents a buggy container that is crash looping to fill up all available storage space on a device.
+
+[Core dumps][core-dump-link] are files with the contents of the memory used by a process at the time it crashes. They are a relatively advanced troubleshooting tool, particularly useful for low-level debugging of programs written in languages that compile to native code. For example, a tool like the `gdb` debugger can read a core dump and provide a stack trace showing the sequence of functions calls that led to the crash.
+
+If you need core dumps, you can easily enable them by editing your `docker-compose.yml` and setting `ulimits.core: -1` for the desired services. For example:
+
+```yaml
+version: '2'
+services:
+    example:
+        ulimits:
+            core: -1
+```
+
 ### Labels
 
 In addition to the settings above, there are some {{ $names.company.lower }} specific labels that can be defined in the `docker-compose.yml` file. These provide access to certain bind mounts and environment variables without requiring you to run the container as privileged:
@@ -104,3 +120,4 @@ In addition to the settings above, there are some {{ $names.company.lower }} spe
 [init-system]:/learn/develop/runtime/#init-system
 [app-types]:/learn/manage/app-types
 [services-masterclass]:/learn/more/masterclasses/services-masterclass/
+[core-dump-link]:https://en.wikipedia.org/wiki/Core_dump
