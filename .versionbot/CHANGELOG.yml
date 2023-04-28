@@ -1,4 +1,16 @@
 - commits:
+    - subject: "Release policy: Fix target release pencil image not working"
+      hash: b9475fc715281de1ede3dc167ad026edc61067dc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: myarmolinsky
+      nested: []
+  version: 5.54.2
+  title: ""
+  date: 2023-04-28T13:09:56.938Z
+- commits:
     - subject: "patch: Upgrade Lychee to v1.7.0"
       hash: ec65436de249a376e312064141e6d943d4bd74fa
       body: ""
