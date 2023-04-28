@@ -39,7 +39,7 @@ There are several ways to achieve this from the Device dashboard. The dropdown o
 
 - Alternatively, on hovering over the `Target release` property in the Device summary page, you will see a pencil icon appear. This can be used to pin the release as well.
 
-<img src="/img/common/release-policy/devices_target_release_pencil.png" width="100%">
+<img src="/img/common/release-policy/device_target_release_pencil.png" width="100%">
 
 - Lastly, the Settings page of a device also has the option to pin the release.
 
