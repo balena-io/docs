@@ -119,7 +119,7 @@ $ balena device register ${fleet_slug} --uuid ${uuid}
 Download the latest production version of [balenaOS][balenaos] for the device type initialized in the `device_type` version.
 
 ```bash
-$ os_version=$(balena os versions ${device_type} | grep prod | head -n 1 | awk '{print $1}')
+$ os_version=$(balena os versions ${device_type} | head -n 1 | awk '{print $1}')
 $ tmpimg=$(mktemp).img
 
 $ balena os download ${device_type} \
