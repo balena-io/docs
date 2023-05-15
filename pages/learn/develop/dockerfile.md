@@ -165,6 +165,10 @@ __Note:__ With a plain Node.js project, our build server will detect compatible 
 
 ![terminal-builder-window](/img/terminal-builder-window.PNG)
 
+## Container Requirements
+
+The {{ $names.company.lower }} Supervisor requires that the directory `/tmp/balena` in containers be available for inter-container communication via [update locks][update-locks]. Therefore, scripts should not attempt to remove this directory on startup.
+
 [container]:https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
 [docker]:https://www.docker.com/
 [dockerfile]:https://docs.docker.com/reference/builder/
@@ -211,3 +215,4 @@ __Note:__ With a plain Node.js project, our build server will detect compatible 
 [aptitude]:https://wiki.debian.org/Aptitude
 
 [services-masterclass]:/learn/more/masterclasses/services-masterclass/
+[update-locks]:/learn/deploy/release-strategy/update-locking/
