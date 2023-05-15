@@ -89,6 +89,8 @@ services:
 
 For devices upgraded from older versions of {{ $names.os.lower }} to v2.12.0 or higher, a link will automatically be created from the `/data` directory of the container to the `resin-data` named volume (similar to above). This ensures fleet behavior will remain consistent across host OS versions. One notable difference is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<FLEET ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<FLEET ID>` location used with earlier host OS versions.
 
+{{ $names.company.lower }} does not support the use of bind mounts at this time, aside from the ones which are provided by [feature labels][feature-labels].
+
 ### Core dumps for containers
 
 {{ $names.os.upper }} v2.113.31 and later, by default, will not generate core dump files when a container crashes. This prevents a buggy container that is crash looping to fill up all available storage space on a device.
@@ -121,3 +123,4 @@ In addition to the settings above, there are some {{ $names.company.lower }} spe
 [app-types]:/learn/manage/app-types
 [services-masterclass]:/learn/more/masterclasses/services-masterclass/
 [core-dump-link]:https://en.wikipedia.org/wiki/Core_dump
+[feature-labels]:/learn/develop/multicontainer/#labels
