@@ -1,4 +1,18 @@
 - commits:
+    - subject: Document restriction on bind mounts
+      hash: 1c0cce3e28e2219fff47e6b2cde423be73ace76a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Christina Ying Wang <christina@balena.io>
+        signed-off-by: Christina Ying Wang <christina@balena.io>
+      author: Christina Ying Wang
+      nested: []
+  version: 5.54.3
+  title: ""
+  date: 2023-05-18T21:32:08.158Z
+- commits:
     - subject: "Release policy: Fix target release pencil image not working"
       hash: b9475fc715281de1ede3dc167ad026edc61067dc
       body: ""
