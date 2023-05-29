@@ -265,6 +265,7 @@ nolive
 ntpdata
 ntpservers
 nuctest
+NVMe
 OCPDIR
 Octalbonescript
 odroid
