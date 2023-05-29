@@ -1,4 +1,18 @@
 - commits:
+    - subject: "hardware: Add Jetson Orin NX module to list of custom dtb devices"
+      hash: 016f741af1980f0509800beb86218b17efef7dec
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+      nested: []
+  version: 5.54.6
+  title: ""
+  date: 2023-05-29T06:57:53.200Z
+- commits:
     - subject: Remove unnecessary `prod` filter on balena os versions
       hash: 82d605eeb621ab9e2d46d03413d75ca04ea2ca47
       body: ""
