@@ -228,6 +228,7 @@
       "note",
       "local_id",
       "status",
+      "overall_status",
       "is_online",
       "last_connectivity_event",
       "is_connected_to_vpn",
