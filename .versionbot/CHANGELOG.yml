@@ -1,4 +1,16 @@
 - commits:
+    - subject: Remove unnecessary `prod` filter on balena os versions
+      hash: 82d605eeb621ab9e2d46d03413d75ca04ea2ca47
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 5.54.5
+  title: ""
+  date: 2023-05-29T06:29:14.602Z
+- commits:
     - subject: "patch: Add info level to lychee logs"
       hash: 29f47577a69a4452a849ecb47e6e793d23a72c5f
       body: ""
