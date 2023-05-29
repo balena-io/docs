@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add info level to lychee logs"
+      hash: 29f47577a69a4452a849ecb47e6e793d23a72c5f
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.54.4
+  title: ""
+  date: 2023-05-29T06:16:32.885Z
+- commits:
     - subject: Document restriction on bind mounts
       hash: 1c0cce3e28e2219fff47e6b2cde423be73ace76a
       body: ""
