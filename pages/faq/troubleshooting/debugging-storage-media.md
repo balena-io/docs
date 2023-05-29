@@ -212,3 +212,9 @@ Should the worst happen and a device is no longer bootable due to filesystem
 corruption, they still have the option of recovering data from the device.
 In this case, they'll need to remove the media (SD card, HDD, etc.) from the
 device and then follow appropriate instructions.
+
+Similar commands to check for storage corruption although can sometime provide false positives. 
+
+```bash
+journalctl -n 10000 | grep "corrupt|Data will be lost|block allocation failed|invalid magic|dockerd: error -117|EXT4-fs error|error count since last fsck|failed checksum|checksum invalid|Please run e2fsck|I/O error"
+```
