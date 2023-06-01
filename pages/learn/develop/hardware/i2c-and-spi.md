@@ -30,26 +30,28 @@ Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)][i2
 
 ### I2C
 
-To enable I2C communication in your projects you will need to add the command `modprobe i2c-dev` to your package.json or Dockerfile.
+I2C is enabled by default in BalenaOS via the `dtparam=i2c_arm=on` device tree parameter used on RaspberryPi devices. The i2c-dev module is loaded by the kernel automatically on startup. To access /dev/i2c-* char device files from a multi-container application, you can either list each file in your docker-compose.yml using device mappings:
 
-The easiest way to add it to the package.json is to add it to the "start" key. As shown here.
-```JSON
- "scripts": {
-    "preinstall": "bash deps.sh",
-    "start": "modprobe i2c-dev && node app.js"
-  }
-```
-
-To add it to your Dockerfile, just add it before your entry script in the `CMD` command like so:
 ```Dockerfile
-CMD modprobe i2c-dev && python /app/demo.py
+services:
+  my-service:
+  ...
+    devices:
+      - "/dev/i2c-1:/dev/i2c-1"
 ```
 
-After your first push, the code will most likely throw an error caused by the modules not being loaded. If this is the case, simply reboot the pi and the modules should be loaded.
+or mark the container as privileged if you want to have all /dev/ nodes bind-mounted inside the container:
 
-__Note:__ A few places will talk about adding the modules to the /etc/modules file so that they are there on boot. This will not work on the {{ $names.company.lower }} system because that file is not mapped to the host OS.
+```Dockerfile
+services:
+  my-service:
+  ...
+    privileged:true
+```
 
-To get you started, here is an [example][i2c-example] that uses i2c to communicate with the [ADS1115][ads1115-link] analog-to-digital converter to allow the Raspberry Pi to read analog signals, which is useful for a bunch of sensor types.
+Single-container fleets run in privileged mode by default. If security and sandboxing are required then a multicontainer release should be created, even if only a single service is required.
+
+To get you started, here is an [example project][balena-sense-example] that supports a variety of i2c sensors to build your own monitoring system for your environment and visualize data from a remote dashboard.
 
 ### SPI
 
@@ -338,7 +340,7 @@ After the custom device tree has been validated, it can be included in newer bal
 
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
-[i2c-example]:{{ $links.githubPlayground }}/balena-rpi-py-ADC
+[balena-sense-example]:https://github.com/balena-labs-projects/balena-sense
 [ads1115-link]:http://www.adafruit.com/product/1085
 [digitiser-link]:{{ $links.githubPlayground }}/digitiser
 [firebaseTemp-link]:{{ $links.githubPlayground }}/firebaseDTL
