@@ -1,4 +1,20 @@
 - commits:
+    - subject: "develop/hardware: Update I2C example in the i2c-and-spi section"
+      hash: 4e990b0234e710cc356b7f6cb2c12dab6d1db1a4
+      body: |
+        The existing sample application is now old, let's use the
+        balena-sense project as an example for I2C.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 5.54.7
+  title: ""
+  date: 2023-06-01T16:35:02.197Z
+- commits:
     - subject: "hardware: Add Jetson Orin NX module to list of custom dtb devices"
       hash: 016f741af1980f0509800beb86218b17efef7dec
       body: ""
