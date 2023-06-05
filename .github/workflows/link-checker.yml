@@ -38,7 +38,7 @@ jobs:
       # Run link checker on the generated HTML
       - name: Link Checker
         id: lychee
-        uses: lycheeverse/lychee-action@01d72a032635cc56bf23e901b9d5fb3272419ca1 # 1.7.0
+        uses: lycheeverse/lychee-action@21b2b78c236322f7dcf5b8dbddaa6442f39c2f32 # 1.7.0
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
