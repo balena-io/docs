@@ -1,4 +1,18 @@
 - commits:
+    - subject: "docs/troubleshooting: Update RPI 3B+ hw revisions info"
+      hash: f4c15be0affe5aeea612d692df2f24bb8a2c8ae6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 5.54.8
+  title: ""
+  date: 2023-06-06T12:58:01.439Z
+- commits:
     - subject: "develop/hardware: Update I2C example in the i2c-and-spi section"
       hash: 4e990b0234e710cc356b7f6cb2c12dab6d1db1a4
       body: |
