@@ -4,6 +4,11 @@ To determine the cause of this issue, check your ACT LED for known [error notifi
 
 One other thing to confirm is that you are not trying to boot a Raspberry Pi 2 with an OS download designed for the Raspberry Pi B+. This will not work. The Raspberry Pi 2 requires an OS download specific to its architecture.
 
+#### Hardware revision
+
+The inability to boot your Raspberry Pi 3 may be related to the hardware revision used. RaspberryPi 3B+ Rev9 is supported by firmware versions from September 2021 onwards. Thus, balenaOS releases
+at v2.101.7 or newer are expected to work with this hardware revision because they use an updated firmware.
+
 ### Connectivity
 
 If a {{ $names.company.upper }} ASCII logo appears with a prompt to check your dashboard, then you are likely experiencing connectivity issues. Check ethernet cables are connected properly and that provided WiFi credentials are correct and try again, also let us known that the LED notification didn't show for you.
