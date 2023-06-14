@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Add deactivation fee to device deactivate feature"
+      hash: 2a49cdea3b40520e114a8c04b8594de90c445649
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 5.54.9
+  title: ""
+  date: 2023-06-14T15:29:09.331Z
+- commits:
     - subject: "docs/troubleshooting: Update RPI 3B+ hw revisions info"
       hash: f4c15be0affe5aeea612d692df2f24bb8a2c8ae6
       body: ""
