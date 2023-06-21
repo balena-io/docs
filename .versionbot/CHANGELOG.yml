@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add command to check device corruption"
+      hash: dc096ac756f59d6c8e3f274ca82100e662ccd412
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.54.10
+  title: ""
+  date: 2023-06-21T13:23:41.271Z
+- commits:
     - subject: "patch: Add deactivation fee to device deactivate feature"
       hash: 2a49cdea3b40520e114a8c04b8594de90c445649
       body: ""
