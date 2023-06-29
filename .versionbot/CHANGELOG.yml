@@ -1,4 +1,18 @@
 - commits:
+    - subject: "faq/troubleshooting: fix index formatting"
+      hash: 11444dfe3dd8e6dd515ccff90143ebbc55503987
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 5.54.11
+  title: ""
+  date: 2023-06-29T10:57:13.942Z
+- commits:
     - subject: "patch: Add command to check device corruption"
       hash: dc096ac756f59d6c8e3f274ca82100e662ccd412
       body: ""
