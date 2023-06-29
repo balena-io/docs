@@ -24,6 +24,7 @@ title: FAQs
  - [How does the device registration work over the VPN and how do you ensure the identity of the device on the first-time registration?](#how-does-the-device-registration-work-over-the-vpn-and-how-do-you-ensure-the-identity-of-the-device-on-the-first-time-registration)
  - [If the device is installed behind a proxy/firewall and can’t be reachable on internet via direct connection, what are the pitfalls?](#if-the-device-is-installed-behind-a-proxyfirewall-and-cant-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls)
  - [How do you secure your own cloud to prevent malicious attack which may allow attacker to break-in to our systems?](#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-to-our-systems)
+ - [How long is a balenaOS release maintained for?](#how-long-is-a-balenaos-release-maintained-for)
  - [When are device types discontinued?](#when-are-device-types-discontinued)
  - [What does it mean when a device type is discontinued?](#what-does-it-mean-when-a-device-type-is-discontinued)
  - [I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on--namescompanylower-)
@@ -122,6 +123,10 @@ The {{ $names.company.lower }} device supervisor needs to be able to access our 
 ##### How do you secure your own cloud to prevent malicious attack which may allow attacker to break-in to our systems?
 
 Generally, we try to follow good OPSEC practices for our systems. We support 2FA for user accounts and force all the connections to be over HTTPS. More details on our approach can be found on our [security page][security].
+
+##### How long is a balenaOS release maintained for?
+
+BalenaOS comes in two flavors, a rolling release and an [Extended Support Release (ESR)](https://www.balena.io/docs/reference/OS/extended-support-release/). Rolling releases stop being maintained as soon as a new release is out. In other words, only the latest balenaOS release is maintained. ESR releases receive bug and security fixes for 9 months after its release date.
 
 ##### When are device types discontinued?
 
