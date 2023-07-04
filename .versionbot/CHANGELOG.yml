@@ -1,4 +1,28 @@
 - commits:
+    - subject: "torubleshooting/faq: add a note about balenaOS maintenance period"
+      hash: 9d7ce88da8027b701cd52485be768bfe17473da6
+      body: ""
+      footer:
+        Relates-to: https://github.com/balena-io/balena-sdk/pull/1355
+        relates-to: https://github.com/balena-io/balena-sdk/pull/1355
+        Change-type: patch
+        change-type: patch
+      author: Alex Gonzalez
+      nested: []
+    - subject: "faq/troubleshooting: when are device types discontinued"
+      hash: a185b3a118fc2e4b2249d582e96258c01951a673
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 5.54.12
+  title: ""
+  date: 2023-07-04T13:44:15.599Z
+- commits:
     - subject: "faq/troubleshooting: fix index formatting"
       hash: 11444dfe3dd8e6dd515ccff90143ebbc55503987
       body: ""
