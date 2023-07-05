@@ -30,6 +30,8 @@ title: FAQs
  - [I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on--namescompanylower-)
  - [What to keep in mind when choosing power supply units?](#what-to-keep-in-mind-when-choosing-power-supply-units)
  - [Does {{ $names.company.lower }} have access to my device, source code and images?](#does--namescompanylower--have-access-to-my-device-source-code-and-images)
+ - [What are generic architecture images?](#what-are-generic-architecture-images)
+ - [What is the difference between the Intel NUC and the Generic x86_64 images?](#what-is-the-difference-between-the-intel-nuc-and-the-generic-x86_64-images)
 
 ##### Can I use multiple containers?
 
@@ -151,18 +153,19 @@ Power supply units (PSUs) are a critical component to any widespread production 
 Device access is granted to a subset of {{ $names.company.lower }} employees to [enable support and device troubleshooting](https://www.balena.io/docs/learn/manage/support-access). This access is controlled by ssh key access and only after access is explicitly granted to balena.
 Release source code and images are stored on {{ $names.company.lower }} backend servers with access limited only to administrative/operational staff and are not exposed to anyone outside of {{ $names.company.lower }}. It is also possible to bypass the {{ $names.company.lower }} builder entirely and push only pre-built artifacts, meaning that {{ $names.company.lower }} never has access to the code at any point.
 
-### Difference between Device Type images and Generic Architecture images? Example: intel-nuc and generic x86 balenaOS images.
+### What are generic architecture images?
 
-BalenaOS provides support for specific device types in the form of device type specific images. Some images like Generic x86_64 or 
-Generic AARCH64 target all devices for that architecture. These are general purpose images that could be used to run balenaOS on virtualized with QEMU, servers, or even consumer motherboards. This is not to say a generic image might not work on a device type. But, we don't recommend it. 
+BalenaOS is primarily used in embedded devices, that is, devices with a dedicated function and mostly static hardware. However, non-embedded type hardware is increasingly being used and is supported with the generic architecture images. These general purpose images are designed to support the widest possible hardware for the supported architectures. They can also be used to run balenaOS virtualized, for example using [QEMU](https://www.qemu.org), in servers or even consumer motherboards, and they are used as a base for balenaOS AWS images.
 
-In our example, a Intel NUC image provides generic x86 device support but not the other way around. You can follow the same Getting Started instructions as the Intel NUC device to provision other devices with an x86 architecture, such as the VIA AMOS-3005 and the Intel Compute Stick STK1A32SC.
+BalenaOS currently offers the following choice of generic architecture images:
 
-The Intel NUC will have drivers related to the specific device type. You can use Generic x86_64 that supports a wider variant of drivers and would be more compatible. Feel free to reach out if your device type is not supported or not provisioning with the images available on [balena.io/os](https://balena.io/os)
+* **Generic x86_64 (MBR)**: These are generic architecture images that use the [Master Boot Record (MBR)](https://en.wikipedia.org/wiki/Master_boot_record) partition table. They are only recommended for legacy hardware that uses an MBR bootloader.
+* **Generic x86_64 (GPT)**: These are generic architecture images that use the [GUID Partition Table (GPT)](https://en.wikipedia.org/wiki/GUID_Partition_Table). These are recommended for any new [UEFI](https://en.wikipedia.org/wiki/UEFI) x86_64 device, including modern Intel NUC devices.
+* **Generic AARCH64**: These are generic architecture images recommended for any new UEFI ARM64 device.
 
+### What is the difference between the Intel NUC and the Generic x86_64 images?
 
-
-
+The Intel NUC images are images purposely built to match the Intel NUC hardware. They will probably work on other x86_64 device but lack support for hardware that is not available on Intel NUCs. Modern Intel NUCs are better supported using the [Generic Architecture Images](#what-are-generic-architecture-images) described above.
 
 [forums]:{{ $names.forums_domain }}/c/troubleshooting
 
