@@ -1,7 +1,7 @@
 {
   "name": "balena-docs",
   "private": true,
-  "version": "5.54.14",
+  "version": "5.54.15",
   "engines": {
     "node": "^18.0.0"
   },
@@ -58,6 +58,6 @@
     "wrangler": "^3.2.0"
   },
   "versionist": {
-    "publishedAt": "2023-07-14T08:15:41.787Z"
+    "publishedAt": "2023-07-14T19:33:04.884Z"
   }
 }

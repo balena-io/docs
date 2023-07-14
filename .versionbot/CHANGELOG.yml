@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix Docs links"
+      hash: 8fe453ec76d12d508150e86bc57cee5548b7e4f7
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.54.15
+  title: ""
+  date: 2023-07-14T19:33:03.996Z
+- commits:
     - subject: "develop/hardware: Add Orin Nano to the list of devices with custom dtb
         support"
       hash: 74ae0ce12849d11a9cc829d7dadec9713d689586
