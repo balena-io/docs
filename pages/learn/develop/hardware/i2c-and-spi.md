@@ -330,6 +330,7 @@ Loading of custom device trees in balenaOS is supported by the Jetson Nano, Jets
 - Spacely TX2
 - Jetson AGX Orin Devkit
 - Jetson Orin NX in Xavier NX Devkit NVMe (16GB RAM)
+- Jetson Orin Nano 8GB (SD) Devkit NVME
 
 Loading of custom device trees is not supported for the Jetson Xavier family of devices in balenaOS. U-Boot provides the complete set of functionality necessary for loading custom device-trees in balenaOS for the Jetson Nano and TX2 devices, and this bootloader is not supported by the Jetson AGX Xavier and Jetson Xavier NX BSP. The Jetson AGX Orin family of devices uses a new Tegra UEFI bootloader which allows balenaOS to load custom device-trees.
 
