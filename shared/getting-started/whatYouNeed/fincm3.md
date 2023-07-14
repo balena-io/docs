@@ -6,6 +6,6 @@
 * **[Optional]** An ethernet cable.
 * A [{{ $names.company.lower }} account][link-to-signup].
 
-[fin-link]: https://store.balena.io/collections/developer-kit/products/balenafin-developer-kit-v1-1-cm3-l
+[fin-link]: https://fin-docs.balena.io/
 [supportedDevicesList]:/hardware/devices/
 [link-to-signup]:{{ $links.dashboardUrl }}/signup

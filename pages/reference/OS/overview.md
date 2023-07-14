@@ -171,7 +171,7 @@ __Note:__ Instructions for adding custom board support may be found [here][custo
 [config-json-logging]:/reference/OS/configuration/#persistentlogging
 [config-json-ssh]:/reference/OS/configuration/#sshkeys
 [containerisation]:http://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
-[chrony]:https://chrony.tuxfamily.org/
+[chrony]:https://en.wikipedia.org/wiki/Chrony
 [custom-build]:{{ $links.osSiteUrl }}/docs/custom-build/#Supporting-your-Own-Board
 [deploy-to-fleet]:/learn/deploy/deployment/
 [dnsmasq]:https://wiki.archlinux.org/index.php/Dnsmasq
