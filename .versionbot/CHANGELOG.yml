@@ -1,4 +1,19 @@
 - commits:
+    - subject: "develop/hardware: Add Orin Nano to the list of devices with custom dtb
+        support"
+      hash: 74ae0ce12849d11a9cc829d7dadec9713d689586
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 5.54.14
+  title: ""
+  date: 2023-07-14T08:15:40.963Z
+- commits:
     - subject: "trobleshooting/faq: update section about generic architecture images"
       hash: 0743bd3428143f76d612b3286045fc127d7d0cd6
       body: ""
