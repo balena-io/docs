@@ -1,4 +1,4 @@
----
+qvornachkov5@gmail.com---
 title: Get Started with {{ $names.cloud.lower }} using {{ $device.name }} and {{ $language.name }}
 
 layout: getting-started.html
