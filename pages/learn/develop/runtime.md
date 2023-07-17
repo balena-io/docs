@@ -307,8 +307,10 @@ If your filesystem is not supported you can contact us through our [forums](http
 **Preparing the container**
 
 In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](https://www.balena.io/docs/reference/base-images/base-images/#working-with-dynamically-plugged-devices) by:
-- Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file
-- Adding `ENV UDEV=on` to your container's `Dockerfile`
+
+- Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file.
+- Adding `ENV UDEV=on` to your container's `Dockerfile`.
+- Running the entrypoint as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
 
 This will ensure that the host propagates udev events into the container, enabling us to manipulate the device from within it.
 
