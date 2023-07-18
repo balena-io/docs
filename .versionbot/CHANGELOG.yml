@@ -1,4 +1,16 @@
 - commits:
+    - subject: Add note that udev requires the root user
+      hash: baa178b477f3509361f99ce2877e6ccd78b3cb7a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Kyle Harding
+      nested: []
+  version: 5.54.16
+  title: ""
+  date: 2023-07-18T13:39:06.802Z
+- commits:
     - subject: "patch: Fix Docs links"
       hash: 8fe453ec76d12d508150e86bc57cee5548b7e4f7
       body: ""
