@@ -1,6 +1,7 @@
 ---
 title: Extended Support Release Process
 excerpt: An overview of the {{ $names.company.lower }} extended support release process
+extras: esr-devices-js
 ---
 # Extended Support Release (ESR) process
 
@@ -38,18 +39,21 @@ __Note:__ Once updated to an ESR version, it is not possible to update from an E
 
 ## Supported devices
 
-ESR host OS versions are currently available for the following devices with additional device support planned:
+All device types are eligible for ESR, however they require a dedicated build and release pipeline so support needs to be requested via our [support channels]({{ $links.mainSiteUrl }}/support).
 
-* Raspberry Pi (v1 / Zero / Zero W)
-* Raspberry Pi 3
-* Raspberry Pi 3 (64 bit OS)
-* Raspberry Pi 4
-* RockPi 4B
-* Beaglebone Black
-* Balena Fin (CM3)
-* Intel NUC
-* Nvidia Jetson TX2
-* ROCK Pi 4B
+ESR host OS versions are currently available for the following devices:
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Device Name</th>
+      <th>Machine Name</th>
+      <th>Architecture</th>
+    </tr>
+  </thead>
+  <tbody id="support_esr_devices_table"></tbody>
+</table>
 
 [self-service-updates]:/reference/OS/updates/self-service/#running-an-update
 [billing]:{{ $links.mainSiteUrl }}/pricing/
