@@ -17,7 +17,7 @@ For device types and {{ $names.os.lower }} versions that are not yet supported, 
 
 ## Running an update
 
-To run an update for an individual device, navigate to that device's *Actions* tab, click *Update {{ $names.os.lower }}*, and select the version of {{ $names.os.lower }} you would like to update to:
+To run an update for an individual device, navigate to that device's *Settings* tab, go to the section *OS version*, and select the version of {{ $names.os.lower }} you would like to update to:
 
 ![Update device](/img/common/updates/update-os.png)
 
