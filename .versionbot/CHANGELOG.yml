@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Allow pull requests from external contributors"
+      hash: 58b669a174be92fb1ef68ddea330567e853ecd1d
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.54.17
+  title: ""
+  date: 2023-07-24T09:34:16.407Z
+- commits:
     - subject: Add note that udev requires the root user
       hash: baa178b477f3509361f99ce2877e6ccd78b3cb7a
       body: ""
