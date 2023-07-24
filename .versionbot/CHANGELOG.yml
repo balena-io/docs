@@ -1,4 +1,20 @@
 - commits:
+    - subject: "extended-support-release: use dynamic list of supported devices"
+      hash: a4c686c63480da49e35e2bdd0ccac68d96125043
+      body: |
+        Replace the static listing of supported ESR devices with a dynamic list
+        that fetches from the API.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 5.54.19
+  title: ""
+  date: 2023-07-24T11:01:05.250Z
+- commits:
     - subject: "patch: Update OS updates settings location"
       hash: 276fa049555cace2bd05ea9575acc0e5cfec7a4c
       body: ""
