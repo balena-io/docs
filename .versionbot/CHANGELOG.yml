@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Update OS updates settings location"
+      hash: 276fa049555cace2bd05ea9575acc0e5cfec7a4c
+      body: ""
+      footer: {}
+      author: Samuel Weibel
+      nested: []
+  version: 5.54.18
+  title: ""
+  date: 2023-07-24T09:43:46.848Z
+- commits:
     - subject: "patch: Allow pull requests from external contributors"
       hash: 58b669a174be92fb1ef68ddea330567e853ecd1d
       body: ""
