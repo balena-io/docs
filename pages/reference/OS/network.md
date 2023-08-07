@@ -420,6 +420,41 @@ __Warning:__ It can be dangerous to install **NetworkManager** or **python-netwo
 
 __Note:__ The **python-networkmanager** Debian package depends on **NetworkManager**. Preferably **python-networkmanager** should be installed with **pip** instead of **apt-get**. That will avoid the issue described in the warning above and additionally the application container size will be kept minimal. It is most straightforward to use our [Python base images][python-base-images], since they provide **pip** support out of the box: `RUN pip install python-networkmanager`.
 
+## NetworkManager User Scripts
+
+NetworkManager dispatcher scripts are a powerful feature that allows you to customize the behavior of NetworkManager in response to specific network events. These scripts are executed by NetworkManager when events such as interface up or down, carrier changes, IP address changes, and connection status changes occur.
+
+You can put [NetworkManager dispatch user scripts](https://networkmanager.dev/docs/api/latest/NetworkManager-dispatcher.html) in a folder named `/dispatcher.d/` on the boot partition. This is similar to how connection profiles can be placed in a folder named `/system-connections/` on the same boot partition.
+
+During the device boot process, the files located in `/dispatcher.d/` are copied into the `/mnt/state/root-overlay/etc/NetworkManager/dispatcher.d` directory. After copying, the `/mnt/state/root-overlay/etc/NetworkManager/dispatcher.d` directory is bind mounted to `/etc/NetworkManager/system-connections` in the root filesystem.
+
+Following is an example usage of a dispatcher script provided from the [official nmcli usage examples](https://networkmanager.dev/docs/api/latest/nmcli-examples.html):
+
+```text
+#!/bin/bash
+export LC_ALL=C
+
+enable_disable_wifi ()
+{
+    result=$(nmcli dev | grep "ethernet" | grep -w "connected")
+    if [ -n "$result" ]; then
+        nmcli radio wifi off
+    else
+        nmcli radio wifi on
+    fi
+}
+
+if [ "$2" = "up" ]; then
+    enable_disable_wifi
+fi
+
+if [ "$2" = "down" ]; then
+    enable_disable_wifi
+fi
+```
+
+This specific dispatcher script ensures that when a wired interface is connected, the WiFi will be set to airplane mode. Conversely, when the wired interface is disconnected, WiFi will be turned back on. You may name the script `70-wifi-wired-exclusive.sh` and place it into the `/dispatcher.d/` directory on the boot partition.
+
 ## Network Requirements
 
 In order for a {{ $names.company.lower }} device to get outside of the local network and connect to the {{ $names.company.lower }} API, there are a few core network requirements.
