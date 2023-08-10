@@ -107,9 +107,9 @@ All users that have been added to a fleet will see that fleet in their dashboard
 
 <img alt="Shared Application" src="/img/common/app/shared_app.png" width="40%">
 
-Fleet members will have the option to remove themselves from a fleet by clicking on the members tab. Selecting their name from the member list, clicking on the *Actions* tab and selecting *delete member*.
+Fleet members will have the option to remove themselves from a fleet by clicking on the members tab, selecting the checkbox by their name from the member list, clicking on the *Modify* button, and selecting *delete member*.
 
-__Warning:__ If you remove your member access to an fleet, you will not be able to undo the action. Only the fleet owner will be able to restore your access.
+__Warning:__ If you remove your member access to a fleet, you will not be able to undo the action. Only the fleet owner will be able to restore your access.
 
 ## Two-factor Authentication
 
