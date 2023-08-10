@@ -1,4 +1,16 @@
 - commits:
+    - subject: Improve instructions for members removing themselves from fleets
+      hash: 077e817bb4a1eb1b5e951ea40a45318f9df2d4ad
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: myarmolinsky
+      nested: []
+  version: 5.54.21
+  title: ""
+  date: 2023-08-10T19:59:07.153Z
+- commits:
     - subject: Document NetworkManager dispatch user scripts
       hash: ba0bc3dd2ff44432b55a96e0bf0f96eaf589588e
       body: |
