@@ -228,6 +228,7 @@
       "note",
       "local_id",
       "status",
+      "overall_status",
       "is_online",
       "last_connectivity_event",
       "is_connected_to_vpn",
@@ -297,6 +298,14 @@
         "method": "GET",
         "endpoint": "/v6/device",
         "filters": "?\\$filter=uuid%20eq%20'<UUID>'"
+      },
+      {
+        "id": "device-overall-status",
+        "summary": "Get the device overall_status field",
+        "description": "The overall_status field is returned only when explicitly requested with $select.",
+        "method": "GET",
+        "endpoint": "/v6/device(<ID>)",
+        "filters": "?\\$select=overall_status"
       },
       {
         "id": "rename-device",
