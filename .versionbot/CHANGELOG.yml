@@ -1,4 +1,28 @@
 - commits:
+    - subject: Add example of getting device.overall_status
+      hash: b92043019a710bdec40f11899be207e0aed03c44
+      body: ""
+      footer:
+        Signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        Change-type: patch
+        change-type: patch
+      author: Leandro Motta Barros
+      nested: []
+    - subject: Add the `overall_status` field for `device`
+      hash: fafdbbbac377cb1b74ea6cb68fbe6facb7d26aa5
+      body: ""
+      footer:
+        Signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        Change-type: patch
+        change-type: patch
+      author: Leandro Motta Barros
+      nested: []
+  version: 5.54.22
+  title: ""
+  date: 2023-08-14T14:09:17.684Z
+- commits:
     - subject: Improve instructions for members removing themselves from fleets
       hash: 077e817bb4a1eb1b5e951ea40a45318f9df2d4ad
       body: ""
