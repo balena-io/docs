@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix broken Beaglebone links"
+      hash: 69de9a636e9181a532ea9a0dafe1f4f1ec508bec
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.54.23
+  title: ""
+  date: 2023-08-21T11:52:51.331Z
+- commits:
     - subject: Add example of getting device.overall_status
       hash: b92043019a710bdec40f11899be207e0aed03c44
       body: ""
