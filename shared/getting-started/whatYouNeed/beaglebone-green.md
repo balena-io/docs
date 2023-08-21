@@ -10,7 +10,7 @@
 
 __Note:__ Always run the board from 5VDC 1A minimum supply when using a WiFi Dongle. You may need to use a extension cable to move the dongle away from the planes of the PCB. We also have had instances where when placed in a metal case, there can be WiFi issues as well. It will also help to use a dongle with a real antenna on it.
 
-[bbb-link]:{{ $links.beaglebone.black }}
-[bbg-link]:{{ $links.beaglebone.green }}
+[bbb-link]:https://www.beagleboard.org/boards/beaglebone-black
+[bbg-link]:https://www.beagleboard.org/boards/seeedstudio-beaglebone-green
 [wifi-adapters-link]:/hardware/wifi-dongles/
 [speed_class]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating

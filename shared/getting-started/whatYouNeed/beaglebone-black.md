@@ -8,7 +8,7 @@
 * **[Optional]** A 5VDC 1A power supply unit for the Beaglebone Black.
 * A [{{ $names.company.lower }} account][link-to-signup].
 
-[bbb-link]:{{ $links.beaglebone.black }}
-[bbg-link]:{{ $links.beaglebone.green }}
+[bbb-link]:https://www.beagleboard.org/boards/beaglebone-black
+[bbg-link]:https://www.beagleboard.org/boards/seeedstudio-beaglebone-green
 [wifi-adapters-link]:/hardware/wifi-dongles/
 [speed_class]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating

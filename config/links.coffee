@@ -2,15 +2,11 @@
 # Data here can be used for strings interpolation, or reuse variables across the documentation
 
 RPI_PRODUCTS = 'https://www.raspberrypi.org/products'
-BB_PRODUCTS = 'https://beagleboard.org'
 
 module.exports =
   raspberrypi:
     aplus: "#{RPI_PRODUCTS}/raspberry-pi-1-model-a-plus/"
     bplus: "#{RPI_PRODUCTS}/raspberry-pi-1-model-b-plus/"
-  beaglebone:
-    black: "#{BB_PRODUCTS}/black"
-    green: "#{BB_PRODUCTS}/green"
   githubMain: 'https://github.com/balena-io'
   githubLabs: 'https://github.com/balenalabs'
   githubPlayground: 'https://github.com/balena-io-playground'
