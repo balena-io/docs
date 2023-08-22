@@ -1,6 +1,7 @@
 name: Daily deploy to CF Pages
 
 on:
+  workflow_dispatch:
   # Deploy once every day
   schedule:
     - cron: "0 0 * * *"
@@ -27,10 +28,10 @@ jobs:
         run: npm run deploy-docs --if-present
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@fcbabec21eb41896c44156121aec230e870565db # 3.1.0
+        uses: cloudflare/wrangler-action@v3.1.0 
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          wranglerVersion: '2.12.0' # latest - https://www.npmjs.com/package/wrangler
+          wranglerVersion: '3.5.1' # latest - https://www.npmjs.com/package/wrangler
           preCommands: wrangler --version
           command: pages publish --branch $CF_BRANCH --project-name=$cloudflare_website  build/ | tee -a $GITHUB_STEP_SUMMARY
