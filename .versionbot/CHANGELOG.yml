@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Pin Cloudflare to latest version"
+      hash: bfda32373b29b319b34a6e4703a1f02e1b8d25e3
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.54.24
+  title: ""
+  date: 2023-08-22T20:10:09.655Z
+- commits:
     - subject: "patch: Fix broken Beaglebone links"
       hash: 69de9a636e9181a532ea9a0dafe1f4f1ec508bec
       body: ""
