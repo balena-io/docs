@@ -28,3 +28,4 @@ versionbot
 Versionist
 volume-pricing
 undiscounted
+myuser
