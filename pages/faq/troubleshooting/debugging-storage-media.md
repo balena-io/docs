@@ -218,3 +218,5 @@ Similar commands to check for storage corruption although can sometime provide f
 ```bash
 journalctl -n 10000 | grep "corrupt|Data will be lost|block allocation failed|invalid magic|dockerd: error -117|EXT4-fs error|error count since last fsck|failed checksum|checksum invalid|Please run e2fsck|I/O error"
 ```
+
+Messages from the command output should be carefully observed and verfied to troubleshoot storage corruption. 
