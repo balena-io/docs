@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix dead link in Cloud Provisioning docs"
+      hash: 2d6db6ef0975841a7258d09ab745f1a29605293c
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.54.26
+  title: ""
+  date: 2023-09-18T11:51:13.181Z
+- commits:
     - subject: "patch: Fix formatting for debugging masterclass"
       hash: 3da30db17aa3d9e22ad3e07c571bc24bfaacaa0f
       body: ""
