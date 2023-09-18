@@ -8,7 +8,7 @@ dynamic:
 # Cloud IoT Provisioning with {{ $cloud.name }}
 
 {{#is $cloud.shortName "GCP"}}
-  __Note:__ Google has issued a [deprecation notice](https://cloud.google.com/iot/docs/release-notes#August_16_2022) for the Cloud IoT service due to shutdown in August 2023. Balena's provisioning support for GCP IoT Core will not receive further updates. See [ClearBlade-GCP](../cb-gcp) for a replacement service.
+  __Note:__ Google has issued a [deprecation notice](https://cloud.google.com/iot/docs/release-notes#August_16_2022) for the Cloud IoT service due to shutdown in August 2023. Balena's provisioning support for GCP IoT Core will not receive further updates. See [ClearBlade-GCP](/learn/develop/cloud-iot-provisioning/cb-gcp/) for a replacement service.
 {{/is}}
 
 The [{{ $cloud.name }} {{#is $cloud.shortName "GCP"}}(GCP){{/is}} IoT]({{ $cloud.platformUrl }}) platform provides a valuable suite of services to collect, store, and distribute IoT data and actions. Its [{{ $cloud.iotCoreName }}]({{ $cloud.iotCoreUrl }}) service is the portal for registration and messaging with Internet-connected things. We want to make it easy for balena devices to register and interact with {{ $cloud.iotCoreName }}.
