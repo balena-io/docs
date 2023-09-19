@@ -1,4 +1,16 @@
 - commits:
+    - subject: Add the release versioning fields in the resource reference
+      hash: 547e49185a10cebb1ccbfb6ccfa937f73b33692e
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.56.0
+  title: ""
+  date: 2023-09-19T19:43:47.946Z
+- commits:
     - subject: "API/Resources: Add examples for device pinning by UUID"
       hash: 90470f17902ecdfc93b3e22927d5daffd8dbd06e
       body: ""
