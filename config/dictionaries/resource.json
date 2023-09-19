@@ -818,6 +818,15 @@
       "created_at",
       "belongs_to__application",
       "is_created_by__user",
+      "raw_version",
+      "semver",
+      "semver_major",
+      "semver_minor",
+      "semver_patch",
+      "semver_prerelease",
+      "semver_build",
+      "revision",
+      "variant",
       "commit",
       "composition",
       "status",
@@ -838,6 +847,22 @@
         "method": "GET",
         "endpoint": "/v6/release",
         "filters": "?\\$filter=belongs_to__application%20eq%20<FLEET ID>"
+      },
+      {
+        "id": "release-raw-version",
+        "summary": "Get the release raw_version field",
+        "description": "The raw_version field is returned only when explicitly requested with $select.",
+        "method": "GET",
+        "endpoint": "/v6/release(<ID>)",
+        "filters": "?\\$select=raw_version"
+      },
+      {
+        "id": "release-from-fleet-and-raw-version",
+        "summary": "Get a release ID given a specific fleet and version",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/release",
+        "filters": "?\\$filter=belongs_to__application%20eq%20<FLEET ID>%20and%20raw_version%20eq%20'<RAW VERSION>'&\\$select=id"
       },
       {
         "id": "release-from-fleet-and-commit",
