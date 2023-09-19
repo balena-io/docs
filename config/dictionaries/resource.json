@@ -774,8 +774,8 @@
         "summary": "Get organization by handle",
         "description": "Uniquely identifies an organization. Handles are currently automatically generated and read-only.",
         "method": "GET",
-        "endpoint": "/v6/organization",
-        "filters": "?\\$filter=handle%20eq%20'<HANDLE>'"
+        "endpoint": "/v6/organization(handle='<HANDLE>')",
+        "filters": ""
       }
     ]
   },
