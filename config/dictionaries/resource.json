@@ -48,6 +48,14 @@
         "filters": ""
       },
       {
+        "id": "app-by-slug",
+        "summary": "Get fleet by SLUG",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/application(slug='<SLUG>')",
+        "filters": ""
+      },
+      {
         "id": "app-by-name",
         "summary": "Get fleet by name",
         "description": "",
@@ -89,6 +97,24 @@
         "filters": ""
       },
       {
+        "id": "set-commit",
+        "summary": "Pin entire fleet to a specific release by ID",
+        "description": "",
+        "method": "PATCH",
+        "endpoint": "/v6/application(<ID>)",
+        "filters": "",
+        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n    \"should_track_latest_release\": false\n}"
+      },
+      {
+        "id": "set-target-release-by-slug",
+        "summary": "Pin entire fleet to a specific release by SLUG",
+        "description": "",
+        "method": "PATCH",
+        "endpoint": "/v6/application(slug='<SLUG>')",
+        "filters": "",
+        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n    \"should_track_latest_release\": false\n}"
+      },
+      {
         "id": "disable-auto-update",
         "summary": "Disable automatic update tracking for a fleet",
         "description": "",
@@ -105,15 +131,6 @@
         "endpoint": "/v6/application(<ID>)",
         "filters": "",
         "data": "{\n    \"should_track_latest_release\": \"true\"\n}"
-      },
-      {
-        "id": "set-commit",
-        "summary": "Pin entire fleet to a specific release",
-        "description": "",
-        "method": "PATCH",
-        "endpoint": "/v6/application(<ID>)",
-        "filters": "",
-        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n    \"should_track_latest_release\": false\n}"
       }
     ]
   },
@@ -296,8 +313,8 @@
         "summary": "Get device by UUID",
         "description": "",
         "method": "GET",
-        "endpoint": "/v6/device",
-        "filters": "?\\$filter=uuid%20eq%20'<UUID>'"
+        "endpoint": "/v6/device(uuid='<UUID>')",
+        "filters": ""
       },
       {
         "id": "device-overall-status",
@@ -306,6 +323,33 @@
         "method": "GET",
         "endpoint": "/v6/device(<ID>)",
         "filters": "?\\$select=overall_status"
+      },
+      {
+        "id": "get-target-release",
+        "summary": "Get the release device is pinned to",
+        "description": "Note: should_be_running__release will be unset or null if the device isn't pinned to any release. For an unpinned device, the device.is_running__release field may be used to obtain the device's current state.",
+        "method": "GET",
+        "endpoint": "/v6/device(<ID>)",
+        "filters": "?\\$select=should_be_running__release",
+        "data": ""
+      },
+      {
+        "id": "set-device-to-release-by-id",
+        "summary": "Pin device to a specific release by ID",
+        "description": "",
+        "method": "PATCH",
+        "endpoint": "/v6/device(<ID>)",
+        "filters": "",
+        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
+      },
+      {
+        "id": "set-device-to-release-by-uuid",
+        "summary": "Pin device to a specific release by UUID",
+        "description": "",
+        "method": "PATCH",
+        "endpoint": "/v6/device(uuid='<UUID>')",
+        "filters": "",
+        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
       },
       {
         "id": "rename-device",
@@ -341,24 +385,6 @@
         "endpoint": "/v6/device(<ID>)",
         "filters": "",
         "data": "{\n    \"belongs_to__application\": \"<FLEET ID>\"\n}"
-      },
-      {
-        "id": "get-target-release",
-        "summary": "Get the release device is pinned to",
-        "description": "Note: should_be_running__release will be unset or null if the device isn't pinned to any release. For an unpinned device, the device.is_running__release field may be used to obtain the device's current state.",
-        "method": "GET",
-        "endpoint": "/v6/device(<ID>)",
-        "filters": "?\\$select=should_be_running__release",
-        "data": ""
-      },
-      {
-        "id": "set-device-to-release",
-        "summary": "Pin device to a specific release",
-        "description": "",
-        "method": "PATCH",
-        "endpoint": "/v6/device(<ID>)",
-        "filters": "",
-        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
       },
       {
         "id": "deactivate-device",
@@ -757,8 +783,8 @@
         "summary": "Get organization by handle",
         "description": "Uniquely identifies an organization. Handles are currently automatically generated and read-only.",
         "method": "GET",
-        "endpoint": "/v6/organization",
-        "filters": "?\\$filter=handle%20eq%20'<HANDLE>'"
+        "endpoint": "/v6/organization(handle='<HANDLE>')",
+        "filters": ""
       }
     ]
   },
