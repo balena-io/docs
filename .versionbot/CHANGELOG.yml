@@ -1,4 +1,42 @@
 - commits:
+    - subject: "API/Resources: Add examples for device pinning by UUID"
+      hash: 90470f17902ecdfc93b3e22927d5daffd8dbd06e
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/Resources: Use the natural key notation for the device by uuid
+        example"
+      hash: 64ffbcb769548ed25e3739a8bbdc01adcf43cf9f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/Resources: Use the natural key notation for the org by handle
+        example"
+      hash: e7439fc3beb54d89c785f4e7734e9b2b6191b8da
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/Resources: Add curl examples about using the fleet slut"
+      hash: d46f2b377affcb88d4ecf9fcf2e8d9b3274a2cee
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.55.0
+  title: ""
+  date: 2023-09-19T16:50:54.863Z
+- commits:
     - subject: "patch: Fix dead link in Cloud Provisioning docs"
       hash: 2d6db6ef0975841a7258d09ab745f1a29605293c
       body: ""
