@@ -325,6 +325,33 @@
         "filters": "?\\$select=overall_status"
       },
       {
+        "id": "get-target-release",
+        "summary": "Get the release device is pinned to",
+        "description": "Note: should_be_running__release will be unset or null if the device isn't pinned to any release. For an unpinned device, the device.is_running__release field may be used to obtain the device's current state.",
+        "method": "GET",
+        "endpoint": "/v6/device(<ID>)",
+        "filters": "?\\$select=should_be_running__release",
+        "data": ""
+      },
+      {
+        "id": "set-device-to-release-by-id",
+        "summary": "Pin device to a specific release by ID",
+        "description": "",
+        "method": "PATCH",
+        "endpoint": "/v6/device(<ID>)",
+        "filters": "",
+        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
+      },
+      {
+        "id": "set-device-to-release-by-uuid",
+        "summary": "Pin device to a specific release by UUID",
+        "description": "",
+        "method": "PATCH",
+        "endpoint": "/v6/device(uuid='<UUID>')",
+        "filters": "",
+        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
+      },
+      {
         "id": "rename-device",
         "summary": "Rename device",
         "description": "",
@@ -358,24 +385,6 @@
         "endpoint": "/v6/device(<ID>)",
         "filters": "",
         "data": "{\n    \"belongs_to__application\": \"<FLEET ID>\"\n}"
-      },
-      {
-        "id": "get-target-release",
-        "summary": "Get the release device is pinned to",
-        "description": "Note: should_be_running__release will be unset or null if the device isn't pinned to any release. For an unpinned device, the device.is_running__release field may be used to obtain the device's current state.",
-        "method": "GET",
-        "endpoint": "/v6/device(<ID>)",
-        "filters": "?\\$select=should_be_running__release",
-        "data": ""
-      },
-      {
-        "id": "set-device-to-release",
-        "summary": "Pin device to a specific release",
-        "description": "",
-        "method": "PATCH",
-        "endpoint": "/v6/device(<ID>)",
-        "filters": "",
-        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
       },
       {
         "id": "deactivate-device",
