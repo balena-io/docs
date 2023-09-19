@@ -313,8 +313,8 @@
         "summary": "Get device by UUID",
         "description": "",
         "method": "GET",
-        "endpoint": "/v6/device",
-        "filters": "?\\$filter=uuid%20eq%20'<UUID>'"
+        "endpoint": "/v6/device(uuid='<UUID>')",
+        "filters": ""
       },
       {
         "id": "device-overall-status",
