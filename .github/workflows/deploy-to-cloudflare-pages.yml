@@ -28,7 +28,7 @@ jobs:
         run: npm run deploy-docs --if-present
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3.1.0 
+        uses: cloudflare/wrangler-action@v3.1.1 
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
