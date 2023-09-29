@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update commands in offline updates
+      hash: 75f50d3b3a7b0a6dec6049a71f75e786829ab54f
+      body: >
+        The `balena fleet` commands in this guide no longer work with the latest
+        version of the CLI which returns a capitalized table instead of all
+        uppercase items. Not sure when this change took place on the CLI side.
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 5.56.2
+  title: ""
+  date: 2023-09-29T20:52:55.914Z
+- commits:
     - subject: "patch: Getting Started to default show Raspberry Pi 5"
       hash: 7f10ad232b60289c5f4dbdc589ef8b869729906f
       body: ""
