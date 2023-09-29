@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Getting Started to default show Raspberry Pi 5"
+      hash: 7f10ad232b60289c5f4dbdc589ef8b869729906f
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.56.1
+  title: ""
+  date: 2023-09-29T05:38:09.747Z
+- commits:
     - subject: Add the release versioning fields in the resource reference
       hash: 547e49185a10cebb1ccbfb6ccfa937f73b33692e
       body: ""
