@@ -93,7 +93,7 @@ $ balena fleet create ${fleet_name} --type ${device_type}
 Initialize the `fleet_slug` environment variable with the command below to store the slug of the fleet.
 
 ```bash
-$ fleet_slug=$(balena fleet ${fleet_name} | grep SLUG | awk '{print $2}')
+$ fleet_slug=$(balena fleet ${fleet_name} | grep Slug | awk '{print $3}')
 ```
 
 ### Create/Use Pre-existing Offline Device
@@ -173,7 +173,7 @@ $ balena deploy ${fleet_slug} --build --emulated --source .
 The following steps will flash the latest release onto the balenaOS image downloaded in the previous steps and pin the device to mentioned release commit.
 
 ```bash
-$ commit=$(balena fleet ${fleet_slug} | grep COMMIT | awk '{print $2}')
+$ commit=$(balena fleet ${fleet_slug} | grep Commit | awk '{print $3}')
 
 $ balena preload ${tmpimg} \
     --fleet ${fleet_slug} \
