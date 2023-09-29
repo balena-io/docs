@@ -54,10 +54,10 @@
 /dart6ul /imx6ul-var-dart/
 
 # Default redirects
-/learn/getting-started/ /learn/getting-started/raspberrypi3/nodejs/ 301
-/learn/getting-started /learn/getting-started/raspberrypi3/nodejs/ 301
-/reference/supervisor/configuration-list/ /reference/supervisor/configuration-list/raspberrypi3/
-/reference/supervisor/configuration-list /reference/supervisor/configuration-list/raspberrypi3/
+/learn/getting-started/ /learn/getting-started/raspberrypi5/nodejs/ 301
+/learn/getting-started /learn/getting-started/raspberrypi5/nodejs/ 301
+/reference/supervisor/configuration-list/ /reference/supervisor/configuration-list/raspberrypi5/
+/reference/supervisor/configuration-list /reference/supervisor/configuration-list/raspberrypi5/
 /faq/troubleshooting/troubleshooting/ /faq/troubleshooting/troubleshooting/raspberrypi3/
 /faq/troubleshooting/troubleshooting /faq/troubleshooting/troubleshooting/raspberrypi3/
 /learn/develop/ /learn/develop/local-mode/
@@ -271,7 +271,7 @@
 (.*)\.md(.*) -> $1$2
 ^\/introduction\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
 ^\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
-^\/installing\/gettingStarted\/?(\?.+)?(#.+)?$-> /learn/getting-started/raspberrypi3/nodejs/$1$2
+^\/installing\/gettingStarted\/?(\?.+)?(#.+)?$-> /learn/getting-started/raspberrypi5s/nodejs/$1$2
 ^\/installing\/gettingStarted-BBB\/?(\?.+)?(#.+)?$ -> /learn/getting-started/beaglebone-black/nodejs/$1$2
 ^\/installing\/gettingStarted-Humming\/?(\?.+)?(#.+)?$ -> /learn/getting-started/hummingboard/nodejs/$1$2
 ^\/installing\/gettingStarted-NUC\/?(\?.+)?(#.+)?$ -> /learn/getting-started/intel-nuc/nodejs/$1$2
