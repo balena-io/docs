@@ -16,8 +16,8 @@
 / /learn/welcome/introduction/ 301
 /learn/ /learn/welcome/introduction/ 301
 /learn /learn/welcome/introduction/ 301
-/installing/gettingStarted/ /learn/getting-started/raspberrypi3/nodejs/
-/installing/gettingStarted /learn/getting-started/raspberrypi3/nodejs/
+/installing/gettingStarted/ /learn/getting-started/raspberrypi5/nodejs/
+/installing/gettingStarted /learn/getting-started/raspberrypi5/nodejs/
 /installing/gettingStarted-BBB/ /learn/getting-started/beaglebone-black/nodejs/
 /installing/gettingStarted-BBB /learn/getting-started/beaglebone-black/nodejs/
 /installing/gettingStarted-Humming/ /learn/getting-started/hummingboard/nodejs/
@@ -34,8 +34,8 @@
 /installing/gettingStarted-Odroid-XU4 /learn/getting-started/odroid-XU4/nodejs/
 /installing/gettingStarted-TS4900/ /learn/getting-started/ts4900/nodejs/
 /installing/gettingStarted-TS4900 /learn/getting-started/ts4900/nodejs/
-/installing/otherboards/ /learn/getting-started/raspberrypi3/nodejs/
-/installing/otherboards /learn/getting-started/raspberrypi3/nodejs/
+/installing/otherboards/ /learn/getting-started/raspberrypi5/nodejs/
+/installing/otherboards /learn/getting-started/raspberrypi5/nodejs/
 
 # Device name changes
 /raspberrypi/ /raspberry-pi/
@@ -58,8 +58,8 @@
 /learn/getting-started /learn/getting-started/raspberrypi5/nodejs/ 301
 /reference/supervisor/configuration-list/ /reference/supervisor/configuration-list/raspberrypi5/
 /reference/supervisor/configuration-list /reference/supervisor/configuration-list/raspberrypi5/
-/faq/troubleshooting/troubleshooting/ /faq/troubleshooting/troubleshooting/raspberrypi3/
-/faq/troubleshooting/troubleshooting /faq/troubleshooting/troubleshooting/raspberrypi3/
+/faq/troubleshooting/troubleshooting/ /faq/troubleshooting/troubleshooting/raspberrypi5/
+/faq/troubleshooting/troubleshooting /faq/troubleshooting/troubleshooting/raspberrypi5/
 /learn/develop/ /learn/develop/local-mode/
 /learn/develop /learn/develop/local-mode/
 /learn/develop/cloud-iot-provisioning/ /learn/develop/cloud-iot-provisioning/aws/
@@ -252,10 +252,10 @@
 
 ## Removed Getting Started guides
 
-/learn/getting-started/skx2/:language/ /learn/getting-started/raspberrypi3/:language/
-/learn/getting-started/skx2/:language /learn/getting-started/raspberrypi3/:language/
-/learn/getting-started/ts4900/:language/ /learn/getting-started/raspberrypi3/:language/
-/learn/getting-started/ts4900/:language /learn/getting-started/raspberrypi3/:language/
+/learn/getting-started/skx2/:language/ /learn/getting-started/raspberrypi5/:language/
+/learn/getting-started/skx2/:language /learn/getting-started/raspberrypi5/:language/
+/learn/getting-started/ts4900/:language/ /learn/getting-started/raspberrypi5/:language/
+/learn/getting-started/ts4900/:language /learn/getting-started/raspberrypi5/:language/
 
 ###############################################
 # Legacy Server Style Redirects
@@ -271,7 +271,7 @@
 (.*)\.md(.*) -> $1$2
 ^\/introduction\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
 ^\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
-^\/installing\/gettingStarted\/?(\?.+)?(#.+)?$-> /learn/getting-started/raspberrypi5s/nodejs/$1$2
+^\/installing\/gettingStarted\/?(\?.+)?(#.+)?$-> /learn/getting-started/raspberrypi5/nodejs/$1$2
 ^\/installing\/gettingStarted-BBB\/?(\?.+)?(#.+)?$ -> /learn/getting-started/beaglebone-black/nodejs/$1$2
 ^\/installing\/gettingStarted-Humming\/?(\?.+)?(#.+)?$ -> /learn/getting-started/hummingboard/nodejs/$1$2
 ^\/installing\/gettingStarted-NUC\/?(\?.+)?(#.+)?$ -> /learn/getting-started/intel-nuc/nodejs/$1$2
@@ -292,7 +292,7 @@
 ^\/(.*)\/dart6ul\/(.*) -> /$1/imx6ul-var-dart/$2
 
 # Default redirects
-^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi3/nodejs/$1$2
+^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi5/nodejs/$1$2
 ^\/reference\/supervisor\/configuration-list\/?(\?.+)?(#.+)?$ -> /reference/supervisor/configuration-list/raspberrypi3/$1$2
 ^\/faq\/troubleshooting\/troubleshooting\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/troubleshooting/raspberrypi3/$1$2
 ^\/learn\/develop\/?(\?.+)?(#.+)?$ -> /learn/develop/local-mode/$1$2
