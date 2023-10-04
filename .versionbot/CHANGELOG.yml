@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix RaspberryPi 5 redirects"
+      hash: c6331b76306ad20af8906dd529cd79be551fff0f
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.56.3
+  title: ""
+  date: 2023-10-04T06:31:31.347Z
+- commits:
     - subject: Update commands in offline updates
       hash: 75f50d3b3a7b0a6dec6049a71f75e786829ab54f
       body: >
