@@ -55,7 +55,7 @@
     "watch": "^1.0.2",
     "webpack": "5.88.2",
     "webpack-cli": "^4.10.0",
-    "wrangler": "^3.5.1"
+    "wrangler": "^3.11.0"
   },
   "versionist": {
     "publishedAt": "2023-10-09T08:48:12.617Z"
