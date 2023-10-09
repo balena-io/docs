@@ -1,4 +1,16 @@
 - commits:
+    - subject: Add update locks section on hostOS updates
+      hash: 3e925714f576bbb4d58b00f8849176091129e08c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: jaomaloy
+      nested: []
+  version: 5.56.4
+  title: ""
+  date: 2023-10-09T08:48:11.856Z
+- commits:
     - subject: "patch: Fix RaspberryPi 5 redirects"
       hash: c6331b76306ad20af8906dd529cd79be551fff0f
       body: ""
