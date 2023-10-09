@@ -33,6 +33,11 @@ Update time can vary significantly, depending on the speed of your network, the 
 
 If your {{ $names.os.lower }} update fails for any reason, the device should still be recoverable. For devices running {{ $names.os.lower }} 2.x, the user application should still be running normally, and the reasons for failure can be examined through the update logs at `/mnt/data/balenahup/` (or potentially the legacy location `/mnt/data/resinhup/`). If you have any issues, please contact us on the [troubleshooting section of the forums][troubleshooting].
 
+## Update locks
+
+[Update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/) is a mechanism that allows applications to enter critical sections of code and prevent updates that would interrupt the application from running. Update locks can also be used to delay the reboot that applies a hostOS update operation until the application exits the critical section by removing the update locks. [Overriding update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/#overriding-the-lock) will ignore existing locks and allow a hostOS update process to proceed with a reboot.
+
+
 You can learn more about what exactly goes on during the update process [here][update-process].
 
 <!-- links -->
