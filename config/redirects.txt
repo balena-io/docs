@@ -110,10 +110,12 @@
 /learn/develop/integrations/aws /learn/develop/cloud-iot-provisioning/aws/
 /learn/develop/integrations/azure-iot-hub/ /learn/develop/cloud-iot-provisioning/azure/
 /learn/develop/integrations/azure-iot-hub /learn/develop/cloud-iot-provisioning/azure/
-/learn/develop/integrations/google-iot/ /learn/develop/cloud-iot-provisioning/gcp/
-/learn/develop/integrations/google-iot /learn/develop/cloud-iot-provisioning/gcp/
+/learn/develop/integrations/google-iot/ /learn/develop/cloud-iot-provisioning/
+/learn/develop/integrations/google-iot /learn/develop/cloud-iot-provisioning/
 /learn/develop/integrations/bluemix/ /learn/develop/cloud-iot-provisioning/
 /learn/develop/integrations/bluemix /learn/develop/cloud-iot-provisioning/
+/learn/develop/cloud-iot-provisioning/gcp/ /learn/develop/cloud-iot-provisioning/
+/learn/develop/cloud-iot-provisioning/gcp /learn/develop/cloud-iot-provisioning/
 
 # Restructure
 /introduction/ /learn/welcome/introduction/
@@ -325,8 +327,9 @@
 ^\/learn\/develop\/integrations\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
 ^\/learn\/develop\/integrations\/aws\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/aws/$1$2
 ^\/learn\/develop\/integrations\/azure-iot-hub\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/azure/$1$2
-^\/learn\/develop\/integrations\/google-iot\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/gcp/$1$2
+^\/learn\/develop\/integrations\/google-iot\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
 ^\/learn\/develop\/integrations\/bluemix\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
+^\/learn\/develop\/cloud-iot-provisioning\/gcp\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
 
 # Restructure
 ^\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2

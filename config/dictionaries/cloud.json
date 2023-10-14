@@ -24,18 +24,6 @@
     "cloudFunctionName": "Azure"
   },
   {
-    "id": "gcp",
-    "name": "Google Cloud",
-    "shortName": "GCP",
-    "platformName": "GCP",
-    "platformUrl": "https://cloud.google.com/solutions/iot",
-    "iotCoreName": "IoT Core",
-    "iotCoreUrl": "https://cloud.google.com/iot-core",
-    "credentialType": "public key pair",
-    "provisionRepoName": "gcp-iot-provision",
-    "cloudFunctionName": "Cloud"
-  },
-  {
     "id": "cb-gcp",
     "name": "ClearBlade-GCP",
     "shortName": "ClearBlade",
