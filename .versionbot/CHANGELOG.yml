@@ -1,4 +1,18 @@
 - commits:
+    - subject: Remove references to defunct Google Cloud IoT service
+      hash: faaf66ad9e8f4b4dfbe9c7b24b21fdbff7e6bf30
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 5.56.5
+  title: ""
+  date: 2023-10-18T06:14:54.130Z
+- commits:
     - subject: Add update locks section on hostOS updates
       hash: 3e925714f576bbb4d58b00f8849176091129e08c
       body: ""
