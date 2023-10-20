@@ -280,10 +280,6 @@ Kubernetes (K8s) is a system for automating deployment, scaling, and management 
 
 ## L
 
-### Leadership Group
-**(balena specific term)**
-The new name of the Maintainers or Mission Team at balena. This is comprised of a group of individuals trusted to lead the team strategy and vision of balena (Chris, Konstantinos and Phil.)
-
 ### Loki
 Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus. Used by balenaCloud to store customer device logs. Used by productOS to store internal logs.
 [more](https://github.com/grafana/loki)
@@ -312,7 +308,7 @@ A range of small form factor PCs from Intel.
 **(balena specific term)**
 [A balena product.](https://www.balena.io/open/) The open source offering of balena’s platform. Devices run balenaOS and are managed via the balena CLI. openBalena does not include the dashboard.
 
-### Organisation (balena)
+### Organization (balena)
 **(balena specific term)**
 A group of members, teams, and fleets that is managed by one or more organization administrators.
 [more](https://www.balena.io/docs/learn/manage/organizations/)
@@ -329,7 +325,7 @@ A pattern (or symptom) of behaviour that we've observed, that we feedback into t
 
 ### People-ops
 **(balena specific term)**
-An aspect group at balena. In traditional organisations this would be akin to Human Resources (HR). The intention of People-ops is to build products and processes that support the people within the team.
+An aspect group at balena. In traditional organizations this would be akin to Human Resources (HR). The intention of People-ops is to build products and processes that support the people within the team.
 
 ### Pine.js
 **(balena specific term)**
@@ -406,7 +402,7 @@ Balena's on-device agent, responsible for monitoring and applying changes to an 
 [more](https://github.com/balena-os/balena-supervisor)
 
 ### Systems design
-'The process of defining the elements of a system such as the architecture, modules and components, the different interfaces of those components and the data that goes through that system.' Watch [Nicky Case's talk 'Seeing in Systems'](https://longnow.org/seminars/02017/aug/07/seeing-whole-systems/) to get a clear understanding of how to visualise systems and how they work. Alternatively read 
+'The process of defining the elements of a system such as the architecture, modules and components, the different interfaces of those components and the data that goes through that system.' Watch [Nicky Case's talk 'Seeing in Systems'](https://longnow.org/seminars/02017/aug/07/seeing-whole-systems/) to get a clear understanding of how to visualize systems and how they work. Alternatively read 
 
 ## T
 

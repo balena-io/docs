@@ -45,6 +45,7 @@ Baseimages
 bblayers
 beagleboard
 Beaglebone
+bitbake
 blkio
 blocklists
 blox
