@@ -1,4 +1,16 @@
 - commits:
+    - subject: "minor: Add balena Glossary"
+      hash: 2e09a013951b2aad2b749634645709b5d622cabd
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.57.0
+  title: ""
+  date: 2023-10-20T06:05:50.308Z
+- commits:
     - subject: "patch: Update actions/checkout to v4"
       hash: 64cfc8db12ea7aeae60abaf6a5c27857b4d05d8f
       body: ""
