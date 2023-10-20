@@ -112,23 +112,24 @@ successful message appears.
 
 ## Create a release
 
-After login, test the {{ $names.cli.lower }} by running the `{{ $names.company.lower }} fleets` command, which should return information about the fleet you created in the previous step. Take a note of the `FLEET NAME` as you'll need this in the next step to push the code to your device(s) in that fleet.
+After login, test the {{ $names.cli.lower }} by running the `{{ $names.company.lower }} fleets` command, which should return information about the fleet you created in the previous step. Take a note of the `FLEET SLUG` as you'll need this in the next step to push the code to your device(s) in that fleet.
 
 ```shell
 $ {{ $names.company.lower }} fleets
-ID    FLEET NAME   DEVICE TYPE          ONLINE DEVICES DEVICE COUNT
-98264 First-Fleet  {{ $device.name }}   0              0
+ Id      App name       Slug                      Device type        ...
+ ─────── ────────────── ───────────────────────── ─────────────────  ...
+ 98264   First-Fleet    myuser/first-fleet        {{ $device.name }}
 ```
 
 A nice project to try is the [balena-{{ $language.id }}-hello-world][balena-{{ $language.id }}-hello-world] project.
 It's a {{ $language.name }} web server that serves a static page on port 80. To get started, [download the project][github-download-{{ $language.id }}]
 as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 
-To create a release, use the `{{ $names.company.lower }} push First-Fleet` command replacing 
-`First-Fleet` with the name of your fleet. Ensure you are working from the root of the extracted project directory.
+To create a release, use the `{{ $names.company.lower }} push myuser/first-fleet` command replacing 
+`myuser/first-fleet` with the slug of your fleet. Ensure you are working from the root of the extracted project directory.
 
 ```shell
-$ {{ $names.company.lower }} push First-Fleet
+$ {{ $names.company.lower }} push myuser/first-fleet
 ```
 
 This command pushes the code to the {{ $names.company.lower }} builders, where it will be compiled, built, turned into a release, and applied to every device in the fleet.
