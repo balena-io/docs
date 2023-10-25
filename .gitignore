@@ -21,7 +21,6 @@ pages/reference/sdk/python-sdk.md
 
 pages/reference/supervisor/supervisor-api.md
 pages/reference/supervisor/upgrade-policy.md
-pages/reference/supervisor/debugging-supervisor.md
 pages/learn/deploy/release-strategy/update-locking.md
 
 pages/reference/diagnostics.md

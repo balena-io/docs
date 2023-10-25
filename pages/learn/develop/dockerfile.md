@@ -171,7 +171,7 @@ The {{ $names.company.lower }} Supervisor requires that the directory `/tmp/bale
 
 [container]:https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
 [docker]:https://www.docker.com/
-[dockerfile]:https://docs.docker.com/reference/builder/
+[dockerfile]:https://docs.docker.com/engine/reference/builder/
 [docker-images-containers]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
 [hello-python]:https://github.com/alexandrosm/hello-python
 [raspbian]:http://www.raspbian.org/

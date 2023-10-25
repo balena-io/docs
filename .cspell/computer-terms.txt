@@ -107,6 +107,7 @@ devboard
 developmentmode
 devicehost
 deviceip
+devicekey
 devicetypes
 Devkit
 devtmpfs
@@ -235,6 +236,7 @@ microswitches
 minideb
 miniuart
 minpoll
+misattributed
 mitigations
 mmcblk
 mmcli

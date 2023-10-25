@@ -37,9 +37,8 @@ cd pages/learn/more/masterclasses/ && $SCRIPT_DIR/extract-markdown.sh "Network d
 
 cd pages/reference/OS && $SCRIPT_DIR/extract-markdown.sh "Configuring balenaOS" <configuration.md >configuration-partial.md && mv configuration-partial.md $masterclass_path/debugging/ &
 
-# cd pages/reference/supervisor && $SCRIPT_DIR/extract-markdown.sh "Working with the Supervisor" <debugging-supervisor.md >supervisor.md && mv supervisor.md $masterclass_path/debugging/ &
-
-cd pages/faq/troubleshooting && $SCRIPT_DIR/extract-markdown.sh "Working with balenaEngine" <debugging-engine.md >engine.md && mv engine.md $masterclass_path/debugging/ &
+# Supervisor part is fetched directly into the directory. Refer fetch-external.sh
+# Engine part is fetched directly into the directory. Refer fetch-external.sh
 
 cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Device Connectivty states" <device-statuses.md >device-connectivity.md && mv device-connectivity.md $masterclass_path/debugging/ &
 
