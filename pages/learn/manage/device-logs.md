@@ -69,6 +69,8 @@ Jan 13 11:05:07 dee2945 kernel[664]: [   14.974497] i2c /dev entries driver
 
 Depending on the OS version, the size of persistent logs can be increased to store more logs than the default size (32 MB currently). This can be done by adjusting the `SystemMaxUse=` setting in `/etc/systemd/journald.conf.d/journald-balena-os.conf` (refer to [journald.conf docs](https://www.freedesktop.org/software/systemd/man/journald.conf.html) for more information). Mistakes in the configuration can cause hard-to-solve problems, hence we recommend testing the changes on development test devices first.
 
+We consider changes to the size of persistent log store to be a temporary debugging tool, not a long-term solution. In particular, changes made to `journald-balena-os.conf` will be overwritten when balenaOS is updated.
+
 Do keep in mind persistent logging increases the wear on the storage medium due to increased writes. Refer to [long term storage of device logs](#long-term-device-logs-storage) for ways to offset this.
 
 ## Long term device logs storage
