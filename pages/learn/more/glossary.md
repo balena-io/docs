@@ -60,7 +60,6 @@ Balena's fork of Docker, offering a range of added features including real delta
 ### balenaFin
 **(balena specific term)**
 A single board computer developed by balena with field deployment in mind. It is a carrier board for the Raspberry Compute Module 3 and 3+ Lite (CM3L/CM3+L), that can run all the software that the Raspberry Pi can run, hardened for field deployment use cases.
-[more](https://www.balena.io/fin/1.1/docs/)
 
 ### balenaHub
 **(balena specific term)**
@@ -84,7 +83,6 @@ A versioned build of the host OS, specific to an fleet and device type.
 ### balena-proxy
 **(balena specific term)**
 A reverse proxy that handles requests made to Public Device URLs by passing them to the actual devices through a CONNECT-type proxy. The latter proxy resides on the VPN server and acts as a tunnel. 
-[more](https://github.com/balena-io/balena-proxy)
 
 ### balenaSDK
 **(balena specific term)**
@@ -94,7 +92,6 @@ Balena’s Software Development Kit, allowing users to create software that can 
 ### balena-on-balena (aka.BoB)
 **(balena specific term)**
 Balena’s developer environment, which is a device run on and managed by balenaCloud that runs a local instance of balena.
-[more](https://github.com/balena-io/balena-cloud)
 
 ### balenista(s)
 **(balena specific term)**
@@ -259,14 +256,14 @@ Modifies a stock balenaOS image and embeds information needed to map the OS imag
 ### Improvement 
 **(balena specific term)**
 These are used for documenting a change or addition to a system, with the intent of improving it. 
-[more](./how-we-work/contracts-glossary/improvements.md)
+[more](https://github.com/balenaltd/handbook/tree/main/docs/how-we-work/contracts-glossary/improvements.md)
 
 ## J
 
 ### Jellyfish aka. JF
 **(balena specific term)**
 A balena product. Jellyfish is a social knowledge database that the team uses to collaborate. Jellyfish gathers all information company wide and makes it a platform to implement processes that enhance the team's productivity and understanding.
-[more](./how-we-work/README.md)
+[more](https://github.com/balenaltd/handbook/tree/main/docs/how-we-work/README.md)
 
 ## K
 
@@ -334,18 +331,17 @@ Pine.js is a sophisticated rules-driven API engine that enables you to define ru
 
 ### Preset
 Preset is a data exploration and visualization platform, powered by open source Apache Superset.
-See [Preset Playbook](https://handbook.balena.io/tooling/preset-playbook) for more information.
+See [Preset Playbook](https://github.com/balenaltd/handbook/tree/main/docs/tooling/preset-playbook) for more information.
 
 ### Pull request aka. PR
 'also referred to as a merge request – is an event that takes place in software development when a contributor/developer is ready to begin the process of merging new code changes with the main project repository.'
 
 ### productOS
 **(balena specific term)**
-A loop within balena and aka. [Jellyfish](../docs/how-we-work/README.md). The intention of productOS is to create products that can be used by teams to develop and maintain products.
+A loop within balena and aka. [Jellyfish](https://github.com/balenaltd/handbook/tree/main/docs/how-we-work/README.md). The intention of productOS is to create products that can be used by teams to develop and maintain products.
 
 ### Prometheus
-Metrics / alerting framework - used by [balena-monitor](https://github.com/balena-io/balena-monitor)
-[more](https://prometheus.io/)
+Metrics / alerting framework - used by balena-monitor. [more](https://prometheus.io/)
 
 ### Provisioning (balena)
 **(Provisioning is not unique to balena, but in this instance it's a reference specific to balena)**
@@ -421,7 +417,6 @@ A 128-bit label used for information in computer systems
 ### VersionBot
 **(balena specific term)**
 VersionBot is a Github application that we use as our CI/CD tool. It is in charge of linting, validating, building and deploying or publishing our code. Eventually we would want to integrate it with BalenaCloud so that it can be offered as a service to our users.
-[more](https://github.com/product-os/versionbot)
 
 ## W
 
