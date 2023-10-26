@@ -1,4 +1,16 @@
 - commits:
+    - subject: "Patch: Add back dynamic Supervisor/Engine deugging docs"
+      hash: 88ec43a8c744d0df35986591117569082957c025
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.57.1
+  title: ""
+  date: 2023-10-26T12:13:33.819Z
+- commits:
     - subject: "minor: Add balena Glossary"
       hash: 2e09a013951b2aad2b749634645709b5d622cabd
       body: ""
