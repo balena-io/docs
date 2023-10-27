@@ -11,9 +11,7 @@ Variables defined in the dashboard are exposed on the device as environment vari
  
 <img alt="Accessing variable" src="/img/variables/accessing_variables.png">
 
-__Note:__ Adding or modifying a variable for all services will restart all services on the device. Similarly, changing variables defined only for a specific service will only restart the affected service.
-
-Variables can be applied at the fleet or the individual device level through the Variables page. You can apply Variables to the entire fleet by navigating to the Variables page for that fleet. 
+Variables can be applied at the fleet or the individual device level through the Variables page. You can apply Variables to the entire fleet by navigating to the Variables page for that fleet. Adding or modifying a fleet variable for all services will restart all services on the device. Similarly, changing device variables defined only for a specific service will only restart the affected service.
 
 Values defined for individual devices always override those defined for the fleet. Values defined for specific services would override variables defined at the same level (Fleet or device level). So for any given variable, the **device service specific variable** will always have the top priority, followed by the **device variable for all services**, then the **fleet service specific variable**, and finally the **fleet variable for all services**.
 
@@ -37,7 +35,7 @@ Define a name and value for your variable. Click the *Add* button to apply the v
 
 <img alt="Add variable" src="/img/variables/variable_editor.png" width="80%">
 
-Your new variable will show up in the list, where it can easily be modified or removed:
+Your new variable will show up in the list, where it can easily be modified or removed. Adding or modifying fleet variables will trigger restart of all services on the device.
 
 <img alt="List variables" src="/img/variables/variable_list.png" width="100%">
 
@@ -60,6 +58,8 @@ The variable list will include variables defined for that specific device, as we
 You can override the value of a fleet variable by clicking *override* in the far-right column. This will pop up the variable editing dialog, where you can change the value:
 
 <img alt="Add device variable" src="/img/variables/override.png" width="80%">
+
+Changing a variable defined only for a specific service will only restart the affected service.
 
 ## Managing with the CLI & SDK
 
