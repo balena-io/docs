@@ -1,4 +1,20 @@
 - commits:
+    - subject: Explain that changes to the persistent log size are not persistent
+      hash: 5d06d9a4fce1b9253b2f6c11bf00ec3479c97828
+      body: |
+        More generally, make it clear that changes to journald-balena-os.conf
+        will be overwriten by balenaOS updates.
+      footer:
+        Signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        Change-type: patch
+        change-type: patch
+      author: Leandro Motta Barros
+      nested: []
+  version: 5.57.2
+  title: ""
+  date: 2023-10-27T05:41:37.248Z
+- commits:
     - subject: "Patch: Add back dynamic Supervisor/Engine deugging docs"
       hash: 88ec43a8c744d0df35986591117569082957c025
       body: ""
