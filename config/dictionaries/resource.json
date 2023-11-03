@@ -218,6 +218,30 @@
         "filters": ""
       },
       {
+        "id": "get-api-keys-by-device-uuid",
+        "summary": "Get all API keys of a device by UUID",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/api_key",
+        "filters": "?\\$filter=is_of__actor/any(a:a/is_of__device/any(d:d/uuid%20eq%20'<DEVICE_UUID>'))"
+      },
+      {
+        "id": "get-api-keys-by-application-slug",
+        "summary": "Get all API keys of an application by slug",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/api_key",
+        "filters": "?\\$filter=is_of__actor/any(a:a/is_of__application/any(ioa:ioa/slug%20eq%20'<SLUG>'))"
+      },
+      {
+        "id": "get-api-keys-by-user",
+        "summary": "Get all user API keys for the authenticated user",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/api_key",
+        "filters": "?\\$filter=is_of__actor/any(a:a/is_of__user%20eq%20<USER_ID>))"
+      },
+      {
         "id": "create-api-key",
         "summary": "Create new API key",
         "description": "",
