@@ -1,4 +1,25 @@
 - commits:
+    - subject: "API/Resources: Add examples for updating the expiry date of API Keys"
+      hash: 949eb728f038dc7aa2937ad7a8cca3198a1eb43f
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/Resources: Add examples for retrieving API Keys by
+        device/fleet/user"
+      hash: 5b9596df1e2a187886304d0edea93ccafe45de6b
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.58.0
+  title: ""
+  date: 2023-11-03T16:12:38.076Z
+- commits:
     - subject: "patch: Signify behavior when variables change"
       hash: 926f56890aae8a75ea470011b3aba36b82c876a7
       body: ""
