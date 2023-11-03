@@ -242,6 +242,23 @@
         "filters": "?\\$filter=is_of__actor/any(a:a/is_of__user%20eq%20<USER_ID>))"
       },
       {
+        "id": "set-api-key-expiry-date",
+        "summary": "Update the expiry date for an API Key",
+        "description": "Note: Select a date in the past to expire an API Key immediately.",
+        "method": "PATCH",
+        "endpoint": "/v6/api_key(<ID>)",
+        "filters": "",
+        "data": "{\n    \"expiry_date\": \"<ISO_8601_DATE_TIME>\"\n}"
+      },
+      {
+        "id": "clear-api-key-expiry-date",
+        "summary": "Clear the expiry date of an API Key",
+        "method": "PATCH",
+        "endpoint": "/v6/api_key(<ID>)",
+        "filters": "",
+        "data": "{\n    \"expiry_date\": null\n}"
+      },
+      {
         "id": "create-api-key",
         "summary": "Create new API key",
         "description": "",
