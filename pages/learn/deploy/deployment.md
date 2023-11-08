@@ -9,7 +9,7 @@ On {{$names.cloud.lower}}, when we deploy code to devices grouped in a fleet, th
 
 There are 3 ways to create and deploy a release, namely [{{$names.company.lower}} push](#balena-push), [{{$names.company.lower}} deploy](#balena-build--deploy) and [git push](#git-push). Each method has slightly different use cases and differ on how and where the container images are built. We'll explain each of the options in more detail below. If you are just starting out with {{$names.cloud.lower}}, we recommend using [{{$names.company.lower}} push](#balena-push).
 
-__Note:__ For a guide to getting started with the {{$names.company.lower}} CLI see the [{{$names.company.lower}} CLI masterclass][cli-masterclass]
+To get started with the {{$names.company.lower}} CLI, check out our [{{$names.company.lower}} CLI masterclass][cli-masterclass]
 
 ## {{$names.company.upper}} Push
 
@@ -37,9 +37,11 @@ The `{{$names.company.lower}} deploy` is functionally very similar to [{{$names.
 
 With `{{$names.company.lower}} build` container images are built on your development machine or on a remote machine, by specifying a docker daemon's IP address and port number with the relevant command-line options (for example a device running a {{$names.os.lower}} [development image][development-image]). Depending on your fleet's targeted CPU architecture builds will be run emulated via [qemu][qemu].
 
-If you are building your own container images, `{{$names.company.lower}} deploy` will upload the images to the {{$names.cloud.lower}} image registry and then create a release entry in the [{{$names.company.lower}} API][api] database. The devices in the fleet will then be notified of a new release and download it. Should `{{$names.company.lower}} deploy` not find the required images on the specified docker daemon it will automatically trigger a build.
+If you are building your own container images, `{{$names.company.lower}} deploy` will upload the images to the {{$names.cloud.lower}} image registry and then create a release entry in the [{{$names.company.lower}} API][api] database. The devices in the fleet will then be notified of a new release and download it. Should `{{$names.company.lower}} deploy` not find the required images on the specified docker daemon, it will automatically trigger a build.
 
-Like `{{$names.company.lower}} push` it is also independent of git, and you can use any version control system you wish. It is also possible to make use of [private base images](#private-base-images).
+Like `{{$names.company.lower}} push` it is also independent of git, and you can use any version control system you wish. It is also possible to use [private base images](#private-base-images).
+
+__Note:__ Refer to the [`{{$names.company.lower}} build`][[cli-build-reference] and [`{{$names.company.lower}} deploy` command reference][[cli-deploy-reference] for additional documentation.
 
 ## Git Push
 
@@ -222,7 +224,6 @@ Much like with the device list, [filters][filters] can be added to the release l
 [docker-post-install]:https://docs.docker.com/install/linux/linux-postinstall/
 [engine-link]:{{ $links.engineSiteUrl }}
 [filters]:/learn/manage/filters-tags/#filters-and-tags
-[getting-started]:/learn/getting-started
 [git]:http://git-scm.com
 [github]:https://github.com/
 [git-submodules]:https://git-scm.com/book/en/v2/Git-Tools-Submodules
