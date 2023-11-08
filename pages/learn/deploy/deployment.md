@@ -165,6 +165,9 @@ and the `registry-secrets.yml` file is outside of the code repository and has th
 'eu.gcr.io':  # Google Container Registry
     username: '_json_key'
     password: '{escaped contents of the GCR keyfile.json file}'
+'ghcr.io':  # GitHub Container Registry
+    username: GITHUB_USERNAME
+    password: PERSONAL_ACCESS_TOKEN
 ```
 
 It should be noted that in this case, the devices will still pull the container images from the {{$names.cloud.lower}} registry. The authentication just allows the build step access to pull your private image at build time.
