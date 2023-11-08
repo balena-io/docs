@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add GitHub container registry to registry-secrets docs"
+      hash: 37b2b190061e477b731c0779a4af4044025d3768
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.58.2
+  title: ""
+  date: 2023-11-08T16:05:31.961Z
+- commits:
     - subject: "patch: Add balena build/deploy command reference"
       hash: 77d8f2525c57e18fbb0507efb423ca40455bd612
       body: ""
