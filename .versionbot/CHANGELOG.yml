@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Add balena build/deploy command reference"
+      hash: 77d8f2525c57e18fbb0507efb423ca40455bd612
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 5.58.1
+  title: ""
+  date: 2023-11-08T07:21:09.552Z
+- commits:
     - subject: "API/Resources: Add examples for updating the expiry date of API Keys"
       hash: 949eb728f038dc7aa2937ad7a8cca3198a1eb43f
       body: ""
