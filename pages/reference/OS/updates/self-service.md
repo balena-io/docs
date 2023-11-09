@@ -35,8 +35,7 @@ If your {{ $names.os.lower }} update fails for any reason, the device should sti
 
 ## Update locks
 
-[Update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/) is a mechanism that allows applications to enter critical sections of code and prevent updates that would interrupt the application from running. Update locks can also be used to delay the reboot that applies a hostOS update operation until the application exits the critical section by removing the update locks. [Overriding update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/#overriding-the-lock) will ignore existing locks and allow a hostOS update process to proceed with a reboot.
-
+[Update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/) is a mechanism that allows applications to enter critical sections of code and prevent updates that would interrupt the application from running. Update locks can also be used to delay the reboot that applies a hostOS update operation until the application exits the critical section by removing the update locks. HostOS update operations require the use of exclusive locks and will not respect shared locks. [Overriding update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/#overriding-the-lock) will ignore existing locks and allow a hostOS update process to proceed with a reboot.
 
 You can learn more about what exactly goes on during the update process [here][update-process].
 
