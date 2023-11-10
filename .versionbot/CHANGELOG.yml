@@ -1,4 +1,18 @@
 - commits:
+    - subject: "os: self-service updates: document the requirement of exclusive locks"
+      hash: a66bc31c6ce1b5d244888110d709047cb6f542db
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 5.58.3
+  title: ""
+  date: 2023-11-10T14:47:55.872Z
+- commits:
     - subject: "patch: Add GitHub container registry to registry-secrets docs"
       hash: 37b2b190061e477b731c0779a4af4044025d3768
       body: ""
