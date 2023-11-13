@@ -331,7 +331,7 @@ Pine.js is a sophisticated rules-driven API engine that enables you to define ru
 
 ### Preset
 Preset is a data exploration and visualization platform, powered by open source Apache Superset.
-See [Preset Playbook](https://github.com/balenaltd/handbook/tree/main/docs/tooling/preset-playbook) for more information.
+See [Preset Playbook](https://github.com/balenaltd/handbook/blob/main/docs/tooling/preset-playbook.md) for more information.
 
 ### Pull request aka. PR
 'also referred to as a merge request – is an event that takes place in software development when a contributor/developer is ready to begin the process of merging new code changes with the main project repository.'

@@ -27,14 +27,6 @@ jobs:
           node-version: 16
       - run: npm run deploy-docs
 
-      # Enable Lychee cache
-      - name: Restore lychee cache
-        uses: actions/cache@v3
-        with:
-          path: .lycheecache
-          key: cache-lychee-${{ github.sha }}
-          restore-keys: cache-lychee-
-
       # Run link checker on the generated HTML
       - name: Link Checker
         id: lychee
