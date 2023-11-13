@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix links & remove lychee cache"
+      hash: db9f60275badfccc45a74cc3cce412a7fcd61b6b
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.58.4
+  title: ""
+  date: 2023-11-13T09:52:53.892Z
+- commits:
     - subject: "os: self-service updates: document the requirement of exclusive locks"
       hash: a66bc31c6ce1b5d244888110d709047cb6f542db
       body: ""
