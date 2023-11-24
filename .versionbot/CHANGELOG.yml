@@ -1,4 +1,16 @@
 - commits:
+    - subject: Add newline to end of file to fix partial injection
+      hash: 435ddcbca90bed074ce40344f5c7291824759f4e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Kyle Harding
+      nested: []
+  version: 5.58.5
+  title: ""
+  date: 2023-11-24T20:40:49.016Z
+- commits:
     - subject: "patch: Fix links & remove lychee cache"
       hash: db9f60275badfccc45a74cc3cce412a7fcd61b6b
       body: ""
