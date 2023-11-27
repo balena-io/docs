@@ -20,6 +20,7 @@ title: I2C and Other Interfaces
   * [MRAA for GPIO and hardware access](/hardware/i2c-and-spi#mraa-for-gpio-and-hardware-access)
   * [Edison in USB Host mode](/hardware/i2c-and-spi#edison-in-usb-host-mode)
 * [IOT-GATE-iMX8](/hardware/i2c-and-spi#iot-gate-imx8)
+* [Up Squared](/hardware/i2c-and-spi#up-squared)
   * [Serial ports](/hardware/i2c-and-spi#serial-ports)
 * [Jetson Devices](/hardware/i2c-and-spi#jetson-devices)
   * [Custom device trees](/hardware/i2c-and-spi#custom-device-trees)
@@ -311,6 +312,12 @@ uart_mode=rs232
 ```
 
 Similarly, rs485 can be selected in the environment file as well. The device should be rebooted after setting the uart operating mode the for the changes to take effect.
+
+## Up Squared
+
+### Serial Ports
+
+Up Squared UART communication on pins 6, 8 and 10 can be performed using /dev/ttyS5.
 
 ## Jetson Devices
 
