@@ -1,4 +1,18 @@
 - commits:
+    - subject: "develop/hardware: Add info on Up Squared UART communication"
+      hash: a809b185a2226d17a90b6c10e7a9cbe7cd85db51
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 5.58.6
+  title: ""
+  date: 2023-11-27T09:58:01.280Z
+- commits:
     - subject: Add newline to end of file to fix partial injection
       hash: 435ddcbca90bed074ce40344f5c7291824759f4e
       body: ""
