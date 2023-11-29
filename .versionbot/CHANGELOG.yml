@@ -1,4 +1,28 @@
 - commits:
+    - subject: "develop/hardware: Fix typo"
+      hash: c4fd697b8ccaf646fa7f0bf0a7dce72f8879c2eb
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+    - subject: "develop/hardware: Update Up Squared uart info"
+      hash: ea0e68d23505fb9303a3ff3f1e1480a656edd73b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 5.58.7
+  title: ""
+  date: 2023-11-29T13:04:49.495Z
+- commits:
     - subject: "develop/hardware: Add info on Up Squared UART communication"
       hash: a809b185a2226d17a90b6c10e7a9cbe7cd85db51
       body: ""
