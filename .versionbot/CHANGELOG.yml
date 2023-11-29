@@ -1,4 +1,18 @@
 - commits:
+    - subject: "develop/hardware: Reword information on up board pin configuration"
+      hash: 2cb2c12b1fd739bfa263b900c7fab51b92db5839
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 5.58.8
+  title: ""
+  date: 2023-11-29T14:39:46.821Z
+- commits:
     - subject: "develop/hardware: Fix typo"
       hash: c4fd697b8ccaf646fa7f0bf0a7dce72f8879c2eb
       body: ""
