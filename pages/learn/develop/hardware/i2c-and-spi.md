@@ -317,7 +317,7 @@ Similarly, rs485 can be selected in the environment file as well. The device sho
 
 ### Serial Ports
 
-Depending on the HAT Configuration defined in BIOS, the Up Squared UART communication on pins 6, 8 and 10 can be performed using either /dev/ttyS4 or /dev/ttyS5. Please check your pin configuration in the HAT Configurations menu in BIOS.
+Depending on the HAT Configuration defined in BIOS, the Up Squared UART communication on pins 8 and 10 can be performed using either /dev/ttyS4 or /dev/ttyS5. Please consult the HAT Configurations menu in BIOS for details on how pins are configured on your device.
 
 ## Jetson Devices
 
