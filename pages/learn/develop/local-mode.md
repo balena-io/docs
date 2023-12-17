@@ -176,7 +176,7 @@ When detached, the services continue to run on the device, and you can access th
 This command will output logs for the system and all running services. You may optionally filter the output to include only system or specific service logs using the available `--system` (`-S`) and `--service` (`-s`) options. For example, to output only the system logs:
 
 ```bash
-{{ $names.company.short }} logs 63ec46c.local --service <service name>
+{{ $names.company.short }} logs 63ec46c.local --system
 ```
 
 To filter logs by a service, use the `--service` option. You may specify this option multiple times to output logs from multiple services.
