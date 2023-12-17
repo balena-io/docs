@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Update local-mode.md - correct first --system example"
+      hash: edd13f868ae39ceef16d48e7a4e2183f1b52c972
+      body: ""
+      footer: {}
+      author: Tyeth Gundry
+      nested: []
+  version: 5.58.9
+  title: ""
+  date: 2023-12-17T16:21:08.692Z
+- commits:
     - subject: "develop/hardware: Reword information on up board pin configuration"
       hash: 2cb2c12b1fd739bfa263b900c7fab51b92db5839
       body: ""
