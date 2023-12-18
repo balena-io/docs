@@ -96,7 +96,7 @@ Turning on local mode is useful when you are prototyping your services, as it al
 
 ### Deactivate Device
 
-This setting will [deactivate the device][inactive-devices] and charge a one-time deactivation fee (equivalent to the cost of a single undiscounted device-month). To deactivate, the device must be offline and be attached to a valid billing account.
+This setting will [deactivate the device][inactive-devices] and charge a one-time deactivation fee (equivalent to the cost of a single undiscounted device-month) that is not covered by your plan's allowance. To deactivate, the device must be offline and be attached to a valid billing account.
 
 Once the device is deactivated, the device won't be counted towards your device total. It will remain inactive until it comes back online.
 
