@@ -1,4 +1,17 @@
 - commits:
+    - subject: "actions.md: Clarify that the deactivation fee is not covered by the
+        plan's allowance"
+      hash: b5160375ade8b2db81446155358311b560f77293
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.58.10
+  title: ""
+  date: 2023-12-18T10:49:06.102Z
+- commits:
     - subject: "patch: Update local-mode.md - correct first --system example"
       hash: edd13f868ae39ceef16d48e7a4e2183f1b52c972
       body: ""
