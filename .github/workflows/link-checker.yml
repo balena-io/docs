@@ -27,6 +27,12 @@ jobs:
           node-version: 16
       - run: npm run deploy-docs
 
+      - uses: actions/cache@v3
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
       # Run link checker on the generated HTML
       - name: Link Checker
         id: lychee
@@ -47,3 +53,10 @@ jobs:
           title: Link Checker Report
           content-filepath: ./lychee/out.md
           labels: good-first-issue, automated issue
+
+      - name: Save lychee cache
+        uses: actions/cache/save@v3
+        if: always()
+        with:
+          path: .lycheecache
+          key: ${{ steps.restore-cache.outputs.cache-primary-key }}

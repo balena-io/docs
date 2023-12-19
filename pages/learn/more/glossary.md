@@ -69,7 +69,6 @@ A marketplace that enables the exchange of resources between our users. At a hig
 ### balenaMachine
 **(balena specific term)**
 On-premises fleet management, delivered as a single virtual machine that includes all core balenaCloud services.
-[more](https://docs.google.com/document/d/1WHT9RnX9h1GsMWZUhVk5GxEBghUbjTdyu4ivc0xSPmk/edit?usp=sharing)
 
 ### balenaOS
 **(balena specific term)**
@@ -405,7 +404,6 @@ Balena's on-device agent, responsible for monitoring and applying changes to an 
 ### testbot
 **(balena specific term)**
 The testbot is a device used to aid in the automation of hardware testing. It connects to a balena fin through a HAT interface, and provides a mechanism to remotely provision, power, and run a test suite against a device under test (DUT). Testbot’s vision is to completely isolate the DUT when testing it much like an octopus around its prey. We control the power, network type and the image flashed to the DUT.
-[more](https://docs.google.com/document/d/1UiKDVHHp9HUZrBW2kE9FjKwSLb8BTtlDw_FEqyTWHLY/edit)
 
 ## U
 
