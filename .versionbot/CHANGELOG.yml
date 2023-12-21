@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix links in Glossary and base images"
+      hash: 7bb7b34d5564b22c980d511c2fcf1693d7772141
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.58.11
+  title: ""
+  date: 2023-12-21T17:36:09.143Z
+- commits:
     - subject: "actions.md: Clarify that the deactivation fee is not covered by the
         plan's allowance"
       hash: b5160375ade8b2db81446155358311b560f77293
