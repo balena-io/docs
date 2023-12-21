@@ -17,7 +17,7 @@ progress = true
 cache = true
 
 # Discard all cached requests older than this duration.
-max_cache_age = "2d"
+max_cache_age = "1d"
 
 #############################  Runtime  #############################
 
@@ -118,7 +118,7 @@ exclude = [
     ]
 
 # Exclude these filesystem paths from getting checked.
-exclude_path = ["./build/img/", "./build/css/", "./build/favicon.png", "./build/dist/"]
+exclude_path = ["./build/img/", "./build/css/", "./build/favicon.png", "./build/dist/", ".build/reference/base-images/base-images-ref/"]
 
 include = []
 
