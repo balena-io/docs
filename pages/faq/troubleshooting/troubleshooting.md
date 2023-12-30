@@ -44,6 +44,15 @@ If you have an HDMI screen attached, you should see balena logo on the screen wh
 
 If you still can't get your device online, come on over and talk to us on our [support channel][usingSupport].
 
+### This is the wrong balena device.
+
+If you see this error, there are several potential causes, including:
+- The config.json file is missing or corrupted
+- The UUID in the config.json file does not match the device's UUID
+  - This could be caused by config.json corruption or storage corruption
+- You are attempting to SSH into a device using the wrong IP address
+
+Please contact [balena support][usingSupport] if you encounter this issue so that we can investigate the root cause.
 
 
 [dashboard]:{{ $links.dashboardUrl }}/
