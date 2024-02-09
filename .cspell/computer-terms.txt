@@ -337,6 +337,7 @@ rockpi
 rockpro
 Rocktech
 rollouts
+RSSPM
 rulefilename
 ruuvitag
 rwxr
