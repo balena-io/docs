@@ -1,4 +1,16 @@
 - commits:
+    - subject: "minor: Add Cookie Consent Dialog box"
+      hash: 7b83f3cd5415ae42c07338e83cfdeeae944ca2c5
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.60.0
+  title: ""
+  date: 2024-02-12T13:45:02.636Z
+- commits:
     - subject: Add Troubleshooting section for `This is the wrong balena device` error
       hash: 05db89f7faf27532164002cd7493b2de445851b1
       body: ""
