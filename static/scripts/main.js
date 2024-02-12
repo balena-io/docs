@@ -24,6 +24,7 @@ require('../css/main.css')
 require('../css/menu-top.css')
 require('../css/search.css')
 require('../css/tooltips.css')
+require('../css/cookie-consent.css')
 
 hljs.highlightAll()
 
