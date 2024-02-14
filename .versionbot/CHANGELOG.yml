@@ -1,4 +1,19 @@
 - commits:
+    - subject: "i2c-and-spi: Add more Jetson information"
+      hash: 53f37d3070fbd118fcbb3eea420a62c5c796c35d
+      body: |
+        ... about container packages and custom carrier boards.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+      nested: []
+  version: 5.60.1
+  title: ""
+  date: 2024-02-14T11:09:32.215Z
+- commits:
     - subject: "minor: Add Cookie Consent Dialog box"
       hash: 7b83f3cd5415ae42c07338e83cfdeeae944ca2c5
       body: ""
