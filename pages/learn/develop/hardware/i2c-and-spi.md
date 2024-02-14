@@ -317,7 +317,7 @@ Similarly, rs485 can be selected in the environment file as well. The device sho
 
 ### Serial Ports
 
-Depending on the HAT Configuration defined in BIOS, the Up Squared UART communication on pins 8 and 10 can be performed using either /dev/ttyS4 or /dev/ttyS5. Please consult the HAT Configurations menu in BIOS for details on how pins are configured on your device.
+Depending on the HAT Configuration defined in BIOS, the Up Squared UART communication on pins 8 and 10 can be performed using either `/dev/ttyS4` or `/dev/ttyS5`. Please consult the HAT Configurations menu in BIOS for details on how pins are configured on your device.
 
 ## Jetson Devices
 
@@ -345,6 +345,12 @@ To test a custom device tree on a Jetson Nano, TX2 or Jetson AGX Orin or Orin NX
 After that, navigate to the `Device Configuration` tab in the balenaCloud dashboard, activate the following configuration with the description `Define the file name of the DTB to be used`, and specify the file name of the custom device tree. The value of this configuration should contain the file name only. After the change is applied, the device will automatically reboot and load the new device tree.
 
 After the custom device tree has been validated, it can be included in newer balenaOS images. For Jetson TX2 and Nano, open a pull request in the [balena Jetson device](https://github.com/balena-os/balena-jetson) repository following this [example commit](https://github.com/balena-os/balena-jetson/commit/3dbf9c96e5986c2138f318d1ee9f0d5c1a2fc3c8). For the Jetson AGX Orin, the PR should be opened in the [balena Jetson Orin](https://github.com/balena-os/balena-jetson-orin) repository. Once your PR is approved and merged, a new balenaOS image that includes your custom device tree will become available shortly.
+
+Please note that if the changes for your carrier board expand past kernel device-trees, or require modifications to board configuration files like pin multiplexing configuration files or any other device-trees or files used by firmware, these may not be provided by the existing cloud images. During provisioning the resulting configuration changes are stored in the QSPI or in the hardware defined boot partitions, and thus will be replaced with the default values when updating the Host Operating System. Please [contact us](https://www.balena.io/contact-sales) if you would like to use a Jetson carrier board which may not be fully compatible with its' corresponding devkit, or with any of our cloud images for your Jetson module.
+
+### Container packages
+
+The Jetson specific packages installed in your container images need to be in sync with the Linux for Tegra version used by the Host Operating System. Our base images for Jetson devices come pre-populated with `/etc/apt/sources.list.d/nvidia.list` files, which include the necessary links so that the apt repositories are in sync with the L4T version used by our latest OS images. If you suspect you encountered a mismatch, please check the `L4T` version in your Host OS using `uname -r` and compare it to the release version in your container's `/etc/apt/sources.list.d/nvidia.list` file. Please check our [Jetson Examples](https://github.com/balena-io-examples/jetson-examples) repository for more information on how to set-up your container images.
 
 [i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
