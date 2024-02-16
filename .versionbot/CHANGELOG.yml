@@ -1,4 +1,24 @@
 - commits:
+    - subject: "patch: Update GitHub Action dependencies"
+      hash: 7ae1c1319495fcfb44fac71fd8e77522b52d738a
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+    - subject: "patch: Update NPM dependencies"
+      hash: 3c927f87e65aaf2f5551038d6e82337841115418
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.60.2
+  title: ""
+  date: 2024-02-16T13:06:48.643Z
+- commits:
     - subject: "i2c-and-spi: Add more Jetson information"
       hash: 53f37d3070fbd118fcbb3eea420a62c5c796c35d
       body: |
