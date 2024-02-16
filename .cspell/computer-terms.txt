@@ -5,6 +5,7 @@ Aetina
 ahci
 allwinner
 alsa
+altboot
 alwaysai
 amdefine
 apikey
@@ -20,7 +21,7 @@ assets
 Asus
 ASYNCDNS
 aufs
-Authy
+Authyßß
 autoconnect
 autolinker
 automounting
@@ -160,6 +161,7 @@ fleetordevice
 forkable
 FORMATED
 fseventsd
+fstype
 gcloud
 genericx
 getrandom
@@ -241,6 +243,7 @@ mitigations
 mmcblk
 mmcli
 modeswitch
+mountpoint
 mraa
 MRAA
 mschapv
@@ -314,6 +317,7 @@ raspberrypi
 raspberrypicm
 RAWIO
 RCSI
+rcvbuf
 rechoir
 redsocks
 REFCLOCK
@@ -337,6 +341,7 @@ rockpi
 rockpro
 Rocktech
 rollouts
+rootfs
 RSSPM
 rulefilename
 ruuvitag
@@ -356,6 +361,7 @@ SIGND
 signup
 sindresorhus
 smarc
+sndbuf
 someservice
 Spacely
 sshkeys
@@ -370,6 +376,7 @@ supervisortest
 sysfs
 sysroot
 systfs
+sysv
 tagkey
 tapable
 tarbz
