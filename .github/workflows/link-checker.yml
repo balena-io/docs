@@ -27,7 +27,7 @@ jobs:
           node-version: 18
       - run: npm run deploy-docs
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
@@ -56,7 +56,7 @@ jobs:
           labels: good-first-issue, automated issue
 
       - name: Save lychee cache
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         if: always()
         with:
           path: .lycheecache
