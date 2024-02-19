@@ -95,6 +95,16 @@ dtoverlay=i2c-rtc,ds1307
 dtoverlay=lirc-rpi
 ```
 
+As of Supervisor v16+, the above will translate to:
+
+```
+dtoverlay=i2c-rtc
+dtparam=dc1307
+dtoverlay=lirc-rpi
+```
+
+This modifies each parameter to be on its own line in order to avoid the 80 character line limit imposed by config.txt. It is the recommended method of setting one or more overlays with their own parameters.
+
 This parsing will only be done if the value is a valid string, so if it doesn't begin with a quote `"`, the value will be parsed as a single string and not split into several lines. For instance `BALENA_HOST_CONFIG_dtoverlay = i2c-rtc,ds1307` will translate to:
 
 ```
