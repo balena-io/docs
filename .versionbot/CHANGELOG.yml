@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add Subresource Integrity to scripts being fetched"
+      hash: 107bd7b8937741bfbca70313c93fa605299cd5f0
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.60.3
+  title: ""
+  date: 2024-02-19T10:45:59.766Z
+- commits:
     - subject: "patch: Update GitHub Action dependencies"
       hash: 7ae1c1319495fcfb44fac71fd8e77522b52d738a
       body: ""
