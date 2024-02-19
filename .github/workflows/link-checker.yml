@@ -22,7 +22,7 @@ jobs:
 
       # fetch external files && Building the docs
       - name: Build the docs
-        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
         with:
           node-version: 18
       - run: npm run deploy-docs
