@@ -34,7 +34,7 @@ The qemu: Unsupported syscall: 384 is a warning that the getrandom(2) system cal
 
 ### Help! My device won't show up.
 
-If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly (if you need help fixing your credentials, see [WiFi Help][wifiHelp]) and ensure that your network meets these [basic requirements][networkRequirements]. If the device has a LED, it may also be worth checking it for any known error codes or signals.
+If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly (if you need help fixing your credentials, see [WiFi Help][wifiHelp]) and ensure that your network meets these [basic requirements][networkRequirements]. If the device has a LED indicator, it may also be worth checking it for any known error codes or signals.
 
 If you have an HDMI screen attached, you should see balena logo on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted.
 
