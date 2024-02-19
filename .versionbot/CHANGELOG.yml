@@ -1,4 +1,16 @@
 - commits:
+    - subject: "API/Resources: Add docs for the `device type` resource"
+      hash: 30b79c4994a3619b017b196de7b065b06ba46aa1
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.61.0
+  title: ""
+  date: 2024-02-19T18:24:27.690Z
+- commits:
     - subject: "patch: Add Subresource Integrity to scripts being fetched"
       hash: 107bd7b8937741bfbca70313c93fa605299cd5f0
       body: ""
