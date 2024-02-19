@@ -1,4 +1,21 @@
 - commits:
+    - subject: Update config.txt to reflect changes in config.txt parsing with
+        Supervisor v16+
+      hash: fdf114717966eac078d030aff1ca3f67eecf30a8
+      body: |
+        Supervisor v16+ adds each dtparam for a dtoverlay on its own line to
+        comply with the 80-char line limit for config.txt.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Christina Ying Wang <christina@balena.io>
+        signed-off-by: Christina Ying Wang <christina@balena.io>
+      author: Christina Ying Wang
+      nested: []
+  version: 5.61.1
+  title: ""
+  date: 2024-02-19T21:51:13.308Z
+- commits:
     - subject: "API/Resources: Add docs for the `device type` resource"
       hash: 30b79c4994a3619b017b196de7b065b06ba46aa1
       body: ""
