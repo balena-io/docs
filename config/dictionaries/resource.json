@@ -439,6 +439,52 @@
     ]
   },
   {
+    "id": "device_type",
+    "name": "Device type",
+    "fields": [
+      "id",
+      "slug",
+      "name",
+      "is_private",
+      "is_of__cpu_architecture",
+      "belongs_to__device_family"
+    ],
+    "examples": [
+      {
+        "id": "device-type-by-id",
+        "summary": "Get a device type by its ID",
+        "description": "When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.",
+        "method": "GET",
+        "endpoint": "/v6/device_type(<ID>)",
+        "filters": ""
+      },
+      {
+        "id": "device-type-by-handle",
+        "summary": "Get a device type by its SLUG",
+        "description": "When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.",
+        "method": "GET",
+        "endpoint": "/v6/device_type(slug='<DEVICE TYPE SLUG>')",
+        "filters": ""
+      },
+      {
+        "id": "device-type-by-name",
+        "summary": "Get a device type by its NAME",
+        "description": "When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.",
+        "method": "GET",
+        "endpoint": "/v6/device_type",
+        "filters": "?\\$filter=name%20eq%20'<DEVICE TYPE NAME>'"
+      },
+      {
+        "id": "get-supported-device-types",
+        "summary": "Get all supported device types",
+        "description": "When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.",
+        "method": "GET",
+        "endpoint": "/v6/device_type",
+        "filters": "?\\$filter=is_default_for__application/any(idfa:(idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false)%20and%20(idfa/owns__release/any(r:(r/status%20eq%20'success')%20and%20(r/is_final%20eq%20true)%20and%20(r/is_invalidated%20eq%20false))))&\\$orderby=name%20asc"
+      }
+    ]
+  },
+  {
     "id": "device_config_variable",
     "name": "Device config variable",
     "fields": [
