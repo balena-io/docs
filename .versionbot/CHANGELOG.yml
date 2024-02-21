@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add Diagnostics section as subpages in docs"
+      hash: f8822c8399e06ab90c6ca589bfe8458317d9f2ef
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.61.3
+  title: ""
+  date: 2024-02-21T14:06:28.550Z
+- commits:
     - subject: "patch: Update publish step in Cloudflare Action"
       hash: 9cf1136e1d0785bd710e64a7dfeaeebe843859dc
       body: ""
