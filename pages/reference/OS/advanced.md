@@ -88,6 +88,8 @@ dtparam=spi=on
 dtparam=audio=on
 ```
 
+Please note that `spi`, `audio`, and all of the `i2c` params should be specified within their own sets of quotes in order to be written correctly to `config.txt`.
+
 Another example would be setting several overlays with their own parameters, e.g. `BALENA_HOST_CONFIG_dtoverlay = "i2c-rtc,ds1307","lirc-rpi"` will translate to:
 
 ```
