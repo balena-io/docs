@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Clarify global dtparams: should have own set of double quotes"
+      hash: 6a1ce8945c30c89cc04f6ccbcd738a73bf0a70a2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Christina Ying Wang <christina@balena.io>
+        signed-off-by: Christina Ying Wang <christina@balena.io>
+      author: Christina Ying Wang
+      nested: []
+  version: 5.61.4
+  title: ""
+  date: 2024-02-22T00:44:28.791Z
+- commits:
     - subject: "patch: Add Diagnostics section as subpages in docs"
       hash: f8822c8399e06ab90c6ca589bfe8458317d9f2ef
       body: ""
