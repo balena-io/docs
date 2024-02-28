@@ -13,4 +13,4 @@ A [{{ $names.company.lower }} account][link-to-signup].
 [XU4-PSU-link]: https://www.hardkernel.com/shop/5v-4a-power-supply-us-plug-2/
 [xu3-link]: https://www.hardkernel.com/shop/odroid-xu3/
 [odroidXU4-link]: https://www.hardkernel.com/shop/odroid-xu4-special-price/
-[speed_class]: http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
+[speed_class]: https://en.wikipedia.org/wiki/Sd_card#Speed_class_rating

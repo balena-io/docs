@@ -152,17 +152,17 @@ To get started with GPIO on edison have a look at our ["Edison GPIO in node.js"]
 
 [balena]:{{ $links.mainSiteUrl }}
 
-[rpi]:http://www.raspberrypi.org/
-[node]:http://nodejs.org/
+[rpi]:https://www.raspberrypi.org/
+[node]:https://nodejs.org/
 [npm]:https://www.npmjs.org/
 [npm-gpio]:https://www.npmjs.org/search?q=gpio
-[max7219]:http://www.maximintegrated.com/en/products/power/display-power-control/MAX7219.html
+[max7219]:https://www.maximintegrated.com/en/products/power/display-power-control/MAX7219.html
 
-[gpio]:http://en.wikipedia.org/wiki/General-purpose_input/output
-[sysfs]:http://en.wikipedia.org/wiki/Sysfs
+[gpio]:https://en.wikipedia.org/wiki/General-purpose_input/output
+[sysfs]:https://en.wikipedia.org/wiki/Sysfs
 [level-converter]:https://www.sparkfun.com/products/12009
 [kernel-gpio]:https://www.kernel.org/doc/Documentation/gpio/sysfs.txt
 [max7219]:https://github.com/victorporof/MAX7219.js
-[eeprom-diag]:http://www.raspberrypi.org/wp-content/uploads/2014/04/bplus-gpio.png
+[eeprom-diag]:https://www.raspberrypi.org/wp-content/uploads/2014/04/bplus-gpio.png
 [pi-pins]:https://www.npmjs.org/package/pi-pins
 [example-gpio-app]:https://github.com/shaunmulligan/basic-gpio

@@ -170,17 +170,17 @@ __Note:__ Instructions for adding custom board support may be found [here][custo
 [config-json-hostname]:/reference/OS/configuration/#hostname
 [config-json-logging]:/reference/OS/configuration/#persistentlogging
 [config-json-ssh]:/reference/OS/configuration/#sshkeys
-[containerisation]:http://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
+[containerisation]:https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
 [chrony]:https://en.wikipedia.org/wiki/Chrony
 [custom-build]:{{ $links.osSiteUrl }}/docs/custom-build/#Supporting-your-Own-Board
 [deploy-to-fleet]:/learn/deploy/deployment/
 [dnsmasq]:https://wiki.archlinux.org/index.php/Dnsmasq
 [Docker]:https://www.docker.com/
-[Dockerfile]:http://docs.docker.com/reference/builder/
+[Dockerfile]:https://docs.docker.com/reference/builder/
 [dropbear]:https://matt.ucc.asn.au/dropbear/dropbear.html
 [fleet-configuration]:/learn/manage/configuration/#fleet-configuration-variables
 [hostos-updates]:/reference/OS/updates/self-service/
-[linux]:http://en.wikipedia.org/wiki/Linux
+[linux]:https://en.wikipedia.org/wiki/Linux
 [local-mode]:/learn/develop/local-mode/
 [modem-manager]:https://www.freedesktop.org/wiki/Software/ModemManager/
 [network-manager]:https://wiki.gnome.org/Projects/NetworkManager

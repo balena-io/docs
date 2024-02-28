@@ -173,8 +173,7 @@ The {{ $names.company.lower }} Supervisor requires that the directory `/tmp/bale
 [docker]:https://www.docker.com/
 [dockerfile]:https://docs.docker.com/engine/reference/builder/
 [docker-images-containers]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
-[hello-python]:https://github.com/alexandrosm/hello-python
-[raspbian]:http://www.raspbian.org/
+[raspbian]:https://www.raspbian.org/
 
 [from]:https://docs.docker.com/engine/reference/builder/#from
 [run]:https://docs.docker.com/engine/reference/builder/#run
@@ -210,8 +209,8 @@ The {{ $names.company.lower }} Supervisor requires that the directory `/tmp/bale
 [container]:https://wiki.archlinux.org/index.php/Linux_Containers
 [npm]:https://www.npmjs.org/
 [text-to-speech]:{{ $links.githubMain }}/text2speech
-[node]:http://nodejs.org/
-[raspbian]:http://www.raspbian.org/
+[node]:https://nodejs.org/
+[raspbian]:https://www.raspbian.org/
 [aptitude]:https://wiki.debian.org/Aptitude
 
 [services-masterclass]:/learn/more/masterclasses/services-masterclass/

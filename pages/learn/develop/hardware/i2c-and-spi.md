@@ -352,10 +352,10 @@ Please note that if the changes for your carrier board expand past kernel device
 
 The Jetson specific packages installed in your container images need to be in sync with the Linux for Tegra version used by the Host Operating System. Our base images for Jetson devices come pre-populated with `/etc/apt/sources.list.d/nvidia.list` files, which include the necessary links so that the apt repositories are in sync with the L4T version used by our latest OS images. If you suspect you encountered a mismatch, please check the `L4T` version in your Host OS using `uname -r` and compare it to the release version in your container's `/etc/apt/sources.list.d/nvidia.list` file. Please check our [Jetson Examples](https://github.com/balena-io-examples/jetson-examples) repository for more information on how to set-up your container images.
 
-[i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
-[spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
+[i2c-link]:https://en.wikipedia.org/wiki/I%C2%B2C
+[spi-link]:https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
 [balena-sense-example]:https://github.com/balena-labs-projects/balena-sense
-[ads1115-link]:http://www.adafruit.com/product/1085
+[ads1115-link]:https://www.adafruit.com/product/1085
 [digitiser-link]:{{ $links.githubPlayground }}/digitiser
 [firebaseTemp-link]:{{ $links.githubPlayground }}/firebaseDTL
 [spi-npm]:https://www.npmjs.com/package/spi

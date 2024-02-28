@@ -115,7 +115,8 @@ exclude = [
     "https://github.com/balena-io/balena-cli/releases/download/*",
     "file://*",
     "system@*",
-    "https://www.googletagmanager.com/gtm.js*",
+    "https://www.googletagmanager.com/gtm.js?*",
+    "https://github.com/balena-io/docs/issues/new?*",
     ]
 
 # Exclude these filesystem paths from getting checked.

@@ -227,7 +227,7 @@ Much like with the device list, [filters][filters] can be added to the release l
 [docker-post-install]:https://docs.docker.com/install/linux/linux-postinstall/
 [engine-link]:{{ $links.engineSiteUrl }}
 [filters]:/learn/manage/filters-tags/#filters-and-tags
-[git]:http://git-scm.com
+[git]:https://git-scm.com
 [github]:https://github.com/
 [git-submodules]:https://git-scm.com/book/en/v2/Git-Tools-Submodules
 [local-mode]:/learn/develop/local-mode/

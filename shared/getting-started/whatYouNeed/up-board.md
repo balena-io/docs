@@ -11,7 +11,7 @@
 [up-board]:https://www.up-board.org/
 [up2]:https://www.up-board.org/upsquared/specifications
 [upcore]:https://www.up-board.org/upcore/specifications
-[psu]:http://up-shop.org/up-peripherals/65-dc-power-adapter-for-up-board-eu-plug.html
+[psu]:https://up-shop.org/up-peripherals/65-dc-power-adapter-for-up-board-eu-plug.html
 [wifiAdapters]:/hardware/wifi-dongles/
 [supportedDevicesList]:/hardware/devices/
 
