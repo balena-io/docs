@@ -115,11 +115,13 @@ exclude = [
     "https://github.com/balena-io/balena-cli/releases/download/*",
     "file://*",
     "system@*",
+    "https://www.googletagmanager.com/gtm.js*",
     ]
 
 # Exclude these filesystem paths from getting checked.
-exclude_path = ["./build/img/", "./build/css/", "./build/favicon.png", "./build/dist/", ".build/reference/base-images/base-images-ref/"]
+exclude_path = ["./build/img/", "./build/css/", "./build/favicon.png", "./build/dist/", "./build/reference/base-images/base-images-ref/", "./node_modules"]
 
+# Already mentioned in the GitHub action to include paths to check links
 include = []
 
 include_verbatim = true
