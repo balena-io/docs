@@ -78,7 +78,7 @@ When complete, after a minute or two the device should appear on your {{$names.c
 
 ## Install the {{ $names.cli.lower }}
 
-Now that a device online in your fleet, it's time to deploy some code. We will use the {{ $names.cli.lower }} for this. Follow the instructions below to install balenaCLI for the operating system available on your system.
+Now that a device online in your fleet, it's time to deploy some code. We will use the {{ $names.cli.lower }} for this. Follow the instructions below to install balenaCLI for the operating system available on your system. Skip the next part if you have balena CLI already installed. 
 
 {{import "getting-started/cliInstructions"}}
 
