@@ -31,7 +31,7 @@
   "homepage": "https://github.com/balena-io/docs",
   "dependencies": {
     "@balena/doxx": "^1.0.3",
-    "balena-sdk": "^19.5.4",
+    "balena-sdk": "^19.5.5",
     "bootstrap": "^3.4.1",
     "bootstrap-select": "^1.13.18",
     "coffeescript": "^2.7.0",
