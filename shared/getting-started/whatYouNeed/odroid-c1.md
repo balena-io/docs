@@ -10,4 +10,4 @@
 [odroidC1-link]:https://www.hardkernel.com/shop/odroid-c1/
 [hardkernel-link]: https://www.hardkernel.com/
 [C1-PSU-link]: https://www.hardkernel.com/shop/5v-2a-power-supply-us-plug-2/
-[speed_class]:http://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
+[speed_class]:https://en.wikipedia.org/wiki/Sd_card#Speed_class_rating

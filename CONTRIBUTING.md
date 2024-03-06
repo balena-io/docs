@@ -4,7 +4,7 @@ Thank you for contributing to the docs! We have a few guidelines which will allo
 
 ## Creating Commits in line with Semantic Versioning
 
-> **TL:DR** The docs version numbering adheres to [Semantic Versioning](http://semver.org/). **Please include *at least one commit* in the PR that marks the change-type for the system.** 
+> **TL:DR** The docs version numbering adheres to [Semantic Versioning](https://semver.org/). **Please include *at least one commit* in the PR that marks the change-type for the system.** 
 
 This change-type can be specified by adding it as a prefix, i.e., `minor: Add some new feature` while creating the commit. This is so the PR can be automatically versioned and a changelog generated for it by using versionbot. One can choose one of 3 `Change-type` options on the nature of the file change. 
 

@@ -332,7 +332,7 @@ mount -t <fstype> -o rw -U <device-uuid> <mount-point>
 
 __Note:__ The mount point folder needs to exist for the mount to be successful.
 
-For more information about the `mount` command see the [mount man page](http://man7.org/linux/man-pages/man8/mount.8.html).
+For more information about the `mount` command see the [mount man page](https://man7.org/linux/man-pages/man8/mount.8.html).
 
 **Unmounting**
 
@@ -342,7 +342,7 @@ To unmount an external drive you can use Linux's `umount` command:
 umount <mount-point>
 ```
 
-For more information about the `umount` command see the [umount man page](http://man7.org/linux/man-pages/man8/umount.8.html).
+For more information about the `umount` command see the [umount man page](https://man7.org/linux/man-pages/man8/umount.8.html).
 
 **Automounting/unmounting with udev rules**
 
@@ -379,10 +379,10 @@ Note that currently it's not possible to share a mounted device across multiple 
 [supervisor-api-link]:/runtime/supervisor-api/
 [security-docs-link]:/learn/welcome/security/
 [supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1devicehost-config
-[expressjs-link]:http://expressjs.com/
+[expressjs-link]:https://expressjs.com/
 [projects-github]:{{ $links.githubLabs }}
 [systemd-base-image-link]:https://hub.docker.com/r/{{ $names.company.short }}/raspberrypi-python/
-[dnsmasq-link]:http://www.thekelleys.org.uk/dnsmasq/doc.html
+[dnsmasq-link]:https://www.thekelleys.org.uk/dnsmasq/doc.html
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
 [dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/
 [labels-link]:/reference/supervisor/docker-compose/#labels

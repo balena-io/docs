@@ -98,7 +98,7 @@ const svgCreator = async function (data, destpath, name) {
   return filePathContract
 };
 
-const etcherLinkInstruction = `[Etcher](http://www.etcher.io/)`
+const etcherLinkInstruction = `[Etcher](https://www.etcher.io/)`
 const sdCardInstruction = `Insert the freshly flashed sdcard into`
 
 /**

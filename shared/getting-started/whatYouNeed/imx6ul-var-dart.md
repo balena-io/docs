@@ -6,6 +6,6 @@
 * Compatible power supply.
 * A [{{ $names.company.lower }} account][link-to-signup].
 
-[dart]:http://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul
+[dart]:https://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [link-to-signup]:{{ $links.dashboardUrl }}/signup

@@ -95,8 +95,8 @@ curl -X GET \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
-[odata]:http://www.odata.org/
-[odata-docs]:http://www.odata.org/getting-started/basic-tutorial/
+[odata]:https://www.odata.org/
+[odata-docs]:https://www.odata.org/getting-started/basic-tutorial/
 [resources]:/reference/api/resources/fleet
 [tokens]:/learn/manage/account/#session-tokens
 [api-keys]:/learn/manage/account/#api-keys

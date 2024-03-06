@@ -40,7 +40,7 @@ Always run the Beaglebone Black from a 5VDC 1A minimum supply when using a Wifi 
 Have a look at this list of [wifi dongles][bbb-wifi-list] that are known to be compatible with the Beaglebone Black. We have seen that the [Beaglebone Green][beaglebone-green-link] does not exhibit these wifi issues and has much better wifi stability overall.
 
 
-[bbb-wifi-list]:http://elinux.org/Beagleboard:BeagleBoneBlack#WIFI_Adapters
+[bbb-wifi-list]:https://elinux.org/Beagleboard:BeagleBoneBlack#WIFI_Adapters
 [beaglebone-green-link]:https://wiki.seeedstudio.com/BeagleBone_Green_Wireless/
 [modemmanager-supported-devices]:https://www.freedesktop.org/wiki/Software/ModemManager/SupportedDevices/
 [usb_modeswitch-link]:https://linux.die.net/man/1/usb_modeswitch
