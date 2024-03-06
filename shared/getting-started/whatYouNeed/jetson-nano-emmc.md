@@ -1,6 +1,6 @@
 <img style="float: right;padding-left: 10px;" src="/img/jetson-nano-emmc/jetson-nano-emmc.jpg" width="30%">
 
-* An [{{ $device.name }}](https://developer.nvidia.com/embedded/jetson-nano) and it's devkit carrier board. See our [supported devices list][supportedDevicesList] for other boards.
+* A [{{ $device.name }}](https://developer.nvidia.com/embedded/jetson-nano) and its devkit carrier board. See our [supported devices list][supportedDevicesList] for other boards.
 * A micro USB cable to flash the device.
 * A compatible power supply.
 * An ethernet cable (the Jetson Nano eMMC module does not include WiFi but it can be added via an optional USB dongle).
