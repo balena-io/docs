@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add Google Tag Manager url to ignore list"
+      hash: 26ce21e4c812a2ea6fa702c16de8750ad853d6bc
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.61.6
+  title: ""
+  date: 2024-03-06T21:02:33.266Z
+- commits:
     - subject: "patch: Improve Whatyouneed section in Getting Started"
       hash: 6d3b8757e92d2b44fb5deddbec41fe4f55f37997
       body: ""
@@ -2101,7 +2113,8 @@
 
         - [Release notes](https://github.com/lycheeverse/lychee-action/releases)
 
-        - [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.5.0...v1.5.1)
+        -
+        [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.5.0...v1.5.1)
 
         ---
 
@@ -2456,7 +2469,8 @@
 
         - [Release notes](https://github.com/balena-io/doxx/releases)
 
-        - [Changelog](https://github.com/balena-io/doxx/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/balena-io/doxx/blob/master/CHANGELOG.md)
 
         - [Commits](https://github.com/balena-io/doxx/compare/v1.0.0...v1.0.1)
 
@@ -2696,7 +2710,8 @@
 
         - [Release notes](https://github.com/actions/checkout/releases)
 
-        - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
 
         - [Commits](https://github.com/actions/checkout/compare/v2...v3)
 
@@ -2863,7 +2878,8 @@
 
         - [Release notes](https://github.com/lycheeverse/lychee-action/releases)
 
-        - [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.3.0...v1.4.1
+        -
+        [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.3.0...v1.4.1
       footers:
         signed-off-by: dependabot[bot] <support@github.com>
       hash: fb43246e86b3bd12f0aa0d2ba7f2fe7066f2dfab
@@ -2877,9 +2893,11 @@
         [peter-evans/create-issue-from-file](https://github.com/peter-evans/create-issue-from-file)
         from 3 to 4.
 
-        - [Release notes](https://github.com/peter-evans/create-issue-from-file/releases)
+        - [Release
+        notes](https://github.com/peter-evans/create-issue-from-file/releases)
 
-        - [Commits](https://github.com/peter-evans/create-issue-from-file/compare/v3...v4)
+        -
+        [Commits](https://github.com/peter-evans/create-issue-from-file/compare/v3...v4)
 
         ---
 
@@ -2947,7 +2965,8 @@
 
         - [Release notes](https://github.com/actions/checkout/releases)
 
-        - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
 
         - [Commits](https://github.com/actions/checkout/compare/v2...v3)
 
@@ -3253,7 +3272,8 @@
 
         - Add page to the /reference/supervisor section
 
-        - Redirected to raspberrypi3's configuration list as the default device type
+        - Redirected to raspberrypi3's configuration list as the default device
+        type
       footers:
         signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
       hash: 12ea232993fbe35e721f6bf3df0a24bc272ffb5b
@@ -3332,7 +3352,8 @@
 
         - [Release notes](https://github.com/lycheeverse/lychee-action/releases)
 
-        - [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.1.1...v1.2.0)
+        -
+        [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.1.1...v1.2.0)
 
         ---
 
@@ -3586,7 +3607,8 @@
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
-        - [Commits](https://github.com/webpack/webpack/compare/v5.51.1...v5.52.0)
+        -
+        [Commits](https://github.com/webpack/webpack/compare/v5.51.1...v5.52.0)
 
         ---
 
@@ -3653,7 +3675,8 @@
       body: >-
         Occasionally users try to use fields that are supported by v2 but have
 
-        different properties in version >=2.2 (like long syntax for ports/volumes) and
+        different properties in version >=2.2 (like long syntax for
+        ports/volumes) and
 
         are surprised to get an error in response.
 
@@ -3731,9 +3754,11 @@
 
         - [Release notes](https://github.com/highlightjs/highlight.js/releases)
 
-        - [Changelog](https://github.com/highlightjs/highlight.js/blob/10.7.3/CHANGES.md)
+        -
+        [Changelog](https://github.com/highlightjs/highlight.js/blob/10.7.3/CHANGES.md)
 
-        - [Commits](https://github.com/highlightjs/highlight.js/compare/10.7.1...10.7.3)
+        -
+        [Commits](https://github.com/highlightjs/highlight.js/compare/10.7.1...10.7.3)
 
         ---
 
@@ -3791,9 +3816,11 @@
 
         - [Release notes](https://github.com/webpack/webpack-cli/releases)
 
-        - [Changelog](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md)
 
-        - [Commits](https://github.com/webpack/webpack-cli/compare/webpack-cli@4.7.2...webpack-cli@4.8.0)
+        -
+        [Commits](https://github.com/webpack/webpack-cli/compare/webpack-cli@4.7.2...webpack-cli@4.8.0)
 
         ---
 
@@ -3820,7 +3847,8 @@
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
-        - [Commits](https://github.com/webpack/webpack/compare/v5.48.0...v5.51.1)
+        -
+        [Commits](https://github.com/webpack/webpack/compare/v5.48.0...v5.51.1)
 
         ---
 
@@ -4263,11 +4291,14 @@
         Bumps [css-loader](https://github.com/webpack-contrib/css-loader) from
         5.2.6 to 5.2.7.
 
-        - [Release notes](https://github.com/webpack-contrib/css-loader/releases)
+        - [Release
+        notes](https://github.com/webpack-contrib/css-loader/releases)
 
-        - [Changelog](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md)
 
-        - [Commits](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7)
+        -
+        [Commits](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7)
 
         ---
 
@@ -4294,7 +4325,8 @@
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
-        - [Commits](https://github.com/webpack/webpack/compare/v5.46.0...v5.48.0)
+        -
+        [Commits](https://github.com/webpack/webpack/compare/v5.46.0...v5.48.0)
 
         ---
 
@@ -4356,7 +4388,8 @@
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
-        - [Commits](https://github.com/webpack/webpack/compare/v5.45.1...v5.46.0)
+        -
+        [Commits](https://github.com/webpack/webpack/compare/v5.45.1...v5.46.0)
 
         ---
 
@@ -4436,7 +4469,8 @@
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
-        - [Commits](https://github.com/webpack/webpack/compare/v5.44.0...v5.45.1)
+        -
+        [Commits](https://github.com/webpack/webpack/compare/v5.44.0...v5.45.1)
 
         ---
 
@@ -4473,7 +4507,8 @@
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
-        - [Commits](https://github.com/webpack/webpack/compare/v5.42.1...v5.44.0)
+        -
+        [Commits](https://github.com/webpack/webpack/compare/v5.42.1...v5.44.0)
 
         ---
 
@@ -4566,7 +4601,8 @@
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
-        - [Commits](https://github.com/webpack/webpack/compare/v5.42.0...v5.42.1)
+        -
+        [Commits](https://github.com/webpack/webpack/compare/v5.42.0...v5.42.1)
 
         ---
 
@@ -4613,7 +4649,8 @@
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
-        - [Commits](https://github.com/webpack/webpack/compare/v5.41.0...v5.42.0)
+        -
+        [Commits](https://github.com/webpack/webpack/compare/v5.41.0...v5.42.0)
 
         ---
 
@@ -4691,9 +4728,11 @@
 
         - [Release notes](https://github.com/webpack/webpack-cli/releases)
 
-        - [Changelog](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md)
 
-        - [Commits](https://github.com/webpack/webpack-cli/compare/webpack-cli@4.6.0...webpack-cli@4.7.2)
+        -
+        [Commits](https://github.com/webpack/webpack-cli/compare/webpack-cli@4.6.0...webpack-cli@4.7.2)
 
         ---
 
@@ -4746,11 +4785,14 @@
         [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
         from 1.4.0 to 1.6.2.
 
-        - [Release notes](https://github.com/webpack-contrib/mini-css-extract-plugin/releases)
+        - [Release
+        notes](https://github.com/webpack-contrib/mini-css-extract-plugin/releases)
 
-        - [Changelog](https://github.com/webpack-contrib/mini-css-extract-plugin/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/webpack-contrib/mini-css-extract-plugin/blob/master/CHANGELOG.md)
 
-        - [Commits](https://github.com/webpack-contrib/mini-css-extract-plugin/compare/v1.4.0...v1.6.2)
+        -
+        [Commits](https://github.com/webpack-contrib/mini-css-extract-plugin/compare/v1.4.0...v1.6.2)
 
         ---
 
@@ -4777,7 +4819,8 @@
 
         - [Release notes](https://github.com/webpack/webpack/releases)
 
-        - [Commits](https://github.com/webpack/webpack/compare/v5.28.0...v5.41.0)
+        -
+        [Commits](https://github.com/webpack/webpack/compare/v5.28.0...v5.41.0)
 
         ---
 
@@ -4802,11 +4845,14 @@
         Bumps [css-loader](https://github.com/webpack-contrib/css-loader) from
         5.2.0 to 5.2.6.
 
-        - [Release notes](https://github.com/webpack-contrib/css-loader/releases)
+        - [Release
+        notes](https://github.com/webpack-contrib/css-loader/releases)
 
-        - [Changelog](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md)
 
-        - [Commits](https://github.com/webpack-contrib/css-loader/compare/v5.2.0...v5.2.6)
+        -
+        [Commits](https://github.com/webpack-contrib/css-loader/compare/v5.2.0...v5.2.6)
 
         ---
 
@@ -4864,9 +4910,11 @@
         [american-british-english-translator](https://github.com/hyperreality/American-British-English-Translator)
         from 0.1.2 to 0.1.4.
 
-        - [Release notes](https://github.com/hyperreality/American-British-English-Translator/releases)
+        - [Release
+        notes](https://github.com/hyperreality/American-British-English-Translator/releases)
 
-        - [Commits](https://github.com/hyperreality/American-British-English-Translator/commits)
+        -
+        [Commits](https://github.com/hyperreality/American-British-English-Translator/commits)
 
         ---
 
@@ -4967,9 +5015,11 @@
 
         - [Release notes](https://github.com/browserslist/browserslist/releases)
 
-        - [Changelog](https://github.com/browserslist/browserslist/blob/main/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/browserslist/browserslist/blob/main/CHANGELOG.md)
 
-        - [Commits](https://github.com/browserslist/browserslist/compare/4.16.3...4.16.6)
+        -
+        [Commits](https://github.com/browserslist/browserslist/compare/4.16.3...4.16.6)
       footers:
         signed-off-by: dependabot[bot] <support@github.com>
       hash: 120640523f79fdb4a3e92488c9935761c2c9fd7b
@@ -5227,7 +5277,8 @@
       body: >-
         Updated screencaps from the Access Tokens in Account Management.
 
-        Need to check the widths of the screencaps once on production with different browsers.
+        Need to check the widths of the screencaps once on production with
+        different browsers.
       hash: 7d366e3ccfacbc0b204ddab6cfbbd6ec0621bbaf
       subject: "patch: Updating screencaps in Account Management"
   date: 2021-05-05T14:48:25Z
@@ -5807,7 +5858,8 @@
       body: >-
         The Nitrogen8MM DWE device has been converted to a private
 
-        device type (https://www.flowdock.com/app/rulemotion/resin-devices/threads/UekZJBCxvruGdw5ceyVEwPU_z5d).
+        device type
+        (https://www.flowdock.com/app/rulemotion/resin-devices/threads/UekZJBCxvruGdw5ceyVEwPU_z5d).
 
         Thus it is better to remove it from the public docs.
       footers:
@@ -6164,7 +6216,10 @@
 
         * specified Fin CM3 (in anticipation of CM4 model)
 
-        ESR support for Nano does not appear to exist though, so keeping it excluded from the list for now. Have asked for confirmation of where he saw support from reporter (dtischler) and will submit another PR if it is indeed supported.
+        ESR support for Nano does not appear to exist though, so keeping it
+        excluded from the list for now. Have asked for confirmation of where he
+        saw support from reporter (dtischler) and will submit another PR if it
+        is indeed supported.
       footers:
         change-type: patch
       hash: ec117f5c0cec80c8cf5757f390b3124b0758f9d2
@@ -6420,8 +6475,7 @@
     - author: Ross Porter
       body: "\r
 
-        dfunckt suggested simpler clarifying language, which sounds
-        good"
+        dfunckt suggested simpler clarifying language, which sounds good"
       footers:
         co-authored-by: dfunckt <dfunckt@users.noreply.github.com>
       hash: 13bf23bbfbf2dff44764d5177c3a9c7b913c838c
@@ -6429,8 +6483,8 @@
     - author: Ross Porter
       body: "\r
 
-        All of the other languages are referenced by their common names
-        e.g. Node.js, so appropriate to change Dotnet to .Net. \r
+        All of the other languages are referenced by their common names e.g.
+        Node.js, so appropriate to change Dotnet to .Net. \r
 
         \r
 
@@ -6439,15 +6493,14 @@
 
         \r
 
-        For instance, in <lang_stack> it may be appropriate to specify
-        the actually acceptable values e.g. python, golang, dotnet, openjdk,
-        node. See
-        https://www.balena.io/docs/reference/base-images/base-images-ref/\r
+        For instance, in <lang_stack> it may be appropriate to specify the
+        actually acceptable values e.g. python, golang, dotnet, openjdk, node.
+        See https://www.balena.io/docs/reference/base-images/base-images-ref/\r
 
         \r
 
-        Also, earlier in the doc, there is a reference to \"Dotnet\"
-        rather than \".Net\"."
+        Also, earlier in the doc, there is a reference to \"Dotnet\" rather than
+        \".Net\"."
       footers:
         co-authored-by: dfunckt <dfunckt@users.noreply.github.com>
       hash: 703ee5438fb12bb16a459e4e79a48a60d4d36c93
@@ -7127,7 +7180,8 @@
 
         to be copied before the install starts. Later as the prepare.sh triggers
 
-        npm build which need all docs to be present, hence copying all files before
+        npm build which need all docs to be present, hence copying all files
+        before
 
         npm install
       footers:
@@ -7387,7 +7441,8 @@
       body: >-
         We need to enforce verbs for whenever roles and access get mentioned.
 
-        Hence, for roles --> assign (assigning roles, assign roles, assigned roles)
+        Hence, for roles --> assign (assigning roles, assign roles, assigned
+        roles)
 
         for access --> grant (Granting access, granted access, grant access)_
       footers:
@@ -7399,7 +7454,8 @@
       body: >-
         We need to enforce verbs for whenever roles and access get mentioned.
 
-        Hence, for roles --> assign (assigning roles, assign roles, assigned roles)
+        Hence, for roles --> assign (assigning roles, assign roles, assigned
+        roles)
 
         for access --> grant (Granting access, granted access, grant access)_
       footers:
@@ -7459,13 +7515,11 @@
     - author: Kyle Harding
       body: "`nm-settings-ref` was attempting to link to\r
 
-        https://developer.gnome.org/NetworkManager/stable/nm-settings.h\
-        tml\r
+        https://developer.gnome.org/NetworkManager/stable/nm-settings.html\r
 
         whereas the best match URL now seems to be\r
 
-        https://developer.gnome.org/NetworkManager/stable/ref-settings.\
-        html\r
+        https://developer.gnome.org/NetworkManager/stable/ref-settings.html\r
 
         \r"
       footers:
@@ -7625,7 +7679,8 @@
 
         - https://www.freedesktop.org/wiki/Software/systemd/timedated/
 
-        - https://github.com/systemd/systemd/blob/e8607daf7d9d4320ddee8fcc6579459ba252714d/src/timedate/timedatectl.c#L177-L188
+        -
+        https://github.com/systemd/systemd/blob/e8607daf7d9d4320ddee8fcc6579459ba252714d/src/timedate/timedatectl.c#L177-L188
       footers:
         change-type: patch
         signed-off-by: Hugh Brown <hugh@balena.io>
@@ -7946,7 +8001,8 @@
 
         half-baked solution will only make it more messy than it already is.
 
-        Once we resolve the issue on where the images are stored and we have fully
+        Once we resolve the issue on where the images are stored and we have
+        fully
 
         migrated to it, I'll revisit this.
       footers:
@@ -9790,7 +9846,8 @@
         In my opinion, names of OS versions are deceitful when the alphabetic
         ordering has wrapped around.
 
-        added: trusty (14.04), xenial (16.04), artful (17.10), bionic (18.04), and cosmic (18.10)
+        added: trusty (14.04), xenial (16.04), artful (17.10), bionic (18.04),
+        and cosmic (18.10)
       footers:
         change-type: patch
         signed-off-by: Matthew McGinn <matthew@balena.io>
@@ -9891,7 +9948,8 @@
 
         ```
 
-        git grep -I --name-only -z -e '' | xargs -0 sed -i 's/[ \t]\+\(\r\?\)$/\1/'
+        git grep -I --name-only -z -e '' | xargs -0 sed -i 's/[
+        \t]\+\(\r\?\)$/\1/'
 
         ```
       footers:
@@ -10347,7 +10405,8 @@
       body: >-
         - Update latest stack changes.
 
-        - Update some notices for node images regarding some versions or architecture were dropped.
+        - Update some notices for node images regarding some versions or
+        architecture were dropped.
       footers:
         change-type: patch
         signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
@@ -12309,9 +12368,9 @@
 
         \r
 
-        I’ll leave a TBD spot for a style manual, bring your opinions
-        here. (Assuming this is a good place to have that conversation,
-        associated with the document that is changing.)"
+        I’ll leave a TBD spot for a style manual, bring your opinions here.
+        (Assuming this is a good place to have that conversation, associated
+        with the document that is changing.)"
       footers:
         change-type: patch
       hash: 5386555d91253398de5ebee6cf70cdbcf45ae4c5
@@ -12394,15 +12453,14 @@
 
         \r
 
-        From my understanding, we use Param to specify parameters that
-        are passed with the URL.  This can be query params after the ? part of
-        the URL or some placeholder in the case of something like
-        `/device(<ID>)`.\r
+        From my understanding, we use Param to specify parameters that are
+        passed with the URL.  This can be query params after the ? part of the
+        URL or some placeholder in the case of something like `/device(<ID>)`.\r
 
         \r
 
-        On the other hand, what is written in the request body is
-        Payload, which in the cURL examples are passed with the `-data` flag`."
+        On the other hand, what is written in the request body is Payload, which
+        in the cURL examples are passed with the `-data` flag`."
       footers:
         change-type: patch
       hash: e10cb990ba945d86922514c7e85b1b4af5fa41a9
@@ -12524,9 +12582,11 @@
         Some of the categories are harder to understand, when clicking on the
         header
 
-        in the navigation bar takes the user right to the first item in the category.
+        in the navigation bar takes the user right to the first item in the
+        category.
 
-        It makes the other items in the category easy to miss in our navigation bar.
+        It makes the other items in the category easy to miss in our navigation
+        bar.
 
         Add some category pages, from where the rest of the items are linked.
       hash: 5cbbd121faf0aff4a31f22aa81bd217d15756ed9
@@ -13107,9 +13167,11 @@
 
         * adding forums to lists where email and gitter options are mentioned
 
-        * removing extra "contact us" info from some pages, as it should not be explicitly
+        * removing extra "contact us" info from some pages, as it should not be
+        explicitly
 
-        added to page content one by one, but should be in the footer in the future,
+        added to page content one by one, but should be in the footer in the
+        future,
 
         or in the troubleshooting section (as it is now).
       footers:
@@ -13707,7 +13769,8 @@
         therefore the elements don't get an ID automatically assigned. The code
         has been updated to not attach anchor links to elements without IDs.
 
-        The table of device names was also updated to remove the parallella device type, as it is discontinued. A small typo was also fixed.
+        The table of device names was also updated to remove the parallella
+        device type, as it is discontinued. A small typo was also fixed.
       footers:
         change-type: patch
       hash: d3ec23c8cdd7e839a1698b1a90b852b152d5c38b
@@ -13760,7 +13823,8 @@
       body: >-
         More information is available in the related issue.
 
-        Additionally I included a note that the dbus module is available in our Python base images.
+        Additionally I included a note that the dbus module is available in our
+        Python base images.
       footers:
         change-type: patch
         connects-to: "#778"
@@ -14141,7 +14205,10 @@
 
         to fix the page.
 
-        In addition, the getting started page links have been reordered to make more sense, for example "getting-started/raspberrypi3/nodejs" instead of "raspberrypi3/nodejs/getting-started". The redirects have been updated to handle links in the old format.
+        In addition, the getting started page links have been reordered to make
+        more sense, for example "getting-started/raspberrypi3/nodejs" instead of
+        "raspberrypi3/nodejs/getting-started". The redirects have been updated
+        to handle links in the old format.
       footers:
         change-type: patch
       hash: 0d06c3c07f99754210e1acb4da51cdf26b730559
@@ -14156,7 +14223,10 @@
 
         to fix the page.
 
-        In addition, the getting started page links have been reordered to make more sense, for example "getting-started/raspberrypi3/nodejs" instead of "raspberrypi3/nodejs/getting-started". The redirects have been updated to handle links in the old format.
+        In addition, the getting started page links have been reordered to make
+        more sense, for example "getting-started/raspberrypi3/nodejs" instead of
+        "raspberrypi3/nodejs/getting-started". The redirects have been updated
+        to handle links in the old format.
       footers:
         change-type: patch
       hash: 5e02fcc05f1bbe78ae653b0f892336b66622b969
