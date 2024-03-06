@@ -176,7 +176,6 @@ __Note:__ Instructions for adding custom board support may be found [here][custo
 [deploy-to-fleet]:/learn/deploy/deployment/
 [dnsmasq]:https://wiki.archlinux.org/index.php/Dnsmasq
 [Docker]:https://www.docker.com/
-[Dockerfile]:https://docs.docker.com/reference/builder/
 [dropbear]:https://matt.ucc.asn.au/dropbear/dropbear.html
 [fleet-configuration]:/learn/manage/configuration/#fleet-configuration-variables
 [hostos-updates]:/reference/OS/updates/self-service/

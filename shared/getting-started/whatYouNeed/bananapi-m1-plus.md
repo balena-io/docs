@@ -1,6 +1,6 @@
 <img style="float: right;padding-left: 10px;" src="/img/{{ $device.id }}/{{ $device.id }}.jpg" width="25%">
 
-* A [{{ $device.name }}](https://www.banana-pi.org/m1p.html). See our [supported devices list][supportedDevicesList] for other boards.
+* A [{{ $device.name }}](https://wiki.banana-pi.org/Banana_Pi_BPI-M1%2B). See our [supported devices list][supportedDevicesList] for other boards.
 * A 4GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - use the fastest you can find.
 * A micro USB cable.
 * **[Optional]** An ethernet cable.
