@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add token input to lychee action"
+      hash: e8a797b95edda000014c5809e74c02f1dbe0f7fc
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.61.7
+  title: ""
+  date: 2024-03-11T10:52:46.714Z
+- commits:
     - subject: "patch: Add Google Tag Manager url to ignore list"
       hash: 26ce21e4c812a2ea6fa702c16de8750ad853d6bc
       body: ""
