@@ -1,4 +1,18 @@
 - commits:
+    - subject: "API/Resources: Add docs listing the balenaOS versions of a device type"
+      hash: 5e9e2ec1773bd568ba4dbf3b9602e5783aa2917a
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        See: https://balena.zulipchat.com/#narrow/stream/345889-balena-io.2Fos/topic/Determine.20list.20of.20supported.20OS.28hostapp.29.20for.20a.20device-type/near/421801181
+        see: https://balena.zulipchat.com/#narrow/stream/345889-balena-io.2Fos/topic/Determine.20list.20of.20supported.20OS.28hostapp.29.20for.20a.20device-type/near/421801181
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.62.0
+  title: ""
+  date: 2024-03-14T16:31:10.632Z
+- commits:
     - subject: "patch: Add token input to lychee action"
       hash: e8a797b95edda000014c5809e74c02f1dbe0f7fc
       body: ""
