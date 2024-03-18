@@ -38,6 +38,8 @@ module.exports =
     "supervisor-api": 'https://github.com/balena-io/balena-supervisor/edit/master/docs/API.md'
     "update-locking": "https://github.com/balena-io/balena-supervisor/edit/master/docs/update-locking.md"
     "diagnostics": "https://github.com/balena-io/device-diagnostics/edit/master/diagnostics.md"
+    "device-diagnostics": "https://github.com/balena-io/device-diagnostics/edit/master/device-diagnostics.md"
+    "supervisor-state": "https://github.com/balena-io/supervisor-state/edit/master/supervisor-state.md"
     "cli-masterclass": "https://github.com/balena-io/balena-cli-masterclass/edit/master/README.md"
     "advanced-cli": "https://github.com/balena-io/balena-cli-advanced-masterclass/edit/master/README.md"
     "host-os-masterclass": "https://github.com/balena-io/balenaos-masterclass/edit/master/README.md"
@@ -51,4 +53,4 @@ module.exports =
     "cloud-iot-provisioning": "https://github.com/balena-io/docs/edit/master/pages/learn/develop/cloud-iot-provisioning.md"
     "getting-started": "https://github.com/balena-io/docs/edit/master/pages/learn/getting-started.md"
     "troubleshooting": "https://github.com/balena-io/docs/edit/master/pages/faq/troubleshooting/troubleshooting.md"
-    "supervisor-configuration-list": "https://github.com/balena-io/docs/edit/master/pages/reference/supervisor/configuration-list.md"
+    "configuration-list": "https://github.com/balena-io/docs/edit/master/pages/reference/supervisor/configuration-list.md"
