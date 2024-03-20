@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix Supervisor Configuration list"
+      hash: bf3ec3235b962ebef5d3486d1cb6c87fe52be930
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.62.1
+  title: ""
+  date: 2024-03-20T14:31:05.215Z
+- commits:
     - subject: "API/Resources: Add docs listing the balenaOS versions of a device type"
       hash: 5e9e2ec1773bd568ba4dbf3b9602e5783aa2917a
       body: ""
