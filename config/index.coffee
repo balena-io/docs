@@ -3,7 +3,8 @@ TEMPLATES_DIR = 'templates'
 PARTIALS_DIR = 'shared'
 
 # These files are pulled in externally and so cannot be edited in the base repo
-EXTERNAL_DOCS = /.*(python-sdk|node-sdk|balena-cli|supervisor-api|rollbacks|update-locking|diagnostics|cli-masterclass|advanced-cli|host-os-masterclass|services-masterclass|fleet-management|device-debugging|docker-masterclass|customer-board-support|resources|cloud-iot-provisioning|getting-started|troubleshooting|supervisor-configuration-list).*/
+# Filename should exactly match the reference being added here and links.coffee file
+EXTERNAL_DOCS = /.*(python-sdk|node-sdk|balena-cli|supervisor-api|rollbacks|update-locking|diagnostics|device-diagnostics|supervisor-state|cli-masterclass|advanced-cli|host-os-masterclass|services-masterclass|fleet-management|device-debugging|docker-masterclass|customer-board-support|resources|cloud-iot-provisioning|getting-started|troubleshooting|configuration-list).*/
 
 FB_APP_ID = '221218511385682'
 
