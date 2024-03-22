@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: No longer need to pull diagnosis docs"
+      hash: afcfc7991ca688582739d3b8bb028ba983c05bb9
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.62.2
+  title: ""
+  date: 2024-03-22T20:11:58.542Z
+- commits:
     - subject: "patch: Fix Supervisor Configuration list"
       hash: bf3ec3235b962ebef5d3486d1cb6c87fe52be930
       body: ""
