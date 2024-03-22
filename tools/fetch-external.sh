@@ -21,8 +21,6 @@ curl --fail --show-error -o pages/reference/balena-cli.md -L https://github.com/
 curl --fail --show-error -o shared/masterclass/debugging/engine.md -L https://github.com/balena-os/balena-engine/raw/master/balena-docs/engine-debugging.md &
 
 # diagnostics
-curl --fail --show-error -o pages/reference/supervisor-state.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/supervisor-state.md &
-curl --fail --show-error -o pages/reference/device-diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/device-diagnostics.md &
 curl --fail --show-error -o pages/reference/diagnostics.md -L https://github.com/balena-io-modules/device-diagnostics/raw/master/diagnostics.md &
 
 # Supervisor

@@ -148,4 +148,4 @@ Reference
     Python SDK[/reference/sdk/python-sdk]
     Deprecation Policy[/reference/sdk/deprecation-policy]
 
-  Device Diagnostics[/reference/diagnostics]
+  Diagnostics[/reference/diagnostics]
