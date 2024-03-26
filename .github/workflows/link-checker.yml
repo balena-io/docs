@@ -52,7 +52,7 @@ jobs:
         with:
           title: Link Checker Report
           content-filepath: ./lychee/out.md
-          labels: good-first-issue, automated issue
+          labels: automated issue
 
       - name: Save lychee cache
         uses: actions/cache/save@v3
