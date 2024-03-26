@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add Diagnostics headings to navigation sidebar"
+      hash: 8c43d33fe2c9f0cd824d816a8b6fbcf522157251
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.62.3
+  title: ""
+  date: 2024-03-26T18:59:44.358Z
+- commits:
     - subject: "patch: No longer need to pull diagnosis docs"
       hash: afcfc7991ca688582739d3b8bb028ba983c05bb9
       body: ""
