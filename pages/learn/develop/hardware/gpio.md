@@ -156,7 +156,7 @@ To get started with GPIO on edison have a look at our ["Edison GPIO in node.js"]
 [node]:https://nodejs.org/
 [npm]:https://www.npmjs.org/
 [npm-gpio]:https://www.npmjs.org/search?q=gpio
-[max7219]:https://www.maximintegrated.com/en/products/power/display-power-control/MAX7219.html
+[max7219]:https://www.analog.com/en/products/max7219.html
 
 [gpio]:https://en.wikipedia.org/wiki/General-purpose_input/output
 [sysfs]:https://en.wikipedia.org/wiki/Sysfs
