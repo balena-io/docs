@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add double quotes for accept status codes"
+      hash: a1bbc2044286a312f41ec035899831f6fe7c2d14
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.62.4
+  title: ""
+  date: 2024-04-04T14:14:45.648Z
+- commits:
     - subject: "patch: Add Diagnostics headings to navigation sidebar"
       hash: 8c43d33fe2c9f0cd824d816a8b6fbcf522157251
       body: ""
