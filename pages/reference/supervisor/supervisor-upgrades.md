@@ -10,7 +10,7 @@ whereby an independent Supervisor upgrade is preferable:
 * Less downtime (if any)
 * Smaller update size
 
-To run an update for an individual device, navigate to that device's *Settings* tab, scroll dow to *Supervisor version* section, and
+To run an update for an individual device, navigate to that device's *Settings* tab, scroll down to *Supervisor version* section, and
 select the version of the balena Supervisor you would like to update to:
 
 ![Supervisor device upgrade](/img/common/updates/supervisor-device-upgrade.png)
