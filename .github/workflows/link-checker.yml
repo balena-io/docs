@@ -27,7 +27,9 @@ jobs:
           node-version: 18
       - run: npm run deploy-docs
 
-      - uses: actions/cache@v3
+      - name: Restore lychee cache
+        id: restore-cache
+        uses: actions/cache/restore@v3
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
@@ -41,7 +43,7 @@ jobs:
           args: >
             --config ./lychee.toml
             "build/**/*" "tools/fetch-external.sh"
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.GITHUB_TOKEN }}
           
 
       - name: Create Issue From File
