@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Provide GitHub Token to lychee action"
+      hash: 1074c4ab3c7e766b22e937161f71bb34cdae2d19
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 5.62.5
+  title: ""
+  date: 2024-04-09T08:25:11.438Z
+- commits:
     - subject: "patch: Add double quotes for accept status codes"
       hash: a1bbc2044286a312f41ec035899831f6fe7c2d14
       body: ""
