@@ -22,7 +22,7 @@ excerpt: Docker images maintained by balena
   - [Ubuntu](https://www.ubuntu.com/): xenial (16.04), bionic (18.04), focal (20.04), impish (21.10), kinetic (22.10) and jammy (22.04)
   - [Fedora](https://getfedora.org/): 36, 37 and 38
 - Multiple language stacks:
-  - [Node.js](https://nodejs.org/en/): 14.21.2, 16.19.0, 18.14.0 and 19.6.0
+  - [Node.js](https://nodejs.org/en/): 14.21.3, 16.19.1, 18.14.1, 19.6.1 and 20.12.0
   - [Python](https://www.python.org/):  3.7.16, 3.8.16, 3.9.16, 3.10.10 and 3.11.2
   - [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 11-jdk/jre and 16-jdk
   - [Golang](https://golang.org/): , 1.18.10, 1.19.5 and 1.20
