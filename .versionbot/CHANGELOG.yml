@@ -1,4 +1,15 @@
 - commits:
+    - subject: "patch: Add node v20 as supported version"
+      hash: 325ba1a055a3fa234e097c9e5b17ff73d2a832b2
+      body: Add node v20 as supported version and change node versions to reflect what
+        nodejs contract currently builds
+      footer: {}
+      author: Nikolaos Grigoropoulos
+      nested: []
+  version: 5.62.7
+  title: ""
+  date: 2024-04-24T08:00:32.598Z
+- commits:
     - subject: "patch: Update upgrade instructions for BalenaOS"
       hash: b453a06fb4cc4c4104edb67c926a5e191caf9e08
       body: ""
