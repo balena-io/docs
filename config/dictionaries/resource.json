@@ -1111,11 +1111,27 @@
     "examples": [
       {
         "id": "get-supervisor-releases",
-        "summary": "Get all supervisor releases for a device type",
+        "summary": "Get all supervisor releases for a device type by device type ID",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/supervisor_release",
         "filters": "?\\$filter=is_for__device_type%20eq%20'<DEVICE TYPE ID>'"
+      },
+      {
+        "id": "get-supervisor-releases-by-device-type-slug",
+        "summary": "Get all supervisor releases for a device type by device type slug",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/supervisor_release",
+        "filters": "?\\$filter=is_for__device_type/any(dt:dt/slug%20eq%20%27<DEVICE TYPE SLUG>%27)"
+      },
+      {
+        "id": "get-supervisor-release-by-device-type-slug-and-version",
+        "summary": "Get a specific supervisor release version for a device type",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/supervisor_release",
+        "filters": "?\\$filter=(is_for__device_type/any(dt:dt/slug%20eq%20%27<DEVICE TYPE SLUG>%27))%20and%20(supervisor_version%20eq%20%27v<SUPERVISOR VERSION>%27)"
       }
     ]
   },
