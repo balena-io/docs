@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update lychee to v1.10"
+      hash: 314b22115deec6fc41c89e11ae87aabbb5f410e1
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.62.8
+  title: ""
+  date: 2024-05-01T11:21:12.840Z
+- commits:
     - subject: "patch: Add node v20 as supported version"
       hash: 325ba1a055a3fa234e097c9e5b17ff73d2a832b2
       body: Add node v20 as supported version and change node versions to reflect what
