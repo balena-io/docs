@@ -393,6 +393,15 @@
         "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
       },
       {
+        "id": "update-device-supervisor-by-uuid",
+        "summary": "Mark a device to be updated to a specific supervisor release",
+        "description": "To request a list of available supervisor versions, check the respective documentation page for the supervisor release resource.",
+        "method": "PATCH",
+        "endpoint": "/v6/device(uuid='<UUID>')",
+        "filters": "",
+        "data": "{\n    \"should_be_managed_by__supervisor_release\": \"<SUPERVISOR RELEASE ID>\"\n}"
+      },
+      {
         "id": "rename-device",
         "summary": "Rename device",
         "description": "",
