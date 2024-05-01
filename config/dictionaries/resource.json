@@ -1115,7 +1115,7 @@
         "description": "",
         "method": "GET",
         "endpoint": "/v6/supervisor_release",
-        "filters": "?\\$filter=device_type%20eq%20'<DEVICE TYPE>'"
+        "filters": "?\\$filter=is_for__device_type%20eq%20'<DEVICE TYPE ID>'"
       }
     ]
   },
