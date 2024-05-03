@@ -1,4 +1,32 @@
 - commits:
+    - subject: "API/Resources: Add docs updating the supervisor of a device"
+      hash: c1bb917467dc631c9e420eb5386cf4df69fde8f6
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/Resources: Add docs for retrieving a specific `supervisor release`"
+      hash: 7d8e64d25d0a841ca0a56d6e1077937d184f782c
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/Resources: Fix the docs for the `supervisor release` resource"
+      hash: 2d1c23b2a4a645cda9b98797f32bfbf45f1ef7da
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.63.0
+  title: ""
+  date: 2024-05-03T14:08:36.160Z
+- commits:
     - subject: "patch: Update lychee to v1.10"
       hash: 314b22115deec6fc41c89e11ae87aabbb5f410e1
       body: ""
