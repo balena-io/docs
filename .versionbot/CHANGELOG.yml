@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update Balena Base Images 404 links"
+      hash: c178916d59a160fa7b267d03d0abfaf3221e2131
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.63.1
+  title: ""
+  date: 2024-05-06T15:07:09.385Z
+- commits:
     - subject: "API/Resources: Add docs updating the supervisor of a device"
       hash: c1bb917467dc631c9e420eb5386cf4df69fde8f6
       body: ""
