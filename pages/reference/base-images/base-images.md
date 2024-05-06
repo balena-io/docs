@@ -55,10 +55,9 @@ balenalib/<hw>-<distro>-<lang_stack>:<lang_ver>-<distro_ver>-(build|run)-<yyyymm
 In the tags, all of the fields are optional, and if they are left out, they will default to their `latest` pointer.
 
 - `<lang_ver>` is the version of the language stack, for example, Node.js 10.10, it can also be substituted for `latest`.
-- `<distro_ver>` is the version of the Linux distro, for example in the case of Debian, there are 4 valid versions, namely `sid`, `jessie`, `buster` and `stretch`.
-- For each combination of distro and stack, we have two variants called `run` and `build`. The build variant is much heavier as it has a number of tools preinstalled to help with building source code. You can see an example of the tools that are included in the Debian Stretch variant [here]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/build/Dockerfile). The `run` variants are stripped down and only include a few useful runtime tools, see an example [here]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile). If no variant is specified, the image defaults to `run`
+- `<distro_ver>` is the version of the Linux distro, for example in the case of Debian, there are 4 valid versions, namely buster (10), bullseye (11), bookworm (12) and sid.
+- For each combination of distro and stack, we have two variants called `run` and `build`. The build variant is much heavier as it has a number of tools preinstalled to help with building source code. You can see an example of the tools that are included in the [Debian variants][debian-variants]. Navigate to the Distro version you are looking for and find the `build` and `run` variants of the image. The `run` variants are stripped down and only include a few useful runtime tools. If no variant is specified, the image defaults to `run`.
 - The last optional field on tags is the date tag `<yyyymmdd>`. If a date tag is specified, the pinned release will always be pulled from Docker Hub, even if there is a new one available. 
-
 
 __Note:__ Pinning to a date-frozen base image is highly recommended if you are running a fleet in production. This ensures that all your dependencies have a fixed version and won't get randomly updated until you decide to pin the image to a newer release.
 
@@ -89,18 +88,18 @@ __Note:__ Pinning to a date-frozen base image is highly recommended if you are r
 
 For each combination of `<hw>`-`<distro>`-`<lang>` there is both a `run` and a `build` variant. These variants are provided to allow for easier multistage builds.
 
-The `run` variant is designed to be a slim and minimal variant with only runtime essentials packaged into it. An example of the packages installed in can be seen in the [`Dockerfile`]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile#L7) of [`balenalib/armv7hf-debian:run`]({{ $links.githubLibrary }}/base-images/tree/master/balena-base-images/armv7hf/debian/stretch/run).
+The `run` variant is designed to be a slim and minimal variant with only runtime essentials packaged into it. To find what packages exactly, navigate to the [Debian version][debian-variants] and check the Dockerfile inside the `run` folder.
 
-The `build` variant is a heavier image that includes many of the tools required for building from source such as `build-essential`, `gcc`, etc. As an example, you can see the types of packages installed in the `balenalib/armv7hf-debian:build` variant [here]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/build/Dockerfile#L51).
+The `build` variant is a heavier image that includes many of the tools required for building from source such as `build-essential`, `gcc`, etc. As an example, you can see the types of packages installed in the `balenalib/armv7hf-debian:build` variant on the [balena-io-library/base-images][debian-variants] repository.
 
 These variants make building multistage projects easier, take for example, installing an I2C node.js package, which requires a number of build time dependencies to build the native `i2c` node module, but we don't want to send all of those down to our device. This is the perfect time for multistage builds and to use the `build` and `run` variants.
 
 ```Dockerfile
-FROM balenalib/raspberrypi3-debian-node:10.10-stretch-build as build
+FROM balenalib/raspberrypi3-debian-node:latest-bookworm-build as build
 RUN npm install --only=production i2c
 
 # The run time container that will go to devices
-FROM balenalib/raspberrypi3-debian-node:10.10-stretch-run
+FROM balenalib/raspberrypi3-debian-node:latest-bookworm-run
 
 # Grab our node modules for the build step
 COPY --from=build ./node_modules ./node_modules
@@ -156,7 +155,7 @@ RUN install_packages wget git
 CMD ["bash", "start.sh"]
 ```
 
-This will run an `apt-get update -qq`, then install `wget` and `git` via apt-get with `-y --no-install-recommends` flags, and it will by default try this 2 times before failing. You can see the source of `install_packages` [here]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/Dockerfile#L26-L49).
+This will run an `apt-get update -qq`, then install `wget` and `git` via apt-get with `-y --no-install-recommends` flags, and it will by default try this 2 times before failing. Checkout the [Dockerfile][debian-variants] to find the source `install_packages` by navigating to the Debian version you want, selecting `run` or `build` folder and click `Dockerfile`
 
 ## How the Images Work at Runtime
 
@@ -253,6 +252,7 @@ RUN [ "cross-build-end" ]
 can run on your x86 machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. This approach works only if the image is being built on x86 systems. Use the [`--emulated`](https://www.balena.io/docs/learn/deploy/deployment/#--emulated--e) flag in `balena push` to trigger a qemu emulated build targeting the x86 architecture. More details can be found in our [blog post here]({{ $links.mainSiteUrl }}/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/). You can find the full source code for the two cross-build scripts [here]({{ $links.githubPlayground }}/armv7hf-debian-qemu).
 
 [udevd-link]:https://linux.die.net/man/8/udevd
-[entry-sh-link]:{{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/stretch/run/entry.sh
+[entry-sh-link]:{{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh
 [multistage-build-docs]:https://docs.docker.com/develop/develop-images/multistage-build/
 [variables]:/learn/manage/variables/
+[debian-variants]:{{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/
