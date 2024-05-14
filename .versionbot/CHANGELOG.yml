@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update network-manager links from developer-old.gnome.org"
+      hash: 1c0b4fd312a5cc2bfe4fb7896f0fe51708b69770
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.63.2
+  title: ""
+  date: 2024-05-14T13:03:41.470Z
+- commits:
     - subject: "patch: Update Balena Base Images 404 links"
       hash: c178916d59a160fa7b267d03d0abfaf3221e2131
       body: ""
