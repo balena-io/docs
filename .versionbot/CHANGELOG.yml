@@ -1,4 +1,16 @@
 - commits:
+    - subject: "Configuration: Add section about overriding the splash logo"
+      hash: 20e9c38308402c61b5b97ff5bb2fd42db11d53f9
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: myarmolinsky
+      nested: []
+  version: 5.64.0
+  title: ""
+  date: 2024-05-23T14:31:47.021Z
+- commits:
     - subject: Remove outdated references to versionbot
       hash: 877566f7eed3104e24a8c96325403b6943bc5eb9
       body: ""
