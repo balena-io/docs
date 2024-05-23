@@ -1,4 +1,16 @@
 - commits:
+    - subject: Change overview to point at v6 rather than v5
+      hash: a812f486b0c4281080cd43de72b5cf4133dc388d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 5.64.1
+  title: ""
+  date: 2024-05-23T15:52:15.257Z
+- commits:
     - subject: "Configuration: Add section about overriding the splash logo"
       hash: 20e9c38308402c61b5b97ff5bb2fd42db11d53f9
       body: ""
