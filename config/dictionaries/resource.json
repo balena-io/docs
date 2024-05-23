@@ -665,8 +665,8 @@
         "summary": "Update a device tag",
         "description": "",
         "method": "PATCH",
-        "endpoint": "/v6/device_tag",
-        "filters": "?\\$filter=(tag_key%20eq%20'<EXISTING-KEY>')%20and%20(device%20eq%20<DEVICE_ID>)",
+        "endpoint": "/v6/device_tag(device=<DEVICE_ID>,tag_key='<EXISTING-KEY>')",
+        "filters": "",
         "data": "{\n    \"value\": \"<NEW-VALUE>\"\n}"
       },
       {
@@ -1184,8 +1184,8 @@
         "summary": "Delete fleet membership",
         "description": "",
         "method": "DELETE",
-        "endpoint": "/v6/user__is_member_of__application",
-        "filters": "?\\$filter=is_member_of__application%20eq%20<ID>%20and%20user%20eq%20<USER ID>"
+        "endpoint": "/v6/user__is_member_of__application(is_member_of__application=<ID>,user=<USER ID>)",
+        "filters": ""
       }
     ]
   },

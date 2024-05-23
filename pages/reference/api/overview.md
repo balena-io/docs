@@ -66,11 +66,28 @@ curl -X GET "{{ $links.apiBase }}/v5/device(<ID>)" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
-Many times, however, you won't know the internal ID used by the API, and you'll want to use some other piece of information to find the appropriate resource. In these cases, you can use the `$filter` method to select resources based on any field. For example, if you are looking for a specific device, it's more likely that you'll have the device UUID than the device ID:
+This also works for other pieces of unique information as long as you specify them, eg the device uuid for devices:
+
+```shell
+curl -X GET "{{ $links.apiBase }}/v5/device(uuid='<UUID>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+or for resources where multiple elements combine to be unique, eg for device tags the device and tag key are a unique combination:
+
+```shell
+curl -X GET "{{ $links.apiBase }}/v5/device(device=<DEVICE ID>,tag_key='<KEY>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+
+Many times, however, you won't know the internal ID or other unique info used by the API, and you'll want to use some other piece of information to find the appropriate resource. In these cases, you can use the `$filter` method to select resources based on any field. For example, if you are looking for a specific device, it may be you have neither the ID nor UUID but you do know the name:
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v5/device?\$filter=uuid%20eq%20'<UUID>'" \
+"{{ $links.apiBase }}/v5/device?\$filter=name%20eq%20'<DEVICE NAME>'" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -81,7 +98,7 @@ A final tip for constructing API calls: for some of the fields in the API respon
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v5/device?\$filter=uuid%20eq%20'<UUID>'&\$expand=belongs_to__application" \
+"{{ $links.apiBase }}/v5/device(uuid='<UUID>')?\$expand=belongs_to__application" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
