@@ -412,10 +412,6 @@ A 128-bit label used for information in computer systems
 
 ## V
 
-### VersionBot
-**(balena specific term)**
-VersionBot is a Github application that we use as our CI/CD tool. It is in charge of linting, validating, building and deploying or publishing our code. Eventually we would want to integrate it with BalenaCloud so that it can be offered as a service to our users.
-
 ## W
 
 ### WiFi Connect
