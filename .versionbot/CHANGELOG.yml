@@ -1,4 +1,16 @@
 - commits:
+    - subject: Steer users towards to key format for OData resources over filters
+      hash: fbb7a4660c113fe7a697a24c07cbb098c2245482
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 5.63.3
+  title: ""
+  date: 2024-05-23T09:58:37.744Z
+- commits:
     - subject: "patch: Update network-manager links from developer-old.gnome.org"
       hash: 1c0b4fd312a5cc2bfe4fb7896f0fe51708b69770
       body: ""
