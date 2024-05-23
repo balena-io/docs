@@ -46,6 +46,12 @@ Clicking the small edit (pencil) icon will pop up a small dialog for editing the
 
 To remove the device level configuration, and reset it to its default value, click the delete (trash can) icon.
 
+## Overriding the splash screen
+
+To replace the {{ $names.company.lower }} logo with your custom splash logo, go to your Fleet or Device `Configuration` page and find the configuration for `Define the PNG image to be used for the boot splash screen. Only supported by supervisor versions >= v12.3.0.`. Click `activate` to upload your image.
+
+<img alt="Override the splash screen" src="/img/configuration/override_splash_screen_config.png" />
+
 ## Adding custom configuration
 
 The custom configuration section can be used to modify configuration options beyond the ones pre-populated for your device using the balenaCloud dashboard. Examples include, [modifying config.txt using configuration variables][boot-config-guide] for Raspberry Pi devices.
