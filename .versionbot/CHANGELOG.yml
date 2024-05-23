@@ -1,4 +1,16 @@
 - commits:
+    - subject: Remove outdated references to versionbot
+      hash: 877566f7eed3104e24a8c96325403b6943bc5eb9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 5.63.4
+  title: ""
+  date: 2024-05-23T10:15:00.928Z
+- commits:
     - subject: Steer users towards to key format for OData resources over filters
       hash: fbb7a4660c113fe7a697a24c07cbb098c2245482
       body: ""
