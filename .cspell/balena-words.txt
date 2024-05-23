@@ -35,6 +35,5 @@ Seeed
 sshproxy
 testbot
 undiscounted
-versionbot
 Versionist
 volume-pricing
