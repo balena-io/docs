@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update NPM dependencies"
+      hash: f7e4fea64d5c57643c131988145f8a705ced2670
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.64.2
+  title: ""
+  date: 2024-06-14T08:22:33.937Z
+- commits:
     - subject: Change overview to point at v6 rather than v5
       hash: a812f486b0c4281080cd43de72b5cf4133dc388d
       body: ""
