@@ -255,7 +255,7 @@ When it's finished building the device(s) will update as before. Remember anythi
 **Enjoy balenafying all the things!**
 
 
-[fleet-types]:/learn/manage/fleet-types
+[fleet-types]:/learn/accounts/fleet-types
 [architecture]:/reference/base-images/devicetypes/#machine-names-and-architectures
 [balenablocks]:{{ $links.balenaHubUrl }}/blocks
 [balenahub]:{{ $links.balenaHubUrl }}
@@ -278,7 +278,7 @@ When it's finished building the device(s) will update as before. Remember anythi
 [support]:/support/
 [supported-devices]:/reference/hardware/devices/
 [terminal]:/learn/manage/ssh-access
-[token]:/learn/manage/account/#access-tokens
+[token]:/learn/accounts/#access-tokens
 [variables]:/learn/manage/variables/
 [balena-glossary]:/learn/more/glossary/
 

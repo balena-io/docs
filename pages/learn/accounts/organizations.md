@@ -97,7 +97,7 @@ To collaborate with other users on a single fleet, you can refer to adding a [fl
 
 [getting-started]:/installing/gettingStarted
 [transferring-ownership]:/learn/manage/actions/#transfer-application-ownership
-[developer]:/learn/manage/account/#developer
-[observer]:/learn/manage/account/#observer
-[operator]:/learn/manage/account/#operator
-[add-fleet-member]:/learn/manage/account/#add-fleet-member
+[developer]:/learn/accounts/fleet-members#developer
+[observer]:/learn/accounts/fleet-members#observer
+[operator]:/learn/accounts/fleet-members#operator
+[add-fleet-member]:/learn/accounts/fleet-members#add-fleet-member

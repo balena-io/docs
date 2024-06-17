@@ -97,6 +97,6 @@ Users can determine which invoices are overdue under their organization's billin
 [plans]:{{ $links.mainSiteUrl }}/pricing/
 [device-settings]:/learn/manage/actions/#device-settings
 [inactive]:#inactive-devices
-[organizations]:/learn/manage/organizations/
-[fleet-membership-types]: /learn/manage/account/#fleet-members
-[fleet-types]:/learn/manage/fleet-types
+[organizations]:/learn/accounts/organizations/
+[fleet-membership-types]:/learn/accounts/fleet-members
+[fleet-types]:/learn/accounts/fleet-types

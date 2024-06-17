@@ -38,9 +38,9 @@ __Note:__ If the device is powered off or loses all network connectivity, it wil
 If you find your device to be displaying a status which is unclear even with the above notes, visit the [device debugging masterclass][debugging-masterclass] for more information.
 
 
-[deactivated]: /learn/manage/billing/#inactive-devices
+[deactivated]: /learn/accounts/billing/#inactive-devices
 [poll-interval]: /learn/manage/configuration/#variable-list
 [device-provisioning]: /learn/welcome/primer/#device-provisioning
-[preregistered]: /learn/more/masterclasses/advanced-cli/#52-preregistering-a-device
-[fleet type]: /learn/manage/fleet-types
+[preregistered]:/learn/more/masterclasses/advanced-cli/#52-preregistering-a-device
+[fleet type]:/learn/accounts/fleet-types
 [debugging-masterclass]:/learn/more/masterclasses/device-debugging

@@ -19,9 +19,9 @@ mkdir -p $masterclass_path
 # Debugging Masterclass
 mkdir -p $masterclass_path/debugging/ &
 
-cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Accessing your device" <support-access.md >access-device.md && mv access-device.md $masterclass_path/debugging/ &
+cd pages/learn/accounts && $SCRIPT_DIR/extract-markdown.sh "Accessing your device" <support-access.md >access-device.md && mv access-device.md $masterclass_path/debugging/ &
 
-cd pages/learn/manage && $SCRIPT_DIR/extract-markdown.sh "Granting Support Access to a Support Agent" <support-access.md >support-access-device.md && mv support-access-device.md $masterclass_path/debugging/ &
+cd pages/learn/accounts && $SCRIPT_DIR/extract-markdown.sh "Granting Support Access to a Support Agent" <support-access.md >support-access-device.md && mv support-access-device.md $masterclass_path/debugging/ &
 
 cd pages/faq/troubleshooting/ && $SCRIPT_DIR/extract-markdown.sh "Accessing a Device using a Gateway Device" <debugging-device-gateway.md >device-gateway-partial.md && mv device-gateway-partial.md $masterclass_path/debugging/ &
 

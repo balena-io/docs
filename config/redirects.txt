@@ -224,8 +224,8 @@
 /reference/api/resources/application /reference/api/resources/fleet/
 /learn/manage/app-types/ /learn/manage/fleet-types/
 /learn/manage/app-types /learn/manage/fleet-types/
-/learn/welcome/support/ /learn/manage/support-access/ 301
-/learn/welcome/support /learn/manage/support-access/ 301
+/learn/welcome/support/ /learn/accounts/support-access/ 301
+/learn/welcome/support /learn/accounts/support-access/ 301
 /learn/welcome/core-concepts/ /learn/more/glossary/ 301
 /learn/welcome/core-concepts /learn/more/glossary/ 301
 /learn/welcome/glossary/ /learn/more/glossary/ 301

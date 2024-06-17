@@ -115,5 +115,5 @@ curl -X GET \
 [odata]:https://www.odata.org/
 [odata-docs]:https://www.odata.org/getting-started/basic-tutorial/
 [resources]:/reference/api/resources/fleet
-[tokens]:/learn/manage/account/#session-tokens
-[api-keys]:/learn/manage/account/#api-keys
+[tokens]:/learn/accounts/#session-tokens
+[api-keys]:/learn/accounts/#api-keys
