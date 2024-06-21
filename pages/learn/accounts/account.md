@@ -56,7 +56,7 @@ API keys can also be generated using the API, [CLI][cli-keys], and [Node.js][nod
 
 ## Fleet members
 
-When a fleet needs to be shared with more than one user, the fleet owner can add new members. Checkout out [team management][team] in BalenaCloud to understand member types, how to add a member and more.
+When a fleet needs to be shared with more than one user, the fleet owner can add new members. Check out [fleet members][team] to understand member types, how to add a member and more.
 
 
 ## Two-factor Authentication
@@ -135,3 +135,5 @@ If you wish to delete your {{ $names.cloud.lower }} account, go to your [_Prefer
 [google-auth]:https://en.wikipedia.org/wiki/Google_Authenticator
 [google-auth-android]:https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB
 [google-auth-ios]:https://itunes.apple.com/gb/app/google-authenticator/id388497605?mt=8
+
+[team]:/learn/accounts/fleet-members/

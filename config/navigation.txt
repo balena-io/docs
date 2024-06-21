@@ -39,7 +39,7 @@ Learn
     [/learn/develop/local-mode]
     [/learn/develop/dockerfile]
     [/learn/develop/multicontainer]
-    [/learn/develop/apps]
+    Develop with Apps[/learn/develop/apps]
     [/learn/develop/blocks]
     [/learn/develop/container-contracts]
     [/learn/develop/runtime]
