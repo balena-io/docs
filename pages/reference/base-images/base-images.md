@@ -17,20 +17,21 @@ excerpt: Docker images maintained by balena
   - amd64
   - i386
 - Multiple Distributions:
-  - [Debian](https://www.debian.org/): buster (10), bullseye (11), bookworm (12) and sid
-  - [Alpine](https://alpinelinux.org/): 3.12, 3.13, 3.14, 3.15, 3.16, 3.17 and edge
-  - [Ubuntu](https://www.ubuntu.com/): xenial (16.04), bionic (18.04), focal (20.04), impish (21.10), kinetic (22.10) and jammy (22.04)
-  - [Fedora](https://getfedora.org/): 36, 37 and 38
+  - [Debian](https://www.debian.org/): buster (10) (EOL), bullseye (11), bookworm (12) and sid
+  - [Alpine](https://alpinelinux.org/): 3.12 (EOL), 3.13 (EOL), 3.14 (EOL), 3.15 (EOL), 3.16 (EOL), 3.17 and edge
+  - [Ubuntu](https://www.ubuntu.com/): xenial (16.04), bionic (18.04), focal (20.04), impish (21.10) (EOL), kinetic (22.10) (EOL), jammy (22.04) and lunar (23.04) (EOL)
+  - [Fedora](https://getfedora.org/): 36 (EOL), 37 (EOL) and 38 (EOL)
 - Multiple language stacks:
-  - [Node.js](https://nodejs.org/en/): 14.21.3, 16.19.1, 18.14.1, 19.6.1 and 20.12.0
-  - [Python](https://www.python.org/):  3.7.16, 3.8.16, 3.9.16, 3.10.10 and 3.11.2
-  - [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 11-jdk/jre and 16-jdk
-  - [Golang](https://golang.org/): , 1.18.10, 1.19.5 and 1.20
-  - [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 6.0-sdk/runtime/aspnet and 7.0-sdk/runtime/aspnet
+  - [Node.js](https://nodejs.org/en/): 14.21.3 (EOL), 16.19.1 (EOL), 18.14.1, 19.6.1 and 20.12.0
+  - [Python](https://www.python.org/): 3.7.16 (EOL), 3.8.16, 3.9.16, 3.10.10 and 3.11.2
+  - [openJDK](https://openjdk.java.net/): 7-jdk/jre (EOL), 8-jdk/jre (EOL), 11-jdk/jre , 16-jdk and 17-jdk
+  - [Golang](https://golang.org/): 1.18.10 (EOL), 1.19.5 (EOL) and 1.20 (EOL)
+  - [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 6.0-sdk/runtime/aspnet and 7.0-sdk/runtime/aspnet (EOL)
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
 - Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
 
+ > **[EOL](https://en.wikipedia.org/wiki/End-of-life_product)** Distributions and Language stacks no longer generate newer images but will continue to work with the latest generated build prior to the EOL tag.
 ## How to Pick a Base Image
 
 <!-- TODO: Add image on how image hierarchy and discuss -->
