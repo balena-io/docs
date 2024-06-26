@@ -4,7 +4,7 @@ title: Apps
 
 # Apps
 
-__Note:__ we’re still building out the functionality surrounding Apps; stay tuned for further developments!
+__Note:__ Apps are an experimental feature. To enable them, go to *Preferences → Experimental Options* and make sure "Display Apps" is checked.
 
 An App is a multi-container resource which can be deployed to multiple fleets. Apps are intended to offer standalone functionality and can be constructed entirely or partially from [blocks][blocks]. Apps are designed to facilitate functionality sharing between both public and private fleets. They can be published on [balenaHub][balenaHubUrl] in order to allow other users outside of your balenaCloud organization to install and utilize them on their own fleets. Apps can exist independently to solve for a complete use case.
 
