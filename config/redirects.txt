@@ -68,8 +68,8 @@
 /learn/deploy /learn/deploy/deployment/
 /learn/deploy/build-optimisation/ /learn/deploy/build-optimization/
 /learn/deploy/build-optimisation /learn/deploy/build-optimization/
-/learn/manage/ /learn/manage/account/
-/learn/manage /learn/manage/account/
+/learn/manage/ /learn/manage/actions/
+/learn/manage /learn/manage/actions/
 /faq/ /faq/troubleshooting/faq/
 /faq /faq/troubleshooting/faq/
 /reference/ /reference/hardware/devices/
@@ -162,8 +162,8 @@
 /management/applications /learn/manage/actions/
 /management/devices/ /learn/manage/actions/
 /management/devices /learn/manage/actions/
-/management/preferences/ /learn/manage/account/
-/management/preferences /learn/manage/account/
+/management/preferences/ /learn/accounts/account/
+/management/preferences /learn/accounts/account/
 /configuration/advanced/ /reference/OS/advanced/
 /configuration/advanced /reference/OS/advanced/
 /deployment/network/ /reference/OS/network/
@@ -222,21 +222,36 @@
 /reference/base-images/resin-base-images /reference/base-images/base-images/
 /reference/api/resources/application/ /reference/api/resources/fleet/
 /reference/api/resources/application /reference/api/resources/fleet/
-/learn/manage/app-types/ /learn/manage/fleet-types/
-/learn/manage/app-types /learn/manage/fleet-types/
-/learn/welcome/support/ /learn/manage/support-access/ 301
-/learn/welcome/support /learn/manage/support-access/ 301
+/learn/manage/app-types/ /learn/accounts/fleet-types/
+/learn/manage/app-types /learn/accounts/fleet-types/
+/learn/welcome/support/ /learn/accounts/support-access/ 301
+/learn/welcome/support /learn/accounts/support-access/ 301
 /learn/welcome/core-concepts/ /learn/more/glossary/ 301
 /learn/welcome/core-concepts /learn/more/glossary/ 301
 /learn/welcome/glossary/ /learn/more/glossary/ 301
 /learn/welcome/glossary /learn/more/glossary/ 301
-/learn/more/masterclasses/ /learn/more/masterclasses/masterclass-intro/ 301 
-/learn/more/masterclasses /learn/more/masterclasses/masterclass-intro/ 301 
+/learn/more/masterclasses/ /learn/more/masterclasses/masterclass-intro/ 301
+/learn/more/masterclasses /learn/more/masterclasses/masterclass-intro/ 301
 /learn/more/examples/projects /learn/more/examples/labs-projects
 /learn/more/examples/projects/ /learn/more/examples/labs-projects
 /learn/more/examples/seed-projects /learn/more/examples/labs-projects
 /learn/more/examples/seed-projects/ /learn/more/examples/labs-projects
 
+
+# Accounts & Billing restructure
+/learn/manage/account/ /learn/accounts/account/
+/learn/manage/account /learn/accounts/account/
+/learn/manage/organizations/ /learn/accounts/organizations/
+/learn/manage/organizations /learn/accounts/organizations/
+/learn/manage/billing/ /learn/accounts/billing/
+/learn/manage/billing /learn/accounts/billing/
+/learn/manage/fleet-types/ /learn/accounts/fleet-types/
+/learn/manage/fleet-types /learn/accounts/fleet-types/
+/learn/manage/support-access/ /learn/accounts/support-access/
+/learn/manage/support-access /learn/accounts/support-access/
+
+/learn/manage/apps/ /learn/develop/apps/
+/learn/manage/apps /learn/develop/apps/
 
 
 # Important: keep dynamic redirect below the static redirects

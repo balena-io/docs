@@ -307,7 +307,7 @@ A range of small form factor PCs from Intel.
 ### Organization (balena)
 **(balena specific term)**
 A group of members, teams, and fleets that is managed by one or more organization administrators.
-[more](https://www.balena.io/docs/learn/manage/organizations/)
+[more](https://www.balena.io/docs/learn/accounts/organizations/)
 
 ## P
 

@@ -39,6 +39,7 @@ Learn
     [/learn/develop/local-mode]
     [/learn/develop/dockerfile]
     [/learn/develop/multicontainer]
+    Develop with Apps[/learn/develop/apps]
     [/learn/develop/blocks]
     [/learn/develop/container-contracts]
     [/learn/develop/runtime]
@@ -60,19 +61,21 @@ Learn
     [/learn/deploy/deploy-with-balena-button]
 
   MANAGE
-    [/learn/manage/account]
-    [/learn/manage/organizations]
-    [/learn/manage/apps]
-    [/learn/manage/billing]
-    [/learn/manage/fleet-types]
     [/learn/manage/device-statuses]
-    [/learn/manage/filters-tags]
-    [/learn/manage/ssh-access]
     [/learn/manage/device-logs]
+    [/learn/manage/actions]
     [/learn/manage/configuration]
     [/learn/manage/variables]
-    [/learn/manage/actions]
-    [/learn/manage/support-access]
+    [/learn/manage/filters-tags]
+    [/learn/manage/ssh-access]
+
+  ACCOUNTS & BILLING
+    [/learn/accounts/account]
+    [/learn/accounts/billing]
+    [/learn/accounts/fleet-members]
+    [/learn/accounts/fleet-types]
+    [/learn/accounts/organizations]
+    [/learn/accounts/support-access]
 
   MORE RESOURCES
     [/learn/more/examples/labs-projects]
