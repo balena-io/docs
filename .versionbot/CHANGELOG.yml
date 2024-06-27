@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update NPM dependencies"
+      hash: 237d8bb91cdf2110afbe94fbf0ec7bd216a6e99d
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.65.1
+  title: ""
+  date: 2024-06-27T14:20:25.713Z
+- commits:
     - subject: "minor: Add Accounts & Billing section"
       hash: b792e3e448dc601e979bba4a9a33f64841d87021
       body: ""
