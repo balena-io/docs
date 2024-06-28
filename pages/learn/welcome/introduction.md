@@ -30,7 +30,7 @@ To gain mastery in various products and workflows supported by {{ $names.company
 
 Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][reference] sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help][help] is always available! Refer to the balena Glossary for definition on any of the terms referred in the docs.
 
-Checkout our [public roadmap](https://roadmap.balena.io) for features being worked on by the team & be sure to add new features that you want.
+Check out our [public roadmap](https://roadmap.balena.io) for features being worked on by the team & be sure to add new features that you want.
 
 [balena]:{{ $links.mainSiteUrl }}/
 [primer]:/learn/welcome/primer/
