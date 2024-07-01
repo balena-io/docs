@@ -47,7 +47,8 @@ You'll then be redirected to the summary of the newly created fleet, where you c
 
 <img alt="Add a device" src="/img/getting-started/fleet-view.png" width="100%">
 
-{{ $names.cloud.lower }} builds a custom {{ $names.os.lower }} image configured for {{ $device.name }} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture][architecture] can also be picked to join the fleet.
+{{ $names.cloud.lower }} builds a custom {{ $names.os.lower }} image configured for {{ $device.name }} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device
+** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture][architecture] can also be picked to join the fleet.
 
 <img alt="Add new device" src="/img/getting-started/add-device.png" width="80%">
 
