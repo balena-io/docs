@@ -1,4 +1,16 @@
 - commits:
+    - subject: Fix a typo in introduction.md
+      hash: cb33138b70e46f6299469fb4fa65061a2db4fa0d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Jonathan Berger
+      nested: []
+  version: 5.65.2
+  title: ""
+  date: 2024-07-01T09:44:07.758Z
+- commits:
     - subject: "patch: Update NPM dependencies"
       hash: 237d8bb91cdf2110afbe94fbf0ec7bd216a6e99d
       body: ""
