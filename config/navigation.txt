@@ -71,6 +71,7 @@ Learn
 
   ACCOUNTS & BILLING
     [/learn/accounts/account]
+    [/learn/accounts/enterprise-sso]
     [/learn/accounts/billing]
     [/learn/accounts/fleet-members]
     [/learn/accounts/fleet-types]
