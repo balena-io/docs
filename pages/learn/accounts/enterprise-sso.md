@@ -91,8 +91,18 @@ Currently, SAML authentication users cannot create API keys. If you require API 
 
 <!-- NOTE: we link to this FAQ in the dashboard -->
 #### How do I delete a SAML account?
-To delete a SAML account, you must use the `sdk`. Execute the following command: `sdk.models.pine.delete({ resource: 'saml_account'})` for the specific user. **Important:** This action is irreversible and the account cannot be recovered once deleted.
-<!-- TODO: we need the exact SDK call here -->
+To delete a SAML account, you must use the `sdk`. This is only necessary if you are looking to [delete your Idp](#how-do-i-delete-an-identity-provider-in-balenacloud). Removing the user from your IdP will block their balenaCloud access. If you really want to delete your SAML users, execute the following command: 
+```JS
+await sdk.pine.delete({
+    resource: 'saml_account',
+    options: {
+        $filter: {
+            remote_id: '<USER_EMAIL_GOES_HERE>'
+        }
+    }
+})
+```
+**Important:** This action is irreversible and the account cannot be recovered once deleted.
 
 #### How do I delete an Identity Provider in balenaCloud?
 An IdP can only be removed once all associated SAML accounts are removed from the organizations connected to the IdP.
