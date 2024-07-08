@@ -4,7 +4,7 @@ __Note:__ This feature is currently only available on [Enterprise plans](https:/
 
 BalenaCloud Enterprise Single Sign-On (SSO) using SAML (Security Assertion Markup Language) allows organizations to manage user access and authentication through their existing identity providers (IdP). This integration simplifies the login process for users by enabling them to use their corporate credentials to access BalenaCloud services. By leveraging SAML, enterprises can enhance security, streamline user management, and ensure compliance with their internal policies and procedures.
 
-Configuring an identity provider (IdP) as a login method necessitates setup within both BalenaCloud and the identity provider itself. For detailed instructions on the required configurations, please refer to our example [IdP specific documentation](#how-to-setup-an-identity-provider).
+Configuring an identity provider (IdP) as a login method necessitates setup within both balenaCloud and the identity provider itself. For detailed instructions on the required configurations, please refer to our example [IdP specific documentation](#how-to-setup-an-identity-provider).
 
 ## Link a SAML Identity Provider
 
@@ -135,7 +135,44 @@ This section provides step-by-step instructions for setting up SAML 2.0 with Mic
 
 ### Google Workspace SAML
 
-TODO: .................................
+This guide will walk you through the steps to create a SAML Identity Provider (IdP) using Google Workspace to integrate with balenaCloud.
+
+##### Prerequisites
+
+Access to a Google Workspace admin account capable of creating apps and users for the organization.
+
+##### Steps to Create a SAML Identity Provider in Google Workspace
+
+1.	Access the Google Admin Console
+	* Go to [Google Admin Console Apps](https://admin.google.com/ac/apps/unified) using your Google Workspace admin account.
+2.	Create a New Custom SAML App
+	* Click on Add app.
+	* Select Add custom SAML app.
+3.	Configure the SAML App
+	* Name Your App: Provide a meaningful name for the SAML app (e.g., “balenaCloud SSO”).
+	* Download the Metadata: After naming your app, download the metadata file provided by Google. This file will be used later to set up the IdP in balenaCloud.
+4.	Set Up Service Provider Details
+	* ACS URL: Fill in the Assertion Consumer Service (ACS) URL with:
+    ```
+    https://dashboard.balena-cloud.com/saml/acme/callback
+    ```
+    Replace `acme` with the name you will give your IdP in balenaCloud.
+
+	* Entity ID: Fill in the Entity ID with:
+    ```
+    https://dashboard.balena-cloud.com/saml/acme
+    ```
+    Again, replace `acme` with the name you will give your IdP.
+5.	Skip Attribute Mapping
+	* Ignore any mapping configuration. Currently, balenaCloud does not make use of these mappings.
+6.	Enable the SAML App
+	* In the Service Status section, ensure the new SAML app is set to `ON` for everyone or specific groups. This will those users in your organization access to login to balenaCloud via SSO.
+
+##### Final Steps
+Finally, you should a custom SAML app in your Google Workspace that looks similar to this:
+<img alt="Download XML" src="/img/common/saml/google-workspace-saml-app-final.png" width="100%">
+
+Upload Metadata to balenaCloud: Use the metadata file downloaded from Google Workspace to complete the IdP setup in balenaCloud. Follow the instructions provided in balenaCloud’s SAML configuration page to upload the metadata and finalize the integration.
 
 ## FAQs:
 
@@ -144,6 +181,10 @@ It is not yet possible to enforce SAML authentication across your entire organiz
 
 #### How can I use API keys if SAML users can't create them?
 Currently, SAML authentication users cannot create API keys. If you require API keys for automated processes, we suggest creating a new non-SAML account to act as a "service" account. We plan to add the ability to create fleet and organization-level API keys as a follow-up feature to address this limitation.
+
+<!-- NOTE: we link to this FAQ in the dashboard -->
+#### How do I delete a SAML account?
+To delete a SAML account, you must use the `sdk`. Execute the following command: `sdk.models.pine.delete({ resource: 'saml_account'})` for the specific user. **Important:** This action is irreversible and the account cannot be recovered once deleted.
 
 #### How do I delete an Identity Provider in balenaCloud?
 An IdP can only be removed once all associated SAML accounts are removed from the associated organizations.
