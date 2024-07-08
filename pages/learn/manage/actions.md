@@ -181,7 +181,7 @@ __Info:__ If you have a device [preloaded][preload-devices] with an OS version l
 [purge-data]:#purge-data
 [organization]:/learn/accounts/organizations/
 [administrator]:/learn/accounts/organizations/#managing-roles--access-in-an-organization
-[add-application-member]:/learn/accounts/#add-an-application-member
+[add-application-member]:/learn/accounts/account/#add-an-application-member
 [developer]:/learn/accounts/fleet-members#developer
 [support-access]:/learn/accounts/support-access
 [inactive-devices]:/learn/accounts/billing/#inactive-devices
