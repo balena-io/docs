@@ -137,6 +137,7 @@ encodeurl
 endevour
 endianity
 endmacro
+entra
 envinfo
 eoan
 esbuild

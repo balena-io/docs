@@ -1,6 +1,6 @@
 ---
 title: Configure a SAML app for Microsoft Entra ID
-excerpt: prepare your Microsoft Entra ID oranization to integrate with balenaCloud
+excerpt: prepare your Microsoft Entra ID organization to integrate with balenaCloud
 ---
 
 # Microsoft Entra ID (formerly Azure Active Directory)

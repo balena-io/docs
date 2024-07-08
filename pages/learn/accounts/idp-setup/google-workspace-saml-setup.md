@@ -1,6 +1,6 @@
 ---
 title: Configure a SAML app for Google Workspace
-excerpt: prepare your Google Workspace oranization to integrate with balenaCloud
+excerpt: prepare your Google Workspace organization to integrate with balenaCloud
 ---
 
 # Google Workspace SAML

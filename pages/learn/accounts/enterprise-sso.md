@@ -45,13 +45,13 @@ __Note__: If you unlink the default team in the Identity Provider configuration,
 
 ### Setting up a new SAML user
 
-To log in using your enterprise SAML authentication, you must first have or [create](https://dashboard.balena-cloud.com/signup) a standard balenaCloud account using your company email address. Once logged in to this account, navigate to your [user preferences](https://dashboard.balena-cloud.com/preferences/details) and click "Merge Account".
+To log in using your enterprise SAML authentication, you must first have or [create](https://dashboard.balena-cloud.com/signup) a standard balenaCloud account using your company email address. Once logged in to this account, navigate to your [user preferences](https://dashboard.balena-cloud.com/preferences/details) and enable Enterprise SSO for your account.
 <!-- TODO: Update to latest screenshot -->
-<img alt="User preferences with merge account button highlighted" src="/img/common/saml/merge-account-accept.png" width="100%">
+<img alt="User preferences with enable SSO button highlighted" src="/img/common/saml/merge-account-accept.png" width="100%">
 
 Next, provide the company `SSO Identifier` supplied by your balenaCloud organization administrator.
 <!-- TODO: Update to latest screenshot -->
-<img alt="Merge Account modal with SSO identifier filled in." src="/img/common/saml/add-sso-identifier-merge-modal.png" width="60%">
+<img alt="Enable SSO modal with SSO identifier filled in." src="/img/common/saml/add-sso-identifier-merge-modal.png" width="60%">
 
 __Important:__ By activating SAML, you are transferring your personal account to a company account. The following changes will occur:
 * **Your API keys will be deleted**
@@ -68,7 +68,7 @@ You will still be subject to balenaCloud's **terms of service** and **master ser
 * Data and Privacy: Your personal data associated with the account will be transferred to the company. The company will be responsible for the protection and use of your data in accordance with the existing privacy policy.
 * Consent: By proceeding with this transfer, you confirm that you have the authority to transfer the account to the company and that you consent to the changes outlined above.
 
-By clicking the "Merge account" button, you agree to the above terms. If you have any questions or concerns, please contact our support team before completing the transfer.
+By clicking the "Enable" button, you agree to the above terms. If you have any questions or concerns, please contact our support team before completing the transfer.
 
 ### Log in with a SAML account
 
