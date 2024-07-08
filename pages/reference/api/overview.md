@@ -16,7 +16,7 @@ When a new version of the API is released, calls to old versions of the API will
 
 ## Authentication
 
-API requests are authorized using [session tokens][tokens] or [named API keys][api-keys]. To authenticate with either type of authentication token, make sure to include `Authorization: Bearer <auth token>` as a header in your API call.
+API requests are authorized using [session tokens][learn/accounts/account/#session-tokens] or [named API keys][learn/accounts/account/#api-keys]. To authenticate with either type of authentication token, make sure to include `Authorization: Bearer <auth token>` as a header in your API call.
 
 ## Constructing API calls
 
