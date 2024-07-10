@@ -1,17 +1,17 @@
 ---
-title: Configure a SAML app for Google Workspace
-excerpt: prepare your Google Workspace organization to integrate with balenaCloud
+title: SAML app for Google Workspace
+excerpt: Configure your Google Workspace organization with balenaCloud to enable SAML
 ---
 
-# Google Workspace SAML
+# Configure a SAML app for Google Workspace
 
-This guide will walk you through the steps to create a SAML Identity Provider (IdP) using Google Workspace to integrate with balenaCloud.
+This guide will walk you through the steps to create a SAML Identity Provider (IdP) using Google Workspace to integrate with balenaCloud. At the end of this guide, you can start using Single Sign-On functionality from your IdP in balenaCloud.
 
-##### Prerequisites
+## Prerequisites
 
-Access to a Google Workspace admin account capable of creating apps and users for the organization.
+1. Access to a Google Workspace admin account capable of creating apps and users for the organization.
 
-##### Steps to Create a SAML Identity Provider in Google Workspace
+## Steps
 
 1.	Access the Google Admin Console
 	* Go to [Google Admin Console Apps](https://admin.google.com/ac/apps/unified) using your Google Workspace admin account.
@@ -38,8 +38,9 @@ Access to a Google Workspace admin account capable of creating apps and users fo
 6.	Enable the SAML App
 	* In the Service Status section, ensure the new SAML app is set to `ON` for everyone or specific groups. This will those users in your organization access to login to balenaCloud via SSO.
 
-##### Final Steps
-Finally, you should a custom SAML app in your Google Workspace that looks similar to this:
+7. Finally, you should a custom SAML app in your Google Workspace that looks similar to this:
 <img alt="Download XML" src="/img/common/saml/google-workspace-saml-app-final.png" width="100%">
+
+## Conclusion
 
 Congratulations! You should now have your Identity Provider (IdP) setup, head over to the balenaCloud dashboard and follow the [instructions to link an IdP](/learn/accounts/enterprise-sso/#link-a-saml-identity-provider) by uploading the XML metadata file. Your team can then start using the Single Sign-On (SSO) functionality, allowing them to securely and seamlessly access the platform using their enterprise credentials.

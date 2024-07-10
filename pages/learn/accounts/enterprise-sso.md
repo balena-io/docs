@@ -13,7 +13,7 @@ Configuring an Identity Provider (IdP) as a login method requires a one-time set
 
 ## Link a SAML Identity Provider
 
-To enable Single Sign-On (SSO) for balenaCloud organizations, you must establish a connection with your external Identity Provider (IdP). This process assumes that you have already configured a [SAML 2.0 IdP and possess an XML certificate][ms-saml] ready for upload.
+To enable Single Sign-On (SSO) for balenaCloud organizations, you must establish a connection with your external Identity Provider (IdP). BalenaCloud supports all SAML 2.0 Identity Providers, we have provided examples for Microsoft Entra ID (formerly Azure AD) and Google Workspace. This process assumes that you have already configured a [SAML 2.0 IdP and possess an XML certificate][ms-saml] ready for upload.
 
 1. To configure an Identity Provider, you must be logged in as the `Administrator` of an organization subscribed to an [Enterprise plan](https://www.balena.io/pricing).
 2. From the balenaCloud dashboard, select the [Identity Provider](https://dashboard.balena-cloud.com/identity-provider) option from the left sidebar.
@@ -53,7 +53,7 @@ Next, provide the company `SSO Identifier` supplied by your balenaCloud organiza
 <!-- TODO: Update to latest screenshot -->
 <img alt="Enable SSO modal with SSO identifier filled in." src="/img/common/saml/add-sso-identifier-merge-modal.png" width="60%">
 
-__Important:__ By activating SAML, you are transferring your personal account to a company account. The following changes will occur:
+__Important:__ By activating SAML, you are transferring your personal account to a company account, and this action is non-reversible. The following changes will occur:
 * **Your API keys will be deleted**
 * **This is a non-reversible action**
 * You will no longer be able to create new API keys
@@ -91,7 +91,7 @@ Currently, SAML authentication users cannot create API keys. If you require API 
 
 <!-- NOTE: we link to this FAQ in the dashboard -->
 #### How do I delete a SAML account?
-To delete a SAML account, you must use the `sdk`. This is only necessary if you are looking to [delete your Idp](#how-do-i-delete-an-identity-provider-in-balenacloud). Removing the user from your IdP will block their balenaCloud access. 
+To delete a SAML account, you need to use the `sdk`. This step is only required if you intend to [delete your IdP](#how-do-i-delete-an-identity-provider-in-balenacloud). **Removing the user from your IdP will block their access to balenaCloud**, but their current session will remain active for up to 12 hours after their last login.
 
 __Warning:__ Ensure that there is at least one non-SAML admin user in your organization before deleting all SAML users in the Identity Providers (IdPs). Failure to do so may result in being locked out of your organization.
 
