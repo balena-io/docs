@@ -1,4 +1,32 @@
 - commits:
+    - subject: Update MS entra screenshots
+      hash: dbb70ffc4a708f37716ca159fb3ae64a75533eea
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Shaun Mulligan
+      nested: []
+    - subject: Fix login page doc image
+      hash: eba7406cba84106a4eb2b682a5b939ae5cdc4639
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Otavio Jacobi
+      nested: []
+    - subject: initial draft of SAML docs
+      hash: 94d0bf4ef59fd21a35324a8ed3ba14515bcf4c9a
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Shaun Mulligan
+      nested: []
+  version: 5.66.0
+  title: ""
+  date: 2024-07-10T15:28:31.197Z
+- commits:
     - subject: Fix a typo in introduction.md
       hash: cb33138b70e46f6299469fb4fa65061a2db4fa0d
       body: ""
