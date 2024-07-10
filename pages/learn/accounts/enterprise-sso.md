@@ -25,19 +25,17 @@ To create an Identity Provider (IdP) entity, start by first selecting a unique S
 
 This identifier must be unique within balenaCloud and can only include lowercase letters (`a-z`), numbers (`0-9`), hyphens (`-`), and underscores (`_`). 
 
-After selecting an identifier, you need to configure the `Entry Point URL`, `Issuer (Entity ID)`, and `Public Certificate`. This can be accomplished by either uploading the XML metadata files provided by your IdP or manually entering the details into the form.
-
-### Associate Organizations
+### Associate Organizations and Teams
 
 BalenaCloud would need a list of organizations to which SAML users will be automatically added upon successful authentication. Only organizations subscribed to an [Enterprise plan](https://www.balena.io/) will appear in the list of available organizations. At least one organization must be provided when setting up the IdP.
 
-__Note:__ Removing organizations after IdP creation will not revoke access for SAML users who have previously authenticated with this IdP. However, new authentications will no longer include the removed organization.
+__Note:__ Removing organizations after IdP creation will not revoke access for SAML users who have previously authenticated with this IdP. However, new authentications will no longer include the removed organization. An IdP will always require at least one organization to be associated.
 
 You have successfully configured SAML 2.0 for your balenaCloud Enterprise SSO. Your team can now access the platform securely and seamlessly through the configured Identity Provider. For instructions on how your team can log in, refer to [Authenticating as a SAML/SSO User](#authenticating-as-a-samlsso-user). If you encounter any issues or need further assistance, please contact our support team.
 <!-- TODO: Update to latest screenshot -->
 <img alt="Fully configured IdP with two Orgs associated" src="/img/common/saml/idp-with-two-orgs.png" width="100%">
 
-### (Optional) Configure a Default Team
+#### (Optional) Configure a Default Team
 
 You can configure a default team for each organization to which SAML users will be automatically added upon authentication.
 
@@ -47,7 +45,7 @@ __Note__: If you unlink the default team in the Identity Provider configuration,
 
 ### Setting up a new SAML user
 
-To log in using your enterprise SAML authentication, you must first have or [create](https://dashboard.balena-cloud.com/signup) a standard balenaCloud account using your company email address. Once logged in to this account, navigate to your [user preferences](https://dashboard.balena-cloud.com/preferences/details) and enable Enterprise SSO for your account.
+To log in using your enterprise SAML authentication, you must first have or [create](https://dashboard.balena-cloud.com/signup) a standard balenaCloud account using your company email address. Once logged in to this account, navigate to your [user preferences](https://dashboard.balena-cloud.com/preferences/details) and click "Enable" in the "Enterprise SSO" section.
 <!-- TODO: Update to latest screenshot -->
 <img alt="User preferences with enable SSO button highlighted" src="/img/common/saml/merge-account-accept.png" width="100%">
 
