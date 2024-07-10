@@ -71,6 +71,10 @@ Learn
 
   ACCOUNTS & BILLING
     [/learn/accounts/account]
+    [/learn/accounts/enterprise-sso]
+      Identity Provider Setup
+        [/learn/accounts/idp-setup/microsoft-entra-saml-setup]
+        [/learn/accounts/idp-setup/google-workspace-saml-setup]
     [/learn/accounts/billing]
     [/learn/accounts/fleet-members]
     [/learn/accounts/fleet-types]
