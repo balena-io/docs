@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix broken links after accounts section"
+      hash: 45708bebba56f20a757c0bd15999e0dd5f3a5e92
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.66.2
+  title: ""
+  date: 2024-07-15T11:01:25.592Z
+- commits:
     - subject: Minor improvements to Enterprise SSO section
       hash: 03feae9f767af84d689a5dc27e679432399d8280
       body: ""
