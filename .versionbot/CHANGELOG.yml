@@ -1,4 +1,16 @@
 - commits:
+    - subject: Add a note on experimental feature flag to the apps documentation
+      hash: ee195ef740f5386183dda6a2db89a2902603ca37
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Jonathan Berger
+      nested: []
+  version: 5.66.3
+  title: ""
+  date: 2024-07-15T19:15:49.515Z
+- commits:
     - subject: "patch: Fix broken links after accounts section"
       hash: 45708bebba56f20a757c0bd15999e0dd5f3a5e92
       body: ""
