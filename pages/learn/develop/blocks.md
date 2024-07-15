@@ -11,7 +11,7 @@ Similar to how software developers don't want to keep rewriting common functions
 
 For example, getting a browser to run well in a container is a tedious task. Hence, why not use the [browser block][browser] to get things up and running faster..
 
-<img src="/img/blocks/diagram-1.png" width="70%">
+<img src="/img/blocks/diagram-1.webp" width="70%">
 
 ## Getting Started with blocks
 
@@ -91,11 +91,11 @@ data:
 
 Next, navigate to the `Blocks` tab in the sidebar and click the `Create block` button in the balenaCloud dashboard.
 
-<img src="/img/blocks/image.png" width="100%">
+<img src="/img/blocks/image.webp" width="100%">
 
 Fill the details for your block in the modal, and click `Create new block` button to create your block.
 
-<img src="/img/blocks/create-block.png" width="70%">
+<img src="/img/blocks/create-block.webp" width="70%">
 
 Next, we have to [push a new release][balena-push] from your project to your newly created block on balenaCloud. If you are new to this, then follow the [Getting Started][getting-started] guide. After the release has been created, your block is ready. You can manage, modify and iterate further on your block from the balenaCloud dashboard.
 
@@ -103,11 +103,11 @@ Next, we have to [push a new release][balena-push] from your project to your new
 
 To deploy new releases of your block, you can use the [balena-push][balena-push] command using the [balenaCLI](https://github.com/balena-io/balena-cli). The `Releases` tab in the sidebar will show the list of all releases of your block.
 
-<img src="/img/blocks/release.png" width="80%">
+<img src="/img/blocks/release.webp" width="80%">
 
 By default, the block is set to `track latest`, which means that new releases are immediately tagged as the default release for the block. Expanding this _Default release_ dropdown menu displays all successful releases for the block, and you can select a specific release to pin the block to. When a particular release is selected, that release will be tagged as the default release of your block. After pinning to a specific release, releases will not be deployed until the _Default release_ is updated to a newer release or it's set back to `track latest`.
 
-<img src="/img/blocks/release-mgmt.png" width="100%">
+<img src="/img/blocks/release-mgmt.webp" width="100%">
 
 ## Making your block public
 
@@ -115,7 +115,7 @@ When a block is created on balenaCloud, it won't automatically be visible on bal
 
 When blocks are private, you can iterate, test and build more functionality before making it available to the world. When you are ready to release, head to the `Settings` tab in the sidebar and add your block's GitHub repository to the `Repository URL`  section. Next, toggle the `Block visibility` button to `on` for your block to be visible on balenaHub. You’re free to toggle the visibility on and off as necessary at any time.
 
-<img src="/img/blocks/settings.png" width="100%">
+<img src="/img/blocks/settings.webp" width="100%">
 
 This would lead to your block being available on [balenaHub][blockhub] for folks to use and build upon as soon as your submission has been marked as public. BalenaHub is the ever-growing library of blocks, projects and fleets contributed by the community.
 
@@ -123,7 +123,7 @@ This would lead to your block being available on [balenaHub][blockhub] for folks
 
 The URL to pull your block image (the _image reference_) is available in balenaHub by clicking the `Use` button.
 
-<img src="/img/blocks/use-button.png" width="100%">
+<img src="/img/blocks/use-button.webp" width="100%">
 
 This image reference can be used in a Dockerfile or docker-compose file to pull the _default release_ image of your block.
 

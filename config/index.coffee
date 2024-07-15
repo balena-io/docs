@@ -54,4 +54,4 @@ module.exports =
     baseUrl: process.env.BASE_URL || 'https://www.balena.io/docs'
     menuLinks: MAIN_MENU_LINKS
     fbAppId: FB_APP_ID
-    defaultThumbnail: 'https://www.balena.io/docs/img/logo.png'
+    defaultThumbnail: 'https://www.balena.io/docs/img/logo.webp'

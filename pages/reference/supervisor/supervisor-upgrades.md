@@ -13,16 +13,16 @@ whereby an independent Supervisor upgrade is preferable:
 To run an update for an individual device, navigate to that device's *Settings* tab, scroll down to *Supervisor version* section, and
 select the version of the balena Supervisor you would like to update to:
 
-![Supervisor device upgrade](/img/common/updates/supervisor-device-upgrade.png)
+![Supervisor device upgrade](/img/common/updates/supervisor-device-upgrade.webp)
 
 Updates can also be issued to multiple devices in the same fleet with the same CPU architecture. From the device
 list, click the checkbox to the left of any online devices you wish to update. Then use the *Modify* dropdown to select the *Supervisor version* option:
 
-![Supervisor batch upgrade](/img/common/updates/supervisor-batch-upgrade.png)
+![Supervisor batch upgrade](/img/common/updates/supervisor-batch-upgrade.webp)
 
 From the dialog box that opens, select the Supervisor version you would like to update to and click the `Apply` button to trigger the Supervisor update. 
 
-![Supervisor batch upgrade dialog](/img/common/updates/supervisor-batch-upgrade-dialog.png)
+![Supervisor batch upgrade dialog](/img/common/updates/supervisor-batch-upgrade-dialog.webp)
 
 Additionally, these updates can be scheduled for an offline device as well. The update will be performed once the device comes
 back online and successfully connects to the {{ $names.cloud.lower }} backend.

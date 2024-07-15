@@ -309,7 +309,7 @@ ol {
 
 .alert-note {
   background: #fcf8e3;
-  /*/background-image: url('/img/note-bg.png');*/
+  /*/background-image: url('/img/note-bg.webp');*/
   background-repeat: repeat-x;
   background-position: top left;
   color: #8a6d3b;
@@ -318,7 +318,7 @@ ol {
 
 .alert-warning {
   color: #a94445;
-  /*background-image: url('/img/warning-bg.png');*/
+  /*background-image: url('/img/warning-bg.webp');*/
   background-repeat: no-repeat;
   background-position: 104% 19%;
   background-color: #f2dede;

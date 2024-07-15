@@ -7,7 +7,7 @@ excerpt: Determine the status and connectivity of a device
 
 Device statuses are displayed on the Devices page and the Device Summary page. An overview of the device statuses of a fleet is shown on the Fleets page. Each device can have one of the following statuses:
 
-<img src="/img/common/main_dashboard/application_device_status.png" alt="Application device status" width="40%" >
+<img src="/img/common/main_dashboard/application_device_status.webp" alt="Application device status" width="40%" >
 
 | Status                                       | Description                                                                                                                                                                      |
 |----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -23,7 +23,7 @@ Device statuses are displayed on the Devices page and the Device Summary page. A
 
 ## Device Connectivty states
 
-![Device connectivity indicators](/img/common/main_dashboard/device_status.png)
+![Device connectivity indicators](/img/common/main_dashboard/device_status.webp)
 
 When the device's network connectivity is fully operational, the status displays as Online, which is comprised of healthy Heartbeat and VPN statuses. A device's status may include indicators of partial connectivity issues on the device, such as a firewall blocking VPN traffic or a device's inability to communicate with the {{ $names.cloud.lower }} API. These indicators are as follows:
  

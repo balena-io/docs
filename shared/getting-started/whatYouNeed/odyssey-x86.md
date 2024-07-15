@@ -1,4 +1,4 @@
-<img height=150px style="float: right;padding-left: 10px;" src="/img/odyssey-x86/odyssey-x86.png">
+<img height=150px style="float: right;padding-left: 10px;" src="/img/odyssey-x86/odyssey-x86.webp">
 
 * An [Odyssey x86][board-link] board from Seeed. Check out our [supported devices list][supportedDevicesList].
 * A 4GB or larger USB thumb drive.

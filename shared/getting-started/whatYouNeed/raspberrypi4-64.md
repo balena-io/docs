@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/raspberrypi4/raspberrypi4.jpg" width="25%">
+<img style="float: right;padding-left: 10px;" src="/img/raspberrypi4/raspberrypi4.webp" width="25%">
 
 * A [Raspberry Pi 4 Model B][rpi4B]. See our [supported devices list][supportedDevicesList] for other boards.
 * A 4GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - use the fastest you can find.

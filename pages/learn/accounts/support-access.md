@@ -25,19 +25,19 @@ __Note:__ It is possible to disable support access functionality by removing the
 
 To enable support access for a single device, select the _Actions_ menu in the Device dashboard, and choose the _Grant Support Access_ button and choose the period to grant device access. You may revoke access at any time by selecting _Revoke Support Access_ on the same page.
 
-![Grant support for a device](/img/common/support/enable-support-access-device.png)
+![Grant support for a device](/img/common/support/enable-support-access-device.webp)
 
 ### Grant support access for a fleet
 
 To enable support access for all devices in a fleet, select the _Grant Support Access_ from the _Settings_ menu of the Fleet dashboard, and choose the period to grant access. This may be revoked at any time by selecting _Revoke Support Access_ on the same page.
 
-![Grant support access for a fleet](/img/common/support/enable-support-access-fleet.png)
+![Grant support access for a fleet](/img/common/support/enable-support-access-fleet.webp)
 
 ### Grant support access for a block
 
 To enable support access for block, select the _Grant Support Access_ from the _Settings_ menu of the block dashboard, and choose the period to grant access. This may be revoked at any time by selecting _Revoke Support Access_ on the same page.
 
-![Grant support access for a block](/img/common/support/enable-support-block.png)
+![Grant support access for a block](/img/common/support/enable-support-block.webp)
 
 ### Grant support access using the CLI
 

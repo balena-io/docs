@@ -1,4 +1,4 @@
-<img height=150px style="float: right;padding-left: 10px;" src="/img/jetson-nano/jetson-nano.jpg">
+<img height=150px style="float: right;padding-left: 10px;" src="/img/jetson-nano/jetson-nano.webp">
 
 * A [Nvidia Jetson Nano developer kit][nano]
 * A 16GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - UHS speed class I or above is recommended.

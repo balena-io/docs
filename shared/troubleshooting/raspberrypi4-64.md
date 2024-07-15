@@ -51,7 +51,7 @@ Raspberry Pi 4 Model B Rev 1.5
 
 2. Look for the Dialog DA9090 power management controller next to the USB-C port. Check the picture below for reference.
 
-<img src="/img/troubleshooting/DA9090_identified.jpg" width="50%">
+<img src="/img/troubleshooting/DA9090_identified.webp" width="50%">
 
 For more information about Raspberry Pi 4 Model B Rev 1.5, please refer to "PCN Raspberry Pi 4B Rev 9" in the [Product Information Portal](https://pip.raspberrypi.com) by Raspberry Pi.
 

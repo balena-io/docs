@@ -17,7 +17,7 @@ Our IoT provisioning tools automate device registration to {{ $cloud.shortName }
 
 ## How It Works
 
-![summary](/img/cloud-iot/iot-overview.png)
+![summary](/img/cloud-iot/iot-overview.webp)
 
 Provisioning includes three components:
 

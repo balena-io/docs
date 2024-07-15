@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/{{ $device.id }}/{{ $device.id }}.jpg" width="30%">
+<img style="float: right;padding-left: 10px;" src="/img/{{ $device.id }}/{{ $device.id }}.webp" width="30%">
 
 * A [{{ $device.name }}][device-link] module. See our [supported devices list][supportedDevicesList] for other boards.
 * A carrier board, in this case the [VAR-SOLO Customboard][device-link]

@@ -161,7 +161,7 @@ These are some tips and tricks for customizing your raspberry pi. Most of them r
 
 You can also set all of these variables remotely for a single device or the entire fleet using the Configuration tab on the device or fleet level respectively. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `BALENA_HOST_CONFIG_variable` set to the value `value`. For example:
 
-![Setting the device configuration for Raspberry Pi config.txt variables](/img/hardware/host_config.png)
+![Setting the device configuration for Raspberry Pi config.txt variables](/img/hardware/host_config.webp)
 
 For simplicity, below all examples are using the `config.txt` formatting, but all of them are available to set remotely as outlined above.
 

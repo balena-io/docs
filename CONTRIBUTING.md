@@ -38,11 +38,11 @@ This will allow the system to version the documentation using the `Change-type` 
 
 Images and screenshots help the user in better understanding of the docs. Before adding a screenshot, make sure to keep the area in focus, text is clearly visible and doesn't have any identifying information. Rename the screenshot appropriately and make sure to upload them to the right path.
 
-![](./static/img/common/billing/plan_selection.png)
+![](./static/img/common/billing/plan_selection.webp)
 
 Do mark the menu options, buttons or tabs with a red box as and when needed.
 
-![](./static/img/common/billing/current_plan.png)
+![](./static/img/common/billing/current_plan.webp)
 
 Images for the documentation are stored in [static/img](https://github.com/balena-io/docs/tree/master/static/img) directory. Screenshots of the dashboard are commonly stored in the [common](https://github.com/balena-io/docs/tree/master/static/img/common) directory.  
 
@@ -53,13 +53,13 @@ To add an image to the documentation,
 3. When added, refer and add them to the relevant documentation page using either the markdown format.
 
 ```markdown
-![Description of the image](/img/common/app/cool-looking-image.png)
+![Description of the image](/img/common/app/cool-looking-image.webp)
 ```
 
 OR use the HTML `<img>` tag
 
 ```html
-<img alt="Description about the image" src="/img/common/app/cool-looking-image.png">
+<img alt="Description about the image" src="/img/common/app/cool-looking-image.webp">
 ```
 
 ## Adding links to the docs

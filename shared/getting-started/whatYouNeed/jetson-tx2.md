@@ -1,4 +1,4 @@
-<img height=150px style="float: right;padding-left: 10px;" src="/img/jetson-tx2/jetson-tx2.jpg">
+<img height=150px style="float: right;padding-left: 10px;" src="/img/jetson-tx2/jetson-tx2.webp">
 
 * A [Nvidia Jetson TX2][tx2], along with the baseboard that allows flashing from an SD card.
 * A 4GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - use the fastest you can find.

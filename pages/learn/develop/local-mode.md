@@ -16,7 +16,7 @@ To use local mode on a device:
 - You must have the [{{ $names.company.lower }} CLI][cli] installed on your development machine.
 - Local mode must be enabled through the {{ $names.cloud.lower }} dashboard. You can enable it from the device _Settings_ tab.
 
-![Enable local mode](/img/local-mode/enable-local-mode.png)
+![Enable local mode](/img/local-mode/enable-local-mode.webp)
 
 ## Local mode caveats
 
@@ -26,7 +26,7 @@ To use local mode on a device:
 - Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
 - When switching out of local mode and back to tracking releases from {{ $names.cloud.lower }}, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that {{ $names.cloud.lower }} instructs it to run.
 
-![Device in local mode](/img/local-mode/device-in-local-mode.png)
+![Device in local mode](/img/local-mode/device-in-local-mode.webp)
 
 ## Scan the network and find your device
 

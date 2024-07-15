@@ -31,11 +31,11 @@ A fleet is a group of devices that share the same [architecture][architecture] a
 
 To create your first fleet, log into your [{{ $names.cloud.lower }} dashboard][dashboard] and click the **Create fleet** button.
 
-<img alt="Create a fleet" src="/img/common/create-first-fleet.png" width="100%">
+<img alt="Create a fleet" src="/img/common/create-first-fleet.webp" width="100%">
 
 Enter a fleet name, select the **{{ $device.name }}** device type, choose the *Starter* [fleet type][fleet-types], and click **Create new fleet**:
 
-<img src="/img/getting-started/create-fleet.png" width="80%">
+<img src="/img/getting-started/create-fleet.webp" width="80%">
 
 You'll then be redirected to the summary of the newly created fleet, where you can add your first {{ $device.name }}.
 
@@ -45,19 +45,19 @@ You'll then be redirected to the summary of the newly created fleet, where you c
 <!--add an anchor here to redirect old links-->
 <a name="adding-your-first-device"></a>
 
-<img alt="Add a device" src="/img/getting-started/fleet-view.png" width="100%">
+<img alt="Add a device" src="/img/getting-started/fleet-view.webp" width="100%">
 
 {{ $names.cloud.lower }} builds a custom {{ $names.os.lower }} image configured for {{ $device.name }} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture][architecture] can also be picked to join the fleet.
 
-<img alt="Add new device" src="/img/getting-started/add-device.png" width="80%">
+<img alt="Add new device" src="/img/getting-started/add-device.webp" width="80%">
 
 Select an OS type of _balenaOS_, and you will see a list of available {{ $names.os.lower }} versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images][devvprod].
 
-<img alt="Network configuration" src="/img/common/app/network.png" width="80%">
+<img alt="Network configuration" src="/img/common/app/network.webp" width="80%">
 
 Select the type of network connection you'll be using: *Ethernet Only* or *Wifi + Ethernet*. A network connection is required to allow the device to connect to {{ $names.cloud.lower }}. Selecting *Wifi + Ethernet* allows you to enter a *Wifi SSID* and *Wifi Passphrase* which is then built into the image.
 
-<img alt="Download Image" src="/img/common/app/download_image.png" width="50%">
+<img alt="Download Image" src="/img/common/app/download_image.webp" width="50%">
 
 Finally, click the **Download {{ $names.os.lower }}** button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
 
@@ -107,7 +107,7 @@ bring up a web browser window that allows you to login to your {{ $names.cloud.l
 account. Click the **Authorize** button, and head back to the terminal after the login 
 successful message appears.
 
-<img alt="Web authorization" src="/img/common/cli/web_authorization.png" width="70%">
+<img alt="Web authorization" src="/img/common/cli/web_authorization.webp" width="70%">
 
 
 ## Create a release
@@ -177,17 +177,17 @@ You'll know your code has been successfully compiled and built when our friendly
 
 The release will then be downloaded and started by all the devices in the fleet. You can see the progress of the device code updates on the device dashboard:
 
-<img alt="Service download progress" src="/img/common/device/download-progress.png" width="100%">
+<img alt="Service download progress" src="/img/common/device/download-progress.webp" width="100%">
 
 After the download, you should now have a {{ $language.name }} web server running on your device and see some logs on your dashboard. 
 
 To give your device a public URL, click the _Public Device URL_ toggle on the device dashboard. Public device URL allow you to serve content from the device to the world easily without configuration as long as the server is running on port 80. 
 
-<img alt="Enable public URLs" src="/img/common/device/enable-public-url-device.png" width="60%">
+<img alt="Enable public URLs" src="/img/common/device/enable-public-url-device.webp" width="60%">
 
 Follow the URL to view the welcome page with additional resources. Alternatively, you can point your browser to your device's local IP address to access the server running on your device. You can find the device's IP address on the device dashboard page. This is what you should be seeing. 
 
-<img alt="Success screen 1" src="/img/getting-started/success.png" width="60%">
+<img alt="Success screen 1" src="/img/getting-started/success.webp" width="60%">
 
 
 ## Developing your project
@@ -196,11 +196,11 @@ Now, let's try making some changes to this project and testing them right on the
 
 Activate local mode on the device via the dashboard.
 
-<img alt="Enable Local Mode" src="/img/local-mode/enable-local-mode.png" width="60%">
+<img alt="Enable Local Mode" src="/img/local-mode/enable-local-mode.webp" width="60%">
 
 Once enabled, you can now use `balena push` again, but this time we will push directly to the local IP address of the device obtained via the dashboard.
 
-<img alt="Local IP address" src="/img/getting-started/local-ip-address.png" width="60%">
+<img alt="Local IP address" src="/img/getting-started/local-ip-address.webp" width="60%">
 
 ```shell
 $ {{ $names.company.lower }} push 10.19.0.153
@@ -235,7 +235,7 @@ The {{ $names.cli.lower }} will now watch for changes to all the files within th
 
 When the rebuild is complete, take a look at the public device URL again to see your changes. The welcome page should have been updated with the new title.
 
-<img alt="Success screen 2" src="/img/getting-started/success-change.png" width="60%">
+<img alt="Success screen 2" src="/img/getting-started/success-change.webp" width="60%">
 
 
 ## Next steps

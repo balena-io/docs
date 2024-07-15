@@ -33,25 +33,25 @@ Developers are given, in addition to the access provided to operators, the abili
 
 To add a new member to your fleet, click on the *Members* tab of the fleet:
 
-<img alt="Members Tab" src="/img/common/app/members_tab.png" width="15%">
+<img alt="Members Tab" src="/img/common/app/members_tab.webp" width="15%">
 
 This brings up a list of all fleet members, if any have been assigned. Click on the *Add member* button in the top left:
 
-<img alt="Create Application Member" src="/img/common/app/add_member.png" width="100%">
+<img alt="Create Application Member" src="/img/common/app/add_member.webp" width="100%">
 
 The *Add member* dialog has a dropdown with descriptions of the member types, as well as information about which types are available based on your billing plan. Choose a level of access, then enter the username or email address of the new member:
 
-<img alt="Add Application Member" src="/img/common/app/member_dialog.png" width="60%">
+<img alt="Add Application Member" src="/img/common/app/member_dialog.webp" width="60%">
 
 __Note:__ Fleet members must have already [signed up][signup] for a {{ $names.company.lower }} account before they can be added to a fleet.
 
 After you click *Add*, you will see the username of the new member in the list. From here, you can edit access levels or remove the user if necessary:
 
-<img alt="List Application Members" src="/img/common/app/member_list.png" width="100%">
+<img alt="List Application Members" src="/img/common/app/member_list.webp" width="100%">
 
 All users that have been added to a fleet will see that fleet in their dashboard, with an indicator to designate it has been shared by the fleet owner:
 
-<img alt="Shared Application" src="/img/common/app/shared_app.png" width="40%">
+<img alt="Shared Application" src="/img/common/app/shared_app.webp" width="40%">
 
 Fleet members will have the option to remove themselves from a fleet by clicking on the members tab, selecting the checkbox by their name from the member list, clicking on the *Modify* button, and selecting *Delete member*.
 

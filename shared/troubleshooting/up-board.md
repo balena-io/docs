@@ -13,7 +13,7 @@ First, make sure the device is setup correctly:
 
 Now that you have your board setup, apply power to it using the supplied 5 Vdc barrel jack. Tap the `F7` key while the BIOS is loading in order to enter the device's boot menu. If all goes according to plan, you should see the boot menu as pictured below:
 
-<img src="/img/up-board/up-board-uefi-selection.jpg" width="60%">
+<img src="/img/up-board/up-board-uefi-selection.webp" width="60%">
 
 Using the keyboard arrow keys, select the `UEFI : USB` option and hit enter. Your **{{ $device.name }}** will now boot from the {{ $device.bootMedia }} and flash {{ $names.os.lower }} onto the internal [eMMC memory][emmc-link]. If your device is correctly connected to the internet, you should see progress of the flashing on your {{ $names.company.lower }} dashboard. Once {{ $names.os.lower }} is safely flashed onto the internal eMMC memory, the device will shut itself down and you should see all the user LEDs on the board switch off.
 

@@ -35,7 +35,7 @@ To enable Single Sign-On (SSO) for balenaCloud organizations, you must establish
 2. From the balenaCloud dashboard, select the [Identity Provider](https://dashboard.balena-cloud.com/identity-provider) option from the left sidebar.
 3. Click on the Add Identity Provider button. In the dialog that appears, either upload the XML file or manually enter the IdP details.
 
-<img alt="Screenshot of Add Identity Provider form" src="/img/common/saml/add-idp-form-filled.png" width="100%">
+<img alt="Screenshot of Add Identity Provider form" src="/img/common/saml/add-idp-form-filled.webp" width="100%">
 
 To create an Identity Provider entity, start by first selecting a unique SSO identifier. This identifier will be part of your team's URL for logging in. For instance, if your organization is `ACME Corp`, you can choose your unique SSO identifier as `acme` and your team's login URL will be `https://dashboard.balena-cloud.com/saml/acme`.
 
@@ -49,7 +49,7 @@ __Note:__ Removing organizations after IdP creation will not revoke access for S
 
 You have successfully configured SAML 2.0 for your balenaCloud Enterprise SSO. Your team can now access balenaCloud securely and seamlessly through the configured Identity Provider. For instructions on how your team can log in, refer to [Authenticating as a SAML/SSO User](#authenticating-as-a-samlsso-user). If you encounter any issues or need further assistance, please contact our support team.
 
-<img alt="Fully configured IdP with two organizations associated" src="/img/common/saml/idp-with-two-orgs.png" width="100%">
+<img alt="Fully configured IdP with two organizations associated" src="/img/common/saml/idp-with-two-orgs.webp" width="100%">
 
 #### (Optional) Configure a Default Team
 
@@ -63,11 +63,11 @@ __Note__: If you unlink the default team in the Identity Provider configuration,
 
 To log in using your enterprise SAML authentication, you must first have or [create](https://dashboard.balena-cloud.com/signup) a standard balenaCloud account using your company email address. Once logged in to this account, navigate to your [user preferences](https://dashboard.balena-cloud.com/preferences/details) and click "Enable" in the "Enterprise SSO" section.
 
-<img alt="User preferences with Enable SSO button highlighted" src="/img/common/saml/merge-account-accept.png" width="100%">
+<img alt="User preferences with Enable SSO button highlighted" src="/img/common/saml/merge-account-accept.webp" width="100%">
 
 Next, provide the company `SSO Identifier` supplied by your balenaCloud organization administrator.
 
-<img alt="Enable SSO modal with SSO identifier filled in." src="/img/common/saml/add-sso-identifier-merge-modal.png" width="60%">
+<img alt="Enable SSO modal with SSO identifier filled in." src="/img/common/saml/add-sso-identifier-merge-modal.webp" width="60%">
 
 __Important:__ By activating SAML, you are transferring your personal account to a company account. **This action is non-reversible**. The following changes will occur:
 * **Your API keys will be deleted**
@@ -91,7 +91,7 @@ By clicking the Enable button, you agree to the above terms. If you have any que
 Once you have enabled SAML on your account, you can log in using the Enterprise SSO login button or the login URL provided by your balenaCloud organization administrator, e.g., `https://dashboard.balena-cloud.com/saml/acme`.
 
 <!-- TODO: Update to latest screenshot -->
-<img alt="Login page with Enterprise SSO login highlighted." src="/img/common/saml/login-page.png" width="60%">
+<img alt="Login page with Enterprise SSO login highlighted." src="/img/common/saml/login-page.webp" width="60%">
 
 Once you have enabled SAML, you can no longer log in using a `username` and `password` combination and you must always use the SSO login method.
 

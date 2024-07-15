@@ -50,7 +50,7 @@ This guide will walk you through the steps to create a SAML Identity Provider (I
 
 7. Finally, you should a custom SAML app in your Google Workspace that looks similar to this
 
-<img alt="Download XML" src="/img/common/saml/google-workspace-saml-app-final.png" width="100%">
+<img alt="Download XML" src="/img/common/saml/google-workspace-saml-app-final.webp" width="100%">
 
 ## Conclusion
 
