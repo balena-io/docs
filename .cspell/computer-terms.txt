@@ -421,6 +421,7 @@ updatability
 updateable
 upgradability
 upscript
+upvote
 usbboot
 usbutils
 userns
