@@ -12,7 +12,7 @@ on:
 jobs:
   flowzone:
     name: Flowzone
-    uses: product-os/flowzone/.github/workflows/flowzone.yml@master
+    uses: product-os/flowzone/.github/workflows/flowzone.yml@vipulgupta2048/output-cf
     # prevent duplicate workflow executions for pull_request and pull_request_target
     if: |
       (
@@ -26,3 +26,12 @@ jobs:
     with:
       cloudflare_website: "balenacloud-docs"
       docusaurus_website: false
+
+  link-check:
+    runs-on: ubuntu-latest
+    needs: [flowzone]
+    steps:
+      - name: check
+        env: 
+          BRO: ${{ needs.jobs.flowzone.outputs.cloudflare_deployment_url }}
+        run: echo $BRO
