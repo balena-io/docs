@@ -2,10 +2,10 @@
 
 # Verbose program output
 # Accepts log level: "error", "warn", "info", "debug", "trace"
-verbose = "info"
+verbose = "error"
 
 # Show progress
-progress = true
+progress = false
 
 # Path to summary output file.
 # output = "report.md"
@@ -66,7 +66,7 @@ headers = []
 # remap = [ "https://example.com http://example.invalid" ]
 
 # Base URL or website root directory to check relative URLs.
-base = "https://docs.balena.io"
+# base = "https://docs.balena.io"
 
 # HTTP basic auth support. This will be the username and password passed to the
 # authorization HTTP header. See
