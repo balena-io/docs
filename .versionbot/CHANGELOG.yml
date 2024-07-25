@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix broken links"
+      hash: fc96c3003c745f7fa6da65ddc5b4b6d5b5b7bf3a
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.66.5
+  title: ""
+  date: 2024-07-25T09:43:09.875Z
+- commits:
     - subject: Update introduction.md
       hash: 35b2007635b03196bba13f487789fecbb7c517a5
       body: |
