@@ -1,16 +1,11 @@
 name: link checker
 
 on:
-  repository_dispatch:
   # Run action manually when needed
   workflow_dispatch:
   # Check links once a week on Monday
   schedule:
     - cron: "00 00 * * 1"
-  # Runs on each PR for the master branch
-  pull_request:
-    branches:
-      - "master"
 
 jobs:
   Checking-Links:
@@ -27,38 +22,21 @@ jobs:
           node-version: 18
       - run: npm run deploy-docs
 
-      - name: Restore lychee cache
-        id: restore-cache
-        uses: actions/cache/restore@v3
-        with:
-          path: .lycheecache
-          key: cache-lychee-${{ github.sha }}
-          restore-keys: cache-lychee-
-
       # Run link checker on the generated HTML
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@2b973e86fc7b1f6b36a93795fe2c9c6ae1118621 # for v1.10.0
         with:
           args: >
+            --base https://docs.balena.io
             --config ./lychee.toml
             "build/**/*" "tools/fetch-external.sh"
           token: ${{ secrets.GITHUB_TOKEN }}
-          
 
       - name: Create Issue From File
-        if: |
-          github.event_name != 'pull_request' && 
-          env.lychee_exit_code != 0
+        if: env.lychee_exit_code != 0
         uses: peter-evans/create-issue-from-file@v4
         with:
           title: Link Checker Report
           content-filepath: ./lychee/out.md
           labels: automated issue
-
-      - name: Save lychee cache
-        uses: actions/cache/save@v3
-        if: always()
-        with:
-          path: .lycheecache
-          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
