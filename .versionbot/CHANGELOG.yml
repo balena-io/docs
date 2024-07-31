@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Check links on staging deployments"
+      hash: 91a24f6d04332d1f9740640eee9fa12bdb00ac36
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.66.6
+  title: ""
+  date: 2024-07-31T23:32:52.542Z
+- commits:
     - subject: "patch: Fix broken links"
       hash: fc96c3003c745f7fa6da65ddc5b4b6d5b5b7bf3a
       body: ""
