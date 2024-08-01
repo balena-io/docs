@@ -9,7 +9,7 @@ EXTERNAL_DOCS = /.*(python-sdk|node-sdk|balena-cli|supervisor-api|rollbacks|upda
 FB_APP_ID = '221218511385682'
 
 DOMAIN = "https://#{process.env.DOMAIN || 'balena.io'}"
-
+DEPLOYMENT_URL = "#{process.env.DEPLOYMENT_URL || 'https://docs.balena.io'}"
 MAIN_MENU_LINKS = [
   # {
   #   "title": "What is balena?",
@@ -51,7 +51,7 @@ module.exports =
   layoutLocals:
     dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
     logo: '/img/logo.svg'
-    baseUrl: process.env.BASE_URL || 'https://www.balena.io/docs'
+    baseUrl: DEPLOYMENT_URL
     menuLinks: MAIN_MENU_LINKS
     fbAppId: FB_APP_ID
-    defaultThumbnail: 'https://www.balena.io/docs/img/logo.webp'
+    defaultThumbnail: "#{DEPLOYMENT_URL}/img/logo.png"
