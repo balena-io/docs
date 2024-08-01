@@ -258,6 +258,8 @@
 # https://developers.cloudflare.com/pages/platform/redirects/
 # Dynamic redirects
 
+/img/:imagepath/*.png/ /img/:imagepath/:splat.webp
+/img/:imagepath/*.png /img/:imagepath/:splat.webp
 /deployment/network/:version/ /reference/OS/network/
 /deployment/network/:version /reference/OS/network/
 /understanding/understanding-devices/:version/ /reference/OS/overview/
