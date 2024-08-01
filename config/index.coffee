@@ -9,6 +9,8 @@ EXTERNAL_DOCS = /.*(python-sdk|node-sdk|balena-cli|supervisor-api|rollbacks|upda
 FB_APP_ID = '221218511385682'
 
 DOMAIN = "https://#{process.env.DOMAIN || 'balena.io'}"
+
+# Adding DEPLOYMENT_URL for flowzone.yml and link checking
 DEPLOYMENT_URL = "#{process.env.DEPLOYMENT_URL || 'https://docs.balena.io'}"
 MAIN_MENU_LINKS = [
   # {
