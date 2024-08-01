@@ -45,7 +45,7 @@ balena continuous integration system. This is in the process of being deprecated
 ### balena CLI 
 **(balena specific term)**
 The Command Line Interface for interacting with balenaCloud, openBalena and local balenaOS devices.
-[more](https://www.balena.io/docs/reference/balena-cli/)
+[more](https://docs.balena.io/reference/balena-cli/)
 
 ### balenaCloud
 **(balena specific term)**
@@ -73,7 +73,7 @@ On-premises fleet management, delivered as a single virtual machine that include
 ### balenaOS
 **(balena specific term)**
 An operating system optimized for running Docker containers on embedded devices, with an emphasis on reliability over long periods of operation. Based on Yocto.
-[more](https://www.balena.io/docs/reference/OS/overview/)
+[more](https://docs.balena.io/reference/OS/overview/)
 
 ### balenaOS image
 **(balena specific term)**
@@ -86,7 +86,7 @@ A reverse proxy that handles requests made to Public Device URLs by passing them
 ### balenaSDK
 **(balena specific term)**
 Balena’s Software Development Kit, allowing users to create software that can interact with balenaCloud via the balenaAPI.  Available for node.js and python.
-[more](https://www.balena.io/docs/reference/sdk/node-sdk/)
+[more](https://docs.balena.io/reference/sdk/node-sdk/)
 
 ### balena-on-balena (aka.BoB)
 **(balena specific term)**
@@ -133,7 +133,7 @@ The loop that manages balena’s legal, financial and corporate architecture and
 ### config.json
 **(configuration files are not unique to balena, but in this instance it's a reference specific to balena)**
 'The main configuration file'. A file located on the boot partition of balenaOS devices, which can be used to modify the behaviour of the OS. 
-[more](https://www.balena.io/docs/reference/OS/configuration/)
+[more](https://docs.balena.io/reference/OS/configuration/)
 
 ### Container (docker)
 'a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.'
@@ -307,7 +307,7 @@ A range of small form factor PCs from Intel.
 ### Organization (balena)
 **(balena specific term)**
 A group of members, teams, and fleets that is managed by one or more organization administrators.
-[more](https://www.balena.io/docs/learn/accounts/organizations/)
+[more](https://docs.balena.io/learn/accounts/organizations/)
 
 ## P
 
@@ -345,7 +345,7 @@ Metrics / alerting framework - used by balena-monitor. [more](https://prometheus
 ### Provisioning (balena)
 **(Provisioning is not unique to balena, but in this instance it's a reference specific to balena)**
 The process of adding a new device to a balena application.  This involves booting the device with a balenaOS image which has had the application’s provisioning key embedded (e.g. by flashing an SD card and booting from that).
-[more](https://www.balena.io/docs/learn/welcome/primer/#device-provisioning)
+[more](https://docs.balena.io/learn/welcome/primer/#device-provisioning)
 
 ## Q
 

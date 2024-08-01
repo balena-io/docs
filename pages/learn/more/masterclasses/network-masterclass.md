@@ -3,7 +3,7 @@
 There are some common networking issues that can stop several major components
 (VPN, Supervisor, balenaEngine) from working correctly.
 
-The first thing to check would be confirming if the [networking requirements](https://www.balena.io/docs/reference/OS/network/2.x/#network-requirements) are being met.
+The first thing to check would be confirming if the [networking requirements](https://docs.balena.io/reference/OS/network/2.x/#network-requirements) are being met.
 
 Additionally, services running on the device themselves may have networking requirements
 which may not be met. For example, a service may need to send data to a server, but the
