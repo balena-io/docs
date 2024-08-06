@@ -19,7 +19,7 @@ To get started with the {{$names.company.lower}} CLI, check out our [{{$names.co
 
 When you run the  `{{$names.company.lower}} push <APP_NAME or DEVICE_IP>` command from your laptop it will essentially take your project (or repository) folder, compress it and send it to the [{{$names.cloud.lower}} build server](#the-balenacloud-build-server) or local {{$names.os.lower}} device in [localMode][local-mode] where it will be built.
 
-![How {{$names.company.lower}} push works](/img/common/deployment/balena-push.jpg)
+![How {{$names.company.lower}} push works](/img/common/deployment/balena-push.webp)
 
 Once the cloud builder has successfully completed building all the images in the deployment, it will upload these images to the {{$names.cloud.lower}} registry and create a release entry in the [{{$names.company.lower}} API][api] database. It will then notify all the devices in the fleet that a new release is available. If you need to pull in proprietary code or use a private base image during your builds, you can do so using the [build time secrets](#build-time-secrets-and-variables) or [private base images](#private-base-images) feature of `{{$names.company.lower}} push`.
 
@@ -33,7 +33,7 @@ __Note:__ Refer to the [`{{$names.company.lower}} push` command reference][cli-p
 
 The `{{$names.company.lower}} deploy` is functionally very similar to [{{$names.company.lower}} push](#balena-push) but avoids pushing any source code to the [{{$names.cloud.lower}} build server](#the-balenacloud-build-server). It gives more control over how and where your container images are built, allowing for `{{$names.company.lower}} deploy` to be integrated into your own [CI/CD][continuous-deployment] build system.
 
-![How {{$names.company.lower}} deploy works](/img/common/deployment/balena-deploy.jpg)
+![How {{$names.company.lower}} deploy works](/img/common/deployment/balena-deploy.webp)
 
 With `{{$names.company.lower}} build` container images are built on your development machine or on a remote machine, by specifying a docker daemon's IP address and port number with the relevant command-line options (for example a device running a {{$names.os.lower}} [development image][development-image]). Depending on your fleet's targeted CPU architecture builds will be run emulated via [qemu][qemu].
 
@@ -51,11 +51,11 @@ The `git push {{$names.company.lower}} master` method of deployment is the origi
 
 The `git push` workflow requires that you have [git][git] installed on your development machine and that you have an SSH key [setup on your {{$names.cloud.lower}} account][add-ssh-key].
 
-![how git push works](/img/common/deployment/git-push.png)
+![how git push works](/img/common/deployment/git-push.webp)
 
 Then, simply add your {{$names.cloud.lower}} app's git endpoint to your local git repository via `git remote add {{$names.company.lower}} <fleet git endpoint>` . You can find the fleet git remote endpoint by clicking the 'Add release' button in the releases tab of the dashboard.
 
-![Where to find git remote](/img/common/deployment/git-remote.png)
+![Where to find git remote](/img/common/deployment/git-remote.webp)
 
 Whenever you subsequently need to push code to your devices, simply run
 `git push {{$names.company.lower}} master`.
@@ -196,15 +196,15 @@ For [multicontainer][multicontainer] fleets (Microservices [fleet types][app-typ
 
 All successful deployments will result in a release being added to {{$names.cloud.lower}}. These releases are tracked in their own dashboard page accessed via the fleet:
 
-![Release list](/img/common/app/release_list.png)
+![Release list](/img/common/app/release_list.webp)
 
 The releases page includes a list of all attempted and deployed releases, with information on the status of the release, when it was completed, how long it took, and how many devices are on that particular release. Clicking any row will open up a summary page specifically for that release, with windows showing the `docker-compose.yml` file and Build Logs:
 
-![Release summary](/img/common/app/release_summary.png)
+![Release summary](/img/common/app/release_summary.webp)
 
 Much like with the device list, [filters][filters] can be added to the release list by clicking *Add filter* and filling in the appropriate fields:
 
-<img alt="Add release filter" src="/img/common/app/release_filter.png" width="80%">
+<img alt="Add release filter" src="/img/common/app/release_filter.webp" width="80%">
 
 [Saved views][saved-views] can also be created to return to a specific collection of filters.
 

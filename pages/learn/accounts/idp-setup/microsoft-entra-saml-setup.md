@@ -14,7 +14,7 @@ This section provides step-by-step instructions for setting up SAML 2.0 with Mic
 4.	Select Enterprise Applications.
 5.	Click the `+ New application` button.
 
-<img alt="Create new enterprise app in Microsoft entra ID" src="/img/common/saml/microsoft-entra-id/create-new-app.png" width="100%">
+<img alt="Create new enterprise app in Microsoft entra ID" src="/img/common/saml/microsoft-entra-id/create-new-app.webp" width="100%">
 
 ## Create Your Own Application
 
@@ -23,14 +23,14 @@ This section provides step-by-step instructions for setting up SAML 2.0 with Mic
 3.	Leave the default option selected.
 4.	Click `Create`.
 
-<img alt="Create a custom app" src="/img/common/saml/microsoft-entra-id/create-your-own-application.png" width="100%">
+<img alt="Create a custom app" src="/img/common/saml/microsoft-entra-id/create-your-own-application.webp" width="100%">
 
 ## Configure Single Sign-On
 
 1.	In the left menu, click Single sign-on.
 2.	Select SAML.
 
-<img alt="Configure SSO" src="/img/common/saml/microsoft-entra-id/configure-single-sign-on.png" width="100%">
+<img alt="Configure SSO" src="/img/common/saml/microsoft-entra-id/configure-single-sign-on.webp" width="100%">
 
 ## Basic SAML Configuration
 
@@ -40,7 +40,7 @@ This section provides step-by-step instructions for setting up SAML 2.0 with Mic
 * Reply URL: https://api.balena-cloud.com/auth/saml/`< sso-identifier >`/callback
 3.	Click Save.
 
-c<img alt="Configure SSO" src="/img/common/saml/microsoft-entra-id/basic-saml-configuration.png" width="100%">
+c<img alt="Configure SSO" src="/img/common/saml/microsoft-entra-id/basic-saml-configuration.webp" width="100%">
 
 #### Set Unique User Identifier
 
@@ -49,8 +49,8 @@ c<img alt="Configure SSO" src="/img/common/saml/microsoft-entra-id/basic-saml-co
 3.	Change the Source attribute field to `user.mail`.
 4.	Click Save.
 
-<img alt="Edit Unique User Identifier row" src="/img/common/saml/microsoft-entra-id/unique-user-identifier.png" width="100%">
-<img alt="Change source attribute" src="/img/common/saml/microsoft-entra-id/change-source-attribute.png" width="100%">
+<img alt="Edit Unique User Identifier row" src="/img/common/saml/microsoft-entra-id/unique-user-identifier.webp" width="100%">
+<img alt="Change source attribute" src="/img/common/saml/microsoft-entra-id/change-source-attribute.webp" width="100%">
 
 #### Assign Users and Groups
 
@@ -58,13 +58,13 @@ c<img alt="Configure SSO" src="/img/common/saml/microsoft-entra-id/basic-saml-co
 2.	Add the users or groups you want to assign access to the SAML app.
 3.	Click Assign at the bottom left.
 
-<img alt="Assign Users or Groups" src="/img/common/saml/microsoft-entra-id/assign-users-and-groups.png" width="100%">
+<img alt="Assign Users or Groups" src="/img/common/saml/microsoft-entra-id/assign-users-and-groups.webp" width="100%">
 
 #### Download Federation Metadata XML
 
 1.	On your SAML-based Sign-on app page, look for the Download link for Federation Metadata XML.
 2.	Download this XML file to use later in [setting up your SAML IdP in balenaCloud](#link-a-saml-identity-provider).
 
-<img alt="Download XML" src="/img/common/saml/microsoft-entra-id/download-metadata-xml.png" width="100%">
+<img alt="Download XML" src="/img/common/saml/microsoft-entra-id/download-metadata-xml.webp" width="100%">
 
 Congratulations! You should now have your Identity Provider (IdP) setup, head over to the balenaCloud dashboard and follow the [instructions to link an IdP](/learn/accounts/enterprise-sso/#link-a-saml-identity-provider) by uploading the XML metadata file. Your team can then start using the Single Sign-On (SSO) functionality, allowing them to securely and seamlessly access the platform using their enterprise credentials.

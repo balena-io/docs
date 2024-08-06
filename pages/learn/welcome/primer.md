@@ -13,7 +13,7 @@ Refer to the [balena Glossary][balena-glossary] for definition on any of the ter
 
 ## On your device
 
-<img src="/img/common/architecture.png" width="60%">
+<img src="/img/common/architecture.webp" width="60%">
 
 Devices in the {{ $names.company.lower }} ecosystem run [{{ $names.os.lower }}][os], a bare-bones, [Yocto Linux][yocto] based host OS, which comes packaged with [{{ $names.engine.lower }}][engine-link], our lightweight, [Docker][docker]-compatible container engine. The host OS is responsible for kicking off the device supervisor, {{ $names.company.lower }}'s agent on your device, as well as your containerized services. Within each service's container you can specify a base OS, which can come from any existing [Docker base image][docker-images] that is compatible with your device architecture. The base OS shares a kernel with the host OS, but otherwise works independently. If you choose, your containers [can be configured][multicontainer] to run as privileged, access hardware directly, and even inject modules into the kernel. The {{ $names.company.lower }} device supervisor runs in its own container, which allows the device to continue running and pulling new code even if your application crashes.
 
@@ -33,7 +33,7 @@ First, the device connects to the network and performs its early provisioning, w
 
 `{{ $names.company.lower }} push` is the recommended method for deployment and [development](/learn/develop/local-mode/) on the {{ $names.cloud.lower }} platform. To use `{{ $names.company.lower }} push` you need to first [install the {{ $names.company.lower }} CLI](/reference/cli/#install-the-cli) and ensure you are logged in to your account with `{{ $names.company.lower }} login`.
 
-![How balena push works](/img/common/deployment/balena-push.jpg)
+![How balena push works](/img/common/deployment/balena-push.webp)
 
 ### Building containers
 
@@ -53,7 +53,7 @@ The device supervisor, using [delta updates][delta-updates], then downloads the 
 
 As the downloads proceed, you can watch the progress in the {{ $names.company.lower }} dashboard. You can click on any device to see more detailed information about the services being downloaded:
 
-![Device Summary](/img/common/device/device_summary.png)
+![Device Summary](/img/common/device/device_summary.webp)
 
 ## Device management
 

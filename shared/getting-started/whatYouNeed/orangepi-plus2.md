@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/{{ $device.id }}/{{ $device.id }}.jpg" width="25%">
+<img style="float: right;padding-left: 10px;" src="/img/{{ $device.id }}/{{ $device.id }}.webp" width="25%">
 
 * An [{{ $device.name }}][device]. See our [supported devices list][supportedDevicesList] for other boards.
 * A 4GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - use the fastest you can find.

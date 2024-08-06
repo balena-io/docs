@@ -1,4 +1,4 @@
-<img height=150px style="float: right;padding-left: 10px;" src="/img/ccimx8x-sbc-pro/ccimx8x-sbc-pro.jpg">
+<img height=150px style="float: right;padding-left: 10px;" src="/img/ccimx8x-sbc-pro/ccimx8x-sbc-pro.webp">
 
 * A [Digi ConnectCore 8X SBC Pro][ccimx8sbcpro]
 * A 16GB or larger microSD card. The [speed class][sdSpeed] of the card also matters - use the fastest you can find.

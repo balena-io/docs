@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/up-board/up-board.png" width="25%">
+<img style="float: right;padding-left: 10px;" src="/img/up-board/up-board.webp" width="25%">
 
 * An [UP board][up-board], [UP squared][up2], or [UP core][upcore]. See our [supported devices list][supportedDevicesList] for other supported boards.
 * A 4GB or larger {{ $device.bootMedia }}.

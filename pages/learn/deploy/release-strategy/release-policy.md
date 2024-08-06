@@ -15,11 +15,11 @@ By default, the setting is set to `track latest`, which means that new releases 
 
 You can set the release the fleet is pinned to via the Releases card on the on the Fleet Summary page. 
 
-<img src="/img/common/release-policy/releases_card_dropdown.png" width="100%" alt="Pin fleet to release from Releases card">
+<img src="/img/common/release-policy/releases_card_dropdown.webp" width="100%" alt="Pin fleet to release from Releases card">
 
 This can also be achieved using the `Pin to release` setting on the Fleet settings page.
 
-<img src="/img/common/release-policy/pin_to_release_setting.png" width="100%" alt="Pin fleet to release setting">
+<img src="/img/common/release-policy/pin_to_release_setting.webp" width="100%" alt="Pin fleet to release setting">
 
 The dropdown menu at each of the above locations displays all successful and valid releases for the fleet. 
 
@@ -35,19 +35,19 @@ There are several ways to achieve this from the Device dashboard. The dropdown o
 
 - On the Devices page, you can select one or more devices using the checkboxes present on the table. Next, open the `Modify` menu and select the `Pin to release` option.
 
-<img src="/img/common/release-policy/devices_table_modify.png" width="100%">
+<img src="/img/common/release-policy/devices_table_modify.webp" width="100%">
 
 - Alternatively, on hovering over the `Target release` property in the Device summary page, you will see a pencil icon appear. This can be used to pin the release as well.
 
-<img src="/img/common/release-policy/device_target_release_pencil.png" width="100%">
+<img src="/img/common/release-policy/device_target_release_pencil.webp" width="100%">
 
 - Lastly, the Settings page of a device also has the option to pin the release.
 
-<img src="/img/common/release-policy/device_settings.png" width="100%">
+<img src="/img/common/release-policy/device_settings.webp" width="100%">
 
 Once the device has been pinned to a release and updated, its `Target release` column updates to the pinned release. It will show a pin, rather than just showing the release targetted by the fleet. The `Release policy` column also updates to say `Pinned`.
 
-<img src="/img/common/release-policy/target_release_pin.png" width="100%" alt="Device release policy">
+<img src="/img/common/release-policy/target_release_pin.webp" width="100%" alt="Device release policy">
 
 You can also pin a device to a release via the CLI as follows:
 - Pin to a specific release: `balena device pin <DEVICE_UUID> <RELEASE_COMMIT>`

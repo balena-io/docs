@@ -6,7 +6,7 @@ __Note:__ Host OS SSH access is available for devices running {{ $names.os.lower
 
 To use this feature, navigate to your fleet and select the device you want to access. You will see a *Terminal* window below the *Logs* window:
 
-![SSH Terminal](/img/common/device/terminal.png)
+![SSH Terminal](/img/common/device/terminal.webp)
 
 If your device is online, select a target as either the host OS or a running service, and click the blue *>_ Start Terminal session* button. In order to start a terminal session for a service, you need to ensure that the service container is running. If the container code crashes or ends quickly, it is not possible to attach a console to it.
 
@@ -107,7 +107,7 @@ See note in the [previous section](#using-a-standalone-ssh-client) regarding the
 
 To add an SSH key, go to the _Preferences_ page of {{ $names.cloud.lower }} and select the _SSH Keys_ tab.
 
-![SSH key preferences](/img/common/main_dashboard/eekVBTI.png)
+![SSH key preferences](/img/common/main_dashboard/eekVBTI.webp)
 
 You may either import an existing SSH key from GitHub or manually enter the public SSH key of an existing SSH key on your development machine.
 

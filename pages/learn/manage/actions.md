@@ -66,15 +66,15 @@ The `Delete Device` action is an extremely dangerous action and results in disas
 
 {{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
 
-<img alt="Toggle public device URL" src="/img/common/settings/toggle-public-url.png">
+<img alt="Toggle public device URL" src="/img/common/settings/toggle-public-url.webp">
 
 To see what your device is serving on port 80, click on the [public URL][public-url]. If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
-<img alt="Public URL error" src="/img/common/settings/public-url-error.png" width="80%">
+<img alt="Public URL error" src="/img/common/settings/public-url-error.webp" width="80%">
 
 You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
 
-<img alt="Public URL toggle" src="/img/common/settings/public-url-toggle.png" width="80%">
+<img alt="Public URL toggle" src="/img/common/settings/public-url-toggle.webp" width="80%">
 
 ### Move device to another Fleet
 

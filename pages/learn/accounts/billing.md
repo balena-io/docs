@@ -6,7 +6,7 @@ title: Billing
 
 Billing in balenaCloud is managed through [organizations][organizations]. To manage billing for a specific organization, navigate to the organization and select the `Billing` tab from the sidebar on the left:
 
-<img src="/img/common/billing/billing_nav.png" width="25%">
+<img src="/img/common/billing/billing_nav.webp" width="25%">
 
 From this dashboard, you can change your billing plan, update your billing information, monitor your usage, and download invoices. If you have any questions about billing for your account, please contact [our customer success team][solutions].
 
@@ -14,15 +14,15 @@ From this dashboard, you can change your billing plan, update your billing infor
 
 To modify or upgrade your billing plan, click the "Change plan" button on the billing page:
 
-<img src="/img/common/billing/current_plan.png" width="100%">
+<img src="/img/common/billing/current_plan.webp" width="100%">
 
 Select the plan you'd like to upgrade to from the list of available options:
 
-<img src="/img/common/billing/plan_selection.png" width="100%">
+<img src="/img/common/billing/plan_selection.webp" width="100%">
 
 Enter your billing information and complete the signup process:
 
-<img src="/img/common/billing/billing_info.png" width="50%">
+<img src="/img/common/billing/billing_info.webp" width="50%">
 
 If you need to downgrade or cancel your plan, you can follow the steps mentioned above by choosing a lower tier or free plan instead.
 
@@ -32,15 +32,15 @@ Certain plans may require you to contact our customer success team in order to c
 
 At the top of the billing page, you'll find a summary of your subscription with information on the total amount and due date for your next payment:
 
-<img src="/img/common/billing/sub_sum.png" width="100%">
+<img src="/img/common/billing/sub_sum.webp" width="100%">
 
 Beneath this you can see your current usage, including [active devices][inactive] and collaborators:
 
-<img src="/img/common/billing/usage.png" width="80%">
+<img src="/img/common/billing/usage.webp" width="80%">
 
 Further down, you'll find a place to download invoices, add or edit payment methods, and update account information:
 
-<img src="/img/common/billing/account_details.png" width="100%">
+<img src="/img/common/billing/account_details.webp" width="100%">
 
 At the bottom of this page, you'll find more information on the available [plans][plans], and you can change plans as necessary.
 
@@ -52,7 +52,7 @@ Credit purchases of any size will result in paying less for device usage on the 
 
 To manage credits, navigate to the organization and select the `Credits` tab from the sidebar on the left:
 
-<img src="/img/common/billing/credits_nav.png" width="25%">
+<img src="/img/common/billing/credits_nav.webp" width="25%">
 
 On the Credits page, you're able to see credit purchase history and the number of credits that have been purchased and are still allocatable for device usage. This is also where you can initiate credit purchases. An invoice will be automatically generated and listed on the Billing page when a credit purchase is initiated.
 

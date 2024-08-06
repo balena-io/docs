@@ -1,4 +1,4 @@
-<img style="float: right;padding-left: 10px;" src="/img/intel-edison/intel-edison.jpg">
+<img style="float: right;padding-left: 10px;" src="/img/intel-edison/intel-edison.webp">
 
 * An Intel Edison
 * A base board for the edison that has an USB-OTG port. Any of the following boards will do the trick:

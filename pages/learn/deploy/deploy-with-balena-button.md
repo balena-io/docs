@@ -11,7 +11,7 @@ The **Deploy with {{ $names.company.lower }}** button allows users to perform a 
 
 Clicking the **Deploy with {{ $names.company.lower }}** button opens the {{ $names.cloud.lower }} dashboard with a modal window pre-populated with everything required to deploy a fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](#balenayml-configuration-file), then they are pre-populated in this section.
 
-<img src="https://www.balena.io/docs/img/configuration/deploy-to-balena.png" width="80%">
+<img src="/img/configuration/deploy-to-balena.webp" width="80%">
 
 Clicking _Create and deploy_ creates a new fleet and generates a release. Any devices added to the fleet will immediately download and begin running the release.
 
