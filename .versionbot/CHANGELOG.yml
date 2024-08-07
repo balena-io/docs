@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add Husky pre-commit: Convert all images to Webp"
+      hash: e1e82a14fe70d82e508fb1d2e63dd80ea41f26a8
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.66.8
+  title: ""
+  date: 2024-08-07T12:54:28.244Z
+- commits:
     - subject: "patch: Convert all images to Webp format"
       hash: 4205644fc361013c0b26c6edc3268843d40e8099
       body: |
