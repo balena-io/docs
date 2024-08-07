@@ -8,6 +8,14 @@ excerpt: WiFi adapters known to work with {{ $names.company.lower }} devices
 {{> "meta-balena/supported-wifi-adapters" }}
 
 
+Important: Our testing process is only doing a sanity check on the features that are commonly required by balenaOS using the driver provided by the manufacturer. These tests are restricted to:
+
+- Wireless station mode can connect to an AP
+- Bluetooth can scan
+- A modem can register with a network
+
+We cannot guarantee that a modem or chipset is reliable and ready for production. You should run the necessary tests to make sure about your hardware compatibility, edge case functioning, etc. 
+
 ## Supported modems 
 
 {{> "meta-balena/supported-modems" }}
