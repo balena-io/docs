@@ -13,7 +13,10 @@ REPO_URL="https://github.com/balena-io/contracts.git"
 
 # Partial path for the generated markdown file
 PARTIAL_PATH="shared/general/base-images.md"
-rm "$PARTIAL_PATH"
+
+if [ -f "$PARTIAL_PATH" ]; then
+    rm "$PARTIAL_PATH"
+fi
 
 echo "Generating base images docs"
 

@@ -9,11 +9,17 @@ excerpt: Docker images maintained by balena
 
 [`balenalib`](https://hub.docker.com/u/balenalib/) is the central home for 26000+ IoT focused Docker images built specifically for [balenaCloud](https://www.balena.io/cloud/) and [balenaOS](https://www.balena.io/os/). This set of images provide a way to get up and running quickly and easily, while still providing the option to deploy slim secure images to the edge when you go to production.
 
-## Features Overview
+### Supported Architectures, Distros and Languages
+
+Currently, balenalib supports the following OS distributions and Language stacks, if you would like to see others added, create an issue on the [balena base images repo]({{ $links.githubLibrary }}/base-images/issues).
 
 {{>"general/base-images"}}
+
+## Features Overview
+
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
+- Provide access to [dynamically plugged devices](#working-with-dynamically-plugged-devices) in your container by enabling [`udevd`][udevd-link].  
 - Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
 
 ## How to Pick a Base Image
@@ -92,25 +98,6 @@ COPY main.js main.js
 
 CMD ["node", "main.js"]
 ```
-
-### Supported Architectures, Distros and Languages
-
-Currently, balenalib supports the following OS distributions and Language stacks, if you would like to see others added, create an issue on the [balena base images repo]({{ $links.githubLibrary }}/base-images/issues).
-
-| Distribution | Default (latest)             | Supported Architectures                      |
-| ------------ | ---------------------------- | -------------------------------------------- |
-| Debian       | Debian GNU/Linux 11 (bullseye) | armv6, armv7hf, aarch64, amd64, i386 |
-| Alpine       | Alpine Linux v3.17           | armv6, armv7hf, aarch64, amd64, i386         |
-| Ubuntu       | 22.04 LTS (jammy)           | armv7hf, aarch64, amd64, i386                |
-| Fedora       | Fedora 37                    | armv7hf, aarch64, amd64, i386                |
-
-| Language | Default (latest) | Supported Architectures                      |
-| -------- | ---------------- | -------------------------------------------- |
-| Node.js  | 19.6.0           | armv6, armv7hf, aarch64, amd64, i386         |
-| Python   | 3.11.2           | armv6, armv7hf, aarch64, amd64, i386 |
-| OpenJDK  | 11-jdk           | armv7hf, aarch64, amd64, i386, armv6         |
-| Go       | 1.20.0             | armv7hf, aarch64, amd64, i386, armv6         |
-| Dotnet   | 7.0-sdk          | amd64                      |
 
 #### Notes
 
