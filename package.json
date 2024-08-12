@@ -45,7 +45,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "cspell": "^8.9.1",
+    "cspell": "^8.13.3",
     "css-loader": "5.2.7",
     "file-loader": "6.2.0",
     "husky": "^9.1.4",
