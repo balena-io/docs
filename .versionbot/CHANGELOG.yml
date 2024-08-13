@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Generate base images stack versions automatically"
+      hash: dd07dea3ee6c7f04e7817c711558db211227e105
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.66.9
+  title: ""
+  date: 2024-08-13T12:40:08.197Z
+- commits:
     - subject: "patch: Add Husky pre-commit: Convert all images to Webp"
       hash: e1e82a14fe70d82e508fb1d2e63dd80ea41f26a8
       body: ""
