@@ -105,4 +105,7 @@ cd shared/sdk/ && {
 # get latest python SDK docs
 curl --fail --show-error -o pages/reference/sdk/python-sdk.md -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md &
 
+# get latest base images ref docs
+curl --fail --show-error -o pages/reference/base-images/base-images-ref.md -L https://github.com/balena-io-library/base-images/tree/master/docs/base-images-ref.md &
+
 wait
