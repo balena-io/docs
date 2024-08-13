@@ -7,11 +7,11 @@ excerpt: Docker images maintained by balena
 
 # {{ $names.company.upper }} base images
 
-[`balenalib`](https://hub.docker.com/u/balenalib/) is the central home for 26000+ IoT focused Docker images built specifically for [balenaCloud](https://www.balena.io/cloud/) and [balenaOS](https://www.balena.io/os/). This set of images provide a way to get up and running quickly and easily, while still providing the option to deploy slim secure images to the edge when you go to production.
+Balenalib is the central home for [26000+ IoT focused Docker images](https://hub.docker.com/u/balenalib/) built specifically for [balenaCloud](https://www.balena.io/cloud/) and [balenaOS](https://www.balena.io/os/). This set of images provide a way to get up and running quickly and easily, while still providing the option to deploy slim secure images to the edge when you go to production.
 
-### Supported Architectures, Distros and Languages
+## Supported Architectures, Distros and Languages
 
-Currently, balenalib supports the following OS distributions and Language stacks, if you would like to see others added, create an issue on the [balena base images repo]({{ $links.githubLibrary }}/base-images/issues).
+Currently, balenalib supports the following OS distributions and Language stacks. If you would like to see others added, create an issue on the [balena base images repo]({{ $links.githubLibrary }}/base-images/issues).
 
 {{>"general/base-images"}}
 
