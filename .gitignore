@@ -3,6 +3,7 @@ node_modules/
 server/nav.json
 npm-debug.log
 static/dist
+contracts/
 
 .#*
 
@@ -45,6 +46,9 @@ shared/masterclass
 # Ignore dynamic assets generated for Getting Started
 static/img/device/**
 config/dictionaries/device.json
+
+# Ignore generated docs for base images
+shared/general/base-images.md
 
 # Curl error output
 output

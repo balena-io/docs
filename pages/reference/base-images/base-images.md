@@ -1,34 +1,25 @@
 ---
 title: Balena base images
 excerpt: Docker images maintained by balena
+
+
 ---
 
 # {{ $names.company.upper }} base images
 
 [`balenalib`](https://hub.docker.com/u/balenalib/) is the central home for 26000+ IoT focused Docker images built specifically for [balenaCloud](https://www.balena.io/cloud/) and [balenaOS](https://www.balena.io/os/). This set of images provide a way to get up and running quickly and easily, while still providing the option to deploy slim secure images to the edge when you go to production.
 
+### Supported Architectures, Distros and Languages
+
+Currently, balenalib supports the following OS distributions and Language stacks, if you would like to see others added, create an issue on the [balena base images repo]({{ $links.githubLibrary }}/base-images/issues).
+
+{{>"general/base-images"}}
+
 ## Features Overview
 
-- Multiple Architectures:
-  - armv5e
-  - armv6
-  - armv7hf
-  - aarch64
-  - amd64
-  - i386
-- Multiple Distributions:
-  - [Debian](https://www.debian.org/): buster (10), bullseye (11), bookworm (12) and sid
-  - [Alpine](https://alpinelinux.org/): 3.12, 3.13, 3.14, 3.15, 3.16, 3.17 and edge
-  - [Ubuntu](https://www.ubuntu.com/): xenial (16.04), bionic (18.04), focal (20.04), impish (21.10), kinetic (22.10) and jammy (22.04)
-  - [Fedora](https://getfedora.org/): 36, 37 and 38
-- Multiple language stacks:
-  - [Node.js](https://nodejs.org/en/): 14.21.3, 16.19.1, 18.14.1, 19.6.1 and 20.12.0
-  - [Python](https://www.python.org/):  3.7.16, 3.8.16, 3.9.16, 3.10.10 and 3.11.2
-  - [openJDK](https://openjdk.java.net/): 7-jdk/jre, 8-jdk/jre, 11-jdk/jre and 16-jdk
-  - [Golang](https://golang.org/): , 1.18.10, 1.19.5 and 1.20
-  - [Dotnet](https://docs.microsoft.com/en-gb/dotnet/core/): 6.0-sdk/runtime/aspnet and 7.0-sdk/runtime/aspnet
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
+- Provide access to [dynamically plugged devices](#working-with-dynamically-plugged-devices) in your container by enabling [`udevd`][udevd-link].  
 - Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
 
 ## How to Pick a Base Image
@@ -54,8 +45,8 @@ balenalib/<hw>-<distro>-<lang_stack>:<lang_ver>-<distro_ver>-(build|run)-<yyyymm
 
 In the tags, all of the fields are optional, and if they are left out, they will default to their `latest` pointer.
 
-- `<lang_ver>` is the version of the language stack, for example, Node.js 10.10, it can also be substituted for `latest`.
-- `<distro_ver>` is the version of the Linux distro, for example in the case of Debian, there are 4 valid versions, namely buster (10), bullseye (11), bookworm (12) and sid.
+- `<lang_ver>` is the version of the language stack, for example, Node.js 20.12.0, it can also be substituted for `latest`.
+- `<distro_ver>` is the version of the Linux distro, for example Debian and it's valid version as mentioned above in the list.
 - For each combination of distro and stack, we have two variants called `run` and `build`. The build variant is much heavier as it has a number of tools preinstalled to help with building source code. You can see an example of the tools that are included in the [Debian variants][debian-variants]. Navigate to the Distro version you are looking for and find the `build` and `run` variants of the image. The `run` variants are stripped down and only include a few useful runtime tools. If no variant is specified, the image defaults to `run`.
 - The last optional field on tags is the date tag `<yyyymmdd>`. If a date tag is specified, the pinned release will always be pulled from Docker Hub, even if there is a new one available. 
 
@@ -107,25 +98,6 @@ COPY main.js main.js
 
 CMD ["node", "main.js"]
 ```
-
-### Supported Architectures, Distros and Languages
-
-Currently, balenalib supports the following OS distributions and Language stacks, if you would like to see others added, create an issue on the [balena base images repo]({{ $links.githubLibrary }}/base-images/issues).
-
-| Distribution | Default (latest)             | Supported Architectures                      |
-| ------------ | ---------------------------- | -------------------------------------------- |
-| Debian       | Debian GNU/Linux 11 (bullseye) | armv6, armv7hf, aarch64, amd64, i386 |
-| Alpine       | Alpine Linux v3.17           | armv6, armv7hf, aarch64, amd64, i386         |
-| Ubuntu       | 22.04 LTS (jammy)           | armv7hf, aarch64, amd64, i386                |
-| Fedora       | Fedora 37                    | armv7hf, aarch64, amd64, i386                |
-
-| Language | Default (latest) | Supported Architectures                      |
-| -------- | ---------------- | -------------------------------------------- |
-| Node.js  | 19.6.0           | armv6, armv7hf, aarch64, amd64, i386         |
-| Python   | 3.11.2           | armv6, armv7hf, aarch64, amd64, i386 |
-| OpenJDK  | 11-jdk           | armv7hf, aarch64, amd64, i386, armv6         |
-| Go       | 1.20.0             | armv7hf, aarch64, amd64, i386, armv6         |
-| Dotnet   | 7.0-sdk          | amd64                      |
 
 #### Notes
 
