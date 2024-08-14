@@ -106,6 +106,10 @@ cd shared/sdk/ && {
 curl --fail --show-error -o pages/reference/sdk/python-sdk.md -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md &
 
 # get latest base images ref docs
-curl --fail --show-error -o pages/reference/base-images/base-images-ref.md -L https://github.com/balena-io-library/base-images/tree/master/docs/base-images-ref.md &
+cd pages/reference/base-images/ && {
+  curl --fail --show-error -O base-images-ref.md -L https://github.com/balena-io-library/base-images/raw/master/docs/base-images-ref.md
+  echo "# Base Images List" >base-images-ref.md
+} &
+
 
 wait
