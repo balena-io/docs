@@ -40,6 +40,8 @@ pages/reference/OS/updates/rollbacks.md
 pages/reference/OS/customer-board-support.md
 pages/reference/OS/debugging-balenaos.md
 
+pages/reference/base-images/base-images-ref.md
+
 # Ignore dynamic docs created for masterclasses
 shared/masterclass
 
