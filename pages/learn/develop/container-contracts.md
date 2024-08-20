@@ -44,7 +44,7 @@ requires:
 
 **Note** If `type`, `slug`, or `name` are omitted, the build will fail.
 
-Multiple requirements may be added to a single contract. The following example requires that the Supervisor version is greater than or equal to 10.6.17, and the L4T version is greater than or equal to 32.2.
+Multiple requirements may be added to a single contract. The following example requires that the Supervisor version is greater than or equal to 10.6.17, the L4T version is greater than or equal to 32.2, and the [device type][device-type] is a Jetson Nano.
 
 ```yaml
 type: "sw.container"
@@ -55,15 +55,17 @@ requires:
     version: ">=10.6.17"
   - type: "sw.l4t"
     version: ">=32.2.0"
+  - type: "hw.device-type"
+    slug: "jetson-nano"
 ```
 
 ## Valid contract types
 
 | Contract type  | Description                                                      | Valid from |
 |----------------|------------------------------------------------------------------|------------|
-| sw.supervisor  | Device Supervisor version                                        | 10.16.17   |
-| sw.l4t         | [L4T][l4t] version                                               | 10.16.17   |
-| hw.device-type | The [device type][device-type] as given by `BALENA_MACHINE_NAME` | 11.1.0     |
+| sw.supervisor  | Device Supervisor version (specified as `version`)               | 10.16.17   |
+| sw.l4t         | [L4T][l4t] version (specified as `version`)                      | 10.16.17   |
+| hw.device-type | The [device type][device-type] as given by `BALENA_MACHINE_NAME` (specified as `slug`) | 11.1.0     |
 
 **Note** Any `requires` type other than those listed in the [valid contract types][valid-contracts] table will result in the contract being invalid.
 
