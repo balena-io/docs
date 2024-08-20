@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add additional container contracts info
+      hash: a9b179bac95e78784e6a97662a2e659d1fb5a9ee
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Chris Crocker-White <chriscw@balena.io>
+        signed-off-by: Chris Crocker-White <chriscw@balena.io>
+      author: Chris Crocker-White
+      nested: []
+  version: 5.66.11
+  title: ""
+  date: 2024-08-20T15:27:18.636Z
+- commits:
     - subject: "patch: Add base-images-ref docs from base-images repository"
       hash: 7f88f79916bb6c67b79d9462d2657163ea4ab3eb
       body: ""
