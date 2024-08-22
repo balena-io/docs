@@ -15,5 +15,5 @@ If you intend to use [hardware Rev 1.5][hardware-troubleshooting] of the Raspber
 [sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [wifiAdapters]:/reference/hardware/wifi-dongles/
 [supportedDevicesList]:/reference/hardware/devices/
-[hardware-troubleshooting]:/faq/troubleshooting/troubleshooting/#balenaos-boot-issues-with-new-hardware-revision-of-rpi4 
+[hardware-troubleshooting]:/faq/troubleshooting/raspberrypi4-64#balenaos-boot-issues-with-new-hardware-revision-of-rpi4 
 [link-to-signup]:{{ $links.dashboardUrl }}/signup

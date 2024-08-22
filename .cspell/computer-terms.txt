@@ -124,7 +124,7 @@ domelementtype
 domhandler
 domutils
 driftfile
-drwxr
+drwx
 drwxr
 dtoverlay
 dtparam
@@ -216,6 +216,7 @@ keyv
 klaw
 Lamtzidis
 LBEL
+ldconfig
 leds
 libasound
 libmraa

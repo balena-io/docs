@@ -30,4 +30,4 @@ __Note__: The `BALENA_SUPERVISOR_HARDWARE_METRICS` configuration variable may be
 [api]:/reference/api/overview/
 [node-sdk]:/reference/sdk/node-sdk/
 [python-sdk]:/reference/sdk/python-sdk/
-[choose-power-supply-unit]:/faq/troubleshooting/faq/#what-to-keep-in-mind-when-choosing-power-supply-units
+[choose-power-supply-unit]:/faq/questions/#what-to-keep-in-mind-when-choosing-power-supply-units

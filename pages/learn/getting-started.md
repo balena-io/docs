@@ -289,4 +289,4 @@ When it's finished building the device(s) will update as before. Remember anythi
 
 <!-- Provision device links -->
 
-[troubleshooting-{{ $device.id }}]:/faq/troubleshooting/troubleshooting/{{ $device.id }}
+[troubleshooting-{{ $device.id }}]:/faq/troubleshooting/{{ $device.id }}

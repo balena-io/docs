@@ -100,13 +100,13 @@ Learn
     [/learn/more/anti-patterns]
 
 FAQ
-  [/faq/troubleshooting/faq]
+  [/faq/questions/]
   # Handled in redirects.txt
-  Troubleshooting[/faq/troubleshooting/troubleshooting]
+  Troubleshooting[/faq/troubleshooting]
     # with $device being dynamic
-    Troubleshooting for {{ $device.name }}[/faq/troubleshooting/troubleshooting/$device]
-  [/faq/troubleshooting/debugging-device-gateway]
-  [/faq/troubleshooting/debugging-storage-media]
+    Troubleshooting for {{ $device.name }}[/faq/troubleshooting/$device]
+  [/faq/debugging-device-gateway]
+  [/faq/debugging-storage-media]
 
 
 Reference

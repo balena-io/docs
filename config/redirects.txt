@@ -58,8 +58,8 @@
 /learn/getting-started /learn/getting-started/raspberrypi5/nodejs/ 301
 /reference/supervisor/configuration-list/ /reference/supervisor/configuration-list/raspberrypi5/
 /reference/supervisor/configuration-list /reference/supervisor/configuration-list/raspberrypi5/
-/faq/troubleshooting/troubleshooting/ /faq/troubleshooting/troubleshooting/raspberrypi5/
-/faq/troubleshooting/troubleshooting /faq/troubleshooting/troubleshooting/raspberrypi5/
+/faq/troubleshooting/troubleshooting/ /faq/troubleshooting/raspberrypi5/
+/faq/troubleshooting/troubleshooting /faq/troubleshooting/raspberrypi5/
 /learn/develop/ /learn/develop/local-mode/
 /learn/develop /learn/develop/local-mode/
 /learn/develop/cloud-iot-provisioning/ /learn/develop/cloud-iot-provisioning/aws/
@@ -70,8 +70,8 @@
 /learn/deploy/build-optimisation /learn/deploy/build-optimization/
 /learn/manage/ /learn/manage/actions/
 /learn/manage /learn/manage/actions/
-/faq/ /faq/troubleshooting/faq/
-/faq /faq/troubleshooting/faq/
+/faq/ /faq/questions/
+/faq /faq/questions/
 /reference/ /reference/hardware/devices/
 /reference /reference/hardware/devices/
 /reference/api/ /reference/api/overview/
@@ -178,14 +178,14 @@
 /advanced/resources /learn/more/resources/
 /examples/ /learn/more/examples/
 /examples /learn/more/examples/
-/troubleshooting/faq/ /faq/troubleshooting/faq/
-/troubleshooting/faq /faq/troubleshooting/faq/
-/troubleshooting/troubleshooting/ /faq/troubleshooting/troubleshooting/
-/troubleshooting/troubleshooting /faq/troubleshooting/troubleshooting/
-/troubleshooting/error/ /faq/troubleshooting/troubleshooting/
-/troubleshooting/error /faq/troubleshooting/troubleshooting/
-/troubleshooting/cli-troubleshooting/ /faq/troubleshooting/troubleshooting/
-/troubleshooting/cli-troubleshooting /faq/troubleshooting/troubleshooting/
+/troubleshooting/faq/ /faq/questions/
+/troubleshooting/faq /faq/questions/
+/troubleshooting/troubleshooting/ /faq/troubleshooting/
+/troubleshooting/troubleshooting /faq/troubleshooting/
+/troubleshooting/error/ /faq/troubleshooting/
+/troubleshooting/error /faq/troubleshooting/
+/troubleshooting/cli-troubleshooting/ /faq/troubleshooting/
+/troubleshooting/cli-troubleshooting /faq/troubleshooting/
 /hardware/devices/ /reference/hardware/devices/
 /hardware/devices /reference/hardware/devices/
 /runtime/supervisor-api/ /reference/supervisor/supervisor-api/
@@ -237,7 +237,6 @@
 /learn/more/examples/seed-projects /learn/more/examples/labs-projects
 /learn/more/examples/seed-projects/ /learn/more/examples/labs-projects
 
-
 # Accounts & Billing restructure
 /learn/manage/account/ /learn/accounts/account/
 /learn/manage/account /learn/accounts/account/
@@ -253,6 +252,13 @@
 /learn/manage/apps/ /learn/develop/apps/
 /learn/manage/apps /learn/develop/apps/
 
+# FAQ restructure
+/faq/troubleshooting/faq/ /faq/questions/
+/faq/troubleshooting/faq /faq/questions/
+/faq/troubleshooting/debugging-device-gateway/ /faq/debugging-device-gateway/
+/faq/troubleshooting/debugging-device-gateway /faq/debugging-device-gateway/
+/faq/troubleshooting/debugging-storage-media/ /faq/debugging-storage-media/
+/faq/troubleshooting/debugging-storage-media /faq/debugging-storage-media/
 
 # Important: keep dynamic redirect below the static redirects
 # https://developers.cloudflare.com/pages/platform/redirects/
@@ -268,6 +274,8 @@
 /reference/OS/overview/:version /reference/OS/overview/
 /reference/OS/network/:version/ /reference/OS/network/
 /reference/OS/network/:version /reference/OS/network/
+/faq/troubleshooting/troubleshooting/:devicetype/ /faq/troubleshooting/:devicetype/
+/faq/troubleshooting/troubleshooting/:devicetype /faq/troubleshooting/:devicetype/
 
 ## Removed Getting Started guides
 
