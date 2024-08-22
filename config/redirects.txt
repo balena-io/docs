@@ -82,8 +82,8 @@
 /using/dockerfile /learn/develop/dockerfile/
 /runtime/migrate-to-2.0/ /reference/OS/updates/migrate-to-2.0/
 /runtime/migrate-to-2.0 /reference/OS/updates/migrate-to-2.0/
-/configuration/resin-base-images/ /reference/base-images/resin-base-images/
-/configuration/resin-base-images /reference/base-images/resin-base-images/
+/configuration/resin-base-images/ /reference/base-images/balena-base-images/
+/configuration/resin-base-images /reference/base-images/balena-base-images/
 /deployment/wifi/ /reference/OS/network/2.x/
 /deployment/wifi /reference/OS/network/2.x/
 /runtime/terminal/ /learn/manage/ssh-access/
@@ -198,8 +198,8 @@
 /tools/sdk /reference/sdk/node-sdk/
 /tools/python-sdk/ /reference/sdk/python-sdk/
 /tools/python-sdk /reference/sdk/python-sdk/
-/runtime/resin-base-images/ /reference/base-images/base-images/
-/runtime/resin-base-images /reference/base-images/base-images/
+/runtime/resin-base-images/ /reference/base-images/balena-base-images/
+/runtime/resin-base-images /reference/base-images/balena-base-images/
 /configuration/custom-docker-base-images/ /reference/base-images/customer-docker-base-images/
 /configuration/custom-docker-base-images /reference/base-images/customer-docker-base-images/
 /deployment/docker-templates/ /learn/develop/dockerfile/
@@ -218,8 +218,8 @@
 /reference/OS/meta-balena /reference/OS/customer-board-support/
 /reference/OS/custom-device-support/ /reference/OS/customer-board-support/
 /reference/OS/custom-device-support /reference/OS/customer-board-support/
-/reference/base-images/resin-base-images/ /reference/base-images/base-images/
-/reference/base-images/resin-base-images /reference/base-images/base-images/
+/reference/base-images/resin-base-images/ /reference/base-images/balena-base-images/
+/reference/base-images/resin-base-images /reference/base-images/balena-base-images/
 /reference/api/resources/application/ /reference/api/resources/fleet/
 /reference/api/resources/application /reference/api/resources/fleet/
 /learn/manage/app-types/ /learn/accounts/fleet-types/
@@ -259,6 +259,10 @@
 /faq/troubleshooting/debugging-device-gateway /faq/debugging-device-gateway/
 /faq/troubleshooting/debugging-storage-media/ /faq/debugging-storage-media/
 /faq/troubleshooting/debugging-storage-media /faq/debugging-storage-media/
+
+# base images restructure
+/reference/base-images/base-images/ /reference/base-images/balena-base-images/
+/reference/base-images/base-images /reference/base-images/balena-base-images/
 
 # Important: keep dynamic redirect below the static redirects
 # https://developers.cloudflare.com/pages/platform/redirects/

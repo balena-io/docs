@@ -141,7 +141,7 @@ Reference
 
 
   Base images
-    [/reference/base-images/base-images]
+    [/reference/base-images/balena-base-images]
     [/reference/base-images/base-images-ref]
     [/reference/base-images/devicetypes]
 
