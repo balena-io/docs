@@ -258,7 +258,7 @@
 /faq/troubleshooting/debugging-device-gateway/ /faq/debugging-device-gateway/
 /faq/troubleshooting/debugging-device-gateway /faq/debugging-device-gateway/
 /faq/troubleshooting/debugging-storage-media/ /faq/debugging-storage-media/
-/faq/troubleshooting/debugging-storage-media  /faq/debugging-storage-media/
+/faq/troubleshooting/debugging-storage-media /faq/debugging-storage-media/
 
 # Important: keep dynamic redirect below the static redirects
 # https://developers.cloudflare.com/pages/platform/redirects/
