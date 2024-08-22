@@ -46,7 +46,6 @@
     "ignorePaths": [
         "node_modules",
         "CHANGELOG.md",
-        "pages/faq/troubleshooting/debugging-*.md",
         "config/redirects.txt",
         "pages/reference/base-images/base-images-ref.md"
     ]

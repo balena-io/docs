@@ -42,7 +42,7 @@ the returned figures will be in block sizes (usually 1k or 512byte blocks).
 The two main mounts where full space problems commonly occur are `/mnt/data` and
 `/mnt/state`. The former is the data partition where all service images, containers
 and volumes are stored. The latter is the state partition, where overlays for the
-root FS (such as user defined network configuraions) and the permanent logs
+root FS (such as user defined network configurations) and the permanent logs
 are stored.
 
 There are a few ways to try and relieve out of space issues on a media drive.
@@ -219,4 +219,4 @@ Similar commands to check for storage corruption although can sometime provide f
 journalctl -n 10000 | grep "corrupt|Data will be lost|block allocation failed|invalid magic|dockerd: error -117|EXT4-fs error|error count since last fsck|failed checksum|checksum invalid|Please run e2fsck|I/O error"
 ```
 
-Messages from the command output should be carefully observed and verfied to troubleshoot storage corruption. 
+Messages from the command output should be carefully observed and verified to troubleshoot storage corruption. 
