@@ -170,7 +170,7 @@ The Intel NUC images are images purposely built to match the Intel NUC hardware.
 [forums]:{{ $names.forums_domain }}/c/troubleshooting
 
 [device-types]: /reference/base-images/devicetypes
-[base-image]: /reference/base-images/base-images
+[base-image]: /reference/base-images/balena-base-images
 [dockerfile]: /learn/develop/dockerfile
 [multicontainer]: /learn/develop/multicontainer
 [app-types]: /learn/manage/app-types
