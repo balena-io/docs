@@ -1,7 +1,6 @@
 ---
 title: Balena base images
-excerpt: Docker images maintained by balena
-
+excerpt: Docker images published and maintained by balena
 
 ---
 

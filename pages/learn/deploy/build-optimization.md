@@ -132,5 +132,5 @@ path-include /usr/share/locale/en*
 [docker-best-practices]:https://docs.docker.com/articles/dockerfile_best-practices/
 [services-masterclass]:/learn/more/masterclasses/services-masterclass/#6-multi-stage-builds
 [scratch]:https://hub.docker.com/_/scratch
-[run-vs-build]:/reference/base-images/base-images/#run-vs-build
-[install-packages]:/reference/base-images/base-images/#installing-packages
+[run-vs-build]:/reference/base-images/balena-base-images/#run-vs-build
+[install-packages]:/reference/base-images/balena-base-images/#installing-packages

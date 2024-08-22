@@ -581,8 +581,8 @@ To re-enable IPv6 follow the same commands but with `set ipv6.method enable`.
 [network-manager-examples]:https://wiki.gnome.org/Projects/NetworkManager/Developers#Show_me_more_examples.21 "NetworkManager: Show me more examples!"
 [redsocks]:https://github.com/darkk/redsocks
 [redsocks-conf-example]:https://github.com/darkk/redsocks/blob/master/redsocks.conf.example
-[python-base-images]:/reference/base-images/base-images/
-[python-build-images]:/reference/base-images/base-images/#run-vs-build
+[python-base-images]:/reference/base-images/balena-base-images/
+[python-build-images]:/reference/base-images/balena-base-images/#run-vs-build
 [nm-connectivity]:https://networkmanager.dev/docs/api/latest/NetworkManager.conf.html
 [wifi-dongles]:/reference/hardware/wifi-dongles
 [meta-balena-connectivity]:{{ $links.githubOS }}/meta-balena#connectivity
