@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Move pages from /faq/troubleshooting to /faq/"
+      hash: c5626e0a50e054b111448157303830adf501eafc
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.66.13
+  title: ""
+  date: 2024-08-22T18:16:58.304Z
+- commits:
     - subject: "patch: Add _headers file"
       hash: 4103354ea57d914ab9206d1f1714080b77de07bc
       body: ""
