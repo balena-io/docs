@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Rename base-images.md to balena-base-images.md"
+      hash: c104fc071026a3d5c62706dc150b4b7be3e8519b
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.66.14
+  title: ""
+  date: 2024-08-22T21:05:46.296Z
+- commits:
     - subject: "patch: Move pages from /faq/troubleshooting to /faq/"
       hash: c5626e0a50e054b111448157303830adf501eafc
       body: ""
