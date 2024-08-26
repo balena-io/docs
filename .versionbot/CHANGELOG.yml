@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Reduce title text to 70 characters"
+      hash: 55052d16058542b435910cfd5ebd254da698c689
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.66.15
+  title: ""
+  date: 2024-08-26T12:49:10.917Z
+- commits:
     - subject: "patch: Rename base-images.md to balena-base-images.md"
       hash: c104fc071026a3d5c62706dc150b4b7be3e8519b
       body: ""
