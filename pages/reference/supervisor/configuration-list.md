@@ -1,5 +1,5 @@
 ---
-title: Configuration List for {{ $device.name }} | balena
+title: Configuration List for {{ $device.name }}
 
 layout: config.html
 extras: config-js
