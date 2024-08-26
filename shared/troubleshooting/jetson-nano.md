@@ -1,4 +1,4 @@
-### Unable to boot balenaOS image downloaded from Balena cloud
+### Unable to boot balenaOS image downloaded from balenaCloud
 
 Starting with L4T 32.5, all bootloaders and firmware on the Jetson Nano family of boards have been moved from the sd-card/eMMC to the device's QSPI flash memory. L4T 32.5 and newer bootloaders are not compatible with previous L4T releases.
 

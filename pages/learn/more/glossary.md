@@ -363,7 +363,7 @@ Amazon Redshift is a cloud data warehouse used to process large amounts of data,
 A snapshot of code collected into one or more [Docker images](#docker-image).
 
 ### Resin
-The former name for Balena, changed late 2018.
+The former name for balena, changed late 2018.
 
 ### Rulemotion
 The former name for Resin.

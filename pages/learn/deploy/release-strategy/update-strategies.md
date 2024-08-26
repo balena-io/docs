@@ -22,7 +22,7 @@ Setting the `io.balena.update.strategy` label to a valid value selects the updat
 
 which are explained below. The `io.balena.update.handover-timeout` label is only used in the  `hand-over` strategy, and its use is explained in the [strategy's description](#hand-over).
 
-__Note:__ Prior to Balena Supervisor v7.23.0 the strategy was controlled by two configuration variables, `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`, which had the same effect as the labels do today. 
+__Note:__ Prior to balena Supervisor v7.23.0 the strategy was controlled by two configuration variables, `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`, which had the same effect as the labels do today. 
 This mechanism for controlling the strategy is considered _deprecated_ and may be removed in the future.
 
 All update strategies below honor the [fleet update locks][update-locks] which you can use prevent updates temporarily.
