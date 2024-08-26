@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Remove balena suffix from configurations list"
+      hash: 3833eb3865ac5cdce919b7c42b13e1ffad4434ea
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 5.66.16
+  title: ""
+  date: 2024-08-26T19:48:22.711Z
+- commits:
     - subject: "patch: Reduce title text to 70 characters"
       hash: 55052d16058542b435910cfd5ebd254da698c689
       body: ""
