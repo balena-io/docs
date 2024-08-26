@@ -1,5 +1,5 @@
 ---
-title: Get Started with {{ $names.cloud.lower }} using {{ $device.name }} and {{ $language.name }}
+title: "Getting started: {{ $device.name }} and {{ $language.name }}"
 
 layout: getting-started.html
 

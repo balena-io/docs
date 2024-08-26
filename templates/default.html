@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>{{ title }} - {{ $names.company.upper }} Documentation</title>
+    <title>{{ title }} | {{ $names.company.lower }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
 
@@ -11,7 +11,7 @@
       <meta property="fb:app_id" content="{{ fbAppId }}" />
     {% endif %}
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ title }} - {{ $names.company.upper }} Documentation" />
+    <meta property="og:title" content="{{ title }} | {{ $names.company.lower }}" />
     {% if excerpt %}
       <meta property="og:description" content="{{ excerpt }}" />
     {% endif %}

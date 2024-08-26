@@ -2,7 +2,7 @@
 ### Are L4T 28.4 and 28.5 releases supported in balenaOS?
 
 The L4T versions 28.4 and 28.5 did not follow the usual incremental release process, instead these version were released in July 2020 and July 2021 respectively, after the first iterations of L4T 32.X were released.
-Since balenaOS uses the [OE4T/meta-tegra][meta-tegra] yocto repository and only updates to incremetal versions of L4T, balenaOS images based on 28.4 and and 28.5 which were released after L4T 32.1 are not available in the Balena cloud.
+Since balenaOS uses the [OE4T/meta-tegra][meta-tegra] yocto repository and only updates to incremetal versions of L4T, balenaOS images based on 28.4 and and 28.5 which were released after L4T 32.1 are not available in the balenaCloud.
 
 ### Can a balenaOS update from an older L4T 28.X based release to a newer L4T 32.X be interrupted? Can I boot back into the old OS?
 
