@@ -614,6 +614,14 @@
         "filters": "?\\$filter=service_install/any(si:si/device/any(d:d/uuid%20eq%20'<DEVICE_UUID>'))"
       },
       {
+        "id": "get-device-service-vars-with-service-name",
+        "summary": "Get all service variables for a device by UUID, including the service name",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/device_service_environment_variable",
+        "filters": "?\\$filter=service_install/any(si:si/device/any(d:d/uuid%20eq%20'<DEVICE_UUID>'))&\\$expand=service_install(\\$expand=installs__service(\\$select=id,service_name))"
+      },
+      {
         "id": "get-device-service-vars",
         "summary": "Get all service variables for a device by ID",
         "description": "",
