@@ -607,7 +607,15 @@
     "examples": [
       {
         "id": "get-device-service-vars",
-        "summary": "Get all service variables for a device",
+        "summary": "Get all service variables for a device by UUID",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/device_service_environment_variable",
+        "filters": "?\\$filter=service_install/any(si:si/device/any(d:d/uuid%20eq%20'<DEVICE_UUID>'))"
+      },
+      {
+        "id": "get-device-service-vars",
+        "summary": "Get all service variables for a device by ID",
         "description": "",
         "method": "GET",
         "endpoint": "/v6/device_service_environment_variable",
