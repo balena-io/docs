@@ -606,7 +606,7 @@
     ],
     "examples": [
       {
-        "id": "get-device-service-vars",
+        "id": "get-device-service-vars-by-device-uuid",
         "summary": "Get all service variables for a device by UUID",
         "description": "",
         "method": "GET",
