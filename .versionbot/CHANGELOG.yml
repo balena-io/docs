@@ -1,4 +1,26 @@
 - commits:
+    - subject: "API/resources: Retrieve the service name as part of the device service
+        env var GET requests"
+      hash: f73c52512a22423fe72ac1c5bad6687d74938230
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Fix the html id for the device service env vars by
+        device UUID request"
+      hash: 3808d2267036d829c4e5d6537d8385d92d4d00fc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.68.0
+  title: ""
+  date: 2024-09-02T10:14:37.796Z
+- commits:
     - subject: "API/resources: Add docs on how to retrieve device service env vars by
         device UUID"
       hash: 2b3e0dc18c50d5127953e29d7d71e50bc9ede540
