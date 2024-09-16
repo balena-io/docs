@@ -100,7 +100,7 @@ Learn
     [/learn/more/anti-patterns]
 
 FAQ
-  [/faq/questions/]
+  [/faq/questions]
   # Handled in redirects.txt
   Troubleshooting[/faq/troubleshooting]
     # with $device being dynamic
