@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Fix FAQ questions page in navigation sidebar"
+      hash: 601bbd6207282f3c78207e4dbb774429ffbc52a7
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.68.1
+  title: ""
+  date: 2024-09-16T16:39:55.362Z
+- commits:
     - subject: "API/resources: Retrieve the service name as part of the device service
         env var GET requests"
       hash: f73c52512a22423fe72ac1c5bad6687d74938230
