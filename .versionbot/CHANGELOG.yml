@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add default FAQ redirect for troubleshooting"
+      hash: 9f83b94a99a867f67fdbce06b9ec28f9a997094e
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.68.2
+  title: ""
+  date: 2024-09-17T11:54:56.736Z
+- commits:
     - subject: "patch: Fix FAQ questions page in navigation sidebar"
       hash: 601bbd6207282f3c78207e4dbb774429ffbc52a7
       body: ""
