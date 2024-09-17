@@ -253,6 +253,8 @@
 /learn/manage/apps /learn/develop/apps/
 
 # FAQ restructure
+/faq/troubleshooting/ /faq/troubleshooting/raspberrypi5/
+/faq/troubleshooting /faq/troubleshooting/raspberrypi5/
 /faq/troubleshooting/faq/ /faq/questions/
 /faq/troubleshooting/faq /faq/questions/
 /faq/troubleshooting/debugging-device-gateway/ /faq/debugging-device-gateway/
@@ -326,6 +328,7 @@
 ^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi5/nodejs/$1$2
 ^\/reference\/supervisor\/configuration-list\/?(\?.+)?(#.+)?$ -> /reference/supervisor/configuration-list/raspberrypi3/$1$2
 ^\/faq\/troubleshooting\/troubleshooting\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/troubleshooting/raspberrypi3/$1$2
+^\/faq\/troubleshooting\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/raspberrypi5/$1$2
 ^\/learn\/develop\/?(\?.+)?(#.+)?$ -> /learn/develop/local-mode/$1$2
 ^\/learn\/develop\/cloud-iot-provisioning\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/aws/$1$2
 ^\/learn\/deploy\/?(\?.+)?(#.+)?$ -> /learn/deploy/deployment/$1$2
