@@ -1,4 +1,16 @@
 - commits:
+    - subject: "CI: Update checkout settings"
+      hash: 0240f2c2ccf23189c9736924486ef76498858653
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 5.68.3
+  title: ""
+  date: 2024-09-26T12:44:37.018Z
+- commits:
     - subject: "patch: Add default FAQ redirect for troubleshooting"
       hash: 9f83b94a99a867f67fdbce06b9ec28f9a997094e
       body: ""
