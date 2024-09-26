@@ -18,8 +18,10 @@ jobs:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 
+      - uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65
         with:
           node-version: 18
           cache: "npm"
@@ -35,6 +37,3 @@ jobs:
           wranglerVersion: '3.5.1' # latest - https://www.npmjs.com/package/wrangler
           command: --version
           postCommands: npx wrangler pages deploy --branch $CF_BRANCH --project-name=$cloudflare_website  build/ | tee -a $GITHUB_STEP_SUMMARY
-
-
-
