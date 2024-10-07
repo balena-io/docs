@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Security - Update ARM builders hosting details"
+      hash: 30aa5890a537658cdff4e755ed838af66402a49f
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.68.4
+  title: ""
+  date: 2024-10-07T13:01:31.572Z
+- commits:
     - subject: "CI: Update checkout settings"
       hash: 0240f2c2ccf23189c9736924486ef76498858653
       body: ""
