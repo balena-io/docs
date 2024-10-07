@@ -5,7 +5,7 @@ excerpt: Setup balenaCloud SSO authentication using SAML 2.0
 
 # Enterprise Single Sign-On (SSO)
 
-__Note:__ This feature is currently available only on [Enterprise plans](https://www.balena.io/pricing).
+__Note:__ This feature is available to customers on [standard paid plans](https://www.balena.io/pricing) - Prototype Plan, Pilot Plan, Production Plan, or Enterprise Plan.
 
 BalenaCloud Enterprise Single Sign-On (SSO) using SAML (Security Assertion Markup Language) allows organizations to manage user access and authentication through their existing Identity Providers (IdP). This integration enables users to use their corporate credentials to log in and access BalenaCloud services. By leveraging SAML, enterprises can simplify the login process, enhance security, streamline user management, and ensure compliance with their internal policies and procedures.
 
@@ -31,7 +31,7 @@ Configuring an Identity Provider (IdP) as a login method requires a one-time set
 
 To enable Single Sign-On (SSO) for balenaCloud organizations, you must establish a connection with your external Identity Provider (IdP). BalenaCloud supports all SAML 2.0 Identity Providers, and we provide examples for [Microsoft Entra ID][ms-saml] (formerly Azure AD) and [Google Workspace][google-saml]. This process assumes that you have already configured a [SAML 2.0 IdP and possess an XML certificate][ms-saml] ready for upload.
 
-1. To configure an Identity Provider, you must be logged in as the `Administrator` of an organization subscribed to an [Enterprise plan](https://www.balena.io/pricing).
+1. To configure an Identity Provider, you must be logged in as the Administrator of an organization subscribed to a [standard paid plan](https://www.balena.io/pricing) (Prototype Plan, Pilot Plan, Production Plan, or Enterprise Plan).
 2. From the balenaCloud dashboard, select the [Identity Provider](https://dashboard.balena-cloud.com/identity-provider) option from the left sidebar.
 3. Click on the Add Identity Provider button. In the dialog that appears, either upload the XML file or manually enter the IdP details.
 
@@ -43,7 +43,7 @@ This identifier must be unique within balenaCloud and can only include lowercase
 
 ### Associate Organizations and Teams
 
-BalenaCloud requires a list of organizations to which SAML users will be automatically added upon successful authentication. Only organizations subscribed to an [Enterprise plan](https://www.balena.io/) will appear in the list of available organizations. At least one organization must be provided when setting up the IdP.
+BalenaCloud requires a list of organizations to which SAML users will be automatically added upon successful authentication. Only organizations subscribed to a [standard paid plan](https://www.balena.io/pricing) (Prototype Plan, Pilot Plan, Production Plan, or Enterprise Plan) will appear in the list of available organizations. At least one organization must be provided when setting up the IdP.
 
 __Note:__ Removing organizations after IdP creation will not revoke access for SAML users who have previously authenticated with this IdP. However, new authentications will no longer include the removed organization. An IdP will always require at least one organization to be associated.
 
