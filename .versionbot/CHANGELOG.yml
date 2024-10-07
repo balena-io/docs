@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: state that SAML is available to all standard paid plans"
+      hash: 5eca22885452bb5e1c3202e7cf91c24aa628516b
+      body: ""
+      footer: {}
+      author: Ross Porter
+      nested: []
+  version: 5.68.5
+  title: ""
+  date: 2024-10-07T17:18:23.268Z
+- commits:
     - subject: "patch: Security - Update ARM builders hosting details"
       hash: 30aa5890a537658cdff4e755ed838af66402a49f
       body: ""
