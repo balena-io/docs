@@ -29,7 +29,7 @@ This guide will walk you through the steps to create a SAML Identity Provider (I
     * ACS URL: Fill in the Assertion Consumer Service (ACS) URL with:
 
     ```
-    https://dashboard.balena-cloud.com/saml/acme/callback
+    https://api.balena-cloud.com/saml/acme/callback
     ```
 
     Replace `acme` with the name you will give your IdP in balenaCloud.
@@ -37,7 +37,7 @@ This guide will walk you through the steps to create a SAML Identity Provider (I
     * Entity ID: Fill in the Entity ID with:
 
     ```
-    https://dashboard.balena-cloud.com/saml/acme
+    https://api.balena-cloud.com/saml/acme
     ```
 
     Again, replace `acme` with the name you will give your IdP.
