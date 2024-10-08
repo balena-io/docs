@@ -284,7 +284,6 @@
       "id",
       "belongs_to__application",
       "belongs_to__user",
-      "is_managed_by__device",
       "actor",
       "should_be_running__release",
       "device_name",
