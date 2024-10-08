@@ -120,6 +120,15 @@ curl -X GET \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
+Similarly it's also possible to find all applications belonging to an organization by that organization's handle, with a query like this:
+```shell
+curl -X GET \
+"{{ $links.apiBase }}/v6/application?\$filter=organization/any(o:o/handle%20eq%20'<ORG_HANDLE>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+
 [odata]:https://www.odata.org/
 [odata-docs]:https://www.odata.org/getting-started/basic-tutorial/
 [resources]:/reference/api/resources/fleet
