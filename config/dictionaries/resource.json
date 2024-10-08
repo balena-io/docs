@@ -303,7 +303,7 @@
       "os_version",
       "os_variant",
       "supervisor_version",
-      "should_be_managed_by__supervisor_release",
+      "should_be_managed_by__release",
       "is_managed_by__service_instance",
       "provisioning_progress",
       "provisioning_state",
@@ -412,7 +412,7 @@
         "method": "PATCH",
         "endpoint": "/v6/device(uuid='<UUID>')",
         "filters": "",
-        "data": "{\n    \"should_be_managed_by__supervisor_release\": \"<SUPERVISOR RELEASE ID>\"\n}"
+        "data": "{\n    \"should_be_managed_by__release\": <SUPERVISOR RELEASE ID>\n}"
       },
       {
         "id": "rename-device",
