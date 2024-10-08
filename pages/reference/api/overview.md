@@ -49,10 +49,10 @@ Depending on the number of fleets you have access to, this could return much mor
 
 `$select` specifies which fields to return for each resource. By default, every field comes back as part of the response, but most use cases require only one or two of these pieces of information.
 
-The following API call uses `$select` to only return the name and the device type id for each application:
+The following API call uses `$select` to only return the name, slug and device type id for each application:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v6/application?\$select=app_name,is_for__device_type" \
+curl -X GET "{{ $links.apiBase }}/v6/application?\$select=app_name,slug,is_for__device_type" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -105,7 +105,7 @@ curl -X GET \
 Similarly we can extend our earlier API call that retrieves all applications to also include their device type slug by using a `$expand`:
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v6/application?\$select=app_name\$expand=is_for__device_type(\$select=id,slug)" \
+"{{ $links.apiBase }}/v6/application?\$select=app_name,slug&\$expand=is_for__device_type(\$select=id,slug)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
