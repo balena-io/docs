@@ -102,6 +102,15 @@ curl -X GET \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
+Similarly we can extend our earlier API call that retrieves all applications to also include their device type slug by using a `$expand`:
+```shell
+curl -X GET \
+"{{ $links.apiBase }}/v6/application?\$select=app_name\$expand=is_for__device_type(\$select=id,slug)" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+
 It's also possible to filter on a field that belongs to a linked resource. To find all devices belonging to an application by that application's name, you would construct your query like this:
 
 ```shell
