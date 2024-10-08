@@ -93,7 +93,7 @@
         "method": "POST",
         "endpoint": "/v6/application",
         "filters": "",
-        "data": "{\n    \"app_name\": \"<NAME>\",\n    \"is_for__device_type\": \"<DEVICE TYPE ID>\"\n}"
+        "data": "{\n    \"app_name\": \"<NAME>\",\n    \"organization\": \"<ORGANIZATION_ID>\",\n    \"is_for__device_type\": \"<DEVICE TYPE ID>\"\n}"
       },
       {
         "id": "delete-app",
