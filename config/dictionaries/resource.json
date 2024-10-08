@@ -284,7 +284,7 @@
       "belongs_to__application",
       "belongs_to__user",
       "actor",
-      "should_be_running__release",
+      "is_pinned_on__release",
       "device_name",
       "is_of__device_type",
       "uuid",
@@ -381,10 +381,10 @@
       {
         "id": "get-target-release",
         "summary": "Get the release a device is pinned to",
-        "description": "Note: should_be_running__release will be null/not set if the device isn't pinned to any release, in which case the device will be tracking the release of the application it belongs to.",
+        "description": "Note: is_pinned_on__release will be null/not set if the device isn't pinned to any release, in which case the device will be tracking the release of the application it belongs to.",
         "method": "GET",
         "endpoint": "/v6/device(<ID>)",
-        "filters": "?\\$select=should_be_running__release",
+        "filters": "?\\$select=is_pinned_on__release",
         "data": ""
       },
       {
@@ -394,7 +394,7 @@
         "method": "PATCH",
         "endpoint": "/v6/device(<ID>)",
         "filters": "",
-        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
+        "data": "{\n    \"is_pinned_on__release\": <RELEASE ID>\n}"
       },
       {
         "id": "set-device-to-release-by-uuid",
@@ -403,7 +403,7 @@
         "method": "PATCH",
         "endpoint": "/v6/device(uuid='<UUID>')",
         "filters": "",
-        "data": "{\n    \"should_be_running__release\": \"<RELEASE ID>\"\n}"
+        "data": "{\n    \"is_pinned_on__release\": <RELEASE ID>\n}"
       },
       {
         "id": "update-device-supervisor-by-uuid",
