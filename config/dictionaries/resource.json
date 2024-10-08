@@ -45,7 +45,7 @@
         "description": "",
         "method": "GET",
         "endpoint": "/v6/application",
-        "filters": "?\\$filter=is_directly_accessible_by__user/any(dau:1%20eq%201)"
+        "filters": "?\\$filter=is_directly_accessible_by__user/any(dau:true)"
       },
       {
         "id": "app-by-id",
