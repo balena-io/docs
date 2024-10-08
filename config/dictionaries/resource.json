@@ -6,7 +6,6 @@
       "id",
       "uuid",
       "organization",
-      "depends_on__application",
       "actor",
       "app_name",
       "slug",
