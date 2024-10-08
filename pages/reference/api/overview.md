@@ -111,11 +111,11 @@ curl -X GET \
 ```
 
 
-It's also possible to filter on a field that belongs to a linked resource. To find all devices belonging to an application by that application's name, you would construct your query like this:
+It's also possible to filter on a field that belongs to a linked resource. To find all devices belonging to an application by that application's slug, you would construct your query like this:
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v6/device?\$filter=belongs_to__application/app_name%20eq%20'<APP_NAME>'" \
+"{{ $links.apiBase }}/v6/device?\$filter=belongs_to__application/any(a:a/slug%20eq%20'<APP_SLUG>')" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
