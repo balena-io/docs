@@ -76,4 +76,4 @@ The `Update status` currently focuses on application updates, and for the time b
 [fleet type]:/learn/accounts/fleet-types
 [debugging-masterclass]:/learn/more/masterclasses/device-debugging
 [cloudlink]:/learn/welcome/security/#cloudlink
-[bandwidth-reduction]:/reference/supervisor/bandwidth-reduction/#side-effects--warnin
+[bandwidth-reduction]:/reference/supervisor/bandwidth-reduction/#side-effects--warnings
