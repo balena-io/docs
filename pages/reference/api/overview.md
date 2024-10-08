@@ -37,14 +37,6 @@ curl -X GET "{{ $links.apiBase }}/v6/application" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
-If you want to limit this to only return fleets related to the authenticated user, use the `my_application` resource. For example:
-
-```shell
-curl -X GET "{{ $links.apiBase }}/v6/my_application" \
--H "Content-Type: application/json" \
--H "Authorization: Bearer <AUTH_TOKEN>"
-```
-
 Depending on the number of fleets you have access to, this could return much more information than you need. There are two query methods that could help you with this: `$select` and `$filter`.
 
 `$select` specifies which fields to return for each resource. By default, every field comes back as part of the response, but most use cases require only one or two of these pieces of information.
@@ -107,6 +99,14 @@ Similarly it's also possible to find all applications belonging to a specific or
 ```shell
 curl -X GET \
 "{{ $links.apiBase }}/v6/application?\$filter=organization/any(o:o/handle%20eq%20'<ORG_HANDLE>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+If you want to extend this to return all fleets that are related with the authenticated user across all organizations that it is a member of, you can then use a `$filter` on the `is_directly_accessible_by__user` property. For example:
+
+```shell
+curl -X GET "{{ $links.apiBase }}/v6/application?\$filter=is_directly_accessible_by__user/any(dau:true)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
