@@ -1,4 +1,16 @@
 - commits:
+    - subject: Fix google workspace docs for saml
+      hash: 3f8b615ebd2d216607b7948715c8b4eedf94777c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Otavio Jacobi
+      nested: []
+  version: 5.68.6
+  title: ""
+  date: 2024-10-08T23:26:30.923Z
+- commits:
     - subject: "patch: state that SAML is available to all standard paid plans"
       hash: 5eca22885452bb5e1c3202e7cf91c24aa628516b
       body: ""
