@@ -16,6 +16,9 @@ node ./tools/generate-docs-contracts.js
 # Generate base images docs
 ./tools/build-base-images.sh
 
+# Convert .jpg, .jpeg, .png images to .webp format
+./tools/convert-images-to-webp.sh
+
 # run cd in a subshell so we don't end up in another directory on failure
 (
     cd "$SCRIPT_DIR/.."
