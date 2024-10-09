@@ -26,6 +26,9 @@ jobs:
           node-version: 18
           cache: "npm"
 
+      - name: Install cwebp to convert images to webp
+        run: sudo apt install webp 
+
       - name: Build docs
         run: npm run deploy-docs --if-present
 
