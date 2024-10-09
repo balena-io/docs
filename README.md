@@ -63,7 +63,7 @@ One can open or check existing issues on [GitHub issues](https://github.com/bale
 
 ## Deploying
 
-Shortly after merging a PR to the `master` branch, Flowzone will run on the deploy script `npm run deploy-docs` on master branch and deploy the docs on [balenacloud-docs.pages.dev](https://balenacloud-docs.pages.dev).
+Shortly after merging a PR to the `master` branch, Flowzone will run on the deploy script on the master branch and deploy the docs on [balenacloud-docs.pages.dev](https://balenacloud-docs.pages.dev). The deploy script needs to install `cwebp` to convert images to webp format. At the moment, this command is only available to be run on Linux.
 
 The docs are hosted on Cloudflare Pages as a static site. 
 
