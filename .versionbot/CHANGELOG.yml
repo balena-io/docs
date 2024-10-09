@@ -1,4 +1,16 @@
 - commits:
+    - subject: Fix SAML docs use `auth` prefix on SAML urls
+      hash: 9bdee7c200eee5771b5805d99d4b5d5f3a410019
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Otavio Jacobi
+      nested: []
+  version: 5.68.7
+  title: ""
+  date: 2024-10-09T00:10:50.467Z
+- commits:
     - subject: Fix google workspace docs for saml
       hash: 3f8b615ebd2d216607b7948715c8b4eedf94777c
       body: ""
