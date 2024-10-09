@@ -7,6 +7,15 @@ excerpt: The {{ $names.company.lower }} approach to securing your fleet
 
 {{ $names.company.upper }} takes your fleet’s security very seriously.  We understand that your data and devices are valuable and often critical, and we take precautions to ensure that your devices and data are not compromised.
 
+## Trust and Transparency
+At {{ $names.company.lower }}, our approach to security is guided by ISO 27001:2022, ensuring a structured, reliable system that aligns with our values. Our ISMS (Information Security Management System) has undergone multiple audits by accredited third parties to verify our compliance and effectiveness. 
+
+Rather than using rigid templates, we customized our implementation to fit our team's way of working, maintaining transparency without compromising our culture. This system is continually monitored and improved, demonstrating our commitment to providing a secure and dependable platform while staying true to who we are.
+
+For transparency we maintain a trust center at [trust.balena.io](https://trust.balena.io), where we surface our monitored information security controls, sub processors and security acknowledgements.
+
+## Secure Ecosystem
+
 Security begins with the ability to send timely updates to your devices. By providing a mechanism for regular, reliable, and verifiable updates, {{ $names.company.lower }} gives you the tools you need to keep your device fleet up to date and protected against attacks.
 
 To keep the {{ $names.company.lower }} ecosystem secure, we focus on the principle of least privilege—permissions are given only as necessary, and no information is available to any account or device unless it is required for the tasks being performed. We take a number of steps to isolate all components in the update process, so that unauthorized access to any one component will not provide enough information to access additional components, accounts, or devices.
