@@ -1,4 +1,26 @@
 - commits:
+    - subject: "API/overview: Add a $expand example from the application to its device
+        type"
+      hash: cc747e82e1fd60fc8e0476f1ab4bafe4935e805a
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/overview: Replace the application.device_type property with
+        is_for__device_type since it's not in the v6 model"
+      hash: eac74ae2285ad48bc7c4dafbfeafaa68ab390a7a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.69.0
+  title: ""
+  date: 2024-10-09T07:12:11.449Z
+- commits:
     - subject: Fix SAML docs use `auth` prefix on SAML urls
       hash: 9bdee7c200eee5771b5805d99d4b5d5f3a410019
       body: ""
