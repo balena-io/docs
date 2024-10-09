@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# One time script to convert all jpeg, jpg, png image to webp format
+# Script to convert all jpeg, jpg, png image to webp format in the docs
 # Run the script from the docs root directory to convert all image files in the IMAGE_DIR folder
 
 # Define the directory containing the images
 IMAGE_DIR="./static/img"
 
-# Check if cwebp is installed
-if ! command -v cwebp &> /dev/null; then
-    echo "Error: cwebp is not installed. Please install and try again."
-    exit 1
+# Exit 0 if cwebp is not installed
+if ! command -v cwebp >/dev/null 2>&1; then
+  echo "Warning: cwebp is not installed. Can't convert existing images to Webp format. Please install cwebp to use this script."
+  exit 0
 fi
 
 # Find all .jpg, .jpeg, .png files in the directory and its subdirectories
