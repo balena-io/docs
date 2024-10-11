@@ -14,6 +14,9 @@ REPO_URL="https://github.com/balena-io/contracts.git"
 # Partial path for the generated markdown file
 PARTIAL_PATH="shared/general/base-images.md"
 
+# Use node-jq if jq is not pre-installed in the environment nor set in path
+which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
+
 if [ -f "$PARTIAL_PATH" ]; then
     rm "$PARTIAL_PATH"
 fi
@@ -38,12 +41,12 @@ generate_markdown() {
         # Check if the contract.json file exists
         if [ -f "$json_file" ]; then
             # Extract the versionList and remove backticks
-            version_list=$(jq -r '.data.versionList' "$json_file" | sed "s/\`//g")
+            version_list=$("$JQ" -r '.data.versionList' "$json_file" | sed "s/\`//g")
 
             # If version_list is empty
             if [ "$version_list" = "null" ]; then
                 # Use the .slug value instead for arch contracts
-                version_list=$(jq -r '.slug' "$json_file")
+                version_list=$("$JQ" -r '.slug' "$json_file")
                 echo "  - $version_list" >> "$PARTIAL_PATH"
                 continue
             fi
