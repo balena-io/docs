@@ -1,4 +1,19 @@
 - commits:
+    - subject: Add section `Trust and Transparency` to the Security Page
+      hash: 9f8020a83b7d34fd69882be05b7ee3b415bcd20c
+      body: |
+        Link to our trust center at `trust.balena.io`
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: fisehara <harald@balena.io>
+        signed-off-by: fisehara <harald@balena.io>
+      author: fisehara
+      nested: []
+  version: 5.70.0
+  title: ""
+  date: 2024-10-11T05:27:35.854Z
+- commits:
     - subject: "API/overview: Add a $expand example from the application to its device
         type"
       hash: cc747e82e1fd60fc8e0476f1ab4bafe4935e805a
