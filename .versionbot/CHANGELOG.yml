@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: add tested modem disclaimer"
+      hash: 3c72cc65d9c1fa8644e93b727762c15e2bffb599
+      body: ""
+      footer: {}
+      author: rmorillo24
+      nested: []
+  version: 5.70.2
+  title: ""
+  date: 2024-10-11T08:58:00.101Z
+- commits:
     - subject: "patch: Ensure which jq is used in base-images script"
       hash: 052ff4da2543b38b6c36a942bbd8b5cd907cf081
       body: ""
