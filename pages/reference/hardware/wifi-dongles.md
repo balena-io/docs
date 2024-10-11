@@ -7,6 +7,9 @@ excerpt: WiFi adapters known to work with {{ $names.company.lower }} devices
 
 {{> "meta-balena/supported-wifi-adapters" }}
 
+Balena's software validation is only doing a sanity check on features that are commonly required by balenaOS. To run these tests, we use the driver provided by the manufacturer and the NetworkManager/ModemManager support. 
+
+Balena cannot guarantee that a modem or chipset is reliable and ready for production from our end. End users should run the necessary tests to validate their use case end-to-end and work with the vendor to resolve issues.
 
 ## Supported modems 
 
