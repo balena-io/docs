@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Ensure which jq is used in base-images script"
+      hash: 052ff4da2543b38b6c36a942bbd8b5cd907cf081
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.70.1
+  title: ""
+  date: 2024-10-11T06:13:02.237Z
+- commits:
     - subject: Add section `Trust and Transparency` to the Security Page
       hash: 9f8020a83b7d34fd69882be05b7ee3b415bcd20c
       body: |
