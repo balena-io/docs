@@ -34,7 +34,7 @@
       {
         "id": "get-all-apps",
         "summary": "Get all fleets",
-        "description": "",
+        "description": "Note: This will also include all public fleets of the platform. In most cases retrieving the fleets by their organization will be preferable.",
         "method": "GET",
         "endpoint": "/v6/application",
         "filters": ""
