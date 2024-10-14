@@ -1,4 +1,26 @@
 - commits:
+    - subject: 'API/resources: Add a note that "Get all fleets" will also include
+        public fleets'
+      hash: 9d553dc8bbe55296663644ba8505874eefe33c5a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Add an example for retrieving the fleets of a specific
+        organization"
+      hash: b107d10bb0d8733e0452174c0906b304149d8b53
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.71.0
+  title: ""
+  date: 2024-10-14T15:08:12.395Z
+- commits:
     - subject: "patch: add tested modem disclaimer"
       hash: 3c72cc65d9c1fa8644e93b727762c15e2bffb599
       body: ""
