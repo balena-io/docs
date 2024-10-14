@@ -24,6 +24,14 @@
     ],
     "examples": [
       {
+        "id": "get-all-apps-of-org-by-handle",
+        "summary": "Get all fleets of an organization by its HANDLE",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v6/application",
+        "filters": "?\\$filter=organization/any(o:o/handle%20eq%20%27<ORG_HANDLE>%27)"
+      },
+      {
         "id": "get-all-apps",
         "summary": "Get all fleets",
         "description": "",
