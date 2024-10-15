@@ -257,29 +257,19 @@ When it's finished building the device(s) will update as before. Remember anythi
 
 [fleet-types]:/learn/accounts/fleet-types
 [architecture]:/reference/base-images/devicetypes/#machine-names-and-architectures
-[balenablocks]:{{ $links.balenaHubUrl }}/blocks
 [balenahub]:{{ $links.balenaHubUrl }}
-[cli-install]:{{ $links.githubCli }}/blob/master/INSTALL.md
 [cli]:/reference/cli/
 [configuration]:/learn/manage/configuration/
 [dashboard]:{{ $links.dashboardUrl }}
 [devvprod]:/understanding/understanding-devices/2.0.0/#development-vs-production-images
 [dockerfile]:/learn/develop/dockerfile
-[dockerLayerDocs]:https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/
-[gitdocs]:/learn/deploy/deployment/#git-push
 [help]:{{ $links.supportUrl }}
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
 [local-mode]:/learn/develop/local-mode
 [multicontainer]:/learn/develop/multicontainer
-[npminstall]:{{ $links.githubCli }}/blob/master/INSTALL.md#npm-installation
 [projects]:{{ $links.blogSiteUrl }}/tags/project/
-[releases]:{{ $links.githubCli }}/releases
 [service]:/learn/manage/variables/
 [support]:/support/
 [supported-devices]:/reference/hardware/devices/
-[terminal]:/learn/manage/ssh-access
-[token]:/learn/accounts/#access-tokens
-[variables]:/learn/manage/variables/
 [balena-glossary]:/learn/more/glossary/
 
 <!-- Language related links -->
