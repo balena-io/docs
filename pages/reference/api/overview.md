@@ -49,10 +49,10 @@ Depending on the number of fleets you have access to, this could return much mor
 
 `$select` specifies which fields to return for each resource. By default, every field comes back as part of the response, but most use cases require only one or two of these pieces of information.
 
-The following API call uses `$select` to only return the name and the device type id for each application:
+The following API call uses `$select` to only return the name, slug and device type id for each application:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v6/application?\$select=app_name,is_for__device_type" \
+curl -X GET "{{ $links.apiBase }}/v6/application?\$select=app_name,slug,is_for__device_type" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -93,6 +93,25 @@ curl -X GET \
 
 Notice the construction here: `$filter=` is used to define the field, and then the value is specified after the `eq` keyword. This is the most straightforward example—there are many other ways to build filters, which you can find in the OData documentation.
 
+It's also possible to filter on a field that belongs to a linked resource. To find all devices belonging to an application by that application's slug, you would construct your query like this:
+
+```shell
+curl -X GET \
+"{{ $links.apiBase }}/v6/device?\$filter=belongs_to__application/any(a:a/slug%20eq%20'<APP_SLUG>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+Similarly it's also possible to find all applications belonging to a specific organization based on that organization's handle, with a query like this:
+
+```shell
+curl -X GET \
+"{{ $links.apiBase }}/v6/application?\$filter=organization/any(o:o/handle%20eq%20'<ORG_HANDLE>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+
 A final tip for constructing API calls: for some of the fields in the API response, a link to another resource is provided rather than the complete information about that resource. For example, if you make a call requesting information about a specific device, the `belongs_to__application` field will return a link to an application, but not all the information about that application. To get all the fields for the application resource, you can use the `$expand` method:
 
 ```shell
@@ -105,17 +124,7 @@ curl -X GET \
 Similarly we can extend our earlier API call that retrieves all applications to also include their device type slug by using a `$expand`:
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v6/application?\$select=app_name\$expand=is_for__device_type(\$select=id,slug)" \
--H "Content-Type: application/json" \
--H "Authorization: Bearer <AUTH_TOKEN>"
-```
-
-
-It's also possible to filter on a field that belongs to a linked resource. To find all devices belonging to an application by that application's name, you would construct your query like this:
-
-```shell
-curl -X GET \
-"{{ $links.apiBase }}/v6/device?\$filter=belongs_to__application/app_name%20eq%20'<APP_NAME>'" \
+"{{ $links.apiBase }}/v6/application?\$select=app_name,slug&\$expand=is_for__device_type(\$select=id,slug)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
