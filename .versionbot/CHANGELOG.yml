@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Delete unused links"
+      hash: 4f5642439fb8cb6e79d16d78dfef473f10f1034d
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.73.1
+  title: ""
+  date: 2024-10-15T17:30:52.553Z
+- commits:
     - subject: "API/overview: Group all $filter examples together"
       hash: 901b9ba4d5e44ac971b88234c4dacc3612557ff9
       body: ""
