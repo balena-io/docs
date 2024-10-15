@@ -1,4 +1,16 @@
 - commits:
+    - subject: "Management: Update docs for new device statuses and update status"
+      hash: 4c171b49223e0e966fff812a828c02a7fc2040be
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Shaun Mulligan
+      nested: []
+  version: 5.72.0
+  title: ""
+  date: 2024-10-15T08:44:21.564Z
+- commits:
     - subject: 'API/resources: Add a note that "Get all fleets" will also include
         public fleets'
       hash: 9d553dc8bbe55296663644ba8505874eefe33c5a
