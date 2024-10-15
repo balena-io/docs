@@ -93,6 +93,25 @@ curl -X GET \
 
 Notice the construction here: `$filter=` is used to define the field, and then the value is specified after the `eq` keyword. This is the most straightforward example—there are many other ways to build filters, which you can find in the OData documentation.
 
+It's also possible to filter on a field that belongs to a linked resource. To find all devices belonging to an application by that application's slug, you would construct your query like this:
+
+```shell
+curl -X GET \
+"{{ $links.apiBase }}/v6/device?\$filter=belongs_to__application/any(a:a/slug%20eq%20'<APP_SLUG>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+Similarly it's also possible to find all applications belonging to a specific organization based on that organization's handle, with a query like this:
+
+```shell
+curl -X GET \
+"{{ $links.apiBase }}/v6/application?\$filter=organization/any(o:o/handle%20eq%20'<ORG_HANDLE>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+
 A final tip for constructing API calls: for some of the fields in the API response, a link to another resource is provided rather than the complete information about that resource. For example, if you make a call requesting information about a specific device, the `belongs_to__application` field will return a link to an application, but not all the information about that application. To get all the fields for the application resource, you can use the `$expand` method:
 
 ```shell
@@ -109,25 +128,6 @@ curl -X GET \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
-
-
-It's also possible to filter on a field that belongs to a linked resource. To find all devices belonging to an application by that application's slug, you would construct your query like this:
-
-```shell
-curl -X GET \
-"{{ $links.apiBase }}/v6/device?\$filter=belongs_to__application/any(a:a/slug%20eq%20'<APP_SLUG>')" \
--H "Content-Type: application/json" \
--H "Authorization: Bearer <AUTH_TOKEN>"
-```
-
-Similarly it's also possible to find all applications belonging to an organization by that organization's handle, with a query like this:
-```shell
-curl -X GET \
-"{{ $links.apiBase }}/v6/application?\$filter=organization/any(o:o/handle%20eq%20'<ORG_HANDLE>')" \
--H "Content-Type: application/json" \
--H "Authorization: Bearer <AUTH_TOKEN>"
-```
-
 
 [odata]:https://www.odata.org/
 [odata-docs]:https://www.odata.org/getting-started/basic-tutorial/
