@@ -1,4 +1,47 @@
 - commits:
+    - subject: "API/overview: Group all $filter examples together"
+      hash: 901b9ba4d5e44ac971b88234c4dacc3612557ff9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/overview: Add a $filter example for filtering application by their
+        organization's handle"
+      hash: 0ac3b60625d76259f82e85802f40a25d58bc70d2
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/overview: Change the associated resource $filter example to use
+        $any & apply on the slug field"
+      hash: 419da9b2dcad00ec0a8c8f129509168ae309d726
+      body: |
+        Firstly $any can also be used for filtering using
+        reverse navigation resources as well, while
+        the previous approach works only for FKs.
+        On top of that filtering using $any is also
+        faster.
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/overview: Add the slug property in the application examples"
+      hash: d1aab5d726cc03e16c23a101d2a12c1b263bd38d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.73.0
+  title: ""
+  date: 2024-10-15T15:29:36.602Z
+- commits:
     - subject: "Management: Remove superscript linking"
       hash: e709f26a5c86e3f0837ed620b458eb5ab647a49b
       body: ""
