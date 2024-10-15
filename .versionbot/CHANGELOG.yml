@@ -1,4 +1,24 @@
 - commits:
+    - subject: "Management: Remove superscript linking"
+      hash: e709f26a5c86e3f0837ed620b458eb5ab647a49b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Shaun Mulligan
+      nested: []
+    - subject: "Management: quick link fix"
+      hash: 2dfed121247f9e722a8988463548d93a4f7ee1bf
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Shaun Mulligan
+      nested: []
+  version: 5.72.1
+  title: ""
+  date: 2024-10-15T09:28:43.142Z
+- commits:
     - subject: "Management: Update docs for new device statuses and update status"
       hash: 4c171b49223e0e966fff812a828c02a7fc2040be
       body: ""
