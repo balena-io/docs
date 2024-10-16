@@ -268,10 +268,20 @@
 
 # Important: keep dynamic redirect below the static redirects
 # https://developers.cloudflare.com/pages/platform/redirects/
-# Dynamic redirects
+
+# BREAKING - Redirect all image formats to webp
+# All images must be served in webp format
+# The build script converts images during build time.
 
 /img/*.png/ /img/:splat.webp
 /img/*.png /img/:splat.webp
+/img/*.jpg/ /img/:splat.webp
+/img/*.jpg /img/:splat.webp
+/img/*.jpeg/ /img/:splat.webp
+/img/*.jpeg /img/:splat.webp
+
+# Dynamic redirects
+
 /deployment/network/:version/ /reference/OS/network/
 /deployment/network/:version /reference/OS/network/
 /understanding/understanding-devices/:version/ /reference/OS/overview/

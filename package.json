@@ -14,11 +14,10 @@
     "test:spelling": "cspell lint --gitignore -c cspell.json",
     "build": "./tools/fetch-external.sh && npm run build:fast",
     "build:fast": "./tools/build.sh && webpack --mode production && ./tools/deploy-static-page.sh",
-    "deploy-docs": "npm ci && npm run build",
+    "deploy-docs": "sudo apt install webp && npm ci && npm run build",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
     "watch-assets": "webpack --mode=development -w",
-    "watch": "npm run watch-pages & npm run watch-assets",
-    "prepare": "husky"
+    "watch": "npm run watch-pages & npm run watch-assets"
   },
   "repository": {
     "type": "git",
@@ -48,7 +47,6 @@
     "cspell": "^8.9.1",
     "css-loader": "5.2.7",
     "file-loader": "6.2.0",
-    "husky": "^9.1.4",
     "mini-css-extract-plugin": "^1.6.2",
     "node-html-markdown": "^1.3.0",
     "node-jq": "^4.4.0",
