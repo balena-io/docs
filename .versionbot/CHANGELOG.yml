@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Remove Husky pre-commit hook"
+      hash: d146c40b636f74cad1b23dddf72eab6a696c6f9b
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 5.73.2
+  title: ""
+  date: 2024-10-16T13:15:42.001Z
+- commits:
     - subject: "patch: Delete unused links"
       hash: 4f5642439fb8cb6e79d16d78dfef473f10f1034d
       body: ""
