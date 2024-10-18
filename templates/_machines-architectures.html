@@ -3,7 +3,7 @@
   (function () {
     window.jQuery
       .ajax({
-        url: "https://api.balena-cloud.com/v6/device_type?$select=name,slug&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false))%20and%20not(contains(idfa/app_name,%27esr%27)))&$orderby=name%20asc"
+        url: "https://api.balena-cloud.com/v7/device_type?$select=name,slug&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false))%20and%20not(contains(idfa/app_name,%27esr%27)))&$orderby=name%20asc"
       })
       .done(function (deviceTypes) {
         var table = _(deviceTypes.d)
