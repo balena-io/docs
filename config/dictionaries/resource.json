@@ -712,54 +712,6 @@
     ]
   },
   {
-    "id": "balenaos_versions",
-    "name": "List balenaOS versions",
-    "fields": [],
-    "examples": [
-      {
-        "id": "list-balenaos-versions-for-device-type",
-        "summary": "List the supported balenaOS versions for a device type",
-        "description": "To request a list of the supported balenaOS versions for a particular device type, the `DEVICE TYPE SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.",
-        "method": "GET",
-        "endpoint": "/v6/release",
-        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
-      },
-      {
-        "id": "list-balenaos-versions-for-private-device-type",
-        "summary": "List the supported balenaOS versions for a private device type",
-        "description": "Same as above, but in order to access private device types, you must provide an authentication token.",
-        "method": "GET",
-        "endpoint": "/v6/release",
-        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
-      }
-    ]
-  },
-  {
-    "id": "download",
-    "name": "Download balenaOS",
-    "fields": [],
-    "examples": [
-      {
-        "id": "download-private-balenaos",
-        "summary": "Download private or ESR balenaOS images",
-        "description": "In order to download an ESR or private balenaOS image, you need to provide your bearer token. The `deviceType` and `version` parameters are required. Add an `--output` flag to provide a path for the image to be downloaded.",
-        "method": "GET",
-        "endpoint": "/download",
-        "content-type": "application/octet-stream",
-        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.zip'"
-      },
-      {
-        "id": "download-balenaos",
-        "summary": "Download public balenaOS images",
-        "description": "Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also available for download on balena.io/os and the dashboard.",
-        "method": "GET",
-        "endpoint": "/download",
-        "content-type": "application/octet-stream",
-        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'"
-      }
-    ]
-  },
-  {
     "id": "fleet_config_variable",
     "name": "Fleet config variable",
     "fields": [
@@ -1051,6 +1003,54 @@
         "endpoint": "/v6/release_tag",
         "filters": "",
         "data": "{\n    \"release\": \"<RELEASE ID>\",\n    \"tag_key\": \"<KEY>\",\n    \"value\": \"<VALUE>\"\n}"
+      }
+    ]
+  },
+  {
+    "id": "balenaos_versions",
+    "name": "List balenaOS versions",
+    "fields": [],
+    "examples": [
+      {
+        "id": "list-balenaos-versions-for-device-type",
+        "summary": "List the supported balenaOS versions for a device type",
+        "description": "To request a list of the supported balenaOS versions for a particular device type, the `DEVICE TYPE SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.",
+        "method": "GET",
+        "endpoint": "/v6/release",
+        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
+      },
+      {
+        "id": "list-balenaos-versions-for-private-device-type",
+        "summary": "List the supported balenaOS versions for a private device type",
+        "description": "Same as above, but in order to access private device types, you must provide an authentication token.",
+        "method": "GET",
+        "endpoint": "/v6/release",
+        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
+      }
+    ]
+  },
+  {
+    "id": "download",
+    "name": "Download balenaOS",
+    "fields": [],
+    "examples": [
+      {
+        "id": "download-private-balenaos",
+        "summary": "Download private or ESR balenaOS images",
+        "description": "In order to download an ESR or private balenaOS image, you need to provide your bearer token. The `deviceType` and `version` parameters are required. Add an `--output` flag to provide a path for the image to be downloaded.",
+        "method": "GET",
+        "endpoint": "/download",
+        "content-type": "application/octet-stream",
+        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.zip'"
+      },
+      {
+        "id": "download-balenaos",
+        "summary": "Download public balenaOS images",
+        "description": "Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also available for download on balena.io/os and the dashboard.",
+        "method": "GET",
+        "endpoint": "/download",
+        "content-type": "application/octet-stream",
+        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'"
       }
     ]
   },
