@@ -1,4 +1,17 @@
 - commits:
+    - subject: "API/resources: Move the balenaOS releases examples next to the Release
+        examples"
+      hash: 05249147a046acd07a40f35a35bc36f324090d1b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.73.3
+  title: ""
+  date: 2024-10-22T16:31:57.717Z
+- commits:
     - subject: "patch: Remove Husky pre-commit hook"
       hash: d146c40b636f74cad1b23dddf72eab6a696c6f9b
       body: ""
