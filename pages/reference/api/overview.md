@@ -12,7 +12,7 @@ __Warning:__ When using the API to make changes, take great care in selecting th
 
 ## Versioning
 
-When a new version of the API is released, calls to old versions of the API will still work. The API is currently on v6, but v1, v2, v3, v4 and v5 calls are translated to the equivalent calls in the newest version.
+When a new version of the API is released, calls to old versions of the API will still work. The API is currently on v7, but v1, v2, v3, v4, v5 and v6 calls are translated to the equivalent calls in the newest version.
 
 ## Authentication
 
@@ -32,7 +32,7 @@ To construct an API call, it helps to understand a little about how the underlyi
 Knowing the resource you wish to act upon and the method you wish to act with is enough for some requests. For example, if you want to view all fleets you have access to (which includes public fleets), you can use the `GET` method and the `application` resource. Your API call would look like this:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v6/application" \
+curl -X GET "{{ $links.apiBase }}/v7/application" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -44,7 +44,7 @@ Depending on the number of fleets you have access to, this could return much mor
 The following API call uses `$select` to only return the name, slug and device type id for each application:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v6/application?\$select=app_name,slug,is_for__device_type" \
+curl -X GET "{{ $links.apiBase }}/v7/application?\$select=app_name,slug,is_for__device_type" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -52,7 +52,7 @@ curl -X GET "{{ $links.apiBase }}/v6/application?\$select=app_name,slug,is_for__
 In some cases, you'll want to get information for one specific resource, rather than all resources of that type. If you happen to know the resource ID, you can simply append it to the resource name:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v6/device(<ID>)" \
+curl -X GET "{{ $links.apiBase }}/v7/device(<ID>)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -60,7 +60,7 @@ curl -X GET "{{ $links.apiBase }}/v6/device(<ID>)" \
 This also works for other pieces of unique information as long as you specify them, eg the device uuid for devices:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v6/device(uuid='<UUID>')" \
+curl -X GET "{{ $links.apiBase }}/v7/device(uuid='<UUID>')" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -68,7 +68,7 @@ curl -X GET "{{ $links.apiBase }}/v6/device(uuid='<UUID>')" \
 or for resources where multiple elements combine to be unique, eg for device tags the device and tag key are a unique combination:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v6/device(device=<DEVICE ID>,tag_key='<KEY>')" \
+curl -X GET "{{ $links.apiBase }}/v7/device(device=<DEVICE ID>,tag_key='<KEY>')" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -78,7 +78,7 @@ Many times, however, you won't know the internal ID or other unique info used by
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v6/device?\$filter=name%20eq%20'<DEVICE NAME>'" \
+"{{ $links.apiBase }}/v7/device?\$filter=name%20eq%20'<DEVICE NAME>'" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -89,7 +89,7 @@ It's also possible to filter on a field that belongs to a linked resource. To fi
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v6/device?\$filter=belongs_to__application/any(a:a/slug%20eq%20'<APP_SLUG>')" \
+"{{ $links.apiBase }}/v7/device?\$filter=belongs_to__application/any(a:a/slug%20eq%20'<APP_SLUG>')" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -98,7 +98,7 @@ Similarly it's also possible to find all applications belonging to a specific or
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v6/application?\$filter=organization/any(o:o/handle%20eq%20'<ORG_HANDLE>')" \
+"{{ $links.apiBase }}/v7/application?\$filter=organization/any(o:o/handle%20eq%20'<ORG_HANDLE>')" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -106,7 +106,7 @@ curl -X GET \
 If you want to extend this to return all fleets that are related with the authenticated user across all organizations that it is a member of, you can then use a `$filter` on the `is_directly_accessible_by__user` property. For example:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v6/application?\$filter=is_directly_accessible_by__user/any(dau:true)" \
+curl -X GET "{{ $links.apiBase }}/v7/application?\$filter=is_directly_accessible_by__user/any(dau:true)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -116,7 +116,7 @@ A final tip for constructing API calls: for some of the fields in the API respon
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v6/device(uuid='<UUID>')?\$expand=belongs_to__application" \
+"{{ $links.apiBase }}/v7/device(uuid='<UUID>')?\$expand=belongs_to__application" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -124,7 +124,7 @@ curl -X GET \
 Similarly we can extend our earlier API call that retrieves all applications to also include their device type slug by using a `$expand`:
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v6/application?\$select=app_name,slug&\$expand=is_for__device_type(\$select=id,slug)" \
+"{{ $links.apiBase }}/v7/application?\$select=app_name,slug&\$expand=is_for__device_type(\$select=id,slug)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
