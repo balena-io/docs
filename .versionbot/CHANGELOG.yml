@@ -1,4 +1,34 @@
 - commits:
+    - subject: "ESR: Update to use the v7 model for retrieving the device types"
+      hash: 830135e8a0c6ad8ac4b513cdc4d2da2d187dd1c4
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "Supported Single-board computers: Update to use the v7 model for
+        retrieving the device types"
+      hash: 462ee23ca99c57f3802164ff7bd8f28bae6abdc2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "Machine names and architectures: Update to use the v7 model for
+        retrieving the device types"
+      hash: 92f64a48c7cef5287309629a79ce2a9230b51297
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 5.73.4
+  title: ""
+  date: 2024-10-23T09:16:26.502Z
+- commits:
     - subject: "API/resources: Move the balenaOS releases examples next to the Release
         examples"
       hash: 05249147a046acd07a40f35a35bc36f324090d1b
