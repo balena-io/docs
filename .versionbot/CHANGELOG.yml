@@ -1,4 +1,19 @@
 - commits:
+    - subject: "API/overview: Update the requests to use the v7 endpoint"
+      hash: f6ba5009daa1310c63a6ad3bed90e4cc125cb884
+      body: |
+        This should have been part of #3093
+      footer:
+        Change-type: patch
+        change-type: patch
+        See: https://balena.fibery.io/Work/Task/API-resources-Change-the-requests-to-use-the-v7-endpoint-2258
+        see: https://balena.fibery.io/Work/Task/API-resources-Change-the-requests-to-use-the-v7-endpoint-2258
+      author: Thodoris Greasidis
+      nested: []
+  version: 6.0.1
+  title: ""
+  date: 2024-10-23T11:17:04.701Z
+- commits:
     - subject: "API/resources: Change the requests to use the v7 endpoint"
       hash: f57f65b394f30fae3b449a373e4e05f9d2d969de
       body: ""
