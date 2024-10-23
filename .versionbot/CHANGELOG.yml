@@ -1,4 +1,112 @@
 - commits:
+    - subject: "API/resources: Change the requests to use the v7 endpoint"
+      hash: f57f65b394f30fae3b449a373e4e05f9d2d969de
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Change the balenaOS versions title to balenaOS releases"
+      hash: ef8e3a418112edb219e45a809646a61610e7ce31
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Add examples for fetching the supervisor releases"
+      hash: 574d4200b12f9fcc77be33d976670fd9e7d0a8e4
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Drop the supervisor_release resource"
+      hash: fef6500141d93f453ba85f19a14e58d89579b827
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Replace the device.should_be_running__release property
+        with the v7 device.is_pinned_on__release"
+      hash: bfaf4b6f8d8de9e7363664ae22b93d2e30c5059f
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Add an example for the device.is_running__release
+        property"
+      hash: 1dcc17ece034d16c9601f8eea06ccfeaf5f4cdf2
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Add the organization field in the body of the
+        application POST example since its mandatory in v7"
+      hash: 2f1c15055b2547102e444d76016ddcc57bd1b498
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Change the application POST to use the
+        is_for__device_type property"
+      hash: 538b6a848c9bd99eceb7aa99999e2e2aee1ec162
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Drop the application.depends_on__application property
+        since it's not part of the v7 model"
+      hash: 251a0fee7cc8fb87600e5c596f12c03673207c7a
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Drop the device.is_managed_by__device property since
+        it's not part of the v7 model"
+      hash: bc346e134efa604b9c0582c5640b8d83e4de93de
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Drop the device.logs_channel property since it's not
+        part of the v7 model"
+      hash: 4a5503eef743078b72d48466a84635e07084f490
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/overview: Replace the my_application resource with an
+        application.is_directly_accessible_by__user filter"
+      hash: 589849882803bd506f1bb9218b520dfc6bc62de8
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Thodoris Greasidis
+      nested: []
+  version: 6.0.0
+  title: ""
+  date: 2024-10-23T09:39:46.254Z
+- commits:
     - subject: "ESR: Update to use the v7 model for retrieving the device types"
       hash: 830135e8a0c6ad8ac4b513cdc4d2da2d187dd1c4
       body: ""
