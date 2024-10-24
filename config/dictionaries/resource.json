@@ -387,7 +387,7 @@
         "data": ""
       },
       {
-        "id": "get-target-release",
+        "id": "get-pinned-release",
         "summary": "Get the release a device is pinned to",
         "description": "Note: is_pinned_on__release will be null/not set if the device isn't pinned to any release, in which case the device will be tracking the release of the application it belongs to.",
         "method": "GET",
