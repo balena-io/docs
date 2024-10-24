@@ -1,4 +1,43 @@
 - commits:
+    - subject: "API/resources: Add the device.shoud_be_running__release field &
+        example use"
+      hash: f91079fca2b7c84520ff76939a9ab34bb6421c58
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Change the device get-target-release url id to
+        get-pinned-release"
+      hash: ae9528518831c59e759bce0d7b05b690ac54fb7e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Change the fleet set-commit url id to
+        set-target-release-by-id"
+      hash: 09952a024d8cf7f257c9032f4ef818becc18e0f9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Add a GET example for the fleet's target release"
+      hash: 36077789e2625aa29fa316b0ee994ec5577c6ea9
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 6.1.0
+  title: ""
+  date: 2024-10-24T15:14:17.764Z
+- commits:
     - subject: "API/overview: Update the requests to use the v7 endpoint"
       hash: f6ba5009daa1310c63a6ad3bed90e4cc125cb884
       body: |
