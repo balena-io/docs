@@ -104,7 +104,15 @@
         "filters": ""
       },
       {
-        "id": "set-commit",
+        "id": "get-fleet-target-release-by-slug",
+        "summary": "Get the target release of a fleet",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v7/application(slug='<SLUG>')",
+        "filters": "?\\$select=should_be_running__release"
+      },
+      {
+        "id": "set-target-release-by-id",
         "summary": "Pin entire fleet to a specific release by ID",
         "description": "",
         "method": "PATCH",
@@ -284,11 +292,12 @@
       "belongs_to__application",
       "belongs_to__user",
       "actor",
-      "is_pinned_on__release",
       "device_name",
       "is_of__device_type",
       "uuid",
       "is_running__release",
+      "is_pinned_on__release",
+      "should_be_running__release",
       "note",
       "local_id",
       "status",
@@ -379,7 +388,7 @@
         "data": ""
       },
       {
-        "id": "get-target-release",
+        "id": "get-pinned-release",
         "summary": "Get the release a device is pinned to",
         "description": "Note: is_pinned_on__release will be null/not set if the device isn't pinned to any release, in which case the device will be tracking the release of the application it belongs to.",
         "method": "GET",
@@ -404,6 +413,15 @@
         "endpoint": "/v7/device(uuid='<UUID>')",
         "filters": "",
         "data": "{\n    \"is_pinned_on__release\": <RELEASE ID>\n}"
+      },
+      {
+        "id": "get-target-release",
+        "summary": "Get the target release of a device",
+        "description": "This will be the release that the device is pinned to, or the target release of the fleet for non-pinned devices.",
+        "method": "GET",
+        "endpoint": "/v7/device(uuid='<UUID>')",
+        "filters": "?\\$select=should_be_running__release",
+        "data": ""
       },
       {
         "id": "update-device-supervisor-by-uuid",
