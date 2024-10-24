@@ -292,11 +292,12 @@
       "belongs_to__application",
       "belongs_to__user",
       "actor",
-      "is_pinned_on__release",
       "device_name",
       "is_of__device_type",
       "uuid",
       "is_running__release",
+      "is_pinned_on__release",
+      "should_be_running__release",
       "note",
       "local_id",
       "status",
@@ -412,6 +413,15 @@
         "endpoint": "/v7/device(uuid='<UUID>')",
         "filters": "",
         "data": "{\n    \"is_pinned_on__release\": <RELEASE ID>\n}"
+      },
+      {
+        "id": "get-target-release",
+        "summary": "Get the target release of a device",
+        "description": "This will be the release that the device is pinned to, or the target release of the fleet for non-pinned devices.",
+        "method": "GET",
+        "endpoint": "/v7/device(uuid='<UUID>')",
+        "filters": "?\\$select=should_be_running__release",
+        "data": ""
       },
       {
         "id": "update-device-supervisor-by-uuid",
