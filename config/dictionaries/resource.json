@@ -112,7 +112,7 @@
         "filters": "?\\$select=should_be_running__release"
       },
       {
-        "id": "set-commit",
+        "id": "set-target-release-by-id",
         "summary": "Pin entire fleet to a specific release by ID",
         "description": "",
         "method": "PATCH",
