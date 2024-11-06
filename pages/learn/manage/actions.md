@@ -14,9 +14,9 @@ Actions and Settings allow you to control the status of your fleets and the devi
 
 [Fleet members][fleet-members] with the Operator role and above can perform any of the actions or settings listed below.
 
-### Restart Fleet
+### Restart Services
 
-The `Restart Fleet` action restarts the currently running **services** for all devices in your fleet. Your fleet's running containers will be removed and recreated from scratch. This behavior is intended and is different from running `balena restart [OPTIONS] CONTAINER [CONTAINER...]` in a host OS terminal instance from your dashboard, which will not remove your containers. If you are trying to persist data between container removals, see [persistent storage][persistent-storage] for strategies.
+The `Restart Services` action restarts the currently running **services** for all devices in your fleet. Your fleet's running containers will be removed and recreated from scratch. This behavior is intended and is different from running `balena restart [OPTIONS] CONTAINER [CONTAINER...]` in a host OS terminal instance from your dashboard, which will not remove your containers. If you are trying to persist data between container removals, see [persistent storage][persistent-storage] for strategies.
 
 By removing containers and recreating them from scratch, we see benefits like the following:
 
@@ -44,7 +44,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ### Reboot
 
-This action allows you to perform a reboot on your devices. This is different from the `Restart Fleet` action mentioned above. With this action, the entire device, including the kernel, will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
+This action allows you to perform a reboot on your devices. This is different from the `Restart Services` action mentioned above. With this action, the entire device, including the kernel, will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
