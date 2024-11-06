@@ -1,4 +1,16 @@
 - commits:
+    - subject: "actions: Fix device's Restart Services action being Restart Fleet"
+      hash: a8a5d7be8f7a65be228b01c4b78890909e1afad6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 6.1.1
+  title: ""
+  date: 2024-11-06T14:41:03.850Z
+- commits:
     - subject: "API/resources: Add the device.shoud_be_running__release field &
         example use"
       hash: f91079fca2b7c84520ff76939a9ab34bb6421c58
