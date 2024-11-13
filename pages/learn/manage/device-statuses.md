@@ -53,7 +53,7 @@ __Note:__ Data for these states will only get populated for devices with [superv
 
 ## Update Status Duration
 
-The `Update Status Duration` field is calculated based on the timestamp of the most recent update event. When querying this data from the API, you will receive a timestamp instead of a duration.
+This field is calculated based on the timestamp of the most recent update event. For example: In the screenshot above for Device Connectivity states, the device `bitter-wind` shows an update status duration of 17 minutes. This signifies that the device update status changed to `Downloaded` 17 minutes ago, which was the most recent update event. This value will reset when the update status changes again for the device. When querying this data from the API, you will receive a timestamp instead of a duration.
 
 It is important to note that when the application starts up after a reboot or an app restart, this behavior is indistinguishable from an app installation. Consequently, the `Update Status Duration` timestamp will be refreshed whenever a reboot or restart occurs.
 
