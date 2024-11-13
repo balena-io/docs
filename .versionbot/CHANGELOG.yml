@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Device Statuses: Clarify the meaning of update status duration"
+      hash: 99039095aaf74b762f7b14ae90ee559a74a592f7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 6.1.2
+  title: ""
+  date: 2024-11-13T11:21:28.432Z
+- commits:
     - subject: "actions: Fix device's Restart Services action being Restart Fleet"
       hash: a8a5d7be8f7a65be228b01c4b78890909e1afad6
       body: ""
