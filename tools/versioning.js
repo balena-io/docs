@@ -4,10 +4,14 @@ const https = require('https');
 const fs = require('fs');
 const fsPromises = require('fs/promises');
 const path = require('path');
-const parseGithubUrl = require('./github-parser')
+const parseGithubUrl = require('./github-parser');
+const { version } = require('os');
 
 // Retrieve GitHub API token from environment variable (optional)
 const githubToken = process.env.GITHUB_TOKEN || null;
+if (!githubToken) {
+  console.log('WARNING: GITHUB_TOKEN not provided in the environment. Versioning scripts might get rate-limited.');
+}
 
 /**
  * Configures GitHub API request options with authentication and headers
@@ -90,21 +94,18 @@ function findComplyingTags(tagsWithDates) {
 
   // Create final tagged list with additional metadata
   const result = compatibleTags.map((tag, index) => {
-    let tagId = tag.name
-    let displayName = tag.name;
     let tagDate = new Date(tag.date)
 
     // Mark first tag as latest
     if (index === 0) {
-      displayName = `${tag.name} latest`;
-      tagId = "latest"
+      return { id: "latest", name: `${tag.name} latest`, version: tag.name, releaseDate: tagDate };
     }
     // Mark older tags as deprecated
     else if (tagDate < oneYearAgo) {
-      displayName = `${tag.name} deprecated`;
+      return { id: tag.name, name: `${tag.name} deprecated`, version: tag.name, releaseDate: tagDate };
     }
 
-    return { id: tagId, name: displayName, releaseDate: tagDate };
+    return { id: tag.name, name: tag.name, version: tag.name, releaseDate: tagDate };
   });
 
   return result;
@@ -220,20 +221,25 @@ async function main() {
   const { owner, name: repoName, filepath } = parseGithubUrl(repoUrl);
   const versionsConfigFile = `./config/dictionaries/${repoName.replaceAll(/-/g, "")}.json`
   const versionedDocsFolder = path.join(__dirname, `../shared/${repoName}-versions`)
+  
+  console.log(`Started versioning ${repoName} docs`)
 
   try {
     // Fetch and process repository versions
-    const versions = await fetchGitHubTags(owner, repoName);
+    const tagVersions = await fetchGitHubTags(owner, repoName);
 
     // Write versions configuration
-    await fsPromises.writeFile(versionsConfigFile, JSON.stringify(versions, null, 2));
+    await fsPromises.writeFile(versionsConfigFile, JSON.stringify(tagVersions, null, 2));
+    if (fs.existsSync(versionedDocsFolder)) {
+      await fsPromises.rm(versionedDocsFolder, { recursive: true });
+    }
     await fsPromises.mkdir(versionedDocsFolder, { recursive: true });
 
     // Download documentation for each version
-    for (const version of versions) {
+    for (const tagVersion of tagVersions) {
       await fetchFileForVersion(
-        `https://raw.githubusercontent.com/${owner}/${repoName}/refs/tags/${version.id}/${filepath}`,
-        version.id,
+        `https://raw.githubusercontent.com/${owner}/${repoName}/refs/tags/${tagVersion.version}/${filepath}`,
+        tagVersion.id,
         versionedDocsFolder,
       );
     }
