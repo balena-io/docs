@@ -88,12 +88,12 @@
 /deployment/wifi /reference/OS/network/2.x/
 /runtime/terminal/ /learn/manage/ssh-access/
 /runtime/terminal /learn/manage/ssh-access/
-/using/cli/ /reference/balena-cli/
-/using/cli /reference/balena-cli/
+/using/cli/ /reference/balena-cli/latest/
+/using/cli /reference/balena-cli/latest/
 /learn/deploy/release-strategy/update-locking/API/ /reference/supervisor/supervisor-api/
 /learn/deploy/release-strategy/update-locking/API /reference/supervisor/supervisor-api/
-/reference/cli/ /reference/balena-cli/
-/reference/cli /reference/balena-cli/
+/reference/cli/ /reference/balena-cli/latest/
+/reference/cli /reference/balena-cli/latest/
 /docs/learn/deploy/release-strategy/update-locking/API/ /reference/supervisor/supervisor-api/
 /docs/learn/deploy/release-strategy/update-locking/API /reference/supervisor/supervisor-api/
 /learn/more/masterclass/ /learn/more/masterclasses/overview/
@@ -192,8 +192,8 @@
 /runtime/supervisor-api /reference/supervisor/supervisor-api/
 /runtime/data-api/ /reference/api/overview/
 /runtime/data-api /reference/api/overview/
-/tools/cli/ /reference/balena-cli/
-/tools/cli /reference/balena-cli/
+/tools/cli/ /reference/balena-cli/latest/
+/tools/cli /reference/balena-cli/latest/
 /tools/sdk/ /reference/sdk/node-sdk/
 /tools/sdk /reference/sdk/node-sdk/
 /tools/python-sdk/ /reference/sdk/python-sdk/
@@ -265,6 +265,10 @@
 # base images restructure
 /reference/base-images/base-images/ /reference/base-images/balena-base-images/
 /reference/base-images/base-images /reference/base-images/balena-base-images/
+
+# Versioned CLI docs
+/reference/balena-cli/ /reference/balena-cli/latest/
+/reference/balena-cli /reference/balena-cli/latest/
 
 # Important: keep dynamic redirect below the static redirects
 # https://developers.cloudflare.com/pages/platform/redirects/

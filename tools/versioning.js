@@ -90,19 +90,21 @@ function findComplyingTags(tagsWithDates) {
 
   // Create final tagged list with additional metadata
   const result = compatibleTags.map((tag, index) => {
+    let tagId = tag.name
     let displayName = tag.name;
     let tagDate = new Date(tag.date)
 
     // Mark first tag as latest
     if (index === 0) {
       displayName = `${tag.name} latest`;
+      tagId = "latest"
     }
     // Mark older tags as deprecated
     else if (tagDate < oneYearAgo) {
       displayName = `${tag.name} deprecated`;
     }
 
-    return { id: tag.name, name: displayName, releaseDate: tagDate };
+    return { id: tagId, name: displayName, releaseDate: tagDate };
   });
 
   return result;
