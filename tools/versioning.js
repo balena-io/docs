@@ -22,7 +22,6 @@ function githubRequestOptions(endpoint) {
     headers: {
       'User-Agent': 'Node.js GitHub Tags Fetcher',
       'Accept': 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28'
     }
   };
 
@@ -119,7 +118,7 @@ async function fetchGitHubTags(owner, repo) {
   // Recursive function to handle GitHub API pagination
   async function fetchAllTagsWithDates(page = 1, allTags = []) {
     return new Promise((resolve, reject) => {
-      const req = https.request(githubRequestOptions(`/repos/${owner}/${repo}/releases?per_page=100&page=${page}`, owner, repo), (res) => {
+      const req = https.request(githubRequestOptions(`/repos/${owner}/${repo}/releases?per_page=100&page=${page}`), (res) => {
         let data = '';
 
         res.on('data', (chunk) => {
@@ -169,17 +168,17 @@ async function fetchGitHubTags(owner, repo) {
  * @param {string} apiUrl - GitHub API endpoint for file
  * @param {string} version - Version/tag of the file
  * @param {string} versionedDocsFolder - Output directory for downloaded files
- * @param {string} githubToken - GitHub authentication token
  * @returns {Promise<string>} Path to downloaded file
  */
-async function fetchFileForVersion(apiUrl, version, versionedDocsFolder, githubToken) {
+async function fetchFileForVersion(apiUrl, version, versionedDocsFolder) {
   return new Promise((resolve, reject) => {
-    const req = https.request(githubRequestOptions(apiUrl), (res) => {
-      // Create output path for versioned file
+    const req = https.request(apiUrl, (res) => {
+      // Ensure output directory exists
       const outputPath = path.join(versionedDocsFolder, `${version}.md`);
 
-      // Stream file download
+      // Create write stream
       const writeStream = fs.createWriteStream(outputPath);
+
       res.pipe(writeStream);
 
       writeStream.on('finish', () => {
@@ -231,10 +230,9 @@ async function main() {
     // Download documentation for each version
     for (const version of versions) {
       await fetchFileForVersion(
-        `/repos/${owner}/${repoName}/contents/${filepath}?ref=${version.id}`,
+        `https://raw.githubusercontent.com/${owner}/${repoName}/refs/tags/${version.id}/${filepath}`,
         version.id,
         versionedDocsFolder,
-        githubToken
       );
     }
     console.log(`Versioned ${repoName} docs successfully`);
