@@ -14,7 +14,7 @@ mkdir -p shared/masterclass/debugging/
 which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
 
 # get latest CLI docs
-curl --fail --show-error -o pages/reference/balena-cli.md -L https://github.com/balena-io/balena-cli/raw/master/docs/balena-cli.md &
+# curl --fail --show-error -o pages/reference/balena-cli.md -L https://github.com/balena-io/balena-cli/raw/master/docs/balena-cli.md &
 
 # Engine
 # get latest balena-engine debugging docs

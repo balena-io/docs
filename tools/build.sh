@@ -16,6 +16,9 @@ node ./tools/generate-docs-contracts.js
 # Generate base images docs
 ./tools/build-base-images.sh
 
+# Generate balena-cli docs
+node tools/versioning.js https://github.com/balena-io/balena-cli/blob/master/docs/balena-cli.md
+
 # Convert .jpg, .jpeg, .png images to .webp format
 ./tools/convert-images-to-webp.sh
 

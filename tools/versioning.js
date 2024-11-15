@@ -217,12 +217,12 @@ async function main() {
 
   // Parse repository details
   const { owner, name: repoName, filepath } = parseGithubUrl(repoUrl);
-  const versionsConfigFile = `./config/dictionaries/${(repoName).replaceAll(/-/g, "")}.json`
+  const versionsConfigFile = `./config/dictionaries/${repoName.replaceAll(/-/g, "")}.json`
   const versionedDocsFolder = path.join(__dirname, `../shared/${repoName}-versions`)
 
   try {
     // Fetch and process repository versions
-    const versions = await fetchGitHubTags(owner, repoName, githubToken);
+    const versions = await fetchGitHubTags(owner, repoName);
 
     // Write versions configuration
     await fsPromises.writeFile(versionsConfigFile, JSON.stringify(versions, null, 2));
