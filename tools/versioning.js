@@ -5,7 +5,7 @@ const fs = require('fs');
 const fsPromises = require('fs/promises');
 const path = require('path');
 const parseGithubUrl = require('./github-parser');
-const { version } = require('os');
+const LineByLineReader = require('line-by-line');
 
 // Retrieve GitHub API token from environment variable (optional)
 const githubToken = process.env.GITHUB_TOKEN || null;
@@ -78,7 +78,7 @@ function findComplyingTags(tagsWithDates) {
   }
 
   // Ensure at least 5 tags are included if possible
-  while (compatibleTags.length < 5 && semanticTags.length > compatibleTags.length) {
+  if (compatibleTags.length < 5 && semanticTags.length > compatibleTags.length) {
     for (const tag of semanticTags) {
       const majorVersion = tag.name.split('.')[0].replace('v', '');
       if (!majorVersions.has(majorVersion)) {
@@ -177,15 +177,18 @@ async function fetchFileForVersion(apiUrl, version, versionedDocsFolder) {
   return new Promise((resolve, reject) => {
     const req = https.request(apiUrl, (res) => {
       // Ensure output directory exists
-      const outputPath = path.join(versionedDocsFolder, `${version}.md`);
+      const outputPathWithHeading = path.join(versionedDocsFolder, `${version}-withheading.md`);
 
       // Create write stream
-      const writeStream = fs.createWriteStream(outputPath);
+      const writeStream = fs.createWriteStream(outputPathWithHeading);
 
       res.pipe(writeStream);
 
-      writeStream.on('finish', () => {
+      writeStream.on('finish', async () => {
         writeStream.close();
+        const outputPath = path.join(versionedDocsFolder, `${version}.md`);
+        await removeFirstLine(outputPathWithHeading, outputPath)
+        await fsPromises.unlink(outputPathWithHeading);
         resolve(outputPath);
       });
 
@@ -198,13 +201,44 @@ async function fetchFileForVersion(apiUrl, version, versionedDocsFolder) {
       reject(error);
     });
 
-    req.end();
+      req.end();
   });
 }
+
+// Function to remove first line from a file
+async function removeFirstLine(srcPath, destPath) {
+  return new Promise((resolve, reject) => {
+    const lr = new LineByLineReader(srcPath);
+    const output = fs.createWriteStream(destPath);
+    let isFirstLine = true;
+
+    lr.on('error', (err) => {
+      reject(err);
+    });
+
+    lr.on('line', (line) => {
+      // Skip the first line
+      if (isFirstLine) {
+        isFirstLine = false;
+        return;
+      }
+
+      // Write subsequent lines to the output file
+      output.write(line + '\n');
+    });
+
+    lr.on('end', () => {
+      output.end();
+      resolve(destPath);
+    });
+  });
+}
+
 
 /**
  * Main script execution function
  * Fetches and versions documentation for a GitHub repository
+ * Add versionheadings flag to add version headings to docs
  */
 async function main() {
   // Retrieve GitHub repository URL from command line argument
@@ -212,7 +246,7 @@ async function main() {
 
   // Validate repository URL input
   if (!repoUrl) {
-    console.error('Usage: node versioning.js <github-repo-url>');
+    console.error('Usage: node versioning.js <github-repo-url> [noversionheadings]');
     console.error('Please provide a valid GitHub repository URL');
     process.exit(1);
   }

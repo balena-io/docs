@@ -13,9 +13,6 @@ mkdir -p shared/masterclass/debugging/
 # Use node-jq if jq is not pre-installed in the environment nor set in path
 which jq && JQ="$(which jq)" || JQ="../../node_modules/node-jq/bin/jq"
 
-# get latest CLI docs
-# curl --fail --show-error -o pages/reference/balena-cli.md -L https://github.com/balena-io/balena-cli/raw/master/docs/balena-cli.md &
-
 # Engine
 # get latest balena-engine debugging docs
 curl --fail --show-error -o shared/masterclass/debugging/engine.md -L https://github.com/balena-os/balena-engine/raw/master/balena-docs/engine-debugging.md &

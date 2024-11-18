@@ -9,4 +9,6 @@ dynamic:
   $switch_text: balena CLI version $balenacli
 ---
 
+# balena CLI {{ $balenacli.version }} Documentation
+
 {{import "balena-cli-versions"}}
