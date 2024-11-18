@@ -152,7 +152,7 @@ Reference
   CLI[/reference/balena-cli/$balenacli]
   SDKs
     Node.js SDK[/reference/sdk/node-sdk/$balenasdk]
-    Python SDK[/reference/sdk/python-sdk]
+    Python SDK[/reference/sdk/python-sdk/$balenasdkpython]
     Deprecation Policy[/reference/sdk/deprecation-policy]
 
   Diagnostics

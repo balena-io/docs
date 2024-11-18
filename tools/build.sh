@@ -16,6 +16,9 @@ node ./tools/versioning.js https://github.com/balena-io/balena-cli/blob/master/d
 # Generate versioned balena-sdk docs
 node ./tools/versioning.js https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md
 
+# Generate versioned balena-python-sdk docs
+node ./tools/versioning.js https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md
+
 # Generate Masterclasses Dynamically
 ./tools/build-masterclass.sh
 

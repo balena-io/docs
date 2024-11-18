@@ -8,6 +8,7 @@ balenacli
 balenahup
 balenalib
 balenasdk
+balenasdkpython
 balenista
 balenistas
 Barys
