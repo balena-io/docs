@@ -82,13 +82,13 @@ cd shared/projects/ && {
 } &
 
 # get latest node SDK docs
-cd pages/reference/sdk/ && {
-  curl --fail --show-error -O -L https://github.com/balena-io/balena-sdk/raw/master/DOCUMENTATION.md
-  echo "# Balena Node.js SDK" >node-sdk.md
-  tail -n +2 DOCUMENTATION.md >>node-sdk.md
-  rm DOCUMENTATION.md
-  cd -
-} &
+# cd pages/reference/sdk/ && {
+#   curl --fail --show-error -O -L https://github.com/balena-io/balena-sdk/raw/master/DOCUMENTATION.md
+#   echo "# Balena Node.js SDK" >node-sdk.md
+#   tail -n +2 DOCUMENTATION.md >>node-sdk.md
+#   rm DOCUMENTATION.md
+#   cd -
+# } &
 
 # get SDK README
 cd shared/sdk/ && {

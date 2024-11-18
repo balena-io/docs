@@ -7,6 +7,7 @@ balena-builder
 balenacli
 balenahup
 balenalib
+balenasdk
 balenista
 balenistas
 Barys
