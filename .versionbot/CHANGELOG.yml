@@ -1,4 +1,16 @@
 - commits:
+    - subject: "minor: Add versioning to product docs"
+      hash: bed7cfcaff500da54171e9e8acc4d2423635bfcd
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.2.0
+  title: ""
+  date: 2024-11-20T14:40:16.833Z
+- commits:
     - subject: "Device Statuses: Clarify the meaning of update status duration"
       hash: 99039095aaf74b762f7b14ae90ee559a74a592f7
       body: ""
@@ -3140,28 +3152,16 @@
   version: 5.43.12
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps
-        [lycheeverse/lychee-action](https://github.com/lycheeverse/lychee-action)
-        from 1.5.0 to 1.5.1.
-
+      body: |-
+        Bumps [lycheeverse/lychee-action](https://github.com/lycheeverse/lychee-action) from 1.5.0 to 1.5.1.
         - [Release notes](https://github.com/lycheeverse/lychee-action/releases)
-
-        -
-        [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.5.0...v1.5.1)
-
+        - [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.5.0...v1.5.1)
         ---
-
         updated-dependencies:
-
         - dependency-name: lycheeverse/lychee-action
-
         dependency-type: direct:production
-
         update-type: version-update:semver-patch
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: 4cb7b68abb569ab96edde8f03fff694e240bf0fa
       subject: "patch: bump lycheeverse/lychee-action from 1.5.0 to 1.5.1"
@@ -3905,15 +3905,10 @@
   version: 5.34.10
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps
-        [lycheeverse/lychee-action](https://github.com/lycheeverse/lychee-action)
-        from 1.3.0 to 1.4.1.
-
+      body: |-
+        Bumps [lycheeverse/lychee-action](https://github.com/lycheeverse/lychee-action) from 1.3.0 to 1.4.1.
         - [Release notes](https://github.com/lycheeverse/lychee-action/releases)
-
-        -
-        [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.3.0...v1.4.1
+        - [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.3.0...v1.4.1
       footers:
         signed-off-by: dependabot[bot] <support@github.com>
       hash: fb43246e86b3bd12f0aa0d2ba7f2fe7066f2dfab
@@ -3922,29 +3917,16 @@
   version: 5.34.9
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps
-        [peter-evans/create-issue-from-file](https://github.com/peter-evans/create-issue-from-file)
-        from 3 to 4.
-
-        - [Release
-        notes](https://github.com/peter-evans/create-issue-from-file/releases)
-
-        -
-        [Commits](https://github.com/peter-evans/create-issue-from-file/compare/v3...v4)
-
+      body: |-
+        Bumps [peter-evans/create-issue-from-file](https://github.com/peter-evans/create-issue-from-file) from 3 to 4.
+        - [Release notes](https://github.com/peter-evans/create-issue-from-file/releases)
+        - [Commits](https://github.com/peter-evans/create-issue-from-file/compare/v3...v4)
         ---
-
         updated-dependencies:
-
         - dependency-name: peter-evans/create-issue-from-file
-
         dependency-type: direct:production
-
         update-type: version-update:semver-major
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: 685ae1ca7514bf34c1006b426a50931757100f00
       subject: "patch: bump peter-evans/create-issue-from-file from 3 to 4"
@@ -4379,28 +4361,16 @@
   version: 5.30.40
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps
-        [lycheeverse/lychee-action](https://github.com/lycheeverse/lychee-action)
-        from 1.1.1 to 1.2.0.
-
+      body: |-
+        Bumps [lycheeverse/lychee-action](https://github.com/lycheeverse/lychee-action) from 1.1.1 to 1.2.0.
         - [Release notes](https://github.com/lycheeverse/lychee-action/releases)
-
-        -
-        [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.1.1...v1.2.0)
-
+        - [Commits](https://github.com/lycheeverse/lychee-action/compare/v1.1.1...v1.2.0)
         ---
-
         updated-dependencies:
-
         - dependency-name: lycheeverse/lychee-action
-
         dependency-type: direct:production
-
         update-type: version-update:semver-minor
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: 312060a0cfb15169c43e01cd0ca66bb9f6a82ebe
       subject: "patch: bump lycheeverse/lychee-action from 1.1.1 to 1.2.0"
@@ -4782,30 +4752,17 @@
   version: 5.30.12
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps [highlight.js](https://github.com/highlightjs/highlight.js) from
-        10.7.1 to 10.7.3.
-
+      body: |-
+        Bumps [highlight.js](https://github.com/highlightjs/highlight.js) from 10.7.1 to 10.7.3.
         - [Release notes](https://github.com/highlightjs/highlight.js/releases)
-
-        -
-        [Changelog](https://github.com/highlightjs/highlight.js/blob/10.7.3/CHANGES.md)
-
-        -
-        [Commits](https://github.com/highlightjs/highlight.js/compare/10.7.1...10.7.3)
-
+        - [Changelog](https://github.com/highlightjs/highlight.js/blob/10.7.3/CHANGES.md)
+        - [Commits](https://github.com/highlightjs/highlight.js/compare/10.7.1...10.7.3)
         ---
-
         updated-dependencies:
-
         - dependency-name: highlight.js
-
         dependency-type: direct:production
-
         update-type: version-update:semver-patch
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: 8e3bb34da02b27d3acd675c8f0f8f3e946cf551c
       subject: "patch: bump highlight.js from 10.7.1 to 10.7.3"
@@ -4844,30 +4801,17 @@
   version: 5.30.9
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.7.2
-        to 4.8.0.
-
+      body: |-
+        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.7.2 to 4.8.0.
         - [Release notes](https://github.com/webpack/webpack-cli/releases)
-
-        -
-        [Changelog](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md)
-
-        -
-        [Commits](https://github.com/webpack/webpack-cli/compare/webpack-cli@4.7.2...webpack-cli@4.8.0)
-
+        - [Changelog](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md)
+        - [Commits](https://github.com/webpack/webpack-cli/compare/webpack-cli@4.7.2...webpack-cli@4.8.0)
         ---
-
         updated-dependencies:
-
         - dependency-name: webpack-cli
-
         dependency-type: direct:development
-
         update-type: version-update:semver-minor
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: c3e4138a40e99ceadd37896eae4941cb030ff6b8
       subject: "patch: bump webpack-cli from 4.7.2 to 4.8.0"
@@ -5321,31 +5265,17 @@
   version: 5.29.5
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps [css-loader](https://github.com/webpack-contrib/css-loader) from
-        5.2.6 to 5.2.7.
-
-        - [Release
-        notes](https://github.com/webpack-contrib/css-loader/releases)
-
-        -
-        [Changelog](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md)
-
-        -
-        [Commits](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7)
-
+      body: |-
+        Bumps [css-loader](https://github.com/webpack-contrib/css-loader) from 5.2.6 to 5.2.7.
+        - [Release notes](https://github.com/webpack-contrib/css-loader/releases)
+        - [Changelog](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md)
+        - [Commits](https://github.com/webpack-contrib/css-loader/compare/v5.2.6...v5.2.7)
         ---
-
         updated-dependencies:
-
         - dependency-name: css-loader
-
         dependency-type: direct:development
-
         update-type: version-update:semver-patch
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: 63793adf1bae125e36b64e874a7494291e828b3c
       subject: "patch: bump css-loader from 5.2.6 to 5.2.7"
@@ -5756,30 +5686,17 @@
   version: 5.26.12
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.6.0
-        to 4.7.2.
-
+      body: |-
+        Bumps [webpack-cli](https://github.com/webpack/webpack-cli) from 4.6.0 to 4.7.2.
         - [Release notes](https://github.com/webpack/webpack-cli/releases)
-
-        -
-        [Changelog](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md)
-
-        -
-        [Commits](https://github.com/webpack/webpack-cli/compare/webpack-cli@4.6.0...webpack-cli@4.7.2)
-
+        - [Changelog](https://github.com/webpack/webpack-cli/blob/master/CHANGELOG.md)
+        - [Commits](https://github.com/webpack/webpack-cli/compare/webpack-cli@4.6.0...webpack-cli@4.7.2)
         ---
-
         updated-dependencies:
-
         - dependency-name: webpack-cli
-
         dependency-type: direct:development
-
         update-type: version-update:semver-minor
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: eed2ce0d7334c00bd1e65b4b56eaa0e95d8fa0e2
       subject: "patch: bump webpack-cli from 4.6.0 to 4.7.2"
@@ -5814,32 +5731,17 @@
   version: 5.26.10
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps
-        [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
-        from 1.4.0 to 1.6.2.
-
-        - [Release
-        notes](https://github.com/webpack-contrib/mini-css-extract-plugin/releases)
-
-        -
-        [Changelog](https://github.com/webpack-contrib/mini-css-extract-plugin/blob/master/CHANGELOG.md)
-
-        -
-        [Commits](https://github.com/webpack-contrib/mini-css-extract-plugin/compare/v1.4.0...v1.6.2)
-
+      body: |-
+        Bumps [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) from 1.4.0 to 1.6.2.
+        - [Release notes](https://github.com/webpack-contrib/mini-css-extract-plugin/releases)
+        - [Changelog](https://github.com/webpack-contrib/mini-css-extract-plugin/blob/master/CHANGELOG.md)
+        - [Commits](https://github.com/webpack-contrib/mini-css-extract-plugin/compare/v1.4.0...v1.6.2)
         ---
-
         updated-dependencies:
-
         - dependency-name: mini-css-extract-plugin
-
         dependency-type: direct:development
-
         update-type: version-update:semver-minor
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: b1fc763b78e95460e133c105dc2430a49338e4b7
       subject: "patch: bump mini-css-extract-plugin from 1.4.0 to 1.6.2"
@@ -5875,31 +5777,17 @@
   version: 5.26.8
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps [css-loader](https://github.com/webpack-contrib/css-loader) from
-        5.2.0 to 5.2.6.
-
-        - [Release
-        notes](https://github.com/webpack-contrib/css-loader/releases)
-
-        -
-        [Changelog](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md)
-
-        -
-        [Commits](https://github.com/webpack-contrib/css-loader/compare/v5.2.0...v5.2.6)
-
+      body: |-
+        Bumps [css-loader](https://github.com/webpack-contrib/css-loader) from 5.2.0 to 5.2.6.
+        - [Release notes](https://github.com/webpack-contrib/css-loader/releases)
+        - [Changelog](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md)
+        - [Commits](https://github.com/webpack-contrib/css-loader/compare/v5.2.0...v5.2.6)
         ---
-
         updated-dependencies:
-
         - dependency-name: css-loader
-
         dependency-type: direct:development
-
         update-type: version-update:semver-patch
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: 2b594d96b08f75333b5cf275f82ffe2c84fd1e86
       subject: "patch: bump css-loader from 5.2.0 to 5.2.6"
@@ -5939,29 +5827,16 @@
   version: 5.26.5
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps
-        [american-british-english-translator](https://github.com/hyperreality/American-British-English-Translator)
-        from 0.1.2 to 0.1.4.
-
-        - [Release
-        notes](https://github.com/hyperreality/American-British-English-Translator/releases)
-
-        -
-        [Commits](https://github.com/hyperreality/American-British-English-Translator/commits)
-
+      body: |-
+        Bumps [american-british-english-translator](https://github.com/hyperreality/American-British-English-Translator) from 0.1.2 to 0.1.4.
+        - [Release notes](https://github.com/hyperreality/American-British-English-Translator/releases)
+        - [Commits](https://github.com/hyperreality/American-British-English-Translator/commits)
         ---
-
         updated-dependencies:
-
         - dependency-name: american-british-english-translator
-
         dependency-type: direct:development
-
         update-type: version-update:semver-patch
-
         ...
-
         Signed-off-by: dependabot[bot] <support@github.com>
       hash: a6504c0ce99f59a17189d17759549936e696ed89
       subject: "patch: bump american-british-english-translator from 0.1.2 to 0.1.4"
@@ -6043,17 +5918,11 @@
   version: 5.25.7
 - commits:
     - author: dependabot[bot]
-      body: >-
-        Bumps [browserslist](https://github.com/browserslist/browserslist) from
-        4.16.3 to 4.16.6.
-
+      body: |-
+        Bumps [browserslist](https://github.com/browserslist/browserslist) from 4.16.3 to 4.16.6.
         - [Release notes](https://github.com/browserslist/browserslist/releases)
-
-        -
-        [Changelog](https://github.com/browserslist/browserslist/blob/main/CHANGELOG.md)
-
-        -
-        [Commits](https://github.com/browserslist/browserslist/compare/4.16.3...4.16.6)
+        - [Changelog](https://github.com/browserslist/browserslist/blob/main/CHANGELOG.md)
+        - [Commits](https://github.com/browserslist/browserslist/compare/4.16.3...4.16.6)
       footers:
         signed-off-by: dependabot[bot] <support@github.com>
       hash: 120640523f79fdb4a3e92488c9935761c2c9fd7b
@@ -6889,12 +6758,9 @@
   version: 5.12.18
 - commits:
     - author: AlidaOdendaal
-      body: >-
+      body: |-
         The Nitrogen8MM DWE device has been converted to a private
-
-        device type
-        (https://www.flowdock.com/app/rulemotion/resin-devices/threads/UekZJBCxvruGdw5ceyVEwPU_z5d).
-
+        device type (https://www.flowdock.com/app/rulemotion/resin-devices/threads/UekZJBCxvruGdw5ceyVEwPU_z5d).
         Thus it is better to remove it from the public docs.
       footers:
         change-type: patch
@@ -8708,13 +8574,10 @@
   version: 4.28.3
 - commits:
     - author: Hugh Brown
-      body: >-
+      body: |-
         Ref:
-
         - https://www.freedesktop.org/wiki/Software/systemd/timedated/
-
-        -
-        https://github.com/systemd/systemd/blob/e8607daf7d9d4320ddee8fcc6579459ba252714d/src/timedate/timedatectl.c#L177-L188
+        - https://github.com/systemd/systemd/blob/e8607daf7d9d4320ddee8fcc6579459ba252714d/src/timedate/timedatectl.c#L177-L188
       footers:
         change-type: patch
         signed-off-by: Hugh Brown <hugh@balena.io>
