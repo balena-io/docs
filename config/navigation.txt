@@ -149,7 +149,7 @@ Reference
     [/reference/api/overview]
     Resources[/reference/api/resources/$resource]
 
-  CLI[/reference/balena-cli]
+  CLI[/reference/balena-cli/$balenacli]
   SDKs
     Node.js SDK[/reference/sdk/node-sdk]
     Python SDK[/reference/sdk/python-sdk]

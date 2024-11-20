@@ -4,6 +4,7 @@ balena-api
 balena-base-ui
 balena-build
 balena-builder
+balenacli
 balenahup
 balenalib
 balenista
