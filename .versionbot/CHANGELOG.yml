@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update NPM packages to get latest Getting Started instructions"
+      hash: e8a8c1a4033acfae8dc546992d21b62e1a64a3c1
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.2.1
+  title: ""
+  date: 2024-11-21T11:30:49.343Z
+- commits:
     - subject: "minor: Add versioning to product docs"
       hash: bed7cfcaff500da54171e9e8acc4d2423635bfcd
       body: ""
