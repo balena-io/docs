@@ -251,9 +251,20 @@ async function main() {
     process.exit(1);
   }
 
+  const versionsConfigFileTemplate = {
+    "balenasdk": "nodesdk",
+    "balenasdkpython": "pythonsdk",
+  }
+
   // Parse repository details
   const { owner, name: repoName, filepath } = parseGithubUrl(repoUrl);
-  const versionsConfigFile = `./config/dictionaries/${repoName.replaceAll(/-/g, "")}.json`
+
+  // Create versioned config file - Doxx doesn't allow dashes in the config file name
+  const versionsFileName = repoName.replaceAll(/-/g, "")
+  // Doxx treats config files with common names as same, so balenasdk and balenasdkpython config files needs to be named differently
+  const versionsConfigFile = versionsConfigFileTemplate[versionsFileName] ? versionsConfigFileTemplate[versionsFileName] : versionsFileName
+  const versionsConfigFilePath = `./config/dictionaries/${versionsConfigFile}.json`
+  
   const versionedDocsFolder = path.join(__dirname, `../shared/${repoName}-versions`)
   
   console.log(`Started versioning ${repoName} docs`)
@@ -263,7 +274,7 @@ async function main() {
     const tagVersions = await fetchGitHubTags(owner, repoName);
 
     // Write versions configuration
-    await fsPromises.writeFile(versionsConfigFile, JSON.stringify(tagVersions, null, 2));
+    await fsPromises.writeFile(versionsConfigFilePath, JSON.stringify(tagVersions, null, 2));
     if (fs.existsSync(versionedDocsFolder)) {
       await fsPromises.rm(versionedDocsFolder, { recursive: true });
     }
