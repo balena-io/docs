@@ -47,11 +47,11 @@ config/dictionaries/balenacli.json
 shared/balena-cli-versions/
 
 # Ignore dynamic balena-SDK version docs
-config/dictionaries/balenasdk.json
+config/dictionaries/nodesdk.json
 shared/balena-sdk-versions/
 
 # Ignore dynamic Python SDK version docs
-config/dictionaries/balenasdkpython.json
+config/dictionaries/pythonsdk.json
 shared/balena-sdk-python-versions/
 
 # Ignore dynamic assets generated for Getting Started

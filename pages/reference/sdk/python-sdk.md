@@ -4,11 +4,11 @@ title: balena Python SDK Documentation
 layout: balena-sdk-python.html
 
 dynamic:
-  variables: [ $balenasdkpython ]
-  ref: $original_ref/$balenasdkpython
-  $switch_text: balena SDK version $balenasdkpython
+  variables: [ $pythonsdk ]
+  ref: $original_ref/$pythonsdk
+  $switch_text: balena SDK version $pythonsdk
 ---
 
-# Balena Python SDK {{ $balenasdkpython.version }} Documentation
+# Balena Python SDK {{ $pythonsdk.version }} Documentation
 
 {{import "balena-sdk-python-versions"}}

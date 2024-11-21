@@ -7,8 +7,6 @@ balena-builder
 balenacli
 balenahup
 balenalib
-balenasdk
-balenasdkpython
 balenista
 balenistas
 Barys
@@ -30,8 +28,10 @@ metalsmith
 model
 multicontainer
 Nicky
+nodesdk
 openbalena
 private-contracts
+pythonsdk
 resinio
 Rulemotion
 SBVR
