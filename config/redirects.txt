@@ -194,8 +194,8 @@
 /runtime/data-api /reference/api/overview/
 /tools/cli/ /reference/balena-cli/latest/
 /tools/cli /reference/balena-cli/latest/
-/tools/sdk/ /reference/sdk/node-sdk/
-/tools/sdk /reference/sdk/node-sdk/
+/tools/sdk/ /reference/sdk/node-sdk/latest/
+/tools/sdk /reference/sdk/node-sdk/latest/
 /tools/python-sdk/ /reference/sdk/python-sdk/
 /tools/python-sdk /reference/sdk/python-sdk/
 /runtime/resin-base-images/ /reference/base-images/balena-base-images/
@@ -269,6 +269,10 @@
 # Versioned CLI docs
 /reference/balena-cli/ /reference/balena-cli/latest/
 /reference/balena-cli /reference/balena-cli/latest/
+
+# Versioned Node.js SDK docs
+/reference/sdk/node-sdk/ /reference/sdk/node-sdk/latest/
+/reference/sdk/node-sdk /reference/sdk/node-sdk/latest/
 
 # Important: keep dynamic redirect below the static redirects
 # https://developers.cloudflare.com/pages/platform/redirects/

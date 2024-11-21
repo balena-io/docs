@@ -13,6 +13,9 @@ node ./tools/generate-docs-contracts.js
 # Generate versioned balena-cli docs
 node ./tools/versioning.js https://github.com/balena-io/balena-cli/blob/master/docs/balena-cli.md
 
+# Generate versioned balena-sdk docs
+node ./tools/versioning.js https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md
+
 # Generate Masterclasses Dynamically
 ./tools/build-masterclass.sh
 

@@ -14,7 +14,7 @@ tmp
 .lycheecache
 
 # Ignore external docs that are pulled via tools/fetch-external.sh
-pages/reference/sdk/node-sdk.md
+# pages/reference/sdk/node-sdk.md
 pages/reference/sdk/python-sdk.md
 
 pages/reference/supervisor/supervisor-api.md
@@ -45,6 +45,10 @@ shared/masterclass
 # Ignore dynamic balenaCLI version docs
 config/dictionaries/balenacli.json
 shared/balena-cli-versions/
+
+# Ignore dynamic balena-SDK version docs
+config/dictionaries/balenasdk.json
+shared/balena-sdk-versions/
 
 # Ignore dynamic assets generated for Getting Started
 static/img/device/**
