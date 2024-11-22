@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Decrease docs build duration"
+      hash: 7eab597c0fe2d92812c81c91008fa7ac995e8972
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.2.4
+  title: ""
+  date: 2024-11-22T11:22:15.272Z
+- commits:
     - subject: "patch: Create versioned docs for Python SDK"
       hash: 16a29b016f354e7da84b75f7ceaa249ed00880ff
       body: ""
