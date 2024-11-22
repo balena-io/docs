@@ -8,22 +8,24 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.."
 
 # Generate Getting Started assets
-node ./tools/generate-docs-contracts.js
+node ./tools/generate-docs-contracts.js &
 
 # Generate versioned balena-cli docs
-node ./tools/versioning.js https://github.com/balena-io/balena-cli/blob/master/docs/balena-cli.md
+node ./tools/versioning.js https://github.com/balena-io/balena-cli/blob/master/docs/balena-cli.md &
 
 # Generate versioned balena-sdk docs
-node ./tools/versioning.js https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md
+node ./tools/versioning.js https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md &
 
 # Generate versioned balena-python-sdk docs
-node ./tools/versioning.js https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md
+node ./tools/versioning.js https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md &
 
 # Generate Masterclasses Dynamically
-./tools/build-masterclass.sh
+./tools/build-masterclass.sh &
 
 # Generate base images docs
-./tools/build-base-images.sh
+./tools/build-base-images.sh & 
+
+wait
 
 # Convert .jpg, .jpeg, .png images to .webp format
 ./tools/convert-images-to-webp.sh
