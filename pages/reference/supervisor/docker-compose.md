@@ -80,6 +80,7 @@ Field | Details
 [cpu_count](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpu_percent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpus](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) | Introduced by Docker Compose v2.2 and therefore not working
+[env_file and service.env_file](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#use-the-env_file-attribute)
 [external_links](https://docs.docker.com/compose/compose-file/compose-file-v2/#external_links) |
 [isolation](https://docs.docker.com/compose/compose-file/compose-file-v2/#isolation-1) |
 [links](https://docs.docker.com/compose/compose-file/compose-file-v2/#links) |
