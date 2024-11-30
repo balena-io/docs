@@ -1,4 +1,18 @@
 - commits:
+    - subject: Specify env_file attribute as unsupported
+      hash: 6d60400c0ffb10e1a469214cac4ac8bb1a2b21ae
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Christina Ying Wang <cywang117@outlook.com>
+        signed-off-by: Christina Ying Wang <cywang117@outlook.com>
+      author: Christina Ying Wang
+      nested: []
+  version: 6.2.5
+  title: ""
+  date: 2024-11-30T00:05:00.993Z
+- commits:
     - subject: "patch: Decrease docs build duration"
       hash: 7eab597c0fe2d92812c81c91008fa7ac995e8972
       body: ""
