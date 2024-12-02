@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Remove unsupported GPIO file system access method"
+      hash: 78e0a98d71fd5c09a2f4d3e5e12081f98ac521aa
+      body: Additionally removed commented section on GPIO pins
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 6.2.6
+  title: ""
+  date: 2024-12-02T12:09:17.979Z
+- commits:
     - subject: Specify env_file attribute as unsupported
       hash: 6d60400c0ffb10e1a469214cac4ac8bb1a2b21ae
       body: ""
