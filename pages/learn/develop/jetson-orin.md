@@ -31,7 +31,7 @@ If the firmware version is older or newer than v36.3, please re-flash its firmwa
 
 ## Booting balenaOS flasher images from a USB key
 
-If your device does not boot the balenaOS flasher image from an attached USB key automatically, please follow these steps:
+In the unexpected even that your device does not boot the balenaOS flasher image from an attached USB key automatically, please follow these steps:
 
 1) Attach a USB keyboard and a monitor to the device
 2) Power on the device and press 'Esc' when prompted by the UEFI firmware, or 'F11' to enter the Boot Manager Menu directly
@@ -39,7 +39,7 @@ If your device does not boot the balenaOS flasher image from an attached USB key
 ![Orin UEFI boot manager](/img/jetson-orin/jetson_orin_uefi_boot_manager.webp)
 3) Select the attached USB key as boot media:
 ![Orin UEFI boot manager](/img/jetson-orin/jetson_orin_uefi_usb_key.webp)
-4) Your device will boot, provision the internal storage, and then power off. Once the device shut down, you can remove the USB key.
+4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.
 
 ## Post-provisioning UEFI firmware update
 
