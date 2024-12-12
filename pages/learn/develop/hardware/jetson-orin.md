@@ -41,6 +41,8 @@ In the unexpected even that your device does not boot the balenaOS flasher image
 ![Orin UEFI boot manager](/img/jetson-orin/jetson_orin_uefi_usb_key.webp)
 4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.
 
+Should you encounter any other unexpected issues while provisioning your device, please follow the [Jetson Flash flashing instructions](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions) to flash your device in recovery boot mode.
+
 ## Post-provisioning UEFI firmware update
 
 Once your device has been provisioned and powered back-on, it will attempt to update the UEFI firmware automatically.
@@ -49,3 +51,5 @@ The status of the UEFI firmware update process is depicted by a progress bar on 
 ![Orin UEFI firmware update progress](/img/jetson-orin/jetson_orin_uefi_firmware_update.webp)
 
 Please do not interrupt this process by reseting or cutting power from the device.
+
+
