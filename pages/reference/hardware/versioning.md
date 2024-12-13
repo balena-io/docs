@@ -37,14 +37,30 @@ The community devices types are:
 - Updated to newer versions as the community drives it, we do not guarantee the device type will keep up with OS versions.
 - Community boards can be promoted to an official balena supported board if a customer is interested in sponsoring the device support. If you are interested in sponsoring a community board, email solutions@balena.io .
 
-#### Discontinued
-Discontinued device types are those that are no longer actively maintained by the balena team or anyone in the community and will stop showing in the dashboard as options for new fleets and devices. Any already provisioned devices of this type will continue to function, but will no longer receive operating system updates.
+#### Device Type support policy
+At balena, we’re here to make sure balenaOS runs smoothly on actively maintained hardware models. This policy lays out what we support, what you can expect, and how we handle devices when they reach the end of their lifecycle.
 
-A device type will be discontinued if:
-- The device manufacturer end support and sale of the device.
-- No devices of this type are provisioned on balenaCloud in the last 6 months.
-- If it is a community device type and it has not received maintenance in the last 6 months.
-- If it is a private device type and the customer has stopped paying for the device to be supported.
+**What We Offer for Official Supported Hardware Models**
+- balenaOS Image: A tested and ready-to-use version of balenaOS, available in our documentation.
+- Incident and Bug Support: We’ll help troubleshoot issues with incidents, bugs, or performance—whenever possible.
+- Regular Updates: You’ll get ongoing updates and patches to keep your devices secure, compatible, and running efficiently.
+
+**What Happens When a Device is Discontinued?**
+Sometimes, a device type reaches the end of the road. When this happens:
+- The device type will stop appearing as an option for creating new fleets or adding new devices in the dashboard.
+- Any devices already provisioned will keep working, but they won’t get any more OS updates.
+
+**When Does a Device Get Discontinued?**
+We’ll discontinue a device type if:
+- The Manufacturer Stops Support: If the hardware maker stops supporting or selling the device.
+- It’s No Longer Used: No new devices of this type have been added to balenaCloud in the past 6 months.
+- Community Devices Are Inactive: For community-supported devices, if there’s no maintenance activity in the last 6 months.
+- Private Device Support Ends: For private device types, if the customer stops paying for its support.
+
+**What if You’re Using a Discontinued Device?**
+Here’s what you can expect:
+- Support Wrap-Up: Updates, patches, and bug fixes will no longer be provided. We’ll still do our best to help with workarounds or recommend alternative devices.
+- Custom Support Options: Need continued support? We can explore custom options on a case-by-case basis, which may involve additional fees.
 
 ## Versioning
 
@@ -54,3 +70,5 @@ The version string for a particular device type is a combination of the [meta-ba
 * The version of the specific device type is constructed by appending to the `meta-balena` version a `rev` label. This will have the semantics of a board revision which adapts a specific `meta-balena` version for a targeted board. For example a `meta-balena` 1.2.3 can go through 3 board revisions at the end of which the final version will be 1.2.3+rev3 .
 * When updating `meta-balena` version in a specific device type repo, the revision will reset to 1. Ex: 1.2.3+rev4 will be updated to 1.2.4+rev1 .
 * Note that the final OS version is NOT based on the semver specification so parsing of such a version needs to be handled in a custom way. If you are interested in how to parse the version scheme, have a look at our balenaOS version parser [balena-semver](https://github.com/balena-io-modules/resin-semver).
+
+Look at our [balenaOS support policy](https://github.com/balena-io/docs/edit/master/pages/reference/OS/updates/self-service.md) for information about how we support and maintain the different versions.
