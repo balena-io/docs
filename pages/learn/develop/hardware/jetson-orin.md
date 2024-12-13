@@ -2,11 +2,11 @@
 title: Jetson Orin
 ---
 
-# Jetson Orin
+# Provisioning Jetson Orin
 
-## How to check your Jetson Orin's UEFI firmware version
+## Check your Jetson Orin's UEFI firmware version
 
-You can check which UEFI firmware version your Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
+You can check which UEFI firmware version your Jetson Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
 
 The debug UART interface can be accessed on the Orin Nano and Orin NX devices by connecting a USB to RS232 converter to the TX, RX and GND pins on the carrier board, which are located underneath the Orin module.
 
@@ -31,10 +31,10 @@ If the firmware version is older or newer than v36.3, please re-flash its firmwa
 
 ## Booting balenaOS flasher images from a USB key
 
-In the unexpected even that your device does not boot the balenaOS flasher image from an attached USB key automatically, please follow these steps:
+In the unexpected event that your device does not boot the balenaOS flasher image from an attached USB key automatically, please follow the following steps to make the USB key the boot media to boot from:
 
-1) Attach a USB keyboard and a monitor to the device
-2) Power on the device and press 'Esc' when prompted by the UEFI firmware, or 'F11' to enter the Boot Manager Menu directly
+1) Attach a USB keyboard and a monitor to the device.
+2) Power on the device and press 'Esc' when prompted by the UEFI firmware, or 'F11' to enter the Boot Manager Menu directly.
 ![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
 ![Orin UEFI boot manager](/img/jetson-orin/jetson_orin_uefi_boot_manager.webp)
 3) Select the attached USB key as boot media:
