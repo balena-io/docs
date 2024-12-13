@@ -210,6 +210,7 @@ IPAM
 isexe
 isnt
 isurl
+Jetpack
 jetson
 journalctl
 jridgewell
@@ -238,6 +239,7 @@ memswap
 metainfo
 microcontroller
 microswitches
+minicom
 minideb
 miniuart
 minpoll
