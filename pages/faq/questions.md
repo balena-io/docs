@@ -128,7 +128,7 @@ Generally, we try to follow good OPSEC practices for our systems. We support 2FA
 
 ##### How long is a balenaOS release maintained for?
 
-BalenaOS comes in two flavors, a rolling release and an [Extended Support Release (ESR)](https://www.balena.io/docs/reference/OS/extended-support-release/). Rolling releases stop being maintained as soon as a new release is out. In other words, only the latest balenaOS release is maintained. ESR releases receive bug and security fixes for 9 months after its release date.
+BalenaOS comes in two flavors, a rolling release and an [Extended Support Release (ESR)](https://www.balena.io/docs/reference/OS/extended-support-release/). Rolling releases stop being maintained as soon as a new release is out. In other words, only the latest balenaOS release is maintained. ESR releases receive bug and security fixes for 9 months after its release date. More information about our support policy in the [Self-service updates](https://docs.balena.io/reference/OS/updates/self-service/) page.
 
 ##### When are device types discontinued?
 
