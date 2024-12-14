@@ -28,7 +28,7 @@ For more details on interacting with external hardware, check out these guides:
 - [GPIO][gpio]
 - [i2C and SPI][i2c-spi]
 - [USB][usb]
-- [Jetson Orin Devices][jetson-orin]
+- [Jetson Orin devices][jetson-orin]
 
 [gpio]:/learn/develop/hardware/gpio
 [i2c-spi]:/learn/develop/hardware/i2c-and-spi

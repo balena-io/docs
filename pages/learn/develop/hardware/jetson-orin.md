@@ -1,5 +1,5 @@
 ---
-title: Jetson Orin
+title: Provisioning Jetson Orin
 ---
 
 # Provisioning Jetson Orin
@@ -26,8 +26,8 @@ If your Orin is connected to a monitor, the UEFI firmware version will be displa
 
 If the firmware version is older or newer than v36.3, please re-flash its firmware by following the corresponding guide below:
 
-[Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware)
-[Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager)
+- [Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware)
+- [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager)
 
 ## Booting balenaOS flasher images from a USB key
 
@@ -51,5 +51,3 @@ The status of the UEFI firmware update process is depicted by a progress bar on 
 ![Orin UEFI firmware update progress](/img/jetson-orin/jetson_orin_uefi_firmware_update.webp)
 
 Please do not interrupt this process by reseting or cutting power from the device.
-
-
