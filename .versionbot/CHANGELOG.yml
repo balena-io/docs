@@ -1,4 +1,18 @@
 - commits:
+    - subject: "pages: Add Jetson Orin UEFI instructions"
+      hash: bd8a3d1e0c56236337cc42e2c0ac02105b4d2465
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 6.2.7
+  title: ""
+  date: 2024-12-16T12:32:44.544Z
+- commits:
     - subject: "patch: Remove unsupported GPIO file system access method"
       hash: 78e0a98d71fd5c09a2f4d3e5e12081f98ac521aa
       body: Additionally removed commented section on GPIO pins
