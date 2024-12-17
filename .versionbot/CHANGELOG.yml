@@ -1,4 +1,19 @@
 - commits:
+    - subject: "pages/learn: Add fan profile and power mode information"
+      hash: ef6d2aa451c5efa3586e95e47054e93d9d17641d
+      body: |
+        ... for Jetson Orin devices running Jetpack 6
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 6.3.1
+  title: ""
+  date: 2024-12-17T12:34:49.247Z
+- commits:
     - subject: Add Advanced HUP and update existing HUP docs
       hash: 3756d5dd94a0511c2cb86e7f5431f0681d6a6b4b
       body: |
