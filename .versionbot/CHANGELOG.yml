@@ -1,4 +1,21 @@
 - commits:
+    - subject: Add Advanced HUP and update existing HUP docs
+      hash: 3756d5dd94a0511c2cb86e7f5431f0681d6a6b4b
+      body: |
+        Restructure Update Process page to include Standard HUP and Advanced HUP
+      footer:
+        Co-authored-by: Vipul Gupta <vipul@balena.io>
+        co-authored-by: Vipul Gupta <vipul@balena.io>
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+  version: 6.3.0
+  title: ""
+  date: 2024-12-17T12:20:14.823Z
+- commits:
     - subject: "pages: Add Jetson Orin UEFI instructions"
       hash: bd8a3d1e0c56236337cc42e2c0ac02105b4d2465
       body: ""
