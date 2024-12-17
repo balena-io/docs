@@ -1,4 +1,14 @@
 - commits:
+    - subject: 'patch: Revert "Add Advanced HUP and update existing HUP docs"'
+      hash: 46466f6a98b75bf34dccce41c540b35412a9b7ca
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 6.3.2
+  title: ""
+  date: 2024-12-17T19:07:21.127Z
+- commits:
     - subject: "pages/learn: Add fan profile and power mode information"
       hash: ef6d2aa451c5efa3586e95e47054e93d9d17641d
       body: |
