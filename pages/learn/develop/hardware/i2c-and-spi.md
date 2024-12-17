@@ -24,6 +24,8 @@ title: I2C and Other Interfaces
   * [Serial ports](/hardware/i2c-and-spi#serial-ports)
 * [Jetson Devices](/hardware/i2c-and-spi#jetson-devices)
   * [Custom device trees](/hardware/i2c-and-spi#custom-device-trees)
+  * [Configurable fan profiles](/hardware/i2c-and-spi#configurable-fan-profiles)
+  * [Configurable power modes](/hardware/i2c-and-spi#configurable-power-modes)
 
 ## Raspberry Pi Family
 
@@ -347,6 +349,14 @@ After that, navigate to the `Device Configuration` tab in the balenaCloud dashbo
 After the custom device tree has been validated, it can be included in newer balenaOS images. For Jetson TX2 and Nano, open a pull request in the [balena Jetson device](https://github.com/balena-os/balena-jetson) repository following this [example commit](https://github.com/balena-os/balena-jetson/commit/3dbf9c96e5986c2138f318d1ee9f0d5c1a2fc3c8). For the Jetson AGX Orin, the PR should be opened in the [balena Jetson Orin](https://github.com/balena-os/balena-jetson-orin) repository. Once your PR is approved and merged, a new balenaOS image that includes your custom device tree will become available shortly.
 
 Please note that if the changes for your carrier board expand past kernel device-trees, or require modifications to board configuration files like pin multiplexing configuration files or any other device-trees or files used by firmware, these may not be provided by the existing cloud images. During provisioning the resulting configuration changes are stored in the QSPI or in the hardware defined boot partitions, and thus will be replaced with the default values when updating the Host Operating System. Please [contact us](https://www.balena.io/contact-sales) if you would like to use a Jetson carrier board which may not be fully compatible with its' corresponding devkit, or with any of our cloud images for your Jetson module.
+
+### Configurable fan profiles
+
+Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 offer support for configurable fan profiles. You can switch between the options provided by Jetpack by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device fan profile" configuration option, and typing in the desired value. The input value should be a string, without quotes. The change will be applied at runtime and will not trigger a device reboot. Preloading the [fan profile configuration](/reference/OS/configuration/#fanprofile) before provisioning your device can be achieved by editing the [config.json](/reference/OS/configuration/#about-configjson) file.
+
+### Configurable power modes
+
+Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 also offer the possibility for selecting the desired power mode. You can set the values *low*, *mid* and *high* or specify the power mode index directly by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device power mode" configuration option, and typing in the desired value. The input value should be a string, or a single digit number, without quotes. Please note that your device(s) will automatically reboot to apply the new power mode. The available power modes indexes for your device type are visible in the host OS in `/etc/nvpmodel.conf`. Preloading the desired power mode configuration can be achieved by editing the [config.json](/reference/OS/configuration/#about-configjson) file and specifying the desired [power mode](/reference/OS/configuration/#powermode) before provisioning the device.
 
 ### Container packages
 
