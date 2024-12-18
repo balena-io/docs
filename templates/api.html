@@ -1,9 +1,22 @@
 {% extends "default.html" %}
 
 {% block "contents" %}
-	<h1 id="balenacloud-api-resources">balenaCloud API Resources</h1>
+	<h1 id="balenacloud-api-resources">balenaCloud API Resources - {{$resource.name}}</h1>
 
-	<p><strong>Note:</strong> We recently renamed <strong>applications</strong> to <strong>fleets</strong> and are in the process of updating our API resources. Application resources continue to function correctly and can be used to work with fleets. <a href="https://www.balena.io/blog/the-road-to-multi-app-transitioning-balenacloud-applications-to-fleets/">Find out more about the changes here</a>.</p>
+  {% if $resource.id === "fleet"
+     or $resource.id === "fleet_membership_role"
+     or $resource.id === "fleet_tag"
+     or $resource.id === "fleet_config_variable"
+     or $resource.id === "fleet_environment_variable"
+     or $resource.id === "service"
+     or $resource.id === "team_fleet_access"
+   %}
+    <p>
+      <strong>Note:</strong> we renamed <strong>applications</strong> to <strong>fleets</strong>
+      and are in the process of updating our API resources. References to 'application' in fields
+      should be understood as synonymous with fleets.
+    </p>
+  {% endif %}
 
 	<div style="display: flex;">
 		<div style="float: left; width: 40%; padding-right: 10px;">
