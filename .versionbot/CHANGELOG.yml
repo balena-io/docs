@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update the balena.yml docs to mention full semver support
+      hash: e679bd1f4979158f208c0b8a50c0af69ff6c99fb
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 6.4.0
+  title: ""
+  date: 2024-12-18T11:38:59.439Z
+- commits:
     - subject: 'patch: Revert "Add Advanced HUP and update existing HUP docs"'
       hash: 46466f6a98b75bf34dccce41c540b35412a9b7ca
       body: ""
