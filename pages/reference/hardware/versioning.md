@@ -52,7 +52,7 @@ Sometimes, a device type reaches the end of the road. When this happens:
 
 **When Does a Device Get Discontinued?**
 We’ll discontinue a device type if:
-- The Manufacturer Stops Support: If the hardware maker stops supporting or selling the device.
+- If the manufacturer stops supporting or selling the device.
 - It’s No Longer Used: No new devices of this type have been added to balenaCloud in the past 6 months.
 - Community Devices Are Inactive: For community-supported devices, if there’s no maintenance activity in the last 6 months.
 - Private Device Support Ends: For private device types, if the customer stops paying for its support.
