@@ -57,7 +57,7 @@ We’ll discontinue a device type if:
 - In case the device is a community device and there's no maintenance activity from the community in the last 6 months.
 - In case the device is a private device type and if the customer stops paying for the device type support.
 
-**What if You’re Using a Discontinued Device?**
+**What happens to discontinued devices on balenaCloud?**
 Here’s what you can expect:
 - Support Wrap-Up: Updates, patches, and bug fixes will no longer be provided. We’ll still do our best to help with workarounds or recommend alternative devices.
 - Custom Support Options: Need continued support? We can explore custom options on a case-by-case basis, which may involve additional fees.
