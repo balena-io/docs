@@ -42,7 +42,7 @@ At balena, we’re here to make sure balenaOS runs smoothly on actively maintain
 
 #### Our offerings for vendor-supported hardware models**
 - BalenaOS Image: A tested and ready-to-use version of balenaOS [available generally](https://balena.io/os).
-- Incident and Bug Support: We’ll help troubleshoot issues with incidents, bugs, or performance—whenever possible.
+- Incident and Bug Support: Troubleshoot incidents, bugs, or performance issues with balenaOS — whenever possible.
 - Regular Updates: You’ll get ongoing updates and patches to keep your devices secure, compatible, and running efficiently.
 
 **What Happens When a Device is Discontinued?**
