@@ -71,4 +71,4 @@ The version string for a particular device type is a combination of the [meta-ba
 * When updating `meta-balena` version in a specific device type repo, the revision will reset to 1. Ex: 1.2.3+rev4 will be updated to 1.2.4+rev1 .
 * Note that the final OS version is NOT based on the semver specification so parsing of such a version needs to be handled in a custom way. If you are interested in how to parse the version scheme, have a look at our balenaOS version parser [balena-semver](https://github.com/balena-io-modules/resin-semver).
 
-Look at our [balenaOS support policy](https://github.com/balena-io/docs/edit/master/pages/reference/OS/updates/self-service.md) for information about how we support and maintain the different versions.
+Look at our [balenaOS support policy](/reference/OS/updates/self-service.md) for information about how we support and maintain the different versions.
