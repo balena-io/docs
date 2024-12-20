@@ -40,7 +40,7 @@ The community devices types are:
 #### Device Type support policy
 At balena, we’re here to make sure balenaOS runs smoothly on actively maintained hardware models. This policy lays out what we support, what you can expect, and how we handle devices when they reach the end of their lifecycle.
 
-**What We Offer for Official Supported Hardware Models**
+#### Our offerings for vendor-supported hardware models**
 - BalenaOS Image: A tested and ready-to-use version of balenaOS [available generally](https://balena.io/os).
 - Incident and Bug Support: We’ll help troubleshoot issues with incidents, bugs, or performance—whenever possible.
 - Regular Updates: You’ll get ongoing updates and patches to keep your devices secure, compatible, and running efficiently.
