@@ -7,6 +7,12 @@ on:
   schedule:
     - cron: "00 00 * * 1"
 
+permissions:
+  contents: read
+  issues: write
+  actions: read
+  pull-requests: read
+
 jobs:
   Checking-Links:
     runs-on: ubuntu-latest
@@ -37,8 +43,11 @@ jobs:
 
       - name: Create Issue From File
         if: env.lychee_exit_code != 0
-        uses: peter-evans/create-issue-from-file@v4
+        uses: peter-evans/create-issue-from-file@v5
         with:
           title: Link Checker Report
+          token: ${{ secrets.GITHUB_TOKEN }}
           content-filepath: ./lychee/out.md
-          labels: automated issue
+          labels: |
+            report
+            automated issue
