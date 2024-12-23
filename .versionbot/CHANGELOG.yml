@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update create-issue-from-file action to v5"
+      hash: 8679eab567bc3444c614cbbda3fbfd61f0776233
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.4.1
+  title: ""
+  date: 2024-12-23T22:11:04.558Z
+- commits:
     - subject: Update the balena.yml docs to mention full semver support
       hash: e679bd1f4979158f208c0b8a50c0af69ff6c99fb
       body: ""
