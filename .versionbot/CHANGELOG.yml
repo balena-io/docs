@@ -1,4 +1,18 @@
 - commits:
+    - subject: "i2c-and-spi: Make power modes more clear"
+      hash: 3e2416f0cbb321bd0d46c3b35b6274abf3c061fa
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+      nested: []
+  version: 6.4.2
+  title: ""
+  date: 2024-12-27T19:10:14.320Z
+- commits:
     - subject: "patch: Update create-issue-from-file action to v5"
       hash: 8679eab567bc3444c614cbbda3fbfd61f0776233
       body: ""
