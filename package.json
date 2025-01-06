@@ -31,11 +31,11 @@
   "homepage": "https://github.com/balena-io/docs",
   "dependencies": {
     "@balena/doxx": "^1.0.3",
-    "balena-sdk": "^20.6.8",
+    "balena-sdk": "^20.8.3",
     "bootstrap": "^3.4.1",
     "bootstrap-select": "^1.13.18",
     "coffeescript": "^2.7.0",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "express-http-to-https": "1.1.4",
     "headroom.js": "0.12.0",
     "highlight.js": "10.7.3",
@@ -44,7 +44,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "cspell": "^8.16.0",
+    "cspell": "^8.17.1",
     "css-loader": "5.2.7",
     "file-loader": "6.2.0",
     "line-by-line": "^0.1.6",
@@ -56,7 +56,7 @@
     "watch": "^1.0.2",
     "webpack": "5.96.1",
     "webpack-cli": "^5.1.4",
-    "wrangler": "^3.88.0"
+    "wrangler": "^3.99.0"
   },
   "versionist": {
     "publishedAt": "2024-12-27T19:10:14.859Z"
