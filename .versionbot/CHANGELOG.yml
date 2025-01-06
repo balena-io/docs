@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update NPM dependencies"
+      hash: 313549334a785b8a07a6f06ef59412f0aef87459
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.4.3
+  title: ""
+  date: 2025-01-06T14:28:12.095Z
+- commits:
     - subject: "i2c-and-spi: Make power modes more clear"
       hash: 3e2416f0cbb321bd0d46c3b35b6274abf3c061fa
       body: ""
