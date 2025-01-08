@@ -1,24 +1,13 @@
 ---
-title: Supported WiFi adapters
-excerpt: WiFi adapters known to work with {{ $names.company.lower }} devices
+title: WiFi adapters and Modems
+excerpt: Notes on WiFi adapter and modem compatibility with balenaOS
 ---
 
-# Supported Wifi Adapters
+# Wifi Adapters and Modems
 
-{{> "meta-balena/supported-wifi-adapters" }}
+Balena's software validation is only doing a [sanity check](https://github.com/balena-os/meta-balena/tree/1fb02321afaaea4e43e296ae556e628a1dfed530/tests/suites/os/tests/modem) on features that are commonly required by balenaOS. To run these tests, we use a sample modem with the driver provided by the manufacturer and the NetworkManager/ModemManager support. 
 
-Balena's software validation is only doing a sanity check on features that are commonly required by balenaOS. To run these tests, we use the driver provided by the manufacturer and the NetworkManager/ModemManager support. 
-
-Balena cannot guarantee that a modem or chipset is reliable and ready for production from our end. End users should run the necessary tests to validate their use case end-to-end and work with the vendor to resolve issues.
-
-## Supported modems 
-
-{{> "meta-balena/supported-modems" }}
-
-
-## WiFi USB Dongle
-
-{{> "meta-balena/supported-wifi-usb-dongle" }}
+Balena cannot guarantee that a specific modem or chipset is reliable and ready for production from our end. End users should run the necessary tests to validate their use case end-to-end and work with the vendor to resolve issues.
 
 
 ### Configuration
