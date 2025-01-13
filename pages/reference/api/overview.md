@@ -129,8 +129,22 @@ curl -X GET \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
+## Rate limits
+
+We intentionally do not publish detailed rate limits or the inner workings of our rate-limiting algorithm. Our goal is to keep the API experience as seamless as possible. 
+
+Engineers using our API shouldn’t have to manage the complexity of rate limits to automate workflows effectively. The rate limits we enforce are generous, and customers running large-scale automation rarely encounter issues.
+
+Publishing specific rate limits often results in them being treated as a "target" or a fixed barrier, which is not how we intend the API to be used. Our rate limits are designed to provide a minimum level of protection for the API and to ensure consistent performance for all users, without requiring customers to worry about exceeding them.
+
+To maintain the best experience, we also need the flexibility to adapt and evolve the rate-limiting algorithm. Publishing fixed limits could constrain our ability to improve and respond to specific needs without disrupting customers. 
+
+Instead, we provide the `Retry-After` header. The HTTP `Retry-After` response header indicates how long the user agent should wait before making a follow-up request. When a request exceeds the current rate limit, the response will include this header with a value indicating how long you should be waiting before retrying. This ensures your code can dynamically adapt on runtime without needing workarounds or context about the rate-limiting mechanism.
+
+
 [odata]:https://www.odata.org/
 [odata-docs]:https://www.odata.org/getting-started/basic-tutorial/
 [resources]:/reference/api/resources/fleet
 [tokens]:/learn/accounts/account#session-tokens
 [api-keys]:/learn/accounts/account#api-keys
+
