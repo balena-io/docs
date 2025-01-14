@@ -1,4 +1,31 @@
 - commits:
+    - subject: remove fetching of modem and wifi adapter text from meta-balena
+      hash: 48061c4fd36623611042a114028b37ea860dd01e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+    - subject: "reference/wifi-dongles.md: Remove list of supported modems"
+      hash: d694c7011f6cde45310f0ead1375f03bbfc645d0
+      body: >
+        The list of supported wifi dongles and modems is out of date and sets an
+        uneralistic expectation for hardware compatibility - its better to
+        remove this until we actually have a proper modem story
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 6.4.4
+  title: ""
+  date: 2025-01-14T15:13:27.430Z
+- commits:
     - subject: "patch: Update NPM dependencies"
       hash: 313549334a785b8a07a6f06ef59412f0aef87459
       body: ""
