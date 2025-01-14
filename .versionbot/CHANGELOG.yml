@@ -1,4 +1,14 @@
 - commits:
+    - subject: "minor: remove edison from gpio.md"
+      hash: bf102b3f8bf2d80f581267c9ff34999ccba39d12
+      body: Intel Edison has been deprecated a long time ago.
+      footer: {}
+      author: Edwin Joassart
+      nested: []
+  version: 6.5.0
+  title: ""
+  date: 2025-01-14T15:19:24.421Z
+- commits:
     - subject: remove fetching of modem and wifi adapter text from meta-balena
       hash: 48061c4fd36623611042a114028b37ea860dd01e
       body: ""
