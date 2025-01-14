@@ -35,11 +35,11 @@ curl --fail --show-error -o shared/masterclass/debugging/supervisor.md -L https:
 cd shared/meta-balena/ && {
   curl --fail --show-error -o meta-balena.md -L https://raw.githubusercontent.com/balena-os/meta-balena/master/README.md
   # Extract modem text
-  ../../tools/extract-markdown.sh "Modems" <meta-balena.md >supported-modems.md
+  # ../../tools/extract-markdown.sh "Modems" <meta-balena.md >supported-modems.md
   # Extract Wifi adapters
-  ../../tools/extract-markdown.sh "WiFi Adapters" <meta-balena.md >supported-wifi-adapters.md
+  # ../../tools/extract-markdown.sh "WiFi Adapters" <meta-balena.md >supported-wifi-adapters.md
   # Extract Recommended WiFi USB dongle
-  ../../tools/extract-markdown.sh "Recommended WiFi USB dongle" <meta-balena.md >supported-wifi-usb-dongle.md
+  # ../../tools/extract-markdown.sh "Recommended WiFi USB dongle" <meta-balena.md >supported-wifi-usb-dongle.md
   # Extract config.json
   ../../tools/extract-markdown.sh "config.json" <meta-balena.md >config-json.md
   rm meta-balena.md
