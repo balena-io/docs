@@ -8,7 +8,6 @@ Recommended ways of interacting with GPIO on {{ $names.company.lower }} devices.
 
 * [Raspberry Pi](/hardware/gpio#raspberry-pi)
 * [Beaglebone](/hardware/gpio#beaglebone)
-* [Intel Edison](/hardware/gpio#intel-edison)
 
 ## Raspberry Pi
 
@@ -38,13 +37,6 @@ With this module you should be able to carry out basic GPIO and analog-to-digita
 
 If you would prefer a python implementation, then look at this [github issue](https://github.com/adafruit/adafruit-beaglebone-io-python/issues/80#issuecomment-163073883) and get involved in making it happen.
 
-## Intel Edison
-
-All the Intel Edison base images on our [Docker Hub][edison-base-image-link] come pre-installed with [libmraa](https://github.com/intel-iot-devkit/mraa), which allows you to easily interact with the GPIO.
-
-To get started with GPIO on edison have a look at our ["Edison GPIO in node.js"](https://github.com/shaunmulligan/edison-blink-node.git) example, or if you prefer python check out our ["Simple Edison GPIO with python"](https://github.com/shaunmulligan/hello-python-edison).
-
-[edison-base-image-link]:https://hub.docker.com/search/?q=resin%2Fedison&page=1&isAutomated=0&isOfficial=0&starCount=0&pullCount=0
 [terminal]:/runtime/terminal
 
 [balena]:{{ $links.mainSiteUrl }}
