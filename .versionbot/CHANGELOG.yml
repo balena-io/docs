@@ -1,4 +1,15 @@
 - commits:
+    - subject: "patch: Add rate limits to API docs"
+      hash: 5f2fa006c15fbc1647b8d7d53c6014859f4efe63
+      body: Added a section on rate limiting to our API docs so that customers can
+        understand why we don't publish our rate limits.
+      footer: {}
+      author: Ryan
+      nested: []
+  version: 6.5.1
+  title: ""
+  date: 2025-01-15T08:11:45.828Z
+- commits:
     - subject: "minor: remove edison from gpio.md"
       hash: bf102b3f8bf2d80f581267c9ff34999ccba39d12
       body: Intel Edison has been deprecated a long time ago.
