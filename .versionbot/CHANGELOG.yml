@@ -1,4 +1,20 @@
 - commits:
+    - subject: "patch: update to `balena device <subcommand>`"
+      hash: 8d154152c9461d408b90a4fe0f13ced0c2fdd4f8
+      body: >-
+        updated all instances of `{{ $names.company.short }}` commands to use
+        the renamed versions
+
+        using
+        https://github.com/balena-io/balena-cli/blob/v20.2.1/docs/balena-cli.md
+        as reference
+      footer: {}
+      author: Wesley McCloy
+      nested: []
+  version: 6.5.2
+  title: ""
+  date: 2025-01-16T13:13:48.277Z
+- commits:
     - subject: "patch: Add rate limits to API docs"
       hash: 5f2fa006c15fbc1647b8d7d53c6014859f4efe63
       body: Added a section on rate limiting to our API docs so that customers can
