@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Remove Edison hardware docs"
+      hash: e94e3641cc917e237dab4d39efcf589eaa58ce77
+      body: Edison was EOL'd years ago, so these docs are just bloat
+      footer: {}
+      author: Shaun Mulligan
+      nested: []
+  version: 6.5.3
+  title: ""
+  date: 2025-01-31T16:33:21.862Z
+- commits:
     - subject: "patch: update to `balena device <subcommand>`"
       hash: 8d154152c9461d408b90a4fe0f13ced0c2fdd4f8
       body: >-
