@@ -259,50 +259,6 @@ echo 1 > /sys/class/gpio/gpio74/value
 ```
 Pin 41 of Header P8 should go high.
 
-## Intel Edison
-### MRAA for GPIO and hardware access
-The best and easiest way to interface with GPIO, I2C, SPI or UART on the Intel Edison is to use the
-[MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applications that
-interact directly with the Edison hardware.
-
-If you use our [{{ $names.base_images.lib }}/intel-edison-node][dockerbase-node] or [{{ $names.base_images.lib }}/intel-edison-python][dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
-
-Have a look at this [python example](https://github.com/shaunmulligan/hello-python-edison) or this [node.js example](https://github.com/shaunmulligan/edison-blink-node) to get started.
-
-### UPM for high level sensor and actuator libraries
-Intel provides the [UPM library][upm-link] which contains software drivers for a wide variety of commonly used sensors and actuators. These software drivers interact with the underlying hardware platform (or microcontroller), as well as with the attached sensors, through calls to [MRAA APIs][mraa-link].
-
-### Edison in USB Host mode
-
-The Edison needs a kernel module to be loaded to trigger the UBS HOST mode. This can be done in the following way.
-
-##### Hardware Pre-requisites:
-Your Edison will need to be powered externally for the USB host mode to be active - Either through the DC jack on the Arduino board or through the battery connector on the smaller Intel carrier board.
-
-##### Software Pre-requisites:
-The following code needs to be placed at the start before any device operations run in the container.
-```Bash
-#!/bin/bash
-
-mount -t devtmpfs none /dev
-udevd --daemon
-
-# g_multi needs a file to be passed which shows up as USB storage if Edison is in device mode.
-# We are creating a blank file here.
-dd if=/dev/zero of=/data/blank.img bs=10M count=1
-
-# The following is needed to get the Edison to switch to host mode - If the power connections aren't made for the HOST mode this exposes the file above as USB storage, emulates a USB network card and USB serial connected to the Edison.
-sync && modprobe g_multi file=/data/blank.img stall=0 idVendor=0x8087 idProduct=0x0A9E iProduct=Edison iManufacturer=Intel
-
-udevadm trigger
-udevadm settle
-
-# Shutdown the unnecessary usb0 spawned by g_mutli
-sleep 5s && ifconfig usb0 down
-```
-
-After this you should be able to easily use your Intel Edison in USB host mode.
-
 ## IOT-GATE-iMX8
 
 ### Serial ports
