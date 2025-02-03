@@ -112,12 +112,12 @@ successful message appears.
 
 ## Create a release
 
-After login, test the {{ $names.cli.lower }} by running the `{{ $names.company.lower }} fleets` command, which should return information about the fleet you created in the previous step. Take a note of the `FLEET NAME` as you'll need this in the next step to push the code to your device(s) in that fleet.
+After login, test the {{ $names.cli.lower }} by running the `{{ $names.company.lower }} fleet list` command, which should return information about the fleet you created in the previous step. Take a note of the fleet `NAME` as you'll need this in the next step to push the code to your device(s) in that fleet.
 
 ```shell
 $ {{ $names.company.lower }} fleets
-ID    FLEET NAME   DEVICE TYPE          ONLINE DEVICES DEVICE COUNT
-98264 First-Fleet  {{ $device.name }}   0              0
+ID    NAME         SLUG                                 DEVICE TYPE           DEVICE COUNT   ONLINE DEVICES
+98264 First-Fleet  {{ $names.cli.lower }}/first-fleet    {{ $device.name }}    0              0
 ```
 
 A nice project to try is the [balena-{{ $language.id }}-hello-world][balena-{{ $language.id }}-hello-world] project.
