@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Deprecated command `fleets` replaced by `fleet list`"
+      hash: d1554971b505976938223fe874d12976eeaaf0e9
+      body: ""
+      footer: {}
+      author: wallem89
+      nested: []
+  version: 6.5.4
+  title: ""
+  date: 2025-02-03T22:22:48.691Z
+- commits:
     - subject: "patch: Remove Edison hardware docs"
       hash: e94e3641cc917e237dab4d39efcf589eaa58ce77
       body: Edison was EOL'd years ago, so these docs are just bloat
