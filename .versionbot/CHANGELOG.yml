@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update feature requests page link
+      hash: a7459c5dca5bdaf9df6078d45dbcfd560b529399
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Jonathan Berger
+      nested: []
+  version: 6.5.5
+  title: ""
+  date: 2025-02-07T10:50:50.392Z
+- commits:
     - subject: "patch: Deprecated command `fleets` replaced by `fleet list`"
       hash: d1554971b505976938223fe874d12976eeaaf0e9
       body: ""
