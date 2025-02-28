@@ -41,7 +41,7 @@ If you are building your own container images, `{{$names.company.lower}} deploy`
 
 Like `{{$names.company.lower}} push` it is also independent of git, and you can use any version control system you wish. It is also possible to use [private base images](#private-base-images).
 
-__Note:__ Refer to the [`{{$names.company.lower}} build`][[cli-build-reference] and [`{{$names.company.lower}} deploy` command reference][[cli-deploy-reference] for additional documentation.
+__Note:__ Refer to the [`{{$names.company.lower}} build`][[cli-build-reference]] and [`{{$names.company.lower}} deploy` command reference][[cli-deploy-reference]] for additional documentation.
 
 ## Git Push
 
