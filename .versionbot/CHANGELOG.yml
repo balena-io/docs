@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Fix typos in deployment.md"
+      hash: 728899b9270e9b558bb1153b8de9534b6c4e1b16
+      body: ""
+      footer: {}
+      author: Edwin Joassart
+      nested: []
+  version: 6.5.7
+  title: ""
+  date: 2025-02-28T12:23:14.405Z
+- commits:
     - subject: "patch: Update query to fetch device types"
       hash: 828af23e08a0524dd94621e931bcc10e004ddf02
       body: ""
