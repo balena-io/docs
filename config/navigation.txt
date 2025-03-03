@@ -41,7 +41,6 @@ Learn
     [/learn/develop/multicontainer]
     Develop with Apps[/learn/develop/apps]
     [/learn/develop/blocks]
-    [/learn/develop/container-contracts]
     [/learn/develop/runtime]
     [/learn/develop/hardware]
       [/learn/develop/hardware/gpio]
