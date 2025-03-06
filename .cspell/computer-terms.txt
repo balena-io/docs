@@ -83,6 +83,7 @@ client
 cloudiotcore
 Cloudlink
 CMDMON
+CMOS
 colorbox
 colorette
 composeyml
@@ -191,6 +192,7 @@ hotswap
 hugepages
 hummingboard
 HWADDR
+hwclock
 hyperpixel
 icss
 idfa
@@ -214,6 +216,7 @@ Jetpack
 jetson
 journalctl
 jridgewell
+kexec
 keyv
 klaw
 Lamtzidis
@@ -232,6 +235,7 @@ localcommit
 lockr
 logind
 logshipper
+LUKS
 macbook
 MASKROM
 maxpoll
@@ -331,6 +335,7 @@ reflashed
 reflashing
 reinterpolate
 relases
+relatime
 replug
 repostiory
 reprovision
