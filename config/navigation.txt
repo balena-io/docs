@@ -127,6 +127,10 @@ Reference
     [/reference/OS/time]
     [/reference/OS/advanced]
     [/reference/OS/customer-board-support]
+    Secure Boot & Full Disk Encryption[/reference/OS/secure-boot-and-full-disk-encryption/overview]
+      Setup Guides
+        [/reference/OS/secure-boot-and-full-disk-encryption/generic-x86-64-gpt]
+    
 
   Device supervisor
     Supervisor API[/reference/supervisor/supervisor-api]
