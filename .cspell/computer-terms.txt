@@ -214,6 +214,7 @@ Jetpack
 jetson
 journalctl
 jridgewell
+kexec
 keyv
 klaw
 Lamtzidis
@@ -232,6 +233,7 @@ localcommit
 lockr
 logind
 logshipper
+LUKS
 macbook
 MASKROM
 maxpoll
