@@ -33,10 +33,16 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 <summary><b>I want to use a monitor</b></summary>
 <br>
 
-    <details>
-    <summary><b><i>What type of video cable do I need for my device?</i></b></summary>
+<p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
+
+<img src="/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp" alt="Orin UEFI display menu">
+
+</details>
+
+<details>
+    <summary><b>What type of video cable do I need for my device?</b></summary>
     <br>
-    A Display Port cable, or Display Port to HDMI adapter - depending on the available input sources on your monitor - is necessary on the following devices:<br>
+    A Display Port cable, or Display Port to HDMI adapter is necessary on the following devices:<br>
       * Jetson AGX Orin 32GB<br>
       * Jetson AGX Orin 64GB<br>
       * Jetson Orin Nano Devkit<br>
@@ -45,12 +51,6 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
       * Jetson Orin NX in Xavier NX Devkit<br>
       * Seeed J3010<br>
       * Seeed J4012<br>
-    </details>
-<br>
-<p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
-
-<img src="/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp" alt="Orin UEFI display menu">
-
 </details>
 
 <br>
