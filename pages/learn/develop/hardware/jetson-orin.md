@@ -4,12 +4,12 @@ title: Provisioning Jetson Orin
 
 # Provisioning Jetson Orin
 
-## Check your Jetson Orin's UEFI firmware version
+## Checking your Jetson Orin's UEFI firmware version
 
 You can check which UEFI firmware version your Jetson Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
 
 <details>
-<summary><b>I want to use the debug UART interface</b></summary>
+<summary><b> &#9658; I want to use the debug UART interface</b></summary>
 <br>
 
 <p>If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable and a serial communication program like <code>minicom</code>. The USB to TTL converter's pins need to be connected to the TX, RX and GND pins on the Jetson carrier board, which are located underneath the Orin module.</p>
@@ -30,7 +30,7 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 
 
 <details>
-<summary><b>I want to use a monitor</b></summary>
+<summary><b> &#9658; I want to use a monitor</b></summary>
 <br>
 
 <p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
@@ -40,14 +40,16 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 </details>
 
 <details>
-    <summary><b>What type of video cable do I need for my device?</b></summary>
+    <summary><b> &#9658; What type of video cable do I need for my device?</b></summary>
     <br>
     A Display Port cable, or Display Port to HDMI adapter is necessary on the following devices:<br>
+    <br>
       * Jetson AGX Orin 32GB<br>
       * Jetson AGX Orin 64GB<br>
       * Jetson Orin Nano Devkit<br>
     <br>
     An HDMI cable is required for:<br>
+    <br>
       * Jetson Orin NX in Xavier NX Devkit<br>
       * Seeed J3010<br>
       * Seeed J4012<br>
@@ -64,7 +66,7 @@ If the firmware version is older or newer than v36.3, please re-flash its firmwa
 In the unexpected event that your device does not boot the balenaOS flasher image from the attached USB key automatically, please follow the following steps to make the USB key the boot media to boot from:
 
 <details>
-<summary><b>I want to use the debug UART interface</b></summary>
+<summary><b> &#9658; I want to use the debug UART interface</b></summary>
 <br>
 
 <p>1)If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable and a serial communication program like <code>minicom</code>. The USB to TTL converter's pins need to be connected to the TX, RX and GND pins on the Jetson carrier board, which are located underneath the Orin module.</p>
@@ -88,7 +90,7 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 </details>
 
 <details>
-<summary><b>I want to use a keyboard and monitor</b></summary>
+<summary><b> &#9658; I want to use a keyboard and monitor</b></summary>
 <br>
 
 1) Attach a USB keyboard and a monitor to the device.<br>
@@ -109,7 +111,7 @@ Should you encounter any other unexpected issues while provisioning your device,
 Once your device has been provisioned and powered back-on, it will attempt to update the UEFI firmware automatically.
 The status of the UEFI firmware update process is depicted by a progress bar on the debug UART interface, as well on the display, if connected.
 
-**Please do not interrupt this process by reseting or cutting power to the device.**<br>
+**Please do not interrupt this process by resetting or cutting power to the device.**<br>
 
 If you are using the debug UART, the firmware update process will be displayed by a progress bar similar to the one below:
                                                                                                                                                
