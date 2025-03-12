@@ -501,3 +501,11 @@ pre:hover .btnClipboard {
   fill: currentColor;
   margin-right: 0.5em;
 }
+
+summary {
+  display: list-item;
+}
+
+.jetson-thumb {
+    margin: 0px !important;
+}
