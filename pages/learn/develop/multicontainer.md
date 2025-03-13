@@ -115,11 +115,11 @@ In addition to the settings above, there are some {{ $names.company.lower }} spe
 
 ### Container requirements
 
-**Note** Container requirements are available when using balenaCLI >= 21.1.0
+**Note:** Container requirements are available when using balenaCLI >= 21.1.0
 
-An additional set of labels allows to ensure the compatibility of a device when it comes to run a service. For example, before updating to a new release, it may be desirable to ensure that the device is running a specific version of [Supervisor][supervisor] or has a specific version of the [NVIDIA Tegra Linux Driver Package][l4t] (L4T).
+An additional set of labels ensures device compatibility for running a service. For example, before updating to a new release, it may be desirable to ensure that the device is running a specific version of [Supervisor][supervisor] or has a specific version of the [NVIDIA Tegra Linux Driver Package][l4t] (L4T).
 
-The following set of requirement labels are enforced via the supervisor. Each service may define one or more requirements and if any of them is not met for any non-[optional](#optional-containers) service, then the release will be **rejected** and no changes will be performed for the new release.
+The following set of requirement labels are enforced via the supervisor. Each service may define one or more requirements and if any of them is not met for any non-[optional](#optional-containers) service, then [the release will be rejected][update-statuses] and no changes will be performed for the new release.
 
 | Label                                                          | Description                                                               | Valid from Supervisor |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------- | --------------------- |
@@ -163,7 +163,7 @@ services:
     build: ./second-service
 ```
 
-**Note** When updating between releases, if the new version of and optional service has unmet requirements, the old version of the service will still be killed.
+**Note:** When updating between releases, if the new version of and optional service has unmet requirements, the old version of the service will still be killed.
 
 [docker-compose]: https://docs.docker.com/compose/overview/
 
@@ -182,3 +182,4 @@ services:
 [device-type]:/reference/base-images/devicetypes/
 [arch]: /reference/base-images/balena-base-images/#supported-architectures-distros-and-languages
 [version-range]: https://www.npmjs.com/package/semver
+[update-statuses]: /learn/manage/device-statuses/#update-statuses
