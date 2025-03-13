@@ -1,4 +1,17 @@
 - commits:
+    - subject: Container requirement documentation tweaks
+      hash: 85c87502a0bef998baaefb44a8015a8d57d09e67
+      body: |
+        Improve some texts and link to update status documentation
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 6.6.1
+  title: ""
+  date: 2025-03-13T13:17:59.581Z
+- commits:
     - subject: Add container requirements section under Labels
       hash: 8b4d08d96066a221ee00177f58e5a62178000503
       body: |
