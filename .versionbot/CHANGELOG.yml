@@ -1,4 +1,22 @@
 - commits:
+    - subject: Add container requirements section under Labels
+      hash: 8b4d08d96066a221ee00177f58e5a62178000503
+      body: |
+        This also removes the container contracts page as this feature is being
+        replaced by container requirements.
+      footer:
+        See: https://balena.fibery.io/Work/Project/Refactoring-container-contracts-1205
+        see: https://balena.fibery.io/Work/Project/Refactoring-container-contracts-1205
+        Change-type: minor
+        change-type: minor
+        Depends-on: https://github.com/balena-io/balena-cli/pull/2922
+        depends-on: https://github.com/balena-io/balena-cli/pull/2922
+      author: Felipe Lalanne
+      nested: []
+  version: 6.6.0
+  title: ""
+  date: 2025-03-13T11:16:32.081Z
+- commits:
     - subject: "patch: Fix typos in deployment.md"
       hash: 728899b9270e9b558bb1153b8de9534b6c4e1b16
       body: ""
