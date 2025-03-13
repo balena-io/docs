@@ -4,6 +4,105 @@ title: Provisioning Jetson Orin
 
 # Provisioning Jetson Orin
 
+## Identifying your NVIDIA Jetson Orin device
+
+Click on your Jetson device below for details:
+
+<details>
+<summary><b> &#9658; AGX Orin Devkit 32GB</b></summary>
+
+#### Nvidia Jetson AGX Orin Devkit 32GB
+The Nvidia Jetson AGX 32GB development kit can be identified by the label printed on the inside bottom of the unit as shown. It mentions part number 975-13730-0000-000 but does not actually say 32GB.
+<br>
+![AGX Orin Devkit 32GB wide shot](/img/jetson-orin/AGX-Orin-64-wide2.webp)
+<br>
+![AGX Orin Devkit 32GB close up](/img/jetson-orin/AGX_Orin_32GB_Devkit_975-13730-0000-000.webp)
+<br>
+</details>
+
+<details>
+<summary><b> &#9658; AGX Orin Devkit 64GB</b></summary>
+
+#### Nvidia Jetson AGX Orin Devkit 64GB
+The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as shown. It mentions part number 945-13730-0050-000 and reads “Jetson AGX Orin 64GB Developer Kit”.
+<br>
+![AGX Orin Devkit 64GB wide shot](/img/jetson-orin/AGX-Orin-64-wide.webp)
+<br>
+![AGX Orin Devkit 64GB close up](/img/jetson-orin/orin-64GB-close.webp)
+</details>
+
+<details>
+<summary><b> &#9658; Orin Nano 8GB (SD) Devkit NVME</b></summary>
+<br>
+
+#### Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME
+
+![AGX Orin Nano 8GB  wide shot](/img/jetson-orin/Orin_Nano_Devkit.webp)
+
+The Orin Nano 8GB SD module has the part number 900-13767-0050-000. This number may not be printed on some modules, however, the part can be distinguished by having an SD-CARD slot.
+
+![AGX Orin Nano 8GB SD card slot](/img/jetson-orin/Nano_SD_in_Devkit.webp)
+<br>
+![AGX Orin Nano 8GB SOM card slot](/img/jetson-orin/Nano_8GB_Devkit_SOM_900-13767-0050-000.webp)
+<br>
+</details>
+
+<details>
+<summary><b> &#9658; Orin Nano 8GB Production module</b></summary>
+
+#### Nvidia Jetson Orin Nano 8GB Production module
+
+The Orin Nano production module has the part number 900-13767-0030-000, which can be observed on the bottom. The main difference from the Orin Nano SD - 900-13767-0050-000 -  is that it does not have an SD card slot. This module can be used with a Jetson Orin Nano Devkit carrier board, along with the balenaOS image for the Jetson Orin Nano 8GB (SD) Devkit, provided that the corresponding kernel device-tree is configured in your balena-cloud device configuration page.
+
+![AGX Orin Nano 8GB](/img/jetson-orin/Nano_8GB_Production_SOM_900-13767-0030-000.webp)
+<br>
+![AGX Orin Nano 8GB SOM](/img/jetson-orin/Nano_8GB_Production_SOM_900-13767-0030-000_closeup.webp)
+</details>
+
+<details>
+<summary><b> &#9658; Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME</b></summary>
+
+#### Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME
+
+![AGX Orin NX 16GB SOM](/img/jetson-orin/Orin_NX_16GB_SOM_900-13767-0000-000.webp)
+<br>
+Part number 900-13767-0000-000 is printed on the right side of the SOM bottom side, and can only be observed if the module is taken out of the devkit:
+
+![AGX Orin NX 16GB SOM close up](/img/jetson-orin/Orin_NX_16GB_SOM_900-13767-0000-000_closeup.webp)
+
+</details>
+
+<details>
+<summary><b> &#9658; Seeed reComputer J4012 Jetson Orin NX 16GB</b></summary>
+<br>
+
+#### Seeed reComputer J4012 Jetson Orin NX 16GB
+
+The device has the Seeed Studio logo on the back, and the following sticker on the bottom:
+
+![J4012 Case](/img/jetson-orin/J4012_case.webp)
+
+The SOM in the Seeed reComputer J012 is a Jetson Orin NX 16GB, which has the part number 900-13767-0000-000 
+
+</details>
+
+<details>
+<summary><b> &#9658; Seeed reComputer J3010 Jetson Orin Nano 4GB</b></summary>
+
+#### Seeed reComputer J3010 Jetson Orin Nano 4GB
+
+The device has the Seeed Studio logo on the back, and the following sticker on the bottom:
+
+![J3010 Case](/img/jetson-orin/J3010_case.webp)
+
+The SOM in the Seeed reComputer J3010 is a Jetson Orin Nano 4GB, which has the part number 900-13767-0040-000. This part number can be found on the bottom of the SOM, if it is taken out of the carrier board:
+
+![J3010 SOM](/img/jetson-orin/Nano_4GB_SOM_900-13767-0040-000.webp)
+
+![J3010 SOM](/img/jetson-orin/Nano_4GB_SOM_900-13767-0040-000_closeup.webp)
+
+</details>
+
 ## Checking your Jetson Orin's UEFI firmware version
 
 You can check which UEFI firmware version your Jetson Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
