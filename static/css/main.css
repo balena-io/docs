@@ -505,3 +505,7 @@ pre:hover .btnClipboard {
 summary {
   display: list-item;
 }
+
+.jetson-thumb {
+    margin: 0px !important;
+}
