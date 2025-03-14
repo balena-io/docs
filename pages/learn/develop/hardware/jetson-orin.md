@@ -7,7 +7,7 @@ title: Jetson Orin UEFI Firmware
 ## Supported Jetson Orin Devices
 
 <details>
-<summary><b> AGX Orin Devkit 32GB</b><br><img src="/img/jetson-orin/AGX_Orin_Perspective_thumb.jpeg" alt="AGX Orin 32GB"></summary>
+<summary><b> AGX Orin Devkit 32GB</b><br><img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.jpeg" alt="AGX Orin 32GB"></summary>
 
 #### Nvidia Jetson AGX Orin Devkit 32GB
 The Nvidia Jetson AGX 32GB development kit can be identified by the label printed on the inside bottom of the unit as shown. It mentions part number 975-13730-0000-000 but does not actually say 32GB.
@@ -19,7 +19,7 @@ The Nvidia Jetson AGX 32GB development kit can be identified by the label printe
 </details>
 
 <details>
-<summary><b> AGX Orin Devkit 64GB</b><br><img src="/img/jetson-orin/AGX_Orin_Perspective_thumb.jpeg" alt="AGX Orin 64GB"></summary>
+<summary><b> AGX Orin Devkit 64GB</b><br><img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.jpeg" alt="AGX Orin 64GB"></summary>
 
 #### Nvidia Jetson AGX Orin Devkit 64GB
 The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as shown. It mentions part number 945-13730-0050-000 and reads “Jetson AGX Orin 64GB Developer Kit”.
@@ -30,7 +30,7 @@ The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as
 </details>
 
 <details>
-<summary><b> Orin Nano 8GB (SD) Devkit NVME</b><br><img src="/img/jetson-orin/Orin_Nano_Devkit_thumb.webp" alt="Orin Nano Devkit"></summary>
+<summary><b> Orin Nano 8GB (SD) Devkit NVME</b><br><img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Devkit_thumb.webp" alt="Orin Nano Devkit"></summary>
 <br>
 
 #### Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME
