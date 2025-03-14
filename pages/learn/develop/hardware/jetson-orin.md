@@ -1,53 +1,220 @@
 ---
-title: Provisioning Jetson Orin
+title: Jetson Orin UEFI Firmware
 ---
 
 # Provisioning Jetson Orin
 
-## Check your Jetson Orin's UEFI firmware version
+## Supported Jetson Orin Devices
+
+<details>
+<summary><b> AGX Orin Devkit 32GB</b><br><img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.jpeg" alt="AGX Orin 32GB"></summary>
+
+#### Nvidia Jetson AGX Orin Devkit 32GB
+The Nvidia Jetson AGX 32GB development kit can be identified by the label printed on the inside bottom of the unit as shown. It mentions part number 975-13730-0000-000 but does not actually say 32GB.
+<br>
+![AGX Orin Devkit 32GB wide shot](/img/jetson-orin/AGX-Orin-64-wide2.webp)
+<br>
+![AGX Orin Devkit 32GB close up](/img/jetson-orin/AGX_Orin_32GB_Devkit_975-13730-0000-000.webp)
+<br>
+</details>
+
+<details>
+<summary><b> AGX Orin Devkit 64GB</b><br><img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.jpeg" alt="AGX Orin 64GB"></summary>
+
+#### Nvidia Jetson AGX Orin Devkit 64GB
+The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as shown. It mentions part number 945-13730-0050-000 and reads “Jetson AGX Orin 64GB Developer Kit”.
+<br>
+![AGX Orin Devkit 64GB wide shot](/img/jetson-orin/AGX-Orin-64-wide.webp)
+<br>
+![AGX Orin Devkit 64GB close up](/img/jetson-orin/orin-64GB-close.webp)
+</details>
+
+<details>
+<summary><b> Orin Nano 8GB (SD) Devkit NVME</b><br><img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Devkit_thumb.webp" alt="Orin Nano Devkit"></summary>
+<br>
+
+#### Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME
+
+![AGX Orin Nano 8GB  wide shot](/img/jetson-orin/Orin_Nano_Devkit.webp)
+
+The Orin Nano 8GB SD module has the part number 900-13767-0050-000. This number may not be printed on some modules, however, the part can be distinguished by having an SD-CARD slot.
+
+![AGX Orin Nano 8GB SD card slot](/img/jetson-orin/Nano_SD_in_Devkit.webp)
+<br>
+![AGX Orin Nano 8GB SOM card slot](/img/jetson-orin/Nano_8GB_Devkit_SOM_900-13767-0050-000.webp)
+<br>
+</details>
+
+<details>
+<summary><b> Orin Nano 8GB Production module</b><br><img src="/img/jetson-orin/Orin_Nano_Production_module_in_Orin_Nano_devkit_white_background_thumb.jpeg" alt="Orin Nano Devkit"></summary>
+
+#### Nvidia Jetson Orin Nano 8GB Production module
+
+The Orin Nano production module has the part number 900-13767-0030-000, which can be observed on the bottom. The main difference from the Orin Nano SD - 900-13767-0050-000 -  is that it does not have an SD card slot. This module can be used with a Jetson Orin Nano Devkit carrier board, along with the balenaOS image for the Jetson Orin Nano 8GB (SD) Devkit, provided that the corresponding kernel device-tree is configured in your balena-cloud device configuration page.
+
+![AGX Orin Nano 8GB](/img/jetson-orin/Nano_8GB_Production_SOM_900-13767-0030-000.webp)
+<br>
+![AGX Orin Nano 8GB SOM](/img/jetson-orin/Nano_8GB_Production_SOM_900-13767-0030-000_closeup.webp)
+</details>
+
+<details>
+<summary><b>Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME</b><br><img src="/img/jetson-orin/Jetson_Orin_NX_in_Xavier_NX_Devkit_thumb.jpeg" alt="Orin NX"></summary>
+
+#### Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME
+
+![AGX Orin NX 16GB SOM](/img/jetson-orin/Orin_NX_16GB_SOM_900-13767-0000-000.webp)
+<br>
+Part number 900-13767-0000-000 is printed on the right side of the SOM bottom side, and can only be observed if the module is taken out of the devkit:
+
+![AGX Orin NX 16GB SOM close up](/img/jetson-orin/Orin_NX_16GB_SOM_900-13767-0000-000_closeup.webp)
+
+</details>
+
+<details>
+<summary><b> Seeed reComputer J4012 Jetson Orin NX 16GB</b><br><img src="/img/jetson-orin/J4012_thumb.jpeg" alt="Seeed reComputer J4012"></summary>
+<br>
+
+#### Seeed reComputer J4012 Jetson Orin NX 16GB
+
+The device has the Seeed Studio logo on the back, and the following sticker on the bottom:
+
+![J4012 Case](/img/jetson-orin/J4012_case.webp)
+
+The SOM in the Seeed reComputer J012 is a Jetson Orin NX 16GB, which has the part number 900-13767-0000-000 
+
+</details>
+
+<details>
+<summary><b> Seeed reComputer J3010 Jetson Orin Nano 4GB</b><br><img src="/img/jetson-orin/j3010_thumb.webp" alt="Seeed reComputer J3010"></summary>
+
+#### Seeed reComputer J3010 Jetson Orin Nano 4GB
+
+The device has the Seeed Studio logo on the back, and the following sticker on the bottom:
+
+![J3010 Case](/img/jetson-orin/J3010_case.webp)
+
+The SOM in the Seeed reComputer J3010 is a Jetson Orin Nano 4GB, which has the part number 900-13767-0040-000. This part number can be found on the bottom of the SOM, if it is taken out of the carrier board:
+
+![J3010 SOM](/img/jetson-orin/Nano_4GB_SOM_900-13767-0040-000.webp)
+
+![J3010 SOM](/img/jetson-orin/Nano_4GB_SOM_900-13767-0040-000_closeup.webp)
+
+</details>
+
+## Checking your Jetson Orin's UEFI firmware version
 
 You can check which UEFI firmware version your Jetson Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
 
-The debug UART interface can be accessed on the Orin Nano and Orin NX devices by connecting a USB to RS232 converter to the TX, RX and GND pins on the carrier board, which are located underneath the Orin module.
+<details>
+<summary><b> I want to use the debug UART interface</b></summary>
+<br>
 
-On AGX Orin Devkits, the debug UART interface is available through the micro-USB interface, when the device is powered on. On Linux machines, the serial connection can be accessed using `minicom -D /dev/ttyACM0`.
+<p>If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable and a serial communication program like <code>minicom</code>. The USB to TTL converter's pins need to be connected to the TX, RX and GND pins on the Jetson carrier board, which are located underneath the Orin module.</p>
 
-If you are using the UART interface, the UEFI firmware version will be printed in the boot sequence logs:
+<p>On <b>Jetson AGX Orin 32GB</b> and <b>Jetson AGX Orin 64GB</b> Devkits, the debug UART interface is available through the micro-USB interface, when the device is powered on. On Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>.</p>
 
-![Orin UEFI uart logs](/img/jetson-orin/jetson_orin_uefi_version_uart_logs.webp)
+<p>If you are using the UART interface, the UEFI firmware version will be printed in the boot sequence logs:</p>
 
-Alternatively, if booting is stopped in the UEFI menu by pressing `Esc`, the firmware version will be printed in the top-left corner:
+<img src="/img/jetson-orin/jetson_orin_uefi_version_uart_logs.webp" alt="Orin UEFI uart logs">
 
-![Orin UEFI uart menu](/img/jetson-orin/jetson_orin_uart_uefi_menu.webp)
+<p>Alternatively, if booting is stopped in the UEFI menu by pressing <code>Esc</code>, the firmware version will be printed in the top-left corner:</p>
 
-If your Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:
+<img src="/img/jetson-orin/jetson_orin_uart_uefi_menu.webp" alt="Orin UEFI uart menu">
 
-![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
+<p>If instead you would like to use a monitor and a keyboard, please expand the section below. </p>
 
+</details>
+
+
+<details>
+<summary><b>I want to use a monitor</b></summary>
+<br>
+
+<p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
+
+<img src="/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp" alt="Orin UEFI display menu">
+
+</details>
+
+<details>
+    <summary><b>  What type of video cable do I need for my device?</b></summary>
+    <br>
+    A Display Port cable, or Display Port to HDMI adapter is necessary on the following devices:<br>
+    <br>
+      * Jetson AGX Orin 32GB<br>
+      * Jetson AGX Orin 64GB<br>
+      * Jetson Orin Nano Devkit<br>
+    <br>
+    An HDMI cable is required for:<br>
+    <br>
+      * Jetson Orin NX in Xavier NX Devkit<br>
+      * Seeed J3010<br>
+      * Seeed J4012<br>
+</details>
+
+<br>
 If the firmware version is older or newer than v36.3, please re-flash its firmware by following the corresponding guide below:
 
-- [Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware)
-- [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager)
+- [Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware) &#x1F517;
+- [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
 
 ## Booting balenaOS flasher images from a USB key
 
-In the unexpected event that your device does not boot the balenaOS flasher image from an attached USB key automatically, please follow the following steps to make the USB key the boot media to boot from:
+In the unexpected event that your device does not boot the balenaOS flasher image from the attached USB key automatically, please use the following steps to manually select the USB key for booting:
 
-1) Attach a USB keyboard and a monitor to the device.
-2) Power on the device and press 'Esc' when prompted by the UEFI firmware, or 'F11' to enter the Boot Manager Menu directly.
-![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
-![Orin UEFI boot manager](/img/jetson-orin/jetson_orin_uefi_boot_manager.webp)
-3) Select the attached USB key as boot media:
-![Orin UEFI boot manager](/img/jetson-orin/jetson_orin_uefi_usb_key.webp)
-4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.
+<details>
+<summary><b>  I want to use the debug UART interface</b></summary>
+<br>
 
-Should you encounter any other unexpected issues while provisioning your device, please follow the [Jetson Flash flashing instructions](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions) to flash your device in recovery boot mode.
+<p>1)If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable and a serial communication program like <code>minicom</code>. The USB to TTL converter's pins need to be connected to the TX, RX and GND pins on the Jetson carrier board, which are located underneath the Orin module.</p>
+
+<p>On <b>Jetson AGX Orin 32GB</b> and <b>Jetson AGX Orin 64GB</b> Devkits, the debug UART interface is available through the micro-USB interface, when the device is powered on. On Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>.</p>
+
+2) Power on the device and press <code>Esc</code> when prompted by the UEFI firmware, or <code>F11</code> to enter the Boot Manager Menu directly.<br> 
+
+<img src="/img/jetson-orin/interrupt_boot_uart.webp">
+
+<p>If <code>Esc</code> was pressed, navigate to the Boot Manager Menu</p>
+
+<img src="img/jetson-orin/boot_manager_uart.webp">
+
+<p>3) Select the attached USB device as boot media</p>
+
+<img src="/img/jetson-orin/usb_device.webp">
+
+<p>4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.</p>
+
+</details>
+
+<details>
+<summary><b>  I want to use a keyboard and monitor</b></summary>
+<br>
+
+1) Attach a USB keyboard and a monitor to the device.<br>
+2) Power on the device and press <code>Esc</code> when prompted by the UEFI firmware, or <code>F11</code> to enter the Boot Manager Menu directly.<br>
+<img src="/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp"><br>
+<img src="/img/jetson-orin/jetson_orin_uefi_boot_manager.webp"><br>
+3) Select the attached USB key as boot media:<br>
+<img src="/img/jetson-orin/jetson_orin_uefi_usb_key.webp"><br>
+4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.<br>
+
+</details>
+<br>
+
+Should you encounter any other unexpected issues while provisioning your device, please follow the instructions for our [Jetson Flash tool](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions) to flash your device in recovery boot mode.
 
 ## Post-provisioning UEFI firmware update
 
 Once your device has been provisioned and powered back-on, it will attempt to update the UEFI firmware automatically.
-The status of the UEFI firmware update process is depicted by a progress bar on the debug UART interface, as well on the display, if connected:
+The status of the UEFI firmware update process is depicted by a progress bar on the debug UART interface, as well on the display, if connected.
+
+**Please do not interrupt this process by resetting or cutting power to the device.**<br>
+
+If you are using the debug UART, the firmware update process will be displayed by a progress bar similar to the one below:
+                                                                                                                                               
+![Orin UEFI firmware update progress](/img/jetson-orin/post_provisioning_uefi_firmware_update.webp)
+
+If a display is connected to the device, the firmware update process will also be rendered on the screen:
 
 ![Orin UEFI firmware update progress](/img/jetson-orin/jetson_orin_uefi_firmware_update.webp)
 
-Please do not interrupt this process by reseting or cutting power from the device.
