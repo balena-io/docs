@@ -7,7 +7,7 @@ title: Jetson Orin UEFI Firmware
 ## Supported Jetson Orin Devices
 
 <details>
-<summary><b> AGX Orin Devkit 32GB</b><br><img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 32GB"></summary>
+<summary><img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 32GB"><br><b>AGX Orin Devkit 32GB</b></summary>
 
 #### Nvidia Jetson AGX Orin Devkit 32GB
 The Nvidia Jetson AGX 32GB development kit can be identified by the label printed on the inside bottom of the unit as shown. It mentions part number 975-13730-0000-000 but does not actually say 32GB.
@@ -19,7 +19,7 @@ The Nvidia Jetson AGX 32GB development kit can be identified by the label printe
 </details>
 
 <details>
-<summary><b> AGX Orin Devkit 64GB</b><br><img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 64GB"></summary>
+<summary><img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 64GB"><br><b>AGX Orin Devkit 64GB</b></summary>
 
 #### Nvidia Jetson AGX Orin Devkit 64GB
 The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as shown. It mentions part number 945-13730-0050-000 and reads “Jetson AGX Orin 64GB Developer Kit”.
@@ -30,7 +30,7 @@ The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as
 </details>
 
 <details>
-<summary><b> Orin Nano 8GB (SD) Devkit NVME</b><br><img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Devkit_thumb.webp" alt="Orin Nano Devkit"></summary>
+<summary><img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Devkit_thumb.webp" alt="Orin Nano Devkit"><br><b>Orin Nano 8GB (SD) Devkit NVME</b></summary>
 <br>
 
 #### Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME
@@ -46,7 +46,7 @@ The Orin Nano 8GB SD module has the part number 900-13767-0050-000. This number 
 </details>
 
 <details>
-<summary><b> Orin Nano 8GB Production module</b><br><img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Production_module_in_Orin_Nano_devkit_white_background_thumb.webp" alt="Orin Nano Devkit"></summary>
+<summary><img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Production_module_in_Orin_Nano_devkit_white_background_thumb.webp" alt="Orin Nano Devkit"><br><b>Orin Nano 8GB Production module</b></summary>
 
 #### Nvidia Jetson Orin Nano 8GB Production module
 
@@ -58,7 +58,7 @@ The Orin Nano production module has the part number 900-13767-0030-000, which ca
 </details>
 
 <details>
-<summary><b>Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME</b><br><img class="jetson-thumb" src="/img/jetson-orin/Jetson_Orin_NX_in_Xavier_NX_Devkit_thumb.webp" alt="Orin NX"></summary>
+<summary><img class="jetson-thumb" src="/img/jetson-orin/Jetson_Orin_NX_in_Xavier_NX_Devkit_thumb.webp" alt="Orin NX"><br><b>Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME</b></summary>
 
 #### Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME
 
@@ -71,7 +71,7 @@ Part number 900-13767-0000-000 is printed on the right side of the SOM bottom si
 </details>
 
 <details>
-<summary><b> Seeed reComputer J4012 Jetson Orin NX 16GB</b><br><img class="jetson-thumb" src="/img/jetson-orin/J4012_thumb.webp" alt="Seeed reComputer J4012"></summary>
+<summary><img class="jetson-thumb" src="/img/jetson-orin/J4012_thumb.webp" alt="Seeed reComputer J4012"><br><b>Seeed reComputer J4012 Jetson Orin NX 16GB</b></summary>
 <br>
 
 #### Seeed reComputer J4012 Jetson Orin NX 16GB
@@ -85,7 +85,7 @@ The SOM in the Seeed reComputer J012 is a Jetson Orin NX 16GB, which has the par
 </details>
 
 <details>
-<summary><b> Seeed reComputer J3010 Jetson Orin Nano 4GB</b><br><img class="jetson-thumb" src="/img/jetson-orin/j3010_thumb.webp" alt="Seeed reComputer J3010"></summary>
+<summary><img class="jetson-thumb" src="/img/jetson-orin/j3010_thumb.webp" alt="Seeed reComputer J3010"><br><b>Seeed reComputer J3010 Jetson Orin Nano 4GB</b></summary>
 
 #### Seeed reComputer J3010 Jetson Orin Nano 4GB
 
@@ -106,7 +106,7 @@ The SOM in the Seeed reComputer J3010 is a Jetson Orin Nano 4GB, which has the p
 You can check which UEFI firmware version your Jetson Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
 
 <details>
-<summary><b> I want to use the debug UART interface</b></summary>
+<summary><b>I want to use the debug UART interface</b></summary>
 <br>
 
 <p>If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable and a serial communication program like <code>minicom</code>. The USB to TTL converter's pins need to be connected to the TX, RX and GND pins on the Jetson carrier board, which are located underneath the Orin module.</p>
@@ -134,10 +134,10 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 
 <img src="/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp" alt="Orin UEFI display menu">
 
-</details>
+</details>../../../pages/learn/develop/hardware/jetson-orin.md
 
 <details>
-    <summary><b>  What type of video cable do I need for my device?</b></summary>
+    <summary><b>What type of video cable do I need for my device?</b></summary>
     <br>
     A Display Port cable, or Display Port to HDMI adapter is necessary on the following devices:<br>
     <br>
@@ -163,20 +163,26 @@ If the firmware version is older or newer than v36.3, please re-flash its firmwa
 In the unexpected event that your device does not boot the balenaOS flasher image from the attached USB key automatically, please use the following steps to manually select the USB key for booting:
 
 <details>
-<summary><b>  I want to use the debug UART interface</b></summary>
+<summary><b>I want to use the debug UART interface</b></summary>
 <br>
 
-<p>1)If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable and a serial communication program like <code>minicom</code>. The USB to TTL converter's pins need to be connected to the TX, RX and GND pins on the Jetson carrier board, which are located underneath the Orin module.</p>
+<p>1) If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable and a serial communication program like <code>minicom</code>. The USB to TTL converter's pins need to be connected to the UART TXD, UART RXD and GND pins of the Jetson carrier board, which are located underneath the Orin module.
+<img src="/img/jetson-orin/Nano_Pinout_with_module_square.webp">
+<img src="/img/jetson-orin/Nano_pinout_close_square.webp">
+</p>
 
-<p>On <b>Jetson AGX Orin 32GB</b> and <b>Jetson AGX Orin 64GB</b> Devkits, the debug UART interface is available through the micro-USB interface, when the device is powered on. On Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>.</p>
+<p>On <b>Jetson AGX Orin 32GB</b> and <b>Jetson AGX Orin 64GB</b> Devkits, the debug UART interface is available through the micro-USB interface, when the device is powered on. On Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>.
+<img src="/img/jetson-orin/AGX_Orin_DP_microUSB_square.webp">
+</p>
 
-2) Power on the device and press <code>Esc</code> when prompted by the UEFI firmware, or <code>F11</code> to enter the Boot Manager Menu directly.<br> 
+
+<p>2) Power on the device and press <code>Esc</code> when prompted by the UEFI firmware, or <code>F11</code> to enter the Boot Manager Menu directly.<br> 
 
 <img src="/img/jetson-orin/interrupt_boot_uart.webp">
 
 <p>If <code>Esc</code> was pressed, navigate to the Boot Manager Menu</p>
 
-<img src="img/jetson-orin/boot_manager_uart.webp">
+<img src="/img/jetson-orin/boot_manager_uart.webp">
 
 <p>3) Select the attached USB device as boot media</p>
 
@@ -187,9 +193,8 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 </details>
 
 <details>
-<summary><b>  I want to use a keyboard and monitor</b></summary>
+<summary><b>I want to use a keyboard and monitor</b></summary>
 <br>
-
 1) Attach a USB keyboard and a monitor to the device.<br>
 2) Power on the device and press <code>Esc</code> when prompted by the UEFI firmware, or <code>F11</code> to enter the Boot Manager Menu directly.<br>
 <img src="/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp"><br>
@@ -197,7 +202,6 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 3) Select the attached USB key as boot media:<br>
 <img src="/img/jetson-orin/jetson_orin_uefi_usb_key.webp"><br>
 4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.<br>
-
 </details>
 <br>
 
