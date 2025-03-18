@@ -115,11 +115,11 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 
 <p>If you are using the UART interface, the UEFI firmware version will be printed in the boot sequence logs:</p>
 
-<img src="/img/jetson-orin/jetson_orin_uefi_version_uart_logs.webp" alt="Orin UEFI uart logs">
+![Orin UEFI uart logs](/img/jetson-orin/jetson_orin_uefi_version_uart_logs.webp)
 
 <p>Alternatively, if booting is stopped in the UEFI menu by pressing <code>Esc</code>, the firmware version will be printed in the top-left corner:</p>
 
-<img src="/img/jetson-orin/jetson_orin_uart_uefi_menu.webp" alt="Orin UEFI uart menu">
+![Orin UEFI uart logs](/img/jetson-orin/jetson_orin_uart_uefi_menu.webp)
 
 <p>If instead you would like to use a monitor and a keyboard, please expand the section below. </p>
 
@@ -132,7 +132,7 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 
 <p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
 
-<img src="/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp" alt="Orin UEFI display menu">
+![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
 
 </details>../../../pages/learn/develop/hardware/jetson-orin.md
 
@@ -167,26 +167,27 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 <br>
 
 <p>1) If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable and a serial communication program like <code>minicom</code>. The USB to TTL converter's pins need to be connected to the UART TXD, UART RXD and GND pins of the Jetson carrier board, which are located underneath the Orin module.
-<img src="/img/jetson-orin/Nano_Pinout_with_module_square.webp">
-<img src="/img/jetson-orin/Nano_pinout_close_square.webp">
+
+![Orin Nano Devkit pinout location](/img/jetson-orin/Nano_pinout_with_module_square.webp)
+
+![Orin Nano Devkit UART pins](/img/jetson-orin/Nano_pinout_close_square.webp)
 </p>
 
 <p>On <b>Jetson AGX Orin 32GB</b> and <b>Jetson AGX Orin 64GB</b> Devkits, the debug UART interface is available through the micro-USB interface, when the device is powered on. On Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>.
-<img src="/img/jetson-orin/AGX_Orin_DP_microUSB_square.webp">
+![AGX Orin microUSB debug port](/img/jetson-orin/AGX_Orin_DP_microUSB_square.webp)
 </p>
-
 
 <p>2) Power on the device and press <code>Esc</code> when prompted by the UEFI firmware, or <code>F11</code> to enter the Boot Manager Menu directly.<br> 
 
-<img src="/img/jetson-orin/interrupt_boot_uart.webp">
+![Orin UEFI boot menu UART](/img/jetson-orin/interrupt_boot_uart.webp)
 
 <p>If <code>Esc</code> was pressed, navigate to the Boot Manager Menu</p>
 
-<img src="/img/jetson-orin/boot_manager_uart.webp">
+![Orin UEFI Boot Manager on UART](/img/jetson-orin/boot_manager_uart.webp)
 
 <p>3) Select the attached USB device as boot media</p>
 
-<img src="/img/jetson-orin/usb_device.webp">
+![Orin UEFI USB boot](/img/jetson-orin/usb_device.webp)
 
 <p>4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.</p>
 
@@ -197,10 +198,15 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 <br>
 1) Attach a USB keyboard and a monitor to the device.<br>
 2) Power on the device and press <code>Esc</code> when prompted by the UEFI firmware, or <code>F11</code> to enter the Boot Manager Menu directly.<br>
-<img src="/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp"><br>
-<img src="/img/jetson-orin/jetson_orin_uefi_boot_manager.webp"><br>
-3) Select the attached USB key as boot media:<br>
-<img src="/img/jetson-orin/jetson_orin_uefi_usb_key.webp"><br>
+
+![Interrupting boot in UEFI](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
+
+![UEFI Boot Manager](/img/jetson-orin/jetson_orin_uefi_boot_manager.webp)
+
+3) Select the attached USB key as boot media:
+
+![UEFI Boot from USB Key](/img/jetson-orin/jetson_orin_uefi_usb_key.webp)
+
 4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.<br>
 </details>
 <br>
