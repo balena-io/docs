@@ -1,12 +1,12 @@
 ---
-title: Nvidia Jetson Orin &trade;
+title: Nvidia Jetson Orin
 ---
 
 # Nvidia Jetson Orin &trade;
 
 ## Supported Jetson Orin Devices
 
-<img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 32GB"><br>
+<img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 32GB">
 <details>
 <summary><b>AGX Orin Devkit 32GB</b></summary>
 
@@ -19,7 +19,7 @@ The Nvidia Jetson AGX 32GB development kit can be identified by the label printe
 <br>
 </details>
 
-<img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 64GB"><br>
+<img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 64GB">
 <details>
 <summary><b>AGX Orin Devkit 64GB</b></summary>
 
@@ -31,7 +31,7 @@ The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as
 ![AGX Orin Devkit 64GB close up](/img/jetson-orin/orin-64GB-close.webp)
 </details>
 
-<img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Devkit_thumb.webp" alt="Orin Nano Devkit"><br>
+<img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Devkit_thumb.webp" alt="Orin Nano Devkit">
 <details>
 <summary><b>Orin Nano 8GB (SD) Devkit NVME</b></summary>
 <br>
@@ -48,7 +48,7 @@ The Orin Nano 8GB SD module has the part number 900-13767-0050-000. This number 
 <br>
 </details>
 
-<img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Production_module_in_Orin_Nano_devkit_white_background_thumb.webp" alt="Orin Nano Devkit"><br>
+<img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Production_module_in_Orin_Nano_devkit_white_background_thumb.webp" alt="Orin Nano Devkit">
 <details>
 <summary><b>Orin Nano 8GB Production module</b></summary>
 
@@ -61,7 +61,7 @@ The Orin Nano production module has the part number 900-13767-0030-000, which ca
 ![AGX Orin Nano 8GB SOM](/img/jetson-orin/Nano_8GB_Production_SOM_900-13767-0030-000_closeup.webp)
 </details>
 
-<img class="jetson-thumb" src="/img/jetson-orin/Jetson_Orin_NX_in_Xavier_NX_Devkit_thumb.webp" alt="Orin NX"><br>
+<img class="jetson-thumb" src="/img/jetson-orin/Jetson_Orin_NX_in_Xavier_NX_Devkit_thumb.webp" alt="Orin NX">
 <details>
 <summary><b>Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME</b></summary>
 
@@ -72,10 +72,9 @@ The Orin Nano production module has the part number 900-13767-0030-000, which ca
 Part number 900-13767-0000-000 is printed on the right side of the SOM bottom side, and can only be observed if the module is taken out of the devkit:
 
 ![AGX Orin NX 16GB SOM close up](/img/jetson-orin/Orin_NX_16GB_SOM_900-13767-0000-000_closeup.webp)
-
 </details>
 
-<img class="jetson-thumb" src="/img/jetson-orin/J4012_thumb.webp" alt="Seeed reComputer J4012"><br>
+<img class="jetson-thumb" src="/img/jetson-orin/J4012_thumb.webp" alt="Seeed reComputer J4012">
 <details>
 <summary><b>Seeed reComputer J4012 Jetson Orin NX 16GB</b></summary>
 <br>
@@ -90,7 +89,7 @@ The SOM in the Seeed reComputer J012 is a Jetson Orin NX 16GB, which has the par
 
 </details>
 
-<img class="jetson-thumb" src="/img/jetson-orin/j3010_thumb.webp" alt="Seeed reComputer J3010"><br>
+<img class="jetson-thumb" src="/img/jetson-orin/j3010_thumb.webp" alt="Seeed reComputer J3010">
 <details>
 <summary><b>Seeed reComputer J3010 Jetson Orin Nano 4GB</b></summary>
 
@@ -138,10 +137,8 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 <br>
 
 <p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
-
 ![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
-
-</details>../../../pages/learn/develop/hardware/jetson-orin.md
+</details>
 
 <details>
     <summary><b>What type of video cable do I need for my device?</b></summary>
