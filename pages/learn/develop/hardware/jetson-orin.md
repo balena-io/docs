@@ -4,7 +4,7 @@ title: Nvidia Jetson Orin
 
 # Nvidia Jetson Orin &trade;
 
-## Supported Jetson Orin Devices
+## Supported Jetson Orin &trade; Devices 
 
 <img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 32GB">
 <details>
@@ -19,6 +19,7 @@ The Nvidia Jetson AGX 32GB development kit can be identified by the label printe
 <br>
 </details>
 
+<br>
 <img class="jetson-thumb" src="/img/jetson-orin/AGX_Orin_Perspective_thumb.webp" alt="AGX Orin 64GB">
 <details>
 <summary><b>AGX Orin Devkit 64GB</b></summary>
@@ -31,6 +32,7 @@ The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as
 ![AGX Orin Devkit 64GB close up](/img/jetson-orin/orin-64GB-close.webp)
 </details>
 
+<br>
 <img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Devkit_thumb.webp" alt="Orin Nano Devkit">
 <details>
 <summary><b>Orin Nano 8GB (SD) Devkit NVME</b></summary>
@@ -48,6 +50,7 @@ The Orin Nano 8GB SD module has the part number 900-13767-0050-000. This number 
 <br>
 </details>
 
+<br>
 <img class="jetson-thumb" src="/img/jetson-orin/Orin_Nano_Production_module_in_Orin_Nano_devkit_white_background_thumb.webp" alt="Orin Nano Devkit">
 <details>
 <summary><b>Orin Nano 8GB Production module</b></summary>
@@ -61,6 +64,7 @@ The Orin Nano production module has the part number 900-13767-0030-000, which ca
 ![AGX Orin Nano 8GB SOM](/img/jetson-orin/Nano_8GB_Production_SOM_900-13767-0030-000_closeup.webp)
 </details>
 
+<br>
 <img class="jetson-thumb" src="/img/jetson-orin/Jetson_Orin_NX_in_Xavier_NX_Devkit_thumb.webp" alt="Orin NX">
 <details>
 <summary><b>Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME</b></summary>
@@ -74,6 +78,7 @@ Part number 900-13767-0000-000 is printed on the right side of the SOM bottom si
 ![AGX Orin NX 16GB SOM close up](/img/jetson-orin/Orin_NX_16GB_SOM_900-13767-0000-000_closeup.webp)
 </details>
 
+<br>
 <img class="jetson-thumb" src="/img/jetson-orin/J4012_thumb.webp" alt="Seeed reComputer J4012">
 <details>
 <summary><b>Seeed reComputer J4012 Jetson Orin NX 16GB</b></summary>
@@ -89,6 +94,7 @@ The SOM in the Seeed reComputer J012 is a Jetson Orin NX 16GB, which has the par
 
 </details>
 
+<br>
 <img class="jetson-thumb" src="/img/jetson-orin/j3010_thumb.webp" alt="Seeed reComputer J3010">
 <details>
 <summary><b>Seeed reComputer J3010 Jetson Orin Nano 4GB</b></summary>
@@ -137,27 +143,27 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 <br>
 
 <p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
+
 ![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
+
 </details>
 
 <details>
     <summary><b>What type of video cable do I need for my device?</b></summary>
     <br>
-    A Display Port cable, or Display Port to HDMI adapter is necessary on the following devices:<br>
-    <br>
+    A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:<br>
       * Jetson AGX Orin 32GB<br>
       * Jetson AGX Orin 64GB<br>
       * Jetson Orin Nano Devkit<br>
     <br>
     An HDMI cable is required for:<br>
-    <br>
       * Jetson Orin NX in Xavier NX Devkit<br>
       * Seeed J3010<br>
       * Seeed J4012<br>
 </details>
 
 <br>
-If the firmware version is older or newer than v36.3, please re-flash its firmware by following the corresponding guide below:
+If the firmware version on your device is older or newer than v36.3, please re-flash its firmware by following the corresponding guide below:
 
 - [Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware) &#x1F517;
 - [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
@@ -175,10 +181,13 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 ![Orin Nano Devkit pinout location](/img/jetson-orin/Nano_pinout_with_module_square.webp)
 
 ![Orin Nano Devkit UART pins](/img/jetson-orin/Nano_pinout_close_square.webp)
+
 </p>
 
 <p>On <b>Jetson AGX Orin 32GB</b> and <b>Jetson AGX Orin 64GB</b> Devkits, the debug UART interface is available through the micro-USB interface, when the device is powered on. On Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>.
+
 ![AGX Orin microUSB debug port](/img/jetson-orin/AGX_Orin_DP_microUSB_square.webp)
+
 </p>
 
 <p>2) Power on the device and press <code>Esc</code> when prompted by the UEFI firmware, or <code>F11</code> to enter the Boot Manager Menu directly.<br> 
