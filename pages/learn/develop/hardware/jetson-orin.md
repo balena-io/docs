@@ -12,10 +12,15 @@ title: Nvidia Jetson Orin
 
 #### Nvidia Jetson AGX Orin Devkit 32GB
 The Nvidia Jetson AGX 32GB development kit can be identified by the label printed on the inside bottom of the unit as shown. It mentions part number 975-13730-0000-000 but does not actually say 32GB.
+
 <br>
+
 ![AGX Orin Devkit 32GB wide shot](/img/jetson-orin/AGX-Orin-64-wide2.webp)
-<br>
+
+
 ![AGX Orin Devkit 32GB close up](/img/jetson-orin/AGX_Orin_32GB_Devkit_975-13730-0000-000.webp)
+
+In [development mode][development mode], the AGX Orin Devkit 32GB exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>. In this mode, a console prompt is also displayed if a monitor is connected to the device's Display Port.
 <br>
 </details>
 
@@ -27,9 +32,12 @@ The Nvidia Jetson AGX 32GB development kit can be identified by the label printe
 #### Nvidia Jetson AGX Orin Devkit 64GB
 The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as shown. It mentions part number 945-13730-0050-000 and reads “Jetson AGX Orin 64GB Developer Kit”.
 <br>
+
 ![AGX Orin Devkit 64GB wide shot](/img/jetson-orin/AGX-Orin-64-wide.webp)
-<br>
+
 ![AGX Orin Devkit 64GB close up](/img/jetson-orin/orin-64GB-close.webp)
+
+In [development mode][development mode], the AGX Orin Devkit 32GB exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>. In this mode, a console prompt is also displayed if a monitor is connected to the device's Display Port.
 </details>
 
 <br>
@@ -241,3 +249,4 @@ If a display is connected to the device, the firmware update process will also b
 
 ![Orin UEFI firmware update progress](/img/jetson-orin/jetson_orin_uefi_firmware_update.webp)
 
+[development mode]:(reference/OS/configuration/#developmentmode)
