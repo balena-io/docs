@@ -20,7 +20,7 @@ The Nvidia Jetson AGX 32GB development kit can be identified by the label printe
 
 ![AGX Orin Devkit 32GB close up](/img/jetson-orin/AGX_Orin_32GB_Devkit_975-13730-0000-000.webp)
 
-In [development mode][development mode], the AGX Orin Devkit 32GB exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>. In this mode, a console prompt is also displayed if a monitor is connected to the device's Display Port.
+This device exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>. It also offers one Display Port for video output.
 <br>
 </details>
 
@@ -37,7 +37,8 @@ The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as
 
 ![AGX Orin Devkit 64GB close up](/img/jetson-orin/orin-64GB-close.webp)
 
-In [development mode][development mode], the AGX Orin Devkit 32GB exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>. In this mode, a console prompt is also displayed if a monitor is connected to the device's Display Port.
+This device exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>. It also offers one Display Port for video output.
+
 </details>
 
 <br>
@@ -55,7 +56,8 @@ The Orin Nano 8GB SD module has the part number 900-13767-0050-000. This number 
 ![AGX Orin Nano 8GB SD card slot](/img/jetson-orin/Nano_SD_in_Devkit.webp)
 <br>
 ![AGX Orin Nano 8GB SOM card slot](/img/jetson-orin/Nano_8GB_Devkit_SOM_900-13767-0050-000.webp)
-<br>
+
+The carrier board exposes a debug interface on the UART TXD, UART RXD and GND pins, which are located underneath the Orin module. Additionally, a monitor can be connected to the board's Display Port.
 </details>
 
 <br>
@@ -70,6 +72,8 @@ The Orin Nano production module has the part number 900-13767-0030-000, which ca
 ![AGX Orin Nano 8GB](/img/jetson-orin/Nano_8GB_Production_SOM_900-13767-0030-000.webp)
 <br>
 ![AGX Orin Nano 8GB SOM](/img/jetson-orin/Nano_8GB_Production_SOM_900-13767-0030-000_closeup.webp)
+
+This module can be used with the carrier board provided by the Orin Nano Devkit, which exposes a debug interface on the UART TXD, UART RXD and GND pins. The UART pins are located underneath the Orin module. Additionally, a monitor can be connected to the board's Display Port.
 </details>
 
 <br>
@@ -98,7 +102,7 @@ The device has the Seeed Studio logo on the back, and the following sticker on t
 
 ![J4012 Case](/img/jetson-orin/J4012_case.webp)
 
-The SOM in the Seeed reComputer J012 is a Jetson Orin NX 16GB, which has the part number 900-13767-0000-000 
+The SOM in the Seeed reComputer J4012 is a Jetson Orin NX 16GB, which has the part number 900-13767-0000-000 
 
 </details>
 
@@ -131,7 +135,13 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 
 <p>If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable and a serial communication program like <code>minicom</code>. The USB to TTL converter's pins need to be connected to the TX, RX and GND pins on the Jetson carrier board, which are located underneath the Orin module.</p>
 
+![Orin Nano Devkit pinout location](/img/jetson-orin/Nano_pinout_with_module_square.webp)
+
+![Orin Nano Devkit UART pins](/img/jetson-orin/Nano_pinout_close_square.webp)
+
 <p>On <b>Jetson AGX Orin 32GB</b> and <b>Jetson AGX Orin 64GB</b> Devkits, the debug UART interface is available through the micro-USB interface, when the device is powered on. On Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>.</p>
+
+![AGX Orin microUSB debug port](/img/jetson-orin/AGX_Orin_DP_microUSB_square.webp)
 
 <p>If you are using the UART interface, the UEFI firmware version will be printed in the boot sequence logs:</p>
 
@@ -249,4 +259,3 @@ If a display is connected to the device, the firmware update process will also b
 
 ![Orin UEFI firmware update progress](/img/jetson-orin/jetson_orin_uefi_firmware_update.webp)
 
-[development mode]:(reference/OS/configuration/#developmentmode)
