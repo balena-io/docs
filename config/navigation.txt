@@ -55,6 +55,7 @@ Learn
       [/learn/deploy/release-strategy/release-policy]
       [/learn/deploy/release-strategy/update-locking]
       [/learn/deploy/release-strategy/update-strategies]
+      [/learn/deploy/release-strategy/identical-releases-across-fleets]
     [/learn/deploy/delta]
     [/learn/deploy/offline-updates]
     [/learn/deploy/build-optimization]
