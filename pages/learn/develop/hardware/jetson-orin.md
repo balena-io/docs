@@ -207,7 +207,7 @@ If the firmware version on your device is older than v36.3.0, please re-flash it
 ## Booting balenaOS flasher images from a USB key
 
 If the firmware on your device is v36.3.0 or newer, inserting the USB key with the balenaOS flasher image and connecting power to your device will provision the internal storage.
-In the unexpected event that your device does not boot the balenaOS flasher image from the attached USB key automatically, please use the following steps to manually select the USB key for booting:
+In the unexpected event that your device does not boot the balenaOS flasher image from the attached USB key automatically, use the following steps to manually select the USB key for booting:
 
 <details>
 <summary><b>I want to use the debug UART interface</b></summary>
@@ -269,7 +269,7 @@ Should you encounter any other unexpected issues while provisioning your device,
 Once your device has been provisioned and powered back-on, it will attempt to update the UEFI firmware automatically.
 The status of the UEFI firmware update process is depicted by a progress bar on the debug UART interface, as well on the display, if connected.
 
-**Please do not interrupt this process by resetting or cutting power to the device.**<br>
+__Note:__ Please do not interrupt the UEFI firmware process by resetting or cutting power to the device.
 
 If you are using the debug UART, the firmware update process will be displayed by a progress bar similar to the one below:
                                                                                                                                                
@@ -301,7 +301,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 <summary><b>Jetson AGX Orin 64GB Devkit</b></summary>
 <br>
 
-  - If you would like to use a USB key to flash a NVME drive attached to your Jetson AGX Orin 64GB, please use the [installer.target_devices][installer.target_devices] configuration option in the flasher USB key [config.json][config_json] to specify the NVME as target medium:
+  - If you would like to use a USB key to flash a NVME drive attached to your Jetson AGX Orin 64GB, use the [installer.target_devices][installer.target_devices] configuration option in the flasher USB key's [config.json][config_json] to specify the NVME as target medium:
 
   ```json
   "installer": {
@@ -309,7 +309,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   }
   ```
 
-  - If you would like the same USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, please use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
+  - If you would like the same USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
   ```json
   "installer": {
       "migrate": {
@@ -320,6 +320,47 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   ```
 
   The first medium found in the `target_devices` list will be used.
+  
+  <details>
+  <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
+  <br>
+  1) Make sure you have <code>jq</code> and [balena CLI][balena CLI] installed. You can obtain it from [here](https://github.com/balena-io/balena-cli).
+
+  2) Download the balenaOS image from balena-cloud or use balena CLI to obtain one:
+  
+  ```shell
+  balena os download jetson-agx-orin-devkit-64gb -o balena.img
+  ```
+  
+  3) Download a configuration file from your balenaCloud dashboard or generate a new one using balena CLI:
+  
+  ```shell
+  balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
+  ``` 
+  
+  4) Depending your desired provisioning setup, set the one or more of the available installer options:
+  
+  ```shell
+  tmp=$(mktemp)
+  jq '.installer.migrate.force |= true' config.json > ${tmp}
+  mv ${tmp} config.json
+  ```
+  
+  ```shell
+  tmp=$(mktemp)
+  jq '.installer.target_devices |= "sda nvme0n1"' config.json > ${tmp}
+  mv ${tmp} config.json
+  ```
+  
+  5) Use balena CLI to inject the modified configuration file in the newly downloaded image:
+  ```shell
+  sudo balena config inject config.json -d balena.img
+  ```
+  
+  6) Write the balenaOS image to your USB key or NVME. We recommend using [Etcher][etcher].
+  
+</details>
+<br>
 </details>
 <br>
   
@@ -329,7 +370,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 
   - If you would like to use a USB key to flash a NVME drive attached to your Jetson Orin Nano (SD) Devkit NVME, simply insert the USB flasher Key in your device and connect power to the board.
 
-  - If you would like the same SD-Card, USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, please use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
+  - If you would like the same SD-Card, USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
 
   ```json
   "installer": {
@@ -341,6 +382,49 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   ```
 
   The first medium found in the `target_devices` list will be used.
+  
+  <details>
+  <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
+  <br>
+  1) Make sure you have <code>jq</code> and [balena CLI][balena CLI] installed. You can obtain it from [here](https://github.com/balena-io/balena-cli).
+
+  2) Download the balenaOS image from balena-cloud or use balena CLI to obtain one:
+  
+  ```shell
+  balena os download jetson-orin-nano-devkit-nvme -o balena.img
+  ```
+  
+  3) Download a configuration file from your balenaCloud dashboard or generate a new one using balena CLI:
+  
+  ```shell
+  balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
+  ``` 
+  
+  4) Depending your desired provisioning setup, set the one or more of the available installer options:
+  
+  ```shell
+  tmp=$(mktemp)
+  jq '.installer.migrate.force |= true' config.json > ${tmp}
+  mv ${tmp} config.json
+  ```
+  
+  ```shell
+  tmp=$(mktemp)
+  jq '.installer.target_devices |= "mmcblk0 sda nvme0n1"' config.json > ${tmp}
+  mv ${tmp} config.json
+  ```
+  
+  5) Use balena CLI to inject the modified configuration file in the newly downloaded image:
+  ```shell
+  sudo balena config inject config.json -d balena.img
+  ```
+  
+  6) Write the balenaOS image to your SD-CARD, USB key or NVME. We recommend using [Etcher][etcher].
+  
+</details>
+<br>
+</details>
+<br>
 </details>
 <br>
 
@@ -350,7 +434,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 
   - If you would like to use a USB key to flash a NVME drive attached to your device, simply insert the USB flasher Key and connect power to the board.
 
-  - If you would like the same USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, please use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
+  - If you would like the same USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
 
   ```json
   "installer": {
@@ -361,6 +445,45 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   }
   ```
   The first medium found in the `target_devices` list will be used.
+  <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
+  <br>
+  1) Make sure you have <code>jq</code> and [balena CLI][balena CLI] installed. You can obtain it from [here](https://github.com/balena-io/balena-cli).
+
+  2) Download the balenaOS image from balena-cloud or use balena CLI to obtain one. Use <code>balena device-type list</code> to obtain the device-type SLUG.
+  
+  ```shell
+  balena os download <device-type slug> -o balena.img
+  ```
+  
+  3) Download a configuration file from your balenaCloud dashboard or generate a new one using balena CLI:
+  
+  ```shell
+  balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
+  ``` 
+  
+  4) Depending your desired provisioning setup, set the one or more of the available installer options:
+  
+  ```shell
+  tmp=$(mktemp)
+  jq '.installer.migrate.force |= true' config.json > ${tmp}
+  mv ${tmp} config.json
+  ```
+  
+  ```shell
+  tmp=$(mktemp)
+  jq '.installer.target_devices |= "sda nvme0n1"' config.json > ${tmp}
+  mv ${tmp} config.json
+  ```
+  
+  5) Use balena CLI to inject the modified configuration file in the newly downloaded image:
+  ```shell
+  sudo balena config inject config.json -d balena.img
+  ```
+  
+  6) Write the balenaOS image to your USB key or NVME. We recommend using [Etcher][etcher].
+  
+</details>
+<br>
   
 </details>
 <br>
@@ -372,3 +495,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 [config_json]:/reference/OS/configuration/#about-configjson
 
 [Jetson Flash]:(https://github.com/balena-os/jetson-flash)
+
+[balena CLI]:(https://docs.balena.io/reference/balena-cli/latest/)
+
+[etcher]:(https://etcher.balena.io)
