@@ -42,7 +42,7 @@ The Nvidia Jetson 64 GB development kit also has a label on the inside bottom as
 
 This device exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>. It also offers one Display Port for video output.
 
-The default internal storage used for provisioning balenaOS is the AGX Orin 64GB's on-board eMMC. If instead you would like to use a NVME drive as main storage, please consult the OS installer [target_devices][target devices section] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS is the AGX Orin 64GB's on-board eMMC. If instead you would like to use a NVME drive as main storage, please consult the OS installer [target_devices][installer.target_devices] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
 
 </details>
 
@@ -64,7 +64,7 @@ The Orin Nano 8GB SD module has the part number 900-13767-0050-000. This number 
 
 The carrier board exposes a debug interface on the UART TXD, UART RXD and GND pins, which are located underneath the Orin module. Additionally, a monitor can be connected to the board's Display Port.
 
-The default internal storage used for provisioning balenaOS on the Orin Nano 8GB (SD) Devkit is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SD card, as main storage, please consult the OS installer [target_devices][target devices section] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS on the Orin Nano 8GB (SD) Devkit is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SD card, as main storage, please consult the OS installer [target_devices][installer.target_devices] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
 
 </details>
 
@@ -83,7 +83,7 @@ The Orin Nano production module has the part number 900-13767-0030-000, which ca
 
 This module can be used with the carrier board provided by the Orin Nano Devkit, which exposes a debug interface on the UART TXD, UART RXD and GND pins. The UART pins are located underneath the Orin module. Additionally, a monitor can be connected to the board's Display Port.
 
-The default internal storage used for provisioning balenaOS on the Orin Nano Production module is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices][target devices section] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS on the Orin Nano Production module is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices][installer.target_devices] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
 </details>
 
 <br>
@@ -101,7 +101,7 @@ Part number 900-13767-0000-000 is printed on the right side of the SOM bottom si
 
 The Jetson Orin NX 16GB module can is used with the Xavier NX Devkit, which exposes a debug interface on the UART TXD, UART RXD and GND pins. The UART pins are located underneath the Orin NX module. Additionally, a monitor can be connected to the board's HDMI port.
 
-The default internal storage used for provisioning balenaOS on the Jetson Orin NX 16GB is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices][target devices section] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS on the Jetson Orin NX 16GB is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices][installer.target_devices] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
 </details>
 
 <br>
@@ -118,7 +118,7 @@ The device has the Seeed Studio logo on the back, and the following sticker on t
 
 The SOM in the Seeed reComputer J4012 is a Jetson Orin NX 16GB, which has the part number 900-13767-0000-000. The J401 carrier board exposes a debug interface on the UART TXD, UART RXD and GND pins, which are located underneath the Orin NX SOM. Additionally, a monitor can be connected to the board's HDMI Port.
 
-The default internal storage used for provisioning balenaOS on the Seeed reComputer J4012 Jetson Orin NX 16GB is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices][target devices section] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS on the Seeed reComputer J4012 Jetson Orin NX 16GB is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices][installer.target_devices] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section.
 </details>
 
 <br>
@@ -140,7 +140,7 @@ The SOM in the Seeed reComputer J3010 is a Jetson Orin Nano 4GB, which has the p
 
 The J401 carrier board included in the full reComputer J3010 system exposes a debug interface on the UART TXD, UART RXD and GND pins, which are located underneath the Orin Nano SOM. Additionally, a monitor can be connected to the board's HDMI Port.
 
-The default internal storage used for provisioning balenaOS on the Seeed reComputer J4012 Jetson Orin NX 16GB is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices][target devices section] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section below.
+The default internal storage used for provisioning balenaOS on the Seeed reComputer J4012 Jetson Orin NX 16GB is an NVME drive, which needs to be attached to the carrier board prior to booting the flasher USB key. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices][installer.target_devices] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section below.
 </details>
 
 ## Checking your Jetson Orin's UEFI firmware version
@@ -261,7 +261,7 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 </details>
 <br>
 
-Should you encounter any other unexpected issues while provisioning your device, please follow the instructions for our [Jetson Flash tool](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions) to flash your device in recovery boot mode.
+Should you encounter any other unexpected issues while provisioning your device, please follow the instructions for our [Jetson Flash][Jetson Flash] tool to flash your device in recovery boot mode.
 
 
 ## Post-provisioning UEFI firmware update
@@ -291,7 +291,7 @@ Alternatively, you can use other internal or external storage media for provisio
 <summary><b>Jetson AGX Orin 32GB Devkit</b></summary>
 <br>
 
-Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC only, by using the [Jetson Flash Tool](https://github.com/balena-os/jetson-flash).
+Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC only, by using the [Jetson Flash][Jetson Flash] tool.
 
 </details>
 <br>
@@ -301,7 +301,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 <summary><b>Jetson AGX Orin 64GB Devkit</b></summary>
 <br>
 
-  - If you would like to use a USB key to flash a NVME drive attached to your Jetson AGX Orin 64GB, please use the [installer.target_devices][target devices section] configuration option in the flasher USB key [config.json][config_json] to specify the NVME as target medium:
+  - If you would like to use a USB key to flash a NVME drive attached to your Jetson AGX Orin 64GB, please use the [installer.target_devices][installer.target_devices] configuration option in the flasher USB key [config.json][config_json] to specify the NVME as target medium:
 
   ```json
   "installer": {
@@ -309,13 +309,13 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   }
   ```
 
-  - If you would like the same USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, please use both the [migrate.force][migrate section] and [installer.target_devices][target devices section] configuration options:
+  - If you would like the same USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, please use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
   ```json
   "installer": {
       "migrate": {
         "force": true
       },
-   "target_devices":"sda nvme0n1"
+      "target_devices":"sda nvme0n1"
   }
   ```
 
@@ -329,14 +329,14 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 
   - If you would like to use a USB key to flash a NVME drive attached to your Jetson Orin Nano (SD) Devkit NVME, simply insert the USB flasher Key in your device and connect power to the board.
 
-  - If you would like the same SD-Card, USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, please use both the [migrate.force][migrate section] and [installer.target_devices][target devices section] configuration options:
+  - If you would like the same SD-Card, USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, please use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
 
   ```json
   "installer": {
       "migrate": {
         "force": true
       },
-   "target_devices":"mmcblk0 sda nvme0n1"
+      "target_devices":"mmcblk0 sda nvme0n1"
   }
   ```
 
@@ -350,14 +350,14 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 
   - If you would like to use a USB key to flash a NVME drive attached to your device, simply insert the USB flasher Key and connect power to the board.
 
-  - If you would like the same USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, please use both the [migrate.force][migrate section] and [installer.target_devices][target devices section] configuration options:
+  - If you would like the same USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, please use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
 
   ```json
   "installer": {
       "migrate": {
         "force": true
       },
-   "target_devices":"mmcblk0 sda nvme0n1"
+      "target_devices":"mmcblk0 sda nvme0n1"
   }
   ```
   The first medium found in the `target_devices` list will be used.
@@ -365,10 +365,10 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 </details>
 <br>
 
-[target devices section]:(reference/OS/configuration/#target_devices)
+[installer.target_devices]:reference/OS/configuration/#target_devices
 
-[migrate section]:(reference/OS/configuration/#migrate)
+[installer.migrate]:reference/OS/configuration/#migrate
 
-[config_json]:(reference/OS/configuration/#about-configjson)
+[config_json]:reference/OS/configuration/#about-configjson
 
 [Jetson Flash]:(https://github.com/balena-os/jetson-flash)
