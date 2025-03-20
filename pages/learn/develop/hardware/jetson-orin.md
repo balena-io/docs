@@ -417,7 +417,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
 <details>
 <summary><b>Jetson Orin NX 16GB in Xavier NX Devkit / Seeed reComputer J3010 / Seeed reComputer J4012</b></summary>
 
-  - If you would like to use a USB key to flash a NVME drive attached to your device, simply insert the USB flasher Key and connect power to the board.
+  - If you would like to use a USB key to flash an NVME drive attached to your device, simply insert the USB flasher Key and connect power to the board.
 
   - If you would like the same USB Key or NVME, on which the balenaOS flasher image has been written, to be used as both install and boot media, use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
 
