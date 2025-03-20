@@ -85,6 +85,7 @@ The {{ $names.lower.company }} Supervisor is a lightweight container that runs o
 ### Avahi
 
 In order to improve the [development experience][local-mode] of {{ $names.os.lower }}, there is an [Avahi][avahi] daemon that starts advertising the device on boot as `<short-UUID>.local` or `<hostname>.local` if the hostname is set.
+Avahi listens on UDP port `5353` for mDNS traffic. It also uses ephemeral (“random”) ports to receive replies to unicast DNS queries.
 
 ### Dnsmasq
 
