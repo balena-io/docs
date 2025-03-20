@@ -261,7 +261,7 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 </details>
 <br>
 
-Should you encounter any other unexpected issues while provisioning your device, please follow the instructions for our [Jetson Flash][Jetson Flash] tool to flash your device in recovery boot mode.
+Should you encounter any other unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash></a> tool to flash your device in recovery boot mode.
 
 
 ## Post-provisioning UEFI firmware update
@@ -291,7 +291,7 @@ Alternatively, you can use other internal or external storage media for provisio
 <summary><b>Jetson AGX Orin 32GB Devkit</b></summary>
 <br>
 
-Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC only, by using the [Jetson Flash][Jetson Flash] tool.
+Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC only, by using the <a href="https://github.com/balena-os/jetson-flash">Jetson Flash></a> tool.
 
 </details>
 <br>
@@ -324,7 +324,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
   <br>
-  1) Make sure you have <code>jq</code> and [balena CLI][balena CLI] installed. You can obtain it from [here](https://github.com/balena-io/balena-cli).
+  1) Make sure you have <code>jq</code> and <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI></a> installed. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
 
   2) Download the balenaOS image from balena-cloud or use balena CLI to obtain one:
   
@@ -357,7 +357,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   sudo balena config inject config.json -d balena.img
   ```
   
-  6) Write the balenaOS image to your USB key or NVME. We recommend using [Etcher][etcher].
+  6) Write the balenaOS image to your USB key or NVME. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
   
 </details>
 <br>
@@ -386,7 +386,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
   <br>
-  1) Make sure you have <code>jq</code> and [balena CLI][balena CLI] installed. You can obtain it from [here](https://github.com/balena-io/balena-cli).
+  1) Make sure you have <code>jq</code> and balena CLI](https://docs.balena.io/reference/balena-cli/latest/)installed. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
 
   2) Download the balenaOS image from balena-cloud or use balena CLI to obtain one:
   
@@ -419,7 +419,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   sudo balena config inject config.json -d balena.img
   ```
   
-  6) Write the balenaOS image to your SD-CARD, USB key or NVME. We recommend using [Etcher][etcher].
+  6) Write the balenaOS image to your SD-CARD, USB key or NVME. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
   
 </details>
 <br>
@@ -445,9 +445,10 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   }
   ```
   The first medium found in the `target_devices` list will be used.
+  <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
   <br>
-  1) Make sure you have <code>jq</code> and [balena CLI][balena CLI] installed. You can obtain it from [here](https://github.com/balena-io/balena-cli).
+  1) Make sure you have the <code>jq</code> tool and [balena CLI](https://docs.balena.io/reference/balena-cli/latest/) installed. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
 
   2) Download the balenaOS image from balena-cloud or use balena CLI to obtain one. Use <code>balena device-type list</code> to obtain the device-type SLUG.
   
@@ -480,7 +481,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
   sudo balena config inject config.json -d balena.img
   ```
   
-  6) Write the balenaOS image to your USB key or NVME. We recommend using [Etcher][etcher].
+  6) Write the balenaOS image to your USB key or NVME. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
   
 </details>
 <br>
@@ -494,8 +495,3 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 
 [config_json]:/reference/OS/configuration/#about-configjson
 
-[Jetson Flash]:(https://github.com/balena-os/jetson-flash)
-
-[balena CLI]:(https://docs.balena.io/reference/balena-cli/latest/)
-
-[etcher]:(https://etcher.balena.io)
