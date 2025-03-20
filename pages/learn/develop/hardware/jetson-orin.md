@@ -295,7 +295,9 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 <details>
 <summary><b>Jetson AGX Orin 64GB Devkit</b></summary>
 
-  - If you would like to use a USB key to flash a NVME drive attached to your Jetson AGX Orin 64GB, use the [installer.target_devices][installer.target_devices] configuration option in the flasher USB key's [config.json][config_json] to specify the NVME as target medium:
+The default internal storage used for provisioning balenaOS is the AGX Orin 64GB's on-board eMMC.
+
+  - If you would like to use a USB key to flash a NVME drive attached to your Jetson AGX Orin 64GB instead of the on-board eMMC, use the [installer.target_devices][installer.target_devices] configuration option in the flasher USB key's [config.json][config_json] to specify the NVME as target medium:
 
   ```json
   "installer": {
