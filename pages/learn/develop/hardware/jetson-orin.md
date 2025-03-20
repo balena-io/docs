@@ -365,10 +365,10 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 </details>
 <br>
 
-[installer.target_devices]:reference/OS/configuration/#target_devices
+[installer.target_devices]:/reference/OS/configuration/#target_devices
 
-[installer.migrate]:reference/OS/configuration/#migrate
+[installer.migrate]:/reference/OS/configuration/#migrate
 
-[config_json]:reference/OS/configuration/#about-configjson
+[config_json]:/reference/OS/configuration/#about-configjson
 
 [Jetson Flash]:(https://github.com/balena-os/jetson-flash)
