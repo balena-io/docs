@@ -317,7 +317,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
-  1) Make sure you have <code>jq</code> and <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI></a> installed. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
+  1) Make sure you have <code>jq</code> and <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
 
   2) Download the balenaOS image from balena-cloud or use balena CLI to obtain one:
   
@@ -375,7 +375,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
-  1) Make sure you have <code>jq</code> and <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI></a> installed. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
+  1) Make sure you have <code>jq</code> and <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
 
   2) Download the balenaOS image from balena-cloud or use balena CLI to obtain one:
   
