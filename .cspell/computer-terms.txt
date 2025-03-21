@@ -298,6 +298,7 @@ passwordless
 Passwordless
 peap
 persistentlogging
+pinout
 picamera
 picocolors
 picomatch
