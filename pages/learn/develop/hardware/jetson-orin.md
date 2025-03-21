@@ -330,7 +330,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   3) Download a configuration file from your balenaCloud dashboard or generate a new one using the balena CLI:
   
   ```shell
-  balena config generate --fleet my_balena_cloud_org/my_balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
+  balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
   ``` 
   
   4) Depending on your desired provisioning setup, set one or more of the available installer options:
@@ -388,7 +388,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   3) Download a configuration file from your balenaCloud dashboard or generate a new one using the balena CLI:
   
   ```shell
-  balena config generate --fleet my_balena_cloud_org/my_balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
+  balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
   ``` 
   
   4) Depending your desired provisioning setup, set one or more of the available installer options:
@@ -444,7 +444,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   3) Download a configuration file from your balenaCloud dashboard or generate a new one using the balena CLI:
   
   ```shell
-  balena config generate --fleet my_balena_cloud_org/my_balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
+  balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
   ``` 
   
   4) Depending your desired provisioning setup, set one or more of the available installer options:
