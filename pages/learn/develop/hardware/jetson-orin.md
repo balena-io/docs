@@ -352,7 +352,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   sudo balena config inject config.json -d balena.img
   ```
   
-  6) Write the balenaOS image to your USB key or NVMe. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
+  6) Write the balenaOS image (balena.img) to your USB flash drive or NVMe. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
   </details>
 
 </details>
@@ -410,7 +410,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   sudo balena config inject config.json -d balena.img
   ```
   
-  6) Write the balenaOS image to your SD-CARD, USB key or NVMe. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
+  6) Write the balenaOS image (balena.img) to your SD-CARD, USB flash drive or NVMe. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
 </details>
 </details>
 
@@ -466,7 +466,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   sudo balena config inject config.json -d balena.img
   ```
   
-  6) Write the balenaOS image to your USB flash drive or NVMe. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
+  6) Write the balenaOS image (balena.img) to your USB flash drive or NVMe. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
 </details>
 </details>
 
