@@ -361,10 +361,8 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   8) Insert the freshly flashed USB key or NVMe drive into the Jetson AGX Orin Devkit and press the power button.
 
   9) Once provisioning is complete, the board will perform one of the following actions:
-
-  - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
-
-  - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the flasher USB key before powering the AGX Orin Devkit back on.
+    - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
+    - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the flasher USB key before powering the AGX Orin Devkit back on.
 
   10) Your device should appear in your application dashboard within a few minutes.
   </details>
@@ -431,10 +429,8 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   8) Insert the freshly flashed SD-CARD, USB key or NVMe drive into the Devkit and connect its' power cable.
 
   9) Once provisioning is complete, the board will perform one of the following actions:
-
-  - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
-
-  - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the external flasher medium and then remove and re-connect the power cable to the Devkit.
+     - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
+     - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the external flasher medium and then remove and re-connect the power cable to the Devkit.
 
   10) Your device should appear in your application dashboard within a few minutes.
 </details>
@@ -499,10 +495,8 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   8) Insert the freshly flashed SD-CARD, USB key or NVMe drive into the carrier board and connect its' power cable.
 
   9) Once provisioning is complete, the board will perform one of the following actions:
-
-  - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
-
-  - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the external flasher medium and then remove and re-connect the power cable to the carrier board.
+     - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
+     - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the external flasher medium and then remove and re-connect the power cable to the carrier board.
 
   10) Your device should appear in your application dashboard within a few minutes.
 </details>
