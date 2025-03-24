@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Avahi Documentaiton to add Port Details
+      hash: fefed32917ec956f2c6cab4960e3651900b69ab0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: fisehara
+      nested: []
+  version: 6.6.2
+  title: ""
+  date: 2025-03-24T09:51:42.229Z
+- commits:
     - subject: Container requirement documentation tweaks
       hash: 85c87502a0bef998baaefb44a8015a8d57d09e67
       body: |
