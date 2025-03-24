@@ -199,12 +199,12 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 </details>
 
 <br>
-If the UEFI firmware version on your device is older than v36.3.0, please re-flash its' firmware by following any of the guides below:
+If the UEFI firmware version on your device is older than v36.3.0, please update its' firmware by following any of the guides below:
 
 - [Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware) &#x1F517;
 - [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
 
-If your device's UEFI firmware is v36.3.0 or newer, no firmware upgrade is necessary.
+If your device's UEFI firmware is v36.3.0 or newer, it can be provisioned directly with balenaOS.
 
 ## Booting balenaOS flasher images from a USB key
 
@@ -321,7 +321,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
 <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
-  1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
+  1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli/blob/master/INSTALL.md">here</a>.
 
   2) Download the balenaOS image from the balenaCloud dashboard or use the balena CLI to obtain one:
 
@@ -389,7 +389,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
 <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
-  1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
+  1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli/blob/master/INSTALL.md">here</a>.
 
   2) Download the balenaOS image from the balenaCloud dashboard or use the balena CLI to obtain one:
 
@@ -455,7 +455,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
-  1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
+  1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli/blob/master/INSTALL.md">here</a>.
 
   2) Download the balenaOS image from the balenaCloud dashboard or use the balena CLI to obtain one. Use the <a href="https://docs.balena.io/reference/hardware/devices/">balena device type list</a> to obtain the device-type SLUG (machine name).
   
