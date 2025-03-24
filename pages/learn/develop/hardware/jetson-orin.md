@@ -199,10 +199,12 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 </details>
 
 <br>
-If the firmware version on your device is older than v36.3.0, please re-flash its firmware by following the corresponding guide below:
+If the UEFI firmware version on your device is older than v36.3.0, please re-flash its' firmware by following any of the guides below:
 
 - [Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware) &#x1F517;
 - [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
+
+If your device's UEFI firmware is v36.3.0 or newer, no firmware upgrade is necessary.
 
 ## Booting balenaOS flasher images from a USB key
 
@@ -322,17 +324,17 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
 
   2) Download the balenaOS image from the balenaCloud dashboard or use the balena CLI to obtain one:
-  
+
   ```shell
   balena os download jetson-agx-orin-devkit-64gb -o balena.img
   ```
-  
+
   3) Download a configuration file from your balenaCloud dashboard or generate a new one using the balena CLI:
-  
+
   ```shell
   balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
   ``` 
-  
+
   4) Depending on your desired provisioning setup, set one or more of the available installer options:
   
   ```shell
@@ -340,19 +342,31 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   jq '.installer.migrate.force |= true' config.json > ${tmp}
   mv ${tmp} config.json
   ```
-  
+
   ```shell
   tmp=$(mktemp)
   jq '.installer.target_devices |= "sda nvme0n1"' config.json > ${tmp}
   mv ${tmp} config.json
   ```
-  
+
   5) Use the balena CLI to inject the modified configuration file in the newly downloaded image:
   ```shell
   sudo balena config inject config.json -d balena.img
   ```
-  
+
   6) Write the balenaOS image (balena.img) to your USB flash drive or NVMe. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
+
+  7) If your AGX Orin is powered on, press the power button and wait for the device to turn off.
+
+  8) Insert the freshly flashed USB key or NVMe drive into the Jetson AGX Orin Devkit and press the power button.
+
+  9) Once provisioning is complete, the board will perform one of the following actions:
+
+  - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
+
+  - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the flasher USB key before powering the AGX Orin Devkit back on.
+
+  10) Your device should appear in your application dashboard within a few minutes.
   </details>
 
 </details>
@@ -380,25 +394,25 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli">here</a>.
 
   2) Download the balenaOS image from the balenaCloud dashboard or use the balena CLI to obtain one:
-  
+
   ```shell
   balena os download jetson-orin-nano-devkit-nvme -o balena.img
   ```
-  
+
   3) Download a configuration file from your balenaCloud dashboard or generate a new one using the balena CLI:
   
   ```shell
   balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
   ``` 
-  
+
   4) Depending your desired provisioning setup, set one or more of the available installer options:
-  
+
   ```shell
   tmp=$(mktemp)
   jq '.installer.migrate.force |= true' config.json > ${tmp}
   mv ${tmp} config.json
   ```
-  
+
   ```shell
   tmp=$(mktemp)
   jq '.installer.target_devices |= "mmcblk0 sda nvme0n1"' config.json > ${tmp}
@@ -409,8 +423,20 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   ```shell
   sudo balena config inject config.json -d balena.img
   ```
-  
+
   6) Write the balenaOS image (balena.img) to your SD-CARD, USB flash drive or NVMe. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
+
+  7) Ensure the power cable is disconnected from the Orin Nano Devkit.
+
+  8) Insert the freshly flashed SD-CARD, USB key or NVMe drive into the Devkit and connect its' power cable.
+
+  9) Once provisioning is complete, the board will perform one of the following actions:
+
+  - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
+
+  - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the external flasher medium and then remove and re-connect the power cable to the Devkit.
+
+  10) Your device should appear in your application dashboard within a few minutes.
 </details>
 </details>
 
@@ -465,8 +491,20 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   ```shell
   sudo balena config inject config.json -d balena.img
   ```
-  
+
   6) Write the balenaOS image (balena.img) to your USB flash drive or NVMe. We recommend using <a href="https://etcher.balena.io">Etcher</a>.
+
+  7) Ensure the power cable is disconnected from your device.
+
+  8) Insert the freshly flashed SD-CARD, USB key or NVMe drive into the carrier board and connect its' power cable.
+
+  9) Once provisioning is complete, the board will perform one of the following actions:
+
+  - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
+
+  - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the external flasher medium and then remove and re-connect the power cable to the carrier board.
+
+  10) Your device should appear in your application dashboard within a few minutes.
 </details>
 </details>
 
