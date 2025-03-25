@@ -17,12 +17,11 @@ The Nvidia Jetson AGX Orin 32GB development kit can be identified by the label p
 
 ![AGX Orin Devkit 32GB wide shot](/img/jetson-orin/AGX-Orin-64-wide2.webp)
 
-
 ![AGX Orin Devkit 32GB close up](/img/jetson-orin/AGX_Orin_32GB_Devkit_975-13730-0000-000.webp)
 
 This device exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>. It also offers one Display Port for video output.
 
-The default internal storage used for provisioning balenaOS is the AGX Orin 32GB's on-board eMMC. Currently, the eMMC is the only internal storage supported for this device on balenaOS.
+The default internal storage used for provisioning balenaOS is the AGX Orin 32GB's on-board eMMC. Currently, this is the only boot medium supported for this device type.
 
 <br>
 </details>
@@ -178,12 +177,6 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 <summary><b>I want to use a monitor</b></summary>
 <br>
 
-<p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
-
-![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
-
-</details>
-
 <details>
     <summary><b>What type of video cable do I need for my device?</b></summary>
     <br>
@@ -196,6 +189,12 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
       * Jetson Orin NX in Xavier NX Devkit<br>
       * Seeed J3010<br>
       * Seeed J4012<br>
+</details>
+
+<p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
+
+![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
+
 </details>
 
 <br>
@@ -248,6 +247,20 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 <details>
 <summary><b>I want to use a keyboard and monitor</b></summary>
 <br>
+<details>
+    <summary><b>What type of video cable do I need for my device?</b></summary>
+    <br>
+    A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:<br>
+      * Jetson AGX Orin 32GB<br>
+      * Jetson AGX Orin 64GB<br>
+      * Jetson Orin Nano Devkit<br>
+    <br>
+    An HDMI cable is required for:<br>
+      * Jetson Orin NX in Xavier NX Devkit<br>
+      * Seeed J3010<br>
+      * Seeed J4012<br>
+</details>
+
 1) Attach a USB keyboard and a monitor to the device.<br>
 2) Power on the device and press <code>Esc</code> when prompted by the UEFI firmware, or <code>F11</code> to enter the Boot Manager Menu directly.<br>
 
@@ -284,10 +297,10 @@ If a display is connected to the device, the firmware update process will also b
 
 ## Alternative provisioning options
 
-By default, Jetson Orin devices need an internal storage media and a USB Flash Drive or tool in order to be provisioned. If your device is an Orin Nano or Orin NX, an NVMe drive has to be attached to the
-carrier board before starting the provisioning process. The AGX Orin 32GB and 64GB Devkits have a built-in eMMC which is used for provisioning balenaOS by default.
+By default, most Jetson Orin devices need an internal storage media and a USB Flash Drive or tool in order to be provisioned. If your device is an Orin Nano or Orin NX, an NVMe drive has to be attached to the
+carrier board before starting the provisioning process. The AGX Orin 32GB and 64GB Devkits have a built-in eMMC which is used by default for provisioning balenaOS.
 
-Alternatively, you can use other internal or external storage media for provisioning your Jetson Orin device. Pick your device below to see the available provisioning options:
+Select devices allow using other internal or external storage mediums for provisioning. Pick your device below to see the available provisioning options:
 
 <details>
 <summary><b>Jetson AGX Orin 32GB Devkit</b></summary>
