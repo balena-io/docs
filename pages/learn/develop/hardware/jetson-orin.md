@@ -242,10 +242,11 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 
 <p>4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.</p>
 
-<p>5) If your device is an Orin Nano or an Orin NX, remove and re-connect power to the carrier board. If it is an AGX Orin 64GB, press the power button to initiate booting.</p>
+<p>5) If your device uses an Orin Nano or an Orin NX module, remove and re-connect power to the carrier board. If it is an AGX Orin 64GB, press the power button to initiate booting.</p>
 
 <p>6) Your device should appear in your application dashboard within a few minutes.</p>
 
+__Note:__ Should you encounter any unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool to flash your device in recovery boot mode.
 </details>
 
 <details>
@@ -279,14 +280,13 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 
 4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.
 
-5) If your device is an Orin Nano or an Orin NX, remove and re-connect power to the carrier board. If it is an AGX Orin 64GB, press the power button to initiate booting.
+5) If your device uses an Orin Nano or an Orin NX module, remove and re-connect power to the carrier board. If it is an AGX Orin 64GB, press the power button to initiate booting.
 
 6) Your device should appear in your application dashboard within a few minutes.
+
+__Note:__ Should you encounter any unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool to flash your device in recovery boot mode.
 </details>
 <br>
-
-__Note:__ Should you encounter any other unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool to flash your device in recovery boot mode.
-
 
 ## Post-provisioning UEFI firmware update
 
