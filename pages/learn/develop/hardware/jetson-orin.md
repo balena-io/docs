@@ -178,20 +178,23 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 <details>
 <summary><b>I want to use a monitor</b></summary>
   <details>
-    <summary><b>What type of video cable do I need for my device?</b></summary>
+  <summary><b>What type of video cable do I need for my device?</b></summary>
 
-    A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:
+A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:
 
-    - Jetson AGX Orin 32GB
-    - Jetson AGX Orin 64GB
-    - Jetson Orin Nano Devkit
+  - Jetson AGX Orin 32GB
 
-    An HDMI cable is required for:
+  - Jetson AGX Orin 64GB
 
-    - Jetson Orin NX in Xavier NX Devkit
-    - Seeed J3010
-    - Seeed J4012
+  - Jetson Orin Nano Devkit
 
+  An HDMI cable is required for:
+
+  - Jetson Orin NX in Xavier NX Devkit
+  
+  - Seeed J3010
+  
+  - Seeed J4012
   </details>
 
 <p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
@@ -258,19 +261,23 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 <summary><b>I want to use a keyboard and monitor</b></summary>
 <br>
   <details>
-    <summary><b>What type of video cable do I need for my device?</b></summary>
+  <summary><b>What type of video cable do I need for my device?</b></summary>
 
-  A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:
+A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:
 
-    - Jetson AGX Orin 32GB
-    - Jetson AGX Orin 64GB
-    - Jetson Orin Nano Devkit
+  - Jetson AGX Orin 32GB
+
+  - Jetson AGX Orin 64GB
+
+  - Jetson Orin Nano Devkit
 
   An HDMI cable is required for:
 
-    - Jetson Orin NX in Xavier NX Devkit
-    - Seeed J3010
-    - Seeed J4012
+  - Jetson Orin NX in Xavier NX Devkit
+  
+  - Seeed J3010
+  
+  - Seeed J4012
 
   </details>
 
