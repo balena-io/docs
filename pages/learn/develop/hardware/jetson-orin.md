@@ -313,7 +313,9 @@ Select devices allow using other internal or external storage mediums for provis
 
 <details>
 <summary><b>Jetson AGX Orin 32GB Devkit</b></summary>
+
 Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC only, by using the <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool.
+
 </details>
 
 <details>
