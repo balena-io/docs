@@ -259,13 +259,11 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
   <summary><b>What type of video cable do I need for my device?</b></summary>
 
 A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:
-
   - Jetson AGX Orin 32GB
   - Jetson AGX Orin 64GB
   - Jetson Orin Nano Devkit
 
 An HDMI cable is required for:
-
   - Jetson Orin NX in Xavier NX Devkit 
   - Seeed J3010
   - Seeed J4012
