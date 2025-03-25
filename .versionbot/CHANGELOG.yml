@@ -1,4 +1,16 @@
 - commits:
+    - subject: "supervisor docker-compose: Move `expose` to Known unsupported fields"
+      hash: 9a4abc9cca004ee89b7eaf8ec5bc4396a5164cf2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+      nested: []
+  version: 6.6.3
+  title: ""
+  date: 2025-03-25T13:28:52.953Z
+- commits:
     - subject: Update Avahi Documentaiton to add Port Details
       hash: fefed32917ec956f2c6cab4960e3651900b69ab0
       body: ""
