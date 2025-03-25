@@ -248,7 +248,7 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 
 <p>6) Your device should appear in your application dashboard within a few minutes.</p>
 
-__Note:__ Should you encounter any unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool to flash your device in recovery boot mode.
+Should you encounter any unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool to flash your device in recovery boot mode.
 
 If instead you would like to use a monitor and a keyboard, please expand the section below. 
 </details>
@@ -288,7 +288,7 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 
 6) Your device should appear in your application dashboard within a few minutes.
 
-__Note:__ Should you encounter any unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool to flash your device in recovery boot mode.
+Should you encounter any unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool to flash your device in recovery boot mode.
 </details>
 <br>
 
@@ -318,7 +318,7 @@ Select devices allow using other internal or external storage mediums for provis
 <details>
 <summary><b>Jetson AGX Orin 32GB Devkit</b></summary>
 
-Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC only, by using the <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool.
+    Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC only, by using the <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool.
 
 </details>
 
@@ -348,11 +348,11 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   The first medium found in the `target_devices` list will be used for provisioning and it will become the main storage of your device once flashing is complete.
 
   Available target devices are:
-    - <code>mmcblk0</code> - on-board eMMC. Unless overriden, this option is the default for the AGX Orin Devkit 64GB
+    - <code>mmcblk0</code> - on-board eMMC. Unless overriden, this is the default for the AGX Orin Devkit 64GB
     - <code>sda</code> - removable drives like USB flash keys or SSDs
     - <code>nvme0n1</code> - NVMe drive
 
-<details>
+  <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
   1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli/blob/master/INSTALL.md">here</a>.
@@ -425,9 +425,9 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   Available target devices are:
     - <code>mmcblk0</code> - SD-CARD
     - <code>sda</code> - removable drives like USB flash keys or SSDs
-    - <code>nvme0n1</code> - NVMe drive. Unless overriden, this option is the default for the Jetson Orin Nano Devkit
+    - <code>nvme0n1</code> - NVMe drive. Unless overriden, this is the default for the Jetson Orin Nano Devkit
 
-<details>
+  <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
   1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli/blob/master/INSTALL.md">here</a>.
