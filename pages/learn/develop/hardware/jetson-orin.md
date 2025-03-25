@@ -142,6 +142,7 @@ The J401 carrier board included in the full reComputer J3010 system exposes a de
 The default internal storage used for provisioning balenaOS on the Seeed reComputer J4012 Jetson Orin NX 16GB is an NVME drive, which needs to be attached to the carrier board prior to booting via a USB flash drive containing the balenaOS flasher image. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices][installer.target_devices] configuration option or the [alternative provisioning options](#alternative-provisioning-options) section below.
 </details>
 
+<br>
 ## Checking your Jetson Orin's UEFI firmware version
 
 You can check which UEFI firmware version your Jetson Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
@@ -341,7 +342,13 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   }
   ```
 
-  The first medium found in the `target_devices` list will be used.
+  The first medium found in the `target_devices` list will be used for provisioning, and it will become the main storage of your device once flashing is complete.
+
+  Available options for <code>target_devices</code> are:
+    - <code>mmcblk0</code> - on-board eMMC. Unless overriden, this option is the default for the AGX Orin Devit 64GB
+    - <code>sda</code> - removable drives like USB flash keys or SSDs
+    - <code>nvme0n1</code> - NVMe drive
+
 <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
@@ -358,6 +365,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   ```shell
   balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
   ``` 
+  Replace <code>balena_cloud_org</code> and <code>balena_cloud_fleet</code> with your actual balena cloud organization and fleet.
 
   4) Depending on your desired provisioning setup, set one or more of the available installer options:
   
@@ -409,7 +417,13 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   }
   ```
 
-  The first medium found in the `target_devices` list will be used.
+  The first medium found in the `target_devices` list will be used for provisioning and it will become the main storage of your device once flashing is complete.
+
+  Available options for <code>target_devices</code> are:
+    - <code>mmcblk0</code> - SD-CARD
+    - <code>sda</code> - removable drives like USB flash keys or SSDs
+    - <code>nvme0n1</code> - NVMe drive. Unless overriden, this option is the default for the Jetson Orin Nano Devkit
+
 <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
@@ -426,6 +440,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   ```shell
   balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
   ``` 
+  Replace <code>balena_cloud_org</code> and <code>balena_cloud_fleet</code> with your actual balena cloud organization and fleet.
 
   4) Depending your desired provisioning setup, set one or more of the available installer options:
 
@@ -472,10 +487,16 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
       "migrate": {
         "force": true
       },
-      "target_devices":"mmcblk0 sda nvme0n1"
+      "target_devices":"sda nvme0n1"
   }
   ```
-  The first medium found in the `target_devices` list will be used.
+
+  The first medium found in the `target_devices` list will be used and it will become the main storage of your device once flashing is complete.
+
+  Available options for <code>target_devices</code> are:
+    - <code>sda</code> - removable drives like USB flash keys or SSDs
+    - <code>nvme0n1</code> - NVMe drive. Unless overriden, this option is the default for your device
+
   <details>
   <summary><b>How do I set this configuration in my balenaOS image?</b></summary>
 
@@ -491,8 +512,9 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   
   ```shell
   balena config generate --fleet balena_cloud_org/balena_cloud_fleet --version 6.4.0 --network ethernet --appUpdatePollInterval 10 --output config.json
-  ``` 
-  
+  ```
+  Replace <code>balena_cloud_org</code> and <code>balena_cloud_fleet</code> with your actual balena cloud organization and fleet.
+
   4) Depending your desired provisioning setup, set one or more of the available installer options:
   
   ```shell
