@@ -184,6 +184,8 @@ A Display Port cable or Display Port to HDMI adapter is necessary on the followi
   * Jetson AGX Orin 32GB
   * Jetson AGX Orin 64GB
   * Jetson Orin Nano Devkit
+
+
 An HDMI cable is required for:
   * Jetson Orin NX in Xavier NX Devkit
   * Seeed J3010
@@ -263,6 +265,8 @@ A Display Port cable or Display Port to HDMI adapter is necessary on the followi
   * Jetson AGX Orin 32GB
   * Jetson AGX Orin 64GB
   * Jetson Orin Nano Devkit
+
+
 An HDMI cable is required for:
   * Jetson Orin NX in Xavier NX Devkit
   * Seeed J3010
