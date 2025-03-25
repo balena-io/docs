@@ -143,6 +143,7 @@ The default internal storage used for provisioning balenaOS on the Seeed reCompu
 </details>
 
 <br>
+
 ## Checking your Jetson Orin's UEFI firmware version
 
 You can check which UEFI firmware version your Jetson Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
@@ -248,6 +249,8 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 <p>6) Your device should appear in your application dashboard within a few minutes.</p>
 
 __Note:__ Should you encounter any unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool to flash your device in recovery boot mode.
+
+If instead you would like to use a monitor and a keyboard, please expand the section below. 
 </details>
 
 <details>
@@ -291,7 +294,7 @@ __Note:__ Should you encounter any unexpected issues while provisioning your dev
 
 ## Post-provisioning UEFI firmware update
 
-Once your device has been provisioned and powered back-on, it will attempt to update the UEFI firmware automatically.
+Once your device has been provisioned with balenaOS and powered back-on, it will attempt to update the UEFI firmware automatically.
 The status of the UEFI firmware update process is depicted by a progress bar on the debug UART interface, as well on the display, if connected.
 
 __Note:__ Please do not interrupt the UEFI firmware process by resetting or cutting power to the device.
@@ -342,9 +345,9 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   }
   ```
 
-  The first medium found in the `target_devices` list will be used for provisioning, and it will become the main storage of your device once flashing is complete.
+  The first medium found in the `target_devices` list will be used for provisioning and it will become the main storage of your device once flashing is complete.
 
-  Available options for <code>target_devices</code> are:
+  Available target devices are:
     - <code>mmcblk0</code> - on-board eMMC. Unless overriden, this option is the default for the AGX Orin Devkit 64GB
     - <code>sda</code> - removable drives like USB flash keys or SSDs
     - <code>nvme0n1</code> - NVMe drive
@@ -419,7 +422,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
 
   The first medium found in the `target_devices` list will be used for provisioning and it will become the main storage of your device once flashing is complete.
 
-  Available options for <code>target_devices</code> are:
+  Available target devices are:
     - <code>mmcblk0</code> - SD-CARD
     - <code>sda</code> - removable drives like USB flash keys or SSDs
     - <code>nvme0n1</code> - NVMe drive. Unless overriden, this option is the default for the Jetson Orin Nano Devkit
@@ -493,7 +496,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
 
   The first medium found in the `target_devices` list will be used and it will become the main storage of your device once flashing is complete.
 
-  Available options for <code>target_devices</code> are:
+  Available target devices are:
     - <code>sda</code> - removable drives like USB flash keys or SSDs
     - <code>nvme0n1</code> - NVMe drive. Unless overriden, this option is the default for your device
 
