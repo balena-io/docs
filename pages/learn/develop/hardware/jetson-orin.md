@@ -204,7 +204,9 @@ If the UEFI firmware version on your device is older than v36.3.0, please update
 - [Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware) &#x1F517;
 - [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
 
-If your device's UEFI firmware is v36.3.0 or newer, it can be provisioned directly with balenaOS.
+If checking the UEFI firmware version is not possible because neither an UART cable nor a display is available, flashing Jetpack 6 using the SDK Manager will update the firmware to the latest revision on your device.
+
+Once your device's UEFI firmware is v36.3.0 or newer, it can be provisioned directly with balenaOS.
 
 ## Booting balenaOS flasher images from a USB key
 
