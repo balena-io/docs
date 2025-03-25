@@ -345,7 +345,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   The first medium found in the `target_devices` list will be used for provisioning, and it will become the main storage of your device once flashing is complete.
 
   Available options for <code>target_devices</code> are:
-    - <code>mmcblk0</code> - on-board eMMC. Unless overriden, this option is the default for the AGX Orin Devit 64GB
+    - <code>mmcblk0</code> - on-board eMMC. Unless overriden, this option is the default for the AGX Orin Devkit 64GB
     - <code>sda</code> - removable drives like USB flash keys or SSDs
     - <code>nvme0n1</code> - NVMe drive
 
