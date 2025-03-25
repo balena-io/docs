@@ -181,14 +181,13 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
   <summary><b>What type of video cable do I need for my device?</b></summary>
 
 A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:
-  - Jetson AGX Orin 32GB
-  - Jetson AGX Orin 64GB
-  - Jetson Orin Nano Devkit
-
+  * Jetson AGX Orin 32GB
+  * Jetson AGX Orin 64GB
+  * Jetson Orin Nano Devkit
 An HDMI cable is required for:
-  - Jetson Orin NX in Xavier NX Devkit
-  - Seeed J3010
-  - Seeed J4012
+  * Jetson Orin NX in Xavier NX Devkit
+  * Seeed J3010
+  * Seeed J4012
 
   </details>
 
@@ -199,12 +198,12 @@ An HDMI cable is required for:
 </details>
 
 <br>
-If the UEFI firmware version on your device is older than v36.3.0, please update its' firmware by following any of the guides below:
+In case the UEFI firmware version on your device is older than v36.3.0, please update its' firmware by following any of the guides below:
 
 - [Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware) &#x1F517;
 - [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
 
-If checking the UEFI firmware version is not possible due to any reason, flashing Jetpack 6 using the SDK Manager will guarantee your device has the latest firmware.
+If for whatever reason checking the UEFI firmware version is not possible, flashing Jetpack 6 using the SDK Manager will guarantee your device has the latest firmware installed.
 
 Once your device's UEFI firmware is v36.3.0 or newer, you can use a USB flash drive to provision it directly with balenaOS.
 
@@ -261,15 +260,13 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
   <summary><b>What type of video cable do I need for my device?</b></summary>
 
 A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:
-  - Jetson AGX Orin 32GB
-  - Jetson AGX Orin 64GB
-  - Jetson Orin Nano Devkit
-
+  * Jetson AGX Orin 32GB
+  * Jetson AGX Orin 64GB
+  * Jetson Orin Nano Devkit
 An HDMI cable is required for:
-  - Jetson Orin NX in Xavier NX Devkit 
-  - Seeed J3010
-  - Seeed J4012
-
+  * Jetson Orin NX in Xavier NX Devkit
+  * Seeed J3010
+  * Seeed J4012
   </details>
 
 1) Attach a USB keyboard and a monitor to the device.
@@ -320,7 +317,7 @@ Select devices allow using other internal or external storage mediums for provis
 <details>
 <summary><b>Jetson AGX Orin 32GB Devkit</b></summary>
 
-    Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC only, by using the <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool.
+Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC only, by using the <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool.
 
 </details>
 
