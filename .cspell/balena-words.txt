@@ -21,6 +21,7 @@ flowzone
 generic
 hostapp
 hostvia
+jetsonorin
 Katapult
 kompose
 landr
