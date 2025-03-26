@@ -46,7 +46,7 @@ Learn
       [/learn/develop/hardware/gpio]
       [/learn/develop/hardware/usb]
       [/learn/develop/hardware/i2c-and-spi]
-      [/learn/develop/hardware/jetson-orin]
+      Jetson Orin[/learn/develop/hardware/jetson-orin/$jetsonorin]
     Provision with cloud IoT[/learn/develop/cloud-iot-provisioning/$cloud]
 
   DEPLOY
