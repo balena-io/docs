@@ -1,5 +1,7 @@
 #### Seeed reComputer J4012 Jetson Orin NX 16GB
 
+![Seeed reComputer J4012](/img/jetson-orin/J4012.webp)
+
 The device has the Seeed Studio logo on the back, and the following sticker on the bottom:
 
 ![J4012 Case](/img/jetson-orin/J4012_case.webp)

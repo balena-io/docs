@@ -1,4 +1,7 @@
 #### Nvidia Jetson AGX Orin Devkit 32GB
+
+![Jetson AGX Orin Devkit](/img/jetson-orin/AGX_Orin_Perspective.webp)
+
 The Nvidia Jetson AGX Orin 32GB development kit can be identified by the label printed on the inside bottom of the unit as shown. It mentions part number 975-13730-0000-000 but does not actually say 32GB.
 
 ![AGX Orin Devkit 32GB wide shot](/img/jetson-orin/AGX-Orin-64-wide2.webp)
@@ -7,7 +10,7 @@ The Nvidia Jetson AGX Orin 32GB development kit can be identified by the label p
 
 This device exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using <code>minicom -D /dev/ttyACM0</code>. It also offers one Display Port for video output.
 
-The default internal storage used for provisioning balenaOS is the AGX Orin 32GB's on-board eMMC. Currently, this is the only boot medium supported for this device type.
+The default internal storage used for provisioning balenaOS is the AGX Orin 32GB's on-board eMMC, and the <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool is used for provisioning balenaOS. The eMMC is the only boot medium supported for this device type currently.
 
 ## Checking your Jetson Orin's UEFI firmware version
 

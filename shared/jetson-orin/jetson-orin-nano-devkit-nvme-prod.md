@@ -1,5 +1,7 @@
 #### Nvidia Jetson Orin Nano 8GB Production module
 
+![Orin Nano wide shot](/img/jetson-orin/Orin_Nano_Devkit.webp)
+
 The Orin Nano production module has the part number 900-13767-0030-000, which can be observed on the bottom. The main difference from the Orin Nano SD - 900-13767-0050-000 - is that it does not have an SD card slot. This module can be used with a Jetson Orin Nano Devkit carrier board, along with the balenaOS image for the Jetson Orin Nano 8GB (SD) Devkit, provided that the corresponding kernel device-tree is configured in your balena-cloud device configuration page.
 
 ![Orin Nano 8GB](/img/jetson-orin/Nano_8GB_Production_SOM_900-13767-0030-000.webp)

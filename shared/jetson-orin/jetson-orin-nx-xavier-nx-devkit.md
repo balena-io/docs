@@ -1,8 +1,10 @@
 #### Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME
 
-![AGX Orin NX 16GB SOM](/img/jetson-orin/Orin_NX_16GB_SOM_900-13767-0000-000.webp)
+![Orin NX](/img/jetson-orin/Jetson_Orin_NX_in_Xavier_NX_Devkit.webp)
 
 Part number 900-13767-0000-000 is printed on the right side of the SOM bottom side, and can only be observed if the module is taken out of the devkit:
+
+![AGX Orin NX 16GB SOM](/img/jetson-orin/Orin_NX_16GB_SOM_900-13767-0000-000.webp)
 
 ![AGX Orin NX 16GB SOM close up](/img/jetson-orin/Orin_NX_16GB_SOM_900-13767-0000-000_closeup.webp)
 
