@@ -103,7 +103,7 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 
 4) Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive can be unplugged.
 
-5) If your device uses an Orin Nano or an Orin NX module, remove and re-connect power to the carrier board. If it is an AGX Orin 64GB, press the power button to initiate booting.
+5) Press the power button of your Jetson AGX Orin 64GB to initiate booting.
 
 6) Your device should appear in your application dashboard within a few minutes.
 
