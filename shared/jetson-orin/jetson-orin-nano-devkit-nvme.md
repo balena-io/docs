@@ -161,7 +161,7 @@ carrier board before starting the provisioning process.
 
   Available target devices are:
     - <code>mmcblk0</code> - SD-CARD
-    - <code>sda</code> - removable drives like USB flash keys or SSDs
+    - <code>sda</code> - removable drives like USB flash drives or SSDs
     - <code>nvme0n1</code> - NVMe drive. Unless overriden, this is the default for the Jetson Orin Nano Devkit
 
   <details>

@@ -133,7 +133,7 @@ If a display is connected to the device, the firmware update process will also b
 
 By default, most Jetson Orin devices need an internal storage media and a USB flash drive in order to be provisioned. The AGX Orin 64GB Devkit has a built-in eMMC which is used by default for provisioning balenaOS.
 
-  - If you would like to use a USB flash drive to flash an NVME drive attached to your Jetson AGX Orin 64GB instead of the on-board eMMC, use the [installer.target_devices][installer.target_devices] configuration option in the flasher USB flash drive's [config.json][config_json] to specify the NVME as target medium:
+  - If you would like to use a USB flash drive to flash an NVME drive attached to your Jetson AGX Orin 64GB instead of the on-board eMMC, use the [installer.target_devices][installer.target_devices] configuration option in the flasher USB drive's [config.json][config_json] to specify the NVME as target medium:
 
   ```json
   "installer": {
@@ -155,7 +155,7 @@ By default, most Jetson Orin devices need an internal storage media and a USB fl
 
   Available target devices are:
     - <code>mmcblk0</code> - on-board eMMC. Unless overriden, this is the default for the AGX Orin Devkit 64GB
-    - <code>sda</code> - removable drives like USB flash keys or SSDs
+    - <code>sda</code> - removable drives like USB flash drives or SSDs
     - <code>nvme0n1</code> - NVMe drive
 
   <details>

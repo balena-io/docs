@@ -86,7 +86,7 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 
 ![Orin UEFI USB boot](/img/jetson-orin/usb_device.webp)
 
-<p>4) Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive can be unplugged.</p>
+<p>4) Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive should be unplugged.</p>
 
 <p>5) Remove and re-connect power to the carrier board.</p>
 
@@ -161,7 +161,7 @@ carrier board before starting the provisioning process.
 
   Available target devices are:
     - <code>mmcblk0</code> - SD-CARD
-    - <code>sda</code> - removable drives like USB flash keys or SSDs
+    - <code>sda</code> - removable drives like USB flash drives or SSDs
     - <code>nvme0n1</code> - NVMe drive. Unless overriden, this is the default for the Jetson Orin Nano Devkit
 
   <details>

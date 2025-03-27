@@ -160,7 +160,7 @@ carrier board before starting the provisioning process.
   The first medium found in the `target_devices` list will be used and it will become the main storage of your device once flashing is complete.
 
   Available target devices are:
-    - <code>sda</code> - removable drives like USB flash keys or SSDs
+    - <code>sda</code> - removable drives like USB flash drives or SSDs
     - <code>nvme0n1</code> - NVMe drive. Unless overriden, this option is the default for your device
 
   <details>
