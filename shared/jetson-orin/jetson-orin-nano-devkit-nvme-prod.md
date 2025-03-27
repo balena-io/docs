@@ -121,3 +121,18 @@ A Display Port cable or Display Port to HDMI adapter is necessary for connecting
 Should you encounter any unexpected issues while provisioning your device, please follow the instructions for our <a href="https://github.com/balena-os/jetson-flash">Jetson Flash</a> tool to flash your device in recovery boot mode.
 </details>
 <br>
+
+## Post-provisioning UEFI firmware update
+
+Once your device has been provisioned with balenaOS and powered back-on, it will attempt to update the UEFI firmware automatically.
+The status of the UEFI firmware update process is depicted by a progress bar on the debug UART interface, as well on the display, if connected.
+
+__Note:__ Please do not interrupt the UEFI firmware process by resetting or cutting power to the device.
+
+If you are using the debug UART, the firmware update process will be displayed by a progress bar similar to the one below:
+                                                                                                                                               
+![Orin UEFI firmware update progress](/img/jetson-orin/post_provisioning_uefi_firmware_update.webp)
+
+If a display is connected to the device, the firmware update process will also be rendered on the screen:
+
+![Orin UEFI firmware update progress](/img/jetson-orin/jetson_orin_uefi_firmware_update.webp)

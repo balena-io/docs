@@ -11,22 +11,6 @@ dynamic:
 
 {{import "jetson-orin"}}
 
-## Post-provisioning UEFI firmware update
-
-Once your device has been provisioned with balenaOS and powered back-on, it will attempt to update the UEFI firmware automatically.
-The status of the UEFI firmware update process is depicted by a progress bar on the debug UART interface, as well on the display, if connected.
-
-__Note:__ Please do not interrupt the UEFI firmware process by resetting or cutting power to the device.
-
-If you are using the debug UART, the firmware update process will be displayed by a progress bar similar to the one below:
-                                                                                                                                               
-![Orin UEFI firmware update progress](/img/jetson-orin/post_provisioning_uefi_firmware_update.webp)
-
-If a display is connected to the device, the firmware update process will also be rendered on the screen:
-
-![Orin UEFI firmware update progress](/img/jetson-orin/jetson_orin_uefi_firmware_update.webp)
-
-
 ## Alternative provisioning options
 
 By default, most Jetson Orin devices need an internal storage media and a USB flash drive in order to be provisioned. If your device is an Orin Nano or Orin NX, an NVMe drive has to be attached to the
