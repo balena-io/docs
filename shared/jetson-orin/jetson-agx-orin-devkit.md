@@ -39,4 +39,3 @@ A Display Port cable or Display Port to HDMI adapter is necessary for connecting
 ![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
 
 </details>
-
