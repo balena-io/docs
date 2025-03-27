@@ -9,79 +9,12 @@ dynamic:
   $switch_text: I want to work with $jetsonorin
 ---
 
-# Supported Nvidia Jetson Orin &trade;
-
 {{import "jetson-orin"}}
 
-## Checking your Jetson Orin's UEFI firmware version
+## Booting balenaOS flasher images from a USB flash drive
 
-You can check which UEFI firmware version your Jetson Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
-
-<details>
-<summary><b>I want to use the debug UART interface</b></summary>
-<br>
-
-<p>If you are using the <b>Jetson Orin Nano Devkit</b>, <b>Jetson Orin NX</b>, the <b>Seeed J3010</b> or <b>Seeed J4010</b> you will need a USB to TTL converter cable. The USB to TTL converter's pins need to be connected to the UART TXD, UART RXD and GND pins on the Jetson carrier board, which are located underneath the Orin module. The other end of the cable should be plugged into the USB port of your host/development PC. Your host PC can connect to the Jetson device using a serial communication program like <code>minicom</code> </p>
-
-![Orin Nano Devkit pinout location](/img/jetson-orin/Nano_pinout_with_module_square.webp)
-
-![Orin Nano Devkit UART pins](/img/jetson-orin/Nano_pinout_close_square.webp)
-
-<p>On <b>Jetson AGX Orin 32GB</b> and <b>Jetson AGX Orin 64GB</b> Devkits, the debug UART interface is available through the micro-USB interface, when the device is powered on. Connect the other end of the micro-usb cable to your host/development PC. If your host is running Linux, the serial connection to the Jetson device can be accessed using <code>minicom -D /dev/ttyACM0</code>.</p>
-
-![AGX Orin microUSB debug port](/img/jetson-orin/AGX_Orin_DP_microUSB_square.webp)
-
-<p>If you are using the UART interface, the UEFI firmware version will be printed in the boot sequence logs:</p>
-
-![Orin UEFI uart logs](/img/jetson-orin/jetson_orin_uefi_version_uart_logs.webp)
-
-<p>Alternatively, if booting is stopped in the UEFI menu by pressing <code>Esc</code>, the firmware version will be printed in the top-left corner:</p>
-
-![Orin UEFI uart logs](/img/jetson-orin/jetson_orin_uart_uefi_menu.webp)
-
-<p>If instead you would like to use a monitor and a keyboard, please expand the section below.</p>
-
-</details>
-
-
-  <details>
-  <summary><b>I want to use a monitor</b></summary>
-<br>
-  <details>
-  <summary><b>What type of video cable do I need for my device?</b></summary>
-
-A Display Port cable or Display Port to HDMI adapter is necessary on the following devices:
-  * Jetson AGX Orin 32GB
-  * Jetson AGX Orin 64GB
-  * Jetson Orin Nano Devkit
-
-
-An HDMI cable is required for:
-  * Jetson Orin NX in Xavier NX Devkit
-  * Seeed J3010
-  * Seeed J4012
-  </details>
-
-<p>If your Jetson Orin is connected to a monitor, the UEFI firmware version will be displayed at the top of the screen:</p>
-
-![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
-
-</details>
-
-<br>
-In case the UEFI firmware version on your device is older than v36.3.0, please update its' firmware by following any of the guides below:
-
-- [Firmware update for Orin Nano SD-CARD](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#firmware) &#x1F517;
-- [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
-
-If for whatever reason checking the UEFI firmware version is not possible, flashing Jetpack 6 using the SDK Manager will guarantee your device has the latest firmware installed.
-
-Once your device's UEFI firmware is v36.3.0 or newer, you can use a USB flash drive to provision it directly with balenaOS.
-
-## Booting balenaOS flasher images from a USB key
-
-If the firmware on your device is v36.3.0 or newer, inserting the USB key with the balenaOS flasher image and connecting power to your device will provision the internal storage.
-In the unexpected event that your device does not boot the balenaOS flasher image from the attached USB key automatically, use the following steps to manually select the USB key for booting:
+If the firmware on your device is v36.3.0 or newer, inserting the USB flash drive with the balenaOS flasher image and connecting power to your device will provision the internal storage.
+In the unexpected event that your device does not boot the balenaOS flasher image from the attached USB flash drive automatically, use the following steps to manually select the USB flash drive for booting:
 
 <details>
 <summary><b>I want to use the debug UART interface</b></summary>
@@ -113,7 +46,7 @@ In the unexpected event that your device does not boot the balenaOS flasher imag
 
 ![Orin UEFI USB boot](/img/jetson-orin/usb_device.webp)
 
-<p>4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.</p>
+<p>4) Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive can be unplugged.</p>
 
 <p>5) If your device uses an Orin Nano or an Orin NX module, remove and re-connect power to the carrier board. If it is an AGX Orin 64GB, press the power button to initiate booting.</p>
 
@@ -150,11 +83,11 @@ An HDMI cable is required for:
 
 ![UEFI Boot Manager](/img/jetson-orin/jetson_orin_uefi_boot_manager.webp)
 
-3) Select the attached USB key as boot media:
+3) Select the attached USB flash drive as boot media:
 
-![UEFI Boot from USB Key](/img/jetson-orin/jetson_orin_uefi_usb_key.webp)
+![UEFI Boot from USB flash drive](/img/jetson-orin/jetson_orin_uefi_usb_key.webp)
 
-4) Your device should boot from the attached USB key and provision the internal storage. Once provisioning is complete and the device shuts down, the USB key can be unplugged.
+4) Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive can be unplugged.
 
 5) If your device uses an Orin Nano or an Orin NX module, remove and re-connect power to the carrier board. If it is an AGX Orin 64GB, press the power button to initiate booting.
 
@@ -182,7 +115,7 @@ If a display is connected to the device, the firmware update process will also b
 
 ## Alternative provisioning options
 
-By default, most Jetson Orin devices need an internal storage media and a USB Flash Drive or tool in order to be provisioned. If your device is an Orin Nano or Orin NX, an NVMe drive has to be attached to the
+By default, most Jetson Orin devices need an internal storage media and a USB flash drive in order to be provisioned. If your device is an Orin Nano or Orin NX, an NVMe drive has to be attached to the
 carrier board before starting the provisioning process. The AGX Orin 32GB and 64GB Devkits have a built-in eMMC which is used by default for provisioning balenaOS.
 
 Select devices allow using other internal or external storage mediums for provisioning. Pick your device below to see the available provisioning options:
@@ -199,7 +132,7 @@ Currently, the Jetson AGX Orin 32GB can be provisioned with balenaOS on the eMMC
 
 The default internal storage used for provisioning balenaOS is the AGX Orin 64GB's on-board eMMC.
 
-  - If you would like to use a USB key to flash an NVME drive attached to your Jetson AGX Orin 64GB instead of the on-board eMMC, use the [installer.target_devices][installer.target_devices] configuration option in the flasher USB key's [config.json][config_json] to specify the NVME as target medium:
+  - If you would like to use a USB flash drive to flash an NVME drive attached to your Jetson AGX Orin 64GB instead of the on-board eMMC, use the [installer.target_devices][installer.target_devices] configuration option in the flasher USB flash drive's [config.json][config_json] to specify the NVME as target medium:
 
   ```json
   "installer": {
@@ -207,7 +140,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
   }
   ```
 
-  - If you would like the same USB Key or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
+  - If you would like the same USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
   ```json
   "installer": {
       "migrate": {
@@ -265,11 +198,11 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
 
   7) If your AGX Orin is powered on, press the power button and wait for the device to turn off.
 
-  8) Insert the freshly flashed USB key or NVMe drive into the Jetson AGX Orin Devkit and press the power button.
+  8) Insert the freshly flashed USB flash drive or NVMe drive into the Jetson AGX Orin Devkit and press the power button.
 
   9) Once provisioning is complete, the board will perform one of the following actions:
     - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
-    - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the flasher USB key before powering the AGX Orin Devkit back on.
+    - shut down if [installer.migrate.force][installer.migrate] has not been set in [config.json][config_json]. Unplug the flasher USB flash drive before powering the AGX Orin Devkit back on.
 
   10) Your device should appear in your application dashboard within a few minutes.
   </details>
@@ -340,7 +273,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
 
   7) Ensure the power cable is disconnected from the Orin Nano Devkit.
 
-  8) Insert the freshly flashed SD-CARD, USB key or NVMe drive into the Devkit and connect its' power cable.
+  8) Insert the freshly flashed SD-CARD, USB flash drive or NVMe drive into the Devkit and connect its power cable.
 
   9) Once provisioning is complete, the board will perform one of the following actions:
      - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
@@ -355,7 +288,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
 
   - If you would like to use a USB flash drive an NVME drive attached to your device, simply insert the USB flash drive and connect power to the board.
 
-  - If you would like the same USB Key or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
+  - If you would like the same USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate][installer.migrate] and [installer.target_devices][installer.target_devices] configuration options:
 
   ```json
   "installer": {
@@ -413,7 +346,7 @@ The default internal storage used for provisioning balenaOS is the AGX Orin 64GB
 
   7) Ensure the power cable is disconnected from your device.
 
-  8) Insert the freshly flashed SD-CARD, USB key or NVMe drive into the carrier board and connect its' power cable.
+  8) Insert the freshly flashed SD-CARD, USB flash drive or NVMe drive into the carrier board and connect its power cable.
 
   9) Once provisioning is complete, the board will perform one of the following actions:
      - restart and boot balenaOS automatically, if [installer.migrate.force][installer.migrate] has been set in [config.json][config_json].
