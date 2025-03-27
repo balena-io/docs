@@ -278,6 +278,10 @@
 /reference/sdk/python-sdk/ /reference/sdk/python-sdk/latest/
 /reference/sdk/python-sdk /reference/sdk/python-sdk/latest/
 
+# hardware/jetson-orin
+/learn/develop/hardware/jetson-orin/ /learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit/
+/learn/develop/hardware/jetson-orin /learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit/
+
 # Important: keep dynamic redirect below the static redirects
 # https://developers.cloudflare.com/pages/platform/redirects/
 
