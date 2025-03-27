@@ -1,6 +1,6 @@
 #### Nvidia Jetson AGX Orin Devkit 64GB
 
-![Jetson AGX Orin Devkit](/img/jetson-orin/AGX_Orin_Perspective.webp)
+![Jetson AGX Orin Devkit](/img/jetson-orin/AGX_Orin_perspective_2.webp)
 
 The Nvidia Jetson AGX Orin 64 GB development kit has a label on the inside bottom as shown. It mentions part number 945-13730-0050-000 and reads “Jetson AGX Orin 64GB Developer Kit”.
 

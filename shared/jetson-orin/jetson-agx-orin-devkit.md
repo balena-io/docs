@@ -1,6 +1,6 @@
 #### Nvidia Jetson AGX Orin Devkit 32GB
 
-![Jetson AGX Orin Devkit](/img/jetson-orin/AGX_Orin_Perspective.webp)
+![Jetson AGX Orin Devkit](/img/jetson-orin/AGX_Orin_perspective_2.webp)
 
 The Nvidia Jetson AGX Orin 32GB development kit can be identified by the label printed on the inside bottom of the unit as shown. It mentions part number 975-13730-0000-000 but does not actually say 32GB.
 
