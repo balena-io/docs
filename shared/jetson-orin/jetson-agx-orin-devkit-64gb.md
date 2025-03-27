@@ -1,5 +1,5 @@
 #### Nvidia Jetson AGX Orin Devkit 64GB
-The Nvidia Jetson AGX Orin 64 GB development kit also has a label on the inside bottom as shown. It mentions part number 945-13730-0050-000 and reads “Jetson AGX Orin 64GB Developer Kit”.
+The Nvidia Jetson AGX Orin 64 GB development kit has a label on the inside bottom as shown. It mentions part number 945-13730-0050-000 and reads “Jetson AGX Orin 64GB Developer Kit”.
 
 ![AGX Orin Devkit 64GB wide shot](/img/jetson-orin/AGX-Orin-64-wide.webp)
 
@@ -41,7 +41,9 @@ A Display Port cable or Display Port to HDMI adapter is necessary for connecting
 </details>
 
 <br>
-In case the UEFI firmware version on your device is older than v36.3.0, please update its firmware by following this guide: [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
+In case the UEFI firmware version on your device is older than v36.3.0, please update its firmware using the following guide:
+
+- [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
 
 If for whatever reason checking the UEFI firmware version is not possible, flashing Jetpack 6 using the SDK Manager will guarantee your device has the latest firmware installed.
 

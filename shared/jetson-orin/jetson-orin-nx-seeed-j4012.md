@@ -45,7 +45,9 @@ An HDMI cable is necessary for connecting your Seed reComputer J4012 to a monito
 </details>
 
 <br>
-In case the UEFI firmware version on your device is older than v36.3.0, please update its firmware by following this guide: [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
+In case the UEFI firmware version on your device is older than v36.3.0, please update its firmware using the following guide:
+
+- [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) &#x1F517;
 
 If for whatever reason checking the UEFI firmware version is not possible, flashing Jetpack 6 using the SDK Manager will guarantee your device has the latest firmware installed.
 
