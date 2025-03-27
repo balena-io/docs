@@ -1,4 +1,19 @@
 - commits:
+    - subject: "Jetson Orin: Improve UEFI related instructions"
+      hash: 6fb305173b559ac2cb249a3cb804bf42faece9b2
+      body: |
+        Author: Alan Boris
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 6.6.4
+  title: ""
+  date: 2025-03-27T15:58:42.337Z
+- commits:
     - subject: "supervisor docker-compose: Move `expose` to Known unsupported fields"
       hash: 9a4abc9cca004ee89b7eaf8ec5bc4396a5164cf2
       body: ""
