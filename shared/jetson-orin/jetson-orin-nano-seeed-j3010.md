@@ -44,7 +44,7 @@ For this step you will need a USB to TTL converter cable. The USB to TTL convert
   <details>
   <summary><b>I want to use a monitor</b></summary>
 <br>
-An HDMI cable is necessary for connecting your Seed reComputer J3010 to a monitor. Once the monitor is attached, the UEFI firmware version will be displayed at the top of the screen:
+<b>An HDMI cable is necessary for connecting your Seed reComputer J3010 to a monitor.</b> Once the monitor is attached, the UEFI firmware version will be displayed at the top of the screen:
 
 ![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
 
@@ -102,7 +102,7 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 <details>
 <summary><b>I want to use a keyboard and monitor</b></summary>
 <br>
-An HDMI cable is necessary for connecting your Seeed reComputer to a monitor.
+<b>An HDMI cable is necessary for connecting your Seeed reComputer to a monitor.</b>
 
 1) Attach a USB keyboard and a monitor to the device.
 

@@ -41,7 +41,7 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
   <details>
   <summary><b>I want to use a monitor</b></summary>
 <br>
-A Display Port cable or Display Port to HDMI adapter is necessary for connecting your Jetson Orin Nano to a monitor. Once the monitor is attached, the UEFI firmware version will be displayed at the top of the screen:
+<b>A Display Port cable or Display Port to HDMI adapter is necessary for connecting your Jetson Orin Nano to a monitor.</b> Once the monitor is attached, the UEFI firmware version will be displayed at the top of the screen:
 
 ![Orin UEFI display menu](/img/jetson-orin/jetson_orin_interrupt_booting_uefi.webp)
 
@@ -100,7 +100,7 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 <details>
 <summary><b>I want to use a keyboard and monitor</b></summary>
 <br>
-A Display Port cable or Display Port to HDMI adapter is necessary for connecting your Jetson Orin Nano to a monitor.
+<b>A Display Port cable or Display Port to HDMI adapter is necessary for connecting your Jetson Orin Nano to a monitor.</b>
 
 1) Attach a USB keyboard and a monitor to the device.
 
