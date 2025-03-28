@@ -170,10 +170,10 @@ carrier board before starting the provisioning process.
 
   1) Make sure you have <a href="https://jqlang.org/download/">jq</a> and the <a href="https://docs.balena.io/reference/balena-cli/latest/">balena CLI</a> installed on your host/development PC. You can obtain it from <a href="https://github.com/balena-io/balena-cli/blob/master/INSTALL.md">here</a>.
 
-  2) Download the balenaOS image from the balenaCloud dashboard or use the balena CLI to obtain one. Use the <a href="https://docs.balena.io/reference/hardware/devices/">balena device type list</a> to obtain the device-type SLUG (machine name).
+  2) Download the balenaOS image from the balenaCloud dashboard or use the balena CLI to obtain one.
 
   ```shell
-  balena os download <device-type slug> -o balena.img
+  balena os download jetson-orin-nano-seeed-j3010 -o balena.img
   ```
 
   3) Download a configuration file from your balenaCloud dashboard or generate a new one using the balena CLI:
