@@ -1,4 +1,21 @@
 - commits:
+    - subject: "shared/jetson-orin: Specify device-type slugs for Seeed and Orin NX"
+      hash: 6d8e48c12564241ca29bd475b47801b21ba8f65e
+      body: |
+        These three Orin devices used to have common instructions, but now
+        that they have individual pages, we can specify their slugs directly
+        in the instructions.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 6.6.5
+  title: ""
+  date: 2025-03-28T11:35:23.414Z
+- commits:
     - subject: "Jetson Orin: Improve UEFI related instructions"
       hash: 6fb305173b559ac2cb249a3cb804bf42faece9b2
       body: |
