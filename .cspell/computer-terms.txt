@@ -1,4 +1,5 @@
 AAAAB
+Adafruit
 Adblocker
 Aetina
 ahci
@@ -43,6 +44,7 @@ baletheus
 bananapi
 barebones
 Baseimages
+BBIO
 bblayers
 beagleboard
 Beaglebone
@@ -100,9 +102,9 @@ cpuset
 createapikey
 crossbuilding
 cssesc
-cwebp
 CUDA
 Customboard
+cwebp
 decamelize
 depd
 devboard
@@ -171,6 +173,8 @@ giffgaff
 gifs
 githubui
 gpio
+gpiochip
+gpiochip
 groff
 gstatic
 gsub
@@ -220,7 +224,9 @@ Lamtzidis
 LBEL
 ldconfig
 leds
+lgpio
 libasound
+libgpiod
 libmraa
 libsqlite
 lintian
@@ -256,6 +262,7 @@ multiapp
 multimatch
 multiroom
 mutli
+muxing
 myapp
 mynewhostname
 myorg
@@ -298,11 +305,12 @@ passwordless
 Passwordless
 peap
 persistentlogging
-pinout
 picamera
 picocolors
 picomatch
 pify
+Pinctrl
+pinout
 PPPS
 preconfigured
 prefixoid
@@ -322,6 +330,7 @@ ralink
 randomatic
 raspberrypi
 raspberrypicm
+raspi
 RAWIO
 RCSI
 rcvbuf
