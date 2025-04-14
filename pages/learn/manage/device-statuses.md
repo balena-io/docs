@@ -48,7 +48,7 @@ __Note:__ Data for these states will only get populated for devices with [superv
 | **Downloading**                       | The supervisor is downloading one or more container images associated with the target release                                           |
 | **Downloaded**                        | All container images in the target release have been downloaded. **Note:** If the device holds an update lock, it will stop in this state until the lock is released (depending on the [update strategy](https://docs.balena.io/learn/deploy/release-strategy/update-strategies/#controlling-the-update-strategy)). |
 | **Applying Changes**                  | The supervisor is performing actions to install the new release, i.e. killing old containers and making volumes/network/container changes.    |
-| **Rejected**                          | The target release has required services that do not meet the [necessary requirements](https://docs.balena.io/learn/develop/container-contracts/#container-contracts) to run. |
+| **Rejected**                          | The target release has required services that do not meet the [necessary requirements](https://docs.balena.io/learn/develop/multicontainer/#container-requirements) to run. |
 | **Aborted**                           | The supervisor has given up on trying to install a new release. There are currently no conditions under which the supervisor returns this state, but future work could allow the supervisor to abort an update, for instance, after a number of failed download tries.    |
 
 ## Update Status Duration
