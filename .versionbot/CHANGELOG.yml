@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Fix broken link for Container Requirements"
+      hash: 8097b80063dfca3a93aa49b9b41d6ad5ced77a87
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 6.6.6
+  title: ""
+  date: 2025-04-15T11:11:09.337Z
+- commits:
     - subject: "shared/jetson-orin: Specify device-type slugs for Seeed and Orin NX"
       hash: 6d8e48c12564241ca29bd475b47801b21ba8f65e
       body: |
