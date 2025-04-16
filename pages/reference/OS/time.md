@@ -62,15 +62,7 @@ Starting from {{ $names.os.lower }} 2.0.7, the devices connect to the following 
 
 To be clear, `ntp.org` uses a large pool of servers that change frequently. So UDP port `123` must be open outgoing to all hosts.
 
-Prior to {{ $names.os.lower }} 2.0.7 the NTP service connects to the following time servers by default and these need to be accessible to the device:
-
-* pool.ntp.org
-* time1.google.com
-* time2.google.com
-* time3.google.com
-* time4.google.com
-
-Starting from {{ $names.os.lower }} 2.1.0, you can configure your own NTP servers in the [`config.json` file][config-json] location in the [boot partition][boot-partition]. For example:
+You can configure your own NTP servers in the [`config.json` file][config-json] location in the [boot partition][boot-partition]. For example:
 
 ```json
 "ntpServers": "0.resinio.pool.ntp.org 1.resinio.pool.ntp.org"
