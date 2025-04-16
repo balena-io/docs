@@ -60,6 +60,8 @@ Starting from {{ $names.os.lower }} 2.0.7, the devices connect to the following 
 * 2.resinio.pool.ntp.org
 * 3.resinio.pool.ntp.org
 
+To be clear, `ntp.org` uses a large pool of servers that change frequently. So UDP port `123` must be open outgoing to all hosts.
+
 Prior to {{ $names.os.lower }} 2.0.7 the NTP service connects to the following time servers by default and these need to be accessible to the device:
 
 * pool.ntp.org
