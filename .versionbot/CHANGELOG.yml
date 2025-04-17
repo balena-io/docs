@@ -1,4 +1,28 @@
 - commits:
+    - subject: Remove NTP information for obsolete balenaOS versions
+      hash: b7090e8bc7eae21bf00a37eb82f78dc469bbd1d6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+    - subject: Clarify firewall requirements for ntp.org
+      hash: a1a6aa897ce89fa8c59b3d9d1b87cacef4e2f8b1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 6.6.7
+  title: ""
+  date: 2025-04-17T08:40:02.729Z
+- commits:
     - subject: "patch: Fix broken link for Container Requirements"
       hash: 8097b80063dfca3a93aa49b9b41d6ad5ced77a87
       body: ""
