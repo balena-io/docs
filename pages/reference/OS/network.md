@@ -484,13 +484,6 @@ Location: https://api.balena-cloud.com/
 Vary: Accept
 ```
 
-NTP / UDP packets (port 123) are exchanged with:
-
-* `0.resinio.pool.ntp.org`
-* `1.resinio.pool.ntp.org`
-* `2.resinio.pool.ntp.org`
-* `3.resinio.pool.ntp.org`
-
 [Google's Public DNS](https://developers.google.com/speed/public-dns) server at 8.8.8.8 is used by
 default and in addition to DNS servers obtained via DHCP from your local network or service provider (balenaOS may issue queries to multiple DNS servers simultaneously, for the quickest response to be used). If additional DNS servers are configured via DHCP or other means, it is OK for the local network to block requests to `8.8.8.8`.
 To avoid any requests being made to `8.8.8.8` by balenaOS, modify the
