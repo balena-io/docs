@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Remove Haskell from Getting Started languages"
+      hash: 1d11d823f5646b36db5dedbfafc2a71269d43ea3
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.6.9
+  title: ""
+  date: 2025-04-28T17:26:44.863Z
+- commits:
     - subject: "patch: Update Pi GPIO docs"
       hash: b43fac03d689912cf482be08e4e754ab3f7898b3
       body: ""
