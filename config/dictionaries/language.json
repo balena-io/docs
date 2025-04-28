@@ -23,10 +23,5 @@
     "id": "go",
     "name": "Go",
     "icon": "/img/language/go.svg"
-  },
-  {
-    "id": "haskell",
-    "name": "Haskell",
-    "icon": "/img/language/haskell.svg"
   }
 ]
