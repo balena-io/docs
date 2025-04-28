@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Update Pi GPIO docs"
+      hash: b43fac03d689912cf482be08e4e754ab3f7898b3
+      body: ""
+      footer:
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.6.8
+  title: ""
+  date: 2025-04-28T11:14:10.935Z
+- commits:
     - subject: Remove NTP information for obsolete balenaOS versions
       hash: b7090e8bc7eae21bf00a37eb82f78dc469bbd1d6
       body: ""
