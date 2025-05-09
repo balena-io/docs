@@ -131,7 +131,7 @@ The file extensions are equivalent to `{{$names.company.allCaps}}_MACHINE_NAME` 
 
 ### Template Files
 
-Often it's desirable to create a single Dockerfile that can be used and built for multiple different device types and CPU architectures. In this case, a `Dockerfile.template` file can be used. This [dockerfile template][template-dockerfile] will replace the template variables before the build is started. Currently the builder supports the following build variables:
+This [dockerfile template][template-dockerfile] will replace the template variables before the build is started. Currently the builder supports the following build variables:
 
 {{> "deployment/build-variables" }}
 
