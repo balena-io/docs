@@ -27,7 +27,7 @@ The Docker Official Images team, with help from community contributors, formally
 For general use cases, you can usually start with a standard Linux distribution’s Official Docker Image, and install further requirements and dependencies in your Dockerfile. For instance, here is an example of installing the Nano text editor in the [official Debian image](https://hub.docker.com/_/debian):
 
 ```Dockerfile
-FROM debian:bookworm-20250407  # This is the offical image
+FROM debian:bookworm-20250407  # This is the official image
 
 # Here we install a utility not included in the base image:
 
