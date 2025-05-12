@@ -92,7 +92,9 @@ Distroless images are typically built from scratch or based on minimal distribut
 
 Other resources for distroless images include:
 [https://github.com/GoogleContainerTools/distroless](https://github.com/GoogleContainerTools/distroless)
+
 [https://github.com/dotnet/dotnet-docker/blob/main/documentation/distroless.md](https://github.com/dotnet/dotnet-docker/blob/main/documentation/distroless.md)
+
 [https://www.docker.com/blog/is-your-container-image-really-distroless/](https://www.docker.com/blog/is-your-container-image-really-distroless/)
 
 ## Using Software Language Stacks
@@ -126,8 +128,8 @@ The instructions for installing a language stack from the official binaries is b
 
  - Installing Python from source: [https://realpython.com/installing-python/#linux-how-to-build-python-from-source-code](https://realpython.com/installing-python/#linux-how-to-build-python-from-source-code)
  - Installing Node from source: [https://github.com/nodejs/node/blob/main/BUILDING.md](https://github.com/nodejs/node/blob/main/BUILDING.md)
-Installing Golang from source: [https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/](https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/)
-Installing OpenJDK from source: [https://openjdk.org/groups/build/doc/building.html](https://openjdk.org/groups/build/doc/building.html)
+ - Installing Golang from source: [https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/](https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/)
+ - Installing OpenJDK from source: [https://openjdk.org/groups/build/doc/building.html](https://openjdk.org/groups/build/doc/building.html)
 And so on
 
 Note that these instructions are not necessarily written for building a container, so you may have to adapt the steps to work in a Dockerfile. For example, if an instruction says to “download a file with wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz” the line in the Dockerfile would be: 
