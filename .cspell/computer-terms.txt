@@ -12,6 +12,7 @@ apikey
 aplus
 arm-builder-kernels
 armel
+armhf
 armv
 arrayish
 arrify
@@ -119,6 +120,8 @@ Digi
 digitiser
 dind
 discoveryjs
+Distroless
+distroless
 dnsmasq
 dnsservers
 Dockerfiles
