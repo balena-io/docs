@@ -1,4 +1,28 @@
 - commits:
+    - subject: Change balenalib reference
+      hash: 4b0b3ce1523d68dc1c559a6e87ccd9b975a794bd
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+    - subject: Remove balenalib references
+      hash: 38d6b53c01f383a4722c9d31242a6fc04d37cf33
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.6.10
+  title: ""
+  date: 2025-05-12T17:10:33.071Z
+- commits:
     - subject: "patch: Remove Haskell from Getting Started languages"
       hash: 1d11d823f5646b36db5dedbfafc2a71269d43ea3
       body: ""
