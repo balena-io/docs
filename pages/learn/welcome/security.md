@@ -92,12 +92,6 @@ Currently, metadata such as device identifiers or WiFi credentials are not encry
 
 The first step in deploying to a fleet of devices is to build a Docker image that contains everything necessary to run your application. While these images can be built locally, {{ $names.company.lower }} provides a powerful image builder that is more appropriate for most use cases. The builder for x86 images is hosted on AWS, while the builder for ARM images is hosted by a combination of AWS and Hetzner.
 
-{{ $names.company.upper }} maintains a repository of base images. These base images are built by the {{ $names.company.lower }} build infrastructure, so they inherit all the security protections provided to your container images. While we provide images for a wide variety of distributions, architectures, and devices, the images built by the builder can also inherit from any publicly accessible Docker image repository.
-
-Any resource added to base images is verified by GNU Privacy Guard (GPG) signatures where available, or a SHA256 checksum based on the original source material (if a GPG key is unavailable) to insure that all included files are verified.
-
-For example, some {{ $names.company.lower }} base images include the Python language runtime.  {{ $names.company.upper }} downloads the Python source for building and verifies checksums and signatures to be sure the Python website was not compromised or that no man-in-the-middle attacks have occurred.
-
 User code and data is pushed to the builders via git using SSH with public key encryption, ensuring that it is encrypted when sent to the {{ $names.company.lower }} builders. SSH keys are managed via the user dashboard or CLI tools.
 
 Once user container images are built, they are pushed to the {{ $names.company.lower }} Docker registry. Only the {{ $names.company.lower }} builder has permission to write to the Docker registry, preventing tampering with the images from external sources.
