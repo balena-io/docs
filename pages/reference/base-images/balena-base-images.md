@@ -7,11 +7,11 @@ excerpt: Tips for choosing a base image for your project
 # Choosing a base image
 
 ## Where is balenalib?
-Balenalib was the home for 26,000+ IoT-focused Docker images built specifically for balenaCloud and balenaOS. Balena ceased publishing updates to balenalib images on May 23, 2025, however, all of the previously published images are still available and still work. Read [our announcement blog post](https://blog.balena.io/deprecate-balenalib-images/) for more information. 
+Balenalib was the home for 26,000+ IoT-focused Docker images built specifically for balenaCloud and balenaOS. Balena stopped publishing updates to balenalib in 2025, however, all of the previously published images are still available. Read [our announcement blog post](https://blog.balena.io/deprecate-balenalib-images/) for more information. 
 
-Note: if you are looking for the overview of balena base images (deprecated) that used to be on this page, you can find that here.
+Note: The docs for balenalib base images (deprecated) that used to be on this page [have been moved here](/reference/base-images/balena-base-images-reference/). 
 
-When balena started publishing these images back in 2016, the Docker ecosystem was quite new, and support for ARM 6/7/8 images was almost non-existent. Today, however,  Docker images for all architectures and software stacks are  well supported and maintained. Consequently, this shift meant that balenalib base images' value and advantage have diminished over the past few years.
+When balena started publishing these base images back in 2016, the Docker ecosystem was quite new, and support for ARM 6/7/8 images was almost non-existent. Today, however,  Docker images for all architectures and software stacks are  well supported and maintained. Consequently, this shift in the larger ecosystem meant that balenalib base images' value and advantage have diminished over the past few years.
 
 
 ## Use Docker Official Images instead
@@ -42,9 +42,9 @@ Scroll past the tag list to find more helpful information in the “Overview” 
  - Fedora official images: [https://hub.docker.com/_/fedora](https://hub.docker.com/_/fedora)
  - Alpine official images: [https://hub.docker.com/_/alpine](https://hub.docker.com/_/alpine)
 
-### Device Architecture Note
+### Choose the right device architecture
 
-Dockerhub uses a different naming convention for device architecture than balena. Use the table below to convert a balena specified architecture to the equivalent architecture listed on Dockerhub. To see the architecture for balena-supported devices, check out the [balena Machine names and architecture page](https://docs.balena.io/reference/base-images/devicetypes/).
+Dockerhub uses a different naming convention for device architecture than balena. Use the table below to convert a balena specified architecture to the equivalent architecture listed on Dockerhub. To see the architecture for balena-supported devices, check out the [balena Machine names and architecture page](/reference/base-images/devicetypes/).
 
 As an example, if you are using a Raspberry Pi Zero 2W, the balena machine name page shows the “balena_arch” as “aarch64”. In the table below, aarch64 is referred to as  “arm64v8 (ARMv8 64-bit)” on Dockerhub. Look out for arm64v8 images to find images compatible with the Raspberry Pi Zero 2W device type. 
 
@@ -52,8 +52,8 @@ As an example, if you are using a Raspberry Pi Zero 2W, the balena machine name 
 | Docker Architecture | Balena Architecture (BALENA\_ARCH) | Alternative Names | Example Device Types |
 | :---- | :---- | :---- | :---- |
 | arm32v6 (ARMv6 32-bit) | rpi | armv6, armhf (in some contexts) | Raspberry Pi 1 model B+, Raspberry Pi Zero/W |
-| arm32v7 (ARMv7 32-bit) | armv7hf | armv7, armv7l, armhf | Raspberry Pi 2, Raspberry Pi 3 model B+ |
-| arm64v8 (ARMv8 64-bit) | aarch64 | arm64, armv8 | Raspberry Pi 3 64-bit, Raspberry Pi 4, NVIDIA Jetson |
+| arm32v7 (ARMv7 32-bit) | armv7hf | armv7, armv7l, armhf | BeagleBone Black, Raspberry Pi 3 model B+ |
+| arm64v8 (ARMv8 64-bit) | aarch64 | arm64, armv8 | IOT-GATE-iMX8, Raspberry Pi 4, NVIDIA Jetson |
 | amd64 (Linux x86-64) | amd64 | x86\_64, x64 | Intel NUC, generic x86-64 devices, cloud VMs |
 | i386 (x86/i686) | i386 | x86, i686, ia32 | Older 32-bit x86 based devices |
 | windows-amd64 (Windows x86-64) | Not supported | win-amd64, x86\_64 (on Windows) | ? |
