@@ -1,4 +1,18 @@
 - commits:
+    - subject: Remove balena base image sentences
+      hash: cdd3d5f0fb54b33db15dc0506da101effa676675
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.6.11
+  title: ""
+  date: 2025-05-13T11:48:35.137Z
+- commits:
     - subject: Change balenalib reference
       hash: 4b0b3ce1523d68dc1c559a6e87ccd9b975a794bd
       body: ""
