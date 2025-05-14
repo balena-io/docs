@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Remove balenalib references from config"
+      hash: 8cdabb29eb4b47cf4918d318f6c8468bab175c50
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.6.13
+  title: ""
+  date: 2025-05-14T08:11:05.640Z
+- commits:
     - subject: Remove link to balenalib on DockerHub
       hash: 6bb50602e50e215e49fb1cb4a8dcf987a80ab947
       body: ""
