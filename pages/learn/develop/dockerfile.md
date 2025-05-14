@@ -199,7 +199,7 @@ The {{ $names.company.lower }} Supervisor requires that the directory `/tmp/bale
 [local-build]:/reference/cli/#build-source
 [multicontainer]:/learn/develop/multicontainer
 [base-images]:/reference/base-images/balena-base-images
-[supported-devices]:/reference/base-images/devicetypes/
+[supported-devices]:/reference/hardware/devices/
 
 [init-system-link]:https://en.wikipedia.org/wiki/Init
 [systemd-link]:https://en.wikipedia.org/wiki/Systemd
