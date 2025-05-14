@@ -414,6 +414,7 @@ toidentifier
 tooltipped
 topo
 TOTP
+trixie
 tuneables
 typer
 tzdata

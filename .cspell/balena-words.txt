@@ -6,6 +6,7 @@ balena-build
 balena-builder
 balenacli
 balenahup
+balenalabs
 balenalib
 balenista
 balenistas
