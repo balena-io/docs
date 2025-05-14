@@ -52,7 +52,7 @@ As an example, if you are using a Raspberry Pi Zero 2W, the balena machine name 
 | Docker Architecture | Balena Architecture (BALENA\_ARCH) | Alternative Names | Example Device Types |
 | :---- | :---- | :---- | :---- |
 | arm32v6 (ARMv6 32-bit) | rpi | armv6, armhf (in some contexts) | Raspberry Pi 1 model B+, Raspberry Pi Zero/W |
-| arm32v7 (ARMv7 32-bit) | armv7hf | armv7, armv7l, armhf | BeagleBone Black, Raspberry Pi 3 model B+ |
+| arm32v7 (ARMv7 32-bit) | armv7hf | armv7, armv7l, armhf | BeagleBone Black, Raspberry Pi 2 |
 | arm64v8 (ARMv8 64-bit) | aarch64 | arm64, armv8 | IOT-GATE-iMX8, Raspberry Pi 4, NVIDIA Jetson |
 | amd64 (Linux x86-64) | amd64 | x86\_64, x64 | Intel NUC, generic x86-64 devices, cloud VMs |
 | i386 (x86/i686) | i386 | x86, i686, ia32 | Older 32-bit x86 based devices |
