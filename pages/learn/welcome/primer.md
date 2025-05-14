@@ -15,7 +15,7 @@ Refer to the [balena Glossary][balena-glossary] for definition on any of the ter
 
 <img src="/img/common/architecture.webp" width="60%">
 
-Devices in the {{ $names.company.lower }} ecosystem run [{{ $names.os.lower }}][os], a bare-bones, [Yocto Linux][yocto] based host OS, which comes packaged with [{{ $names.engine.lower }}][engine-link], our lightweight, [Docker][docker]-compatible container engine. The host OS is responsible for kicking off the device supervisor, {{ $names.company.lower }}'s agent on your device, as well as your containerized services. Within each service's container you can specify a base OS, which can come from any existing [Docker base image][docker-images] that is compatible with your device architecture. The base OS shares a kernel with the host OS, but otherwise works independently. If you choose, your containers [can be configured][multicontainer] to run as privileged, access hardware directly, and even inject modules into the kernel. The {{ $names.company.lower }} device supervisor runs in its own container, which allows the device to continue running and pulling new code even if your application crashes.
+Devices in the {{ $names.company.lower }} ecosystem run [{{ $names.os.lower }}][os], a bare-bones, [Yocto Linux][yocto] based host OS, which comes packaged with [{{ $names.engine.lower }}][engine-link], our lightweight, [Docker][docker]-compatible container engine. The host OS is responsible for kicking off the device supervisor, {{ $names.company.lower }}'s agent on your device, as well as your containerized services. Within each service's container you can specify a base OS, which can come from any existing Docker base image that is compatible with your device architecture. The base OS shares a kernel with the host OS, but otherwise works independently. If you choose, your containers [can be configured][multicontainer] to run as privileged, access hardware directly, and even inject modules into the kernel. The {{ $names.company.lower }} device supervisor runs in its own container, which allows the device to continue running and pulling new code even if your application crashes.
 
 ### Host and kernel updates
 
@@ -69,7 +69,6 @@ Much of the device, service, and fleet information provided by the dashboard is 
 [engine-link]:{{ $links.engineSiteUrl }}
 [yocto]:https://www.yoctoproject.org/
 [docker]:https://www.docker.com/
-[docker-images]:https://hub.docker.com/u/balenalib/
 [multicontainer]:/learn/develop/multicontainer
 [update-process]:/reference/OS/updates/update-process
 [self-service]:/reference/OS/updates/self-service
