@@ -1,4 +1,18 @@
 - commits:
+    - subject: Remove link to balenalib on DockerHub
+      hash: 6bb50602e50e215e49fb1cb4a8dcf987a80ab947
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.6.12
+  title: ""
+  date: 2025-05-14T08:03:17.326Z
+- commits:
     - subject: Remove balena base image sentences
       hash: cdd3d5f0fb54b33db15dc0506da101effa676675
       body: ""
