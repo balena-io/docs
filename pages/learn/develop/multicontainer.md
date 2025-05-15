@@ -179,7 +179,7 @@ services:
 [feature-labels]:/learn/develop/multicontainer/#labels
 [l4t]: https://developer.nvidia.com/embedded/linux-tegra
 [supervisor]: /reference/supervisor/supervisor-api/
-[device-type]:/reference/base-images/devicetypes/
+[device-type]:/reference/hardware/devices/
 [arch]: /reference/base-images/balena-base-images/#supported-architectures-distros-and-languages
 [version-range]: https://www.npmjs.com/package/semver
 [update-statuses]: /learn/manage/device-statuses/#update-statuses

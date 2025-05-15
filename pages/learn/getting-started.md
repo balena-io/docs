@@ -256,7 +256,7 @@ When it's finished building the device(s) will update as before. Remember anythi
 
 
 [fleet-types]:/learn/accounts/fleet-types
-[architecture]:/reference/base-images/devicetypes/#machine-names-and-architectures
+[architecture]:/reference/hardware/devices/
 [balenahub]:{{ $links.balenaHubUrl }}
 [cli]:/reference/cli/
 [configuration]:/learn/manage/configuration/
