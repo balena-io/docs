@@ -133,7 +133,7 @@ The instructions for installing a language stack from the official binaries is b
  - Installing OpenJDK from source: [https://openjdk.org/groups/build/doc/building.html](https://openjdk.org/groups/build/doc/building.html)
 And so on
 
-Note that these instructions are not necessarily written for building a container, so you may have to adapt the steps to work in a Dockerfile. For example, if an instruction says to “download a file with "wget https://go.dev/dl/go1.24.3.linux-amd64.tar.gz” the line in the Dockerfile would be: 
+Note that these instructions are not necessarily written for building a container, so you may have to adapt the steps to work in a Dockerfile. For example, if an instruction says to “download a file with wget https://go.dev/dl/go1.24.3.linux-amd64.tar.gz" the line in the Dockerfile would be: 
 `RUN https://go.dev/dl/go1.24.3.linux-amd64.tar.gz`
 
 ## Installing L4T Library Stacks
