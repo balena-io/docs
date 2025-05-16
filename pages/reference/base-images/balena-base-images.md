@@ -191,7 +191,7 @@ We recommend the use of multiple containers rather than the use of an initsystem
 
 However, if your container relies on initsystem features, it is fairly easy to add this functionality to your base image. We have provided some examples for [systemd](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230) and [openRC](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/openrc). Please note that different systemd versions require different implementations so for Debian Jessie and older, please refer to [this example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd) and for Debian Stretch and later, please refer to [this example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230).
 
-Generally, for systemd, it just requires installing the systemd package, masking a number of services and defining a new [entry.sh](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230/entry.sh) and a [balena.service](balena.service). The Dockerfile below demonstrates this:
+Generally, for systemd, it just requires installing the systemd package, masking a number of services and defining a new [entry.sh](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230/entry.sh) and a [balena.service](https://github.com/balena-io-library/base-images/blob/master/examples/INITSYSTEM/systemd/systemd.v230/resin.service). The Dockerfile below demonstrates this:
 
 ```Dockerfile
 FROM debian:bullseye-20250224
