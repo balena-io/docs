@@ -51,7 +51,7 @@ As an example, if you are using a Raspberry Pi Zero 2W, the balena machine name 
 
 | Docker Architecture | Balena Architecture (BALENA\_ARCH) | Alternative Names | Example Device Types |
 | :---- | :---- | :---- | :---- |
-| arm32v6 (ARMv6 32-bit) | rpi | armv6, armhf (in some contexts) | Raspberry Pi 1 model B+, Raspberry Pi Zero/W |
+| arm32v6 (ARMv6 32-bit) | rpi | armv6, armhf (in some contexts) | Raspberry Pi 1 Model B+, Raspberry Pi Zero/W |
 | arm32v7 (ARMv7 32-bit) | armv7hf | armv7, armv7l, armhf | BeagleBone Black, Raspberry Pi 2 |
 | arm64v8 (ARMv8 64-bit) | aarch64 | arm64, armv8 | IOT-GATE-iMX8, Raspberry Pi 4, NVIDIA Jetson |
 | amd64 (Linux x86-64) | amd64 | x86\_64, x64 | Intel NUC, generic x86-64 devices, cloud VMs |
@@ -134,7 +134,7 @@ The instructions for installing a language stack from the official binaries is b
 And so on
 
 Note that these instructions are not necessarily written for building a container, so you may have to adapt the steps to work in a Dockerfile. For example, if an instruction says to “download a file with wget https://go.dev/dl/go1.24.3.linux-amd64.tar.gz" the line in the Dockerfile would be: 
-`RUN https://go.dev/dl/go1.24.3.linux-amd64.tar.gz`
+`RUN wget https://go.dev/dl/go1.24.3.linux-amd64.tar.gz`
 
 ## Installing L4T Library Stacks
 
