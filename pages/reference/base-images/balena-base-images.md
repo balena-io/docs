@@ -91,6 +91,7 @@ Distroless images are typically built from scratch or based on minimal distribut
 **Important note:** Distroless images do not include a shell, so you cannot open a session into them for debugging like you can with other images. This makes them ideal for production, but more challenging for development and debugging. Distroless images also breaks the web terminal feature of the balenaCloud dashboard and CLI without any notification or error message since it requires the container to have a shell to SSH into.
 
 Other resources for distroless images include:
+
 [https://github.com/GoogleContainerTools/distroless](https://github.com/GoogleContainerTools/distroless)
 
 [https://github.com/dotnet/dotnet-docker/blob/main/documentation/distroless.md](https://github.com/dotnet/dotnet-docker/blob/main/documentation/distroless.md)
@@ -132,8 +133,8 @@ The instructions for installing a language stack from the official binaries is b
  - Installing OpenJDK from source: [https://openjdk.org/groups/build/doc/building.html](https://openjdk.org/groups/build/doc/building.html)
 And so on
 
-Note that these instructions are not necessarily written for building a container, so you may have to adapt the steps to work in a Dockerfile. For example, if an instruction says to “download a file with wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz” the line in the Dockerfile would be: 
-`RUN wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz`
+Note that these instructions are not necessarily written for building a container, so you may have to adapt the steps to work in a Dockerfile. For example, if an instruction says to “download a file with "wget https://go.dev/dl/go1.24.3.linux-amd64.tar.gz” the line in the Dockerfile would be: 
+`RUN https://go.dev/dl/go1.24.3.linux-amd64.tar.gz`
 
 ## Installing L4T Library Stacks
 
@@ -144,10 +145,10 @@ FROM ubuntu:22.04
 
 # Add NVIDIA APT repository
 
-RUN echo "deb https://repo.download.nvidia.com/jetson/common r36.3 main" >>  /etc/apt/sources.list.d/nvidia.list \
-	&& echo "deb https://repo.download.nvidia.com/jetson/t234 r36.3 main" >>  /etc/apt/sources.list.d/nvidia.list \
-	&& apt-key adv --fetch-key http://repo.download.nvidia.com/jetson/jetson-ota-public.asc \
-	&& mkdir -p /opt/nvidia/l4t-packages/ && touch /opt/nvidia/l4t-packages/.nv-l4t-disable-boot-fw-update-in-preinstall
+RUN echo "deb https://repo.download.nvidia.com/jetson/common r36.4 main" >  /etc/apt/sources.list.d/nvidia.list \
+       && echo "deb https://repo.download.nvidia.com/jetson/t234 r36.4 main" >>  /etc/apt/sources.list.d/nvidia.list \
+       && apt-key adv --fetch-key http://repo.download.nvidia.com/jetson/jetson-ota-public.asc \
+       && mkdir -p /opt/nvidia/l4t-packages/ && touch /opt/nvidia/l4t-packages/.nv-l4t-disable-boot-fw-update-in-preinstall
 
 
 # Update package list
