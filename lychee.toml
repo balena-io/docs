@@ -119,6 +119,10 @@ exclude = [
     "https://github.com/balena-io/docs/issues/new?*",
     "https://api/",
     "https://raw.githubusercontent.com/balena-os/meta-balena/$%7Bos_version_tag%7D/meta-balena-common/recipes-containers/balena-supervisor/balena-supervisor.inc",
+    "https://repo.download.nvidia.com/jetson/common",
+    "https://repo.download.nvidia.com/jetson/t186",
+    "https://repo.download.nvidia.com/jetson/t234",
+    "https://blog.balena.io/deprecate-balenalib-images",
     ]
 
 # Exclude these filesystem paths from getting checked.
