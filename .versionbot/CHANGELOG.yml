@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update billing.md to suggest that Inactive devices are powered off
+      hash: 99d6a58d3490d1513a235f627f5e5332bcd209cc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Ross Porter
+      nested: []
+  version: 6.6.15
+  title: ""
+  date: 2025-05-19T19:42:26.445Z
+- commits:
     - subject: Add balena base images reference docs
       hash: 6dbe255c1ad2f86a38d4144733d2b1cf505e2edf
       body: ""
