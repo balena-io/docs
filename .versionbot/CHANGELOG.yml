@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Deprecate balenalib base images list page"
+      hash: e093f04efd55bf291713a296ae2103bdcf79af37
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.6.16
+  title: ""
+  date: 2025-05-20T08:04:26.302Z
+- commits:
     - subject: Update billing.md to suggest that Inactive devices are powered off
       hash: 99d6a58d3490d1513a235f627f5e5332bcd209cc
       body: ""
