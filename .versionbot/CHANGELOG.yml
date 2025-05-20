@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update dockerfile.template section
+      hash: 4f296fc01e4adb2f7f775325367caa290953d4c1
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.7.0
+  title: ""
+  date: 2025-05-20T08:13:05.768Z
+- commits:
     - subject: "patch: Deprecate balenalib base images list page"
       hash: e093f04efd55bf291713a296ae2103bdcf79af37
       body: ""
