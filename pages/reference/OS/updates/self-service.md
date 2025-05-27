@@ -7,13 +7,17 @@ excerpt: How to update {{ $names.os.lower }} versions from your dashboard
 
 ## Which devices and versions are supported?
 
-Since we periodically release updates and improvements to {{ $names.os.lower }} (the host OS running on all {{ $names.company.lower }} devices), we encourage you to keep your devices up to date. We offer self-service host OS updates between 2.x versions and from 1.x to 2.x versions. All 2.x devices will default to delta-based updates if available, thus reducing the size of the update sent over the network.
+We periodically release updates and improvements to balenaOS, the host operating system that powers all balena devices. These releases are accessible through multiple channels, including the dashboard, SDK, and CLI.
 
-__Note:__ {{ $names.os.upper }} 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
+Updating from one version to a newer one is generally supported; however, big version jumps may not always be guaranteed. Devices running balenaOS 2.x and above benefit from delta-based updates when available, significantly reducing the size of updates sent over the network.
 
 Self-service updates are available for both `production` and `development` {{ $names.os.lower }} variants.
 
 For device types and {{ $names.os.lower }} versions that are not yet supported, please contact us on the [forums][forums]. We are continuously expanding the range of versions and types that can be updated.
+
+Find more information below about our version support policy.
+
+__Note:__ {{ $names.os.upper }} 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
 
 ## Running an update
 
@@ -42,6 +46,30 @@ If your {{ $names.os.lower }} update fails for any reason, the device should sti
 [Update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/) is a mechanism that allows applications to enter critical sections of code and prevent updates that would interrupt the application from running. Update locks can also be used to delay the reboot that applies a hostOS update operation until the application exits the critical section by removing the update locks. HostOS update operations require the use of exclusive locks and will not respect shared locks. [Overriding update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/#overriding-the-lock) will ignore existing locks and allow a hostOS update process to proceed with a reboot.
 
 Check out our [update process][update-process] to understand how the process goes through each step.
+
+## balenaOS support policy
+
+We have two release strategies, that you can use depending on your needs and subscription plan. This is our maintenance and support policy:
+
+### Rolling Releases
+
+- We only maintain the latest rolling release of balenaOS.
+- When a new release is published, the previous version is no longer maintained.
+- If you’re not on the latest version and need help, we recommend updating to the most recent release for compatibility and support.
+- You can report issues on the latest rolling release; bug fixes, if any, will only be included in future rolling releases.
+- We understand it’s not always possible to stay up to date. For this reason, we offer reasonable assistance to help unblock you on your current version. However, any identified bugs will only be resolved in the latest rolling release.
+
+### Extended Support Releases (ESR)
+
+- ESR provides stable balenaOS releases supported for 9 months, with quarterly updates to adopt new versions.
+- Only high-risk security fixes and critical bug fixes are backported; no new features are added.
+- Each ESR version follows a 3-phase lifecycle:
+  - `Next-ESR` (6-9 months with active fixes).
+  - `Current-ESR` (3-6 months).
+  - `Sunset-ESR` (final 3 months).
+- After 9 months, the ESR version reaches end-of-life (EOL), with no further updates.
+
+For more details, visit our [Extended Support Release documentation](https://docs.balena.io/reference/OS/extended-support-release/).
 
 <!-- links -->
 [forums]:{{ $names.forums_domain }}/
