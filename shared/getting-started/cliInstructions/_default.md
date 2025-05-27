@@ -42,10 +42,10 @@
              <a href="" class="cli-download-link">Download the standalone CLI</a>.
           </li>
           <li>
-            Extract the contents of the zip file to any folder you choose, for example <code>/home/james</code>. The extracted contents will include a <code>balena-cli</code> folder.
+            Extract the contents of the tar.gz file to any folder you choose, for example <code>/home/james</code>. The extracted contents will include a <code>balena/bin</code> folder.
           </li>
           <li>
-            Add that folder (e.g. <code>/home/james/balena-cli</code>) to the PATH environment variable. Check this <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix" target="_blank">StackOverflow</a> post for instructions. Close and re-open the terminal window so that the changes to PATH can take effect.
+            Add that folder (e.g. <code>/home/james/balena/bin</code>) to the PATH environment variable. Check this <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix" target="_blank">StackOverflow</a> post for instructions. Close and re-open the terminal window so that the changes to PATH can take effect.
           </li>
         </ol>
       </p>
@@ -72,7 +72,7 @@
       var baseDownloadString = `https://github.com/balena-io/balena-cli/releases/download/${results.tag_name}/balena-cli-${results.tag_name}`
       jQuery('#cli-osx .cli-download-link').attr('href', `${baseDownloadString}-macOS-x64-installer.pkg`)
       jQuery('#cli-windows .cli-download-link').attr('href', `${baseDownloadString}-windows-x64-installer.exe`)
-      jQuery('#cli-linux .cli-download-link').attr('href', `${baseDownloadString}-linux-x64-standalone.zip`)
+      jQuery('#cli-linux .cli-download-link').attr('href', `${baseDownloadString}-linux-x64-standalone.tar.gz`)
     })
   })
 </script>
