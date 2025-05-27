@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update getting started docs for cli
+      hash: 50822e88ff70606ee6386be0e85ec0ebcb37242c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Otavio Jacobi
+      nested: []
+  version: 6.8.1
+  title: ""
+  date: 2025-05-27T12:24:10.353Z
+- commits:
     - subject: Rewrite balena base images docs
       hash: a06a01b1ca3cd6019fa66ddbaed67af9f8c9b28e
       body: ""
