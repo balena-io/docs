@@ -314,7 +314,7 @@ WiFi Connect enables the device to create a wireless access point called `WiFi C
 
 Under the hood, WiFi Connect is interacting with **NetworkManager** via its [DBUS][dbus-link] API. The DBUS API is a useful way to interact with the {{ $names.os.lower }} host NetworkManager, and there are DBUS bindings for most languages. Below is a minimal Python example from the [**NetworkManager** examples][network-manager-examples], which creates a new **NetworkManager** connection file that can be used to enable connecting to a new WiFi access point.
 
-__Note:__ You will need to install the `dbus` module in order to run this example (`apt-get install python-dbus`) and make sure `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket` is exported in the environment. This ensures that DBUS calls are directed to the system bus that the host OS is listening on rather than the DBUS bus in your container. If you are using our [Python build images][python-build-images], then you do not have to install the `dbus` module, since it is already included there.
+__Note:__ You will need to install the `dbus` module in order to run this example (`apt-get install python-dbus`) and make sure `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket` is exported in the environment. This ensures that DBUS calls are directed to the system bus that the host OS is listening on rather than the DBUS bus in your container.
 
 The following example will add a new WiFi connection file to your host OS **NetworkManager** configuration in `/etc/NetworkManager/system-connections`. It should be noted that you will not see a new file created in `resin-boot/system-connections` because there isn't a two-way binding. On device boot, the files in `resin-boot/system-connections` are copied into `/mnt/state/root-overlay/etc/NetworkManager/system-connections` without removing any files from the destination. That directory is then bind mounted to `/etc/NetworkManager/system-connections` in the root filesystem on the host.
 
@@ -418,7 +418,7 @@ For other network setting needs, such as modifying existing network connection f
 
 __Warning:__ It can be dangerous to install **NetworkManager** or **python-networkmanager** in your container, especially if you have `INITSYSTEM=on`, as systemd will automatically try to start your container **NetworkManager** and this will take your devices offline. However, you can prevent this behavior by masking the **NetworkManager** service in your Dockerfile: `RUN apt-get update && apt-get install -y network-manager && systemctl mask NetworkManager.service`.
 
-__Note:__ The **python-networkmanager** Debian package depends on **NetworkManager**. Preferably **python-networkmanager** should be installed with **pip** instead of **apt-get**. That will avoid the issue described in the warning above and additionally the application container size will be kept minimal. It is most straightforward to use our [Python base images][python-base-images], since they provide **pip** support out of the box: `RUN pip install python-networkmanager`.
+__Note:__ The **python-networkmanager** Debian package depends on **NetworkManager**. Preferably **python-networkmanager** should be installed with **pip** instead of **apt-get**. That will avoid the issue described in the warning above and additionally the application container size will be kept minimal.
 
 ## NetworkManager User Scripts
 
@@ -574,8 +574,6 @@ To re-enable IPv6 follow the same commands but with `set ipv6.method enable`.
 [network-manager-examples]:https://wiki.gnome.org/Projects/NetworkManager/Developers#Show_me_more_examples.21 "NetworkManager: Show me more examples!"
 [redsocks]:https://github.com/darkk/redsocks
 [redsocks-conf-example]:https://github.com/darkk/redsocks/blob/master/redsocks.conf.example
-[python-base-images]:/reference/base-images/balena-base-images/
-[python-build-images]:/reference/base-images/balena-base-images/#run-vs-build
 [nm-connectivity]:https://networkmanager.dev/docs/api/latest/NetworkManager.conf.html
 [wifi-dongles]:/reference/hardware/wifi-dongles
 [meta-balena-connectivity]:{{ $links.githubOS }}/meta-balena#connectivity
