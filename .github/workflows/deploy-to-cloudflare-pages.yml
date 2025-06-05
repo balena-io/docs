@@ -23,7 +23,7 @@ jobs:
 
       - uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65
         with:
-          node-version: 18
+          node-version: 22
           cache: "npm"
 
       - name: Build docs
@@ -34,6 +34,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          wranglerVersion: '3.5.1' # latest - https://www.npmjs.com/package/wrangler
+          wranglerVersion: '4.19.1' # latest - https://www.npmjs.com/package/wrangler
           command: --version
           postCommands: npx wrangler pages deploy --branch $CF_BRANCH --project-name=$cloudflare_website  build/ | tee -a $GITHUB_STEP_SUMMARY
