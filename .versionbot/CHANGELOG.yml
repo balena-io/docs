@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Remove reference for balenalib base images from Network docs"
+      hash: 109da68d0689bb436d100fb2ea93cb41baab8532
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 6.8.2
+  title: ""
+  date: 2025-06-05T18:59:46.207Z
+- commits:
     - subject: Update getting started docs for cli
       hash: 50822e88ff70606ee6386be0e85ec0ebcb37242c
       body: ""
