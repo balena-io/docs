@@ -75,7 +75,7 @@ Clicking on the one for linux/arm64/v8, we can copy the full digest by clicking 
 And then we can use that digest instead of the tag to always get the same version of Ubuntu 22.04:
 
 ```
-FROM ubuntu@22.04@sha256:04c0fd7fceedf5c0fe69ec1685c37cf270f03ae424322a58548b095528f4a3c3
+FROM ubuntu@sha256:04c0fd7fceedf5c0fe69ec1685c37cf270f03ae424322a58548b095528f4a3c3
 ```
 
 Note that one downside to this method is that you may not receive some important security updates because your image is “pinned” to that static version. It’s a good idea to periodically test newer versions and update accordingly.
