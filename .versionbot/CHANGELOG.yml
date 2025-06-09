@@ -1,4 +1,18 @@
 - commits:
+    - subject: Fix digest syntax
+      hash: 6394e90fbe2aaf17030f8c68fe30c792c605a70f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.8.3
+  title: ""
+  date: 2025-06-09T16:16:27.060Z
+- commits:
     - subject: "patch: Remove reference for balenalib base images from Network docs"
       hash: 109da68d0689bb436d100fb2ea93cb41baab8532
       body: ""
