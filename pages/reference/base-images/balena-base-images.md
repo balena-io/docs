@@ -232,6 +232,21 @@ ENTRYPOINT ["/usr/bin/entry.sh"]
 ##################################
 ```
 
+## Update balenalib base images
+
+While we recommend migrating to Docker Official Images for new projects, we understand that existing applications may need continued support for balenalib base images. If you need to update or customize your existing balenalib base images to minimize disruption during migration, you can use the original Dockerfiles as a starting point.
+
+All Dockerfiles for the base images publicly are available in the [balena-io-library/base-images repository](https://github.com/balena-io-library/base-images/tree/master/balena-base-images). 
+
+This approach allows you to:
+- **Maintain existing functionality** while gradually migrating to official images
+- **Update dependencies** and security patches as needed
+- **Customize the base image** for your specific requirements
+- **Reduce disruption** to existing deployments
+
+Before deployment to your fleet, please **test thoroughly** on actual hardware before deploying to production fleets.
+
+
 [udevd-link]:https://linux.die.net/man/8/udevd
 [entry-sh-link]:{{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh
 [multistage-build-docs]:https://docs.docker.com/develop/develop-images/multistage-build/
