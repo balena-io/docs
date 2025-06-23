@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add section on updating balenalib base images"
+      hash: 1d2bec7e3d914801a5dd35eae723b886def9f153
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.8.5
+  title: ""
+  date: 2025-06-23T14:26:09.375Z
+- commits:
     - subject: "patch: Convert remaining photos to Webp"
       hash: fb7e1184eab45163f0a75db7931c8750736f84f2
       body: ""
