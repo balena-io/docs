@@ -1,4 +1,23 @@
 - commits:
+    - subject: Update our analytics setup
+      hash: 4cb7becd097a18b924b9d21d77a8f37452b3171d
+      body: >
+        * Switch the project name to the public Amplitude API key for future
+        compatibility with Amplitude Experiment SDK
+
+        * Add a name to the consent cookie (instead of `undefined`) and a domain
+        so it's available for the whole balena.io property (top and sub-domains)
+
+        * Fix the version of `analytics-client` to v3.1.1 to prevent regressions
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Jonathan Berger
+      nested: []
+  version: 6.8.6
+  title: ""
+  date: 2025-06-24T14:21:09.115Z
+- commits:
     - subject: "patch: Add section on updating balenalib base images"
       hash: 1d2bec7e3d914801a5dd35eae723b886def9f153
       body: ""
