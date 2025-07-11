@@ -106,7 +106,7 @@ A device release might contain multiple assets (the OS itself, a flasher image, 
 
 `bom.json` and `vex.json` files can be found in the asset list of an OS release page (under the `cyclonedx` folder); click the `HOST OS VERSION` of a device to go to that page).
 
-SBOM and VEX are compatible with the cyclonedx ecosystem of software composition analysis, a list of tools (open-source and proprietary) can be found on [cyclonedx.org tool center](https://cyclonedx.org/tool-center/).
+SBOM and VEX are compatible with the cyclonedx ecosystem of software composition analysis. A list of tools (open-source and proprietary) can be found on [cyclonedx.org tool center](https://cyclonedx.org/tool-center/).
 
 ## Building images
 
