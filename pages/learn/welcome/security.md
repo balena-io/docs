@@ -98,7 +98,7 @@ Currently, metadata such as device identifiers or WiFi credentials are not encry
 
 ## BalenaOS Software Bill of Materials (SBOM) and Vulnerability EXchange (VEX) files
 
-BalenaOS provides Software Bill of Materials (SBOM) in the - machine readable, but human friendly - CycloneDX 1.4 json format. Those files can be used to determine the versions of the all the components that composes the OS, and the known fixed vulnerabilities.
+BalenaOS provides Software Bill of Materials (SBOM) in the - machine readable, but human friendly - CycloneDX 1.4 json format. Those files can be used to determine the versions of all the components that compose the OS, and the known fixed vulnerabilities.
 
 As we apply patches to fix vulnerabilities, comparing the version of a component to popular vulnerability databases such as the NVD is not enough. That's why we also release `vex` files along with the SBOM. Each vex file is related to a specific SBOM and **will list known vulnerabilities (CVE) that don't impact the release**, with an explanation when possible (i.e. the vulnerable code path is not accessible, the vulnerability has been patched, ...). Beware that this is **not an exhaustive list of known vulnerabilities** for the component. The vex file should only be used to filter down the list of vulnerabilities reported by SBOM vulnerability scanner.
 
