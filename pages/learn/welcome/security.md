@@ -108,6 +108,8 @@ A device release might contain multiple assets (the OS itself, a flasher image, 
 
 SBOM and VEX are compatible with the cyclonedx ecosystem of software composition analysis. A list of tools (open-source and proprietary) can be found on [cyclonedx.org tool center](https://cyclonedx.org/tool-center/).
 
+Note that availbility of sbom and vex depends on device type and version, if you can't find them for a release you care about, please contact our support.
+
 ## Building images
 
 The first step in deploying to a fleet of devices is to build a Docker image that contains everything necessary to run your application. While these images can be built locally, {{ $names.company.lower }} provides a powerful image builder that is more appropriate for most use cases. The builder for x86 images is hosted on AWS, while the builder for ARM images is hosted by a combination of AWS and Hetzner.
