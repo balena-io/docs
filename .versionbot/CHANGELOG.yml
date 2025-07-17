@@ -1,4 +1,26 @@
 - commits:
+    - subject: "API/resources: Add example about retrieving multiple devices by their
+        UUIDs"
+      hash: 8fccfec931d9ac285dcdbe8544dd7934b4f06a18
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Add example about retrieving an application with their
+        devices by slug"
+      hash: 01eefb3612cbdbb7257b0f550bf3ce167d97e536
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 6.9.0
+  title: ""
+  date: 2025-07-17T15:25:51.250Z
+- commits:
     - subject: Update our analytics setup
       hash: 4cb7becd097a18b924b9d21d77a8f37452b3171d
       body: >
