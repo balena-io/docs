@@ -71,6 +71,14 @@
         "filters": "?\\$filter=app_name%20eq%20'<NAME>'"
       },
       {
+        "id": "app-slug-with-devices",
+        "summary": "Get fleet by SLUG along with its devices",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v7/application(slug='<SLUG>')",
+        "filters": "?\\$expand=owns__device"
+      },
+      {
         "id": "app-with-devices",
         "summary": "Get fleet by id along with its devices",
         "description": "",
