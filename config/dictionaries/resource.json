@@ -380,6 +380,14 @@
         "filters": ""
       },
       {
+        "id": "devices-by-uuid",
+        "summary": "Get multiple devices by UUID",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v7/device",
+        "filters": "?\\$filter=uuid%20in%20(%27<UUID1>%27,%27<UUID2>%27,%27<UUID3>%27)"
+      },
+      {
         "id": "device-overall-status",
         "summary": "Get the device overall_status field",
         "description": "The overall_status field is returned only when explicitly requested with $select.",
