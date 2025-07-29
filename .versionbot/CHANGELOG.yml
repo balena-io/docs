@@ -1,4 +1,18 @@
 - commits:
+    - subject: Fix cookie consent banner customize tab options being ignored when
+        clicking on 'Save selection'
+      hash: b303e1a4b99d1e0ff302f87ac84f4f06813d4940
+      body: |
+        Incident: https://balena.fibery.io/Security/Information_Security_and_Reliability_Incident/Cookie-consent-tracking-enabled-after-rejection-in-the-'customize'-tab-of-the-cookie-consent-banner-110
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Jonathan Berger
+      nested: []
+  version: 6.9.1
+  title: ""
+  date: 2025-07-29T10:55:01.768Z
+- commits:
     - subject: "API/resources: Add example about retrieving multiple devices by their
         UUIDs"
       hash: 8fccfec931d9ac285dcdbe8544dd7934b4f06a18
