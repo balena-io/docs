@@ -88,11 +88,13 @@ if (window.CookieConsent) {
     },
   })
 
-  cc.on('accept', () => {
-    addAnalyticsClient();
-    gtag('consent', 'update', {
-      'analytics_storage': 'granted'
-    });
+  cc.on('accept', (cc) => {
+    if (cc.acceptedCategories?.includes('analytics')) {
+      addAnalyticsClient();
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+      });
+    }
   });
 }
 
