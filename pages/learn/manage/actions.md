@@ -66,6 +66,8 @@ The `Delete Device` action is an extremely dangerous action and results in disas
 
 {{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
 
+The Public URL is more of a tool for remote configuration and debugging. The service is not meant for production use, and it's not recommended to be used on the critical path of your application. The Public Device URL service is built on top of the Cloudlink service. The Cloudlink service can be down momentarily due to re-configuration or scaling, but it reconnects with the device automatically. There are other complementary services (e.g. [Tailscale](https://tailscale.com/)) that are more suited for that purpose and could be used in production. You can even use [Cloudflare Tunnels](https://blog.balena.io/how-to-expose-your-device-with-a-custom-url-using-cloudflare-tunnels/) to expose service from a port on your device.
+
 <img alt="Toggle public device URL" src="/img/common/settings/toggle-public-url.webp">
 
 To see what your device is serving on port 80, click on the [public URL][public-url]. If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
