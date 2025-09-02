@@ -31,11 +31,7 @@ The Network Metrics Logger is a generic, client-side tool to measure bandwidth. 
 
 ## Side Effects / Warnings
 
-**Cloudlink:** Allows the device to be notified instantly of state changes. Turning off Cloudlink has several consequences:
-
-- CLI access via the web terminal or SSH is disabled.
-- Updates to configuration, environment variables, and other states are not picked up by the device immediately; instead, they are delayed until the next time the device polls the API.
-- The Device Public URL feature is not available.
+**Cloudlink:** Allows the device to be notified instantly of state changes. Turning off Cloudlink disables [certain functionality](/learn/welcome/security/#cloudlink). Also, updates to configuration, environment variables, and other states are not picked up by the device immediately; instead, they are delayed until the next time the device polls the API.
 
 You can re-enable Cloudlink via the dashboard after turning it off. The device will re-establish the link the next time it polls the API, as defined by the poll interval.
 
