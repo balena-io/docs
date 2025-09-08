@@ -38,6 +38,22 @@ function githubRequestOptions(endpoint) {
 }
 
 /**
+ * Creates a safe fallback version when GitHub API fails
+ * @returns {Array} Always returns a valid "latest" version entry
+ */
+function createSafeFallback() {
+  const currentDate = new Date();
+  return [
+    { 
+      id: "latest", 
+      name: "latest", 
+      version: "latest", 
+      releaseDate: currentDate 
+    }
+  ];
+}
+
+/**
  * Processes and filters GitHub repository tags
  * @param {Array} tagsWithDates - List of tags with their release dates
  * @returns {Array} Curated list of compatible version tags
@@ -50,6 +66,11 @@ function findComplyingTags(tagsWithDates) {
       // Sort tags by release date in descending order
       return b.date - a.date;
     });
+
+  // Return empty array if no semantic tags found
+  if (semanticTags.length === 0) {
+    return [];
+  }
 
   // Identify the latest major version
   const latestMajorVersion = semanticTags[0].name.split('.')[0].replace('v', '');
@@ -112,58 +133,146 @@ function findComplyingTags(tagsWithDates) {
 }
 
 /**
- * Fetches all release tags from a GitHub repository
+ * Fetches GitHub releases with proper error handling and early termination
  * @param {string} owner - Repository owner
  * @param {string} repo - Repository name
  * @returns {Promise<Array>} List of processed version tags
  */
 async function fetchGitHubTags(owner, repo) {
-  // Recursive function to handle GitHub API pagination
-  async function fetchAllTagsWithDates(page = 1, allTags = []) {
-    return new Promise((resolve, reject) => {
-      const req = https.request(githubRequestOptions(`/repos/${owner}/${repo}/releases?per_page=100&page=${page}`), (res) => {
-        let data = '';
-
-        res.on('data', (chunk) => {
-          data += chunk;
-        });
-
-        res.on('end', () => {
-          try {
-            const tags = JSON.parse(data);
-            // Handle API rate limit errors
-            if (tags?.message?.includes("API rate limit exceeded")) {
-              throw new Error(`GitHub API Rate Limit exceeded, please authenticate ${tags.message}`)
-            }
-
-            // Extract tag details
-            const tagsWithDetails = tags.map(tag => ({
-              name: tag.name,
-              date: tag.published_at
-            }));
-
-            // Check for additional pages
-            const linkHeader = res.headers.link;
-            if (linkHeader && linkHeader.includes('rel="next"')) {
-              resolve(fetchAllTagsWithDates(page + 1, [...allTags, ...tagsWithDetails]));
-            } else {
-              resolve([...allTags, ...tagsWithDetails]);
-            }
-          } catch (error) {
-            reject(error);
-          }
-        });
-      });
-
-      req.on('error', (error) => {
-        reject(error);
-      });
-
-      req.end();
-    });
+  try {
+    const releases = await fetchRecentReleases(owner, repo);
+    
+    // If we got a fallback response, return it directly
+    if (releases.length > 0 && releases[0].id === "latest") {
+      return releases;
+    }
+    
+    // Process real release data
+    const processedVersions = findComplyingTags(releases);
+    
+    // If no semantic versions found, use fallback
+    if (processedVersions.length === 0) {
+      console.log('No valid semantic versions found. Using fallback.');
+      return createSafeFallback();
+    }
+    
+    return processedVersions;
+    
+  } catch (error) {
+    console.log(`GitHub API error: ${error.message}. Using fallback.`);
+    return createSafeFallback();
   }
+}
 
-  return findComplyingTags(await fetchAllTagsWithDates())
+/**
+ * Fetches recent releases from GitHub API with smart pagination
+ * @param {string} owner - Repository owner  
+ * @param {string} repo - Repository name
+ * @returns {Promise<Array>} List of releases with basic info
+ */
+async function fetchRecentReleases(owner, repo) {
+  const maxPages = 5; // 500 releases, well under GitHub's 1000 releases limit
+  const perPage = 100;  // Reasonable batch size
+  let allReleases = [];
+  
+  for (let page = 1; page <= maxPages; page++) {
+    try {
+      const releases = await fetchSinglePage(owner, repo, page, perPage);
+      
+      // Handle API errors
+      if (!releases || !Array.isArray(releases)) {
+        console.log('GitHub API returned non-array response. Using fallback.');
+        return createSafeFallback();
+      }
+      
+      // Handle empty response (rate limit or error case)
+      if (releases.length === 0 && page === 1) {
+        console.log('No releases data received. Using fallback.');
+        return createSafeFallback();
+      }
+      
+      // Add releases to our collection
+      allReleases = allReleases.concat(releases);
+      
+      // Early exit if we have enough semantic versions
+      const semanticVersions = allReleases.filter(release => 
+        /^v?\d+\.\d+\.\d+$/.test(release.name)
+      );
+      
+      if (semanticVersions.length >= 10 || releases.length === 0) {
+        break; // We have enough or no more data
+      }
+      
+    } catch (error) {
+      console.log(`Error fetching page ${page}: ${error.message}`);
+      break; // Stop on error but return what we have
+    }
+  }
+  
+  return allReleases;
+}
+
+/**
+ * Fetches a single page of releases from GitHub API
+ * @param {string} owner - Repository owner
+ * @param {string} repo - Repository name  
+ * @param {number} page - Page number
+ * @param {number} perPage - Items per page
+ * @returns {Promise<Array>} Single page of releases
+ */
+function fetchSinglePage(owner, repo, page, perPage) {
+  return new Promise((resolve, reject) => {
+    const endpoint = `/repos/${owner}/${repo}/releases?per_page=${perPage}&page=${page}`;
+    const req = https.request(githubRequestOptions(endpoint), (res) => {
+      let data = '';
+      
+      res.on('data', (chunk) => {
+        data += chunk;
+      });
+      
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          
+          // Handle rate limiting
+          if (parsed?.message?.includes("API rate limit exceeded")) {
+            console.log('Rate limit exceeded. Using fallback.');
+            resolve([]); // Return empty array to trigger fallback
+            return;
+          }
+          
+          // Handle other API errors
+          if (parsed?.message || !Array.isArray(parsed)) {
+            console.log(`API error: ${parsed?.message || 'Unknown error'}`);
+            resolve([]); // Return empty array to trigger fallback
+            return;
+          }
+          
+          // Convert to our format
+          const releases = parsed.map(release => ({
+            name: release.tag_name,
+            date: release.published_at
+          }));
+          
+          resolve(releases);
+          
+        } catch (parseError) {
+          reject(new Error(`Failed to parse API response: ${parseError.message}`));
+        }
+      });
+    });
+    
+    req.on('error', (error) => {
+      reject(error);
+    });
+    
+    req.setTimeout(10000, () => {
+      req.destroy();
+      reject(new Error('Request timeout'));
+    });
+    
+    req.end();
+  });
 }
 
 /**
@@ -234,7 +343,6 @@ async function removeFirstLine(srcPath, destPath) {
   });
 }
 
-
 /**
  * Main script execution function
  * Fetches and versions documentation for a GitHub repository
@@ -270,10 +378,11 @@ async function main() {
   console.log(`Started versioning ${repoName} docs`)
 
   try {
-    // Fetch and process repository versions
+    // Fetch and process repository versions (always succeeds with fallback)
     const tagVersions = await fetchGitHubTags(owner, repoName);
+    console.log(`Found ${tagVersions.length} versions to process`);
 
-    // Write versions configuration
+    // Write versions configuration (always valid JSON)
     await fsPromises.writeFile(versionsConfigFilePath, JSON.stringify(tagVersions, null, 2));
     if (fs.existsSync(versionedDocsFolder)) {
       await fsPromises.rm(versionedDocsFolder, { recursive: true });
@@ -281,12 +390,25 @@ async function main() {
     await fsPromises.mkdir(versionedDocsFolder, { recursive: true });
 
     // Download documentation for each version
+    console.log(`Downloading documentation for ${tagVersions.length} versions...`);
+    
     for (const tagVersion of tagVersions) {
-      await fetchFileForVersion(
-        `https://raw.githubusercontent.com/${owner}/${repoName}/refs/tags/${tagVersion.version}/${filepath}`,
-        tagVersion.id,
-        versionedDocsFolder,
-      );
+      // Skip fallback versions - no need to create files for them
+      if (tagVersion.version === "latest" && tagVersion.id === "latest") {
+        console.log(`Skipping fallback version: ${tagVersion.id}`);
+        continue;
+      }
+      
+      // Try to download real version documentation
+      try {
+        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repoName}/refs/tags/${tagVersion.version}/${filepath}`;
+        await fetchFileForVersion(downloadUrl, tagVersion.id, versionedDocsFolder);
+        console.log(`✓ Downloaded: ${tagVersion.version}`);
+        
+      } catch (downloadError) {
+        console.log(`⚠ Failed to download ${tagVersion.version}: ${downloadError.message} - skipping`);
+        // Skip this version - the dictionary data is sufficient
+      }
     }
     console.log(`Versioned ${repoName} docs successfully`);
   } catch (error) {
