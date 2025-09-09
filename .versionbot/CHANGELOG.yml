@@ -1,4 +1,19 @@
 - commits:
+    - subject: "patch: Account for ratelimits on releases API"
+      hash: 0ecc4af40843dae5b29150ace7c97b866b4bdae9
+      body: |
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+
+        patch: Account for ratelimits on releases API
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.9.2
+  title: ""
+  date: 2025-09-09T12:39:34.592Z
+- commits:
     - subject: Fix cookie consent banner customize tab options being ignored when
         clicking on 'Save selection'
       hash: b303e1a4b99d1e0ff302f87ac84f4f06813d4940
