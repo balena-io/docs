@@ -66,7 +66,7 @@ The `Delete Device` action is an extremely dangerous action and results in disas
 
 {{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
 
-The Public Device URL feature is more of a tool for remote configuration and debugging. The feature is built on top of [Cloudlink](/learn/welcome/security/#cloudlink) and it not designed for high availability. It is not intended for use in the critical path of your application - you should not depend on it for continuous use as part of your own application.
+The Public Device URL feature is more of a tool for remote configuration and debugging. The feature is built on top of [Cloudlink](/learn/welcome/security/#cloudlink) and it's not designed for high availability. We do not recommend using the Public Device URL feature for continuous use as part of your application.
 
 For applications that require a stable, continuously available public endpoint, we recommend using a dedicated tunneling service designed for production use. Popular services include [Cloudflare Tunnels][cloudflare-tunnel](See our [blog post][cloudflare-tunnel-blog-post]), [Tailscale](https://tailscale.com/) and [Ngrok](https://ngrok.com/).
 
