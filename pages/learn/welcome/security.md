@@ -55,15 +55,23 @@ Both the Docker pull request and the actual image download process are performed
 
 ### Cloudlink
 
-{{ $names.company.upper }} uses Cloudlink to control the device state (e.g. device reboot, device shutdown, service(s) restart, etc.). Currently, Cloudlink uses [OpenVPN](https://openvpn.net/) as an underlying technology to achieve these things but this is subject to change with better technology, this is why we abstract away from the technology and call the component as Cloudlink. As mentioned above, devices only connect outbound to the Cloudlink and all traffic over the Cloudlink is encrypted with TLS.
+Cloudlink status in the dashboard represents a device connection to the {{ $names.cloud.lower }} backend. This connection is the underlying technology that enables the following functionalities within {{ $names.cloud.lower }}, and as such we indicate the status of Cloudlink to help you to understand the status of your device and what functionality may or may not be available.
 
-When Cloudlink is enabled, SSH access is available to the service using the {{ $names.company.lower }} dashboard or the CLI.
+- [SSH access](/learn/manage/ssh-access/) via CLI or web terminal
+- [Public Device Url](/learn/manage/actions/#public-device-url)
+- [Device actions](/learn/manage/actions/#device-actions) that allow controlling device state
+- [Host OS Updates](/reference/OS/updates/self-service/)
+- [Device Diagnostics](/reference/diagnostics/)
+
+Currently, Cloudlink uses [OpenVPN](https://openvpn.net/) as an underlying technology to achieve its functionality. Devices only connect outbound to Cloudlink, and all traffic over Cloudlink is encrypted with TLS.
 
 Cloudlink disallows device-to-device traffic and prohibits outbound traffic to the Internet.  If a device were compromised, this ensures that it cannot contaminate another device. To achieve this the Cloudlink service is configured to run with iptables default `FORWARD` policy set to `DROP` and we do not enable OpenVPN [--client-to-client](https://www.mankier.com/8/openvpn#--client-to-client) config option server side, so there is no way for the traffic between clients to traverse the interface(s).
 
 Currently, authentication against Cloudlink is performed with API token authentication.  API keys can be managed and revoked in the {{ $names.company.lower }} dashboard.
 
-This Cloudlink connection is optional and [can be disabled](/reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the {{ $names.company.lower }} dashboard or API.  When disabled, the Cloudlink connection is not established from the device and no traffic will be transmitted or received through this channel.  If desired, the Cloudlink can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
+Cloudlink connection is optional and [can be disabled](/reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the {{ $names.cloud.lower }} dashboard or API.  When disabled, the Cloudlink connection will not be established from the device. No traffic will be transmitted or received through this channel.  If desired, Cloudlink can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
+
+It is important to understand that due to its current design, Cloudlink is not architected for high availability. Cloudlink will periodically drop connections momentarily due to re-configuration or scaling, but it reconnects with the device automatically. For mission-critical workflows, we recommend designing your solution to be resilient to the potential brief unavailability of these specific interactive features. Furthermore, to protect overall platform stability for all users, devices that send/receive large amounts of data via Cloudlink continuously may be throttled. 
 
 ### Support access
 

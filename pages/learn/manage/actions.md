@@ -66,6 +66,10 @@ The `Delete Device` action is an extremely dangerous action and results in disas
 
 {{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
 
+The Public Device URL feature is a tool for remote configuration, debugging, and other intermittent or periodic use cases. The feature is built on [Cloudlink](/learn/welcome/security/#cloudlink) and not designed for high availability. We do not recommend using the Public Device URL feature for continuous use as part of your application.
+
+For applications that require a stable, continuously available public endpoint, we recommend using a dedicated tunneling service designed for production use. Popular services include [Cloudflare Tunnels][cloudflare-tunnel](See our [blog post][cloudflare-tunnel-blog-post]), [Tailscale](https://tailscale.com/) and [Ngrok](https://ngrok.com/).
+
 <img alt="Toggle public device URL" src="/img/common/settings/toggle-public-url.webp">
 
 To see what your device is serving on port 80, click on the [public URL][public-url]. If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
@@ -188,3 +192,5 @@ __Info:__ If you have a device [preloaded][preload-devices] with an OS version l
 [fleet-members]:/learn/accounts/fleet-members
 [docker-data-persistence-strategies]:https://docs.docker.com/storage/
 [public-url]:/learn/develop/runtime/#public-device-urls
+[cloudflare-tunnel]:https://www.cloudflare.com/products/tunnel/
+[cloudlare-tunnel-blog-post]:https://www.balena.io/blog/expose-your-balena-device-to-the-internet-with-cloudflare-tunnel/

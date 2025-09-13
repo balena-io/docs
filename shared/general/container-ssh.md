@@ -2,6 +2,8 @@ To help you debug, develop, and work with your fleets, we've provided a browser-
 
 __Note:__ Host OS SSH access is available for devices running {{ $names.os.lower }} version 2.7.5 and above.
 
+SSH access is built on [Cloudlink](/learn/welcome/security/#cloudlink) and it not designed for high availability. It is not intended for use in the critical path of your application - you should not depend on it for continuous use as part of your own application.
+
 ## Using the dashboard web terminal
 
 To use this feature, navigate to your fleet and select the device you want to access. You will see a *Terminal* window below the *Logs* window:
