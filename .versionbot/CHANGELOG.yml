@@ -1,4 +1,44 @@
 - commits:
+    - subject: Add throttling disclaimer for cloudlink features
+      hash: 3ddd9e2f794a68ee7df90dced2efd8260ee68ff2
+      body: |
+        Devices that constantly consume high-bandwidth continuously may be
+        throttled. Added this note to relevant sections.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Co-authored-by: Chris Crocker-White <chriscw@balena.io>
+        co-authored-by: Chris Crocker-White <chriscw@balena.io>
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+    - subject: Add guidance review changes
+      hash: 47645acaca39f039dc1a5d87b00450ef9b7a4d87
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Co-authored-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        co-authored-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+    - subject: Add guidance for features enabled by cloudlink
+      hash: 954a767272fddff3d45caeebc47840cfcb2eea78
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+  version: 6.10.0
+  title: ""
+  date: 2025-09-13T21:30:06.946Z
+- commits:
     - subject: "patch: Account for ratelimits on releases API"
       hash: 0ecc4af40843dae5b29150ace7c97b866b4bdae9
       body: |
