@@ -1,5 +1,22 @@
 #!/usr/bin/env node
 
+/**
+ * GitHub Repository Documentation Versioning Tool
+ * 
+ * This script fetches GitHub repository releases and creates versioned documentation
+ * for integration with static site generators. It handles rate limiting gracefully
+ * with fallback mechanisms and provides robust error handling.
+ * 
+ * Key Features:
+ * - Smart pagination to avoid GitHub API limits
+ * - Semantic version filtering and processing
+ * - Fallback mechanisms for API failures
+ * - Automatic documentation download from GitHub raw URLs
+ * - Support for authentication via GITHUB_TOKEN environment variable
+ * 
+ * Usage: node versioning.js <github-repo-url> [noversionheadings]
+ */
+
 const https = require('https');
 const fs = require('fs');
 const fsPromises = require('fs/promises');
@@ -7,10 +24,35 @@ const path = require('path');
 const parseGithubUrl = require('./github-parser');
 const LineByLineReader = require('line-by-line');
 
-// Retrieve GitHub API token from environment variable (optional)
-const githubToken = process.env.GITHUB_TOKEN || null;
-if (!githubToken) {
-  console.log('WARNING: GITHUB_TOKEN not provided in the environment. Versioning scripts might get rate-limited.');
+// Configuration constants
+const CONFIG = {
+  MAX_PAGES: 5,
+  PER_PAGE: 100,
+  REQUEST_TIMEOUT: 10000,
+  MIN_SEMANTIC_VERSIONS: 10,
+  MIN_COMPATIBLE_TAGS: 5,
+  ONE_YEAR_IN_MS: 365 * 24 * 60 * 60 * 1000
+};
+
+// Template for mapping repo names to config file names
+const VERSIONS_CONFIG_TEMPLATE = {
+  "balenasdk": "nodesdk",
+  "balenasdkpython": "pythonsdk",
+};
+
+// Initialize GitHub token
+const githubToken = initializeGitHubToken();
+
+/**
+ * Initialize and validate GitHub token from environment
+ * @returns {string|null} GitHub token or null if not provided
+ */
+function initializeGitHubToken() {
+  const token = process.env.GITHUB_TOKEN || null;
+  if (!token) {
+    console.log('WARNING: GITHUB_TOKEN not provided in the environment. Versioning scripts might get rate-limited.');
+  }
+  return token;
 }
 
 /**
@@ -54,82 +96,155 @@ function createSafeFallback() {
 }
 
 /**
- * Processes and filters GitHub repository tags
+ * Filters tags to only include semantic version tags
  * @param {Array} tagsWithDates - List of tags with their release dates
- * @returns {Array} Curated list of compatible version tags
+ * @returns {Array} Filtered and sorted semantic version tags
  */
-function findComplyingTags(tagsWithDates) {
-  // Filter semantic version tags (e.g., v1.2.3 or 1.2.3)
-  const semanticTags = tagsWithDates
-    .filter(tag => /^v?\d+\.\d+\.\d+$/.test(tag.name))
-    .sort((a, b) => {
-      // Sort tags by release date in descending order
-      return b.date - a.date;
-    });
+function filterSemanticVersionTags(tagsWithDates) {
+  return tagsWithDates
+    .filter(tag => isSemanticVersion(tag.name))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
 
-  // Return empty array if no semantic tags found
-  if (semanticTags.length === 0) {
-    return [];
-  }
+/**
+ * Checks if a tag name follows semantic versioning pattern
+ * @param {string} tagName - Tag name to validate
+ * @returns {boolean} True if tag follows semantic versioning
+ */
+function isSemanticVersion(tagName) {
+  return /^v?\d+\.\d+\.\d+$/.test(tagName);
+}
 
-  // Identify the latest major version
-  const latestMajorVersion = semanticTags[0].name.split('.')[0].replace('v', '');
-  const latestMajorTag = semanticTags[0];
+/**
+ * Extracts major version number from a tag name
+ * @param {string} tagName - Tag name (e.g., 'v1.2.3' or '1.2.3')
+ * @returns {string} Major version number
+ */
+function extractMajorVersion(tagName) {
+  return tagName.split('.')[0].replace('v', '');
+}
 
-  // Calculate the one-year cutoff date
-  const oneYearAgo = new Date(latestMajorTag.date);
-  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+/**
+ * Calculates date that is one year before the given date
+ * @param {Date|string} fromDate - Reference date
+ * @returns {Date} Date one year ago
+ */
+function getOneYearAgo(fromDate) {
+  const date = new Date(fromDate);
+  date.setFullYear(date.getFullYear() - 1);
+  return date;
+}
 
-  // Initialize compatible tags with the latest major version
-  const compatibleTags = [latestMajorTag];
+/**
+ * Finds compatible tags within one year of the latest release
+ * @param {Array} semanticTags - Sorted semantic version tags
+ * @param {Date} oneYearAgo - Cutoff date for compatibility
+ * @returns {Object} Compatible tags and processed major versions
+ */
+function findRecentCompatibleTags(semanticTags, oneYearAgo) {
+  const latestTag = semanticTags[0];
+  const latestMajorVersion = extractMajorVersion(latestTag.name);
+  
+  const compatibleTags = [latestTag];
   const majorVersions = new Set([latestMajorVersion]);
 
   // Find additional compatible major versions within one year
   for (const tag of semanticTags.slice(1)) {
-    const majorVersion = tag.name.split('.')[0].replace('v', '');
+    const majorVersion = extractMajorVersion(tag.name);
 
-    // Skip already processed major versions
     if (majorVersions.has(majorVersion)) continue;
 
-    // Include tags within one year of the latest major version
-    if (tag.date >= oneYearAgo) {
+    if (new Date(tag.date) >= oneYearAgo) {
       compatibleTags.push(tag);
       majorVersions.add(majorVersion);
     }
   }
 
-  // Ensure at least 5 tags are included if possible
-  if (compatibleTags.length < 5 && semanticTags.length > compatibleTags.length) {
-    for (const tag of semanticTags) {
-      const majorVersion = tag.name.split('.')[0].replace('v', '');
-      if (!majorVersions.has(majorVersion)) {
-        compatibleTags.push(tag);
-        majorVersions.add(majorVersion);
-        if (compatibleTags.length === 5) break;
-      }
+  return { compatibleTags, majorVersions };
+}
+
+/**
+ * Ensures minimum number of compatible tags by including older versions if needed
+ * @param {Array} compatibleTags - Current compatible tags
+ * @param {Set} majorVersions - Already processed major versions
+ * @param {Array} semanticTags - All semantic version tags
+ * @returns {Array} Enhanced compatible tags list
+ */
+function ensureMinimumTags(compatibleTags, majorVersions, semanticTags) {
+  if (compatibleTags.length >= CONFIG.MIN_COMPATIBLE_TAGS || 
+      semanticTags.length <= compatibleTags.length) {
+    return compatibleTags;
+  }
+
+  const enhancedTags = [...compatibleTags];
+  
+  for (const tag of semanticTags) {
+    const majorVersion = extractMajorVersion(tag.name);
+    if (!majorVersions.has(majorVersion)) {
+      enhancedTags.push(tag);
+      majorVersions.add(majorVersion);
+      if (enhancedTags.length === CONFIG.MIN_COMPATIBLE_TAGS) break;
     }
   }
 
-  // Sort compatible tags by date
-  compatibleTags.sort((a, b) => b.date - a.date);
+  return enhancedTags;
+}
 
-  // Create final tagged list with additional metadata
-  const result = compatibleTags.map((tag, index) => {
-    let tagDate = new Date(tag.date)
+/**
+ * Creates version metadata with appropriate labels
+ * @param {Array} compatibleTags - Compatible version tags
+ * @param {Date} oneYearAgo - Cutoff date for deprecation
+ * @returns {Array} Formatted version metadata
+ */
+function createVersionMetadata(compatibleTags, oneYearAgo) {
+  return compatibleTags
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .map((tag, index) => {
+      const tagDate = new Date(tag.date);
 
-    // Mark first tag as latest
-    if (index === 0) {
-      return { id: "latest", name: `${tag.name} latest`, version: tag.name, releaseDate: tagDate };
-    }
-    // Mark older tags as deprecated
-    else if (tagDate < oneYearAgo) {
-      return { id: tag.name, name: `${tag.name} deprecated`, version: tag.name, releaseDate: tagDate };
-    }
+      if (index === 0) {
+        return createVersionEntry("latest", `${tag.name} latest`, tag.name, tagDate);
+      }
+      
+      if (tagDate.getTime() < oneYearAgo.getTime()) {
+        return createVersionEntry(tag.name, `${tag.name} deprecated`, tag.name, tagDate);
+      }
 
-    return { id: tag.name, name: tag.name, version: tag.name, releaseDate: tagDate };
-  });
+      return createVersionEntry(tag.name, tag.name, tag.name, tagDate);
+    });
+}
 
-  return result;
+/**
+ * Creates a standardized version entry object
+ * @param {string} id - Version identifier
+ * @param {string} name - Display name
+ * @param {string} version - Version string
+ * @param {Date} releaseDate - Release date
+ * @returns {Object} Version entry object
+ */
+function createVersionEntry(id, name, version, releaseDate) {
+  return { id, name, version, releaseDate };
+}
+
+/**
+ * Processes and filters GitHub repository tags
+ * @param {Array} tagsWithDates - List of tags with their release dates
+ * @returns {Array} Curated list of compatible version tags
+ */
+function findComplyingTags(tagsWithDates) {
+  const semanticTags = filterSemanticVersionTags(tagsWithDates);
+
+  if (semanticTags.length === 0) {
+    return [];
+  }
+
+  const latestTag = semanticTags[0];
+  const oneYearAgo = getOneYearAgo(latestTag.date);
+
+  const { compatibleTags, majorVersions } = findRecentCompatibleTags(semanticTags, oneYearAgo);
+  const finalTags = ensureMinimumTags(compatibleTags, majorVersions, semanticTags);
+
+  return createVersionMetadata(finalTags, oneYearAgo);
 }
 
 /**
@@ -165,42 +280,61 @@ async function fetchGitHubTags(owner, repo) {
 }
 
 /**
+ * Validates API response and determines if fallback is needed
+ * @param {*} releases - API response data
+ * @param {number} page - Current page number
+ * @returns {boolean} True if fallback should be used
+ */
+function shouldUseFallback(releases, page) {
+  if (!releases || !Array.isArray(releases)) {
+    console.log('GitHub API returned non-array response. Using fallback.');
+    return true;
+  }
+  
+  if (releases.length === 0 && page === 1) {
+    console.log('No releases data received. Using fallback.');
+    return true;
+  }
+  
+  return false;
+}
+
+/**
+ * Determines if we have sufficient semantic versions to stop fetching
+ * @param {Array} allReleases - All collected releases
+ * @param {Array} currentPageReleases - Releases from current page
+ * @returns {boolean} True if we should stop fetching more pages
+ */
+function shouldStopFetching(allReleases, currentPageReleases) {
+  const semanticVersions = allReleases.filter(release => 
+    isSemanticVersion(release.name)
+  );
+  
+  return semanticVersions.length >= CONFIG.MIN_SEMANTIC_VERSIONS || 
+         currentPageReleases.length === 0;
+}
+
+/**
  * Fetches recent releases from GitHub API with smart pagination
  * @param {string} owner - Repository owner  
  * @param {string} repo - Repository name
  * @returns {Promise<Array>} List of releases with basic info
  */
 async function fetchRecentReleases(owner, repo) {
-  const maxPages = 5; // 500 releases, well under GitHub's 1000 releases limit
-  const perPage = 100;  // Reasonable batch size
   let allReleases = [];
   
-  for (let page = 1; page <= maxPages; page++) {
+  for (let page = 1; page <= CONFIG.MAX_PAGES; page++) {
     try {
-      const releases = await fetchSinglePage(owner, repo, page, perPage);
+      const releases = await fetchSinglePage(owner, repo, page, CONFIG.PER_PAGE);
       
-      // Handle API errors
-      if (!releases || !Array.isArray(releases)) {
-        console.log('GitHub API returned non-array response. Using fallback.');
+      if (shouldUseFallback(releases, page)) {
         return createSafeFallback();
       }
       
-      // Handle empty response (rate limit or error case)
-      if (releases.length === 0 && page === 1) {
-        console.log('No releases data received. Using fallback.');
-        return createSafeFallback();
-      }
-      
-      // Add releases to our collection
       allReleases = allReleases.concat(releases);
       
-      // Early exit if we have enough semantic versions
-      const semanticVersions = allReleases.filter(release => 
-        /^v?\d+\.\d+\.\d+$/.test(release.name)
-      );
-      
-      if (semanticVersions.length >= 10 || releases.length === 0) {
-        break; // We have enough or no more data
+      if (shouldStopFetching(allReleases, releases)) {
+        break;
       }
       
     } catch (error) {
@@ -210,6 +344,72 @@ async function fetchRecentReleases(owner, repo) {
   }
   
   return allReleases;
+}
+
+/**
+ * Processes API response data and handles errors
+ * @param {string} rawData - Raw JSON response from API
+ * @returns {Array} Processed releases or empty array for fallback
+ */
+function processApiResponse(rawData) {
+  try {
+    const parsed = JSON.parse(rawData);
+    
+    if (parsed?.message?.includes("API rate limit exceeded")) {
+      console.log('Rate limit exceeded. Using fallback.');
+      return [];
+    }
+    
+    if (parsed?.message || !Array.isArray(parsed)) {
+      console.log(`API error: ${parsed?.message || 'Unknown error'}`);
+      return [];
+    }
+    
+    return parsed.map(release => ({
+      name: release.tag_name,
+      date: release.published_at
+    }));
+    
+  } catch (parseError) {
+    throw new Error(`Failed to parse API response: ${parseError.message}`);
+  }
+}
+
+/**
+ * Creates and configures HTTPS request for GitHub API
+ * @param {string} endpoint - API endpoint
+ * @param {Function} resolve - Promise resolve function
+ * @param {Function} reject - Promise reject function
+ * @returns {Object} Configured HTTPS request
+ */
+function createGitHubRequest(endpoint, resolve, reject) {
+  const req = https.request(githubRequestOptions(endpoint), (res) => {
+    let data = '';
+    
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+    
+    res.on('end', () => {
+      try {
+        const releases = processApiResponse(data);
+        resolve(releases);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  });
+  
+  req.on('error', (error) => {
+    reject(error);
+  });
+  
+  req.setTimeout(CONFIG.REQUEST_TIMEOUT, () => {
+    req.destroy();
+    reject(new Error('Request timeout'));
+  });
+  
+  return req;
 }
 
 /**
@@ -223,116 +423,94 @@ async function fetchRecentReleases(owner, repo) {
 function fetchSinglePage(owner, repo, page, perPage) {
   return new Promise((resolve, reject) => {
     const endpoint = `/repos/${owner}/${repo}/releases?per_page=${perPage}&page=${page}`;
-    const req = https.request(githubRequestOptions(endpoint), (res) => {
-      let data = '';
-      
-      res.on('data', (chunk) => {
-        data += chunk;
-      });
-      
-      res.on('end', () => {
-        try {
-          const parsed = JSON.parse(data);
-          
-          // Handle rate limiting
-          if (parsed?.message?.includes("API rate limit exceeded")) {
-            console.log('Rate limit exceeded. Using fallback.');
-            resolve([]); // Return empty array to trigger fallback
-            return;
-          }
-          
-          // Handle other API errors
-          if (parsed?.message || !Array.isArray(parsed)) {
-            console.log(`API error: ${parsed?.message || 'Unknown error'}`);
-            resolve([]); // Return empty array to trigger fallback
-            return;
-          }
-          
-          // Convert to our format
-          const releases = parsed.map(release => ({
-            name: release.tag_name,
-            date: release.published_at
-          }));
-          
-          resolve(releases);
-          
-        } catch (parseError) {
-          reject(new Error(`Failed to parse API response: ${parseError.message}`));
-        }
-      });
-    });
-    
-    req.on('error', (error) => {
-      reject(error);
-    });
-    
-    req.setTimeout(10000, () => {
-      req.destroy();
-      reject(new Error('Request timeout'));
-    });
-    
+    const req = createGitHubRequest(endpoint, resolve, reject);
     req.end();
   });
 }
 
 /**
+ * Generates file paths for version download process
+ * @param {string} versionedDocsFolder - Base output directory
+ * @param {string} version - Version identifier
+ * @returns {Object} Object containing temporary and final file paths
+ */
+function generateFilePaths(versionedDocsFolder, version) {
+  return {
+    temporary: path.join(versionedDocsFolder, `${version}-withheading.md`),
+    final: path.join(versionedDocsFolder, `${version}.md`)
+  };
+}
+
+/**
+ * Downloads file content and saves to temporary location
+ * @param {string} apiUrl - GitHub raw content URL
+ * @param {string} tempPath - Temporary file path
+ * @returns {Promise<void>} Promise that resolves when download completes
+ */
+function downloadFileContent(apiUrl, tempPath) {
+  return new Promise((resolve, reject) => {
+    const req = https.request(apiUrl, (res) => {
+      const writeStream = fs.createWriteStream(tempPath);
+      res.pipe(writeStream);
+
+      writeStream.on('finish', () => {
+        writeStream.close();
+        resolve();
+      });
+
+      writeStream.on('error', reject);
+    });
+
+    req.on('error', reject);
+    req.end();
+  });
+}
+
+/**
+ * Processes downloaded file by removing first line and moving to final location
+ * @param {string} tempPath - Temporary file path
+ * @param {string} finalPath - Final file path
+ * @returns {Promise<string>} Promise that resolves with final file path
+ */
+async function processDownloadedFile(tempPath, finalPath) {
+  await removeFirstLine(tempPath, finalPath);
+  await fsPromises.unlink(tempPath);
+  return finalPath;
+}
+
+/**
  * Downloads a specific file version from GitHub
- * @param {string} apiUrl - GitHub API endpoint for file
+ * @param {string} apiUrl - GitHub raw content URL for file
  * @param {string} version - Version/tag of the file
  * @param {string} versionedDocsFolder - Output directory for downloaded files
  * @returns {Promise<string>} Path to downloaded file
  */
 async function fetchFileForVersion(apiUrl, version, versionedDocsFolder) {
-  return new Promise((resolve, reject) => {
-    const req = https.request(apiUrl, (res) => {
-      // Ensure output directory exists
-      const outputPathWithHeading = path.join(versionedDocsFolder, `${version}-withheading.md`);
-
-      // Create write stream
-      const writeStream = fs.createWriteStream(outputPathWithHeading);
-
-      res.pipe(writeStream);
-
-      writeStream.on('finish', async () => {
-        writeStream.close();
-        const outputPath = path.join(versionedDocsFolder, `${version}.md`);
-        await removeFirstLine(outputPathWithHeading, outputPath)
-        await fsPromises.unlink(outputPathWithHeading);
-        resolve(outputPath);
-      });
-
-      writeStream.on('error', (err) => {
-        reject(err);
-      });
-    });
-
-    req.on('error', (error) => {
-      reject(error);
-    });
-
-      req.end();
-  });
+  const { temporary, final } = generateFilePaths(versionedDocsFolder, version);
+  
+  await downloadFileContent(apiUrl, temporary);
+  return await processDownloadedFile(temporary, final);
 }
 
-// Function to remove first line from a file
+/**
+ * Removes the first line from a file using line-by-line processing
+ * @param {string} srcPath - Source file path
+ * @param {string} destPath - Destination file path
+ * @returns {Promise<string>} Promise that resolves with destination path
+ */
 async function removeFirstLine(srcPath, destPath) {
   return new Promise((resolve, reject) => {
     const lr = new LineByLineReader(srcPath);
     const output = fs.createWriteStream(destPath);
     let isFirstLine = true;
 
-    lr.on('error', (err) => {
-      reject(err);
-    });
+    lr.on('error', reject);
 
     lr.on('line', (line) => {
-      // Skip the first line
       if (isFirstLine) {
         isFirstLine = false;
         return;
       }
-
-      // Write subsequent lines to the output file
       output.write(line + '\n');
     });
 
@@ -344,72 +522,157 @@ async function removeFirstLine(srcPath, destPath) {
 }
 
 /**
- * Main script execution function
- * Fetches and versions documentation for a GitHub repository
- * Add versionheadings flag to add version headings to docs
+ * Validates command line arguments
+ * @param {Array} args - Command line arguments
+ * @returns {string} Repository URL
  */
-async function main() {
-  // Retrieve GitHub repository URL from command line argument
-  const repoUrl = process.argv[2];
-
-  // Validate repository URL input
+function validateArguments(args) {
+  const repoUrl = args[2];
+  
   if (!repoUrl) {
     console.error('Usage: node versioning.js <github-repo-url> [noversionheadings]');
     console.error('Please provide a valid GitHub repository URL');
     process.exit(1);
   }
+  
+  return repoUrl;
+}
 
-  const versionsConfigFileTemplate = {
-    "balenasdk": "nodesdk",
-    "balenasdkpython": "pythonsdk",
+/**
+ * Generates configuration file paths for the repository
+ * @param {string} repoName - Repository name
+ * @returns {Object} Configuration paths and names
+ */
+function generateConfigPaths(repoName) {
+  const versionsFileName = repoName.replaceAll(/-/g, "");
+  const versionsConfigFile = VERSIONS_CONFIG_TEMPLATE[versionsFileName] || versionsFileName;
+  const versionsConfigFilePath = `./config/dictionaries/${versionsConfigFile}.json`;
+  const versionedDocsFolder = path.join(__dirname, `../shared/${repoName}-versions`);
+  
+  return {
+    versionsFileName,
+    versionsConfigFile,
+    versionsConfigFilePath,
+    versionedDocsFolder
+  };
+}
+
+/**
+ * Sets up the output directory for versioned documentation
+ * @param {string} versionedDocsFolder - Path to versioned docs folder
+ * @returns {Promise<void>} Promise that resolves when setup is complete
+ */
+async function setupOutputDirectory(versionedDocsFolder) {
+  if (fs.existsSync(versionedDocsFolder)) {
+    await fsPromises.rm(versionedDocsFolder, { recursive: true });
   }
+  await fsPromises.mkdir(versionedDocsFolder, { recursive: true });
+}
 
-  // Parse repository details
-  const { owner, name: repoName, filepath } = parseGithubUrl(repoUrl);
+/**
+ * Creates minimal fallback content when documentation download fails
+ * @param {string} outputPath - Output file path
+ * @param {string} owner - Repository owner
+ * @param {string} repoName - Repository name
+ * @returns {Promise<void>} Promise that resolves when file is created
+ */
+async function createMinimalFallback(outputPath, owner, repoName) {
+  const content = `# Documentation\n\nPlease check the [${owner}/${repoName} repository](https://github.com/${owner}/${repoName}) for the latest documentation.\n`;
+  await fsPromises.writeFile(outputPath, content);
+  console.log(`Created minimal fallback file`);
+}
 
-  // Create versioned config file - Doxx doesn't allow dashes in the config file name
-  const versionsFileName = repoName.replaceAll(/-/g, "")
-  // Doxx treats config files with common names as same, so balenasdk and balenasdkpython config files needs to be named differently
-  const versionsConfigFile = versionsConfigFileTemplate[versionsFileName] ? versionsConfigFileTemplate[versionsFileName] : versionsFileName
-  const versionsConfigFilePath = `./config/dictionaries/${versionsConfigFile}.json`
+/**
+ * Downloads documentation for a fallback version (latest from master)
+ * @param {Object} tagVersion - Version metadata
+ * @param {string} owner - Repository owner
+ * @param {string} repoName - Repository name
+ * @param {string} filepath - Documentation file path
+ * @param {string} versionedDocsFolder - Output directory
+ * @returns {Promise<void>} Promise that resolves when download completes
+ */
+async function downloadFallbackVersion(tagVersion, owner, repoName, filepath, versionedDocsFolder) {
+  console.log(`Fetching actual latest documentation for fallback version: ${tagVersion.id}`);
   
-  const versionedDocsFolder = path.join(__dirname, `../shared/${repoName}-versions`)
-  
-  console.log(`Started versioning ${repoName} docs`)
-
   try {
-    // Fetch and process repository versions (always succeeds with fallback)
+    const latestUrl = `https://raw.githubusercontent.com/${owner}/${repoName}/master/${filepath}`;
+    await fetchFileForVersion(latestUrl, tagVersion.id, versionedDocsFolder);
+    console.log(`✓ Downloaded latest docs from master branch`);
+  } catch (latestError) {
+    console.log(`⚠ Failed to download latest docs: ${latestError.message}`);
+    const outputPath = path.join(versionedDocsFolder, `${tagVersion.id}.md`);
+    await createMinimalFallback(outputPath, owner, repoName);
+  }
+}
+
+/**
+ * Downloads documentation for a specific tagged version
+ * @param {Object} tagVersion - Version metadata
+ * @param {string} owner - Repository owner
+ * @param {string} repoName - Repository name
+ * @param {string} filepath - Documentation file path
+ * @param {string} versionedDocsFolder - Output directory
+ * @returns {Promise<void>} Promise that resolves when download completes
+ */
+async function downloadTaggedVersion(tagVersion, owner, repoName, filepath, versionedDocsFolder) {
+  try {
+    const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repoName}/refs/tags/${tagVersion.version}/${filepath}`;
+    await fetchFileForVersion(downloadUrl, tagVersion.id, versionedDocsFolder);
+    console.log(`✓ Downloaded: ${tagVersion.version}`);
+  } catch (downloadError) {
+    console.log(`⚠ Failed to download ${tagVersion.version}: ${downloadError.message} - skipping`);
+  }
+}
+
+/**
+ * Downloads documentation files for all versions
+ * @param {Array} tagVersions - List of version metadata
+ * @param {string} owner - Repository owner
+ * @param {string} repoName - Repository name
+ * @param {string} filepath - Documentation file path
+ * @param {string} versionedDocsFolder - Output directory
+ * @returns {Promise<void>} Promise that resolves when all downloads complete
+ */
+async function downloadVersionDocumentation(tagVersions, owner, repoName, filepath, versionedDocsFolder) {
+  console.log(`Downloading documentation for ${tagVersions.length} versions...`);
+  
+  for (const tagVersion of tagVersions) {
+    const isFallbackVersion = tagVersion.version === "latest" && tagVersion.id === "latest";
+    
+    if (isFallbackVersion) {
+      await downloadFallbackVersion(tagVersion, owner, repoName, filepath, versionedDocsFolder);
+    } else {
+      await downloadTaggedVersion(tagVersion, owner, repoName, filepath, versionedDocsFolder);
+    }
+  }
+}
+
+/**
+ * Main script execution function
+ * Fetches and versions documentation for a GitHub repository
+ */
+async function main() {
+  try {
+    // Validate input and parse repository details
+    const repoUrl = validateArguments(process.argv);
+    const { owner, name: repoName, filepath } = parseGithubUrl(repoUrl);
+    
+    // Generate configuration paths
+    const { versionsConfigFilePath, versionedDocsFolder } = generateConfigPaths(repoName);
+    
+    console.log(`Started versioning ${repoName} docs`);
+
+    // Fetch and process repository versions
     const tagVersions = await fetchGitHubTags(owner, repoName);
     console.log(`Found ${tagVersions.length} versions to process`);
 
-    // Write versions configuration (always valid JSON)
+    // Write versions configuration and setup output directory
     await fsPromises.writeFile(versionsConfigFilePath, JSON.stringify(tagVersions, null, 2));
-    if (fs.existsSync(versionedDocsFolder)) {
-      await fsPromises.rm(versionedDocsFolder, { recursive: true });
-    }
-    await fsPromises.mkdir(versionedDocsFolder, { recursive: true });
+    await setupOutputDirectory(versionedDocsFolder);
 
     // Download documentation for each version
-    console.log(`Downloading documentation for ${tagVersions.length} versions...`);
+    await downloadVersionDocumentation(tagVersions, owner, repoName, filepath, versionedDocsFolder);
     
-    for (const tagVersion of tagVersions) {
-      // Skip fallback versions - no need to create files for them
-      if (tagVersion.version === "latest" && tagVersion.id === "latest") {
-        console.log(`Skipping fallback version: ${tagVersion.id}`);
-        continue;
-      }
-      
-      // Try to download real version documentation
-      try {
-        const downloadUrl = `https://raw.githubusercontent.com/${owner}/${repoName}/refs/tags/${tagVersion.version}/${filepath}`;
-        await fetchFileForVersion(downloadUrl, tagVersion.id, versionedDocsFolder);
-        console.log(`✓ Downloaded: ${tagVersion.version}`);
-        
-      } catch (downloadError) {
-        console.log(`⚠ Failed to download ${tagVersion.version}: ${downloadError.message} - skipping`);
-        // Skip this version - the dictionary data is sufficient
-      }
-    }
     console.log(`Versioned ${repoName} docs successfully`);
   } catch (error) {
     console.error('Error:', error.message);
