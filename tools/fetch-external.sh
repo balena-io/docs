@@ -76,8 +76,29 @@ curl --fail --show-error -o pages/learn/more/masterclasses/docker-masterclass.md
 cd shared/projects/ && {
   echo "Name|Description
 ---|---" | tee balena-labs-projects.md balena-example-projects.md >/dev/null
-  curl --fail --show-error https://api.github.com/orgs/balena-labs-projects/repos?per_page=30 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md
-  curl --fail --show-error https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md
+  
+  # Set up authentication headers if GITHUB_TOKEN is available
+  if [ -n "${GITHUB_TOKEN:-}" ]; then
+    AUTH_HEADER="Authorization: token $GITHUB_TOKEN"
+  else
+    AUTH_HEADER=""
+    echo "Warning: GITHUB_TOKEN not set. GitHub API calls may be rate limited."
+  fi
+  
+  # Fetch balena-labs-projects with error handling
+  if [ -n "$AUTH_HEADER" ]; then
+    curl --fail --show-error -H "$AUTH_HEADER" https://api.github.com/orgs/balena-labs-projects/repos?per_page=30 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md || echo "Failed to fetch balena-labs-projects" >&2
+  else
+    curl --fail --show-error https://api.github.com/orgs/balena-labs-projects/repos?per_page=30 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md || echo "Failed to fetch balena-labs-projects (rate limited)" >&2
+  fi
+  
+  # Fetch balena-io-examples with error handling  
+  if [ -n "$AUTH_HEADER" ]; then
+    curl --fail --show-error -H "$AUTH_HEADER" https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md || echo "Failed to fetch balena-io-examples" >&2
+  else
+    curl --fail --show-error https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md || echo "Failed to fetch balena-io-examples (rate limited)" >&2
+  fi
+  
   cd -
 } &
 
