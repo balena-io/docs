@@ -1,4 +1,16 @@
 - commits:
+    - subject: "patch: Add errors for rate limited URLs"
+      hash: f15916080f8e9c0d266b04cdf7d38dd025c4dc17
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.10.2
+  title: ""
+  date: 2025-09-16T12:05:38.718Z
+- commits:
     - subject: Fix outdated configuration screenshots
       hash: 8dd5c08209d072450c0da5cbddbdd67aec4f84f5
       body: ""
