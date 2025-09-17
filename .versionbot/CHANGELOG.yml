@@ -1,4 +1,19 @@
 - commits:
+    - subject: "billing: Add that deactivations within 72h after registration are not
+        charged"
+      hash: 952459ffa51aca0c9e43b4071644b49218d5725b
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        See: https://balena.fibery.io/Work/Project/Automate-Deactivation-Grace-Period-(72hrs)-1291
+        see: https://balena.fibery.io/Work/Project/Automate-Deactivation-Grace-Period-(72hrs)-1291
+      author: Thodoris Greasidis
+      nested: []
+  version: 6.11.0
+  title: ""
+  date: 2025-09-17T18:48:16.415Z
+- commits:
     - subject: "patch: Add errors for rate limited URLs"
       hash: f15916080f8e9c0d266b04cdf7d38dd025c4dc17
       body: ""
