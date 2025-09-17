@@ -8,6 +8,7 @@
     getMissingResultsUrl: ({ query }) => {
       return `https://github.com/balena-io/docs/issues/new?title=${query}`;
     },
+    analyticsTags: ['docs', 'default'],
   });
   docsearch({
     container: '.search-404-wrapper',
@@ -17,6 +18,7 @@
     getMissingResultsUrl: ({ query }) => {
       return `https://github.com/balena-io/docs/issues/new?title=${query}`;
     },
+    analyticsTags: ['docs', '404'],
   });
   docsearch({
     container: '.search-mobile-wrapper',
@@ -26,5 +28,6 @@
     getMissingResultsUrl: ({ query }) => {
       return `https://github.com/balena-io/docs/issues/new?title=${query}`;
     },
+    analyticsTags: ['docs', 'mobile'],
   });
 </script>
