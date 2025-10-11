@@ -26,30 +26,28 @@ Learn
   WELCOME
     [/learn/welcome/introduction]
     [/learn/welcome/primer]
-    [/learn/welcome/concepts]
     [/learn/welcome/production-plan]
     [/learn/welcome/security]
     [/learn/welcome/support]
 
   # this URL is handled in redirects.txt
-  GET STARTED[/learn/getting-started]
+  GETTING STARTED[/learn/getting-started]
     # with $device and $language being dynamic
-    Getting started guide ~ {{ $device.name }} and {{ $language.name }}[/learn/getting-started/$device/$language]
+    Getting started guide ~ {{ $device.name }} on balenaCloud[/learn/getting-started/$device/$language]
 
   DEVELOP
     [/learn/develop/local-mode]
     [/learn/develop/dockerfile]
     [/learn/develop/multicontainer]
-    [/learn/develop/container-contracts]
+    Develop with Apps[/learn/develop/apps]
+    [/learn/develop/blocks]
     [/learn/develop/runtime]
     [/learn/develop/hardware]
       [/learn/develop/hardware/gpio]
+      [/learn/develop/hardware/usb]
       [/learn/develop/hardware/i2c-and-spi]
-    [/learn/develop/integrations]
-      Amazon AWS IoT[/learn/develop/integrations/aws]
-      Google IoT[/learn/develop/integrations/google-iot]
-      IBM Bluemix[/learn/develop/integrations/bluemix]
-      Microsoft Azure[/learn/develop/integrations/azure-iot-hub]
+      Jetson Orin[/learn/develop/hardware/jetson-orin/$jetsonorin]
+    Provision with cloud IoT[/learn/develop/cloud-iot-provisioning/$cloud]
 
   DEPLOY
     [/learn/deploy/deployment]
@@ -63,82 +61,98 @@ Learn
     [/learn/deploy/deploy-with-balena-button]
 
   MANAGE
-    [/learn/manage/account]
-    [/learn/manage/organizations]
-    [/learn/manage/billing]
-    [/learn/manage/app-types]
     [/learn/manage/device-statuses]
+    [/learn/manage/device-logs]
+    [/learn/manage/actions]
+    [/learn/manage/configuration]
+    [/learn/manage/variables]
     [/learn/manage/filters-tags]
     [/learn/manage/ssh-access]
-    [/learn/manage/configuration]
-    [/learn/manage/serv-vars]
-    [/learn/manage/actions]
-    [/learn/manage/support-access]
+
+  ACCOUNTS & BILLING
+    [/learn/accounts/account]
+    [/learn/accounts/enterprise-sso]
+      Identity Provider Setup
+        [/learn/accounts/idp-setup/microsoft-entra-saml-setup]
+        [/learn/accounts/idp-setup/google-workspace-saml-setup]
+    [/learn/accounts/billing]
+    [/learn/accounts/fleet-members]
+    [/learn/accounts/fleet-types]
+    [/learn/accounts/organizations]
+    [/learn/accounts/support-access]
 
   MORE RESOURCES
-    [/learn/more/examples]
-      [/learn/more/examples/projects]
-      [/learn/more/examples/seed-projects]
-      [/learn/more/examples/snippets]
-    [/learn/more/resources]
+    [/learn/more/examples/labs-projects]
+      [/learn/more/examples/balenablocks]
+      [/learn/more/examples/example-projects]
+    [/learn/more/glossary]
     [/learn/more/collected-data]
     Masterclasses
-      [/learn/more/masterclasses/overview]
+      [/learn/more/masterclasses/masterclass-intro]
       CLI[/learn/more/masterclasses/cli-masterclass]
       Advanced CLI[/learn/more/masterclasses/advanced-cli]
       BalenaOS[/learn/more/masterclasses/host-os-masterclass]
       Services[/learn/more/masterclasses/services-masterclass]
       Fleet management[/learn/more/masterclasses/fleet-management]
       Device debugging[/learn/more/masterclasses/device-debugging]
-      Docker[/learn/more/masterclasses/docker-masterclass/]
+      Network[/learn/more/masterclasses/network-masterclass]
+      Docker[/learn/more/masterclasses/docker-masterclass]
     [/learn/more/anti-patterns]
 
 FAQ
+  [/faq/questions]
+  # Handled in redirects.txt
+  Troubleshooting[/faq/troubleshooting]
+    # with $device being dynamic
+    Troubleshooting for {{ $device.name }}[/faq/troubleshooting/$device]
+  [/faq/debugging-device-gateway]
+  [/faq/debugging-storage-media]
 
-  [/faq/troubleshooting/faq]
-  [/faq/troubleshooting/troubleshooting]
 
 Reference
-
   Supported devices
     [/reference/hardware/versioning]
     [/reference/hardware/devices]
     [/reference/hardware/wifi-dongles]
 
   Host OS
-    Overview[/reference/OS/overview/$os_version]
+    Overview[/reference/OS/overview]
     Host OS updates
       [/reference/OS/updates/self-service]
       [/reference/OS/updates/update-process]
-      [/reference/OS/updates/migrate-to-2.0]
-    Extended support release process[/reference/OS/extended-support-release]  
-    Network[/reference/OS/network/$os_version]
+      [/reference/OS/updates/rollbacks]
+    Extended support release process[/reference/OS/extended-support-release]
+    Network[/reference/OS/network]
     [/reference/OS/configuration]
     [/reference/OS/time]
     [/reference/OS/advanced]
-    [/reference/OS/meta-balena]
+    [/reference/OS/customer-board-support]
 
   Device supervisor
     Supervisor API[/reference/supervisor/supervisor-api]
+    [/reference/supervisor/device-metrics]
     [/reference/supervisor/bandwidth-reduction]
     [/reference/supervisor/docker-compose]
     [/reference/supervisor/supervisor-upgrades]
-    Upgrade policy[/reference/supervisor/upgrade-policy]
+    # Handled in redirects.txt
+    Configuration List[/reference/supervisor/configuration-list]
+      # with $device being dynamic
+      Configuration list for {{ $device.name }}[/reference/supervisor/configuration-list/$device]
+
 
   Base images
-    [/reference/base-images/base-images]
-    [/reference/base-images/base-images-ref]
+    [/reference/base-images/balena-base-images]
     [/reference/base-images/devicetypes]
-    [/reference/base-images/legacy-base-images]
 
   API
     [/reference/api/overview]
     Resources[/reference/api/resources/$resource]
 
-  CLI[/reference/balena-cli]
+  CLI[/reference/balena-cli/$balenacli]
   SDKs
-    Node.js SDK[/reference/sdk/node-sdk]
-    Python SDK[/reference/sdk/python-sdk]
-    Deprecation Policy[/reference/sdk/deprecation-policy] 
+    Node.js SDK[/reference/sdk/node-sdk/$nodesdk]
+    Python SDK[/reference/sdk/python-sdk/$pythonsdk]
+    Deprecation Policy[/reference/sdk/deprecation-policy]
 
-  Device Diagnostics[/reference/diagnostics]
+  Diagnostics
+    Overview[/reference/diagnostics]

@@ -1,7 +1,7 @@
 path       = require('path')
 express    = require('express')
 _          = require('lodash')
-Doxx       = require('@resin.io/doxx')
+Doxx       = require('@balena/doxx')
 navTree    = require('./nav.json')
 config     = require('../config')
 redirect   = require('./redirect')({ pathPrefix: config.pathPrefix })
@@ -36,8 +36,6 @@ app.use (req, res, next) ->
 getLocals = (extra) ->
   doxx.getLocals({ nav: navTree }, extra)
 
-doxx.loadLunrIndex()
-
 console.error('serving everything under pathPrefix:', "#{config.pathPrefix}")
 app.use("#{config.pathPrefix}/", express.static(contentsDir))
 
@@ -47,4 +45,4 @@ app.get '*', (req, res) ->
 port = process.env.PORT ? 3000
 
 app.listen port, ->
-  console.log("Server started on port #{port}")
+  console.log("Server started on http://localhost:#{port}")

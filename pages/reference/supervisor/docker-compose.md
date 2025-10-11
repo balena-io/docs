@@ -5,28 +5,36 @@ excerpt: docker-compose.yml fields supported by {{ $names.company.lower }}
 
 # docker-compose.yml fields
 
+Our compose-file support is currently based on [version 2.4](https://docs.docker.com/compose/compose-file/compose-versioning/#version-24), as such any fields that were introduced in version 3 are not supported.
+
 ## Supported fields
 
 Field | Details
 --- | ---
-[build](https://docs.docker.com/compose/compose-file/compose-file-v2/#build) | `build` or `context` paths must point to project/app subfolders. URLs to git repositories are not currently supported.
+[build](https://docs.docker.com/compose/compose-file/compose-file-v2/#build) | when using a path it must point to project/app subfolders. URLs to git repositories are not currently supported.
+[build.context](https://docs.docker.com/compose/compose-file/compose-file-v2/#context) | must point to project/app subfolders. URLs to git repositories are not currently supported.
+[build.dockerfile](https://docs.docker.com/compose/compose-file/compose-file-v2/#dockerfile) |
+[build.args](https://docs.docker.com/compose/compose-file/compose-file-v2/#args) |
+[build.cache_from](https://docs.docker.com/compose/compose-file/compose-file-v2/#cache_from) |
+[build.extra_hosts](https://docs.docker.com/compose/compose-file/compose-file-v2/#extra_hosts) |
+[build.labels](https://docs.docker.com/compose/compose-file/compose-file-v2/#labels) |
+[build.shm_size](https://docs.docker.com/compose/compose-file/compose-file-v2/#shm_size) |
+[build.target](https://docs.docker.com/compose/compose-file/compose-file-v2/#target) | currently incompatible with [Livepush](/learn/develop/local-mode/#livepush)
 [cap_add](https://docs.docker.com/compose/compose-file/compose-file-v2/#cap_add-cap_drop) |
 [cap_drop](https://docs.docker.com/compose/compose-file/compose-file-v2/#cap_add-cap_drop) |
 [cgroup_parent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cgroup_parent) |
 [command](https://docs.docker.com/compose/compose-file/compose-file-v2/#command) |
 [cpu_shares](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpu_quota](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
-[cpus](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpuset](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [devices](https://docs.docker.com/compose/compose-file/compose-file-v2/#devices) |
-[depends_on](https://docs.docker.com/compose/compose-file/compose-file-v2/#depends_on) | Only array form is supported
+[depends_on](https://docs.docker.com/compose/compose-file/compose-file-v2/#depends_on) | Only array form and `service_started` condition
 [dns](https://docs.docker.com/compose/compose-file/compose-file-v2/#dns) |
 [dns_opt](https://docs.docker.com/compose/compose-file/compose-file-v2/#dns_opt) |
 [dns_search](https://docs.docker.com/compose/compose-file/compose-file-v2/#dns_search) |
 [domainname](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [entrypoint](https://docs.docker.com/compose/compose-file/compose-file-v2/#entrypoint) |
 [environment](https://docs.docker.com/compose/compose-file/compose-file-v2/#environment) |
-[expose](https://docs.docker.com/compose/compose-file/compose-file-v2/#expose) |
 [extra_hosts](https://docs.docker.com/compose/compose-file/compose-file-v2/#extra_hosts) |
 [group_add](https://docs.docker.com/compose/compose-file/compose-file-v2/#group_add) |
 [healthcheck](https://docs.docker.com/compose/compose-file/compose-file-v2/#healthcheck) |
@@ -37,8 +45,8 @@ Field | Details
 [mac_address](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [mem_limit](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [mem_reservation](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
-[network_mode](https://docs.docker.com/compose/compose-file/compose-file-v2/#network_mode) | Only support `bridge`, `host`, or none
-[networks](https://docs.docker.com/compose/compose-file/compose-file-v2/#networks) | Only support specifiying network names
+[network_mode](https://docs.docker.com/compose/compose-file/compose-file-v2/#network_mode) | Only support `bridge`, `host`, `service:[service name]`, or none
+[networks](https://docs.docker.com/compose/compose-file/compose-file-v2/#networks) | Only support specifying network names
 [oom_kill_disable](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [oom_score_adj](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [pid](https://docs.docker.com/compose/compose-file/compose-file-v2/#pid) | Only support `host` or none
@@ -46,7 +54,7 @@ Field | Details
 [ports](https://docs.docker.com/compose/compose-file/compose-file-v2/#ports) |
 [privileged](https://docs.docker.com/compose/compose-file/compose-file-v2/#privileged) |
 [read_only](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
-[restart](https://docs.docker.com/compose/compose-file/compose-file-v2/#restart) |
+[restart](https://docs.docker.com/compose/compose-file/compose-file-v2/#restart) | Defaults to `always`
 [security_opt](https://docs.docker.com/compose/compose-file/compose-file-v2/#security_opt) |
 [shm_size](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [stop_grace_period](https://docs.docker.com/compose/compose-file/compose-file-v2/#stop_grace_period) |
@@ -64,10 +72,15 @@ Field | Details
 
 Field | Details
 --- | ---
+[build.isolation](https://docs.docker.com/compose/compose-file/compose-file-v2/#isolation) |
+[build.network](https://docs.docker.com/compose/compose-file/compose-file-v2/#network) |
 [blkio_config](https://docs.docker.com/compose/compose-file/compose-file-v2/#blkio_config) |
 [container_name](https://docs.docker.com/compose/compose-file/compose-file-v2/#container_name) | Used by the device supervisor
 [cpu_count](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpu_percent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
+[cpus](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) | Introduced by Docker Compose v2.2 and therefore not working
+[env_file and service.env_file](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#use-the-env_file-attribute)
+[expose](https://docs.docker.com/compose/compose-file/compose-file-v2/#expose) | Informational only. Removed to prevent conflicts with other network configurations
 [external_links](https://docs.docker.com/compose/compose-file/compose-file-v2/#external_links) |
 [isolation](https://docs.docker.com/compose/compose-file/compose-file-v2/#isolation-1) |
 [links](https://docs.docker.com/compose/compose-file/compose-file-v2/#links) |

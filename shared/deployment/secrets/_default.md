@@ -47,9 +47,9 @@ and therefore:
 * The folder will be available "for the duration of `RUN` directives", such that secrets can be
   accessed by scripts/code at image build time, for example:
 
-` ``shell
+```Dockerfile
 RUN cat /run/secrets/my-recipe | secret_processing_script.sh
-` ``
+```
 
 To add a secret file to a specific service's build:
 
@@ -86,9 +86,11 @@ This will mount the `super-secret-recipe` file as `/run/secrets/my-recipe` for a
 
 Subdirectories are supported in both the source (`.balena/secrets`) and the destination (`/run/secrets`).
 
+__Note:__ Currently `{{$names.company.lower}} build` and `{{$names.company.lower}} deploy` do not support [build time secret files](#build-time-only-secret-file) out of the box and need to be pointed to a [{{$names.engine.lower}}][engine-link] instance. Refer to the [`{{$names.company.lower}} build`][cli-build-reference] and [`{{$names.company.lower}} deploy`][cli-deploy-reference] command references for additional documentation.
+
 ### Build variables
 
-It is also possible to define build variables which will be added to your build from the balena.yml file:
+It is also possible to define build variables that will be added to your build from the balena.yml file:
 
 ```yaml
 build-variables:
@@ -117,11 +119,11 @@ __Warning:__ It is not recommended to use build-time variables for passing secre
 However, secrets like tokens and passwords can be used in instructions like RUN through the mounted secret files, for example:
 
 ```Dockerfile
-RUN /bin/cat /run/secrets/my-recipe/secret-recipe | command_that_reads_secrets_from_stdin
+RUN /bin/cat /run/secrets/my-recipe | command_that_reads_secrets_from_stdin
 ```
 
 Files under the .balena folders are not saved in the final image, hence being more secure than ARG.
 
-If you are interested in seeing an example of build time secrets and variables see this [project]({{ $links.githubLabs
+If you are interested in seeing an example of build time secrets and variables see this [project]({{ $links.githubExamples
 }}/example-build-secrets-and-variables). Note this is just a toy project and in a real world setting it is not advisable to commit your
 `.balena` secrets folder into the git repository. You should always add it to your `.gitignore` file.

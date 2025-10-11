@@ -1,5 +1,5 @@
 var Headroom = require('headroom.js')
-var hljs = require('highlight.js/lib/highlight')
+var hljs = require('highlight.js/lib/core')
 var languages = require('./langs.js')
 
 // Export jQuery
@@ -16,15 +16,17 @@ require('bootstrap')
 require('jquery-colorbox')
 require('bootstrap-select')
 
-require('../css/Montserrat.css')
 require('bootstrap/dist/css/bootstrap.min.css')
 require('jquery-colorbox/example3/colorbox.css')
 require('bootstrap-select/dist/css/bootstrap-select.min.css')
 require('highlight.js/styles/obsidian.css');
 require('../css/main.css')
 require('../css/menu-top.css')
+require('../css/search.css')
+require('../css/tooltips.css')
+require('../css/cookie-consent.css')
 
-hljs.initHighlightingOnLoad()
+hljs.highlightAll()
 
 function fixOldUrl(url) {
   return url
@@ -38,48 +40,6 @@ function fixOldUrl(url) {
 if (location.hash && location.hash.substring(0, 2) === '#/') {
   location.href = fixOldUrl(location.hash.substring(1))
 }
-
-var UNPIN_OFFSET = 400
-
-// setup sticky header
-var stickyHeaderElements = $('.js-sticky-header')
-new Headroom(stickyHeaderElements, {
-  offset: UNPIN_OFFSET,
-  tolerance: 0
-})
-
-var searchbarTop = $('.search-wrapper').offset().top
-var prevScrollTop = 0
-var $window = $(window)
-
-function handleScrollUp(scrollTop) {
-  if (scrollTop > searchbarTop && scrollTop <= UNPIN_OFFSET) {
-    stickyHeaderElements.addClass('sticky')
-  } else {
-    stickyHeaderElements.removeClass('sticky')
-  }
-}
-
-function handleScrollDown(scrollTop) {
-  if (scrollTop >= UNPIN_OFFSET) {
-    stickyHeaderElements.removeClass('sticky')
-  } else if (scrollTop > searchbarTop) {
-    stickyHeaderElements.addClass('sticky')
-  }
-}
-
-$window.scroll(function() {
-  var scrollTop = $window.scrollTop()
-  var isScrollUp = scrollTop < prevScrollTop
-
-  if (isScrollUp) {
-    handleScrollUp(scrollTop)
-  } else {
-    handleScrollDown(scrollTop)
-  }
-
-  prevScrollTop = scrollTop
-})
 
 // enhance content elements
 

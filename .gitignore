@@ -1,9 +1,9 @@
-contents/
+build/
 node_modules/
 server/nav.json
-server/lunr_index.json
 npm-debug.log
 static/dist
+contracts/
 
 .#*
 
@@ -11,19 +11,20 @@ static/dist
 *.swp
 *.swo
 tmp
-docs_env
+.lycheecache
 
 # Ignore external docs that are pulled via tools/fetch-external.sh
-pages/reference/cli.md
-pages/reference/balena-cli.md
-pages/reference/sdk/node-sdk.md
-pages/reference/sdk/python-sdk.md
+# pages/reference/sdk/node-sdk.md
+# pages/reference/sdk/python-sdk.md
+
 pages/reference/supervisor/supervisor-api.md
 pages/reference/supervisor/upgrade-policy.md
 pages/learn/deploy/release-strategy/update-locking.md
+
 pages/reference/diagnostics.md
-pages/learn/develop/integrations/google-iot.md
-pages/learn/develop/integrations/azure-iot-hub.md
+pages/reference/device-diagnostics.md
+pages/reference/supervisor-state.md
+
 pages/learn/more/masterclasses/cli-masterclass.md
 pages/learn/more/masterclasses/advanced-cli.md
 pages/learn/more/masterclasses/host-os-masterclass.md
@@ -31,3 +32,34 @@ pages/learn/more/masterclasses/services-masterclass.md
 pages/learn/more/masterclasses/fleet-management.md
 pages/learn/more/masterclasses/device-debugging.md
 pages/learn/more/masterclasses/docker-masterclass.md
+
+pages/reference/OS/updates/rollbacks.md
+pages/reference/OS/customer-board-support.md
+pages/reference/OS/debugging-balenaos.md
+
+pages/reference/base-images/base-images-ref.md
+
+# Ignore dynamic docs created for masterclasses
+shared/masterclass
+
+# Ignore dynamic balenaCLI version docs
+config/dictionaries/balenacli.json
+shared/balena-cli-versions/
+
+# Ignore dynamic balena-SDK version docs
+config/dictionaries/nodesdk.json
+shared/balena-sdk-versions/
+
+# Ignore dynamic Python SDK version docs
+config/dictionaries/pythonsdk.json
+shared/balena-sdk-python-versions/
+
+# Ignore dynamic assets generated for Getting Started
+static/img/device/**
+config/dictionaries/device.json
+
+# Ignore generated docs for base images
+shared/general/base-images.md
+
+# Curl error output
+output

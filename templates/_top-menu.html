@@ -20,8 +20,8 @@
       <ul class="menu__items nav navbar-nav navbar-right">
         <li class="menu__item menu__item--btn-group">
           <div class="btn-group btn-group-sm" role="group">
-            <a class="btn" href="{{ dashboardUrl }}/signup">Sign up</a>
             <a class="btn" href="{{ dashboardUrl }}/login">Login</a>
+            <a class="btn btn-primary white" href="{{ dashboardUrl }}/signup">Sign up</a>
           </div>
         </li>
       </ul>
@@ -66,8 +66,8 @@
   </div>
   <div class="navbar-collapse collapsed">
     <div class="sidebar sidebar-mobile">
-      <div class="search-wrapper">
-        {% include "_search-form-mobile.html" %}
+      <div class="search-mobile">
+        <div class='search-mobile-wrapper'></div>
       </div>
       {% include "_nav-mobile.html" %}
     </div>

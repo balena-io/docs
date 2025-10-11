@@ -2,20 +2,21 @@ DOCS_SOURCE_DIR = 'pages'
 TEMPLATES_DIR = 'templates'
 PARTIALS_DIR = 'shared'
 
-DYNAMIC_DOCS = /.*(getting-started|overview|network).*/
-
 # These files are pulled in externally and so cannot be edited in the base repo
-EXTERNAL_DOCS = /.*(python-sdk|node-sdk|balena-cli|supervisor-api|update-locking|diagnostics|google-iot|azure-iot-hub|cli-masterclass|advanced-cli|host-os-masterclass|services-masterclass|fleet-management|device-debugging|docker-masterclass).*/
+# Filename should exactly match the reference being added here and links.coffee file
+EXTERNAL_DOCS = /.*(python-sdk|node-sdk|balena-cli|supervisor-api|rollbacks|update-locking|diagnostics|device-diagnostics|supervisor-state|cli-masterclass|advanced-cli|host-os-masterclass|services-masterclass|fleet-management|device-debugging|docker-masterclass|customer-board-support|resources|cloud-iot-provisioning|getting-started|troubleshooting|configuration-list).*/
 
 FB_APP_ID = '221218511385682'
 
 DOMAIN = "https://#{process.env.DOMAIN || 'balena.io'}"
 
+# Adding DEPLOYMENT_URL for flowzone.yml and link checking
+DEPLOYMENT_URL = "#{process.env.DEPLOYMENT_URL || 'https://docs.balena.io'}"
 MAIN_MENU_LINKS = [
-  {
-    "title": "What is Balena",
-    "link": "#{DOMAIN}/what-is-balena"
-  },
+  # {
+  #   "title": "What is balena?",
+  #   "link": "#{DOMAIN}/what-is-balena"
+  # },
   {
     "title": "Forums",
     "link": "https://forums.balena.io"
@@ -41,19 +42,18 @@ MAIN_MENU_LINKS = [
 module.exports =
   docsExt: 'md'
   docsSourceDir: DOCS_SOURCE_DIR
-  docsDestDir: 'contents'
+  docsDestDir: 'build'
   templatesDir: TEMPLATES_DIR
   partialsDir: PARTIALS_DIR
-  dynamicDocs: DYNAMIC_DOCS
   externalDocs: EXTERNAL_DOCS
   editPageLink: 'https://github.com/balena-io/docs/edit/master'
   links: require('./links')
   names: require('./names')
-  pathPrefix: process.env.PATH_PREFIX || '/docs'
+  pathPrefix: process.env.PATH_PREFIX || ''
   layoutLocals:
     dashboardUrl: process.env.DASHBOARD_SITE || 'https://dashboard.balena-cloud.com'
     logo: '/img/logo.svg'
-    baseUrl: process.env.BASE_URL || 'https://www.balena.io/docs'
+    baseUrl: DEPLOYMENT_URL
     menuLinks: MAIN_MENU_LINKS
     fbAppId: FB_APP_ID
-    defaultThumbnail: 'https://www.balena.io/docs/img/logo.png'
+    defaultThumbnail: "#{DEPLOYMENT_URL}/img/logo.png"

@@ -17,15 +17,19 @@ For device types and {{ $names.os.lower }} versions that are not yet supported, 
 
 ## Running an update
 
-To run an update for an individual device, navigate to that device's *Actions* tab, click *Update {{ $names.os.lower }}*, and select the version of {{ $names.os.lower }} you would like to update to:
+To run an update for an individual device, navigate to that device's *Settings* tab, go to the section *OS version*, and select the version of {{ $names.os.lower }} you would like to update to. After making your selection, click the *Save* button.
 
-![Update device](/img/common/updates/update-os.png)
+![Update device](/img/common/updates/update-os.webp)
 
-Updates can also be made to multiple devices in the same application. From the device list, click the checkbox to the left of any online devices you wish to update. Then click the *Group Actions* button in the upper-right corner of the dashboard, followed by *Update {{ $names.os.lower }}*:
+Updates can also be made to multiple devices in the same fleet. From the device list, click the checkbox to the left of any online devices you wish to update. Then use the *Modify* dropdown to choose the *OS version* option to set and trigger an update on all selected devices.
 
-![Device group update](/img/common/updates/group-update.png)
+![Device group update](/img/common/updates/group-update.webp)
 
-__Note:__ Updates to the balena Supervisor, {{ $names.company.lower }}'s agent on the device, can be triggered independently. Read more about that process [here](/reference/supervisor/supervisor-upgrades).
+From the dialog box that opens, select the OS version you would like to update to and click the `Apply` button to trigger the OS update. 
+
+![device group update, dialog box](/img/common/updates/group-update-dialog.webp)
+
+__Note:__ Updates to the balena Supervisor, {{ $names.company.lower }}'s agent on the device, can be [triggered independently](/reference/supervisor/supervisor-upgrades).
 
 After an update begins, the device summary page will show a progress bar that marks the steps completed for the update. Some steps that take longer, such as the device downloading the new OS image, may make the progress bar appear stuck. This doesn't mean anything has gone wrong with your update. We are working on making the update process more informative.
 
@@ -33,7 +37,11 @@ Update time can vary significantly, depending on the speed of your network, the 
 
 If your {{ $names.os.lower }} update fails for any reason, the device should still be recoverable. For devices running {{ $names.os.lower }} 2.x, the user application should still be running normally, and the reasons for failure can be examined through the update logs at `/mnt/data/balenahup/` (or potentially the legacy location `/mnt/data/resinhup/`). If you have any issues, please contact us on the [troubleshooting section of the forums][troubleshooting].
 
-You can learn more about what exactly goes on during the update process [here][update-process].
+## Update locks
+
+[Update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/) is a mechanism that allows applications to enter critical sections of code and prevent updates that would interrupt the application from running. Update locks can also be used to delay the reboot that applies a hostOS update operation until the application exits the critical section by removing the update locks. HostOS update operations require the use of exclusive locks and will not respect shared locks. [Overriding update locks](https://docs.balena.io/learn/deploy/release-strategy/update-locking/#overriding-the-lock) will ignore existing locks and allow a hostOS update process to proceed with a reboot.
+
+Check out our [update process][update-process] to understand how the process goes through each step.
 
 <!-- links -->
 [forums]:{{ $names.forums_domain }}/

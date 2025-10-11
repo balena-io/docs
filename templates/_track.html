@@ -1,53 +1,109 @@
-<!-- GA -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@klaxit/cookie-consent@0.3.4/dist/cookie-consent.js"></script>
+
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+const GTM_TAG = 'GTM-598RSSPM';
 
-  ga('create', 'UA-45671959-1', 'auto');
-  ga('send', 'pageview');
-</script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
 
-<script type="text/javascript" src="https://unpkg.com/analytics-client@0.11.2/dist/bundle.js"></script>
+gtag('consent', 'default', {
+  'analytics_storage': 'denied'
+});
 
-<!-- start balena analytics -->
-<script type="text/javascript">
-  var urlParamsHandler = new analyticsClient.AnalyticsUrlParams();
-  var newQuery = urlParamsHandler.consumeUrlParameters(window.location.search);
-  if (newQuery != null) {
-    window.location.search = newQuery;
-  }
+function addAnalyticsClient() {
+  const el = document.createElement('script');
+  el.type = 'text/javascript';
+  el.crossOrigin = 'anonymous';
+  el.async = true;
+  el.src =
+    'https://cdn.jsdelivr.net/npm/analytics-client@3.1.1/dist/bundle.js';
 
-  var baseUrl = '{{ $links.apiBase }}';
-  window.jQuery.get(baseUrl + '/config', (config) => {
-    const client = analyticsClient.createClient({
-      projectName: config.mixpanelToken,
+  el.onload = function (_) {
+    var urlParamsHandler = new analyticsClient.AnalyticsUrlParams();
+    var newQuery = urlParamsHandler.consumeUrlParameters(window.location.search);
+    if (newQuery != null && `?${newQuery}` !== window.location.search) {
+      window.location.search = newQuery;
+    }
+
+    var client = analyticsClient.createClient({
+      projectName: '1963512249dcd02836369507fb6dd034',
       componentName: 'docs',
-      endpoint: 'data.{{ $names.cloud_domain }}'
+      endpoint: 'data.{{ $names.cloud_domain }}',
+      deviceId: urlParamsHandler.getPassedDeviceId(),
     });
     urlParamsHandler.setClient(client);
 
-    analyticsClient.createWebTracker(client, 'Docs').trackPageView();
+    var webTracker = analyticsClient.createWebTracker(client, 'Docs');
+    webTracker.trackPageView();
 
     var dashboardBaseUrl = '{{ $links.dashboardUrl }}';
+    var githubBaseUrl = '{{ $links.githubMain }}';
 
     // Since the dashboard is on a different domain, we need to explicitly
     // set the anonymous id, so that we don't have disconnected timelines.
     window.jQuery('a[href^="' + dashboardBaseUrl + '"]').attr('href', function(i, h) {
-      return (h + (h.indexOf('?') != -1 ? '&' : '?') + urlParamsHandler.getDeviceIdsQueryString());
+      return (h + (h.indexOf('?') != -1 ? '&' : '?') + urlParamsHandler.getQueryString());
     });
+    window.jQuery('a[href^="' + githubBaseUrl + '"]').click(function() {
+      var this_href = window.jQuery(this).attr('href');
+      webTracker.trackNavigationClick(href= this_href);
+    });
+  };
+
+  const firstElement = document.getElementsByTagName('script')[0];
+  firstElement.parentNode.insertBefore(el, firstElement);
+}
+
+function addGTM() {
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js',
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+      'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', GTM_TAG);
+}
+
+if (window.CookieConsent) {
+  const cc = new window.CookieConsent({
+    title: 'We use cookies 🍪',
+    description: 'We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept All" you consent to our use of cookies. Read more about our <a href="https://www.balena.io/privacy-policy" target="_blank">privacy policy</a>.',
+    buttons: {
+      acceptAll: 'Accept all',
+      acceptSelected: 'Save selection',
+      reject: 'Reject all',
+      showSettings: 'Customize',
+      hideSettings: 'Back',
+    },
+    cookie: {
+      secure: false,
+      domain: 'balena.io',
+      name: 'cookie_consent',
+    },
+  })
+
+  cc.on('accept', (cc) => {
+    if (cc.acceptedCategories?.includes('analytics')) {
+      addAnalyticsClient();
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+      });
+    }
   });
-</script>
-<!-- end balena analytics -->
+}
 
-<!-- GoSquared -->
-<script>
-  !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-  arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-  d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-  insertBefore(d,q)}(window,document,'script','_gs');
+if (window.CookieConsent?.acceptedCategories?.includes('analytics')) {
+  gtag('consent', 'update', {
+    'analytics_storage': 'granted'
+  });
+  addAnalyticsClient();
+}
 
-  _gs('GSN-831588-U');
-  _gs('set', 'anonymizeIP', true);
+addGTM()
 </script>

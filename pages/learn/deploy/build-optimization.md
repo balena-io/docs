@@ -5,13 +5,13 @@ excerpt: Tips for reducing the time to build your {{ $names.company.lower }} con
 
 # Optimize your builds
 
-These are just a few tips and tricks to optimize your {{ $names.company.lower }} container builds and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the Docker container builders on our servers. If you want to read more about how Docker caches layers and Docker best practices, head over here - [Docker best practices][docker-best-practices].
+These are just a few tips and tricks to optimize your {{ $names.company.lower }} container builds and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the Docker container builders on our servers. If you want to read more about how Docker caches layers and Docker best practices, head over to [Docker best practices][docker-best-practices].
 
 __Note:__ For information on using multi-stage builds to reduce image sizes, see the [services masterclass][services-masterclass].
 
 ## Move `ADD` and `COPY` Commands
 
-Caching in Docker is done by comparing the instructions in the current `Dockerfile` with the ones in the previous build. If the instructions have changed, the cache is invalidated. This however, is slightly different for the `ADD` and `COPY`, for these commands the contents of the files being put into the image are examined. If there are any changes, even in the file metadata, then the cache is invalidated. So we recommend you place your `ADD` or `COPY` statements near the end of your Dockerfiles, after all your package installs and source compilation steps have been completed.
+Caching in Docker is done by comparing the instructions in the current `Dockerfile` with the ones in the previous build. If the instructions have changed, the cache is invalidated. However, this is slightly different for the `ADD` and `COPY` commands. For these commands, the contents of the files being put into the image are examined. If there are any changes, even in the file metadata, then the cache is invalidated. We recommend you place your `ADD` or `COPY` statements near the end of your Dockerfiles, after all your package installs and source compilation steps have been completed.
 
 ## Minimize the number of layers
 
@@ -26,10 +26,10 @@ In order to reduce complexity, dependencies, file sizes, and build times, you sh
 
 ## Multi-stage builds
 
-{{ $names.company }} supports [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/). As mentioned, when building your application you might require build-time dependencies, or other files which are not needed at _runtime_. With multi-stage builds , you can use multiple `FROM` statements to describe a new stage. Each stage can use a different base image and you can copy files and artifacts from one stage to another. This allows you to only copy necessary files and tools into the final image you want to ship, keeping it lean. Here is an example illustrating multi-stage build for a `golang` project. 
+{{ $names.company.upper }} supports [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/). When building your application, you might require build-time dependencies, or other files which are not needed at _runtime_. With multi-stage builds, you can use multiple `FROM` statements to describe a new stage. Each stage can use a different base image and you can copy files and artifacts from one stage to another. This allows you to only copy necessary files and tools into the final image you want to ship, keeping it lean. Here is an example illustrating multi-stage build for a `golang` project. 
 
 ```Dockerfile
-FROM balenalib/%%BALENA_MACHINE_NAME%%-golang:stretch-build AS build # define a build stage 
+FROM golang:1.24.3-bookworm AS build # define a build stage 
 
 WORKDIR /go/src/github.com/balena-io-projects/app
 
@@ -37,18 +37,18 @@ COPY /app ./
 
 RUN go build
 
-FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:stretch # use a different, leaner image in final image
+FROM debian:bookworm-20250428-slim # use a different, leaner image in final image
 
 COPY --from=build /go/src/github.com/balena-io-projects/app/ . # copy build artifacts from build stage
 
 CMD ["./app"]
 ```
 
-{{ $names.company }} base images come in two variants, namely `build` and `run`. Refer to the docs on [the differences between the two variants][run-vs-build].
+{{ $names.company.upper }} base images come in two variants, namely `build` and `run`. Refer to the docs on [the differences between the two variants][run-vs-build].
 
 ### Using scratch
 
-Most Dockerfiles start from a parent(base) image. Docker has a [reserved  image][scratch] `scratch` which has no layers and can be used to create lightweight images. Note that there won't be a root filesystem(rootfs) in the sratch image. This typically means you have to _statically_ compile your application if possible or add all dependencies your application needs to run properly. 
+Most Dockerfiles start from a parent(base) image. Docker has a [reserved  image][scratch] `scratch` that has no layers and can be used to create lightweight images. Note that there won't be a root filesystem(rootfs) in the scratch image. This typically means you have to _statically_ compile your application if possible or add all dependencies your application needs to run properly. 
 
 ## Cleaning up after yourself
 
@@ -65,8 +65,6 @@ RUN apt-get update && apt-get install -y \
 __Note:__ The above command should never be split over two or more `RUN` commands, as the benefits will be lost.
 
 It is also wise to remove any .tar.gz or temporary files in a similar fashion to the above, as this will reduce build size.
-
-If you are using balenalib images, you can also use the [`install_packages`][install-packages] utility.
 
 ## Use .dockerignore
 
@@ -93,7 +91,7 @@ This will start downloading both files and wait for them to complete. The next l
 
 ## Pro Tips for slimming down your build
 
-These are just a few tips from our engineers on how to reduce your build size
+These are just a few tips from our engineers on how to reduce your build size:
 
 * npm install commands like `npm install --unsafe-perm -g @some/node-module` can have `&& npm cache clean --force && rm -rf /tmp/*` added in order to clean up the npm cache and the /tmp/npm-... folders it uses.
 
@@ -111,11 +109,11 @@ RUN mkdir /var/run/sshd \
   && echo 'root:{{ $names.os.short }}' | chpasswd
   && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 ```
-in order to merge those three layers into just one, without losing any benefits of Docker caching - this would also work well for combing the layers that add the apt mirrors.
+In order to merge those three layers into just one, without losing any benefits of Docker caching, this would also work well for combing the layers that add the apt mirrors.
 
 * You can potentially add `--no-install-recommends` in your apt-get installs in order to only install the packages you really care about, rather than all the recommended but non-essential packages.
 
-You can exclude docs/locales since they're not much use on the device, we do this via the command `COPY 01_nodoc /etc/dpkg/dpkg.cfg.d/` which has the contents:
+You can exclude `docs/locales` since they're not much use on the device, we do this via the command `COPY 01_nodoc /etc/dpkg/dpkg.cfg.d/` which has the contents:
 
 ```
 path-exclude /usr/share/doc/*
@@ -132,5 +130,5 @@ path-include /usr/share/locale/en*
 [docker-best-practices]:https://docs.docker.com/articles/dockerfile_best-practices/
 [services-masterclass]:/learn/more/masterclasses/services-masterclass/#6-multi-stage-builds
 [scratch]:https://hub.docker.com/_/scratch
-[run-vs-build]:/reference/base-images/base-images/#run-vs-build
-[install-packages]:/reference/base-images/base-images/#installing-packages
+[run-vs-build]:/reference/base-images/balena-base-images/#run-vs-build
+[install-packages]:/reference/base-images/balena-base-images/#installing-packages

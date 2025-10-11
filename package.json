@@ -1,20 +1,22 @@
 {
-  "name": "resin-docs",
+  "name": "balena-docs",
   "private": true,
-  "version": "5.10.2",
+  "version": "6.11.0",
   "engines": {
-    "node": "^10.0.0"
+    "node": "^22.0.0"
   },
-  "description": "This repo contains our public-facing documentation.",
+  "description": "This repo contains balenaCloud's public-facing documentation.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "npm run test-spelling",
-    "test-spelling": "find . -iname \"*.*md\" -not -path \"./CHANGELOG*\" -not -path \"./node_modules/*\" | ./tools/test-spelling.sh",
-    "build": "./tools/prepare.sh && ./tools/build.sh && webpack -p",
-    "build:fast": "./tools/build.sh && webpack -p",
+    "start:cloudflare": "npx wrangler pages dev build/",
+    "test": "npm run test:spelling",
+    "test:spelling": "cspell lint --gitignore -c cspell.json",
+    "build": "./tools/fetch-external.sh && npm run build:fast",
+    "build:fast": "./tools/build.sh && webpack --mode production && ./tools/deploy-static-page.sh",
+    "deploy-docs": "sudo apt install webp && npm ci && npm run build",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
-    "watch-assets": "webpack -w",
+    "watch-assets": "webpack --mode=development -w",
     "watch": "npm run watch-pages & npm run watch-assets"
   },
   "repository": {
@@ -28,26 +30,35 @@
   },
   "homepage": "https://github.com/balena-io/docs",
   "dependencies": {
-    "@resin.io/doxx": "0.11.4",
-    "bootstrap": "3.4.1",
-    "bootstrap-select": "1.12.2",
-    "coffeescript": "^1.12.7",
-    "express": "^4.17.1",
+    "@balena/doxx": "^1.0.3",
+    "balena-sdk": "^20.8.3",
+    "bootstrap": "^3.4.1",
+    "bootstrap-select": "^1.13.18",
+    "coffeescript": "^2.7.0",
+    "express": "^4.21.2",
     "express-http-to-https": "1.1.4",
-    "headroom.js": "0.9.3",
-    "highlight.js": "9.11.0",
-    "jquery": "3.5.0",
+    "headroom.js": "0.12.0",
+    "highlight.js": "10.7.3",
+    "jquery": "3.7.1",
     "jquery-colorbox": "1.6.4",
-    "lodash": "^4.17.21",
-    "metalsmith-prefixoid": "^1.0.3"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "american-british-english-translator": "^0.1.2",
-    "css-loader": "0.28.0",
-    "extract-text-webpack-plugin": "2.1.0",
-    "file-loader": "0.11.1",
-    "url-loader": "0.5.8",
-    "watch": "^0.18.0",
-    "webpack": "2.4.1"
+    "cspell": "^8.17.1",
+    "css-loader": "5.2.7",
+    "file-loader": "6.2.0",
+    "line-by-line": "^0.1.6",
+    "mini-css-extract-plugin": "^1.6.2",
+    "node-html-markdown": "^1.3.0",
+    "node-jq": "^4.4.0",
+    "static-sitemap-cli": "^2.2.6",
+    "url-loader": "4.1.1",
+    "watch": "^1.0.2",
+    "webpack": "5.96.1",
+    "webpack-cli": "^5.1.4",
+    "wrangler": "^3.99.0"
+  },
+  "versionist": {
+    "publishedAt": "2025-09-17T18:48:16.910Z"
   }
 }

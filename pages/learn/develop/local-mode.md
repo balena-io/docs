@@ -5,7 +5,7 @@ excerpt: Use {{ $names.company.lower }} local mode to prototype quickly
 
 # Develop locally
 
-Local mode is the development mode for {{ $names.company.lower }}. It allows you to build and sync code to a single development device in your local network without having to go through the {{ $names.cloud.lower }} build service and deployment pipeline. It uses the Docker daemon on the device to build container images, and then the device Supervisor starts the containers in the same way as if it were deployed via the cloud.
+Local mode is the development mode for {{ $names.company.lower }}. It allows you to build and sync code to a single development device in your local network without having to go through the {{ $names.cloud.lower }} build service and deployment pipeline. It uses the Docker daemon on the device to build container images, and then the device Supervisor starts the containers in the same way as if they were deployed via the cloud.
 
 ## Local mode requirements
 
@@ -14,30 +14,30 @@ To use local mode on a device:
 - The device must be running {{ $names.os.lower }} v2.29.0 or higher.
 - The device must be running a [development][development] variant of the OS.
 - You must have the [{{ $names.company.lower }} CLI][cli] installed on your development machine.
-- Local mode must be enabled through the {{ $names.cloud.lower }} dashboard. You can enable it from either the *Actions* menu of the device dashboard or click to expand the arrow located on the device dashboard and select *Enable Local Mode*.
+- Local mode must be enabled through the {{ $names.cloud.lower }} dashboard. You can enable it from the device _Settings_ tab.
 
-![Enable local mode](/img/local-mode/enable-local-mode.png)
+![Enable local mode](/img/local-mode/enable-local-mode.webp)
 
 ## Local mode caveats
 
 - In local mode, a device will not send logs back to the {{ $names.cloud.lower }} dashboard. Refer to the [local mode logs section](#local-mode-logs) to view logs in local mode.
 - Device and service environment variables set from the {{ $names.cloud.lower }} will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
-- Changes to device [configuration variables][configuration], for example, `RESIN_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
-- Actions such as _Restart_ and _Purge data_ from the {{ $names.cloud.lower }} dashboard will not apply to local mode containers.
-- When switching out of local mode and back to tracking releases from {{ $names.cloud.lower }}, the Supervisor will destroy any local mode containers and  volumes, as well as clean up unneeded base images, and then start up the application that {{ $names.cloud.lower }} instructs it to run.
+- Changes to device [configuration][configuration], for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
+- Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
+- When switching out of local mode and back to tracking releases from {{ $names.cloud.lower }}, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that {{ $names.cloud.lower }} instructs it to run.
 
-![Device in local mode](/img/local-mode/device-in-local-mode-20-01-09.png)
+![Device in local mode](/img/local-mode/device-in-local-mode.webp)
 
 ## Scan the network and find your device
 
-Before you can get your application running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the {{ $names.company.lower }} CLI and use `{{ $names.company.short }} scan` to find any local {{ $names.os.lower }} devices. All {{ $names.os.lower }} devices advertise themselves on the network using [Avahi][avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
+Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the {{ $names.company.lower }} CLI and use `{{ $names.company.short }} device detect` to find any local {{ $names.os.lower }} devices. All {{ $names.os.lower }} devices advertise themselves on the network using [Avahi][avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
 
-__Note:__ You may need administrator privileges to run `{{ $names.company.short }} scan` as it requires access to all network interfaces.
+__Note:__ You may need administrator privileges to run `{{ $names.company.short }} device detect` as it requires access to all network interfaces.
 
 **Command**
 
 ```bash
-sudo {{ $names.company.short }} scan
+sudo {{ $names.company.short }} device detect
 ```
 
 **Output**
@@ -66,7 +66,7 @@ Reporting scan results
 
 ## Push over a new project
 
-When local mode has been activated, {{ $names.company.lower }} CLI can push code directly to the local device instead of going via the {{ $names.cloud.lower }} builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `{{ $names.company.lower }} push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `{{ $names.company.short }} scan` command.
+When local mode has been activated, {{ $names.company.lower }} CLI can push code directly to the local device instead of going via the {{ $names.cloud.lower }} builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `{{ $names.company.lower }} push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `{{ $names.company.short }} device detect` command.
 
 __Note:__ By default `{{ $names.company.short }} push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
 
@@ -150,14 +150,14 @@ Once the code has been built on the device, it immediately starts executing, and
 
 Local mode also has another huge benefit, known as [Livepush][livepush]. Livepush makes intelligent decisions on how, or even if, to rebuild an image when changes are made. Instead of creating a new image and container with every code change, the Dockerfile commands are executed from within the running container. This means that, for example, if you added a dependency to your `package.json`, rather than having to install all of the dependencies again, only the new dependency would be installed.
 
-Once a file has been modified in the application, the Supervisor will immediately detect the change and then either rebuild the image or, for source files that run in-service, replace the changed files in-situ in the relevant container layer and restart the service. As this happens in a few seconds, it makes the process of developing much faster and more convenient.
+When a source file is modified, the Supervisor will immediately detect the change and then either rebuild the image or, for source files that run in-service, replace the changed files in situ in the relevant container layer and restart the service. As this happens in a few seconds, it makes the process of developing much faster and more convenient.
 
 ```bash
 [Live]    Detected changes for container main, updating...
 [Live]    [main] Restarting service..
 ```
 
-__Note:__ You can disable Livepush by passing the `--nolive` option to `{{ $names.company.short }} push`. To rebuild the application on the device you will need to perform another `{{ $names.company.short }} push`.
+__Note:__ You can disable Livepush by passing the `--nolive` option to `{{ $names.company.short }} push`. In this case to rebuild on the device you will need to perform another `{{ $names.company.short }} push`.
 
 ### Local mode logs
 
@@ -167,48 +167,48 @@ By default, when pushing code to a device in local mode using the {{ $names.comp
 {{ $names.company.short }} push 63ec46c.local --detached
 ```
 
-When detached, the services continue to run on the device, and you can access the logs using the `{{ $names.company.short }} logs` command, again passing the local IP address or `<short-uuid>.local`.
+When detached, the services continue to run on the device, and you can access the logs using the `{{ $names.company.short }} device logs` command, again passing the local IP address or `<short-uuid>.local`.
 
 ```shell
-{{ $names.company.short }} logs 63ec46c.local
+{{ $names.company.short }} device logs 63ec46c.local
 ```
 
-This command will output logs for the system and all running services. You may optionally filter the output to only include system or specific service logs using the available `--system` (`-S`) and `--service` (`-s`) options. For example, to only output the system logs:
+This command will output logs for the system and all running services. You may optionally filter the output to include only system or specific service logs using the available `--system` (`-S`) and `--service` (`-s`) options. For example, to output only the system logs:
 
 ```bash
-{{ $names.company.short }} logs 63ec46c.local --service <service name>
+{{ $names.company.short }} device logs 63ec46c.local --system
 ```
 
 To filter logs by a service, use the `--service` option. You may specify this option multiple times to output logs from multiple services.
 
 ```bash
-{{ $names.company.short }} logs 63ec46c.local --service main
-{{ $names.company.short }} logs 63ec46c.local --service first --service second
+{{ $names.company.short }} device logs 63ec46c.local --service main
+{{ $names.company.short }} device logs 63ec46c.local --service first --service second
 ```
 
 These options can be combined to output system and selected service logs e.g.
 
 ```bash
-{{ $names.company.short }} logs 827b231.local --system --service first --service second
+{{ $names.company.short }} device logs 827b231.local --system --service first --service second
 ```
 
-__Note:__ You may also specify the `--service` and `--system` options using the  `{{ $names.company.short }} push` command to filter the log output.
+__Note:__ You may also specify the `--service` and `--system` options using the `{{ $names.company.short }} push` command to filter the log output.
 
 ## SSH into the running app container or host OS
 
-To access the local device over [SSH][ssh], use the `{{ $names.company.short }} ssh` command specifying the device IP address or `<short-uuid>.local`.  By default, SSH access is routed into the host OS shell and, from there, we can check system logs and [perform other troubleshooting tasks][troubleshooting]:
+To access the local device over [SSH][ssh], use the `{{ $names.company.short }} device ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and [perform other troubleshooting tasks][troubleshooting]:
 
 ```bash
-{{ $names.company.short }} ssh 192.168.86.45
+{{ $names.company.short }} device ssh 192.168.86.45
 ```
 
-To connect to an application container, we can specify the service name e.g.
+To connect to a container, we can specify the service name e.g.
 
 ```bash
-sudo {{ $names.company.short }} ssh 63ec46c.local my-service
+sudo {{ $names.company.short }} device ssh 63ec46c.local my-service
 ```
 
-__Note:__ If an IP address or a `.local` hostname is used (instead of an application name or device UUID), `{{ $names.company.short }} ssh` establishes a direct connection to the device on port `22222` that does not rely on the {{ $names.company.short }} VPN.
+__Note:__ If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }} device ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
 
 ## Using a Private Docker Registry
 
@@ -228,9 +228,8 @@ Sample secrets YAML file:
   password: myPassword
 ```
 
-[development]:/reference/OS/overview/2.x/#dev-vs-prod-images
+[development]:/reference/OS/overview/2.x/#development-vs-production-images
 [cli]:/reference/cli
-[supervisor API]:/reference/supervisor/supervisor-api/
 [compose-remote]:{{ $links.githubPlayground }}/{{ $names.company.short }}os-compose
 [troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access
 [configuration]:/learn/manage/configuration/

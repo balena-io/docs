@@ -1,0 +1,52 @@
+{
+    "language": "en",
+    "caseSensitive": false,
+    "dictionaries": [
+        "balena",
+        "computerTerms",
+        "en_US",
+        "companies",
+        "softwareTerms",
+        "python",
+        "cpp",
+        "go",
+        "npm",
+        "node",
+        "javascript",
+        "typescript",
+        "filestypes",
+        "html",
+        "css",
+        "bash",
+        "powershell"
+    ],
+    "dictionaryDefinitions": [
+        {
+            "name": "balena",
+            "path": "./.cspell/balena-words.txt",
+            "addWords": true
+        },
+        {
+            "name": "computerTerms",
+            "path": "./.cspell/computer-terms.txt",
+            "addWords": true
+        }
+    ],
+    "files": [
+        "config/**",
+        "pages/**/*.md",
+        "shared/**/*.md",
+        "templates/*",
+        "README.md",
+        "CONTRIBUTING.md"
+    ],
+    "exclude": [
+        "*/*.svg"
+    ],
+    "ignorePaths": [
+        "node_modules",
+        "CHANGELOG.md",
+        "config/redirects.txt",
+        "pages/reference/base-images/base-images-ref.md"
+    ]
+}

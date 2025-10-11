@@ -1,4 +1,4 @@
-# Self-service supervisor upgrades
+# Self-service Supervisor Upgrades
 
 The balena Supervisor can be upgraded independently of {{ $names.os.lower }}.
 
@@ -10,22 +10,31 @@ whereby an independent Supervisor upgrade is preferable:
 * Less downtime (if any)
 * Smaller update size
 
-To run an update for an individual device, navigate to that device's *Actions* tab, click *Update supervisor*, and
+To run an update for an individual device, navigate to that device's *Settings* tab, scroll down to *Supervisor version* section, and
 select the version of the balena Supervisor you would like to update to:
 
-![Supervisor device upgrade](/img/common/updates/supervisor-device-upgrade.png)
+![Supervisor device upgrade](/img/common/updates/supervisor-device-upgrade.webp)
 
-Updates can also be issued to multiple devices in the same application with the same CPU architecture. From the device
-list, click the checkbox to the left of any online devices you wish to update. Then click the *Actions* button in the
-upper-right corner of the dashboard, followed by *Update supervisor*:
+Updates can also be issued to multiple devices in the same fleet with the same CPU architecture. From the device
+list, click the checkbox to the left of any online devices you wish to update. Then use the *Modify* dropdown to select the *Supervisor version* option:
 
-![Supervisor batch upgrade](/img/common/updates/supervisor-batch-upgrade.svg)
+![Supervisor batch upgrade](/img/common/updates/supervisor-batch-upgrade.webp)
 
-Additionally, these devices can be scheduled for an offline device. The update will be performed once the device comes
+From the dialog box that opens, select the Supervisor version you would like to update to and click the `Apply` button to trigger the Supervisor update. 
+
+![Supervisor batch upgrade dialog](/img/common/updates/supervisor-batch-upgrade-dialog.webp)
+
+Additionally, these updates can be scheduled for an offline device as well. The update will be performed once the device comes
 back online and successfully connects to the {{ $names.cloud.lower }} backend.
 
 __Note:__ Only devices running {{ $names.os.lower }} v2.12.0 or greater are able to upgrade the Supervisor independently.
 
-For more information on specific limitations when upgrading the balena Supervisor, see the [upgrade policy][upgrade-policy].
+## Upgrade paths
 
-[upgrade-policy]:/reference/supervisor/upgrade-policy
+Downgrades of the Supervisor are not supported.
+
+Upgrading to a new minor version is supported, and should be seamless.
+
+Upgrading to a new major version should work; however, it is the user's responsibility to test those changes, and verify that they do not cause problems for their fleet. The changelog for the balena Supervisor can be found [here](https://github.com/balena-os/balena-supervisor/blob/master/CHANGELOG.md).
+
+For devices managed by balenaCloud, we reserve the right to upgrade the Supervisor when necessary, such as to apply bug fixes. (This does not apply to devices managed by balena On Prem installations, or by self-hosted openBalena instances.) We will make every effort to notify users in advance of such an update, and to respect constraints such as bandwidth. In addition, we will not upgrade between major versions without consulting with users.

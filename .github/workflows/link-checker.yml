@@ -1,0 +1,53 @@
+name: link checker
+
+on:
+  # Run action manually when needed
+  workflow_dispatch:
+  # Check links once a week on Monday
+  schedule:
+    - cron: "00 00 * * 1"
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+  pull-requests: read
+
+jobs:
+  Checking-Links:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      # fetch external files && Building the docs
+      - name: Build the docs
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65
+        with:
+          node-version: 18
+      - run: npm run deploy-docs
+
+      # Run link checker on the generated HTML
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@2b973e86fc7b1f6b36a93795fe2c9c6ae1118621 # for v1.10.0
+        with:
+          args: >
+            --base https://docs.balena.io
+            --config ./lychee.toml
+            "build/**/*" "tools/fetch-external.sh"
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue From File
+        if: env.lychee_exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Link Checker Report
+          token: ${{ secrets.GITHUB_TOKEN }}
+          content-filepath: ./lychee/out.md
+          labels: |
+            report
+            automated issue

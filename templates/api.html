@@ -1,6 +1,10 @@
 {% extends "default.html" %}
 
 {% block "contents" %}
+	<h1 id="balenacloud-api-resources">balenaCloud API Resources</h1>
+
+	<p><strong>Note:</strong> We recently renamed <strong>applications</strong> to <strong>fleets</strong> and are in the process of updating our API resources. Application resources continue to function correctly and can be used to work with fleets. <a href="https://www.balena.io/blog/the-road-to-multi-app-transitioning-balenacloud-applications-to-fleets/">Find out more about the changes here</a>.</p>
+
 	<div style="display: flex;">
 		<div style="float: left; width: 40%; padding-right: 10px;">
 			<h2>Available fields</h2>
@@ -16,7 +20,7 @@
 				{% endif %}
 				<pre><code>curl -X {{ example.method }} \
 "{{ $links.apiBase }}{{ example.endpoint }}{{ example.filters }}" \
--H "Content-Type: application/json" \
+-H {% if example.content-type %} "Content-Type: {{example.content-type}}" {% else %} "Content-Type: application/json" {% endif %} \
 -H "Authorization: Bearer &lt;AUTH_TOKEN&gt;" {% if example.data %}\
 --data '{{ example.data }}'{% endif %}</code></pre>
 			{% endfor %}

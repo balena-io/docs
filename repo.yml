@@ -1,0 +1,4 @@
+type: 'node'
+upstream:
+  - repo: '@balena/doxx'
+    url: 'https://github.com/balena-io/doxx'

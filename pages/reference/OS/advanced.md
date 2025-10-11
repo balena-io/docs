@@ -5,15 +5,13 @@ excerpts: Configuration options to expose more device functionality to {{ $names
 
 # Advanced boot settings
 
-__Warning:__ This page contains details of advanced configuration options that expose more functionality, but any mistakes may potentially leave a device inaccessible.
+__Warning:__ This page contains details of advanced configuration options that expose more functionality, but any mistakes may potentially leave a device inaccessible. Be sure to try your changes in a controlled environment before applying them to production devices.
 
 ## Raspberry Pi
 
-The Raspberry Pi exposes device [configuration options][config-txt] via a text file on the [boot partition][boot-partition] named [`config.txt`][config-txt]. You can change boot options in this file, either by manually editing it before the device's first boot or editing the device [configuration variables][config-vars]. By default, the following values are set for Raspberry Pi devices:
+The Raspberry Pi exposes device configuration options via a text file on the [boot partition][boot-partition] named [`config.txt`][config-txt]. You can change boot options in this file, either by manually editing it before the device's first boot or editing the default [configuration][configuration-list] values using the device [Configuration][configuration] tab in the balenaCloud dashboard. 
 
-{{> "general/config-variables-pi" }}
-
-The boot partition is mounted on the device at `/mnt/boot`, and so on the device, the file is located at `/mnt/boot/config.txt`. For example, to view the contents of `config.txt` on a provisioned device use the following commands:
+The boot partition is mounted on the device at `/mnt/boot`, so the file is located at `/mnt/boot/config.txt` on the device. To view the contents of `config.txt` on a provisioned device, use the following commands:
 
 ```shell
 $ balena ssh <uuid>
@@ -26,9 +24,7 @@ Before the device is [provisioned][device-provisioning], you may edit `config.tx
 
 ### Modifying `config.txt` using configuration variables
 
-After the device has been [provisioned][device-provisioning], you can modify the values in `config.txt` using [configuration variables][config-vars].
-
-__Note:__ After modifying a `config.txt` variable, the device supervisor will apply the changes and reboot the device.
+After the device has been [provisioned][device-provisioning], you can modify the values in `config.txt` using the [configuration][configuration] tab on the dashboard. In order to modify a `config.txt` variable, the device supervisor will apply the changes and reboot the device.
 
 Variables that start with the `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` prefix will be added to the `config.txt` file, replacing any preexisting values in the file. For example, a variable named `BALENA_HOST_CONFIG_start_x` with the value of `1` will result in the following entry in `config.txt`:
 
@@ -36,17 +32,7 @@ Variables that start with the `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` pref
 start_x=1
 ```
 
-To manage configuration variables via the dashboard, add/edit variables via the *Fleet Configuration* page for [fleet-wide config variables][config-vars-fleet] and *Device Configuration* for [device specific variables][config-vars-device]. The device-specific variables, if defined, will override the fleet-wide variables of the same name. See the [configuration variables documentation][config-vars] for more details.
-
-Configuration values that are prepopulated may be edited or toggled (enabled/disabled):
-
-<img alt="Prepopulated device configuration variables" src="/img/configuration/default_configuration.png" width="100%">
-
-Custom configuration variables may be added by clicking _Add custom variable_ and entering a name with the prefix of `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` as shown below:
-
-<img alt="Add fleet configuration variable" src="/img/configuration/variable_editor_config.png" width="60%">
-
-__Note:__ In addition to the dashboard, these configuration variables can be also be set using the API or any of its clients, including the [SDK][sdk] and [CLI][cli].
+To manage the configuration via the dashboard, modify the variables via the *Configuration* tab on the [fleet][configuration-fleet] or [device][configuration-device] level. The variables with the same named defined at the device level, will override the variables defined fleet wide. See [Custom Configuration][custom-configuration] in order to modify configuration options remotely using the balenaCloud dashboard.
 
 ### GPU Memory
 
@@ -80,7 +66,7 @@ This has a number of consequences for users of the serial interface:
   - 16550 like registers.
   - Baudrate derived from system clock.
 
-The mini UART is enabled by default for development images. For production images either enable it using [configuration variables][config-vars] or before device provisioning by adding the following entry to `config.txt`:
+The mini UART is enabled by default for development images. For production images either enable it using the [Configuration][configuration] tab or before device provisioning by adding the following entry to `config.txt`:
 
 ```
 enable_uart=1
@@ -92,9 +78,9 @@ __Note:__ For further information on UART device tree overlays, see the [Raspber
 
 The Raspberry Pi allows loading [custom device tree overlays][device-tree-overlay] using the `dtoverlay` setting in `config.txt`. It also allows setting parameters for the default overlay with the `dtparam` setting. For these settings, the syntax is different from other keys because several entries can be added, and the bootloader will use all of them.
 
-To allow setting several values, devices running {{ $names.os.lower }} version >= 2.12.0  (supervisor >= 7.0.0), will parse the values of `RESIN_HOST_CONFIG_dtoverlay` and `RESIN_HOST_CONFIG_dtparam` in a special way where the value of the configuration variable will be treated as the contents of a JSON array (without the enclosing braces `[]`), so a comma-separated list of quote-enclosed values will be split into several lines.
+To allow setting several values, devices running {{ $names.os.lower }} version >= 2.12.0  (supervisor >= 7.0.0), will parse the values of `BALENA_HOST_CONFIG_dtoverlay` and `BALENA_HOST_CONFIG_dtparam` in a special way where the value of the configuration variable will be treated as the contents of a JSON array (without the enclosing braces `[]`), so a comma-separated list of quote-enclosed values (straight quotes, not curly) will be split into several lines.
 
-For example, the default value of `RESIN_HOST_CONFIG_dtparam = "i2c_arm=on","spi=on","audio=on"` will translate into the following entries in config.txt:
+For example, the default value of `BALENA_HOST_CONFIG_dtparam = "i2c_arm=on","spi=on","audio=on"` will translate into the following entries in config.txt:
 
 ```
 dtparam=i2c_arm=on
@@ -102,14 +88,26 @@ dtparam=spi=on
 dtparam=audio=on
 ```
 
-Another example would be setting several overlays with their own parameters, e.g. `RESIN_HOST_CONFIG_dtoverlay = "i2c-rtc,ds1307","lirc-rpi"` will translate to:
+Please note that `spi`, `audio`, and all of the `i2c` params should be specified within their own sets of quotes in order to be written correctly to `config.txt`.
+
+Another example would be setting several overlays with their own parameters, e.g. `BALENA_HOST_CONFIG_dtoverlay = "i2c-rtc,ds1307","lirc-rpi"` will translate to:
 
 ```
 dtoverlay=i2c-rtc,ds1307
 dtoverlay=lirc-rpi
 ```
 
-This parsing will only be done if the value is a valid string, so if it doesn't begin with a quote `"`, the value will be parsed as a single string and not split into several lines. For instance `RESIN_HOST_CONFIG_dtoverlay = i2c-rtc,ds1307` will translate to:
+As of Supervisor v16+, the above will translate to:
+
+```
+dtoverlay=i2c-rtc
+dtparam=dc1307
+dtoverlay=lirc-rpi
+```
+
+This modifies each parameter to be on its own line in order to avoid the 80 character line limit imposed by config.txt. It is the recommended method of setting one or more overlays with their own parameters.
+
+This parsing will only be done if the value is a valid string, so if it doesn't begin with a quote `"`, the value will be parsed as a single string and not split into several lines. For instance `BALENA_HOST_CONFIG_dtoverlay = i2c-rtc,ds1307` will translate to:
 
 ```
 dtoverlay=i2c-rtc,ds1307
@@ -119,17 +117,18 @@ dtoverlay=i2c-rtc,ds1307
 
 To disable the Raspberry Pi rainbow splash screen, add the `disable_splash=1` entry to `config.txt`.
 
-__Note:__ This setting disables the Raspberry Pi rainbow splash screen but does not disable the {{ $names.company.lower }} logo splash screen. If you would like to replace the {{ $names.company.lower }} logo with your custom splash logo, replace `splash/balena-logo.png` located in the [boot partition][boot-partition] of the image. Note that this file may be called `resin-logo.png` on older releases.
+__Note:__ This setting disables the Raspberry Pi rainbow splash screen but does not disable the {{ $names.company.lower }} logo splash screen. If you would like to replace the {{ $names.company.lower }} logo with your custom splash logo, you must do so via the [Configuration page][configuration-page].
 
 [boot-partition]:/reference/OS/overview/2.x/#image-partition-layout
-[cli]:/reference/cli/reference/balena-cli/#envs
-[config-txt]:https://www.raspberrypi.org/documentation/configuration/config-txt/
-[config-vars]:/learn/manage/configuration
-[config-vars-fleet]:/learn/manage/configuration/#managing-fleet-configuration-variables
-[config-vars-device]:/learn/manage/configuration/#managing-device-configuration-variables
+[config-txt]:https://www.raspberrypi.com/documentation/computers/config_txt.html
+[configuration]:/learn/manage/configuration
+[configuration-page]:/learn/manage/configuration/#overriding-the-splash-screen
+[configuration-list]:/reference/supervisor/configuration-list
+[configuration-fleet]:/learn/manage/configuration/#fleet-configuration-management
+[configuration-device]:/learn/manage/configuration/#device-configuration-management
+[custom-configuration]:/learn/manage/configuration/#adding-custom-configuration
 [device-provisioning]:/learn/welcome/primer/#device-provisioning
 [device-tree-overlay]:https://github.com/raspberrypi/linux/blob/rpi-4.19.y/arch/arm/boot/dts/overlays/README
-[gpu-memory]:https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md
+[gpu-memory]:https://www.raspberrypi.com/documentation/computers/config_txt.html#memory-options
 [image-variants]:/reference/OS/overview/2.x/#variants-of-balenaos
-[sdk]:/reference/sdk/node-sdk
-[uart]:https://www.raspberrypi.org/documentation/configuration/uart.md
+[uart]:https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts

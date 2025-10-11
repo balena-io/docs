@@ -1,3 +1,325 @@
+###############################################
+# Cloudflare Style Redirects
+###############################################
+
+# When adding new redirects in here, make sure you include both
+# one with a trailing slash, and one without, as Cloudflare treats
+# these separately.
+# If you miss adding one of the variants the deploy-static step
+# should fail with an error to avoid publishing to production.
+
+# Legacy URLs
+/pages/ /
+/pages /
+/introduction/introduction/ /learn/welcome/introduction/
+/introduction/introduction /learn/welcome/introduction/
+/ /learn/welcome/introduction/ 301
+/learn/ /learn/welcome/introduction/ 301
+/learn /learn/welcome/introduction/ 301
+/installing/gettingStarted/ /learn/getting-started/raspberrypi5/nodejs/
+/installing/gettingStarted /learn/getting-started/raspberrypi5/nodejs/
+/installing/gettingStarted-BBB/ /learn/getting-started/beaglebone-black/nodejs/
+/installing/gettingStarted-BBB /learn/getting-started/beaglebone-black/nodejs/
+/installing/gettingStarted-Humming/ /learn/getting-started/hummingboard/nodejs/
+/installing/gettingStarted-Humming /learn/getting-started/hummingboard/nodejs/
+/installing/gettingStarted-NUC/ /learn/getting-started/intel-nuc/nodejs/
+/installing/gettingStarted-NUC /learn/getting-started/intel-nuc/nodejs/
+/installing/gettingStarted-Nitrogen6x/ /learn/getting-started/nitrogen6x/nodejs/
+/installing/gettingStarted-Nitrogen6x /learn/getting-started/nitrogen6x/nodejs/
+/installing/gettingStarted-Edison/ /learn/getting-started/intel-edison/nodejs/
+/installing/gettingStarted-Edison /learn/getting-started/intel-edison/nodejs/
+/installing/gettingStarted-Odroid-C1/ /learn/getting-started/odroid-c1/nodejs/
+/installing/gettingStarted-Odroid-C1 /learn/getting-started/odroid-c1/nodejs/
+/installing/gettingStarted-Odroid-XU4/ /learn/getting-started/odroid-XU4/nodejs/
+/installing/gettingStarted-Odroid-XU4 /learn/getting-started/odroid-XU4/nodejs/
+/installing/gettingStarted-TS4900/ /learn/getting-started/ts4900/nodejs/
+/installing/gettingStarted-TS4900 /learn/getting-started/ts4900/nodejs/
+/installing/otherboards/ /learn/getting-started/raspberrypi5/nodejs/
+/installing/otherboards /learn/getting-started/raspberrypi5/nodejs/
+
+# Device name changes
+/raspberrypi/ /raspberry-pi/
+/raspberrypi /raspberry-pi/
+/raspberrypi2/ /raspberry-pi2/
+/raspberrypi2 /raspberry-pi2/
+/raspberrypi4/ /raspberrypi4-64/
+/raspberrypi4 /raspberrypi4-64/
+/edison/ /intel-edison/
+/edison /intel-edison/
+/nuc/ /intel-nuc/
+/nuc /intel-nuc/
+/beaglebone/ /beaglebone-black/
+/beaglebone /beaglebone-black/
+/dart6ul/ /imx6ul-var-dart/
+/dart6ul /imx6ul-var-dart/
+
+# Default redirects
+/learn/getting-started/ /learn/getting-started/raspberrypi5/nodejs/ 301
+/learn/getting-started /learn/getting-started/raspberrypi5/nodejs/ 301
+/reference/supervisor/configuration-list/ /reference/supervisor/configuration-list/raspberrypi5/
+/reference/supervisor/configuration-list /reference/supervisor/configuration-list/raspberrypi5/
+/faq/troubleshooting/troubleshooting/ /faq/troubleshooting/raspberrypi5/
+/faq/troubleshooting/troubleshooting /faq/troubleshooting/raspberrypi5/
+/learn/develop/ /learn/develop/local-mode/
+/learn/develop /learn/develop/local-mode/
+/learn/develop/cloud-iot-provisioning/ /learn/develop/cloud-iot-provisioning/aws/
+/learn/develop/cloud-iot-provisioning /learn/develop/cloud-iot-provisioning/aws/
+/learn/deploy/ /learn/deploy/deployment/
+/learn/deploy /learn/deploy/deployment/
+/learn/deploy/build-optimisation/ /learn/deploy/build-optimization/
+/learn/deploy/build-optimisation /learn/deploy/build-optimization/
+/learn/manage/ /learn/manage/actions/
+/learn/manage /learn/manage/actions/
+/faq/ /faq/questions/
+/faq /faq/questions/
+/reference/ /reference/hardware/devices/
+/reference /reference/hardware/devices/
+/reference/api/ /reference/api/overview/
+/reference/api /reference/api/overview/
+
+# Renamed pages
+/using/dockerfile/ /learn/develop/dockerfile/
+/using/dockerfile /learn/develop/dockerfile/
+/runtime/migrate-to-2.0/ /reference/OS/updates/migrate-to-2.0/
+/runtime/migrate-to-2.0 /reference/OS/updates/migrate-to-2.0/
+/configuration/resin-base-images/ /reference/base-images/balena-base-images/
+/configuration/resin-base-images /reference/base-images/balena-base-images/
+/deployment/wifi/ /reference/OS/network/2.x/
+/deployment/wifi /reference/OS/network/2.x/
+/runtime/terminal/ /learn/manage/ssh-access/
+/runtime/terminal /learn/manage/ssh-access/
+/using/cli/ /reference/balena-cli/latest/
+/using/cli /reference/balena-cli/latest/
+/learn/deploy/release-strategy/update-locking/API/ /reference/supervisor/supervisor-api/
+/learn/deploy/release-strategy/update-locking/API /reference/supervisor/supervisor-api/
+/reference/cli/ /reference/balena-cli/latest/
+/reference/cli /reference/balena-cli/latest/
+/docs/learn/deploy/release-strategy/update-locking/API/ /reference/supervisor/supervisor-api/
+/docs/learn/deploy/release-strategy/update-locking/API /reference/supervisor/supervisor-api/
+/learn/more/masterclass/ /learn/more/masterclasses/overview/
+/learn/more/masterclass /learn/more/masterclasses/overview/
+/learn/more/masterclasses/overview/ /learn/more/masterclasses/masterclass-intro/
+/learn/more/masterclasses/overview /learn/more/masterclasses/masterclass-intro/
+/learn/manage/serv-vars/ /learn/manage/variables/
+/learn/manage/serv-vars /learn/manage/variables/
+/reference/supervisor/upgrade-policy/ /reference/supervisor/supervisor-upgrades/
+/reference/supervisor/upgrade-policy /reference/supervisor/supervisor-upgrades/
+/learn/develop/integrations/ /learn/develop/cloud-iot-provisioning/
+/learn/develop/integrations /learn/develop/cloud-iot-provisioning/
+/learn/develop/integrations/aws/ /learn/develop/cloud-iot-provisioning/aws/
+/learn/develop/integrations/aws /learn/develop/cloud-iot-provisioning/aws/
+/learn/develop/integrations/azure-iot-hub/ /learn/develop/cloud-iot-provisioning/azure/
+/learn/develop/integrations/azure-iot-hub /learn/develop/cloud-iot-provisioning/azure/
+/learn/develop/integrations/google-iot/ /learn/develop/cloud-iot-provisioning/
+/learn/develop/integrations/google-iot /learn/develop/cloud-iot-provisioning/
+/learn/develop/integrations/bluemix/ /learn/develop/cloud-iot-provisioning/
+/learn/develop/integrations/bluemix /learn/develop/cloud-iot-provisioning/
+/learn/develop/cloud-iot-provisioning/gcp/ /learn/develop/cloud-iot-provisioning/
+/learn/develop/cloud-iot-provisioning/gcp /learn/develop/cloud-iot-provisioning/
+
+# Restructure
+/introduction/ /learn/welcome/introduction/
+/introduction /learn/welcome/introduction/
+/getting-started/ /learn/getting-started/
+/getting-started /learn/getting-started/
+/understanding/understanding-code-deployment/ /learn/deploy/deployment/
+/understanding/understanding-code-deployment /learn/deploy/deployment/
+/deployment/deployment/ /learn/deploy/deployment/
+/deployment/deployment /learn/deploy/deployment/
+/deployment/dockerfile/ /learn/develop/dockerfile/
+/deployment/dockerfile /learn/develop/dockerfile/
+/runtime/runtime/ /learn/develop/runtime/
+/runtime/runtime /learn/develop/runtime/
+/runtime/time/ /reference/OS/time/
+/runtime/time /reference/OS/time/
+/runtime/update-strategies/ /learn/deploy/release-strategy/update-strategies/
+/runtime/update-strategies /learn/deploy/release-strategy/update-strategies/
+/runtime/delta/ /learn/deploy/delta/
+/runtime/delta /learn/deploy/delta/
+/runtime/bandwidth-reduction/ /reference/supervisor/bandwidth-reduction/
+/runtime/bandwidth-reduction /reference/supervisor/bandwidth-reduction/
+/runtime/update-locking/ /learn/deploy/release-strategy/update-locking/
+/runtime/update-locking /learn/deploy/release-strategy/update-locking/
+/development/local-mode/ /learn/develop/local-mode/
+/development/local-mode /learn/develop/local-mode/
+/understanding/understanding-devices/ /reference/OS/overview/
+/understanding/understanding-devices /reference/OS/overview/
+/updates/self-service/ /reference/OS/updates/self-service/
+/updates/self-service /reference/OS/updates/self-service/
+/updates/update-process/ /reference/OS/updates/update-process/
+/updates/update-process /reference/OS/updates/update-process/
+/update/migrate-to-2.0/ /reference/OS/updates/migrate-to-2.0/
+/update/migrate-to-2.0 /reference/OS/updates/migrate-to-2.0/
+/hardware/gpio/ /learn/develop/hardware/gpio/
+/hardware/gpio /learn/develop/hardware/gpio/
+/hardware/i2c-and-spi/ /learn/develop/hardware/i2c-and-spi/
+/hardware/i2c-and-spi /learn/develop/hardware/i2c-and-spi/
+/hardware/wifi-dongles/ /reference/hardware/wifi-dongles/
+/hardware/wifi-dongles /reference/hardware/wifi-dongles/
+/management/env-vars/ /learn/manage/serv-vars/
+/management/env-vars /learn/manage/serv-vars/
+/management/applications/ /learn/manage/actions/
+/management/applications /learn/manage/actions/
+/management/devices/ /learn/manage/actions/
+/management/devices /learn/manage/actions/
+/management/preferences/ /learn/accounts/account/
+/management/preferences /learn/accounts/account/
+/configuration/advanced/ /reference/OS/advanced/
+/configuration/advanced /reference/OS/advanced/
+/deployment/network/ /reference/OS/network/
+/deployment/network /reference/OS/network/
+/security/ /learn/welcome/security/
+/security /learn/welcome/security/
+/integrations/ /learn/develop/integrations/
+/integrations /learn/develop/integrations/
+/hardware/meta-resin/ /reference/OS/meta-balena/
+/hardware/meta-resin /reference/OS/meta-balena/
+/advanced/resources/ /learn/more/resources/
+/advanced/resources /learn/more/resources/
+/examples/ /learn/more/examples/
+/examples /learn/more/examples/
+/troubleshooting/faq/ /faq/questions/
+/troubleshooting/faq /faq/questions/
+/troubleshooting/troubleshooting/ /faq/troubleshooting/
+/troubleshooting/troubleshooting /faq/troubleshooting/
+/troubleshooting/error/ /faq/troubleshooting/
+/troubleshooting/error /faq/troubleshooting/
+/troubleshooting/cli-troubleshooting/ /faq/troubleshooting/
+/troubleshooting/cli-troubleshooting /faq/troubleshooting/
+/hardware/devices/ /reference/hardware/devices/
+/hardware/devices /reference/hardware/devices/
+/runtime/supervisor-api/ /reference/supervisor/supervisor-api/
+/runtime/supervisor-api /reference/supervisor/supervisor-api/
+/runtime/data-api/ /reference/api/overview/
+/runtime/data-api /reference/api/overview/
+/tools/cli/ /reference/balena-cli/latest/
+/tools/cli /reference/balena-cli/latest/
+/tools/sdk/ /reference/sdk/node-sdk/latest/
+/tools/sdk /reference/sdk/node-sdk/latest/
+/tools/python-sdk/ /reference/sdk/python-sdk/latest/
+/tools/python-sdk /reference/sdk/python-sdk/latest/
+/runtime/resin-base-images/ /reference/base-images/balena-base-images/
+/runtime/resin-base-images /reference/base-images/balena-base-images/
+/configuration/custom-docker-base-images/ /reference/base-images/customer-docker-base-images/
+/configuration/custom-docker-base-images /reference/base-images/customer-docker-base-images/
+/deployment/docker-templates/ /learn/develop/dockerfile/
+/deployment/docker-templates /learn/develop/dockerfile/
+/support/ /learn/welcome/support/
+/support /learn/welcome/support/
+/devicetypes/ /reference/base-images/devicetypes/
+/devicetypes /reference/base-images/devicetypes/
+/deployment/build-optimisation/ /learn/deploy/build-optimization/
+/deployment/build-optimisation /learn/deploy/build-optimization/
+/reference/data-api/ /reference/api/overview/
+/reference/data-api /reference/api/overview/
+/reference/resinOS/ /reference/OS/
+/reference/resinOS /reference/OS/
+/reference/OS/meta-balena/ /reference/OS/customer-board-support/
+/reference/OS/meta-balena /reference/OS/customer-board-support/
+/reference/OS/custom-device-support/ /reference/OS/customer-board-support/
+/reference/OS/custom-device-support /reference/OS/customer-board-support/
+/reference/base-images/resin-base-images/ /reference/base-images/balena-base-images/
+/reference/base-images/resin-base-images /reference/base-images/balena-base-images/
+/reference/api/resources/application/ /reference/api/resources/fleet/
+/reference/api/resources/application /reference/api/resources/fleet/
+/learn/manage/app-types/ /learn/accounts/fleet-types/
+/learn/manage/app-types /learn/accounts/fleet-types/
+/learn/welcome/support/ /learn/accounts/support-access/ 301
+/learn/welcome/support /learn/accounts/support-access/ 301
+/learn/welcome/core-concepts/ /learn/more/glossary/ 301
+/learn/welcome/core-concepts /learn/more/glossary/ 301
+/learn/welcome/glossary/ /learn/more/glossary/ 301
+/learn/welcome/glossary /learn/more/glossary/ 301
+/learn/more/masterclasses/ /learn/more/masterclasses/masterclass-intro/ 301
+/learn/more/masterclasses /learn/more/masterclasses/masterclass-intro/ 301
+/learn/more/examples/projects /learn/more/examples/labs-projects
+/learn/more/examples/projects/ /learn/more/examples/labs-projects
+/learn/more/examples/seed-projects /learn/more/examples/labs-projects
+/learn/more/examples/seed-projects/ /learn/more/examples/labs-projects
+
+# Accounts & Billing restructure
+/learn/manage/account/ /learn/accounts/account/
+/learn/manage/account /learn/accounts/account/
+/learn/manage/organizations/ /learn/accounts/organizations/
+/learn/manage/organizations /learn/accounts/organizations/
+/learn/manage/billing/ /learn/accounts/billing/
+/learn/manage/billing /learn/accounts/billing/
+/learn/manage/fleet-types/ /learn/accounts/fleet-types/
+/learn/manage/fleet-types /learn/accounts/fleet-types/
+/learn/manage/support-access/ /learn/accounts/support-access/
+/learn/manage/support-access /learn/accounts/support-access/
+
+/learn/manage/apps/ /learn/develop/apps/
+/learn/manage/apps /learn/develop/apps/
+
+# FAQ restructure
+/faq/troubleshooting/ /faq/troubleshooting/raspberrypi5/
+/faq/troubleshooting /faq/troubleshooting/raspberrypi5/
+/faq/troubleshooting/faq/ /faq/questions/
+/faq/troubleshooting/faq /faq/questions/
+/faq/troubleshooting/debugging-device-gateway/ /faq/debugging-device-gateway/
+/faq/troubleshooting/debugging-device-gateway /faq/debugging-device-gateway/
+/faq/troubleshooting/debugging-storage-media/ /faq/debugging-storage-media/
+/faq/troubleshooting/debugging-storage-media /faq/debugging-storage-media/
+
+# base images restructure
+/reference/base-images/base-images/ /reference/base-images/balena-base-images/
+/reference/base-images/base-images /reference/base-images/balena-base-images/
+
+# Versioned CLI docs
+/reference/balena-cli/ /reference/balena-cli/latest/
+/reference/balena-cli /reference/balena-cli/latest/
+
+# Versioned Node.js SDK docs
+/reference/sdk/node-sdk/ /reference/sdk/node-sdk/latest/
+/reference/sdk/node-sdk /reference/sdk/node-sdk/latest/
+
+# Versioned Python.js SDK docs
+/reference/sdk/python-sdk/ /reference/sdk/python-sdk/latest/
+/reference/sdk/python-sdk /reference/sdk/python-sdk/latest/
+
+# hardware/jetson-orin
+/learn/develop/hardware/jetson-orin/ /learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit/
+/learn/develop/hardware/jetson-orin /learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit/
+
+# Important: keep dynamic redirect below the static redirects
+# https://developers.cloudflare.com/pages/platform/redirects/
+
+# BREAKING - Redirect all image formats to webp
+# All images must be served in webp format
+# The build script converts images during build time.
+
+/img/*.png/ /img/:splat.webp
+/img/*.png /img/:splat.webp
+/img/*.jpg/ /img/:splat.webp
+/img/*.jpg /img/:splat.webp
+/img/*.jpeg/ /img/:splat.webp
+/img/*.jpeg /img/:splat.webp
+
+# Dynamic redirects
+
+/deployment/network/:version/ /reference/OS/network/
+/deployment/network/:version /reference/OS/network/
+/understanding/understanding-devices/:version/ /reference/OS/overview/
+/understanding/understanding-devices/:version /reference/OS/overview/
+/reference/OS/overview/:version/ /reference/OS/overview/
+/reference/OS/overview/:version /reference/OS/overview/
+/reference/OS/network/:version/ /reference/OS/network/
+/reference/OS/network/:version /reference/OS/network/
+/faq/troubleshooting/troubleshooting/:devicetype/ /faq/troubleshooting/:devicetype/
+/faq/troubleshooting/troubleshooting/:devicetype /faq/troubleshooting/:devicetype/
+
+## Removed Getting Started guides
+
+/learn/getting-started/skx2/:language/ /learn/getting-started/raspberrypi5/:language/
+/learn/getting-started/skx2/:language /learn/getting-started/raspberrypi5/:language/
+/learn/getting-started/ts4900/:language/ /learn/getting-started/raspberrypi5/:language/
+/learn/getting-started/ts4900/:language /learn/getting-started/raspberrypi5/:language/
+
+###############################################
+# Legacy Server Style Redirects
+###############################################
+
 # the file defines a series of rewrite rules
 # LHS is a RegExp and RHS is the replacement string
 # because of RegExp slashes and dots must be escaped
@@ -8,7 +330,7 @@
 (.*)\.md(.*) -> $1$2
 ^\/introduction\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
 ^\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
-^\/installing\/gettingStarted\/?(\?.+)?(#.+)?$-> /learn/getting-started/raspberrypi3/nodejs/$1$2
+^\/installing\/gettingStarted\/?(\?.+)?(#.+)?$-> /learn/getting-started/raspberrypi5/nodejs/$1$2
 ^\/installing\/gettingStarted-BBB\/?(\?.+)?(#.+)?$ -> /learn/getting-started/beaglebone-black/nodejs/$1$2
 ^\/installing\/gettingStarted-Humming\/?(\?.+)?(#.+)?$ -> /learn/getting-started/hummingboard/nodejs/$1$2
 ^\/installing\/gettingStarted-NUC\/?(\?.+)?(#.+)?$ -> /learn/getting-started/intel-nuc/nodejs/$1$2
@@ -29,8 +351,12 @@
 ^\/(.*)\/dart6ul\/(.*) -> /$1/imx6ul-var-dart/$2
 
 # Default redirects
-^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi3/nodejs/$1$2
+^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi5/nodejs/$1$2
+^\/reference\/supervisor\/configuration-list\/?(\?.+)?(#.+)?$ -> /reference/supervisor/configuration-list/raspberrypi3/$1$2
+^\/faq\/troubleshooting\/troubleshooting\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/troubleshooting/raspberrypi3/$1$2
+^\/faq\/troubleshooting\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/raspberrypi5/$1$2
 ^\/learn\/develop\/?(\?.+)?(#.+)?$ -> /learn/develop/local-mode/$1$2
+^\/learn\/develop\/cloud-iot-provisioning\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/aws/$1$2
 ^\/learn\/deploy\/?(\?.+)?(#.+)?$ -> /learn/deploy/deployment/$1$2
 ^\/learn\/deploy\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2
 ^\/learn\/manage\/?(\?.+)?(#.+)?$ -> /learn/manage/account/$1$2
@@ -40,7 +366,7 @@
 ^\/deployment\/network\/1.x.x\/?(\?.+)?(#.+)?$-> /reference/OS/network/1.x/$1$2
 ^\/understanding\/understanding-devices\/2\.0.*\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/2.x/$1$2
 ^\/understanding\/understanding-devices\/1.x.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/1.x/$1$2
-^\/reference\/api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
+^\/reference\/api\/?(\?.+)?(#.+)?$ -> /reference/api/overview/$1$2
 
 # Renamed pages
 ^\/using\/dockerfile\/?(\?.+)?(#.+)?$ -> /learn/develop/dockerfile/$1$2
@@ -51,9 +377,17 @@
 ^\/using\/cli\/?(\?.+)?(#.+)?$ -> /reference/balena-cli/$1$2
 ^\/learn\/deploy\/release-strategy\/update-locking\/API\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-api/$1$2
 ^\/reference\/cli\/?(\?.+)?(#.+)?$ -> /reference/balena-cli/$1$2
-^\/learn\/develop\/integrations\/google\/?(\?.+)?(#.+)?$ -> /learn/develop/integrations/google-iot/$1$2
 ^\/docs\/learn\/deploy\/release-strategy\/update-locking\/API\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-api/$1$2
 ^\/learn\/more\/masterclass\/?(\?.+)?(#.+)?$ -> /learn/more/masterclasses/overview/$1$2
+^\/learn\/more\/masterclasses\/overview\/?(\?.+)?(#.+)?$ -> /learn/more/masterclasses/masterclass-intro/$1$2
+^\/learn\/manage\/serv-vars\/?(\?.+)?(#.+)?$ -> /learn/manage/variables/$1$2
+^\/reference\/supervisor\/upgrade-policy\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-upgrades/$1$2
+^\/learn\/develop\/integrations\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
+^\/learn\/develop\/integrations\/aws\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/aws/$1$2
+^\/learn\/develop\/integrations\/azure-iot-hub\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/azure/$1$2
+^\/learn\/develop\/integrations\/google-iot\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
+^\/learn\/develop\/integrations\/bluemix\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
+^\/learn\/develop\/cloud-iot-provisioning\/gcp\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
 
 # Restructure
 ^\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
@@ -93,7 +427,7 @@
 ^\/troubleshooting\/cli-troubleshooting\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/troubleshooting/$1$2
 ^\/hardware\/devices\/?(\?.+)?(#.+)?$ -> /reference/hardware/devices/$1$2
 ^\/runtime\/supervisor-api\/?(\?.+)?(#.+)?$ -> /reference/supervisor/supervisor-api/$1$2
-^\/runtime\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
+^\/runtime\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/overview/$1$2
 ^\/tools\/cli\/?(\?.+)?(#.+)?$ -> /reference/balena-cli/$1$2
 ^\/tools\/sdk\/?(\?.+)?(#.+)?$ -> /reference/sdk/node-sdk/$1$2
 ^\/tools\/python-sdk\/?(\?.+)?(#.+)?$ -> /reference/sdk/python-sdk/$1$2
@@ -103,6 +437,15 @@
 ^\/support\/?(\?.+)?(#.+)?$ -> /learn/welcome/support/$1$2
 ^\/devicetypes\/?(\?.+)?(#.+)?$ -> /reference/base-images/devicetypes/$1$2
 ^\/deployment\/build-optimisation\/?(\?.+)?(#.+)?$ -> /learn/deploy/build-optimization/$1$2
-^\/reference\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/application/$1$2
-^\/reference\/resinOS\/?(.*) -> /reference/OS/$1
+^\/reference\/data-api\/?(\?.+)?(#.+)?$ -> /reference/api/overview/$1$2
+^\/reference\/resinOS\/?(\?.+)?(#.+)?$ -> /reference/OS/$1
+^\/reference\/OS\/meta-balena\/?(\?.+)?(#.+)?$ -> /reference/OS/customer-board-support/$1$2
+^\/reference\/OS\/custom-device-support\/?(\?.+)?(#.+)?$ -> /reference/OS/customer-board-support/$1$2
 ^\/reference\/base-images\/resin-base-images\/?(\?.+)?(#.+)?$ -> /reference/base-images/base-images/$1$2
+^\/reference\/api\/resources\/application\/?(\?.+)?(#.+)?$ -> /reference/api/resources/fleet/$1$2
+^\/reference\/OS\/overview\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
+^\/reference\/OS\/overview\/2.x\/?(\?.+)?(#.+)?$ -> /reference/OS/overview/$1$2
+^\/reference\/OS\/network\/1.x\/?(\?.+)?(#.+)?$ -> /reference/OS/network/$1$2
+^\/reference\/OS\/network\/2.x\/?(\?.+)?(#.+)?$ -> /reference/OS/network/$1$2
+^\/learn\/manage\/app-types\/?(\?.+)?(#.+)?$ -> /learn/manage/fleet-types/$1$2
+^\/learn\/welcome\/support\/?(\?.+)?(#.+)?$ -> /learn/manage/support-access/$1$2

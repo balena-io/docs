@@ -1,36 +1,32 @@
 ---
-title: Actions
+title: Actions and Settings
 ---
 
-# Actions
+# Actions and Settings
 
-Actions allow you to control the status of your applications and devices during runtime. Most actions can be applied in one of three ways:
+Actions and Settings allow you to control the status of your fleets and the devices that are part of it during runtime. Most operations can be applied in one of three ways:
 
-1. Accessing the *Actions* menu from the left side of the application summary page allows you to make changes to the application in general, and to all the devices in that application.
-2. The *Actions* menu on the device summary page lets you apply changes that only affect that one device.
-3. *Group Actions*, found at the top-right of the application summary page, are applied to a subset of the devices in your fleet. You can specify which devices will be affected by clicking the check boxes on the left of the device list. If you apply any filters or a saved view, clicking the check box at the top of the device list will select only the devices that appear in the list. If no filters are applied, this check box will select all devices in the application.
+1. Accessing the *Settings* tab from the fleet summary page allows you to make changes to the fleet in general, and to all the devices in that fleet.
+2. The *Actions* or *Settings* menu on the device summary page lets you apply changes that only affect that one device.
+3. To apply operations on a subset of devices, you can specify which devices will be affected by clicking the check boxes next to the devices in the devices list. When selected, use the *Modify* dropdown menu on the devices list to apply the operation on only the selected devices. This is helpful in case you use filters or a saved view to run operations frequently on a subset of devices. 
 
-## General actions
+## Device actions
 
-### Enable Public Device URL
+[Fleet members][fleet-members] with the Operator role and above can perform any of the actions or settings listed below.
 
-{{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
+### Restart Services
 
-<img alt="Enable public device URL" src="/img/common/actions/device-public-url-enabled.png">
+The `Restart Services` action restarts the currently running **services** for all devices in your fleet. Your fleet's running containers will be removed and recreated from scratch. This behavior is intended and is different from running `balena restart [OPTIONS] CONTAINER [CONTAINER...]` in a host OS terminal instance from your dashboard, which will not remove your containers. If you are trying to persist data between container removals, see [persistent storage][persistent-storage] for strategies.
 
-To see what your device is serving on port 80, just click on the URL. If your application is not serving anything on port 80 or your webserver on the device crashes, you should see something like this:
+By removing containers and recreating them from scratch, we see benefits like the following:
 
-<img alt="Public URL error" src="/img/common/actions/public-url-error.png" width="80%">
+- Containers are meant to be ephemeral, meaning that a new container should be a drop-in replacement for an old container with minimal to no impact. Removing and recreating containers adheres to this philosophy.
 
-You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
+- Because containers are removed and recreated with the restart action, you're encouraged to follow best practices in Docker data persistence. For more information, see our [persistent storage][persistent-storage] documentation or [Docker's data persistence strategies][docker-data-persistence-strategies]. These strategies also offer a performance boost over storing files in the container's writable layer.
 
-<img alt="Public URL toggle" src="/img/common/actions/public-url-toggle.png" width="80%">
+- Removing and recreating containers may allow recovery from release bugs where the container was stuck in an invalid state. For example, a process ID file that is no longer valid but is persisted to the container filesystem would be cleaned up when recreating the container.
 
-### Restart Application
-
-The `Restart Application` action restarts the currently running **application containers**. Your application (A.K.A it's running containers) will be shut down and restarted from scratch.
-
-When the containers are stopped, the application is politely asked to stop by sending a `SIGTERM` and after 10 seconds of wait time a `SIGKILL` is sent.
+When the containers are being restarted, the containers are politely asked to stop by sending a `SIGTERM`. If the containers haven't stopped after 10 seconds, a `SIGKILL` is sent.
 
 __Note:__ During a restart any data that is not stored in `/data` will be lost.
 
@@ -48,7 +44,7 @@ __Warning:__ This action is only supported on devices with an Agent version >= 1
 
 ### Reboot
 
-This action allows you to perform a reboot on your devices This is different from the `Restart Application` action mentioned above—with this action, the entire device, including the kernel, will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
+This action allows you to perform a reboot on your devices. This is different from the `Restart Services` action mentioned above. With this action, the entire device, including the kernel, will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
@@ -58,102 +54,143 @@ The `Shutdown` action allows you to safely shut down your devices. It should be 
 
 __Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
 
-## Device-specific actions
+### Delete Device
 
-### Update Locking
+The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the fleet and remote endpoint. Once you have deleted a device from the fleet it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the {{ $names.company.lower }} dashboard or API.
 
-In many uses cases devices are performing sensitive or critical functionality and are not able to pause to receive an update or restart the container. For this reason we added the [update lock functionality][update-locks] in the {{ $names.company.lower }} device supervisor. This allows your application to pick and choose when and where it would like to allow updates to happen.
+## Device settings
 
-Added to this functionality we provided a convenient button to override the lock on the device and essentially force an update. This is a precautionary measure for those times when your application crashes and hasn't released the update lock. This gives you a nice safety net to ensure you can always push new updates.
+[Fleet members][fleet-members] with the Operator role and above can perform any of the actions listed below.
 
-__Warning:__ This action is only supported on devices with an Agent version >= 1.1.0
+### Public Device URL
 
-### Move to Another Application
+{{ $names.company.upper }} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
 
-With the `Move Device` action it is possible to transfer a device from one application to another. This allows you incrementally rollout devices or move certain devices to specific branches of functionality. To move a device from one application to another, simply click the `Move to another application…` button and you will be presented with a list of applications that you can move your device to.
+The Public Device URL feature is a tool for remote configuration, debugging, and other intermittent or periodic use cases. The feature is built on [Cloudlink](/learn/welcome/security/#cloudlink) and not designed for high availability. We do not recommend using the Public Device URL feature for continuous use as part of your application.
 
-Note that you are only able to move devices between applications with device types that share the same architecture. For example, a Raspberry Pi 3 device could be moved to a BeagleBone Black application, but not to an Intel NUC application.
+For applications that require a stable, continuously available public endpoint, we recommend using a dedicated tunneling service designed for production use. Popular services include [Cloudflare Tunnels][cloudflare-tunnel](See our [blog post][cloudflare-tunnel-blog-post]), [Tailscale](https://tailscale.com/) and [Ngrok](https://ngrok.com/).
 
-Obviously you may only select one application to transfer your device to. Once you select the appropriate radio button, your device will immediately appear in the selected application's device list. Note that it will take a while for the device to start the update process as it does not receive a push notification of a new code update from the API, so it has to wait for the update poll, which happens every couple of minutes.
+<img alt="Toggle public device URL" src="/img/common/settings/toggle-public-url.webp">
 
-__Warning:__ For devices running {{ $names.os.lower }} version 2.12.0 and above, data in [persistent storage][persistent-storage] (named volumes) is automatically purged when a device is moved to a new application. On older host OS versions, the `/data` folder in the new application will not contain any of the old application data, but it can still be accessed via the host OS and if the device is switched back to the original application. Unless you plan to revert back to the original application, be sure to [purge][purge-data] the `/data` folder.
+To see what your device is serving on port 80, click on the [public URL][public-url]. If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
-To see a demonstration of moving devices between applications and a little more on the motivation behind the feature have a look at our blog post: [Canary Rollouts with {{ $names.company.lower }}][move-app-blog-post]
+<img alt="Public URL error" src="/img/common/settings/public-url-error.webp" width="80%">
+
+You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
+
+<img alt="Public URL toggle" src="/img/common/settings/public-url-toggle.webp" width="80%">
+
+### Move device to another Fleet
+
+With the `Fleet` setting it is possible to transfer a device from one fleet to another. This allows you to incrementally rollout devices or move certain devices to specific branches of functionality. To move a device from one fleet to another, click the `Fleet` dropdown on the Device Settings page and you will be presented with a list of compatible architecture fleets that you can move your device to.
+
+Note that you are only able to move devices between fleets with device types that share the same architecture. For example, a Raspberry Pi 3 device could be moved to a BeagleBone Black fleet, but not to an Intel NUC fleet.
+
+Obviously you may only select one fleet to transfer your device to. Once you select the appropriate radio button, your device will immediately appear in the selected fleet's device list. Note that it will take a while for the device to start the update process as it does not receive a push notification of a new code update from the API, so it has to wait for the update poll, which happens every couple of minutes.
+
+__Warning:__ For devices running {{ $names.os.lower }} version 2.12.0 and above, data in [persistent storage][persistent-storage] (named volumes) is automatically purged when a device is moved to a new fleet. On older host OS versions, the `/data` folder in the new fleet will not contain any of the old fleet data, but it can still be accessed via the host OS and if the device is switched back to the original fleet. Unless you plan to revert back to the original fleet, be sure to [purge][purge-data] the `/data` folder.
 
 ### {{ $names.os.upper }} Update
 
-This action allows you to remotely update the host OS running on your device. For more details on supported devices and the update process, check out our {{ $names.os.lower }} [update documentation][updates].
+This setting allows you to remotely update the host OS running on your device. For more details on supported devices and the update process, check out our {{ $names.os.lower }} [update documentation][updates].
 
 ### Local Mode
 
-Turning on local mode is useful when you are prototyping your application, as it allows you to push changes to your device over the local network without relying on the {{ $names.company.lower }} build pipeline. You can find more information in our [development guide][local-mode].
+Turning on local mode is useful when you are prototyping your services, as it allows you to push changes to your device over the local network without relying on the {{ $names.company.lower }} build pipeline. You can find more information in our [development guide][local-mode].
 
 ### Deactivate Device
 
-This action will [deactivate the device][inactive-devices] and charge a one-time deactivation fee. To deactivate, the device must be offline, not be part of a Starter application, and be attached to a valid billing account.
+This setting will [deactivate the device][inactive-devices] and charge a one-time deactivation fee (equivalent to the cost of a single undiscounted device-month) that is not covered by your plan's allowance. To deactivate, the device must be offline and be attached to a valid billing account.
 
-### Delete Device
-
-The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the application and remote endpoint. Once you have deleted a device from the application it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the {{ $names.company.lower }} dashboard or API.
+Once the device is deactivated, the device won't be counted towards your device total. It will remain inactive until it comes back online.
 
 ### Grant Support Access
 
-This action allows you to [enable support access][support-access] to an individual devices for a set time period.
+This setting allows you to [enable support access][support-access] for one or more devices for a set time period.
 
-## Application-specific actions
+## Fleet/Block/App settings
 
-These actions can be found on the "Actions" menu for each application and apply to the application and all the devices in the fleet.
+These settings can be found on the "Settings" menu for each fleet and apply to the fleet and all the devices in the fleet. [Fleet members][fleet-members] with the administrator role can perform any of the settings listed below.
 
-### Change Application Type
+### Change Fleet Type
 
-This option allows you to convert your application to [another type][app-types], as long as the devices in the application meet the {{ $names.os.lower }} version requirements and your account has the appropriate privileges.
+This option allows you to convert your fleet to [another type][fleet-types], as long as the devices in the fleet meet the {{ $names.os.lower }} version requirements and your account has the appropriate privileges.
 
-### Rename Application
+### Rename Fleet
 
-This action allows you to rename your application. This action is only available for new [applications types][app-types] such as `Starter`, `Microservices` or `Essentials`. It's not currently possible to rename `Legacy` or `Classic` applications, you will first need to upgrade your app type.
+This operation allows you to rename your fleet. This operation is only available `Microservices` and `Essentials` [fleet types][fleet-types]. It's not currently possible to rename `Legacy` or `Classic` fleets, you will first need to upgrade your fleet type.
 
-### Enable/Disable All Public Device URLs
+### Transfer Fleet Ownership
 
-This action allows you to enable or disable all the device URLs for the devices in your application. Note that this will only apply to already provisioned devices in the app, any devices added after you enable this fleet wide will need to have their device URL manually enabled.
+Fleets with all their associated devices, releases and members can be transferred to any other balenaCloud [organization][organization]. Upon transfer, your fleet ID and UUID will remain the same, fleet history will be maintained, and you will be able to roll back to a prior release.
 
-You may also enable or disable public URLs for a subset of devices by selecting them on the application summary page and clicking  _Enable public device URL_ in the _Actions_ menu.
+Fleet transfers are between a **source** and a **target** organization. If you are transferring a **source** fleet from a [paid plan to a free plan](https://www.balena.io/pricing/) and your fleet exceeds the device limit, your fleet will be frozen until a plan is purchased for the **target** organization.
 
-<img alt="Enable public device URLs for an application" src="/img/common/actions/application-public-urls.png">
+Only organization [administrators][administrator] can initiate and complete fleet transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
 
-### Transfer Application Ownership
+1. Take note of the fleet name in the **source** organization and your balenaCloud username (*in the top-right drop-down menu*).
+2. Ask an administrator of the **target** balenaCloud organization to create a new empty fleet using the same fleet name (the [fleet type][fleet-types] doesn't need to match).
+3. Ask the administrator of the **target** balenaCloud organization to [add you as a member][add-application-member] of the newly created fleet with a [`Developer`][developer] role, using your username. If you are an administrator of the **target** organization, you already have access to the new fleet & this step can be skipped.
+4. In the **source** organization, select **<Fleet>** --> **Settings** --> **Set this fleet's ownership** and pick the **target** organization from the list to complete the transfer.
 
-Applications with all their associated devices, releases and members can be transferred to any other balenaCloud [organization][organization]. Application transfers are between a **source** and a **target** organization.
+__Note:__ If the **Set this fleet's ownership** button is grayed out, ensure that you have created an empty fleet in the **target** organization with the same name as the source fleet, and that the user that is transferring ownership of the fleet from the source organization has been added as a **Developer** to the **target** fleet.
 
-Only organization [administrators][administrator] can initiate and complete application transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
+Once the transfer of ownership has been completed, the source fleet owner will no longer be a member of the target fleet. If required, you will need to invite them to become a member of the fleet again. All other members of the source fleet will retain their membership of the target fleet once the transfer is complete.
 
-1. Take note of the application name in the **source** organization and your balenaCloud username (*in the top-right drop-down menu*).
-2. Ask an administrator of the **target** balenaCloud organization to create a new empty application using the same application name.
-3. Ask the administrator of the **target** balenaCloud organization to [add you as a member][add-application-member] of the newly created application with a [`Developer`][developer] role, using your username. If you are an administrator of the **target** organization, you already have access to the new application & this step can be skipped.
-4. In the **source** organization, select **<Application>** --> **Actions** --> **Transfer This Application** and pick the **target** organization from the list to complete the transfer.
+During and after the transfer process, the devices state will remain unchanged from before the transfer process was started. For example, devices that were online before the process was started will remain online throughout.
 
-__Note:__ If the **Transfer This Application** button is grayed out, ensure that you have created an empty application in the **target** organization with the same name as the source application, and that user that is transferring ownership of the application from the source organization has been added as a **Developer** to the **target** application.
+### Transfer Block Ownership
 
-### Grant Support Access
+Blocks with all their associated releases and members can be transferred to any other balenaCloud [organization][organization]. Block transfers are between a **source** and a **target** organization.
 
-This action allows you to [enable support access][support-access] to the entire application fleet for a set time period.
+Only organization [administrators][administrator] can initiate and complete block transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
 
-### Delete Application
+1. Take note of the block name in the **source** organization and your balenaCloud username (*in the top-right drop-down menu*).
+2. Ask an administrator of the **target** balenaCloud organization to create a new empty block using the same block name.
+3. Ask the administrator of the **target** balenaCloud organization to [add you as a member][add-application-member] of the newly created block with a [`Developer`][developer] role, using your username. If you are an administrator of the **target** organization, you already have access to the new block & this step can be skipped.
+4. In the **source** organization, select **<block>** --> **Settings** --> **Set this block's ownership** and pick the **target** organization from the list to complete the transfer.
 
-This option permanently deletes your application.
+__Note:__ If the **Set this block's ownership** button is grayed out, ensure that you have created an empty block in the **target** organization with the same name as the source block, and that user that is transferring ownership of the block from the source organization has been added as a **Developer** to the **target** block.
 
-__Warning:__ It is a good idea to [move your devices to another application][move-devices] before deleting your current application. If you do not, **all devices attached to the application will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device actions from {{ $names.company.lower }}.
+Once the transfer of ownership has been completed, the source block owner will no longer be a member of the target block. If required, you will need to invite them to become a member of the block again. All other members of the source block will retain their membership of the target block once the transfer is complete.
 
-[update-locks]:/learn/deploy/release-strategy/update-locking
+### Delete Fleet
+
+This option permanently deletes your fleet.
+
+__Warning:__ It is a good idea to [move your devices to another fleet][move-devices] before deleting your current fleet. If you do not, **all devices attached to the fleet will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device operations from {{ $names.company.lower }}.
+
+## Release settings
+
+These settings can be found on the "Settings" menu for each release.
+
+### Validation Status
+
+This option can be used to mark your release as valid or invalid. Entities can only be pinned to valid releases. If you invalidate a release, any devices that are running it and are not pinned to it will be updated to the fleet's target release. If an entity is pinned to a release when it is invalidated, it will not be affected. If you wish to allow pinning to the release again, you could re-validate it via this same setting.
+
+### Delete Release
+
+This option permanently deletes your release. This may be the setting you want to use if you want to clean up releases beyond simply [invalidating releases][invalidate-releases].
+
+__Info:__ If you have a device [preloaded][preload-devices] with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.
+
 [move-app-blog-post]:{{ $links.blogSiteUrl }}/canary-rollouts-on-resin-io/
 [updates]:/reference/OS/updates/self-service
 [local-mode]:/learn/develop/local-mode
 [move-devices]:#move-to-another-application
-[app-types]:/learn/manage/app-types
+[invalidate-releases]:#validation-status
+[preload-devices]:/learn/more/masterclasses/advanced-cli/#5-preloading-and-preregistering
+[fleet-types]:/learn/manage/app-types
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [purge-data]:#purge-data
-[organization]:/learn/manage/organizations/
-[administrator]:/learn/manage/organizations/#managing-roles--access-in-an-organization
-[add-application-member]:/learn/manage/account/#add-an-application-member
-[developer]:/learn/manage/account/#developer
-[support-access]:/learn/manage/support-access
-[inactive-devices]:/learn/manage/billing/#inactive-devices
+[organization]:/learn/accounts/organizations/
+[administrator]:/learn/accounts/organizations/#managing-roles--access-in-an-organization
+[add-application-member]:/learn/accounts/account/#add-an-application-member
+[developer]:/learn/accounts/fleet-members#developer
+[support-access]:/learn/accounts/support-access
+[inactive-devices]:/learn/accounts/billing/#inactive-devices
+[fleet-members]:/learn/accounts/fleet-members
+[docker-data-persistence-strategies]:https://docs.docker.com/storage/
+[public-url]:/learn/develop/runtime/#public-device-urls
+[cloudflare-tunnel]:https://www.cloudflare.com/products/tunnel/
+[cloudlare-tunnel-blog-post]:https://www.balena.io/blog/expose-your-balena-device-to-the-internet-with-cloudflare-tunnel/

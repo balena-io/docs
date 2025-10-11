@@ -15,9 +15,9 @@ $ date
 Tue Mar  3 19:59:54 UTC 2020
 ```
 
-{{ $names.company.upper }} devices use [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) as their standard time zone. If you want to use a timezone other than UTC, you have to explicitly set the timezone using the tools available for the operating system running within your container. The [balena-timezone]({{ $links.githubPlayground }}/balena-timezone) project is an example of how to do this in Debian. The {{ $names.cloud.lower }} dashboard shows log timestamps using the local time for the browser you are viewing it on, and you can switch it to display the timestamps in UTC by using the toggle available in the log view.
+{{ $names.company.upper }} devices use [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) as their standard time zone. If you want to use a timezone other than UTC, you have to explicitly set the timezone for the operating system running within your container. To set the timezone on the container, find the name of your timezone from [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List), and set an environment variable called `TZ` with that value. This can be done either in the Dockerfile (hardcoded) by `ENV TZ <value>` or a new variable called `TZ` in the [dashboard][env-vars] with the value as the timezone you want to set. This will only work if `tzdata` package is installed in the container image. Refer to [balena-timezone]({{ $links.githubPlayground }}/balena-timezone) project for an example on setting the timezone in the container. The {{ $names.cloud.lower }} dashboard shows log timestamps using the local time for the browser you are viewing it on, and you can switch it to display the timestamps in UTC by using the toggle available in the log view.
 
-![Change the logs to use UTC timezone](/img/common/main_dashboard/dashboard-utc.png)
+![Change the logs to use UTC timezone](/img/common/main_dashboard/dashboard-utc.webp)
 
 If you want to learn if the system has completed at least one successful NTP synchronization since boot, you can use D-Bus from within your container. Check the "[Checking if device time is NTP synchronized](/runtime/runtime/#checking-if-device-time-is-ntp-synchronized)" example. The `NTPSynchronized` property will indicate if the device is running with a potentially stale clock or if the system time is synced.
 
@@ -51,7 +51,7 @@ When you first provision a device, as a fallback, `/var/lib/systemd/clock` is se
 
 There are certain networking requirements to ensure that the NTP service can properly function, and the device time may be kept synchronized.
 
-The NTP service requires UDP port `123` to be open. See more [network requirements here](/deployment/network/2.0.0/#network-requirements).
+The NTP service requires UDP port `123` to be open for outgoing connections from the device. See more [network requirements here](/deployment/network/2.0.0/#network-requirements).
 
 Starting from {{ $names.os.lower }} 2.0.7, the devices connect to the following NTP servers:
 
@@ -60,15 +60,9 @@ Starting from {{ $names.os.lower }} 2.0.7, the devices connect to the following 
 * 2.resinio.pool.ntp.org
 * 3.resinio.pool.ntp.org
 
-Prior to {{ $names.os.lower }} 2.0.7 the NTP service connects to the following time servers by default and these need to be accessible to the device:
+To be clear, `ntp.org` uses a large pool of servers that change frequently. So UDP port `123` must be open outgoing to all hosts.
 
-* pool.ntp.org
-* time1.google.com
-* time2.google.com
-* time3.google.com
-* time4.google.com
-
-Starting from {{ $names.os.lower }} 2.1.0, you can configure your own NTP servers in the [`config.json` file][config-json] location in the [boot partition][boot-partition]. For example:
+You can configure your own NTP servers in the [`config.json` file][config-json] location in the [boot partition][boot-partition]. For example:
 
 ```json
 "ntpServers": "0.resinio.pool.ntp.org 1.resinio.pool.ntp.org"
@@ -76,6 +70,7 @@ Starting from {{ $names.os.lower }} 2.1.0, you can configure your own NTP server
 
 Starting from {{ $names.os.lower }} 2.30.0, NTP servers can be set over DHCP.
 
+[env-vars]:/management/env-vars
 [boot-partition]:/reference/OS/overview/2.x/#image-partition-layout
 [config-json]:/reference/OS/configuration/#ntpservers
 [chrony]:https://chrony.tuxfamily.org/

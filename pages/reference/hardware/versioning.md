@@ -8,7 +8,7 @@ A device type in balena describes a [SoC](https://en.wikipedia.org/wiki/System_o
 
 As an example the [Raspberry Pi 1 model B+](https://www.raspberrypi.org/products/raspberry-pi-1-model-b-plus/) and [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) are part of the same device type since they are both `armv6l` architecture SoCs and the boot loader is capable of booting both boards. However, the [Raspberry Pi 3 model B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) is by default a `armv7l` CPU and we therefore separate it into a new device type.
 
-In balenaCloud the device type is also used to define what architecture the built containers for each app will be. So in the above example RPi ZERO deployments are built for the `armv6l` architecture where as RPi 3 applications will target the `armv7l` architecture and the Intel NUC device type will target `x86_64` architecture.
+In balenaCloud the device type is also used to define what architecture containers are built for. So in the above example, Raspberry Pi Zero deployments are built for the `armv6l` architecture whereas Raspberry Pi 3 fleets will target the `armv7l` architecture, and the Intel NUC device type will target `x86_64` architecture.
 
 ### Designations
 
@@ -38,7 +38,7 @@ The community devices types are:
 - Community boards can be promoted to an official balena supported board if a customer is interested in sponsoring the device support. If you are interested in sponsoring a community board, email solutions@balena.io .
 
 #### Discontinued
-Discontinued device types are those that are no longer actively maintained by the balena team or anyone in the community and will stop showing in the dashboard as options for new applications and devices. Any already provisioned devices of this type will continue to function, but will no longer receive operating system updates.
+Discontinued device types are those that are no longer actively maintained by the balena team or anyone in the community and will stop showing in the dashboard as options for new fleets and devices. Any already provisioned devices of this type will continue to function, but will no longer receive operating system updates.
 
 A device type will be discontinued if:
 - The device manufacturer end support and sale of the device.
