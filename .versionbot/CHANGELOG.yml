@@ -1,4 +1,19 @@
 - commits:
+    - subject: "pages/learn: Add custom device-tree info for Variscite DART MX8MM and
+        VAR-SOM-MX8MM"
+      hash: 2715acf0f0606acc91562ae5278d948c2121ff23
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+      nested: []
+  version: 6.11.1
+  title: ""
+  date: 2025-10-14T08:04:14.016Z
+- commits:
     - subject: "billing: Add that deactivations within 72h after registration are not
         charged"
       hash: 952459ffa51aca0c9e43b4071644b49218d5725b
