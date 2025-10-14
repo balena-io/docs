@@ -280,7 +280,7 @@ Depending on the HAT Configuration defined in BIOS, the Up Squared UART communic
 ## Jetson Devices
 
 ### Custom device trees
-Loading of custom device trees in balenaOS is supported by the Jetson Nano, Jetson TX2 and Jetson Orin family of devices. The list of devices that support this function includes:
+Loading of custom device trees in balenaOS for Nvidia boards is supported by the Jetson Nano, Jetson TX2 and Jetson Orin family of devices. The list of devices that support this function includes:
 - Floyd  Nano
 - Jetson Nano SD-CARD
 - Jetson Nano eMMC
@@ -299,7 +299,7 @@ Loading of custom device trees in balenaOS is supported by the Jetson Nano, Jets
 
 Loading of custom device trees is not supported for the Jetson Xavier family of devices in balenaOS. U-Boot provides the complete set of functionality necessary for loading custom device-trees in balenaOS for the Jetson Nano and TX2 devices, and this bootloader is not supported by the Jetson AGX Xavier and Jetson Xavier NX BSP. The Jetson AGX Orin family of devices uses a new Tegra UEFI bootloader which allows balenaOS to load custom device-trees.
 
-To test a custom device tree on a Jetson Nano, TX2 or Jetson AGX Orin or Orin NX device, place your custom compiled device tree in the host operating system of your device, in the following path: /mnt/sysroot/active/current/boot/
+To test a custom device tree on a Jetson Nano, TX2 or Jetson AGX Orin or Orin NX device, place your custom compiled device tree in the host operating system of your device, in the following path: `/mnt/sysroot/active/current/boot/`
 After that, navigate to the `Device Configuration` tab in the balenaCloud dashboard, activate the following configuration with the description `Define the file name of the DTB to be used`, and specify the file name of the custom device tree. The value of this configuration should contain the file name only. After the change is applied, the device will automatically reboot and load the new device tree.
 
 After the custom device tree has been validated, it can be included in newer balenaOS images. For Jetson TX2 and Nano, open a pull request in the [balena Jetson device](https://github.com/balena-os/balena-jetson) repository following this [example commit](https://github.com/balena-os/balena-jetson/commit/3dbf9c96e5986c2138f318d1ee9f0d5c1a2fc3c8). For the Jetson AGX Orin, the PR should be opened in the [balena Jetson Orin](https://github.com/balena-os/balena-jetson-orin) repository. Once your PR is approved and merged, a new balenaOS image that includes your custom device tree will become available shortly.
@@ -317,6 +317,15 @@ Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor
 ### Container packages
 
 The Jetson specific packages installed in your container images need to be in sync with the Linux for Tegra version used by the Host Operating System. Our base images for Jetson devices come pre-populated with `/etc/apt/sources.list.d/nvidia.list` files, which include the necessary links so that the apt repositories are in sync with the L4T version used by our latest OS images. If you suspect you encountered a mismatch, please check the `L4T` version in your Host OS using `uname -r` and compare it to the release version in your container's `/etc/apt/sources.list.d/nvidia.list` file. Please check our [Jetson Examples](https://github.com/balena-io-examples/jetson-examples) repository for more information on how to set-up your container images.
+
+## iMX8 Devices
+
+### Custom device-trees
+Loading of custom device trees in balenaOS for iMX boards is currently supported on the Variscite DART-MX8M Mini and Variscite VAR-SOM-MX8M-MINI Devkit.
+
+To test your custom device tree, place it in the host operating system of your device in the following path: `/mnt/sysroot/active/current/boot/` . Then, navigate to the `Device Configuration` tab in the balenaCloud dashboard, activate the following configuration with the description `Define the file name of the DTB to be used`, and specify the file name of the custom device tree. The value of this configuration should contain the file name only. After the change is applied, the device will automatically reboot and load the new device tree.
+
+After you have validated your custom device, it can be included in newer balenaOS images by opening a pull request in the [balena-variscite-mx8](https://github.com/balena-os/balena-variscite-mx8) repository. Once your PR is approved and merged, a new balenaOS image which includes your custom device tree will be made available shortly.
 
 [i2c-link]:https://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
