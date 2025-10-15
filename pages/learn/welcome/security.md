@@ -96,6 +96,20 @@ Devices contain metadata that identifies the device, fleet, and state of deploye
 
 Currently, metadata such as device identifiers or WiFi credentials are not encrypted on disk by default.  This is because most commercially available devices do not support any form of hardware-level encryption, meaning that the decryption keys for this data would have to be stored in an accessible area of the device.  Storing the keys with the encrypted data means that it is trivial for anyone with physical access to the device to decrypt the data at any point, rendering the encryption itself moot. If you do have a device that is capable of hardware-level encryption, please contact us to discuss your options.
 
+## BalenaOS Software Bill of Materials (SBOM) and Vulnerability EXchange (VEX) files
+
+BalenaOS provides Software Bill of Materials (SBOM) in the - machine readable, but human friendly - CycloneDX 1.4 json format. Those files can be used to determine the versions of all the components that compose the OS, and the known fixed vulnerabilities.
+
+As we apply patches to fix vulnerabilities, comparing the version of a component to popular vulnerability databases such as the NVD is not enough. That's why we also release `vex` files along with the SBOM. Each vex file is related to a specific SBOM and **will list known vulnerabilities (CVE) that don't impact the release**, with an explanation when possible (i.e. the vulnerable code path is not accessible, the vulnerability has been patched, ...). Beware that this is **not an exhaustive list of known vulnerabilities** for the component. The vex file should only be used to filter down the list of vulnerabilities reported by SBOM vulnerability scanner.
+
+A device release might contain multiple assets (the OS itself, a flasher image, the initramfs, ...), each will have their own `bom.json` and `vex.json`. 
+
+`bom.json` and `vex.json` files can be found in the asset list of an OS release page (under the `cyclonedx` folder); click the `HOST OS VERSION` of a device to go to that page).
+
+SBOM and VEX are compatible with the cyclonedx ecosystem of software composition analysis. A list of tools (open-source and proprietary) can be found on [cyclonedx.org tool center](https://cyclonedx.org/tool-center/).
+
+Note that availbility of sbom and vex depends on device type and version, if you can't find them for a release you care about, please contact our support.
+
 ## Building images
 
 The first step in deploying to a fleet of devices is to build a Docker image that contains everything necessary to run your application. While these images can be built locally, {{ $names.company.lower }} provides a powerful image builder that is more appropriate for most use cases. The builder for x86 images is hosted on AWS, while the builder for ARM images is hosted by a combination of AWS and Hetzner.
