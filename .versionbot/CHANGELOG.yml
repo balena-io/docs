@@ -1,4 +1,20 @@
 - commits:
+    - subject: Add reference docs for secure boot & full disk encryption
+      hash: 5804f29467760c93214b23f9f280a6af7c425dd1
+      body: |
+        - Add general overview
+        - Add setup guide for x86_64 GPT
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+  version: 6.12.0
+  title: ""
+  date: 2025-10-15T12:21:42.578Z
+- commits:
     - subject: "pages/learn: Add custom device-tree info for Variscite DART MX8MM and
         VAR-SOM-MX8MM"
       hash: 2715acf0f0606acc91562ae5278d948c2121ff23
