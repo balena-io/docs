@@ -43,7 +43,11 @@ Additionally, discontinued device types present a risk of not having security pa
 
 ##### Why do we discontinue device types
 
-There is a maintenance cost associated with maintaining a device type. It requires engineering, CI and testing resources. We are able to maintain a core set of device types to a higher standard if we focus our efforts on a core set of device types relevant to our users, and that recieve support from the hardware vendors. 
+Our aim is to provide the most reliable and secure experience possible across the devices we support. Each device type requires ongoing engineering effort — from continuous integration and testing, to ensuring compatibility with the latest versions of `meta-balena`.
+
+To maintain a high standard of quality, security, and performance, we periodically review the devices we support. When a device type is no longer actively supported by its hardware vendor or when usage of a device type becomes very limited ( see the section below for more information regarding the criteria for discontinuation), we may decide to discontinue it so that our engineering efforts can have the greatest impact across the devices most actively used by our community.
+
+We make these decisions carefully, and always with the goal of protecting our users from relying on outdated, unsupported, or unavailable hardware.
 
 ##### Criteria for discontinuation
 
