@@ -45,6 +45,10 @@ Additionally, discontinued device types present a risk of not having security pa
 
 There is a maintenance cost associated with maintaining a device type. It requires engineering, CI and testing resources. We are able to maintain a core set of device types to a higher standard if we focus our efforts on a core set of device types relevant to our users, and that recieve support from the hardware vendors. 
 
+In some cases, due to a lack of hardware vendor software support we can no longer perform the neccessary updates to keep the device type up to date with `meta-balena`. 
+
+We also wish to protect our users from building their applications on out of date, unsupported, or unavailable hardware. 
+
 ##### Criteria for discontinuation
 
 A device type will be discontinued based on a set of criteria detailed below, in combination with the judgement of our team:
