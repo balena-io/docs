@@ -38,13 +38,76 @@ The community devices types are:
 - Community boards can be promoted to an official balena supported board if a customer is interested in sponsoring the device support. If you are interested in sponsoring a community board, email solutions@balena.io .
 
 #### Discontinued
-Discontinued device types are those that are no longer actively maintained by the balena team or anyone in the community and will stop showing in the dashboard as options for new fleets and devices. Any already provisioned devices of this type will continue to function, but will no longer receive operating system updates.
+Discontinued device types are those that are no longer actively maintained by the balena team.
 
-A device type will be discontinued if:
-- The device manufacturer end support and sale of the device.
-- No devices of this type are provisioned on balenaCloud in the last 6 months.
-- If it is a community device type and it has not received maintenance in the last 6 months.
+This means that:
+
+- No new OS releases will be published for that device type.
+- The device type will stop showing in the dashboard as options for new fleets and devices. 
+- Any already provisioned devices of this type will continue to function, but will no longer receive operating system updates.
+
+##### Why do we discontinue device types
+
+There is a maintenance cost associated with maintaining a device type. It requires engineering, CI and testing resources. We are able to maintain a core set of device types to a higher standard if we focus our efforts on a core set of device types relevant to our users, and that recieve support from the hardware vendors. 
+
+##### Criteria for discontinuation
+
+A device type will be discontinued based on a set of criteria detailed below, in combination with the judgement of our team:
+- The device manufacturer ends support and sale of the device. This includes discontinuation of sales, as well as BSP support. This would be grounds for immediate discontinuation. 
+- The device type has been on the platform for at least 2 years, with little to no usage. Rougly around 100 devices is the current minimum requirement
+- In combination with the above, the device type is not part of any strategic goals at balena.
+- No direct forcasted growth for the device type.
 - If it is a private device type and the customer has stopped paying for the device to be supported.
+
+
+##### List of discontinued device types
+
+- `Aetina N510 TX2`
+- `Asus Tinker Board S`
+- `Auvidea CNX100 Xavier NX`
+- `BananaPi-M1+`
+- `BeagleBone Green`
+- `BeagleBone Green Gateway`
+- `BeagleBone Green Wireless`
+- `CTI Astro TX2 G+`
+- `CTI Orbitty TX2`
+- `CTI Spacely TX2`
+- `Digi ConnectCore 8X SBC Pro`
+- `Eurotec Lowpad (lcbzu9)`
+- `I-Pi SMARC PX30 SD-CARD`
+- `Microsoft Surface 6`
+- `Microsoft Surface Go`
+- `NanoPC-T4`
+- `Nanopi Neo Air`
+- `NanoPi R2C`
+- `NPE X500 M3`
+- `Nvidia Jetson Xavier NX Devkit SD Seeed ReSpeaker-2Mic`
+- `Orange Pi One`
+- `Orange Pi Plus2`
+- `Orange Pi Zero`
+- `ROCKPro64`
+- `Seeed ODYSSEY-X86`
+- `Topic Florida Plus (tdpzu9)`
+- `Balena Fin`
+
+##### List of devices pending discontinuation
+
+The following device types will be discontinued on <DATE>, given no change to circumstances:
+
+- `Advantech ECU1370`
+- `Asus Tinker Board`
+- `BeaglePlay`
+- `CTI Photon Nano`
+- `CTI Photon TX2 NX`
+- `CTI Photon Xavier NX`
+- `PocketBeagle`
+- `Raspberry Pi 400`
+- `Revolution Pi Connect`
+- `Revolution Pi Core 3`
+- `Rocktech ISG 503`
+- `Variscite VAR-SOM-MX7`
+- `Variscite DART-6UL`
+
 
 ## Versioning
 
