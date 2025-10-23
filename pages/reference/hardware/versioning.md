@@ -15,7 +15,7 @@ In balenaCloud the device type is also used to define what architecture containe
 When looking at all the supported device types in balenaCloud, you will notice that there are a number of different designations. Here we will discuss a few of these designations in more detail.
 
 #### Official
-All device types that are not designated with `COMMUNITY` or `PRIVATE` are considered officially supported boards.
+All device types that are not designated with `PRIVATE` are considered officially supported boards.
 
 Official device types are:
 - Run through a full suite of testing on real hardware each time an OS version is released for the device type.
@@ -28,14 +28,6 @@ On some official device types you will see the `(BETA)` designation. This does n
 #### Private
 Private device types have exactly the same guarantees and testing process as official device types but they are only visible to specific customers that have paid for this device support. If you are interested in finding out more about private device support email solutions@balena.io .
 
-#### Community
-Device types that are marked as `COMMUNITY` are device types that have been contributed by an external community member rather than the balena team. An example of a community device type is the Orange Pi Zero which was contributed into the {{ $links.githubOS }}/balena-allwinner repo.
-
-The community devices types are:
-- Maintained by the community member and feature/support requests are handled in the forums or on the device-types github repository.
-- The balena team does **not** test and verify each release of the OS, instead we rely on the community members to conduct testing.
-- Updated to newer versions as the community drives it, we do not guarantee the device type will keep up with OS versions.
-- Community boards can be promoted to an official balena supported board if a customer is interested in sponsoring the device support. If you are interested in sponsoring a community board, email solutions@balena.io .
 
 #### Discontinued
 Discontinued device types are those that are no longer actively maintained by the balena team.
