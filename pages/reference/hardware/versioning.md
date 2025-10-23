@@ -23,7 +23,6 @@ Official device types are:
 - Continually updated to new versions of the OS, usually within 2 or 3 minor versions of meta-balena master version.
 - Official devices are recommended for production deployments.
 
-On some official device types you will see the `(BETA)` designation. This does not mean the OS itself is `beta` level software, but rather that this device type not yet used by enough people or has not been in production for a long enough time. In balenaCloud all official device types start out as `BETA` and when the team decides the device type has enough production usage, it is graduated out of `BETA`.
 
 #### Private
 Private device types have exactly the same guarantees and testing process as official device types but they are only visible to specific customers that have paid for this device support. If you are interested in finding out more about private device support email solutions@balena.io .
