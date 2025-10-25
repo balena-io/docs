@@ -221,7 +221,7 @@ The same build process as before is carried out, but this time instead of using 
 [Live]    Device state settled
 ```
 
-The {{ $names.cli.lower }} will now watch for changes to all the files within the project, and automatically push changes to the device when detected. Let's try making a change to title of our balena welcome page. Navigate to the `index.html` file present in the `static` directory of the project. Open the file and change the title from `Welcome to balena!` to `Hello balena!` and save the file. After saving the changes, you can observe {{ $names.cli.lower }} automatically start rebuilding only the parts of the Dockerfile that has been changed.
+The {{ $names.cli.lower }} will now watch for changes to all the files within the project, and automatically push changes to the device when detected. Let's try making a change to title of our balena welcome page. Navigate to the `index.html` file present in the `views` directory of the project. Open the file and change the title from `Welcome to balena!` to `Hello balena!` and save the file. After saving the changes, you can observe {{ $names.cli.lower }} automatically start rebuilding only the parts of the Dockerfile that has been changed.
 
 ```shell
 [Live]    Detected changes for container hello-world, updating...
