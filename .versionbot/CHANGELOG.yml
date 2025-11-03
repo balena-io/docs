@@ -1,4 +1,20 @@
 - commits:
+    - subject: "pages/learn: Update Jetson Orin docs"
+      hash: b7cfa858b8e904361df12b4b2b6248cd617764eb
+      body: "... to clarify that dtbs can be PR-ed for multiple Jetson Orin devices
+
+        \    "
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+      nested: []
+  version: 6.12.1
+  title: ""
+  date: 2025-11-03T12:47:52.575Z
+- commits:
     - subject: Add reference docs for secure boot & full disk encryption
       hash: 5804f29467760c93214b23f9f280a6af7c425dd1
       body: |
