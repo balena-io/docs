@@ -19,7 +19,7 @@ These are officially supported boards. If not discontinued, or not a private dev
 
 Official device types are:
 - Run through a full suite of testing on real hardware each time an OS version is released for the device type.
-- We endevour to ensure that all the hardware peripherals on the device type are functional and accessible. This includes things like i2c, SPI, audio, etc.
+- This test suite verifies balenaOS specific functionality, including compatibility with balenaCloud and hostOS updates and rollbacks.
 - Continually updated to new versions of the OS, usually within 2 or 3 minor versions of meta-balena master version.
 - Official devices are recommended for production deployments.
 
