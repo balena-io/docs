@@ -53,9 +53,8 @@ We make these decisions carefully, and always with the goal of protecting our us
 
 A device type will be discontinued based on a set of criteria detailed below, in combination with the judgement of our team:
 - The device manufacturer ends support and sale of the device. This includes discontinuation of sales, as well as BSP support. This would be grounds for immediate discontinuation. 
-- The device type has been on the platform for at least 2 years, with little to no usage. Rougly around 100 devices is the current minimum requirement
+- The device type has been on the platform for at least 2 years, with little to no usage. Roughly around 500 devices is the current minimum requirement
 - In combination with the above, the device type is not part of any strategic goals at balena.
-- No direct forcasted growth for the device type.
 - If it is a private device type and the customer has stopped paying for the device to be supported.
 
 
