@@ -12,10 +12,10 @@ In balenaCloud the device type is also used to define what architecture containe
 
 ### Designations
 
-When looking at all the supported device types in balenaCloud, you will notice that there are a number of different designations. Here we will discuss a few of these designations in more detail.
+Device types may have one of several designations, detailed below:
 
 #### Official
-All device types that are not designated with `PRIVATE` are considered officially supported boards.
+These are officially supported boards. If not discontinued, or not a private device type only accessible to customers paying for custom device type support.
 
 Official device types are:
 - Run through a full suite of testing on real hardware each time an OS version is released for the device type.
@@ -25,7 +25,7 @@ Official device types are:
 
 
 #### Private
-Private device types have exactly the same guarantees and testing process as official device types but they are only visible to specific customers that have paid for this device support. If you are interested in finding out more about private device support email solutions@balena.io .
+Private device types have exactly the same guarantees and testing process as official device types but they are only visible to specific customers that have paid for this device support. If you are interested in finding out more about private device support email solutions@balena.io.
 
 
 #### Discontinued
