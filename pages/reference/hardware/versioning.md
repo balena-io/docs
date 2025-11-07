@@ -111,7 +111,7 @@ The following device types will be discontinued on <DATE>, given no change to ci
 
 The version string for a particular device type is a combination of the [meta-balena]({{ $links.githubOS }}/meta-balena) version and the device specific repo revisions.
 
-* The version of `meta-balena` is in the format of 3 numbers separated by a dot. The patch number can have a `beta` label. e.g. 1.2.3, 1.2.3-beta1, 2.0.0-beta1.
-* The version of the specific device type is constructed by appending to the `meta-balena` version a `rev` label. This will have the semantics of a board revision which adapts a specific `meta-balena` version for a targeted board. For example a `meta-balena` 1.2.3 can go through 3 board revisions at the end of which the final version will be 1.2.3+rev3 .
-* When updating `meta-balena` version in a specific device type repo, the revision will reset to 1. Ex: 1.2.3+rev4 will be updated to 1.2.4+rev1 .
+* The version of `meta-balena` is in the format of 3 numbers separated by a dot e.g. `1.2.3`.
+* The version of the specific device type is constructed by appending to the `meta-balena` version a `rev` label. This will have the semantics of a board revision which adapts a specific `meta-balena` version for a targeted board. For example a `meta-balena` 1.2.3 can go through 3 board revisions at the end of which the final version will be `1.2.3+rev3` . 
+* When updating `meta-balena` version in a specific device type repo, the revision will reset to 0. Ex: `1.2.3+rev4` will be updated to `1.2.4` . Further board level updates will present as `1.2.4+rev1` , `1.2.4+rev2` ... and so on, until the next `meta-balena` update. 
 * Note that the final OS version is NOT based on the semver specification so parsing of such a version needs to be handled in a custom way. If you are interested in how to parse the version scheme, have a look at our balenaOS version parser [balena-semver](https://github.com/balena-io-modules/resin-semver).
