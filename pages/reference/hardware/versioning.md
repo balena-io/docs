@@ -34,8 +34,8 @@ Discontinued device types are those that are no longer actively maintained by th
 This means that:
 
 - No new OS releases will be published for that device type.
-- The device type will stop showing in the dashboard as options for new fleets and devices. 
-- Any already provisioned devices of this type will continue to function, but will no longer receive operating system updates.
+- The device type will stop showing in the dashboard as options for new fleets. Devices of a discontinued device type can still be added to existing fleets.
+- Any already provisioned devices of this type will continue to function as they did, but there will be no further versions of the OS to update to.
 
 While devices will still function when the device type is discontinued, it presents a risk. As no new OS updates will be available, eventually the minimum compatible OS version with balenaCloud will not be available for that device type, after which continued compatibility between the devices and balenaCloud cannot be guaranteed. 
 
