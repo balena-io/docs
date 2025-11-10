@@ -90,7 +90,7 @@ A device type will be discontinued based on a set of criteria detailed below, in
 
 ##### List of devices pending discontinuation
 
-The following device types will be discontinued on <DATE>, given no change to circumstances:
+The following device types will be discontinued on March 1st 2026, given no change to circumstances:
 
 - `Advantech ECU1370`
 - `Asus Tinker Board`
