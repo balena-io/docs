@@ -1,6 +1,7 @@
 AAAAB
 Adafruit
 Adblocker
+Advantech
 Aetina
 ahci
 allwinner
@@ -153,6 +154,7 @@ esrecurse
 estraverse
 estree
 esvalidate
+Eurotec
 execa
 extglob
 FBCP
@@ -228,6 +230,7 @@ keyv
 klaw
 Lamtzidis
 LBEL
+lcbzu
 ldconfig
 leds
 lgpio
