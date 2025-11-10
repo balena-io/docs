@@ -1,4 +1,18 @@
 - commits:
+    - subject: "reference/hardware/versioning: rework discontinuation section"
+      hash: 0eb253e33a4d5d293e027b7b62ec44eee6b98c93
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 6.12.2
+  title: ""
+  date: 2025-11-10T17:37:12.454Z
+- commits:
     - subject: "pages/learn: Update Jetson Orin docs"
       hash: b7cfa858b8e904361df12b4b2b6248cd617764eb
       body: "... to clarify that dtbs can be PR-ed for multiple Jetson Orin devices
