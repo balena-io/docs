@@ -95,6 +95,8 @@ The following device types will be discontinued on March 1st 2026, given no chan
 - `Advantech ECU1370`
 - `Asus Tinker Board`
 - `BeaglePlay`
+- `Blue Chip Technology DB1`
+- `Blue Chip Technology TM3`
 - `CTI Photon Nano`
 - `CTI Photon TX2 NX`
 - `CTI Photon Xavier NX`
