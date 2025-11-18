@@ -1,4 +1,25 @@
 - commits:
+    - subject: Remove incorrect dtoverlay parsing info
+      hash: 2d216434c9bc3f1416bff6f7fb37c3babce23504
+      body: |
+        The previous documentation for `BALENA_HOST_CONFIG_dtoverlay`
+        described string-parsing behavior (e.g., quote handling for
+        line splitting) that is no longer true as of supervisor v16+
+
+        This commit removes the outdated and incorrect information and points
+        users directly to the official Raspberry Pi documentation, which is
+        the correct reference.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Rahul Thakoor <rahul.thakoor@balena.io>
+        signed-off-by: Rahul Thakoor <rahul.thakoor@balena.io>
+      author: Rahul Thakoor
+      nested: []
+  version: 6.12.3
+  title: ""
+  date: 2025-11-18T18:03:46.487Z
+- commits:
     - subject: "reference/hardware/versioning: rework discontinuation section"
       hash: 0eb253e33a4d5d293e027b7b62ec44eee6b98c93
       body: ""
