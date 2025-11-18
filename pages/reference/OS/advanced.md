@@ -105,13 +105,7 @@ dtparam=dc1307
 dtoverlay=lirc-rpi
 ```
 
-This modifies each parameter to be on its own line in order to avoid the 80 character line limit imposed by config.txt. It is the recommended method of setting one or more overlays with their own parameters.
-
-This parsing will only be done if the value is a valid string, so if it doesn't begin with a quote `"`, the value will be parsed as a single string and not split into several lines. For instance `BALENA_HOST_CONFIG_dtoverlay = i2c-rtc,ds1307` will translate to:
-
-```
-dtoverlay=i2c-rtc,ds1307
-```
+This modifies each parameter to be on its own line in order to avoid the 80 character line limit imposed by `config.txt`. It is the [recommended method][raspberry-pi-docs-dtparams] of setting one or more overlays with their own parameters. 
 
 ### Disabling the rainbow splash screen
 
@@ -132,3 +126,4 @@ __Note:__ This setting disables the Raspberry Pi rainbow splash screen but does 
 [gpu-memory]:https://www.raspberrypi.com/documentation/computers/config_txt.html#memory-options
 [image-variants]:/reference/OS/overview/2.x/#variants-of-balenaos
 [uart]:https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts
+[raspberry-pi-docs-dtparams]:https://www.raspberrypi.com/documentation/computers/configuration.html#part3.2
