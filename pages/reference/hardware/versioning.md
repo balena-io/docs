@@ -100,6 +100,7 @@ The following device types will be discontinued on March 1st 2026, given no chan
 - `CTI Photon Nano`
 - `CTI Photon TX2 NX`
 - `CTI Photon Xavier NX`
+- `ODROID-XU4`
 - `PocketBeagle`
 - `Raspberry Pi 400`
 - `Revolution Pi Connect`
