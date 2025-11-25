@@ -1,4 +1,21 @@
 - commits:
+    - subject: "reference/hardware/versioning: add ODROID-XU4 to pending
+        discontinuation list"
+      hash: 3d88e44855bff8ebb6c96cebe771cf1fcf5281ba
+      body: >
+        This was supposed to be on the original list, but was not included due
+        to oversight
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 6.12.4
+  title: ""
+  date: 2025-11-25T06:38:07.478Z
+- commits:
     - subject: Remove incorrect dtoverlay parsing info
       hash: 2d216434c9bc3f1416bff6f7fb37c3babce23504
       body: |
