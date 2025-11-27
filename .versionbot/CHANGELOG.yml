@@ -1,4 +1,707 @@
 - commits:
+    - subject: "reference/hardware/versioning: add ODROID-XU4 to pending
+        discontinuation list"
+      hash: 3d88e44855bff8ebb6c96cebe771cf1fcf5281ba
+      body: >
+        This was supposed to be on the original list, but was not included due
+        to oversight
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 6.12.4
+  title: ""
+  date: 2025-11-25T06:38:07.478Z
+- commits:
+    - subject: Remove incorrect dtoverlay parsing info
+      hash: 2d216434c9bc3f1416bff6f7fb37c3babce23504
+      body: |
+        The previous documentation for `BALENA_HOST_CONFIG_dtoverlay`
+        described string-parsing behavior (e.g., quote handling for
+        line splitting) that is no longer true as of supervisor v16+
+
+        This commit removes the outdated and incorrect information and points
+        users directly to the official Raspberry Pi documentation, which is
+        the correct reference.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Rahul Thakoor <rahul.thakoor@balena.io>
+        signed-off-by: Rahul Thakoor <rahul.thakoor@balena.io>
+      author: Rahul Thakoor
+      nested: []
+  version: 6.12.3
+  title: ""
+  date: 2025-11-18T18:03:46.487Z
+- commits:
+    - subject: "reference/hardware/versioning: rework discontinuation section"
+      hash: 0eb253e33a4d5d293e027b7b62ec44eee6b98c93
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 6.12.2
+  title: ""
+  date: 2025-11-10T17:37:12.454Z
+- commits:
+    - subject: "pages/learn: Update Jetson Orin docs"
+      hash: b7cfa858b8e904361df12b4b2b6248cd617764eb
+      body: "... to clarify that dtbs can be PR-ed for multiple Jetson Orin devices
+
+        \    "
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+      nested: []
+  version: 6.12.1
+  title: ""
+  date: 2025-11-03T12:47:52.575Z
+- commits:
+    - subject: Add reference docs for secure boot & full disk encryption
+      hash: 5804f29467760c93214b23f9f280a6af7c425dd1
+      body: |
+        - Add general overview
+        - Add setup guide for x86_64 GPT
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+  version: 6.12.0
+  title: ""
+  date: 2025-10-15T12:21:42.578Z
+- commits:
+    - subject: "pages/learn: Add custom device-tree info for Variscite DART MX8MM and
+        VAR-SOM-MX8MM"
+      hash: 2715acf0f0606acc91562ae5278d948c2121ff23
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+      nested: []
+  version: 6.11.1
+  title: ""
+  date: 2025-10-14T08:04:14.016Z
+- commits:
+    - subject: "billing: Add that deactivations within 72h after registration are not
+        charged"
+      hash: 952459ffa51aca0c9e43b4071644b49218d5725b
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        See: https://balena.fibery.io/Work/Project/Automate-Deactivation-Grace-Period-(72hrs)-1291
+        see: https://balena.fibery.io/Work/Project/Automate-Deactivation-Grace-Period-(72hrs)-1291
+      author: Thodoris Greasidis
+      nested: []
+  version: 6.11.0
+  title: ""
+  date: 2025-09-17T18:48:16.415Z
+- commits:
+    - subject: "patch: Add errors for rate limited URLs"
+      hash: f15916080f8e9c0d266b04cdf7d38dd025c4dc17
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.10.2
+  title: ""
+  date: 2025-09-16T12:05:38.718Z
+- commits:
+    - subject: Fix outdated configuration screenshots
+      hash: 8dd5c08209d072450c0da5cbddbdd67aec4f84f5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+  version: 6.10.1
+  title: ""
+  date: 2025-09-15T09:32:16.785Z
+- commits:
+    - subject: Add throttling disclaimer for cloudlink features
+      hash: 3ddd9e2f794a68ee7df90dced2efd8260ee68ff2
+      body: |
+        Devices that constantly consume high-bandwidth continuously may be
+        throttled. Added this note to relevant sections.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Co-authored-by: Chris Crocker-White <chriscw@balena.io>
+        co-authored-by: Chris Crocker-White <chriscw@balena.io>
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+    - subject: Add guidance review changes
+      hash: 47645acaca39f039dc1a5d87b00450ef9b7a4d87
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Co-authored-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        co-authored-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+    - subject: Add guidance for features enabled by cloudlink
+      hash: 954a767272fddff3d45caeebc47840cfcb2eea78
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Rahul Thakoor <rahul@balena.io>
+        signed-off-by: Rahul Thakoor <rahul@balena.io>
+      author: Rahul Thakoor
+      nested: []
+  version: 6.10.0
+  title: ""
+  date: 2025-09-13T21:30:06.946Z
+- commits:
+    - subject: "patch: Account for ratelimits on releases API"
+      hash: 0ecc4af40843dae5b29150ace7c97b866b4bdae9
+      body: |
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+
+        patch: Account for ratelimits on releases API
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.9.2
+  title: ""
+  date: 2025-09-09T12:39:34.592Z
+- commits:
+    - subject: Fix cookie consent banner customize tab options being ignored when
+        clicking on 'Save selection'
+      hash: b303e1a4b99d1e0ff302f87ac84f4f06813d4940
+      body: |
+        Incident: https://balena.fibery.io/Security/Information_Security_and_Reliability_Incident/Cookie-consent-tracking-enabled-after-rejection-in-the-'customize'-tab-of-the-cookie-consent-banner-110
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Jonathan Berger
+      nested: []
+  version: 6.9.1
+  title: ""
+  date: 2025-07-29T10:55:01.768Z
+- commits:
+    - subject: "API/resources: Add example about retrieving multiple devices by their
+        UUIDs"
+      hash: 8fccfec931d9ac285dcdbe8544dd7934b4f06a18
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "API/resources: Add example about retrieving an application with their
+        devices by slug"
+      hash: 01eefb3612cbdbb7257b0f550bf3ce167d97e536
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 6.9.0
+  title: ""
+  date: 2025-07-17T15:25:51.250Z
+- commits:
+    - subject: Update our analytics setup
+      hash: 4cb7becd097a18b924b9d21d77a8f37452b3171d
+      body: >
+        * Switch the project name to the public Amplitude API key for future
+        compatibility with Amplitude Experiment SDK
+
+        * Add a name to the consent cookie (instead of `undefined`) and a domain
+        so it's available for the whole balena.io property (top and sub-domains)
+
+        * Fix the version of `analytics-client` to v3.1.1 to prevent regressions
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Jonathan Berger
+      nested: []
+  version: 6.8.6
+  title: ""
+  date: 2025-06-24T14:21:09.115Z
+- commits:
+    - subject: "patch: Add section on updating balenalib base images"
+      hash: 1d2bec7e3d914801a5dd35eae723b886def9f153
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.8.5
+  title: ""
+  date: 2025-06-23T14:26:09.375Z
+- commits:
+    - subject: "patch: Convert remaining photos to Webp"
+      hash: fb7e1184eab45163f0a75db7931c8750736f84f2
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.8.4
+  title: ""
+  date: 2025-06-19T11:20:11.186Z
+- commits:
+    - subject: Fix digest syntax
+      hash: 6394e90fbe2aaf17030f8c68fe30c792c605a70f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.8.3
+  title: ""
+  date: 2025-06-09T16:16:27.060Z
+- commits:
+    - subject: "patch: Remove reference for balenalib base images from Network docs"
+      hash: 109da68d0689bb436d100fb2ea93cb41baab8532
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 6.8.2
+  title: ""
+  date: 2025-06-05T18:59:46.207Z
+- commits:
+    - subject: Update getting started docs for cli
+      hash: 50822e88ff70606ee6386be0e85ec0ebcb37242c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Otavio Jacobi
+      nested: []
+  version: 6.8.1
+  title: ""
+  date: 2025-05-27T12:24:10.353Z
+- commits:
+    - subject: Rewrite balena base images docs
+      hash: a06a01b1ca3cd6019fa66ddbaed67af9f8c9b28e
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.8.0
+  title: ""
+  date: 2025-05-20T14:06:33.981Z
+- commits:
+    - subject: Update dockerfile.template section
+      hash: 4f296fc01e4adb2f7f775325367caa290953d4c1
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.7.0
+  title: ""
+  date: 2025-05-20T08:13:05.768Z
+- commits:
+    - subject: "patch: Deprecate balenalib base images list page"
+      hash: e093f04efd55bf291713a296ae2103bdcf79af37
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.6.16
+  title: ""
+  date: 2025-05-20T08:04:26.302Z
+- commits:
+    - subject: Update billing.md to suggest that Inactive devices are powered off
+      hash: 99d6a58d3490d1513a235f627f5e5332bcd209cc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Ross Porter
+      nested: []
+  version: 6.6.15
+  title: ""
+  date: 2025-05-19T19:42:26.445Z
+- commits:
+    - subject: Add balena base images reference docs
+      hash: 6dbe255c1ad2f86a38d4144733d2b1cf505e2edf
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.6.14
+  title: ""
+  date: 2025-05-14T23:28:34.273Z
+- commits:
+    - subject: "patch: Remove balenalib references from config"
+      hash: 8cdabb29eb4b47cf4918d318f6c8468bab175c50
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.6.13
+  title: ""
+  date: 2025-05-14T08:11:05.640Z
+- commits:
+    - subject: Remove link to balenalib on DockerHub
+      hash: 6bb50602e50e215e49fb1cb4a8dcf987a80ab947
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.6.12
+  title: ""
+  date: 2025-05-14T08:03:17.326Z
+- commits:
+    - subject: Remove balena base image sentences
+      hash: cdd3d5f0fb54b33db15dc0506da101effa676675
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.6.11
+  title: ""
+  date: 2025-05-13T11:48:35.137Z
+- commits:
+    - subject: Change balenalib reference
+      hash: 4b0b3ce1523d68dc1c559a6e87ccd9b975a794bd
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+    - subject: Remove balenalib references
+      hash: 38d6b53c01f383a4722c9d31242a6fc04d37cf33
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.6.10
+  title: ""
+  date: 2025-05-12T17:10:33.071Z
+- commits:
+    - subject: "patch: Remove Haskell from Getting Started languages"
+      hash: 1d11d823f5646b36db5dedbfafc2a71269d43ea3
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.6.9
+  title: ""
+  date: 2025-04-28T17:26:44.863Z
+- commits:
+    - subject: "patch: Update Pi GPIO docs"
+      hash: b43fac03d689912cf482be08e4e754ab3f7898b3
+      body: ""
+      footer:
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: Alan Boris
+      nested: []
+  version: 6.6.8
+  title: ""
+  date: 2025-04-28T11:14:10.935Z
+- commits:
+    - subject: Remove NTP information for obsolete balenaOS versions
+      hash: b7090e8bc7eae21bf00a37eb82f78dc469bbd1d6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+    - subject: Clarify firewall requirements for ntp.org
+      hash: a1a6aa897ce89fa8c59b3d9d1b87cacef4e2f8b1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+      nested: []
+  version: 6.6.7
+  title: ""
+  date: 2025-04-17T08:40:02.729Z
+- commits:
+    - subject: "patch: Fix broken link for Container Requirements"
+      hash: 8097b80063dfca3a93aa49b9b41d6ad5ced77a87
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 6.6.6
+  title: ""
+  date: 2025-04-15T11:11:09.337Z
+- commits:
+    - subject: "shared/jetson-orin: Specify device-type slugs for Seeed and Orin NX"
+      hash: 6d8e48c12564241ca29bd475b47801b21ba8f65e
+      body: |
+        These three Orin devices used to have common instructions, but now
+        that they have individual pages, we can specify their slugs directly
+        in the instructions.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 6.6.5
+  title: ""
+  date: 2025-03-28T11:35:23.414Z
+- commits:
+    - subject: "Jetson Orin: Improve UEFI related instructions"
+      hash: 6fb305173b559ac2cb249a3cb804bf42faece9b2
+      body: |
+        Author: Alan Boris
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested: []
+  version: 6.6.4
+  title: ""
+  date: 2025-03-27T15:58:42.337Z
+- commits:
+    - subject: "supervisor docker-compose: Move `expose` to Known unsupported fields"
+      hash: 9a4abc9cca004ee89b7eaf8ec5bc4396a5164cf2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+      nested: []
+  version: 6.6.3
+  title: ""
+  date: 2025-03-25T13:28:52.953Z
+- commits:
+    - subject: Update Avahi Documentaiton to add Port Details
+      hash: fefed32917ec956f2c6cab4960e3651900b69ab0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: fisehara
+      nested: []
+  version: 6.6.2
+  title: ""
+  date: 2025-03-24T09:51:42.229Z
+- commits:
+    - subject: Container requirement documentation tweaks
+      hash: 85c87502a0bef998baaefb44a8015a8d57d09e67
+      body: |
+        Improve some texts and link to update status documentation
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 6.6.1
+  title: ""
+  date: 2025-03-13T13:17:59.581Z
+- commits:
+    - subject: Add container requirements section under Labels
+      hash: 8b4d08d96066a221ee00177f58e5a62178000503
+      body: |
+        This also removes the container contracts page as this feature is being
+        replaced by container requirements.
+      footer:
+        See: https://balena.fibery.io/Work/Project/Refactoring-container-contracts-1205
+        see: https://balena.fibery.io/Work/Project/Refactoring-container-contracts-1205
+        Change-type: minor
+        change-type: minor
+        Depends-on: https://github.com/balena-io/balena-cli/pull/2922
+        depends-on: https://github.com/balena-io/balena-cli/pull/2922
+      author: Felipe Lalanne
+      nested: []
+  version: 6.6.0
+  title: ""
+  date: 2025-03-13T11:16:32.081Z
+- commits:
+    - subject: "patch: Fix typos in deployment.md"
+      hash: 728899b9270e9b558bb1153b8de9534b6c4e1b16
+      body: ""
+      footer: {}
+      author: Edwin Joassart
+      nested: []
+  version: 6.5.7
+  title: ""
+  date: 2025-02-28T12:23:14.405Z
+- commits:
+    - subject: "patch: Update query to fetch device types"
+      hash: 828af23e08a0524dd94621e931bcc10e004ddf02
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.5.6
+  title: ""
+  date: 2025-02-28T10:16:35.009Z
+- commits:
+    - subject: Update feature requests page link
+      hash: a7459c5dca5bdaf9df6078d45dbcfd560b529399
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Jonathan Berger
+      nested: []
+  version: 6.5.5
+  title: ""
+  date: 2025-02-07T10:50:50.392Z
+- commits:
+    - subject: "patch: Deprecated command `fleets` replaced by `fleet list`"
+      hash: d1554971b505976938223fe874d12976eeaaf0e9
+      body: ""
+      footer: {}
+      author: wallem89
+      nested: []
+  version: 6.5.4
+  title: ""
+  date: 2025-02-03T22:22:48.691Z
+- commits:
+    - subject: "patch: Remove Edison hardware docs"
+      hash: e94e3641cc917e237dab4d39efcf589eaa58ce77
+      body: Edison was EOL'd years ago, so these docs are just bloat
+      footer: {}
+      author: Shaun Mulligan
+      nested: []
+  version: 6.5.3
+  title: ""
+  date: 2025-01-31T16:33:21.862Z
+- commits:
+    - subject: "patch: update to `balena device <subcommand>`"
+      hash: 8d154152c9461d408b90a4fe0f13ced0c2fdd4f8
+      body: >-
+        updated all instances of `{{ $names.company.short }}` commands to use
+        the renamed versions
+
+        using
+        https://github.com/balena-io/balena-cli/blob/v20.2.1/docs/balena-cli.md
+        as reference
+      footer: {}
+      author: Wesley McCloy
+      nested: []
+  version: 6.5.2
+  title: ""
+  date: 2025-01-16T13:13:48.277Z
+- commits:
+    - subject: "patch: Add rate limits to API docs"
+      hash: 5f2fa006c15fbc1647b8d7d53c6014859f4efe63
+      body: Added a section on rate limiting to our API docs so that customers can
+        understand why we don't publish our rate limits.
+      footer: {}
+      author: Ryan
+      nested: []
+  version: 6.5.1
+  title: ""
+  date: 2025-01-15T08:11:45.828Z
+- commits:
+    - subject: "minor: remove edison from gpio.md"
+      hash: bf102b3f8bf2d80f581267c9ff34999ccba39d12
+      body: Intel Edison has been deprecated a long time ago.
+      footer: {}
+      author: Edwin Joassart
+      nested: []
+  version: 6.5.0
+  title: ""
+  date: 2025-01-14T15:19:24.421Z
+- commits:
+    - subject: remove fetching of modem and wifi adapter text from meta-balena
+      hash: 48061c4fd36623611042a114028b37ea860dd01e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+    - subject: "reference/wifi-dongles.md: Remove list of supported modems"
+      hash: d694c7011f6cde45310f0ead1375f03bbfc645d0
+      body: >
+        The list of supported wifi dongles and modems is out of date and sets an
+        uneralistic expectation for hardware compatibility - its better to
+        remove this until we actually have a proper modem story
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+      nested: []
+  version: 6.4.4
+  title: ""
+  date: 2025-01-14T15:13:27.430Z
+- commits:
     - subject: "patch: Update NPM dependencies"
       hash: 313549334a785b8a07a6f06ef59412f0aef87459
       body: ""

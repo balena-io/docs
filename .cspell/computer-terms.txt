@@ -1,5 +1,7 @@
 AAAAB
+Adafruit
 Adblocker
+Advantech
 Aetina
 ahci
 allwinner
@@ -11,6 +13,7 @@ apikey
 aplus
 arm-builder-kernels
 armel
+armhf
 armv
 arrayish
 arrify
@@ -43,6 +46,7 @@ baletheus
 bananapi
 barebones
 Baseimages
+BBIO
 bblayers
 beagleboard
 Beaglebone
@@ -83,6 +87,7 @@ client
 cloudiotcore
 Cloudlink
 CMDMON
+CMOS
 colorbox
 colorette
 composeyml
@@ -100,9 +105,9 @@ cpuset
 createapikey
 crossbuilding
 cssesc
-cwebp
 CUDA
 Customboard
+cwebp
 decamelize
 depd
 devboard
@@ -117,6 +122,8 @@ Digi
 digitiser
 dind
 discoveryjs
+Distroless
+distroless
 dnsmasq
 dnsservers
 Dockerfiles
@@ -147,6 +154,7 @@ esrecurse
 estraverse
 estree
 esvalidate
+Eurotec
 execa
 extglob
 FBCP
@@ -171,6 +179,8 @@ giffgaff
 gifs
 githubui
 gpio
+gpiochip
+gpiochip
 groff
 gstatic
 gsub
@@ -191,6 +201,7 @@ hotswap
 hugepages
 hummingboard
 HWADDR
+hwclock
 hyperpixel
 icss
 idfa
@@ -214,13 +225,17 @@ Jetpack
 jetson
 journalctl
 jridgewell
+kexec
 keyv
 klaw
 Lamtzidis
 LBEL
+lcbzu
 ldconfig
 leds
+lgpio
 libasound
+libgpiod
 libmraa
 libsqlite
 lintian
@@ -232,6 +247,7 @@ localcommit
 lockr
 logind
 logshipper
+LUKS
 macbook
 MASKROM
 maxpoll
@@ -256,6 +272,7 @@ multiapp
 multimatch
 multiroom
 mutli
+muxing
 myapp
 mynewhostname
 myorg
@@ -302,6 +319,8 @@ picamera
 picocolors
 picomatch
 pify
+Pinctrl
+pinout
 PPPS
 preconfigured
 prefixoid
@@ -321,6 +340,7 @@ ralink
 randomatic
 raspberrypi
 raspberrypicm
+raspi
 RAWIO
 RCSI
 rcvbuf
@@ -331,6 +351,7 @@ reflashed
 reflashing
 reinterpolate
 relases
+relatime
 replug
 repostiory
 reprovision
@@ -404,6 +425,7 @@ toidentifier
 tooltipped
 topo
 TOTP
+trixie
 tuneables
 typer
 tzdata

@@ -35,7 +35,6 @@ Field | Details
 [domainname](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [entrypoint](https://docs.docker.com/compose/compose-file/compose-file-v2/#entrypoint) |
 [environment](https://docs.docker.com/compose/compose-file/compose-file-v2/#environment) |
-[expose](https://docs.docker.com/compose/compose-file/compose-file-v2/#expose) |
 [extra_hosts](https://docs.docker.com/compose/compose-file/compose-file-v2/#extra_hosts) |
 [group_add](https://docs.docker.com/compose/compose-file/compose-file-v2/#group_add) |
 [healthcheck](https://docs.docker.com/compose/compose-file/compose-file-v2/#healthcheck) |
@@ -81,6 +80,7 @@ Field | Details
 [cpu_percent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) |
 [cpus](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources) | Introduced by Docker Compose v2.2 and therefore not working
 [env_file and service.env_file](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#use-the-env_file-attribute)
+[expose](https://docs.docker.com/compose/compose-file/compose-file-v2/#expose) | Informational only. Removed to prevent conflicts with other network configurations
 [external_links](https://docs.docker.com/compose/compose-file/compose-file-v2/#external_links) |
 [isolation](https://docs.docker.com/compose/compose-file/compose-file-v2/#isolation-1) |
 [links](https://docs.docker.com/compose/compose-file/compose-file-v2/#links) |

@@ -31,7 +31,7 @@ The balena device uses two mechanisms to maintain communication with balenaCloud
 
 - **Cloudlink available, but heartbeat not**: The device is unable to communicate with the {{ $names.cloud.lower }} API. A device with cloudlink only is not able to apply any new changes made such as deploying new releases, applying service configuration values, or switching to local mode. However, since cloudlink is available, the device is accessible via SSH or the web terminal. When a device exhibits this state, the first troubleshooting step is to [run a healthcheck](https://docs.balena.io/reference/diagnostics/#device-health-checks) and pull [device diagnostics](https://docs.balena.io/reference/diagnostics/#device-diagnostics). This should help determine the reason the supervisor is not communicating with the balenaCloud backend.
 
-- **Heartbeat available, but cloudlink not**: The device is unable to connect to cloudlink (e.g. a firewall is blocking VPN traffic), and terminal access to the device is thus unavailable. A device with Heartbeat Only status has internet connectivity, is able to reach the API, and can poll the cloud for new updates to apply, but actions that take immediate effect, such as purging data, restarting services, rebooting or shutting down, will not be available as they are performed via cloudlink.
+- **Heartbeat available, but Cloudlink not**: The device is unable to connect to Cloudlink (e.g. a firewall is blocking VPN traffic). [Features enabled by Cloudlink][cloudlink] such as [SSH access][ssh-access] will not be available. A device with Heartbeat Only status has internet connectivity, is able to reach the API, and can poll the cloud for new updates to apply, but actions that take immediate effect, such as purging data, restarting services, rebooting or shutting down, will not be available as they are performed via Cloudlink.
 
 __Note:__ If the device is powered off or loses all network connectivity, the `heartbeat` indicator will show as connected (green) until enough time has passed to cover the device [API polling interval][poll-interval], at which time it will be marked as `Disconnected`.
 
@@ -48,7 +48,7 @@ __Note:__ Data for these states will only get populated for devices with [superv
 | **Downloading**                       | The supervisor is downloading one or more container images associated with the target release                                           |
 | **Downloaded**                        | All container images in the target release have been downloaded. **Note:** If the device holds an update lock, it will stop in this state until the lock is released (depending on the [update strategy](https://docs.balena.io/learn/deploy/release-strategy/update-strategies/#controlling-the-update-strategy)). |
 | **Applying Changes**                  | The supervisor is performing actions to install the new release, i.e. killing old containers and making volumes/network/container changes.    |
-| **Rejected**                          | The target release has required services that do not meet the [necessary requirements](https://docs.balena.io/learn/develop/container-contracts/#container-contracts) to run. |
+| **Rejected**                          | The target release has required services that do not meet the [necessary requirements](https://docs.balena.io/learn/develop/multicontainer/#container-requirements) to run. |
 | **Aborted**                           | The supervisor has given up on trying to install a new release. There are currently no conditions under which the supervisor returns this state, but future work could allow the supervisor to abort an update, for instance, after a number of failed download tries.    |
 
 ## Update Status Duration
@@ -73,3 +73,4 @@ If you find your device to be displaying a status which is unclear even with the
 [debugging-masterclass]:/learn/more/masterclasses/device-debugging
 [cloudlink]:/learn/welcome/security/#cloudlink
 [bandwidth-reduction]:/reference/supervisor/bandwidth-reduction/#side-effects--warnings
+[ssh-access]:/learn/manage/ssh-access/

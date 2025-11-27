@@ -2,6 +2,8 @@ To help you debug, develop, and work with your fleets, we've provided a browser-
 
 __Note:__ Host OS SSH access is available for devices running {{ $names.os.lower }} version 2.7.5 and above.
 
+SSH access is built on [Cloudlink](/learn/welcome/security/#cloudlink) and it not designed for high availability. It is not intended for use in the critical path of your application - you should not depend on it for continuous use as part of your own application.
+
 ## Using the dashboard web terminal
 
 To use this feature, navigate to your fleet and select the device you want to access. You will see a *Terminal* window below the *Logs* window:
@@ -14,31 +16,31 @@ A terminal session should be initiated for you in a second or two. If you would 
 
 __Note:__ To copy and paste in the terminal window, you cannot use the normal Ctrl + C and Ctrl + V shortcuts. You can either select Copy and Paste from a menu, or use Ctrl + Insert for copy and Shift + Insert for Paste. For MacOS users, ⌘ + C and ⌘ + V work as expected.
 
-## Using `{{ $names.company.short }} ssh` from the CLI
+## Using `{{ $names.company.short }} device ssh` from the CLI
 
 To use the CLI, first [install it][cli-install] and [add an SSH key to {{ $names.cloud.lower }}][add-ssh-key]. Then run the following command on your development machine's terminal:
 
 ```shell
-$ {{ $names.company.short }} ssh <device-uuid>
+$ {{ $names.company.short }} device ssh <device-uuid>
 ```
 
-`<device-uuid>` is the unique identifier for the device you want to access, which can be found via the dashboard or in the output of the `{{ $names.company.short }} devices` CLI command. By default, SSH access is routed into the host OS shell. However, you can SSH into a service by specifying its name as part of the command:
+`<device-uuid>` is the unique identifier for the device you want to access, which can be found via the dashboard or in the output of the `{{ $names.company.short }} device list` CLI command. By default, SSH access is routed into the host OS shell. However, you can SSH into a service by specifying its name as part of the command:
 
 ```shell
-$ {{ $names.company.short }} ssh <device-uuid> main
+$ {{ $names.company.short }} device ssh <device-uuid> main
 ```
 
 This also works in multicontainer fleets; simply pass the name of the appropriate service (as defined in docker-compose.yml) instead of `main`.
 
-__Note:__ To run a command in a non-interactive way, you can pipe commands to the CLI's stdin. For example, `echo "uptime; exit;" | balena ssh <device-uuid>`.
+__Note:__ To run a command in a non-interactive way, you can pipe commands to the CLI's stdin. For example, `echo "uptime; exit;" | balena device ssh <device-uuid>`.
 
 When a fleet name or device UUID is used as above, `{{ $names.company.short }}` ssh uses Cloudlink to create a secure tunnel to the device and then forward SSH traffic between the device and your development machine.
 
 If an IP address or a .local hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }}` ssh establishes a direct connection that does not rely on Cloudlink:
 
 ```shell
-$ balena ssh 192.168.1.23
-$ balena ssh <device-uuid>.local
+$ balena device ssh 192.168.1.23
+$ balena device ssh <device-uuid>.local
 ```
 
 When used with a [production variant of {{ $names.os.lower }}][development-image], this
@@ -70,19 +72,19 @@ Development variants of {{ $names.os.lower }} allow unauthenticated access and s
 directly exposed to the public internet.
 
 The IP address will typically be a private IP address of a local network. For remote devices,
-see [{{ $names.company.short }} tunnel][balena-tunnel].
+see [{{ $names.company.short }} device tunnel][balena-tunnel].
 
-## {{ $names.company.short }} tunnel
+## {{ $names.company.short }} device tunnel
 
 The SSH server of a {{ $names.os.lower }} device (host OS) listens on TCP port `22222`.
 This port is not blocked by any firewall on the device itself, but external firewalls or NAT
 routers will often block access at the network level. To get around this, you can use the
-`{{$names.company.short }} tunnel` command of the {{ $names.cli.lower }}, which tunnels a
+`{{$names.company.short }} device tunnel` command of the {{ $names.cli.lower }}, which tunnels a
 TCP connection between a localhost port and a port on the device. For example, the following
 command maps local port `4321` to remote port `22222` on the device:
 
 ```shell
-$ balena tunnel <device-uuid> -p 22222:4321
+$ balena device tunnel <device-uuid> -p 22222:4321
 ```
 
 The device can then be accessed on local port `4321` with a standalone SSH client:

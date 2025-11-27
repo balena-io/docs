@@ -61,13 +61,13 @@ When developing on low-footprint devices or for a heterogeneous fleet, it is eas
 It is important to make a conscious decision regarding pinning a container's base image to a specific version, for example:
 
 ```
-FROM balenalib/raspberrypi3-debian-node:8-run-20200115
+FROM debian:bookworm-20250428
 ```
 
 instead of:
 
 ```
-FROM balenalib/raspberrypi3-debian-node:8-run
+FROM debian:bookworm
 ```
 
 During app development, pinning versions of various components as much as possible prevents pieces from changing unintentionally later on during a redeployment when new versions are silently pulled in (like libraries, OS versions, base images, etc). In the same vein, pinning versions encourages builder cache reuse as components cannot change underneath the build process itself, ensuring a more reliable and repeatable build.

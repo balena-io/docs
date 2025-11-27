@@ -72,7 +72,8 @@ Charges for usage outside your plan will show up under the _Add-ons_ section of 
 
 ## Inactive devices
 
-If you have devices that will be inactive for long periods of time, you can mark them as `Inactive`. This will keep them from being counted towards your device total. We’ll charge a one-time deactivation fee, and the devices will remain inactive until they come online.
+If you have devices that will be inactive (powered off) for long periods of time, you can mark them as `Inactive`. This will keep them from being counted towards your device total. We’ll charge a one-time deactivation fee of $2, and the devices will remain inactive until they come online.
+If you deactivate a device within 72 hours of first provisioning/registration, we will not charge a deactivation fee.
 
 Marking a device as `Inactive` is a [device setting][device-settings]. Device operations can be applied in one of three ways: as a group operation applied to one or more devices in the device list, as an operation selected from the dropdown on the device dashboard, or directly from the _Settings_ tab of the device dashboard. Once a device has been marked `Inactive`, it will be faded out in the device list.
 

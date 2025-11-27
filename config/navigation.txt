@@ -41,13 +41,12 @@ Learn
     [/learn/develop/multicontainer]
     Develop with Apps[/learn/develop/apps]
     [/learn/develop/blocks]
-    [/learn/develop/container-contracts]
     [/learn/develop/runtime]
     [/learn/develop/hardware]
       [/learn/develop/hardware/gpio]
       [/learn/develop/hardware/usb]
       [/learn/develop/hardware/i2c-and-spi]
-      [/learn/develop/hardware/jetson-orin]
+      Jetson Orin[/learn/develop/hardware/jetson-orin/$jetsonorin]
     Provision with cloud IoT[/learn/develop/cloud-iot-provisioning/$cloud]
 
   DEPLOY
@@ -128,6 +127,10 @@ Reference
     [/reference/OS/time]
     [/reference/OS/advanced]
     [/reference/OS/customer-board-support]
+    Secure Boot & Full Disk Encryption[/reference/OS/secure-boot-and-full-disk-encryption/overview]
+      Setup Guides
+        [/reference/OS/secure-boot-and-full-disk-encryption/generic-x86-64-gpt]
+    
 
   Device supervisor
     Supervisor API[/reference/supervisor/supervisor-api]
@@ -143,7 +146,6 @@ Reference
 
   Base images
     [/reference/base-images/balena-base-images]
-    [/reference/base-images/base-images-ref]
     [/reference/base-images/devicetypes]
 
   API

@@ -33,6 +33,6 @@ For more details on interacting with external hardware, check out these guides:
 [gpio]:/learn/develop/hardware/gpio
 [i2c-spi]:/learn/develop/hardware/i2c-and-spi
 [usb]:/learn/develop/hardware/usb
-[jetson-orin]:/learn/develop/hardware/jetson-orin
+[jetson-orin]:/learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit/
 [base-image-wiki-link]:/reference/base-images/balena-base-images/
 [udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html

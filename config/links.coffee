@@ -30,7 +30,6 @@ module.exports =
   etcherSiteUrl: 'https://www.balena.io/etcher'
   githubCli: 'https://github.com/balena-io/balena-cli'
   supportUrl: 'https://www.balena.io/support'
-  balenalibDockerHub: 'https://hub.docker.com/r/balenalib'
   externalDocs:
     "python-sdk": 'https://github.com/balena-io/balena-sdk-python/edit/master/DOCUMENTATION.md'
     "node-sdk": 'https://github.com/balena-io/balena-sdk/edit/master/DOCUMENTATION.md'

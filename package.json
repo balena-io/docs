@@ -1,9 +1,9 @@
 {
   "name": "balena-docs",
   "private": true,
-  "version": "6.4.3",
+  "version": "6.12.4",
   "engines": {
-    "node": "^18.0.0"
+    "node": "^22.0.0"
   },
   "description": "This repo contains balenaCloud's public-facing documentation.",
   "main": "index.js",
@@ -59,6 +59,6 @@
     "wrangler": "^3.99.0"
   },
   "versionist": {
-    "publishedAt": "2025-01-06T14:28:12.643Z"
+    "publishedAt": "2025-11-25T06:38:08.039Z"
   }
 }

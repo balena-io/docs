@@ -8,43 +8,47 @@ Recommended ways of interacting with GPIO on {{ $names.company.lower }} devices.
 
 * [Raspberry Pi](/hardware/gpio#raspberry-pi)
 * [Beaglebone](/hardware/gpio#beaglebone)
-* [Intel Edison](/hardware/gpio#intel-edison)
 
 ## Raspberry Pi
 
-The [Raspberry Pi][rpi]'s [General Purpose I/O][gpio] (GPIO) pins can be used to send and receive arbitrary data from external hardware. In the diagram shown below the GPIO pins are located in the top-right hand corner of the device:-
+All Raspberry Pi SBCs have a header that includes a number of [General Purpose Input/Output ("GPIO")](https://en.wikipedia.org/wiki/General-purpose_input/output) pins. These pins can be used to control external hardware such as LEDs, solenoids, motors, or other devices, as well as read data from various sensors. (The GPIO pins employ standard 3.3 volt logic and can't drive high current devices directly.) The earliest models used a 26 pin header, but all recent models use a 40 pin header. 
 
-![Raspberry Pi](/img/rpi.svg)
+![Raspberry Pi](/img/rpi4.png)
+
+#### Background
+
+As Raspberry Pi models have evolved over the years, the hardware driving these GPIO pins has changed multiple times. The original Pi GPIO pins were directly driven from the SoC itself, while the Pi 5 uses a separate RP1 chip to drive the user-facing GPIO pins. For this reason, GPIO software libraries that use direct access to registers may stop working as hardware and kernel updates change the location of these registers.
+
+This situation is very evident on libraries that depend on the long-deprecated `sysfs` interface, which is due to be removed completely from the Linux kernel.
+
+The appropriate method to access GPIO features is via the standard Linux libgpiod library. Using a hardware abstraction such as this means the Linux kernel handles any differences in hardware that may be encountered between different models.
 
 #### Library Access
 
-There are many libraries available for GPIO access. For [node.js][node] users, [npm][npm] has a number of [GPIO libraries][npm-gpio] available.
+The current Raspberry Pi GPIO libraries include:
 
-We recommend [Pi Pins][pi-pins] for node.js projects - we've found it works reliably on [{{ $names.company.lower }}][balena]. Check out our [example GPIO application][example-gpio-app] which uses this library.
+ - [Libgpiod](https://libgpiod.readthedocs.io/en/latest/) is a C library and set of tools for interacting with the Linux GPIO character devices (/dev/gpiochipX).
 
-There are also specialist libraries available for powering particular classes of devices via GPIO, e.g. the [MAX7219 node library][max7219] for [MAX7219][max7219] LED displays.
 
-#### Voltage
+ - [Pinctrl](https://github.com/raspberrypi/utils/tree/master/pinctrl) is a more powerful replacement for raspi-gpio, a tool for displaying and modifying the GPIO and pin muxing state of a system. It accesses the hardware directly, bypassing the kernel drivers
 
-All numbered data pins operate at 3.3v, however there are two 5v ports which output 5v DC output.
 
-Please note that these are operating at a different voltage from the data pins - if you need to drive a 5v (or higher) device, you will need to use a [level converter][level-converter] to step up the data pin's voltage or your device will not be able to correctly interpret high signals from the Pi.
+ - [Rpi-lgpio](https://rpi-lgpio.readthedocs.io/en/release-0.4/) is a compatibility package intended to provide compatibility with the rpi-gpio (aka RPi.GPIO) library, on top of kernels that only support the gpiochip device (and which have removed the deprecated sysfs GPIO interface).
+
+These libraries have been tested to run equally well on multiple models of Raspberry Pi and various balenaOS and kernel versions. ([Example repository](https://github.com/balena-io-experimental/pi-gpio).) 
+
+Much of this information and the image above is an excerpt from "A history of GPIO usage on Raspberry Pi devices, and current best practices" by [Raspberry Pi Ltd](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-006553-WP/A-history-of-GPIO-usage-on-Raspberry-Pi-devices-and-current-best-practices.pdf). 
+
 
 ## Beaglebone
 
-Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the [Octalbonescript](https://github.com/theoctal/octalbonescript) JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript_capemgr4_1 .
+Currently Beaglebone devices are running a new 4.1 kernel, unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Checkout the [Octalbonescript](https://github.com/theoctal/octalbonescript) JS library and a Node.js module here: [https://www.npmjs.com/package/octalbonescript_capemgr4_1](https://www.npmjs.com/package/octalbonescript_capemgr4_1).
 
-With this module you should be able to carry out basic GPIO and analog-to-digital conversion operations. To get you started we have a simple example using this module [here]({{ $links.githubPlayground }}/beaglebone-adc-node).
+With this module you should be able to carry out basic GPIO and analog-to-digital conversion operations. To get you started we have a [example using this module]({{ $links.githubPlayground }}/beaglebone-adc-node).
 
-If you would prefer a python implementation, then look at this [github issue](https://github.com/adafruit/adafruit-beaglebone-io-python/issues/80#issuecomment-163073883) and get involved in making it happen.
+The [Adafruit BBIO](https://github.com/adafruit/adafruit-beaglebone-io-python) library enables GPIO, PWM, ADC, UART, SPI, and eQEP hardware access from Python.
 
-## Intel Edison
 
-All the Intel Edison base images on our [Docker Hub][edison-base-image-link] come pre-installed with [libmraa](https://github.com/intel-iot-devkit/mraa), which allows you to easily interact with the GPIO.
-
-To get started with GPIO on edison have a look at our ["Edison GPIO in node.js"](https://github.com/shaunmulligan/edison-blink-node.git) example, or if you prefer python check out our ["Simple Edison GPIO with python"](https://github.com/shaunmulligan/hello-python-edison).
-
-[edison-base-image-link]:https://hub.docker.com/search/?q=resin%2Fedison&page=1&isAutomated=0&isOfficial=0&starCount=0&pullCount=0
 [terminal]:/runtime/terminal
 
 [balena]:{{ $links.mainSiteUrl }}

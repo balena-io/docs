@@ -113,7 +113,60 @@ In addition to the settings above, there are some {{ $names.company.lower }} spe
 
 {{> "general/labels" }}
 
-[docker-compose]:https://docs.docker.com/compose/overview/
+### Container requirements
+
+**Note:** Container requirements are available when using balenaCLI >= 21.1.0
+
+An additional set of labels ensures device compatibility for running a service. For example, before updating to a new release, it may be desirable to ensure that the device is running a specific version of [Supervisor][supervisor] or has a specific version of the [NVIDIA Tegra Linux Driver Package][l4t] (L4T).
+
+The following set of requirement labels are enforced via the supervisor. Each service may define one or more requirements and if any of them is not met for any non-[optional](#optional-containers) service, then [the release will be rejected][update-statuses] and no changes will be performed for the new release.
+
+| Label                                                          | Description                                                               | Valid from Supervisor |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------- | --------------------- |
+| io.{{ $names.company.short }}.features.requires.sw.supervisor  | Device Supervisor version (specified as a [version range][version-range]) | 10.16.17              |
+| io.{{ $names.company.short }}.features.requires.sw.l4t         | [L4T][l4t] version (specified as a [version range][version-range])        | 10.16.17              |
+| io.{{ $names.company.short }}.features.requires.hw.device-type | The [device type][device-type] as given by `BALENA_MACHINE_NAME`          | 11.1.0                |
+| io.{{ $names.company.short }}.features.requires.arch.sw        | The [architecture][arch] as given by `BALENA_ARCH`                        | 14.10.11              |
+
+For example, the following composition defines requirements on the supervisor and l4t version on the first service, and on the device type and architecture on the second service.
+
+```yaml
+version: '2'
+services:
+  first-service:
+    build: ./first-service
+    labels:
+      io.balena.features.requires.sw.supervisor: '>=14'
+      io.balena.features.requires.sw.l4t: '>=32.2.0'
+  second-service:
+    image: my-second-image
+    labels:
+      io.balena.features.requires.hw.device-type: 'jetson-nano'
+      io.balena.features.requires.arch.sw: 'aarch64'
+```
+
+#### Optional containers
+
+By default, when a container requirement is not met, none of the services are deployed to the device. However, in a multi-container release, it is possible to ignore those services that do not meet requirements with the other services being deployed as normal. To do so, we make use of the `io.balena.features.optional: 1` label to indicate which services should be considered optional.
+
+In the `docker-compose.yml` file, add the `io.balena.features.optional: 1` to the labels list for each service you wish to mark as optional. In the following example, even if the `first-service` requirements fail, the `second-service` service will still be deployed.
+
+```Dockerfile
+version: '2'
+services:
+  first-service:
+    build: ./first-service
+    labels:
+      io.balena.features.requires.hw.device-type: 'jetson-nano'
+      io.balena.features.optional: '1'
+  second-service:
+    build: ./second-service
+```
+
+**Note:** When updating between releases, if the new version of and optional service has unmet requirements, the old version of the service will still be killed.
+
+[docker-compose]: https://docs.docker.com/compose/overview/
+
 [simple-app]:{{ $links.githubLabs }}/multicontainer-getting-started
 [compose-features]:https://docs.docker.com/compose/compose-file/compose-file-v2/
 [compose-support]:/reference/supervisor/docker-compose
@@ -124,3 +177,9 @@ In addition to the settings above, there are some {{ $names.company.lower }} spe
 [services-masterclass]:/learn/more/masterclasses/services-masterclass/
 [core-dump-link]:https://en.wikipedia.org/wiki/Core_dump
 [feature-labels]:/learn/develop/multicontainer/#labels
+[l4t]: https://developer.nvidia.com/embedded/linux-tegra
+[supervisor]: /reference/supervisor/supervisor-api/
+[device-type]:/reference/hardware/devices/
+[arch]: /reference/base-images/balena-base-images/#supported-architectures-distros-and-languages
+[version-range]: https://www.npmjs.com/package/semver
+[update-statuses]: /learn/manage/device-statuses/#update-statuses

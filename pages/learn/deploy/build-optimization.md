@@ -29,7 +29,7 @@ In order to reduce complexity, dependencies, file sizes, and build times, you sh
 {{ $names.company.upper }} supports [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/). When building your application, you might require build-time dependencies, or other files which are not needed at _runtime_. With multi-stage builds, you can use multiple `FROM` statements to describe a new stage. Each stage can use a different base image and you can copy files and artifacts from one stage to another. This allows you to only copy necessary files and tools into the final image you want to ship, keeping it lean. Here is an example illustrating multi-stage build for a `golang` project. 
 
 ```Dockerfile
-FROM balenalib/%%BALENA_MACHINE_NAME%%-golang:stretch-build AS build # define a build stage 
+FROM golang:1.24.3-bookworm AS build # define a build stage 
 
 WORKDIR /go/src/github.com/balena-io-projects/app
 
@@ -37,7 +37,7 @@ COPY /app ./
 
 RUN go build
 
-FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:stretch # use a different, leaner image in final image
+FROM debian:bookworm-20250428-slim # use a different, leaner image in final image
 
 COPY --from=build /go/src/github.com/balena-io-projects/app/ . # copy build artifacts from build stage
 
@@ -65,8 +65,6 @@ RUN apt-get update && apt-get install -y \
 __Note:__ The above command should never be split over two or more `RUN` commands, as the benefits will be lost.
 
 It is also wise to remove any .tar.gz or temporary files in a similar fashion to the above, as this will reduce build size.
-
-If you are using balenalib images, you can also use the [`install_packages`][install-packages] utility.
 
 ## Use .dockerignore
 

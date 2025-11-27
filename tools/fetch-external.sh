@@ -35,11 +35,11 @@ curl --fail --show-error -o shared/masterclass/debugging/supervisor.md -L https:
 cd shared/meta-balena/ && {
   curl --fail --show-error -o meta-balena.md -L https://raw.githubusercontent.com/balena-os/meta-balena/master/README.md
   # Extract modem text
-  ../../tools/extract-markdown.sh "Modems" <meta-balena.md >supported-modems.md
+  # ../../tools/extract-markdown.sh "Modems" <meta-balena.md >supported-modems.md
   # Extract Wifi adapters
-  ../../tools/extract-markdown.sh "WiFi Adapters" <meta-balena.md >supported-wifi-adapters.md
+  # ../../tools/extract-markdown.sh "WiFi Adapters" <meta-balena.md >supported-wifi-adapters.md
   # Extract Recommended WiFi USB dongle
-  ../../tools/extract-markdown.sh "Recommended WiFi USB dongle" <meta-balena.md >supported-wifi-usb-dongle.md
+  # ../../tools/extract-markdown.sh "Recommended WiFi USB dongle" <meta-balena.md >supported-wifi-usb-dongle.md
   # Extract config.json
   ../../tools/extract-markdown.sh "config.json" <meta-balena.md >config-json.md
   rm meta-balena.md
@@ -76,8 +76,29 @@ curl --fail --show-error -o pages/learn/more/masterclasses/docker-masterclass.md
 cd shared/projects/ && {
   echo "Name|Description
 ---|---" | tee balena-labs-projects.md balena-example-projects.md >/dev/null
-  curl --fail --show-error https://api.github.com/orgs/balena-labs-projects/repos?per_page=30 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md
-  curl --fail --show-error https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md
+  
+  # Set up authentication headers if GITHUB_TOKEN is available
+  if [ -n "${GITHUB_TOKEN:-}" ]; then
+    AUTH_HEADER="Authorization: token $GITHUB_TOKEN"
+  else
+    AUTH_HEADER=""
+    echo "Warning: GITHUB_TOKEN not set. GitHub API calls may be rate limited."
+  fi
+  
+  # Fetch balena-labs-projects with error handling
+  if [ -n "$AUTH_HEADER" ]; then
+    curl --fail --show-error -H "$AUTH_HEADER" https://api.github.com/orgs/balena-labs-projects/repos?per_page=30 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md || echo "Failed to fetch balena-labs-projects" >&2
+  else
+    curl --fail --show-error https://api.github.com/orgs/balena-labs-projects/repos?per_page=30 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-labs-projects.md || echo "Failed to fetch balena-labs-projects (rate limited)" >&2
+  fi
+  
+  # Fetch balena-io-examples with error handling  
+  if [ -n "$AUTH_HEADER" ]; then
+    curl --fail --show-error -H "$AUTH_HEADER" https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md || echo "Failed to fetch balena-io-examples" >&2
+  else
+    curl --fail --show-error https://api.github.com/orgs/balena-io-examples/repos?per_page=100 | $JQ -r 'sort_by(-.stargazers_count) |  (.[] | [.name,.html_url,.description] | "[\(.[0])](\(.[1]))|\(.[2] // "")") ' >>balena-example-projects.md || echo "Failed to fetch balena-io-examples (rate limited)" >&2
+  fi
+  
   cd -
 } &
 
@@ -102,10 +123,10 @@ cd shared/sdk/ && {
 # get latest python SDK docs
 # curl --fail --show-error -o pages/reference/sdk/python-sdk.md -L https://github.com/balena-io/balena-sdk-python/raw/master/DOCUMENTATION.md &
 
-# get latest base images ref docs
+# get base images ref docs
 cd pages/reference/base-images/ && {
   curl --fail --show-error -L https://raw.githubusercontent.com/balena-io-library/base-images/master/docs/base-images-ref.md >temp.md
-  echo "# Base Images List" >base-images-ref.md
+  echo "# [Deprecated] Balenalib Images List" >base-images-ref.md
   cat temp.md >>base-images-ref.md
   rm temp.md
   cd -

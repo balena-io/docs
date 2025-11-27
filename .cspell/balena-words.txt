@@ -6,6 +6,7 @@ balena-build
 balena-builder
 balenacli
 balenahup
+balenalabs
 balenalib
 balenista
 balenistas
@@ -21,6 +22,7 @@ flowzone
 generic
 hostapp
 hostvia
+jetsonorin
 Katapult
 kompose
 landr

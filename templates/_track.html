@@ -16,7 +16,7 @@ function addAnalyticsClient() {
   el.crossOrigin = 'anonymous';
   el.async = true;
   el.src =
-    'https://cdn.jsdelivr.net/npm/analytics-client@latest/dist/bundle.js';
+    'https://cdn.jsdelivr.net/npm/analytics-client@3.1.1/dist/bundle.js';
 
   el.onload = function (_) {
     var urlParamsHandler = new analyticsClient.AnalyticsUrlParams();
@@ -26,7 +26,7 @@ function addAnalyticsClient() {
     }
 
     var client = analyticsClient.createClient({
-      projectName: 'balena-main',
+      projectName: '1963512249dcd02836369507fb6dd034',
       componentName: 'docs',
       endpoint: 'data.{{ $names.cloud_domain }}',
       deviceId: urlParamsHandler.getPassedDeviceId(),
@@ -83,14 +83,18 @@ if (window.CookieConsent) {
     },
     cookie: {
       secure: false,
+      domain: 'balena.io',
+      name: 'cookie_consent',
     },
   })
 
-  cc.on('accept', () => {
-    addAnalyticsClient();
-    gtag('consent', 'update', {
-      'analytics_storage': 'granted'
-    });
+  cc.on('accept', (cc) => {
+    if (cc.acceptedCategories?.includes('analytics')) {
+      addAnalyticsClient();
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+      });
+    }
   });
 }
 

@@ -132,13 +132,13 @@ BalenaOS comes in two flavors, a rolling release and an [Extended Support Releas
 
 ##### When are device types discontinued?
 
-Device types are [discontinued](#what-does-it-mean-when-a-device-type-is-discontinued) in {{ $names.os.lower }} when the manufacturer discontinues support for them. This usually happens either when the device is end-of-life and manufacturing is stopped, or when software updates by the manufacturer stop happening and updating the device type's software is no longer possible. Customers using discontinued devices do it at their own risk and are advised to move to a different platform as soon as possible.
+Device types are [discontinued](#what-does-it-mean-when-a-device-type-is-discontinued) in {{ $names.os.lower }} based on criteria outlined [here](/pages/reference/hardware/versioning.md#discontinued)
 
 ##### What does it mean when a device type is discontinued?
 
 Discontinued devices will continue to work as usual and will be able to use all balenaCloud functionality available at the time of the last {{ $names.os.lower }} release. However, discontinued devices will no longer receive new balenaOS releases, except for [Extended Support Releases](https://www.balena.io/docs/reference/OS/extended-support-release/) that will continue to receive bug and security fixes for 9 months from the ESR release date. Balena will no longer offer support for discontinued devices on the paid support channels, but support is available in the forums.
 
-Discontinued devices may still be maintained by the community by [building your own]({{ $links.githubOS }}/meta-balena/blob/master/contributing-device-support.md) board-specific versions using our [open source repositories]({{ $links.githubOS }}). Please contact sales@{{ $names.email_domain }} with any questions regarding continued device support.
+Please contact sales@{{ $names.email_domain }} with any questions regarding continued device support.
 
 ##### I have a device that is not on the supported devices list. Can it run on {{ $names.company.lower }}?
 

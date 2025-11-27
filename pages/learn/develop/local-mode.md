@@ -30,14 +30,14 @@ To use local mode on a device:
 
 ## Scan the network and find your device
 
-Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the {{ $names.company.lower }} CLI and use `{{ $names.company.short }} scan` to find any local {{ $names.os.lower }} devices. All {{ $names.os.lower }} devices advertise themselves on the network using [Avahi][avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
+Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the {{ $names.company.lower }} CLI and use `{{ $names.company.short }} device detect` to find any local {{ $names.os.lower }} devices. All {{ $names.os.lower }} devices advertise themselves on the network using [Avahi][avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
 
-__Note:__ You may need administrator privileges to run `{{ $names.company.short }} scan` as it requires access to all network interfaces.
+__Note:__ You may need administrator privileges to run `{{ $names.company.short }} device detect` as it requires access to all network interfaces.
 
 **Command**
 
 ```bash
-sudo {{ $names.company.short }} scan
+sudo {{ $names.company.short }} device detect
 ```
 
 **Output**
@@ -66,7 +66,7 @@ Reporting scan results
 
 ## Push over a new project
 
-When local mode has been activated, {{ $names.company.lower }} CLI can push code directly to the local device instead of going via the {{ $names.cloud.lower }} builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `{{ $names.company.lower }} push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `{{ $names.company.short }} scan` command.
+When local mode has been activated, {{ $names.company.lower }} CLI can push code directly to the local device instead of going via the {{ $names.cloud.lower }} builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `{{ $names.company.lower }} push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `{{ $names.company.short }} device detect` command.
 
 __Note:__ By default `{{ $names.company.short }} push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
 
@@ -167,48 +167,48 @@ By default, when pushing code to a device in local mode using the {{ $names.comp
 {{ $names.company.short }} push 63ec46c.local --detached
 ```
 
-When detached, the services continue to run on the device, and you can access the logs using the `{{ $names.company.short }} logs` command, again passing the local IP address or `<short-uuid>.local`.
+When detached, the services continue to run on the device, and you can access the logs using the `{{ $names.company.short }} device logs` command, again passing the local IP address or `<short-uuid>.local`.
 
 ```shell
-{{ $names.company.short }} logs 63ec46c.local
+{{ $names.company.short }} device logs 63ec46c.local
 ```
 
 This command will output logs for the system and all running services. You may optionally filter the output to include only system or specific service logs using the available `--system` (`-S`) and `--service` (`-s`) options. For example, to output only the system logs:
 
 ```bash
-{{ $names.company.short }} logs 63ec46c.local --system
+{{ $names.company.short }} device logs 63ec46c.local --system
 ```
 
 To filter logs by a service, use the `--service` option. You may specify this option multiple times to output logs from multiple services.
 
 ```bash
-{{ $names.company.short }} logs 63ec46c.local --service main
-{{ $names.company.short }} logs 63ec46c.local --service first --service second
+{{ $names.company.short }} device logs 63ec46c.local --service main
+{{ $names.company.short }} device logs 63ec46c.local --service first --service second
 ```
 
 These options can be combined to output system and selected service logs e.g.
 
 ```bash
-{{ $names.company.short }} logs 827b231.local --system --service first --service second
+{{ $names.company.short }} device logs 827b231.local --system --service first --service second
 ```
 
 __Note:__ You may also specify the `--service` and `--system` options using the `{{ $names.company.short }} push` command to filter the log output.
 
 ## SSH into the running app container or host OS
 
-To access the local device over [SSH][ssh], use the `{{ $names.company.short }} ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and [perform other troubleshooting tasks][troubleshooting]:
+To access the local device over [SSH][ssh], use the `{{ $names.company.short }} device ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and [perform other troubleshooting tasks][troubleshooting]:
 
 ```bash
-{{ $names.company.short }} ssh 192.168.86.45
+{{ $names.company.short }} device ssh 192.168.86.45
 ```
 
 To connect to a container, we can specify the service name e.g.
 
 ```bash
-sudo {{ $names.company.short }} ssh 63ec46c.local my-service
+sudo {{ $names.company.short }} device ssh 63ec46c.local my-service
 ```
 
-__Note:__ If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }} ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
+__Note:__ If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }} device ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
 
 ## Using a Private Docker Registry
 

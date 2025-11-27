@@ -259,50 +259,6 @@ echo 1 > /sys/class/gpio/gpio74/value
 ```
 Pin 41 of Header P8 should go high.
 
-## Intel Edison
-### MRAA for GPIO and hardware access
-The best and easiest way to interface with GPIO, I2C, SPI or UART on the Intel Edison is to use the
-[MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applications that
-interact directly with the Edison hardware.
-
-If you use our [{{ $names.base_images.lib }}/intel-edison-node][dockerbase-node] or [{{ $names.base_images.lib }}/intel-edison-python][dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
-
-Have a look at this [python example](https://github.com/shaunmulligan/hello-python-edison) or this [node.js example](https://github.com/shaunmulligan/edison-blink-node) to get started.
-
-### UPM for high level sensor and actuator libraries
-Intel provides the [UPM library][upm-link] which contains software drivers for a wide variety of commonly used sensors and actuators. These software drivers interact with the underlying hardware platform (or microcontroller), as well as with the attached sensors, through calls to [MRAA APIs][mraa-link].
-
-### Edison in USB Host mode
-
-The Edison needs a kernel module to be loaded to trigger the UBS HOST mode. This can be done in the following way.
-
-##### Hardware Pre-requisites:
-Your Edison will need to be powered externally for the USB host mode to be active - Either through the DC jack on the Arduino board or through the battery connector on the smaller Intel carrier board.
-
-##### Software Pre-requisites:
-The following code needs to be placed at the start before any device operations run in the container.
-```Bash
-#!/bin/bash
-
-mount -t devtmpfs none /dev
-udevd --daemon
-
-# g_multi needs a file to be passed which shows up as USB storage if Edison is in device mode.
-# We are creating a blank file here.
-dd if=/dev/zero of=/data/blank.img bs=10M count=1
-
-# The following is needed to get the Edison to switch to host mode - If the power connections aren't made for the HOST mode this exposes the file above as USB storage, emulates a USB network card and USB serial connected to the Edison.
-sync && modprobe g_multi file=/data/blank.img stall=0 idVendor=0x8087 idProduct=0x0A9E iProduct=Edison iManufacturer=Intel
-
-udevadm trigger
-udevadm settle
-
-# Shutdown the unnecessary usb0 spawned by g_mutli
-sleep 5s && ifconfig usb0 down
-```
-
-After this you should be able to easily use your Intel Edison in USB host mode.
-
 ## IOT-GATE-iMX8
 
 ### Serial ports
@@ -324,7 +280,7 @@ Depending on the HAT Configuration defined in BIOS, the Up Squared UART communic
 ## Jetson Devices
 
 ### Custom device trees
-Loading of custom device trees in balenaOS is supported by the Jetson Nano, Jetson TX2 and Jetson Orin family of devices. The list of devices that support this function includes:
+Loading of custom device trees in balenaOS for Nvidia boards is supported by the Jetson Nano, Jetson TX2 and Jetson Orin family of devices. The list of devices that support this function includes:
 - Floyd  Nano
 - Jetson Nano SD-CARD
 - Jetson Nano eMMC
@@ -343,10 +299,10 @@ Loading of custom device trees in balenaOS is supported by the Jetson Nano, Jets
 
 Loading of custom device trees is not supported for the Jetson Xavier family of devices in balenaOS. U-Boot provides the complete set of functionality necessary for loading custom device-trees in balenaOS for the Jetson Nano and TX2 devices, and this bootloader is not supported by the Jetson AGX Xavier and Jetson Xavier NX BSP. The Jetson AGX Orin family of devices uses a new Tegra UEFI bootloader which allows balenaOS to load custom device-trees.
 
-To test a custom device tree on a Jetson Nano, TX2 or Jetson AGX Orin or Orin NX device, place your custom compiled device tree in the host operating system of your device, in the following path: /mnt/sysroot/active/current/boot/
+To test a custom device tree on a Jetson Nano, TX2 or Jetson AGX Orin or Orin NX device, place your custom compiled device tree in the host operating system of your device, in the following path: `/mnt/sysroot/active/current/boot/`
 After that, navigate to the `Device Configuration` tab in the balenaCloud dashboard, activate the following configuration with the description `Define the file name of the DTB to be used`, and specify the file name of the custom device tree. The value of this configuration should contain the file name only. After the change is applied, the device will automatically reboot and load the new device tree.
 
-After the custom device tree has been validated, it can be included in newer balenaOS images. For Jetson TX2 and Nano, open a pull request in the [balena Jetson device](https://github.com/balena-os/balena-jetson) repository following this [example commit](https://github.com/balena-os/balena-jetson/commit/3dbf9c96e5986c2138f318d1ee9f0d5c1a2fc3c8). For the Jetson AGX Orin, the PR should be opened in the [balena Jetson Orin](https://github.com/balena-os/balena-jetson-orin) repository. Once your PR is approved and merged, a new balenaOS image that includes your custom device tree will become available shortly.
+After the custom device tree has been validated, it can be included in newer balenaOS images. For Jetson TX2 and Nano, open a pull request in the [balena Jetson device](https://github.com/balena-os/balena-jetson) repository following this [example commit](https://github.com/balena-os/balena-jetson/commit/3dbf9c96e5986c2138f318d1ee9f0d5c1a2fc3c8). For Jetson Orin devices, the PR should be opened in the [balena Jetson Orin](https://github.com/balena-os/balena-jetson-orin) repository. Once your PR is approved and merged, a new balenaOS image that includes your custom device tree will become available shortly.
 
 Please note that if the changes for your carrier board expand past kernel device-trees, or require modifications to board configuration files like pin multiplexing configuration files or any other device-trees or files used by firmware, these may not be provided by the existing cloud images. During provisioning the resulting configuration changes are stored in the QSPI or in the hardware defined boot partitions, and thus will be replaced with the default values when updating the Host Operating System. Please [contact us](https://www.balena.io/contact-sales) if you would like to use a Jetson carrier board which may not be fully compatible with its' corresponding devkit, or with any of our cloud images for your Jetson module.
 
@@ -361,6 +317,15 @@ Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor
 ### Container packages
 
 The Jetson specific packages installed in your container images need to be in sync with the Linux for Tegra version used by the Host Operating System. Our base images for Jetson devices come pre-populated with `/etc/apt/sources.list.d/nvidia.list` files, which include the necessary links so that the apt repositories are in sync with the L4T version used by our latest OS images. If you suspect you encountered a mismatch, please check the `L4T` version in your Host OS using `uname -r` and compare it to the release version in your container's `/etc/apt/sources.list.d/nvidia.list` file. Please check our [Jetson Examples](https://github.com/balena-io-examples/jetson-examples) repository for more information on how to set-up your container images.
+
+## iMX8 Devices
+
+### Custom device-trees
+Loading of custom device trees in balenaOS for iMX boards is currently supported on the Variscite DART-MX8M Mini and Variscite VAR-SOM-MX8M-MINI Devkit.
+
+To test your custom device tree, place it in the host operating system of your device in the following path: `/mnt/sysroot/active/current/boot/` . Then, navigate to the `Device Configuration` tab in the balenaCloud dashboard, activate the following configuration with the description `Define the file name of the DTB to be used`, and specify the file name of the custom device tree. The value of this configuration should contain the file name only. After the change is applied, the device will automatically reboot and load the new device tree.
+
+After you have validated your custom device, it can be included in newer balenaOS images by opening a pull request in the [balena-variscite-mx8](https://github.com/balena-os/balena-variscite-mx8) repository. Once your PR is approved and merged, a new balenaOS image which includes your custom device tree will be made available shortly.
 
 [i2c-link]:https://en.wikipedia.org/wiki/I%C2%B2C
 [spi-link]:https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus

@@ -1,171 +1,199 @@
 ---
-title: Balena base images
-excerpt: Docker images published and maintained by balena
+title: Base images
+excerpt: Tips for choosing a base image for your project
 
 ---
 
-# {{ $names.company.upper }} base images
+# Choosing a base image
 
-Balenalib is the central home for [26000+ IoT focused Docker images](https://hub.docker.com/u/balenalib/) built specifically for [balenaCloud](https://www.balena.io/cloud/) and [balenaOS](https://www.balena.io/os/). This set of images provide a way to get up and running quickly and easily, while still providing the option to deploy slim secure images to the edge when you go to production.
+## Where is balenalib?
+Balenalib was the home for 26,000+ IoT-focused Docker images built specifically for balenaCloud and balenaOS. Balena stopped publishing updates to balenalib in 2025, however, all of the previously published images are still available. Read [our announcement blog post](https://blog.balena.io/deprecate-balenalib-images/) for more information. 
 
-## Supported Architectures, Distros and Languages
+Note: The docs for balenalib base images (deprecated) that used to be on this page [have been moved here](/reference/base-images/balena-base-images-reference/). 
 
-Currently, balenalib supports the following OS distributions and Language stacks. If you would like to see others added, create an issue on the [balena base images repo]({{ $links.githubLibrary }}/base-images/issues).
+When balena started publishing these base images back in 2016, the Docker ecosystem was quite new, and support for ARM 6/7/8 images was almost non-existent. Today, however,  Docker images for all architectures and software stacks are  well supported and maintained. Consequently, this shift in the larger ecosystem meant that balenalib base images' value and advantage have diminished over the past few years.
 
-{{>"general/base-images"}}
 
-## Features Overview
+## Use Docker Official Images instead
 
-- [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
-- [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
-- Provide access to [dynamically plugged devices](#working-with-dynamically-plugged-devices) in your container by enabling [`udevd`][udevd-link].  
-- Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
+We now recommend using [Docker Official Images](https://hub.docker.com/search?badges=official). These images hosted on Docker Hub are pre-built, vetted, and curated. They provide clear documentation, receive regular updates, and are continuously monitored for security issues.
+
+The Docker Official Images team, with help from community contributors, formally reviews each Docker image before accepting it into the program. To identify a Docker Official Image, look for this tag below on Docker Hub for the image you are assessing. 
+
+![Docker Official Image](/img/docker_official.png)
 
 ## How to Pick a Base Image
 
-<!-- TODO: Add image on how image hierarchy and discuss -->
-When starting out a project, it's generally easier to have a "fatter" image, which contains a lot of prebuilt dependencies and tools. These images help you get setup faster and work out the requirements for your project. For this reason, it's recommended to start with `-build` variants, and as your project progresses, switch to a `-run` variant with some [docker multistage build magic][multistage-build-docs] to slim your deploy image down. In most cases, your project can just use a Debian based distribution, which is the default if not specified, but if you know the requirements of your project or prefer specific distros, Ubuntu, Alpine, and Fedora images are available. The set of `balenalib` base images follow a simple naming scheme described below, which will help you select a base image for your specific needs.
-
-### How the Image Naming Scheme Works
-
-With over 26000 `balenalib` base images to choose from, it can be overwhelming to decide which image and tag are correct for your project. To pick the correct image, it helps to understand how the images are named as that indicates what is installed in the image. In general, the naming scheme for the `balenalib` image set follows the pattern below:
-
-```
-balenalib/<hw>-<distro>-<lang_stack>:<lang_ver>-<distro_ver>-(build|run)-<yyyymmdd>
-```
-
-#### Image Names
-
-- `<hw>` is either architecture or device type and is **mandatory**. If you are using `Dockerfile.template`, you can replace `<hw>` with `%%BALENA_MACHINE_NAME%%` or `%%BALENA_ARCH%%`. Images named with device type are built using base images named with architecture. The `%%BALENA_MACHINE_NAME%%` base images are bigger and include more tools. Check [example]({{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/device-base/raspberrypi3/debian/bookworm/run/Dockerfile#L7) for reference. Check the list of available base images for [device names and architectures](/reference/base-images/devicetypes/).
-- `<distro>` is the Linux distribution. Currently there are 4 distributions, namely Debian, Alpine, Ubuntu and Fedora. This field is optional and will default to Debian if left out.
-- `<lang_stack>` is the programming language pack, currently we support Node.js, Python, OpenJDK, .Net, and Go. This field is optional, and if left out, no language pack will be installed, so you will just have the distribution and you can later install and use any language in your image/container.
-
-#### Image Tags
-
-In the tags, all of the fields are optional, and if they are left out, they will default to their `latest` pointer.
-
-- `<lang_ver>` is the version of the language stack, for example, Node.js 20.12.0, it can also be substituted for `latest`.
-- `<distro_ver>` is the version of the Linux distro, for example Debian and it's valid version as mentioned above in the list.
-- For each combination of distro and stack, we have two variants called `run` and `build`. The build variant is much heavier as it has a number of tools preinstalled to help with building source code. You can see an example of the tools that are included in the [Debian variants][debian-variants]. Navigate to the Distro version you are looking for and find the `build` and `run` variants of the image. The `run` variants are stripped down and only include a few useful runtime tools. If no variant is specified, the image defaults to `run`.
-- The last optional field on tags is the date tag `<yyyymmdd>`. If a date tag is specified, the pinned release will always be pulled from Docker Hub, even if there is a new one available. 
-
-__Note:__ Pinning to a date-frozen base image is highly recommended if you are running a fleet in production. This ensures that all your dependencies have a fixed version and won't get randomly updated until you decide to pin the image to a newer release.
-
-
-#### Examples
-
-`balenalib/raspberrypi3-node:10.18`
-
-- `<hw>` : raspberrypi3 - The Raspberry Pi 3 device type.
-- `<distro>` : omitted, so it defaults to Debian.
-- `<lang>` : node - the Node.js runtime and npm will be installed
-- `<lang_ver>` : 10.18 - This gives us Node.js version 10.18.x whatever is the latest patch version provided on balenalib
-- `<distro_ver>` : omitted, so it defaults to `buster`
-- `(build|run)` : omitted, so the image defaults to the slimmed down `run` variant
-- `<yyyymmdd>` : omitted, we don't have a date frozen image, so new updates pushed to our 10.18 tag, for example patch versions from Node.js will automatically be inherited when they are available.
-
-`balenalib/i386-ubuntu-python:latest-bionic-build-20191029`
-
-- `<hw>` : i386 - the intel 32 bit architecture that runs on Intel Edison
-- `<distro>` : ubuntu
-- `<lang>` : python
-- `<lang_ver>` : `latest` points to the latest Python 2 version, which currently is 2.7.17
-- `<distro_ver>` : bionic is Ubuntu 18.04
-- `(build|run)` : `build` - to include things like `build-essential` and `gcc`
-- `<yyyymmdd>` : 20191029 is a date frozen image - so this image will never be updated on Docker Hub. 
-
-### run vs. build
-
-For each combination of `<hw>`-`<distro>`-`<lang>` there is both a `run` and a `build` variant. These variants are provided to allow for easier multistage builds.
-
-The `run` variant is designed to be a slim and minimal variant with only runtime essentials packaged into it. To find what packages exactly, navigate to the [Debian version][debian-variants] and check the Dockerfile inside the `run` folder.
-
-The `build` variant is a heavier image that includes many of the tools required for building from source such as `build-essential`, `gcc`, etc. As an example, you can see the types of packages installed in the `balenalib/armv7hf-debian:build` variant on the [balena-io-library/base-images][debian-variants] repository.
-
-These variants make building multistage projects easier, take for example, installing an I2C node.js package, which requires a number of build time dependencies to build the native `i2c` node module, but we don't want to send all of those down to our device. This is the perfect time for multistage builds and to use the `build` and `run` variants.
+For general use cases, you can usually start with a standard Linux distribution’s Official Docker Image, and install further requirements and dependencies in your Dockerfile. For instance, here is an example of installing the Nano text editor in the [official Debian image](https://hub.docker.com/_/debian):
 
 ```Dockerfile
-FROM balenalib/raspberrypi3-debian-node:latest-bookworm-build as build
-RUN npm install --only=production i2c
+FROM debian:bookworm-20250407  # This is the official image
 
-# The run time container that will go to devices
-FROM balenalib/raspberrypi3-debian-node:latest-bookworm-run
+# Here we install a utility not included in the base image:
 
-# Grab our node modules for the build step
-COPY --from=build ./node_modules ./node_modules
-COPY main.js main.js
+RUN apt update && apt install -y --no-install-recommends nano  
 
-CMD ["node", "main.js"]
+CMD ["sleep", "infinity"]
+```
+Scroll past the tag list to find more helpful information in the “Overview” tab on the Docker Hub repository for these popular OS images. That information includes supported architectures, image descriptions, and the available variants and tags:
+ 
+ - Debian official images: [https://hub.docker.com/_/debian](https://hub.docker.com/_/debian)
+ - Ubuntu official images: [https://hub.docker.com/_/ubuntu/](https://hub.docker.com/_/ubuntu/)
+ - Fedora official images: [https://hub.docker.com/_/fedora](https://hub.docker.com/_/fedora)
+ - Alpine official images: [https://hub.docker.com/_/alpine](https://hub.docker.com/_/alpine)
+
+### Choose the right device architecture
+
+Dockerhub uses a different naming convention for device architecture than balena. Use the table below to convert a balena specified architecture to the equivalent architecture listed on Dockerhub. To see the architecture for balena-supported devices, check out the [balena Machine names and architecture page](/reference/base-images/devicetypes/).
+
+As an example, if you are using a Raspberry Pi Zero 2W, the balena machine name page shows the “balena_arch” as “aarch64”. In the table below, aarch64 is referred to as  “arm64v8 (ARMv8 64-bit)” on Dockerhub. Look out for arm64v8 images to find images compatible with the Raspberry Pi Zero 2W device type. 
+
+
+| Docker Architecture | Balena Architecture (BALENA\_ARCH) | Alternative Names | Example Device Types |
+| :---- | :---- | :---- | :---- |
+| arm32v6 (ARMv6 32-bit) | rpi | armv6, armhf (in some contexts) | Raspberry Pi 1 model B+, Raspberry Pi Zero/W |
+| arm32v7 (ARMv7 32-bit) | armv7hf | armv7, armv7l, armhf | BeagleBone Black, Raspberry Pi 2 |
+| arm64v8 (ARMv8 64-bit) | aarch64 | arm64, armv8 | IOT-GATE-iMX8, Raspberry Pi 4, NVIDIA Jetson |
+| amd64 (Linux x86-64) | amd64 | x86\_64, x64 | Intel NUC, generic x86-64 devices, cloud VMs |
+| i386 (x86/i686) | i386 | x86, i686, ia32 | Older 32-bit x86 based devices |
+| windows-amd64 (Windows x86-64) | Not supported | win-amd64, x86\_64 (on Windows) | ? |
+
+### Tags vs. digests
+
+When using base image tags in your Dockerfile, such as `FROM ubuntu:22.04` you are specifying an image name (“ubuntu”) and tag (“22.04”). Whenever you build your container, it will pull the latest version of Ubuntu 22.04, which may change over time as new updates are added. 
+
+We recommend using a fixed (pinned) version of an image in production.  Using a digest will make sure you are consistently pulling the same image for your application. 
+
+For instance, we can see the digests listed for ubuntu 22.04 in Dockerhub:
+
+![Digests](/img/digests.png)
+
+Clicking on the one for linux/arm64/v8, we can copy the full digest by clicking the link:
+
+![Digest link](/img/digest_link.png)
+
+And then we can use that digest instead of the tag to always get the same version of Ubuntu 22.04:
+
+```
+FROM ubuntu@sha256:04c0fd7fceedf5c0fe69ec1685c37cf270f03ae424322a58548b095528f4a3c3
 ```
 
-#### Notes
+Note that one downside to this method is that you may not receive some important security updates because your image is “pinned” to that static version. It’s a good idea to periodically test newer versions and update accordingly.
 
-Devices with a [device type](/reference/base-images/devicetypes/) of `raspberry-pi` (Raspberry Pi1 and Zero) will be built from `balenalib/rpi-raspbian` and will be [Raspbian]({{ $links.githubLibrary }}/resin-rpi-raspbian) base images. The `raspberry-pi2` and `raspberrypi3` device types Debian base images have the Raspbian package source added, and Raspbian userland pre-installed.
+### Distroless images
 
-Not all OS distro and language stack versions are compatible with each other. Notice that there are some combinations that are not available in the `balenalib` base images.
+Official OS images still contain packages and utilities which you may not need. As you narrow in on the dependencies for your production application, you may want to consider a  “distroless image”.
 
-- [Node.js dropped 32-bit builds](https://github.com/nodejs/build/issues/885) a while ago so i386-based nodejs images (Debian, Fedora and Ubuntu) v8.x and v6.x are official. New series (v10.x and v12.x) are using unofficial builds.
-- armv6 binaries were officially dropped from Node.js v12 and v12 armv6 support is now considered unofficial.
-- The Node.js v6.x and v8.x series are not available for i386 Alpine Linux base images v3.9 and edge as node crashes with segfault error, we are investigating the issue and will add them back as soon as the issue is resolved.
+A distroless image is a Docker image that contains only the necessary runtime dependencies for an application, without including unnecessary utilities like package managers, shells, or other items found in a typical Linux distribution. These images can provide a minimized security attack surface, smaller deployment sizes, and faster start-up time, among other benefits.
 
-## Installing Packages
+Distroless images are typically built from scratch or based on minimal distributions like Debian or Alpine, but with all non-essential components removed. Tools such as [BuildKit](https://github.com/moby/buildkit) can assist in such builds.
 
-Installing software packages in balenalib containers is very easy, and in most cases, you can just use the base image operating system package manager. However to make things even easier, every balenalib image includes a small `install_packages` script that abstracts away the specifics of the underlying package managers, and adds the following useful features:
+**Important note:** Distroless images do not include a shell, so you cannot open a session into them for debugging like you can with other images. This makes them ideal for production, but more challenging for development and debugging. Distroless images also breaks the web terminal feature of the balenaCloud dashboard and CLI without any notification or error message since it requires the container to have a shell to SSH into.
 
-- Install the named packages, skipping prompts etc.
-- Clean up the package manager metadata afterward to keep the resulting image small.
-- Retries if package install fails. Sometimes a package will fail to download due to a network issue, and retrying may fix this, which is particularly useful in an automated build pipeline.
+Other resources for distroless images include:
+[https://github.com/GoogleContainerTools/distroless](https://github.com/GoogleContainerTools/distroless)
 
-An example of this in action is as follows:
+[https://github.com/dotnet/dotnet-docker/blob/main/documentation/distroless.md](https://github.com/dotnet/dotnet-docker/blob/main/documentation/distroless.md)
+
+[https://www.docker.com/blog/is-your-container-image-really-distroless/](https://www.docker.com/blog/is-your-container-image-really-distroless/)
+
+## Using Software Language Stacks
+
+To utilize a software language stack such as Python or Node.js in your container,  look for the Official Docker image tag and check out the overview tab to see if one of the variants fulfills your version, size and device architecture requirements. Docker Official images could increase the size of the application and we recommend testing the image thoroughly before using it in your production fleet.
+
+Here’s a list of Docker Official images for popular programming languages:
+
+ - Python: [https://hub.docker.com/_/python](https://hub.docker.com/_/python)
+ - Node: [https://hub.docker.com/_/node](https://hub.docker.com/_/node)
+ - OpenJDK: [https://hub.docker.com/_/openjdk](https://hub.docker.com/_/openjdk)
+ - .NET: [https://hub.docker.com/r/microsoft/dotnet-sdk](https://hub.docker.com/r/microsoft/dotnet-sdk)
+ - Rust: [https://hub.docker.com/_/rust](https://hub.docker.com/_/rust)
+ - Go: [https://hub.docker.com/_/golang](https://hub.docker.com/_/golang)
+
+These language stacks are often built on top of only one or two different OS images such as Debian and Alpine. What if you want an image combination that the official image does not provide, such as Python on Ubuntu? In that case you can try installing packages from the OS’s package management system tool, in this case using `apt` to install the language version which ships with the selected distribution, for example:
 
 ```Dockerfile
-FROM balenalib/raspberrypi3
+FROM ubuntu:focal-20250404  #  This is the official Ubuntu image
 
-RUN install_packages wget git
+# Update the packages and install the Python version provided
+#  by Ubuntu's package manager:
+RUN apt-get update && apt-get install -y --no-install-recommends python3 python3-dev
 
-CMD ["bash", "start.sh"]
+CMD [“sleep”, “infinity”]
 ```
 
-This will run an `apt-get update -qq`, then install `wget` and `git` via apt-get with `-y --no-install-recommends` flags, and it will by default try this 2 times before failing. Checkout the [Dockerfile][debian-variants] to find the source `install_packages` by navigating to the Debian version you want, selecting `run` or `build` folder and click `Dockerfile`
+In the above example, Ubuntu’s apt will install the default Python version set by package maintainers. The distro may have a few other versions of the software available, or you could look into adding a [Personal Package Archive](https://help.ubuntu.com/stable/ubuntu-help/addremove-ppa.html.en) (PPA). If you want a specific version of Python, (or any package for that matter) you can also install the binaries from the official sources. Similarly for other OS distributions, you need to find which versions are available in the package repositories when installing a particular software, for example, [Alpine Package Repository](https://pkgs.alpinelinux.org/packages). 
 
-## How the Images Work at Runtime
+The instructions for installing a language stack from the official binaries is beyond the scope of this document, but many guides exist online. Here are a few examples:
 
-Each `balenalib` base image has a default [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) which is defined as `ENTRYPOINT ["/usr/bin/entry.sh"]`. This ensures that [entry.sh][entry-sh-link] is run before your code defined in `CMD` of your `Dockerfile`.
+ - Installing Python from source: [https://realpython.com/installing-python/#linux-how-to-build-python-from-source-code](https://realpython.com/installing-python/#linux-how-to-build-python-from-source-code)
+ - Installing Node from source: [https://github.com/nodejs/node/blob/main/BUILDING.md](https://github.com/nodejs/node/blob/main/BUILDING.md)
+ - Installing Golang from source: [https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/](https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/)
+ - Installing OpenJDK from source: [https://openjdk.org/groups/build/doc/building.html](https://openjdk.org/groups/build/doc/building.html)
+And so on
 
-On container startup, the [entry.sh][entry-sh-link] script first checks if the `UDEV` flag is set to `true` or `false`. In the case where it is `false`, the `CMD` is then executed. In the case it is `true` (or `1`), the entry.sh will check if the container is running privileged, if it is, it will mount `/dev` to a devtmpfs and then start `udevd`. In the case the container is an unprivileged container, no mount will be performed, and `udevd` will be started (although it won't be very much use without the privilege).
+Note that these instructions are not necessarily written for building a container, so you may have to adapt the steps to work in a Dockerfile. For example, if an instruction says to “download a file with wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz” the line in the Dockerfile would be: 
+`RUN wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz`
 
-At the end of a container's lifecycle, when a request to container restart, reboot or shutdown is sent to the supervisor, the [balenaEngine](https://www.balena.io/engine/) will send a `SIGTERM` (signal 15) to the containers, and 10 seconds later it will issue a `SIGKILL` if the container is still running. This timeout can also be configured via the [stop_grace_period](https://docs.docker.com/compose/compose-file/compose-file-v2/#stop_grace_period) in your docker-compose.yml.
+## Installing L4T Library Stacks
 
-## Working with Dynamically Plugged Devices
-
-In many IoT projects, your containers will want to interact with some hardware, often this hardware is plugged in at runtime, in the case of USB or serial devices. In these cases, you will want to enable [`udevd`][udevd-link] in your container. In `balenalib` images this can easily be done either by adding `ENV UDEV=1` in your `Dockerfile` or by setting an environment variable using [variables][variables].
-
-You will also need to run your container `privileged`. By default, any [balenaCloud](https://www.balena.io/cloud/) projects that don't contain a `docker-compose.yml` will run their containers `privileged`. If you are using a multicontainer project, you will need to add `privileged: true` to each of the service definitions for the services that need hardware access.
-
-When a `balenalib` container runs with `UDEV=1` it will first detect if it is running on a `privileged` container. If it is, it will mount the host OS `/dev` to a devtmpfs and then start [`udevd`][udevd-link]. Now anytime a new device is plugged in, the kernel will notify the container [`udevd`][udevd-link] daemon and the relevant device nodes in the container `/dev` will appear.
-
-__Note:__ The new balenalib base images make sure `udevd` runs in its own network namespace, so as to not interfere with cellular modems. These images should not have any of the past udev restrictions of the `resin/` base images.
-
-### Major Changes
-
-When moving from the legacy `resin/...` base images to the `balenalib` ones, there are a number of breaking changes that you should take note of, namely:
-
-- `UDEV` now defaults to `off`, so if you have code that relies on detecting dynamically plugged devices, you will need to enable this in either your Dockerfile or via a device environment variable. See [Working with Dynamically Plugged Devices](#working-with-dynamically-plugged-devices).
-- The `INITSYSTEM` functionality has been completely removed, so containers that rely on [systemd](https://www.freedesktop.org/wiki/Software/systemd/) or [openRC](https://github.com/OpenRC/openrc) should install and set up the initsystem in their apps. See [Installing your own Initsystem](#installing-your-own-initsystem).
-- Mounting of `/dev` to a devtmpfs will now only occur when `UDEV=on` and the container is running as `privileged`. `1`, `true` and `on` are valid value for `UDEV` and will be evaluated as `UDEV=on`, all other values will turn `UDEV` off.
-- Support for Debian Wheezy has been dropped.
-- `armel` architecture has been renamed to `armv5e`.
-
-### Installing your own Initsystem
-
-Since the release of multicontainer on the balenaCloud platform, we now recommend the use of multiple containers and no longer recommend the use of an initsystem, particularly systemd, in the container as it tends to cause a myriad of issues, undefined behavior and requires the container to run fully privileged.
-
-However, if your container relies on initsystem features, it is fairly easy to add this functionality to a balenalib base image. We have provided some examples for [systemd]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230) and [openRC]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/openrc). Please note that different systemd versions require different implementation so for Debian Jessie and older, please refer to this [example]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd ) and for Debian Stretch and later, please refer to this [example]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230).
-
-Generally, for systemd, it just requires installing the systemd package, masking a number of services and defining a new [`entry.sh`]({{ $links.githubLibrary }}/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230/entry.sh) and a [`balena.service`]({{ $links.githubLibrary }}/base-images/blob/master/examples/INITSYSTEM/systemd/systemd.v230/resin.service). The `Dockerfile` below demonstrates this:
+For base images that will be running on NVIDIA Jetson devices, you’ll likely want to add NVIDIA’s APT sources to your Dockerfile. This will allow you to install official NVIDIA packages (such as CUDA, Jetpack, etc…) using your distribution’s package manager. The specific repository URL depends on your base image (e.g., Ubuntu, Debian) and the NVIDIA driver version you need. (More information about that [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).)
 
 ```Dockerfile
-FROM balenalib/amd64-debian:buster
+FROM ubuntu:22.04
+
+# Add NVIDIA APT repository
+
+RUN echo "deb https://repo.download.nvidia.com/jetson/common r36.3 main" >>  /etc/apt/sources.list.d/nvidia.list \
+	&& echo "deb https://repo.download.nvidia.com/jetson/t234 r36.3 main" >>  /etc/apt/sources.list.d/nvidia.list \
+	&& apt-key adv --fetch-key http://repo.download.nvidia.com/jetson/jetson-ota-public.asc \
+	&& mkdir -p /opt/nvidia/l4t-packages/ && touch /opt/nvidia/l4t-packages/.nv-l4t-disable-boot-fw-update-in-preinstall
+
+
+# Update package list
+RUN apt-get update
+
+# install CUDA
+
+# Continue with your application's build instructions
+```
+
+Here’s an example for the legacy TX2 and earlier Jetpack versions:
+
+```Dockerfile
+FROM ubuntu:22.04
+
+# Add NVIDIA APT repository
+
+
+RUN echo "deb https://repo.download.nvidia.com/jetson/common r32.7 main" >>  /etc/apt/sources.list.d/nvidia.list \
+	&& echo "deb https://repo.download.nvidia.com/jetson/t186 r32.7 main" >>  /etc/apt/sources.list.d/nvidia.list \
+	&& apt-key adv --fetch-key http://repo.download.nvidia.com/jetson/jetson-ota-public.asc \
+	&& mkdir -p /opt/nvidia/l4t-packages/ && touch /opt/nvidia/l4t-packages/.nv-l4t-disable-boot-fw-update-in-preinstall
+
+# Update package list
+RUN apt-get update
+
+# install CUDA
+
+
+# Continue with your application's build instructions
+```
+
+More resources for working with NVIDIA Jetson devices and base images are here:
+ - [How to use NVIDIA Jetson devices on balena](https://blog.balena.io/how-to-use-nvidia-jetson-devices-on-balena/)
+ - [Jetson on balena Dockerfile examples](https://github.com/balena-io-examples/jetson-examples)
+
+## Installing your own Initsystem
+
+We recommend the use of multiple containers rather than the use of an initsystem, particularly systemd, in the container as it tends to cause a myriad of issues, undefined behavior and requires the container to run fully privileged.
+
+However, if your container relies on initsystem features, it is fairly easy to add this functionality to your base image. We have provided some examples for [systemd](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230) and [openRC](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/openrc). Please note that different systemd versions require different implementations so for Debian Jessie and older, please refer to [this example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd) and for Debian Stretch and later, please refer to [this example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230).
+
+Generally, for systemd, it just requires installing the systemd package, masking a number of services and defining a new [entry.sh](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230/entry.sh) and a [balena.service](balena.service). The Dockerfile below demonstrates this:
+
+```Dockerfile
+FROM debian:bullseye-20250224
 
 # Install Systemd
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -204,23 +232,20 @@ ENTRYPOINT ["/usr/bin/entry.sh"]
 ##################################
 ```
 
-## Building ARM Containers on x86 Machines
+## Update balenalib base images
 
-This is a unique feature of balenalib ARM base images that allows you to run them anywhere (running ARM image on x86/x86_64 machines). A tool called `resin-xbuild` and QEMU are installed inside any balenalib ARM base image and can be triggered by `RUN ["cross-build-start"]` and `RUN ["cross-build-end"]`. QEMU will emulate any instructions between `cross-build-start` and `cross-build-end`. So this Dockerfile:
+While we recommend migrating to Docker Official Images for new projects, we understand that existing applications may need continued support for balenalib base images. If you need to update or customize your existing balenalib base images to minimize disruption during migration, you can use the original Dockerfiles as a starting point.
 
-```Dockerfile
-FROM balenalib/armv7hf-debian
+All Dockerfiles for the base images publicly are available in the [balena-io-library/base-images repository](https://github.com/balena-io-library/base-images/tree/master/balena-base-images). 
 
-RUN [ "cross-build-start" ]
+This approach allows you to:
+- **Maintain existing functionality** while gradually migrating to official images
+- **Update dependencies** and security patches as needed
+- **Customize the base image** for your specific requirements
+- **Reduce disruption** to existing deployments
 
-RUN apt-get update
-RUN apt-get install python-pip
-RUN pip install virtualenv
+Before deployment to your fleet, please **test thoroughly** on actual hardware before deploying to production fleets.
 
-RUN [ "cross-build-end" ]
-```
-
-can run on your x86 machine and there will be no `Exec format error`, which is the error when you run an ARM binary on x86. This approach works only if the image is being built on x86 systems. Use the [`--emulated`](https://www.balena.io/docs/learn/deploy/deployment/#--emulated--e) flag in `balena push` to trigger a qemu emulated build targeting the x86 architecture. More details can be found in our [blog post here]({{ $links.mainSiteUrl }}/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/). You can find the full source code for the two cross-build scripts [here]({{ $links.githubPlayground }}/armv7hf-debian-qemu).
 
 [udevd-link]:https://linux.die.net/man/8/udevd
 [entry-sh-link]:{{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh
