@@ -57,3 +57,6 @@ module.exports =
     menuLinks: MAIN_MENU_LINKS
     fbAppId: FB_APP_ID
     defaultThumbnail: "#{DEPLOYMENT_URL}/img/logo.png"
+    # Newsletter integration (set via environment variables in your deployment)
+    convertkit_api_endpoint: process.env.CONVERTKIT_API_ENDPOINT || ''
+    convertkit_api_key: process.env.CONVERTKIT_API_KEY || ''

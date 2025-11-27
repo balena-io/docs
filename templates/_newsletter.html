@@ -1,0 +1,70 @@
+<div class="newsletter-card" style="margin:16px;padding:16px;border-radius:6px;background:#f8f9fb;border:1px solid #e6e9ee;">
+  <h3 style="margin:0 0 8px 0;font-size:16px;">Get updates</h3>
+  <p style="margin:0 0 12px 0;font-size:13px;color:#333;">Join our newsletter for new guides, releases and offers.</p>
+  {#
+    Configure one of the following in your site build/template vars:
+    - `mailchimp_form_action` (string): the Mailchimp form `action` URL (direct POST)
+    - `convertkit_api_endpoint` (string): ConvertKit form API URL (POST JSON)
+    - `convertkit_api_key` (string): ConvertKit API key if required by your endpoint
+
+    If `mailchimp_form_action` is provided the form will POST directly to Mailchimp
+    (no JS interception). Otherwise the form will POST JSON to `convertkit_api_endpoint`.
+  #}
+  {% if mailchimp_form_action %}
+  <form class="newsletter-form" action="{{ mailchimp_form_action }}" method="POST" target="_blank" novalidate>
+  {% else %}
+  <form class="newsletter-form" action="#" method="POST" novalidate data-convertkit-endpoint="{{ convertkit_api_endpoint | default('') }}" data-convertkit-api-key="{{ convertkit_api_key | default('') }}">
+  {% endif %}
+    <input name="email" type="email" placeholder="your@email.com" required
+      style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #d0d6dd;border-radius:4px;" />
+    <button type="submit" style="width:100%;padding:8px;background:#0066cc;color:#fff;border:none;border-radius:4px;">Subscribe</button>
+    <div class="newsletter-msg" style="display:none;margin-top:8px;font-size:13px;color:#0b6623;"></div>
+  </form>
+
+  <script>
+    (function () {
+      var form = document.currentScript.previousElementSibling;
+      var msg = form.querySelector('.newsletter-msg');
+
+      // If the form has a Mailchimp action it will POST directly (no JS interception)
+      var isMailchimp = form.getAttribute('action') && form.getAttribute('action') !== '#' && form.getAttribute('target') === '_blank';
+      var convertkitEndpoint = form.dataset.convertkitEndpoint || '';
+
+      if (isMailchimp || !convertkitEndpoint) {
+        // No JS handling required (Mailchimp or not configured)
+        return;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = form.elements['email'].value;
+        var payload = { email: email };
+        var apiKey = form.dataset.convertkitApiKey || '';
+
+        var headers = { 'Content-Type': 'application/json' };
+        if (apiKey) headers['X-API-KEY'] = apiKey;
+
+        fetch(convertkitEndpoint, {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify(payload)
+        }).then(function (r) {
+          if (r.ok) {
+            msg.style.display = 'block';
+            msg.style.color = '#0b6623';
+            msg.textContent = 'Thanks — check your inbox!';
+            form.reset();
+          } else {
+            msg.style.display = 'block';
+            msg.style.color = '#a00';
+            msg.textContent = 'Subscription failed. Try again later.';
+          }
+        }).catch(function () {
+          msg.style.display = 'block';
+          msg.style.color = '#a00';
+          msg.textContent = 'Subscription failed. Try again later.';
+        });
+      });
+    })();
+  </script>
+</div>

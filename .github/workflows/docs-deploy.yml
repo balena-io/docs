@@ -1,0 +1,32 @@
+name: Build and deploy docs
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      CONVERTKIT_API_ENDPOINT: ${{ secrets.CONVERTKIT_API_ENDPOINT }}
+      CONVERTKIT_API_KEY: ${{ secrets.CONVERTKIT_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy static site
+        run: ./tools/deploy-static-page.sh
+
+      - name: Post-deploy note
+        run: echo "Deployed docs (ConvertKit endpoint available to build via "+"CONVERTKIT_API_ENDPOINT)."

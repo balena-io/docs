@@ -1,0 +1,33 @@
+<div class="article-cta" style="margin:24px 0;padding:18px;border-radius:8px;background:linear-gradient(90deg,#fff,#f7fbff);border:1px solid #e1e8f0;display:flex;align-items:center;gap:16px;">
+  <div style="flex:1;">
+    <h3 style="margin:0 0 6px 0;font-size:18px;">Want deeper guides and discounts?</h3>
+    <p style="margin:0;color:#333;font-size:14px;">Subscribe to get in-depth tutorials, early-release notes and occasional partner offers.</p>
+  </div>
+  <div style="width:260px;">
+    <form class="cta-newsletter-form" action="#" method="POST" novalidate data-convertkit-endpoint="{{ convertkit_api_endpoint | default('') }}" data-convertkit-api-key="{{ convertkit_api_key | default('') }}">
+      <input name="email" type="email" placeholder="your@email.com" required
+        style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #d0d6dd;border-radius:4px;" />
+      <button type="submit" style="width:100%;padding:8px;background:#005bb5;color:#fff;border:none;border-radius:4px;">Subscribe</button>
+      <div class="cta-msg" style="display:none;margin-top:8px;font-size:13px;color:#0b6623;"></div>
+    </form>
+  </div>
+
+  <script>
+    (function () {
+      var form = document.currentScript.previousElementSibling.querySelector('.cta-newsletter-form');
+      var msg = form.querySelector('.cta-msg');
+      var endpoint = form.dataset.convertkitEndpoint || '';
+      if (!endpoint) return; // fall back to sidebar newsletter or mailchimp if configured
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = form.elements['email'].value;
+        fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
+          .then(function (r) {
+            if (r.ok) { msg.style.display = 'block'; msg.textContent = 'Thanks — check your inbox!'; form.reset(); }
+            else { msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription failed.'; }
+          }).catch(function () { msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription failed.'; });
+      });
+    })();
+  </script>
+</div>
