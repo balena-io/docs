@@ -60,3 +60,7 @@ module.exports =
     # Newsletter integration (set via environment variables in your deployment)
     convertkit_api_endpoint: process.env.CONVERTKIT_API_ENDPOINT || ''
     convertkit_api_key: process.env.CONVERTKIT_API_KEY || ''
+    # Monetization (ads & affiliate tracking)
+    google_adsense_client_id: process.env.GOOGLE_ADSENSE_CLIENT_ID || ''
+    carbon_ads_placement: process.env.CARBON_ADS_PLACEMENT || ''
+    affiliate_amazon_tag: process.env.AFFILIATE_AMAZON_TAG || ''

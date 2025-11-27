@@ -1,0 +1,70 @@
+{#
+  Monetization include: ads and affiliate links.
+  
+  Configure via environment variables (set in CI/deployment):
+  - GOOGLE_ADSENSE_CLIENT_ID: Google AdSense client ID (e.g., ca-pub-xxxxxxxxxxxxxxxx)
+  - CARBON_ADS_PLACEMENT: Carbon Ads placement (e.g., carbonads-placement)
+  - AFFILIATE_AMAZON_TAG: Amazon Associates tag (e.g., mysite-20)
+  
+  Place this include in templates where you want ads (e.g., sidebar, footer, after content).
+#}
+
+{% if google_adsense_client_id %}
+  {# Google AdSense responsive ad #}
+  <div style="margin: 16px 0; text-align: center;">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ google_adsense_client_id }}"
+      crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="{{ google_adsense_client_id }}"
+      data-ad-slot="0000000000"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+{% elseif carbon_ads_placement %}
+  {# Carbon Ads (for tech docs) #}
+  <div style="margin: 16px 0;">
+    <div id="{{ carbon_ads_placement }}" style="text-align:center;font-size:14px;color:#666;padding:12px;border-radius:4px;background:#f5f5f5;">
+      <!-- Carbon Ads will render here -->
+      <script async src="//cdn.carbonads.com/carbon.js?serve={{ carbon_ads_placement }}&placement=docsbalenaio" id="_carbonads_js"></script>
+    </div>
+  </div>
+{% endif %}
+
+{# Affiliate links helper: use in markdown or templates #}
+{# Example: 
+  <a href="{{ affiliate_link('https://amazon.com/dp/B000000000', 'amazon') }}">Recommended Tool</a>
+#}
+
+<script>
+  window.affiliateConfig = {
+    amazon_tag: '{{ affiliate_amazon_tag }}',
+    utm_source: 'docs',
+    utm_medium: 'affiliate',
+    utm_campaign: '{{ title | default("docs") }}'
+  };
+
+  window.affiliate_link = function (url, provider) {
+    try {
+      var u = new URL(url);
+      
+      if (provider === 'amazon' && window.affiliateConfig.amazon_tag) {
+        // Add Amazon Associates tag
+        u.searchParams.set('tag', window.affiliateConfig.amazon_tag);
+      }
+      
+      // Add UTM params for all links
+      u.searchParams.set('utm_source', window.affiliateConfig.utm_source);
+      u.searchParams.set('utm_medium', window.affiliateConfig.utm_medium);
+      u.searchParams.set('utm_campaign', window.affiliateConfig.utm_campaign);
+      
+      return u.toString();
+    } catch (err) {
+      console.warn('affiliate_link error:', err);
+      return url;
+    }
+  };
+</script>

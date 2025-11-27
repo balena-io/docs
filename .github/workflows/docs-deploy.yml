@@ -10,6 +10,9 @@ jobs:
     env:
       CONVERTKIT_API_ENDPOINT: ${{ secrets.CONVERTKIT_API_ENDPOINT }}
       CONVERTKIT_API_KEY: ${{ secrets.CONVERTKIT_API_KEY }}
+      GOOGLE_ADSENSE_CLIENT_ID: ${{ secrets.GOOGLE_ADSENSE_CLIENT_ID }}
+      CARBON_ADS_PLACEMENT: ${{ secrets.CARBON_ADS_PLACEMENT }}
+      AFFILIATE_AMAZON_TAG: ${{ secrets.AFFILIATE_AMAZON_TAG }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
