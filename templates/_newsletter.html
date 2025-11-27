@@ -30,8 +30,8 @@
       var isMailchimp = form.getAttribute('action') && form.getAttribute('action') !== '#' && form.getAttribute('target') === '_blank';
       var convertkitEndpoint = form.dataset.convertkitEndpoint || '';
 
-      if (isMailchimp || !convertkitEndpoint) {
-        // No JS handling required (Mailchimp or not configured)
+      if (isMailchimp) {
+        // No JS handling required for Mailchimp (direct POST to their form)
         return;
       }
 
@@ -44,7 +44,11 @@
         var headers = { 'Content-Type': 'application/json' };
         if (apiKey) headers['X-API-KEY'] = apiKey;
 
-        fetch(convertkitEndpoint, {
+        // First try server-side proxy at /subscribe (keeps API keys secret). If it fails,
+        // fall back to posting directly to the ConvertKit endpoint configured at build time.
+        var proxyUrl = (window.location.origin || '') + '/subscribe';
+
+        fetch(proxyUrl, {
           method: 'POST',
           headers: headers,
           body: JSON.stringify(payload)
@@ -54,15 +58,68 @@
             msg.style.color = '#0b6623';
             msg.textContent = 'Thanks — check your inbox!';
             form.reset();
-          } else {
-            msg.style.display = 'block';
-            msg.style.color = '#a00';
-            msg.textContent = 'Subscription failed. Try again later.';
+            return;
           }
-        }).catch(function () {
+
+          // If proxy responds with 404 or 502, try direct ConvertKit endpoint as a fallback
+          if (r.status === 404 || r.status === 502) {
+            if (!convertkitEndpoint) {
+              msg.style.display = 'block';
+              msg.style.color = '#a00';
+              msg.textContent = 'Subscription unavailable.';
+              return;
+            }
+
+            return fetch(convertkitEndpoint, {
+              method: 'POST',
+              headers: headers,
+              body: JSON.stringify(payload)
+            }).then(function (r2) {
+              if (r2.ok) {
+                msg.style.display = 'block';
+                msg.style.color = '#0b6623';
+                msg.textContent = 'Thanks — check your inbox!';
+                form.reset();
+              } else {
+                msg.style.display = 'block';
+                msg.style.color = '#a00';
+                msg.textContent = 'Subscription failed. Try again later.';
+              }
+            });
+          }
+
           msg.style.display = 'block';
           msg.style.color = '#a00';
           msg.textContent = 'Subscription failed. Try again later.';
+        }).catch(function () {
+          // Proxy failed (network error) — fallback to ConvertKit direct POST
+          if (!convertkitEndpoint) {
+            msg.style.display = 'block';
+            msg.style.color = '#a00';
+            msg.textContent = 'Subscription unavailable.';
+            return;
+          }
+
+          fetch(convertkitEndpoint, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(payload)
+          }).then(function (r2) {
+            if (r2.ok) {
+              msg.style.display = 'block';
+              msg.style.color = '#0b6623';
+              msg.textContent = 'Thanks — check your inbox!';
+              form.reset();
+            } else {
+              msg.style.display = 'block';
+              msg.style.color = '#a00';
+              msg.textContent = 'Subscription failed. Try again later.';
+            }
+          }).catch(function () {
+            msg.style.display = 'block';
+            msg.style.color = '#a00';
+            msg.textContent = 'Subscription failed. Try again later.';
+          });
         });
       });
     })();

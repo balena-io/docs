@@ -17,16 +17,42 @@
       var form = document.currentScript.previousElementSibling.querySelector('.cta-newsletter-form');
       var msg = form.querySelector('.cta-msg');
       var endpoint = form.dataset.convertkitEndpoint || '';
-      if (!endpoint) return; // fall back to sidebar newsletter or mailchimp if configured
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var email = form.elements['email'].value;
-        fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
+        var payload = { email: email };
+        var headers = { 'Content-Type': 'application/json' };
+
+        var proxyUrl = (window.location.origin || '') + '/subscribe';
+
+        // Try server proxy first
+        fetch(proxyUrl, { method: 'POST', headers: headers, body: JSON.stringify(payload) })
           .then(function (r) {
-            if (r.ok) { msg.style.display = 'block'; msg.textContent = 'Thanks — check your inbox!'; form.reset(); }
-            else { msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription failed.'; }
-          }).catch(function () { msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription failed.'; });
+            if (r.ok) { msg.style.display = 'block'; msg.textContent = 'Thanks — check your inbox!'; form.reset(); return; }
+
+            // fallback to ConvertKit if proxy returns 404/502 or if no proxy
+            if (r.status === 404 || r.status === 502) {
+              if (!endpoint) { msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription unavailable.'; return; }
+
+              return fetch(endpoint, { method: 'POST', headers: headers, body: JSON.stringify(payload) })
+                .then(function (r2) {
+                  if (r2.ok) { msg.style.display = 'block'; msg.textContent = 'Thanks — check your inbox!'; form.reset(); }
+                  else { msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription failed.'; }
+                });
+            }
+
+            msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription failed.';
+          }).catch(function () {
+            // network/proxy error, try ConvertKit endpoint as fallback
+            if (!endpoint) { msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription unavailable.'; return; }
+
+            fetch(endpoint, { method: 'POST', headers: headers, body: JSON.stringify(payload) })
+              .then(function (r2) {
+                if (r2.ok) { msg.style.display = 'block'; msg.textContent = 'Thanks — check your inbox!'; form.reset(); }
+                else { msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription failed.'; }
+              }).catch(function () { msg.style.display = 'block'; msg.style.color = '#a00'; msg.textContent = 'Subscription failed.'; });
+          });
       });
     })();
   </script>
