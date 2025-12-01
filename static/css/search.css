@@ -1,16 +1,94 @@
-/* CSS related to customing the Algolia Search bar */
+/* CSS related to customizing the Algolia DocSearch v4 search bar */
 
-.DocSearch-Button {
-    width: -webkit-fill-available;
-    margin: 10px !important;
+/* Custom color variables for balena branding */
+:root {
+    --docsearch-primary-color: #00aeef;
+    --docsearch-text-color: #1f2937;
+    --docsearch-spacing: 12px;
+    --docsearch-highlight-color: #00aeef;
+    --docsearch-muted-color: #6b7280;
+    --docsearch-container-background: rgba(0, 0, 0, 0.6);
+    --docsearch-modal-background: #ffffff;
 }
 
-.search-404-wrapper .DocSearch-Button {
-    margin: 0px !important;
-}
-
+/* Search wrapper container */
 .search-wrapper {
     border-bottom: 1px solid #e6e8eb;
     border-right: 1px solid #e6e8eb;
     background: #f7f7f7;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Main search button - full width in sidebar using higher specificity */
+.sidebar .search-wrapper .DocSearch-Button {
+    all: unset;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 44px;
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.sidebar .search-wrapper .DocSearch-Button:hover {
+    background: #f9fafb;
+    border-color: #a0a7b4;
+}
+
+/* 404 page search wrapper */
+.search-404-wrapper {
+    padding: 0;
+    margin: 20px 0;
+}
+
+.search-404-wrapper .DocSearch-Button {
+    all: unset;
+    width: 100%;
+    max-width: 600px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* Mobile search wrapper */
+.sidebar-mobile .search-mobile-wrapper .DocSearch-Button {
+    all: unset;
+    width: 100%;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .search-wrapper {
+        padding: 8px;
+    }
+    
+    .sidebar .search-wrapper .DocSearch-Button {
+        height: 40px;
+        padding: 0 10px;
+    }
 }
