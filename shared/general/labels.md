@@ -7,6 +7,7 @@ io.{{ $names.company.short }}.features.procfs | false | Bind mounts the host OS 
 io.{{ $names.company.short }}.features.kernel-modules | false | Bind mounts the host OS `/lib/modules` into the container (i.e. `/lib/modules:/lib/modules`). | v7.23.0 | v2.21.0
 io.{{ $names.company.short }}.features.firmware | false | Bind mounts the host OS `/lib/firmware` into the container. | v7.23.0 | v2.21.0
 io.{{ $names.company.short }}.features.journal-logs | false | Bind mounts journal log directories `/var/log/journal` and `/run/log/journal` as well as `/etc/machine-id` in read only mode. Required by some logging agents such as `promtail`. Journal logs can be read using libraries such as `sd-journal` in C or `sdjournal` in Go. | v12.0.1 | v2.61.0
+io.{{ $names.company.short }}.features.extra-firmware | false | Enables the service to provide [extra firmware][extra-firmware] files to the host OS. Use this with the extra firmware block to add Linux firmware without depending on an OS release. | v17.5.2 | v6.10.7
 io.{{ $names.company.short }}.features.supervisor-api | false | Ensures that `{{ $names.company.allCaps }}_SUPERVISOR_HOST`, `{{ $names.company.allCaps }}_SUPERVISOR_PORT`, `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS`, and `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` are added to the container environment variables, so the supervisor API can be used. | v7.23.0 | v2.21.0
 io.{{ $names.company.short }}.features.{{ $names.company.short }}-api | false | When enabled, it will make sure that `{{ $names.company.allCaps }}_API_KEY` is added to the container environment variables. | v7.23.0 | v2.21.0
 io.{{ $names.company.short }}.update.strategy | download-then-kill | Set the fleet [update strategy][update-strategy]. | v7.23.0 | v2.21.0
@@ -26,6 +27,7 @@ labels:
       io.{{ $names.company.short }}.features.sysfs: '1'
       io.{{ $names.company.short }}.features.procfs: '1'
       io.{{ $names.company.short }}.features.journal-logs: '1'
+      io.{{ $names.company.short }}.features.extra-firmware: '1'
       io.{{ $names.company.short }}.features.supervisor-api: '1'
       io.{{ $names.company.short }}.features.{{ $names.company.short }}-api: '1'
       io.{{ $names.company.short }}.update.strategy: download-then-kill
@@ -34,3 +36,4 @@ labels:
 
 [update-strategy]:/runtime/update-strategies
 [hand-over]:/runtime/update-strategies/#hand-over
+[extra-firmware]:/learn/develop/extra-firmware/
