@@ -1,4 +1,16 @@
 - commits:
+    - subject: "minor: Upgrade to Algolia Docsearch v4"
+      hash: 8caa9f480fbba8d0fb7e78f0d20326596632fa34
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+      nested: []
+  version: 6.13.0
+  title: ""
+  date: 2025-12-09T13:59:21.457Z
+- commits:
     - subject: "reference/hardware/versioning: add ODROID-XU4 to pending
         discontinuation list"
       hash: 3d88e44855bff8ebb6c96cebe771cf1fcf5281ba
