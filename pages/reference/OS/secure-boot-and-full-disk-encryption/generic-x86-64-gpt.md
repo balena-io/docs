@@ -75,7 +75,7 @@ Note that {{ $names.os.lower }} currently does not support updating from a non-s
 {{ $names.cli.upper }} versions `16.2.0` or newer allow you to [configure](https://docs.balena.io/reference/balena-cli/#os-configure-image) a {{ $names.os.lower }} installer image to opt-in secure boot by using the following command:
 
 ````
-balena os configure <image> --secureBoot --version <version> --fleet <fleetName> --device-type generic-amd64
+balena os configure <image> --secureBoot --fleet <fleetName> --device-type generic-amd64
 
 ````
 

@@ -150,7 +150,6 @@ $ cat < ${tmpconfig} \
 $ balena os configure ${tmpimg} \
     --fleet ${fleet_slug} \
     --device-type ${device_type} \
-    --version ${os_version} \
     --config-network ethernet \
     --config ${config}
 
