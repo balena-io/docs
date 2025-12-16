@@ -1,4 +1,16 @@
 - commits:
+    - subject: Drop `--version` flag from `balena os configure` examples
+      hash: 3b850b7994889ebcdfc583881d38f8452c12f8c7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+      nested: []
+  version: 6.13.1
+  title: ""
+  date: 2025-12-16T08:58:50.833Z
+- commits:
     - subject: "minor: Upgrade to Algolia Docsearch v4"
       hash: 8caa9f480fbba8d0fb7e78f0d20326596632fa34
       body: ""
