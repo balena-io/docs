@@ -1,4 +1,16 @@
 - commits:
+    - subject: Remove all flags except `--config` from `balena os configure` example
+      hash: a2d1c50d1aa91fc4d8f18e7ee39e9441744f37d3
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+      nested: []
+  version: 6.13.2
+  title: ""
+  date: 2025-12-17T14:09:04.930Z
+- commits:
     - subject: Drop `--version` flag from `balena os configure` examples
       hash: 3b850b7994889ebcdfc583881d38f8452c12f8c7
       body: ""
