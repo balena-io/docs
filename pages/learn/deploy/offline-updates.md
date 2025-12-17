@@ -148,9 +148,6 @@ $ cat < ${tmpconfig} \
     && cat < ${config} | jq .
 
 $ balena os configure ${tmpimg} \
-    --fleet ${fleet_slug} \
-    --device-type ${device_type} \
-    --config-network ethernet \
     --config ${config}
 
 $ rm ${tmpconfig}
