@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update algolia search key
+      hash: 3b4a362aa27b2a5e257e382c6fc3e6a35c45b4d1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+      nested: []
+  version: 6.13.5
+  title: ""
+  date: 2026-01-05T14:32:02.418Z
+- commits:
     - subject: Fix search not working due to rotated API key
       hash: b462c2b70141a94affccabadbe9d49d1293edba0
       body: ""
