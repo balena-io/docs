@@ -1,4 +1,16 @@
 - commits:
+    - subject: Fix search not working due to rotated API key
+      hash: b462c2b70141a94affccabadbe9d49d1293edba0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+      nested: []
+  version: 6.13.4
+  title: ""
+  date: 2026-01-05T13:59:07.536Z
+- commits:
     - subject: Add docs for `sw.os` and `sw.kernel` container contract label types
       hash: c80e4fb8a1989be2861def4ffc4033126386d733
       body: ""
