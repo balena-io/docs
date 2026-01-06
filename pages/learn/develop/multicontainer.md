@@ -117,22 +117,18 @@ In addition to the settings above, there are some balena specific labels that ca
 
 ### Container requirements
 
-{% hint style="info" %}
-Container requirements are available when using balenaCLI >= 21.1.0
-{% endhint %}
-
 An additional set of labels ensures device compatibility for running a service. For example, before updating to a new release, it may be desirable to ensure that the device is running a specific version of [Supervisor](../../external-docs/supervisor-api.md) or has a specific version of the [NVIDIA Tegra Linux Driver Package](https://developer.nvidia.com/embedded/linux-tegra) (L4T).
 
 The following set of requirement labels are enforced via the supervisor. Each service may define one or more requirements and if any of them is not met for any non-[optional](multicontainer.md#optional-containers) service, then [the release will be rejected](../manage/device-statuses.md#update-statuses) and no changes will be performed for the new release.
 
-| Label                                      | Description                                                                                                                             | Valid from Supervisor |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| io.balena.features.requires.sw.supervisor  | Device Supervisor version (specified as a [version range](https://www.npmjs.com/package/semver))                                        | 10.16.17              |
-| io.balena.features.requires.sw.l4t         | [L4T](https://developer.nvidia.com/embedded/linux-tegra) version (specified as a [version range](https://www.npmjs.com/package/semver)) | 10.16.17              |
-| io.balena.features.requires.hw.device-type | The [device type](../../reference/hardware/devices.md) as given by `BALENA_MACHINE_NAME`                                                | 11.1.0                |
-| io.balena.features.requires.arch.sw        | The [architecture](../../reference/base-images/balena-base-images.md) as given by `BALENA_ARCH`                                         | 14.10.11              |
-| io.balena.features.requires.sw.balena-os   | balenaOS version (specified as a [version range](https://www.npmjs.com/package/semver))                                                 | 17.4.2                |
-| io.balena.features.requires.sw.linux       | Linux kernel version (specified as a [version range](https://www.npmjs.com/package/semver))                                             | 17.4.2                |
+| Label                                      | Description                                                                                                                             | Valid from Supervisor | Valid from CLI |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------- |
+| io.balena.features.requires.sw.supervisor  | Device Supervisor version (specified as a [version range](https://www.npmjs.com/package/semver))                                        | 10.16.17              | All supported versions |
+| io.balena.features.requires.sw.l4t         | [L4T](https://developer.nvidia.com/embedded/linux-tegra) version (specified as a [version range](https://www.npmjs.com/package/semver)) | 10.16.17              | All supported versions |
+| io.balena.features.requires.hw.device-type | The [device type](../../reference/hardware/devices.md) as given by `BALENA_MACHINE_NAME`                                                | 11.1.0                | All supported versions |
+| io.balena.features.requires.arch.sw        | The [architecture](../../reference/base-images/balena-base-images.md) as given by `BALENA_ARCH`                                         | 14.10.11              | All supported versions |
+| io.balena.features.requires.sw.balena-os   | balenaOS version (specified as a [version range](https://www.npmjs.com/package/semver))                                                 | 17.4.2                | 25.0.0         |
+| io.balena.features.requires.sw.linux       | Linux kernel version (specified as a [version range](https://www.npmjs.com/package/semver))                                             | 17.4.2                | 25.0.0         |
 
 For example, the following composition defines requirements on the supervisor and l4t version on the first service, and on the device type and architecture on the second service.
 
