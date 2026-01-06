@@ -131,8 +131,8 @@ The following set of requirement labels are enforced via the supervisor. Each se
 | io.balena.features.requires.sw.l4t         | [L4T](https://developer.nvidia.com/embedded/linux-tegra) version (specified as a [version range](https://www.npmjs.com/package/semver)) | 10.16.17              |
 | io.balena.features.requires.hw.device-type | The [device type](../../reference/hardware/devices.md) as given by `BALENA_MACHINE_NAME`                                                | 11.1.0                |
 | io.balena.features.requires.arch.sw        | The [architecture](../../reference/base-images/balena-base-images.md) as given by `BALENA_ARCH`                                         | 14.10.11              |
-| io.balena.features.requires.sw.balena-os   | balenaOS version (specified as a [version range](https://www.npmjs.com/package/semver))                                                 | 17.4.0                |
-| io.balena.features.requires.sw.linux       | Linux kernel version (specified as a [version range](https://www.npmjs.com/package/semver))                                             | 17.4.0                |
+| io.balena.features.requires.sw.balena-os   | balenaOS version (specified as a [version range](https://www.npmjs.com/package/semver))                                                 | 17.4.2                |
+| io.balena.features.requires.sw.linux       | Linux kernel version (specified as a [version range](https://www.npmjs.com/package/semver))                                             | 17.4.2                |
 
 For example, the following composition defines requirements on the supervisor and l4t version on the first service, and on the device type and architecture on the second service.
 
