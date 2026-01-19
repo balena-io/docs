@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update billing page screenshots
+      hash: 571cde71c5586cd5750fce9778b7405a476c7c60
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 6.13.6
+  title: ""
+  date: 2026-01-19T09:56:19.500Z
+- commits:
     - subject: Update algolia search key
       hash: 3b4a362aa27b2a5e257e382c6fc3e6a35c45b4d1
       body: ""
