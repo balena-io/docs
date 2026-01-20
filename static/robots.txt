@@ -1,5 +1,0 @@
-# Algolia-Crawler-Verif: 8EDF20605E2E275D
-User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
-Sitemap: https://docs.balena.io/sitemap.xml
