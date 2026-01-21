@@ -1,41 +1,39 @@
 ---
 title: Define a container
-excerpt: Use Dockerfiles to package your {{ $names.company.lower }} services and their dependencies
+excerpt: >-
+  Use Dockerfiles to package your {{ $names.company.lower }} services and their
+  dependencies
 ---
 
 # Define a container
 
-{{ $names.company.upper }} uses [Docker][docker] containers to manage deployment and updates. You can use one or more containers to package your services with whichever environments and tools they need to run.
+\{{ $names.company.upper \}} uses [Docker](https://www.docker.com/) containers to manage deployment and updates. You can use one or more containers to package your services with whichever environments and tools they need to run.
 
-To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image][docker-images-containers]. Whether the build process is done [on your device][local-mode], [on your workstation][local-build], or on the [{{ $names.company.lower }} builders][builders], the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the {{ $names.os.lower }} version) to kick off a running container.
+To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image](https://docs.docker.com/engine/understanding-docker/#/inside-docker). Whether the build process is done [on your device](../../../learn/develop/local-mode/), [on your workstation](../../../reference/cli/#build-source), or on the [\{{ $names.company.lower \}} builders](../../../learn/deploy/deployment/), the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the \{{ $names.os.lower \}} version) to kick off a running container.
 
-__Note:__ For additional information on working with Dockerfiles with {{$names.company.lower}} see the [services masterclass][services-masterclass].
+**Note:** For additional information on working with Dockerfiles with \{{$names.company.lower\}} see the [services masterclass](../../../learn/more/masterclasses/services-masterclass/).
 
 ## Dockerfiles
 
-The instructions for building a container image are written in a [Dockerfile][dockerfile] - this is similar to a `Makefile` in that it contains a recipe or set of instructions to build our container.
+The instructions for building a container image are written in a [Dockerfile](https://docs.docker.com/engine/reference/builder/) - this is similar to a `Makefile` in that it contains a recipe or set of instructions to build our container.
 
 The syntax of Dockerfiles is fairly simple - at core there are 2 valid entries in a Dockerfile - comments, prepended with `#` as in script files, and instructions of the format `INSTRUCTION arguments`.
 
-Typically you will only need to use 4 instructions - [FROM][from], [RUN][run] and [ADD][add] or [COPY][copy]:-
+Typically you will only need to use 4 instructions - [FROM](https://docs.docker.com/engine/reference/builder/#from), [RUN](https://docs.docker.com/engine/reference/builder/#run) and [ADD](https://docs.docker.com/engine/reference/builder/#add) or [COPY](https://docs.docker.com/engine/reference/builder/#copy):-
 
-* [FROM][from] __has__ to be the first instruction in any valid `Dockerfile` and defines the base image to use as the basis for the container you're building.
+* [FROM](https://docs.docker.com/engine/reference/builder/#from) **has** to be the first instruction in any valid `Dockerfile` and defines the base image to use as the basis for the container you're building.
+* [RUN](https://docs.docker.com/engine/reference/builder/#run) simply executes commands in the container - this can be of the format of a single line to execute, e.g. `RUN apt-get -y update` which will be run via `/bin/sh -c`, or `[ "executable", "param1", "param2", ... ]` which is executed directly.
+* [ADD](https://docs.docker.com/engine/reference/builder/#add) copies files from the current directory into the container, e.g. `ADD <src> <dest>`. Note that if `<dest>` doesn't exist, it will be created for you, e.g. if you specify a folder. If the `<src>` is a _local_ tar archive it will unpack it for you. It also allows the `<src>` to be a url but will **not** unpack _remote_ urls.
+* [COPY](https://docs.docker.com/engine/reference/builder/#copy) is very similar to [ADD](https://docs.docker.com/engine/reference/builder/#add), but without the compression and url functionality. According to [the Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy), you should always use [COPY](https://docs.docker.com/engine/reference/builder/#copy) unless the auto-extraction capability of [ADD](https://docs.docker.com/engine/reference/builder/#add) is needed.
+* [CMD](https://docs.docker.com/engine/reference/builder/#cmd) this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a \{{ $names.company.lower \}} service, this is typically used to execute a start script or entrypoint for the user's service. [CMD](https://docs.docker.com/engine/reference/builder/#cmd) should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD](https://docs.docker.com/engine/reference/builder/#cmd) command and all processes that it spawns.
 
-* [RUN][run] simply executes commands in the container - this can be of the format of a single line to execute, e.g. `RUN apt-get -y update` which will be run via `/bin/sh -c`, or `[ "executable", "param1", "param2", ... ]` which is executed directly.
+For details on other instructions, consult the official [Dockerfile documentation](https://docs.docker.com/engine/reference/builder/).
 
-* [ADD][add] copies files from the current directory into the container, e.g. `ADD <src> <dest>`. Note that if `<dest>` doesn't exist, it will be created for you, e.g. if you specify a folder. If the `<src>` is a *local* tar archive it will unpack it for you. It also allows the `<src>` to be a url but will **not** unpack *remote* urls.
+### Using Dockerfiles with \{{ $names.company.lower \}}
 
-* [COPY][copy] is very similar to [ADD][add], but without the compression and url functionality. According to [the Dockerfile best practices][dockerfile-best-practices], you should always use [COPY][copy] unless the auto-extraction capability of [ADD][add] is needed.
+To deploy a single-container release to \{{ $names.company.lower \}}, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
 
-* [CMD][cmd] this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a {{ $names.company.lower }} service, this is typically used to execute a start script or entrypoint for the user's service. [CMD][cmd] should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD][cmd] command and all processes that it spawns.
-
-For details on other instructions, consult the official [Dockerfile documentation][dockerfile].
-
-### Using Dockerfiles with {{ $names.company.lower }}
-
-To deploy a single-container release to {{ $names.company.lower }}, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
-
-{{> "general/labels-version-note"}}
+\{{> "general/labels-version-note"\}}
 
 ```yaml
 version: '2.1'
@@ -59,23 +57,23 @@ services:
       io.balena.features.balena-api: '1'
 ```
 
-Releases with multiple services should include a `Dockerfile` or `package.json` in each service directory. A `docker-compose.yml` file will need to be defined at the root of the repository, as discussed in our [multicontainer documentation][multicontainer].
+Releases with multiple services should include a `Dockerfile` or `package.json` in each service directory. A `docker-compose.yml` file will need to be defined at the root of the repository, as discussed in our [multicontainer documentation](../../../learn/develop/multicontainer/).
 
 You can also include a `.dockerignore` file with your project if you wish the builder to ignore certain files.
 
-__Note:__ You *don't* need to worry about ignoring `.git` as the builders already do this by default.
+**Note:** You _don't_ need to worry about ignoring `.git` as the builders already do this by default.
 
 ## Dockerfile templates
 
 Dockerfile templates are a balena-specific feature that allow our builders to substitute a value for one of the following variables at build time:
 
-{{> "deployment/build-variables" }}
+\{{> "deployment/build-variables" \}}
 
 The original purpose of these templates was to allow our builders to build containers for multiple architectures from one code repository when using the deprecated balenalib base images. For new projects, we recommend using standard Dockerfiles and either specifying the architecture in your FROM line, or utilizing base images that are published with the [multi-platform feature](https://docs.docker.com/build/building/multi-platform/). For example:
 
 `FROM bh.cr/balenalabs/browser-aarch64`
 
-Here, we are pulling an ARMv8 (aarch64) architecture-specific container image. This image can only be used for fleets with devices of that architecture. 
+Here, we are pulling an ARMv8 (aarch64) architecture-specific container image. This image can only be used for fleets with devices of that architecture.
 
 `FROM debian:trixie`
 
@@ -85,7 +83,7 @@ It is possible to have different device types in the same fleet, as long as they
 
 If you are still using balenalib base images for an existing project, you can use dockerfile templates as described below:
 
-```Dockerfile
+```dockerfile
 FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node
 
 COPY package.json /package.json
@@ -95,16 +93,15 @@ COPY src/ /usr/src/app
 CMD ["node", "/usr/src/app/main.js"]
 ```
 
-This `dockerfile.template` file will build and deploy a Node.js project for any of the devices supported by {{ $names.company.lower }}, regardless of device architecture, whether is [ARM][ARM-link] or [x86][x86-link].
+This `dockerfile.template` file will build and deploy a Node.js project for any of the devices supported by \{{ $names.company.lower \}}, regardless of device architecture, whether is [ARM](https://en.wikipedia.org/wiki/ARM_architecture) or [x86](https://en.wikipedia.org/wiki/X86).
 
-In this example, the build variable `%%{{ $names.company.allCaps }}_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. Refer to [supported machine names and architectures][supported-devices].
+In this example, the build variable `%%{{ $names.company.allCaps }}_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. Refer to [supported machine names and architectures](../../../reference/hardware/devices/).
 
 The machine name is inferred from the device type of the fleet you are deploying on. So if you have a NanoPi Neo Air fleet, the machine name will be `nanopi-neo-air` and an `armv7hf` architecture base image will be built.
 
-__Note:__ If your fleet contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your fleet services are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the fleet, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your fleet.
+**Note:** If your fleet contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your fleet services are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the fleet, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your fleet.
 
-If you want to see an example of build variables in action, have a look at this [basic openssh example]({{ $links.githubPlayground }}/balena-openssh).
-
+If you want to see an example of build variables in action, have a look at this \[basic openssh example]\(\{{ $links.githubPlayground \}}/balena-openssh).
 
 ## Multiple Dockerfiles
 
@@ -122,17 +119,17 @@ Note that this feature works with the following commands: `git push`, `balena pu
 
 ## Node applications
 
-{{ $names.company.upper }} supports [Node.js][node] natively using the [package.json][package] file located in the root of the repository to determine how to build and execute node applications.
+\{{ $names.company.upper \}} supports \[Node.js]\[node] natively using the [package.json](https://docs.npmjs.com/files/package.json) file located in the root of the repository to determine how to build and execute node applications.
 
-When you push your code to your fleet, the build server generates a [container][container] for the environment your device operates in, deploys your code to it and runs `npm install` to resolve [npm][npm] dependencies, reporting progress to your terminal as it goes.
+When you push your code to your fleet, the build server generates a [container](https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization) for the environment your device operates in, deploys your code to it and runs `npm install` to resolve [npm](https://www.npmjs.org/) dependencies, reporting progress to your terminal as it goes.
 
 If the build executes successfully the release is deployed to your device where the supervisor runs it in place of any previously running containers, using `npm start` to execute your code (note that if no start script is specified, it defaults to running `node server.js`.)
 
 ### Node.js Example
 
-A good example of this is the [text-to-speech][text-to-speech] application - here's its `package.json` file*:
+A good example of this is the \[text-to-speech]\[text-to-speech] application - here's its `package.json` file\*:
 
-```JSON
+```json
 {
   "name": "text2speech",
   "description": "Simple balena app that uses Google's TTS endpoint",
@@ -155,69 +152,23 @@ A good example of this is the [text-to-speech][text-to-speech] application - her
 }
 ```
 
-__Note:__ We don't specify a `start` script here which means node will default to running `server.js`. We execute a bash script called `deps.sh` before `npm install` tries to satisfy the code's dependencies. Let's have a look at that:-
+**Note:** We don't specify a `start` script here which means node will default to running `server.js`. We execute a bash script called `deps.sh` before `npm install` tries to satisfy the code's dependencies. Let's have a look at that:-
 
 ```shell
 apt-get install -y alsa-utils libasound2-dev
 mv sound_start /usr/bin/sound_start
 ```
 
-These are shell commands that are run within the container on the build server which are configured such that dependencies are resolved for the target architecture not the build server's - this can be very useful for deploying
-non-javascript code or fulfilling package dependencies that your node code might require.
+These are shell commands that are run within the container on the build server which are configured such that dependencies are resolved for the target architecture not the build server's - this can be very useful for deploying non-javascript code or fulfilling package dependencies that your node code might require.
 
-We use [Raspbian][raspbian] as our contained operating system, so this script uses [aptitude][aptitude] to install native packages before moving a script for our node code to use over to `/usr/bin` (the install scripts runs with root privileges within the container.)
+We use [Raspbian](https://www.raspbian.org/) as our contained operating system, so this script uses \[aptitude]\[aptitude] to install native packages before moving a script for our node code to use over to `/usr/bin` (the install scripts runs with root privileges within the container.)
 
-__Note:__ With a plain Node.js project, our build server will detect compatible nodejs versions from the `package.json` and build the container using a Docker image that satisfies the version requirement. If no version is specified then the default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here][base-images].
-
-![terminal-builder-window](/img/terminal-builder-window.webp)
+**Note:** With a plain Node.js project, our build server will detect compatible nodejs versions from the `package.json` and build the container using a Docker image that satisfies the version requirement. If no version is specified then the default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here](../../../reference/base-images/balena-base-images/).
 
 ## Container Requirements
 
-The {{ $names.company.lower }} Supervisor requires that the directory `/tmp/balena` in containers be available for inter-container communication via [update locks][update-locks]. Therefore, scripts should not attempt to remove this directory on startup.
+The \{{ $names.company.lower \}} Supervisor requires that the directory `/tmp/balena` in containers be available for inter-container communication via [update locks](../../../learn/deploy/release-strategy/update-locking/). Therefore, scripts should not attempt to remove this directory on startup.
 
-[container]:https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization
-[docker]:https://www.docker.com/
-[dockerfile]:https://docs.docker.com/engine/reference/builder/
-[docker-images-containers]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
-[raspbian]:https://www.raspbian.org/
+\[resin-docker-blog]:\{{ $links.mainSiteUrl \}}/blog/docker-on-raspberry-pi/ \[dockerhub-link]:https://registry.hub.docker.com/search?q=rpi \[rpi-archlinux-link]:https://registry.hub.docker.com/u/digitallyseamless/archlinux-armv6h/ \[docker-custom-base-os-repo]:https://github.com/nghiant2710/base-os-image-example \[docker-create-images-link]:https://docs.docker.com/userguide/dockerimages/#creating-our-own-images \[example-archlinux]:https://github.com/shaunmulligan/resin-archlinux-rpi
 
-[from]:https://docs.docker.com/engine/reference/builder/#from
-[run]:https://docs.docker.com/engine/reference/builder/#run
-[add]:https://docs.docker.com/engine/reference/builder/#add
-[copy]:https://docs.docker.com/engine/reference/builder/#copy
-[cmd]:https://docs.docker.com/engine/reference/builder/#cmd
-
-[starter-projects]:/examples/projects#Programming_Language_Starter_Projects
-[dockerfile-best-practices]:https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy
-[docker-registry]:https://registry.hub.docker.com/u/resin/rpi-raspbian/tags/manage/
-[resin-docker-blog]:{{ $links.mainSiteUrl }}/blog/docker-on-raspberry-pi/
-[dockerhub-link]:https://registry.hub.docker.com/search?q=rpi
-[rpi-archlinux-link]:https://registry.hub.docker.com/u/digitallyseamless/archlinux-armv6h/
-[docker-custom-base-os-repo]:https://github.com/nghiant2710/base-os-image-example
-[docker-create-images-link]:https://docs.docker.com/userguide/dockerimages/#creating-our-own-images
-[example-archlinux]:https://github.com/shaunmulligan/resin-archlinux-rpi
-
-[x86-link]:https://en.wikipedia.org/wiki/X86
-[ARM-link]:https://en.wikipedia.org/wiki/ARM_architecture
-
-[local-mode]:/learn/develop/local-mode
-[builders]:/learn/deploy/deployment
-[local-build]:/reference/cli/#build-source
-[multicontainer]:/learn/develop/multicontainer
-[base-images]:/reference/base-images/balena-base-images
-[supported-devices]:/reference/hardware/devices/
-
-[init-system-link]:https://en.wikipedia.org/wiki/Init
-[systemd-link]:https://en.wikipedia.org/wiki/Systemd
-[openrc-link]:https://en.wikipedia.org/wiki/OpenRC
-[udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
-[package]:https://docs.npmjs.com/files/package.json
-[container]:https://wiki.archlinux.org/index.php/Linux_Containers
-[npm]:https://www.npmjs.org/
-[text-to-speech]:{{ $links.githubMain }}/text2speech
-[node]:https://nodejs.org/
-[raspbian]:https://www.raspbian.org/
-[aptitude]:https://wiki.debian.org/Aptitude
-
-[services-masterclass]:/learn/more/masterclasses/services-masterclass/
-[update-locks]:/learn/deploy/release-strategy/update-locking/
+\[text-to-speech]:\{{ $links.githubMain \}}/text2speech \[node]:https://nodejs.org/ [raspbian](https://www.raspbian.org/):https://www.raspbian.org/ \[aptitude]:https://wiki.debian.org/Aptitude
