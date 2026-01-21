@@ -1,6 +1,6 @@
 # Table of contents
 
-* [learn](README.md)
+* learn
   * [\{{ title \}}](learn/getting-started.md)
   * [accounts](learn/accounts/README.md)
     * [Account management](learn/accounts/account.md)
