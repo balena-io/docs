@@ -1,6 +1,8 @@
 ---
 title: Communicate outside the container
-excerpt: Talk to the host OS, supervisor, and network from within a {{ $names.company.lower }} container
+excerpt: >-
+  Talk to the host OS, supervisor, and network from within a {{
+  $names.company.lower }} container
 thumbnail: /img/common/device/running-webterminal-session.webp
 ---
 
@@ -14,27 +16,27 @@ In many situations, the code running in your container will need some way to com
 
 Inside your running container, you'll have access to a number of `{{ $names.company.allCaps }}_` namespaced environment variables, which provide information from the system outside the container:
 
-__Note:__ On all {{ $names.os.lower }} versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
+**Note:** On all \{{ $names.os.lower \}} versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
 
-|    Variable   	| Description 	|
-|:----------:	    |:-----------:	|
-| `{{ $names.company.allCaps }}_DEVICE_UUID` 	      |  The unique identification number for the device. This is used to identify it on {{ $names.company.lower }}	|
-| `{{ $names.company.allCaps }}_APP_ID` 	            |  ID number of the {{ $names.company.lower }} fleet the device is associated. 	|
-| `{{ $names.company.allCaps }}_APP_NAME`            |  The name of the {{ $names.company.lower }} fleet the device is associated with. |
-| `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |  The name of the device on first initialization. |
-| `{{ $names.company.allCaps }}_DEVICE_TYPE`         |  The type of device the fleet is running on. |
-| `{{ $names.company.allCaps }}` 	                  |  The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a {{ $names.company.lower }} device. 	|
-| `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY`  |  Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference][supervisor-api-link] for detailed usage. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
-| `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` 	|  The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
-| `{{ $names.company.allCaps }}_SUPERVISOR_HOST` 	  |  The IP address of the supervisor API.	Default: `127.0.0.1`. For multicontainer the service needs the [io.resin.features.supervisor-api][labels-link] set|
-| `{{ $names.company.allCaps }}_SUPERVISOR_PORT` 	  |  The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.supervisor-api][labels-link] label set. |
-| `{{ $names.company.allCaps }}_API_KEY` 	          |  API key which can be used to authenticate requests to the {{ $names.company.lower }} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation][security-docs-link] for more details. For multicontainer the service needs the [io.{{ $names.company.lower }}.features.{{ $names.company.lower }}-api][labels-link] label set. |
-| `{{ $names.company.allCaps }}_HOST_OS_VERSION`     |  The version of the host OS. |
-| `{{ $names.company.allCaps }}_DEVICE_RESTART` 	    |  This is an internal mechanism for restarting containers and can be ignored as it's not very useful to app code.  Example: `1.13.0`	|
+|                      Variable                      |                                                                                                                                                                                                                                        Description                                                                                                                                                                                                                                       |
+| :------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|     `{{ $names.company.allCaps }}_DEVICE_UUID`     |                                                                                                                                                                                       The unique identification number for the device. This is used to identify it on \{{ $names.company.lower \}}                                                                                                                                                                                       |
+|        `{{ $names.company.allCaps }}_APP_ID`       |                                                                                                                                                                                                       ID number of the \{{ $names.company.lower \}} fleet the device is associated.                                                                                                                                                                                                      |
+|       `{{ $names.company.allCaps }}_APP_NAME`      |                                                                                                                                                                                                     The name of the \{{ $names.company.lower \}} fleet the device is associated with.                                                                                                                                                                                                    |
+| `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |                                                                                                                                                                                                                      The name of the device on first initialization.                                                                                                                                                                                                                     |
+|     `{{ $names.company.allCaps }}_DEVICE_TYPE`     |                                                                                                                                                                                                                        The type of device the fleet is running on.                                                                                                                                                                                                                       |
+|           `{{ $names.company.allCaps }}`           |                                                                                                                                                                     The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a \{{ $names.company.lower \}} device.                                                                                                                                                                    |
+|  `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` |                                                                Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference](../../../runtime/supervisor-api/) for detailed usage. For multicontainer the service needs the \[io.\{{ $names.company.lower \}}.features.supervisor-api]\[labels-link] label set.                                                                |
+|  `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` |                                                                                                                                        The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the \[io.\{{ $names.company.lower \}}.features.supervisor-api]\[labels-link] label set.                                                                                                                                        |
+|   `{{ $names.company.allCaps }}_SUPERVISOR_HOST`   |                                                                                                                                                                The IP address of the supervisor API. Default: `127.0.0.1`. For multicontainer the service needs the \[io.resin.features.supervisor-api]\[labels-link] set                                                                                                                                                                |
+|   `{{ $names.company.allCaps }}_SUPERVISOR_PORT`   |                                                                                                                                              The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the \[io.\{{ $names.company.lower \}}.features.supervisor-api]\[labels-link] label set.                                                                                                                                              |
+|       `{{ $names.company.allCaps }}_API_KEY`       | API key which can be used to authenticate requests to the \{{ $names.company.lower \}} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation](../../../learn/welcome/security/) for more details. For multicontainer the service needs the \[io.\{{ $names.company.lower \}}.features.\{{ $names.company.lower \}}-api]\[labels-link] label set. |
+|   `{{ $names.company.allCaps }}_HOST_OS_VERSION`   |                                                                                                                                                                                                                                The version of the host OS.                                                                                                                                                                                                                               |
+|    `{{ $names.company.allCaps }}_DEVICE_RESTART`   |                                                                                                                                                                             This is an internal mechanism for restarting containers and can be ignored as it's not very useful to app code. Example: `1.13.0`                                                                                                                                                                            |
 
 Here's an example from a Raspberry Pi 3:
 
-```Bash
+```bash
 root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 {{ $names.company.allCaps }}_SUPERVISOR_API_KEY=1111deadbeef2222
 {{ $names.company.allCaps }}_APP_ID=157270
@@ -52,9 +54,9 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 
 ### D-Bus communication with host OS
 
-In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use [dbus][dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all D-Bus communication. The setting of that environment variable is different for older and newer devices (based on the {{ $names.company.lower }} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
+In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use \[dbus]\[dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all D-Bus communication. The setting of that environment variable is different for older and newer devices (based on the \{{ $names.company.lower \}} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
-__Note:__ In multicontainer fleets, the `io.balena.features.dbus` label must be applied for each service that requires access to the D-Bus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
+**Note:** In multicontainer fleets, the `io.balena.features.dbus` label must be applied for each service that requires access to the D-Bus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
 
 ```
 # for {{ $names.company.lower }} supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
@@ -80,17 +82,17 @@ services:
       io.balena.features.dbus: '1'
 ```
 
-__Note:__ Please be aware that setting `DBUS_SYSTEM_BUS_ADDRESS` as a service or environment variable and enabling systemd at the same time might introduce unexpected side effects. Systemd might start to interact with the host system instead of the container. These interactions can potentially cause balenaOS devices to disconnect from balenaCloud or even fall offline. Hence, users are advised to prefer prepending the command with the variable definition.
+**Note:** Please be aware that setting `DBUS_SYSTEM_BUS_ADDRESS` as a service or environment variable and enabling systemd at the same time might introduce unexpected side effects. Systemd might start to interact with the host system instead of the container. These interactions can potentially cause balenaOS devices to disconnect from balenaCloud or even fall offline. Hence, users are advised to prefer prepending the command with the variable definition.
 
-__Note:__ To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile if you are using the Debian image, or check under what name does your chosen operating system supply the `dbus-send` executable.
+**Note:** To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile if you are using the Debian image, or check under what name does your chosen operating system supply the `dbus-send` executable.
 
 #### Change the Device hostname
 
-Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the [host OS][host-os] is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API][supervisor-api-device-host-config]
-
+Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the \[host OS]\[host-os] is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API](../../../reference/supervisor/supervisor-api/#patch-v1devicehost-config)
 
 #### Rebooting the Device
-```Bash
+
+```bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
   dbus-send \
   --system \
@@ -101,9 +103,10 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
 ```
 
 #### Stopping a systemd service
+
 At times, you may wish to stop a running service on the host OS, such as `bluetooth.service`, in order to run your own instance of bluez containerized.
 
-```Bash
+```bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
   dbus-send \
   --system \
@@ -115,7 +118,8 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
 ```
 
 #### Checking if device time is NTP synchronized
-```Bash
+
+```bash
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
   dbus-send \
   --system \
@@ -129,6 +133,7 @@ DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket \
 ```
 
 The reply would look like this:
+
 ```variant
 method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 reply_serial=2
    array [
@@ -163,37 +168,40 @@ method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 
    ]
 ```
 
-The entry `NTPSynchronized` shows `true`, so the device is NTP synchronized.  (The key `NTP` only shows whether the device is using the systemd service `systemd-timesyncd`; starting from balenaOS 2.13.1, the `chrony` service is used for time management.)
+The entry `NTPSynchronized` shows `true`, so the device is NTP synchronized. (The key `NTP` only shows whether the device is using the systemd service `systemd-timesyncd`; starting from balenaOS 2.13.1, the `chrony` service is used for time management.)
 
-__Note:__ For additional D-Bus examples see the [{{$names.os.lower}} masterclass][os-masterclass]
+**Note:** For additional D-Bus examples see the \[\{{$names.os.lower\}} masterclass]\[os-masterclass]
 
 ### Blacklisting kernel modules won't work
+
 Since the `/etc/modules` you see in your container belongs to the container's filesystem and is not the same as `/etc/modules` in the host OS, adding kernel modules to the modules blacklist in the container will have no effect. So in order to remove a module, you need to explicitly do a [`rmmod`](http://linux.die.net/man/8/rmmod).
 
 ## Supervisor
 
-__Note:__ In multicontainer fleets, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API.  If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility
+**Note:** In multicontainer fleets, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility
 
 ### Reboot from Inside the Container
 
 You may notice that if you issue a `reboot`, `halt`, or `shutdown` your container either gets into a weird zombie state or doesn't do anything. The reason for this is that these commands do not propagate down to the host OS system. If you need to issue a `reboot` from your container you should use the supervisor API as shown:
+
 ```
 curl -X POST --header "Content-Type:application/json" \
     "${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/reboot?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
 ```
-[Read more about the supervisor API](/runtime/supervisor-api/#post-v1-reboot)
 
-__Note:__ `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` and `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the [io.resin.features.supervisor-api][labels-link] set . You will also **need** `curl` installed in your container.
+[Read more about the supervisor API](../../../runtime/supervisor-api/#post-v1-reboot)
+
+**Note:** `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` and `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the \[io.resin.features.supervisor-api]\[labels-link] set . You will also **need** `curl` installed in your container.
 
 Alternatively, it is possible to reboot the device via the D-Bus interface as described above.
 
 ### Writing to logs on the Dashboard
 
-Anything written to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our [example projects][projects-github] on GitHub to get an idea of how to do this.
+Anything written to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our \[example projects]\[projects-github] on GitHub to get an idea of how to do this.
 
 ## Network
 
-{{ $names.engine.upper }} supports [host][network-host] and [bridge][network-bridge] network modes:
+\{{ $names.engine.upper \}} supports \[host]\[network-host] and \[bridge]\[network-bridge] network modes:
 
 * Host mode allows a service to use all host network interfaces.
 * Bridge mode uses a user-defined bridge network interface, to which service containers are connected.
@@ -208,9 +216,9 @@ Single container releases always use host networking, allowing them to bind to a
 
 ### Multicontainer
 
-Multicontainer releases use a user-defined bridge network by default. No ports are exposed to the host and must be explicitly enabled through the `ports` [keyword][network-ports]. Services on the same bridge network have access to all other services' ports.
+Multicontainer releases use a user-defined bridge network by default. No ports are exposed to the host and must be explicitly enabled through the `ports` \[keyword]\[network-ports]. Services on the same bridge network have access to all other services' ports.
 
-The following [sample multicontainer][multicontainer] `docker-compose.yml` file allows incoming traffic on port 80 to the `proxy` service, but the `frontend` and `data` services are isolated from the host and only accessible via the bridge network, which all services are connected to.
+The following \[sample multicontainer]\[multicontainer] `docker-compose.yml` file allows incoming traffic on port 80 to the `proxy` service, but the `frontend` and `data` services are isolated from the host and only accessible via the bridge network, which all services are connected to.
 
 ```yaml
 version: '2'
@@ -232,21 +240,21 @@ services:
       - "8080"
 ```
 
-__Note:__ Exposing ports via the expose keyword is optional and a way of documenting which ports are used, but does not map or open any ports. By default, services on the same bridge network have access to all other services' ports.
+**Note:** Exposing ports via the expose keyword is optional and a way of documenting which ports are used, but does not map or open any ports. By default, services on the same bridge network have access to all other services' ports.
 
 For multicontainer releases, setting the service `network_mode` to `host` in `docker-compose.yml` allows the container to share the same network namespace as the host OS.
 
-{{ $names.company.upper }} `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` [keyword][network-aliases] for providing alias names for services (including FQDNs) and [IPAM bridge networks][network-ipam] are also supported.
+\{{ $names.company.upper \}} `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` \[keyword]\[network-aliases] for providing alias names for services (including FQDNs) and \[IPAM bridge networks]\[network-ipam] are also supported.
 
-__Note:__ For more information on networking with {{ $names.company.lower }}, see the [{{ $names.company.lower }} services masterclass][services-masterclass].
+**Note:** For more information on networking with \{{ $names.company.lower \}}, see the \[\{{ $names.company.lower \}} services masterclass]\[services-masterclass].
 
 ### Public device URLS
 
-{{ $names.company.upper }} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the {{ $names.cloud.lower }} dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](/management/devices#enable-public-device-url)
+\{{ $names.company.upper \}} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the \{{ $names.cloud.lower \}} dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../../../management/devices/#enable-public-device-url)
 
-<img alt="Enable public device URL" src="/img/common/device/enable-public-url-device.webp">
 
-Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js][expressjs-link] server which will serve to the devices URL.
+
+Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js](https://expressjs.com/) server which will serve to the devices URL.
 
 ```javascript
 var express = require('express')
@@ -267,21 +275,22 @@ var server = app.listen(80, function () {
 ```
 
 ### Using DNS resolvers in your container
-In the {{ $names.company.lower }} host OS [dnsmasq][dnsmasq-link] is used to manage DNS since {{ $names.os.lower }} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
+
+In the \{{ $names.company.lower \}} host OS \[dnsmasq]\[dnsmasq-link] is used to manage DNS since \{{ $names.os.lower \}} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
 
 ## Storage
 
 ### Persistent Storage
 
-{{> "general/persistent-storage"}}
+\{{> "general/persistent-storage"\}}
 
 ### Temporary directories
 
-Note that the `/tmp` and `/var/tmp` directories in a container are not true [tmpfs][kernel-tmpfs] volumes by default, and they are treated like any other ephemeral container layers.
+Note that the `/tmp` and `/var/tmp` directories in a container are not true \[tmpfs]\[kernel-tmpfs] volumes by default, and they are treated like any other ephemeral container layers.
 
-As a result, you can expect that data in these directories will persist over a device reboot, but will **not** persist when a [services restart][restart-fleet] is triggered.
+As a result, you can expect that data in these directories will persist over a device reboot, but will **not** persist when a \[services restart]\[restart-fleet] is triggered.
 
-If you would like these directories to act more like `tmpfs` volumes and write to volatile memory, you can use [tmpfs mounts][tmpfs-mounts].
+If you would like these directories to act more like `tmpfs` volumes and write to volatile memory, you can use \[tmpfs mounts]\[tmpfs-mounts].
 
 ```yml
 services:
@@ -294,13 +303,13 @@ services:
 
 ### Mounting external storage media
 
-Since the release of multicontainer on the {{ $names.company.lower }} platform we no longer recommend the use of an initsystem in the container. This affects the way we deal with external storage since previously we relied on `systemd`/`OpenRC` and `/etc/fstab`.
+Since the release of multicontainer on the \{{ $names.company.lower \}} platform we no longer recommend the use of an initsystem in the container. This affects the way we deal with external storage since previously we relied on `systemd`/`OpenRC` and `/etc/fstab`.
 
 The recommended way for mounting external storage media (SD cards, USB sticks, external drives, etc) into a container is now through the use of `mount`. Here we include a set of recommendations that will help you get started.
 
-**{{ $names.os.lower }} kernel support**
+**\{{ $names.os.lower \}} kernel support**
 
-Before you start it's a good idea to check if the {{ $names.os.lower }} kernel you are running was compiled with support for the filesystem you want to use. To do so, you can run this command on the **host** which will produce a list of supported filesystems: `cat /proc/filesystems`.
+Before you start it's a good idea to check if the \{{ $names.os.lower \}} kernel you are running was compiled with support for the filesystem you want to use. To do so, you can run this command on the **host** which will produce a list of supported filesystems: `cat /proc/filesystems`.
 
 If your filesystem is not supported you can contact us through our [forums](https://forums.balena.io/) and we will be glad to help.
 
@@ -308,9 +317,9 @@ If your filesystem is not supported you can contact us through our [forums](http
 
 In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](https://www.balena.io/docs/reference/base-images/balena-base-images/#working-with-dynamically-plugged-devices) by:
 
-- Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file.
-- Adding `ENV UDEV=on` to your container's `Dockerfile`.
-- Running the entrypoint as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
+* Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file.
+* Adding `ENV UDEV=on` to your container's `Dockerfile`.
+* Running the entrypoint as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
 
 This will ensure that the host propagates udev events into the container, enabling us to manipulate the device from within it.
 
@@ -318,7 +327,7 @@ This will ensure that the host propagates udev events into the container, enabli
 
 Devices can be selected in many ways, for example by its device name (`/dev` entry), label, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices. Device names or UUIDs are a good choice when you can easily identify or predict their values, for example within the context of a udev rule.
 
-__Note:__ You can get a list of device names, labels and filesystem types by running `lsblk -f` (both on the host or container).
+**Note:** You can get a list of device names, labels and filesystem types by running `lsblk -f` (both on the host or container).
 
 **Mounting**
 
@@ -330,7 +339,7 @@ mount -t <fstype> -o rw -L <device-label> <mount-point>
 mount -t <fstype> -o rw -U <device-uuid> <mount-point>
 ```
 
-__Note:__ The mount point folder needs to exist for the mount to be successful.
+**Note:** The mount point folder needs to exist for the mount to be successful.
 
 For more information about the `mount` command see the [mount man page](https://man7.org/linux/man-pages/man8/mount.8.html).
 
@@ -358,43 +367,18 @@ ACTION=="remove", SUBSYSTEM=="block", ENV{DEVTYPE}=="partition", RUN+="/bin/sh -
 These rules will trigger every time we plug or unplug a block partition device and run the scripts we provide (`/usr/src/mount.sh` or `/usr/src/unmount.sh`).
 
 Copy both the rules and scripts to your container:
-```Dockerfile
+
+```dockerfile
 COPY usb.rules /etc/udev/rules.d/usb.rules
 COPY scripts /usr/src/scripts
 ```
 
 Finally we need to write the `mount.sh` and `unmount.sh` scripts. These scripts will use `mount` and `umount` commands in the same way we described on the **Mounting** and **Unmounting** sections above.
 
-You can find a fully working example of automounting/unmounting devices with udev rules in this [project]({{ $links.githubPlayground }}/balena-storage).
+You can find a fully working example of automounting/unmounting devices with udev rules in this \[project]\(\{{ $links.githubPlayground \}}/balena-storage).
 
 **Sharing mounted devices across containers**
 
 Note that currently it's not possible to share a mounted device across multiple containers. This is a feature that we are currently working on. This documentation will be updated once we add support for this feature.
 
-[container-link]:https://docs.docker.com/engine/understanding-docker/#/inside-docker
-[base-image-wiki-link]:/runtime/base-images/
-[init-system-link]:https://en.wikipedia.org/wiki/Init
-[systemd-link]:https://en.wikipedia.org/wiki/Systemd
-[openrc-link]:https://en.wikipedia.org/wiki/OpenRC
-[supervisor-api-link]:/runtime/supervisor-api/
-[security-docs-link]:/learn/welcome/security/
-[supervisor-api-device-host-config]:/reference/supervisor/supervisor-api/#patch-v1devicehost-config
-[expressjs-link]:https://expressjs.com/
-[projects-github]:{{ $links.githubLabs }}
-[systemd-base-image-link]:https://hub.docker.com/r/{{ $names.company.short }}/raspberrypi-python/
-[dnsmasq-link]:https://www.thekelleys.org.uk/dnsmasq/doc.html
-[udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html
-[dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/
-[labels-link]:/reference/supervisor/docker-compose/#labels
-[network-host]:https://docs.docker.com/network/host/
-[network-bridge]:https://docs.docker.com/network/bridge/
-[network-ports]:https://docs.docker.com/compose/compose-file/compose-file-v2/#ports
-[multicontainer]:{{ $links.githubLabs }}/multicontainer-getting-started
-[network-ipam]:https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference
-[network-aliases]:https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases
-[os-masterclass]:/learn/more/masterclasses/host-os-masterclass/#13-advanced-dbus-examples
-[services-masterclass]:/learn/more/masterclasses/services-masterclass/#4-networking-types
-[host-os]:/reference/OS/overview/2.x/
-[kernel-tmpfs]:https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html
-[tmpfs-mounts]:https://docs.docker.com/storage/tmpfs/
-[restart-fleet]:/learn/manage/actions/#restart-fleet
+\[projects-github]:\{{ $links.githubLabs \}} \[systemd-base-image-link]:https://hub.docker.com/r/\{{ $names.company.short \}}/raspberrypi-python/ \[dnsmasq-link]:https://www.thekelleys.org.uk/dnsmasq/doc.html \[udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html \[dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/ \[labels-link]:/reference/supervisor/docker-compose/#labels \[network-host]:https://docs.docker.com/network/host/ \[network-bridge]:https://docs.docker.com/network/bridge/ \[network-ports]:https://docs.docker.com/compose/compose-file/compose-file-v2/#ports \[multicontainer]:\{{ $links.githubLabs \}}/multicontainer-getting-started \[network-ipam]:https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference \[network-aliases]:https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases \[os-masterclass]:/learn/more/masterclasses/host-os-masterclass/#13-advanced-dbus-examples \[services-masterclass]:/learn/more/masterclasses/services-masterclass/#4-networking-types \[host-os]:/reference/OS/overview/2.x/ \[kernel-tmpfs]:https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html \[tmpfs-mounts]:https://docs.docker.com/storage/tmpfs/ \[restart-fleet]:/learn/manage/actions/#restart-fleet
