@@ -96,10 +96,10 @@ See note in the [previous section](#using-a-standalone-ssh-client) regarding the
 (`root` _vs._ balenaCloud user account).
 
 [balena-ssh]: /reference/cli/#ssh-uuid-
+[balena-openssh]: https://github.com/balena-io-playground/balena-openssh
+[balena-tunnel]: /learn/manage/ssh-access/#balena-tunnel
 
-[balena-openssh]:{{ $links.githubPlayground }}/balena-openssh
-[balena-tunnel]:/learn/manage/ssh-access/#balena-tunnel
-[cli-install]:{{ $links.githubCli }}/blob/master/INSTALL.md
+[cli-install]:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md
 [github-ssh]:https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [add-ssh-key]:/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
 [config-json-ssh]:/reference/OS/configuration/#sshkeys

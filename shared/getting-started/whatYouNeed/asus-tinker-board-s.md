@@ -6,5 +6,5 @@
 - **[Optional]** An ethernet cable.
 - A [balena account][link-to-signup].
 
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
-[supportedDevicesList]:/reference/hardware/devices/
+[link-to-signup]: https://dashboard.balena-cloud.com/signup
+[supportedDevicesList]: /reference/hardware/devices/

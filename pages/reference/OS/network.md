@@ -489,7 +489,7 @@ Vary: Accept
 [Google's Public DNS](https://developers.google.com/speed/public-dns) server at 8.8.8.8 is used by
 default and in addition to DNS servers obtained via DHCP from your local network or service provider (balenaOS may issue queries to multiple DNS servers simultaneously, for the quickest response to be used). If additional DNS servers are configured via DHCP or other means, it is OK for the local network to block requests to `8.8.8.8`.
 To avoid any requests being made to `8.8.8.8` by balenaOS, modify the
-[dnsServers setting]({{ $links.githubOS }}/meta-balena#dnsservers) in `config.json`.
+[dnsServers setting](https://github.com/balena-os/meta-balena#dnsservers) in `config.json`.
 
 **Note:** {{>"general/country-firewall"}}
 
@@ -571,12 +571,11 @@ To re-enable IPv6 follow the same commands but with `set ipv6.method enable`.
 [connman-link]: https://en.wikipedia.org/wiki/ConnMan
 [networkmanager-link]: https://www.networkmanager.dev
 [modemmanager-link]: https://www.freedesktop.org/wiki/Software/ModemManager/
-
-[wifi-connect]:{{ $links.githubOS }}/wifi-connect
-[dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/
-[network-manager-examples]:https://wiki.gnome.org/Projects/NetworkManager/Developers#Show_me_more_examples.21 "NetworkManager: Show me more examples!"
-[redsocks]:https://github.com/darkk/redsocks
-[redsocks-conf-example]:https://github.com/darkk/redsocks/blob/master/redsocks.conf.example
-[nm-connectivity]:https://networkmanager.dev/docs/api/latest/NetworkManager.conf.html
-[wifi-dongles]:/reference/hardware/wifi-dongles
-[meta-balena-connectivity]:{{ $links.githubOS }}/meta-balena#connectivity
+[wifi-connect]: https://github.com/balena-os/wifi-connect
+[dbus-link]: https://www.freedesktop.org/wiki/Software/dbus/
+[network-manager-examples]: https://wiki.gnome.org/Projects/NetworkManager/Developers#Show_me_more_examples.21 'NetworkManager: Show me more examples!'
+[redsocks]: https://github.com/darkk/redsocks
+[redsocks-conf-example]: https://github.com/darkk/redsocks/blob/master/redsocks.conf.example
+[nm-connectivity]: https://networkmanager.dev/docs/api/latest/NetworkManager.conf.html
+[wifi-dongles]: /reference/hardware/wifi-dongles
+[meta-balena-connectivity]: https://github.com/balena-os/meta-balena#connectivity

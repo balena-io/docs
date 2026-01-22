@@ -15,5 +15,4 @@ If you intend to use [hardware Rev 1.5][hardware-troubleshooting] of the Raspber
 [wifiAdapters]: /reference/hardware/wifi-dongles/
 [supportedDevicesList]: /reference/hardware/devices/
 [hardware-troubleshooting]: /faq/troubleshooting/raspberrypi4-64#balenaos-boot-issues-with-new-hardware-revision-of-rpi4
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

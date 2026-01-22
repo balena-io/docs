@@ -104,7 +104,7 @@ CMD ["node", "main.js"]
 
 #### Notes
 
-Devices with a [device type](/reference/base-images/devicetypes/) of `raspberry-pi` (Raspberry Pi1 and Zero) were built from `balenalib/rpi-raspbian` and were [Raspbian]({{ $links.githubLibrary }}/resin-rpi-raspbian) base images. The `raspberry-pi2` and `raspberrypi3` device types Debian base images have the Raspbian package source added, and Raspbian userland pre-installed.
+Devices with a [device type](/reference/base-images/devicetypes/) of `raspberry-pi` (Raspberry Pi1 and Zero) were built from `balenalib/rpi-raspbian` and were [Raspbian](https://github.com/balena-io-library/resin-rpi-raspbian) base images. The `raspberry-pi2` and `raspberrypi3` device types Debian base images have the Raspbian package source added, and Raspbian userland pre-installed.
 
 Not all OS distro and language stack versions are compatible with each other. Notice that there are some combinations that were not available in the `balenalib` base images.
 
@@ -161,7 +161,7 @@ __Note:__ Newer balenalib base images made sure `udevd` ran in its own network n
 - Mounting of `/dev` to a devtmpfs will only occurs when `UDEV=on` and the container is running as `privileged`. `1`, `true` and `on` are valid value for `UDEV` and will be evaluated as `UDEV=on`, all other values will turn `UDEV` off.
 
 [udevd-link]:https://linux.die.net/man/8/udevd
-[entry-sh-link]:{{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh
+[entry-sh-link]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh
 [multistage-build-docs]:https://docs.docker.com/develop/develop-images/multistage-build/
 [variables]:/learn/manage/variables/
-[debian-variants]:{{ $links.githubLibrary }}/base-images/blob/master/balena-base-images/armv7hf/debian/
+[debian-variants]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/

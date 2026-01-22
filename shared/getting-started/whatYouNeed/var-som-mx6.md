@@ -8,5 +8,4 @@
 
 [device-link]: https://www.variscite.com/products/single-board-computers/var-solocustomboard/
 [supportedDevicesList]: /hardware/devices/
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

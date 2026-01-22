@@ -105,7 +105,7 @@ dtoverlay=pi3-miniuart-bt
 
 Now eject the SD card and pop it back into the RPI3, and you can boot the device up again.
 
-To demonstrate this functionality, you can push this project (\{{ $links.githubPlayground \}}/rpi3-uart) to your RPI3. You will also need to add a small jumper wire between `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX`, so that the data sent out of the UART is read back in and displayed in the logs.
+To demonstrate this functionality, you can push this project (https://github.com/balena-io-playground/rpi3-uart) to your RPI3. You will also need to add a small jumper wire between `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX`, so that the data sent out of the UART is read back in and displayed in the logs.
 
 #### Raspberry Pi camera module
 
@@ -155,7 +155,7 @@ In order to work with the Raspberry Pi display you will need to do the following
 device_tree_overlay=rpi-ft5406-overlay.dtb
 ```
 
-If you want a quick example project to get you started with you new screen, you might want to checkout our \[Raspberry Pi Electron starter App]\(\{{ $links.githubPlayground \}}/electron-rpi-quick-start).
+If you want a quick example project to get you started with you new screen, you might want to checkout our \[Raspberry Pi Electron starter App]\(https://github.com/balena-io-playground/electron-rpi-quick-start).
 
 If you find that you need to change the orientation of you LCD screen, you can easily achieve this by adding the following key/value to your `/boot/config.txt` on your SD card:
 
@@ -232,7 +232,7 @@ overscan_bottom=4
 
 Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the Octalbonescript JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript\_capemgr4\_1 .
 
-With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module \[here]\(\{{ $links.githubPlayground \}}/beaglebone-adc-node).
+With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module \[here]\(https://github.com/balena-io-playground/beaglebone-adc-node).
 
 **Note:** The ADC voltage is only rated to 1.8V, if you apply more you risk frying the pin.
 
@@ -347,4 +347,4 @@ To test your custom device tree, place it in the host operating system of your d
 
 After you have validated your custom device, it can be included in newer balenaOS images by opening a pull request in the [balena-variscite-mx8](https://github.com/balena-os/balena-variscite-mx8) repository. Once your PR is approved and merged, a new balenaOS image which includes your custom device tree will be made available shortly.
 
-\[digitiser-link]:\{{ $links.githubPlayground \}}/digitiser \[firebaseTemp-link]:\{{ $links.githubPlayground \}}/firebaseDTL \[spi-npm]:https://www.npmjs.com/package/spi \[picamera-link]:\{{ $links.githubLabs \}}/balena-rpi-python-picamera \[mraa-link]:https://github.com/intel-iot-devkit/mraa \[upm-link]:https://github.com/intel-iot-devkit/upm \[dockerbase-node]:https://hub.docker.com/r/\{{ $names.base_images.lib \}}/intel-edison-node/ \[dockerbase-python]:https://hub.docker.com/r/\{{ $names.base_images.lib \}}/intel-edison-python/ \[dt-params]:/reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam \[device-configuration]:/learn/manage/configuration/#device-configuration-management
+\[digitiser-link]:https://github.com/balena-io-playground/digitiser \[firebaseTemp-link]:https://github.com/balena-io-playground/firebaseDTL \[spi-npm]:https://www.npmjs.com/package/spi \[picamera-link]:https://github.com/balenalabs/balena-rpi-python-picamera \[mraa-link]:https://github.com/intel-iot-devkit/mraa \[upm-link]:https://github.com/intel-iot-devkit/upm \[dockerbase-node]:https://hub.docker.com/r/\{{ $names.base_images.lib \}}/intel-edison-node/ \[dockerbase-python]:https://hub.docker.com/r/\{{ $names.base_images.lib \}}/intel-edison-python/ \[dt-params]:/reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam \[device-configuration]:/learn/manage/configuration/#device-configuration-management

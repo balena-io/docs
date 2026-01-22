@@ -32,7 +32,7 @@ Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][re
 
 Check out our [Feature Requests Page](https://forums.balena.io/c/feature-requests/96) to share your ideas and upvote the things that matter most to you.
 
-[balena]:{{ $links.mainSiteUrl }}/
+[balena]:https://balena.io/
 [primer]:/learn/welcome/primer/
 [concepts]:/learn/welcome/concepts/
 [getting-started]:/learn/getting-started/
@@ -43,4 +43,4 @@ Check out our [Feature Requests Page](https://forums.balena.io/c/feature-request
 [reference]:/reference/
 [help]:/learn/welcome/support/
 [masterclass]:/learn/more/masterclasses/
-[hub]:{{ $links.balenaHubUrl }}/
+[hub]:https://balena.io/

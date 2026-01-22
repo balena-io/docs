@@ -58,4 +58,4 @@ This column can be hidden by clicking the arrow on the far right of the device t
 
 A new column will be created. You can then select which tag it should display:
 
-\[api-example]:\{{ $links.githubPlayground \}}/device-tags \[filters]:#device-filters \[tags]:#device-tags
+\[api-example]:https://github.com/balena-io-playground/device-tags \[filters]:#device-filters \[tags]:#device-tags

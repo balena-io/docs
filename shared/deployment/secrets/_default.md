@@ -124,6 +124,5 @@ RUN /bin/cat /run/secrets/my-recipe | command_that_reads_secrets_from_stdin
 
 Files under the .balena folders are not saved in the final image, hence being more secure than ARG.
 
-If you are interested in seeing an example of build time secrets and variables see this [project]({{ $links.githubExamples
-}}/example-build-secrets-and-variables). Note this is just a toy project and in a real world setting it is not advisable to commit your
+If you are interested in seeing an example of build time secrets and variables see this [project](https://github.com/balena-io-examples/example-build-secrets-and-variables). Note this is just a toy project and in a real world setting it is not advisable to commit your
 `.balena` secrets folder into the git repository. You should always add it to your `.gitignore` file.

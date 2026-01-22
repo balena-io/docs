@@ -6,8 +6,8 @@
 - An ethernet cable or WiFi adapter to connect your device to the internet.
 - A [balena account][link-to-signup].
 
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
-[odroidC1-link]:https://www.hardkernel.com/shop/odroid-c1/
+[link-to-signup]: https://dashboard.balena-cloud.com/signup
+[odroidC1-link]: https://www.hardkernel.com/shop/odroid-c1/
 [hardkernel-link]: https://www.hardkernel.com/
 [C1-PSU-link]: https://www.hardkernel.com/shop/5v-2a-power-supply-us-plug-2/
-[speed_class]:https://en.wikipedia.org/wiki/Sd_card#Speed_class_rating
+[speed_class]: https://en.wikipedia.org/wiki/Sd_card#Speed_class_rating

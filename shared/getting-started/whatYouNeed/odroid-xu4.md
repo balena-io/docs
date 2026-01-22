@@ -8,7 +8,7 @@
 - An ethernet cable or WiFi adapter to connect your device to the internet.
   A [balena account][link-to-signup].
 
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup
 [hardkernel-link]: https://www.hardkernel.com/
 [XU4-PSU-link]: https://www.hardkernel.com/shop/5v-4a-power-supply-us-plug-2/
 [xu3-link]: https://www.hardkernel.com/shop/odroid-xu3/

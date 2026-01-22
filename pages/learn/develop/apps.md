@@ -41,7 +41,7 @@ assets:
 data:
   applicationConfigVariables:
     - BALENA_HOST_CONFIG_gpu_mem: 128
-    - BALENA_HOST_CONFIG_dtoverlay: "vc4-fkms-v3d"
+    - BALENA_HOST_CONFIG_dtoverlay: 'vc4-fkms-v3d'
   applicationEnvironmentVariables:
     - SHOW_CURSOR: 0
     - CONTROL_TV: 0
@@ -98,10 +98,10 @@ Apps with all their associated releases and members can be transferred to any ot
 
 Only organization administrators can initiate and complete App transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
 
-* Take note of the App name in the source organization and your balenaCloud username (in the top-right drop-down menu).
-* Ask an administrator of the target balenaCloud organization to create a new empty App using the same block name (the type doesn't need to match).
-* Ask the administrator of the target balenaCloud organization to add you as a member of the newly created App with a Developer role, using your username. If you are an administrator of the target organization, you already have access to the new App & this step can be skipped.
-* In the source organization, select Settings --> Set App ownership and pick the target organization from the list to complete the transfer.
+- Take note of the App name in the source organization and your balenaCloud username (in the top-right drop-down menu).
+- Ask an administrator of the target balenaCloud organization to create a new empty App using the same block name (the type doesn't need to match).
+- Ask the administrator of the target balenaCloud organization to add you as a member of the newly created App with a Developer role, using your username. If you are an administrator of the target organization, you already have access to the new App & this step can be skipped.
+- In the source organization, select Settings --> Set App ownership and pick the target organization from the list to complete the transfer.
 
 **Note:** If the dropdown for the destination organization is empty and grayed out, ensure that you have created an empty App in the target organization with the same name as the source App, and that the user that is transferring ownership of the App from the source organization has been added as a Developer to the target App.
 
@@ -111,4 +111,4 @@ Once the ownership has been set to the new owner, the source App owner will no l
 
 The functionality for Apps we have today is only the start. Apps added via the dashboard can be shared on balenaHub for others to deploy to their own fleets which serves to help others, and we’ll continue building out to expand to installing private Apps on private fleets, automatic updates, and eventually the ability to install multiple Apps on a single fleet. Keep an eye on \[our blog]\[blogUrl] for all the latest news.
 
-\[balenaHubUrl]:\{{ $links.balenaHubUrl \}}/ \[deploying]:/learn/deploy/deployment \[balenayml]:/learn/deploy/deploy-with-balena-button/#balenayml-configuration-file \[blogUrl]:\{{ $links.blogSiteUrl \}}
+\[balenaHubUrl]:https://hub.balena.io/ \[deploying]:/learn/deploy/deployment \[balenayml]:/learn/deploy/deploy-with-balena-button/#balenayml-configuration-file \[blogUrl]:https://balena.io/blog

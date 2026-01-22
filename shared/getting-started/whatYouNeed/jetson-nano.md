@@ -8,5 +8,4 @@
 
 [nano]: https://developer.nvidia.com/embedded/buy/jetson-nano-devkit
 [sdSpeed]: https://en.wikipedia.org/wiki/Secure_Digital#Class
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

@@ -7,5 +7,4 @@
 - A [balena account][link-to-signup].
 
 [supportedDevicesList]: /hardware/devices/
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

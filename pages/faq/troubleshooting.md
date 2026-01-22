@@ -55,7 +55,7 @@ If you see this error, there are several potential causes, including:
 
 Please contact [balena support][usingSupport] if you encounter this issue so that we can investigate the root cause.
 
-[dashboard]:{{ $links.dashboardUrl }}/
-[networkRequirements]:/reference/OS/network/2.x/#network-requirements
-[usingSupport]:/support/
-[wifiHelp]:/reference/OS/network/2.x/#wifi-setup
+[dashboard]: https://dashboard.balena-cloud.com/
+[networkRequirements]: /reference/OS/network/2.x/#network-requirements
+[usingSupport]: /support/
+[wifiHelp]: /reference/OS/network/2.x/#wifi-setup

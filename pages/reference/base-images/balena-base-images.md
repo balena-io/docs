@@ -238,4 +238,4 @@ This approach allows you to:
 
 Before deployment to your fleet, please **test thoroughly** on actual hardware before deploying to production fleets.
 
-\[entry-sh-link]:\{{ $links.githubLibrary \}}/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh \[multistage-build-docs]:https://docs.docker.com/develop/develop-images/multistage-build/ \[variables]:/learn/manage/variables/ \[debian-variants]:\{{ $links.githubLibrary \}}/base-images/blob/master/balena-base-images/armv7hf/debian/
+\[entry-sh-link]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh \[multistage-build-docs]:https://docs.docker.com/develop/develop-images/multistage-build/ \[variables]:/learn/manage/variables/ \[debian-variants]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/

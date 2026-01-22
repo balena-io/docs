@@ -224,4 +224,4 @@ Sample secrets YAML file:
   password: myPassword
 ```
 
-\[compose-remote]:\{{ $links.githubPlayground \}}/balenaos-compose \[troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access \[configuration]:/learn/manage/configuration/ \[cli-masterclass]:/learn/more/masterclasses/cli-masterclass/#6-using-local-mode-to-develop-applications \[livepush]:\{{ $links.githubModules \}}/livepush \[ssh]:/learn/manage/ssh-access/ \[avahi]:https://linux.die.net/man/8/avahi-daemon
+\[compose-remote]:https://github.com/balena-io-playground/balenaos-compose \[troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access \[configuration]:/learn/manage/configuration/ \[cli-masterclass]:/learn/more/masterclasses/cli-masterclass/#6-using-local-mode-to-develop-applications \[livepush]:https://github.com/balena-io-modules/livepush \[ssh]:/learn/manage/ssh-access/ \[avahi]:https://linux.die.net/man/8/avahi-daemon
