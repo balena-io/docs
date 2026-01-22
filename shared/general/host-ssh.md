@@ -6,9 +6,9 @@ Host OS SSH access gives you a handful of tools that can help you gather more in
 
 **Warning:** Making changes to running services and network configurations carries the risk of losing access to your device. Before making changes to the host OS of a remote device, it is best to test locally. Changes made to the host OS will not be maintained when the OS is updated, and some changes could break the updating process. When in doubt, [reach out][forums] to us for guidance.
 
-### {{ $names.os.upper }} services
+### BalenaOS services
 
-{{ $names.os.upper }} uses **systemd** as its init system, and as such, almost all the fundamental components in balenaOS run as systemd services. In general, some core services need to execute for a device to come online, connect to Cloudlink, download applications, and then run them:
+BalenaOS uses **systemd** as its init system, and as such, almost all the fundamental components in balenaOS run as systemd services. In general, some core services need to execute for a device to come online, connect to Cloudlink, download applications, and then run them:
 
 - `chronyd.service` - Responsible for NTP duties and syncing 'real' network time to the device.
 - `dnsmasq.service` - The local DNS service which is used for all host OS lookups.

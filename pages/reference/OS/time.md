@@ -26,7 +26,7 @@ If you want to learn if the system has completed at least one successful NTP syn
 
 Requests are sent to the supplied NTP sources approximately every four and a half hours (as specified by the `minpoll` and `maxpoll` directives). For the device's initial sync, the first four requests are sent at an interval of two seconds or less, before transitioning to the approximate four and half hour polling interval.
 
-**Note:** \{{$names.os.upper\}} < 2.46.1 uses chrony defaults for `minpoll` (64 seconds) and `maxpoll` (1024 seconds) as opposed to the current value (16384 seconds).
+**Note:** BalenaOS < 2.46.1 uses chrony defaults for `minpoll` (64 seconds) and `maxpoll` (1024 seconds) as opposed to the current value (16384 seconds).
 
 The estimated drift of the system clock is saved to a driftfile located at `/var/lib/chrony/drift`. This allows `chronyd` to begin compensating the system clock at that rate whenever it is restarted. This driftfile is updated when the time is synchronized, and on exit, at most once per hour.
 

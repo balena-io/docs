@@ -93,7 +93,7 @@ balena does not support the use of bind mounts at this time, aside from the ones
 
 ### Core dumps for containers
 
-{{ $names.os.upper }} v2.113.31 and later, by default, will not generate core dump files when a container crashes. This prevents a buggy container that is crash looping to fill up all available storage space on a device.
+BalenaOS v2.113.31 and later, by default, will not generate core dump files when a container crashes. This prevents a buggy container that is crash looping to fill up all available storage space on a device.
 
 [Core dumps][core-dump-link] are files with the contents of the memory used by a process at the time it crashes. They are a relatively advanced troubleshooting tool, particularly useful for low-level debugging of programs written in languages that compile to native code. For example, a tool like the `gdb` debugger can read a core dump and provide a stack trace showing the sequence of functions calls that led to the crash.
 

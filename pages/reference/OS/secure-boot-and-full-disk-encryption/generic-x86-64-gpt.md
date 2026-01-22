@@ -11,7 +11,7 @@ Before diving into how to provision a device with secure boot and full disk encr
 
 ## Important Considerations and Caveats
 
-- \{{ $names.os.upper \}} does not use the shim first stage bootloader that other Linux distributions do and is usually signed with Microsoft platform keys. \{{ $names.os.upper \}} is an embedded distribution, and when secure boot is enabled only balena signed operating systems are allowed to boot.
+- BalenaOS does not use the shim first stage bootloader that other Linux distributions do and is usually signed with Microsoft platform keys. BalenaOS is an embedded distribution, and when secure boot is enabled only balena signed operating systems are allowed to boot.
 - Disk encryption and decryption is unattended - there is no user interaction when mounting the encrypted disks as it is expected from an embedded device.
 - Secure boot and disk encryption have been designed to work as a bundle in balenaOS and they cannot be configured separately.
 - Only system partitions are encrypted. Any extra storages are not encrypted.

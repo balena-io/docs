@@ -9,7 +9,7 @@ excerpt: How to update balenaOS versions from your dashboard
 
 Since we periodically release updates and improvements to balenaOS (the host OS running on all balena devices), we encourage you to keep your devices up to date. We offer self-service host OS updates between 2.x versions and from 1.x to 2.x versions. All 2.x devices will default to delta-based updates if available, thus reducing the size of the update sent over the network.
 
-**Note:** \{{ $names.os.upper \}} 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
+**Note:** BalenaOS 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
 
 Self-service updates are available for both `production` and `development` balenaOS variants.
 

@@ -111,7 +111,7 @@ To demonstrate this functionality, you can push this project (\{{ $links.githubP
 
 Depending on the version of your balenaOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](../../../../learn/manage/configuration/).
 
-**\{{ $names.os.upper \}} 1.16.0 and newer**
+**BalenaOS 1.16.0 and newer**
 
 Set the following values in `config.txt`:
 
@@ -125,7 +125,7 @@ or for remote update
 - `BALENA_HOST_CONFIG_gpu_mem` to `128`
 - `BALENA_HOST_CONFIG_start_x` to `1` in the fleet or device configuration.
 
-**\{{ $names.os.upper \}} 1.8.0 and earlier**
+**BalenaOS 1.8.0 and earlier**
 
 Set the following values in `config.txt`:
 

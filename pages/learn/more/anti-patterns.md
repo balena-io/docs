@@ -20,7 +20,7 @@ it is enticing to use custom iptables rules to filter traffic, to limit the surf
 
 ### Manually changing the system clock, or blocking NTP requests
 
-Since balenaOS and the supervisor communicate with {{ $names.cloud.lower }} using an HTTPS API, it is important that time is synchronized on the device. If the system date/time drifts substantially, SSL certificate validation may fail and the device may unexpectedly lose the ability to reach HTTPS websites or update the {{ $names.cloud.lower }} web dashboard, and may even no longer be reachable over ssh or cloudlink. {{ $names.os.upper }} provides a [number of mechanisms][time-sync] to keep time as up-to-date as possible, but ensuring [NTP is accessible over the network][networking-reqs] is critical.
+Since balenaOS and the supervisor communicate with {{ $names.cloud.lower }} using an HTTPS API, it is important that time is synchronized on the device. If the system date/time drifts substantially, SSL certificate validation may fail and the device may unexpectedly lose the ability to reach HTTPS websites or update the {{ $names.cloud.lower }} web dashboard, and may even no longer be reachable over ssh or cloudlink. BalenaOS provides a [number of mechanisms][time-sync] to keep time as up-to-date as possible, but ensuring [NTP is accessible over the network][networking-reqs] is critical.
 
 ## Local storage
 

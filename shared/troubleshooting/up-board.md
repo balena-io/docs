@@ -3,7 +3,7 @@
 In order to get balenaOS up and running on your **{{ $device.name }}**, you need to first set it up to boot from your {{ $device.bootMedia }} rather than its
 internal [eMMC memory][emmc-link]. To do this, you will need to interrupt the boot process and direct the device to boot from your {{ $device.bootMedia }}.
 
-**Note:** {{ $names.os.upper }} will completely write over the existing eMMC.
+**Note:** BalenaOS will completely write over the existing eMMC.
 
 First, make sure the device is setup correctly:
 

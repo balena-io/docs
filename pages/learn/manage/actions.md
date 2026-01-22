@@ -82,7 +82,7 @@ Obviously you may only select one fleet to transfer your device to. Once you sel
 
 **Warning:** For devices running balenaOS version 2.12.0 and above, data in \[persistent storage]\[persistent-storage] (named volumes) is automatically purged when a device is moved to a new fleet. On older host OS versions, the `/data` folder in the new fleet will not contain any of the old fleet data, but it can still be accessed via the host OS and if the device is switched back to the original fleet. Unless you plan to revert back to the original fleet, be sure to \[purge]\[purge-data] the `/data` folder.
 
-### \{{ $names.os.upper \}} Update
+### BalenaOS Update
 
 This setting allows you to remotely update the host OS running on your device. For more details on supported devices and the update process, check out our balenaOS \[update documentation]\[updates].
 

@@ -6,11 +6,11 @@ title: What is balenaOS?
 
 ## Introduction
 
-\{{ $names.os.upper \}} is an operating system optimized for running \[Docker]\[Docker] containers on embedded devices, with an emphasis on reliability over long periods of operation, as well as a productive developer workflow inspired by the lessons learned while building balena.
+BalenaOS is an operating system optimized for running \[Docker]\[Docker] containers on embedded devices, with an emphasis on reliability over long periods of operation, as well as a productive developer workflow inspired by the lessons learned while building balena.
 
 The core insight behind balenaOS is that Linux containers offer, for the first time, a practical path to using virtualization on embedded devices. VMs and hypervisors have lead to huge leaps in productivity and automation for cloud deployments, but their abstraction of hardware, as well as their resource overhead and lack of hardware support, means that they are not suitable for embedded scenarios. With OS-level virtualization, as implemented for Linux containers, both those objections are lifted for Linux devices, of which there are many in the Internet of Things.
 
-\{{ $names.os.upper \}} is an operating system built for easy portability to multiple device types (via the \[Yocto framework]\[yocto] and optimized for Linux containers, and Docker in particular. There are many decisions, large and small, we have made to enable that vision, which are present throughout our architecture.
+BalenaOS is an operating system built for easy portability to multiple device types (via the \[Yocto framework]\[yocto] and optimized for Linux containers, and Docker in particular. There are many decisions, large and small, we have made to enable that vision, which are present throughout our architecture.
 
 The first version of balenaOS was developed as part of the balena platform, and has run on thousands of embedded devices on balena, deployed in many different contexts for several years. balenaOS v2 represents the combination of the learnings we extracted over those years, as well as our determination to make balenaOS a first-class open source project, able to run as an independent operating system, for any context where embedded devices and containers intersect.
 
@@ -37,7 +37,7 @@ Production mode disables passwordless root access, and an SSH key must be \[adde
 
 In balenaOS, logs are written to an 8 MB journald RAM buffer in order to avoid wear on the flash storage used by most of the supported boards.
 
-To persist logs on the device, enable persistent logging via the \[configuration]\[fleet-configuration] tab in the \{{ $names.cloud.lower \}} dashboard, or prior to device provisioning setting the `"persistentLogging": true` \[key]\[config-json-logging] in `config.json`. The logs can be accessed via the host OS at `/var/log/journal`. For versions of balenaOS < 2.45.0, persistent logs are limited to 8 MB and stored in the state partition of the device. \{{ $names.os.upper \}} versions >= 2.45.0 store a maximum of 32 MB of persistent logs in the data partition of the device.
+To persist logs on the device, enable persistent logging via the \[configuration]\[fleet-configuration] tab in the \{{ $names.cloud.lower \}} dashboard, or prior to device provisioning setting the `"persistentLogging": true` \[key]\[config-json-logging] in `config.json`. The logs can be accessed via the host OS at `/var/log/journal`. For versions of balenaOS < 2.45.0, persistent logs are limited to 8 MB and stored in the state partition of the device. BalenaOS versions >= 2.45.0 store a maximum of 32 MB of persistent logs in the data partition of the device.
 
 ### Hostname
 
@@ -59,13 +59,13 @@ Images downloaded via the CLI (using `os download`), via \[balena.io/os]\[balena
 
 Should you wish to add an unconfigured device to your \{{ $names.cloud.lower \}} fleet, you may migrate it using the interactive `balena join` \[CLI command]\[cli-join] or update the `config.json` of an unconfigured device with a configuration file downloaded from the _Add device_ page of the \{{ $names.cloud.lower \}} dashboard.
 
-## \{{ $names.os.upper \}} Components
+## BalenaOS Components
 
 The balenaOS userspace packages only provide the bare essentials for running containers, while still offering flexibility. The philosophy is that software and services always default to being in a container unless they are generically useful to all containers, or they absolutely can’t live in a container. The userspace consists of many open source components, but in this section, we will highlight some of the most important services.
 
 ### systemd
 
-\[systemd]\[systemd] is the init system of balenaOS, and it is responsible for launching and managing all the other services. \{{ $names.os.upper \}} leverages many of the great features of systemd, such as adjusting OOM scores for critical services and running services in separate mount namespaces. systemd also allows us to manage service dependencies easily.
+\[systemd]\[systemd] is the init system of balenaOS, and it is responsible for launching and managing all the other services. BalenaOS leverages many of the great features of systemd, such as adjusting OOM scores for critical services and running services in separate mount namespaces. systemd also allows us to manage service dependencies easily.
 
 ### Supervisor
 
@@ -77,7 +77,7 @@ The \{{ $names.lower.company \}} Supervisor is a lightweight container that runs
 
 ### NetworkManager and Modem Manager
 
-\{{ $names.os.upper \}} uses \[NetworkManager]\[network-manager] accompanied by \[ModemManager]\[modem-manager], to deliver a stable and reliable connection to the internet, be it via ethernet, WiFi or cellular modem. Additionally, to make headless configuration of the device’s network easy, there is a `system-connections` folder in the boot partition, which is copied into `/etc/NetworkManager/system-connections`. So any valid NetworkManager connection file can just be dropped into the boot partition before device commissioning.
+BalenaOS uses \[NetworkManager]\[network-manager] accompanied by \[ModemManager]\[modem-manager], to deliver a stable and reliable connection to the internet, be it via ethernet, WiFi or cellular modem. Additionally, to make headless configuration of the device’s network easy, there is a `system-connections` folder in the boot partition, which is copied into `/etc/NetworkManager/system-connections`. So any valid NetworkManager connection file can just be dropped into the boot partition before device commissioning.
 
 ### Avahi
 
@@ -89,7 +89,7 @@ In order to improve the \[development experience]\[local-mode] of balenaOS, ther
 
 ### chrony
 
-**Note**: \{{ $names.os.upper \}} versions less than v2.13.0 used systemd-timesyncd for time management.
+**Note**: BalenaOS versions less than v2.13.0 used systemd-timesyncd for time management.
 
 \[chrony]\[chrony] is used by balenaOS to keep the system time synchronized.
 
@@ -99,7 +99,7 @@ In order to improve the \[development experience]\[local-mode] of balenaOS, ther
 
 ### OpenSSH
 
-**Note**: \{{ $names.os.upper \}} versions < v2.38.0 use \[dropbear]\[dropbear] as the SSH server and client
+**Note**: BalenaOS versions < v2.38.0 use \[dropbear]\[dropbear] as the SSH server and client
 
 \[OpenSSH]\[open-ssh] is used in balenaOS as the SSH server and client allowing remote login using the SSH protocol.
 
@@ -117,15 +117,15 @@ The first partition, `resin-boot`, holds important boot files according to each 
 
 ## Stateless and Read-Only rootFS
 
-\{{ $names.os.upper \}} comes with a read-only root filesystem, so we can ensure our host OS is stateless, but we still need some data to be persistent over system reboots. We achieve this with a very simple mechanism, i.e. bind mounts.
+BalenaOS comes with a read-only root filesystem, so we can ensure our host OS is stateless, but we still need some data to be persistent over system reboots. We achieve this with a very simple mechanism, i.e. bind mounts.
 
-\{{ $names.os.upper \}} contains a partition named `resin-state` that is meant to hold all this persistent data. Inside we populate a Linux filesystem hierarchy standard with the rootfs paths that we require to be persistent. After this partition is populated, we are ready to bind mount the respective rootfs paths to this read-write location, thus allowing different components (e.g. `journald`, when persistent logging is enabled) to be able to write data to disk.
+BalenaOS contains a partition named `resin-state` that is meant to hold all this persistent data. Inside we populate a Linux filesystem hierarchy standard with the rootfs paths that we require to be persistent. After this partition is populated, we are ready to bind mount the respective rootfs paths to this read-write location, thus allowing different components (e.g. `journald`, when persistent logging is enabled) to be able to write data to disk.
 
 A diagram of our read-only rootfs can be seen below:
 
-## \{{ $names.os.upper \}} Yocto Composition
+## BalenaOS Yocto Composition
 
-\{{ $names.os.upper \}} is composed of multiple \[Yocto]\[yocto] layers. The Yocto Project build system uses these layers to compile balenaOS for the various [supported devices](../../../reference/hardware/devices/). Below is an example from the \[Raspberry Pi family]\[raspberry-pi-conf].
+BalenaOS is composed of multiple \[Yocto]\[yocto] layers. The Yocto Project build system uses these layers to compile balenaOS for the various [supported devices](../../../reference/hardware/devices/). Below is an example from the \[Raspberry Pi family]\[raspberry-pi-conf].
 
 **Note:** Instructions for building your own version of balenaOS are available \[here]\[yocto-build].
 

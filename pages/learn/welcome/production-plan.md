@@ -54,7 +54,7 @@ When developing a new application, you should consider using a [development imag
 
 ### Local mode
 
-{{ $names.os.upper }} [local mode][local-mode] gives you the ability to build and deploy to a device on the local network without involving the balena cloud builder. This allows you to very quickly iterate and test functionality—in many cases, such as configuration changes or changes made to code in an interpreted language, updates can be deployed without requiring a build at all. A local deployment lets you directly mirror your development environment on a test device.
+BalenaOS [local mode][local-mode] gives you the ability to build and deploy to a device on the local network without involving the balena cloud builder. This allows you to very quickly iterate and test functionality—in many cases, such as configuration changes or changes made to code in an interpreted language, updates can be deployed without requiring a build at all. A local deployment lets you directly mirror your development environment on a test device.
 
 ### Connectivity
 
