@@ -1,11 +1,11 @@
 ---
-title: Projects built on {{ $names.company.lower }}
+title: Projects built on balena
 ---
 
-# Projects built on {{ $names.company.lower }}
+# Projects built on balena
 
-Some awesome fully-featured projects built using {{ $names.company.lower }}.
+Some awesome fully-featured projects built using balena.
 
 {{>"projects/balena-labs-projects"}}
 
-To find the complete list of projects to try and deploy, head to [balenaHub]({{ $links.balenaHubUrl }})! 
+To find the complete list of projects to try and deploy, head to [balenaHub]({{ $links.balenaHubUrl }})!

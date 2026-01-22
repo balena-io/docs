@@ -1,40 +1,39 @@
 ---
 title: Network Setup on balenaOS
-
 ---
 
-# Networking on {{ $names.os.lower }}
+# Networking on balenaOS
 
-* [Introduction](#introduction)
-* [WiFi Setup](#wifi-setup)
-* [Ethernet Setup](#ethernet-setup)
-* [Regulatory Domain](#regulatory-domain)
-* [Setting a Static IP](#setting-a-static-ip)
-* [Creating a Hotspot](#creating-a-hotspot)
-* [Cellular Modem Setup](#cellular-modem-setup)
-* [Changing the Network at Runtime](#changing-the-network-at-runtime)
-* [Network Requirements](#network-requirements)
-* [Connecting Behind a Proxy](#connecting-behind-a-proxy)
-* [Checking connectivity](#checking-connectivity)
-* [Disable IPv6](#disable-ipv6)
+- [Introduction](#introduction)
+- [WiFi Setup](#wifi-setup)
+- [Ethernet Setup](#ethernet-setup)
+- [Regulatory Domain](#regulatory-domain)
+- [Setting a Static IP](#setting-a-static-ip)
+- [Creating a Hotspot](#creating-a-hotspot)
+- [Cellular Modem Setup](#cellular-modem-setup)
+- [Changing the Network at Runtime](#changing-the-network-at-runtime)
+- [Network Requirements](#network-requirements)
+- [Connecting Behind a Proxy](#connecting-behind-a-proxy)
+- [Checking connectivity](#checking-connectivity)
+- [Disable IPv6](#disable-ipv6)
 
 ## Introduction
 
-With {{ $names.os.lower }} 2.0, connectivity management changed from **[ConnMan][connman-link]** to **[NetworkManager][networkmanager-link]**. **NetworkManager** allows {{ $names.os.lower }} more flexibility when configuring the network setup, and, in conjunction with **[ModemManager][modemmanager-link]**, allows {{ $names.os.lower }} to offer first class [GSM/Cellular support](#cellular-modem-setup).
+With balenaOS 2.0, connectivity management changed from **[ConnMan][connman-link]** to **[NetworkManager][networkmanager-link]**. **NetworkManager** allows balenaOS more flexibility when configuring the network setup, and, in conjunction with **[ModemManager][modemmanager-link]**, allows balenaOS to offer first class [GSM/Cellular support](#cellular-modem-setup).
 
-All of the network configuration for {{ $names.os.lower }} can be done through files in the boot partition of your device. If you have a freshly downloaded {{ $names.os.lower }} `.img`, you can mount it and inspect the `resin-boot` or `resin-flash` (for devices that boot from eMMC) partition. In the boot partition you will find a directory called `system-connections`.
+All of the network configuration for balenaOS can be done through files in the boot partition of your device. If you have a freshly downloaded balenaOS `.img`, you can mount it and inspect the `resin-boot` or `resin-flash` (for devices that boot from eMMC) partition. In the boot partition you will find a directory called `system-connections`.
 
-__Note:__ When editing files for connectivity in the boot partition, make sure you're in the `/mnt/boot/system-connections` folder so that they persist after reboot.
+**Note:** When editing files for connectivity in the boot partition, make sure you're in the `/mnt/boot/system-connections` folder so that they persist after reboot.
 
 The `system-connections` directory consists of a set of connection files—one file per connection. The file `balena-sample.ignore` is a template or example file which you can copy to create new connections. If you added a WiFi connection from the dashboard when you downloaded your image, you should see its configuration file already created for you under the name `resin-wifi`. You will notice that there is no file for ethernet, this is because **NetworkManager** will always set up a default ethernet connection. If you want a specific configuration for the ethernet connection you will need to create a new connection file for it. Most of the allowed options for these connection files can be found in the [**NetworkManager** settings reference][nm-setting-ref]
 
 ## WiFi Setup
 
-If you entered your WiFi SSID and passphrase when you downloaded {{ $names.os.lower }} from the dashboard, you should have a file called `resin-wifi` in the folder `/system-connections/` (as mentioned above, this is found in the boot partition of your image).
+If you entered your WiFi SSID and passphrase when you downloaded balenaOS from the dashboard, you should have a file called `resin-wifi` in the folder `/system-connections/` (as mentioned above, this is found in the boot partition of your image).
 
 ```
 [connection]
-id={{ $names.company.short }}-wifi
+id=balena-wifi
 type=wifi
 
 [wifi]
@@ -83,14 +82,16 @@ addr-gen-mode=stable-privacy
 dns-search=
 method=auto
 ```
-__Note:__ Depending on the device, the interface name may not be `eth0`. To check the correct name, you can run `ifconfig` from the web terminal found on the device dashboard.
+
+**Note:** Depending on the device, the interface name may not be `eth0`. To check the correct name, you can run `ifconfig` from the web terminal found on the device dashboard.
 
 The connection file also defines what kind of security the network expects. If you want to set up a network with more elaborate security requirements, checkout the [**NetworkManager** settings reference page][nm-setting-ref]. If you want to connect to an unsecured WiFi network, simply remove the `[wifi-security]` section.
 
 As an example the below config sets up a WPA2-enterprise WiFi connection:
+
 ```
 [connection]
-id={{ $names.company.short }}-wifi
+id=balena-wifi
 type=wifi
 
 [wifi]
@@ -164,10 +165,9 @@ method=shared
 method=shared
 ```
 
-__Note:__ Ensure to specify the `interface-name`, for instance `eth0`.
+**Note:** Ensure to specify the `interface-name`, for instance `eth0`.
 
 By default, when an interface is shared, NetworkManager uses `10.42.x.0/24` as the `ipv4` subnet for the interface. This can be set manually by specifying the `address1` parameter manner within the `[ipv4]` block and specifying one address; for example: `address1=192.168.1.1`. [Read more][nm-ipv4-setting-ref]
-
 
 ## Regulatory Domain
 
@@ -206,7 +206,7 @@ The important bits to take note of here are `interface-name=eth0` which indicate
 
 ```
 [connection]
-id={{ $names.company.short }}-wifi
+id=balena-wifi
 type=wifi
 
 [wifi]
@@ -232,11 +232,11 @@ psk=PLACE_YOUR_PASSWORD_HERE
 
 ## Creating a Hotspot
 
-With **NetworkManager**, setting up your device as a hotspot is as simple as creating a `{{ $names.company.short }}-hotspot` file in `/system-connections/`:
+With **NetworkManager**, setting up your device as a hotspot is as simple as creating a `balena-hotspot` file in `/system-connections/`:
 
 ```
 [connection]
-id={{ $names.company.short }}-hotspot
+id=balena-hotspot
 uuid=36060c57-aebd-4ccf-aba4-ef75121b5f77
 type=wifi
 autoconnect=true
@@ -273,7 +273,7 @@ This will create a WPA2/rsn hotspot, in case you need WPA protocol replace `prot
 
 ## Cellular Modem Setup
 
-For cellular or GSM based connections, {{ $names.os.lower }} makes use of **[ModemManager][modemmanager-link]** and is configured in much the same way as WiFi connections are configured. The connection profile can either be specified in your application code (see [Changing the Network at Runtime](#changing-the-network-at-runtime) below), or you can add a cellular configuration by adding a connection file to `/resin-boot/system-connections` in the downloaded {{ $names.os.lower }} `.img` file. In the future, cellular connections will be configurable from the dashboard at time of adding a device and downloading a {{ $names.os.lower }} image.
+For cellular or GSM based connections, balenaOS makes use of **[ModemManager][modemmanager-link]** and is configured in much the same way as WiFi connections are configured. The connection profile can either be specified in your application code (see [Changing the Network at Runtime](#changing-the-network-at-runtime) below), or you can add a cellular configuration by adding a connection file to `/resin-boot/system-connections` in the downloaded balenaOS `.img` file. In the future, cellular connections will be configurable from the dashboard at time of adding a device and downloading a balenaOS image.
 
 To set up a cellular connection with your device, just drop the below example configuration into a file in the `/resin-boot/system-connections/` directory in the `.img` or on SD card (if you have it flashed with the OS already) and name it something like `cellular`. Replace the `apn=` and `number=` values with your mobile providers APN and PPP dialing number. If your mobile carrier requires a password and username, you will need to add those as well. For a more in depth look at available settings options for GSM, have a look at `Table 58. gsm setting` in the [**NetworkManager** GSM settings reference][nm-gsm-setting-ref].
 
@@ -306,15 +306,15 @@ Check out the list of [balena supported modems][wifi-dongles]
 
 ## Changing the Network at Runtime
 
-__Warning:__ Making changes to the networking of a device is extremely dangerous and can lead to a device being unrecoverable, so exercise caution with any of the following.
+**Warning:** Making changes to the networking of a device is extremely dangerous and can lead to a device being unrecoverable, so exercise caution with any of the following.
 
 Often there are times where the WiFi network that the device will be provisioned into is not known beforehand. In these cases the device needs a mechanism to be able to add its own WiFi credentials during some kind of setup stage. For this reason we built the [WiFi Connect][wifi-connect] project.
 
 WiFi Connect enables the device to create a wireless access point called `WiFi Connect` (also customizable) which serves a captive portal. This allows your end user to connect to the device and add their WiFi credentials. The device will then automatically leave the setup mode and connect to the specified user network.
 
-Under the hood, WiFi Connect is interacting with **NetworkManager** via its [DBUS][dbus-link] API. The DBUS API is a useful way to interact with the {{ $names.os.lower }} host NetworkManager, and there are DBUS bindings for most languages. Below is a minimal Python example from the [**NetworkManager** examples][network-manager-examples], which creates a new **NetworkManager** connection file that can be used to enable connecting to a new WiFi access point.
+Under the hood, WiFi Connect is interacting with **NetworkManager** via its [DBUS][dbus-link] API. The DBUS API is a useful way to interact with the balenaOS host NetworkManager, and there are DBUS bindings for most languages. Below is a minimal Python example from the [**NetworkManager** examples][network-manager-examples], which creates a new **NetworkManager** connection file that can be used to enable connecting to a new WiFi access point.
 
-__Note:__ You will need to install the `dbus` module in order to run this example (`apt-get install python-dbus`) and make sure `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket` is exported in the environment. This ensures that DBUS calls are directed to the system bus that the host OS is listening on rather than the DBUS bus in your container.
+**Note:** You will need to install the `dbus` module in order to run this example (`apt-get install python-dbus`) and make sure `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket` is exported in the environment. This ensures that DBUS calls are directed to the system bus that the host OS is listening on rather than the DBUS bus in your container.
 
 The following example will add a new WiFi connection file to your host OS **NetworkManager** configuration in `/etc/NetworkManager/system-connections`. It should be noted that you will not see a new file created in `resin-boot/system-connections` because there isn't a two-way binding. On device boot, the files in `resin-boot/system-connections` are copied into `/mnt/state/root-overlay/etc/NetworkManager/system-connections` without removing any files from the destination. That directory is then bind mounted to `/etc/NetworkManager/system-connections` in the root filesystem on the host.
 
@@ -416,9 +416,9 @@ for device in devices:
 
 For other network setting needs, such as modifying existing network connection files, or listing connection information, please see the [**NetworkManager** examples][network-manager-examples].
 
-__Warning:__ It can be dangerous to install **NetworkManager** or **python-networkmanager** in your container, especially if you have `INITSYSTEM=on`, as systemd will automatically try to start your container **NetworkManager** and this will take your devices offline. However, you can prevent this behavior by masking the **NetworkManager** service in your Dockerfile: `RUN apt-get update && apt-get install -y network-manager && systemctl mask NetworkManager.service`.
+**Warning:** It can be dangerous to install **NetworkManager** or **python-networkmanager** in your container, especially if you have `INITSYSTEM=on`, as systemd will automatically try to start your container **NetworkManager** and this will take your devices offline. However, you can prevent this behavior by masking the **NetworkManager** service in your Dockerfile: `RUN apt-get update && apt-get install -y network-manager && systemctl mask NetworkManager.service`.
 
-__Note:__ The **python-networkmanager** Debian package depends on **NetworkManager**. Preferably **python-networkmanager** should be installed with **pip** instead of **apt-get**. That will avoid the issue described in the warning above and additionally the application container size will be kept minimal.
+**Note:** The **python-networkmanager** Debian package depends on **NetworkManager**. Preferably **python-networkmanager** should be installed with **pip** instead of **apt-get**. That will avoid the issue described in the warning above and additionally the application container size will be kept minimal.
 
 ## NetworkManager User Scripts
 
@@ -457,22 +457,24 @@ This specific dispatcher script ensures that when a wired interface is connected
 
 ## Network Requirements
 
-In order for a {{ $names.company.lower }} device to get outside of the local network and connect to the {{ $names.company.lower }} API, there are a few core network requirements.
+In order for a balena device to get outside of the local network and connect to the balena API, there are a few core network requirements.
 
-{{ $names.company.upper }} makes use of the following ports:
+Balena makes use of the following ports:
 
-* `443` TCP - This is the most fundamental requirement - it is used to connect to Cloudlink and the web terminal, and many web endpoints using TLS (https://.)
-* `123` UDP - For NTP time synchronization.
-* `53` UDP - For DNS name resolution.
+- `443` TCP - This is the most fundamental requirement - it is used to connect to Cloudlink and the web terminal, and many web endpoints using TLS (https://.)
+- `123` UDP - For NTP time synchronization.
+- `53` UDP - For DNS name resolution.
 
 Each of these should work with outward only (and inward once outward connection established) firewall settings. Additionally, the NTP (`123`) and DNS (`53`) ports may be blocked if a local NTP and DNS server are provided.
 
 Additionally, you should allowlist the following domains for the relevant ports above:
-* `*.{{ $names.cloud_domain }}`
 
-For older devices using `*.resin.io`, a `301 Moved Permanently` redirection to `*.{{ $names.cloud_domain }}` is in place so they remain compatible. Your systems should be able to handle this redirect so they can connect to the API.
+- `*.balena-cloud.com`
+
+For older devices using `*.resin.io`, a `301 Moved Permanently` redirection to `*.balena-cloud.com` is in place so they remain compatible. Your systems should be able to handle this redirect so they can connect to the API.
 
 Example:
+
 ```
 $ curl -I http://api.resin.io
 HTTP/1.1 301 Moved Permanently
@@ -489,11 +491,11 @@ default and in addition to DNS servers obtained via DHCP from your local network
 To avoid any requests being made to `8.8.8.8` by balenaOS, modify the
 [dnsServers setting]({{ $links.githubOS }}/meta-balena#dnsservers) in `config.json`.
 
-__Note:__ {{>"general/country-firewall"}}
+**Note:** {{>"general/country-firewall"}}
 
 ## Connecting Behind a Proxy
 
-We use **[redsocks](https://github.com/darkk/redsocks)** to connect your device to {{ $names.company.lower }} from behind a proxy. There are two ways to enable redsocks proxy. The preferred method is through Supervisor's `GET/PATCH /v1/device/host-config` endpoints - more info may be found <a href="https://www.balena.io/docs/reference/supervisor/supervisor-api/#patch-v1devicehost-config" target="_blank">here</a>. 
+We use **[redsocks](https://github.com/darkk/redsocks)** to connect your device to balena from behind a proxy. There are two ways to enable redsocks proxy. The preferred method is through Supervisor's `GET/PATCH /v1/device/host-config` endpoints - more info may be found <a href="https://www.balena.io/docs/reference/supervisor/supervisor-api/#patch-v1devicehost-config" target="_blank">here</a>.
 
 Alternatively, a `redsocks.conf` file should be added at `/mnt/boot/system-proxy/`, specifying the needed proxy configuration:
 
@@ -532,13 +534,13 @@ We've published an example [here](https://github.com/balenalabs/proxy-tunnel) de
 
 You can configure a connectivity check using NetworkManager's builtin [feature][nm-connectivity] (see "connectivity section"). In order to configure
 custom endpoints, the URL, expected response, and check interval can be set in `config.json` (more information available
-[here][meta-balena-connectivity]). By default, NetworkManager is configured to use {{ $names.cloud.lower }} to perform the check.
+[here][meta-balena-connectivity]). By default, NetworkManager is configured to use balenaCloud to perform the check.
 
 ## Disable IPv6
 
-In cases where a local network issue is preventing IPv6 traffic from being routed, you can fully disable IPv6 in {{ $names.os.lower }} 2.0 with the following commands.
+In cases where a local network issue is preventing IPv6 traffic from being routed, you can fully disable IPv6 in balenaOS 2.0 with the following commands.
 
-__Warning:__ Making changes to the networking of a device is extremely dangerous and can lead to a device being unrecoverable, so exercise caution with any of the following.
+**Warning:** Making changes to the networking of a device is extremely dangerous and can lead to a device being unrecoverable, so exercise caution with any of the following.
 
 ```
 root@087fd7c:/# nmcli c show
@@ -562,13 +564,14 @@ To re-enable IPv6 follow the same commands but with `set ipv6.method enable`.
 
 <!-- links -->
 
-[nm-setting-ref]:https://www.networkmanager.dev/docs/api/latest/ref-settings.html
-[nm-ipv4-setting-ref]:https://www.networkmanager.dev/docs/api/latest/settings-ipv4.html
-[eduroam-ref]:https://www.eduroam.org
-[nm-gsm-setting-ref]:https://networkmanager.dev/docs/api/latest/settings-gsm.html
+[nm-setting-ref]: https://www.networkmanager.dev/docs/api/latest/ref-settings.html
+[nm-ipv4-setting-ref]: https://www.networkmanager.dev/docs/api/latest/settings-ipv4.html
+[eduroam-ref]: https://www.eduroam.org
+[nm-gsm-setting-ref]: https://networkmanager.dev/docs/api/latest/settings-gsm.html
 [connman-link]: https://en.wikipedia.org/wiki/ConnMan
-[networkmanager-link]:https://www.networkmanager.dev
-[modemmanager-link]:https://www.freedesktop.org/wiki/Software/ModemManager/
+[networkmanager-link]: https://www.networkmanager.dev
+[modemmanager-link]: https://www.freedesktop.org/wiki/Software/ModemManager/
+
 [wifi-connect]:{{ $links.githubOS }}/wifi-connect
 [dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/
 [network-manager-examples]:https://wiki.gnome.org/Projects/NetworkManager/Developers#Show_me_more_examples.21 "NetworkManager: Show me more examples!"
@@ -577,4 +580,3 @@ To re-enable IPv6 follow the same commands but with `set ipv6.method enable`.
 [nm-connectivity]:https://networkmanager.dev/docs/api/latest/NetworkManager.conf.html
 [wifi-dongles]:/reference/hardware/wifi-dongles
 [meta-balena-connectivity]:{{ $links.githubOS }}/meta-balena#connectivity
-

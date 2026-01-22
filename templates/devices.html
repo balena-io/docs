@@ -1,23 +1,27 @@
 {% extends "default.html" %} {% block "contents" %}
 <h1>Single-board computers</h1>
 <div class="alert alert-note">
-  Don't see your device here? Contact
-  <a href="mailto:sales@{{ $names.email_domain }}">sales@{{ $names.email_domain }}</a>
-  to discuss our <a href="https://www.balena.io/pricing/#custom-device-support">custom hardware support</a> packages.
+	Don't see your device here? Contact
+	<a href="mailto:sales@balena.io">sales@balena.io</a>
+	to discuss our
+	<a href="https://www.balena.io/pricing/#custom-device-support"
+		>custom hardware support</a
+	>
+	packages.
 </div>
 
 <h2>Currently supported devices</h2>
 
 <table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Device Name</th>
-      <th>Machine Name</th>
-      <th>Architecture</th>
-    </tr>
-  </thead>
-  <tbody id="support_devices_table"></tbody>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Device Name</th>
+			<th>Machine Name</th>
+			<th>Architecture</th>
+		</tr>
+	</thead>
+	<tbody id="support_devices_table"></tbody>
 </table>
 
 {% endblock %}

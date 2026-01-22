@@ -10,7 +10,7 @@ title: Account management
 
 ## Password reset
 
-If you forget your password, you may request to reset it via the \[password reset]\[password-reset] page. Enter the email address associated with your \{{ $names.cloud.lower \}} account. If the email address has an associated account, a password reset link will be sent to that address. Following the link, you will be able to enter a new password.
+If you forget your password, you may request to reset it via the \[password reset]\[password-reset] page. Enter the email address associated with your balenaCloud account. If the email address has an associated account, a password reset link will be sent to that address. Following the link, you will be able to enter a new password.
 
 ## Add a password to social login
 
@@ -18,9 +18,7 @@ To add a password to an account created with a social login (Google, Github), na
 
 ## Access tokens
 
-Access tokens are used for authentication in the \{{ $names.company.lower \}} [API](../../../reference/api/overview/), [CLI](../../../reference/cli/), and [Node.js](../../../reference/sdk/node-sdk/) and [Python](../../../reference/sdk/python-sdk/) SDKs. They are managed in the _Access tokens_ tab of the \[_Preferences_]\[prefs] page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
-
-
+Access tokens are used for authentication in the balena [API](../../../reference/api/overview/), [CLI](../../../reference/cli/), and [Node.js](../../../reference/sdk/node-sdk/) and [Python](../../../reference/sdk/python-sdk/) SDKs. They are managed in the _Access tokens_ tab of the \[_Preferences_]\[prefs] page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
 
 There are two types of access tokens: session tokens and API keys. Both authentication types provide user-level permissions, meaning any user or application with one of these tokens can make changes across devices, fleets, and the user account.
 
@@ -32,25 +30,15 @@ Session tokens are retrieved from the _Preferences_ page, and they can be refres
 
 API keys are named tokens that do not expire and can be revoked as needed. To create a new API key, make sure you are in the _Access tokens_ tab of the _Preferences_ page, then select _Create API key_:
 
-
-
 You'll see a required field for _Token name_, as well as an optional field for _Token description_:
 
-
-
 When you click _Create token_, you will see a dialog with the new API key:
-
-
 
 **Warning:** This is your **only** opportunity to see the key, so make sure to download or copy to a secure location!
 
 After you close the dialog, you'll see your API key in the list, complete with name, date of creation, and description:
 
-
-
 To revoke one or more API keys, select the boxes to the left of the tokens you wish to remove, then click _Delete selected_:
-
-
 
 API keys can also be generated using the API, [CLI](../../../reference/cli/#api-key-generate-name-), and [Node.js](../../../reference/sdk/node-sdk/#auth-createapikey-name-code-promise-code-) and [Python](../../../reference/sdk/python-sdk/#function-create_api_key-name-description-) SDKs.
 
@@ -68,15 +56,11 @@ We offer the option to enable [Two-factor Authentication](https://en.wikipedia.o
 
 \[Sign up]\[signup] for an account (or \[log in]\[login] if you already have one) and go to your \[preferences]\[prefs] page. From here, click on the _Two-factor Authentication_ tab then click _Enable two-factor authentication_ to enable:
 
-
-
 Next, you will be shown a QR code and prompted for a pairing code as shown below:
 
 **Note:** Two-factor authentication will only be enabled once you have finished configuring it against your smartphone/computer, so no need to worry about logging out before finishing the configuration then not having access to your account!
 
-
-
-In order to use your phone/computer as your added layer of security you will need to download a free authenticator app. There are many available, but one that works well and has been successfully tested against \{{ $names.company.lower \}} is [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator) - download it for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2\&hl=en_GB) or [iOS](https://itunes.apple.com/gb/app/google-authenticator/id388497605?mt=8).
+In order to use your phone/computer as your added layer of security you will need to download a free authenticator app. There are many available, but one that works well and has been successfully tested against balena is [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator) - download it for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB) or [iOS](https://itunes.apple.com/gb/app/google-authenticator/id388497605?mt=8).
 
 Once installed, navigate to the barcode scanner:
 
@@ -88,22 +72,18 @@ Once configured, you'll see a 6 digit generated code with a graphic beside it in
 
 Next, you'll need to input the displayed code into the 'Pairing code' input on the preferences page. If successful, you will be shown recovery codes that may be used in the event that you cannot access your two-factor authentication app. These codes should be downloaded and stored in a safe place.
 
-
-
 Once you've downloaded your recovery codes and clicked _OK_, the next time you log in, you will be prompted for the code displayed in your authenticator app after you've input your username and password. Enjoy your added layer of security!
 
 To disable two-factor authentication, visit the _Two-factor Authentication_ tab of the _Account Preference_ and click _Disable two-factor authentication_. You will be prompted for your account password before it is disabled.
 
-
-
 ### List of verified authenticator apps
 
-* [Google Authenticator](https://support.google.com/accounts/answer/1066447)
-* [Authy](https://www.authy.com)
-* [1Password](https://1password.com)
+- [Google Authenticator](https://support.google.com/accounts/answer/1066447)
+- [Authy](https://www.authy.com)
+- [1Password](https://1password.com)
 
 ## Delete account
 
-If you wish to delete your \{{ $names.cloud.lower \}} account, go to your \[_Preferences_]\[prefs] page, and under the _Account Details_ tab, select the _Delete Account_ button. You will need to confirm this action by entering your password. If your account does not have a password, you will be prompted to set one in your account preferences. Upon confirmation, the account will be permanently deleted, including all fleets and devices. If you would also like to request deletion of your data in accordance with GDPR, please refer to the instructions in our \[privacy policy]\[privacy-policy].
+If you wish to delete your balenaCloud account, go to your \[_Preferences_]\[prefs] page, and under the _Account Details_ tab, select the _Delete Account_ button. You will need to confirm this action by entering your password. If your account does not have a password, you will be prompted to set one in your account preferences. Upon confirmation, the account will be permanently deleted, including all fleets and devices. If you would also like to request deletion of your data in accordance with GDPR, please refer to the instructions in our \[privacy policy]\[privacy-policy].
 
 \[signup]:\{{ $links.dashboardUrl \}}/signup \[login]:\{{ $links.dashboardUrl \}}/login \[prefs]:\{{ $links.dashboardUrl \}}/preferences?tab=details \[password-reset]:\{{ $links.dashboardUrl \}}/password-reset \[privacy-policy]:\{{ $links.mainSiteUrl \}}/privacy-policy/

@@ -4,11 +4,11 @@ title: Overview
 
 # {{ title }}
 
-The API is the core of the {{ $names.company.lower }} platform. It provides a secure channel for communication between {{ $names.company.lower }} services and the database. The API's HTTP interface not only informs the dashboard and the CLI, it also gives you the power to directly access resources associated with your account. With the API, you can fetch and update information about your fleets, devices, environment variables and more.
+The API is the core of the balena platform. It provides a secure channel for communication between balena services and the database. The API's HTTP interface not only informs the dashboard and the CLI, it also gives you the power to directly access resources associated with your account. With the API, you can fetch and update information about your fleets, devices, environment variables and more.
 
 This guide is split into two parts. On this page, you will find a basic tutorial to help you construct API calls. The [Resources][resources] page provides more details about the resources that can be queried using the API, including example calls and a list of available fields.
 
-__Warning:__ When using the API to make changes, take great care in selecting the appropriate resources, as there are *no checks* to prevent you from accidentally making widespread, irreversible mistakes. Test filters with a `GET` call *before* you use them in a `PATCH` or `DELETE` request.
+**Warning:** When using the API to make changes, take great care in selecting the appropriate resources, as there are _no checks_ to prevent you from accidentally making widespread, irreversible mistakes. Test filters with a `GET` call _before_ you use them in a `PATCH` or `DELETE` request.
 
 ## Versioning
 
@@ -20,9 +20,9 @@ API requests are authorized using [session tokens][tokens] or [named API keys][a
 
 ## Constructing API calls
 
-The {{ $names.company.lower }} API uses the Open Data Protocol ([OData][odata]), which defines a standard set of tools for querying and modifying structured data. To help you get started, we'll go over some of the most common requests, but when you're ready to build more advanced API calls make sure to consult the [OData documentation][odata-docs].
+The balena API uses the Open Data Protocol ([OData][odata]), which defines a standard set of tools for querying and modifying structured data. To help you get started, we'll go over some of the most common requests, but when you're ready to build more advanced API calls make sure to consult the [OData documentation][odata-docs].
 
-To construct an API call, it helps to understand a little about how the underlying data is structured. The {{ $names.company.lower }} data model consists of a number of connected resources. Resources include devices, fleets, users, and more. When you make an API call, you are asking to either view, create, modify, or remove a resource. The *method* of the API call corresponds to the action you are trying to take:
+To construct an API call, it helps to understand a little about how the underlying data is structured. The balena data model consists of a number of connected resources. Resources include devices, fleets, users, and more. When you make an API call, you are asking to either view, create, modify, or remove a resource. The _method_ of the API call corresponds to the action you are trying to take:
 
 - **GET:** view information about a resource
 - **POST:** create a new resource
@@ -73,7 +73,6 @@ curl -X GET "{{ $links.apiBase }}/v7/device(device=<DEVICE ID>,tag_key='<KEY>')"
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
-
 Many times, however, you won't know the internal ID or other unique info used by the API, and you'll want to use some other piece of information to find the appropriate resource. In these cases, you can use the `$filter` method to select resources based on any field. For example, if you are looking for a specific device, it may be you have neither the ID nor UUID but you do know the name:
 
 ```shell
@@ -111,7 +110,6 @@ curl -X GET "{{ $links.apiBase }}/v7/application?\$filter=is_directly_accessible
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
-
 A final tip for constructing API calls: for some of the fields in the API response, a link to another resource is provided rather than the complete information about that resource. For example, if you make a call requesting information about a specific device, the `belongs_to__application` field will return a link to an application, but not all the information about that application. To get all the fields for the application resource, you can use the `$expand` method:
 
 ```shell
@@ -122,6 +120,7 @@ curl -X GET \
 ```
 
 Similarly we can extend our earlier API call that retrieves all applications to also include their device type slug by using a `$expand`:
+
 ```shell
 curl -X GET \
 "{{ $links.apiBase }}/v7/application?\$select=app_name,slug&\$expand=is_for__device_type(\$select=id,slug)" \
@@ -131,20 +130,18 @@ curl -X GET \
 
 ## Rate limits
 
-We intentionally do not publish detailed rate limits or the inner workings of our rate-limiting algorithm. Our goal is to keep the API experience as seamless as possible. 
+We intentionally do not publish detailed rate limits or the inner workings of our rate-limiting algorithm. Our goal is to keep the API experience as seamless as possible.
 
 Engineers using our API shouldn’t have to manage the complexity of rate limits to automate workflows effectively. The rate limits we enforce are generous, and customers running large-scale automation rarely encounter issues.
 
 Publishing specific rate limits often results in them being treated as a "target" or a fixed barrier, which is not how we intend the API to be used. Our rate limits are designed to provide a minimum level of protection for the API and to ensure consistent performance for all users, without requiring customers to worry about exceeding them.
 
-To maintain the best experience, we also need the flexibility to adapt and evolve the rate-limiting algorithm. Publishing fixed limits could constrain our ability to improve and respond to specific needs without disrupting customers. 
+To maintain the best experience, we also need the flexibility to adapt and evolve the rate-limiting algorithm. Publishing fixed limits could constrain our ability to improve and respond to specific needs without disrupting customers.
 
 Instead, we provide the `Retry-After` header. The HTTP `Retry-After` response header indicates how long the user agent should wait before making a follow-up request. When a request exceeds the current rate limit, the response will include this header with a value indicating how long you should be waiting before retrying. This ensures your code can dynamically adapt on runtime without needing workarounds or context about the rate-limiting mechanism.
 
-
-[odata]:https://www.odata.org/
-[odata-docs]:https://www.odata.org/getting-started/basic-tutorial/
-[resources]:/reference/api/resources/fleet
-[tokens]:/learn/accounts/account#session-tokens
-[api-keys]:/learn/accounts/account#api-keys
-
+[odata]: https://www.odata.org/
+[odata-docs]: https://www.odata.org/getting-started/basic-tutorial/
+[resources]: /reference/api/resources/fleet
+[tokens]: /learn/accounts/account#session-tokens
+[api-keys]: /learn/accounts/account#api-keys

@@ -34,17 +34,17 @@ Now, in the `.balena/balena.yml` file, add the following:
 
 ```yaml
 build-secrets:
-    global:
-        - source: super-secret-recipe
-          dest: my-recipe
+  global:
+    - source: super-secret-recipe
+      dest: my-recipe
 ```
 
 This will mount the `super-secret-recipe` file into `/run/secrets/my-recipe` file in every build container. However, the `/run/secrets` folder will not be added to the build context that is sent to the Docker daemon (or balenaEngine),
 and therefore:
 
-* The `/run/secrets/` folder will not be present in the image that is deployed to the devices.
-* The `COPY` or `ADD` Dockerfile directives will **not** be able to copy files from that folder.
-* The folder will be available "for the duration of `RUN` directives", such that secrets can be
+- The `/run/secrets/` folder will not be present in the image that is deployed to the devices.
+- The `COPY` or `ADD` Dockerfile directives will **not** be able to copy files from that folder.
+- The folder will be available "for the duration of `RUN` directives", such that secrets can be
   accessed by scripts/code at image build time, for example:
 
 ```Dockerfile
@@ -86,7 +86,7 @@ This will mount the `super-secret-recipe` file as `/run/secrets/my-recipe` for a
 
 Subdirectories are supported in both the source (`.balena/secrets`) and the destination (`/run/secrets`).
 
-__Note:__ Currently `{{$names.company.lower}} build` and `{{$names.company.lower}} deploy` do not support [build time secret files](#build-time-only-secret-file) out of the box and need to be pointed to a [{{$names.engine.lower}}][engine-link] instance. Refer to the [`{{$names.company.lower}} build`][cli-build-reference] and [`{{$names.company.lower}} deploy`][cli-deploy-reference] command references for additional documentation.
+**Note:** Currently `balena build` and `balena deploy` do not support [build time secret files](#build-time-only-secret-file) out of the box and need to be pointed to a [balenaEngine][engine-link] instance. Refer to the [`balena build`][cli-build-reference] and [`balena deploy`][cli-deploy-reference] command references for additional documentation.
 
 ### Build variables
 
@@ -94,12 +94,12 @@ It is also possible to define build variables that will be added to your build f
 
 ```yaml
 build-variables:
-    global:
-        - MY_VAR_1=This is a variable
-        - MY_VAR_2=Also a variable
-    services:
-        service1:
-            - SERVICE1_VAR=This is a service specific variable
+  global:
+    - MY_VAR_1=This is a variable
+    - MY_VAR_2=Also a variable
+  services:
+    service1:
+      - SERVICE1_VAR=This is a service specific variable
 ```
 
 These variables can then be accessed in your Dockerfile through the ARG instruction. For example:
@@ -114,7 +114,7 @@ RUN echo "The build variable is ${MY_VAR_1}"
 
 Build variables should **NOT** be used to hold secrets like access tokens or passwords if the Docker image is accessible to untrusted parties, because the Dockerfile ARG instruction may be stored in the image as the [Docker documentation advises](https://docs.docker.com/engine/reference/builder/#arg):
 
-__Warning:__ It is not recommended to use build-time variables for passing secrets like github keys, user credentials etc. Build-time variable values are visible to any user of the image with the docker history command.
+**Warning:** It is not recommended to use build-time variables for passing secrets like github keys, user credentials etc. Build-time variable values are visible to any user of the image with the docker history command.
 
 However, secrets like tokens and passwords can be used in instructions like RUN through the mounted secret files, for example:
 

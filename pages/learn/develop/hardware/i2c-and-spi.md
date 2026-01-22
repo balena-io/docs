@@ -6,31 +6,31 @@ title: I2C and Other Interfaces
 
 ### I2C and Other Interfaces
 
-* [Raspberry Pi Family](../../../../hardware/i2c-and-spi/#raspberry-pi-family)
-  * [I2C](../../../../hardware/i2c-and-spi/#i2c)
-  * [SPI](../../../../hardware/i2c-and-spi/#spi)
-  * [1-wire and Digital Temperature sensors](../../../../hardware/i2c-and-spi/#1-wire-and-digital-temperature-sensors)
-  * [Using UART or Serial on Raspberry Pi 3](../../../../hardware/i2c-and-spi/#using-uart-or-serial-on-raspberry-pi-3)
-  * [Raspberry Pi camera module](../../../../hardware/i2c-and-spi/#raspberry-pi-camera-module)
-  * [Raspberry Pi 7” Touchscreen Display](../../../../hardware/i2c-and-spi/#raspberry-pi-7-touchscreen-display)
-  * [Customizing config.txt](../../../../hardware/i2c-and-spi/#customizing-config-txt)
-* [Beaglebone](../../../../hardware/i2c-and-spi/#beaglebone)
-  * [Capemgr support](../../../../hardware/i2c-and-spi/#capemgr-support)
-  * [Disable HDMI](../../../../hardware/i2c-and-spi/#disable-hdmi)
-* [Intel Edison](../../../../hardware/i2c-and-spi/#intel-edison)
-  * [MRAA for GPIO and hardware access](../../../../hardware/i2c-and-spi/#mraa-for-gpio-and-hardware-access)
-  * [Edison in USB Host mode](../../../../hardware/i2c-and-spi/#edison-in-usb-host-mode)
-* [IOT-GATE-iMX8](../../../../hardware/i2c-and-spi/#iot-gate-imx8)
-* [Up Squared](../../../../hardware/i2c-and-spi/#up-squared)
-  * [Serial ports](../../../../hardware/i2c-and-spi/#serial-ports)
-* [Jetson Devices](../../../../hardware/i2c-and-spi/#jetson-devices)
-  * [Custom device trees](../../../../hardware/i2c-and-spi/#custom-device-trees)
-  * [Configurable fan profiles](../../../../hardware/i2c-and-spi/#configurable-fan-profiles)
-  * [Configurable power modes](../../../../hardware/i2c-and-spi/#configurable-power-modes)
+- [Raspberry Pi Family](../../../../hardware/i2c-and-spi/#raspberry-pi-family)
+  - [I2C](../../../../hardware/i2c-and-spi/#i2c)
+  - [SPI](../../../../hardware/i2c-and-spi/#spi)
+  - [1-wire and Digital Temperature sensors](../../../../hardware/i2c-and-spi/#1-wire-and-digital-temperature-sensors)
+  - [Using UART or Serial on Raspberry Pi 3](../../../../hardware/i2c-and-spi/#using-uart-or-serial-on-raspberry-pi-3)
+  - [Raspberry Pi camera module](../../../../hardware/i2c-and-spi/#raspberry-pi-camera-module)
+  - [Raspberry Pi 7” Touchscreen Display](../../../../hardware/i2c-and-spi/#raspberry-pi-7-touchscreen-display)
+  - [Customizing config.txt](../../../../hardware/i2c-and-spi/#customizing-config-txt)
+- [Beaglebone](../../../../hardware/i2c-and-spi/#beaglebone)
+  - [Capemgr support](../../../../hardware/i2c-and-spi/#capemgr-support)
+  - [Disable HDMI](../../../../hardware/i2c-and-spi/#disable-hdmi)
+- [Intel Edison](../../../../hardware/i2c-and-spi/#intel-edison)
+  - [MRAA for GPIO and hardware access](../../../../hardware/i2c-and-spi/#mraa-for-gpio-and-hardware-access)
+  - [Edison in USB Host mode](../../../../hardware/i2c-and-spi/#edison-in-usb-host-mode)
+- [IOT-GATE-iMX8](../../../../hardware/i2c-and-spi/#iot-gate-imx8)
+- [Up Squared](../../../../hardware/i2c-and-spi/#up-squared)
+  - [Serial ports](../../../../hardware/i2c-and-spi/#serial-ports)
+- [Jetson Devices](../../../../hardware/i2c-and-spi/#jetson-devices)
+  - [Custom device trees](../../../../hardware/i2c-and-spi/#custom-device-trees)
+  - [Configurable fan profiles](../../../../hardware/i2c-and-spi/#configurable-fan-profiles)
+  - [Configurable power modes](../../../../hardware/i2c-and-spi/#configurable-power-modes)
 
 ### Raspberry Pi Family
 
-Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)](https://en.wikipedia.org/wiki/I%C2%B2C) or the [SPI (Serial Peripheral Interface)](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) to communicate with the CPU. In most linux environments, using this kind of low level communication requires enabling a kernel module. In \{{ $names.company.lower \}} containers this can be done in a similar way because the containers are run in `--privileged` mode.
+Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)](https://en.wikipedia.org/wiki/I%C2%B2C) or the [SPI (Serial Peripheral Interface)](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) to communicate with the CPU. In most linux environments, using this kind of low level communication requires enabling a kernel module. In balena containers this can be done in a similar way because the containers are run in `--privileged` mode.
 
 #### I2C
 
@@ -59,7 +59,7 @@ To get you started, here is an [example project](https://github.com/balena-labs-
 
 #### SPI
 
-SPI is enabled by default on \{{ $names.os.lower \}} via the `dtparam=spi=on` \[device tree parameter]\[dt-params]. This default behavior can be modified by editing the \[device configuration]\[device-configuration].
+SPI is enabled by default on balenaOS via the `dtparam=spi=on` \[device tree parameter]\[dt-params]. This default behavior can be modified by editing the \[device configuration]\[device-configuration].
 
 For Node.js applications it should work out of the box with the \[spi node module]\[spi-npm]. For an example of this, check out this project: \[digitiser]\[digitiser-link].
 
@@ -67,7 +67,7 @@ For Node.js applications it should work out of the box with the \[spi node modul
 
 Serial is disabled by default on the Raspberry Pi 3. To enable it you will need to do the following:
 
-* Edit the `config.txt` in `{{ $names.company.short }}-boot` partition of the SD card and append the following lines.
+- Edit the `config.txt` in `balena-boot` partition of the SD card and append the following lines.
 
 ```
 enable_uart=1
@@ -77,13 +77,13 @@ enable_uart=1
 
 In order to work work with 1-wire and digital temperature sensors you will need to do the following:
 
-* Edit the `config.txt` in `{{ $names.company.short }}-boot` partition of the SD card and append the following lines.
+- Edit the `config.txt` in `balena-boot` partition of the SD card and append the following lines.
 
 ```
 dtoverlay=w1-gpio
 ```
 
-* Add `modprobe w1-gpio && modprobe w1-therm` before your start scripts in either your package.json start command or Dockerfile `CMD` command.
+- Add `modprobe w1-gpio && modprobe w1-therm` before your start scripts in either your package.json start command or Dockerfile `CMD` command.
 
 An example of this is shown in our \[Firebase Temperature Logger]\[firebaseTemp-link] project.
 
@@ -109,9 +109,9 @@ To demonstrate this functionality, you can push this project (\{{ $links.githubP
 
 #### Raspberry Pi camera module
 
-Depending on the version of your \{{ $names.os.lower \}}, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](../../../../learn/manage/configuration/).
+Depending on the version of your balenaOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](../../../../learn/manage/configuration/).
 
-**\{{ $names.os.upper \}} 1.16.0 and newer**
+**BalenaOS 1.16.0 and newer**
 
 Set the following values in `config.txt`:
 
@@ -122,10 +122,10 @@ start_x=1
 
 or for remote update
 
-* `BALENA_HOST_CONFIG_gpu_mem` to `128`
-* `BALENA_HOST_CONFIG_start_x` to `1` in the fleet or device configuration.
+- `BALENA_HOST_CONFIG_gpu_mem` to `128`
+- `BALENA_HOST_CONFIG_start_x` to `1` in the fleet or device configuration.
 
-**\{{ $names.os.upper \}} 1.8.0 and earlier**
+**BalenaOS 1.8.0 and earlier**
 
 Set the following values in `config.txt`:
 
@@ -137,9 +137,9 @@ fixup_file=fixup_x.dat
 
 or for remote update
 
-* `BALENA_HOST_CONFIG_gpu_mem` to `128`
-* `BALENA_HOST_CONFIG_start_file` to `start_x.elf`
-* `BALENA_HOST_CONFIG_fixup_file` to `fixup_x.dat` in the fleet or device configuration.
+- `BALENA_HOST_CONFIG_gpu_mem` to `128`
+- `BALENA_HOST_CONFIG_start_file` to `start_x.elf`
+- `BALENA_HOST_CONFIG_fixup_file` to `fixup_x.dat` in the fleet or device configuration.
 
 You will also need to add `modprobe bcm2835-v4l2` before your start scripts in either your `package.json` start command or Dockerfile `CMD` command.
 
@@ -149,7 +149,7 @@ An example of this is shown in our \[Raspberry Pi python picamera]\[picamera-lin
 
 In order to work with the Raspberry Pi display you will need to do the following:
 
-* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following line.
+- Edit the `config.txt` in `resin-boot` partition of the SD card and append the following line.
 
 ```
 device_tree_overlay=rpi-ft5406-overlay.dtb
@@ -238,7 +238,7 @@ With this module you should be able to basic GPIO and analog-to-digital conversi
 
 #### Capemgr support
 
-**Warning:** Capemgr is only supported in \{{ $names.company.lower \}} BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a web terminal to your BBB and run `uname -a`.
+**Warning:** Capemgr is only supported in balena BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a web terminal to your BBB and run `uname -a`.
 
 **Loading a Cape**
 
@@ -301,21 +301,21 @@ Depending on the HAT Configuration defined in BIOS, the Up Squared UART communic
 
 Loading of custom device trees in balenaOS for Nvidia boards is supported by the Jetson Nano, Jetson TX2 and Jetson Orin family of devices. The list of devices that support this function includes:
 
-* Floyd Nano
-* Jetson Nano SD-CARD
-* Jetson Nano eMMC
-* Jetson Nano 2GB Devkit SD
-* JN30B Nano
-* Photon Nano
-* Astro TX2
-* Jetson TX2
-* Jetson TX2 NX (with Xavier NX Devkit)
-* Orbitty TX2
-* Photon TX2 NX
-* Spacely TX2
-* Jetson AGX Orin Devkit
-* Jetson Orin NX in Xavier NX Devkit NVMe (16GB RAM)
-* Jetson Orin Nano 8GB (SD) Devkit NVME
+- Floyd Nano
+- Jetson Nano SD-CARD
+- Jetson Nano eMMC
+- Jetson Nano 2GB Devkit SD
+- JN30B Nano
+- Photon Nano
+- Astro TX2
+- Jetson TX2
+- Jetson TX2 NX (with Xavier NX Devkit)
+- Orbitty TX2
+- Photon TX2 NX
+- Spacely TX2
+- Jetson AGX Orin Devkit
+- Jetson Orin NX in Xavier NX Devkit NVMe (16GB RAM)
+- Jetson Orin Nano 8GB (SD) Devkit NVME
 
 Loading of custom device trees is not supported for the Jetson Xavier family of devices in balenaOS. U-Boot provides the complete set of functionality necessary for loading custom device-trees in balenaOS for the Jetson Nano and TX2 devices, and this bootloader is not supported by the Jetson AGX Xavier and Jetson Xavier NX BSP. The Jetson AGX Orin family of devices uses a new Tegra UEFI bootloader which allows balenaOS to load custom device-trees.
 
@@ -347,4 +347,4 @@ To test your custom device tree, place it in the host operating system of your d
 
 After you have validated your custom device, it can be included in newer balenaOS images by opening a pull request in the [balena-variscite-mx8](https://github.com/balena-os/balena-variscite-mx8) repository. Once your PR is approved and merged, a new balenaOS image which includes your custom device tree will be made available shortly.
 
-\[digitiser-link]:\{{ $links.githubPlayground \}}/digitiser \[firebaseTemp-link]:\{{ $links.githubPlayground \}}/firebaseDTL \[spi-npm]:https://www.npmjs.com/package/spi \[picamera-link]:\{{ $links.githubLabs \}}/balena-rpi-python-picamera \[mraa-link]:https://github.com/intel-iot-devkit/mraa \[upm-link]:https://github.com/intel-iot-devkit/upm \[dockerbase-node]:https://hub.docker.com/r/\{{ $names.base\_images.lib \}}/intel-edison-node/ \[dockerbase-python]:https://hub.docker.com/r/\{{ $names.base\_images.lib \}}/intel-edison-python/ \[dt-params]:/reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam \[device-configuration]:/learn/manage/configuration/#device-configuration-management
+\[digitiser-link]:\{{ $links.githubPlayground \}}/digitiser \[firebaseTemp-link]:\{{ $links.githubPlayground \}}/firebaseDTL \[spi-npm]:https://www.npmjs.com/package/spi \[picamera-link]:\{{ $links.githubLabs \}}/balena-rpi-python-picamera \[mraa-link]:https://github.com/intel-iot-devkit/mraa \[upm-link]:https://github.com/intel-iot-devkit/upm \[dockerbase-node]:https://hub.docker.com/r/\{{ $names.base_images.lib \}}/intel-edison-node/ \[dockerbase-python]:https://hub.docker.com/r/\{{ $names.base_images.lib \}}/intel-edison-python/ \[dt-params]:/reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam \[device-configuration]:/learn/manage/configuration/#device-configuration-management

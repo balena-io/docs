@@ -13,7 +13,7 @@ Any device owned by you will automatically allow access via either the WebTermin
 
 ## Granting Support Access to a Support Agent
 
-It is possible to grant support access to a device, all devices in a fleet or to a block to enable support and device troubleshooting by \{{ $names.company.lower \}} employees.
+It is possible to grant support access to a device, all devices in a fleet or to a block to enable support and device troubleshooting by balena employees.
 
 Access is granted for a set, user-defined period, and access may be revoked at any time. Access for support agents is limited, which includes variables and configurations (both fleet and device), the ability to reboot the device, apply balenaOS upgrades, pin releases, etc. This is not a comprehensive list and may be subject to further changes.
 
@@ -21,7 +21,7 @@ This ensures that a device under investigation cannot be unnecessarily altered o
 
 Once support access has been granted, a support agent will be able to use the UUID of a device to gain access to it. Support access is enabled via SSH over cloudlink, so the device must be online and connected to cloudlink. Alternatively, it may be possible to access a problematic device from a gateway device operating on the same network.
 
-**Note:** It is possible to disable support access functionality by removing the \{{ $names.company.lower \}} SSH public key from the device. However, this will render the device inaccessible remotely for the purposes of support and updates to the host OS. For more details see our [security documentation](../../../learn/welcome/security/#support-access).
+**Note:** It is possible to disable support access functionality by removing the balena SSH public key from the device. However, this will render the device inaccessible remotely for the purposes of support and updates to the host OS. For more details see our [security documentation](../../../learn/welcome/security/#support-access).
 
 ### Grant support access for a device
 
@@ -43,5 +43,5 @@ To grant or revoke support access for devices or fleets, use the `balena support
 
 If you find yourself stuck or confused, help is just a click away:
 
-* The \[balenaCloud]\(\{{ $names.forums\_domain \}}/c/product-support) section of the forums is where our engineers address any issues you may be having with \{{ $names.company.lower \}}.
-* You can read more about our \[approach to support]\(\{{ $links.mainSiteUrl \}}/support).
+- The \[balenaCloud]\(https://forums.balena.io/c/product-support) section of the forums is where our engineers address any issues you may be having with balena.
+- You can read more about our \[approach to support]\(\{{ $links.mainSiteUrl \}}/support).

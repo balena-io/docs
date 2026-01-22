@@ -1,10 +1,10 @@
 <img style="float: right;padding-left: 10px;" src="/img/odroid-c1/odroid-c1.webp">
 
-* An [Odroid C1][odroidC1-link] development board from [Hardkernel][hardkernel-link].
-* A 4GB or larger SD card. The [Odroid C1][odroidC1-link] uses a microSD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
-* A 5V/2A round plug power supply unit from [Hardkernel][hardkernel-link] like this [one][C1-PSU-link].
-* An ethernet cable or WiFi adapter to connect your device to the internet.
-* A [{{ $names.company.lower }} account][link-to-signup].
+- An [Odroid C1][odroidC1-link] development board from [Hardkernel][hardkernel-link].
+- A 4GB or larger SD card. The [Odroid C1][odroidC1-link] uses a microSD card. The [speed class][speed_class] of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
+- A 5V/2A round plug power supply unit from [Hardkernel][hardkernel-link] like this [one][C1-PSU-link].
+- An ethernet cable or WiFi adapter to connect your device to the internet.
+- A [balena account][link-to-signup].
 
 [link-to-signup]:{{ $links.dashboardUrl }}/signup
 [odroidC1-link]:https://www.hardkernel.com/shop/odroid-c1/

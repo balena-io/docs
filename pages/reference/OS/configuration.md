@@ -1,6 +1,6 @@
 ---
 title: Configuration
-excerpt: Instructions for editing and customizing config.json for modifying the behavior of {{ $names.os.lower }}
+excerpt: Instructions for editing and customizing config.json for modifying the behavior of balenaOS
 ---
 
 # Configuring balenaOS
@@ -17,11 +17,11 @@ requires that this image has a configuration added (usually via the use of
 
 **Note:** The `config.json` file is different from the [`config.txt`](/reference/OS/advanced/#configtxt) file, also located in the boot partition, which is used by the Raspberry Pi to set device configuration options.
 
-The behavior of {{ $names.os.lower }} can be configured by editing the 
-`config.json` file. This file is located in the boot partition accepts a 
-[range of fields](#valid-fields) to modify the behavior of the host OS. 
+The behavior of balenaOS can be configured by editing the
+`config.json` file. This file is located in the boot partition accepts a
+[range of fields](#valid-fields) to modify the behavior of the host OS.
 The boot partition will be the one that shows up, usually named `resin-boot`.
- On-device, the boot partition is mounted at `/mnt/boot/`. Assuming you're 
+On-device, the boot partition is mounted at `/mnt/boot/`. Assuming you're
 still logged into your debug device, run the following:
 
 ```shell
@@ -118,18 +118,18 @@ read-only.
 Before the device is [provisioned](/learn/welcome/primer/#device-provisioning), you may edit `config.json` by mounting a flashed SD card (with the partition label `resin-boot`) and editing the file directly. The [boot partition](/reference/OS/overview/2.x/#stateless-and-read-only-rootfs) is mounted on the device at `/mnt/boot`, and so on the device, the file is located at `/mnt/boot/config.json`. For example, to output a formatted version of `config.json` on a device, use the following commands:
 
 ```shell
-{{ $names.company.lower }} ssh <uuid>
+balena ssh <uuid>
 cat /mnt/boot/config.json | jq '.'
 ```
 
 **Warning:** Editing config.json on a provisioned device should be done very carefully as any mistakes in the syntax of this file can leave a device inaccessible. If you do make a mistake, ensure that you do not
 exit the device's SSH connection until the configuration _is_ correct.
 
-After provisioning, editing `config.json` as described above is not reliable or advisable because the [supervisor](/reference/supervisor/supervisor-api/) may overwrite certain fields, such as `persistentLogging`, with values read from the {{ $names.cloud.lower }} API. To safely modify the values of `config.json` on a provisioned device use one of the following methods:
+After provisioning, editing `config.json` as described above is not reliable or advisable because the [supervisor](/reference/supervisor/supervisor-api/) may overwrite certain fields, such as `persistentLogging`, with values read from the balenaCloud API. To safely modify the values of `config.json` on a provisioned device use one of the following methods:
 
 - Update the device [hostname](#hostname) via the [supervisor API](/reference/supervisor/supervisor-api/#patch-v1devicehost-config).
 - Modify the [persistent logging](#persistentlogging) configuration via device [configuration](/learn/manage/configuration/) tab in the balenaCloud dashboard.
-- Apply `config.json` updates remotely via the {{ $names.cli.lower }} using the [configizer project]({{ $links.githubPlayground }}/configizer).
+- Apply `config.json` updates remotely via the balena CLI using the [configizer project]({{ $links.githubPlayground }}/configizer).
 
 Alternatively, you can always reprovision a device with an updated `config.json` file.
 
@@ -178,11 +178,10 @@ root@debug-device:~#
 ```
 
 Whilst making the changes, the new configuration is written to the `config.json`
-file, whilst we have a backup of the original (`config.json.backup`). Remember, 
+file, whilst we have a backup of the original (`config.json.backup`). Remember,
 should you need to change anything, _always_ keep a copy of the original configuration
-so you can restore it before you exit the device. Check out the 
+so you can restore it before you exit the device. Check out the
 [valid fields](#sample-configjson) available to be configured on a balena device.
-
 
 ## Sample config.json
 
@@ -190,31 +189,31 @@ The following example provides all customizable configuration options available 
 
 ```json
 {
-  "hostname": "my-custom-hostname",
-  "persistentLogging": true,
-  "country": "GB",
-  "ntpServers": "ntp-wwv.nist.gov resinio.pool.ntp.org",
-  "dnsServers": "208.67.222.222 8.8.8.8",
-  "os": {
-    "network": {
-      "connectivity": {
-        "uri": "https://api.balena-cloud.com/connectivity-check",
-        "interval": "300",
-        "response": "optional value in the response"
-      },
-      "wifi": {
-        "randomMacAddressScan": false
-      }
-    },
-    "udevRules": {
-      "56": "ENV{ID_FS_LABEL_ENC}==\"resin-root*\", IMPORT{program}=\"resin_update_state_probe $devnode\", SYMLINK+=\"disk/by-state/$env{RESIN_UPDATE_STATE}\"",
-      "64": "ACTION!=\"add|change\", GOTO=\"modeswitch_rules_end\"\nKERNEL==\"ttyACM*\", ATTRS{idVendor}==\"1546\", ATTRS{idProduct}==\"1146\", TAG+=\"systemd\", ENV{SYSTEMD_WANTS}=\"u-blox-switch@'%E{DEVNAME}'.service\"\nLBEL=\"modeswitch_rules_end\"\n"
-    },
-    "sshKeys": [
-      "ssh-rsa AAAAB3Nza...M2JB balena@macbook-pro",
-      "ssh-rsa AAAAB3Nza...nFTQ balena@zenbook"
-    ]
-  }
+	"hostname": "my-custom-hostname",
+	"persistentLogging": true,
+	"country": "GB",
+	"ntpServers": "ntp-wwv.nist.gov resinio.pool.ntp.org",
+	"dnsServers": "208.67.222.222 8.8.8.8",
+	"os": {
+		"network": {
+			"connectivity": {
+				"uri": "https://api.balena-cloud.com/connectivity-check",
+				"interval": "300",
+				"response": "optional value in the response"
+			},
+			"wifi": {
+				"randomMacAddressScan": false
+			}
+		},
+		"udevRules": {
+			"56": "ENV{ID_FS_LABEL_ENC}==\"resin-root*\", IMPORT{program}=\"resin_update_state_probe $devnode\", SYMLINK+=\"disk/by-state/$env{RESIN_UPDATE_STATE}\"",
+			"64": "ACTION!=\"add|change\", GOTO=\"modeswitch_rules_end\"\nKERNEL==\"ttyACM*\", ATTRS{idVendor}==\"1546\", ATTRS{idProduct}==\"1146\", TAG+=\"systemd\", ENV{SYSTEMD_WANTS}=\"u-blox-switch@'%E{DEVNAME}'.service\"\nLBEL=\"modeswitch_rules_end\"\n"
+		},
+		"sshKeys": [
+			"ssh-rsa AAAAB3Nza...M2JB balena@macbook-pro",
+			"ssh-rsa AAAAB3Nza...nFTQ balena@zenbook"
+		]
+	}
 }
 ```
 
@@ -222,4 +221,4 @@ The following example provides all customizable configuration options available 
 
 {{> "meta-balena/config-json" }}
 
-[country-codes]:https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+[country-codes]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2

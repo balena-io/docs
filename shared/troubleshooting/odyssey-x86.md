@@ -1,4 +1,4 @@
-### Device doesn't boot into {{ $names.os.lower }}
+### Device doesn't boot into balenaOS
 
 you may need to go back into the **BIOS** and make sure the boot order correctly selects to boot from the internal SATA drive and not from USB.
 
