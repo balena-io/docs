@@ -25,9 +25,9 @@ Please note that balena does not collect information about end users of devices 
 balena platform, i.e. information about our customer users is not collected or processed.
 We work only with data collected for users who use balena to manage their device fleets.
 
-## {{ $names.etcher.lower }}
+## balenaEtcher
 
-{{ $names.etcher.lower }} is an application maintained by balena team that can be used to easily
+balenaEtcher is an application maintained by balena team that can be used to easily
 flash OS images to SD cards and USB drives. If user does not opt out from collecting the analytics data, the application
 tracks its usage. In addition to the data described above, information about the type of SD cards and USB drives is
 collected too.
