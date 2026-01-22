@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>balena-io/renovate-config"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Track external documentation sources",
+      "managerFilePatterns": ["^external-docs\\.json$"],
+      "matchStrings": [
+        "\"repo\":\\s*\"(?<depName>[^\"]+)\"[^}]*\"ref\":\\s*\"(?<currentValue>v[^\"]+)\""
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver-coerced"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Sync external documentation when source repos are updated",
+      "matchManagers": ["custom.regex"],
+      "matchFileNames": ["external-docs.json"],
+      "postUpgradeTasks": {
+        "commands": ["npm run sync-external -- --repo {{{depName}}}"],
+        "fileFilters": [
+          "pages/**/*.md",
+          "shared/**/*.md",
+          "shared/**/*.json",
+          "config/dictionaries/*.json"
+        ],
+        "executionMode": "update"
+      }
+    }
+  ]
+}
