@@ -2,7 +2,7 @@
 title: Network Setup on balenaOS
 ---
 
-# Networking on {{ $names.os.lower }}
+# Networking on balenaOS
 
 - [Introduction](#introduction)
 - [WiFi Setup](#wifi-setup)
@@ -19,9 +19,9 @@ title: Network Setup on balenaOS
 
 ## Introduction
 
-With {{ $names.os.lower }} 2.0, connectivity management changed from **[ConnMan][connman-link]** to **[NetworkManager][networkmanager-link]**. **NetworkManager** allows {{ $names.os.lower }} more flexibility when configuring the network setup, and, in conjunction with **[ModemManager][modemmanager-link]**, allows {{ $names.os.lower }} to offer first class [GSM/Cellular support](#cellular-modem-setup).
+With balenaOS 2.0, connectivity management changed from **[ConnMan][connman-link]** to **[NetworkManager][networkmanager-link]**. **NetworkManager** allows balenaOS more flexibility when configuring the network setup, and, in conjunction with **[ModemManager][modemmanager-link]**, allows balenaOS to offer first class [GSM/Cellular support](#cellular-modem-setup).
 
-All of the network configuration for {{ $names.os.lower }} can be done through files in the boot partition of your device. If you have a freshly downloaded {{ $names.os.lower }} `.img`, you can mount it and inspect the `resin-boot` or `resin-flash` (for devices that boot from eMMC) partition. In the boot partition you will find a directory called `system-connections`.
+All of the network configuration for balenaOS can be done through files in the boot partition of your device. If you have a freshly downloaded balenaOS `.img`, you can mount it and inspect the `resin-boot` or `resin-flash` (for devices that boot from eMMC) partition. In the boot partition you will find a directory called `system-connections`.
 
 **Note:** When editing files for connectivity in the boot partition, make sure you're in the `/mnt/boot/system-connections` folder so that they persist after reboot.
 
@@ -29,7 +29,7 @@ The `system-connections` directory consists of a set of connection files—one f
 
 ## WiFi Setup
 
-If you entered your WiFi SSID and passphrase when you downloaded {{ $names.os.lower }} from the dashboard, you should have a file called `resin-wifi` in the folder `/system-connections/` (as mentioned above, this is found in the boot partition of your image).
+If you entered your WiFi SSID and passphrase when you downloaded balenaOS from the dashboard, you should have a file called `resin-wifi` in the folder `/system-connections/` (as mentioned above, this is found in the boot partition of your image).
 
 ```
 [connection]
@@ -273,7 +273,7 @@ This will create a WPA2/rsn hotspot, in case you need WPA protocol replace `prot
 
 ## Cellular Modem Setup
 
-For cellular or GSM based connections, {{ $names.os.lower }} makes use of **[ModemManager][modemmanager-link]** and is configured in much the same way as WiFi connections are configured. The connection profile can either be specified in your application code (see [Changing the Network at Runtime](#changing-the-network-at-runtime) below), or you can add a cellular configuration by adding a connection file to `/resin-boot/system-connections` in the downloaded {{ $names.os.lower }} `.img` file. In the future, cellular connections will be configurable from the dashboard at time of adding a device and downloading a {{ $names.os.lower }} image.
+For cellular or GSM based connections, balenaOS makes use of **[ModemManager][modemmanager-link]** and is configured in much the same way as WiFi connections are configured. The connection profile can either be specified in your application code (see [Changing the Network at Runtime](#changing-the-network-at-runtime) below), or you can add a cellular configuration by adding a connection file to `/resin-boot/system-connections` in the downloaded balenaOS `.img` file. In the future, cellular connections will be configurable from the dashboard at time of adding a device and downloading a balenaOS image.
 
 To set up a cellular connection with your device, just drop the below example configuration into a file in the `/resin-boot/system-connections/` directory in the `.img` or on SD card (if you have it flashed with the OS already) and name it something like `cellular`. Replace the `apn=` and `number=` values with your mobile providers APN and PPP dialing number. If your mobile carrier requires a password and username, you will need to add those as well. For a more in depth look at available settings options for GSM, have a look at `Table 58. gsm setting` in the [**NetworkManager** GSM settings reference][nm-gsm-setting-ref].
 
@@ -312,7 +312,7 @@ Often there are times where the WiFi network that the device will be provisioned
 
 WiFi Connect enables the device to create a wireless access point called `WiFi Connect` (also customizable) which serves a captive portal. This allows your end user to connect to the device and add their WiFi credentials. The device will then automatically leave the setup mode and connect to the specified user network.
 
-Under the hood, WiFi Connect is interacting with **NetworkManager** via its [DBUS][dbus-link] API. The DBUS API is a useful way to interact with the {{ $names.os.lower }} host NetworkManager, and there are DBUS bindings for most languages. Below is a minimal Python example from the [**NetworkManager** examples][network-manager-examples], which creates a new **NetworkManager** connection file that can be used to enable connecting to a new WiFi access point.
+Under the hood, WiFi Connect is interacting with **NetworkManager** via its [DBUS][dbus-link] API. The DBUS API is a useful way to interact with the balenaOS host NetworkManager, and there are DBUS bindings for most languages. Below is a minimal Python example from the [**NetworkManager** examples][network-manager-examples], which creates a new **NetworkManager** connection file that can be used to enable connecting to a new WiFi access point.
 
 **Note:** You will need to install the `dbus` module in order to run this example (`apt-get install python-dbus`) and make sure `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket` is exported in the environment. This ensures that DBUS calls are directed to the system bus that the host OS is listening on rather than the DBUS bus in your container.
 
@@ -538,7 +538,7 @@ custom endpoints, the URL, expected response, and check interval can be set in `
 
 ## Disable IPv6
 
-In cases where a local network issue is preventing IPv6 traffic from being routed, you can fully disable IPv6 in {{ $names.os.lower }} 2.0 with the following commands.
+In cases where a local network issue is preventing IPv6 traffic from being routed, you can fully disable IPv6 in balenaOS 2.0 with the following commands.
 
 **Warning:** Making changes to the networking of a device is extremely dangerous and can lead to a device being unrecoverable, so exercise caution with any of the following.
 

@@ -27,7 +27,7 @@ Of course, the single biggest choice you have to make is whether to use off-the-
 
 One of the challenges in building applications for distributed fleets is aligning your development environment with the operating environment running on your devices. You'll need a way to make sure your application and its dependencies work with your device's architecture, as well as a plan for pushing updates to your fleet without losing access to your devices.
 
-Balena solves for these concerns by running {{ $names.os.lower }}, a bare-bones host OS with a lightweight, Docker-compatible container engine, [{{ $names.engine.lower }}][engine-link]. With containers, you can develop your application in the way you are most comfortable, and then run that environment on your device without worrying about the underlying hardware support. Any dependencies, such as libraries and runtime environments, will already be packaged in the container.
+Balena solves for these concerns by running balenaOS, a bare-bones host OS with a lightweight, Docker-compatible container engine, [{{ $names.engine.lower }}][engine-link]. With containers, you can develop your application in the way you are most comfortable, and then run that environment on your device without worrying about the underlying hardware support. Any dependencies, such as libraries and runtime environments, will already be packaged in the container.
 
 Containers also make remote updates a straightforward process. A new release can be downloaded, verified, and started while the host OS maintains a network connection and handles any issues.
 
@@ -45,7 +45,7 @@ The prototyping phase is where some of the developer-focused features of balena 
 
 ### Development images
 
-When developing a new application, you should consider using a [development image][dev-vs-prod] of {{ $names.os.lower }}. These images have a number of features that, for security reasons, are not present in the production releases of {{ $names.os.lower }}. These include:
+When developing a new application, you should consider using a [development image][dev-vs-prod] of balenaOS. These images have a number of features that, for security reasons, are not present in the production releases of balenaOS. These include:
 
 - Passwordless SSH access to the host OS
 - Access to the Docker socket
@@ -72,7 +72,7 @@ After your application development is mostly complete, it's important to do some
 
 ### Production images
 
-At this point it makes sense to move from development {{ $names.os.lower }} images to full production images, ensuring that your application still runs properly without full local console access. You can still [access][ssh] the host OS and containers via the balena dashboard and CLI, but the production {{ $names.os.lower }} image will close all open inbound ports.
+At this point it makes sense to move from development balenaOS images to full production images, ensuring that your application still runs properly without full local console access. You can still [access][ssh] the host OS and containers via the balena dashboard and CLI, but the production balenaOS image will close all open inbound ports.
 
 For Production and Enterprise plan users who require a stable, supported release, you should choose an [ESR version][esr] of the host OS. An ESR version guarantees that you will only have to update the host OS on the devices at most twice a year to ensure you are on a supported version. You can view devices that have ESR versions of the host OS [here][esr-devices].
 
@@ -106,7 +106,7 @@ Now that your testing is wrapping up, it's time to get your devices into a fleet
 
 While a device will provision itself and download your latest release as soon as it's turned on and connected to the Internet, this might not be the experience you want your users to have. It would be nice to have something that works right away, rather than having to wait for a potentially slow download to finish.
 
-Happily, you can [preload][preload] your release into a {{ $names.os.lower }} image with a one-time process. Then, when that image is flashed onto your devices in the factory, it will have the release already installed and ready. Any updates made to the fleet after the preloading process will be downloaded and applied when the device is brought online, so there's no need to worry about devices that have been sitting in a warehouse or on store shelves.
+Happily, you can [preload][preload] your release into a balenaOS image with a one-time process. Then, when that image is flashed onto your devices in the factory, it will have the release already installed and ready. Any updates made to the fleet after the preloading process will be downloaded and applied when the device is brought online, so there's no need to worry about devices that have been sitting in a warehouse or on store shelves.
 
 For situations where you need to register your devices before they have been powered on or connected to the network, you can [preregister][preregister] them. Preregistering a device allows the creation of individually registered devices in a fleet, which is extremely useful in situations such as manufacturing where a device may require tracking, as a specific device UUID can then be associated with a specific customer order.
 
@@ -120,7 +120,7 @@ The balena API includes functionality that allows for [fine-grained control of u
 
 ## Further reading
 
-For more information about common anti-patterns, see [Anti-patterns, or how to break your {{ $names.os.lower }} devices][anti-patterns].
+For more information about common anti-patterns, see [Anti-patterns, or how to break your balenaOS devices][anti-patterns].
 
 [engine-link]:{{ $links.engineSiteUrl }}
 [docker-compose]:https://docs.docker.com/compose/overview/

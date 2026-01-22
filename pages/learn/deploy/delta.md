@@ -15,7 +15,7 @@ These binary deltas save on the amount of data needed to be downloaded, reduce t
 
 ## Enabling delta updates
 
-The delta updates feature is now available in all devices running {{ $names.os.lower }} >= 2.47.1. For devices running {{ $names.os.lower }} < 2.47.1, updating to >= 2.47.1 via a [self-service update][self-service-update] will enable delta updates for your device.
+The delta updates feature is now available in all devices running balenaOS >= 2.47.1. For devices running balenaOS < 2.47.1, updating to >= 2.47.1 via a [self-service update][self-service-update] will enable delta updates for your device.
 
 ## Delta behavior
 

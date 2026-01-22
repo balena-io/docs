@@ -59,7 +59,7 @@ To get you started, here is an [example project](https://github.com/balena-labs-
 
 #### SPI
 
-SPI is enabled by default on \{{ $names.os.lower \}} via the `dtparam=spi=on` \[device tree parameter]\[dt-params]. This default behavior can be modified by editing the \[device configuration]\[device-configuration].
+SPI is enabled by default on balenaOS via the `dtparam=spi=on` \[device tree parameter]\[dt-params]. This default behavior can be modified by editing the \[device configuration]\[device-configuration].
 
 For Node.js applications it should work out of the box with the \[spi node module]\[spi-npm]. For an example of this, check out this project: \[digitiser]\[digitiser-link].
 
@@ -109,7 +109,7 @@ To demonstrate this functionality, you can push this project (\{{ $links.githubP
 
 #### Raspberry Pi camera module
 
-Depending on the version of your \{{ $names.os.lower \}}, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](../../../../learn/manage/configuration/).
+Depending on the version of your balenaOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](../../../../learn/manage/configuration/).
 
 **\{{ $names.os.upper \}} 1.16.0 and newer**
 

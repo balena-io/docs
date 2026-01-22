@@ -8,7 +8,7 @@ extras: esr-devices-js
 
 **Note:** This feature is only available on \[Production and Enterprise plans]\[billing].
 
-The \{{ $names.os.lower \}} Extended Support Release (ESR) process allows fleet owners to update to a new ESR version on their devices at most twice a year to ensure they are on a supported version. New ESR versions are released on a three-month schedule, and as such, fleet owners know in advance when releases will be available and when they need to upgrade.
+The balenaOS Extended Support Release (ESR) process allows fleet owners to update to a new ESR version on their devices at most twice a year to ensure they are on a supported version. New ESR versions are released on a three-month schedule, and as such, fleet owners know in advance when releases will be available and when they need to upgrade.
 
 Each ESR release is supported for nine months from the time of release. A supported ESR version implies that high-risk security vulnerabilities and critical bug fixes will be backported to that version, and are guaranteed not to break the interface. Backports of any functional enhancements are not in scope.
 
@@ -24,13 +24,13 @@ For example, an ESR version is released known as `2022.10`, which becomes the _n
 
 ### Adding a new device
 
-For new devices, if you are on a Production or Enterprise plan with a [supported device type](extended-support-release.md#supported-devices), when you add a new device, you will be given the option to _Select OS type_ which defaults to _\{{$names.os.lower\}} ESR_. If you would like a non-ESR version, expand this dropdown and select _\{{$names.os.lower\}}_ for the host OS type.
+For new devices, if you are on a Production or Enterprise plan with a [supported device type](extended-support-release.md#supported-devices), when you add a new device, you will be given the option to _Select OS type_ which defaults to _balenaOS ESR_. If you would like a non-ESR version, expand this dropdown and select _balenaOS_ for the host OS type.
 
 Next, select the ESR version as either _next_, _current_, or _sunset_ if available. The _next_ version is selected by default and offers at least six months (and up to nine months) of critical backports and fixes.
 
 ### Host OS update
 
-For those users on a Production or Enterprise plan with an existing [supported device](extended-support-release.md#supported-devices), you can update to an ESR version via a [self-serve update](../../../reference/OS/updates/self-service/#running-an-update). You should select the _\{{$names.os.lower\}} ESR_ host OS type and your chosen ESR version.
+For those users on a Production or Enterprise plan with an existing [supported device](extended-support-release.md#supported-devices), you can update to an ESR version via a [self-serve update](../../../reference/OS/updates/self-service/#running-an-update). You should select the _balenaOS ESR_ host OS type and your chosen ESR version.
 
 **Note:** Once updated to an ESR version, it is not possible to update from an ESR host OS version to a non-ESR one.
 

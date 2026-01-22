@@ -23,7 +23,7 @@ If the Raspberry Pi is unable to connect to the balena servers, the `ACT` LED wi
 
 This is either because it is not connected to the network or because the network ports which balena relies on are blocked in some way.
 
-- The first things to check in this case is that your device is correctly connected to ethernet or that you correctly entered the wifi credentials. To check wifi credentials, power your device down, remove the SD card, and mount the SD card on your personal computer. If your device is running {{ $names.os.lower }} version 2.0 or greater, wifi credentials are listed in `system-connections/resin-wifi`, found in the `resin-boot` partition of the SD card. Otherwise, check the `config.json` file (in the `resin-boot` partition for versions 1.2 and greater, or `resin-conf` for earlier versions).
+- The first things to check in this case is that your device is correctly connected to ethernet or that you correctly entered the wifi credentials. To check wifi credentials, power your device down, remove the SD card, and mount the SD card on your personal computer. If your device is running balenaOS version 2.0 or greater, wifi credentials are listed in `system-connections/resin-wifi`, found in the `resin-boot` partition of the SD card. Otherwise, check the `config.json` file (in the `resin-boot` partition for versions 1.2 and greater, or `resin-conf` for earlier versions).
 - Secondly check that your network is not restricting or blocking the ports specified in the [balena network requirements](/reference/OS/network/2.x/#network-requirements).
 - If you still aren't able to get your device online, reach out to us in the [forums]({{ $names.forums_domain }}).
 

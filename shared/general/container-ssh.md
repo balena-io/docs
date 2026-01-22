@@ -1,6 +1,6 @@
 To help you debug, develop, and work with your fleets, we've provided a browser-based terminal and a command line tool for easy SSH access to your devices. With these tools, you have console access to any of your running containers, as well as to the host OS, letting you test out small snippets of code and check system logs on your device. You can also access your device via a standalone SSH client.
 
-**Note:** Host OS SSH access is available for devices running {{ $names.os.lower }} version 2.7.5 and above.
+**Note:** Host OS SSH access is available for devices running balenaOS version 2.7.5 and above.
 
 SSH access is built on [Cloudlink](/learn/welcome/security/#cloudlink) and it not designed for high availability. It is not intended for use in the critical path of your application - you should not depend on it for continuous use as part of your own application.
 
@@ -43,23 +43,22 @@ $ balena device ssh 192.168.1.23
 $ balena device ssh <device-uuid>.local
 ```
 
-When used with a [production variant of {{ $names.os.lower }}][development-image], this
+When used with a [production variant of balenaOS][development-image], this
 feature requires balena CLI v13.3.0 or later, and balenaOS v2.44.0 or later. Otherwise, an
 SSH key must be added to the device's `config.json` file, [sshKeys
-section][config-json-ssh]. These restrictions do not apply to [development variants of {{
-$names.os.lower }}][development-image], which allow unauthenticated `root` access (and for
+section][config-json-ssh]. These restrictions do not apply to [development variants of balenaOS][development-image], which allow unauthenticated `root` access (and for
 this reason, should never be directly exposed to the public internet).
 
 ## Using a standalone SSH client
 
-The SSH server of a {{ $names.os.lower }} device (host OS) listens on TCP port `22222`, and
+The SSH server of a balenaOS device (host OS) listens on TCP port `22222`, and
 access is also possible with a standalone ssh client:
 
 ```shell
 $ ssh -p 22222 <username>@<device_ip_address>
 ```
 
-When the username is `root`, [production variants of {{ $names.os.lower }}][development-image]
+When the username is `root`, [production variants of balenaOS][development-image]
 perform authentication against public SSH keys previously added to the device's `config.json`
 file, [sshKeys section][config-json-ssh]. When the username matches a valid
 {{$names.cloud.lower}} user account, authentication is also performed against that user's
@@ -68,7 +67,7 @@ public SSH keys [stored in {{$names.cloud.lower}}][add-ssh-key]
 the profile or preferences section of the web dashboard, or with the balena
 whoami` CLI command.
 
-Development variants of {{ $names.os.lower }} allow unauthenticated access and should never be
+Development variants of balenaOS allow unauthenticated access and should never be
 directly exposed to the public internet.
 
 The IP address will typically be a private IP address of a local network. For remote devices,
@@ -76,7 +75,7 @@ see [balena device tunnel][balena-tunnel].
 
 ## balena device tunnel
 
-The SSH server of a {{ $names.os.lower }} device (host OS) listens on TCP port `22222`.
+The SSH server of a balenaOS device (host OS) listens on TCP port `22222`.
 This port is not blocked by any firewall on the device itself, but external firewalls or NAT
 routers will often block access at the network level. To get around this, you can use the
 `balena device tunnel` command of the {{ $names.cli.lower }}, which tunnels a

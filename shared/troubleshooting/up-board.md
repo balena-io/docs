@@ -1,6 +1,6 @@
 ## Detailed provisioning instructions
 
-In order to get {{ $names.os.lower }} up and running on your **{{ $device.name }}**, you need to first set it up to boot from your {{ $device.bootMedia }} rather than its
+In order to get balenaOS up and running on your **{{ $device.name }}**, you need to first set it up to boot from your {{ $device.bootMedia }} rather than its
 internal [eMMC memory][emmc-link]. To do this, you will need to interrupt the boot process and direct the device to boot from your {{ $device.bootMedia }}.
 
 **Note:** {{ $names.os.upper }} will completely write over the existing eMMC.
@@ -16,7 +16,7 @@ Now that you have your board setup, apply power to it using the supplied 5 Vdc b
 
 <img src="/img/up-board/up-board-uefi-selection.webp" width="60%">
 
-Using the keyboard arrow keys, select the `UEFI : USB` option and hit enter. Your **{{ $device.name }}** will now boot from the {{ $device.bootMedia }} and flash {{ $names.os.lower }} onto the internal [eMMC memory][emmc-link]. If your device is correctly connected to the internet, you should see progress of the flashing on your balena dashboard. Once {{ $names.os.lower }} is safely flashed onto the internal eMMC memory, the device will shut itself down and you should see all the user LEDs on the board switch off.
+Using the keyboard arrow keys, select the `UEFI : USB` option and hit enter. Your **{{ $device.name }}** will now boot from the {{ $device.bootMedia }} and flash balenaOS onto the internal [eMMC memory][emmc-link]. If your device is correctly connected to the internet, you should see progress of the flashing on your balena dashboard. Once balenaOS is safely flashed onto the internal eMMC memory, the device will shut itself down and you should see all the user LEDs on the board switch off.
 
 **Note:** The blue power LED will stay illuminated even once the device has shutdown. You can find the user LEDs on the underside of the board near the USB ports.
 

@@ -9,14 +9,14 @@ excerpt: >-
 
 Balena’s secure boot and full disk encryption feature addresses two critical aspects of device security. Secure boot ensures that only trusted software can run on the device, while full disk encryption safeguards data at rest by preventing unauthorized access to the contents of storage media.
 
-Given the diversity of hardware platforms that \{{ $names.os.lower \}} targets, it was essential to design a flexible framework capable of integrating device-specific secure boot mechanisms.
+Given the diversity of hardware platforms that balenaOS targets, it was essential to design a flexible framework capable of integrating device-specific secure boot mechanisms.
 
-Key goals of \{{ $names.os.lower \}} secure boot and encryption design include:
+Key goals of balenaOS secure boot and encryption design include:
 
 - Flexible hardware integration: Support a wide variety of architectures and device types.
 - Use of balena-specific keys: Avoid depending on third-party-signed shims (e.g., Microsoft keys) by default.
 - Unattended unlocking: Eliminate the need for user-supplied secrets (like passphrases) at boot.
-- Seamless updates and rollbacks: Retain the existing \{{ $names.os.lower \}} capability of rolling back to a known-good state if an update fails.
+- Seamless updates and rollbacks: Retain the existing balenaOS capability of rolling back to a known-good state if an update fails.
 
 Owing to the design constraints above, a secured device uses both secure boot and disk encryption - these two functionalities are not provided separately.
 
@@ -29,7 +29,7 @@ These typically include:
 - **Signing Keys** : A private key signs the bootloader, kernel, and other critical binaries. This key must be kept confidential; anyone possessing it can produce binaries that devices would trust.
 - **Public Certificates or keys** : The matching public certificate (or key) is stored on the device. When the device attempts to execute a signed binary (e.g., the bootloader or kernel), a cryptographic check ensures the signature is valid.
 
-Secure Boot-enabled \{{ $names.os.lower \}} images are provided pre-signed using **balena-owned** secrets - this is a convenient way to guarantee that only trusted software runs in the device while avoiding the friction of secrets generation, managing and safeguarding.
+Secure Boot-enabled balenaOS images are provided pre-signed using **balena-owned** secrets - this is a convenient way to guarantee that only trusted software runs in the device while avoiding the friction of secrets generation, managing and safeguarding.
 
 **Note:** We are aware that balena owned keys might not fit all use cases. Unique customer keys can also be used as an extra service. Contact [sales@balena.io](mailto:sales@balena.io) to discuss further.
 
@@ -43,14 +43,14 @@ Provisioning a device with secure boot and full disk encryption enabled typicall
 
 - Enroll secure boot keys into the device
 - Generate a unique disk encryption key and uses it to encrypt the storage
-- Program \{{ $names.os.lower \}} into storage
+- Program balenaOS into storage
 - Lock the device into secure boot mode
 
 ### Secure Boot Installer Images
 
-Typically, \{{ $names.os.lower \}} images can be categorized as:
+Typically, balenaOS images can be categorized as:
 
-- **Non-flasher images** : The internal storage of a device is programmed directly with \{{ $names.os.lower \}} using a live image
+- **Non-flasher images** : The internal storage of a device is programmed directly with balenaOS using a live image
 - **Flasher images**: Used when the devices did not expose the internal storage. The flasher image boots from an external storage medium and then the os is programmed to the required internal storage
 
 All secure boot-enabled devices have flasher images. Moreover, given that the image not only writes the os to disk but also does other tasks such as enrolling required keys and certificates, they can be considered as `installer` images. So, secure boot enabled devices provide an `installer` image instead that can be programmed either on external or internal storage, in the latter case running from memory and performing the installation on the same disk it is booted from.
@@ -63,7 +63,7 @@ The secure boot installer is itself using signed binaries and can be used to re-
 
 Balena uses the `dm-crypt` Linux kernel subsystem and `device-mapper` framework to encrypt block devices. Balena supports both direct `dm-crypt` and `LUKS` (Linux Unified Key Setup) - the actual system used depends on the device type's vendor implementation.
 
-A secure boot installation also alters the default \{{ $names.os.lower \}} partition table as the boot partition is split into two:
+A secure boot installation also alters the default balenaOS partition table as the boot partition is split into two:
 
 - An unencrypted boot partition which contains the signed balena bootloader binary and other essential artifacts needed to run it.
 - An encrypted boot partition that mounts in the traditional `/mnt/boot` path and contains all other artifacts, including confidential files like `config.json` which contains API keys.
@@ -80,7 +80,7 @@ Key responsibilities of a bootROM include:
 - **Locating and verifying the next boot stage**: Often checks for cryptographic signatures or checksums on the bootloader (or other initial executables) to ensure they have not been tampered with.
 - **Passing control to a validated bootloader**: Once signature verification succeeds, execution is handed off to the bootloader, continuing the chain of trust.
 
-A typical boot chain of trust for \{{ $names.os.lower \}} involves:
+A typical boot chain of trust for balenaOS involves:
 
 - The `bootROM` validates the balena bootloader and device trees and executes the balena bootloader
 - The balena bootloader mounts the encrypted storage, validates the appropriate Linux kernel plus initramfs using in-kernel `X.509` certificates
@@ -91,13 +91,13 @@ Some devices, like `UEFI`-based ones, are able to directly load the balena bootl
 
 ### Balena Bootloader
 
-The balena bootloader addresses several challenges unique to \{{ $names.os.lower \}}’s partitioning and update model:
+The balena bootloader addresses several challenges unique to balenaOS’s partitioning and update model:
 
 **Single FAT32 Boot Partition** BalenaOS typically includes a single `FAT32` boot partition to facilitate configuration changes (such as editing config.json via the balenaCLI) and support a wide range of bootloaders. However, updating the bootloader on this partition during a hostOS update carries inherent risk: an unexpected power loss could render the device unbootable.
 
 **Minimal Bootloader Updates** Conventional bootloaders are generally designed to remain small and rarely updated. On secure boot–enabled devices, the Linux kernel resides outside the boot partition—in a redundant root partition—allowing safe kernel updates without risking device bricking during power interruptions.
 
-**Encrypted Partition Support** Standard bootloaders like GRUB or U-Boot often lack native support for mounting encrypted partitions. Because \{{ $names.os.lower \}} secures its kernel in encrypted storage, the balena bootloader must incorporate decryption capabilities to load the kernel securely.
+**Encrypted Partition Support** Standard bootloaders like GRUB or U-Boot often lack native support for mounting encrypted partitions. Because balenaOS secures its kernel in encrypted storage, the balena bootloader must incorporate decryption capabilities to load the kernel securely.
 
 **Unified Configuration and Rollback Mechanism** The balena bootloader centralizes configuration across diverse hardware platforms and includes hostOS update rollback logic. This approach simplifies hardware bring-up by using vendor bootloaders as unmodified first-stage loaders while relying on the balena bootloader for secure disk access and validated kernel loading.
 
@@ -109,7 +109,7 @@ BalenaOS uses kexec within the balena bootloader to transition control from the 
 
 - Mount encrypted storage partitions.
 - Mount the container filesystem that holds the hostOS root filesystem.
-- Perform a root switch into the running init process (which in \{{ $names.os.lower \}} is managed by `systemd`).
+- Perform a root switch into the running init process (which in balenaOS is managed by `systemd`).
 
 `Kexec` authentication relies on an `X.509` certificate (`RSA 4096-bit`, `SHA-256`) that is bundled with the kernel at compile time. This certificate:
 
@@ -136,7 +136,7 @@ We strongly recommend following security best practices to ensure a robust secur
 
 ### Loading out-of-tree kernel modules
 
-All the kernel modules need to be signed with a trusted key. At this moments we only sign the module at build time so only the out-of-tree modules that we build and ship as a part of \{{ $names.os.lower \}} are properly signed. Loading user-built kernel modules requires building custom software and is an extra service available on demand. Contact [sales@balena.io](mailto:sales@balena.io) to discuss further.
+All the kernel modules need to be signed with a trusted key. At this moments we only sign the module at build time so only the out-of-tree modules that we build and ship as a part of balenaOS are properly signed. Loading user-built kernel modules requires building custom software and is an extra service available on demand. Contact [sales@balena.io](mailto:sales@balena.io) to discuss further.
 
 ### Debugging
 

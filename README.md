@@ -94,7 +94,7 @@ For all instances, we use `balena` as lower-case capitalization unless beginning
 - Module containing the variable can be found [/config](https://github.com/balena-io/docs/tree/master/config) directory with several modules for links, names, etc. containing references being used across the documentation. These references can be used inside the documentation files using fluid tags like the examples below.
 
 1. Reusing commonly used names as variables - `Deploy with balena`
-2. Interpolating strings - `{{ $names.os.lower }} image configured`
+2. Interpolating strings - `balenaOS image configured`
 3. Even, building links - `{{ $links.githubLabs }}/multicontainer-getting-started/tree/master/haproxy`
 
 ### Using Partials

@@ -34,13 +34,13 @@ You'll then be redirected to the summary of the newly created fleet, where you c
 
 ## Add a device and download OS
 
-\{{ $names.cloud.lower \}} builds a custom \{{ $names.os.lower \}} image configured for \{{ $device.name \}} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
+\{{ $names.cloud.lower \}} builds a custom balenaOS image configured for \{{ $device.name \}} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
 
-Select an OS type of _balenaOS_, and you will see a list of available \{{ $names.os.lower \}} versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the \[differences between Development and Production images]\[devvprod].
+Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the \[differences between Development and Production images]\[devvprod].
 
 Select the type of network connection you'll be using: _Ethernet Only_ or _Wifi + Ethernet_. A network connection is required to allow the device to connect to \{{ $names.cloud.lower \}}. Selecting _Wifi + Ethernet_ allows you to enter a _Wifi SSID_ and _Wifi Passphrase_ which is then built into the image.
 
-Finally, click the **Download \{{ $names.os.lower \}}** button. When the download completes, you should have a zipped image file with a name like `balena-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
+Finally, click the **Download balenaOS** button. When the download completes, you should have a zipped image file with a name like `balena-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
 
 ## Provision device
 

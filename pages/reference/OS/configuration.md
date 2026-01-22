@@ -1,6 +1,6 @@
 ---
 title: Configuration
-excerpt: Instructions for editing and customizing config.json for modifying the behavior of {{ $names.os.lower }}
+excerpt: Instructions for editing and customizing config.json for modifying the behavior of balenaOS
 ---
 
 # Configuring balenaOS
@@ -17,7 +17,7 @@ requires that this image has a configuration added (usually via the use of
 
 **Note:** The `config.json` file is different from the [`config.txt`](/reference/OS/advanced/#configtxt) file, also located in the boot partition, which is used by the Raspberry Pi to set device configuration options.
 
-The behavior of {{ $names.os.lower }} can be configured by editing the
+The behavior of balenaOS can be configured by editing the
 `config.json` file. This file is located in the boot partition accepts a
 [range of fields](#valid-fields) to modify the behavior of the host OS.
 The boot partition will be the one that shows up, usually named `resin-boot`.

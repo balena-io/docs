@@ -5,9 +5,9 @@ excerpt: How time is synchronized and managed for balena devices
 
 # Time management
 
-**Note:** Starting from \{{ $names.os.lower \}} 2.13.1 the `chrony` service is used for time management. Prior versions of \{{ $names.os.lower \}} use `systemd-timesyncd`.
+**Note:** Starting from balenaOS 2.13.1 the `chrony` service is used for time management. Prior versions of balenaOS use `systemd-timesyncd`.
 
-Devices running \{{ $names.os.lower \}} make use of the `chrony` (or `systemd-timesyncd`) service to keep the system time synchronized. That service is running in the host OS, independent of the application containers.
+Devices running balenaOS make use of the `chrony` (or `systemd-timesyncd`) service to keep the system time synchronized. That service is running in the host OS, independent of the application containers.
 
 It is important that the date and time are set correctly, as an inaccurate date can manifest itself as several different issues on the device, such as SSL/TLS certificates appearing invalid. If you want to query the current time on the device, you can do so by using the `date` utility or the datetime related functions of the standard library of your language.
 
@@ -22,7 +22,7 @@ If you want to learn if the system has completed at least one successful NTP syn
 
 ## chrony
 
-[chrony](https://chrony.tuxfamily.org/) is an implementation of the [Network Time Protocol (NTP)](https://en.wikipedia.org/wiki/Network_Time_Protocol). The chrony daemon `chronyd` is [configured](https://chrony.tuxfamily.org/doc/3.5/chrony.conf.html) via the `/etc/chrony.conf` file. The default `chrony.conf` file used in \{{$names.os.lower\}} can be viewed \[here]\(\{{ $links.githubOS \}}/meta-balena/blob/master/meta-balena-common/recipes-core/chrony/files/chrony.conf).
+[chrony](https://chrony.tuxfamily.org/) is an implementation of the [Network Time Protocol (NTP)](https://en.wikipedia.org/wiki/Network_Time_Protocol). The chrony daemon `chronyd` is [configured](https://chrony.tuxfamily.org/doc/3.5/chrony.conf.html) via the `/etc/chrony.conf` file. The default `chrony.conf` file used in balenaOS can be viewed \[here]\(\{{ $links.githubOS \}}/meta-balena/blob/master/meta-balena-common/recipes-core/chrony/files/chrony.conf).
 
 Requests are sent to the supplied NTP sources approximately every four and a half hours (as specified by the `minpoll` and `maxpoll` directives). For the device's initial sync, the first four requests are sent at an interval of two seconds or less, before transitioning to the approximate four and half hour polling interval.
 
@@ -40,7 +40,7 @@ The estimated drift of the system clock is saved to a driftfile located at `/var
 
 ## systemd-timesyncd
 
-**Note:** This section is only applicable to \{{ $names.os.lower \}} versions < 2.13.1.
+**Note:** This section is only applicable to balenaOS versions < 2.13.1.
 
 When the balena device boots up, and before any container is run, the system will query the hardware clock to get the current time, while it will also read the timestamp value, stored in the last modification time of a special file, `/var/lib/systemd/clock`. If the hardware clock is behind the value stored with `/var/lib/systemd/clock`, the system will forcefully set the clock to the stored value. This is done to ensure that time from the point of view of the applications is monotonically increasing. After that, the device will start its Network Time Protocol (NTP) client, which will be attempting to sync the clock with NTP servers periodically. If a successful synchronization occurs, the last modification time of `/var/lib/systemd/clock` is updated to that timestamp.
 
@@ -52,7 +52,7 @@ There are certain networking requirements to ensure that the NTP service can pro
 
 The NTP service requires UDP port `123` to be open for outgoing connections from the device. See more [network requirements here](../../../deployment/network/2.0.0#network-requirements).
 
-Starting from \{{ $names.os.lower \}} 2.0.7, the devices connect to the following NTP servers:
+Starting from balenaOS 2.0.7, the devices connect to the following NTP servers:
 
 - 0.resinio.pool.ntp.org
 - 1.resinio.pool.ntp.org
@@ -67,4 +67,4 @@ You can configure your own NTP servers in the [`config.json` file](../../../refe
 "ntpServers": "0.resinio.pool.ntp.org 1.resinio.pool.ntp.org"
 ```
 
-Starting from \{{ $names.os.lower \}} 2.30.0, NTP servers can be set over DHCP.
+Starting from balenaOS 2.30.0, NTP servers can be set over DHCP.

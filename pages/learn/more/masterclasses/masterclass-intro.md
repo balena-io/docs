@@ -13,7 +13,7 @@ Currently, the following masterclasses are available:
 
 - [{{ $names.cli.upper }} masterclass](/learn/more/masterclasses/cli-masterclass/) - a guide to getting started with the {{ $names.cli.lower }}.
 - [{{ $names.cli.upper }} advanced masterclass](/learn/more/masterclasses/advanced-cli/) - a guide to the advanced features available in {{ $names.cli.lower }}.
-- [{{ $names.os.upper }} masterclass](/learn/more/masterclasses/host-os-masterclass/) - an introduction to {{ $names.os.lower }}.
+- [{{ $names.os.upper }} masterclass](/learn/more/masterclasses/host-os-masterclass/) - an introduction to balenaOS.
 - [Balena fleet management masterclass](/learn/more/masterclasses/fleet-management/) - a guide to managing a fleet with balena.
 - [Balena debugging masterclass](/learn/more/masterclasses/device-debugging/) - a guide to debugging balena device issues.
 - [Docker masterclass](/learn/more/masterclasses/docker-masterclass/) - a guide covering the basics of Docker.

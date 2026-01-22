@@ -17,7 +17,7 @@ To get started with the balena CLI, check out our [balena CLI masterclass](../..
 
 `balena push` is the recommended method for deployment and \[development]\[local-mode] on the \{{$names.cloud.lower\}} platform. To use `balena push`you need to first [install the balena CLI](../../../reference/cli/#install-the-cli) and ensure you are logged in to your account with`balena login`.
 
-When you run the `balena push <APP_NAME or DEVICE_IP>` command from your laptop it will essentially take your project (or repository) folder, compress it and send it to the [\{{$names.cloud.lower\}} build server](deployment.md#the-balenacloud-build-server) or local \{{$names.os.lower\}} device in \[localMode]\[local-mode] where it will be built.
+When you run the `balena push <APP_NAME or DEVICE_IP>` command from your laptop it will essentially take your project (or repository) folder, compress it and send it to the [\{{$names.cloud.lower\}} build server](deployment.md#the-balenacloud-build-server) or local balenaOS device in \[localMode]\[local-mode] where it will be built.
 
 Once the cloud builder has successfully completed building all the images in the deployment, it will upload these images to the \{{$names.cloud.lower\}} registry and create a release entry in the [balena API](../../../reference/api/overview/) database. It will then notify all the devices in the fleet that a new release is available. If you need to pull in proprietary code or use a private base image during your builds, you can do so using the [build time secrets](deployment.md#build-time-secrets-and-variables) or [private base images](deployment.md#private-base-images) feature of `balena push`.
 
@@ -31,7 +31,7 @@ It should be noted that `balena push` is independent of git, so you are free to 
 
 The `balena deploy` is functionally very similar to [balena push](deployment.md#balena-push) but avoids pushing any source code to the [\{{$names.cloud.lower\}} build server](deployment.md#the-balenacloud-build-server). It gives more control over how and where your container images are built, allowing for `balena deploy` to be integrated into your own [CI/CD](https://en.wikipedia.org/wiki/Continuous_deployment) build system.
 
-With `balena build` container images are built on your development machine or on a remote machine, by specifying a docker daemon's IP address and port number with the relevant command-line options (for example a device running a \{{$names.os.lower\}} [development image](../../../reference/OS/overview/2.x#development-vs-production-images)). Depending on your fleet's targeted CPU architecture builds will be run emulated via \[qemu]\[qemu].
+With `balena build` container images are built on your development machine or on a remote machine, by specifying a docker daemon's IP address and port number with the relevant command-line options (for example a device running a balenaOS [development image](../../../reference/OS/overview/2.x#development-vs-production-images)). Depending on your fleet's targeted CPU architecture builds will be run emulated via \[qemu]\[qemu].
 
 If you are building your own container images, `balena deploy` will upload the images to the \{{$names.cloud.lower\}} image registry and then create a release entry in the [balena API](../../../reference/api/overview/) database. The devices in the fleet will then be notified of a new release and download it. Should `balena deploy` not find the required images on the specified docker daemon, it will automatically trigger a build.
 

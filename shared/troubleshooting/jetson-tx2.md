@@ -1,11 +1,11 @@
 ### Unable to flash a board that was previously running L4T 28.x
 
-With {{ $names.os.lower }} 2.47, the [Tegra Linux Driver Package][l4t] (L4T) was upgraded to version 32.2 from a previous version of 28.x. Trying to flash a board that was previously running L4T 28.x with an SD card containing L4T 32.2 or newer will fail. This failure happens because L4T 32.2 and newer kernels are incompatible with the eMMC partitions from L4T 28.x, and vice-versa.
+With balenaOS 2.47, the [Tegra Linux Driver Package][l4t] (L4T) was upgraded to version 32.2 from a previous version of 28.x. Trying to flash a board that was previously running L4T 28.x with an SD card containing L4T 32.2 or newer will fail. This failure happens because L4T 32.2 and newer kernels are incompatible with the eMMC partitions from L4T 28.x, and vice-versa.
 
 To resolve, either:
 
-* Perform a [self-service update][self-service-update] to update {{ $names.os.lower }} to >=2.47.
-* Update the Tegra partitions on the eMMC by [downloading the L4T Driver Package][l4t-download] (BSP), unpack it, put the board in recovery mode and execute `sudo ./flash.sh jetson-tx2 mmcblk0p1`. Once this completes, you can reboot the board with the SD card inserted and flash the board as normal. You only need to perform this process once.
+- Perform a [self-service update][self-service-update] to update balenaOS to >=2.47.
+- Update the Tegra partitions on the eMMC by [downloading the L4T Driver Package][l4t-download] (BSP), unpack it, put the board in recovery mode and execute `sudo ./flash.sh jetson-tx2 mmcblk0p1`. Once this completes, you can reboot the board with the SD card inserted and flash the board as normal. You only need to perform this process once.
 
 ### Are L4T 28.4 and 28.5 releases supported in balenaOS?
 
@@ -28,12 +28,10 @@ If the device is running, typing `uname -a` will show the L4T in the kernel vers
 
 Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section][hardware section].
 
-
-[tegra-binaries-version]:https://github.com/balena-os/balena-jetson/tree/master/layers/meta-balena-jetson/recipes-bsp/tegra-binaries
-[jetson-flash]:https://github.com/balena-os/jetson-flash
-[hardware section]:/learn/develop/hardware/i2c-and-spi/#jetson-devices
-
-[l4t]:https://developer.nvidia.com/embedded/linux-tegra
-[l4t-download]:https://developer.nvidia.com/embedded/linux-tegra-archive
-[meta-tegra]:https://github.com/OE4T/meta-tegra
-[self-service-update]:/reference/OS/updates/self-service/
+[tegra-binaries-version]: https://github.com/balena-os/balena-jetson/tree/master/layers/meta-balena-jetson/recipes-bsp/tegra-binaries
+[jetson-flash]: https://github.com/balena-os/jetson-flash
+[hardware section]: /learn/develop/hardware/i2c-and-spi/#jetson-devices
+[l4t]: https://developer.nvidia.com/embedded/linux-tegra
+[l4t-download]: https://developer.nvidia.com/embedded/linux-tegra-archive
+[meta-tegra]: https://github.com/OE4T/meta-tegra
+[self-service-update]: /reference/OS/updates/self-service/

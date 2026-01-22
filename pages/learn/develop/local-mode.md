@@ -11,7 +11,7 @@ Local mode is the development mode for balena. It allows you to build and sync c
 
 To use local mode on a device:
 
-- The device must be running \{{ $names.os.lower \}} v2.29.0 or higher.
+- The device must be running balenaOS v2.29.0 or higher.
 - The device must be running a [development](../../../reference/OS/overview/2.x#development-vs-production-images) variant of the OS.
 - You must have the [balena CLI](../../../reference/cli/) installed on your development machine.
 - Local mode must be enabled through the \{{ $names.cloud.lower \}} dashboard. You can enable it from the device _Settings_ tab.
@@ -26,7 +26,7 @@ To use local mode on a device:
 
 ## Scan the network and find your device
 
-Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the balena CLI and use `balena device detect` to find any local \{{ $names.os.lower \}} devices. All \{{ $names.os.lower \}} devices advertise themselves on the network using \[Avahi]\[avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
+Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the balena CLI and use `balena device detect` to find any local balenaOS devices. All balenaOS devices advertise themselves on the network using \[Avahi]\[avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
 
 **Note:** You may need administrator privileges to run `balena device detect` as it requires access to all network interfaces.
 

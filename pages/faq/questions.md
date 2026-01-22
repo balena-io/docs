@@ -35,7 +35,7 @@ title: FAQs
 
 ##### Can I use multiple containers?
 
-Multiple container fleets are supported, beginning with {{ $names.os.lower }} v2.12.0. To run multiple containers, you will need to have a [microservices fleet][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
+Multiple container fleets are supported, beginning with balenaOS v2.12.0. To run multiple containers, you will need to have a [microservices fleet][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
 
 If you are running a Docker-in-Docker setup, which builds a single container on the balena servers but has a `docker-compose.yml` file at the root of the project, you'll want to rename the file to something like `dind-compose.yml`. Then when you run Docker Compose in your container, you can use the `-f` flag with the new file name: `docker-compose -f dind-compose.yml up`.
 
@@ -84,11 +84,11 @@ While you’ve always been able to SSH into your container, we had previously re
 - Configuration of network device drivers, mount points, security provisions, and many other details have been carefully chosen to serve the balena ecosystem and your containers. Rogue code running in the host OS might interfere with this, leading to issues or degradation of performance which we would likely not be able to help you with.
 - When troubleshooting issues we base our assumptions on the host OS behaving as we expect it to. If you have made changes here, there's a good chance we won't be able to reproduce the issues locally and therefore won't be able to help you.
 
-However, we've heard from users that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability starting with {{ $names.os.lower }} version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your container, such as NetworkManager, Docker, cloudlink, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
+However, we've heard from users that they would still like to be able to SSH into the host OS on their devices, so we decided to add that capability starting with balenaOS version 2.7.5. This gives you access to logs and tools for services that operate outside the scope of your container, such as NetworkManager, Docker, cloudlink, and the supervisor. For more details, please check out [this documentation](/runtime/runtime/#accessing-the-host-os).
 
 ##### Which data is persisted on devices across updates/power cycles?
 
-The only data we [guarantee to be persisted][persistent-storage] across reboot, shutdown and device update/container restart is the contents of the `/data` folder, or any [named volumes][named-volumes] on devices running {{ $names.os.lower }} v2.12.0 and above.
+The only data we [guarantee to be persisted][persistent-storage] across reboot, shutdown and device update/container restart is the contents of the `/data` folder, or any [named volumes][named-volumes] on devices running balenaOS v2.12.0 and above.
 However, when a device is restarted or power cycled the container is not recreated, meaning all the data that was present in the container's filesystem before, remains.
 It's very important not to rely on this behavior, as containers are recreated on release updates, when environment variables are changed in the UI or API, or when a fleet restart is requested.
 
@@ -96,7 +96,7 @@ It's very important not to rely on this behavior, as containers are recreated on
 
 Persistent data is specific to a fleet. If you move devices between fleets running different code, then keeping persistent data from the old fleet could potentially cause issues.
 
-On devices running {{ $names.os.lower }} versions before 2.12.0, if you move the device back to the old fleet you'll find `/data` remains intact. Newer {{ $names.os.lower }} versions automatically purge named volumes when a device is moved to a new fleet.
+On devices running balenaOS versions before 2.12.0, if you move the device back to the old fleet you'll find `/data` remains intact. Newer balenaOS versions automatically purge named volumes when a device is moved to a new fleet.
 
 ##### It appears that there is a centralized master running (in cloud) and agents running on devices. Is that accurate?
 
@@ -132,17 +132,17 @@ BalenaOS comes in two flavors, a rolling release and an [Extended Support Releas
 
 ##### When are device types discontinued?
 
-Device types are [discontinued](#what-does-it-mean-when-a-device-type-is-discontinued) in {{ $names.os.lower }} based on criteria outlined [here](/pages/reference/hardware/versioning.md#discontinued)
+Device types are [discontinued](#what-does-it-mean-when-a-device-type-is-discontinued) in balenaOS based on criteria outlined [here](/pages/reference/hardware/versioning.md#discontinued)
 
 ##### What does it mean when a device type is discontinued?
 
-Discontinued devices will continue to work as usual and will be able to use all balenaCloud functionality available at the time of the last {{ $names.os.lower }} release. However, discontinued devices will no longer receive new balenaOS releases, except for [Extended Support Releases](https://www.balena.io/docs/reference/OS/extended-support-release/) that will continue to receive bug and security fixes for 9 months from the ESR release date. Balena will no longer offer support for discontinued devices on the paid support channels, but support is available in the forums.
+Discontinued devices will continue to work as usual and will be able to use all balenaCloud functionality available at the time of the last balenaOS release. However, discontinued devices will no longer receive new balenaOS releases, except for [Extended Support Releases](https://www.balena.io/docs/reference/OS/extended-support-release/) that will continue to receive bug and security fixes for 9 months from the ESR release date. Balena will no longer offer support for discontinued devices on the paid support channels, but support is available in the forums.
 
 Please contact sales@{{ $names.email_domain }} with any questions regarding continued device support.
 
 ##### I have a device that is not on the supported devices list. Can it run on balena?
 
-There are a few options for devices that do not have an official device type on balena. If your device has an x86 architecture, you can try either the [Intel NUC][nuc] image (which is built to support generic x86 devices with a minimum set of drivers), or the generic [genericx86-64][genericx86-64] image (that includes all the standard X86 drivers). For other devices, you can [build your own][build-your-own] version of {{ $names.os.lower }} using our [open source repos][balenaos]. To discuss custom board support, please contact sales@{{ $names.email_domain }}.
+There are a few options for devices that do not have an official device type on balena. If your device has an x86 architecture, you can try either the [Intel NUC][nuc] image (which is built to support generic x86 devices with a minimum set of drivers), or the generic [genericx86-64][genericx86-64] image (that includes all the standard X86 drivers). For other devices, you can [build your own][build-your-own] version of balenaOS using our [open source repos][balenaos]. To discuss custom board support, please contact sales@{{ $names.email_domain }}.
 
 ##### What to keep in mind when choosing power supply units?
 

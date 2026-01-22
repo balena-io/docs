@@ -9,7 +9,7 @@ excerpt: >-
 
 Balena uses [Docker](https://www.docker.com/) containers to manage deployment and updates. You can use one or more containers to package your services with whichever environments and tools they need to run.
 
-To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image](https://docs.docker.com/engine/understanding-docker/#/inside-docker). Whether the build process is done [on your device](../../../learn/develop/local-mode/), [on your workstation](../../../reference/cli/#build-source), or on the [balena builders](../../../learn/deploy/deployment/), the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the \{{ $names.os.lower \}} version) to kick off a running container.
+To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image](https://docs.docker.com/engine/understanding-docker/#/inside-docker). Whether the build process is done [on your device](../../../learn/develop/local-mode/), [on your workstation](../../../reference/cli/#build-source), or on the [balena builders](../../../learn/deploy/deployment/), the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the balenaOS version) to kick off a running container.
 
 **Note:** For additional information on working with Dockerfiles with balena see the [services masterclass](../../../learn/more/masterclasses/services-masterclass/).
 

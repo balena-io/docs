@@ -72,7 +72,7 @@ Setting `network_mode` to `host` allows the container to share the same network 
 
 ### Named volumes
 
-With multicontainer fleets, balena supports the use of named volumes, a feature that expands on the [persistent storage][persistent-storage] functionality used by older versions of {{ $names.os.lower }}. Named volumes can be given arbitrary names and can be linked to a directory in one or more containers. As long as every release of the fleet includes a `docker-compose.yml` and the volume name does not change, the data in the volume will persist across updates.
+With multicontainer fleets, balena supports the use of named volumes, a feature that expands on the [persistent storage][persistent-storage] functionality used by older versions of balenaOS. Named volumes can be given arbitrary names and can be linked to a directory in one or more containers. As long as every release of the fleet includes a `docker-compose.yml` and the volume name does not change, the data in the volume will persist across updates.
 
 Use the `volumes` field of the service to link a directory in your container to your named volume. The named volume should also be specified at the top level of the `docker-compose.yml`:
 
@@ -87,7 +87,7 @@ services:
       - 'resin-data:/data'
 ```
 
-For devices upgraded from older versions of {{ $names.os.lower }} to v2.12.0 or higher, a link will automatically be created from the `/data` directory of the container to the `resin-data` named volume (similar to above). This ensures fleet behavior will remain consistent across host OS versions. One notable difference is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<FLEET ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<FLEET ID>` location used with earlier host OS versions.
+For devices upgraded from older versions of balenaOS to v2.12.0 or higher, a link will automatically be created from the `/data` directory of the container to the `resin-data` named volume (similar to above). This ensures fleet behavior will remain consistent across host OS versions. One notable difference is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<FLEET ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<FLEET ID>` location used with earlier host OS versions.
 
 balena does not support the use of bind mounts at this time, aside from the ones which are provided by [feature labels][feature-labels].
 
@@ -121,14 +121,14 @@ An additional set of labels ensures device compatibility for running a service. 
 
 The following set of requirement labels are enforced via the supervisor. Each service may define one or more requirements and if any of them is not met for any non-[optional](#optional-containers) service, then [the release will be rejected][update-statuses] and no changes will be performed for the new release.
 
-| Label                                      | Description                                                                   | Valid from Supervisor |
-| ------------------------------------------ | ----------------------------------------------------------------------------- | --------------------- |
-| io.balena.features.requires.sw.supervisor  | Device Supervisor version (specified as a [version range][version-range])     | 10.16.17              |
-| io.balena.features.requires.sw.l4t         | [L4T][l4t] version (specified as a [version range][version-range])            | 10.16.17              |
-| io.balena.features.requires.hw.device-type | The [device type][device-type] as given by `BALENA_MACHINE_NAME`              | 11.1.0                |
-| io.balena.features.requires.arch.sw        | The [architecture][arch] as given by `BALENA_ARCH`                            | 14.10.11              |
-| io.balena.features.requires.sw.balena-os   | ${{ names.os.lower }} version (specified as a [version range][version-range]) | 17.4.0                |
-| io.balena.features.requires.sw.linux       | Linux kernel version (specified as a [version range][version-range])          | 17.4.0                |
+| Label                                      | Description                                                               | Valid from Supervisor |
+| ------------------------------------------ | ------------------------------------------------------------------------- | --------------------- |
+| io.balena.features.requires.sw.supervisor  | Device Supervisor version (specified as a [version range][version-range]) | 10.16.17              |
+| io.balena.features.requires.sw.l4t         | [L4T][l4t] version (specified as a [version range][version-range])        | 10.16.17              |
+| io.balena.features.requires.hw.device-type | The [device type][device-type] as given by `BALENA_MACHINE_NAME`          | 11.1.0                |
+| io.balena.features.requires.arch.sw        | The [architecture][arch] as given by `BALENA_ARCH`                        | 14.10.11              |
+| io.balena.features.requires.sw.balena-os   | balenaOS version (specified as a [version range][version-range])          | 17.4.0                |
+| io.balena.features.requires.sw.linux       | Linux kernel version (specified as a [version range][version-range])      | 17.4.0                |
 
 For example, the following composition defines requirements on the supervisor and l4t version on the first service, and on the device type and architecture on the second service.
 

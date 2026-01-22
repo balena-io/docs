@@ -8,7 +8,7 @@ Host OS SSH access gives you a handful of tools that can help you gather more in
 
 ### {{ $names.os.upper }} services
 
-{{ $names.os.upper }} uses **systemd** as its init system, and as such, almost all the fundamental components in {{ $names.os.lower }} run as systemd services. In general, some core services need to execute for a device to come online, connect to Cloudlink, download applications, and then run them:
+{{ $names.os.upper }} uses **systemd** as its init system, and as such, almost all the fundamental components in balenaOS run as systemd services. In general, some core services need to execute for a device to come online, connect to Cloudlink, download applications, and then run them:
 
 - `chronyd.service` - Responsible for NTP duties and syncing 'real' network time to the device.
 - `dnsmasq.service` - The local DNS service which is used for all host OS lookups.
@@ -70,7 +70,7 @@ $ dmesg | tail -n 100
 
 ### Monitor {{ $names.engine.lower }}
 
-beginning with version 2.9.0, {{ $names.os.lower }} includes the lightweight container engine **[{{ $names.engine.lower }}][engine-link]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to use `balena` for debugging.
+beginning with version 2.9.0, balenaOS includes the lightweight container engine **[{{ $names.engine.lower }}][engine-link]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to use `balena` for debugging.
 
 From the host OS this command will show the status of all containers:
 
@@ -84,7 +84,7 @@ You can also check the **journalctl** logs for messages related to the {{ $names
 $ journalctl --follow -n 100 -u balena
 ```
 
-**Note:** For devices with {{ $names.os.lower }} versions earlier than 2.9.0, you can replace `balena` in these commands with `docker`.
+**Note:** For devices with balenaOS versions earlier than 2.9.0, you can replace `balena` in these commands with `docker`.
 
 ### Inspect network settings
 

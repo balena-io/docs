@@ -15,7 +15,7 @@ In many situations, the code running in your container will need some way to com
 
 Inside your running container, you'll have access to a number of `BALENA_` namespaced environment variables, which provide information from the system outside the container:
 
-**Note:** On all \{{ $names.os.lower \}} versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
+**Note:** On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
 
 |           Variable           |                                                                                                                                                                                                      Description                                                                                                                                                                                                       |
 | :--------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -47,7 +47,7 @@ BALENA_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5e
 BALENA_API_KEY=deadbeef12345
 BALENA_APP_NAME=Example
 BALENA_DEVICE_NAME_AT_INIT=damp-haze
-BALENA_HOST_OS_VERSION={{ $names.os.lower }} 2.20.0
+BALENA_HOST_OS_VERSION=balenaOS 2.20.0
 BALENA_SUPERVISOR_PORT=48484
 ```
 
@@ -58,7 +58,7 @@ In some cases it's necessary to communicate with the host OS systemd to perform 
 **Note:** In multicontainer fleets, the `io.balena.features.dbus` label must be applied for each service that requires access to the D-Bus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
 
 ```
-# for balena supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
+# for balena supervisor versions 1.7.0 and newer (both balenaOS 1.x and 2.x) use this version:
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 ```
 
@@ -169,7 +169,7 @@ method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 
 
 The entry `NTPSynchronized` shows `true`, so the device is NTP synchronized. (The key `NTP` only shows whether the device is using the systemd service `systemd-timesyncd`; starting from balenaOS 2.13.1, the `chrony` service is used for time management.)
 
-**Note:** For additional D-Bus examples see the \[\{{$names.os.lower\}} masterclass]\[os-masterclass]
+**Note:** For additional D-Bus examples see the \[balenaOS masterclass]\[os-masterclass]
 
 ### Blacklisting kernel modules won't work
 
@@ -271,7 +271,7 @@ var server = app.listen(80, function () {
 
 ### Using DNS resolvers in your container
 
-In the balena host OS \[dnsmasq]\[dnsmasq-link] is used to manage DNS since \{{ $names.os.lower \}} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
+In the balena host OS \[dnsmasq]\[dnsmasq-link] is used to manage DNS since balenaOS 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
 
 ## Storage
 
@@ -302,9 +302,9 @@ Since the release of multicontainer on the balena platform we no longer recommen
 
 The recommended way for mounting external storage media (SD cards, USB sticks, external drives, etc) into a container is now through the use of `mount`. Here we include a set of recommendations that will help you get started.
 
-**\{{ $names.os.lower \}} kernel support**
+**balenaOS kernel support**
 
-Before you start it's a good idea to check if the \{{ $names.os.lower \}} kernel you are running was compiled with support for the filesystem you want to use. To do so, you can run this command on the **host** which will produce a list of supported filesystems: `cat /proc/filesystems`.
+Before you start it's a good idea to check if the balenaOS kernel you are running was compiled with support for the filesystem you want to use. To do so, you can run this command on the **host** which will produce a list of supported filesystems: `cat /proc/filesystems`.
 
 If your filesystem is not supported you can contact us through our [forums](https://forums.balena.io/) and we will be glad to help.
 
