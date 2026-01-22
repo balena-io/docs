@@ -200,7 +200,7 @@ Anything written to `stdout` and `stderr` should appear on the device's dashboar
 
 ## Network
 
-\{{ $names.engine.upper \}} supports \[host]\[network-host] and \[bridge]\[network-bridge] network modes:
+BalenaEngine supports \[host]\[network-host] and \[bridge]\[network-bridge] network modes:
 
 - Host mode allows a service to use all host network interfaces.
 - Bridge mode uses a user-defined bridge network interface, to which service containers are connected.

@@ -71,9 +71,9 @@ The balenaOS userspace packages only provide the bare essentials for running con
 
 The \{{ $names.lower.company \}} Supervisor is a lightweight container that runs on devices. Its main roles are to ensure your app is running, and keep communications with the \{{ $names.cloud.lower \}} API server, downloading new application containers and updates to existing containers as you push them in addition to sending logs to your dashboard. It also provides an \[API interface]\[supervisor], which allows you to query the update status and perform certain actions on the device.
 
-### \{{ $names.engine.upper \}}
+### BalenaEngine
 
-[\{{ $names.engine.upper\}}](https://www.balena.io/engine/) is balena's modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking. \{{ $names.engine.upper \}} supports container deltas for 10-70x more efficient bandwidth usage, has 3.5x smaller binaries, uses RAM and storage more conservatively, and focuses on atomicity and durability of container pulling.
+[BalenaEngine](https://www.balena.io/engine/) is balena's modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking. BalenaEngine supports container deltas for 10-70x more efficient bandwidth usage, has 3.5x smaller binaries, uses RAM and storage more conservatively, and focuses on atomicity and durability of container pulling.
 
 ### NetworkManager and Modem Manager
 
