@@ -44,8 +44,8 @@ This guide will walk you through the steps to create a SAML Identity Provider (I
    * In the Service Status section, ensure the new SAML app is set to `ON` for everyone or specific groups. This will those users in your organization access to login to balenaCloud via SSO.
 7. Finally, you should a custom SAML app in your Google Workspace that looks similar to this
 
-
+<figure><img src="../../../../.gitbook/assets/google-workspace-saml-app-final.png" alt=""><figcaption></figcaption></figure>
 
 ## Conclusion
 
-Congratulations! You should now have your Identity Provider (IdP) setup, head over to the balenaCloud dashboard and follow the [instructions to link an IdP](../../../../learn/accounts/enterprise-sso/#link-a-saml-identity-provider) by uploading the XML metadata file. Your team can then start using the Single Sign-On (SSO) functionality, allowing them to securely and seamlessly access the platform using their enterprise credentials.
+Congratulations! You should now have your Identity Provider (IdP) setup, head over to the balenaCloud dashboard and follow the [instructions to link an IdP](../#link-a-saml-identity-provider) by uploading the XML metadata file. Your team can then start using the Single Sign-On (SSO) functionality, allowing them to securely and seamlessly access the platform using their enterprise credentials.

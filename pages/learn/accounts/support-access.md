@@ -21,19 +21,27 @@ This ensures that a device under investigation cannot be unnecessarily altered o
 
 Once support access has been granted, a support agent will be able to use the UUID of a device to gain access to it. Support access is enabled via SSH over cloudlink, so the device must be online and connected to cloudlink. Alternatively, it may be possible to access a problematic device from a gateway device operating on the same network.
 
-**Note:** It is possible to disable support access functionality by removing the balena SSH public key from the device. However, this will render the device inaccessible remotely for the purposes of support and updates to the host OS. For more details see our [security documentation](../../../learn/welcome/security/#support-access).
+{% hint style="warning" %}
+It is possible to disable support access functionality by removing the balena SSH public key from the device. However, this will render the device inaccessible remotely for the purposes of support and updates to the host OS. For more details see our [security documentation](../welcome/security.md#support-access).
+{% endhint %}
 
 ### Grant support access for a device
 
 To enable support access for a single device, select the _Actions_ menu in the Device dashboard, and choose the _Grant Support Access_ button and choose the period to grant device access. You may revoke access at any time by selecting _Revoke Support Access_ on the same page.
 
+<figure><img src="../../.gitbook/assets/enable-support-access-device.png" alt=""><figcaption></figcaption></figure>
+
 ### Grant support access for a fleet
 
 To enable support access for all devices in a fleet, select the _Grant Support Access_ from the _Settings_ menu of the Fleet dashboard, and choose the period to grant access. This may be revoked at any time by selecting _Revoke Support Access_ on the same page.
 
+<figure><img src="../../.gitbook/assets/enable-support-access-fleet.png" alt=""><figcaption></figcaption></figure>
+
 ### Grant support access for a block
 
 To enable support access for block, select the _Grant Support Access_ from the _Settings_ menu of the block dashboard, and choose the period to grant access. This may be revoked at any time by selecting _Revoke Support Access_ on the same page.
+
+<figure><img src="../../.gitbook/assets/enable-support-block.png" alt=""><figcaption></figcaption></figure>
 
 ### Grant support access using the CLI
 
@@ -43,5 +51,5 @@ To grant or revoke support access for devices or fleets, use the `balena support
 
 If you find yourself stuck or confused, help is just a click away:
 
-- The \[balenaCloud]\(https://forums.balena.io/c/product-support) section of the forums is where our engineers address any issues you may be having with balena.
-- You can read more about our \[approach to support]\(https://balena.io/support).
+* The [balenaCloud](https://forums.balena.io/c/product-support) section of the forums is where our engineers address any issues you may be having with balena.
+* You can read more about our [approach to support](https://balena.io/support).
