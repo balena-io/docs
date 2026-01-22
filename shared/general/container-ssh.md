@@ -78,7 +78,7 @@ see [balena device tunnel][balena-tunnel].
 The SSH server of a balenaOS device (host OS) listens on TCP port `22222`.
 This port is not blocked by any firewall on the device itself, but external firewalls or NAT
 routers will often block access at the network level. To get around this, you can use the
-`balena device tunnel` command of the {{ $names.cli.lower }}, which tunnels a
+`balena device tunnel` command of the balena CLI, which tunnels a
 TCP connection between a localhost port and a port on the device. For example, the following
 command maps local port `4321` to remote port `22222` on the device:
 

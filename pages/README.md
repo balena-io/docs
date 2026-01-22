@@ -50,13 +50,13 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 When complete, after a minute or two the device should appear on your balenaCloud \[dashboard]\(\{{ $links.dashboardUrl \}}), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our \[troubleshooting guide for \{{ $device.name \}}]\[troubleshooting-\{{ $device.id \}}] or try our \[support channels]\[support].
 
-## Install the \{{ $names.cli.lower \}}
+## Install the balena CLI
 
-Now that you have an `operational` device in your fleet, it's time to deploy some code. We will use the \{{ $names.cli.lower \}} for this. Follow the instructions below to install balenaCLI for the operating system available on your system. Skip the next part if you have balena CLI already installed.
+Now that you have an `operational` device in your fleet, it's time to deploy some code. We will use the balena CLI for this. Follow the instructions below to install balenaCLI for the operating system available on your system. Skip the next part if you have balena CLI already installed.
 
 \{{import "getting-started/cliInstructions"\}}
 
-After \{{ $names.cli.lower \}} is installed, login to your balena account using the `balena login` command on the terminal:
+After balena CLI is installed, login to your balena account using the `balena login` command on the terminal:
 
 ```shell
 $ balena login
@@ -79,12 +79,12 @@ You will be asked to choose an authentication method, choose _Web authorization_
 
 ## Create a release
 
-After login, test the \{{ $names.cli.lower \}} by running the `balena fleet list` command, which should return information about the fleet you created in the previous step. Take a note of the fleet `NAME` as you'll need this in the next step to push the code to your device(s) in that fleet.
+After login, test the balena CLI by running the `balena fleet list` command, which should return information about the fleet you created in the previous step. Take a note of the fleet `NAME` as you'll need this in the next step to push the code to your device(s) in that fleet.
 
 ```shell
 $ balena fleets
 ID    NAME         SLUG                                 DEVICE TYPE           DEVICE COUNT   ONLINE DEVICES
-98264 First-Fleet  {{ $names.cli.lower }}/first-fleet    {{ $device.name }}    0              0
+98264 First-Fleet  balena CLI/first-fleet    {{ $device.name }}    0              0
 ```
 
 A nice project to try is the \[balena-\{{ $language.id \}}-hello-world]\[balena-\{{ $language.id \}}-hello-world] project. It's a \{{ $language.name \}} web server that serves a static page on port 80. To get started, \[download the project]\[github-download-\{{ $language.id \}}] as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
@@ -174,7 +174,7 @@ The same build process as before is carried out, but this time instead of using 
 [Live]    Device state settled
 ```
 
-The \{{ $names.cli.lower \}} will now watch for changes to all the files within the project, and automatically push changes to the device when detected. Let's try making a change to title of our balena welcome page. Navigate to the `index.html` file present in the `static` directory of the project. Open the file and change the title from `Welcome to balena!` to `Hello balena!` and save the file. After saving the changes, you can observe \{{ $names.cli.lower \}} automatically start rebuilding only the parts of the Dockerfile that has been changed.
+The balena CLI will now watch for changes to all the files within the project, and automatically push changes to the device when detected. Let's try making a change to title of our balena welcome page. Navigate to the `index.html` file present in the `static` directory of the project. Open the file and change the title from `Welcome to balena!` to `Hello balena!` and save the file. After saving the changes, you can observe balena CLI automatically start rebuilding only the parts of the Dockerfile that has been changed.
 
 ```shell
 [Live]    Detected changes for container hello-world, updating...
@@ -197,7 +197,7 @@ When it's finished building the device(s) will update as before. Remember anythi
 - Learn more about \[local mode]\[local-mode], which allows you to build and sync code to your device locally for rapid development.
 - Develop an application with \[multiple containers]\[multicontainer] to provide a more modular approach to fleet management.
 - Manage your device fleet with the use of \[configuration]\[configuration], \[environment]\[service], and \[service variables]\[service].
-- Find out more about the \[\{{ $names.cli.lower \}}]\[cli] and the functionality it offers.
+- Find out more about the \[balena CLI]\[cli] and the functionality it offers.
 - Visit our blog to find step-by-step tutorials for some \[classic balena projects]\[projects].
 - To publish what you will build or have already built, head over to \[balenaHub]\[balenahub].
 - If you find yourself stuck or confused, help is just a \[click away]\[help].
