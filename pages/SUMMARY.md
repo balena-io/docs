@@ -50,7 +50,7 @@
   - [Data collected by balena](learn/more/collected-data.md)
   - [Balena Glossary](learn/more/glossary.md)
   - [examples](learn/more/examples/README.md)
-    - [\{{ $names.blocks.lower \}} built for balenaCloud](learn/more/examples/balenablocks.md)
+    - [balenaBlocks built for balenaCloud](learn/more/examples/balenablocks.md)
     - [Balena example projects](learn/more/examples/example-projects.md)
     - [Projects built on balena](learn/more/examples/labs-projects.md)
   - [masterclasses](learn/more/masterclasses/README.md)
