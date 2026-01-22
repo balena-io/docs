@@ -66,8 +66,8 @@ This section provides step-by-step instructions for setting up SAML 2.0 with Mic
 #### Download Federation Metadata XML
 
 1. On your SAML-based Sign-on app page, look for the Download link for Federation Metadata XML.
-2. Download this XML file to use later in [setting up your SAML IdP in balenaCloud](microsoft-entra-saml-setup.md#link-a-saml-identity-provider).
+2. Download this XML file to use later in [setting up your SAML IdP in balenaCloud](../enterprise-sso.md#link-a-saml-identity-provider).
 
 <figure><img src="../../../.gitbook/assets/download-metadata-xml.png" alt=""><figcaption></figcaption></figure>
 
-Congratulations! You should now have your Identity Provider (IdP) setup, head over to the balenaCloud dashboard and follow the [instructions to link an IdP](../../../../learn/accounts/enterprise-sso/#link-a-saml-identity-provider) by uploading the XML metadata file. Your team can then start using the Single Sign-On (SSO) functionality, allowing them to securely and seamlessly access the platform using their enterprise credentials.
+Congratulations! You should now have your Identity Provider (IdP) setup, head over to the balenaCloud dashboard and follow the [instructions to link an IdP](../enterprise-sso.md#link-a-saml-identity-provider) by uploading the XML metadata file. Your team can then start using the Single Sign-On (SSO) functionality, allowing them to securely and seamlessly access the platform using their enterprise credentials.
