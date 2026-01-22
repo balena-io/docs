@@ -167,8 +167,7 @@ BalenaOS currently offers the following choice of generic architecture images:
 
 The Intel NUC images are images purposely built to match the Intel NUC hardware. They will probably work on other x86_64 device but lack support for hardware that is not available on Intel NUCs. Modern Intel NUCs are better supported using the [Generic Architecture Images](#what-are-generic-architecture-images) described above.
 
-[forums]:{{ $names.forums_domain }}/c/troubleshooting
-
+[forums]: https://forums.balena.io/c/troubleshooting
 [device-types]: /reference/base-images/devicetypes
 [base-image]: /reference/base-images/balena-base-images
 [dockerfile]: /learn/develop/dockerfile

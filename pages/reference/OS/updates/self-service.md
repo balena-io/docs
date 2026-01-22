@@ -37,4 +37,4 @@ If your balenaOS update fails for any reason, the device should still be recover
 
 Check out our \[update process]\[update-process] to understand how the process goes through each step.
 
-\[forums]:\{{ $names.forums_domain \}}/ \[troubleshooting]:\{{ $names.forums_domain \}}/c/troubleshooting \[update-process]:/updates/update-process/
+\[forums]:https://forums.balena.io/ \[troubleshooting]:https://forums.balena.io/c/troubleshooting \[update-process]:/updates/update-process/
