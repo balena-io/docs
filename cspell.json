@@ -47,6 +47,13 @@
         "node_modules",
         "CHANGELOG.md",
         "config/redirects.txt",
-        "pages/reference/base-images/base-images-ref.md"
+        "pages/reference/base-images/base-images-ref.md",
+        "shared/balena-sdk-versions/",
+        "shared/balena-sdk-python-versions/",
+        "shared/balena-cli-versions/",
+        "pages/reference/supervisor/supervisor-api.md",
+        "shared/meta-balena/config-json.md",
+        "shared/masterclass/debugging",
+        "pages/learn/more/masterclasses/"
     ]
 }

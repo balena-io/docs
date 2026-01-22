@@ -5,6 +5,7 @@ balena-base-ui
 balena-build
 balena-builder
 balenacli
+balenad
 balenahup
 balenalabs
 balenalib

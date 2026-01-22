@@ -474,3 +474,9 @@ yocto
 Yocto
 zenbook
 zerotier
+crashlooping
+grubenv
+logwatcher
+moby
+programatically
+Snapcast
