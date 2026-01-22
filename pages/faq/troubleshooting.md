@@ -4,10 +4,9 @@ title: Troubleshooting
 layout: troubleshooting.html
 
 dynamic:
-  variables: [ $device ]
+  variables: [$device]
   ref: $original_ref/$device
   $switch_text: I need help with $device
-
 ---
 
 # Troubleshooting information for {{$device.name}}
@@ -18,18 +17,21 @@ When you push updates, the terminal session is automatically closed. To restart 
 
 ### Can't Login to the Dashboard
 
-In some cases social logins can be disrupted or completely borked by Adblocker or browser extensions such as [BrowserShark](https://chrome.google.com/webstore/detail/browsershark/jhbjnipjccjloncefdoknhicbnbjaefh?hl=en). Make sure to disable these extensions or whitelist the `*.{{ $names.cloud_domain }}` domains.
+In some cases social logins can be disrupted or completely borked by Adblocker or browser extensions such as [BrowserShark](https://chrome.google.com/webstore/detail/browsershark/jhbjnipjccjloncefdoknhicbnbjaefh?hl=en). Make sure to disable these extensions or whitelist the `*.balena-cloud.com` domains.
 
 ### I get `$'\r': command not found` when my device tries to run scripts
+
 Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like:
 /usr/src/app/run.sh: line 2: $'\r': command not found
 
 To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look here: https://help.github.com/articles/dealing-with-line-endings/#platform-windows.
 
 ### Device keeps dropping off wifi
+
 If your device keeps dropping offline, it may be worth switching to a 5GHz band wifi dongle, as we have seen cases where 2.4GHz gets badly affected by surrounding noise.
 
 ### Unsupported Syscall: 384 from qemu on builder
+
 The qemu: Unsupported syscall: 384 is a warning that the getrandom(2) system call is not implemented by our emulation layer, qemu. It can be safely ignored. Since it's a fairly new system call (introduced in kernel 3.17), `apt` and almost all programs automatically fall back to reading from `/dev/urandom` when this syscall fails.
 
 ### Help! My device won't show up.
@@ -45,13 +47,13 @@ If you still can't get your device online, come on over and talk to us on our [s
 ### This is the wrong balena device.
 
 If you see this error, there are several potential causes, including:
+
 - The config.json file is missing or corrupted
 - The UUID in the config.json file does not match the device's UUID
   - This could be caused by config.json corruption or storage corruption
 - You are attempting to SSH into a device using the wrong IP address
 
 Please contact [balena support][usingSupport] if you encounter this issue so that we can investigate the root cause.
-
 
 [dashboard]:{{ $links.dashboardUrl }}/
 [networkRequirements]:/reference/OS/network/2.x/#network-requirements

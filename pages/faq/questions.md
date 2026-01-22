@@ -47,7 +47,7 @@ Regardless of type, all devices in your fleet will get the same container images
 
 ##### How do I push a new git repo to a fleet?
 
-If you have pushed a repository called `project-A` to your fleet and at a later stage you would like to push a new project called `project-B`, you can do this by adding the remote (`git remote add balena <USERNAME>@git.{{ $names.cloud_domain }}:<USERNAME>/<APPNAME>.git`) to `project-B`'s local repository. You can then easily push `project-B` to your fleet by just doing `git push balena master -f`. The extra `-f` on the command forces the push and resets the git history on the git remote on balena's backend. You should now have `project-B` running on all the devices in the fleet. Note that once you have successfully switched to `project-B` you no longer need to add the `-f` on every push, for more info check out the docs on [forced git pushes](https://git-scm.com/docs/git-push#git-push--f).
+If you have pushed a repository called `project-A` to your fleet and at a later stage you would like to push a new project called `project-B`, you can do this by adding the remote (`git remote add balena <USERNAME>@git.balena-cloud.com:<USERNAME>/<APPNAME>.git`) to `project-B`'s local repository. You can then easily push `project-B` to your fleet by just doing `git push balena master -f`. The extra `-f` on the command forces the push and resets the git history on the git remote on balena's backend. You should now have `project-B` running on all the devices in the fleet. Note that once you have successfully switched to `project-B` you no longer need to add the `-f` on every push, for more info check out the docs on [forced git pushes](https://git-scm.com/docs/git-push#git-push--f).
 
 ##### Why does /data report weird usage?
 
@@ -138,11 +138,11 @@ Device types are [discontinued](#what-does-it-mean-when-a-device-type-is-discont
 
 Discontinued devices will continue to work as usual and will be able to use all balenaCloud functionality available at the time of the last balenaOS release. However, discontinued devices will no longer receive new balenaOS releases, except for [Extended Support Releases](https://www.balena.io/docs/reference/OS/extended-support-release/) that will continue to receive bug and security fixes for 9 months from the ESR release date. Balena will no longer offer support for discontinued devices on the paid support channels, but support is available in the forums.
 
-Please contact sales@{{ $names.email_domain }} with any questions regarding continued device support.
+Please contact sales@balena.io with any questions regarding continued device support.
 
 ##### I have a device that is not on the supported devices list. Can it run on balena?
 
-There are a few options for devices that do not have an official device type on balena. If your device has an x86 architecture, you can try either the [Intel NUC][nuc] image (which is built to support generic x86 devices with a minimum set of drivers), or the generic [genericx86-64][genericx86-64] image (that includes all the standard X86 drivers). For other devices, you can [build your own][build-your-own] version of balenaOS using our [open source repos][balenaos]. To discuss custom board support, please contact sales@{{ $names.email_domain }}.
+There are a few options for devices that do not have an official device type on balena. If your device has an x86 architecture, you can try either the [Intel NUC][nuc] image (which is built to support generic x86 devices with a minimum set of drivers), or the generic [genericx86-64][genericx86-64] image (that includes all the standard X86 drivers). For other devices, you can [build your own][build-your-own] version of balenaOS using our [open source repos][balenaos]. To discuss custom board support, please contact sales@balena.io.
 
 ##### What to keep in mind when choosing power supply units?
 

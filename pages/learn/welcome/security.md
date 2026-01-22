@@ -121,4 +121,4 @@ The balena backend services, with the exception of the ARM image builders, are h
 
 ## Conclusion
 
-The safety and security of your data and devices is crucial to us at balena. We do everything in our power to keep our services secure and transparent. If you have any questions about our security or want to engage in our [responsible disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure) process, please contact us at [security@{{ $names.email_domain }}](mailto:security@{{ $names.email_domain }}) and we will answer in detail.
+The safety and security of your data and devices is crucial to us at balena. We do everything in our power to keep our services secure and transparent. If you have any questions about our security or want to engage in our [responsible disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure) process, please contact us at [security@balena.io](mailto:security@balena.io) and we will answer in detail.

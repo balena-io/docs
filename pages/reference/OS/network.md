@@ -469,9 +469,9 @@ Each of these should work with outward only (and inward once outward connection 
 
 Additionally, you should allowlist the following domains for the relevant ports above:
 
-- `*.{{ $names.cloud_domain }}`
+- `*.balena-cloud.com`
 
-For older devices using `*.resin.io`, a `301 Moved Permanently` redirection to `*.{{ $names.cloud_domain }}` is in place so they remain compatible. Your systems should be able to handle this redirect so they can connect to the API.
+For older devices using `*.resin.io`, a `301 Moved Permanently` redirection to `*.balena-cloud.com` is in place so they remain compatible. Your systems should be able to handle this redirect so they can connect to the API.
 
 Example:
 
