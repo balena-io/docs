@@ -3,11 +3,11 @@ title: Update process details
 excerpt: Details of the {{ $names.os.lower }} self-service update process
 ---
 
-# What happens during a {{ $names.company.lower }} host OS update?
+# What happens during a balena host OS update?
 
-The ability to remotely update the entire host operating system (OS) of your device, rather than just the user application, is a core feature of {{ $names.company.lower }}. Performing updates may feel like an opaque process, so we thought it would be useful to break it down.
+The ability to remotely update the entire host operating system (OS) of your device, rather than just the user application, is a core feature of balena. Performing updates may feel like an opaque process, so we thought it would be useful to break it down.
 
-__Note:__ Once a host OS update is successful, it is not possible to roll back to a previous OS version (except via [automatic rollbacks](#automatic-rollbacks) as noted below).
+**Note:** Once a host OS update is successful, it is not possible to roll back to a previous OS version (except via [automatic rollbacks](#automatic-rollbacks) as noted below).
 
 In general, host OS updates are meant to be atomic: if an update is run, it either finishes correctly or it fails and leaves the system in its previous, usable state. If deploying the new root file system is unsuccessful, the boot settings are not switched over to the new partition. This means the device can be rebooted with the previous OS version and no noticeable changes. For failures related to the boot partition, the latest versions of {{ $names.os.lower }} have a rollback feature that will leave the partition in a good state. In the update process, an updater script gets transferred to the device to handle the update process, as described in detail below.
 
@@ -29,6 +29,7 @@ Rollbacks is a framework designed to automatically roll back the OS update in ca
 
 There are two rollback mechanisms in the OS, covering different update failure modes. One based on health checks called the `rollback-health`, and the recognizing if the new system is unbootable for some reason, the `rollback-altboot`. Learn more about [rollback mechanisms][rollback-mechanism].
 
-[changes]:/reference/OS/updates/migrate-to-2.0/
+[changes]: /reference/OS/updates/migrate-to-2.0/
+
 [wifi-connect]:{{ $links.githubOS }}/wifi-connect
 [rollback-mechanism]:/reference/OS/updates/rollbacks/

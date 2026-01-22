@@ -1,8 +1,7 @@
 ---
 title: Communicate outside the container
 excerpt: >-
-  Talk to the host OS, supervisor, and network from within a {{
-  $names.company.lower }} container
+  Talk to the host OS, supervisor, and network from within a balena container
 thumbnail: /img/common/device/running-webterminal-session.webp
 ---
 
@@ -18,21 +17,21 @@ Inside your running container, you'll have access to a number of `{{ $names.comp
 
 **Note:** On all \{{ $names.os.lower \}} versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
 
-|                      Variable                      |                                                                                                                                                                                                                                        Description                                                                                                                                                                                                                                       |
-| :------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|     `{{ $names.company.allCaps }}_DEVICE_UUID`     |                                                                                                                                                                                       The unique identification number for the device. This is used to identify it on \{{ $names.company.lower \}}                                                                                                                                                                                       |
-|        `{{ $names.company.allCaps }}_APP_ID`       |                                                                                                                                                                                                       ID number of the \{{ $names.company.lower \}} fleet the device is associated.                                                                                                                                                                                                      |
-|       `{{ $names.company.allCaps }}_APP_NAME`      |                                                                                                                                                                                                     The name of the \{{ $names.company.lower \}} fleet the device is associated with.                                                                                                                                                                                                    |
-| `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |                                                                                                                                                                                                                      The name of the device on first initialization.                                                                                                                                                                                                                     |
-|     `{{ $names.company.allCaps }}_DEVICE_TYPE`     |                                                                                                                                                                                                                        The type of device the fleet is running on.                                                                                                                                                                                                                       |
-|           `{{ $names.company.allCaps }}`           |                                                                                                                                                                     The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a \{{ $names.company.lower \}} device.                                                                                                                                                                    |
-|  `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` |                                                                Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference](../../../runtime/supervisor-api/) for detailed usage. For multicontainer the service needs the \[io.\{{ $names.company.lower \}}.features.supervisor-api]\[labels-link] label set.                                                                |
-|  `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` |                                                                                                                                        The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the \[io.\{{ $names.company.lower \}}.features.supervisor-api]\[labels-link] label set.                                                                                                                                        |
-|   `{{ $names.company.allCaps }}_SUPERVISOR_HOST`   |                                                                                                                                                                The IP address of the supervisor API. Default: `127.0.0.1`. For multicontainer the service needs the \[io.resin.features.supervisor-api]\[labels-link] set                                                                                                                                                                |
-|   `{{ $names.company.allCaps }}_SUPERVISOR_PORT`   |                                                                                                                                              The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the \[io.\{{ $names.company.lower \}}.features.supervisor-api]\[labels-link] label set.                                                                                                                                              |
-|       `{{ $names.company.allCaps }}_API_KEY`       | API key which can be used to authenticate requests to the \{{ $names.company.lower \}} backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation](../../../learn/welcome/security/) for more details. For multicontainer the service needs the \[io.\{{ $names.company.lower \}}.features.\{{ $names.company.lower \}}-api]\[labels-link] label set. |
-|   `{{ $names.company.allCaps }}_HOST_OS_VERSION`   |                                                                                                                                                                                                                                The version of the host OS.                                                                                                                                                                                                                               |
-|    `{{ $names.company.allCaps }}_DEVICE_RESTART`   |                                                                                                                                                                             This is an internal mechanism for restarting containers and can be ignored as it's not very useful to app code. Example: `1.13.0`                                                                                                                                                                            |
+|                      Variable                      |                                                                                                                                                                                                      Description                                                                                                                                                                                                       |
+| :------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|     `{{ $names.company.allCaps }}_DEVICE_UUID`     |                                                                                                                                                                 The unique identification number for the device. This is used to identify it on balena                                                                                                                                                                 |
+|       `{{ $names.company.allCaps }}_APP_ID`        |                                                                                                                                                                                ID number of the balena fleet the device is associated.                                                                                                                                                                                 |
+|      `{{ $names.company.allCaps }}_APP_NAME`       |                                                                                                                                                                              The name of the balena fleet the device is associated with.                                                                                                                                                                               |
+| `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |                                                                                                                                                                                    The name of the device on first initialization.                                                                                                                                                                                     |
+|     `{{ $names.company.allCaps }}_DEVICE_TYPE`     |                                                                                                                                                                                      The type of device the fleet is running on.                                                                                                                                                                                       |
+|           `{{ $names.company.allCaps }}`           |                                                                                                                                              The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a balena device.                                                                                                                                               |
+| `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY`  |                                          Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference](../../../runtime/supervisor-api/) for detailed usage. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                          |
+| `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS`  |                                                                                                                  The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                                  |
+|   `{{ $names.company.allCaps }}_SUPERVISOR_HOST`   |                                                                                                                               The IP address of the supervisor API. Default: `127.0.0.1`. For multicontainer the service needs the \[io.resin.features.supervisor-api]\[labels-link] set                                                                                                                               |
+|   `{{ $names.company.allCaps }}_SUPERVISOR_PORT`   |                                                                                                                        The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                                        |
+|       `{{ $names.company.allCaps }}_API_KEY`       | API key which can be used to authenticate requests to the balena backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation](../../../learn/welcome/security/) for more details. For multicontainer the service needs the \[io.balena.features.balena-api]\[labels-link] label set. |
+|   `{{ $names.company.allCaps }}_HOST_OS_VERSION`   |                                                                                                                                                                                              The version of the host OS.                                                                                                                                                                                               |
+|   `{{ $names.company.allCaps }}_DEVICE_RESTART`    |                                                                                                                                           This is an internal mechanism for restarting containers and can be ignored as it's not very useful to app code. Example: `1.13.0`                                                                                                                                            |
 
 Here's an example from a Raspberry Pi 3:
 
@@ -54,17 +53,17 @@ root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
 
 ### D-Bus communication with host OS
 
-In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use \[dbus]\[dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all D-Bus communication. The setting of that environment variable is different for older and newer devices (based on the \{{ $names.company.lower \}} supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
+In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use \[dbus]\[dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all D-Bus communication. The setting of that environment variable is different for older and newer devices (based on the balena supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
 **Note:** In multicontainer fleets, the `io.balena.features.dbus` label must be applied for each service that requires access to the D-Bus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
 
 ```
-# for {{ $names.company.lower }} supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
+# for balena supervisor versions 1.7.0 and newer (both {{ $names.os.lower }} 1.x and 2.x) use this version:
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 ```
 
 ```
-# for {{ $names.company.lower }} supervisor before 1.7.0 use this version:
+# for balena supervisor before 1.7.0 use this version:
 DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host_run/dbus/system_bus_socket
 ```
 
@@ -203,8 +202,8 @@ Anything written to `stdout` and `stderr` should appear on the device's dashboar
 
 \{{ $names.engine.upper \}} supports \[host]\[network-host] and \[bridge]\[network-bridge] network modes:
 
-* Host mode allows a service to use all host network interfaces.
-* Bridge mode uses a user-defined bridge network interface, to which service containers are connected.
+- Host mode allows a service to use all host network interfaces.
+- Bridge mode uses a user-defined bridge network interface, to which service containers are connected.
 
 Any service that uses host networking does not have to define ports for traffic ingress, and a service can bind to all interfaces of the host. Single container releases always use host networking.
 
@@ -226,18 +225,18 @@ services:
   frontend:
     build: ./frontend
     expose:
-      - "80"
+      - '80'
   proxy:
     build: ./haproxy
     depends_on:
       - frontend
       - data
     ports:
-      - "80:80"
+      - '80:80'
   data:
     build: ./data
     expose:
-      - "8080"
+      - '8080'
 ```
 
 **Note:** Exposing ports via the expose keyword is optional and a way of documenting which ports are used, but does not map or open any ports. By default, services on the same bridge network have access to all other services' ports.
@@ -246,37 +245,33 @@ For multicontainer releases, setting the service `network_mode` to `host` in `do
 
 \{{ $names.company.upper \}} `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` \[keyword]\[network-aliases] for providing alias names for services (including FQDNs) and \[IPAM bridge networks]\[network-ipam] are also supported.
 
-**Note:** For more information on networking with \{{ $names.company.lower \}}, see the \[\{{ $names.company.lower \}} services masterclass]\[services-masterclass].
+**Note:** For more information on networking with balena, see the \[balena services masterclass]\[services-masterclass].
 
 ### Public device URLS
 
 \{{ $names.company.upper \}} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the \{{ $names.cloud.lower \}} dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../../../management/devices/#enable-public-device-url)
 
-
-
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js](https://expressjs.com/) server which will serve to the devices URL.
 
 ```javascript
-var express = require('express')
-var app = express()
+var express = require('express');
+var app = express();
 
 app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+	res.send('Hello World!');
+});
 
 var server = app.listen(80, function () {
+	var host = server.address().address;
+	var port = server.address().port;
 
-  var host = server.address().address
-  var port = server.address().port
-
-  console.log('Example app listening at http://%s:%s', host, port)
-
-})
+	console.log('Example app listening at http://%s:%s', host, port);
+});
 ```
 
 ### Using DNS resolvers in your container
 
-In the \{{ $names.company.lower \}} host OS \[dnsmasq]\[dnsmasq-link] is used to manage DNS since \{{ $names.os.lower \}} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
+In the balena host OS \[dnsmasq]\[dnsmasq-link] is used to manage DNS since \{{ $names.os.lower \}} 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
 
 ## Storage
 
@@ -303,7 +298,7 @@ services:
 
 ### Mounting external storage media
 
-Since the release of multicontainer on the \{{ $names.company.lower \}} platform we no longer recommend the use of an initsystem in the container. This affects the way we deal with external storage since previously we relied on `systemd`/`OpenRC` and `/etc/fstab`.
+Since the release of multicontainer on the balena platform we no longer recommend the use of an initsystem in the container. This affects the way we deal with external storage since previously we relied on `systemd`/`OpenRC` and `/etc/fstab`.
 
 The recommended way for mounting external storage media (SD cards, USB sticks, external drives, etc) into a container is now through the use of `mount`. Here we include a set of recommendations that will help you get started.
 
@@ -317,9 +312,9 @@ If your filesystem is not supported you can contact us through our [forums](http
 
 In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](https://www.balena.io/docs/reference/base-images/balena-base-images/#working-with-dynamically-plugged-devices) by:
 
-* Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file.
-* Adding `ENV UDEV=on` to your container's `Dockerfile`.
-* Running the entrypoint as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
+- Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file.
+- Adding `ENV UDEV=on` to your container's `Dockerfile`.
+- Running the entrypoint as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
 
 This will ensure that the host propagates udev events into the container, enabling us to manipulate the device from within it.
 

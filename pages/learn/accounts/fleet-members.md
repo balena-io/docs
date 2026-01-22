@@ -9,9 +9,9 @@ When a fleet needs to be shared with more than one user, the fleet owner can add
 | Member Type   | [Add members](../../../learn/accounts/organizations/#managing-roles--access-in-an-organization) | Delete App | Add/Remove device | Manage provisioning keys | [Device specific actions](../../../learn/manage/actions/) | [Tags](../../../learn/manage/filters-tags/) | [Variables](../../../learn/manage/serv-vars/) | [SSH access](../../../learn/manage/ssh-access/) | [Push](../../../learn/deploy/deployment/) | [Configuration](../../../learn/manage/configuration/) | [Fleet specific actions](../../../learn/manage/actions/#fleet-specific-actions) |
 | ------------- | :---------------------------------------------------------------------------------------------: | ---------: | ----------------: | -----------------------: | --------------------------------------------------------: | ------------------------------------------: | --------------------------------------------: | ----------------------------------------------: | ----------------------------------------: | ----------------------------------------------------: | ------------------------------------------------------------------------------: |
 | Administrator |                                               Yes                                               |        Yes |               Yes |                      Yes |                                                       Yes |                                         Yes |                                           Yes |                                             Yes |                                       Yes |                                                   Yes |                                                                             Yes |
-| Developer     |                                                No                                               |         No |               Yes |                      Yes |                                                       Yes |                                         Yes |                                           Yes |                                             Yes |                                       Yes |                                                   Yes |                                                                             Yes |
-| Operator      |                                                No                                               |         No |               Yes |                      Yes |                                                       Yes |                                         Yes |                                           Yes |                                             Yes |                                        No |                                                    No |                                                                              No |
-| Observer      |                                                No                                               |         No |                No |                       No |                                                        No |                                          No |                                            No |                                              No |                                        No |                                                    No |                                                                              No |
+| Developer     |                                               No                                                |         No |               Yes |                      Yes |                                                       Yes |                                         Yes |                                           Yes |                                             Yes |                                       Yes |                                                   Yes |                                                                             Yes |
+| Operator      |                                               No                                                |         No |               Yes |                      Yes |                                                       Yes |                                         Yes |                                           Yes |                                             Yes |                                        No |                                                    No |                                                                              No |
+| Observer      |                                               No                                                |         No |                No |                       No |                                                        No |                                          No |                                            No |                                              No |                                        No |                                                    No |                                                                              No |
 
 #### Administrator
 
@@ -33,25 +33,15 @@ Developers are given, in addition to the access provided to operators, the abili
 
 To add a new member to your fleet, click on the _Members_ tab of the fleet:
 
-
-
 This brings up a list of all fleet members, if any have been assigned. Click on the _Add member_ button in the top left:
-
-
 
 The _Add member_ dialog has a dropdown with descriptions of the member types, as well as information about which types are available based on your billing plan. Choose a level of access, then enter the username or email address of the new member:
 
-
-
-**Note:** Fleet members must have already \[signed up]\[signup] for a \{{ $names.company.lower \}} account before they can be added to a fleet.
+**Note:** Fleet members must have already \[signed up]\[signup] for a balena account before they can be added to a fleet.
 
 After you click _Add_, you will see the username of the new member in the list. From here, you can edit access levels or remove the user if necessary:
 
-
-
 All users that have been added to a fleet will see that fleet in their dashboard, with an indicator to designate it has been shared by the fleet owner:
-
-
 
 Fleet members will have the option to remove themselves from a fleet by clicking on the members tab, selecting the checkbox by their name from the member list, clicking on the _Modify_ button, and selecting _Delete member_.
 

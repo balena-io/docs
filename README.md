@@ -1,6 +1,6 @@
 # balenaCloud Documentation
 
-![GitHub tag](https://img.shields.io/github/v/tag/balena-io/docs)  ![GitHub issues](https://img.shields.io/github/issues/balena-io/docs)  ![GitHub License](https://img.shields.io/github/license/balena-io/docs)
+![GitHub tag](https://img.shields.io/github/v/tag/balena-io/docs) ![GitHub issues](https://img.shields.io/github/issues/balena-io/docs) ![GitHub License](https://img.shields.io/github/license/balena-io/docs)
 
 Documentation for the [balenaCloud](https://balena.io/) platform lives here.  
 Join our [forums](https://forums.balena.io/) to chat.
@@ -9,7 +9,7 @@ This repo intends to provide our public-facing documentation. To view the docume
 
 ## Getting Started
 
-To get started for contributing to balenaCloud documentation, follow the steps below: 
+To get started for contributing to balenaCloud documentation, follow the steps below:
 
 ```bash
 git clone https://github.com/balena-io/docs.git
@@ -57,7 +57,7 @@ _Note_ that you have to restart the development server if you edit other things 
 If you think a part is not documented, is outdated, or can be improved on the [docs](https://docs.balena.io), don't hesitate to send a PR! Check our [CONTRIBUTING document](CONTRIBUTING.md) for the guidelines to ensure your PR can be merged as quickly as possible.
 One can open or check existing issues on [GitHub issues](https://github.com/balena-io/docs/issues). Looking forward to seeing your contributions!
 
-> Pro tip: Use the "Improve This Doc" button to make changes to the correct file. 
+> Pro tip: Use the "Improve This Doc" button to make changes to the correct file.
 
 ![Improve-this-doc-button](https://user-images.githubusercontent.com/22801822/113422793-ee9f9c00-93ea-11eb-90de-539e3438babb.png)
 
@@ -65,23 +65,23 @@ One can open or check existing issues on [GitHub issues](https://github.com/bale
 
 Shortly after merging a PR to the `master` branch, Flowzone will run on the deploy script on the master branch and deploy the docs on [balenacloud-docs.pages.dev](https://balenacloud-docs.pages.dev). The deploy script needs to install `cwebp` to convert images to webp format. At the moment, this command is only available to be run on Linux.
 
-The docs are hosted on Cloudflare Pages as a static site. 
+The docs are hosted on Cloudflare Pages as a static site.
 
 ## Style manual
 
 ### Balena-specific words
 
-For all instances, we use `balena` as lower-case capitalization unless beginning a sentence (Ex. *I like balena. Balena is great.*). More instances as follows,
+For all instances, we use `balena` as lower-case capitalization unless beginning a sentence (Ex. _I like balena. Balena is great._). More instances as follows,
 
-* **balena** (used to refer to the company as a whole, not in place of balenaCloud, balenaOS or any other project)
-* **balenaEtcher**
-* **balenaOS** (note the capitalization of **OS**)
-* **balenaEngine**
-* **balenaFin**
-* **balenaCloud**
-* the **balena CLI**
-* the **balena Supervisor**
-* **openbalena**
+- **balena** (used to refer to the company as a whole, not in place of balenaCloud, balenaOS or any other project)
+- **balenaEtcher**
+- **balenaOS** (note the capitalization of **OS**)
+- **balenaEngine**
+- **balenaFin**
+- **balenaCloud**
+- the **balena CLI**
+- the **balena Supervisor**
+- **openbalena**
 
 ### Conventions & Best Practices
 
@@ -89,11 +89,11 @@ For all instances, we use `balena` as lower-case capitalization unless beginning
 
 - It's important to note that `h1` and `h2` headings will automatically be included on the left sidebar, so make sure to use these appropriately and sparingly.
 
-- We also use globally accessible variables to interpolate strings, reuse variables easily and maintain consistency across the documentation to follow a consistent naming convention. 
+- We also use globally accessible variables to interpolate strings, reuse variables easily and maintain consistency across the documentation to follow a consistent naming convention.
 
-- Module containing the variable can be found [/config](https://github.com/balena-io/docs/tree/master/config) directory with several modules for links, names, etc. containing references being used across the documentation. These references can be used inside the documentation files using fluid tags like the examples below. 
+- Module containing the variable can be found [/config](https://github.com/balena-io/docs/tree/master/config) directory with several modules for links, names, etc. containing references being used across the documentation. These references can be used inside the documentation files using fluid tags like the examples below.
 
-1. Reusing commonly used names as variables - `Deploy with {{ $names.company.lower }}`
+1. Reusing commonly used names as variables - `Deploy with balena`
 2. Interpolating strings - `{{ $names.os.lower }} image configured`
 3. Even, building links - `{{ $links.githubLabs }}/multicontainer-getting-started/tree/master/haproxy`
 
@@ -121,7 +121,7 @@ On build time, the engine will pull that partial into this location on the page.
 
 ### Using Templates
 
-In dynamically generated pages (the ones with the device-type and language dropdown), it is possible to use templates to dynamically change the device name and language name in your text. 
+In dynamically generated pages (the ones with the device-type and language dropdown), it is possible to use templates to dynamically change the device name and language name in your text.
 
 Here is an example:
 

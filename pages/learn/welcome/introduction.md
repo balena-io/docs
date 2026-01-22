@@ -6,7 +6,7 @@ title: Welcome
 
 [{{ $names.company.upper }}][balena] makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
 
-Our [{{ $names.company.lower }} primer][primer] covers the platform from end to end, walking through all the pieces and how they fit together.
+Our [balena primer][primer] covers the platform from end to end, walking through all the pieces and how they fit together.
 
 Ready to dive in? The [getting started guides][getting-started] take you step-by-step through creating your first fleet, provisioning your first device and deploying your first release.
 
@@ -18,7 +18,7 @@ As you develop your application and grow your fleet, these guides will help you 
 
 ### [Deploy][deploy]
 
-When you're ready to bring your application from one device to an entire fleet, read up on the basics of the {{ $names.company.lower }} build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
+When you're ready to bring your application from one device to an entire fleet, read up on the basics of the balena build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
 
 ### [Manage][manage]
 
@@ -26,7 +26,7 @@ Check here for details on all the tools we provide for managing your device flee
 
 ### [Masterclasses][masterclass] & [balenaHub][hub]
 
-To gain mastery in various products and workflows supported by {{ $names.company.lower }}, head on over to [{{ $names.company.lower }} Masterclasses][masterclass] and checkout out projects made by the community on [balenaHub][hub]. 
+To gain mastery in various products and workflows supported by balena, head on over to [balena Masterclasses][masterclass] and checkout out projects made by the community on [balenaHub][hub].
 
 Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][reference] sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help][help] is always available! Refer to the balena Glossary for definition on any of the terms referred in the docs.
 

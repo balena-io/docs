@@ -7,7 +7,7 @@ excerpt: How to update {{ $names.os.lower }} versions from your dashboard
 
 ## Which devices and versions are supported?
 
-Since we periodically release updates and improvements to \{{ $names.os.lower \}} (the host OS running on all \{{ $names.company.lower \}} devices), we encourage you to keep your devices up to date. We offer self-service host OS updates between 2.x versions and from 1.x to 2.x versions. All 2.x devices will default to delta-based updates if available, thus reducing the size of the update sent over the network.
+Since we periodically release updates and improvements to \{{ $names.os.lower \}} (the host OS running on all balena devices), we encourage you to keep your devices up to date. We offer self-service host OS updates between 2.x versions and from 1.x to 2.x versions. All 2.x devices will default to delta-based updates if available, thus reducing the size of the update sent over the network.
 
 **Note:** \{{ $names.os.upper \}} 1.x to 2.x updates limit the amount of data you can have in your application's `/data` folder to about 170MB (compressed). If you have more data, the update will fail and your device won't be modified.
 
@@ -23,7 +23,7 @@ Updates can also be made to multiple devices in the same fleet. From the device 
 
 From the dialog box that opens, select the OS version you would like to update to and click the `Apply` button to trigger the OS update.
 
-**Note:** Updates to the balena Supervisor, \{{ $names.company.lower \}}'s agent on the device, can be [triggered independently](../../../../reference/supervisor/supervisor-upgrades/).
+**Note:** Updates to the balena Supervisor, balena's agent on the device, can be [triggered independently](../../../../reference/supervisor/supervisor-upgrades/).
 
 After an update begins, the device summary page will show a progress bar that marks the steps completed for the update. Some steps that take longer, such as the device downloading the new OS image, may make the progress bar appear stuck. This doesn't mean anything has gone wrong with your update. We are working on making the update process more informative.
 
@@ -37,4 +37,4 @@ If your \{{ $names.os.lower \}} update fails for any reason, the device should s
 
 Check out our \[update process]\[update-process] to understand how the process goes through each step.
 
-\[forums]:\{{ $names.forums\_domain \}}/ \[troubleshooting]:\{{ $names.forums\_domain \}}/c/troubleshooting \[update-process]:/updates/update-process/
+\[forums]:\{{ $names.forums_domain \}}/ \[troubleshooting]:\{{ $names.forums_domain \}}/c/troubleshooting \[update-process]:/updates/update-process/

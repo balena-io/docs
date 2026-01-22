@@ -6,13 +6,13 @@ title: What is {{ $names.os.lower }}?
 
 ## Introduction
 
-\{{ $names.os.upper \}} is an operating system optimized for running \[Docker]\[Docker] containers on embedded devices, with an emphasis on reliability over long periods of operation, as well as a productive developer workflow inspired by the lessons learned while building \{{ $names.company.lower \}}.
+\{{ $names.os.upper \}} is an operating system optimized for running \[Docker]\[Docker] containers on embedded devices, with an emphasis on reliability over long periods of operation, as well as a productive developer workflow inspired by the lessons learned while building balena.
 
 The core insight behind \{{ $names.os.lower \}} is that Linux containers offer, for the first time, a practical path to using virtualization on embedded devices. VMs and hypervisors have lead to huge leaps in productivity and automation for cloud deployments, but their abstraction of hardware, as well as their resource overhead and lack of hardware support, means that they are not suitable for embedded scenarios. With OS-level virtualization, as implemented for Linux containers, both those objections are lifted for Linux devices, of which there are many in the Internet of Things.
 
 \{{ $names.os.upper \}} is an operating system built for easy portability to multiple device types (via the \[Yocto framework]\[yocto] and optimized for Linux containers, and Docker in particular. There are many decisions, large and small, we have made to enable that vision, which are present throughout our architecture.
 
-The first version of \{{ $names.os.lower \}} was developed as part of the \{{ $names.company.lower \}} platform, and has run on thousands of embedded devices on \{{ $names.company.lower \}}, deployed in many different contexts for several years. \{{ $names.os.lower \}} v2 represents the combination of the learnings we extracted over those years, as well as our determination to make \{{ $names.os.lower \}} a first-class open source project, able to run as an independent operating system, for any context where embedded devices and containers intersect.
+The first version of \{{ $names.os.lower \}} was developed as part of the balena platform, and has run on thousands of embedded devices on balena, deployed in many different contexts for several years. \{{ $names.os.lower \}} v2 represents the combination of the learnings we extracted over those years, as well as our determination to make \{{ $names.os.lower \}} a first-class open source project, able to run as an independent operating system, for any context where embedded devices and containers intersect.
 
 We look forward to working with the community to grow and mature \{{ $names.os.lower \}} into an operating system with even broader device support, a broader operating envelope, and as always, taking advantage of the most modern developments in security and reliability.
 
@@ -22,10 +22,10 @@ We look forward to working with the community to grow and mature \{{ $names.os.l
 
 Development mode is recommended while getting started with \{{ $names.os.lower \}} and building an application using the fast \[local mode]\[local-mode] workflow. Development mode enables a number of useful features while developing, namely:
 
-* Passwordless \[SSH access]\[ssh-host] into \{{ $names.os.lower \}} on port `22222` as the root user, unless custom \[ssh keys]\[config-json-ssh] are provided in which case key-based authentication is used.
-* Docker socket exposed on port `2375`, which allows `{{ $names.company.lower }} push` / `build` / `deploy`, that enables remote Docker builds on the target device (see \[Deploy to your Fleet]\[deploy-to-fleet]).
-* Getty console attached to tty1 and serial.
-* Capable of entering \[local mode]\[local-mode] for rapid development of application containers locally.
+- Passwordless \[SSH access]\[ssh-host] into \{{ $names.os.lower \}} on port `22222` as the root user, unless custom \[ssh keys]\[config-json-ssh] are provided in which case key-based authentication is used.
+- Docker socket exposed on port `2375`, which allows `balena push` / `build` / `deploy`, that enables remote Docker builds on the target device (see \[Deploy to your Fleet]\[deploy-to-fleet]).
+- Getty console attached to tty1 and serial.
+- Capable of entering \[local mode]\[local-mode] for rapid development of application containers locally.
 
 **Note:** Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the \{{ $names.cloud.lower \}} Dashboard via \[configuration variables]\[supervisor-configuration-list].
 
@@ -45,7 +45,7 @@ To persist logs on the device, enable persistent logging via the \[configuration
 
 ### Logo
 
-On production mode, nothing is written to tty1, on boot you should only see the \{{ $names.company.lower \}} logo, and this will persist until your application code takes over the framebuffer. If you would like to replace the \{{ $names.company.lower \}} logo with your own custom splash logo, then you will need to replace the `splash/balena-logo.png` file that you will find in the \[first partition]\[partition] of the image (boot partition or `resin-boot`) with your own logo.
+On production mode, nothing is written to tty1, on boot you should only see the balena logo, and this will persist until your application code takes over the framebuffer. If you would like to replace the balena logo with your own custom splash logo, then you will need to replace the `splash/balena-logo.png` file that you will find in the \[first partition]\[partition] of the image (boot partition or `resin-boot`) with your own logo.
 
 **Note:** As it currently stands, plymouth expects the image to be named `balena-logo.png`. This file was called `resin-logo.png` on older releases.
 
@@ -73,7 +73,7 @@ The \{{ $names.lower.company \}} Supervisor is a lightweight container that runs
 
 ### \{{ $names.engine.upper \}}
 
-[\{{ $names.engine.upper\}}](https://www.balena.io/engine/) is \{{ $names.company.lower \}}'s modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking. \{{ $names.engine.upper \}} supports container deltas for 10-70x more efficient bandwidth usage, has 3.5x smaller binaries, uses RAM and storage more conservatively, and focuses on atomicity and durability of container pulling.
+[\{{ $names.engine.upper\}}](https://www.balena.io/engine/) is balena's modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking. \{{ $names.engine.upper \}} supports container deltas for 10-70x more efficient bandwidth usage, has 3.5x smaller binaries, uses RAM and storage more conservatively, and focuses on atomicity and durability of container pulling.
 
 ### NetworkManager and Modem Manager
 
@@ -129,27 +129,27 @@ A diagram of our read-only rootfs can be seen below:
 
 **Note:** Instructions for building your own version of \{{ $names.os.lower \}} are available \[here]\[yocto-build].
 
-| Layer Name                                                                             | Repository                                                                                                  | Description                                                                    |
-| -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| poky/meta                                                                              | https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta                                                   | Poky build tools and metadata.                                                 |
-| poky/meta-poky                                                                         | https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta-poky                                              |                                                                                |
-| meta-openembedded/meta-oe                                                              | https://github.com/openembedded/meta-openembedded/tree/master/meta-oe                                       | Base layer for OpenEmbedded build system.                                      |
-| meta-openembedded/meta-filesystems                                                     | https://github.com/openembedded/meta-openembedded/tree/master/meta-filesystems                              | OpenEmbedded filesystems layer.                                                |
-| meta-openembedded/meta-networking                                                      | https://github.com/openembedded/meta-openembedded/tree/master/meta-networking                               | OpenEmbedded networking-related packages and configuration.                    |
-| meta-openembedded/meta-python                                                          | https://github.com/openembedded/meta-openembedded/tree/master/meta-python                                   | Layer containing Python modules for OpenEmbedded.                              |
-| meta-raspberrypi                                                                       | https://github.com/agherzan/meta-raspberrypi                                                                | General hardware specific BSP overlay for the Raspberry Pi device family.      |
-| meta-\{{ $names.company.lower \}}/meta-\{{ $names.company.lower \}}-common             | \{{ $links.githubOS \}}/meta-balena/tree/development/meta-balena-common                                     | Enables building \{{ $names.os.lower \}} for supported machines.               |
-| meta-\{{ $names.company.lower \}}/meta-\{{ $names.company.lower \}}-warrior            | \{{ $links.githubOS \}}/meta-balena/tree/development/meta-balena-warrior                                    | Enables building \{{ $names.os.lower \}} for Warrior supported BSPs.           |
-| \{{ $names.company.lower \}}-raspberrypi/meta-\{{ $names.company.lower \}}-raspberrypi | \{{ $links.githubOS \}}/\{{ $names.company.lower \}}-raspberrypi/tree/master/layers/meta-balena-raspberrypi | Enables building \{{ $names.os.lower \}} for chosen meta-raspberrypi machines. |
-| meta-rust                                                                              | https://github.com/meta-rust/meta-rust                                                                      | OpenEmbedded/Yocto layer for Rust and Cargo.                                   |
+| Layer Name                                 | Repository                                                                            | Description                                                                    |
+| ------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| poky/meta                                  | https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta                             | Poky build tools and metadata.                                                 |
+| poky/meta-poky                             | https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta-poky                        |                                                                                |
+| meta-openembedded/meta-oe                  | https://github.com/openembedded/meta-openembedded/tree/master/meta-oe                 | Base layer for OpenEmbedded build system.                                      |
+| meta-openembedded/meta-filesystems         | https://github.com/openembedded/meta-openembedded/tree/master/meta-filesystems        | OpenEmbedded filesystems layer.                                                |
+| meta-openembedded/meta-networking          | https://github.com/openembedded/meta-openembedded/tree/master/meta-networking         | OpenEmbedded networking-related packages and configuration.                    |
+| meta-openembedded/meta-python              | https://github.com/openembedded/meta-openembedded/tree/master/meta-python             | Layer containing Python modules for OpenEmbedded.                              |
+| meta-raspberrypi                           | https://github.com/agherzan/meta-raspberrypi                                          | General hardware specific BSP overlay for the Raspberry Pi device family.      |
+| meta-balena/meta-balena-common             | \{{ $links.githubOS \}}/meta-balena/tree/development/meta-balena-common               | Enables building \{{ $names.os.lower \}} for supported machines.               |
+| meta-balena/meta-balena-warrior            | \{{ $links.githubOS \}}/meta-balena/tree/development/meta-balena-warrior              | Enables building \{{ $names.os.lower \}} for Warrior supported BSPs.           |
+| balena-raspberrypi/meta-balena-raspberrypi | \{{ $links.githubOS \}}/balena-raspberrypi/tree/master/layers/meta-balena-raspberrypi | Enables building \{{ $names.os.lower \}} for chosen meta-raspberrypi machines. |
+| meta-rust                                  | https://github.com/meta-rust/meta-rust                                                | OpenEmbedded/Yocto layer for Rust and Cargo.                                   |
 
 At the base is \[Poky]\[yocto-poky], the Yocto Project's reference distribution. Poky contains the OpenEmbedded Build System (BitBake and OpenEmbedded-Core) as well as a set of metadata. On top of Poky, we add the collection of packages from meta-openembedded.
 
 The next layer adds the Board Support Package (BSP). This layer provides board-specific configuration and packages (e.g., bootloader and kernel), thus enabling building for physical hardware (not emulators).
 
-The core code of \{{ $names.os.lower \}} resides in the meta-\{{ $names.company.lower \}}-common layer. This layer also needs a Poky version-specific layer (e.g., meta-\{{ $names.company.lower \}}-warrior) based on the requirements of the BSP layer.
+The core code of \{{ $names.os.lower \}} resides in the meta-balena-common layer. This layer also needs a Poky version-specific layer (e.g., meta-balena-warrior) based on the requirements of the BSP layer.
 
-Next is the board-specific meta-\{{ $names.company.lower \}} configuration layer. This layer works in conjunction with a BSP layer. For example, the Raspberry Pi family is supported by the meta-raspberrypi BSP layer and the corresponding meta-\{{ $names.company.lower \}}-raspberrypi layer configures \{{ $names.os.lower \}} to the Raspberry Pi's needs
+Next is the board-specific meta-balena configuration layer. This layer works in conjunction with a BSP layer. For example, the Raspberry Pi family is supported by the meta-raspberrypi BSP layer and the corresponding meta-balena-raspberrypi layer configures \{{ $names.os.lower \}} to the Raspberry Pi's needs
 
 The final meta-rust layer enables support for the rust compiler and the cargo package manager.
 

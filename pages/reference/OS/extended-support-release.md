@@ -1,6 +1,6 @@
 ---
 title: Extended Support Release Process
-excerpt: An overview of the {{ $names.company.lower }} extended support release process
+excerpt: An overview of the balena extended support release process
 extras: esr-devices-js
 ---
 
@@ -26,8 +26,6 @@ For example, an ESR version is released known as `2022.10`, which becomes the _n
 
 For new devices, if you are on a Production or Enterprise plan with a [supported device type](extended-support-release.md#supported-devices), when you add a new device, you will be given the option to _Select OS type_ which defaults to _\{{$names.os.lower\}} ESR_. If you would like a non-ESR version, expand this dropdown and select _\{{$names.os.lower\}}_ for the host OS type.
 
-
-
 Next, select the ESR version as either _next_, _current_, or _sunset_ if available. The _next_ version is selected by default and offers at least six months (and up to nine months) of critical backports and fixes.
 
 ### Host OS update
@@ -42,7 +40,7 @@ All device types are eligible for ESR, however they require a dedicated build an
 
 ESR host OS versions are currently available for the following devices:
 
-|   | Device Name | Machine Name | Architecture |
-| - | ----------- | ------------ | ------------ |
+|     | Device Name | Machine Name | Architecture |
+| --- | ----------- | ------------ | ------------ |
 
 \[billing]:\{{ $links.mainSiteUrl \}}/pricing/

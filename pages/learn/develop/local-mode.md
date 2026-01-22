@@ -1,32 +1,32 @@
 ---
 title: Develop locally
-excerpt: Use {{ $names.company.lower }} local mode to prototype quickly
+excerpt: Use balena local mode to prototype quickly
 ---
 
 # Develop locally
 
-Local mode is the development mode for \{{ $names.company.lower \}}. It allows you to build and sync code to a single development device in your local network without having to go through the \{{ $names.cloud.lower \}} build service and deployment pipeline. It uses the Docker daemon on the device to build container images, and then the device Supervisor starts the containers in the same way as if they were deployed via the cloud.
+Local mode is the development mode for balena. It allows you to build and sync code to a single development device in your local network without having to go through the \{{ $names.cloud.lower \}} build service and deployment pipeline. It uses the Docker daemon on the device to build container images, and then the device Supervisor starts the containers in the same way as if they were deployed via the cloud.
 
 ## Local mode requirements
 
 To use local mode on a device:
 
-* The device must be running \{{ $names.os.lower \}} v2.29.0 or higher.
-* The device must be running a [development](../../../reference/OS/overview/2.x#development-vs-production-images) variant of the OS.
-* You must have the [\{{ $names.company.lower \}} CLI](../../../reference/cli/) installed on your development machine.
-* Local mode must be enabled through the \{{ $names.cloud.lower \}} dashboard. You can enable it from the device _Settings_ tab.
+- The device must be running \{{ $names.os.lower \}} v2.29.0 or higher.
+- The device must be running a [development](../../../reference/OS/overview/2.x#development-vs-production-images) variant of the OS.
+- You must have the [balena CLI](../../../reference/cli/) installed on your development machine.
+- Local mode must be enabled through the \{{ $names.cloud.lower \}} dashboard. You can enable it from the device _Settings_ tab.
 
 ## Local mode caveats
 
-* In local mode, a device will not send logs back to the \{{ $names.cloud.lower \}} dashboard. Refer to the [local mode logs section](local-mode.md#local-mode-logs) to view logs in local mode.
-* Device and service environment variables set from the \{{ $names.cloud.lower \}} will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
-* Changes to device \[configuration]\[configuration], for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
-* Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
-* When switching out of local mode and back to tracking releases from \{{ $names.cloud.lower \}}, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that \{{ $names.cloud.lower \}} instructs it to run.
+- In local mode, a device will not send logs back to the \{{ $names.cloud.lower \}} dashboard. Refer to the [local mode logs section](local-mode.md#local-mode-logs) to view logs in local mode.
+- Device and service environment variables set from the \{{ $names.cloud.lower \}} will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
+- Changes to device \[configuration]\[configuration], for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
+- Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
+- When switching out of local mode and back to tracking releases from \{{ $names.cloud.lower \}}, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that \{{ $names.cloud.lower \}} instructs it to run.
 
 ## Scan the network and find your device
 
-Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the \{{ $names.company.lower \}} CLI and use `{{ $names.company.short }} device detect` to find any local \{{ $names.os.lower \}} devices. All \{{ $names.os.lower \}} devices advertise themselves on the network using \[Avahi]\[avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
+Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the balena CLI and use `{{ $names.company.short }} device detect` to find any local \{{ $names.os.lower \}} devices. All \{{ $names.os.lower \}} devices advertise themselves on the network using \[Avahi]\[avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
 
 **Note:** You may need administrator privileges to run `{{ $names.company.short }} device detect` as it requires access to all network interfaces.
 
@@ -62,7 +62,7 @@ Reporting scan results
 
 ## Push over a new project
 
-When local mode has been activated, \{{ $names.company.lower \}} CLI can push code directly to the local device instead of going via the \{{ $names.cloud.lower \}} builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `{{ $names.company.lower }} push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `{{ $names.company.short }} device detect` command.
+When local mode has been activated, balena CLI can push code directly to the local device instead of going via the \{{ $names.cloud.lower \}} builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `balena push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `{{ $names.company.short }} device detect` command.
 
 **Note:** By default `{{ $names.company.short }} push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
 
@@ -157,7 +157,7 @@ When a source file is modified, the Supervisor will immediately detect the chang
 
 ### Local mode logs
 
-By default, when pushing code to a device in local mode using the \{{ $names.company.lower \}} CLI, the logs will be output to the console. You can prevent this by passing the `--detached` (`-d`) option to the `{{ $names.company.short }} push` command (you may also detach the console at any time by pressing `Ctrl-C`).
+By default, when pushing code to a device in local mode using the balena CLI, the logs will be output to the console. You can prevent this by passing the `--detached` (`-d`) option to the `{{ $names.company.short }} push` command (you may also detach the console at any time by pressing `Ctrl-C`).
 
 ```bash
 {{ $names.company.short }} push 63ec46c.local --detached

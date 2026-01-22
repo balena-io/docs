@@ -4,10 +4,10 @@ title: GPIO Interface
 
 # GPIO
 
-Recommended ways of interacting with GPIO on \{{ $names.company.lower \}} devices.
+Recommended ways of interacting with GPIO on balena devices.
 
-* [Raspberry Pi](../../../../hardware/gpio/#raspberry-pi)
-* [Beaglebone](../../../../hardware/gpio/#beaglebone)
+- [Raspberry Pi](../../../../hardware/gpio/#raspberry-pi)
+- [Beaglebone](../../../../hardware/gpio/#beaglebone)
 
 ## Raspberry Pi
 
@@ -25,9 +25,9 @@ The appropriate method to access GPIO features is via the standard Linux libgpio
 
 The current Raspberry Pi GPIO libraries include:
 
-* [Libgpiod](https://libgpiod.readthedocs.io/en/latest/) is a C library and set of tools for interacting with the Linux GPIO character devices (/dev/gpiochipX).
-* [Pinctrl](https://github.com/raspberrypi/utils/tree/master/pinctrl) is a more powerful replacement for raspi-gpio, a tool for displaying and modifying the GPIO and pin muxing state of a system. It accesses the hardware directly, bypassing the kernel drivers
-* [Rpi-lgpio](https://rpi-lgpio.readthedocs.io/en/release-0.4/) is a compatibility package intended to provide compatibility with the rpi-gpio (aka RPi.GPIO) library, on top of kernels that only support the gpiochip device (and which have removed the deprecated sysfs GPIO interface).
+- [Libgpiod](https://libgpiod.readthedocs.io/en/latest/) is a C library and set of tools for interacting with the Linux GPIO character devices (/dev/gpiochipX).
+- [Pinctrl](https://github.com/raspberrypi/utils/tree/master/pinctrl) is a more powerful replacement for raspi-gpio, a tool for displaying and modifying the GPIO and pin muxing state of a system. It accesses the hardware directly, bypassing the kernel drivers
+- [Rpi-lgpio](https://rpi-lgpio.readthedocs.io/en/release-0.4/) is a compatibility package intended to provide compatibility with the rpi-gpio (aka RPi.GPIO) library, on top of kernels that only support the gpiochip device (and which have removed the deprecated sysfs GPIO interface).
 
 These libraries have been tested to run equally well on multiple models of Raspberry Pi and various balenaOS and kernel versions. ([Example repository](https://github.com/balena-io-experimental/pi-gpio).)
 
@@ -35,7 +35,7 @@ Much of this information and the image above is an excerpt from "A history of GP
 
 ## Beaglebone
 
-Currently Beaglebone devices are running a new 4.1 kernel, unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Checkout the [Octalbonescript](https://github.com/theoctal/octalbonescript) JS library and a Node.js module here: [https://www.npmjs.com/package/octalbonescript\_capemgr4\_1](https://www.npmjs.com/package/octalbonescript_capemgr4_1).
+Currently Beaglebone devices are running a new 4.1 kernel, unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Checkout the [Octalbonescript](https://github.com/theoctal/octalbonescript) JS library and a Node.js module here: [https://www.npmjs.com/package/octalbonescript_capemgr4_1](https://www.npmjs.com/package/octalbonescript_capemgr4_1).
 
 With this module you should be able to carry out basic GPIO and analog-to-digital conversion operations. To get you started we have a \[example using this module]\(\{{ $links.githubPlayground \}}/beaglebone-adc-node).
 

@@ -12,9 +12,9 @@ dynamic:
 
 In this guide, we will help you get started with \{{ $names.cloud.lower \}} by:
 
-* Setting up your **\{{ $device.name \}}** device and bringing it online on the \{{ $names.cloud.lower \}} dashboard.
-* Deploying a **\{{ $language.name \}}** hello-world project on the device.
-* Developing the sample project: making changes and testing them on the device in real-time.
+- Setting up your **\{{ $device.name \}}** device and bringing it online on the \{{ $names.cloud.lower \}} dashboard.
+- Deploying a **\{{ $language.name \}}** hello-world project on the device.
+- Developing the sample project: making changes and testing them on the device in real-time.
 
 Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using \{{ $names.cloud.lower \}} and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the \[glossary]\[balena-glossary].
 
@@ -28,29 +28,17 @@ A fleet is a group of devices that share the same [architecture](../reference/ha
 
 To create your first fleet, log into your \[\{{ $names.cloud.lower \}} dashboard]\[dashboard] and click the **Create fleet** button.
 
-
-
 Enter a fleet name, select the **\{{ $device.name \}}** device type, choose the _Starter_ [fleet type](../learn/accounts/fleet-types/), and click **Create new fleet**:
-
-
 
 You'll then be redirected to the summary of the newly created fleet, where you can add your first \{{ $device.name \}}.
 
 ## Add a device and download OS
 
-
-
 \{{ $names.cloud.lower \}} builds a custom \{{ $names.os.lower \}} image configured for \{{ $device.name \}} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
-
-
 
 Select an OS type of _balenaOS_, and you will see a list of available \{{ $names.os.lower \}} versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the \[differences between Development and Production images]\[devvprod].
 
-
-
 Select the type of network connection you'll be using: _Ethernet Only_ or _Wifi + Ethernet_. A network connection is required to allow the device to connect to \{{ $names.cloud.lower \}}. Selecting _Wifi + Ethernet_ allows you to enter a _Wifi SSID_ and _Wifi Passphrase_ which is then built into the image.
-
-
 
 Finally, click the **Download \{{ $names.os.lower \}}** button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
 
@@ -68,10 +56,10 @@ Now that you have an `operational` device in your fleet, it's time to deploy som
 
 \{{import "getting-started/cliInstructions"\}}
 
-After \{{ $names.cli.lower \}} is installed, login to your \{{ $names.company.lower\}} account using the `{{ $names.company.lower }} login` command on the terminal:
+After \{{ $names.cli.lower \}} is installed, login to your balena account using the `balena login` command on the terminal:
 
 ```shell
-$ {{ $names.company.lower }} login
+$ balena login
  _            _
 | |__   __ _ | |  ____  _ __    __ _
 | '_ \ / _` || | / __ \| '_ \  / _` |
@@ -89,27 +77,25 @@ Logging in to cloud.com
 
 You will be asked to choose an authentication method, choose _Web authorization_ which will bring up a web browser window that allows you to login to your \{{ $names.cloud.lower \}} account. Click the **Authorize** button, and head back to the terminal after the login successful message appears.
 
-
-
 ## Create a release
 
-After login, test the \{{ $names.cli.lower \}} by running the `{{ $names.company.lower }} fleet list` command, which should return information about the fleet you created in the previous step. Take a note of the fleet `NAME` as you'll need this in the next step to push the code to your device(s) in that fleet.
+After login, test the \{{ $names.cli.lower \}} by running the `balena fleet list` command, which should return information about the fleet you created in the previous step. Take a note of the fleet `NAME` as you'll need this in the next step to push the code to your device(s) in that fleet.
 
 ```shell
-$ {{ $names.company.lower }} fleets
+$ balena fleets
 ID    NAME         SLUG                                 DEVICE TYPE           DEVICE COUNT   ONLINE DEVICES
 98264 First-Fleet  {{ $names.cli.lower }}/first-fleet    {{ $device.name }}    0              0
 ```
 
 A nice project to try is the \[balena-\{{ $language.id \}}-hello-world]\[balena-\{{ $language.id \}}-hello-world] project. It's a \{{ $language.name \}} web server that serves a static page on port 80. To get started, \[download the project]\[github-download-\{{ $language.id \}}] as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 
-To create a release, use the `{{ $names.company.lower }} push First-Fleet` command replacing `First-Fleet` with the name of your fleet. Ensure you are working from the root of the extracted project directory.
+To create a release, use the `balena push First-Fleet` command replacing `First-Fleet` with the name of your fleet. Ensure you are working from the root of the extracted project directory.
 
 ```shell
-$ {{ $names.company.lower }} push First-Fleet
+$ balena push First-Fleet
 ```
 
-This command pushes the code to the \{{ $names.company.lower \}} builders, where it will be compiled, built, turned into a release, and applied to every device in the fleet.
+This command pushes the code to the balena builders, where it will be compiled, built, turned into a release, and applied to every device in the fleet.
 
 You'll know your code has been successfully compiled and built when our friendly unicorn mascot appears in your terminal:
 
@@ -155,17 +141,11 @@ You'll know your code has been successfully compiled and built when our friendly
 
 The release will then be downloaded and started by all the devices in the fleet. You can see the progress of the device code updates on the device dashboard:
 
-
-
 After the download, you should now have a \{{ $language.name \}} web server running on your device and see some logs on your dashboard.
 
 To give your device a public URL, click the _Public Device URL_ toggle on the device dashboard. Public device URL allow you to serve content from the device to the world easily without configuration as long as the server is running on port 80.
 
-
-
 Follow the URL to view the welcome page with additional resources. Alternatively, you can point your browser to your device's local IP address to access the server running on your device. You can find the device's IP address on the device dashboard page. This is what you should be seeing.
-
-
 
 ## Developing your project
 
@@ -173,17 +153,13 @@ Now, let's try making some changes to this project and testing them right on the
 
 Activate local mode on the device via the dashboard.
 
-
-
 Once enabled, you can now use `balena push` again, but this time we will push directly to the local IP address of the device obtained via the dashboard.
 
-
-
 ```shell
-$ {{ $names.company.lower }} push 10.19.0.153
+$ balena push 10.19.0.153
 ```
 
-The same build process as before is carried out, but this time instead of using the \{{ $names.company.lower \}} builders, the build takes place locally on the device itself.
+The same build process as before is carried out, but this time instead of using the balena builders, the build takes place locally on the device itself.
 
 ```shell
 [Info]    Streaming device logs...
@@ -212,21 +188,19 @@ The \{{ $names.cli.lower \}} will now watch for changes to all the files within 
 
 When the rebuild is complete, take a look at the public device URL again to see your changes. The welcome page should have been updated with the new title.
 
-
-
 ## Next steps
 
 Once you've finished making your changes, disable local mode and the device will revert back to running the latest release that's on your fleet. To update your fleet with the latest changes you've just worked on, use `balena push <fleet name>` once more to create a new release with those changes.
 
 When it's finished building the device(s) will update as before. Remember anything pushed to the fleet in this way can be applied to 10+ or 1000+ devices with no extra effort! To continue learning, explore parts of the guide in more detail:
 
-* Learn more about \[local mode]\[local-mode], which allows you to build and sync code to your device locally for rapid development.
-* Develop an application with \[multiple containers]\[multicontainer] to provide a more modular approach to fleet management.
-* Manage your device fleet with the use of \[configuration]\[configuration], \[environment]\[service], and \[service variables]\[service].
-* Find out more about the \[\{{ $names.cli.lower \}}]\[cli] and the functionality it offers.
-* Visit our blog to find step-by-step tutorials for some \[classic balena projects]\[projects].
-* To publish what you will build or have already built, head over to \[balenaHub]\[balenahub].
-* If you find yourself stuck or confused, help is just a \[click away]\[help].
+- Learn more about \[local mode]\[local-mode], which allows you to build and sync code to your device locally for rapid development.
+- Develop an application with \[multiple containers]\[multicontainer] to provide a more modular approach to fleet management.
+- Manage your device fleet with the use of \[configuration]\[configuration], \[environment]\[service], and \[service variables]\[service].
+- Find out more about the \[\{{ $names.cli.lower \}}]\[cli] and the functionality it offers.
+- Visit our blog to find step-by-step tutorials for some \[classic balena projects]\[projects].
+- To publish what you will build or have already built, head over to \[balenaHub]\[balenahub].
+- If you find yourself stuck or confused, help is just a \[click away]\[help].
 
 **Enjoy balenafying all the things!**
 

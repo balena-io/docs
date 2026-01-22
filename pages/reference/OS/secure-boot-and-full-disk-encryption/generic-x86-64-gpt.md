@@ -3,45 +3,45 @@ title: Secure Boot and Full Disk Encryption for Generic x86_64 (GPT)
 excerpt: Setup secure boot and full disk encryption for Generic x86_64 (GPT)
 ---
 
-# Setup secure boot and full disk encryption for Generic x86\_64 (GPT)
+# Setup secure boot and full disk encryption for Generic x86_64 (GPT)
 
-This section describes how to setup a device with secure boot and full disk encryption using `Generic x86_64 (GPT)` \{{ $names.os.lower \}} image. This image should be compatible on a wide range of x86\_64 devices. Note that `Generic x86-64 (legacy MBR)` and `Intel NUC` images do not provide secure boot and full disk encryption.
+This section describes how to setup a device with secure boot and full disk encryption using `Generic x86_64 (GPT)` \{{ $names.os.lower \}} image. This image should be compatible on a wide range of x86_64 devices. Note that `Generic x86-64 (legacy MBR)` and `Intel NUC` images do not provide secure boot and full disk encryption.
 
-Before diving into how to provision a device with secure boot and full disk encryption, let's look at some important considerations around this feature specifically for x86\_64 devices. For more information on the general approach to secure boot, see our docs on a [general overview of our secure boot and full disk encryption implementation](../../../../reference/OS/secure-boot-and-full-disk-encryption/overview/).
+Before diving into how to provision a device with secure boot and full disk encryption, let's look at some important considerations around this feature specifically for x86_64 devices. For more information on the general approach to secure boot, see our docs on a [general overview of our secure boot and full disk encryption implementation](../../../../reference/OS/secure-boot-and-full-disk-encryption/overview/).
 
 ## Important Considerations and Caveats
 
-* \{{ $names.os.upper \}} does not use the shim first stage bootloader that other Linux distributions do and is usually signed with Microsoft platform keys. \{{ $names.os.upper \}} is an embedded distribution, and when secure boot is enabled only \{{ $names.company.lower \}} signed operating systems are allowed to boot.
-* Disk encryption and decryption is unattended - there is no user interaction when mounting the encrypted disks as it is expected from an embedded device.
-* Secure boot and disk encryption have been designed to work as a bundle in \{{ $names.os.lower \}} and they cannot be configured separately.
-* Only system partitions are encrypted. Any extra storages are not encrypted.
-* OS images are signed images and \{{ name.company.lower \}} manages a secure signing server. We currently use a single key for the platform and consequently we can never provide the key to end users. You can read further on [how we handle keys](../../../../reference/OS/secure-boot-and-full-disk-encryption/overview/#keys-and-certificates-in-secure-boot).
-* It is not possible to configure GRUB or kernel parameters
-* There are [other trade-offs](../../../../reference/OS/secure-boot-and-full-disk-encryption/overview/#other-considerations) pertaining to debugging and system configuration.
+- \{{ $names.os.upper \}} does not use the shim first stage bootloader that other Linux distributions do and is usually signed with Microsoft platform keys. \{{ $names.os.upper \}} is an embedded distribution, and when secure boot is enabled only balena signed operating systems are allowed to boot.
+- Disk encryption and decryption is unattended - there is no user interaction when mounting the encrypted disks as it is expected from an embedded device.
+- Secure boot and disk encryption have been designed to work as a bundle in \{{ $names.os.lower \}} and they cannot be configured separately.
+- Only system partitions are encrypted. Any extra storages are not encrypted.
+- OS images are signed images and balena manages a secure signing server. We currently use a single key for the platform and consequently we can never provide the key to end users. You can read further on [how we handle keys](../../../../reference/OS/secure-boot-and-full-disk-encryption/overview/#keys-and-certificates-in-secure-boot).
+- It is not possible to configure GRUB or kernel parameters
+- There are [other trade-offs](../../../../reference/OS/secure-boot-and-full-disk-encryption/overview/#other-considerations) pertaining to debugging and system configuration.
 
 ## System requirements
 
-*   **Secure Element: Trusted Platform Module (TPM) 2.0**
+- **Secure Element: Trusted Platform Module (TPM) 2.0**
 
-    To use secure boot and full disk encryption, your device must have a Trusted Platform Module (TPM) 2.0 which is the [secure element](../../../../reference/OS/secure-boot-and-full-disk-encryption/overview/#secure-element) on x86\_64 devices. For initial setup, the TPM must be in a mode that allows enrolling new keys, often called "Setup Mode" in the BIOS/UEFI settings. While most modern x86\_64 devices support this, some models may be locked into "Deployed Mode," which prevents key enrollment and is therefore incompatible.
+  To use secure boot and full disk encryption, your device must have a Trusted Platform Module (TPM) 2.0 which is the [secure element](../../../../reference/OS/secure-boot-and-full-disk-encryption/overview/#secure-element) on x86_64 devices. For initial setup, the TPM must be in a mode that allows enrolling new keys, often called "Setup Mode" in the BIOS/UEFI settings. While most modern x86_64 devices support this, some models may be locked into "Deployed Mode," which prevents key enrollment and is therefore incompatible.
 
-    Moreover, TPMs can be of two types:
+  Moreover, TPMs can be of two types:
+  - Firmware TPM (fTPM): The TPM is integrated directly into the main CPU's firmware.
+  - Discrete TPM (dTPM): The TPM is a separate, physical chip on the motherboard, external to the CPU.
 
-    * Firmware TPM (fTPM): The TPM is integrated directly into the main CPU's firmware.
-    * Discrete TPM (dTPM): The TPM is a separate, physical chip on the motherboard, external to the CPU.
+  While \{{ $names.os.lower \}} technically supports both, we **only** recommend using devices with a firmware TPM (fTPM) for deployments requiring secure boot and disk encryption. The primary reason we advise against using discrete TPMs (dTPMs) is the physical security risk they introduce. A dTPM communicates with the CPU over a bus on the motherboard, typically using protocols like SPI or I2C. This external communication path creates a potential attack vector, which is not present in fTPM.
 
-    While \{{ $names.os.lower \}} technically supports both, we **only** recommend using devices with a firmware TPM (fTPM) for deployments requiring secure boot and disk encryption. The primary reason we advise against using discrete TPMs (dTPMs) is the physical security risk they introduce. A dTPM communicates with the CPU over a bus on the motherboard, typically using protocols like SPI or I2C. This external communication path creates a potential attack vector, which is not present in fTPM.
-* **The device should support Unified Extensible Firmware Interface (UEFI)**
-*   **Persist UEFI settings for the expected lifetime of the device**
+- **The device should support Unified Extensible Firmware Interface (UEFI)**
+- **Persist UEFI settings for the expected lifetime of the device**
 
-    As a necessary part of the provisioning process, customers will almost certainly change some UEFI settings to non-default values. The customer should test that these settings will persist for the expected lifetime of their device. For instance, customers should use an RTC / CMOS battery that will endure through the expected lifetime of the device. Note that extended periods without AC / mains power will shorten the life of an RTC battery.
+  As a necessary part of the provisioning process, customers will almost certainly change some UEFI settings to non-default values. The customer should test that these settings will persist for the expected lifetime of their device. For instance, customers should use an RTC / CMOS battery that will endure through the expected lifetime of the device. Note that extended periods without AC / mains power will shorten the life of an RTC battery.
 
 ## Setup
 
 There are two steps required to install a secure boot enabled and disk encrypted system:
 
-* Opt-in secure boot mode in the \{{ $names.os.lower \}} installer
-* Configure the device’s Unified Extensible Firmware Interface (UEFI) firmware for secure boot and setup mode
+- Opt-in secure boot mode in the \{{ $names.os.lower \}} installer
+- Configure the device’s Unified Extensible Firmware Interface (UEFI) firmware for secure boot and setup mode
 
 Note that \{{ $names.os.lower \}} currently does not support updating from a non-secure boot enabled system into a secure boot enabled one. The only way to install a secure boot and disk encrypted system at this moment is by using a \{{ $names.os.lower \}} installer image.
 
@@ -53,11 +53,7 @@ Note that \{{ $names.os.lower \}} currently does not support updating from a non
 
 1. Add a device to your fleet. You should be presented with the following new option:
 
-
-
 2. As mentioned, there are [important considerations and caveats](../../../../reference/OS/secure-boot-and-full-disk-encryption/generic-x86-64-gpt/#important-considerations-and-caveats) when enabling secure boot and full disk encryption. You will be presented with the following disclaimer when enabling the feature:
-
-
 
 You can optionally surpress the disclaimer by selecting "Don't show me this warning again for this device type".
 
@@ -76,22 +72,22 @@ balena os configure <image> --secureBoot --fleet <fleetName> --device-type gener
 
 The configured image should be flashed to a USB key.
 
-* Insert the USB key into your laptop or computer.
-* Write the \{{ $names.os.lower \}} file you downloaded to the USB key. We recommend using Etcher.
-* Wait for writing of \{{ $names.os.lower \}} to complete.
-* Remove the USB key from the host machine.
-* Insert the freshly flashed USB key into the Generic x86\_64 (GPT).
+- Insert the USB key into your laptop or computer.
+- Write the \{{ $names.os.lower \}} file you downloaded to the USB key. We recommend using Etcher.
+- Wait for writing of \{{ $names.os.lower \}} to complete.
+- Remove the USB key from the host machine.
+- Insert the freshly flashed USB key into the Generic x86_64 (GPT).
 
 ### Provision the device
 
 Once the image is ready, the device needs to be configured in secure boot setup mode. This depends on the UEFI/BIOS implementation, but in general there are the following steps to consider:
 
-* Reset to the default UEFI configuration.
-* Make sure the device is configured to boot in UEFI mode, for example by checking the Compatibility Support Module (CSM) used for Master Boot Record (MBR) booting is disabled.
-* Change the boot options to allow booting only from the USB installer/flasher device and the main storage, and choose the USB as first boot option. The flasher will then set the UEFI configuration to boot from the main storage before rebooting.
-* Disable restoring factory keys. Some systems default to restoring factory (Microsoft) keys rather than using the \{{ $names.company.lower \}} keys that will be installed during setup.
-* Enable secure boot.
-* Reset device to setup mode
+- Reset to the default UEFI configuration.
+- Make sure the device is configured to boot in UEFI mode, for example by checking the Compatibility Support Module (CSM) used for Master Boot Record (MBR) booting is disabled.
+- Change the boot options to allow booting only from the USB installer/flasher device and the main storage, and choose the USB as first boot option. The flasher will then set the UEFI configuration to boot from the main storage before rebooting.
+- Disable restoring factory keys. Some systems default to restoring factory (Microsoft) keys rather than using the balena keys that will be installed during setup.
+- Enable secure boot.
+- Reset device to setup mode
 
 On booting in setup mode, the installer will enroll the keys into UEFI variables and encrypt the disks using the TPM device. Note that enrolling the keys manually via the UEFI setup application, while possible on some systems, is not currently supported by \{{ $names.os.lower \}} as the installer’s bootloader is not signed.
 

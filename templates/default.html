@@ -1,105 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<title>{{ title }} | balena</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
 
-  <head>
-    <meta charset="utf-8">
-    <title>{{ title }} | {{ $names.company.lower }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
+		{% if fbAppId %}
+		<meta property="fb:app_id" content="{{ fbAppId }}" />
+		{% endif %}
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="{{ title }} | balena" />
+		{% if excerpt %}
+		<meta property="og:description" content="{{ excerpt }}" />
+		{% endif %}
+		<meta
+			property="og:image"
+			content="{% if thumbnail %}{{ thumbnail }}{% else %}{{ defaultThumbnail }}{% endif %}"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/@balena/design-tokens@0/build/css/tokens.css"
+		/>
+		<link rel="stylesheet" href="/dist/style.css" />
+		<!-- Algolia search styles -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@docsearch/css@4"
+		/>
+		<link
+			rel="preconnect"
+			href="https://4EQM7V9GDL-dsn.algolia.net"
+			crossorigin
+		/>
+	</head>
 
-    {% if fbAppId %}
-      <meta property="fb:app_id" content="{{ fbAppId }}" />
-    {% endif %}
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ title }} | {{ $names.company.lower }}" />
-    {% if excerpt %}
-      <meta property="og:description" content="{{ excerpt }}" />
-    {% endif %}
-    <meta property="og:image" content="{% if thumbnail %}{{ thumbnail }}{% else %}{{ defaultThumbnail }}{% endif %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/@balena/design-tokens@0/build/css/tokens.css">
-    <link rel="stylesheet" href="/dist/style.css">
-    <!-- Algolia search styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@4" />
-    <link rel="preconnect" href="https://4EQM7V9GDL-dsn.algolia.net" crossorigin />
-  </head>
+	<body data-spy="scroll" data-target=".in-page-nav">
+		<noscript>
+			This website requires Javascript to be enabled. Please turn on Javascript
+			and reload the page.
+		</noscript>
 
-  <body data-spy="scroll" data-target=".in-page-nav">
-    <noscript>
-      This website requires Javascript to be enabled. Please turn on Javascript
-      and reload the page.
-    </noscript>
+		{% include "_top-menu.html" %}
 
-    {% include "_top-menu.html" %}
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="sidebar">
-          <div class="search-wrapper">
-            <div class="search-default-wrapper"></div>
-          </div>
-          {% include "_nav.html" %}
-        </div>
-        <article>
-          <div class="header-wrapper">
-            <header>
-              {% include "_breadcrumbs.html" %}
-            </header>
-          </div>
-          <div class="content-wrapper">
-            <div class="page-content-wrapper">
-              {% if externalImproveDocsLink %}
-                <a
-                  target="_blank"
-                  href="{{ externalImproveDocsLink }}"
-                  class="improve-docs btn btn-info">
-                  <span class="glyphicon glyphicon-edit"></span>
-                  Improve this doc</a>
-              {% elseif improveDocsLink %}
-                <a
-                  target="_blank"
-                  href="{{ improveDocsLink }}"
-                  class="improve-docs btn btn-info">
-                  <span class="glyphicon glyphicon-edit"></span>
-                  Improve this doc</a>
-              {% endif %}
-              {% if dynamic and $switch_text %}
-                <div class="dynamic-switch well">
-                  {% include "_dynamic-switch.html" %}
-                  {% block dynamicSwitchCustom %}{% endblock %}
-                </div>
-              {% endif %}
-              <section class="page-content">
-                {% block "contents" %}
-                  {{ contents|safe }}
-                {% endblock %}
-              </section>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-    <script src="/dist/main.js"></script>
-    {% include "_track.html" %}
-    {% include "_algolia.html" %}
-    {% include "_copy_code_block.html" %}
-    {% if extras == "devices-js" %}
-      {% include "_devices.html" %}
-    {% endif %}
-    {% if extras == "esr-devices-js" %}
-      {% include "_esr_devices.html" %}
-    {% endif %}
-    {% if extras == "config-js" %}
-      {% include "_config.html" %}
-    {% endif %}
-    {% if extras == "base-images-ref-js" %}
-      {% include "_base-images-ref.html" %}
-    {% endif %}
-    {% if extras == "machines-architectures-js" %}
-      {% include "_machines-architectures.html" %}
-    {% endif %}
-  </body>
-
+		<div class="container-fluid">
+			<div class="row">
+				<div class="sidebar">
+					<div class="search-wrapper">
+						<div class="search-default-wrapper"></div>
+					</div>
+					{% include "_nav.html" %}
+				</div>
+				<article>
+					<div class="header-wrapper">
+						<header>{% include "_breadcrumbs.html" %}</header>
+					</div>
+					<div class="content-wrapper">
+						<div class="page-content-wrapper">
+							{% if externalImproveDocsLink %}
+							<a
+								target="_blank"
+								href="{{ externalImproveDocsLink }}"
+								class="improve-docs btn btn-info"
+							>
+								<span class="glyphicon glyphicon-edit"></span>
+								Improve this doc</a
+							>
+							{% elseif improveDocsLink %}
+							<a
+								target="_blank"
+								href="{{ improveDocsLink }}"
+								class="improve-docs btn btn-info"
+							>
+								<span class="glyphicon glyphicon-edit"></span>
+								Improve this doc</a
+							>
+							{% endif %} {% if dynamic and $switch_text %}
+							<div class="dynamic-switch well">
+								{% include "_dynamic-switch.html" %} {% block
+								dynamicSwitchCustom %}{% endblock %}
+							</div>
+							{% endif %}
+							<section class="page-content">
+								{% block "contents" %} {{ contents|safe }} {% endblock %}
+							</section>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+		<script src="/dist/main.js"></script>
+		{% include "_track.html" %} {% include "_algolia.html" %} {% include
+		"_copy_code_block.html" %} {% if extras == "devices-js" %} {% include
+		"_devices.html" %} {% endif %} {% if extras == "esr-devices-js" %} {%
+		include "_esr_devices.html" %} {% endif %} {% if extras == "config-js" %} {%
+		include "_config.html" %} {% endif %} {% if extras == "base-images-ref-js"
+		%} {% include "_base-images-ref.html" %} {% endif %} {% if extras ==
+		"machines-architectures-js" %} {% include "_machines-architectures.html" %}
+		{% endif %}
+	</body>
 </html>

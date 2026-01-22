@@ -1,11 +1,12 @@
 <img style="float: right;padding-left: 10px;" src="/img/{{ $device.id }}/{{ $device.id }}.webp" width="30%">
 
-* A [{{ $device.name }}][device-link] module. See our [supported devices list][supportedDevicesList] for other boards.
-* A carrier board, in this case the [VAR-SOLO Customboard][device-link]
-* A micro SD card.
-* **[Optional]** An ethernet cable.
-* A [{{ $names.company.lower }} account][link-to-signup].
+- A [{{ $device.name }}][device-link] module. See our [supported devices list][supportedDevicesList] for other boards.
+- A carrier board, in this case the [VAR-SOLO Customboard][device-link]
+- A micro SD card.
+- **[Optional]** An ethernet cable.
+- A [balena account][link-to-signup].
 
-[device-link]:https://www.variscite.com/products/single-board-computers/var-solocustomboard/
-[supportedDevicesList]:/hardware/devices/
+[device-link]: https://www.variscite.com/products/single-board-computers/var-solocustomboard/
+[supportedDevicesList]: /hardware/devices/
+
 [link-to-signup]:{{ $links.dashboardUrl }}/signup

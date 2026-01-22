@@ -20,9 +20,9 @@ The `Restart Services` action restarts the currently running **services** for al
 
 By removing containers and recreating them from scratch, we see benefits like the following:
 
-* Containers are meant to be ephemeral, meaning that a new container should be a drop-in replacement for an old container with minimal to no impact. Removing and recreating containers adheres to this philosophy.
-* Because containers are removed and recreated with the restart action, you're encouraged to follow best practices in Docker data persistence. For more information, see our \[persistent storage]\[persistent-storage] documentation or \[Docker's data persistence strategies]\[docker-data-persistence-strategies]. These strategies also offer a performance boost over storing files in the container's writable layer.
-* Removing and recreating containers may allow recovery from release bugs where the container was stuck in an invalid state. For example, a process ID file that is no longer valid but is persisted to the container filesystem would be cleaned up when recreating the container.
+- Containers are meant to be ephemeral, meaning that a new container should be a drop-in replacement for an old container with minimal to no impact. Removing and recreating containers adheres to this philosophy.
+- Because containers are removed and recreated with the restart action, you're encouraged to follow best practices in Docker data persistence. For more information, see our \[persistent storage]\[persistent-storage] documentation or \[Docker's data persistence strategies]\[docker-data-persistence-strategies]. These strategies also offer a performance boost over storing files in the container's writable layer.
+- Removing and recreating containers may allow recovery from release bugs where the container was stuck in an invalid state. For example, a process ID file that is no longer valid but is persisted to the container filesystem would be cleaned up when recreating the container.
 
 When the containers are being restarted, the containers are politely asked to stop by sending a `SIGTERM`. If the containers haven't stopped after 10 seconds, a `SIGKILL` is sent.
 
@@ -48,13 +48,13 @@ This action allows you to perform a reboot on your devices. This is different fr
 
 ### Shutdown
 
-The `Shutdown` action allows you to safely shut down your devices. It should be noted that once you trigger this action, there is no way for \{{ $names.company.lower \}} to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible
+The `Shutdown` action allows you to safely shut down your devices. It should be noted that once you trigger this action, there is no way for balena to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible
 
 **Warning:** This action is only supported on devices with an Agent version >= 1.1.0
 
 ### Delete Device
 
-The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the fleet and remote endpoint. Once you have deleted a device from the fleet it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the \{{ $names.company.lower \}} dashboard or API.
+The `Delete Device` action is an extremely dangerous action and results in disassociating the device from the fleet and remote endpoint. Once you have deleted a device from the fleet it is not possible to reconnect to it unless you set it back up again. The device itself will continue to run the container and code you pushed most recently, but will never be able to receive new updates or commands from the balena dashboard or API.
 
 ## Device settings
 
@@ -68,15 +68,9 @@ The Public Device URL feature is a tool for remote configuration, debugging, and
 
 For applications that require a stable, continuously available public endpoint, we recommend using a dedicated tunneling service designed for production use. Popular services include \[Cloudflare Tunnels]\[cloudflare-tunnel]\(See our \[blog post]\[cloudflare-tunnel-blog-post]), [Tailscale](https://tailscale.com/) and [Ngrok](https://ngrok.com/).
 
-
-
 To see what your device is serving on port 80, click on the \[public URL]\[public-url]. If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
-
-
 You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
-
-
 
 ### Move device to another Fleet
 
@@ -94,7 +88,7 @@ This setting allows you to remotely update the host OS running on your device. F
 
 ### Local Mode
 
-Turning on local mode is useful when you are prototyping your services, as it allows you to push changes to your device over the local network without relying on the \{{ $names.company.lower \}} build pipeline. You can find more information in our \[development guide]\[local-mode].
+Turning on local mode is useful when you are prototyping your services, as it allows you to push changes to your device over the local network without relying on the balena build pipeline. You can find more information in our \[development guide]\[local-mode].
 
 ### Deactivate Device
 
@@ -156,7 +150,7 @@ Once the transfer of ownership has been completed, the source block owner will n
 
 This option permanently deletes your fleet.
 
-**Warning:** It is a good idea to \[move your devices to another fleet]\[move-devices] before deleting your current fleet. If you do not, **all devices attached to the fleet will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device operations from \{{ $names.company.lower \}}.
+**Warning:** It is a good idea to \[move your devices to another fleet]\[move-devices] before deleting your current fleet. If you do not, **all devices attached to the fleet will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device operations from balena.
 
 ## Release settings
 
