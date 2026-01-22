@@ -1,0 +1,283 @@
+{
+  "description": "External documentation sources with pinned versions. Managed by Renovate.",
+  "sources": [
+    {
+      "id": "balena-engine",
+      "repo": "balena-os/balena-engine",
+      "ref": "v20.10.44",
+      "files": [
+        {
+          "source": "balena-docs/engine-debugging.md",
+          "target": "shared/masterclass/debugging/engine.md"
+        }
+      ]
+    },
+    {
+      "id": "device-diagnostics",
+      "repo": "balena-io-modules/device-diagnostics",
+      "ref": "v4.23.1",
+      "files": [
+        {
+          "source": "diagnostics.md",
+          "target": "pages/reference/diagnostics.md"
+        }
+      ]
+    },
+    {
+      "id": "balena-supervisor",
+      "repo": "balena-os/balena-supervisor",
+      "ref": "v17.4.2",
+      "files": [
+        {
+          "source": "docs/update-locking.md",
+          "target": "pages/learn/deploy/release-strategy/update-locking.md"
+        },
+        {
+          "source": "docs/API.md",
+          "target": "pages/reference/supervisor/supervisor-api.md"
+        },
+        {
+          "source": "docs/debugging-supervisor.md",
+          "target": "shared/masterclass/debugging/supervisor.md"
+        }
+      ]
+    },
+    {
+      "id": "meta-balena",
+      "repo": "balena-os/meta-balena",
+      "ref": "v6.10.16",
+      "files": [
+        {
+          "source": "README.md",
+          "target": "shared/meta-balena/config-json.md",
+          "transform": {
+            "type": "extract-section",
+            "section": "config.json"
+          }
+        },
+        {
+          "source": "docs/rollbacks.md",
+          "target": "pages/reference/OS/updates/rollbacks.md"
+        },
+        {
+          "source": "contributing-device-support.md",
+          "target": "pages/reference/OS/customer-board-support.md"
+        },
+        {
+          "source": "docs/debugging-balenaos.md",
+          "target": "shared/masterclass/debugging/journal-logs.md",
+          "transform": {
+            "type": "extract-section",
+            "section": "Journal Logs"
+          }
+        },
+        {
+          "source": "docs/debugging-balenaos.md",
+          "target": "shared/masterclass/debugging/kernel-logs.md",
+          "transform": {
+            "type": "extract-section",
+            "section": "Using the Kernel Logs"
+          }
+        }
+      ]
+    },
+    {
+      "id": "balena-sdk",
+      "repo": "balena-io/balena-sdk",
+      "ref": "v22.4.6",
+      "files": [
+        {
+          "source": "README.md",
+          "target": "shared/sdk/deprecation-policy.md",
+          "transform": {
+            "type": "extract-section",
+            "section": "Deprecation policy"
+          }
+        }
+      ]
+    },
+    {
+      "id": "base-images",
+      "repo": "balena-io-library/base-images",
+      "ref": "v2.12.24",
+      "files": [
+        {
+          "source": "docs/base-images-ref.md",
+          "target": "pages/reference/base-images/base-images-ref.md",
+          "transform": {
+            "type": "prepend",
+            "content": "# [Deprecated] Balenalib Images List\n\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cli-masterclass",
+      "repo": "balena-io/balena-cli-masterclass",
+      "ref": "v1.1.12",
+      "files": [
+        {
+          "source": "README.md",
+          "target": "pages/learn/more/masterclasses/cli-masterclass.md"
+        }
+      ]
+    },
+    {
+      "id": "cli-advanced-masterclass",
+      "repo": "balena-io/balena-cli-advanced-masterclass",
+      "ref": "v1.0.35",
+      "files": [
+        {
+          "source": "README.md",
+          "target": "pages/learn/more/masterclasses/advanced-cli.md"
+        }
+      ]
+    },
+    {
+      "id": "balenaos-masterclass",
+      "repo": "balena-io/balenaos-masterclass",
+      "ref": "v0.0.14",
+      "files": [
+        {
+          "source": "README.md",
+          "target": "pages/learn/more/masterclasses/host-os-masterclass.md"
+        }
+      ]
+    },
+    {
+      "id": "services-masterclass",
+      "repo": "balena-io/services-masterclass",
+      "ref": "v1.0.22",
+      "files": [
+        {
+          "source": "README.md",
+          "target": "pages/learn/more/masterclasses/services-masterclass.md"
+        }
+      ]
+    },
+    {
+      "id": "fleet-management-masterclass",
+      "repo": "balena-io-projects/balena-fleet-management-masterclass",
+      "ref": "v0.0.20",
+      "files": [
+        {
+          "source": "README.md",
+          "target": "pages/learn/more/masterclasses/fleet-management.md"
+        }
+      ]
+    },
+    {
+      "id": "debugging-masterclass",
+      "repo": "balena-io/debugging-masterclass",
+      "ref": "v1.1.3",
+      "files": [
+        {
+          "source": "README.md",
+          "target": "pages/learn/more/masterclasses/device-debugging.md"
+        }
+      ]
+    },
+    {
+      "id": "docker-masterclass",
+      "repo": "balena-io/docker-masterclass",
+      "ref": "v1.0.7",
+      "files": [
+        {
+          "source": "README.md",
+          "target": "pages/learn/more/masterclasses/docker-masterclass.md"
+        }
+      ]
+    }
+  ],
+  "local": [
+    {
+      "id": "debugging-masterclass-partials",
+      "description": "Partials extracted from local docs for the debugging masterclass",
+      "files": [
+        {
+          "source": "pages/learn/accounts/support-access.md",
+          "target": "shared/masterclass/debugging/access-device.md",
+          "transform": { "type": "extract-section", "section": "Accessing your device" }
+        },
+        {
+          "source": "pages/learn/accounts/support-access.md",
+          "target": "shared/masterclass/debugging/support-access-device.md",
+          "transform": { "type": "extract-section", "section": "Granting Support Access to a Support Agent" }
+        },
+        {
+          "source": "pages/faq/debugging-device-gateway.md",
+          "target": "shared/masterclass/debugging/device-gateway-partial.md",
+          "transform": { "type": "extract-section", "section": "Accessing a Device using a Gateway Device" }
+        },
+        {
+          "source": "pages/learn/manage/device-logs.md",
+          "target": "shared/masterclass/debugging/device-logs-partial.md",
+          "transform": { "type": "extract-section", "section": "Device Logs" }
+        },
+        {
+          "source": "pages/learn/more/masterclasses/network-masterclass.md",
+          "target": "shared/masterclass/debugging/network.md",
+          "transform": { "type": "extract-section", "section": "Network debugging" }
+        },
+        {
+          "source": "pages/reference/OS/configuration.md",
+          "target": "shared/masterclass/debugging/configuration-partial.md",
+          "transform": { "type": "extract-section", "section": "Configuring balenaOS" }
+        },
+        {
+          "source": "pages/learn/manage/device-statuses.md",
+          "target": "shared/masterclass/debugging/device-connectivity.md",
+          "transform": { "type": "extract-section", "section": "Device Connectivity states" }
+        },
+        {
+          "source": "pages/faq/debugging-storage-media.md",
+          "target": "shared/masterclass/debugging/storage-media.md",
+          "transform": { "type": "extract-section", "section": "Storage Media Debugging" }
+        }
+      ]
+    }
+  ],
+  "versionedSources": [
+    {
+      "id": "balena-cli-docs",
+      "repo": "balena-io/balena-cli",
+      "ref": "v23.2.30",
+      "file": "docs/balena-cli.md",
+      "targetDir": "shared/balena-cli-versions",
+      "dictionary": "config/dictionaries/balenacli.json"
+    },
+    {
+      "id": "balena-sdk-docs",
+      "repo": "balena-io/balena-sdk",
+      "ref": "v22.4.7",
+      "file": "DOCUMENTATION.md",
+      "targetDir": "shared/balena-sdk-versions",
+      "dictionary": "config/dictionaries/nodesdk.json"
+    },
+    {
+      "id": "balena-sdk-python-docs",
+      "repo": "balena-io/balena-sdk-python",
+      "ref": "v15.1.4",
+      "file": "DOCUMENTATION.md",
+      "targetDir": "shared/balena-sdk-python-versions",
+      "dictionary": "config/dictionaries/pythonsdk.json"
+    }
+  ],
+
+  "dynamic": [
+    {
+      "id": "balena-labs-projects",
+      "type": "github-org-repos",
+      "org": "balena-labs-projects",
+      "target": "shared/projects/balena-labs-projects.md",
+      "perPage": 30
+    },
+    {
+      "id": "balena-io-examples",
+      "type": "github-org-repos",
+      "org": "balena-io-examples",
+      "target": "shared/projects/balena-example-projects.md",
+      "perPage": 100
+    }
+  ]
+}

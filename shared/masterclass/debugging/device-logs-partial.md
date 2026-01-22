@@ -1,12 +1,6 @@
----
-title: Device Logs
----
+Device logging and the storage of device logs in {{ $names.cloud.lower }} is designed to be a debugging feature for balena devices. The Logs section in the balenaCloud dashboard can be used to view and download logs from the system and app services running on the device in real-time.
 
-# Device Logs
-
-Device logging and the storage of device logs in balenaCloud is designed to be a debugging feature for balena devices. The Logs section in the balenaCloud dashboard can be used to view and download logs from the system and app services running on the device in real-time.
-
-<figure><img src="../../.gitbook/assets/device-logs.png" alt=""><figcaption></figcaption></figure>
+<img alt="Dashboard Logs" src="/img/common/main_dashboard/device_logs.webp">
 
 ## Device logs on the balenaCloud dashboard
 
@@ -16,9 +10,12 @@ The maximum limit of logs displayed on the dashboard is 1000 lines. This is also
 
 ## Persistent logging
 
-The ability to read logs from the different system services running in balenaOS is vital in tracking issues. On reboot, these journal logs are cleared, and so examining them will not, for example, give any insight as to why the reboot may have occurred (or which services may have failed, causing a reboot). To alleviate this, balenaOS allows persistent journals (logs). Persistent logs provide vital insight into checking why a reboot occurred and help make debugging easier.
+The ability to read logs from the different system services running in balenaOS is vital in tracking issues. On reboot, these journal logs are cleared, and so examining them will not, for example, give any insight as to why the reboot may have occurred (or which services may have failed, causing a reboot).
+To alleviate this, balenaOS allows persistent journals (logs). Persistent logs provide vital insight into checking why a reboot occurred and help make debugging easier.
 
-Persistent logging can be enabled using the Configuration tab on the sidebar for either a specific device or fleet-wide. Select 'Activate' to enable persistent logging on a specific device or on all devices in a fleet. Since logs are stored in the data partition of the hostOS, the device(s) will reboot to activate persistent logging and apply the related settings. Once persistent logging is enabled, the logs are stored as part of the data partition on the device (either on SD card, eMMC, hard disk, etc.). Logs are located on-device at `/var/log/journal/<uuid>`,where `<uuid>` matches the contents of the `/etc/machine-id` and is not related with the balena device UUID.
+Persistent logging can be enabled using the Configuration tab on the sidebar for either a specific device or fleet-wide. Select 'Activate' to enable persistent logging on a specific device or on all devices in a fleet.
+Since logs are stored in the data partition of the hostOS, the device(s) will reboot to activate persistent logging and apply the related settings.
+Once persistent logging is enabled, the logs are stored as part of the data partition on the device (either on SD card, eMMC, hard disk, etc.). Logs are located on-device at `/var/log/journal/<uuid>`,where `<uuid>` matches the contents of the `/etc/machine-id` and is not related with the balena device UUID.
 
 Journals can be read like those for any unit file, using journalctl, although the flags passed to the command are slightly different. Here's an example of how to read persistent journals:
 
@@ -68,7 +65,7 @@ Depending on the OS version, the size of persistent logs can be increased to sto
 
 We consider changes to the size of persistent log store to be a temporary debugging tool, not a long-term solution. In particular, changes made to `journald-balena-os.conf` will be overwritten when balenaOS is updated.
 
-Do keep in mind persistent logging increases the wear on the storage medium due to increased writes. Refer to [long term storage of device logs](device-logs.md#long-term-device-logs-storage) for ways to offset this.
+Do keep in mind persistent logging increases the wear on the storage medium due to increased writes. Refer to [long term storage of device logs](#long-term-device-logs-storage) for ways to offset this.
 
 ## Long term device logs storage
 

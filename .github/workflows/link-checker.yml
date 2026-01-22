@@ -54,7 +54,7 @@ jobs:
           args: >
             --base ${{ inputs.deployment_url }}
             --config ./lychee.toml
-            "build/**/*" "tools/fetch-external.sh"
+            build/**/*
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Issue From File
