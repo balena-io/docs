@@ -214,7 +214,7 @@ If your project relies on a private base image, then it is possible to specify y
 balena push 192.168.86.45 --registry-secrets /Path/To/File/dockerhub-secret.yml
 ```
 
-Where `dockerhub-secret.yml` is a YAML file containing my private registry usernames and passwords to be used by the device \{{ $names.engine.lower \}} when pulling base images during a build.
+Where `dockerhub-secret.yml` is a YAML file containing my private registry usernames and passwords to be used by the device balenaEngine when pulling base images during a build.
 
 Sample secrets YAML file:
 

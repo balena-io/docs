@@ -27,7 +27,7 @@ Of course, the single biggest choice you have to make is whether to use off-the-
 
 One of the challenges in building applications for distributed fleets is aligning your development environment with the operating environment running on your devices. You'll need a way to make sure your application and its dependencies work with your device's architecture, as well as a plan for pushing updates to your fleet without losing access to your devices.
 
-Balena solves for these concerns by running balenaOS, a bare-bones host OS with a lightweight, Docker-compatible container engine, [{{ $names.engine.lower }}][engine-link]. With containers, you can develop your application in the way you are most comfortable, and then run that environment on your device without worrying about the underlying hardware support. Any dependencies, such as libraries and runtime environments, will already be packaged in the container.
+Balena solves for these concerns by running balenaOS, a bare-bones host OS with a lightweight, Docker-compatible container engine, [balenaEngine][engine-link]. With containers, you can develop your application in the way you are most comfortable, and then run that environment on your device without worrying about the underlying hardware support. Any dependencies, such as libraries and runtime environments, will already be packaged in the container.
 
 Containers also make remote updates a straightforward process. A new release can be downloaded, verified, and started while the host OS maintains a network connection and handles any issues.
 

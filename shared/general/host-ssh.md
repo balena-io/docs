@@ -15,7 +15,7 @@ BalenaOS uses **systemd** as its init system, and as such, almost all the fundam
 - `NetworkManager.service` - The underlying Network Manager service, ensuring that configured connections are used for networking.
 - `os-config.service` - Retrieves settings and configs from the API endpoint, including certificates, authorized keys, the cloudlink config, etc.
 - `openvpn.service` - The VPN service itself, which connects to cloudlink, allowing a device to come online.
-- `balena.service` - The [{{ $names.engine.lower }}][balena-engine] service, the modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking.
+- `balena.service` - The [balenaEngine][balena-engine] service, the modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking.
 - `balena-supervisor.service` - The balena Supervisor service, responsible for the management of releases, including downloading updates for and self-healing (via monitoring), variables (fleet/device), and exposure of these services to fleets via an API endpoint.
 - `dbus.service` - The DBus daemon socket which can be used by containers by applying the _io.balena.features.dbus_ [label][labels], which exposes it in-container. This allows you to control several host OS features, including the Network Manager.
 
@@ -68,9 +68,9 @@ For displaying messages from the kernel, you can use **dmesg**. Similar to **jou
 $ dmesg | tail -n 100
 ```
 
-### Monitor {{ $names.engine.lower }}
+### Monitor balenaEngine
 
-beginning with version 2.9.0, balenaOS includes the lightweight container engine **[{{ $names.engine.lower }}][engine-link]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to use `balena` for debugging.
+beginning with version 2.9.0, balenaOS includes the lightweight container engine **[balenaEngine][engine-link]** to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to use `balena` for debugging.
 
 From the host OS this command will show the status of all containers:
 
@@ -78,7 +78,7 @@ From the host OS this command will show the status of all containers:
 $ balena ps -a
 ```
 
-You can also check the **journalctl** logs for messages related to the {{ $names.engine.lower }} service:
+You can also check the **journalctl** logs for messages related to the balenaEngine service:
 
 ```shell
 $ journalctl --follow -n 100 -u balena

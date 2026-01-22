@@ -86,7 +86,7 @@ This will mount the `super-secret-recipe` file as `/run/secrets/my-recipe` for a
 
 Subdirectories are supported in both the source (`.balena/secrets`) and the destination (`/run/secrets`).
 
-**Note:** Currently `balena build` and `balena deploy` do not support [build time secret files](#build-time-only-secret-file) out of the box and need to be pointed to a [{{$names.engine.lower}}][engine-link] instance. Refer to the [`balena build`][cli-build-reference] and [`balena deploy`][cli-deploy-reference] command references for additional documentation.
+**Note:** Currently `balena build` and `balena deploy` do not support [build time secret files](#build-time-only-secret-file) out of the box and need to be pointed to a [balenaEngine][engine-link] instance. Refer to the [`balena build`][cli-build-reference] and [`balena deploy`][cli-deploy-reference] command references for additional documentation.
 
 ### Build variables
 

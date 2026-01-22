@@ -34,9 +34,9 @@ One of the most common issues moving from a project to a product is considering 
 
 - configuring logrotate
 - external logging service
-- logging only to stderr/stdout to take advantage of {{ $names.engine.lower }}'s built-in logging features
+- logging only to stderr/stdout to take advantage of balenaEngine's built-in logging features
 
-If the data partition (`/mnt/data`) fills up completely, {{ $names.engine.lower }} may not be able to restart the container on device reboot, new releases may fail to apply, and the only way to recover the device may be by deleting the image through manual intervention, including loss of all data written to the container's file system (named volumes are preserved).
+If the data partition (`/mnt/data`) fills up completely, balenaEngine may not be able to restart the container on device reboot, new releases may fail to apply, and the only way to recover the device may be by deleting the image through manual intervention, including loss of all data written to the container's file system (named volumes are preserved).
 
 ### Excessive writes causing SD / Flash failure / corruption
 
@@ -68,7 +68,7 @@ One common anti-pattern is to trigger reboots if some condition is met (using th
 
 ### Causing an out-of-memory (OOM) scenario
 
-When developing on low-footprint devices or for a heterogeneous fleet, it is easy to forget about managing memory consumption. Due to the nature of [Linux's out-of-memory killer][linux-oom], these events are often difficult to catch and debug. Individual services can be limited by {{ $names.engine.lower }} using [directives in `docker-compose.yml`][docker-compose].
+When developing on low-footprint devices or for a heterogeneous fleet, it is easy to forget about managing memory consumption. Due to the nature of [Linux's out-of-memory killer][linux-oom], these events are often difficult to catch and debug. Individual services can be limited by balenaEngine using [directives in `docker-compose.yml`][docker-compose].
 
 ## Managing Fleets
 
