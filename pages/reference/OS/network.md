@@ -459,7 +459,7 @@ This specific dispatcher script ensures that when a wired interface is connected
 
 In order for a balena device to get outside of the local network and connect to the balena API, there are a few core network requirements.
 
-{{ $names.company.upper }} makes use of the following ports:
+Balena makes use of the following ports:
 
 - `443` TCP - This is the most fundamental requirement - it is used to connect to Cloudlink and the web terminal, and many web endpoints using TLS (https://.)
 - `123` UDP - For NTP time synchronization.

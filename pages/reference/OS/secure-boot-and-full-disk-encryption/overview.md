@@ -7,7 +7,7 @@ excerpt: >-
 
 # Secure Boot and Full Disk Encryption
 
-\{{ $names.company.upper \}}’s secure boot and full disk encryption feature addresses two critical aspects of device security. Secure boot ensures that only trusted software can run on the device, while full disk encryption safeguards data at rest by preventing unauthorized access to the contents of storage media.
+Balena’s secure boot and full disk encryption feature addresses two critical aspects of device security. Secure boot ensures that only trusted software can run on the device, while full disk encryption safeguards data at rest by preventing unauthorized access to the contents of storage media.
 
 Given the diversity of hardware platforms that \{{ $names.os.lower \}} targets, it was essential to design a flexible framework capable of integrating device-specific secure boot mechanisms.
 
@@ -35,7 +35,7 @@ Secure Boot-enabled \{{ $names.os.lower \}} images are provided pre-signed using
 
 ## Secure Element
 
-A secure element is a tamper-resistant, isolated environment within a device's hardware, designed to protect cryptographic keys and perform sensitive operations securely. \{{ $names.company.upper \}} **only** recommends using devices with secure elements that are embedded directly into the System on a Chip (SoC). This integrated approach is preferred over solutions that rely on external, discrete chips, as embedded elements are significantly less vulnerable to physical tampering and sophisticated hardware attacks. The specific implementation varies by hardware - for detailed information, always refer to the official technical reference manual for your particular device.
+A secure element is a tamper-resistant, isolated environment within a device's hardware, designed to protect cryptographic keys and perform sensitive operations securely. Balena **only** recommends using devices with secure elements that are embedded directly into the System on a Chip (SoC). This integrated approach is preferred over solutions that rely on external, discrete chips, as embedded elements are significantly less vulnerable to physical tampering and sophisticated hardware attacks. The specific implementation varies by hardware - for detailed information, always refer to the official technical reference manual for your particular device.
 
 ## Provisioning a secured device
 

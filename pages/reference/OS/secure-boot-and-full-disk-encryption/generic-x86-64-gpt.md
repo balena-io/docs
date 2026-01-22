@@ -47,7 +47,7 @@ Note that \{{ $names.os.lower \}} currently does not support updating from a non
 
 ### Configuring \{{ $names.os.lower \}} image to opt-in secure boot mode
 
-`Generic x86_64 (GPT)` \{{ $names.os.lower \}} images ship with the capability to provision a device with secure boot and full disk encryption. While the feature was introduced in \{{ $names.os.lower \}} `v2.114.21`, it has since been has been hardened for security and updated for broader device compatibility in version `v6.6.1`. \{{ $names.company.upper \}} recommends that all customers use the most recent releases.
+`Generic x86_64 (GPT)` \{{ $names.os.lower \}} images ship with the capability to provision a device with secure boot and full disk encryption. While the feature was introduced in \{{ $names.os.lower \}} `v2.114.21`, it has since been has been hardened for security and updated for broader device compatibility in version `v6.6.1`. Balena recommends that all customers use the most recent releases.
 
 #### Using \{{ $names.cloud.lower \}}
 

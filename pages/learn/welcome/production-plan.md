@@ -27,7 +27,7 @@ Of course, the single biggest choice you have to make is whether to use off-the-
 
 One of the challenges in building applications for distributed fleets is aligning your development environment with the operating environment running on your devices. You'll need a way to make sure your application and its dependencies work with your device's architecture, as well as a plan for pushing updates to your fleet without losing access to your devices.
 
-{{ $names.company.upper }} solves for these concerns by running {{ $names.os.lower }}, a bare-bones host OS with a lightweight, Docker-compatible container engine, [{{ $names.engine.lower }}][engine-link]. With containers, you can develop your application in the way you are most comfortable, and then run that environment on your device without worrying about the underlying hardware support. Any dependencies, such as libraries and runtime environments, will already be packaged in the container.
+Balena solves for these concerns by running {{ $names.os.lower }}, a bare-bones host OS with a lightweight, Docker-compatible container engine, [{{ $names.engine.lower }}][engine-link]. With containers, you can develop your application in the way you are most comfortable, and then run that environment on your device without worrying about the underlying hardware support. Any dependencies, such as libraries and runtime environments, will already be packaged in the container.
 
 Containers also make remote updates a straightforward process. A new release can be downloaded, verified, and started while the host OS maintains a network connection and handles any issues.
 
@@ -60,7 +60,7 @@ When developing a new application, you should consider using a [development imag
 
 While prototyping, you should start thinking about how your devices will be connected when deployed in the real world. If it's possible to have network settings preconfigured, or to have everything done by DHCP, this is easy. But most devices will need onsite configuration.
 
-{{ $names.company.upper }} provides the ability to configure networking from inside containers and exposes a great deal of functionality to make this easier. One example is the [wifi-connect][wifi-connect] project, which allows the device to create its own WiFi access point that users can connect with to configure proper credentials. The balena [supervisor API][supervisor-api] also makes it possible to configure more advanced networking parameters, including hostname and proxy configuration.
+Balena provides the ability to configure networking from inside containers and exposes a great deal of functionality to make this easier. One example is the [wifi-connect][wifi-connect] project, which allows the device to create its own WiFi access point that users can connect with to configure proper credentials. The balena [supervisor API][supervisor-api] also makes it possible to configure more advanced networking parameters, including hostname and proxy configuration.
 
 ### Multiple developers
 
@@ -68,7 +68,7 @@ During the prototyping phase, you may want to allow multiple developers to share
 
 ## Phase 3: Pilot
 
-After your application development is mostly complete, it's important to do some more real world testing. {{ $names.company.upper }} exposes functionality to make this easy as well, providing tools that help you move from the prototype phase toward a full production environment:
+After your application development is mostly complete, it's important to do some more real world testing. Balena exposes functionality to make this easy as well, providing tools that help you move from the prototype phase toward a full production environment:
 
 ### Production images
 

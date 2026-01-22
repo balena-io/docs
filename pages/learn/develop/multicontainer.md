@@ -62,7 +62,7 @@ gpio:
     restart: on-failure
 ```
 
-## {{ $names.company.upper }} settings
+## Balena settings
 
 There are a few settings and considerations specific to balena that need to be taken into account when building multicontainer fleets.
 

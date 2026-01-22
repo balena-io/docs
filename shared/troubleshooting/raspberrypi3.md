@@ -11,7 +11,7 @@ at v2.95.3+rev1 or newer are expected to work with this hardware revision becaus
 
 ### Connectivity
 
-If a {{ $names.company.upper }} ASCII logo appears with a prompt to check your dashboard, then you are likely experiencing connectivity issues. Check ethernet cables are connected properly and that provided WiFi credentials are correct and try again, also let us known that the LED notification didn't show for you.
+If a Balena ASCII logo appears with a prompt to check your dashboard, then you are likely experiencing connectivity issues. Check ethernet cables are connected properly and that provided WiFi credentials are correct and try again, also let us known that the LED notification didn't show for you.
 
 ### SD Card Corruption
 

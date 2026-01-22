@@ -11,7 +11,7 @@ There are 3 ways to create and deploy a release, namely [balena push](deployment
 
 To get started with the balena CLI, check out our [balena CLI masterclass](../../../learn/more/masterclasses/cli-masterclass/)
 
-## \{{$names.company.upper\}} Push
+## Balena Push
 
 ### Overview
 
@@ -25,7 +25,7 @@ It should be noted that `balena push` is independent of git, so you are free to 
 
 **Note:** Refer to the [`balena push` command reference](../../../reference/balena-cli/#push-fleetordevice) for additional documentation.
 
-## \{{$names.company.upper\}} Build & Deploy
+## Balena Build & Deploy
 
 ### Overview
 
@@ -117,7 +117,7 @@ project: $ tree -a
 
 When we push this project to a fleet that has its default device type set to `Raspberry Pi 3`, the build system will use the device type specific `Dockerfile.raspberrypi3` file to build from. If we instead pushed this to an `Intel NUC` fleet, the build would use the `Dockerfile.amd64` file. When pushing to any other device type, the regular `Dockerfile` would be used to perform the build. This type of project selection will also work in service folders of multicontainer deployments; you can see an example of that in our \[Getting started with multicontainer project]\[multicontainer-project].
 
-The file extensions are equivalent to `{{$names.company.allCaps}}_MACHINE_NAME` for `.<device-type>` and `{{$names.company.allCaps}}_ARCH` for `.<arch>` from the template files discussed in the next section. To find the correct name have a look at our [machine names and architectures list](../../../reference/hardware/devices/).
+The file extensions are equivalent to `BALENA_MACHINE_NAME` for `.<device-type>` and `BALENA_ARCH` for `.<arch>` from the template files discussed in the next section. To find the correct name have a look at our [machine names and architectures list](../../../reference/hardware/devices/).
 
 ### Template Files
 
@@ -125,7 +125,7 @@ Often it's desirable to create a single Dockerfile that can be used and built fo
 
 \{{> "deployment/build-variables" \}}
 
-You can find the values of `%%{{$names.company.allCaps}}_ARCH%%` and `%%{{$names.company.allCaps}}_MACHINE_NAME%%` for a specific device type [here](../../../reference/hardware/devices/).
+You can find the values of `%%BALENA_ARCH%%` and `%%BALENA_MACHINE_NAME%%` for a specific device type [here](../../../reference/hardware/devices/).
 
 ## Private Base Images
 

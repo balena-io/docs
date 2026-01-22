@@ -4,7 +4,7 @@ title: Configuration
 
 # Configuration
 
-Variables on the configuration page allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `{{ $names.company.allCaps}}_` or `RESIN_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
+Variables on the configuration page allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
 
 Configuration can be managed at both the fleet and device level.
 
@@ -46,7 +46,7 @@ The custom configuration section can be used to modify configuration options bey
 
 To define custom fleet wide configuration, scroll past the automatically populated options, then click the _Add custom configuration_ button in the lower-right corner:
 
-A dialog pops up giving you the option to define a name and value (remember, all config variable names must begin with `{{ $names.company.allCaps}}_` or `RESIN_`). Click _Add_ to apply:
+A dialog pops up giving you the option to define a name and value (remember, all config variable names must begin with `BALENA_` or `RESIN_`). Click _Add_ to apply:
 
 Adding custom device configuration is similar to adding custom fleet configuration. You can override the value of custom fleet configuration by clicking _override_ inside device configuration. This will pop up the variable editing dialog, where you can change the value:
 

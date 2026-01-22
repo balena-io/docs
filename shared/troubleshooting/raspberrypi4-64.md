@@ -6,7 +6,7 @@ One other thing to confirm is that you are not trying to boot a Raspberry Pi 2 w
 
 ### Connectivity
 
-If a {{ $names.company.upper }} ASCII logo appears with a prompt to check your dashboard, then you are likely experiencing connectivity issues. Check ethernet cables are connected properly and that provided WiFi credentials are correct and try again, also let us known that the LED notification didn't show for you.
+If a Balena ASCII logo appears with a prompt to check your dashboard, then you are likely experiencing connectivity issues. Check ethernet cables are connected properly and that provided WiFi credentials are correct and try again, also let us known that the LED notification didn't show for you.
 
 ### SD Card Corruption
 

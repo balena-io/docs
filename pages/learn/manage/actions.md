@@ -62,7 +62,7 @@ The `Delete Device` action is an extremely dangerous action and results in disas
 
 ### Public Device URL
 
-\{{ $names.company.upper \}} currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<{{ $names.company.allCaps }}_DEVICE_UUID>.balena-devices.com`, where `<{{ $names.company.allCaps }}_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
+Balena currently exposes **port 80** for web forwarding. This setting enables web forwarding and generates a web accessible url for any applicable devices. The URLs will be of the form `<BALENA_DEVICE_UUID>.balena-devices.com`, where `<BALENA_DEVICE_UUID>` is the unique ID of the device which you can see on your dashboard. Currently only HTTP traffic (level 7 OSI traffic) is supported via the device URLs.
 
 The Public Device URL feature is a tool for remote configuration, debugging, and other intermittent or periodic use cases. The feature is built on [Cloudlink](../../../learn/welcome/security/#cloudlink) and not designed for high availability. We do not recommend using the Public Device URL feature for continuous use as part of your application.
 

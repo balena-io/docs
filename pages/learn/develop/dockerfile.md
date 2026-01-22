@@ -7,7 +7,7 @@ excerpt: >-
 
 # Define a container
 
-\{{ $names.company.upper \}} uses [Docker](https://www.docker.com/) containers to manage deployment and updates. You can use one or more containers to package your services with whichever environments and tools they need to run.
+Balena uses [Docker](https://www.docker.com/) containers to manage deployment and updates. You can use one or more containers to package your services with whichever environments and tools they need to run.
 
 To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image](https://docs.docker.com/engine/understanding-docker/#/inside-docker). Whether the build process is done [on your device](../../../learn/develop/local-mode/), [on your workstation](../../../reference/cli/#build-source), or on the [balena builders](../../../learn/deploy/deployment/), the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the \{{ $names.os.lower \}} version) to kick off a running container.
 
@@ -84,7 +84,7 @@ It is possible to have different device types in the same fleet, as long as they
 If you are still using balenalib base images for an existing project, you can use dockerfile templates as described below:
 
 ```dockerfile
-FROM {{ $names.base_images.lib }}/%%{{ $names.company.allCaps }}_MACHINE_NAME%%-node
+FROM {{ $names.base_images.lib }}/%%BALENA_MACHINE_NAME%%-node
 
 COPY package.json /package.json
 RUN npm install
@@ -95,11 +95,11 @@ CMD ["node", "/usr/src/app/main.js"]
 
 This `dockerfile.template` file will build and deploy a Node.js project for any of the devices supported by balena, regardless of device architecture, whether is [ARM](https://en.wikipedia.org/wiki/ARM_architecture) or [x86](https://en.wikipedia.org/wiki/X86).
 
-In this example, the build variable `%%{{ $names.company.allCaps }}_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. Refer to [supported machine names and architectures](../../../reference/hardware/devices/).
+In this example, the build variable `%%BALENA_MACHINE_NAME%%`. This will be replaced by the machine name (i.e.: `raspberry-pi`) at build time. Refer to [supported machine names and architectures](../../../reference/hardware/devices/).
 
 The machine name is inferred from the device type of the fleet you are deploying on. So if you have a NanoPi Neo Air fleet, the machine name will be `nanopi-neo-air` and an `armv7hf` architecture base image will be built.
 
-**Note:** If your fleet contains devices of different types, the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your fleet services are built once for all devices, and the `%%{{ $names.company.allCaps }}_MACHINE_NAME%%` variable will pull from the device type associated with the fleet, rather than the target device. In this scenario, you can use `%%{{ $names.company.allCaps }}_ARCH%%` to pull a base image that matches the shared architecture of the devices in your fleet.
+**Note:** If your fleet contains devices of different types, the `%%BALENA_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your fleet services are built once for all devices, and the `%%BALENA_MACHINE_NAME%%` variable will pull from the device type associated with the fleet, rather than the target device. In this scenario, you can use `%%BALENA_ARCH%%` to pull a base image that matches the shared architecture of the devices in your fleet.
 
 If you want to see an example of build variables in action, have a look at this \[basic openssh example]\(\{{ $links.githubPlayground \}}/balena-openssh).
 
@@ -119,7 +119,7 @@ Note that this feature works with the following commands: `git push`, `balena pu
 
 ## Node applications
 
-\{{ $names.company.upper \}} supports \[Node.js]\[node] natively using the [package.json](https://docs.npmjs.com/files/package.json) file located in the root of the repository to determine how to build and execute node applications.
+Balena supports \[Node.js]\[node] natively using the [package.json](https://docs.npmjs.com/files/package.json) file located in the root of the repository to determine how to build and execute node applications.
 
 When you push your code to your fleet, the build server generates a [container](https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization) for the environment your device operates in, deploys your code to it and runs `npm install` to resolve [npm](https://www.npmjs.org/) dependencies, reporting progress to your terminal as it goes.
 

@@ -29,7 +29,7 @@ In order to reduce complexity, dependencies, file sizes, and build times, you sh
 
 ## Multi-stage builds
 
-{{ $names.company.upper }} supports [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/). When building your application, you might require build-time dependencies, or other files which are not needed at _runtime_. With multi-stage builds, you can use multiple `FROM` statements to describe a new stage. Each stage can use a different base image and you can copy files and artifacts from one stage to another. This allows you to only copy necessary files and tools into the final image you want to ship, keeping it lean. Here is an example illustrating multi-stage build for a `golang` project.
+Balena supports [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/). When building your application, you might require build-time dependencies, or other files which are not needed at _runtime_. With multi-stage builds, you can use multiple `FROM` statements to describe a new stage. Each stage can use a different base image and you can copy files and artifacts from one stage to another. This allows you to only copy necessary files and tools into the final image you want to ship, keeping it lean. Here is an example illustrating multi-stage build for a `golang` project.
 
 ```Dockerfile
 FROM golang:1.24.3-bookworm AS build # define a build stage
@@ -47,7 +47,7 @@ COPY --from=build /go/src/github.com/balena-io-projects/app/ . # copy build arti
 CMD ["./app"]
 ```
 
-{{ $names.company.upper }} base images come in two variants, namely `build` and `run`. Refer to the docs on [the differences between the two variants][run-vs-build].
+Balena base images come in two variants, namely `build` and `run`. Refer to the docs on [the differences between the two variants][run-vs-build].
 
 ### Using scratch
 

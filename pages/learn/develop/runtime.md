@@ -13,42 +13,42 @@ In many situations, the code running in your container will need some way to com
 
 ### Environment variables
 
-Inside your running container, you'll have access to a number of `{{ $names.company.allCaps }}_` namespaced environment variables, which provide information from the system outside the container:
+Inside your running container, you'll have access to a number of `BALENA_` namespaced environment variables, which provide information from the system outside the container:
 
 **Note:** On all \{{ $names.os.lower \}} versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
 
-|                      Variable                      |                                                                                                                                                                                                      Description                                                                                                                                                                                                       |
-| :------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|     `{{ $names.company.allCaps }}_DEVICE_UUID`     |                                                                                                                                                                 The unique identification number for the device. This is used to identify it on balena                                                                                                                                                                 |
-|       `{{ $names.company.allCaps }}_APP_ID`        |                                                                                                                                                                                ID number of the balena fleet the device is associated.                                                                                                                                                                                 |
-|      `{{ $names.company.allCaps }}_APP_NAME`       |                                                                                                                                                                              The name of the balena fleet the device is associated with.                                                                                                                                                                               |
-| `{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT` |                                                                                                                                                                                    The name of the device on first initialization.                                                                                                                                                                                     |
-|     `{{ $names.company.allCaps }}_DEVICE_TYPE`     |                                                                                                                                                                                      The type of device the fleet is running on.                                                                                                                                                                                       |
-|           `{{ $names.company.allCaps }}`           |                                                                                                                                              The `{{ $names.company.allCaps }}=1` variable can be used by your software to detect that it is running on a balena device.                                                                                                                                               |
-| `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY`  |                                          Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference](../../../runtime/supervisor-api/) for detailed usage. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                          |
-| `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS`  |                                                                                                                  The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                                  |
-|   `{{ $names.company.allCaps }}_SUPERVISOR_HOST`   |                                                                                                                               The IP address of the supervisor API. Default: `127.0.0.1`. For multicontainer the service needs the \[io.resin.features.supervisor-api]\[labels-link] set                                                                                                                               |
-|   `{{ $names.company.allCaps }}_SUPERVISOR_PORT`   |                                                                                                                        The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                                        |
-|       `{{ $names.company.allCaps }}_API_KEY`       | API key which can be used to authenticate requests to the balena backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation](../../../learn/welcome/security/) for more details. For multicontainer the service needs the \[io.balena.features.balena-api]\[labels-link] label set. |
-|   `{{ $names.company.allCaps }}_HOST_OS_VERSION`   |                                                                                                                                                                                              The version of the host OS.                                                                                                                                                                                               |
-|   `{{ $names.company.allCaps }}_DEVICE_RESTART`    |                                                                                                                                           This is an internal mechanism for restarting containers and can be ignored as it's not very useful to app code. Example: `1.13.0`                                                                                                                                            |
+|           Variable           |                                                                                                                                                                                                      Description                                                                                                                                                                                                       |
+| :--------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|     `BALENA_DEVICE_UUID`     |                                                                                                                                                                 The unique identification number for the device. This is used to identify it on balena                                                                                                                                                                 |
+|       `BALENA_APP_ID`        |                                                                                                                                                                                ID number of the balena fleet the device is associated.                                                                                                                                                                                 |
+|      `BALENA_APP_NAME`       |                                                                                                                                                                              The name of the balena fleet the device is associated with.                                                                                                                                                                               |
+| `BALENA_DEVICE_NAME_AT_INIT` |                                                                                                                                                                                    The name of the device on first initialization.                                                                                                                                                                                     |
+|     `BALENA_DEVICE_TYPE`     |                                                                                                                                                                                      The type of device the fleet is running on.                                                                                                                                                                                       |
+|           `BALENA`           |                                                                                                                                                         The `BALENA=1` variable can be used by your software to detect that it is running on a balena device.                                                                                                                                                          |
+| `BALENA_SUPERVISOR_API_KEY`  |                                          Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference](../../../runtime/supervisor-api/) for detailed usage. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                          |
+| `BALENA_SUPERVISOR_ADDRESS`  |                                                                                                                  The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                                  |
+|   `BALENA_SUPERVISOR_HOST`   |                                                                                                                               The IP address of the supervisor API. Default: `127.0.0.1`. For multicontainer the service needs the \[io.resin.features.supervisor-api]\[labels-link] set                                                                                                                               |
+|   `BALENA_SUPERVISOR_PORT`   |                                                                                                                        The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                                        |
+|       `BALENA_API_KEY`       | API key which can be used to authenticate requests to the balena backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation](../../../learn/welcome/security/) for more details. For multicontainer the service needs the \[io.balena.features.balena-api]\[labels-link] label set. |
+|   `BALENA_HOST_OS_VERSION`   |                                                                                                                                                                                              The version of the host OS.                                                                                                                                                                                               |
+|   `BALENA_DEVICE_RESTART`    |                                                                                                                                           This is an internal mechanism for restarting containers and can be ignored as it's not very useful to app code. Example: `1.13.0`                                                                                                                                            |
 
 Here's an example from a Raspberry Pi 3:
 
 ```bash
-root@raspberrypi3-cc723d7:/# printenv | grep {{ $names.company.allCaps }}
-{{ $names.company.allCaps }}_SUPERVISOR_API_KEY=1111deadbeef2222
-{{ $names.company.allCaps }}_APP_ID=157270
-{{ $names.company.allCaps }}_DEVICE_TYPE=raspberrypi3
-{{ $names.company.allCaps }}=1
-{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS=http://127.0.0.1:48484
-{{ $names.company.allCaps }}_SUPERVISOR_HOST=127.0.0.1
-{{ $names.company.allCaps }}_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
-{{ $names.company.allCaps }}_API_KEY=deadbeef12345
-{{ $names.company.allCaps }}_APP_NAME=Example
-{{ $names.company.allCaps }}_DEVICE_NAME_AT_INIT=damp-haze
-{{ $names.company.allCaps }}_HOST_OS_VERSION={{ $names.os.lower }} 2.20.0
-{{ $names.company.allCaps }}_SUPERVISOR_PORT=48484
+root@raspberrypi3-cc723d7:/# printenv | grep BALENA
+BALENA_SUPERVISOR_API_KEY=1111deadbeef2222
+BALENA_APP_ID=157270
+BALENA_DEVICE_TYPE=raspberrypi3
+BALENA=1
+BALENA_SUPERVISOR_ADDRESS=http://127.0.0.1:48484
+BALENA_SUPERVISOR_HOST=127.0.0.1
+BALENA_DEVICE_UUID=cb6f09d18ab4c08556f54a5bd7cfd353d4907c4a61998ba8a54cd9f2abc5ee
+BALENA_API_KEY=deadbeef12345
+BALENA_APP_NAME=Example
+BALENA_DEVICE_NAME_AT_INIT=damp-haze
+BALENA_HOST_OS_VERSION={{ $names.os.lower }} 2.20.0
+BALENA_SUPERVISOR_PORT=48484
 ```
 
 ### D-Bus communication with host OS
@@ -185,12 +185,12 @@ You may notice that if you issue a `reboot`, `halt`, or `shutdown` your containe
 
 ```
 curl -X POST --header "Content-Type:application/json" \
-    "${{ $names.company.allCaps }}_SUPERVISOR_ADDRESS/v1/reboot?apikey=${{ $names.company.allCaps }}_SUPERVISOR_API_KEY"
+    "$BALENA_SUPERVISOR_ADDRESS/v1/reboot?apikey=$BALENA_SUPERVISOR_API_KEY"
 ```
 
 [Read more about the supervisor API](../../../runtime/supervisor-api/#post-v1-reboot)
 
-**Note:** `{{ $names.company.allCaps }}_SUPERVISOR_API_KEY` and `{{ $names.company.allCaps }}_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the \[io.resin.features.supervisor-api]\[labels-link] set . You will also **need** `curl` installed in your container.
+**Note:** `BALENA_SUPERVISOR_API_KEY` and `BALENA_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the \[io.resin.features.supervisor-api]\[labels-link] set . You will also **need** `curl` installed in your container.
 
 Alternatively, it is possible to reboot the device via the D-Bus interface as described above.
 
@@ -243,13 +243,13 @@ services:
 
 For multicontainer releases, setting the service `network_mode` to `host` in `docker-compose.yml` allows the container to share the same network namespace as the host OS.
 
-\{{ $names.company.upper \}} `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` \[keyword]\[network-aliases] for providing alias names for services (including FQDNs) and \[IPAM bridge networks]\[network-ipam] are also supported.
+Balena `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` \[keyword]\[network-aliases] for providing alias names for services (including FQDNs) and \[IPAM bridge networks]\[network-ipam] are also supported.
 
 **Note:** For more information on networking with balena, see the \[balena services masterclass]\[services-masterclass].
 
 ### Public device URLS
 
-\{{ $names.company.upper \}} currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the \{{ $names.cloud.lower \}} dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../../../management/devices/#enable-public-device-url)
+Balena currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the \{{ $names.cloud.lower \}} dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../../../management/devices/#enable-public-device-url)
 
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js](https://expressjs.com/) server which will serve to the devices URL.
 

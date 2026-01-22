@@ -5,7 +5,7 @@ excerpt: The balena approach to securing your fleet
 
 # Security
 
-{{ $names.company.upper }} takes your fleet’s security very seriously. We understand that your data and devices are valuable and often critical, and we take precautions to ensure that your devices and data are not compromised.
+Balena takes your fleet’s security very seriously. We understand that your data and devices are valuable and often critical, and we take precautions to ensure that your devices and data are not compromised.
 
 ## Trust and Transparency
 
@@ -30,7 +30,7 @@ In this document, we will further explain how the balena infrastructure implemen
 The first points of access to the balena ecosystem are the user dashboard and the CLI. From these, a user can add and remove SSH keys, retrieve an API token, and manage devices. Multiple methods of authentication are supported for logging in:
 
 - Simple username/password authentication is supported, though not recommended for production accounts.
-- {{ $names.company.upper }} supports a number of [OpenID Connect](https://openid.net/connect/) providers, including GitHub and Google.
+- Balena supports a number of [OpenID Connect](https://openid.net/connect/) providers, including GitHub and Google.
 - Two-factor authentication using the Time-based One-time Password Algorithm (TOTP) is fully supported. This enables integration with tools such as Google Authenticator.
 
 ## Device access
@@ -77,7 +77,7 @@ It is important to understand that due to its current design, Cloudlink is not a
 
 ### Support access
 
-Device access is granted to a subset of balena employees to enable support and device troubleshooting. This access is controlled by the same SSH access mechanisms described above, and only SSH key access is permitted. {{ $names.company.upper }} employees access devices only for user support and to maintain device state and uptime with permission from the customer.
+Device access is granted to a subset of balena employees to enable support and device troubleshooting. This access is controlled by the same SSH access mechanisms described above, and only SSH key access is permitted. Balena employees access devices only for user support and to maintain device state and uptime with permission from the customer.
 
 If desired, this functionality can be disabled by removing the balena SSH public key from the device (or from the base image before flashing it onto the device). However, this will render the device inaccessible remotely for the purposes of support or repairs and updates to the base OS. Thus this should be done with extreme caution and only after careful consideration of the tradeoffs.
 
