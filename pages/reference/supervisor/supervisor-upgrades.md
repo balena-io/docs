@@ -15,7 +15,7 @@ Updates can also be issued to multiple devices in the same fleet with the same C
 
 From the dialog box that opens, select the Supervisor version you would like to update to and click the `Apply` button to trigger the Supervisor update.
 
-Additionally, these updates can be scheduled for an offline device as well. The update will be performed once the device comes back online and successfully connects to the \{{ $names.cloud.lower \}} backend.
+Additionally, these updates can be scheduled for an offline device as well. The update will be performed once the device comes back online and successfully connects to the balenaCloud backend.
 
 **Note:** Only devices running balenaOS v2.12.0 or greater are able to upgrade the Supervisor independently.
 

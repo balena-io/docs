@@ -10,13 +10,13 @@ dynamic:
 
 # \{{ title \}}
 
-In this guide, we will help you get started with \{{ $names.cloud.lower \}} by:
+In this guide, we will help you get started with balenaCloud by:
 
-- Setting up your **\{{ $device.name \}}** device and bringing it online on the \{{ $names.cloud.lower \}} dashboard.
+- Setting up your **\{{ $device.name \}}** device and bringing it online on the balenaCloud dashboard.
 - Deploying a **\{{ $language.name \}}** hello-world project on the device.
 - Developing the sample project: making changes and testing them on the device in real-time.
 
-Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using \{{ $names.cloud.lower \}} and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the \[glossary]\[balena-glossary].
+Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using balenaCloud and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the \[glossary]\[balena-glossary].
 
 ## What you'll need
 
@@ -26,7 +26,7 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 
 A fleet is a group of devices that share the same [architecture](../reference/hardware/devices/) and run the same code. Devices are added to fleets and can be moved between fleets at any time.
 
-To create your first fleet, log into your \[\{{ $names.cloud.lower \}} dashboard]\[dashboard] and click the **Create fleet** button.
+To create your first fleet, log into your \[balenaCloud dashboard]\[dashboard] and click the **Create fleet** button.
 
 Enter a fleet name, select the **\{{ $device.name \}}** device type, choose the _Starter_ [fleet type](../learn/accounts/fleet-types/), and click **Create new fleet**:
 
@@ -34,11 +34,11 @@ You'll then be redirected to the summary of the newly created fleet, where you c
 
 ## Add a device and download OS
 
-\{{ $names.cloud.lower \}} builds a custom balenaOS image configured for \{{ $device.name \}} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
+balenaCloud builds a custom balenaOS image configured for \{{ $device.name \}} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
 
 Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the \[differences between Development and Production images]\[devvprod].
 
-Select the type of network connection you'll be using: _Ethernet Only_ or _Wifi + Ethernet_. A network connection is required to allow the device to connect to \{{ $names.cloud.lower \}}. Selecting _Wifi + Ethernet_ allows you to enter a _Wifi SSID_ and _Wifi Passphrase_ which is then built into the image.
+Select the type of network connection you'll be using: _Ethernet Only_ or _Wifi + Ethernet_. A network connection is required to allow the device to connect to balenaCloud. Selecting _Wifi + Ethernet_ allows you to enter a _Wifi SSID_ and _Wifi Passphrase_ which is then built into the image.
 
 Finally, click the **Download balenaOS** button. When the download completes, you should have a zipped image file with a name like `balena-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
 
@@ -48,7 +48,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 \{{#$device.instructions\}} \{{this\}} \{{/$device.instructions\}}
 
-When complete, after a minute or two the device should appear on your \{{$names.cloud.lower\}} \[dashboard]\(\{{ $links.dashboardUrl \}}), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our \[troubleshooting guide for \{{ $device.name \}}]\[troubleshooting-\{{ $device.id \}}] or try our \[support channels]\[support].
+When complete, after a minute or two the device should appear on your balenaCloud \[dashboard]\(\{{ $links.dashboardUrl \}}), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our \[troubleshooting guide for \{{ $device.name \}}]\[troubleshooting-\{{ $device.id \}}] or try our \[support channels]\[support].
 
 ## Install the \{{ $names.cli.lower \}}
 
@@ -75,7 +75,7 @@ Logging in to cloud.com
   I don't have a balena account!
 ```
 
-You will be asked to choose an authentication method, choose _Web authorization_ which will bring up a web browser window that allows you to login to your \{{ $names.cloud.lower \}} account. Click the **Authorize** button, and head back to the terminal after the login successful message appears.
+You will be asked to choose an authentication method, choose _Web authorization_ which will bring up a web browser window that allows you to login to your balenaCloud account. Click the **Authorize** button, and head back to the terminal after the login successful message appears.
 
 ## Create a release
 

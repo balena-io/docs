@@ -6,7 +6,7 @@ title: Collected Data
 
 In order to make data driven decisions, balena collects usage related events via a 3rd party
 analytics service, [Amplitude][amplitude]. These events provide us context on the state of container execution steps. This
-way we could observe the health of fleets in {{ $names.cloud.lower }} ecosystem and analyze the potential problems as
+way we could observe the health of fleets in balenaCloud ecosystem and analyze the potential problems as
 well as trends.
 
 ## User data collected by balena
@@ -104,7 +104,7 @@ the table below. Submitted packets [may contain][supervisor-data-mask] the follo
 ## Data collected automatically by Amplitude
 
 Amplitude library generates a unique identifier for each device that sends an event.
-We associate the events with the device UUID provided by {{ $names.cloud.lower }} as well.
+We associate the events with the device UUID provided by balenaCloud as well.
 Besides these identifiers, we don’t send any other user ID to Amplitude.
 
 Amplitude library automatically extracts geographical location data from the device’s IP address,

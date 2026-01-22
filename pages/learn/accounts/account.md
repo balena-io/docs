@@ -10,7 +10,7 @@ title: Account management
 
 ## Password reset
 
-If you forget your password, you may request to reset it via the \[password reset]\[password-reset] page. Enter the email address associated with your \{{ $names.cloud.lower \}} account. If the email address has an associated account, a password reset link will be sent to that address. Following the link, you will be able to enter a new password.
+If you forget your password, you may request to reset it via the \[password reset]\[password-reset] page. Enter the email address associated with your balenaCloud account. If the email address has an associated account, a password reset link will be sent to that address. Following the link, you will be able to enter a new password.
 
 ## Add a password to social login
 
@@ -84,6 +84,6 @@ To disable two-factor authentication, visit the _Two-factor Authentication_ tab 
 
 ## Delete account
 
-If you wish to delete your \{{ $names.cloud.lower \}} account, go to your \[_Preferences_]\[prefs] page, and under the _Account Details_ tab, select the _Delete Account_ button. You will need to confirm this action by entering your password. If your account does not have a password, you will be prompted to set one in your account preferences. Upon confirmation, the account will be permanently deleted, including all fleets and devices. If you would also like to request deletion of your data in accordance with GDPR, please refer to the instructions in our \[privacy policy]\[privacy-policy].
+If you wish to delete your balenaCloud account, go to your \[_Preferences_]\[prefs] page, and under the _Account Details_ tab, select the _Delete Account_ button. You will need to confirm this action by entering your password. If your account does not have a password, you will be prompted to set one in your account preferences. Upon confirmation, the account will be permanently deleted, including all fleets and devices. If you would also like to request deletion of your data in accordance with GDPR, please refer to the instructions in our \[privacy policy]\[privacy-policy].
 
 \[signup]:\{{ $links.dashboardUrl \}}/signup \[login]:\{{ $links.dashboardUrl \}}/login \[prefs]:\{{ $links.dashboardUrl \}}/preferences?tab=details \[password-reset]:\{{ $links.dashboardUrl \}}/password-reset \[privacy-policy]:\{{ $links.mainSiteUrl \}}/privacy-policy/

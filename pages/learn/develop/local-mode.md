@@ -5,7 +5,7 @@ excerpt: Use balena local mode to prototype quickly
 
 # Develop locally
 
-Local mode is the development mode for balena. It allows you to build and sync code to a single development device in your local network without having to go through the \{{ $names.cloud.lower \}} build service and deployment pipeline. It uses the Docker daemon on the device to build container images, and then the device Supervisor starts the containers in the same way as if they were deployed via the cloud.
+Local mode is the development mode for balena. It allows you to build and sync code to a single development device in your local network without having to go through the balenaCloud build service and deployment pipeline. It uses the Docker daemon on the device to build container images, and then the device Supervisor starts the containers in the same way as if they were deployed via the cloud.
 
 ## Local mode requirements
 
@@ -14,15 +14,15 @@ To use local mode on a device:
 - The device must be running balenaOS v2.29.0 or higher.
 - The device must be running a [development](../../../reference/OS/overview/2.x#development-vs-production-images) variant of the OS.
 - You must have the [balena CLI](../../../reference/cli/) installed on your development machine.
-- Local mode must be enabled through the \{{ $names.cloud.lower \}} dashboard. You can enable it from the device _Settings_ tab.
+- Local mode must be enabled through the balenaCloud dashboard. You can enable it from the device _Settings_ tab.
 
 ## Local mode caveats
 
-- In local mode, a device will not send logs back to the \{{ $names.cloud.lower \}} dashboard. Refer to the [local mode logs section](local-mode.md#local-mode-logs) to view logs in local mode.
-- Device and service environment variables set from the \{{ $names.cloud.lower \}} will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
+- In local mode, a device will not send logs back to the balenaCloud dashboard. Refer to the [local mode logs section](local-mode.md#local-mode-logs) to view logs in local mode.
+- Device and service environment variables set from the balenaCloud will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
 - Changes to device \[configuration]\[configuration], for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
 - Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
-- When switching out of local mode and back to tracking releases from \{{ $names.cloud.lower \}}, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that \{{ $names.cloud.lower \}} instructs it to run.
+- When switching out of local mode and back to tracking releases from balenaCloud, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that balenaCloud instructs it to run.
 
 ## Scan the network and find your device
 
@@ -62,7 +62,7 @@ Reporting scan results
 
 ## Push over a new project
 
-When local mode has been activated, balena CLI can push code directly to the local device instead of going via the \{{ $names.cloud.lower \}} builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `balena push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `balena device detect` command.
+When local mode has been activated, balena CLI can push code directly to the local device instead of going via the balenaCloud builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `balena push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `balena device detect` command.
 
 **Note:** By default `balena push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
 

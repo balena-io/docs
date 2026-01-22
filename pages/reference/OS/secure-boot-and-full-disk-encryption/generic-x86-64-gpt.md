@@ -49,7 +49,7 @@ Note that balenaOS currently does not support updating from a non-secure boot en
 
 `Generic x86_64 (GPT)` balenaOS images ship with the capability to provision a device with secure boot and full disk encryption. While the feature was introduced in balenaOS `v2.114.21`, it has since been has been hardened for security and updated for broader device compatibility in version `v6.6.1`. Balena recommends that all customers use the most recent releases.
 
-#### Using \{{ $names.cloud.lower \}}
+#### Using balenaCloud
 
 1. Add a device to your fleet. You should be presented with the following new option:
 
@@ -93,11 +93,11 @@ On booting in setup mode, the installer will enroll the keys into UEFI variables
 
 Wait for the device to finish flashing and shutdown. Please wait until all LEDs are off. You can then remove the USB key from the device and turn on the device again.
 
-The device should show up on \{{ $names.cloud.lower \}}.
+The device should show up on balenaCloud.
 
 ### Checking if it worked
 
-**Note** We are working on adding support for the device to report it's secure boot and full disk encryption status to \{{ $names.cloud.lower \}}. In the meantime, you can use the following instructions to manually check the status.
+**Note** We are working on adding support for the device to report it's secure boot and full disk encryption status to balenaCloud. In the meantime, you can use the following instructions to manually check the status.
 
 1. SSH into the hostOS [using the dashboard web terminal](../../../../learn/manage/ssh-access/#using-the-dashboard-web-terminal) or [using the CLI](../../../../learn/manage/ssh-access/#using-balena-device-ssh-from-the-cli)
 2. Run the following command to check if secure boot is enabled:

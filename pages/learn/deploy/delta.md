@@ -21,8 +21,8 @@ The delta updates feature is now available in all devices running balenaOS >= 2.
 
 Before devices can update using deltas, a delta must be generated between the release a device is currently running and the one it is updating to. There are two ways deltas are generated:
 
-1. Automatically between the last successful and the new release during a build on the {{$names.cloud.lower}} builder - these are known as "build-time" deltas.
-2. Automatically when a device is requesting to update from or to a release for which no delta has been generated before - these are known as "on-demand" deltas and can typically happen if the device was not on the latest release when the new release was pushed, or the user did not use the {{$names.cloud.lower}} builder for the new release.
+1. Automatically between the last successful and the new release during a build on the balenaCloud builder - these are known as "build-time" deltas.
+2. Automatically when a device is requesting to update from or to a release for which no delta has been generated before - these are known as "on-demand" deltas and can typically happen if the device was not on the latest release when the new release was pushed, or the user did not use the balenaCloud builder for the new release.
 
 On-demand deltas may take a while to generate, depending primarily on the size of the images involved. While the delta is generating, the device keeps polling the API, checking if the delta is ready. If a delta already exists, this step is skipped.
 

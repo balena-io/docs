@@ -20,7 +20,7 @@ $ cat /mnt/boot/config.txt
 
 ### Modifying `config.txt` locally before the first boot
 
-Before the device is [provisioned][device-provisioning], you may edit `config.txt` by mounting a flashed SD card (with the partition label `resin-boot`) and editing the file directly. Any values added to `config.txt` will be added to the {{ $names.cloud.lower }} API during device provisioning and displayed on the dashboard. This will only work if you edit the file before the device's first boot, as after device provisioning, any changes will be overwritten by the device supervisor with values read from the {{ $names.cloud.lower }} API.
+Before the device is [provisioned][device-provisioning], you may edit `config.txt` by mounting a flashed SD card (with the partition label `resin-boot`) and editing the file directly. Any values added to `config.txt` will be added to the balenaCloud API during device provisioning and displayed on the dashboard. This will only work if you edit the file before the device's first boot, as after device provisioning, any changes will be overwritten by the device supervisor with values read from the balenaCloud API.
 
 ### Modifying `config.txt` using configuration variables
 

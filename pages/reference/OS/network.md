@@ -534,7 +534,7 @@ We've published an example [here](https://github.com/balenalabs/proxy-tunnel) de
 
 You can configure a connectivity check using NetworkManager's builtin [feature][nm-connectivity] (see "connectivity section"). In order to configure
 custom endpoints, the URL, expected response, and check interval can be set in `config.json` (more information available
-[here][meta-balena-connectivity]). By default, NetworkManager is configured to use {{ $names.cloud.lower }} to perform the check.
+[here][meta-balena-connectivity]). By default, NetworkManager is configured to use balenaCloud to perform the check.
 
 ## Disable IPv6
 

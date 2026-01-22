@@ -4,9 +4,7 @@ title: Device Logs
 
 # Device Logs
 
-Device logging and the storage of device logs in \{{ $names.cloud.lower \}} is designed to be a debugging feature for balena devices. The Logs section in the balenaCloud dashboard can be used to view and download logs from the system and app services running on the device in real-time.
-
-
+Device logging and the storage of device logs in balenaCloud is designed to be a debugging feature for balena devices. The Logs section in the balenaCloud dashboard can be used to view and download logs from the system and app services running on the device in real-time.
 
 ## Device logs on the balenaCloud dashboard
 

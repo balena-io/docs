@@ -31,11 +31,11 @@ First, the device connects to the network and performs its early provisioning, w
 
 ## Code deployment
 
-`balena push` is the recommended method for deployment and [development](../../../learn/develop/local-mode/) on the \{{ $names.cloud.lower \}} platform. To use `balena push` you need to first [install the balena CLI](../../../reference/cli/#install-the-cli) and ensure you are logged in to your account with `balena login`.
+`balena push` is the recommended method for deployment and [development](../../../learn/develop/local-mode/) on the balenaCloud platform. To use `balena push` you need to first [install the balena CLI](../../../reference/cli/#install-the-cli) and ensure you are logged in to your account with `balena login`.
 
 ### Building containers
 
-When you run the `balena push <APP_NAME>` command from your development machine it will essentially take your project (or repository) folder, compress it and send it to the [\{{ $names.cloud.lower \}} build server](../../../learn/deploy/deployment/#the-balenacloud-build-server) where it will be built. Your code is built in an environment that matches the devices in your fleet. So if you’re pushing an app for BeagleBone Black devices, we’ll build your code in an ARMv7 environment. For Raspberry Pi 1, it's ARMv6. In fact, we provide native ARM builders for ARM images, just as we use x86 servers to build images for x86 devices.
+When you run the `balena push <APP_NAME>` command from your development machine it will essentially take your project (or repository) folder, compress it and send it to the [balenaCloud build server](../../../learn/deploy/deployment/#the-balenacloud-build-server) where it will be built. Your code is built in an environment that matches the devices in your fleet. So if you’re pushing an app for BeagleBone Black devices, we’ll build your code in an ARMv7 environment. For Raspberry Pi 1, it's ARMv6. In fact, we provide native ARM builders for ARM images, just as we use x86 servers to build images for x86 devices.
 
 For releases with \[multiple containers]\[multicontainer], a `docker-compose.yml` file will need to be included at the root of your project. This configuration file specifies the services that make up your release, as well as the system resources each service has access to. Releases with a single container will have a default `docker-compose.yml` file generated if none is included.
 

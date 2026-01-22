@@ -249,7 +249,7 @@ Balena `docker-compose.yml` files support the creation of multiple bridge networ
 
 ### Public device URLS
 
-Balena currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the \{{ $names.cloud.lower \}} dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../../../management/devices/#enable-public-device-url)
+Balena currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the balenaCloud dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../../../management/devices/#enable-public-device-url)
 
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js](https://expressjs.com/) server which will serve to the devices URL.
 

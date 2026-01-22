@@ -27,17 +27,17 @@ Development mode is recommended while getting started with balenaOS and building
 - Getty console attached to tty1 and serial.
 - Capable of entering \[local mode]\[local-mode] for rapid development of application containers locally.
 
-**Note:** Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the \{{ $names.cloud.lower \}} Dashboard via \[configuration variables]\[supervisor-configuration-list].
+**Note:** Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via \[configuration variables]\[supervisor-configuration-list].
 
 **Warning:** Development mode has an exposed Docker socket and enable passwordless root SSH access and should never be used in production.
 
-Production mode disables passwordless root access, and an SSH key must be \[added]\[config-json-ssh] to `config.json` to access a production image using a direct SSH connection. You may still access a production image by tunneling SSH through the cloudlink via the CLI (using `balena ssh <uuid>`) or the \{{ $names.cloud.lower \}} \[web terminal]\[ssh-host]. To use SSH via cloudlink, you need to have an SSH key configured on your development machine and \[added]\[ssh-key-add] to the \{{ $names.cloud.lower \}} dashboard.
+Production mode disables passwordless root access, and an SSH key must be \[added]\[config-json-ssh] to `config.json` to access a production image using a direct SSH connection. You may still access a production image by tunneling SSH through the cloudlink via the CLI (using `balena ssh <uuid>`) or the balenaCloud \[web terminal]\[ssh-host]. To use SSH via cloudlink, you need to have an SSH key configured on your development machine and \[added]\[ssh-key-add] to the balenaCloud dashboard.
 
 ### Logging
 
 In balenaOS, logs are written to an 8 MB journald RAM buffer in order to avoid wear on the flash storage used by most of the supported boards.
 
-To persist logs on the device, enable persistent logging via the \[configuration]\[fleet-configuration] tab in the \{{ $names.cloud.lower \}} dashboard, or prior to device provisioning setting the `"persistentLogging": true` \[key]\[config-json-logging] in `config.json`. The logs can be accessed via the host OS at `/var/log/journal`. For versions of balenaOS < 2.45.0, persistent logs are limited to 8 MB and stored in the state partition of the device. BalenaOS versions >= 2.45.0 store a maximum of 32 MB of persistent logs in the data partition of the device.
+To persist logs on the device, enable persistent logging via the \[configuration]\[fleet-configuration] tab in the balenaCloud dashboard, or prior to device provisioning setting the `"persistentLogging": true` \[key]\[config-json-logging] in `config.json`. The logs can be accessed via the host OS at `/var/log/journal`. For versions of balenaOS < 2.45.0, persistent logs are limited to 8 MB and stored in the state partition of the device. BalenaOS versions >= 2.45.0 store a maximum of 32 MB of persistent logs in the data partition of the device.
 
 ### Hostname
 
@@ -51,13 +51,13 @@ On production mode, nothing is written to tty1, on boot you should only see the 
 
 ### Provisioning keys
 
-When a balenaOS image is downloaded from the \{{ $names.cloud.lower \}} dashboard, it contains a provisioning key that allows devices flashed with the image to be added to a specific fleet, and a device API key generated. As such, you should handle such images downloaded from \{{ $names.cloud.lower \}} with care as anyone with access to the image can add a device to your fleet. You can find out more about the access restrictions of a device API key \[here]\[security].
+When a balenaOS image is downloaded from the balenaCloud dashboard, it contains a provisioning key that allows devices flashed with the image to be added to a specific fleet, and a device API key generated. As such, you should handle such images downloaded from balenaCloud with care as anyone with access to the image can add a device to your fleet. You can find out more about the access restrictions of a device API key \[here]\[security].
 
 ### Standalone balenaOS
 
-Images downloaded via the CLI (using `os download`), via \[balena.io/os]\[balena-io-os], or \[manually built via Yocto]\[yocto-build] are the same balenaOS images as those downloaded from \{{ $names.cloud.lower \}} but are unconfigured, and will not connect to the \{{ $names.cloud.lower \}} servers, but still make use of the Supervisor to keep the containers running. This version of balenaOS is meant as an excellent way to get started with Docker containers on embedded systems, and you can read more about this at \[balena.io/os]\[balena-io-os].
+Images downloaded via the CLI (using `os download`), via \[balena.io/os]\[balena-io-os], or \[manually built via Yocto]\[yocto-build] are the same balenaOS images as those downloaded from balenaCloud but are unconfigured, and will not connect to the balenaCloud servers, but still make use of the Supervisor to keep the containers running. This version of balenaOS is meant as an excellent way to get started with Docker containers on embedded systems, and you can read more about this at \[balena.io/os]\[balena-io-os].
 
-Should you wish to add an unconfigured device to your \{{ $names.cloud.lower \}} fleet, you may migrate it using the interactive `balena join` \[CLI command]\[cli-join] or update the `config.json` of an unconfigured device with a configuration file downloaded from the _Add device_ page of the \{{ $names.cloud.lower \}} dashboard.
+Should you wish to add an unconfigured device to your balenaCloud fleet, you may migrate it using the interactive `balena join` \[CLI command]\[cli-join] or update the `config.json` of an unconfigured device with a configuration file downloaded from the _Add device_ page of the balenaCloud dashboard.
 
 ## BalenaOS Components
 
@@ -69,7 +69,7 @@ The balenaOS userspace packages only provide the bare essentials for running con
 
 ### Supervisor
 
-The \{{ $names.lower.company \}} Supervisor is a lightweight container that runs on devices. Its main roles are to ensure your app is running, and keep communications with the \{{ $names.cloud.lower \}} API server, downloading new application containers and updates to existing containers as you push them in addition to sending logs to your dashboard. It also provides an \[API interface]\[supervisor], which allows you to query the update status and perform certain actions on the device.
+The \{{ $names.lower.company \}} Supervisor is a lightweight container that runs on devices. Its main roles are to ensure your app is running, and keep communications with the balenaCloud API server, downloading new application containers and updates to existing containers as you push them in addition to sending logs to your dashboard. It also provides an \[API interface]\[supervisor], which allows you to query the update status and perform certain actions on the device.
 
 ### BalenaEngine
 

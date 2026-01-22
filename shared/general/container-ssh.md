@@ -18,7 +18,7 @@ A terminal session should be initiated for you in a second or two. If you would 
 
 ## Using `balena device ssh` from the CLI
 
-To use the CLI, first [install it][cli-install] and [add an SSH key to {{ $names.cloud.lower }}][add-ssh-key]. Then run the following command on your development machine's terminal:
+To use the CLI, first [install it][cli-install] and [add an SSH key to balenaCloud][add-ssh-key]. Then run the following command on your development machine's terminal:
 
 ```shell
 $ balena device ssh <device-uuid>
@@ -61,8 +61,8 @@ $ ssh -p 22222 <username>@<device_ip_address>
 When the username is `root`, [production variants of balenaOS][development-image]
 perform authentication against public SSH keys previously added to the device's `config.json`
 file, [sshKeys section][config-json-ssh]. When the username matches a valid
-{{$names.cloud.lower}} user account, authentication is also performed against that user's
-public SSH keys [stored in {{$names.cloud.lower}}][add-ssh-key]
+balenaCloud user account, authentication is also performed against that user's
+public SSH keys [stored in balenaCloud][add-ssh-key]
 (this feature requires balenaOS v2.44.0 or later). The username can be found in
 the profile or preferences section of the web dashboard, or with the balena
 whoami` CLI command.
@@ -93,7 +93,7 @@ $ ssh -p 4321 <username>@127.0.0.1
 ```
 
 See note in the [previous section](#using-a-standalone-ssh-client) regarding the username
-(`root` _vs._ {{$names.cloud.lower}} user account).
+(`root` _vs._ balenaCloud user account).
 
 [balena-ssh]: /reference/cli/#ssh-uuid-
 
@@ -105,12 +105,12 @@ See note in the [previous section](#using-a-standalone-ssh-client) regarding the
 [config-json-ssh]:/reference/OS/configuration/#sshkeys
 [development-image]:/reference/OS/overview/2.x/#development-vs-production-mode
 
-## Add an SSH key to {{ $names.cloud.lower }}
+## Add an SSH key to balenaCloud
 
-To add an SSH key, go to the _Preferences_ page of {{ $names.cloud.lower }} and select the _SSH Keys_ tab.
+To add an SSH key, go to the _Preferences_ page of balenaCloud and select the _SSH Keys_ tab.
 
 ![SSH key preferences](/img/common/main_dashboard/eekVBTI.webp)
 
 You may either import an existing SSH key from GitHub or manually enter the public SSH key of an existing SSH key on your development machine.
 
-If you do not have an existing key, you can follow [GitHub's documentation][github-ssh], skipping the step about adding the key to your GitHub account, and instead adding the key to your {{ $names.cloud.lower }} account.
+If you do not have an existing key, you can follow [GitHub's documentation][github-ssh], skipping the step about adding the key to your GitHub account, and instead adding the key to your balenaCloud account.

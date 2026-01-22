@@ -82,7 +82,7 @@ Testing outside the lab helps you see how your device behaves in networks that a
 
 ### Log collection
 
-It's crucial that you are able to get logs and telemetry from your devices once they're out of the lab. You can use the console logging functionality exposed in the {{ $names.cloud.lower }} dashboard to read your application logs.
+It's crucial that you are able to get logs and telemetry from your devices once they're out of the lab. You can use the console logging functionality exposed in the balenaCloud dashboard to read your application logs.
 
 If your application generates enough log data that you need an analytics platform to make sense of it all, consider [adding a log collection agent][custom-logging] to your containers, just as you would in any other environment.
 

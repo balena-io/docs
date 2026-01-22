@@ -16,11 +16,11 @@ Since there can be cases where containers fail to start, having any networking c
 
 ### Iptables rules that block supervisor/cloudlink traffic
 
-it is enticing to use custom iptables rules to filter traffic, to limit the surface of the api. those rules combined with host networking however can prevent the supervisor or cloudlink from successfully connecting to {{ $names.cloud.lower }}, and therefore should be treated with caution. for a full list of networking requirements, consult [this document][networking-reqs].
+it is enticing to use custom iptables rules to filter traffic, to limit the surface of the api. those rules combined with host networking however can prevent the supervisor or cloudlink from successfully connecting to balenaCloud, and therefore should be treated with caution. for a full list of networking requirements, consult [this document][networking-reqs].
 
 ### Manually changing the system clock, or blocking NTP requests
 
-Since balenaOS and the supervisor communicate with {{ $names.cloud.lower }} using an HTTPS API, it is important that time is synchronized on the device. If the system date/time drifts substantially, SSL certificate validation may fail and the device may unexpectedly lose the ability to reach HTTPS websites or update the {{ $names.cloud.lower }} web dashboard, and may even no longer be reachable over ssh or cloudlink. BalenaOS provides a [number of mechanisms][time-sync] to keep time as up-to-date as possible, but ensuring [NTP is accessible over the network][networking-reqs] is critical.
+Since balenaOS and the supervisor communicate with balenaCloud using an HTTPS API, it is important that time is synchronized on the device. If the system date/time drifts substantially, SSL certificate validation may fail and the device may unexpectedly lose the ability to reach HTTPS websites or update the balenaCloud web dashboard, and may even no longer be reachable over ssh or cloudlink. BalenaOS provides a [number of mechanisms][time-sync] to keep time as up-to-date as possible, but ensuring [NTP is accessible over the network][networking-reqs] is critical.
 
 ## Local storage
 
@@ -50,7 +50,7 @@ Any modifications made to the host OS before flashing or at runtime carry undue 
 
 ### Modifying the host’s systemd services via D-Bus
 
-While balenaOS provides lots of flexibility in terms of interacting with the host OS via D-Bus, with great power comes great responsibility. Since these interactions can potentially cause balenaOS devices to disconnect from {{ $names.cloud.lower }} or even fall offline, these API calls should be carefully guarded and carefully considered.
+While balenaOS provides lots of flexibility in terms of interacting with the host OS via D-Bus, with great power comes great responsibility. Since these interactions can potentially cause balenaOS devices to disconnect from balenaCloud or even fall offline, these API calls should be carefully guarded and carefully considered.
 
 ### DoSing the supervisor with API requests
 

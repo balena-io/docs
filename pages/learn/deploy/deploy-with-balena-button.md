@@ -2,17 +2,16 @@
 title: Deploy with balena button
 excerpt: >-
   The Deploy with balena button allows users to do a
-  single-click deployment and configuration of a fleet on {{ $names.cloud.lower
-  }}
+  single-click deployment and configuration of a fleet on balenaCloud
 ---
 
 # Deploy with balena button
 
-The **Deploy with balena** button allows users to perform a single-click deployment and configuration of a fleet on \{{ $names.cloud.lower \}}.
+The **Deploy with balena** button allows users to perform a single-click deployment and configuration of a fleet on balenaCloud.
 
 ![Deploy with balena](https://balena.io/deploy.svg)
 
-Clicking the **Deploy with balena** button opens the \{{ $names.cloud.lower \}} dashboard with a modal window pre-populated with everything required to deploy a fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](deploy-with-balena-button.md#balenayml-configuration-file), then they are pre-populated in this section.
+Clicking the **Deploy with balena** button opens the balenaCloud dashboard with a modal window pre-populated with everything required to deploy a fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](deploy-with-balena-button.md#balenayml-configuration-file), then they are pre-populated in this section.
 
 Clicking _Create and deploy_ creates a new fleet and generates a release. Any devices added to the fleet will immediately download and begin running the release.
 
@@ -20,7 +19,7 @@ Clicking _Create and deploy_ creates a new fleet and generates a release. Any de
 
 ## Adding a deploy with balena button to a project
 
-You can add the **Deploy with balena** button to any project that can be deployed to \{{ $names.cloud.lower \}}. To add the button to a project repository, add the following to, for example, the project repository's README.md file:
+You can add the **Deploy with balena** button to any project that can be deployed to balenaCloud. To add the button to a project repository, add the following to, for example, the project repository's README.md file:
 
 `[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=<your-repo-url>)`
 
@@ -30,7 +29,7 @@ The above example uses a SVG logo as this renders better on GitHub - however, yo
 
 You can further customize the behavior of the **Deploy with balena** button by providing additional URL parameters. The following URL parameters are available and may be appended to the `https://dashboard.balena-cloud.com/deploy` link:
 
-- `repoUrl` - The URL of the project repository. If you are placing the deploy button in a GitHub repo then \{{ $names.cloud.lower \}} can auto-determine the `repoUrl` from the referrer info in the HTTP headers. However on Firefox and with some ad-blockers this may fail. We recommend that you populate this query string parameter.
+- `repoUrl` - The URL of the project repository. If you are placing the deploy button in a GitHub repo then balenaCloud can auto-determine the `repoUrl` from the referrer info in the HTTP headers. However on Firefox and with some ad-blockers this may fail. We recommend that you populate this query string parameter.
 - `tarballUrl` - The URL of the project tarball. Automatically determined from `repoUrl` if not provided.
 - `configUrl` - The URL of the configuration file for the fleet. Automatically determined from `repoUrl` if not provided.
 - `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types here](../../../reference/hardware/devices/).

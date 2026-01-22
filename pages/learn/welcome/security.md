@@ -57,7 +57,7 @@ Both the Docker pull request and the actual image download process are performed
 
 ### Cloudlink
 
-Cloudlink status in the dashboard represents a device connection to the {{ $names.cloud.lower }} backend. This connection is the underlying technology that enables the following functionalities within {{ $names.cloud.lower }}, and as such we indicate the status of Cloudlink to help you to understand the status of your device and what functionality may or may not be available.
+Cloudlink status in the dashboard represents a device connection to the balenaCloud backend. This connection is the underlying technology that enables the following functionalities within balenaCloud, and as such we indicate the status of Cloudlink to help you to understand the status of your device and what functionality may or may not be available.
 
 - [SSH access](/learn/manage/ssh-access/) via CLI or web terminal
 - [Public Device Url](/learn/manage/actions/#public-device-url)
@@ -71,7 +71,7 @@ Cloudlink disallows device-to-device traffic and prohibits outbound traffic to t
 
 Currently, authentication against Cloudlink is performed with API token authentication. API keys can be managed and revoked in the balena dashboard.
 
-Cloudlink connection is optional and [can be disabled](/reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the {{ $names.cloud.lower }} dashboard or API. When disabled, the Cloudlink connection will not be established from the device. No traffic will be transmitted or received through this channel. If desired, Cloudlink can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
+Cloudlink connection is optional and [can be disabled](/reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the balenaCloud dashboard or API. When disabled, the Cloudlink connection will not be established from the device. No traffic will be transmitted or received through this channel. If desired, Cloudlink can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
 
 It is important to understand that due to its current design, Cloudlink is not architected for high availability. Cloudlink will periodically drop connections momentarily due to re-configuration or scaling, but it reconnects with the device automatically. For mission-critical workflows, we recommend designing your solution to be resilient to the potential brief unavailability of these specific interactive features. Furthermore, to protect overall platform stability for all users, devices that send/receive large amounts of data via Cloudlink continuously may be throttled.
 
