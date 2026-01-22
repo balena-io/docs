@@ -58,7 +58,7 @@
     * [Network debugging](learn/more/masterclasses/network-masterclass.md)
 * [welcome](learn/welcome/README.md)
   * [Welcome](learn/welcome/introduction.md)
-  * [Core Concepts: A \{{ $names.company.lower \}} primer](learn/welcome/primer.md)
+  * [Core Concepts: A balena primer](learn/welcome/primer.md)
   * [Going to production](learn/welcome/production-plan.md)
   * [Security](learn/welcome/security.md)
   * [Getting Help](learn/welcome/support.md)

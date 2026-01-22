@@ -5,11 +5,11 @@ excerpt: >-
   to end
 ---
 
-# Core Concepts: A \{{ $names.company.lower \}} primer
+# Core Concepts: A balena primer
 
-The \{{ $names.company.lower \}} platform encompasses device, server, and client software, all designed to get your code securely deployed to a fleet of devices. The broad strokes are easy to grasp: once your device is set up with our [host OS](../../../reference/OS/overview/2.x), you can push code to the \{{ $names.company.lower \}} [build servers](../../../learn/deploy/deployment/#the-balenacloud-build-server), where it will be packaged into containers and delivered to your fleet. All your devices and their services can be managed, monitored, and updated from your \[\{{ $names.cloud.lower \}} dashboard]\[dashboard].
+The balena platform encompasses device, server, and client software, all designed to get your code securely deployed to a fleet of devices. The broad strokes are easy to grasp: once your device is set up with our [host OS](../../../reference/OS/overview/2.x), you can push code to the balena [build servers](../../../learn/deploy/deployment/#the-balenacloud-build-server), where it will be packaged into containers and delivered to your fleet. All your devices and their services can be managed, monitored, and updated from your \[balena dashboard]\[dashboard].
 
-If you're eager to learn more about the inner workings, you're in luck! This guide covers the components and workflows involved in a typical \{{ $names.company.lower \}} deployment, with enough detail to answer the most common questions. If you're ready to dig in deeper, why not \[get started]\[getting-started] with a project of your own?
+If you're eager to learn more about the inner workings, you're in luck! This guide covers the components and workflows involved in a typical balena deployment, with enough detail to answer the most common questions. If you're ready to dig in deeper, why not \[get started]\[getting-started] with a project of your own?
 
 Refer to the \[balena Glossary]\[balena-glossary] for definition on any of the terms referred in the docs.
 
@@ -17,7 +17,7 @@ Refer to the \[balena Glossary]\[balena-glossary] for definition on any of the t
 
 
 
-Devices in the \{{ $names.company.lower \}} ecosystem run \[\{{ $names.os.lower \}}]\[os], a bare-bones, \[Yocto Linux]\[yocto] based host OS, which comes packaged with \[\{{ $names.engine.lower \}}]\[engine-link], our lightweight, \[Docker]\[docker]-compatible container engine. The host OS is responsible for kicking off the device supervisor, \{{ $names.company.lower \}}'s agent on your device, as well as your containerized services. Within each service's container you can specify a base OS, which can come from any existing Docker base image that is compatible with your device architecture. The base OS shares a kernel with the host OS, but otherwise works independently. If you choose, your containers \[can be configured]\[multicontainer] to run as privileged, access hardware directly, and even inject modules into the kernel. The \{{ $names.company.lower \}} device supervisor runs in its own container, which allows the device to continue running and pulling new code even if your application crashes.
+Devices in the balena ecosystem run \[\{{ $names.os.lower \}}]\[os], a bare-bones, \[Yocto Linux]\[yocto] based host OS, which comes packaged with \[\{{ $names.engine.lower \}}]\[engine-link], our lightweight, \[Docker]\[docker]-compatible container engine. The host OS is responsible for kicking off the device supervisor, \{{ $names.company.lower \}}'s agent on your device, as well as your containerized services. Within each service's container you can specify a base OS, which can come from any existing Docker base image that is compatible with your device architecture. The base OS shares a kernel with the host OS, but otherwise works independently. If you choose, your containers \[can be configured]\[multicontainer] to run as privileged, access hardware directly, and even inject modules into the kernel. The \{{ $names.company.lower \}} device supervisor runs in its own container, which allows the device to continue running and pulling new code even if your application crashes.
 
 ### Host and kernel updates
 
