@@ -120,7 +120,7 @@ Note that the [filesystem layout][filesystem] may look slightly different from w
 
 [forums]: https://forums.balena.io/c/product-support
 
-[engine-link]:{{ $links.engineSiteUrl }}
+[engine-link]:https://www.balena.io/engine
 [nmcli]:https://fedoraproject.org/wiki/Networking/CLI
 [mmcli]:https://www.freedesktop.org/software/ModemManager/man/1.8.0/mmcli.8.html
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
@@ -129,5 +129,5 @@ Note that the [filesystem layout][filesystem] may look slightly different from w
 [filesystem]:/reference/OS/overview/2.x/#stateless-and-read-only-rootfs
 [labels]:/learn/develop/multicontainer/#labels
 [config-json]:/reference/OS/configuration/
-[balena-engine]:{{ $links.engineSiteUrl }}
+[balena-engine]:https://www.balena.io/engine
 [debugging-masterclass]:/learn/more/masterclasses/device-debugging/

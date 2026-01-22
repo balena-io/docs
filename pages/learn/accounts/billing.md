@@ -6,23 +6,15 @@ title: Billing
 
 Billing in balenaCloud is managed through \[organizations]\[organizations]. To manage billing for a specific organization, navigate to the organization and select the `Billing` tab from the sidebar on the left:
 
-
-
 From this dashboard, you can change your billing plan, update your billing information, monitor your usage, and download invoices. If you have any questions about billing for your account, please contact \[our customer success team]\[solutions].
 
 ## Changing your billing plan
 
 To modify or upgrade your billing plan, click the "Change plan" button on the billing page:
 
-
-
 Select the plan you'd like to upgrade to from the list of available options:
 
-
-
 Enter your billing information and complete the signup process:
-
-
 
 If you need to downgrade or cancel your plan, you can follow the steps mentioned above by choosing a lower tier or free plan instead.
 
@@ -32,15 +24,9 @@ Certain plans may require you to contact our customer success team in order to c
 
 At the top of the billing page, you'll find a summary of your subscription with information on the total amount and due date for your next payment:
 
-
-
 Beneath this you can see your current usage, including \[active devices]\[inactive] and collaborators:
 
-
-
 Further down, you'll find a place to download invoices, add or edit payment methods, and update account information:
-
-
 
 At the bottom of this page, you'll find more information on the available \[plans]\[plans], and you can change plans as necessary.
 
@@ -51,8 +37,6 @@ To enable customers to drive down their device usage costs, balena has an option
 Credit purchases of any size will result in paying less for device usage on the platform. The greater your volume in a single purchase, the lower your per-credit cost will be. The discount computation also takes into account the previously purchased credits that haven't been used. This means that you can continue to "top off" your credits to maintain better discounts. To estimate credit costs, head over to the [Paying With Credits](https://www.balena.io/pricing/#devices) section of our pricing page.
 
 To manage credits, navigate to the organization and select the `Credits` tab from the sidebar on the left:
-
-
 
 On the Credits page, you're able to see credit purchase history and the number of credits that have been purchased and are still allocatable for device usage. This is also where you can initiate credit purchases. An invoice will be automatically generated and listed on the Billing page when a credit purchase is initiated.
 
@@ -80,8 +64,8 @@ Marking a device as `Inactive` is a \[device setting]\[device-settings]. Device 
 
 To understand the difference between inactive and offline devices, we define them in the following ways:
 
-* **Inactive**: The device has been either [deactivated](https://www.balena.io/docs/learn/manage/actions/#deactivate-device) or [preregistered](https://www.balena.io/docs/learn/more/masterclasses/advanced-cli/#52-preregistering-a-device) but hasn't connected to the balenaCloud API yet.
-* **Offline**: The device is not connected to cloudlink and didn't have any recent API communications.
+- **Inactive**: The device has been either [deactivated](https://www.balena.io/docs/learn/manage/actions/#deactivate-device) or [preregistered](https://www.balena.io/docs/learn/more/masterclasses/advanced-cli/#52-preregistering-a-device) but hasn't connected to the balenaCloud API yet.
+- **Offline**: The device is not connected to cloudlink and didn't have any recent API communications.
 
 If you have a device **offline and active**, you will **still be billed for that device**. Those devices are usually still deployed in the field and ready to be used at any time. If you make the decision to have your devices offline intentionally, you will still be able see them in your fleet and can take some actions such as applying updates, that will take effect as soon as they come online.
 
@@ -93,4 +77,4 @@ In the event that your balena invoices are overdue, all devices under that organ
 
 Users can determine which invoices are overdue under their organization's billing page. To settle overdue payments, update your payment method or contact the customer success team at [solutions@balena.io](mailto:solutions@balena.io).
 
-\[solutions]:mailto:solutions@\{{ $names.email\_domain \}} \[plans]:\{{ $links.mainSiteUrl \}}/pricing/ \[device-settings]:/learn/manage/actions/#device-settings \[inactive]:#inactive-devices \[organizations]:/learn/accounts/organizations/ \[fleet-membership-types]:/learn/accounts/fleet-members \[fleet-types]:/learn/accounts/fleet-types
+\[solutions]:mailto:solutions@\{{ $names.email_domain \}} \[plans]:https://balena.io/pricing/ \[device-settings]:/learn/manage/actions/#device-settings \[inactive]:#inactive-devices \[organizations]:/learn/accounts/organizations/ \[fleet-membership-types]:/learn/accounts/fleet-members \[fleet-types]:/learn/accounts/fleet-types

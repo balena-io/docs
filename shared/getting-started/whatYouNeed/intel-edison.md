@@ -8,4 +8,4 @@
 - A micro-usb cable
 - A [balena account][link-to-signup].
 
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

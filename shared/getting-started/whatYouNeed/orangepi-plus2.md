@@ -10,7 +10,6 @@
 [psu]: https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/
 [sdSpeed]: https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [supportedDevicesList]: /reference/hardware/devices/
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup
 
 [device]:{{ $device.link }}

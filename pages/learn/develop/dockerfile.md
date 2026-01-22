@@ -101,7 +101,7 @@ The machine name is inferred from the device type of the fleet you are deploying
 
 **Note:** If your fleet contains devices of different types, the `%%BALENA_MACHINE_NAME%%` build variable **will not** evaluate correctly for all devices. Your fleet services are built once for all devices, and the `%%BALENA_MACHINE_NAME%%` variable will pull from the device type associated with the fleet, rather than the target device. In this scenario, you can use `%%BALENA_ARCH%%` to pull a base image that matches the shared architecture of the devices in your fleet.
 
-If you want to see an example of build variables in action, have a look at this \[basic openssh example]\(\{{ $links.githubPlayground \}}/balena-openssh).
+If you want to see an example of build variables in action, have a look at this \[basic openssh example]\(https://github.com/balena-io-playground/balena-openssh).
 
 ## Multiple Dockerfiles
 
@@ -135,7 +135,7 @@ A good example of this is the \[text-to-speech]\[text-to-speech] application - h
 	"description": "Simple balena app that uses Google's TTS endpoint",
 	"repository": {
 		"type": "git",
-		"url": "{{ $links.githubMain }}/text2speech.git"
+		"url": "https://github.com/balena-io/text2speech.git"
 	},
 	"scripts": {
 		"preinstall": "bash deps.sh"
@@ -169,6 +169,6 @@ We use [Raspbian](https://www.raspbian.org/) as our contained operating system, 
 
 The balena Supervisor requires that the directory `/tmp/balena` in containers be available for inter-container communication via [update locks](../../../learn/deploy/release-strategy/update-locking/). Therefore, scripts should not attempt to remove this directory on startup.
 
-\[resin-docker-blog]:\{{ $links.mainSiteUrl \}}/blog/docker-on-raspberry-pi/ \[dockerhub-link]:https://registry.hub.docker.com/search?q=rpi \[rpi-archlinux-link]:https://registry.hub.docker.com/u/digitallyseamless/archlinux-armv6h/ \[docker-custom-base-os-repo]:https://github.com/nghiant2710/base-os-image-example \[docker-create-images-link]:https://docs.docker.com/userguide/dockerimages/#creating-our-own-images \[example-archlinux]:https://github.com/shaunmulligan/resin-archlinux-rpi
+\[resin-docker-blog]:https://balena.io/blog/docker-on-raspberry-pi/ \[dockerhub-link]:https://registry.hub.docker.com/search?q=rpi \[rpi-archlinux-link]:https://registry.hub.docker.com/u/digitallyseamless/archlinux-armv6h/ \[docker-custom-base-os-repo]:https://github.com/nghiant2710/base-os-image-example \[docker-create-images-link]:https://docs.docker.com/userguide/dockerimages/#creating-our-own-images \[example-archlinux]:https://github.com/shaunmulligan/resin-archlinux-rpi
 
-\[text-to-speech]:\{{ $links.githubMain \}}/text2speech \[node]:https://nodejs.org/ [raspbian](https://www.raspbian.org/):https://www.raspbian.org/ \[aptitude]:https://wiki.debian.org/Aptitude
+\[text-to-speech]:https://github.com/balena-io/text2speech \[node]:https://nodejs.org/ [raspbian](https://www.raspbian.org/):https://www.raspbian.org/ \[aptitude]:https://wiki.debian.org/Aptitude

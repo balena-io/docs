@@ -7,13 +7,12 @@
 - A [2A micro USB power supply][psu].
 - A [balena account][link-to-signup].
 
-[aplus]:{{ $links.raspberrypi.aplus }}
-[bplus]:{{ $links.raspberrypi.bplus }}
-[zero]:https://www.raspberrypi.org/products/raspberry-pi-zero/
-[zerow]:https://www.raspberrypi.org/products/raspberry-pi-zero-w/
-[psu]:https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/
-[sdSpeed]:https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
-[wifiAdapters]:/hardware/wifi-dongles/
-[supportedDevicesList]:/hardware/devices/
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[aplus]: https://www.raspberrypi.org/products/raspberry-pi-1-model-a-plus/
+[bplus]: https://www.raspberrypi.org/products/raspberry-pi-1-model-b-plus/
+[zero]: https://www.raspberrypi.org/products/raspberry-pi-zero/
+[zerow]: https://www.raspberrypi.org/products/raspberry-pi-zero-w/
+[psu]: https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/
+[sdSpeed]: https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
+[wifiAdapters]: /hardware/wifi-dongles/
+[supportedDevicesList]: /hardware/devices/
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

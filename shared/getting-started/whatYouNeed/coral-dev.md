@@ -8,5 +8,4 @@
 
 [coral]: https://coral.ai/products/dev-board/
 [sdSpeed]: https://en.wikipedia.org/wiki/Secure_Digital#Class
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

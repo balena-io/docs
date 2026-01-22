@@ -184,7 +184,7 @@ services:
 
 [docker-compose]: https://docs.docker.com/compose/overview/
 
-[simple-app]:{{ $links.githubLabs }}/multicontainer-getting-started
+[simple-app]:https://github.com/balenalabs/multicontainer-getting-started
 [compose-features]:https://docs.docker.com/compose/compose-file/compose-file-v2/
 [compose-support]:/reference/supervisor/docker-compose
 [depends-on]:https://docs.docker.com/compose/compose-file/compose-file-v2/#depends_on

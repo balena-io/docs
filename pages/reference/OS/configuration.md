@@ -129,7 +129,7 @@ After provisioning, editing `config.json` as described above is not reliable or 
 
 - Update the device [hostname](#hostname) via the [supervisor API](/reference/supervisor/supervisor-api/#patch-v1devicehost-config).
 - Modify the [persistent logging](#persistentlogging) configuration via device [configuration](/learn/manage/configuration/) tab in the balenaCloud dashboard.
-- Apply `config.json` updates remotely via the balena CLI using the [configizer project]({{ $links.githubPlayground }}/configizer).
+- Apply `config.json` updates remotely via the balena CLI using the [configizer project](https://github.com/balena-io-playground/configizer).
 
 Alternatively, you can always reprovision a device with an updated `config.json` file.
 

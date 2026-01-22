@@ -12,5 +12,4 @@
 [sdSpeed]: https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
 [wifiAdapters]: /hardware/wifi-dongles/
 [supportedDevicesList]: /hardware/devices/
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

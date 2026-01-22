@@ -8,5 +8,4 @@
 
 [dart]: https://www.variscite.com/products/system-on-module-som/cortex-a7/dart-6ul-freescale-imx-6ul
 [sdSpeed]: https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

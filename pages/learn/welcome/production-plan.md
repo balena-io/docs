@@ -122,19 +122,19 @@ The balena API includes functionality that allows for [fine-grained control of u
 
 For more information about common anti-patterns, see [Anti-patterns, or how to break your balenaOS devices][anti-patterns].
 
-[engine-link]:{{ $links.engineSiteUrl }}
+[engine-link]:https://www.balena.io/engine
 [docker-compose]:https://docs.docker.com/compose/overview/
 [dev-vs-prod]:/reference/OS/overview/2.x/#development-vs-production-images
 [local-mode]:/learn/develop/local-mode
-[wifi-connect]:{{ $links.githubOS }}/wifi-connect
+[wifi-connect]:https://github.com/balena-os/wifi-connect
 [supervisor-api]:/reference/supervisor/supervisor-api/#patch-v1-device-host-config
 [collaborators]:/learn/accounts/fleet-members
 [ssh]:/learn/manage/ssh-access
-[custom-logging]:{{ $links.blogSiteUrl }}/how-to-create-a-custom-logging-system-for-longer-log-retention/
+[custom-logging]:https://balena.io/blog/how-to-create-a-custom-logging-system-for-longer-log-retention/
 [cli]:/reference/cli
 [preload]:/reference/cli/#preload-image
 [preregister]:/reference/cli/#device-register-fleet
-[staged-releases]:{{ $links.githubLabs }}/staged-releases
+[staged-releases]:https://github.com/balenalabs/staged-releases
 [tags]:/learn/manage/filters-tags/#device-tags
 [esr-devices]:/reference/OS/extended-support-release#supported-devices
 [esr]:/reference/OS/extended-support-release

@@ -75,7 +75,7 @@ More examples are given below,
 ```
 [multicontainer]:/learn/develop/multicontainer
 [poll-interval]: /learn/manage/configuration/#variable-list
-[multicontainer-project]:{{ $links.githubLabs }}/multicontainer-getting-started/tree/master/haproxy
+[multicontainer-project]:https://github.com/balenalabs/multicontainer-getting-started/tree/master/haproxy
 ```
 
 Check the [links module](https://github.com/balena-io/docs/blob/master/config/links.coffee) to find link references that are being used all across the documentation and to add new ones as needed. 

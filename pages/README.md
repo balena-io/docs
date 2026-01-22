@@ -48,7 +48,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 \{{#$device.instructions\}} \{{this\}} \{{/$device.instructions\}}
 
-When complete, after a minute or two the device should appear on your balenaCloud \[dashboard]\(\{{ $links.dashboardUrl \}}), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our \[troubleshooting guide for \{{ $device.name \}}]\[troubleshooting-\{{ $device.id \}}] or try our \[support channels]\[support].
+When complete, after a minute or two the device should appear on your balenaCloud \[dashboard]\(https://dashboard.balena-cloud.com), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our \[troubleshooting guide for \{{ $device.name \}}]\[troubleshooting-\{{ $device.id \}}] or try our \[support channels]\[support].
 
 ## Install the balena CLI
 
@@ -204,8 +204,8 @@ When it's finished building the device(s) will update as before. Remember anythi
 
 **Enjoy balenafying all the things!**
 
-\[balenahub]:\{{ $links.balenaHubUrl \}} \[cli]:/reference/cli/ \[configuration]:/learn/manage/configuration/ \[dashboard]:\{{ $links.dashboardUrl \}} \[devvprod]:/understanding/understanding-devices/2.0.0/#development-vs-production-images \[dockerfile]:/learn/develop/dockerfile \[help]:\{{ $links.supportUrl \}} \[local-mode]:/learn/develop/local-mode \[multicontainer]:/learn/develop/multicontainer \[projects]:\{{ $links.blogSiteUrl \}}/tags/project/ \[service]:/learn/manage/variables/ \[support]:/support/ \[supported-devices]:/reference/hardware/devices/ \[balena-glossary]:/learn/more/glossary/
+\[balenahub]:https://hub.balena.io \[cli]:/reference/cli/ \[configuration]:/learn/manage/configuration/ \[dashboard]:https://dashboard.balena-cloud.com \[devvprod]:/understanding/understanding-devices/2.0.0/#development-vs-production-images \[dockerfile]:/learn/develop/dockerfile \[help]:https://www.balena.io/support \[local-mode]:/learn/develop/local-mode \[multicontainer]:/learn/develop/multicontainer \[projects]:https://balena.io/blog/tags/project/ \[service]:/learn/manage/variables/ \[support]:/support/ \[supported-devices]:/reference/hardware/devices/ \[balena-glossary]:/learn/more/glossary/
 
-\[balena-\{{ $language.id \}}-hello-world]:\{{ $links.githubExamples \}}/balena-\{{ $language.id \}}-hello-world \[github-download-\{{ $language.id \}}]:\{{ $links.githubExamples \}}/balena-\{{ $language.id \}}-hello-world/archive/master.zip
+\[balena-\{{ $language.id \}}-hello-world]:https://github.com/balena-io-examples/balena-\{{ $language.id \}}-hello-world \[github-download-\{{ $language.id \}}]:https://github.com/balena-io-examples/balena-\{{ $language.id \}}-hello-world/archive/master.zip
 
 \[troubleshooting-\{{ $device.id \}}]:/faq/troubleshooting/\{{ $device.id \}}

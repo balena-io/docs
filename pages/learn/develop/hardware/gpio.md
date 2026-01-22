@@ -37,8 +37,8 @@ Much of this information and the image above is an excerpt from "A history of GP
 
 Currently Beaglebone devices are running a new 4.1 kernel, unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Checkout the [Octalbonescript](https://github.com/theoctal/octalbonescript) JS library and a Node.js module here: [https://www.npmjs.com/package/octalbonescript_capemgr4_1](https://www.npmjs.com/package/octalbonescript_capemgr4_1).
 
-With this module you should be able to carry out basic GPIO and analog-to-digital conversion operations. To get you started we have a \[example using this module]\(\{{ $links.githubPlayground \}}/beaglebone-adc-node).
+With this module you should be able to carry out basic GPIO and analog-to-digital conversion operations. To get you started we have a \[example using this module]\(https://github.com/balena-io-playground/beaglebone-adc-node).
 
 The [Adafruit BBIO](https://github.com/adafruit/adafruit-beaglebone-io-python) library enables GPIO, PWM, ADC, UART, SPI, and eQEP hardware access from Python.
 
-\[balena]:\{{ $links.mainSiteUrl \}}
+\[balena]:https://balena.io

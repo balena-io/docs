@@ -43,8 +43,8 @@
 			var webTracker = analyticsClient.createWebTracker(client, 'Docs');
 			webTracker.trackPageView();
 
-			var dashboardBaseUrl = '{{ $links.dashboardUrl }}';
-			var githubBaseUrl = '{{ $links.githubMain }}';
+			var dashboardBaseUrl = 'https://dashboard.balena-cloud.com';
+			var githubBaseUrl = 'https://github.com/balena-io';
 
 			// Since the dashboard is on a different domain, we need to explicitly
 			// set the anonymous id, so that we don't have disconnected timelines.

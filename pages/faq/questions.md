@@ -179,8 +179,7 @@ The Intel NUC images are images purposely built to match the Intel NUC hardware.
 [security]: /learn/welcome/security
 [persistent-storage]: /learn/develop/runtime/#persistent-storage
 [named-volumes]: /learn/develop/multicontainer/#named-volumes
-
-[balenaOS]:{{ $links.githubOS }}
-[build-your-own]:{{ $links.githubOS }}/meta-balena/blob/master/contributing-device-support.md
-[nuc]:/learn/getting-started/intel-nuc/nodejs/
-[go-to-production]:/learn/welcome/production-plan/
+[balenaOS]: https://github.com/balena-os
+[build-your-own]: https://github.com/balena-os/meta-balena/blob/master/contributing-device-support.md
+[nuc]: /learn/getting-started/intel-nuc/nodejs/
+[go-to-production]: /learn/welcome/production-plan/

@@ -7,5 +7,4 @@
 
 [ccimx8sbcpro]: https://www.digi.com/products/embedded-systems/single-board-computers/digi-connectcore-8x-sbc-pro
 [sdSpeed]: https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating
-
-[link-to-signup]:{{ $links.dashboardUrl }}/signup
+[link-to-signup]: https://dashboard.balena-cloud.com/signup

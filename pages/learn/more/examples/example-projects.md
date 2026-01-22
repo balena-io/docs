@@ -8,4 +8,4 @@ Below is a selection of "Hello world" examples and feature demonstrations for a 
 
 {{>"projects/balena-example-projects"}}
 
-To find the complete list of projects to try and deploy, head to [balenaHub]({{ $links.balenaHubUrl }})!
+To find the complete list of projects to try and deploy, head to [balenaHub](https://hub.balena.io)!

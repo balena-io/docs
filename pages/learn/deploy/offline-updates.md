@@ -267,7 +267,7 @@ Read more about how the process can work better for your use case in the [offlin
 [supported-devices-list]: /reference/hardware/devices/
 [balena-cli advanced masterclass]: /learn/more/masterclasses/advanced-cli/#52-preregistering-a-device
 [balena-deploy]:/learn/deploy/deployment/#balena-build--deploy
-[balenaOS]:{{ $links.osSiteUrl }}
+[balenaOS]:https://www.balena.io/os
 [insert-ssh-key]:/reference/OS/configuration/#sshkeys
 [balena-os-configure]:/reference/balena-cli/#os-configure-image
 [balena-device-register]:/reference/balena-cli/#device-register-fleet

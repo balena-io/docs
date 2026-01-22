@@ -36,11 +36,11 @@ For those users on a Production or Enterprise plan with an existing [supported d
 
 ## Supported devices
 
-All device types are eligible for ESR, however they require a dedicated build and release pipeline so support needs to be requested via our \[support channels]\(\{{ $links.mainSiteUrl \}}/support).
+All device types are eligible for ESR, however they require a dedicated build and release pipeline so support needs to be requested via our \[support channels]\(https://balena.io/support).
 
 ESR host OS versions are currently available for the following devices:
 
 |     | Device Name | Machine Name | Architecture |
 | --- | ----------- | ------------ | ------------ |
 
-\[billing]:\{{ $links.mainSiteUrl \}}/pricing/
+\[billing]:https://balena.io/pricing/

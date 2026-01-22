@@ -88,15 +88,16 @@ FROM debian:bookworm
 
 During app development, pinning versions of various components as much as possible prevents pieces from changing unintentionally later on during a redeployment when new versions are silently pulled in (like libraries, OS versions, base images, etc). In the same vein, pinning versions encourages builder cache reuse as components cannot change underneath the build process itself, ensuring a more reliable and repeatable build.
 
-[configizer]:{{ $links.githubPlayground }}/configizer
-[docker-compose]:/reference/supervisor/docker-compose/#supported-fields
-[dtparams]:/reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam
-[linux-oom]:https://www.kernel.org/doc/html/latest/admin-guide/mm/concepts.html#oom-killer
-[logging-solutions]:{{ $links.blogSiteUrl }}/how-to-create-a-custom-logging-system-for-longer-log-retention/
+[configizer]: https://github.com/balena-io-playground/configizer
+[docker-compose]: /reference/supervisor/docker-compose/#supported-fields
+[dtparams]: /reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam
+[linux-oom]: https://www.kernel.org/doc/html/latest/admin-guide/mm/concepts.html#oom-killer
+
+[logging-solutions]:https://balena.io/blog/how-to-create-a-custom-logging-system-for-longer-log-retention/
 [networking-reqs]:/reference/OS/network/2.x/#network-requirements
 [sd-cards]:/learn/welcome/production-plan/#hardware
 [services-mc]:/learn/more/masterclasses/services-masterclass/
 [supervisor-api]:/reference/supervisor/supervisor-api/#cleanup-volumes-with-no-references
 [time-sync]:/reference/OS/time/#time-management
-[watchdog]:{{ $links.blogSiteUrl }}/keeping-your-system-running-watchdog/
-[wifi-connect]:{{ $links.githubOS }}/wifi-connect
+[watchdog]:https://balena.io/blog/keeping-your-system-running-watchdog/
+[wifi-connect]:https://github.com/balena-os/wifi-connect
