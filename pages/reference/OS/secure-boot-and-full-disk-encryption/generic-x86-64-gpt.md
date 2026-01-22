@@ -61,7 +61,7 @@ You can then proceed to download the configured image.
 
 #### Using balena CLI
 
-\{{ $names.cli.upper \}} versions `16.2.0` or newer allow you to [configure](https://docs.balena.io/reference/balena-cli/#os-configure-image) a balenaOS installer image to opt-in secure boot by using the following command:
+Balena CLI versions `16.2.0` or newer allow you to [configure](https://docs.balena.io/reference/balena-cli/#os-configure-image) a balenaOS installer image to opt-in secure boot by using the following command:
 
 ```
 balena os configure <image> --secureBoot --fleet <fleetName> --device-type generic-amd64
