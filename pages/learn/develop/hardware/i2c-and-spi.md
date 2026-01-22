@@ -67,7 +67,7 @@ For Node.js applications it should work out of the box with the \[spi node modul
 
 Serial is disabled by default on the Raspberry Pi 3. To enable it you will need to do the following:
 
-- Edit the `config.txt` in `{{ $names.company.short }}-boot` partition of the SD card and append the following lines.
+- Edit the `config.txt` in `balena-boot` partition of the SD card and append the following lines.
 
 ```
 enable_uart=1
@@ -77,7 +77,7 @@ enable_uart=1
 
 In order to work work with 1-wire and digital temperature sensors you will need to do the following:
 
-- Edit the `config.txt` in `{{ $names.company.short }}-boot` partition of the SD card and append the following lines.
+- Edit the `config.txt` in `balena-boot` partition of the SD card and append the following lines.
 
 ```
 dtoverlay=w1-gpio

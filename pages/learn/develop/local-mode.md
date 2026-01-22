@@ -26,14 +26,14 @@ To use local mode on a device:
 
 ## Scan the network and find your device
 
-Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the balena CLI and use `{{ $names.company.short }} device detect` to find any local \{{ $names.os.lower \}} devices. All \{{ $names.os.lower \}} devices advertise themselves on the network using \[Avahi]\[avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
+Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the balena CLI and use `balena device detect` to find any local \{{ $names.os.lower \}} devices. All \{{ $names.os.lower \}} devices advertise themselves on the network using \[Avahi]\[avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
 
-**Note:** You may need administrator privileges to run `{{ $names.company.short }} device detect` as it requires access to all network interfaces.
+**Note:** You may need administrator privileges to run `balena device detect` as it requires access to all network interfaces.
 
 **Command**
 
 ```bash
-sudo {{ $names.company.short }} device detect
+sudo balena device detect
 ```
 
 **Output**
@@ -52,7 +52,7 @@ Reporting scan results
     Driver:            aufs
     SystemTime:        2020-01-09T21:17:11.703029598Z
     KernelVersion:     4.19.71
-    OperatingSystem:   {{ $names.company.short }}OS 2.43.0+rev1
+    OperatingSystem:   balenaOS 2.43.0+rev1
     Architecture:      armv7l
   dockerVersion:
     Version:    18.09.8-dev
@@ -62,16 +62,16 @@ Reporting scan results
 
 ## Push over a new project
 
-When local mode has been activated, balena CLI can push code directly to the local device instead of going via the \{{ $names.cloud.lower \}} builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `balena push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `{{ $names.company.short }} device detect` command.
+When local mode has been activated, balena CLI can push code directly to the local device instead of going via the \{{ $names.cloud.lower \}} builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `balena push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `balena device detect` command.
 
-**Note:** By default `{{ $names.company.short }} push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
+**Note:** By default `balena push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
 
 Once the code has been built on the device, it immediately starts executing, and logs are output to the console. At any time, you can disconnect from the local device by using `Ctrl-C`. Note that after disconnection, the services on the device will continue to run.
 
 **Command**
 
 ```bash
-{{ $names.company.short }} push 63ec46c.local
+balena push 63ec46c.local
 ```
 
 **Output**
@@ -79,7 +79,7 @@ Once the code has been built on the device, it immediately starts executing, and
 ```bash
 [Info]    Starting build on device 63ec46c.local
 [Info]    Creating default composition with source: .
-[Build]   [main] Step 1/9 : FROM {{ $names.company.short }}lib/raspberrypi3-node:10-stretch-run
+[Build]   [main] Step 1/9 : FROM balenalib/raspberrypi3-node:10-stretch-run
 [Build]   [main]  ---> 383e163cf46d
 [Build]   [main] Step 2/9 : WORKDIR /usr/src/app
 [Build]   [main]  ---> Running in 9d8460cb9d11
@@ -153,65 +153,65 @@ When a source file is modified, the Supervisor will immediately detect the chang
 [Live]    [main] Restarting service..
 ```
 
-**Note:** You can disable Livepush by passing the `--nolive` option to `{{ $names.company.short }} push`. In this case to rebuild on the device you will need to perform another `{{ $names.company.short }} push`.
+**Note:** You can disable Livepush by passing the `--nolive` option to `balena push`. In this case to rebuild on the device you will need to perform another `balena push`.
 
 ### Local mode logs
 
-By default, when pushing code to a device in local mode using the balena CLI, the logs will be output to the console. You can prevent this by passing the `--detached` (`-d`) option to the `{{ $names.company.short }} push` command (you may also detach the console at any time by pressing `Ctrl-C`).
+By default, when pushing code to a device in local mode using the balena CLI, the logs will be output to the console. You can prevent this by passing the `--detached` (`-d`) option to the `balena push` command (you may also detach the console at any time by pressing `Ctrl-C`).
 
 ```bash
-{{ $names.company.short }} push 63ec46c.local --detached
+balena push 63ec46c.local --detached
 ```
 
-When detached, the services continue to run on the device, and you can access the logs using the `{{ $names.company.short }} device logs` command, again passing the local IP address or `<short-uuid>.local`.
+When detached, the services continue to run on the device, and you can access the logs using the `balena device logs` command, again passing the local IP address or `<short-uuid>.local`.
 
 ```shell
-{{ $names.company.short }} device logs 63ec46c.local
+balena device logs 63ec46c.local
 ```
 
 This command will output logs for the system and all running services. You may optionally filter the output to include only system or specific service logs using the available `--system` (`-S`) and `--service` (`-s`) options. For example, to output only the system logs:
 
 ```bash
-{{ $names.company.short }} device logs 63ec46c.local --system
+balena device logs 63ec46c.local --system
 ```
 
 To filter logs by a service, use the `--service` option. You may specify this option multiple times to output logs from multiple services.
 
 ```bash
-{{ $names.company.short }} device logs 63ec46c.local --service main
-{{ $names.company.short }} device logs 63ec46c.local --service first --service second
+balena device logs 63ec46c.local --service main
+balena device logs 63ec46c.local --service first --service second
 ```
 
 These options can be combined to output system and selected service logs e.g.
 
 ```bash
-{{ $names.company.short }} device logs 827b231.local --system --service first --service second
+balena device logs 827b231.local --system --service first --service second
 ```
 
-**Note:** You may also specify the `--service` and `--system` options using the `{{ $names.company.short }} push` command to filter the log output.
+**Note:** You may also specify the `--service` and `--system` options using the `balena push` command to filter the log output.
 
 ## SSH into the running app container or host OS
 
-To access the local device over \[SSH]\[ssh], use the `{{ $names.company.short }} device ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and \[perform other troubleshooting tasks]\[troubleshooting]:
+To access the local device over \[SSH]\[ssh], use the `balena device ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and \[perform other troubleshooting tasks]\[troubleshooting]:
 
 ```bash
-{{ $names.company.short }} device ssh 192.168.86.45
+balena device ssh 192.168.86.45
 ```
 
 To connect to a container, we can specify the service name e.g.
 
 ```bash
-sudo {{ $names.company.short }} device ssh 63ec46c.local my-service
+sudo balena device ssh 63ec46c.local my-service
 ```
 
-**Note:** If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `{{ $names.company.short }} device ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
+**Note:** If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `balena device ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
 
 ## Using a Private Docker Registry
 
-If your project relies on a private base image, then it is possible to specify your registry credentials when doing a `{{ $names.company.short }} push` by passing the `--registry-secrets` option, as shown below.
+If your project relies on a private base image, then it is possible to specify your registry credentials when doing a `balena push` by passing the `--registry-secrets` option, as shown below.
 
 ```bash
-{{ $names.company.short }} push 192.168.86.45 --registry-secrets /Path/To/File/dockerhub-secret.yml
+balena push 192.168.86.45 --registry-secrets /Path/To/File/dockerhub-secret.yml
 ```
 
 Where `dockerhub-secret.yml` is a YAML file containing my private registry usernames and passwords to be used by the device \{{ $names.engine.lower \}} when pulling base images during a build.
@@ -224,4 +224,4 @@ Sample secrets YAML file:
   password: myPassword
 ```
 
-\[compose-remote]:\{{ $links.githubPlayground \}}/\{{ $names.company.short \}}os-compose \[troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access \[configuration]:/learn/manage/configuration/ \[cli-masterclass]:/learn/more/masterclasses/cli-masterclass/#6-using-local-mode-to-develop-applications \[livepush]:\{{ $links.githubModules \}}/livepush \[ssh]:/learn/manage/ssh-access/ \[avahi]:https://linux.die.net/man/8/avahi-daemon
+\[compose-remote]:\{{ $links.githubPlayground \}}/balenaos-compose \[troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access \[configuration]:/learn/manage/configuration/ \[cli-masterclass]:/learn/more/masterclasses/cli-masterclass/#6-using-local-mode-to-develop-applications \[livepush]:\{{ $links.githubModules \}}/livepush \[ssh]:/learn/manage/ssh-access/ \[avahi]:https://linux.die.net/man/8/avahi-daemon

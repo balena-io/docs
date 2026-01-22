@@ -16,7 +16,7 @@ Host OS SSH access gives you a handful of tools that can help you gather more in
 - `os-config.service` - Retrieves settings and configs from the API endpoint, including certificates, authorized keys, the cloudlink config, etc.
 - `openvpn.service` - The VPN service itself, which connects to cloudlink, allowing a device to come online.
 - `balena.service` - The [{{ $names.engine.lower }}][balena-engine] service, the modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking.
-- `balena-supervisor.service` - The {{ $names.company.short }} Supervisor service, responsible for the management of releases, including downloading updates for and self-healing (via monitoring), variables (fleet/device), and exposure of these services to fleets via an API endpoint.
+- `balena-supervisor.service` - The balena Supervisor service, responsible for the management of releases, including downloading updates for and self-healing (via monitoring), variables (fleet/device), and exposure of these services to fleets via an API endpoint.
 - `dbus.service` - The DBus daemon socket which can be used by containers by applying the _io.balena.features.dbus_ [label][labels], which exposes it in-container. This allows you to control several host OS features, including the Network Manager.
 
 Additionally, there are a couple of utility services that, while not required for a barebones operation, are also useful:
@@ -54,10 +54,10 @@ To limit the output to the last _x_ messages, use the `-n` option. The following
 $ journalctl -n 10 -u chronyd
 ```
 
-The `--all` (`-a`) option may be used to show all entries, even if long or with unprintable characters. This is especially useful for displaying the service container logs from applications when applied to `{{ $names.company.short }}.service`.
+The `--all` (`-a`) option may be used to show all entries, even if long or with unprintable characters. This is especially useful for displaying the service container logs from applications when applied to `balena.service`.
 
 ```shell
-$ journalctl --all -n 100 -u {{ $names.company.short }}
+$ journalctl --all -n 100 -u balena
 ```
 
 #### dmesg
@@ -75,16 +75,16 @@ beginning with version 2.9.0, {{ $names.os.lower }} includes the lightweight con
 From the host OS this command will show the status of all containers:
 
 ```shell
-$ {{ $names.company.short }} ps -a
+$ balena ps -a
 ```
 
 You can also check the **journalctl** logs for messages related to the {{ $names.engine.lower }} service:
 
 ```shell
-$ journalctl --follow -n 100 -u {{ $names.company.short }}
+$ journalctl --follow -n 100 -u balena
 ```
 
-**Note:** For devices with {{ $names.os.lower }} versions earlier than 2.9.0, you can replace `{{ $names.company.short }}` in these commands with `docker`.
+**Note:** For devices with {{ $names.os.lower }} versions earlier than 2.9.0, you can replace `balena` in these commands with `docker`.
 
 ### Inspect network settings
 

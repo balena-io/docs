@@ -33,7 +33,7 @@ If you entered your WiFi SSID and passphrase when you downloaded {{ $names.os.lo
 
 ```
 [connection]
-id={{ $names.company.short }}-wifi
+id=balena-wifi
 type=wifi
 
 [wifi]
@@ -91,7 +91,7 @@ As an example the below config sets up a WPA2-enterprise WiFi connection:
 
 ```
 [connection]
-id={{ $names.company.short }}-wifi
+id=balena-wifi
 type=wifi
 
 [wifi]
@@ -206,7 +206,7 @@ The important bits to take note of here are `interface-name=eth0` which indicate
 
 ```
 [connection]
-id={{ $names.company.short }}-wifi
+id=balena-wifi
 type=wifi
 
 [wifi]
@@ -232,11 +232,11 @@ psk=PLACE_YOUR_PASSWORD_HERE
 
 ## Creating a Hotspot
 
-With **NetworkManager**, setting up your device as a hotspot is as simple as creating a `{{ $names.company.short }}-hotspot` file in `/system-connections/`:
+With **NetworkManager**, setting up your device as a hotspot is as simple as creating a `balena-hotspot` file in `/system-connections/`:
 
 ```
 [connection]
-id={{ $names.company.short }}-hotspot
+id=balena-hotspot
 uuid=36060c57-aebd-4ccf-aba4-ef75121b5f77
 type=wifi
 autoconnect=true

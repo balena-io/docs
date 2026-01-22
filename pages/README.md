@@ -40,7 +40,7 @@ Select an OS type of _balenaOS_, and you will see a list of available \{{ $names
 
 Select the type of network connection you'll be using: _Ethernet Only_ or _Wifi + Ethernet_. A network connection is required to allow the device to connect to \{{ $names.cloud.lower \}}. Selecting _Wifi + Ethernet_ allows you to enter a _Wifi SSID_ and _Wifi Passphrase_ which is then built into the image.
 
-Finally, click the **Download \{{ $names.os.lower \}}** button. When the download completes, you should have a zipped image file with a name like `{{ $names.company.short }}-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
+Finally, click the **Download \{{ $names.os.lower \}}** button. When the download completes, you should have a zipped image file with a name like `balena-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
 
 ## Provision device
 

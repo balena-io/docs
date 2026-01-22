@@ -121,14 +121,14 @@ An additional set of labels ensures device compatibility for running a service. 
 
 The following set of requirement labels are enforced via the supervisor. Each service may define one or more requirements and if any of them is not met for any non-[optional](#optional-containers) service, then [the release will be rejected][update-statuses] and no changes will be performed for the new release.
 
-| Label                                                          | Description                                                                   | Valid from Supervisor |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------------------- |
-| io.{{ $names.company.short }}.features.requires.sw.supervisor  | Device Supervisor version (specified as a [version range][version-range])     | 10.16.17              |
-| io.{{ $names.company.short }}.features.requires.sw.l4t         | [L4T][l4t] version (specified as a [version range][version-range])            | 10.16.17              |
-| io.{{ $names.company.short }}.features.requires.hw.device-type | The [device type][device-type] as given by `BALENA_MACHINE_NAME`              | 11.1.0                |
-| io.{{ $names.company.short }}.features.requires.arch.sw        | The [architecture][arch] as given by `BALENA_ARCH`                            | 14.10.11              |
-| io.{{ $names.company.short }}.features.requires.sw.balena-os   | ${{ names.os.lower }} version (specified as a [version range][version-range]) | 17.4.0                |
-| io.{{ $names.company.short }}.features.requires.sw.linux       | Linux kernel version (specified as a [version range][version-range])          | 17.4.0                |
+| Label                                      | Description                                                                   | Valid from Supervisor |
+| ------------------------------------------ | ----------------------------------------------------------------------------- | --------------------- |
+| io.balena.features.requires.sw.supervisor  | Device Supervisor version (specified as a [version range][version-range])     | 10.16.17              |
+| io.balena.features.requires.sw.l4t         | [L4T][l4t] version (specified as a [version range][version-range])            | 10.16.17              |
+| io.balena.features.requires.hw.device-type | The [device type][device-type] as given by `BALENA_MACHINE_NAME`              | 11.1.0                |
+| io.balena.features.requires.arch.sw        | The [architecture][arch] as given by `BALENA_ARCH`                            | 14.10.11              |
+| io.balena.features.requires.sw.balena-os   | ${{ names.os.lower }} version (specified as a [version range][version-range]) | 17.4.0                |
+| io.balena.features.requires.sw.linux       | Linux kernel version (specified as a [version range][version-range])          | 17.4.0                |
 
 For example, the following composition defines requirements on the supervisor and l4t version on the first service, and on the device type and architecture on the second service.
 
