@@ -62,7 +62,7 @@ Please take a look at the [networking requirements](../../reference/OS/network/2
 
 #### **Can I use balenaCloud in countries with restrictive firewalls such as China?**
 
-{% include "../.gitbook/includes/country-firewall.md" %}
+Deploying devices in heavily restricted networks, such as behind country-level firewalls, may affect the ability of the device to connect to cloudlink and is not guaranteed to work.
 
 #### **Can I access /dev and things like GPIO from the container?**
 
