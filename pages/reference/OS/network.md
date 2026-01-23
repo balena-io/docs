@@ -308,7 +308,7 @@ method=auto
 
 ### Known Tested Modems
 
-Check out the list of [balena supported modems](../../../reference/hardware/wifi-dongles/)
+Check out the list of [balena supported modems](../hardware/wifi-dongles.md)
 
 ## Changing the Network at Runtime
 
