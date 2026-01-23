@@ -1,0 +1,4 @@
+root: ./
+
+redirects:
+  learn/accounts: learn/accounts/account.md
