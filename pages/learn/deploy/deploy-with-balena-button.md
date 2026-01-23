@@ -1,8 +1,8 @@
 ---
 title: Deploy with balena button
 excerpt: >-
-  The Deploy with balena button allows users to do a
-  single-click deployment and configuration of a fleet on balenaCloud
+  The Deploy with balena button allows users to do a single-click deployment and
+  configuration of a fleet on balenaCloud
 ---
 
 # Deploy with balena button
@@ -11,11 +11,15 @@ The **Deploy with balena** button allows users to perform a single-click deploym
 
 ![Deploy with balena](https://balena.io/deploy.svg)
 
-Clicking the **Deploy with balena** button opens the balenaCloud dashboard with a modal window pre-populated with everything required to deploy a fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](deploy-with-balena-button.md#balenayml-configuration-file), then they are pre-populated in this section.
+Clicking the **Deploy with balena** button opens the balenaCloud dashboard with a modal window pre-populated with everything required to deploy a fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](deploy-with-balena-button.md#balena.yml-configuration-file), then they are pre-populated in this section.
+
+<figure><img src="../../.gitbook/assets/deploy-with-balena.png" alt=""><figcaption></figcaption></figure>
 
 Clicking _Create and deploy_ creates a new fleet and generates a release. Any devices added to the fleet will immediately download and begin running the release.
 
-**Note:** Currently git submodules are not supported and will not build properly.
+{% hint style="warning" %}
+Currently git submodules are not supported and will not build properly.
+{% endhint %}
 
 ## Adding a deploy with balena button to a project
 
@@ -29,16 +33,16 @@ The above example uses a SVG logo as this renders better on GitHub - however, yo
 
 You can further customize the behavior of the **Deploy with balena** button by providing additional URL parameters. The following URL parameters are available and may be appended to the `https://dashboard.balena-cloud.com/deploy` link:
 
-- `repoUrl` - The URL of the project repository. If you are placing the deploy button in a GitHub repo then balenaCloud can auto-determine the `repoUrl` from the referrer info in the HTTP headers. However on Firefox and with some ad-blockers this may fail. We recommend that you populate this query string parameter.
-- `tarballUrl` - The URL of the project tarball. Automatically determined from `repoUrl` if not provided.
-- `configUrl` - The URL of the configuration file for the fleet. Automatically determined from `repoUrl` if not provided.
-- `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types here](../../../reference/hardware/devices/).
+* `repoUrl` - The URL of the project repository. If you are placing the deploy button in a GitHub repo then balenaCloud can auto-determine the `repoUrl` from the referrer info in the HTTP headers. However on Firefox and with some ad-blockers this may fail. We recommend that you populate this query string parameter.
+* `tarballUrl` - The URL of the project tarball. Automatically determined from `repoUrl` if not provided.
+* `configUrl` - The URL of the configuration file for the fleet. Automatically determined from `repoUrl` if not provided.
+* `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types here](../../reference/hardware/devices.md).
 
 ### balena.yml configuration file
 
-Through the use of a `balena.yml` config file, you may also specify [configuration](../../../learn/manage/configuration/) defaults and provide [variables](../../../learn/manage/variables/). If provided, these are pre-populated in the advanced modal dialog when using the **Deploy with balena** button.
+Through the use of a `balena.yml` config file, you may also specify [configuration](../manage/configuration.md) defaults and provide [variables](../manage/variables.md). If provided, these are pre-populated in the advanced modal dialog when using the **Deploy with balena** button.
 
-The `balena.yml` file can also be used to provide additional metadata to be used if the app is submitted to \[balenaHub]\[balenahub].
+The `balena.yml` file can also be used to provide additional metadata to be used if the app is submitted to [balenaHub](https://hub.balena.io/).
 
 The file should be named `balena.yml` and be located in the root of the project repository, or the `configUrl` link must be specified. A full example of the `balena.yml` file is shown below:
 
@@ -73,19 +77,17 @@ data:
     - intel-nuc
 ```
 
-- `type` - Required field. In most cases this would be `sw.application`, unless you are implementing a block, in which case you need to use `sw.block`. For reference, check \[balena.yml file for a block]\[create-your-block].
-- `name` - A user-friendly name of your fleet.
-- `description`: A description of what the fleet does. This is what is displayed if the fleet is published on \[balenaHub]\[balenahub].
-- `assets`
-  - `<asset-slug>`: Supported values are `repository` and `logo`. The size of logo needs to be size 512 x 512 px
-    - `type`: A fixed value that should be set to 'blob.asset'
-    - `data`:
-      - `url` - The URL of the asset that is being uploaded.
-- `data`
-  - `applicationEnvironmentVariables` - \[Variables]\[variables] allow you to provide runtime configuration without having to modify your source code.
-  - `applicationConfigVariables` - \[Configuration variables]\[configuration] allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
-  - `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](../../../reference/hardware/devices/) here.
-  - `supportedDeviceType` - The device types that the fleet supports. You can find a list of [device types](../../../reference/hardware/devices/) here.
-- `version` - A user-defined [semver version](https://semver.org/) for the release that is shown in the Version column of the Releases page of the balenaCloud web dashboard, and which may also be queried through the balena API `release.semver` field. If multiple deployments are made with the same version value, the balena API automatically increases the revision number in the format "1.2.3+rev1", "1.2.3+rev2", "1.2.3+rev3" and so on. Using version values that are **not** [semver compliant](https://semver.org/) is deprecated and may cause deployments to fail in the future. Currently, a deployment may succeed with such a non-compliant version value as long as the value is unique across all releases in the fleet, however the web dashboard will display version `0.0.0`.
-
-\[balenahub]:https://hub.balena.io \[configuration]:/learn/manage/configuration \[variables]:/learn/manage/variables \[create-your-block]:/learn/develop/blocks/#creating-your-own-block
+* `type` - Required field. In most cases this would be `sw.application`, unless you are implementing a block, in which case you need to use `sw.block`. For reference, check [balena.yml file for a block](../develop/blocks.md#creating-your-own-block).
+* `name` - A user-friendly name of your fleet.
+* `description`: A description of what the fleet does. This is what is displayed if the fleet is published on [balenaHub](https://hub.balena.io/).
+* `assets`
+  * `<asset-slug>`: Supported values are `repository` and `logo`. The size of logo needs to be size 512 x 512 px
+    * `type`: A fixed value that should be set to 'blob.asset'
+    * `data`:
+      * `url` - The URL of the asset that is being uploaded.
+* `data`
+  * `applicationEnvironmentVariables` - [Variables](../manage/variables.md) allow you to provide runtime configuration without having to modify your source code.
+  * `applicationConfigVariables` - [Configuration variables](../manage/configuration.md) allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`.
+  * `defaultDeviceType` - The device type that will be pre-selected in the "Create fleet" modal. It defaults to Raspberry Pi 4 if not provided. You can find a list of [device types](../../reference/hardware/devices.md) here.
+  * `supportedDeviceType` - The device types that the fleet supports. You can find a list of [device types](../../reference/hardware/devices.md) here.
+* `version` - A user-defined [semver version](https://semver.org/) for the release that is shown in the Version column of the Releases page of the balenaCloud web dashboard, and which may also be queried through the balena API `release.semver` field. If multiple deployments are made with the same version value, the balena API automatically increases the revision number in the format "1.2.3+rev1", "1.2.3+rev2", "1.2.3+rev3" and so on. Using version values that are **not** [semver compliant](https://semver.org/) is deprecated and may cause deployments to fail in the future. Currently, a deployment may succeed with such a non-compliant version value as long as the value is unique across all releases in the fleet, however the web dashboard will display version `0.0.0`.

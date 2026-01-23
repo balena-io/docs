@@ -4,43 +4,30 @@ title: Welcome
 
 # Welcome
 
-[Balena][balena] makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
+[Balena](https://balena.io/) makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
 
-Our [balena primer][primer] covers the platform from end to end, walking through all the pieces and how they fit together.
+Our [balena primer](primer.md) covers the platform from end to end, walking through all the pieces and how they fit together.
 
-Ready to dive in? The [getting started guides][getting-started] take you step-by-step through creating your first fleet, provisioning your first device and deploying your first release.
+Ready to dive in? The [getting started guides](<../../README (1).md>) take you step-by-step through creating your first fleet, provisioning your first device and deploying your first release.
 
 Once you're up on the basics, we've got all the info you need to build and manage larger fleets with more advanced functionality:
 
-### [Develop][develop]
+### [Develop](../develop/)
 
 As you develop your application and grow your fleet, these guides will help you configure and package your services, ensuring you have the proper container setup and that you can interact with hardware and system resources.
 
-### [Deploy][deploy]
+### [Deploy](../deploy/)
 
 When you're ready to bring your application from one device to an entire fleet, read up on the basics of the balena build pipeline, as well as some advanced features to make your code deploys smaller, faster, and more reliable.
 
-### [Manage][manage]
+### [Manage](../manage/)
 
 Check here for details on all the tools we provide for managing your device fleet, including configuration, variables, SSH access, and checking device logs all from the dashboard.
 
-### [Masterclasses][masterclass] & [balenaHub][hub]
+### [Masterclasses](../more/masterclasses/) & [balenaHub](https://hub.balena.io/)
 
-To gain mastery in various products and workflows supported by balena, head on over to [balena Masterclasses][masterclass] and checkout out projects made by the community on [balenaHub][hub].
+To gain mastery in various products and workflows supported by balena, head on over to [balena Masterclasses](../more/masterclasses/) and checkout out projects made by the community on [balenaHub](https://hub.balena.io/).
 
-Haven't found what you're looking for? Stop by our [FAQ][faq] and [Reference][reference] sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help][help] is always available! Refer to the balena Glossary for definition on any of the terms referred in the docs.
+Haven't found what you're looking for? Stop by our [FAQ](/broken/pages/u3os6YvY0kMtLJCIPMz5) and [Reference](/broken/pages/aTTGdjOTGApO21QT4vev) sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help](../accounts/support-access.md) is always available! Refer to the balena Glossary for definition on any of the terms referred in the docs.
 
 Check out our [Feature Requests Page](https://forums.balena.io/c/feature-requests/96) to share your ideas and upvote the things that matter most to you.
-
-[balena]:https://balena.io/
-[primer]:/learn/welcome/primer/
-[concepts]:/learn/welcome/concepts/
-[getting-started]:/learn/getting-started/
-[develop]:/learn/develop/
-[deploy]:/learn/deploy/
-[manage]:/learn/manage/
-[faq]:/faq/
-[reference]:/reference/
-[help]:/learn/welcome/support/
-[masterclass]:/learn/more/masterclasses/
-[hub]:https://balena.io/

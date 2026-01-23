@@ -1,7 +1,6 @@
 ---
 title: Communicate outside the container
-excerpt: >-
-  Talk to the host OS, supervisor, and network from within a balena container
+excerpt: Talk to the host OS, supervisor, and network from within a balena container
 thumbnail: /img/common/device/running-webterminal-session.webp
 ---
 
@@ -15,23 +14,23 @@ In many situations, the code running in your container will need some way to com
 
 Inside your running container, you'll have access to a number of `BALENA_` namespaced environment variables, which provide information from the system outside the container:
 
-**Note:** On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
+On all balenaOS versions of the OS, both `RESIN_` and `BALENA_` variables will be injected into the container to maintain backwards compatibility.
 
-|           Variable           |                                                                                                                                                                                                      Description                                                                                                                                                                                                       |
-| :--------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|     `BALENA_DEVICE_UUID`     |                                                                                                                                                                 The unique identification number for the device. This is used to identify it on balena                                                                                                                                                                 |
-|       `BALENA_APP_ID`        |                                                                                                                                                                                ID number of the balena fleet the device is associated.                                                                                                                                                                                 |
-|      `BALENA_APP_NAME`       |                                                                                                                                                                              The name of the balena fleet the device is associated with.                                                                                                                                                                               |
-| `BALENA_DEVICE_NAME_AT_INIT` |                                                                                                                                                                                    The name of the device on first initialization.                                                                                                                                                                                     |
-|     `BALENA_DEVICE_TYPE`     |                                                                                                                                                                                      The type of device the fleet is running on.                                                                                                                                                                                       |
-|           `BALENA`           |                                                                                                                                                         The `BALENA=1` variable can be used by your software to detect that it is running on a balena device.                                                                                                                                                          |
-| `BALENA_SUPERVISOR_API_KEY`  |                                          Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference](../../../runtime/supervisor-api/) for detailed usage. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                          |
-| `BALENA_SUPERVISOR_ADDRESS`  |                                                                                                                  The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                                  |
-|   `BALENA_SUPERVISOR_HOST`   |                                                                                                                               The IP address of the supervisor API. Default: `127.0.0.1`. For multicontainer the service needs the \[io.resin.features.supervisor-api]\[labels-link] set                                                                                                                               |
-|   `BALENA_SUPERVISOR_PORT`   |                                                                                                                        The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                                        |
-|       `BALENA_API_KEY`       | API key which can be used to authenticate requests to the balena backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation](../../../learn/welcome/security/) for more details. For multicontainer the service needs the \[io.balena.features.balena-api]\[labels-link] label set. |
-|   `BALENA_HOST_OS_VERSION`   |                                                                                                                                                                                              The version of the host OS.                                                                                                                                                                                               |
-|   `BALENA_DEVICE_RESTART`    |                                                                                                                                           This is an internal mechanism for restarting containers and can be ignored as it's not very useful to app code. Example: `1.13.0`                                                                                                                                            |
+|           Variable           |                                                                                                                                                                                                  Description                                                                                                                                                                                                 |
+| :--------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|     `BALENA_DEVICE_UUID`     |                                                                                                                                                            The unique identification number for the device. This is used to identify it on balena                                                                                                                                                            |
+|        `BALENA_APP_ID`       |                                                                                                                                                                            ID number of the balena fleet the device is associated.                                                                                                                                                                           |
+|       `BALENA_APP_NAME`      |                                                                                                                                                                          The name of the balena fleet the device is associated with.                                                                                                                                                                         |
+| `BALENA_DEVICE_NAME_AT_INIT` |                                                                                                                                                                                The name of the device on first initialization.                                                                                                                                                                               |
+|     `BALENA_DEVICE_TYPE`     |                                                                                                                                                                                  The type of device the fleet is running on.                                                                                                                                                                                 |
+|           `BALENA`           |                                                                                                                                                     The `BALENA=1` variable can be used by your software to detect that it is running on a balena device.                                                                                                                                                    |
+|  `BALENA_SUPERVISOR_API_KEY` |                                           Authentication key for the supervisor API. This makes sure requests to the supervisor are only coming from containers on the device. See the [Supervisor API reference](runtime.md#supervisor) for detailed usage. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                          |
+|  `BALENA_SUPERVISOR_ADDRESS` |                                                                                                             The network address of the supervisor API. Default: `http://127.0.0.1:48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                             |
+|   `BALENA_SUPERVISOR_HOST`   |                                                                                                                          The IP address of the supervisor API. Default: `127.0.0.1`. For multicontainer the service needs the \[io.resin.features.supervisor-api]\[labels-link] set                                                                                                                          |
+|   `BALENA_SUPERVISOR_PORT`   |                                                                                                                   The network port number for the supervisor API. Default: `48484`. For multicontainer the service needs the \[io.balena.features.supervisor-api]\[labels-link] label set.                                                                                                                   |
+|       `BALENA_API_KEY`       | API key which can be used to authenticate requests to the balena backend. Can be used with the SDKs on the device. **WARNING** This API key gives the code permissions to affect the device's metadata in the balena API; refer to our [security documentation](../welcome/security.md) for more details. For multicontainer the service needs the \[io.balena.features.balena-api]\[labels-link] label set. |
+|   `BALENA_HOST_OS_VERSION`   |                                                                                                                                                                                          The version of the host OS.                                                                                                                                                                                         |
+|    `BALENA_DEVICE_RESTART`   |                                                                                                                                       This is an internal mechanism for restarting containers and can be ignored as it's not very useful to app code. Example: `1.13.0`                                                                                                                                      |
 
 Here's an example from a Raspberry Pi 3:
 
@@ -53,9 +52,11 @@ BALENA_SUPERVISOR_PORT=48484
 
 ### D-Bus communication with host OS
 
-In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use \[dbus]\[dbus-link]. In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all D-Bus communication. The setting of that environment variable is different for older and newer devices (based on the balena supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
+In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use [dbus](https://www.freedesktop.org/wiki/Software/dbus/). In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all D-Bus communication. The setting of that environment variable is different for older and newer devices (based on the balena supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
-**Note:** In multicontainer fleets, the `io.balena.features.dbus` label must be applied for each service that requires access to the D-Bus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
+{% hint style="danger" %}
+In multicontainer fleets, the `io.balena.features.dbus` label must be applied for each service that requires access to the D-Bus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
+{% endhint %}
 
 ```
 # for balena supervisor versions 1.7.0 and newer (both balenaOS 1.x and 2.x) use this version:
@@ -81,13 +82,17 @@ services:
       io.balena.features.dbus: '1'
 ```
 
-**Note:** Please be aware that setting `DBUS_SYSTEM_BUS_ADDRESS` as a service or environment variable and enabling systemd at the same time might introduce unexpected side effects. Systemd might start to interact with the host system instead of the container. These interactions can potentially cause balenaOS devices to disconnect from balenaCloud or even fall offline. Hence, users are advised to prefer prepending the command with the variable definition.
+{% hint style="warning" %}
+Please be aware that setting `DBUS_SYSTEM_BUS_ADDRESS` as a service or environment variable and enabling systemd at the same time might introduce unexpected side effects. Systemd might start to interact with the host system instead of the container. These interactions can potentially cause balenaOS devices to disconnect from balenaCloud or even fall offline. Hence, users are advised to prefer prepending the command with the variable definition.
+{% endhint %}
 
-**Note:** To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile if you are using the Debian image, or check under what name does your chosen operating system supply the `dbus-send` executable.
+{% hint style="warning" %}
+To use the `dbus-send` command in the example you will need to install the `dbus` package in your Dockerfile if you are using the Debian image, or check under what name does your chosen operating system supply the `dbus-send` executable.
+{% endhint %}
 
 #### Change the Device hostname
 
-Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the \[host OS]\[host-os] is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API](../../../reference/supervisor/supervisor-api/#patch-v1devicehost-config)
+Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the [host OS](../../reference/OS/overview.md) is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API](../../../reference/supervisor/supervisor-api/#patch-v1devicehost-config)
 
 #### Rebooting the Device
 
@@ -169,7 +174,9 @@ method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 
 
 The entry `NTPSynchronized` shows `true`, so the device is NTP synchronized. (The key `NTP` only shows whether the device is using the systemd service `systemd-timesyncd`; starting from balenaOS 2.13.1, the `chrony` service is used for time management.)
 
-**Note:** For additional D-Bus examples see the \[balenaOS masterclass]\[os-masterclass]
+{% hint style="warning" %}
+For additional D-Bus examples see the \[balenaOS masterclass]\[os-masterclass]
+{% endhint %}
 
 ### Blacklisting kernel modules won't work
 
@@ -177,7 +184,9 @@ Since the `/etc/modules` you see in your container belongs to the container's fi
 
 ## Supervisor
 
-**Note:** In multicontainer fleets, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility
+{% hint style="warning" %}
+In multicontainer fleets, the `io.balena.features.supervisor-api` label must be applied for each service that requires access to the Supervisor API. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility
+{% endhint %}
 
 ### Reboot from Inside the Container
 
@@ -190,20 +199,22 @@ curl -X POST --header "Content-Type:application/json" \
 
 [Read more about the supervisor API](../../../runtime/supervisor-api/#post-v1-reboot)
 
-**Note:** `BALENA_SUPERVISOR_API_KEY` and `BALENA_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the \[io.resin.features.supervisor-api]\[labels-link] set . You will also **need** `curl` installed in your container.
+{% hint style="warning" %}
+`BALENA_SUPERVISOR_API_KEY` and `BALENA_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the \[io.resin.features.supervisor-api]\[labels-link] set . You will also **need** `curl` installed in your container.
+{% endhint %}
 
 Alternatively, it is possible to reboot the device via the D-Bus interface as described above.
 
 ### Writing to logs on the Dashboard
 
-Anything written to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our \[example projects]\[projects-github] on GitHub to get an idea of how to do this.
+Anything written to `stdout` and `stderr` should appear on the device's dashboard logs. Have a look at some of our [example projects](https://github.com/balenalabs) on GitHub to get an idea of how to do this.
 
 ## Network
 
-BalenaEngine supports \[host]\[network-host] and \[bridge]\[network-bridge] network modes:
+BalenaEngine supports [host](https://docs.docker.com/network/host/) and [bridge](https://docs.docker.com/network/bridge/) network modes:
 
-- Host mode allows a service to use all host network interfaces.
-- Bridge mode uses a user-defined bridge network interface, to which service containers are connected.
+* Host mode allows a service to use all host network interfaces.
+* Bridge mode uses a user-defined bridge network interface, to which service containers are connected.
 
 Any service that uses host networking does not have to define ports for traffic ingress, and a service can bind to all interfaces of the host. Single container releases always use host networking.
 
@@ -215,9 +226,9 @@ Single container releases always use host networking, allowing them to bind to a
 
 ### Multicontainer
 
-Multicontainer releases use a user-defined bridge network by default. No ports are exposed to the host and must be explicitly enabled through the `ports` \[keyword]\[network-ports]. Services on the same bridge network have access to all other services' ports.
+Multicontainer releases use a user-defined bridge network by default. No ports are exposed to the host and must be explicitly enabled through the `ports` [keyword](https://docs.docker.com/compose/compose-file/compose-file-v2/#ports). Services on the same bridge network have access to all other services' ports.
 
-The following \[sample multicontainer]\[multicontainer] `docker-compose.yml` file allows incoming traffic on port 80 to the `proxy` service, but the `frontend` and `data` services are isolated from the host and only accessible via the bridge network, which all services are connected to.
+The following [sample multicontainer](multicontainer.md#named-volumes) `docker-compose.yml` file allows incoming traffic on port 80 to the `proxy` service, but the `frontend` and `data` services are isolated from the host and only accessible via the bridge network, which all services are connected to.
 
 ```yaml
 version: '2'
@@ -239,17 +250,23 @@ services:
       - '8080'
 ```
 
-**Note:** Exposing ports via the expose keyword is optional and a way of documenting which ports are used, but does not map or open any ports. By default, services on the same bridge network have access to all other services' ports.
+{% hint style="warning" %}
+Exposing ports via the expose keyword is optional and a way of documenting which ports are used, but does not map or open any ports. By default, services on the same bridge network have access to all other services' ports.
+{% endhint %}
 
 For multicontainer releases, setting the service `network_mode` to `host` in `docker-compose.yml` allows the container to share the same network namespace as the host OS.
 
-Balena `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` \[keyword]\[network-aliases] for providing alias names for services (including FQDNs) and \[IPAM bridge networks]\[network-ipam] are also supported.
+Balena `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` [keyword](https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases) for providing alias names for services (including FQDNs) and [IPAM bridge networks](https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference) are also supported.
 
-**Note:** For more information on networking with balena, see the \[balena services masterclass]\[services-masterclass].
+{% hint style="warning" %}
+For more information on networking with balena, see the \[balena services masterclass]\[services-masterclass].
+{% endhint %}
 
 ### Public device URLS
 
-Balena currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the balenaCloud dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../../../management/devices/#enable-public-device-url)
+Balena currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the balenaCloud dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../manage/actions.md#public-device-url)
+
+<figure><img src="../../.gitbook/assets/enable-public-url-device.png" alt=""><figcaption></figcaption></figure>
 
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js](https://expressjs.com/) server which will serve to the devices URL.
 
@@ -271,21 +288,54 @@ var server = app.listen(80, function () {
 
 ### Using DNS resolvers in your container
 
-In the balena host OS \[dnsmasq]\[dnsmasq-link] is used to manage DNS since balenaOS 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
+In the balena host OS [dnsmasq](https://www.thekelleys.org.uk/dnsmasq/doc.html) is used to manage DNS since balenaOS 1.1.2. This means that if you have dnsmasq or other DNS resolvers such as [bind9](https://bind9.net/) running in your container, it can potentially cause problems because they usually try to bind to `0.0.0.0`, which interferes with the host dnsmasq. To get around this, you need to add `bind-interfaces` to your dnsmasq configuration in your container or make sure your server only binds to external IPs, and there shouldn't be conflicts anymore.
 
 ## Storage
 
 ### Persistent Storage
 
-\{{> "general/persistent-storage"\}}
+If you have data or configurations that you would like to persist through application and host OS updates, you have the option to keep them in persistent storage. Persistent storage is a good place to write system logs and other application data that should remain untouched even as your code changes.
+
+**Before balenaOS v2.12.0**
+
+On devices running OS versions before 2.12.0, the `/data` folder in the container is automatically linked to a directory on the host OS and guaranteed to persist across updates. The contents of the `/data` folder can be accessed via the host OS at `/mnt/data/resin-data/<APP ID>`.
+
+The `/data` folder is not synced between devices in your fleet. In addition, the folder is unique to a specific fleet, so if you transfer your device to a new fleet the `/data` folder from the previous fleet will not be accessible in the container. It will, however, still be available via the host OS and if the device is moved back to the original fleet.
+
+Note that the `/data` folder is **not** mounted when your project is building on our build servers, so you can't access it from your `Dockerfile`. The `/data` volume only exists when the container is running on the deployed devices.
+
+**balenaOS v2.12.0 and above**
+
+Beginning with balenaOS v2.12.0, persistent storage is handled through [named volumes](multicontainer.md#named-volumes). The behavior is much the same as persistent storage on older host OS versions. In fact, for single-container fleets, the default `docker-compose.yml` sets up a `resin-data` named volume that links to a `/data` directory in the container. The only difference between this and earlier versions is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<APP ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<APP ID>` location used with earlier host OS versions.
+
+Named volumes can be given arbitrary names and can be linked to a directory in one or more containers. As long as every release includes a `docker-compose.yml` and the volume name does not change, the data in the volume will persist between updates.
+
+When using named volumes, note that:
+
+* If a device is moved to a new fleet, the old `/data` folder will be automatically purged.
+* During the build process, data added to a container directory that is configured to link to a named volume will be copied to the volume the first time it's created on the device.
+
+**Using a Supervisor with a version >= v10.0.0**
+
+Since balena-supervisor v10.0.0, volumes are no longer automatically removed from disk when references to them are removed from a fleet's `docker-compose` file. This means that it's no longer possible for data to be lost due to the accidental rename of a volume.
+
+If you change volume names regularly, your device will now continue to retain all previous volumes including their contents. To avoid this the supervisor API now provides an [endpoint to cleanup unreferenced volumes](https://www.balena.io/docs/reference/supervisor/supervisor-api/#cleanup-volumes-with-no-references). Additionally, it is possible to perform this action from the dashboard via the `Purge Data` action, found on the `Actions` tab for a device.
+
+{% hint style="warning" %}
+Volumes will continue to be removed automatically when moving a device between fleets.
+{% endhint %}
+
+**Transfer large files**
+
+If you have large files you would like your containers to have access to, you can transfer them from your computer directly to your device's SD card. First insert the SD card in your computer and find the `resin-data` partition. Then look for the folder associated with your application, which will either be at `/resin-data/<APP ID>` or `/docker/volumes/<APP ID>_<VOLUME NAME>/_<CONTAINER DIRECTORY>`, depending on your host OS version. Note that these directories will only exist after your application has been started at least once.
 
 ### Temporary directories
 
-Note that the `/tmp` and `/var/tmp` directories in a container are not true \[tmpfs]\[kernel-tmpfs] volumes by default, and they are treated like any other ephemeral container layers.
+Note that the `/tmp` and `/var/tmp` directories in a container are not true [tmpfs](https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html) volumes by default, and they are treated like any other ephemeral container layers.
 
-As a result, you can expect that data in these directories will persist over a device reboot, but will **not** persist when a \[services restart]\[restart-fleet] is triggered.
+As a result, you can expect that data in these directories will persist over a device reboot, but will **not** persist when a [services restart](../manage/actions.md#restart-services) is triggered.
 
-If you would like these directories to act more like `tmpfs` volumes and write to volatile memory, you can use \[tmpfs mounts]\[tmpfs-mounts].
+If you would like these directories to act more like `tmpfs` volumes and write to volatile memory, you can use [tmpfs mounts](https://docs.docker.com/storage/tmpfs/).
 
 ```yml
 services:
@@ -310,11 +360,11 @@ If your filesystem is not supported you can contact us through our [forums](http
 
 **Preparing the container**
 
-In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](https://www.balena.io/docs/reference/base-images/balena-base-images/#working-with-dynamically-plugged-devices) by:
+In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](../../reference/base-images/balena-base-images.md) by:
 
-- Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file.
-- Adding `ENV UDEV=on` to your container's `Dockerfile`.
-- Running the entrypoint as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
+* Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file.
+* Adding `ENV UDEV=on` to your container's `Dockerfile`.
+* Running the entrypoint as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
 
 This will ensure that the host propagates udev events into the container, enabling us to manipulate the device from within it.
 
@@ -322,7 +372,9 @@ This will ensure that the host propagates udev events into the container, enabli
 
 Devices can be selected in many ways, for example by its device name (`/dev` entry), label, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices. Device names or UUIDs are a good choice when you can easily identify or predict their values, for example within the context of a udev rule.
 
-**Note:** You can get a list of device names, labels and filesystem types by running `lsblk -f` (both on the host or container).
+{% hint style="warning" %}
+You can get a list of device names, labels and filesystem types by running `lsblk -f` (both on the host or container).
+{% endhint %}
 
 **Mounting**
 
@@ -334,7 +386,9 @@ mount -t <fstype> -o rw -L <device-label> <mount-point>
 mount -t <fstype> -o rw -U <device-uuid> <mount-point>
 ```
 
-**Note:** The mount point folder needs to exist for the mount to be successful.
+{% hint style="warning" %}
+The mount point folder needs to exist for the mount to be successful.
+{% endhint %}
 
 For more information about the `mount` command see the [mount man page](https://man7.org/linux/man-pages/man8/mount.8.html).
 
@@ -370,10 +424,8 @@ COPY scripts /usr/src/scripts
 
 Finally we need to write the `mount.sh` and `unmount.sh` scripts. These scripts will use `mount` and `umount` commands in the same way we described on the **Mounting** and **Unmounting** sections above.
 
-You can find a fully working example of automounting/unmounting devices with udev rules in this \[project]\(https://github.com/balena-io-playground/balena-storage).
+You can find a fully working example of automounting/unmounting devices with udev rules in this [project](https://github.com/balena-io-playground/balena-storage).
 
 **Sharing mounted devices across containers**
 
 Note that currently it's not possible to share a mounted device across multiple containers. This is a feature that we are currently working on. This documentation will be updated once we add support for this feature.
-
-\[projects-github]:https://github.com/balenalabs \[systemd-base-image-link]:https://hub.docker.com/r/balena/raspberrypi-python/ \[dnsmasq-link]:https://www.thekelleys.org.uk/dnsmasq/doc.html \[udev-link]:https://www.freedesktop.org/software/systemd/man/udev.html \[dbus-link]:https://www.freedesktop.org/wiki/Software/dbus/ \[labels-link]:/reference/supervisor/docker-compose/#labels \[network-host]:https://docs.docker.com/network/host/ \[network-bridge]:https://docs.docker.com/network/bridge/ \[network-ports]:https://docs.docker.com/compose/compose-file/compose-file-v2/#ports \[multicontainer]:https://github.com/balenalabs/multicontainer-getting-started \[network-ipam]:https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference \[network-aliases]:https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases \[os-masterclass]:/learn/more/masterclasses/host-os-masterclass/#13-advanced-dbus-examples \[services-masterclass]:/learn/more/masterclasses/services-masterclass/#4-networking-types \[host-os]:/reference/OS/overview/2.x/ \[kernel-tmpfs]:https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html \[tmpfs-mounts]:https://docs.docker.com/storage/tmpfs/ \[restart-fleet]:/learn/manage/actions/#restart-fleet

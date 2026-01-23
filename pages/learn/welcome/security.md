@@ -29,23 +29,23 @@ In this document, we will further explain how the balena infrastructure implemen
 
 The first points of access to the balena ecosystem are the user dashboard and the CLI. From these, a user can add and remove SSH keys, retrieve an API token, and manage devices. Multiple methods of authentication are supported for logging in:
 
-- Simple username/password authentication is supported, though not recommended for production accounts.
-- Balena supports a number of [OpenID Connect](https://openid.net/connect/) providers, including GitHub and Google.
-- Two-factor authentication using the Time-based One-time Password Algorithm (TOTP) is fully supported. This enables integration with tools such as Google Authenticator.
+* Simple username/password authentication is supported, though not recommended for production accounts.
+* Balena supports a number of [OpenID Connect](https://openid.net/connect/) providers, including GitHub and Google.
+* Two-factor authentication using the Time-based One-time Password Algorithm (TOTP) is fully supported. This enables integration with tools such as Google Authenticator.
 
 ## Device access
 
-Device access is managed by our host operating system, [balenaOS](/reference/OS/overview/2.x). BalenaOS is a thin Linux that supports the balena services and user containers. BalenaOS is built using [Yocto Linux](https://www.yoctoproject.org/), the de facto standard for building lightweight embedded Linux environments. Using Yocto allows balena to build images that contain no unused or unnecessary code in either userspace or the running kernel, minimizing the device's available attack surface. All balena software running on devices is 100% open source and can be independently audited and verified. Device access is granted to a subset of balena employees to enable support and device troubleshooting. This access is controlled by ssh key access and only after access is explicitly granted to balena.
+Device access is managed by our host operating system, [balenaOS](../../reference/OS/overview.md). BalenaOS is a thin Linux that supports the balena services and user containers. BalenaOS is built using [Yocto Linux](https://www.yoctoproject.org/), the de facto standard for building lightweight embedded Linux environments. Using Yocto allows balena to build images that contain no unused or unnecessary code in either userspace or the running kernel, minimizing the device's available attack surface. All balena software running on devices is 100% open source and can be independently audited and verified. Device access is granted to a subset of balena employees to enable support and device troubleshooting. This access is controlled by ssh key access and only after access is explicitly granted to balena.
 
 User source code and images are stored on balena backend servers with access limited only to administrative/operational staff and are not exposed to anyone outside of balena. It is also possible to bypass the balena builder entirely and push only pre-built artifacts, meaning that balena never has access to the code at any point.
 
 When a balenaOS image is downloaded and flashed to a device, it comes with a provisioning key that allows devices to join a specific fleet. When the device boots up for the first time, it uses the provisioning API to register itself with balena. A new device entry on the balena backend is created, and a device API key for this device is generated. Once the provisioning is successful, the provisioning API key is deleted from the device. The device API key allows control of the following:
 
-- changing the device metadata
-- reading metadata of the fleet associated with the device
-- reading variables associated with the device
-- reading variables for the fleet that is associated with the device
-- reading build logs of the fleet associated with the device
+* changing the device metadata
+* reading metadata of the fleet associated with the device
+* reading variables associated with the device
+* reading variables for the fleet that is associated with the device
+* reading build logs of the fleet associated with the device
 
 If a device is compromised, the device API key can only be used to read information about the device or the fleet the device is associated with. A fleet owner can remove and revoke the API key of a compromised device by simply deleting the device from the dashboard.
 
@@ -59,11 +59,11 @@ Both the Docker pull request and the actual image download process are performed
 
 Cloudlink status in the dashboard represents a device connection to the balenaCloud backend. This connection is the underlying technology that enables the following functionalities within balenaCloud, and as such we indicate the status of Cloudlink to help you to understand the status of your device and what functionality may or may not be available.
 
-- [SSH access](/learn/manage/ssh-access/) via CLI or web terminal
-- [Public Device Url](/learn/manage/actions/#public-device-url)
-- [Device actions](/learn/manage/actions/#device-actions) that allow controlling device state
-- [Host OS Updates](/reference/OS/updates/self-service/)
-- [Device Diagnostics](/reference/diagnostics/)
+* [SSH access](../manage/ssh-access.md) via CLI or web terminal
+* [Public Device Url](../manage/actions.md#public-device-url)
+* [Device actions](../manage/actions.md#device-actions) that allow controlling device state
+* [Host OS Updates](../../reference/OS/updates/self-service.md)
+* [Device Diagnostics](../../../reference/diagnostics/)
 
 Currently, Cloudlink uses [OpenVPN](https://openvpn.net/) as an underlying technology to achieve its functionality. Devices only connect outbound to Cloudlink, and all traffic over Cloudlink is encrypted with TLS.
 
@@ -71,7 +71,7 @@ Cloudlink disallows device-to-device traffic and prohibits outbound traffic to t
 
 Currently, authentication against Cloudlink is performed with API token authentication. API keys can be managed and revoked in the balena dashboard.
 
-Cloudlink connection is optional and [can be disabled](/reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the balenaCloud dashboard or API. When disabled, the Cloudlink connection will not be established from the device. No traffic will be transmitted or received through this channel. If desired, Cloudlink can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
+Cloudlink connection is optional and [can be disabled](../../../reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the balenaCloud dashboard or API. When disabled, the Cloudlink connection will not be established from the device. No traffic will be transmitted or received through this channel. If desired, Cloudlink can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
 
 It is important to understand that due to its current design, Cloudlink is not architected for high availability. Cloudlink will periodically drop connections momentarily due to re-configuration or scaling, but it reconnects with the device automatically. For mission-critical workflows, we recommend designing your solution to be resilient to the potential brief unavailability of these specific interactive features. Furthermore, to protect overall platform stability for all users, devices that send/receive large amounts of data via Cloudlink continuously may be throttled.
 
@@ -85,11 +85,11 @@ If desired, this functionality can be disabled by removing the balena SSH public
 
 All communication between devices and the balena service are outbound from the device. Ports that are used by devices are:
 
-| Port | Protocol | Status   | Description                                                                                                                                                                                                                            |
-| ---- | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 53   | UDP      | Required | DNS: used by devices to resolve balena hostnames for connection to the balena service                                                                                                                                                  |
-| 123  | UDP      | Required | NTP: used by devices to synchronize time                                                                                                                                                                                               |
-| 443  | TCP      | Required | HTTPS: used by devices to poll balena for updates and to download releases and host OS updates.<br><br>Cloudlink: used by devices to connect to balena to provide real-status, control, and an interactive terminal (optional service) |
+| Port | Protocol | Status   | Description                                                                                                                                                                                                                                   |
+| ---- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 53   | UDP      | Required | DNS: used by devices to resolve balena hostnames for connection to the balena service                                                                                                                                                         |
+| 123  | UDP      | Required | NTP: used by devices to synchronize time                                                                                                                                                                                                      |
+| 443  | TCP      | Required | <p>HTTPS: used by devices to poll balena for updates and to download releases and host OS updates.<br><br>Cloudlink: used by devices to connect to balena to provide real-status, control, and an interactive terminal (optional service)</p> |
 
 ### Device metadata
 
