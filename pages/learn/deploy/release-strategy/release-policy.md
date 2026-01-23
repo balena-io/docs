@@ -15,32 +15,46 @@ By default, the setting is set to `track latest`, which means that new releases 
 
 You can set the release the fleet is pinned to via the Releases card on the on the Fleet Summary page.
 
+<figure><img src="../../../.gitbook/assets/releases-card-dropdown.png" alt=""><figcaption></figcaption></figure>
+
 This can also be achieved using the `Pin to release` setting on the Fleet settings page.
+
+<figure><img src="../../../.gitbook/assets/pin-to-release-setting.png" alt=""><figcaption></figcaption></figure>
 
 The dropdown menu at each of the above locations displays all successful and valid releases for the fleet.
 
 You can also pin a fleet to a release via the CLI as follows:
 
-- Pin to a specific release: `balena fleet pin <FLEET_SLUG> <RELEASE_COMMIT>`
-- Track latest: `balena fleet track-latest <FLEET_SLUG>`
+* Pin to a specific release: `balena fleet pin <FLEET_SLUG> <RELEASE_COMMIT>`
+* Track latest: `balena fleet track-latest <FLEET_SLUG>`
 
 ## Pin device to a release
 
-By default, all devices track the fleet release. However, you may wish to run a different release on select devices, for example, a development device or when performing a [canary deployment](../../../../learn/welcome/production-plan/#canary-deployments).
+By default, all devices track the fleet release. However, you may wish to run a different release on select devices, for example, a development device or when performing a [canary deployment](../../welcome/production-plan.md#canary-deployments).
 
 There are several ways to achieve this from the Device dashboard. The dropdown options are identical to the ones when trying to pin the fleet to a release:
 
-- On the Devices page, you can select one or more devices using the checkboxes present on the table. Next, open the `Modify` menu and select the `Pin to release` option.
+* On the Devices page, you can select one or more devices using the checkboxes present on the table. Next, open the `Modify` menu and select the `Pin to release` option.
 
-- Alternatively, on hovering over the `Target release` property in the Device summary page, you will see a pencil icon appear. This can be used to pin the release as well.
+<figure><img src="../../../.gitbook/assets/devices-table-modify.png" alt=""><figcaption></figcaption></figure>
 
-- Lastly, the Settings page of a device also has the option to pin the release.
+* Alternatively, on hovering over the `Target release` property in the Device summary page, you will see a pencil icon appear. This can be used to pin the release as well.
+
+<figure><img src="../../../.gitbook/assets/device-target-release-pencil.png" alt=""><figcaption></figcaption></figure>
+
+* Lastly, the Settings page of a device also has the option to pin the release.
+
+<figure><img src="../../../.gitbook/assets/device-settings.png" alt=""><figcaption></figcaption></figure>
 
 Once the device has been pinned to a release and updated, its `Target release` column updates to the pinned release. It will show a pin, rather than just showing the release targetted by the fleet. The `Release policy` column also updates to say `Pinned`.
 
+<figure><img src="../../../.gitbook/assets/target-release-pin.png" alt=""><figcaption></figcaption></figure>
+
 You can also pin a device to a release via the CLI as follows:
 
-- Pin to a specific release: `balena device pin <DEVICE_UUID> <RELEASE_COMMIT>`
-- Track latest: `balena device track-fleet <DEVICE_UUID>`
+* Pin to a specific release: `balena device pin <DEVICE_UUID> <RELEASE_COMMIT>`
+* Track latest: `balena device track-fleet <DEVICE_UUID>`
 
-**Note:** For more details about using the API to manage the release policy see the [Fleet Management Masterclass](../../../../learn/more/masterclasses/fleet-management/#6-release-policy).
+{% hint style="warning" %}
+For more details about using the API to manage the release policy see the [Fleet Management Masterclass](../../../../learn/more/masterclasses/fleet-management/#6-release-policy).
+{% endhint %}
