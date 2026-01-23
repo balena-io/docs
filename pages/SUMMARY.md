@@ -87,7 +87,7 @@
     * [Self-service updates](reference/OS/updates/self-service.md)
     * [What happens during a balena host OS update?](reference/OS/updates/update-process.md)
 * [api](reference/api/README.md)
-  * [\{{ title \}}](reference/api/overview.md)
+  * [Overview](reference/api/overview.md)
   * [Resources](reference/api/resources.md)
 * [base-images](reference/base-images/README.md)
   * [\[Deprecated\] balenalib base images](reference/base-images/balena-base-images-reference.md)

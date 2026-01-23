@@ -20,7 +20,7 @@ To add a password to an account created with a social login (Google, Github), na
 
 ## Access tokens
 
-Access tokens are used for authentication in the balena [API](../../../reference/api/overview/), [CLI](../../../reference/cli/), and [Node.js](../../../reference/sdk/node-sdk/) and [Python](../../../reference/sdk/python-sdk/) SDKs. They are managed in the _Access tokens_ tab of the [_Preferences_](https://dashboard.balena-cloud.com/preferences?tab=details) page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
+Access tokens are used for authentication in the balena [API](../../reference/api/overview.md), [CLI](../../reference/balena-cli.md), and [Node.js](../../reference/sdk/node-sdk.md) and [Python](../../reference/sdk/python-sdk.md) SDKs. They are managed in the _Access tokens_ tab of the [_Preferences_](https://dashboard.balena-cloud.com/preferences?tab=details) page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
 
 <figure><img src="../../.gitbook/assets/access-tokens.png" alt=""><figcaption></figcaption></figure>
 
@@ -28,7 +28,7 @@ There are two types of access tokens: session tokens and API keys. Both authenti
 
 ### Session tokens
 
-Session tokens are retrieved from the _Preferences_ page, and they can be refreshed with the [API](../../../reference/api/resources/whoami/). These tokens expire after seven days, and they cannot be revoked.
+Session tokens are retrieved from the _Preferences_ page, and they can be refreshed with the [API](../../reference/api/resources.md). These tokens expire after seven days, and they cannot be revoked.
 
 ### API keys
 
@@ -56,11 +56,11 @@ To revoke one or more API keys, select the boxes to the left of the tokens you w
 
 <figure><img src="../../.gitbook/assets/api-key-delete.png" alt=""><figcaption></figcaption></figure>
 
-API keys can also be generated using the API, [CLI](../../../reference/cli/#api-key-generate-name-), and [Node.js](../../../reference/sdk/node-sdk/#auth-createapikey-name-code-promise-code-) and [Python](../../../reference/sdk/python-sdk/#function-create_api_key-name-description-) SDKs.
+API keys can also be generated using the API, [CLI](../../reference/balena-cli.md), and [Node.js](../../../reference/sdk/node-sdk/#auth-createapikey-name-code-promise-code-) and [Python](../../../reference/sdk/python-sdk/#function-create_api_key-name-description-) SDKs.
 
 ## Fleet members
 
-When a fleet needs to be shared with more than one user, the fleet owner can add new members. Check out [fleet members](../../../learn/accounts/fleet-members/) to understand member types, how to add a member and more.
+When a fleet needs to be shared with more than one user, the fleet owner can add new members. Check out [fleet members](fleet-members.md) to understand member types, how to add a member and more.
 
 ## Two-factor Authentication
 
