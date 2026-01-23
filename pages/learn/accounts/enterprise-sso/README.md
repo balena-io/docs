@@ -13,20 +13,20 @@ BalenaCloud Enterprise Single Sign-On (SSO) using SAML (Security Assertion Marku
 
 Configuring an Identity Provider (IdP) as a login method requires a one-time setup process within both balenaCloud and the IdP itself. Refer to our [IdP specific documentation](idp-setup/microsoft-entra-saml-setup.md) for detailed instructions on required configurations.
 
-* [Link a SAML Identity Provider](enterprise-sso.md#link-a-saml-identity-provider)
-  * [Associate Organizations and Teams](enterprise-sso.md#associate-organizations-and-teams)
-    * [(Optional) Configure a Default Team](enterprise-sso.md#optional-configure-a-default-team)
-* [Authenticating as a SAML User](enterprise-sso.md#authenticating-as-a-saml-user)
-* [Setting up a new SAML user](enterprise-sso.md#setting-up-a-new-saml-user)
-* [Log in with a SAML account](enterprise-sso.md#log-in-with-a-saml-account)
-* [FAQs](enterprise-sso.md#faqs)
-  * [How do I set up an Identity Provider?](enterprise-sso.md#how-do-i-set-up-an-identity-provider)
-  * [Can I use any identity provider with balena’s Enterprise SSO?](enterprise-sso.md#can-i-use-any-identity-provider-with-balenas-enterprise-sso)
-  * [Can I enforce SAML on all users in my organization?](enterprise-sso.md#can-i-enforce-saml-on-all-users-in-my-organization)
-  * [How can I use API keys if SAML users can't create them?](enterprise-sso.md#how-can-i-use-api-keys-if-saml-users-cant-create-them)
-  * [How do I delete a SAML account?](enterprise-sso.md#how-do-i-delete-a-saml-account)
-  * [How do I delete an Identity Provider in balenaCloud?](enterprise-sso.md#how-do-i-delete-an-identity-provider-in-balenacloud)
-  * [Why do I get an error when enabling 2FA on my SAML account?](enterprise-sso.md#why-do-i-get-an-error-when-enabling-2fa-on-my-saml-account)
+* [Link a SAML Identity Provider](./#link-a-saml-identity-provider)
+  * [Associate Organizations and Teams](./#associate-organizations-and-teams)
+    * [(Optional) Configure a Default Team](./#optional-configure-a-default-team)
+* [Authenticating as a SAML User](./#authenticating-as-a-saml-user)
+* [Setting up a new SAML user](./#setting-up-a-new-saml-user)
+* [Log in with a SAML account](./#log-in-with-a-saml-account)
+* [FAQs](./#faqs)
+  * [How do I set up an Identity Provider?](./#how-do-i-set-up-an-identity-provider)
+  * [Can I use any identity provider with balena’s Enterprise SSO?](./#can-i-use-any-identity-provider-with-balenas-enterprise-sso)
+  * [Can I enforce SAML on all users in my organization?](./#can-i-enforce-saml-on-all-users-in-my-organization)
+  * [How can I use API keys if SAML users can't create them?](./#how-can-i-use-api-keys-if-saml-users-cant-create-them)
+  * [How do I delete a SAML account?](./#how-do-i-delete-a-saml-account)
+  * [How do I delete an Identity Provider in balenaCloud?](./#how-do-i-delete-an-identity-provider-in-balenacloud)
+  * [Why do I get an error when enabling 2FA on my SAML account?](./#why-do-i-get-an-error-when-enabling-2fa-on-my-saml-account)
 
 ## Link a SAML Identity Provider
 
@@ -36,7 +36,7 @@ To enable Single Sign-On (SSO) for balenaCloud organizations, you must establish
 2. From the balenaCloud dashboard, select the [Identity Provider](https://dashboard.balena-cloud.com/identity-provider) option from the left sidebar.
 3. Click on the Add Identity Provider button. In the dialog that appears, either upload the XML file or manually enter the IdP details.
 
-<figure><img src="../../.gitbook/assets/add-idp-form-filled.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/add-idp-form-filled.png" alt=""><figcaption></figcaption></figure>
 
 To create an Identity Provider entity, start by first selecting a unique SSO identifier. This identifier will be part of your team's URL for logging in. For instance, if your organization is `ACME Corp`, you can choose your unique SSO identifier as `acme` and your team's login URL will be `https://dashboard.balena-cloud.com/saml/acme`.
 
@@ -50,9 +50,9 @@ BalenaCloud requires a list of organizations to which SAML users will be automat
 Removing organizations after IdP creation will not revoke access for SAML users who have previously authenticated with this IdP. However, new authentications will no longer include the removed organization. An IdP will always require at least one organization to be associated.
 {% endhint %}
 
-You have successfully configured SAML 2.0 for your balenaCloud Enterprise SSO. Your team can now access balenaCloud securely and seamlessly through the configured Identity Provider. For instructions on how your team can log in, refer to [Authenticating as a SAML/SSO User](enterprise-sso.md#authenticating-as-a-saml-user). If you encounter any issues or need further assistance, please contact our support team.
+You have successfully configured SAML 2.0 for your balenaCloud Enterprise SSO. Your team can now access balenaCloud securely and seamlessly through the configured Identity Provider. For instructions on how your team can log in, refer to [Authenticating as a SAML/SSO User](./#authenticating-as-a-saml-user). If you encounter any issues or need further assistance, please contact our support team.
 
-<figure><img src="../../.gitbook/assets/idp-with-two-orgs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/idp-with-two-orgs.png" alt=""><figcaption></figcaption></figure>
 
 #### (Optional) Configure a Default Team
 
@@ -68,11 +68,11 @@ If you unlink the default team in the Identity Provider configuration, it will n
 
 To log in using your enterprise SAML authentication, you must first have or [create](https://dashboard.balena-cloud.com/signup) a standard balenaCloud account using your company email address. Once logged in to this account, navigate to your [user preferences](https://dashboard.balena-cloud.com/preferences/details) and click "Enable" in the "Enterprise SSO" section.
 
-<figure><img src="../../.gitbook/assets/merge-account-accept.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/merge-account-accept.png" alt=""><figcaption></figcaption></figure>
 
 Next, provide the company `SSO Identifier` supplied by your balenaCloud organization administrator.
 
-<figure><img src="../../.gitbook/assets/add-sso-identifier-merge-modal.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/add-sso-identifier-merge-modal.png" alt=""><figcaption></figcaption></figure>
 
 **Important:** By activating SAML, you are transferring your personal account to a company account. **This action is non-reversible**. The following changes will occur:
 
@@ -96,7 +96,7 @@ By clicking the Enable button, you agree to the above terms. If you have any que
 
 Once you have enabled SAML on your account, you can log in using the Enterprise SSO login button or the login URL provided by your balenaCloud organization administrator, e.g., `https://dashboard.balena-cloud.com/saml/acme`.
 
-<figure><img src="../../.gitbook/assets/login-page.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/login-page.png" alt=""><figcaption></figcaption></figure>
 
 Once you have enabled SAML, you can no longer log in using a `username` and `password` combination and you must always use the SSO login method.
 
@@ -108,7 +108,7 @@ Each SAML Identity Provider (IdP) has its own unique implementation and terminol
 
 #### Can I use any identity provider with balena’s Enterprise SSO?
 
-We support any identity provider as long as they are compliant with the SAML 2.0 protocol specification, for example, Okta. We have provided examples for [Microsoft Entra ID](idp-setup/microsoft-entra-saml-setup.md) (formerly Azure AD) and [Google Workspace](idp-setup/google-workspace-saml-setup.md) in our documentation. To setup your IdP, get the Federation Metadata XML as we have setup for Microsoft/Google IdP's and then follow the [instructions to link that IdP](enterprise-sso.md#link-a-saml-identity-provider) to balenaCloud's SSO.
+We support any identity provider as long as they are compliant with the SAML 2.0 protocol specification, for example, Okta. We have provided examples for [Microsoft Entra ID](idp-setup/microsoft-entra-saml-setup.md) (formerly Azure AD) and [Google Workspace](idp-setup/google-workspace-saml-setup.md) in our documentation. To setup your IdP, get the Federation Metadata XML as we have setup for Microsoft/Google IdP's and then follow the [instructions to link that IdP](./#link-a-saml-identity-provider) to balenaCloud's SSO.
 
 #### Can I enforce SAML on all users in my organization?
 
@@ -120,7 +120,7 @@ Currently, SAML authentication users cannot create API keys. If you require API 
 
 #### How do I delete a SAML account?
 
-To delete a SAML account, you need to use the [balena SDK](../../reference/sdk/node-sdk.md). This step is only required if you intend to [delete your IdP](enterprise-sso.md#how-do-i-delete-an-identity-provider-in-balenacloud). **Removing the user from your IdP will block their access to balenaCloud**, but their current session will remain active for up to 12 hours after their last login.
+To delete a SAML account, you need to use the [balena SDK](../../../reference/sdk/node-sdk.md). This step is only required if you intend to [delete your IdP](./#how-do-i-delete-an-identity-provider-in-balenacloud). **Removing the user from your IdP will block their access to balenaCloud**, but their current session will remain active for up to 12 hours after their last login.
 
 {% hint style="danger" %}
 Ensure that there is at least one non-SAML admin user in your organization before deleting all SAML users in the Identity Providers (IdPs). Failure to do so may result in being locked out of your organization.
