@@ -173,6 +173,8 @@ We use [Raspbian](https://www.raspbian.org/) as our contained operating system, 
 With a plain Node.js project, our build server will detect compatible nodejs versions from the `package.json` and build the container using a Docker image that satisfies the version requirement. If no version is specified then the default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here](../../reference/base-images/balena-base-images.md).
 {% endhint %}
 
+<figure><img src="../../.gitbook/assets/terminal-builder-window.png" alt=""><figcaption></figcaption></figure>
+
 ## Container Requirements
 
 The balena Supervisor requires that the directory `/tmp/balena` in containers be available for inter-container communication via [update locks](../../../learn/deploy/release-strategy/update-locking/). Therefore, scripts should not attempt to remove this directory on startup.
