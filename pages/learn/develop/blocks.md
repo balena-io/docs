@@ -11,11 +11,11 @@ Similar to how software developers don't want to keep rewriting common functions
 
 For example, getting a browser to run well in a container is a tedious task. Hence, why not use the [browser block](https://github.com/balenablocks/browser) to get things up and running faster..
 
-
+<figure><img src="../../.gitbook/assets/block-diagram-1.png" alt=""><figcaption></figcaption></figure>
 
 ## Getting Started with blocks
 
-Since blocks are container images, they can be added to a multicontainer fleet. To use a block in your fleet, add the block's image as a new service in the `services` section of your app's `docker-compose.yml` file. This is similar to how we would build [multicontainer fleets](../../../learn/develop/multicontainer/#docker-composeyml-file).
+Since blocks are container images, they can be added to a multicontainer fleet. To use a block in your fleet, add the block's image as a new service in the `services` section of your app's `docker-compose.yml` file. This is similar to how we would build [multicontainer fleets](multicontainer.md#docker-compose.yml-file).
 
 Here's an example of using the [browser block](https://github.com/balenablocks/browser) in a sample multicontainer fleet already running 2 services.
 
@@ -58,7 +58,7 @@ More resources:
 
 Since blocks are container images, the process to create them is very similar to creating any other container. To learn more about what makes a good candidate for a block, refer to this [blog post](https://www.balena.io/blog/how-to-make-your-own-balenablocks-simple-drop-in-edge-app-functionality/).
 
-In order to create your own block, the code needs to be in a GitHub repository. It has to [include a balena.yml file](https://www.balena.io/docs/learn/deploy/deploy-with-balena-button/#balenayml-configuration-file) in the root directory of the project. Here's a balena.yml file of the [browser block](https://github.com/balenablocks/browser/) for reference:
+In order to create your own block, the code needs to be in a GitHub repository. It has to [include a balena.yml file](../deploy/deploy-with-balena-button.md#balena.yml-configuration-file) in the root directory of the project. Here's a balena.yml file of the [browser block](https://github.com/balenablocks/browser/) for reference:
 
 ```yml
 name: browser
@@ -90,23 +90,23 @@ data:
 
 Next, navigate to the `Blocks` tab in the sidebar and click the `Create block` button in the balenaCloud dashboard.
 
-
+<figure><img src="../../.gitbook/assets/blocks-image.png" alt=""><figcaption></figcaption></figure>
 
 Fill the details for your block in the modal, and click `Create new block` button to create your block.
 
+<figure><img src="../../.gitbook/assets/create-block.png" alt=""><figcaption></figcaption></figure>
 
-
-Next, we have to [push a new release](../../../learn/deploy/deployment/#balena-push) from your project to your newly created block on balenaCloud. If you are new to this, then follow the [Getting Started](../../../learn/getting-started/raspberrypi3/nodejs/) guide. After the release has been created, your block is ready. You can manage, modify and iterate further on your block from the balenaCloud dashboard.
+Next, we have to [push a new release](../deploy/deployment.md#balena-push) from your project to your newly created block on balenaCloud. If you are new to this, then follow the [Getting Started](<../../README (1).md>) guide. After the release has been created, your block is ready. You can manage, modify and iterate further on your block from the balenaCloud dashboard.
 
 ## Release management for blocks
 
-To deploy new releases of your block, you can use the [balena-push](../../../learn/deploy/deployment/#balena-push) command using the [balenaCLI](https://github.com/balena-io/balena-cli). The `Releases` tab in the sidebar will show the list of all releases of your block.
+To deploy new releases of your block, you can use the [balena-push](../deploy/deployment.md#balena-push) command using the [balenaCLI](https://github.com/balena-io/balena-cli). The `Releases` tab in the sidebar will show the list of all releases of your block.
 
-
+<figure><img src="../../.gitbook/assets/blocks-release.png" alt=""><figcaption></figcaption></figure>
 
 By default, the block is set to `track latest`, which means that new releases are immediately tagged as the default release for the block. Expanding this _Default release_ dropdown menu displays all successful releases for the block, and you can select a specific release to pin the block to. When a particular release is selected, that release will be tagged as the default release of your block. After pinning to a specific release, releases will not be deployed until the _Default release_ is updated to a newer release or it's set back to `track latest`.
 
-
+<figure><img src="../../.gitbook/assets/blocks-release-management.png" alt=""><figcaption></figcaption></figure>
 
 ## Making your block public
 
@@ -114,7 +114,7 @@ When a block is created on balenaCloud, it won't automatically be visible on bal
 
 When blocks are private, you can iterate, test and build more functionality before making it available to the world. When you are ready to release, head to the `Settings` tab in the sidebar and add your block's GitHub repository to the `Repository URL` section. Next, toggle the `Block visibility` button to `on` for your block to be visible on balenaHub. You’re free to toggle the visibility on and off as necessary at any time.
 
-
+<figure><img src="../../.gitbook/assets/blocks-settings.png" alt=""><figcaption></figcaption></figure>
 
 This would lead to your block being available on [balenaHub](https://hub.balena.io/blocks) for folks to use and build upon as soon as your submission has been marked as public. BalenaHub is the ever-growing library of blocks, projects and fleets contributed by the community.
 
@@ -122,7 +122,7 @@ This would lead to your block being available on [balenaHub](https://hub.balena.
 
 The URL to pull your block image (the _image reference_) is available in balenaHub by clicking the `Use` button.
 
-
+<figure><img src="../../.gitbook/assets/blocks-use-button.png" alt=""><figcaption></figcaption></figure>
 
 This image reference can be used in a Dockerfile or docker-compose file to pull the _default release_ image of your block.
 
