@@ -15,7 +15,7 @@ These binary deltas save on the amount of data needed to be downloaded, reduce t
 
 ## Enabling delta updates
 
-The delta updates feature is now available in all devices running balenaOS >= 2.47.1. For devices running balenaOS < 2.47.1, updating to >= 2.47.1 via a [self-service update][self-service-update] will enable delta updates for your device.
+The delta updates feature is now available in all devices running balenaOS >= 2.47.1. For devices running balenaOS < 2.47.1, updating to >= 2.47.1 via a [self-service update](../../reference/OS/updates/self-service.md) will enable delta updates for your device.
 
 ## Delta behavior
 
@@ -28,8 +28,4 @@ On-demand deltas may take a while to generate, depending primarily on the size o
 
 The _Download progress_ bar on the dashboard might show for only a short time, much shorter than in a normal update. In the most common development patterns, there are usually very small changes between one version of the image and the next (e.g. fixing typos, adding a new source file, or installing an extra OS package), so when using deltas these changes are downloaded much quicker than before.
 
-Devices using delta updates still follow the prescribed [update strategy][update-strategies].
-
-[esr]: /reference/OS/extended-support-release/
-[self-service-update]: /reference/OS/updates/self-service/
-[update-strategies]: /learn/deploy/release-strategy/update-strategies/
+Devices using delta updates still follow the prescribed [update strategy](release-strategy/update-strategies.md).
