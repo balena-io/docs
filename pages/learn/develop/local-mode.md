@@ -11,24 +11,30 @@ Local mode is the development mode for balena. It allows you to build and sync c
 
 To use local mode on a device:
 
-- The device must be running balenaOS v2.29.0 or higher.
-- The device must be running a [development](../../../reference/OS/overview/2.x#development-vs-production-images) variant of the OS.
-- You must have the [balena CLI](../../../reference/cli/) installed on your development machine.
-- Local mode must be enabled through the balenaCloud dashboard. You can enable it from the device _Settings_ tab.
+* The device must be running balenaOS v2.29.0 or higher.
+* The device must be running a [development](../../reference/OS/overview.md) variant of the OS.
+* You must have the [balena CLI](../../../reference/cli/) installed on your development machine.
+* Local mode must be enabled through the balenaCloud dashboard. You can enable it from the device _Settings_ tab.
+
+<figure><img src="../../.gitbook/assets/enable-local-mode.png" alt=""><figcaption></figcaption></figure>
 
 ## Local mode caveats
 
-- In local mode, a device will not send logs back to the balenaCloud dashboard. Refer to the [local mode logs section](local-mode.md#local-mode-logs) to view logs in local mode.
-- Device and service environment variables set from the balenaCloud will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
-- Changes to device \[configuration]\[configuration], for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
-- Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
-- When switching out of local mode and back to tracking releases from balenaCloud, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that balenaCloud instructs it to run.
+* In local mode, a device will not send logs back to the balenaCloud dashboard. Refer to the [local mode logs section](local-mode.md#local-mode-logs) to view logs in local mode.
+* Device and service environment variables set from the balenaCloud will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
+* Changes to device [configuration](../manage/configuration.md), for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
+* Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
+* When switching out of local mode and back to tracking releases from balenaCloud, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that balenaCloud instructs it to run.
+
+<figure><img src="../../.gitbook/assets/device-in-local-mode.png" alt=""><figcaption></figcaption></figure>
 
 ## Scan the network and find your device
 
-Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the balena CLI and use `balena device detect` to find any local balenaOS devices. All balenaOS devices advertise themselves on the network using \[Avahi]\[avahi]. The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
+Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the balena CLI and use `balena device detect` to find any local balenaOS devices. All balenaOS devices advertise themselves on the network using [Avahi](https://linux.die.net/man/8/avahi-daemon). The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
 
-**Note:** You may need administrator privileges to run `balena device detect` as it requires access to all network interfaces.
+{% hint style="warning" %}
+You may need administrator privileges to run `balena device detect` as it requires access to all network interfaces.
+{% endhint %}
 
 **Command**
 
@@ -64,7 +70,9 @@ Reporting scan results
 
 When local mode has been activated, balena CLI can push code directly to the local device instead of going via the balenaCloud builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `balena push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `balena device detect` command.
 
-**Note:** By default `balena push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
+{% hint style="warning" %}
+By default `balena push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
+{% endhint %}
 
 Once the code has been built on the device, it immediately starts executing, and logs are output to the console. At any time, you can disconnect from the local device by using `Ctrl-C`. Note that after disconnection, the services on the device will continue to run.
 
@@ -144,7 +152,7 @@ balena push 63ec46c.local
 
 ### Livepush
 
-Local mode also has another huge benefit, known as \[Livepush]\[livepush]. Livepush makes intelligent decisions on how, or even if, to rebuild an image when changes are made. Instead of creating a new image and container with every code change, the Dockerfile commands are executed from within the running container. This means that, for example, if you added a dependency to your `package.json`, rather than having to install all of the dependencies again, only the new dependency would be installed.
+Local mode also has another huge benefit, known as [Livepush](https://github.com/balena-io-modules/livepush). Livepush makes intelligent decisions on how, or even if, to rebuild an image when changes are made. Instead of creating a new image and container with every code change, the Dockerfile commands are executed from within the running container. This means that, for example, if you added a dependency to your `package.json`, rather than having to install all of the dependencies again, only the new dependency would be installed.
 
 When a source file is modified, the Supervisor will immediately detect the change and then either rebuild the image or, for source files that run in-service, replace the changed files in situ in the relevant container layer and restart the service. As this happens in a few seconds, it makes the process of developing much faster and more convenient.
 
@@ -153,7 +161,9 @@ When a source file is modified, the Supervisor will immediately detect the chang
 [Live]    [main] Restarting service..
 ```
 
-**Note:** You can disable Livepush by passing the `--nolive` option to `balena push`. In this case to rebuild on the device you will need to perform another `balena push`.
+{% hint style="warning" %}
+You can disable Livepush by passing the `--nolive` option to `balena push`. In this case to rebuild on the device you will need to perform another `balena push`.
+{% endhint %}
 
 ### Local mode logs
 
@@ -188,11 +198,13 @@ These options can be combined to output system and selected service logs e.g.
 balena device logs 827b231.local --system --service first --service second
 ```
 
-**Note:** You may also specify the `--service` and `--system` options using the `balena push` command to filter the log output.
+{% hint style="warning" %}
+You may also specify the `--service` and `--system` options using the `balena push` command to filter the log output.
+{% endhint %}
 
 ## SSH into the running app container or host OS
 
-To access the local device over \[SSH]\[ssh], use the `balena device ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and \[perform other troubleshooting tasks]\[troubleshooting]:
+To access the local device over [SSH](../manage/ssh-access.md), use the `balena device ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and \[perform other troubleshooting tasks]\[troubleshooting]:
 
 ```bash
 balena device ssh 192.168.86.45
@@ -204,7 +216,9 @@ To connect to a container, we can specify the service name e.g.
 sudo balena device ssh 63ec46c.local my-service
 ```
 
-**Note:** If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `balena device ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
+{% hint style="warning" %}
+If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `balena device ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
+{% endhint %}
 
 ## Using a Private Docker Registry
 
@@ -223,5 +237,3 @@ Sample secrets YAML file:
   username: johnDoe
   password: myPassword
 ```
-
-\[compose-remote]:https://github.com/balena-io-playground/balenaos-compose \[troubleshooting]:/learn/manage/ssh-access/#troubleshooting-with-host-os-access \[configuration]:/learn/manage/configuration/ \[cli-masterclass]:/learn/more/masterclasses/cli-masterclass/#6-using-local-mode-to-develop-applications \[livepush]:https://github.com/balena-io-modules/livepush \[ssh]:/learn/manage/ssh-access/ \[avahi]:https://linux.die.net/man/8/avahi-daemon
