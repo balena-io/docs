@@ -1,6 +1,8 @@
 ---
 title: Offline updates
-excerpt: An efficient approach for updating previously deployed IoT devices when they're offline by design.
+excerpt: >-
+  An efficient approach for updating previously deployed IoT devices when
+  they're offline by design.
 ---
 
 # Offline Updates
@@ -9,9 +11,9 @@ Offline updates is a process to update devices without needing an internet conne
 
 ## Overview of the process
 
-When a device is reflashed, it defaults back to a factory state. The device is provisioned with a new identity, a new API key, and updated [`config.json`][config-file] settings. All services, data and logs stored on the device are erased permanently.
+When a device is reflashed, it defaults back to a factory state. The device is provisioned with a new identity, a new API key, and updated [`config.json`](../../reference/OS/configuration.md#valid-fields) settings. All services, data and logs stored on the device are erased permanently.
 
-With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`][config-file]. It uses [`balena preload`][balena-preload] to load an updated release. That way, the device will pick up right where it left off with the same name and UUID but with an updated release or/and balenaOS update.
+With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`](../../reference/OS/configuration.md#valid-fields). It uses [`balena preload`](../../../reference/balena-cli/#preload) to load an updated release. That way, the device will pick up right where it left off with the same name and UUID but with an updated release or/and balenaOS update.
 
 Broad steps of the process include:
 
@@ -26,35 +28,37 @@ When you insert the SD card or USB drive into your device and boot it, the devic
 
 ## Configuration and Data Recovery
 
-Some consideration is required if an application requiring persistent data storage is being used to recover user data while using the offline update process. The application can't use the pre-provisioned [named volumes][named-volumes], since these will be wiped during the offline update process.
+Some consideration is required if an application requiring persistent data storage is being used to recover user data while using the offline update process. The application can't use the pre-provisioned [named volumes](../develop/multicontainer.md#named-volumes), since these will be wiped during the offline update process.
 
 If this is the case, mount an external mass storage (USB) device into a privileged data container and share it with other containers (if applicable) via NFS or a similar network storage protocol for the data. These external storage devices are not a part of the update process. Hence, data on them would be left intact, as long as they are temporarily disconnected during the update process.
 
-By contrast, a typical balena online update leaves services and data intact, and [persistent logging][persistent-logging] can be enabled to save your logs across device restarts.
+By contrast, a typical balena online update leaves services and data intact, and [persistent logging](../../../reference/OS/configuration/#persistentlogging) can be enabled to save your logs across device restarts.
 
 ## Performing an Offline Update
 
-To perform an offline update, we will be using [balena-cli][balena-cli]. All commands should work on Linux distributions running Docker on Linux Kernel with AUFS and overlay filesystem support. For Windows and macOS, the last version of Docker Desktop supporting AUFS is 18.06.1
+To perform an offline update, we will be using [balena-cli](../../../reference/balena-cli/). All commands should work on Linux distributions running Docker on Linux Kernel with AUFS and overlay filesystem support. For Windows and macOS, the last version of Docker Desktop supporting AUFS is 18.06.1
 
-> Note: In an offline updates process, all data on the device is wiped at this point, making this different from a typical software update process in the balena ecosystem. Any additional user data and system settings written to various device partitions would be lost in this process.
+{% hint style="warning" %}
+In an offline updates process, all data on the device is wiped at this point, making this different from a typical software update process in the balena ecosystem. Any additional user data and system settings written to various device partitions would be lost in this process.
+{% endhint %}
 
 Offline update includes the following steps:
 
-- [Setup](#setup)
-- [Create/use pre-existing fleet](#createuse-pre-existing-fleet)
-- [Create/use pre-existing offline device](#createuse-pre-existing-offline-device)
-- [Download balenaOS image](#download-balenaos-image)
-- [Configure balenaOS image](#configure-balenaos-image)
-- [Create and preload release](#create-and-preload-release)
-- [Create update media](#create-update-media)
-- [Process of reprovisioning](#process-of-reprovisioning)
-- [Update device registration(s)](#update-device-registrations)
+* [Setup](offline-updates.md#setup)
+* [Create/use pre-existing fleet](offline-updates.md#create-use-pre-existing-fleet)
+* [Create/use pre-existing offline device](offline-updates.md#create-use-pre-existing-offline-device)
+* [Download balenaOS image](offline-updates.md#download-balenaos-image)
+* [Configure balenaOS image](offline-updates.md#configure-balenaos-image)
+* [Create and preload release](offline-updates.md#create-and-preload-release)
+* [Create update media](offline-updates.md#create-update-media)
+* [Process of reprovisioning](offline-updates.md#process-of-reprovisioning)
+* [Update device registration(s)](offline-updates.md#update-device-registration-s)
 
-The process needs some prerequisite knowledge of the balena ecosystem, [balena-cli][balena-cli] commands and shell commands. Please read all instructions carefully and make sure to try the update process first on a test device.
+The process needs some prerequisite knowledge of the balena ecosystem, [balena-cli](../../../reference/balena-cli/) commands and shell commands. Please read all instructions carefully and make sure to try the update process first on a test device.
 
 ### Setup
 
-> Download and install [balena-cli][balena-cli] on a Linux distribution. The commands have been tested to work on Ubuntu 20.04.
+> Download and install [balena-cli](../../../reference/balena-cli/) on a Linux distribution. The commands have been tested to work on Ubuntu 20.04.
 
 Several `balena-cli` commands require access to a balenaCloud account. Those commands require creating a CLI login session by running [`balena login`](https://www.balena.io/docs/reference/balena-cli/#logging-in) in the terminal.
 
@@ -74,7 +78,7 @@ $ ssh_key=id_ed25519.pub
 
 ### Create/Use Pre-existing Fleet
 
-Initialize the `arch` and `device-type` environment variable with correct CPU architecture (`aarch64`, `armv7l`, etc.) and device type (`raspberrypi4-64`, `raspberrypi3`, etc.). The list of names for supported device types and their architectures can be found on the [hardware][supported-devices-list] page.
+Initialize the `arch` and `device-type` environment variable with correct CPU architecture (`aarch64`, `armv7l`, etc.) and device type (`raspberrypi4-64`, `raspberrypi3`, etc.). The list of names for supported device types and their architectures can be found on the [hardware](../../reference/hardware/devices.md) page.
 
 If a pre-existing fleet needs to be re-used, then initialize the `fleet_name` variable with that fleet's's name.
 
@@ -103,12 +107,14 @@ If a new offline device is being created, then the following command can be used
 ```bash
 $ uuid=$(uuidgen | tr '[:upper:]' '[:lower:]' | sed 's/-//g')
 ```
+
 OR
+
 ```
 $ uuid=<UUID OF YOUR DEVICE>
 ```
 
-With [`balena device register`][balena-device-register], devices can be preregistered to a balenaCloud fleet involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass][balena-cli advanced masterclass]. This step can be skipped if a pre-existing device is needed to be updated.
+With [`balena device register`](../../../reference/balena-cli/#device-register-fleet), devices can be preregistered to a balenaCloud fleet involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass](../../../learn/more/masterclasses/advanced-cli/#52-preregistering-a-device). This step can be skipped if a pre-existing device is needed to be updated.
 
 ```bash
 $ balena device register ${fleet_slug} --uuid ${uuid}
@@ -116,7 +122,7 @@ $ balena device register ${fleet_slug} --uuid ${uuid}
 
 ### Download balenaOS Image
 
-Download the latest production version of [balenaOS][balenaos] for the device type initialized in the `device_type` version.
+Download the latest production version of [balenaOS](https://www.balena.io/os) for the device type initialized in the `device_type` version.
 
 ```bash
 $ os_version=$(balena os versions ${device_type} | head -n 1 | awk '{print $1}')
@@ -129,7 +135,7 @@ $ balena os download ${device_type} \
 
 ### Configure balenaOS Image
 
-Configure the downloaded image by injecting a [config.json][config-file] file using the [`balena os configure`][balena-os-configure] command. Most common system settings can be (re)specified via [config.json][config-file]. To preserve the pre-existing registered device's identity, the same `uuid` initialized earlier will be used to generate a config.json file.
+Configure the downloaded image by injecting a [config.json](../../reference/OS/configuration.md#valid-fields) file using the [`balena os configure`](../../../reference/balena-cli/#os-configure-image) command. Most common system settings can be (re)specified via [config.json](../../reference/OS/configuration.md#valid-fields). To preserve the pre-existing registered device's identity, the same `uuid` initialized earlier will be used to generate a config.json file.
 
 ```bash
 $ tmpconfig=$(mktemp)
@@ -156,11 +162,13 @@ $ rm ${config}
 
 ### Create and Preload Release
 
-Offline updates revolve around the concept of [balena preload][balena-preload]. Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image][preloading-device-image].
+Offline updates revolve around the concept of [balena preload](../../../reference/balena-cli/#preload). Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image](../../../learn/more/masterclasses/advanced-cli/#51-preloading-a-device-image).
 
-> Important note: [balena preload](https://github.com/balena-io/balena-cli/blob/master/INSTALL-MAC.md#balena-preload) functionality requires Docker with AUFS support.
+{% hint style="warning" %}
+[balena preload](https://github.com/balena-io/balena-cli/blob/master/INSTALL-MAC.md#balena-preload) functionality requires Docker with AUFS support.
+{% endhint %}
 
-Preload involves flashing a fleet's release with the balenaOS image. If the pre-existing fleet doesn't have any releases, then a release needs to be created using [`balena deploy`][balena-deploy]. Navigate to the directory of your source code folder and run the command below to deploy the latest release of your fleet. If a release is present already, then the next step can be skipped.
+Preload involves flashing a fleet's release with the balenaOS image. If the pre-existing fleet doesn't have any releases, then a release needs to be created using [`balena deploy`](../../../learn/deploy/deployment/#balena-build--deploy). Navigate to the directory of your source code folder and run the command below to deploy the latest release of your fleet. If a release is present already, then the next step can be skipped.
 
 ```bash
 $ balena deploy ${fleet_slug} --build --emulated --source .
@@ -181,7 +189,9 @@ $ balena preload ${tmpimg} \
 
 Next, a USB flash drive, an SD card or any relevant storage media needs to be prepared and flashed. This storage media will be used to update the device through the offline process. Plug in your storage media and run the following commands.
 
-> Note: The process of flashing will delete all data stored on the storage media.
+{% hint style="warning" %}
+The process of flashing will delete all data stored on the storage media.
+{% endhint %}
 
 ```bash
 # list the devices available to flash
@@ -196,7 +206,9 @@ $ rm ${tmpimg}
 
 ### Process of Reprovisioning
 
-> Warning: For devices with internal storage, this procedure erases the internal media of your device. Remove any mass storage devices containing user data.
+{% hint style="danger" %}
+For devices with internal storage, this procedure erases the internal media of your device. Remove any mass storage devices containing user data.
+{% endhint %}
 
 With the update media already having the latest release of the fleet preloaded, follow the device's provisioning instructions present on balenaCloud dashboard for your specific device.
 
@@ -206,9 +218,9 @@ An example for Raspberry Pi devices: insert the recently flashed SD card and pow
 
 If a device isn't locally deployed, one can ship the flashed SD cards or USB sticks/drives to a remote location. There someone can run the update by simply inserting them into the devices and booting.
 
-If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys][insert-ssh-key] during the configuration step will allow fleet managers at the remote site to connect to the device directly via OpenSSH and verify the update by examining container logs, etc.
+If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys](../../../reference/OS/configuration/#sshkeys) during the configuration step will allow fleet managers at the remote site to connect to the device directly via OpenSSH and verify the update by examining container logs, etc.
 
-If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal][web-terminal] commands and output container logs to the dashboard.
+If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal](../../../learn/manage/ssh-access/#using-the-dashboard-web-terminal) commands and output container logs to the dashboard.
 
 ### Update Device Registration(s)
 
@@ -216,11 +228,7 @@ This section deals with device registration in the cloud (balenaCloud or openBal
 
 #### Patch State Endpoint - Update Device State in the Cloud
 
-This step updates the device state in the cloud (balenaCloud or openBalena)
-on behalf of the device, as if the device was online. It is only required for
-devices that do not have an internet connection. If the device has an internet
-connection, even if low bandwidth, this step may be skipped because the device
-itself will be able to contact the cloud to update its state.
+This step updates the device state in the cloud (balenaCloud or openBalena) on behalf of the device, as if the device was online. It is only required for devices that do not have an internet connection. If the device has an internet connection, even if low bandwidth, this step may be skipped because the device itself will be able to contact the cloud to update its state.
 
 ```bash
 $ os_version_tag=$(echo ${os_version} | awk -F'+' '{print $1}')
@@ -247,9 +255,9 @@ $ curl --silent \
     --data-binary "{\"os_variant\":\"${os_variant}\",\"os_version\":\"balenaOS ${os_version_semver}+${os_revision}\",\"supervisor_version\":\"${supervisor_version}\",\"is_running__release\":${release_id}}"
 ```
 
-#### [Optional] Set Tags on Devices
+#### \[Optional] Set Tags on Devices
 
-Tags help identify and track devices in your fleet as to what commit and OS version have they been flashed & updated offline with. One can use [`balena tag set`][balena-tag-set] to create new tags as needed.
+Tags help identify and track devices in your fleet as to what commit and OS version have they been flashed & updated offline with. One can use [`balena tag set`](../../../reference/balena-cli/#tag-set-tagkey-value) to create new tags as needed.
 
 ```bash
 $ balena tag set 'offline:commit' "${commit}" \
@@ -260,19 +268,3 @@ $ balena tag set 'offline:hostOS' "${os_version}" \
 ```
 
 Read more about how the process can work better for your use case in the [offline updates](https://balena.io/blog/offline-updates-make-it-easier-to-update-balena-devices-without-the-internet) blog.
-
-[named-volumes]: /learn/develop/multicontainer/#named-volumes
-[persistent-logging]: /reference/OS/configuration/#persistentlogging
-[balena-cli]: /reference/balena-cli/
-[supported-devices-list]: /reference/hardware/devices/
-[balena-cli advanced masterclass]: /learn/more/masterclasses/advanced-cli/#52-preregistering-a-device
-[balena-deploy]:/learn/deploy/deployment/#balena-build--deploy
-[balenaOS]:https://www.balena.io/os
-[insert-ssh-key]:/reference/OS/configuration/#sshkeys
-[balena-os-configure]:/reference/balena-cli/#os-configure-image
-[balena-device-register]:/reference/balena-cli/#device-register-fleet
-[config-file]:/reference/OS/configuration/#valid-fields
-[balena-preload]:/reference/balena-cli/#preload
-[preloading-device-image]:/learn/more/masterclasses/advanced-cli/#51-preloading-a-device-image
-[web-terminal]:/learn/manage/ssh-access/#using-the-dashboard-web-terminal
-[balena-tag-set]:/reference/balena-cli/#tag-set-tagkey-value
