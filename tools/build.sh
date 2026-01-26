@@ -10,17 +10,9 @@ cd "$SCRIPT_DIR/.."
 # Generate Getting Started assets
 node ./tools/generate-docs-contracts.js &
 
-# Generate versioned balena-cli docs
-node ./tools/versioning.js https://github.com/balena-io/balena-cli/blob/master/docs/balena-cli.md &
-
-# Generate versioned balena-sdk docs
-node ./tools/versioning.js https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md &
-
-# Generate versioned balena-python-sdk docs
-node ./tools/versioning.js https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md &
-
-# Generate Masterclasses Dynamically
-./tools/build-masterclass.sh &
+# Note: Versioned docs (CLI, SDK, Python SDK) are now managed by sync-external.js
+# and committed to git. Run `npm run sync-external` to update them locally.
+# Renovate handles version updates via pull requests.
 
 # Generate base images docs
 ./tools/build-base-images.sh & 
