@@ -1,4 +1,66 @@
 - commits:
+    - subject: Add version-pinned external documentation
+      hash: c1776487307b7a43df273f550ebb251aa4dfa532
+      body: |
+        Add static documentation files synced via sync-external.js:
+        - Version dictionaries for CLI, Node SDK, and Python SDK
+        - Masterclass debugging content
+        - Reference docs (supervisor API, diagnostics, base images, etc.)
+        - Versioned SDK/CLI documentation snapshots
+
+        Update .gitignore to track these files instead of ignoring them,
+        keeping only truly dynamic content (project lists, device assets)
+        in the ignore list.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: "feat: replace fetch-external.sh with version-pinned sync system"
+      hash: fb94f381e0ba3f4201a053c0ff1b61ff8235873e
+      body: >
+        Add external-docs.json manifest and sync-external.js to replace shell
+        scripts:
+
+        - Fetch and transform external content with pinned versions
+
+        - Support versioned sources (CLI, SDK, Python SDK) with auto-detected
+        releases
+
+        - Mark versions as latest/supported/deprecated based on release dates
+
+        - Generate dictionary files for version switcher UI
+
+        - Support local source extractions (masterclass partials)
+
+        - Add --repo flag for Renovate to sync by repository
+
+
+        External docs are now committed to git at pinned versions rather than
+
+        fetched at build time from master branches. Renovate will create PRs
+
+        when upstream repos release new versions.
+
+
+        Removed: fetch-external.sh, build-masterclass.sh, extract-markdown.sh,
+
+        versioning.js, github-parser.js, line-by-line dependency
+      footer:
+        Change-type: minor
+        change-type: minor
+        Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+        co-authored-by: Claude Opus 4.5 <noreply@anthropic.com>
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 6.14.0
+  title: ""
+  date: 2026-01-26T23:30:42.599Z
+- commits:
     - subject: Update billing page screenshots
       hash: 571cde71c5586cd5750fce9778b7405a476c7c60
       body: ""
