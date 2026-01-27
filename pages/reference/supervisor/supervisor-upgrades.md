@@ -2,22 +2,30 @@
 
 The balena Supervisor can be upgraded independently of balenaOS.
 
-While the best long-term strategy is to consistently [upgrade the host OS](../../../reference/OS/updates/self-service/), there are some cases whereby an independent Supervisor upgrade is preferable:
+While the best long-term strategy is to consistently [upgrade the host OS](../OS/updates/self-service.md), there are some cases whereby an independent Supervisor upgrade is preferable:
 
-- Enable features in the Supervisor not yet available in an OS release
-- No reboot
-- Less downtime (if any)
-- Smaller update size
+* Enable features in the Supervisor not yet available in an OS release
+* No reboot
+* Less downtime (if any)
+* Smaller update size
 
 To run an update for an individual device, navigate to that device's _Settings_ tab, scroll down to _Supervisor version_ section, and select the version of the balena Supervisor you would like to update to:
 
+<figure><img src="/broken/files/QZXDNDGNpqXFhwnBeJAL" alt=""><figcaption></figcaption></figure>
+
 Updates can also be issued to multiple devices in the same fleet with the same CPU architecture. From the device list, click the checkbox to the left of any online devices you wish to update. Then use the _Modify_ dropdown to select the _Supervisor version_ option:
+
+<figure><img src="/broken/files/usQf2bziFtpkbjq7lEGx" alt=""><figcaption></figcaption></figure>
 
 From the dialog box that opens, select the Supervisor version you would like to update to and click the `Apply` button to trigger the Supervisor update.
 
+<figure><img src="/broken/files/WtXGVER4nK3Bc0DpprRm" alt=""><figcaption></figcaption></figure>
+
 Additionally, these updates can be scheduled for an offline device as well. The update will be performed once the device comes back online and successfully connects to the balenaCloud backend.
 
-**Note:** Only devices running balenaOS v2.12.0 or greater are able to upgrade the Supervisor independently.
+{% hint style="warning" %}
+Only devices running balenaOS v2.12.0 or greater are able to upgrade the Supervisor independently.
+{% endhint %}
 
 ## Upgrade paths
 
