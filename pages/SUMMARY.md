@@ -100,7 +100,7 @@
   * [Balena SDK deprecation policy](reference/sdk/deprecation-policy.md)
   * [Balena Node.js SDK \{{ $nodesdk.version \}} Documentation](reference/sdk/node-sdk.md)
   * [Balena Python SDK \{{ $pythonsdk.version \}} Documentation](reference/sdk/python-sdk.md)
-* [supervisor](reference/supervisor/README.md)
+* [Device Supervisor](reference/supervisor/README.md)
   * [Device Metrics](reference/supervisor/device-metrics.md)
   * [Reduce bandwidth usage](reference/supervisor/bandwidth-reduction.md)
   * [docker-compose.yml fields](reference/supervisor/docker-compose.md)
