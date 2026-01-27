@@ -9,8 +9,8 @@
 | io.balena.features.journal-logs   | false              | Bind mounts journal log directories `/var/log/journal` and `/run/log/journal` as well as `/etc/machine-id` in read only mode. Required by some logging agents such as `promtail`. Journal logs can be read using libraries such as `sd-journal` in C or `sdjournal` in Go. | v12.0.1    | v2.61.0    |
 | io.balena.features.supervisor-api | false              | Ensures that `BALENA_SUPERVISOR_HOST`, `BALENA_SUPERVISOR_PORT`, `BALENA_SUPERVISOR_ADDRESS`, and `BALENA_SUPERVISOR_API_KEY` are added to the container environment variables, so the supervisor API can be used.                                                         | v7.23.0    | v2.21.0    |
 | io.balena.features.balena-api     | false              | When enabled, it will make sure that `BALENA_API_KEY` is added to the container environment variables.                                                                                                                                                                     | v7.23.0    | v2.21.0    |
-| io.balena.update.strategy         | download-then-kill | Set the fleet [update strategy][update-strategy].                                                                                                                                                                                                                          | v7.23.0    | v2.21.0    |
-| io.balena.update.handover-timeout | 60000              | Time, in milliseconds, before an old container is automatically killed. Only used with the `hand-over` [update strategy][hand-over].                                                                                                                                       | v7.23.0    | v2.21.0    |
+| io.balena.update.strategy         | download-then-kill | Set the fleet [update strategy](/runtime/update-strategies).                                                                                                                                                                                                                          | v7.23.0    | v2.21.0    |
+| io.balena.update.handover-timeout | 60000              | Time, in milliseconds, before an old container is automatically killed. Only used with the `hand-over` [update strategy](/runtime/update-strategies/#hand-over).                                                                                                                                       | v7.23.0    | v2.21.0    |
 
 \* balenaOS versions that ship with a compatible device supervisor version as per
 [balenaOS Changelog](https://github.com/balena-os/meta-balena/blob/master/CHANGELOG.md).
@@ -31,6 +31,3 @@ labels:
   io.balena.update.strategy: download-then-kill
   io.balena.update.handover-timeout: ''
 ```
-
-[update-strategy]: /runtime/update-strategies
-[hand-over]: /runtime/update-strategies/#hand-over

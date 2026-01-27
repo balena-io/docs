@@ -5,7 +5,7 @@ title: Collected Data
 # Data collected by balena
 
 In order to make data driven decisions, balena collects usage related events via a 3rd party
-analytics service, [Amplitude][amplitude]. These events provide us context on the state of container execution steps. This
+analytics service, [Amplitude](https://amplitude.com/). These events provide us context on the state of container execution steps. This
 way we could observe the health of fleets in balenaCloud ecosystem and analyze the potential problems as
 well as trends.
 
@@ -35,7 +35,7 @@ collected too.
 ## Device data collected by the supervisor
 
 Data are submitted to Amplitude from balena-managed devices on the events listed in
-the table below. Submitted packets [may contain][supervisor-data-mask] the following information:
+the table below. Submitted packets [may contain](https://github.com/balena-io/balena-supervisor/blob/v10.0.1/src/event-tracker.ts#L25) the following information:
 
 - Fleet ID and name
 - Docker image hash
@@ -109,7 +109,7 @@ Besides these identifiers, we don’t send any other user ID to Amplitude.
 
 Amplitude library automatically extracts geographical location data from the device’s IP address,
 so it collects city, region and country information.
-See more in a [relevant article by Amplitude][amplitude-auto-collection].
+See more in a [relevant article by Amplitude](https://help.amplitude.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties).
 
 ## About logging
 
@@ -118,7 +118,3 @@ can be streamed to web dashboard or CLI user who has permissions to view them th
 However, the logs are stored in the cloud temporarily only in order to allow the streaming
 functionality - balena does not process device application logs unless technical support is
 requested by our users.
-
-[amplitude]: https://amplitude.com/
-[amplitude-auto-collection]: https://help.amplitude.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties
-[supervisor-data-mask]: https://github.com/balena-io/balena-supervisor/blob/v10.0.1/src/event-tracker.ts#L25

@@ -1,6 +1,6 @@
 ### My Device Doesn't Boot
 
-To determine the cause of this issue, check your ACT LED for known [error notifications][error]. If no known errors are shown on the ACT LED, attach a screen to your Pi's HDMI port.
+To determine the cause of this issue, check your ACT LED for known [error notifications](#error-notifications). If no known errors are shown on the ACT LED, attach a screen to your Pi's HDMI port.
 
 One other thing to confirm is that you are not trying to boot a Raspberry Pi 2 with an OS download designed for the Raspberry Pi B+. This will not work. The Raspberry Pi 2 requires an OS download specific to its architecture.
 
@@ -49,5 +49,3 @@ If you have a screen attached to your Raspberry Pi and notice that there is a sm
 If you are having issues with your RPI3 connecting to your wifi, make sure
 to check that the 2.4 GHz channel on your wifi router is set to something less than 11, since
 the firmware on the Raspberry Pi doesn't support channel 12 and 13.
-
-[error]: #error-notifications

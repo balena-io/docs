@@ -24,7 +24,7 @@ Balenalib supported the following OS distributions and language stacks:
 
 - [`run`](#run-vs-build) and [`build`](#run-vs-build) variants designed for multistage builds.
 - [cross-build](#building-arm-containers-on-x86-machines) functionality for building ARM containers on x86.
-- Provide access to [dynamically plugged devices](#working-with-dynamically-plugged-devices) in your container by enabling [`udevd`][udevd-link].  
+- Provide access to [dynamically plugged devices](#working-with-dynamically-plugged-devices) in your container by enabling [`udevd`](https://linux.die.net/man/8/udevd).  
 - Helpful package installer script called `install_packages` inspired by [minideb](https://github.com/bitnami/minideb#why-use-minideb).
 
 ### How the Image Naming Scheme Worked
@@ -80,9 +80,9 @@ In the tags, all of the fields were optional, and if they were left out, they de
 
 For each combination of `<hw>`-`<distro>`-`<lang>` there was both a `run` and a `build` variant. These variants were provided to allow for easier multistage builds.
 
-The `run` variant was designed to be a slim and minimal variant with only runtime essentials packaged into it. To find what packages exactly, navigate to the [Debian version][debian-variants] and check the Dockerfile inside the `run` folder.
+The `run` variant was designed to be a slim and minimal variant with only runtime essentials packaged into it. To find what packages exactly, navigate to the [Debian version](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/) and check the Dockerfile inside the `run` folder.
 
-The `build` variant was a heavier image that included many of the tools required for building from source such as `build-essential`, `gcc`, etc. As an example, you can see the types of packages installed in the `balenalib/armv7hf-debian:build` variant on the [balena-io-library/base-images][debian-variants] repository.
+The `build` variant was a heavier image that included many of the tools required for building from source such as `build-essential`, `gcc`, etc. As an example, you can see the types of packages installed in the `balenalib/armv7hf-debian:build` variant on the [balena-io-library/base-images](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/) repository.
 
 These variants made building multistage projects easier.
 For example, installing an I2C node.js package requires a number of build time dependencies to build the native `i2c` node module. However we don't want to send all of those dependencies down to our device. 
@@ -137,19 +137,19 @@ To see the source for `install_packages` navigate to the [Debian version](https:
 
 ## How the Images Worked at Runtime
 
-Each `balenalib` base image has a default [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) which is defined as `ENTRYPOINT ["/usr/bin/entry.sh"]`. This ensures that [entry.sh][entry-sh-link] is run before your code defined in `CMD` of your `Dockerfile`.
+Each `balenalib` base image has a default [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) which is defined as `ENTRYPOINT ["/usr/bin/entry.sh"]`. This ensures that [entry.sh](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh) is run before your code defined in `CMD` of your `Dockerfile`.
 
-On container startup, the [entry.sh][entry-sh-link] script first checks if the `UDEV` flag is set to `true` or `false`. In the case where it is `false`, the `CMD` is then executed. In the case it is `true` (or `1`), the entry.sh will check if the container is running privileged, if it is, it will mount `/dev` to a devtmpfs and then start `udevd`. In the case the container is an unprivileged container, no mount will be performed, and `udevd` will be started (although it won't be very much use without the privilege).
+On container startup, the [entry.sh](https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh) script first checks if the `UDEV` flag is set to `true` or `false`. In the case where it is `false`, the `CMD` is then executed. In the case it is `true` (or `1`), the entry.sh will check if the container is running privileged, if it is, it will mount `/dev` to a devtmpfs and then start `udevd`. In the case the container is an unprivileged container, no mount will be performed, and `udevd` will be started (although it won't be very much use without the privilege).
 
 At the end of a container's lifecycle, when a request to container restart, reboot or shutdown is sent to the supervisor, the [balenaEngine](https://www.balena.io/engine/) will send a `SIGTERM` (signal 15) to the containers, and 10 seconds later it will issue a `SIGKILL` if the container is still running. This timeout can also be configured via the [stop_grace_period](https://docs.docker.com/compose/compose-file/compose-file-v2/#stop_grace_period) in your docker-compose.yml.
 
 ## Working with Dynamically Plugged Devices
 
-To interact with hardware that is plugged in at runtime, such as USB or serial devices, you will want to enable [`udevd`][udevd-link] in your container. In `balenalib` images this was done by either adding `ENV UDEV=1` in your `Dockerfile` or by setting an environment variable using [variables][variables].
+To interact with hardware that is plugged in at runtime, such as USB or serial devices, you will want to enable [`udevd`](https://linux.die.net/man/8/udevd) in your container. In `balenalib` images this was done by either adding `ENV UDEV=1` in your `Dockerfile` or by setting an environment variable using [variables](/learn/manage/variables/).
 
 This also required you to run your container `privileged`.
 
-When a `balenalib` container runs with `UDEV=1` it will first detect if it is running on a `privileged` container. If it is, it will mount the host OS `/dev` to a devtmpfs and then start [`udevd`][udevd-link]. Now anytime a new device is plugged in, the kernel will notify the container [`udevd`][udevd-link] daemon and the relevant device nodes in the container `/dev` will appear.
+When a `balenalib` container runs with `UDEV=1` it will first detect if it is running on a `privileged` container. If it is, it will mount the host OS `/dev` to a devtmpfs and then start [`udevd`](https://linux.die.net/man/8/udevd). Now anytime a new device is plugged in, the kernel will notify the container [`udevd`](https://linux.die.net/man/8/udevd) daemon and the relevant device nodes in the container `/dev` will appear.
 
 __Note:__ Newer balenalib base images made sure `udevd` ran in its own network namespace, so as to not interfere with cellular modems. 
 
@@ -159,9 +159,3 @@ __Note:__ Newer balenalib base images made sure `udevd` ran in its own network n
 - `UDEV` defaults to off. See [Working with Dynamically Plugged Devices](#working-with-dynamically-plugged-devices).
 - The `INITSYSTEM` functionality has been completely removed, so containers that rely on [systemd](https://www.freedesktop.org/wiki/Software/systemd/) or [openRC](https://github.com/OpenRC/openrc) should install and set up the initsystem in their apps. See [Installing your own Initsystem](https://docs.balena.io/reference/base-images/balena-base-images#installing-your-own-initsystem).
 - Mounting of `/dev` to a devtmpfs will only occurs when `UDEV=on` and the container is running as `privileged`. `1`, `true` and `on` are valid value for `UDEV` and will be evaluated as `UDEV=on`, all other values will turn `UDEV` off.
-
-[udevd-link]:https://linux.die.net/man/8/udevd
-[entry-sh-link]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh
-[multistage-build-docs]:https://docs.docker.com/develop/develop-images/multistage-build/
-[variables]:/learn/manage/variables/
-[debian-variants]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/
