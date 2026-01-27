@@ -6,27 +6,24 @@ title: I2C and Other Interfaces
 
 ### I2C and Other Interfaces
 
-- [Raspberry Pi Family](../../../../hardware/i2c-and-spi/#raspberry-pi-family)
-  - [I2C](../../../../hardware/i2c-and-spi/#i2c)
-  - [SPI](../../../../hardware/i2c-and-spi/#spi)
-  - [1-wire and Digital Temperature sensors](../../../../hardware/i2c-and-spi/#1-wire-and-digital-temperature-sensors)
-  - [Using UART or Serial on Raspberry Pi 3](../../../../hardware/i2c-and-spi/#using-uart-or-serial-on-raspberry-pi-3)
-  - [Raspberry Pi camera module](../../../../hardware/i2c-and-spi/#raspberry-pi-camera-module)
-  - [Raspberry Pi 7” Touchscreen Display](../../../../hardware/i2c-and-spi/#raspberry-pi-7-touchscreen-display)
-  - [Customizing config.txt](../../../../hardware/i2c-and-spi/#customizing-config-txt)
-- [Beaglebone](../../../../hardware/i2c-and-spi/#beaglebone)
-  - [Capemgr support](../../../../hardware/i2c-and-spi/#capemgr-support)
-  - [Disable HDMI](../../../../hardware/i2c-and-spi/#disable-hdmi)
-- [Intel Edison](../../../../hardware/i2c-and-spi/#intel-edison)
-  - [MRAA for GPIO and hardware access](../../../../hardware/i2c-and-spi/#mraa-for-gpio-and-hardware-access)
-  - [Edison in USB Host mode](../../../../hardware/i2c-and-spi/#edison-in-usb-host-mode)
-- [IOT-GATE-iMX8](../../../../hardware/i2c-and-spi/#iot-gate-imx8)
-- [Up Squared](../../../../hardware/i2c-and-spi/#up-squared)
-  - [Serial ports](../../../../hardware/i2c-and-spi/#serial-ports)
-- [Jetson Devices](../../../../hardware/i2c-and-spi/#jetson-devices)
-  - [Custom device trees](../../../../hardware/i2c-and-spi/#custom-device-trees)
-  - [Configurable fan profiles](../../../../hardware/i2c-and-spi/#configurable-fan-profiles)
-  - [Configurable power modes](../../../../hardware/i2c-and-spi/#configurable-power-modes)
+* [Raspberry Pi Family](i2c-and-spi.md#raspberry-pi-family)
+  * [I2C](i2c-and-spi.md#i2c)
+  * [SPI](i2c-and-spi.md#spi)
+  * [1-wire and Digital Temperature sensors](i2c-and-spi.md#id-1-wire-and-digital-temperature-sensors)
+  * [Using UART or Serial on Raspberry Pi 3](i2c-and-spi.md#using-uart-or-serial-on-raspberry-pi-3)
+  * [Raspberry Pi camera module](i2c-and-spi.md#raspberry-pi-camera-module)
+  * [Raspberry Pi 7” Touchscreen Display](i2c-and-spi.md#raspberry-pi-7-touchscreen-display)
+  * [Customizing config.txt](i2c-and-spi.md#customizing-config.txt)
+* [Beaglebone](i2c-and-spi.md#beaglebone)
+  * [Capemgr support](i2c-and-spi.md#capemgr-support)
+  * [Disable HDMI](i2c-and-spi.md#disable-hdmi)
+* [IOT-GATE-iMX8](i2c-and-spi.md#iot-gate-imx8)
+* [Up Squared](i2c-and-spi.md#up-squared)
+  * [Serial ports](i2c-and-spi.md#serial-ports-1)
+* [Jetson Devices](i2c-and-spi.md#jetson-devices)
+  * [Custom device trees](i2c-and-spi.md#custom-device-trees)
+  * [Configurable fan profiles](i2c-and-spi.md#configurable-fan-profiles)
+  * [Configurable power modes](i2c-and-spi.md#configurable-power-modes)
 
 ### Raspberry Pi Family
 
@@ -59,15 +56,15 @@ To get you started, here is an [example project](https://github.com/balena-labs-
 
 #### SPI
 
-SPI is enabled by default on balenaOS via the `dtparam=spi=on` \[device tree parameter]\[dt-params]. This default behavior can be modified by editing the \[device configuration]\[device-configuration].
+SPI is enabled by default on balenaOS via the `dtparam=spi=on` [device tree parameter](../../../reference/OS/advanced.md#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam). This default behavior can be modified by editing the [device configuration](../../manage/configuration.md#device-configuration-management).
 
-For Node.js applications it should work out of the box with the \[spi node module]\[spi-npm]. For an example of this, check out this project: \[digitiser]\[digitiser-link].
+For Node.js applications it should work out of the box with the [spi node module](https://www.npmjs.com/package/spi). For an example of this, check out this project: [digitiser](https://github.com/balena-io-playground/digitiser).
 
 #### Serial
 
 Serial is disabled by default on the Raspberry Pi 3. To enable it you will need to do the following:
 
-- Edit the `config.txt` in `balena-boot` partition of the SD card and append the following lines.
+* Edit the `config.txt` in `balena-boot` partition of the SD card and append the following lines.
 
 ```
 enable_uart=1
@@ -77,15 +74,15 @@ enable_uart=1
 
 In order to work work with 1-wire and digital temperature sensors you will need to do the following:
 
-- Edit the `config.txt` in `balena-boot` partition of the SD card and append the following lines.
+* Edit the `config.txt` in `balena-boot` partition of the SD card and append the following lines.
 
 ```
 dtoverlay=w1-gpio
 ```
 
-- Add `modprobe w1-gpio && modprobe w1-therm` before your start scripts in either your package.json start command or Dockerfile `CMD` command.
+* Add `modprobe w1-gpio && modprobe w1-therm` before your start scripts in either your package.json start command or Dockerfile `CMD` command.
 
-An example of this is shown in our \[Firebase Temperature Logger]\[firebaseTemp-link] project.
+An example of this is shown in our [Firebase Temperature Logger](https://github.com/balena-io-playground/firebaseDTL) project.
 
 #### Using UART or Serial on Raspberry Pi 3
 
@@ -105,11 +102,11 @@ dtoverlay=pi3-miniuart-bt
 
 Now eject the SD card and pop it back into the RPI3, and you can boot the device up again.
 
-To demonstrate this functionality, you can push this project (https://github.com/balena-io-playground/rpi3-uart) to your RPI3. You will also need to add a small jumper wire between `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX`, so that the data sent out of the UART is read back in and displayed in the logs.
+To demonstrate this functionality, you can push this project ([https://github.com/balena-io-playground/rpi3-uart](https://github.com/balena-io-playground/rpi3-uart)) to your RPI3. You will also need to add a small jumper wire between `GPIO14 / UART0 TX` and `GPIO15 / UART0 RX`, so that the data sent out of the UART is read back in and displayed in the logs.
 
 #### Raspberry Pi camera module
 
-Depending on the version of your balenaOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](../../../../learn/manage/configuration/).
+Depending on the version of your balenaOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](../../manage/configuration.md).
 
 **BalenaOS 1.16.0 and newer**
 
@@ -122,8 +119,8 @@ start_x=1
 
 or for remote update
 
-- `BALENA_HOST_CONFIG_gpu_mem` to `128`
-- `BALENA_HOST_CONFIG_start_x` to `1` in the fleet or device configuration.
+* `BALENA_HOST_CONFIG_gpu_mem` to `128`
+* `BALENA_HOST_CONFIG_start_x` to `1` in the fleet or device configuration.
 
 **BalenaOS 1.8.0 and earlier**
 
@@ -137,25 +134,25 @@ fixup_file=fixup_x.dat
 
 or for remote update
 
-- `BALENA_HOST_CONFIG_gpu_mem` to `128`
-- `BALENA_HOST_CONFIG_start_file` to `start_x.elf`
-- `BALENA_HOST_CONFIG_fixup_file` to `fixup_x.dat` in the fleet or device configuration.
+* `BALENA_HOST_CONFIG_gpu_mem` to `128`
+* `BALENA_HOST_CONFIG_start_file` to `start_x.elf`
+* `BALENA_HOST_CONFIG_fixup_file` to `fixup_x.dat` in the fleet or device configuration.
 
 You will also need to add `modprobe bcm2835-v4l2` before your start scripts in either your `package.json` start command or Dockerfile `CMD` command.
 
-An example of this is shown in our \[Raspberry Pi python picamera]\[picamera-link] project.
+An example of this is shown in our [Raspberry Pi python picamera](https://github.com/balenalabs/balena-rpi-python-picamera) project.
 
 #### Raspberry Pi 7” Touchscreen Display
 
 In order to work with the Raspberry Pi display you will need to do the following:
 
-- Edit the `config.txt` in `resin-boot` partition of the SD card and append the following line.
+* Edit the `config.txt` in `resin-boot` partition of the SD card and append the following line.
 
 ```
 device_tree_overlay=rpi-ft5406-overlay.dtb
 ```
 
-If you want a quick example project to get you started with you new screen, you might want to checkout our \[Raspberry Pi Electron starter App]\(https://github.com/balena-io-playground/electron-rpi-quick-start).
+If you want a quick example project to get you started with you new screen, you might want to checkout our [Raspberry Pi Electron starter App](https://github.com/balena-io-playground/electron-rpi-quick-start).
 
 If you find that you need to change the orientation of you LCD screen, you can easily achieve this by adding the following key/value to your `/boot/config.txt` on your SD card:
 
@@ -165,11 +162,13 @@ lcd_rotate = 0
 
 And set the value to either 0, 90, 180 or 270, depending on your desired orientation.
 
-**Note:** The 90 and 270 degrees rotation options require additional memory on GPU, so won't work with the 16M GPU split.
+{% hint style="warning" %}
+The 90 and 270 degrees rotation options require additional memory on GPU, so won't work with the 16M GPU split.
+{% endhint %}
 
 #### Customizing config.txt
 
-These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings in the `config.txt` file on the SD cards `boot` partition. See [here](../../../../configuration/advanced/) for more details.
+These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings in the `config.txt` file on the SD cards `boot` partition. See [here](../../../reference/OS/advanced.md) for more details.
 
 You can also set all of these variables remotely for a single device or the entire fleet using the Configuration tab on the device or fleet level respectively. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `BALENA_HOST_CONFIG_variable` set to the value `value`. For example:
 
@@ -230,15 +229,19 @@ overscan_bottom=4
 
 ### Beaglebone
 
-Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the Octalbonescript JS library and made a lovely node.js module over here: https://www.npmjs.com/package/octalbonescript\_capemgr4\_1 .
+Currently the Beaglebone devices are running a very new 4.1 kernel (which is obviously awesome), unfortunately many of the userspace libraries haven't caught up yet so they only work with the older 3.8 kernel. Luckily [ruth0000](https://github.com/ruth0000) was kind enough to patch the Octalbonescript JS library and made a lovely node.js module over here: [https://www.npmjs.com/package/octalbonescript\_capemgr4\_1](https://www.npmjs.com/package/octalbonescript_capemgr4_1).
 
-With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module \[here]\(https://github.com/balena-io-playground/beaglebone-adc-node).
+With this module you should be able to basic GPIO and analog-to-digital conversion stuff. To get you started we have a simple example using this module [here](https://github.com/balena-io-playground/beaglebone-adc-node).
 
-**Note:** The ADC voltage is only rated to 1.8V, if you apply more you risk frying the pin.
+{% hint style="warning" %}
+The ADC voltage is only rated to 1.8V, if you apply more you risk frying the pin.
+{% endhint %}
 
 #### Capemgr support
 
-**Warning:** Capemgr is only supported in balena BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a web terminal to your BBB and run `uname -a`.
+{% hint style="danger" %}
+Capemgr is only supported in balena BBB devices with a 4.1 linux kernel. This kernel was only enabled in production on `25-09-2015`. If you don't know which kernel you are running, open a web terminal to your BBB and run `uname -a`.
+{% endhint %}
 
 **Loading a Cape**
 
@@ -301,21 +304,21 @@ Depending on the HAT Configuration defined in BIOS, the Up Squared UART communic
 
 Loading of custom device trees in balenaOS for Nvidia boards is supported by the Jetson Nano, Jetson TX2 and Jetson Orin family of devices. The list of devices that support this function includes:
 
-- Floyd Nano
-- Jetson Nano SD-CARD
-- Jetson Nano eMMC
-- Jetson Nano 2GB Devkit SD
-- JN30B Nano
-- Photon Nano
-- Astro TX2
-- Jetson TX2
-- Jetson TX2 NX (with Xavier NX Devkit)
-- Orbitty TX2
-- Photon TX2 NX
-- Spacely TX2
-- Jetson AGX Orin Devkit
-- Jetson Orin NX in Xavier NX Devkit NVMe (16GB RAM)
-- Jetson Orin Nano 8GB (SD) Devkit NVME
+* Floyd Nano
+* Jetson Nano SD-CARD
+* Jetson Nano eMMC
+* Jetson Nano 2GB Devkit SD
+* JN30B Nano
+* Photon Nano
+* Astro TX2
+* Jetson TX2
+* Jetson TX2 NX (with Xavier NX Devkit)
+* Orbitty TX2
+* Photon TX2 NX
+* Spacely TX2
+* Jetson AGX Orin Devkit
+* Jetson Orin NX in Xavier NX Devkit NVMe (16GB RAM)
+* Jetson Orin Nano 8GB (SD) Devkit NVME
 
 Loading of custom device trees is not supported for the Jetson Xavier family of devices in balenaOS. U-Boot provides the complete set of functionality necessary for loading custom device-trees in balenaOS for the Jetson Nano and TX2 devices, and this bootloader is not supported by the Jetson AGX Xavier and Jetson Xavier NX BSP. The Jetson AGX Orin family of devices uses a new Tegra UEFI bootloader which allows balenaOS to load custom device-trees.
 
@@ -327,11 +330,11 @@ Please note that if the changes for your carrier board expand past kernel device
 
 #### Configurable fan profiles
 
-Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 offer support for configurable fan profiles. You can switch between the options provided by Jetpack by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device fan profile" configuration option, and typing in the desired value. The input value should be a string, without quotes. The change will be applied at runtime and will not trigger a device reboot. Preloading the [fan profile configuration](../../../../reference/OS/configuration/#fanprofile) before provisioning your device can be achieved by editing the [config.json](../../../../reference/OS/configuration/#about-configjson) file.
+Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 offer support for configurable fan profiles. You can switch between the options provided by Jetpack by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device fan profile" configuration option, and typing in the desired value. The input value should be a string, without quotes. The change will be applied at runtime and will not trigger a device reboot. Preloading the [fan profile configuration](../../../../reference/OS/configuration/#fanprofile) before provisioning your device can be achieved by editing the [config.json](../../../reference/OS/configuration.md#about-config.json) file.
 
 #### Configurable power modes
 
-Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 also offer the possibility for selecting the desired power mode. You can set the values _low_, _mid_ and _high_ or specify the power mode ID directly by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device power mode" configuration option, and typing in the desired value. The input value should be a string, or a single digit number, without quotes. Please note that your device(s) will automatically reboot to apply the new power mode. The available power modes IDs for your device type are visible in the host OS in `/etc/nvpmodel.conf`. Preloading the desired power mode configuration can be achieved by editing the [config.json](../../../../reference/OS/configuration/#about-configjson) file and specifying the desired [power mode](../../../../reference/OS/configuration/#powermode) before provisioning the device.
+Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 also offer the possibility for selecting the desired power mode. You can set the values _low_, _mid_ and _high_ or specify the power mode ID directly by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device power mode" configuration option, and typing in the desired value. The input value should be a string, or a single digit number, without quotes. Please note that your device(s) will automatically reboot to apply the new power mode. The available power modes IDs for your device type are visible in the host OS in `/etc/nvpmodel.conf`. Preloading the desired power mode configuration can be achieved by editing the [config.json](../../../reference/OS/configuration.md#about-config.json) file and specifying the desired [power mode](../../../../reference/OS/configuration/#powermode) before provisioning the device.
 
 #### Container packages
 
@@ -346,5 +349,3 @@ Loading of custom device trees in balenaOS for iMX boards is currently supported
 To test your custom device tree, place it in the host operating system of your device in the following path: `/mnt/sysroot/active/current/boot/` . Then, navigate to the `Device Configuration` tab in the balenaCloud dashboard, activate the following configuration with the description `Define the file name of the DTB to be used`, and specify the file name of the custom device tree. The value of this configuration should contain the file name only. After the change is applied, the device will automatically reboot and load the new device tree.
 
 After you have validated your custom device, it can be included in newer balenaOS images by opening a pull request in the [balena-variscite-mx8](https://github.com/balena-os/balena-variscite-mx8) repository. Once your PR is approved and merged, a new balenaOS image which includes your custom device tree will be made available shortly.
-
-\[digitiser-link]:https://github.com/balena-io-playground/digitiser \[firebaseTemp-link]:https://github.com/balena-io-playground/firebaseDTL \[spi-npm]:https://www.npmjs.com/package/spi \[picamera-link]:https://github.com/balenalabs/balena-rpi-python-picamera \[mraa-link]:https://github.com/intel-iot-devkit/mraa \[upm-link]:https://github.com/intel-iot-devkit/upm \[dockerbase-node]:https://hub.docker.com/r/\{{ $names.base_images.lib \}}/intel-edison-node/ \[dockerbase-python]:https://hub.docker.com/r/\{{ $names.base_images.lib \}}/intel-edison-python/ \[dt-params]:/reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam \[device-configuration]:/learn/manage/configuration/#device-configuration-management
