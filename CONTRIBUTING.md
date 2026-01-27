@@ -82,23 +82,20 @@ Check the [links module](https://github.com/balena-io/docs/blob/master/config/li
 
 ## Contributing to External Documentation
 
-It is worth noting that some of the reference documentation is sourced from the individual component repositories and should be updated at the source. 
-To add additional external documentation, follow these steps:
+Some reference documentation is sourced from external repositories and should be updated at the source. External docs are version-pinned in [`external-docs.json`](external-docs.json) and synced via Renovate.
 
-1. Update [`tools/fetch-external.sh`](https://github.com/balena-io/docs/blob/master/tools/fetch-external.sh) to add the additional external source. If required, rename the source document as this will be used in the docs URL. This dynamically determining the `Improve this Doc` link and has to be unique. 
-2. Update `externalDocs` in [`config/links.coffee`](https://github.com/balena-io/docs/blob/master/config/links.coffee) to add the link to edit the source file. This is the link presented in `Improve this Doc`. The key must match the name of the filename without the .md extension. Example, for a file named `node-sdk.md`, the key must be added like `"node-sdk": 'https://github.com/balena-io/balena-sdk/edit/master/DOCUMENTATION.md'`.
-3. In [`config/index.coffee`](https://github.com/balena-io/docs/blob/master/config/index.coffee) add the filename (again without the .md extension) to the `EXTERNAL_DOCS` variable so that the system knows to identify this file as coming from an external source correctly.
-4. If the source is currently duplicated in this repo, then delete the content from this repo and add the files to `/.gitignore`.
+To add additional external documentation:
 
-If a page is removed that may be linked externally to some other docs, do remember to add it to the `redirects.txt` in the root of the docs. If one doesn’t, then links will break, and folks will have an awful time.
+1. Add an entry to [`external-docs.json`](external-docs.json) with the repo, pinned version tag, and file mappings.
+2. Run `npm run sync-external` to fetch the content.
+3. Update `externalDocs` in [`config/links.coffee`](https://github.com/balena-io/docs/blob/master/config/links.coffee) to add the "Improve this Doc" link.
+4. In [`config/index.coffee`](https://github.com/balena-io/docs/blob/master/config/index.coffee) add the filename (without .md) to the `EXTERNAL_DOCS` variable.
 
-Currently, the following reference material is pulled from other repositories:
-- [Device Supervisor API](https://www.balena.io/docs/reference/supervisor/supervisor-api/) and [Device Supervisor upgrades](https://www.balena.io/docs/reference/supervisor/supervisor-upgrades), sourced from https://github.com/balena-io/balena-supervisor/tree/master/docs
-- [CLI](https://docs.balena.io/reference/cli/) sourced from https://github.com/balena-io/balena-cli/blob/master/doc/cli.markdown
-- [Node SDK](https://docs.balena.io/reference/sdk/node-sdk/) sourced from https://github.com/balena-io/balena-sdk/blob/master/DOCUMENTATION.md
-- [Python SDK](https://docs.balena.io/reference/sdk/python-sdk/) sourced from https://github.com/balena-io/balena-sdk-python/blob/master/DOCUMENTATION.md
+Renovate will automatically detect version updates and create PRs with the synced content.
 
-And more. The updated list of external resources can be found in [tools/fetch-external.sh](https://github.com/balena-io/docs/blob/master/tools/fetch-external.sh)  
+If a page is removed that may be linked externally, add a redirect to `redirects.txt` to avoid broken links.
+
+The full list of external sources is defined in [`external-docs.json`](external-docs.json)  
 
 ## Version numbers & Changelogs
 
