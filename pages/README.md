@@ -8,8 +8,6 @@ Ready to dive in? The \[getting started guides]\[getting-started] take you step-
 
 Once you're up on the basics, we've got all the info you need to build and manage larger fleets with more advanced functionality:
 
-<strong role="alert">Warning!</strong>
-
 ### \[Develop]\[develop]
 
 As you develop your application and grow your fleet, these guides will help you configure and package your services, ensuring you have the proper container setup and that you can interact with hardware and system resources.
