@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update dependency wrangler to v3.114.17 [SECURITY]
+      hash: 96f53d864688bbafd7a21ca74352fb2e248ce6ee
+      body: |
+        Update wrangler from 3.99.0 to 3.114.17
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 6.14.1
+  title: ""
+  date: 2026-01-27T22:03:25.805Z
+- commits:
     - subject: Add version-pinned external documentation
       hash: c1776487307b7a43df273f550ebb251aa4dfa532
       body: |
