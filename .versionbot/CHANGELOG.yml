@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update dependency lodash to v4.17.23 [SECURITY]
+      hash: 779e2b9eb8dbb3665eee0022409a1469bbc9532e
+      body: |
+        Update lodash from 4.17.21 to 4.17.23
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 6.14.2
+  title: ""
+  date: 2026-01-27T23:06:23.136Z
+- commits:
     - subject: Update dependency wrangler to v3.114.17 [SECURITY]
       hash: 96f53d864688bbafd7a21ca74352fb2e248ce6ee
       body: |
