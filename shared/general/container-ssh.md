@@ -18,7 +18,7 @@ A terminal session should be initiated for you in a second or two. If you would 
 
 ## Using `balena device ssh` from the CLI
 
-To use the CLI, first [install it][cli-install] and [add an SSH key to balenaCloud][add-ssh-key]. Then run the following command on your development machine's terminal:
+To use the CLI, first [install it](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md) and [add an SSH key to balenaCloud](/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud). Then run the following command on your development machine's terminal:
 
 ```shell
 $ balena device ssh <device-uuid>
@@ -43,10 +43,10 @@ $ balena device ssh 192.168.1.23
 $ balena device ssh <device-uuid>.local
 ```
 
-When used with a [production variant of balenaOS][development-image], this
+When used with a [production variant of balenaOS](/reference/OS/overview/2.x/#development-vs-production-mode), this
 feature requires balena CLI v13.3.0 or later, and balenaOS v2.44.0 or later. Otherwise, an
 SSH key must be added to the device's `config.json` file, [sshKeys
-section][config-json-ssh]. These restrictions do not apply to [development variants of balenaOS][development-image], which allow unauthenticated `root` access (and for
+section](/reference/OS/configuration/#sshkeys). These restrictions do not apply to [development variants of balenaOS](/reference/OS/overview/2.x/#development-vs-production-mode), which allow unauthenticated `root` access (and for
 this reason, should never be directly exposed to the public internet).
 
 ## Using a standalone SSH client
@@ -58,11 +58,11 @@ access is also possible with a standalone ssh client:
 $ ssh -p 22222 <username>@<device_ip_address>
 ```
 
-When the username is `root`, [production variants of balenaOS][development-image]
+When the username is `root`, [production variants of balenaOS](/reference/OS/overview/2.x/#development-vs-production-mode)
 perform authentication against public SSH keys previously added to the device's `config.json`
-file, [sshKeys section][config-json-ssh]. When the username matches a valid
+file, [sshKeys section](/reference/OS/configuration/#sshkeys). When the username matches a valid
 balenaCloud user account, authentication is also performed against that user's
-public SSH keys [stored in balenaCloud][add-ssh-key]
+public SSH keys [stored in balenaCloud](/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud)
 (this feature requires balenaOS v2.44.0 or later). The username can be found in
 the profile or preferences section of the web dashboard, or with the balena
 whoami` CLI command.
@@ -71,7 +71,7 @@ Development variants of balenaOS allow unauthenticated access and should never b
 directly exposed to the public internet.
 
 The IP address will typically be a private IP address of a local network. For remote devices,
-see [balena device tunnel][balena-tunnel].
+see [balena device tunnel](/learn/manage/ssh-access/#balena-tunnel).
 
 ## balena device tunnel
 
@@ -95,16 +95,6 @@ $ ssh -p 4321 <username>@127.0.0.1
 See note in the [previous section](#using-a-standalone-ssh-client) regarding the username
 (`root` _vs._ balenaCloud user account).
 
-[balena-ssh]: /reference/cli/#ssh-uuid-
-[balena-openssh]: https://github.com/balena-io-playground/balena-openssh
-[balena-tunnel]: /learn/manage/ssh-access/#balena-tunnel
-
-[cli-install]:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md
-[github-ssh]:https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-[add-ssh-key]:/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud
-[config-json-ssh]:/reference/OS/configuration/#sshkeys
-[development-image]:/reference/OS/overview/2.x/#development-vs-production-mode
-
 ## Add an SSH key to balenaCloud
 
 To add an SSH key, go to the _Preferences_ page of balenaCloud and select the _SSH Keys_ tab.
@@ -113,4 +103,4 @@ To add an SSH key, go to the _Preferences_ page of balenaCloud and select the _S
 
 You may either import an existing SSH key from GitHub or manually enter the public SSH key of an existing SSH key on your development machine.
 
-If you do not have an existing key, you can follow [GitHub's documentation][github-ssh], skipping the step about adding the key to your GitHub account, and instead adding the key to your balenaCloud account.
+If you do not have an existing key, you can follow [GitHub's documentation](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), skipping the step about adding the key to your GitHub account, and instead adding the key to your balenaCloud account.

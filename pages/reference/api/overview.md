@@ -6,7 +6,7 @@ title: Overview
 
 The API is the core of the balena platform. It provides a secure channel for communication between balena services and the database. The API's HTTP interface not only informs the dashboard and the CLI, it also gives you the power to directly access resources associated with your account. With the API, you can fetch and update information about your fleets, devices, environment variables and more.
 
-This guide is split into two parts. On this page, you will find a basic tutorial to help you construct API calls. The [Resources][resources] page provides more details about the resources that can be queried using the API, including example calls and a list of available fields.
+This guide is split into two parts. On this page, you will find a basic tutorial to help you construct API calls. The [Resources](/reference/api/resources/fleet) page provides more details about the resources that can be queried using the API, including example calls and a list of available fields.
 
 **Warning:** When using the API to make changes, take great care in selecting the appropriate resources, as there are _no checks_ to prevent you from accidentally making widespread, irreversible mistakes. Test filters with a `GET` call _before_ you use them in a `PATCH` or `DELETE` request.
 
@@ -16,11 +16,11 @@ When a new version of the API is released, calls to old versions of the API will
 
 ## Authentication
 
-API requests are authorized using [session tokens][tokens] or [named API keys][api-keys]. To authenticate with either type of authentication token, make sure to include `Authorization: Bearer <auth token>` as a header in your API call.
+API requests are authorized using [session tokens](/learn/accounts/account#session-tokens) or [named API keys](/learn/accounts/account#api-keys). To authenticate with either type of authentication token, make sure to include `Authorization: Bearer <auth token>` as a header in your API call.
 
 ## Constructing API calls
 
-The balena API uses the Open Data Protocol ([OData][odata]), which defines a standard set of tools for querying and modifying structured data. To help you get started, we'll go over some of the most common requests, but when you're ready to build more advanced API calls make sure to consult the [OData documentation][odata-docs].
+The balena API uses the Open Data Protocol ([OData](https://www.odata.org/)), which defines a standard set of tools for querying and modifying structured data. To help you get started, we'll go over some of the most common requests, but when you're ready to build more advanced API calls make sure to consult the [OData documentation](https://www.odata.org/getting-started/basic-tutorial/).
 
 To construct an API call, it helps to understand a little about how the underlying data is structured. The balena data model consists of a number of connected resources. Resources include devices, fleets, users, and more. When you make an API call, you are asking to either view, create, modify, or remove a resource. The _method_ of the API call corresponds to the action you are trying to take:
 
@@ -139,9 +139,3 @@ Publishing specific rate limits often results in them being treated as a "target
 To maintain the best experience, we also need the flexibility to adapt and evolve the rate-limiting algorithm. Publishing fixed limits could constrain our ability to improve and respond to specific needs without disrupting customers.
 
 Instead, we provide the `Retry-After` header. The HTTP `Retry-After` response header indicates how long the user agent should wait before making a follow-up request. When a request exceeds the current rate limit, the response will include this header with a value indicating how long you should be waiting before retrying. This ensures your code can dynamically adapt on runtime without needing workarounds or context about the rate-limiting mechanism.
-
-[odata]: https://www.odata.org/
-[odata-docs]: https://www.odata.org/getting-started/basic-tutorial/
-[resources]: /reference/api/resources/fleet
-[tokens]: /learn/accounts/account#session-tokens
-[api-keys]: /learn/accounts/account#api-keys

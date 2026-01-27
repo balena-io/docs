@@ -10,7 +10,7 @@ Note that the `/data` folder is **not** mounted when your project is building on
 
 #### balenaOS v2.12.0 and above
 
-Beginning with balenaOS v2.12.0, persistent storage is handled through [named volumes][multicontainer]. The behavior is much the same as persistent storage on older host OS versions. In fact, for single-container fleets, the default `docker-compose.yml` sets up a `resin-data` named volume that links to a `/data` directory in the container. The only difference between this and earlier versions is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<APP ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<APP ID>` location used with earlier host OS versions.
+Beginning with balenaOS v2.12.0, persistent storage is handled through [named volumes](/learn/develop/multicontainer/#named-volumes). The behavior is much the same as persistent storage on older host OS versions. In fact, for single-container fleets, the default `docker-compose.yml` sets up a `resin-data` named volume that links to a `/data` directory in the container. The only difference between this and earlier versions is that accessing this data via the host OS is done at `/var/lib/docker/volumes/<APP ID>_resin-data/_data`, rather than the `/mnt/data/resin-data/<APP ID>` location used with earlier host OS versions.
 
 Named volumes can be given arbitrary names and can be linked to a directory in one or more containers. As long as every release includes a `docker-compose.yml` and the volume name does not change, the data in the volume will persist between updates.
 
@@ -30,5 +30,3 @@ If you change volume names regularly, your device will now continue to retain al
 #### Transfer large files
 
 If you have large files you would like your containers to have access to, you can transfer them from your computer directly to your device's SD card. First insert the SD card in your computer and find the `resin-data` partition. Then look for the folder associated with your application, which will either be at `/resin-data/<APP ID>` or `/docker/volumes/<APP ID>_<VOLUME NAME>/_<CONTAINER DIRECTORY>`, depending on your host OS version. Note that these directories will only exist after your application has been started at least once.
-
-[multicontainer]: /learn/develop/multicontainer/#named-volumes
