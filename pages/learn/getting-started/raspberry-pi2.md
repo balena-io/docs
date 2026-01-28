@@ -6,7 +6,7 @@ In this guide, we will help you get started with balenaCloud by:
 * Deploying a hello-world project on the device.
 * Developing the sample project: making changes and testing them on the device in real-time.
 
-Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using balenaCloud and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary](../learn/more/glossary/).
+Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using balenaCloud and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary](../../learn/more/glossary.md).
 
 ## What you'll need
 
@@ -24,13 +24,13 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 
 ## Create a fleet
 
-A fleet is a group of devices that share the same [architecture](../reference/hardware/devices/) and run the same code. Devices are added to fleets and can be moved between fleets at any time.
+A fleet is a group of devices that share the same [architecture](../../reference/hardware/devices.md) and run the same code. Devices are added to fleets and can be moved between fleets at any time.
 
 To create your first fleet, log into your [balenaCloud dashboard](https://dashboard.balena-cloud.com/) and click the **Create fleet** button.
 
 
 
-Enter a fleet name, select the **Raspberry Pi 2** device type, choose the _Starter_ [fleet type](../learn/accounts/fleet-types/), and click **Create new fleet**:
+Enter a fleet name, select the **Raspberry Pi 2** device type, choose the _Starter_ [fleet type](../../learn/accounts/fleet-types.md), and click **Create new fleet**:
 
 
 
@@ -40,11 +40,11 @@ You'll then be redirected to the summary of the newly created fleet, where you c
 
 
 
-balenaCloud builds a custom balenaOS image configured for Raspberry Pi 2 which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
+balenaCloud builds a custom balenaOS image configured for Raspberry Pi 2 which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../../reference/hardware/devices.md) can also be picked to join the fleet.
 
 
 
-Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../understanding/understanding-devices/2.0.0#development-vs-production-images).
+Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../../reference/OS/overview.md#development-vs-production-images).
 
 
 
@@ -60,7 +60,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 Insert the SD card to the host machine.,Write the balenaOS file you downloaded to the SD card. We recommend using &lt;a href&#x3D;&quot;https://etcher.balena.io/&quot;&gt;Etcher&lt;/a&gt;.,Wait for writing of balenaOS to complete.,Remove the SD card from the host machine.,Insert the freshly flashed SD card into the Raspberry Pi 2.,Connect power to the Raspberry Pi 2 to boot the device.
 
-When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Raspberry Pi 2](/faq/troubleshooting/raspberry-pi2) or try our [support channels](../support/).
+When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Raspberry Pi 2](/faq/troubleshooting/raspberry-pi2) or try our [support channels](../../learn/accounts/support-access.md).
 
 ## Install the balena CLI
 
@@ -257,10 +257,10 @@ Once you've finished making your changes, disable local mode and the device will
 
 When it's finished building the device(s) will update as before. Remember anything pushed to the fleet in this way can be applied to 10+ or 1000+ devices with no extra effort! To continue learning, explore parts of the guide in more detail:
 
-* Learn more about [local mode](../learn/develop/local-mode/), which allows you to build and sync code to your device locally for rapid development.
-* Develop an application with [multiple containers](../learn/develop/multicontainer/) to provide a more modular approach to fleet management.
-* Manage your device fleet with the use of [configuration](../learn/manage/configuration/), [environment](../learn/manage/variables/), and [service variables](../learn/manage/variables/).
-* Find out more about the [balena CLI](../reference/cli/) and the functionality it offers.
+* Learn more about [local mode](../../learn/develop/local-mode.md), which allows you to build and sync code to your device locally for rapid development.
+* Develop an application with [multiple containers](../../learn/develop/multicontainer.md) to provide a more modular approach to fleet management.
+* Manage your device fleet with the use of [configuration](../../learn/manage/configuration.md), [environment](../../learn/manage/variables.md), and [service variables](../../learn/manage/variables.md).
+* Find out more about the [balena CLI](../../reference/balena-cli.md) and the functionality it offers.
 * Visit our blog to find step-by-step tutorials for some [classic balena projects](https://blog.balena.io/tags/project).
 * To publish what you will build or have already built, head over to [balenaHub](https://hub.balena.io/).
 * If you find yourself stuck or confused, help is just a [click away](https://www.balena.io/support).

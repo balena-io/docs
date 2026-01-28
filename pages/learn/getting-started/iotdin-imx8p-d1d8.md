@@ -6,13 +6,13 @@ In this guide, we will help you get started with balenaCloud by:
 * Deploying a hello-world project on the device.
 * Developing the sample project: making changes and testing them on the device in real-time.
 
-Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using balenaCloud and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary](../learn/more/glossary/).
+Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using balenaCloud and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary](../../learn/more/glossary.md).
 
 ## What you'll need
 
 
 
-* Your Compulab IOTDIN-iMX8P 1G-8G DRAM device you want to get started with. Check out all of our [supported devices](../reference/hardware/devices/).
+* Your Compulab IOTDIN-iMX8P 1G-8G DRAM device you want to get started with. Check out all of our [supported devices](../../reference/hardware/devices.md).
 * A tool to flash the new operating system on the device. We recommend [Etcher](https://www.balena.io/etcher).
 * A way to connect the device to the internet, either through wifi (if available) or ethernet cable.
 * A method of reliably powering the device.
@@ -21,13 +21,13 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 
 ## Create a fleet
 
-A fleet is a group of devices that share the same [architecture](../reference/hardware/devices/) and run the same code. Devices are added to fleets and can be moved between fleets at any time.
+A fleet is a group of devices that share the same [architecture](../../reference/hardware/devices.md) and run the same code. Devices are added to fleets and can be moved between fleets at any time.
 
 To create your first fleet, log into your [balenaCloud dashboard](https://dashboard.balena-cloud.com/) and click the **Create fleet** button.
 
 
 
-Enter a fleet name, select the **Compulab IOTDIN-iMX8P 1G-8G DRAM** device type, choose the _Starter_ [fleet type](../learn/accounts/fleet-types/), and click **Create new fleet**:
+Enter a fleet name, select the **Compulab IOTDIN-iMX8P 1G-8G DRAM** device type, choose the _Starter_ [fleet type](../../learn/accounts/fleet-types.md), and click **Create new fleet**:
 
 
 
@@ -37,11 +37,11 @@ You'll then be redirected to the summary of the newly created fleet, where you c
 
 
 
-balenaCloud builds a custom balenaOS image configured for Compulab IOTDIN-iMX8P 1G-8G DRAM which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
+balenaCloud builds a custom balenaOS image configured for Compulab IOTDIN-iMX8P 1G-8G DRAM which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../../reference/hardware/devices.md) can also be picked to join the fleet.
 
 
 
-Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../understanding/understanding-devices/2.0.0#development-vs-production-images).
+Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../../reference/OS/overview.md#development-vs-production-images).
 
 
 
@@ -57,7 +57,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 Unpack the balenaOS image you downloaded from balena-cloud.,Make sure the device is not powered and connect the PROG port to your PC using a micro USB cable.,From a Linux-based host, use the [IOT-GATE-iMX8PLUS flashing tools](https://github.com/balena-os/iot-gate-imx8plus-flashtools) to write balenaOS on your device.,After flashing is completed, disconnect the micro USB cable from the PROG port, power off the device and then power it back on.
 
-When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Compulab IOTDIN-iMX8P 1G-8G DRAM](/faq/troubleshooting/iotdin-imx8p-d1d8) or try our [support channels](../support/).
+When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Compulab IOTDIN-iMX8P 1G-8G DRAM](/faq/troubleshooting/iotdin-imx8p-d1d8) or try our [support channels](../../learn/accounts/support-access.md).
 
 ## Install the balena CLI
 
@@ -254,10 +254,10 @@ Once you've finished making your changes, disable local mode and the device will
 
 When it's finished building the device(s) will update as before. Remember anything pushed to the fleet in this way can be applied to 10+ or 1000+ devices with no extra effort! To continue learning, explore parts of the guide in more detail:
 
-* Learn more about [local mode](../learn/develop/local-mode/), which allows you to build and sync code to your device locally for rapid development.
-* Develop an application with [multiple containers](../learn/develop/multicontainer/) to provide a more modular approach to fleet management.
-* Manage your device fleet with the use of [configuration](../learn/manage/configuration/), [environment](../learn/manage/variables/), and [service variables](../learn/manage/variables/).
-* Find out more about the [balena CLI](../reference/cli/) and the functionality it offers.
+* Learn more about [local mode](../../learn/develop/local-mode.md), which allows you to build and sync code to your device locally for rapid development.
+* Develop an application with [multiple containers](../../learn/develop/multicontainer.md) to provide a more modular approach to fleet management.
+* Manage your device fleet with the use of [configuration](../../learn/manage/configuration.md), [environment](../../learn/manage/variables.md), and [service variables](../../learn/manage/variables.md).
+* Find out more about the [balena CLI](../../reference/balena-cli.md) and the functionality it offers.
 * Visit our blog to find step-by-step tutorials for some [classic balena projects](https://blog.balena.io/tags/project).
 * To publish what you will build or have already built, head over to [balenaHub](https://hub.balena.io/).
 * If you find yourself stuck or confused, help is just a [click away](https://www.balena.io/support).

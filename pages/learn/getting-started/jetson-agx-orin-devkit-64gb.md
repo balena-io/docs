@@ -6,13 +6,13 @@ In this guide, we will help you get started with balenaCloud by:
 * Deploying a hello-world project on the device.
 * Developing the sample project: making changes and testing them on the device in real-time.
 
-Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using balenaCloud and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary](../learn/more/glossary/).
+Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using balenaCloud and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary](../../learn/more/glossary.md).
 
 ## What you'll need
 
 
 
-* Your Nvidia Jetson AGX Orin Devkit 64GB device you want to get started with. Check out all of our [supported devices](../reference/hardware/devices/).
+* Your Nvidia Jetson AGX Orin Devkit 64GB device you want to get started with. Check out all of our [supported devices](../../reference/hardware/devices.md).
 * A tool to flash the new operating system on the device. We recommend [Etcher](https://www.balena.io/etcher).
 * A way to connect the device to the internet, either through wifi (if available) or ethernet cable.
 * A method of reliably powering the device.
@@ -21,13 +21,13 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 
 ## Create a fleet
 
-A fleet is a group of devices that share the same [architecture](../reference/hardware/devices/) and run the same code. Devices are added to fleets and can be moved between fleets at any time.
+A fleet is a group of devices that share the same [architecture](../../reference/hardware/devices.md) and run the same code. Devices are added to fleets and can be moved between fleets at any time.
 
 To create your first fleet, log into your [balenaCloud dashboard](https://dashboard.balena-cloud.com/) and click the **Create fleet** button.
 
 
 
-Enter a fleet name, select the **Nvidia Jetson AGX Orin Devkit 64GB** device type, choose the _Starter_ [fleet type](../learn/accounts/fleet-types/), and click **Create new fleet**:
+Enter a fleet name, select the **Nvidia Jetson AGX Orin Devkit 64GB** device type, choose the _Starter_ [fleet type](../../learn/accounts/fleet-types.md), and click **Create new fleet**:
 
 
 
@@ -37,11 +37,11 @@ You'll then be redirected to the summary of the newly created fleet, where you c
 
 
 
-balenaCloud builds a custom balenaOS image configured for Nvidia Jetson AGX Orin Devkit 64GB which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
+balenaCloud builds a custom balenaOS image configured for Nvidia Jetson AGX Orin Devkit 64GB which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../../reference/hardware/devices.md) can also be picked to join the fleet.
 
 
 
-Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../understanding/understanding-devices/2.0.0#development-vs-production-images).
+Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../../reference/OS/overview.md#development-vs-production-images).
 
 
 
@@ -57,7 +57,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 For balenaOS versions v6.1.16 and newer, please ensure your device is running UEFI firmware version 36.3.0. Check and update the [firmware version](https://docs.balena.io/learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit-64gb/#checking-your-jetson-orins-uefi-firmware-version) before proceeding. For balenaOS versions older than v6.1.16, please refer to the [Nvidia Jetson AGX Orin Devkit 64GB legacy flashing](https://github.com/balena-os/jetson-flash?tab&#x3D;readme-ov-file) guide.,Insert the USB key to the host machine.,Write the balenaOS file you downloaded to the USB key. We recommend using &lt;a href&#x3D;&quot;https://etcher.balena.io/&quot;&gt;Etcher&lt;/a&gt;.,Wait for writing of balenaOS to complete.,Remove the USB key from the host machine.,Insert the freshly flashed USB key into the Nvidia Jetson AGX Orin Devkit 64GB.,&lt;strong role&#x3D;&quot;alert&quot;&gt;Warning!&lt;/strong&gt; This will also completely erase internal storage medium, so please make a backup first.,Power on the Nvidia Jetson AGX Orin Devkit 64GB. NOTE: Only If your device is already flashed with a balenaOS version older than v6.1.16, power it on and interrupt booting by pressing the &#x27;Esc&#x27; key when prompted by the UEFI firmware. Enter the Boot Manager Menu of the UEFI firmware and select the attached USB key as boot media, to trigger the provisioning process.,Wait for the Nvidia Jetson AGX Orin Devkit 64GB to finish flashing and shutdown. Please wait until power LED is off.,Remove the USB key from the Nvidia Jetson AGX Orin Devkit 64GB.,Power up the Nvidia Jetson AGX Orin Devkit 64GB. A progress bar will show up on the display while the UEFI firmware is updated. Please do not interrupt this process by turning off power or rebooting the device. Once the firmware update completes, the Nvidia Jetson AGX Orin Devkit 64GB will reset automatically and no other steps are necessary to boot the device.
 
-When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Nvidia Jetson AGX Orin Devkit 64GB](/faq/troubleshooting/jetson-agx-orin-devkit-64gb) or try our [support channels](../support/).
+When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Nvidia Jetson AGX Orin Devkit 64GB](/faq/troubleshooting/jetson-agx-orin-devkit-64gb) or try our [support channels](../../learn/accounts/support-access.md).
 
 ## Install the balena CLI
 
@@ -254,10 +254,10 @@ Once you've finished making your changes, disable local mode and the device will
 
 When it's finished building the device(s) will update as before. Remember anything pushed to the fleet in this way can be applied to 10+ or 1000+ devices with no extra effort! To continue learning, explore parts of the guide in more detail:
 
-* Learn more about [local mode](../learn/develop/local-mode/), which allows you to build and sync code to your device locally for rapid development.
-* Develop an application with [multiple containers](../learn/develop/multicontainer/) to provide a more modular approach to fleet management.
-* Manage your device fleet with the use of [configuration](../learn/manage/configuration/), [environment](../learn/manage/variables/), and [service variables](../learn/manage/variables/).
-* Find out more about the [balena CLI](../reference/cli/) and the functionality it offers.
+* Learn more about [local mode](../../learn/develop/local-mode.md), which allows you to build and sync code to your device locally for rapid development.
+* Develop an application with [multiple containers](../../learn/develop/multicontainer.md) to provide a more modular approach to fleet management.
+* Manage your device fleet with the use of [configuration](../../learn/manage/configuration.md), [environment](../../learn/manage/variables.md), and [service variables](../../learn/manage/variables.md).
+* Find out more about the [balena CLI](../../reference/balena-cli.md) and the functionality it offers.
 * Visit our blog to find step-by-step tutorials for some [classic balena projects](https://blog.balena.io/tags/project).
 * To publish what you will build or have already built, head over to [balenaHub](https://hub.balena.io/).
 * If you find yourself stuck or confused, help is just a [click away](https://www.balena.io/support).
