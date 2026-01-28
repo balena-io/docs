@@ -149,6 +149,14 @@ const emptyDirectory = async () => {
   }
 };
 
+const generateSummary = async (deviceTypes) => {
+  const tmpl = `
+    * [getting-started](pages/learn/getting-started/README.md "Getting Started")
+      ${deviceTypes.map((dt) => (`* [${dt.id}](pages/learn/getting-started/${dt.id}.md "${dt.name}")`)).join('\n      ')}
+  `;
+  console.log(tmpl);
+}
+
 /**
  * This is where the script starts
  */
@@ -159,6 +167,8 @@ const emptyDirectory = async () => {
   const tmpl = await readFile(path.join(__dirname, TEMPLATE_FILE));
 
   await emptyDirectory();
+  
+  await generateSummary(deviceTypes);
 
   const template = Handlebars.compile(tmpl.toString());
 
