@@ -31,7 +31,7 @@ jobs:
 
       # fetch external files && Building the docs
       - name: Build the docs
-        uses: actions/setup-node@v6.2.0
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version: 22
 
@@ -40,7 +40,7 @@ jobs:
       - name: Restore lychee cache
         id: restore-cache
         if: github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
-        uses: actions/cache/restore@v5.0.2
+        uses: actions/cache/restore@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
@@ -69,7 +69,7 @@ jobs:
             automated issue
 
       - name: Save lychee cache
-        uses: actions/cache/save@v5.0.2
+        uses: actions/cache/save@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
         if: always()
         with:
           path: .lycheecache
