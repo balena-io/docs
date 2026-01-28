@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update actions/checkout action to v6
+      hash: e0d643fb9296696923cef04a36894ec8d1310137
+      body: |
+        Update actions/checkout from 4 to 6
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 6.14.7
+  title: ""
+  date: 2026-01-28T14:23:49.334Z
+- commits:
     - subject: Update GitHub Actions
       hash: 50950145845fa85cacb2b7d87d1b2fb8b14f7786
       body: |
