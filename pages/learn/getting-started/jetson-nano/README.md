@@ -1,2 +1,0 @@
-# jetson-nano
-

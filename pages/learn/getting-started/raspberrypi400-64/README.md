@@ -1,2 +1,0 @@
-# raspberrypi400-64
-

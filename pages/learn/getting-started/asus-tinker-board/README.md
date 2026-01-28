@@ -1,2 +1,0 @@
-# asus-tinker-board
-

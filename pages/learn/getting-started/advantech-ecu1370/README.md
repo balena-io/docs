@@ -1,2 +1,0 @@
-# advantech-ecu1370
-

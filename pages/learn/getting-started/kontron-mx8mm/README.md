@@ -1,2 +1,0 @@
-# kontron-mx8mm
-

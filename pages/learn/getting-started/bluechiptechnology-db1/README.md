@@ -1,2 +1,0 @@
-# bluechiptechnology-db1
-

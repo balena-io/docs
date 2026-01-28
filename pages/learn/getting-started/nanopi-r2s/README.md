@@ -1,2 +1,0 @@
-# nanopi-r2s
-

@@ -1,8 +1,8 @@
-# Getting Started: \{{ $device.name \}} and \{{ $language.name \}}
+# Getting Started: {{ $device.name \}} and {{ $language.name \}}
 
 In this guide, we will help you get started with balenaCloud by:
 
-* Setting up your **\{{ $device.name \}}** device and bringing it online on the balenaCloud dashboard.
+* Setting up your **{{ $device.name \}}** device and bringing it online on the balenaCloud dashboard.
 * Deploying a hello-world project on the device.
 * Developing the sample project: making changes and testing them on the device in real-time.
 
@@ -10,14 +10,14 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 
 ## What you'll need
 
-\{{#if $whatYouNeed\}} \{{{$whatYouNeed\}}} \{{else\}}
+{{#if $whatYouNeed\}} {{{$whatYouNeed\}}} {{else\}}
 
-* Your \{{ $device.name \}} device you want to get started with. Check out all of our [supported devices](../reference/hardware/devices/).
+* Your {{ $device.name \}} device you want to get started with. Check out all of our [supported devices](../reference/hardware/devices/).
 * A tool to flash the new operating system on the device. We recommend [Etcher](https://www.balena.io/etcher).
 * A way to connect the device to the internet, either through wifi (if available) or ethernet cable.
 * A method of reliably powering the device.
 * A [balenaCloud account](https://dashboard.balena-cloud.com/signup). BalenaCloud is free for up to 10 devices and requires no payment method to sign up.
-* Install [balena CLI](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md) to develop & manage your device on balenaCloud. \{{/if\}}
+* Install [balena CLI](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md) to develop & manage your device on balenaCloud. {{/if\}}
 
 ## Create a fleet
 
@@ -27,17 +27,17 @@ To create your first fleet, log into your [balenaCloud dashboard](https://dashbo
 
 
 
-Enter a fleet name, select the **\{{ $device.name \}}** device type, choose the _Starter_ [fleet type](../learn/accounts/fleet-types/), and click **Create new fleet**:
+Enter a fleet name, select the **{{ $device.name \}}** device type, choose the _Starter_ [fleet type](../learn/accounts/fleet-types/), and click **Create new fleet**:
 
 
 
-You'll then be redirected to the summary of the newly created fleet, where you can add your first \{{ $device.name \}}.
+You'll then be redirected to the summary of the newly created fleet, where you can add your first {{ $device.name \}}.
 
 ## Add a device and download OS
 
 
 
-balenaCloud builds a custom balenaOS image configured for \{{ $device.name \}} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
+balenaCloud builds a custom balenaOS image configured for {{ $device.name \}} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
 
 
 
@@ -49,15 +49,15 @@ Select the type of network connection you'll be using: _Ethernet Only_ or _Wifi 
 
 
 
-Finally, click the **Download balenaOS** button. When the download completes, you should have a zipped image file with a name like `balena-First-Fleet-{{ $device.id }}-2.80.3+rev1-v12.7.0.img.zip`.
+Finally, click the **Download balenaOS** button. When the download completes, you should have a zipped image file with a name like `balena-First-Fleet-raspberry-pi2-2.80.3+rev1-v12.7.0.img.zip`.
 
 ## Provision device
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-\{{ $device.instructions \}}
+{{ $device.instructions \}}
 
-When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our \[troubleshooting guide for \{{ $device.name \}}]\(/faq/troubleshooting/\{{ $device.id \}}) or try our [support channels](../support/).
+When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our \[troubleshooting guide for {{ $device.name \}}]\(/faq/troubleshooting/{{ $device.id \}}) or try our [support channels](../support/).
 
 ## Install the balena CLI
 
@@ -65,19 +65,19 @@ Now that you have an `operational` device in your fleet, it's time to deploy som
 
 {% tabs %}
 {% tab title="OSX" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/{{ $latestCLIVersion }}/balena-cli-{{ $latestCLIVersion }}-macOS-x64-installer.pkg).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v23.2.30/balena-cli-v23.2.30-macOS-x64-installer.pkg).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open the Terminal app ([Terminal User guide](https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac)).
 {% endtab %}
 
 {% tab title="Windows" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/{{ $latestCLIVersion }}/balena-cli-{{ $latestCLIVersion }}-windows-x64-installer.exe).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v23.2.30/balena-cli-v23.2.30-windows-x64-installer.exe).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open a command prompt: Click on the Windows Start Menu, type PowerShell, and then click on Windows PowerShell.
 {% endtab %}
 
 {% tab title="Linux" %}
-1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/{{ $latestCLIVersion }}/balena-cli-{{ $latestCLIVersion }}-linux-x64-standalone.tar.gz).
+1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/v23.2.30/balena-cli-v23.2.30-linux-x64-standalone.tar.gz).
 2. Extract the contents of the tar.gz file to any folder you choose, for example `/home/james`. The extracted contents will include a `balena/bin` folder.
 3. Add that folder (e.g. `/home/james/balena/bin`) to the PATH environment variable. Check this [StackOverflow](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix) post for instructions. Close and re-open the terminal window so that the changes to PATH can take effect.
 {% endtab %}
@@ -115,15 +115,10 @@ After login, test the balena CLI by running the `balena fleet list` command, whi
 ```shell
 $ balena fleets
 ID    NAME         SLUG                                 DEVICE TYPE           DEVICE COUNT   ONLINE DEVICES
-98264 First-Fleet  balena CLI/first-fleet    {{ $device.name }}    0              0
+98264 First-Fleet  balena CLI/first-fleet    Raspberry Pi 2    0              0
 ```
 
 {% tabs %}
-{{#each $language}}
-{% tab title="{{ this.name }}" %}
-A nice project to try is the [balena-{{ this.id }}-hello-world](https://github.com/balena-io-examples/balena-{{ this.id }}-hello-world) project. It's a {{ this.name }} web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-{{ this.id }}-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
-{% endtab %}
-{{/each}}
 {% endtabs %}
 
 

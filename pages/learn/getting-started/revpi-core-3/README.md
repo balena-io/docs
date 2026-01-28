@@ -1,2 +1,0 @@
-# revpi-core-3
-

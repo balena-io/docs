@@ -1,2 +1,0 @@
-# odroid-xu4
-

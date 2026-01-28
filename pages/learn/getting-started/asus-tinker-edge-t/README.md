@@ -1,2 +1,0 @@
-# asus-tinker-edge-t
-

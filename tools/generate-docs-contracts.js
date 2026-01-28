@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { writeFile, readFile, mkdir } = require('fs/promises');
+const { writeFile, readFile, readdir, mkdir, rm, unlink } = require('fs/promises');
 const path = require('path');
 const { getSdk } = require('balena-sdk')
 const Handlebars = require('handlebars');
@@ -13,7 +13,6 @@ const DEVICE_IMG_PATH = '../static/img/device/';
 const TEMPLATE_FILE = '../templates/getting-started.md';
 const WHAT_YOU_NEED_TEMPLATE_PATH = '../templates/whatYouNeed/';
 const DEST_FOLDER = '../pages/learn/getting-started/';
-const STATIC_PATH = '../static';
 
 const
   balena = getSdk({
@@ -117,7 +116,7 @@ async function supportedDeviceTypeContract() {
     ],
   })
 
-  console.log('Generating docs specific contracts from scratch ... this will take a moment.')
+  console.log('Generating Getting Started Guides...')
   return await Promise.all(contracts.map(async (contract) => ({
       id: contract.contract.slug,
       name: contract.contract.name,
@@ -144,14 +143,10 @@ const getLatestCLIVersion = async () => {
   }
 };
 
-const createDirectories = async (deviceTypes) => {
-  await Promise.all(
-    deviceTypes.map((deviceType) => {
-      LANGUAGES.map((language) => {
-        mkdir(path.join(__dirname, DEST_FOLDER, deviceType['id'], language['id']), { recursive: true });
-      });
-    }),
-  );
+const emptyDirectory = async () => {
+  for (const file of await readdir(path.join(__dirname, DEST_FOLDER))) {
+    await unlink(path.join(path.join(__dirname, DEST_FOLDER), file));
+  }
 };
 
 /**
@@ -163,7 +158,7 @@ const createDirectories = async (deviceTypes) => {
 
   const tmpl = await readFile(path.join(__dirname, TEMPLATE_FILE));
 
-  await createDirectories(deviceTypes);
+  await emptyDirectory();
 
   const template = Handlebars.compile(tmpl.toString());
 
@@ -171,34 +166,24 @@ const createDirectories = async (deviceTypes) => {
 
   await Promise.all(
     deviceTypes.map(async (deviceType) => {
-      LANGUAGES.map(async (language) => {
-        let whatYouNeedSection;
-        try {
-          const whatYouNeedMdFile = await readFile(path.join(__dirname, WHAT_YOU_NEED_TEMPLATE_PATH, `${deviceType['id']}.md`));
-          const wynTmpl = Handlebars.compile(whatYouNeedMdFile.toString());
-          whatYouNeedSection = wynTmpl({
-            $language: language,
-            $device: deviceType,
-          });
-        } catch (e) {
-
-        }
-
-        const compiledTemplate = template({
-          $language: language,
+      let whatYouNeedSection;
+      try {
+        const whatYouNeedMdFile = await readFile(path.join(__dirname, WHAT_YOU_NEED_TEMPLATE_PATH, `${deviceType['id']}.md`));
+        const whatYouNeedTemplate = Handlebars.compile(whatYouNeedMdFile.toString());
+        whatYouNeedSection = whatYouNeedTemplate({
           $device: deviceType,
-          $latestCLIVersion: latestCLIVersion,
-          $whatYouNeed: whatYouNeedSection,
         });
-        await writeFile(path.join(__dirname, DEST_FOLDER, deviceType['id'], language['id'], 'index.md'), compiledTemplate);
+      } catch (e) {
+        // not all devices have specific "what you'll need" sections, in that case the template falls back to default content
+      }
+
+      const compiledTemplate = template({
+        $languages: LANGUAGES,
+        $device: deviceType,
+        $latestCLIVersion: latestCLIVersion,
+        $whatYouNeed: whatYouNeedSection,
       });
+      await writeFile(path.join(__dirname, DEST_FOLDER, `${deviceType['id']}.md`), compiledTemplate);
     }),
   );
-  // await Promise.all(LANGUAGES.map((lang) => {
-  //     const template = Handlebars.compile(tmpl);
-  //     writeFile(path.join(__dirname, './output/', 'yo.md'), template({
-  //         $language: lang,
-  //         $device: deviceTypes[0],
-  //     }));
-  // }));
 })();

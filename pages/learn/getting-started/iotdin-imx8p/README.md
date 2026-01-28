@@ -1,2 +1,0 @@
-# iotdin-imx8p
-
