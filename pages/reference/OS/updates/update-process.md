@@ -7,7 +7,9 @@ excerpt: Details of the balenaOS self-service update process
 
 The ability to remotely update the entire host operating system (OS) of your device, rather than just the user application, is a core feature of balena. Performing updates may feel like an opaque process, so we thought it would be useful to break it down.
 
-**Note:** Once a host OS update is successful, it is not possible to roll back to a previous OS version (except via [automatic rollbacks](#automatic-rollbacks) as noted below).
+{% hint style="warning" %}
+Once a host OS update is successful, it is not possible to roll back to a previous OS version (except via [automatic rollbacks](update-process.md#automatic-rollbacks) as noted below).
+{% endhint %}
 
 In general, host OS updates are meant to be atomic: if an update is run, it either finishes correctly or it fails and leaves the system in its previous, usable state. If deploying the new root file system is unsuccessful, the boot settings are not switched over to the new partition. This means the device can be rebooted with the previous OS version and no noticeable changes. For failures related to the boot partition, the latest versions of balenaOS have a rollback feature that will leave the partition in a good state. In the update process, an updater script gets transferred to the device to handle the update process, as described in detail below.
 
@@ -27,4 +29,4 @@ For devices running balenaOS 2.x, a status of `OS update failed` means the user 
 
 Rollbacks is a framework designed to automatically roll back the OS update in case something goes wrong.
 
-There are two rollback mechanisms in the OS, covering different update failure modes. One based on health checks called the `rollback-health`, and the recognizing if the new system is unbootable for some reason, the `rollback-altboot`. Learn more about [rollback mechanisms](/reference/OS/updates/rollbacks/).
+There are two rollback mechanisms in the OS, covering different update failure modes. One based on health checks called the `rollback-health`, and the recognizing if the new system is unbootable for some reason, the `rollback-altboot`. Learn more about [rollback mechanisms](../../../../reference/OS/updates/rollbacks/).

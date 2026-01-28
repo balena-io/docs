@@ -5,11 +5,13 @@ excerpts: Configuration options to expose more device functionality to balenaOS
 
 # Advanced boot settings
 
-**Warning:** This page contains details of advanced configuration options that expose more functionality, but any mistakes may potentially leave a device inaccessible. Be sure to try your changes in a controlled environment before applying them to production devices.
+{% hint style="danger" %}
+This page contains details of advanced configuration options that expose more functionality, but any mistakes may potentially leave a device inaccessible. Be sure to try your changes in a controlled environment before applying them to production devices.
+{% endhint %}
 
 ## Raspberry Pi
 
-The Raspberry Pi exposes device configuration options via a text file on the [boot partition](/reference/OS/overview/2.x/#image-partition-layout) named [`config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html). You can change boot options in this file, either by manually editing it before the device's first boot or editing the default [configuration](/reference/supervisor/configuration-list) values using the device [Configuration](/learn/manage/configuration) tab in the balenaCloud dashboard.
+The Raspberry Pi exposes device configuration options via a text file on the [boot partition](overview.md#image-partition-layout) named [`config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html). You can change boot options in this file, either by manually editing it before the device's first boot or editing the default [configuration](../../../reference/supervisor/configuration-list/) values using the device [Configuration](../../learn/manage/configuration.md) tab in the balenaCloud dashboard.
 
 The boot partition is mounted on the device at `/mnt/boot`, so the file is located at `/mnt/boot/config.txt` on the device. To view the contents of `config.txt` on a provisioned device, use the following commands:
 
@@ -20,11 +22,11 @@ $ cat /mnt/boot/config.txt
 
 ### Modifying `config.txt` locally before the first boot
 
-Before the device is [provisioned](/learn/welcome/primer/#device-provisioning), you may edit `config.txt` by mounting a flashed SD card (with the partition label `resin-boot`) and editing the file directly. Any values added to `config.txt` will be added to the balenaCloud API during device provisioning and displayed on the dashboard. This will only work if you edit the file before the device's first boot, as after device provisioning, any changes will be overwritten by the device supervisor with values read from the balenaCloud API.
+Before the device is [provisioned](../../learn/welcome/primer.md#device-provisioning), you may edit `config.txt` by mounting a flashed SD card (with the partition label `resin-boot`) and editing the file directly. Any values added to `config.txt` will be added to the balenaCloud API during device provisioning and displayed on the dashboard. This will only work if you edit the file before the device's first boot, as after device provisioning, any changes will be overwritten by the device supervisor with values read from the balenaCloud API.
 
 ### Modifying `config.txt` using configuration variables
 
-After the device has been [provisioned](/learn/welcome/primer/#device-provisioning), you can modify the values in `config.txt` using the [configuration](/learn/manage/configuration) tab on the dashboard. In order to modify a `config.txt` variable, the device supervisor will apply the changes and reboot the device.
+After the device has been [provisioned](../../learn/welcome/primer.md#device-provisioning), you can modify the values in `config.txt` using the [configuration](../../learn/manage/configuration.md) tab on the dashboard. In order to modify a `config.txt` variable, the device supervisor will apply the changes and reboot the device.
 
 Variables that start with the `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` prefix will be added to the `config.txt` file, replacing any preexisting values in the file. For example, a variable named `BALENA_HOST_CONFIG_start_x` with the value of `1` will result in the following entry in `config.txt`:
 
@@ -32,7 +34,7 @@ Variables that start with the `BALENA_HOST_CONFIG_` or `RESIN_HOST_CONFIG_` pref
 start_x=1
 ```
 
-To manage the configuration via the dashboard, modify the variables via the _Configuration_ tab on the [fleet](/learn/manage/configuration/#fleet-configuration-management) or [device](/learn/manage/configuration/#device-configuration-management) level. The variables with the same named defined at the device level, will override the variables defined fleet wide. See [Custom Configuration](/learn/manage/configuration/#adding-custom-configuration) in order to modify configuration options remotely using the balenaCloud dashboard.
+To manage the configuration via the dashboard, modify the variables via the _Configuration_ tab on the [fleet](../../learn/manage/configuration.md#fleet-configuration-management) or [device](../../learn/manage/configuration.md#device-configuration-management) level. The variables with the same named defined at the device level, will override the variables defined fleet wide. See [Custom Configuration](../../learn/manage/configuration.md#adding-custom-configuration) in order to modify configuration options remotely using the balenaCloud dashboard.
 
 ### GPU Memory
 
@@ -53,26 +55,28 @@ The BCM2837 on the Raspberry Pi 3 has 2 built-in [UARTs](https://www.raspberrypi
 
 This has a number of consequences for users of the serial interface:
 
-- The /dev/ttyAMA0 previously used to access the UART now connects to Bluetooth.
-- The mini UART is now available on /dev/ttyS0. This is disabled by default for [production images](/reference/OS/overview/2.x/#variants-of-balenaos) and enabled by default for [development images](/reference/OS/overview/2.x/#variants-of-balenaos).
-- The mini UART is a secondary low throughput UART intended to be used as a console. it supports the following functionality:
-  - 7 or 8 bit operation.
-  - 1 start and 1 stop bit.
-  - No parities.
-  - Break generation.
-  - 8 symbols deep FIFOs for receive and transmit.
-  - SW controlled RTS, SW readable CTS.
-  - Auto flow control with programmable FIFO level.
-  - 16550 like registers.
-  - Baudrate derived from system clock.
+* The /dev/ttyAMA0 previously used to access the UART now connects to Bluetooth.
+* The mini UART is now available on /dev/ttyS0. This is disabled by default for [production images](overview.md#development-vs.-production-mode) and enabled by default for [development images](overview.md#development-vs.-production-mode).
+* The mini UART is a secondary low throughput UART intended to be used as a console. it supports the following functionality:
+  * 7 or 8 bit operation.
+  * 1 start and 1 stop bit.
+  * No parities.
+  * Break generation.
+  * 8 symbols deep FIFOs for receive and transmit.
+  * SW controlled RTS, SW readable CTS.
+  * Auto flow control with programmable FIFO level.
+  * 16550 like registers.
+  * Baudrate derived from system clock.
 
-The mini UART is enabled by default for development images. For production images either enable it using the [Configuration](/learn/manage/configuration) tab or before device provisioning by adding the following entry to `config.txt`:
+The mini UART is enabled by default for development images. For production images either enable it using the [Configuration](../../learn/manage/configuration.md) tab or before device provisioning by adding the following entry to `config.txt`:
 
 ```
 enable_uart=1
 ```
 
-**Note:** For further information on UART device tree overlays, see the [Raspberry Pi documentation](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts).
+{% hint style="warning" %}
+For further information on UART device tree overlays, see the [Raspberry Pi documentation](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts).
+{% endhint %}
 
 ### Setting device tree overlays (`dtoverlay`) and parameters (`dtparam`)
 
@@ -111,4 +115,6 @@ This modifies each parameter to be on its own line in order to avoid the 80 char
 
 To disable the Raspberry Pi rainbow splash screen, add the `disable_splash=1` entry to `config.txt`.
 
-**Note:** This setting disables the Raspberry Pi rainbow splash screen but does not disable the balena logo splash screen. If you would like to replace the balena logo with your custom splash logo, you must do so via the [Configuration page](/learn/manage/configuration/#overriding-the-splash-screen).
+{% hint style="warning" %}
+This setting disables the Raspberry Pi rainbow splash screen but does not disable the balena logo splash screen. If you would like to replace the balena logo with your custom splash logo, you must do so via the [Configuration page](../../learn/manage/configuration.md#overriding-the-splash-screen).
+{% endhint %}

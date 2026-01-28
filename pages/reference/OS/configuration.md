@@ -1,28 +1,21 @@
 ---
 title: Configuration
-excerpt: Instructions for editing and customizing config.json for modifying the behavior of balenaOS
+excerpt: >-
+  Instructions for editing and customizing config.json for modifying the
+  behavior of balenaOS
 ---
 
 # Configuring balenaOS
 
 ## About config.json
 
-A balenaOS image, by default, does not include any configuration information
-to associate it with a fleet. When a customer downloads a provisioning
-image from the Dashboard, balenaCloud injects the configuration for the specific
-fleet the image is being downloaded for. Similarly, the balena CLI allows
-the download of a balenaOS image for a device type (and specific version), but
-requires that this image has a configuration added (usually via the use of
-`balena os configure`) before flashing to bootable media.
+A balenaOS image, by default, does not include any configuration information to associate it with a fleet. When a customer downloads a provisioning image from the Dashboard, balenaCloud injects the configuration for the specific fleet the image is being downloaded for. Similarly, the balena CLI allows the download of a balenaOS image for a device type (and specific version), but requires that this image has a configuration added (usually via the use of `balena os configure`) before flashing to bootable media.
 
-**Note:** The `config.json` file is different from the [`config.txt`](/reference/OS/advanced/#configtxt) file, also located in the boot partition, which is used by the Raspberry Pi to set device configuration options.
+{% hint style="warning" %}
+The `config.json` file is different from the [`config.txt`](advanced.md#modifying-config.txt-locally-before-the-first-boot) file, also located in the boot partition, which is used by the Raspberry Pi to set device configuration options.
+{% endhint %}
 
-The behavior of balenaOS can be configured by editing the
-`config.json` file. This file is located in the boot partition accepts a
-[range of fields](#valid-fields) to modify the behavior of the host OS.
-The boot partition will be the one that shows up, usually named `resin-boot`.
-On-device, the boot partition is mounted at `/mnt/boot/`. Assuming you're
-still logged into your debug device, run the following:
+The behavior of balenaOS can be configured by editing the `config.json` file. This file is located in the boot partition accepts a [range of fields](configuration.md#valid-fields) to modify the behavior of the host OS. The boot partition will be the one that shows up, usually named `resin-boot`. On-device, the boot partition is mounted at `/mnt/boot/`. Assuming you're still logged into your debug device, run the following:
 
 ```shell
 root@f220105:~# ls -lah /mnt/boot
@@ -56,16 +49,9 @@ drwxr-xr-x 2 root root  512 Aug 19 10:24 splash
 drwxr-xr-x 2 root root  512 Jul  8 19:55 system-connections
 ```
 
-As you can see, all the boot required files exist in the root, including
-`config.json`, and it is from the `/mnt/boot` mountpoint that any services that
-require access to files on the boot partition (including the configuration)
-read this data.
+As you can see, all the boot required files exist in the root, including `config.json`, and it is from the `/mnt/boot` mountpoint that any services that require access to files on the boot partition (including the configuration) read this data.
 
-**Important note:** There is an occasional misunderstanding that the directory
-`/resin-boot` when on-device is the correct directory to modify files in.
-This is _not_ the case, and in fact this directory is a pre-built directory
-that exists as part of the root FS partition, and _not_ the mounted boot
-partition. Let's verify this:
+**Important note:** There is an occasional misunderstanding that the directory `/resin-boot` when on-device is the correct directory to modify files in. This is _not_ the case, and in fact this directory is a pre-built directory that exists as part of the root FS partition, and _not_ the mounted boot partition. Let's verify this:
 
 ```shell
 root@f220105:~# cat /resin-boot/config.json
@@ -75,11 +61,7 @@ root@f220105:~# cat /resin-boot/config.json
 }
 ```
 
-As you can see, there's very little information in the configuration file in
-the `/resin-boot` directory, and certainly nothing that associates it with a
-fleet. On the other hand, if we look at `/mnt/boot/config.json` you can
-see that all the required information for the device to be associated with its
-fleet exists:
+As you can see, there's very little information in the configuration file in the `/resin-boot` directory, and certainly nothing that associates it with a fleet. On the other hand, if we look at `/mnt/boot/config.json` you can see that all the required information for the device to be associated with its fleet exists:
 
 ```shell
 root@f220105:~# cat /mnt/boot/config.json | jq
@@ -106,35 +88,32 @@ root@f220105:~# cat /mnt/boot/config.json | jq
 }
 ```
 
-Key naming in `config.json` still adheres to the "legacy" convention of
-balenaCloud applications instead of fleets. For details, refer to the [blog post](https://www.balena.io/blog/the-road-to-multi-app-transitioning-balenacloud-applications-to-fleets/).
+Key naming in `config.json` still adheres to the "legacy" convention of balenaCloud applications instead of fleets. For details, refer to the [blog post](https://www.balena.io/blog/the-road-to-multi-app-transitioning-balenacloud-applications-to-fleets/).
 
-There's a fairly easy way to remember which is the right place, the root FS
-is read-only, so if you try and modify the `config.json` you'll be told it's
-read-only.
+There's a fairly easy way to remember which is the right place, the root FS is read-only, so if you try and modify the `config.json` you'll be told it's read-only.
 
 ## Configuring config.json
 
-Before the device is [provisioned](/learn/welcome/primer/#device-provisioning), you may edit `config.json` by mounting a flashed SD card (with the partition label `resin-boot`) and editing the file directly. The [boot partition](/reference/OS/overview/2.x/#stateless-and-read-only-rootfs) is mounted on the device at `/mnt/boot`, and so on the device, the file is located at `/mnt/boot/config.json`. For example, to output a formatted version of `config.json` on a device, use the following commands:
+Before the device is [provisioned](../../learn/welcome/primer.md#device-provisioning), you may edit `config.json` by mounting a flashed SD card (with the partition label `resin-boot`) and editing the file directly. The [boot partition](overview.md#stateless-and-read-only-rootfs) is mounted on the device at `/mnt/boot`, and so on the device, the file is located at `/mnt/boot/config.json`. For example, to output a formatted version of `config.json` on a device, use the following commands:
 
 ```shell
 balena ssh <uuid>
 cat /mnt/boot/config.json | jq '.'
 ```
 
-**Warning:** Editing config.json on a provisioned device should be done very carefully as any mistakes in the syntax of this file can leave a device inaccessible. If you do make a mistake, ensure that you do not
-exit the device's SSH connection until the configuration _is_ correct.
+{% hint style="danger" %}
+Editing config.json on a provisioned device should be done very carefully as any mistakes in the syntax of this file can leave a device inaccessible. If you do make a mistake, ensure that you do not exit the device's SSH connection until the configuration _is_ correct.
+{% endhint %}
 
-After provisioning, editing `config.json` as described above is not reliable or advisable because the [supervisor](/reference/supervisor/supervisor-api/) may overwrite certain fields, such as `persistentLogging`, with values read from the balenaCloud API. To safely modify the values of `config.json` on a provisioned device use one of the following methods:
+After provisioning, editing `config.json` as described above is not reliable or advisable because the [supervisor](../../../reference/supervisor/supervisor-api/) may overwrite certain fields, such as `persistentLogging`, with values read from the balenaCloud API. To safely modify the values of `config.json` on a provisioned device use one of the following methods:
 
-- Update the device [hostname](#hostname) via the [supervisor API](/reference/supervisor/supervisor-api/#patch-v1devicehost-config).
-- Modify the [persistent logging](#persistentlogging) configuration via device [configuration](/learn/manage/configuration/) tab in the balenaCloud dashboard.
-- Apply `config.json` updates remotely via the balena CLI using the [configizer project](https://github.com/balena-io-playground/configizer).
+* Update the device [hostname](configuration.md#hostname) via the [supervisor API](../../../reference/supervisor/supervisor-api/#patch-v1devicehost-config).
+* Modify the [persistent logging](configuration.md#persistentlogging) configuration via device [configuration](../../learn/manage/configuration.md) tab in the balenaCloud dashboard.
+* Apply `config.json` updates remotely via the balena CLI using the [configizer project](https://github.com/balena-io-playground/configizer).
 
 Alternatively, you can always reprovision a device with an updated `config.json` file.
 
-As an example, we're going to change the hostname from the short UUID of the
-device to something else. We will start by taking a backup of the config.json and printing out the file using the `jq` command. Here, we have changed the value of `hostname` field to `debug-device`
+As an example, we're going to change the hostname from the short UUID of the device to something else. We will start by taking a backup of the config.json and printing out the file using the `jq` command. Here, we have changed the value of `hostname` field to `debug-device`
 
 ```shell
 root@f220105:~# cd /mnt/boot/
@@ -169,23 +148,17 @@ root@f220105:/mnt/boot# cat config.json | jq
 root@f220105:/mnt/boot# reboot
 ```
 
-The reboot is required as the hostname change will not be picked up until the
-device restarts. Wait a little while, and then SSH back into the device, we'll
-see that the hostname has changed:
+The reboot is required as the hostname change will not be picked up until the device restarts. Wait a little while, and then SSH back into the device, we'll see that the hostname has changed:
 
 ```shell
 root@debug-device:~#
 ```
 
-Whilst making the changes, the new configuration is written to the `config.json`
-file, whilst we have a backup of the original (`config.json.backup`). Remember,
-should you need to change anything, _always_ keep a copy of the original configuration
-so you can restore it before you exit the device. Check out the
-[valid fields](#sample-configjson) available to be configured on a balena device.
+Whilst making the changes, the new configuration is written to the `config.json` file, whilst we have a backup of the original (`config.json.backup`). Remember, should you need to change anything, _always_ keep a copy of the original configuration so you can restore it before you exit the device. Check out the [valid fields](configuration.md#sample-config.json) available to be configured on a balena device.
 
 ## Sample config.json
 
-The following example provides all customizable configuration options available in `config.json`. Full details about each option may be found in the [valid fields](#valid-fields) section.
+The following example provides all customizable configuration options available in `config.json`. Full details about each option may be found in the [valid fields](configuration.md#valid-fields) section.
 
 ```json
 {
@@ -219,6 +192,4 @@ The following example provides all customizable configuration options available 
 
 ## Valid fields
 
-{{> "meta-balena/config-json" }}
-
-[country-codes]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+\{{> "meta-balena/config-json" \}}
