@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update dependency lodash.js to v4.17.21
+      hash: 1df46248b4098c34838eab0233afa66b7d4688b5
+      body: |
+        Update lodash.js from 4.17.15 to 4.17.21
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 6.14.3
+  title: ""
+  date: 2026-01-28T01:35:16.409Z
+- commits:
     - subject: Update dependency lodash to v4.17.23 [SECURITY]
       hash: 779e2b9eb8dbb3665eee0022409a1469bbc9532e
       body: |
