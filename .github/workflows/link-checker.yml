@@ -25,7 +25,7 @@ jobs:
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
@@ -59,7 +59,7 @@ jobs:
 
       - name: Create Issue From File
         if: env.lychee_exit_code != 0 && github.event_name == 'schedule'
-        uses: peter-evans/create-issue-from-file@v5.0.0
+        uses: peter-evans/create-issue-from-file@e8ef132d6df98ed982188e460ebb3b5d4ef3a9cd # v5.0.1
         with:
           title: Link Checker Report
           token: ${{ secrets.GITHUB_TOKEN }}
