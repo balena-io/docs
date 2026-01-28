@@ -1,55 +1,32 @@
+#!/usr/bin/env node
+
+const { writeFile, readFile, mkdir } = require('fs/promises');
+const path = require('path');
 const { getSdk } = require('balena-sdk')
-const { writeFile, access, constants } = require('fs/promises')
-const path = require('path')
-const { NodeHtmlMarkdown } = require('node-html-markdown')
+const Handlebars = require('handlebars');
 
-const balena = getSdk({
-  apiUrl: "https://api.balena-cloud.com/",
-  dataDirectory: "/opt/local/balena"
-});
+const LANGUAGES = require('../config/dictionaries/language.json');
 
+const CLI_LATEST_VERSION_URL = 'https://api.github.com/repos/balena-io/balena-cli/releases/latest';
+const DEVICE_IMG_URL = '/img/device/';
+const DEVICE_IMG_PATH = '../static/img/device/';
+const TEMPLATE_FILE = '../templates/getting-started.md';
+const WHAT_YOU_NEED_TEMPLATE_PATH = '../templates/whatYouNeed/';
+const DEST_FOLDER = '../pages/learn/getting-started/';
+const STATIC_PATH = '../static';
 
-/**
- * Wrote logic to accurately output the default bootMedia being used by the device type as 
- * provided by the instructions mentioned in contracts README. 
- * 
- * After cleaning up the partials, chose to not use the following code since there wasn no need 
- * for it. 
- * 
- * @param {*} media 
- * @param {*} flashProtocol 
- * @returns 
- */
-// function bootMediaDecider(media, flashProtocol) {
-//   if (media.defaultBoot === "sdcard") {
-//     return "SD card"
-//   }
-//   if (media.defaultBoot === "image") {
-//     return "image"
-//   }
-//   else if (media.defaultBoot === "internal") {
-//     if (media.altBoot === undefined) {
-//       if (flashProtocol === "jetsonFlash" || flashProtocol === "RPIBOOT") {
-//         return "eMMC"
-//       }
-//     } else {
-//       if (media.altBoot.length === 1 && media.altBoot[0] === "sdcard") {
-//         return "SD Card"
-//       }
-//       else if (media.altBoot.length === 1 && media.altBoot[0] === "usb_mass_storage") {
-//         return "USB key"
-//       } else if (media.altBoot.includes('usb_mass_storage'))
-//         return "USB Key"
-//     }
-//   }
-// }
+const
+  balena = getSdk({
+    apiUrl: 'https://api.balena-cloud.com/',
+    dataDirectory: '/opt/local/balena',
+  });
 
 const baseType = {
-  'png': 'png', 
+  'png': 'png',
   'jpg': 'jpg',
   'jpeg': 'jpg',
   'svg+xml': 'svg',
-  'svg': 'svg'
+  'svg': 'svg',
 };
 
 /**
@@ -67,33 +44,29 @@ function img(data) {
 
   return {
     extname: '.' + extname,
-    base64: match[2]
+    base64: match[2],
   };
 }
 
 /**
- * 
+ *
  * Using Data URI for SVG in base64 encoding lead to one of the components in stack stripping/
  * sanitizing the deviceType logos when testing locally. It's yet to be investigated as to why
- * the `src` tag was being stripped when testing locally but till then using this method to 
+ * the `src` tag was being stripped when testing locally but till then using this method to
  * convert base64 Data URI to SVG which is not ideal
- * 
- * @param {*} data 
- * @param {*} destpath 
- * @param {*} name 
- * @returns 
+ *
+ * @param {*} data
+ * @param {*} destpath
+ * @param {*} name
+ * @returns
  */
-const svgCreator = async function (data, destpath, name) {
+const svgCreator = async function (data, name) {
   const result = img(data);
-  const filePathContract = path.join(destpath, name + result.extname);
-  const filePathActual = path.join(__dirname, '../static' + destpath + name + result.extname);
-  try {
-    // Check if the image already exists (caveat, doesn't update the image)
-    await access(filePathActual, constants.F_OK)
-  } catch (e) {
-    // If it doesn't exist then create the image
-    await writeFile(filePathActual, result.base64, { encoding: 'base64' });
-  }
+  const filePathContract = path.join(DEVICE_IMG_URL, name + result.extname);
+  const filePathActual = path.join(__dirname, DEVICE_IMG_PATH + name + result.extname);
+
+  await writeFile(filePathActual, result.base64, { encoding: 'base64' });
+
   // return path of the image for the contracts
   return filePathContract
 };
@@ -102,17 +75,18 @@ const etcherLinkInstruction = `[Etcher](https://www.etcher.io/)`
 const sdCardInstruction = `Insert the freshly flashed sdcard into`
 
 /**
- * Adds gifs and screenshots where needed in the provisioning instructions. 
+ * Adds gifs and screenshots where needed in the provisioning instructions.
  * Converting to markdown first because the markdown converter unintentially escapes characters
  * in existing markdown tags which lead to broken markdown
- * 
- * @param {*} instructions 
- * @returns 
+ *
+ * @param {*} instructions
+ * @returns
  */
 function prepareInstructions(instructions) {
   // Convert HTML to markdown 
   // Create a markdown list of all instructions
-  instructions = instructions.map(instruction => `- ${NodeHtmlMarkdown.translate(instruction)}`)
+  // trying to bypass node-html- as gitbook should be able to interpret html
+  // instructions = instructions.map(instruction => `- ${NodeHtmlMarkdown.translate(instruction)}`)
 
   // Add etcher flashing GIF to instructions
   const etcherIndex = instructions.findIndex((instruction) => instruction.includes(etcherLinkInstruction))
@@ -130,37 +104,101 @@ function prepareInstructions(instructions) {
   return instructions
 }
 
-
 /**
- * 
+ *
  * Creates a device type contracts specifically to be used for Docs at build time
- * These contracts are used to populate dropdown present in 
+ * These contracts are used to populate dropdown present in
  */
 async function supportedDeviceTypeContract() {
   const contracts = await balena.models.deviceType.getAllSupported({
     $select: [
       'contract',
-      'logo'
-    ]
+      'logo',
+    ],
   })
 
-  console.log("Generating docs specific contracts from scratch ... this will take a moment.")
+  console.log('Generating docs specific contracts from scratch ... this will take a moment.')
   return await Promise.all(contracts.map(async (contract) => ({
-    id: contract.contract.slug,
-    name: contract.contract.name,
-    arch: contract.contract.data.arch,
-    // bootMedia: bootMediaDecider(contract.contract.data.media, contract.contract.data.flashProtocol),
-    icon: await svgCreator(contract.logo, '/img/device/', contract.contract.slug),
-    // icon: base64Decorder(contract.logo),
-    instructions: prepareInstructions(await balena.models.deviceType.getInstructions(contract.contract.slug))
-  })
+      id: contract.contract.slug,
+      name: contract.contract.name,
+      arch: contract.contract.data.arch,
+      // bootMedia: bootMediaDecider(contract.contract.data.media, contract.contract.data.flashProtocol),
+      icon: await svgCreator(contract.logo, contract.contract.slug),
+      // icon: base64Decorder(contract.logo),
+      instructions: prepareInstructions(await balena.models.deviceType.getInstructions(contract.contract.slug)),
+    }),
   ))
 }
+
+const getLatestCLIVersion = async () => {
+  try {
+    const response = await fetch(CLI_LATEST_VERSION_URL);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    return result['tag_name'];
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+const createDirectories = async (deviceTypes) => {
+  await Promise.all(
+    deviceTypes.map((deviceType) => {
+      LANGUAGES.map((language) => {
+        mkdir(path.join(__dirname, DEST_FOLDER, deviceType['id'], language['id']), { recursive: true });
+      });
+    }),
+  );
+};
 
 /**
  * This is where the script starts
  */
 (async () => {
-  const docsContracts = await supportedDeviceTypeContract()
-  await writeFile(path.join(__dirname, '../config/dictionaries/device.json'), JSON.stringify(docsContracts))
-})()
+
+  const deviceTypes = await supportedDeviceTypeContract();
+
+  const tmpl = await readFile(path.join(__dirname, TEMPLATE_FILE));
+
+  await createDirectories(deviceTypes);
+
+  const template = Handlebars.compile(tmpl.toString());
+
+  const latestCLIVersion = await getLatestCLIVersion();
+
+  await Promise.all(
+    deviceTypes.map(async (deviceType) => {
+      LANGUAGES.map(async (language) => {
+        let whatYouNeedSection;
+        try {
+          const whatYouNeedMdFile = await readFile(path.join(__dirname, WHAT_YOU_NEED_TEMPLATE_PATH, `${deviceType['id']}.md`));
+          const wynTmpl = Handlebars.compile(whatYouNeedMdFile.toString());
+          whatYouNeedSection = wynTmpl({
+            $language: language,
+            $device: deviceType,
+          });
+        } catch (e) {
+
+        }
+
+        const compiledTemplate = template({
+          $language: language,
+          $device: deviceType,
+          $latestCLIVersion: latestCLIVersion,
+          $whatYouNeed: whatYouNeedSection,
+        });
+        await writeFile(path.join(__dirname, DEST_FOLDER, deviceType['id'], language['id'], 'index.md'), compiledTemplate);
+      });
+    }),
+  );
+  // await Promise.all(LANGUAGES.map((lang) => {
+  //     const template = Handlebars.compile(tmpl);
+  //     writeFile(path.join(__dirname, './output/', 'yo.md'), template({
+  //         $language: lang,
+  //         $device: deviceTypes[0],
+  //     }));
+  // }));
+})();
