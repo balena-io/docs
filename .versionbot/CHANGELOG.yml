@@ -1,4 +1,17 @@
 - commits:
+    - subject: Pin dependencies
+      hash: e10c5275015023c8649e00a9e4415fdf4052b36a
+      body: |
+        Update actions/cache
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 6.14.5
+  title: ""
+  date: 2026-01-28T03:36:33.891Z
+- commits:
     - subject: Update GitHub Actions
       hash: 96ff2b3fea9426ec0a7977cb794fb13faae66473
       body: |
