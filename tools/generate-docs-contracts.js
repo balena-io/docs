@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { writeFile, readFile, readdir, mkdir, rm, unlink } = require('fs/promises');
+const { writeFile, readFile, readdir, unlink } = require('fs/promises');
 const path = require('path');
 const { getSdk } = require('balena-sdk')
 const Handlebars = require('handlebars');
@@ -10,7 +10,8 @@ const LANGUAGES = require('../config/dictionaries/language.json');
 const CLI_LATEST_VERSION_URL = 'https://api.github.com/repos/balena-io/balena-cli/releases/latest';
 const DEVICE_IMG_URL = '/img/device/';
 const DEVICE_IMG_PATH = '../static/img/device/';
-const TEMPLATE_FILE = '../templates/getting-started.md';
+const TEMPLATE_FILE_PATH = '../templates/getting-started.md';
+const SUMMARY_FILE_PATH = '../SUMMARY.md';
 const WHAT_YOU_NEED_TEMPLATE_PATH = '../templates/whatYouNeed/';
 const DEST_FOLDER = '../pages/learn/getting-started/';
 
@@ -149,12 +150,60 @@ const emptyDirectory = async () => {
   }
 };
 
-const generateSummary = async (deviceTypes) => {
-  const tmpl = `
-    * [getting-started](pages/learn/getting-started/README.md "Getting Started")
-      ${deviceTypes.map((dt) => (`* [${dt.id}](pages/learn/getting-started/${dt.id}.md "${dt.name}")`)).join('\n      ')}
-  `;
-  console.log(tmpl);
+
+const updateGettingStartedSectionInSummary = async (deviceTypes) => {
+  // const tmpl = `
+  //   * [getting-started](pages/learn/getting-started/README.md "Getting Started")
+  //     ${deviceTypes.map((dt) => (`* [${dt.id}](pages/learn/getting-started/${dt.id}.md "${dt.name}")`)).join('\n      ')}
+  // `;
+  // console.log(tmpl);
+
+  const content = await readFile(path.join(__dirname, SUMMARY_FILE_PATH), 'utf8');
+  const lines = content.split('\n');
+
+  // 1. Find the index of the target item
+  const startIndex = lines.findIndex(line => line.trim().startsWith('* [Getting Started]'));
+
+  if (startIndex === -1) {
+    console.error('Could not find the \'getting-started\' section.');
+    return;
+  }
+
+  // 2. Identify the indentation level of the parent
+  const parentIndent = lines[startIndex].match(/^\s*/)[0].length;
+
+  // 3. Find where the sub-items end
+  let endIndex = startIndex + 1;
+  while (endIndex < lines.length) {
+    const line = lines[endIndex];
+
+    // Skip empty lines
+    if (line.trim() === '') {
+      endIndex++;
+      continue;
+    }
+
+    const currentIndent = line.match(/^\s*/)[0].length;
+
+    // If we find a line with the same or less indentation, we've exited the sub-tree
+    if (currentIndent <= parentIndent) {
+      break;
+    }
+    endIndex++;
+  }
+
+  // 4. Generate new content
+  const indent = ' '.repeat(parentIndent);
+  const tmpl = `${indent}* [Getting Started](pages/learn/getting-started/README.md "Getting Started")\n` +
+    `${deviceTypes.map((dt) => `${indent}  * [Getting Started with ${dt.name}](pages/learn/getting-started/${dt.id}.md "${dt.name}")`).join(`\n`)}`;
+
+  // 5. Replace the old range with the new template
+  lines.splice(startIndex, endIndex - startIndex, tmpl);
+
+  const updatedContent = lines.join('\n');
+  writeFile(path.join(__dirname, SUMMARY_FILE_PATH), updatedContent, 'utf8');
+
+  console.log('SUMMARY.md updated successfully!');
 }
 
 /**
@@ -164,11 +213,9 @@ const generateSummary = async (deviceTypes) => {
 
   const deviceTypes = await supportedDeviceTypeContract();
 
-  const tmpl = await readFile(path.join(__dirname, TEMPLATE_FILE));
+  const tmpl = await readFile(path.join(__dirname, TEMPLATE_FILE_PATH));
 
   await emptyDirectory();
-  
-  await generateSummary(deviceTypes);
 
   const template = Handlebars.compile(tmpl.toString());
 
@@ -196,4 +243,6 @@ const generateSummary = async (deviceTypes) => {
       await writeFile(path.join(__dirname, DEST_FOLDER, `${deviceType['id']}.md`), compiledTemplate);
     }),
   );
+
+  await updateGettingStartedSectionInSummary(deviceTypes);
 })();

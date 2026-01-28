@@ -1,8 +1,8 @@
-# Getting Started: {{ $device.name \}} and {{ $language.name \}}
+# Getting Started with ODROID-XU4
 
 In this guide, we will help you get started with balenaCloud by:
 
-* Setting up your **{{ $device.name \}}** device and bringing it online on the balenaCloud dashboard.
+* Setting up your **ODROID-XU4** device and bringing it online on the balenaCloud dashboard.
 * Deploying a hello-world project on the device.
 * Developing the sample project: making changes and testing them on the device in real-time.
 
@@ -10,14 +10,18 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 
 ## What you'll need
 
-{{#if $whatYouNeed\}} {{{$whatYouNeed\}}} {{else\}}
+ # odroid-xu4
 
-* Your {{ $device.name \}} device you want to get started with. Check out all of our [supported devices](../reference/hardware/devices/).
-* A tool to flash the new operating system on the device. We recommend [Etcher](https://www.balena.io/etcher).
-* A way to connect the device to the internet, either through wifi (if available) or ethernet cable.
-* A method of reliably powering the device.
-* A [balenaCloud account](https://dashboard.balena-cloud.com/signup). BalenaCloud is free for up to 10 devices and requires no payment method to sign up.
-* Install [balena CLI](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md) to develop & manage your device on balenaCloud. {{/if\}}
+**Warning:** HDMI is currently not supported on the Odroid XU4.
+
+
+
+* An [Odroid XU4](https://www.hardkernel.com/shop/odroid-xu4-special-price/) Cortex-A7 quad core from [Hardkernel](https://www.hardkernel.com/) (the same process will work for the older [Odroid XU3](https://www.hardkernel.com/shop/odroid-xu3/)).
+* A 4GB or larger SD card. The [Odroid XU4](https://www.hardkernel.com/shop/odroid-xu4-special-price/) uses a microSD card. The [speed class](https://en.wikipedia.org/wiki/Sd_card#Speed_class_rating) of the card also matters - this determines its maximum transfer rate. We strongly recommend you get hold of a class 10 card or above.
+* A 5V, 4 Amp power supply unit from [Hardkernel](https://www.hardkernel.com/) like this [one](https://www.hardkernel.com/shop/5v-4a-power-supply-us-plug-2/).
+* An ethernet cable or WiFi adapter to connect your device to the internet.
+* A [{{ $names.company.lower \}} account](https://dashboard.balena-cloud.com/signup).
+ 
 
 ## Create a fleet
 
@@ -27,17 +31,17 @@ To create your first fleet, log into your [balenaCloud dashboard](https://dashbo
 
 
 
-Enter a fleet name, select the **{{ $device.name \}}** device type, choose the _Starter_ [fleet type](../learn/accounts/fleet-types/), and click **Create new fleet**:
+Enter a fleet name, select the **ODROID-XU4** device type, choose the _Starter_ [fleet type](../learn/accounts/fleet-types/), and click **Create new fleet**:
 
 
 
-You'll then be redirected to the summary of the newly created fleet, where you can add your first {{ $device.name \}}.
+You'll then be redirected to the summary of the newly created fleet, where you can add your first ODROID-XU4.
 
 ## Add a device and download OS
 
 
 
-balenaCloud builds a custom balenaOS image configured for {{ $device.name \}} which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
+balenaCloud builds a custom balenaOS image configured for ODROID-XU4 which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices/) can also be picked to join the fleet.
 
 
 
@@ -55,9 +59,9 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-{{ $device.instructions \}}
+Insert the SD card to the host machine.,Write the balenaOS file you downloaded to the SD card. We recommend using &lt;a href&#x3D;&quot;https://etcher.balena.io/&quot;&gt;Etcher&lt;/a&gt;.,Wait for writing of balenaOS to complete.,Remove the SD card from the host machine.,Insert the freshly flashed SD card into the ODROID-XU4.,Connect power to the ODROID-XU4 to boot the device.
 
-When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our \[troubleshooting guide for {{ $device.name \}}]\(/faq/troubleshooting/{{ $device.id \}}) or try our [support channels](../support/).
+When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for ODROID-XU4](/faq/troubleshooting/odroid-xu4) or try our [support channels](../support/).
 
 ## Install the balena CLI
 
@@ -119,6 +123,21 @@ ID    NAME         SLUG                                 DEVICE TYPE           DE
 ```
 
 {% tabs %}
+{% tab title="Node.js" %}
+A nice project to try is the [balena-nodejs-hello-world](https://github.com/balena-io-examples/balena-nodejs-hello-world) project. It's a Node.js web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-nodejs-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
+{% endtab %}
+{% tab title="Python" %}
+A nice project to try is the [balena-python-hello-world](https://github.com/balena-io-examples/balena-python-hello-world) project. It's a Python web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-python-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
+{% endtab %}
+{% tab title="C++" %}
+A nice project to try is the [balena-cpp-hello-world](https://github.com/balena-io-examples/balena-cpp-hello-world) project. It's a C++ web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-cpp-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
+{% endtab %}
+{% tab title="Rust" %}
+A nice project to try is the [balena-rust-hello-world](https://github.com/balena-io-examples/balena-rust-hello-world) project. It's a Rust web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-rust-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
+{% endtab %}
+{% tab title="Go" %}
+A nice project to try is the [balena-go-hello-world](https://github.com/balena-io-examples/balena-go-hello-world) project. It's a Go web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-go-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
+{% endtab %}
 {% endtabs %}
 
 
