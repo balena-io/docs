@@ -22,7 +22,7 @@ Device statuses are displayed on the Devices page and the Device Summary page. A
 
 The balena device uses two mechanisms to maintain communication with balenaCloud, namely a periodic HTTP API heartbeat and a VPN based tunnel called cloudlink. The state of both of these links can be seen in the device listing.
 
-<figure><img src="../../.gitbook/assets/device_status.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/device_status.webp" alt=""><figcaption></figcaption></figure>
 
 `Reduced Functionality` indicates that the device is experiencing limited connectivity. This can be due to either **missing recent Heartbeat API communications** or **lack of connection to cloudlink**. The boolean columns for these states are as follows:
 

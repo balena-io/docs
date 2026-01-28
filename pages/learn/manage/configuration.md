@@ -22,17 +22,17 @@ For a complete list of valid configuration variables that can be configured, che
 
 Configuration defined at the fleet level controls the behavior of any devices running in that fleet unless it is overridden with device configuration of the same name. If you want to change the default value for any of the pre-populated configuration, make sure you are in the _Configuration_ tab on the fleet, then click _activate_ for the variable you wish to define:
 
-<figure><img src="../../.gitbook/assets/activate_default_config.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/activate_default_config.webp" alt=""><figcaption></figcaption></figure>
 
 After activating, the variable will be populated with the default value. Variables that can be enabled or disabled can be switched with the provided toggles. Other values can be edited by clicking the small edit (pencil) icon. To remove the fleet wide configuration, and reset it to its default value, click the delete (trash can) icon.
 
 If you have already defined configuration at the device level, they will appear in a list below your fleet wide configuration. You can easily apply a device value to the entire fleet by clicking _Define fleet-wide_:
 
-<figure><img src="../../.gitbook/assets/define_app_wide.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/define_app_wide.webp" alt=""><figcaption></figcaption></figure>
 
 In order to delete device level overrides of a fleet wide configuration, click the "overrides" button in the list to delete device configuration for specific devices and enforce fleet wide configuration back on those device.
 
-<figure><img src="../../.gitbook/assets/override_config.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/override_config.webp" alt=""><figcaption></figcaption></figure>
 
 ## Device configuration management
 
@@ -40,11 +40,11 @@ Device configuration defines the behavior of a single device. If both the fleet 
 
 The device level configuration list includes the pre-populated default values. Variables that can be enabled or disabled can be easily switched with the provided toggles. Other values can be edited by clicking the small edit (pencil) icon.
 
-<figure><img src="../../.gitbook/assets/device_config_variables.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/device_config_variables.webp" alt=""><figcaption></figcaption></figure>
 
 Clicking the small edit (pencil) icon will pop up a small dialog for editing the value:
 
-<figure><img src="../../.gitbook/assets/edit_device_config.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/edit_device_config.webp" alt=""><figcaption></figcaption></figure>
 
 To remove the device level configuration, and reset it to its default value, click the delete (trash can) icon.
 
@@ -52,7 +52,7 @@ To remove the device level configuration, and reset it to its default value, cli
 
 To replace the balena logo with your custom splash logo, go to your Fleet or Device `Configuration` page and find the configuration for `Define the PNG image to be used for the boot splash screen. Only supported by supervisor versions >= v12.3.0.`. Click `activate` to upload your image.
 
-<figure><img src="../../.gitbook/assets/override_splash_screen_config.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/override_splash_screen_config.webp" alt=""><figcaption></figcaption></figure>
 
 ## Adding custom configuration
 
@@ -60,15 +60,15 @@ The custom configuration section can be used to modify configuration options bey
 
 To define custom fleet wide configuration, scroll past the automatically populated options, then click the _Add custom configuration_ button in the lower-right corner:
 
-<figure><img src="../../.gitbook/assets/add_fleet_configuration.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/add_fleet_configuration.webp" alt=""><figcaption></figcaption></figure>
 
 A dialog pops up giving you the option to define a name and value (remember, all config variable names must begin with `BALENA_` or `RESIN_`). Click _Add_ to apply:
 
-<figure><img src="../../.gitbook/assets/variable_editor_config.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/variable_editor_config.webp" alt=""><figcaption></figcaption></figure>
 
 Adding custom device configuration is similar to adding custom fleet configuration. You can override the value of custom fleet configuration by clicking _override_ inside device configuration. This will pop up the variable editing dialog, where you can change the value:
 
-<figure><img src="../../.gitbook/assets/add_device_custom_variable.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/add_device_custom_variable.webp" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 In addition to the dashboard, this configuration can be also be set using the API or any of its clients, including the \[SDK]\[needs new link] and \[CLI]\[needs new link].

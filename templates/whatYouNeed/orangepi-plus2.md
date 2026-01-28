@@ -1,10 +1,12 @@
-<img style="float: right;padding-left: 10px;" src="/img/{{ $device.id }}/{{ $device.id }}.webp" width="25%">
+# orangepi-plus2
 
-* An \[{{ $device.name }}]\[device]. See our [supported devices list](/reference/hardware/devices/) for other boards.
+
+
+* An \[\{{ $device.name \}}]\[device]. See our [supported devices list](../../reference/hardware/devices/) for other boards.
 * A 4GB or larger microSD card. The [speed class](https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating) of the card also matters - use the fastest you can find.
 * A micro USB cable.
 * **\[Optional]** An ethernet cable.
 * **\[Optional]** A [2A micro USB power supply](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/).
-* A [{{ $names.company.lower }} account](https://dashboard.balena-cloud.com/signup).
+* A [\{{ $names.company.lower \}} account](https://dashboard.balena-cloud.com/signup).
 
-\[device]:{{ $device.link }}
+\[device]:\{{ $device.link \}}

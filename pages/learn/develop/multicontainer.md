@@ -115,7 +115,7 @@ services:
 
 In addition to the settings above, there are some balena specific labels that can be defined in the `docker-compose.yml` file. These provide access to certain bind mounts and environment variables without requiring you to run the container as privileged:
 
-{% include "../../.gitbook/includes/labels.md" %}
+{% include "../../.gitbook/includes/labels (1).md" %}
 
 ### Container requirements
 

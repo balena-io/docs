@@ -69,29 +69,29 @@ Our compose-file support is currently based on [version 2.4](https://docs.docker
 
 ## Known unsupported fields
 
-| Field                                                                                                                                                  | Details                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
-| [build.isolation](https://docs.docker.com/compose/compose-file/compose-file-v2/#isolation)                                                             |                                                                                     |
-| [build.network](https://docs.docker.com/compose/compose-file/compose-file-v2/#network)                                                                 |                                                                                     |
-| [blkio\_config](https://docs.docker.com/compose/compose-file/compose-file-v2/#blkio_config)                                                            |                                                                                     |
-| [container\_name](https://docs.docker.com/compose/compose-file/compose-file-v2/#container_name)                                                        | Used by the device supervisor                                                       |
-| [cpu\_count](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                    |                                                                                     |
-| [cpu\_percent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                  |                                                                                     |
-| [cpus](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                          | Introduced by Docker Compose v2.2 and therefore not working                         |
-| [env\_file and service.env\_file](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#use-the-env_file-attribute) |                                                                                     |
-| [expose](https://docs.docker.com/compose/compose-file/compose-file-v2/#expose)                                                                         | Informational only. Removed to prevent conflicts with other network configurations  |
-| [external\_links](https://docs.docker.com/compose/compose-file/compose-file-v2/#external_links)                                                        |                                                                                     |
-| [isolation](https://docs.docker.com/compose/compose-file/compose-file-v2/#isolation-1)                                                                 |                                                                                     |
-| [links](https://docs.docker.com/compose/compose-file/compose-file-v2/#links)                                                                           |                                                                                     |
-| [logging](https://docs.docker.com/compose/compose-file/compose-file-v2/#logging)                                                                       |                                                                                     |
-| [memswap\_limit](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                |                                                                                     |
-| [mem\_swappiness](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                               |                                                                                     |
-| [runtime](https://docs.docker.com/compose/compose-file/compose-file-v2/#runtime)                                                                       |                                                                                     |
-| [scale](https://docs.docker.com/compose/compose-file/compose-file-v2/#scale)                                                                           |                                                                                     |
-| [stdin\_open](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                   |                                                                                     |
-| [tty](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                           |                                                                                     |
-| [volume\_driver](https://docs.docker.com/compose/compose-file/compose-file-v2/#volume_driver)                                                          |                                                                                     |
-| [volumes\_from](https://docs.docker.com/compose/compose-file/compose-file-v2/#volumes_from)                                                            |                                                                                     |
+| Field                                                                                                                                                  | Details                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| [build.isolation](https://docs.docker.com/compose/compose-file/compose-file-v2/#isolation)                                                             |                                                                                    |
+| [build.network](https://docs.docker.com/compose/compose-file/compose-file-v2/#network)                                                                 |                                                                                    |
+| [blkio\_config](https://docs.docker.com/compose/compose-file/compose-file-v2/#blkio_config)                                                            |                                                                                    |
+| [container\_name](https://docs.docker.com/compose/compose-file/compose-file-v2/#container_name)                                                        | Used by the device supervisor                                                      |
+| [cpu\_count](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                    |                                                                                    |
+| [cpu\_percent](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                  |                                                                                    |
+| [cpus](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                          | Introduced by Docker Compose v2.2 and therefore not working                        |
+| [env\_file and service.env\_file](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/#use-the-env_file-attribute) |                                                                                    |
+| [expose](https://docs.docker.com/compose/compose-file/compose-file-v2/#expose)                                                                         | Informational only. Removed to prevent conflicts with other network configurations |
+| [external\_links](https://docs.docker.com/compose/compose-file/compose-file-v2/#external_links)                                                        |                                                                                    |
+| [isolation](https://docs.docker.com/compose/compose-file/compose-file-v2/#isolation-1)                                                                 |                                                                                    |
+| [links](https://docs.docker.com/compose/compose-file/compose-file-v2/#links)                                                                           |                                                                                    |
+| [logging](https://docs.docker.com/compose/compose-file/compose-file-v2/#logging)                                                                       |                                                                                    |
+| [memswap\_limit](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                |                                                                                    |
+| [mem\_swappiness](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                               |                                                                                    |
+| [runtime](https://docs.docker.com/compose/compose-file/compose-file-v2/#runtime)                                                                       |                                                                                    |
+| [scale](https://docs.docker.com/compose/compose-file/compose-file-v2/#scale)                                                                           |                                                                                    |
+| [stdin\_open](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                   |                                                                                    |
+| [tty](https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources)                                                           |                                                                                    |
+| [volume\_driver](https://docs.docker.com/compose/compose-file/compose-file-v2/#volume_driver)                                                          |                                                                                    |
+| [volumes\_from](https://docs.docker.com/compose/compose-file/compose-file-v2/#volumes_from)                                                            |                                                                                    |
 
 ## Known unsupported features
 
@@ -101,6 +101,6 @@ Our compose-file support is currently based on [version 2.4](https://docs.docker
 
 ## Labels
 
-{% include "../../.gitbook/includes/labels-version-note.md" %}
+{% include "../../.gitbook/includes/labels-version-note (1).md" %}
 
-{% include "../../.gitbook/includes/labels.md" %}
+{% include "../../.gitbook/includes/labels (1).md" %}

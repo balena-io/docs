@@ -1,4 +1,6 @@
-<img style="float: right;padding-left: 10px;" src="/img/intel-edison/intel-edison.webp">
+# intel-edison
+
+
 
 * An Intel Edison
 * A base board for the edison that has an USB-OTG port. Any of the following boards will do the trick:
@@ -6,4 +8,4 @@
   * [Intel® Edison and Arduino Breakout Kit](https://www.sparkfun.com/products/13097)
   * [SparkFun Block for Intel® Edison](https://www.sparkfun.com/products/13045)
 * A micro-usb cable
-* A [{{ $names.company.lower }} account](https://dashboard.balena-cloud.com/signup).
+* A [\{{ $names.company.lower \}} account](https://dashboard.balena-cloud.com/signup).

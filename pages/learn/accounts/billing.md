@@ -6,7 +6,7 @@ title: Billing
 
 Billing in balenaCloud is managed through [organizations](organizations.md). To manage billing for a specific organization, navigate to the organization and select the `Billing` tab from the sidebar on the left:
 
-<figure><img src="../../.gitbook/assets/billing-nav.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/billing-nav.png" alt=""><figcaption></figcaption></figure>
 
 From this dashboard, you can change your billing plan, update your billing information, monitor your usage, and download invoices. If you have any questions about billing for your account, please contact [our customer success team](mailto:solutions@balena.io).
 
@@ -14,15 +14,15 @@ From this dashboard, you can change your billing plan, update your billing infor
 
 To modify or upgrade your billing plan, click the "Change plan" button on the billing page:
 
-<figure><img src="../../.gitbook/assets/current-plan.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/current-plan.png" alt=""><figcaption></figcaption></figure>
 
 Select the plan you'd like to upgrade to from the list of available options:
 
-<figure><img src="../../.gitbook/assets/plan-selection.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan-selection.png" alt=""><figcaption></figcaption></figure>
 
 Enter your billing information and complete the signup process:
 
-<figure><img src="../../.gitbook/assets/billing-info.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/billing-info.png" alt=""><figcaption></figcaption></figure>
 
 If you need to downgrade or cancel your plan, you can follow the steps mentioned above by choosing a lower tier or free plan instead.
 
@@ -32,15 +32,15 @@ Certain plans may require you to contact our customer success team in order to c
 
 At the top of the billing page, you'll find a summary of your subscription with information on the total amount and due date for your next payment:
 
-<figure><img src="../../.gitbook/assets/sub-sum.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sub-sum.png" alt=""><figcaption></figcaption></figure>
 
 Beneath this you can see your current usage, including [active devices](billing.md#inactive-devices) and collaborators:
 
-<figure><img src="../../.gitbook/assets/usage.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/usage.png" alt=""><figcaption></figcaption></figure>
 
 Further down, you'll find a place to download invoices, add or edit payment methods, and update account information:
 
-<figure><img src="../../.gitbook/assets/account-details.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/account-details.png" alt=""><figcaption></figcaption></figure>
 
 At the bottom of this page, you'll find more information on the available [plans](https://balena.io/pricing/), and you can change plans as necessary.
 
@@ -52,7 +52,7 @@ Credit purchases of any size will result in paying less for device usage on the 
 
 To manage credits, navigate to the organization and select the `Credits` tab from the sidebar on the left:
 
-<figure><img src="../../.gitbook/assets/credits-nav.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/credits-nav.png" alt=""><figcaption></figcaption></figure>
 
 On the Credits page, you're able to see credit purchase history and the number of credits that have been purchased and are still allocatable for device usage. This is also where you can initiate credit purchases. An invoice will be automatically generated and listed on the Billing page when a credit purchase is initiated.
 

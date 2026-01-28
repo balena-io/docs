@@ -1,11 +1,9 @@
-<img style="float: right;padding-left: 10px;" src="/img/{{ $device.id }}/{{ $device.id }}.webp" width="30%">
+# var-som-mx6
 
-- A [{{ $device.name }}][device-link] module. See our [supported devices list][supportedDevicesList] for other boards.
-- A carrier board, in this case the [VAR-SOLO Customboard][device-link]
-- A micro SD card.
-- **[Optional]** An ethernet cable.
-- A [balena account][link-to-signup].
 
-[device-link]: https://www.variscite.com/products/single-board-computers/var-solocustomboard/
-[supportedDevicesList]: /hardware/devices/
-[link-to-signup]: https://dashboard.balena-cloud.com/signup
+
+* A [\{{ $device.name \}}](https://www.variscite.com/products/single-board-computers/var-solocustomboard/) module. See our [supported devices list](../../../hardware/devices/) for other boards.
+* A carrier board, in this case the [VAR-SOLO Customboard](https://www.variscite.com/products/single-board-computers/var-solocustomboard/)
+* A micro SD card.
+* **\[Optional]** An ethernet cable.
+* A [balena account](https://dashboard.balena-cloud.com/signup).

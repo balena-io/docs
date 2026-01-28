@@ -33,7 +33,7 @@ For details on other instructions, consult the official [Dockerfile documentatio
 
 To deploy a single-container release to balena, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
 
-{% include "../../.gitbook/includes/labels-version-note.md" %}
+{% include "../../.gitbook/includes/labels-version-note (1).md" %}
 
 ```yaml
 version: '2.1'
@@ -69,7 +69,7 @@ You _don't_ need to worry about ignoring `.git` as the builders already do this 
 
 Dockerfile templates are a balena-specific feature that allow our builders to substitute a value for one of the following variables at build time:
 
-{% include "../../.gitbook/includes/build-variables.md" %}
+{% include "../../.gitbook/includes/build-variables (1).md" %}
 
 The original purpose of these templates was to allow our builders to build containers for multiple architectures from one code repository when using the deprecated balenalib base images. For new projects, we recommend using standard Dockerfiles and either specifying the architecture in your FROM line, or utilizing base images that are published with the [multi-platform feature](https://docs.docker.com/build/building/multi-platform/). For example:
 
@@ -173,7 +173,7 @@ We use [Raspbian](https://www.raspbian.org/) as our contained operating system, 
 With a plain Node.js project, our build server will detect compatible nodejs versions from the `package.json` and build the container using a Docker image that satisfies the version requirement. If no version is specified then the default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here](../../reference/base-images/balena-base-images.md).
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/terminal-builder-window.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/terminal-builder-window.png" alt=""><figcaption></figcaption></figure>
 
 ## Container Requirements
 
