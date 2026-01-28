@@ -28,6 +28,11 @@
         ],
         "executionMode": "update"
       }
+    },
+    {
+      "description": "Temporarily disable automerge for all updates",
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
+      "automerge": false
     }
   ]
 }
