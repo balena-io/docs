@@ -51,16 +51,15 @@
   * [Organization management](learn/accounts/organizations.md)
   * [Support access](learn/accounts/support-access.md)
 * [more](learn/more/README.md)
-  * [Anti-patterns, or how to break your balenaOS devices](learn/more/anti-patterns.md)
-  * [Data collected by balena](learn/more/collected-data.md)
+  * [Projects built on balena](learn/more/labs-projects/README.md)
+    * [balenaBlocks built for balenaCloud](learn/more/labs-projects/balenablocks.md)
+    * [Balena example projects](learn/more/labs-projects/example-projects.md)
   * [Balena Glossary](learn/more/glossary.md)
-  * [examples](learn/more/examples/README.md)
-    * [balenaBlocks built for balenaCloud](learn/more/examples/balenablocks.md)
-    * [Balena example projects](learn/more/examples/example-projects.md)
-    * [Projects built on balena](learn/more/examples/labs-projects.md)
+  * [Data collected by balena](learn/more/collected-data.md)
   * [masterclasses](learn/more/masterclasses/README.md)
     * [Balena Masterclasses](learn/more/masterclasses/masterclass-intro.md)
     * [Network debugging](learn/more/masterclasses/network-masterclass.md)
+  * [Anti-patterns, or how to break your balenaOS devices](learn/more/anti-patterns.md)
 
 ## FAQ
 
