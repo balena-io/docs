@@ -3,7 +3,7 @@
 In this guide, we will help you get started with balenaCloud by:
 
 * Setting up your **UniPi Neuron (Raspberry Pi 4)** device and bringing it online on the balenaCloud dashboard.
-* Deploying a hello-world project on the device.
+* Deploying a _hello world_ project on the device in your language of choice.
 * Developing the sample project: making changes and testing them on the device in real-time.
 
 Once you've completed this getting started guide to balena, you'll be equipped with the fundamentals needed to continue developing your application using balenaCloud and be on the path to deploying fleets of devices to production. If you are looking for definitions of certain terms, refer to the [glossary](../../learn/more/glossary.md).
@@ -25,21 +25,21 @@ A fleet is a group of devices that share the same [architecture](../../reference
 
 To create your first fleet, log into your [balenaCloud dashboard](https://dashboard.balena-cloud.com/) and click the **Create fleet** button.
 
-
+<figure><img alt="Create a fleet" src="/assets/getting-started/create-first-fleet.webp"></figure>
 
 Enter a fleet name, select the **UniPi Neuron (Raspberry Pi 4)** device type, choose the _Starter_ [fleet type](../../learn/accounts/fleet-types.md), and click **Create new fleet**:
 
-
+<figure><img src="/assets/getting-started/create-fleet.webp" width="80%"></figure>
 
 You'll then be redirected to the summary of the newly created fleet, where you can add your first UniPi Neuron (Raspberry Pi 4).
 
 ## Add a device and download OS
 
-
+<figure><img alt="Add a device" src="/assets/getting-started/fleet-view.webp" width="100%"></figure>
 
 balenaCloud builds a custom balenaOS image configured for UniPi Neuron (Raspberry Pi 4) which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../../reference/hardware/devices.md) can also be picked to join the fleet.
 
-
+<figure><img alt="Add new device" src="/img/getting-started/add-device.webp" width="80%"></figure>
 
 Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../../reference/OS/overview.md#development-vs-production-images).
 
@@ -87,8 +87,6 @@ Now that you have an `operational` device in your fleet, it's time to deploy som
 3. Add that folder (e.g. `/home/james/balena/bin`) to the PATH environment variable. Check this [StackOverflow](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix) post for instructions. Close and re-open the terminal window so that the changes to PATH can take effect.
 {% endtab %}
 {% endtabs %}
-
-***
 
 After balena CLI is installed, login to your balena account using the `balena login` command on the terminal:
 
