@@ -80,7 +80,7 @@
   * [Time management](reference/OS/time.md)
   * [Secure Boot and Full Disk Encryption](reference/os/overview-1/README.md)
     * [Setup secure boot and full disk encryption for Generic x86\_64 (GPT)](reference/os/overview-1/generic-x86-64-gpt.md)
-  * [updates](reference/os/updates/README.md)
+  * [Host OS Updates](reference/os/updates/README.md)
     * [Self-service updates](reference/OS/updates/self-service.md)
     * [What happens during a balena host OS update?](reference/OS/updates/update-process.md)
 * [api](reference/api/README.md)
