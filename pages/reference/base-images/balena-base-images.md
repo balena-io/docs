@@ -9,7 +9,7 @@ excerpt: Tips for choosing a base image for your project
 
 Balenalib was the home for 26,000+ IoT-focused Docker images built specifically for balenaCloud and balenaOS. Balena stopped publishing updates to balenalib in 2025, however, all of the previously published images are still available. Read [our announcement blog post](https://blog.balena.io/deprecate-balenalib-images/) for more information.
 
-Note: The docs for balenalib base images (deprecated) that used to be on this page [have been moved here](../../../reference/base-images/balena-base-images-reference/).
+Note: The docs for balenalib base images (deprecated) that used to be on this page [have been moved here](balena-base-images-reference.md).
 
 When balena started publishing these base images back in 2016, the Docker ecosystem was quite new, and support for ARM 6/7/8 images was almost non-existent. Today, however, Docker images for all architectures and software stacks are well supported and maintained. Consequently, this shift in the larger ecosystem meant that balenalib base images' value and advantage have diminished over the past few years.
 
@@ -18,6 +18,8 @@ When balena started publishing these base images back in 2016, the Docker ecosys
 We now recommend using [Docker Official Images](https://hub.docker.com/search?badges=official). These images hosted on Docker Hub are pre-built, vetted, and curated. They provide clear documentation, receive regular updates, and are continuously monitored for security issues.
 
 The Docker Official Images team, with help from community contributors, formally reviews each Docker image before accepting it into the program. To identify a Docker Official Image, look for this tag below on Docker Hub for the image you are assessing.
+
+<figure><img src="../../.gitbook/assets/docker_official.webp" alt=""><figcaption></figcaption></figure>
 
 ## How to Pick a Base Image
 
@@ -42,7 +44,7 @@ Scroll past the tag list to find more helpful information in the “Overview” 
 
 ### Choose the right device architecture
 
-Dockerhub uses a different naming convention for device architecture than balena. Use the table below to convert a balena specified architecture to the equivalent architecture listed on Dockerhub. To see the architecture for balena-supported devices, check out the [balena Machine names and architecture page](../../../reference/base-images/devicetypes/).
+Dockerhub uses a different naming convention for device architecture than balena. Use the table below to convert a balena specified architecture to the equivalent architecture listed on Dockerhub. To see the architecture for balena-supported devices, check out the [balena Machine names and architecture page](devicetypes.md).
 
 As an example, if you are using a Raspberry Pi Zero 2W, the balena machine name page shows the “balena\_arch” as “aarch64”. In the table below, aarch64 is referred to as “arm64v8 (ARMv8 64-bit)” on Dockerhub. Look out for arm64v8 images to find images compatible with the Raspberry Pi Zero 2W device type.
 
@@ -63,7 +65,11 @@ We recommend using a fixed (pinned) version of an image in production. Using a d
 
 For instance, we can see the digests listed for ubuntu 22.04 in Dockerhub:
 
+<figure><img src="../../.gitbook/assets/digests.webp" alt=""><figcaption></figcaption></figure>
+
 Clicking on the one for linux/arm64/v8, we can copy the full digest by clicking the link:
+
+<figure><img src="../../.gitbook/assets/digest_link.webp" alt=""><figcaption></figcaption></figure>
 
 And then we can use that digest instead of the tag to always get the same version of Ubuntu 22.04:
 
@@ -181,7 +187,7 @@ We recommend the use of multiple containers rather than the use of an initsystem
 
 However, if your container relies on initsystem features, it is fairly easy to add this functionality to your base image. We have provided some examples for [systemd](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230) and [openRC](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/openrc). Please note that different systemd versions require different implementations so for Debian Jessie and older, please refer to [this example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd) and for Debian Stretch and later, please refer to [this example](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230).
 
-Generally, for systemd, it just requires installing the systemd package, masking a number of services and defining a new [entry.sh](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230/entry.sh) and a [balena.service](balena.service). The Dockerfile below demonstrates this:
+Generally, for systemd, it just requires installing the systemd package, masking a number of services and defining a new [entry.sh](https://github.com/balena-io-library/base-images/tree/master/examples/INITSYSTEM/systemd/systemd.v230/entry.sh) and a balena service. The Dockerfile below demonstrates this:
 
 ```dockerfile
 FROM debian:bullseye-20250224
@@ -237,5 +243,3 @@ This approach allows you to:
 * **Reduce disruption** to existing deployments
 
 Before deployment to your fleet, please **test thoroughly** on actual hardware before deploying to production fleets.
-
-\[entry-sh-link]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/bookworm/run/entry.sh \[multistage-build-docs]:https://docs.docker.com/develop/develop-images/multistage-build/ \[variables]:/learn/manage/variables/ \[debian-variants]:https://github.com/balena-io-library/base-images/blob/master/balena-base-images/armv7hf/debian/
