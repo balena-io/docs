@@ -2,13 +2,15 @@
 title: Overview
 ---
 
-# {{ title }}
+# Overview
 
 The API is the core of the balena platform. It provides a secure channel for communication between balena services and the database. The API's HTTP interface not only informs the dashboard and the CLI, it also gives you the power to directly access resources associated with your account. With the API, you can fetch and update information about your fleets, devices, environment variables and more.
 
-This guide is split into two parts. On this page, you will find a basic tutorial to help you construct API calls. The [Resources](/reference/api/resources/fleet) page provides more details about the resources that can be queried using the API, including example calls and a list of available fields.
+This guide is split into two parts. On this page, you will find a basic tutorial to help you construct API calls. The [Resources](../../../reference/api/resources/fleet/) page provides more details about the resources that can be queried using the API, including example calls and a list of available fields.
 
-**Warning:** When using the API to make changes, take great care in selecting the appropriate resources, as there are _no checks_ to prevent you from accidentally making widespread, irreversible mistakes. Test filters with a `GET` call _before_ you use them in a `PATCH` or `DELETE` request.
+{% hint style="danger" %}
+When using the API to make changes, take great care in selecting the appropriate resources, as there are _no checks_ to prevent you from accidentally making widespread, irreversible mistakes. Test filters with a `GET` call _before_ you use them in a `PATCH` or `DELETE` request.
+{% endhint %}
 
 ## Versioning
 
@@ -16,7 +18,7 @@ When a new version of the API is released, calls to old versions of the API will
 
 ## Authentication
 
-API requests are authorized using [session tokens](/learn/accounts/account#session-tokens) or [named API keys](/learn/accounts/account#api-keys). To authenticate with either type of authentication token, make sure to include `Authorization: Bearer <auth token>` as a header in your API call.
+API requests are authorized using [session tokens](../../learn/accounts/account.md#session-tokens) or [named API keys](../../learn/accounts/account.md#api-keys). To authenticate with either type of authentication token, make sure to include `Authorization: Bearer <auth token>` as a header in your API call.
 
 ## Constructing API calls
 
@@ -24,10 +26,10 @@ The balena API uses the Open Data Protocol ([OData](https://www.odata.org/)), wh
 
 To construct an API call, it helps to understand a little about how the underlying data is structured. The balena data model consists of a number of connected resources. Resources include devices, fleets, users, and more. When you make an API call, you are asking to either view, create, modify, or remove a resource. The _method_ of the API call corresponds to the action you are trying to take:
 
-- **GET:** view information about a resource
-- **POST:** create a new resource
-- **PATCH:** modify an existing resource
-- **DELETE:** remove a resource
+* **GET:** view information about a resource
+* **POST:** create a new resource
+* **PATCH:** modify an existing resource
+* **DELETE:** remove a resource
 
 Knowing the resource you wish to act upon and the method you wish to act with is enough for some requests. For example, if you want to view all fleets you have access to (which includes public fleets), you can use the `GET` method and the `application` resource. Your API call would look like this:
 
