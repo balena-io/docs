@@ -76,13 +76,13 @@ Next, navigate to the Apps tab in the sidebar and click the `Create App` button 
 
 By default, Apps that you create within the balenaCloud dashboard are private and only accessible by the owner along with any other teams or members that you explicitly grant access to. When you are ready to release, head to the Settings tab in the sidebar and add your App’s GitHub repository to the Repository URL section. Next, toggle the App visibility button to on for your App to be visible on balenaHub. You’re free to toggle the visibility on and off as necessary at any time.
 
-<figure><img src="../../.gitbook/assets/visibility-toggle.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/visibility-toggle.webp" alt=""><figcaption></figcaption></figure>
 
 Apps marked with visibility set to ‘on’ in the dashboard will be made available as another resource for the community on balenaHub. Users can deploy Apps from balenaHub to their own fleets managed in their own balenaCloud accounts using the `Deploy` button with each App.
 
 ## Deploying Apps from balenaHub
 
-<figure><img src="../../.gitbook/assets/deploy-from-balena-hub.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deploy-from-balenahub.webp" alt=""><figcaption></figcaption></figure>
 
 When the deploy button on balenaHub is used, the balenaCloud builder will fetch the latest source from the linked GitHub repository and create a new build for the chosen fleet. This process uses the [Deploy with balena](../deploy/deploy-with-balena-button.md) workflow in order to guide users through the process of creating/signing in to a balenaCloud account, creating a fleet and deploying the App.
 
@@ -92,7 +92,7 @@ If you require assistance with an App and have contacted balena for support, age
 
 Once enabled, for security reasons, the support access toggle will revert back to ‘off’ at the time specified.
 
-<figure><img src="../../.gitbook/assets/enable-support-access.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enable-support-access.webp" alt=""><figcaption></figcaption></figure>
 
 ## Release management
 
