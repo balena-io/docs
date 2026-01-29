@@ -43,7 +43,11 @@ balenaCloud builds a custom balenaOS image configured for CTI Photon Nano which 
 
 Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../../reference/OS/overview.md#development-vs-production-images).
 
+<figure><img src="../../../.gitbook/assets/download-metadata-xml.png" alt=""><figcaption></figcaption></figure>
 
+<figure><img src="../../../.gitbook/assets/add-device.webp" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/variable_editor_config.webp" alt=""><figcaption></figcaption></figure>
 
 Select the type of network connection you'll be using: _Ethernet Only_ or _Wifi + Ethernet_. A network connection is required to allow the device to connect to balenaCloud. Selecting _Wifi + Ethernet_ allows you to enter a _Wifi SSID_ and _Wifi Passphrase_ which is then built into the image.
 
