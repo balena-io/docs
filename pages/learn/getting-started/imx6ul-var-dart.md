@@ -57,7 +57,16 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-Insert the SD card to the host machine.,Write the balenaOS file you downloaded to the SD card. We recommend using &lt;a href&#x3D;&quot;https://etcher.balena.io/&quot;&gt;Etcher&lt;/a&gt;.,Wait for writing of balenaOS to complete.,Remove the SD card from the host machine.,Insert the freshly flashed SD card into the Variscite DART-6UL.,&lt;strong role&#x3D;&quot;alert&quot;&gt;Warning!&lt;/strong&gt; This will also completely erase internal storage medium, so please make a backup first.,Set the SW1 and SW2 boot switches to 00 - SD boot Connect power to the Variscite DART-6UL.,Wait for the Variscite DART-6UL to finish flashing and shutdown. Please wait until the green LED stops flashing.,Remove the SD card from the Variscite DART-6UL.,Set the SW1 and SW2 boot switches to 01 - eMMC boot,Remove and re-connect power to the Variscite DART-6UL to boot the device.
+* Insert the SD card to the host machine.
+* Write the balenaOS file you downloaded to the SD card. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Wait for writing of balenaOS to complete.
+* Remove the SD card from the host machine.
+* Insert the freshly flashed SD card into the Variscite DART-6UL.
+* <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
+* Set the SW1 and SW2 boot switches to 00 - SD boot Connect power to the Variscite DART-6UL.
+* Wait for the Variscite DART-6UL to finish flashing and shutdown. Please wait until the green LED stops flashing.
+* Remove the SD card from the Variscite DART-6UL.
+* Set the SW1 and SW2 boot switches to 01 - eMMC boot,Remove and re-connect power to the Variscite DART-6UL to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Variscite DART-6UL](/faq/troubleshooting/imx6ul-var-dart) or try our [support channels](../../learn/accounts/support-access.md).
 

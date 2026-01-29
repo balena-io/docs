@@ -55,7 +55,17 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-Insert the SD card to the host machine.,Write the balenaOS file you downloaded to the SD card. We recommend using &lt;a href&#x3D;&quot;https://etcher.balena.io/&quot;&gt;Etcher&lt;/a&gt;.,Wait for writing of balenaOS to complete.,Remove the SD card from the host machine.,Insert the freshly flashed SD card into the Advantech ECU1370.,&lt;strong role&#x3D;&quot;alert&quot;&gt;Warning!&lt;/strong&gt; This will also completely erase internal storage medium, so please make a backup first.,Switch SW2 to 1: OFF, 2: ON. Insert SD card and power on the board. Wait for LP3 to blink for at least 10 seconds.,Wait for the Advantech ECU1370 to finish flashing and shutdown. Please wait until LP3 blinks.,Remove the SD card from the Advantech ECU1370.,Remove SD card. Switch SW2 to 1: ON and 2: OFF.,Remove and re-connect power to the Advantech ECU1370 to boot the device.
+* Insert the SD card to the host machine.
+* Write the balenaOS file you downloaded to the SD card. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Wait for writing of balenaOS to complete.
+* Remove the SD card from the host machine.
+* Insert the freshly flashed SD card into the Advantech ECU1370.
+* <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
+* Switch SW2 to 1: OFF, 2: ON. Insert SD card and power on the board. Wait for LP3 to blink for at least 10 seconds.
+* Wait for the Advantech ECU1370 to finish flashing and shutdown. Please wait until LP3 blinks.
+* Remove the SD card from the Advantech ECU1370.
+* Remove SD card. Switch SW2 to 1: ON and 2: OFF.
+* Remove and re-connect power to the Advantech ECU1370 to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Advantech ECU1370](/faq/troubleshooting/advantech-ecu1370) or try our [support channels](../../learn/accounts/support-access.md).
 

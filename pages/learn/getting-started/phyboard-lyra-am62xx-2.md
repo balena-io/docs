@@ -55,7 +55,16 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-Insert the SD card to the host machine.,Write the balenaOS file you downloaded to the SD card. We recommend using &lt;a href&#x3D;&quot;https://etcher.balena.io/&quot;&gt;Etcher&lt;/a&gt;.,Wait for writing of balenaOS to complete.,Remove the SD card from the host machine.,Insert the freshly flashed SD card into the phyBOARD-AM62x.,&lt;strong role&#x3D;&quot;alert&quot;&gt;Warning!&lt;/strong&gt; This will also completely erase internal storage medium, so please make a backup first.,Configure S5 and S6 to set the boot mode to SD card. Plug in the microSD card and connect power to the phyBOARD-AM62x,Wait for the phyBOARD-AM62x to finish flashing and shutdown. Please wait until LEDs D11 and D12 are off.,Remove the SD card from the phyBOARD-AM62x.,Configure S5 and S6 to set the boot mode to eMMC. Remove and re-connect power to the phyBOARD-AM62x. to boot the device.
+* Insert the SD card to the host machine.
+* Write the balenaOS file you downloaded to the SD card. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Wait for writing of balenaOS to complete.
+* Remove the SD card from the host machine.
+* Insert the freshly flashed SD card into the phyBOARD-AM62x.
+* <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
+* Configure S5 and S6 to set the boot mode to SD card. Plug in the microSD card and connect power to the phyBOARD-AM62x
+* Wait for the phyBOARD-AM62x to finish flashing and shutdown. Please wait until LEDs D11 and D12 are off.
+* Remove the SD card from the phyBOARD-AM62x.
+* Configure S5 and S6 to set the boot mode to eMMC. Remove and re-connect power to the phyBOARD-AM62x. to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for phyBOARD-AM62x](/faq/troubleshooting/phyboard-lyra-am62xx-2) or try our [support channels](../../learn/accounts/support-access.md).
 

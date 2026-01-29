@@ -55,7 +55,11 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-While not having the Revolution Pi Connect board powered, connect your system to the board&#x27;s USB port via a micro-USB cable. Power on the Revolution Pi Connect.,Write the balenaOS file you downloaded to the Revolution Pi Connect. We recommend using &lt;a href&#x3D;&quot;https://etcher.balena.io/&quot;&gt;Etcher&lt;/a&gt;.,Wait for writing of balenaOS to complete.,Power off the Revolution Pi Connect and unplug the micro-USB cable,Remove and re-connect power to the Revolution Pi Connect to boot the device.
+* While not having the Revolution Pi Connect board powered, connect your system to the board's USB port via a micro-USB cable. Power on the Revolution Pi Connect.
+* Write the balenaOS file you downloaded to the Revolution Pi Connect. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Wait for writing of balenaOS to complete.
+* Power off the Revolution Pi Connect and unplug the micro-USB cable
+* Remove and re-connect power to the Revolution Pi Connect to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Revolution Pi Connect](/faq/troubleshooting/revpi-connect) or try our [support channels](../../learn/accounts/support-access.md).
 

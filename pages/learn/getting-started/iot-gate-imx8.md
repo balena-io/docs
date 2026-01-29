@@ -55,7 +55,16 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-Insert the USB key to the host machine.,Write the balenaOS file you downloaded to the USB key. We recommend using &lt;a href&#x3D;&quot;https://etcher.balena.io/&quot;&gt;Etcher&lt;/a&gt;.,Wait for writing of balenaOS to complete.,Remove the USB key from the host machine.,Insert the freshly flashed USB key into the Compulab IOT-gate-imx8.,&lt;strong role&#x3D;&quot;alert&quot;&gt;Warning!&lt;/strong&gt; This will also completely erase internal storage medium, so please make a backup first.,Connect power to the Compulab IOT-gate-imx8,Wait for the Compulab IOT-gate-imx8 to finish flashing and shutdown. Please wait until all LEDs are off.,Remove the USB key from the Compulab IOT-gate-imx8.,Remove and re-connect power to the Compulab IOT-gate-imx8 to boot the device.
+* Insert the USB key to the host machine.
+* Write the balenaOS file you downloaded to the USB key. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Wait for writing of balenaOS to complete.
+* Remove the USB key from the host machine.
+* Insert the freshly flashed USB key into the Compulab IOT-gate-imx8.
+* <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
+* Connect power to the Compulab IOT-gate-imx8
+* Wait for the Compulab IOT-gate-imx8 to finish flashing and shutdown. Please wait until all LEDs are off.
+* Remove the USB key from the Compulab IOT-gate-imx8.
+* Remove and re-connect power to the Compulab IOT-gate-imx8 to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Compulab IOT-gate-imx8](/faq/troubleshooting/iot-gate-imx8) or try our [support channels](../../learn/accounts/support-access.md).
 
