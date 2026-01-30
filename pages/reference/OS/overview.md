@@ -45,7 +45,7 @@ To persist logs on the device, enable persistent logging via the [configuration]
 
 ### Hostname
 
-balenaOS allows the setting of a custom [hostname](configuration.md#hostname) via `config.json`, by setting `"hostname": "my-new-hostname"`. Your device will then broadcast (via Avahi) on the network as `my-new-hostname.local`. If you don't set a custom hostname, the device hostname will default to `<short-UUID>`. You can also set a custom hostname via the [Supervisor API](../supervisor/supervisor-api.md#patch-v1devicehost-config) on device.
+balenaOS allows the setting of a custom [hostname](configuration.md#hostname) via `config.json`, by setting `"hostname": "my-new-hostname"`. Your device will then broadcast (via Avahi) on the network as `my-new-hostname.local`. If you don't set a custom hostname, the device hostname will default to `<short-UUID>`. You can also set a custom hostname via the [Supervisor API](../supervisor/supervisor-api.md#patch-v1-device-host-config) on device.
 
 ### Logo
 

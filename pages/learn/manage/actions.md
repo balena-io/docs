@@ -188,4 +188,4 @@ This option can be used to mark your release as valid or invalid. Entities can o
 
 This option permanently deletes your release. This may be the setting you want to use if you want to clean up releases beyond simply [invalidating releases](actions.md#validation-status).
 
-**Info:** If you have a device [preloaded](../../learn/more/masterclasses/advanced-cli.md#5-preloading-and-preregistering) with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.
+**Info:** If you have a device [preloaded](../more/masterclasses/advanced-cli.md#id-5.-preloading-and-preregistering) with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.

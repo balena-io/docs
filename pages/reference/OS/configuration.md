@@ -105,9 +105,9 @@ cat /mnt/boot/config.json | jq '.'
 Editing config.json on a provisioned device should be done very carefully as any mistakes in the syntax of this file can leave a device inaccessible. If you do make a mistake, ensure that you do not exit the device's SSH connection until the configuration _is_ correct.
 {% endhint %}
 
-After provisioning, editing `config.json` as described above is not reliable or advisable because the [supervisor](../../../reference/supervisor/supervisor-api/) may overwrite certain fields, such as `persistentLogging`, with values read from the balenaCloud API. To safely modify the values of `config.json` on a provisioned device use one of the following methods:
+After provisioning, editing `config.json` as described above is not reliable or advisable because the [supervisor](../supervisor/supervisor-api.md) may overwrite certain fields, such as `persistentLogging`, with values read from the balenaCloud API. To safely modify the values of `config.json` on a provisioned device use one of the following methods:
 
-* Update the device [hostname](configuration.md#hostname) via the [supervisor API](../../../reference/supervisor/supervisor-api/#patch-v1devicehost-config).
+* Update the device [hostname](configuration.md#hostname) via the [supervisor API](../supervisor/supervisor-api.md#patch-v1-device-host-config).
 * Modify the [persistent logging](configuration.md#persistentlogging) configuration via device [configuration](../../learn/manage/configuration.md) tab in the balenaCloud dashboard.
 * Apply `config.json` updates remotely via the balena CLI using the [configizer project](https://github.com/balena-io-playground/configizer).
 
@@ -192,4 +192,4 @@ The following example provides all customizable configuration options available 
 
 ## Valid fields
 
-\{{> "meta-balena/config-json" \}}
+{% include "../../.gitbook/includes/config-json.md" %}

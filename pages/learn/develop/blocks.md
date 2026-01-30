@@ -46,7 +46,7 @@ services:
       RUN_MODE: 'super-secure'
 ```
 
-Each block will have their own set of [docker-compose fields](../../../reference/supervisor/docker-compose/) which are required to configure the container they run within. Do take care of syntax and conflicts in the docker-compose.yml file when composing and deploying your multicontainer configuration.
+Each block will have their own set of [docker-compose fields](../../reference/supervisor/docker-compose.md) which are required to configure the container they run within. Do take care of syntax and conflicts in the docker-compose.yml file when composing and deploying your multicontainer configuration.
 
 More resources:
 
