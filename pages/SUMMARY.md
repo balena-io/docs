@@ -50,7 +50,7 @@
   * [Fleet Types](learn/accounts/fleet-types.md)
   * [Organization management](learn/accounts/organizations.md)
   * [Support access](learn/accounts/support-access.md)
-* [more](learn/more/README.md)
+* [More resources](learn/more/README.md)
   * [Projects built on balena](learn/more/labs-projects/README.md)
     * [balenaBlocks built for balenaCloud](learn/more/labs-projects/balenablocks.md)
     * [Balena example projects](learn/more/labs-projects/example-projects.md)
