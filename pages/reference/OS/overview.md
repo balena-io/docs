@@ -22,14 +22,18 @@ balenaOS can be downloaded in production or development mode. This can be later 
 
 Development mode is recommended while getting started with balenaOS and building an application using the fast \[local mode]\[local-mode] workflow. Development mode enables a number of useful features while developing, namely:
 
-- Passwordless \[SSH access]\[ssh-host] into balenaOS on port `22222` as the root user, unless custom \[ssh keys]\[config-json-ssh] are provided in which case key-based authentication is used.
-- Docker socket exposed on port `2375`, which allows `balena push` / `build` / `deploy`, that enables remote Docker builds on the target device (see \[Deploy to your Fleet]\[deploy-to-fleet]).
-- Getty console attached to tty1 and serial.
-- Capable of entering \[local mode]\[local-mode] for rapid development of application containers locally.
+* Passwordless \[SSH access]\[ssh-host] into balenaOS on port `22222` as the root user, unless custom \[ssh keys]\[config-json-ssh] are provided in which case key-based authentication is used.
+* Docker socket exposed on port `2375`, which allows `balena push` / `build` / `deploy`, that enables remote Docker builds on the target device (see \[Deploy to your Fleet]\[deploy-to-fleet]).
+* Getty console attached to tty1 and serial.
+* Capable of entering \[local mode]\[local-mode] for rapid development of application containers locally.
 
-**Note:** Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via \[configuration variables]\[supervisor-configuration-list].
+{% hint style="warning" %}
+Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via \[configuration variables]\[supervisor-configuration-list].
+{% endhint %}
 
-**Warning:** Development mode has an exposed Docker socket and enable passwordless root SSH access and should never be used in production.
+{% hint style="danger" %}
+Development mode has an exposed Docker socket and enable passwordless root SSH access and should never be used in production.
+{% endhint %}
 
 Production mode disables passwordless root access, and an SSH key must be \[added]\[config-json-ssh] to `config.json` to access a production image using a direct SSH connection. You may still access a production image by tunneling SSH through the cloudlink via the CLI (using `balena ssh <uuid>`) or the balenaCloud \[web terminal]\[ssh-host]. To use SSH via cloudlink, you need to have an SSH key configured on your development machine and \[added]\[ssh-key-add] to the balenaCloud dashboard.
 
@@ -47,7 +51,9 @@ balenaOS allows the setting of a custom \[hostname]\[config-json-hostname] via `
 
 On production mode, nothing is written to tty1, on boot you should only see the balena logo, and this will persist until your application code takes over the framebuffer. If you would like to replace the balena logo with your own custom splash logo, then you will need to replace the `splash/balena-logo.png` file that you will find in the \[first partition]\[partition] of the image (boot partition or `resin-boot`) with your own logo.
 
-**Note:** As it currently stands, plymouth expects the image to be named `balena-logo.png`. This file was called `resin-logo.png` on older releases.
+{% hint style="warning" %}
+As it currently stands, plymouth expects the image to be named `balena-logo.png`. This file was called `resin-logo.png` on older releases.
+{% endhint %}
 
 ### Provisioning keys
 
@@ -63,13 +69,15 @@ Should you wish to add an unconfigured device to your balenaCloud fleet, you may
 
 The balenaOS userspace packages only provide the bare essentials for running containers, while still offering flexibility. The philosophy is that software and services always default to being in a container unless they are generically useful to all containers, or they absolutely can’t live in a container. The userspace consists of many open source components, but in this section, we will highlight some of the most important services.
 
+<figure><img src="../../.gitbook/assets/balenaOS-components.webp" alt=""><figcaption></figcaption></figure>
+
 ### systemd
 
 \[systemd]\[systemd] is the init system of balenaOS, and it is responsible for launching and managing all the other services. BalenaOS leverages many of the great features of systemd, such as adjusting OOM scores for critical services and running services in separate mount namespaces. systemd also allows us to manage service dependencies easily.
 
 ### Supervisor
 
-The \{{ $names.lower.company \}} Supervisor is a lightweight container that runs on devices. Its main roles are to ensure your app is running, and keep communications with the balenaCloud API server, downloading new application containers and updates to existing containers as you push them in addition to sending logs to your dashboard. It also provides an \[API interface]\[supervisor], which allows you to query the update status and perform certain actions on the device.
+The balena Supervisor is a lightweight container that runs on devices. Its main roles are to ensure your app is running, and keep communications with the balenaCloud API server, downloading new application containers and updates to existing containers as you push them in addition to sending logs to your dashboard. It also provides an \[API interface]\[supervisor], which allows you to query the update status and perform certain actions on the device.
 
 ### BalenaEngine
 
@@ -89,7 +97,9 @@ In order to improve the \[development experience]\[local-mode] of balenaOS, ther
 
 ### chrony
 
-**Note**: BalenaOS versions less than v2.13.0 used systemd-timesyncd for time management.
+{% hint style="warning" %}
+BalenaOS versions less than v2.13.0 used systemd-timesyncd for time management.
+{% endhint %}
 
 \[chrony]\[chrony] is used by balenaOS to keep the system time synchronized.
 
@@ -99,11 +109,15 @@ In order to improve the \[development experience]\[local-mode] of balenaOS, ther
 
 ### OpenSSH
 
-**Note**: BalenaOS versions < v2.38.0 use \[dropbear]\[dropbear] as the SSH server and client
+{% hint style="warning" %}
+BalenaOS versions < v2.38.0 use \[dropbear]\[dropbear] as the SSH server and client
+{% endhint %}
 
 \[OpenSSH]\[open-ssh] is used in balenaOS as the SSH server and client allowing remote login using the SSH protocol.
 
 ## Image Partition Layout
+
+<figure><img src="../../.gitbook/assets/image-partition-layout.webp" alt=""><figcaption></figcaption></figure>
 
 The first partition, `resin-boot`, holds important boot files according to each board (e.g. kernel image, bootloader image). It also holds the `config.json` file, which is the central point of \[configuring balenaOS]\[config-json] and defining its behavior. For example using `config.json` you can set your hostname, add SSH keys, allow persistent logging or define custom DNS servers.
 
@@ -123,11 +137,15 @@ BalenaOS contains a partition named `resin-state` that is meant to hold all this
 
 A diagram of our read-only rootfs can be seen below:
 
+<figure><img src="../../.gitbook/assets/read-only-rootfs.webp" alt=""><figcaption></figcaption></figure>
+
 ## BalenaOS Yocto Composition
 
 BalenaOS is composed of multiple \[Yocto]\[yocto] layers. The Yocto Project build system uses these layers to compile balenaOS for the various [supported devices](../../../reference/hardware/devices/). Below is an example from the \[Raspberry Pi family]\[raspberry-pi-conf].
 
-**Note:** Instructions for building your own version of balenaOS are available \[here]\[yocto-build].
+{% hint style="warning" %}
+Instructions for building your own version of balenaOS are available \[here]\[yocto-build].
+{% endhint %}
 
 | Layer Name                                 | Repository                                                                                 | Description                                                               |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
@@ -153,6 +171,8 @@ Next is the board-specific meta-balena configuration layer. This layer works in 
 
 The final meta-rust layer enables support for the rust compiler and the cargo package manager.
 
-**Note:** Instructions for adding custom board support may be found \[here]\[custom-build].
+{% hint style="warning" %}
+Instructions for adding custom board support may be found \[here]\[custom-build].
+{% endhint %}
 
 \[balena-io-os]:https://www.balena.io/os \[cli-join]:/reference/cli/#join-deviceip \[config-json]:/reference/OS/configuration \[config-json-hostname]:/reference/OS/configuration/#hostname \[config-json-logging]:/reference/OS/configuration/#persistentlogging \[config-json-ssh]:/reference/OS/configuration/#sshkeys \[containerisation]:https://en.wikipedia.org/wiki/Operating\_system%E2%80%93level\_virtualization \[chrony]:https://en.wikipedia.org/wiki/Chrony \[custom-build]:https://www.balena.io/os/docs/custom-build/#Supporting-your-Own-Board \[deploy-to-fleet]:/learn/deploy/deployment/ \[dnsmasq]:https://wiki.archlinux.org/index.php/Dnsmasq \[Docker]:https://www.docker.com/ \[dropbear]:https://matt.ucc.asn.au/dropbear/dropbear.html \[fleet-configuration]:/learn/manage/configuration/#fleet-configuration-variables \[hostos-updates]:/reference/OS/updates/self-service/ \[linux]:https://en.wikipedia.org/wiki/Linux \[local-mode]:/learn/develop/local-mode/ \[modem-manager]:https://www.freedesktop.org/wiki/Software/ModemManager/ \[network-manager]:https://wiki.gnome.org/Projects/NetworkManager \[open-ssh]:https://www.openssh.com/ \[open-vpn]:https://community.openvpn.net/openvpn \[partition]:/reference/OS/overview/2.x/#stateless-and-read-only-rootfs \[raspberry-pi-conf]:https://github.com/balena-os/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample \[security]:/learn/welcome/security/#device-access \[ssh-host]:/learn/manage/ssh-access/ \[ssh-key-add]:/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud \[supervisor]:/reference/supervisor/supervisor-api/ \[supervisor-api]:/reference/supervisor/supervisor-api/#patch-v1devicehost-config \[systemd]:https://www.freedesktop.org/wiki/Software/systemd/ \[yocto]:https://www.yoctoproject.org/ \[yocto-build]:https://www.balena.io/os/docs/custom-build/#Bake-your-own-Image \[yocto-poky]:https://www.yoctoproject.org/software-item/poky/ \[yocto-releases]:https://wiki.yoctoproject.org/wiki/Releases \[config-json-developmentmode]:/reference/OS/configuration/#developmentmode \[supervisor-configuration-list]:/reference/supervisor/configuration-list
