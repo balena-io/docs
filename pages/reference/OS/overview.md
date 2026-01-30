@@ -18,38 +18,38 @@ We look forward to working with the community to grow and mature balenaOS into a
 
 ### Development vs. Production mode
 
-balenaOS can be downloaded in production or development mode. This can be later changed via [developmentMode](../../reference/OS/configuration.md#developmentmode).
+balenaOS can be downloaded in production or development mode. This can be later changed via [developmentMode](configuration.md#developmentmode).
 
 Development mode is recommended while getting started with balenaOS and building an application using the fast [local mode](../../learn/develop/local-mode.md) workflow. Development mode enables a number of useful features while developing, namely:
 
-* Passwordless [SSH access](../../learn/manage/ssh-access.md) into balenaOS on port `22222` as the root user, unless custom [ssh keys](../../reference/OS/configuration.md#sshkeys) are provided in which case key-based authentication is used.
+* Passwordless [SSH access](../../learn/manage/ssh-access.md) into balenaOS on port `22222` as the root user, unless custom [ssh keys](configuration.md#sshkeys) are provided in which case key-based authentication is used.
 * Docker socket exposed on port `2375`, which allows `balena push` / `build` / `deploy`, that enables remote Docker builds on the target device (see [Deploy to your Fleet](../../learn/deploy/deployment.md)).
 * Getty console attached to tty1 and serial.
 * Capable of entering [local mode](../../learn/develop/local-mode.md) for rapid development of application containers locally.
 
 {% hint style="warning" %}
-Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via [configuration variables](../../reference/supervisor/configuration-list).
+Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via [configuration variables](../supervisor/configuration-list/).
 {% endhint %}
 
 {% hint style="danger" %}
 Development mode has an exposed Docker socket and enable passwordless root SSH access and should never be used in production.
 {% endhint %}
 
-Production mode disables passwordless root access, and an SSH key must be [added](../../reference/OS/configuration.md#sshkeys) to `config.json` to access a production image using a direct SSH connection. You may still access a production image by tunneling SSH through the cloudlink via the CLI (using `balena ssh <uuid>`) or the balenaCloud [web terminal](../../learn/manage/ssh-access.md). To use SSH via cloudlink, you need to have an SSH key configured on your development machine and [added](../../learn/manage/ssh-access.md#add-an-ssh-key-to-balenacloud) to the balenaCloud dashboard.
+Production mode disables passwordless root access, and an SSH key must be [added](configuration.md#sshkeys) to `config.json` to access a production image using a direct SSH connection. You may still access a production image by tunneling SSH through the cloudlink via the CLI (using `balena ssh <uuid>`) or the balenaCloud [web terminal](../../learn/manage/ssh-access.md). To use SSH via cloudlink, you need to have an SSH key configured on your development machine and [added](../../learn/manage/ssh-access.md#add-an-ssh-key-to-balenacloud) to the balenaCloud dashboard.
 
 ### Logging
 
 In balenaOS, logs are written to an 8 MB journald RAM buffer in order to avoid wear on the flash storage used by most of the supported boards.
 
-To persist logs on the device, enable persistent logging via the [configuration](../../learn/manage/configuration.md#fleet-configuration-variables) tab in the balenaCloud dashboard, or prior to device provisioning setting the `"persistentLogging": true` [key](../../reference/OS/configuration.md#persistentlogging) in `config.json`. The logs can be accessed via the host OS at `/var/log/journal`. For versions of balenaOS < 2.45.0, persistent logs are limited to 8 MB and stored in the state partition of the device. BalenaOS versions >= 2.45.0 store a maximum of 32 MB of persistent logs in the data partition of the device.
+To persist logs on the device, enable persistent logging via the [configuration](../../learn/manage/configuration.md#fleet-configuration-management) tab in the balenaCloud dashboard, or prior to device provisioning setting the `"persistentLogging": true` [key](configuration.md#persistentlogging) in `config.json`. The logs can be accessed via the host OS at `/var/log/journal`. For versions of balenaOS < 2.45.0, persistent logs are limited to 8 MB and stored in the state partition of the device. BalenaOS versions >= 2.45.0 store a maximum of 32 MB of persistent logs in the data partition of the device.
 
 ### Hostname
 
-balenaOS allows the setting of a custom [hostname](../../reference/OS/configuration.md#hostname) via `config.json`, by setting `"hostname": "my-new-hostname"`. Your device will then broadcast (via Avahi) on the network as `my-new-hostname.local`. If you don't set a custom hostname, the device hostname will default to `<short-UUID>`. You can also set a custom hostname via the [Supervisor API](../../reference/supervisor/supervisor-api.md#patch-v1devicehost-config) on device.
+balenaOS allows the setting of a custom [hostname](configuration.md#hostname) via `config.json`, by setting `"hostname": "my-new-hostname"`. Your device will then broadcast (via Avahi) on the network as `my-new-hostname.local`. If you don't set a custom hostname, the device hostname will default to `<short-UUID>`. You can also set a custom hostname via the [Supervisor API](../supervisor/supervisor-api.md#patch-v1devicehost-config) on device.
 
 ### Logo
 
-On production mode, nothing is written to tty1, on boot you should only see the balena logo, and this will persist until your application code takes over the framebuffer. If you would like to replace the balena logo with your own custom splash logo, then you will need to replace the `splash/balena-logo.png` file that you will find in the [first partition](../../reference/OS/overview.md#stateless-and-read-only-rootfs) of the image (boot partition or `resin-boot`) with your own logo.
+On production mode, nothing is written to tty1, on boot you should only see the balena logo, and this will persist until your application code takes over the framebuffer. If you would like to replace the balena logo with your own custom splash logo, then you will need to replace the `splash/balena-logo.png` file that you will find in the [first partition](overview.md#stateless-and-read-only-rootfs) of the image (boot partition or `resin-boot`) with your own logo.
 
 {% hint style="warning" %}
 As it currently stands, plymouth expects the image to be named `balena-logo.png`. This file was called `resin-logo.png` on older releases.
@@ -63,7 +63,7 @@ When a balenaOS image is downloaded from the balenaCloud dashboard, it contains 
 
 Images downloaded via the CLI (using `os download`), via [balena.io/os](https://www.balena.io/os), or [manually built via Yocto](https://www.balena.io/os/docs/custom-build/#Bake-your-own-Image) are the same balenaOS images as those downloaded from balenaCloud but are unconfigured, and will not connect to the balenaCloud servers, but still make use of the Supervisor to keep the containers running. This version of balenaOS is meant as an excellent way to get started with Docker containers on embedded systems, and you can read more about this at [balena.io/os](https://www.balena.io/os).
 
-Should you wish to add an unconfigured device to your balenaCloud fleet, you may migrate it using the interactive `balena join` [CLI command](../../reference/balena-cli.md#join-deviceip) or update the `config.json` of an unconfigured device with a configuration file downloaded from the _Add device_ page of the balenaCloud dashboard.
+Should you wish to add an unconfigured device to your balenaCloud fleet, you may migrate it using the interactive `balena join` [CLI command](../balena-cli.md#join-deviceip) or update the `config.json` of an unconfigured device with a configuration file downloaded from the _Add device_ page of the balenaCloud dashboard.
 
 ## BalenaOS Components
 
@@ -77,7 +77,7 @@ The balenaOS userspace packages only provide the bare essentials for running con
 
 ### Supervisor
 
-The balena Supervisor is a lightweight container that runs on devices. Its main roles are to ensure your app is running, and keep communications with the balenaCloud API server, downloading new application containers and updates to existing containers as you push them in addition to sending logs to your dashboard. It also provides an [API interface](../../reference/supervisor/supervisor-api.md), which allows you to query the update status and perform certain actions on the device.
+The balena Supervisor is a lightweight container that runs on devices. Its main roles are to ensure your app is running, and keep communications with the balenaCloud API server, downloading new application containers and updates to existing containers as you push them in addition to sending logs to your dashboard. It also provides an [API interface](../supervisor/supervisor-api.md), which allows you to query the update status and perform certain actions on the device.
 
 ### BalenaEngine
 
@@ -119,11 +119,11 @@ BalenaOS versions < v2.38.0 use [dropbear](https://matt.ucc.asn.au/dropbear/drop
 
 <figure><img src="../../.gitbook/assets/image-partition-layout.webp" alt=""><figcaption></figcaption></figure>
 
-The first partition, `resin-boot`, holds important boot files according to each board (e.g. kernel image, bootloader image). It also holds the `config.json` file, which is the central point of [configuring balenaOS](../../reference/OS/configuration.md) and defining its behavior. For example using `config.json` you can set your hostname, add SSH keys, allow persistent logging or define custom DNS servers.
+The first partition, `resin-boot`, holds important boot files according to each board (e.g. kernel image, bootloader image). It also holds the `config.json` file, which is the central point of [configuring balenaOS](configuration.md) and defining its behavior. For example using `config.json` you can set your hostname, add SSH keys, allow persistent logging or define custom DNS servers.
 
 `resin-rootA` is the partition that holds the read-only root filesystem; it holds almost everything that balenaOS is.
 
-`resin-rootB` is an empty partition that is only used when the rootfs is to be updated. We follow the A-B update strategy for balenaOS upgrades. Essentially, we have one active partition that is the OS’s current rootfs and one dormant one that is empty. During a balenaOS [update](../../reference/OS/updates/self-service.md) we download the new rootfs to the dormant partition and try to switch them. If the switch is successful the dormant partition becomes the new rootfs, if not, we roll back to the old active partition.
+`resin-rootB` is an empty partition that is only used when the rootfs is to be updated. We follow the A-B update strategy for balenaOS upgrades. Essentially, we have one active partition that is the OS’s current rootfs and one dormant one that is empty. During a balenaOS [update](updates/self-service.md) we download the new rootfs to the dormant partition and try to switch them. If the switch is successful the dormant partition becomes the new rootfs, if not, we roll back to the old active partition.
 
 `resin-state` is the partition that holds persistent data, as explained in the [Stateless and Read-only rootfs](overview.md#stateless-and-read-only-rootfs) section.
 
@@ -141,25 +141,25 @@ A diagram of our read-only rootfs can be seen below:
 
 ## BalenaOS Yocto Composition
 
-BalenaOS is composed of multiple [Yocto](https://www.yoctoproject.org/) layers. The Yocto Project build system uses these layers to compile balenaOS for the various [supported devices](../../../reference/hardware/devices/). Below is an example from the [Raspberry Pi family](https://github.com/balena-os/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample).
+BalenaOS is composed of multiple [Yocto](https://www.yoctoproject.org/) layers. The Yocto Project build system uses these layers to compile balenaOS for the various [supported devices](../hardware/devices.md). Below is an example from the [Raspberry Pi family](https://github.com/balena-os/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample).
 
 {% hint style="warning" %}
 Instructions for building your own version of balenaOS are available [here](https://www.balena.io/os/docs/custom-build/#Bake-your-own-Image).
 {% endhint %}
 
-| Layer Name                                 | Repository                                                                                 | Description                                                               |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| poky/meta                                  | https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta                                  | Poky build tools and metadata.                                            |
-| poky/meta-poky                             | https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta-poky                             |                                                                           |
-| meta-openembedded/meta-oe                  | https://github.com/openembedded/meta-openembedded/tree/master/meta-oe                      | Base layer for OpenEmbedded build system.                                 |
-| meta-openembedded/meta-filesystems         | https://github.com/openembedded/meta-openembedded/tree/master/meta-filesystems             | OpenEmbedded filesystems layer.                                           |
-| meta-openembedded/meta-networking          | https://github.com/openembedded/meta-openembedded/tree/master/meta-networking              | OpenEmbedded networking-related packages and configuration.               |
-| meta-openembedded/meta-python              | https://github.com/openembedded/meta-openembedded/tree/master/meta-python                  | Layer containing Python modules for OpenEmbedded.                         |
-| meta-raspberrypi                           | https://github.com/agherzan/meta-raspberrypi                                               | General hardware specific BSP overlay for the Raspberry Pi device family. |
-| meta-balena/meta-balena-common             | https://github.com/balena-os/meta-balena/tree/development/meta-balena-common               | Enables building balenaOS for supported machines.                         |
-| meta-balena/meta-balena-warrior            | https://github.com/balena-os/meta-balena/tree/development/meta-balena-warrior              | Enables building balenaOS for Warrior supported BSPs.                     |
-| balena-raspberrypi/meta-balena-raspberrypi | https://github.com/balena-os/balena-raspberrypi/tree/master/layers/meta-balena-raspberrypi | Enables building balenaOS for chosen meta-raspberrypi machines.           |
-| meta-rust                                  | https://github.com/meta-rust/meta-rust                                                     | OpenEmbedded/Yocto layer for Rust and Cargo.                              |
+| Layer Name                                 | Repository                                                                                                                                                                               | Description                                                               |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| poky/meta                                  | [https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta](https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta)                                                                   | Poky build tools and metadata.                                            |
+| poky/meta-poky                             | [https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta-poky](https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta-poky)                                                         |                                                                           |
+| meta-openembedded/meta-oe                  | [https://github.com/openembedded/meta-openembedded/tree/master/meta-oe](https://github.com/openembedded/meta-openembedded/tree/master/meta-oe)                                           | Base layer for OpenEmbedded build system.                                 |
+| meta-openembedded/meta-filesystems         | [https://github.com/openembedded/meta-openembedded/tree/master/meta-filesystems](https://github.com/openembedded/meta-openembedded/tree/master/meta-filesystems)                         | OpenEmbedded filesystems layer.                                           |
+| meta-openembedded/meta-networking          | [https://github.com/openembedded/meta-openembedded/tree/master/meta-networking](https://github.com/openembedded/meta-openembedded/tree/master/meta-networking)                           | OpenEmbedded networking-related packages and configuration.               |
+| meta-openembedded/meta-python              | [https://github.com/openembedded/meta-openembedded/tree/master/meta-python](https://github.com/openembedded/meta-openembedded/tree/master/meta-python)                                   | Layer containing Python modules for OpenEmbedded.                         |
+| meta-raspberrypi                           | [https://github.com/agherzan/meta-raspberrypi](https://github.com/agherzan/meta-raspberrypi)                                                                                             | General hardware specific BSP overlay for the Raspberry Pi device family. |
+| meta-balena/meta-balena-common             | [https://github.com/balena-os/meta-balena/tree/development/meta-balena-common](https://github.com/balena-os/meta-balena/tree/development/meta-balena-common)                             | Enables building balenaOS for supported machines.                         |
+| meta-balena/meta-balena-warrior            | [https://github.com/balena-os/meta-balena/tree/development/meta-balena-warrior](https://github.com/balena-os/meta-balena/tree/development/meta-balena-warrior)                           | Enables building balenaOS for Warrior supported BSPs.                     |
+| balena-raspberrypi/meta-balena-raspberrypi | [https://github.com/balena-os/balena-raspberrypi/tree/master/layers/meta-balena-raspberrypi](https://github.com/balena-os/balena-raspberrypi/tree/master/layers/meta-balena-raspberrypi) | Enables building balenaOS for chosen meta-raspberrypi machines.           |
+| meta-rust                                  | [https://github.com/meta-rust/meta-rust](https://github.com/meta-rust/meta-rust)                                                                                                         | OpenEmbedded/Yocto layer for Rust and Cargo.                              |
 
 At the base is [Poky](https://www.yoctoproject.org/software-item/poky/), the Yocto Project's reference distribution. Poky contains the OpenEmbedded Build System (BitBake and OpenEmbedded-Core) as well as a set of metadata. On top of Poky, we add the collection of packages from meta-openembedded.
 
