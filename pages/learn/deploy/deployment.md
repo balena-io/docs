@@ -44,7 +44,7 @@ If you are building your own container images, `balena deploy` will upload the i
 Like `balena push` it is also independent of git, and you can use any version control system you wish. It is also possible to use [private base images](deployment.md#private-base-images).
 
 {% hint style="warning" %}
-Refer to the \[`balena build`]\[[cli-build-reference](../../../reference/balena-cli/#build-source)] and \[`balena deploy` command reference]\[[cli-deploy-reference](../../../reference/balena-cli/#deploy-fleet-image)] for additional documentation.
+Refer to the [`balena build`](../../reference/balena-cli.md#build-source) and [`balena deploy` command reference](../../reference/balena-cli.md#deploy-fleet-image) for additional documentation.
 {% endhint %}
 
 ## Git Push
