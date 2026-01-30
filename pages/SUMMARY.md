@@ -71,8 +71,8 @@
 ## Reference
 
 * [Supported devices](reference/hardware/README.md)
-  * [Single-board computers](reference/hardware/devices.md)
   * [Device Types and Versioning](reference/hardware/versioning.md)
+  * [Single-board computers](reference/hardware/devices.md)
   * [Wifi Adapters and Modems](reference/hardware/wifi-dongles.md)
 * [Host OS](reference/os/README.md)
   * [What is balenaOS?](reference/OS/overview.md)
