@@ -90,6 +90,7 @@ To add additional external documentation:
 2. Run `npm run sync-external` to fetch the content.
 3. Update `externalDocs` in [`config/links.coffee`](https://github.com/balena-io/docs/blob/master/config/links.coffee) to add the "Improve this Doc" link.
 4. In [`config/index.coffee`](https://github.com/balena-io/docs/blob/master/config/index.coffee) add the filename (without .md) to the `EXTERNAL_DOCS` variable.
+5. If the external doc targets a `pages/` path (not `shared/`), add an entry to [`pages/SUMMARY.md`](pages/SUMMARY.md) so the page appears in the documentation navigation.
 
 Renovate will automatically detect version updates and create PRs with the synced content.
 
