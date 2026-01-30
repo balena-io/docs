@@ -204,7 +204,7 @@ You may also specify the `--service` and `--system` options using the `balena pu
 
 ## SSH into the running app container or host OS
 
-To access the local device over [SSH](../manage/ssh-access.md), use the `balena device ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and \[perform other troubleshooting tasks]\[troubleshooting]:
+To access the local device over [SSH](../manage/ssh-access.md), use the `balena device ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and [perform other troubleshooting tasks](../manage/ssh-access.md#troubleshooting-with-host-os-access):
 
 ```bash
 balena device ssh 192.168.86.45
