@@ -7,7 +7,7 @@ excerpt: Choosing an update strategy for your balena devices
 
 With the balena device supervisor version 1.3, we added the ability to choose the update strategy on devices, that is, the order and way in which the steps to perform an update are executed. You can check whether your Supervisor has the appropriate version in the "Supervisor version" entry in the device dashboard page. These update strategies allow users to choose between four modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
 
-Update strategies can be applied by setting a [docker-compose label](../../../../reference/supervisor/docker-compose/#labels). The two labels that are involved are:
+Update strategies can be applied by setting a [docker-compose label](../../../reference/supervisor/docker-compose.md#labels). The two labels that are involved are:
 
 * `io.balena.update.strategy`, and
 * `io.balena.update.handover-timeout`.
@@ -25,7 +25,7 @@ which are explained below. The `io.balena.update.handover-timeout` label is only
 Prior to balena Supervisor v7.23.0 the strategy was controlled by two configuration variables, `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`, which had the same effect as the labels do today. This mechanism for controlling the strategy is considered _deprecated_ and may be removed in the future.
 {% endhint %}
 
-All update strategies below honor the [fleet update locks](../../../../learn/deploy/release-strategy/update-locking/) which you can use prevent updates temporarily.
+All update strategies below honor the [fleet update locks](update-locking.md) which you can use prevent updates temporarily.
 
 ## download-then-kill
 
