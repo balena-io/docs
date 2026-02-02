@@ -9,7 +9,7 @@ On balenaCloud, when we deploy code to devices grouped in a fleet, they all run 
 
 There are 3 ways to create and deploy a release, namely [balena push](deployment.md#balena-push), [balena deploy](deployment.md#balena-build--deploy) and [git push](deployment.md#git-push). Each method has slightly different use cases and differ on how and where the container images are built. We'll explain each of the options in more detail below. If you are just starting out with balenaCloud, we recommend using [balena push](deployment.md#balena-push).
 
-To get started with the balena CLI, check out our [balena CLI masterclass](../../../learn/more/masterclasses/cli-masterclass/)
+To get started with the balena CLI, check out our [balena CLI masterclass](../more/masterclasses/cli-masterclass.md)
 
 ## Balena Push
 
