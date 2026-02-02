@@ -49,7 +49,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "shared/meta-balena/config-json.md",
+          "target": "pages/.gitbook/includes/config-json.md",
           "transform": {
             "type": "extract-section",
             "section": "config.json"
