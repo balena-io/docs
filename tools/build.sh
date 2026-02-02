@@ -7,9 +7,6 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.."
 
-# Generate Getting Started assets
-node ./tools/generate-docs-contracts.js &
-
 # Note: Versioned docs (CLI, SDK, Python SDK) are now managed by sync-external.js
 # and committed to git. Run `npm run sync-external` to update them locally.
 # Renovate handles version updates via pull requests.
