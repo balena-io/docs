@@ -4,27 +4,6 @@ title: I2C and Other Interfaces
 
 # I2C and Other Interfaces
 
-### I2C and Other Interfaces
-
-* [Raspberry Pi Family](i2c-and-spi.md#raspberry-pi-family)
-  * [I2C](i2c-and-spi.md#i2c)
-  * [SPI](i2c-and-spi.md#spi)
-  * [1-wire and Digital Temperature sensors](i2c-and-spi.md#id-1-wire-and-digital-temperature-sensors)
-  * [Using UART or Serial on Raspberry Pi 3](i2c-and-spi.md#using-uart-or-serial-on-raspberry-pi-3)
-  * [Raspberry Pi camera module](i2c-and-spi.md#raspberry-pi-camera-module)
-  * [Raspberry Pi 7” Touchscreen Display](i2c-and-spi.md#raspberry-pi-7-touchscreen-display)
-  * [Customizing config.txt](i2c-and-spi.md#customizing-config.txt)
-* [Beaglebone](i2c-and-spi.md#beaglebone)
-  * [Capemgr support](i2c-and-spi.md#capemgr-support)
-  * [Disable HDMI](i2c-and-spi.md#disable-hdmi)
-* [IOT-GATE-iMX8](i2c-and-spi.md#iot-gate-imx8)
-* [Up Squared](i2c-and-spi.md#up-squared)
-  * [Serial ports](i2c-and-spi.md#serial-ports-1)
-* [Jetson Devices](i2c-and-spi.md#jetson-devices)
-  * [Custom device trees](i2c-and-spi.md#custom-device-trees)
-  * [Configurable fan profiles](i2c-and-spi.md#configurable-fan-profiles)
-  * [Configurable power modes](i2c-and-spi.md#configurable-power-modes)
-
 ### Raspberry Pi Family
 
 Many sensors and peripherals use either the [I²C (Inter-Integrated Circuit)](https://en.wikipedia.org/wiki/I%C2%B2C) or the [SPI (Serial Peripheral Interface)](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) to communicate with the CPU. In most linux environments, using this kind of low level communication requires enabling a kernel module. In balena containers this can be done in a similar way because the containers are run in `--privileged` mode.
