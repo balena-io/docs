@@ -12,8 +12,8 @@ Name|Description
 [connector](https://github.com/balena-labs-projects/connector)|Auto-configured data connector block based on Telegraf
 [sensor](https://github.com/balena-labs-projects/sensor)|Auto-detects connected i2c sensors and published data on HTTP or MQTT.
 [fbcp](https://github.com/balena-labs-projects/fbcp)|fbcp driver for SPI based displays for Raspberry Pis via fbcp-ili9341
-[multiroom](https://github.com/balena-labs-projects/multiroom)|Set up multiroom audio for your fleet of devices. Uses the Snapcast audio player.
 [project-template](https://github.com/balena-labs-projects/project-template)|Project template for new Balena projects
+[multiroom](https://github.com/balena-labs-projects/multiroom)|Set up multiroom audio for your fleet of devices. Uses the Snapcast audio player.
 [log2screen](https://github.com/balena-labs-projects/log2screen)|
 [dbus](https://github.com/balena-labs-projects/dbus)|
 [pulse](https://github.com/balena-labs-projects/pulse)|A block for counting pulses on a Raspberry Pi GPIO pin.
