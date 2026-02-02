@@ -2201,3 +2201,4 @@
 | up-board-ubuntu-golang | [Docker Hub](https://hub.docker.com/r/balenalib/up-board-ubuntu-golang), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/device-base/up-board) |
 | up-board-ubuntu-node | [Docker Hub](https://hub.docker.com/r/balenalib/up-board-ubuntu-node), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/device-base/up-board) |
 | up-board-ubuntu-python | [Docker Hub](https://hub.docker.com/r/balenalib/up-board-ubuntu-python), [GitHub](https://github.com/balena-io-library/base-images/tree/master/balena-base-images/device-base/up-board) |
+
