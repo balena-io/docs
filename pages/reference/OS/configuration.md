@@ -192,4 +192,4 @@ The following example provides all customizable configuration options available 
 
 ## Valid fields
 
-\{{> "meta-balena/config-json" \}}
+{% include "../../.gitbook/includes/config-json.md" %}
