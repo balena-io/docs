@@ -29,4 +29,4 @@ For devices running balenaOS 2.x, a status of `OS update failed` means the user 
 
 Rollbacks is a framework designed to automatically roll back the OS update in case something goes wrong.
 
-There are two rollback mechanisms in the OS, covering different update failure modes. One based on health checks called the `rollback-health`, and the recognizing if the new system is unbootable for some reason, the `rollback-altboot`. Learn more about [rollback mechanisms](../../../../reference/OS/updates/rollbacks/).
+There are two rollback mechanisms in the OS, covering different update failure modes. One based on health checks called the `rollback-health`, and the recognizing if the new system is unbootable for some reason, the `rollback-altboot`. Learn more about [rollback mechanisms](rollbacks.md).
