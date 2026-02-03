@@ -269,14 +269,14 @@
       "id": "balena-labs-projects",
       "type": "github-org-repos",
       "org": "balena-labs-projects",
-      "target": "shared/projects/balena-labs-projects.md",
+      "target": "pages/.gitbook/includes/balena-labs-projects.md",
       "perPage": 30
     },
     {
       "id": "balena-io-examples",
       "type": "github-org-repos",
       "org": "balena-io-examples",
-      "target": "shared/projects/balena-example-projects.md",
+      "target": "pages/.gitbook/includes/balena-example-projects.md",
       "perPage": 100
     }
   ]
