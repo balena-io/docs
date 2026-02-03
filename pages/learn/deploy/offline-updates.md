@@ -114,7 +114,7 @@ OR
 $ uuid=<UUID OF YOUR DEVICE>
 ```
 
-With [`balena device register`](../../../reference/balena-cli/#device-register-fleet), devices can be preregistered to a balenaCloud fleet involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass](../../../learn/more/masterclasses/advanced-cli/#52-preregistering-a-device). This step can be skipped if a pre-existing device is needed to be updated.
+With [`balena device register`](../../../reference/balena-cli/#device-register-fleet), devices can be preregistered to a balenaCloud fleet involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass](../more/masterclasses/advanced-cli.md#id-5.2-preregistering-a-device). This step can be skipped if a pre-existing device is needed to be updated.
 
 ```bash
 $ balena device register ${fleet_slug} --uuid ${uuid}
@@ -162,7 +162,7 @@ $ rm ${config}
 
 ### Create and Preload Release
 
-Offline updates revolve around the concept of [balena preload](../../../reference/balena-cli/#preload). Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image](../../../learn/more/masterclasses/advanced-cli/#51-preloading-a-device-image).
+Offline updates revolve around the concept of [balena preload](../../../reference/balena-cli/#preload). Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image](../more/masterclasses/advanced-cli.md#id-5.1-preloading-a-device-image).
 
 {% hint style="warning" %}
 [balena preload](https://github.com/balena-io/balena-cli/blob/master/INSTALL-MAC.md#balena-preload) functionality requires Docker with AUFS support.
@@ -220,7 +220,7 @@ If a device isn't locally deployed, one can ship the flashed SD cards or USB sti
 
 If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys](../../../reference/OS/configuration/#sshkeys) during the configuration step will allow fleet managers at the remote site to connect to the device directly via OpenSSH and verify the update by examining container logs, etc.
 
-If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal](../../../learn/manage/ssh-access/#using-the-dashboard-web-terminal) commands and output container logs to the dashboard.
+If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal](../manage/ssh-access.md#using-the-dashboard-web-terminal) commands and output container logs to the dashboard.
 
 ### Update Device Registration(s)
 
