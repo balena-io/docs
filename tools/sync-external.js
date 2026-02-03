@@ -216,7 +216,13 @@ async function processSource(source) {
     let content = await fetchContentFromGithub(url);
 
     if (file.transform) {
-      content = applyTransform(content, file.transform);
+      if (!Array.isArray(file.transform)) {
+        content = applyTransform(content, file.transform);
+      } else {
+        for (const t of file.transform) {
+          content = applyTransform(content, t);
+        }
+      }
     }
 
     writeFile(targetPath, content, file.target);
@@ -491,7 +497,13 @@ async function processLocalSource(source) {
     let content = fs.readFileSync(sourcePath, 'utf-8');
 
     if (file.transform) {
-      content = applyTransform(content, file.transform);
+      if (!Array.isArray(file.transform)) {
+        content = applyTransform(content, file.transform);
+      } else {
+        for (const t of file.transform) {
+          content = applyTransform(content, t);
+        }
+      }
     }
 
     writeFile(targetPath, content, file.target);

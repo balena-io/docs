@@ -88,11 +88,17 @@
       "files": [
         {
           "source": "README.md",
-          "target": "shared/sdk/deprecation-policy.md",
-          "transform": {
-            "type": "extract-section",
-            "section": "Deprecation policy"
-          }
+          "target": "pages/reference/sdk/deprecation-policy.md",
+          "transform": [
+            {
+              "type": "extract-section",
+              "section": "Deprecation policy"
+            },
+            {
+              "type": "prepend",
+              "content": "# Balena SDK deprecation policy\n\n"
+            }
+          ]
         }
       ]
     },
