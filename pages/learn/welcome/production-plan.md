@@ -60,7 +60,7 @@ BalenaOS [local mode](../develop/local-mode.md) gives you the ability to build a
 
 While prototyping, you should start thinking about how your devices will be connected when deployed in the real world. If it's possible to have network settings preconfigured, or to have everything done by DHCP, this is easy. But most devices will need onsite configuration.
 
-Balena provides the ability to configure networking from inside containers and exposes a great deal of functionality to make this easier. One example is the [wifi-connect](https://github.com/balena-os/wifi-connect) project, which allows the device to create its own WiFi access point that users can connect with to configure proper credentials. The balena [supervisor API](../../../reference/supervisor/supervisor-api/#patch-v1-device-host-config) also makes it possible to configure more advanced networking parameters, including hostname and proxy configuration.
+Balena provides the ability to configure networking from inside containers and exposes a great deal of functionality to make this easier. One example is the [wifi-connect](https://github.com/balena-os/wifi-connect) project, which allows the device to create its own WiFi access point that users can connect with to configure proper credentials. The balena [supervisor API](../../reference/supervisor/supervisor-api.md#patch-v1-device-host-config) also makes it possible to configure more advanced networking parameters, including hostname and proxy configuration.
 
 ### Multiple developers
 

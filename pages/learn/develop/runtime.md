@@ -197,7 +197,7 @@ curl -X POST --header "Content-Type:application/json" \
     "$BALENA_SUPERVISOR_ADDRESS/v1/reboot?apikey=$BALENA_SUPERVISOR_API_KEY"
 ```
 
-[Read more about the supervisor API](../../../runtime/supervisor-api/#post-v1-reboot)
+[Read more about the supervisor API](../../reference/supervisor/supervisor-api.md#post-v1-reboot)
 
 {% hint style="warning" %}
 `BALENA_SUPERVISOR_API_KEY` and `BALENA_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the [io.resin.features.supervisor-api](../../reference/supervisor/docker-compose.md#labels) set . You will also **need** `curl` installed in your container.
@@ -319,7 +319,7 @@ When using named volumes, note that:
 
 Since balena-supervisor v10.0.0, volumes are no longer automatically removed from disk when references to them are removed from a fleet's `docker-compose` file. This means that it's no longer possible for data to be lost due to the accidental rename of a volume.
 
-If you change volume names regularly, your device will now continue to retain all previous volumes including their contents. To avoid this the supervisor API now provides an [endpoint to cleanup unreferenced volumes](https://www.balena.io/docs/reference/supervisor/supervisor-api/#cleanup-volumes-with-no-references). Additionally, it is possible to perform this action from the dashboard via the `Purge Data` action, found on the `Actions` tab for a device.
+If you change volume names regularly, your device will now continue to retain all previous volumes including their contents. To avoid this the supervisor API now provides an [endpoint to cleanup unreferenced volumes](../../reference/supervisor/supervisor-api.md#cleanup-volumes-with-no-references). Additionally, it is possible to perform this action from the dashboard via the `Purge Data` action, found on the `Actions` tab for a device.
 
 {% hint style="warning" %}
 Volumes will continue to be removed automatically when moving a device between fleets.
