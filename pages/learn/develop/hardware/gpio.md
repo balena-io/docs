@@ -1,13 +1,9 @@
 ---
 title: GPIO Interface
+description: Recommended ways of interacting with GPIO on balena devices
 ---
 
 # GPIO
-
-Recommended ways of interacting with GPIO on balena devices.
-
-* [Raspberry Pi](gpio.md#raspberry-pi)
-* [Beaglebone](gpio.md#beaglebone)
 
 ## Raspberry Pi
 

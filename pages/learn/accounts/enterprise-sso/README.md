@@ -13,21 +13,6 @@ BalenaCloud Enterprise Single Sign-On (SSO) using SAML (Security Assertion Marku
 
 Configuring an Identity Provider (IdP) as a login method requires a one-time setup process within both balenaCloud and the IdP itself. Refer to our [IdP specific documentation](idp-setup/microsoft-entra-saml-setup.md) for detailed instructions on required configurations.
 
-* [Link a SAML Identity Provider](./#link-a-saml-identity-provider)
-  * [Associate Organizations and Teams](./#associate-organizations-and-teams)
-    * [(Optional) Configure a Default Team](./#optional-configure-a-default-team)
-* [Authenticating as a SAML User](./#authenticating-as-a-saml-user)
-* [Setting up a new SAML user](./#setting-up-a-new-saml-user)
-* [Log in with a SAML account](./#log-in-with-a-saml-account)
-* [FAQs](./#faqs)
-  * [How do I set up an Identity Provider?](./#how-do-i-set-up-an-identity-provider)
-  * [Can I use any identity provider with balena’s Enterprise SSO?](./#can-i-use-any-identity-provider-with-balenas-enterprise-sso)
-  * [Can I enforce SAML on all users in my organization?](./#can-i-enforce-saml-on-all-users-in-my-organization)
-  * [How can I use API keys if SAML users can't create them?](./#how-can-i-use-api-keys-if-saml-users-cant-create-them)
-  * [How do I delete a SAML account?](./#how-do-i-delete-a-saml-account)
-  * [How do I delete an Identity Provider in balenaCloud?](./#how-do-i-delete-an-identity-provider-in-balenacloud)
-  * [Why do I get an error when enabling 2FA on my SAML account?](./#why-do-i-get-an-error-when-enabling-2fa-on-my-saml-account)
-
 ## Link a SAML Identity Provider
 
 To enable Single Sign-On (SSO) for balenaCloud organizations, you must establish a connection with your external Identity Provider (IdP). BalenaCloud supports all SAML 2.0 Identity Providers, and we provide examples for [Microsoft Entra ID](idp-setup/microsoft-entra-saml-setup.md) (formerly Azure AD) and [Google Workspace](idp-setup/google-workspace-saml-setup.md). This process assumes that you have already configured a [SAML 2.0 IdP and possess an XML certificate](idp-setup/microsoft-entra-saml-setup.md) ready for upload.

@@ -4,19 +4,6 @@ title: Network Setup on balenaOS
 
 # Networking on balenaOS
 
-* [Introduction](network.md#introduction)
-* [WiFi Setup](network.md#wifi-setup)
-* [Ethernet Setup](network.md#ethernet-setup)
-* [Regulatory Domain](network.md#regulatory-domain)
-* [Setting a Static IP](network.md#setting-a-static-ip)
-* [Creating a Hotspot](network.md#creating-a-hotspot)
-* [Cellular Modem Setup](network.md#cellular-modem-setup)
-* [Changing the Network at Runtime](network.md#changing-the-network-at-runtime)
-* [Network Requirements](network.md#network-requirements)
-* [Connecting Behind a Proxy](network.md#connecting-behind-a-proxy)
-* [Checking connectivity](network.md#checking-connectivity)
-* [Disable IPv6](network.md#disable-ipv6)
-
 ## Introduction
 
 With balenaOS 2.0, connectivity management changed from [**ConnMan**](https://en.wikipedia.org/wiki/ConnMan) to [**NetworkManager**](https://www.networkmanager.dev). **NetworkManager** allows balenaOS more flexibility when configuring the network setup, and, in conjunction with [**ModemManager**](https://www.freedesktop.org/wiki/Software/ModemManager/), allows balenaOS to offer first class [GSM/Cellular support](network.md#cellular-modem-setup).
