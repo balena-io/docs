@@ -8,14 +8,14 @@ excerpt: A guide to running multiple containers with Docker Compose and balena
 As your apps grow more complex, you may find significant benefit in running some services in separate containers. Splitting your app into multiple containers allows you to better isolate and maintain key services, providing a more modular and secure approach to fleet management. Each service can be packaged with the operating environment and tools it specifically needs to run, and each service can be limited to the minimum system resources necessary to perform its task. The benefits of multicontainer fleets compound as the complexity of the app grows. With multicontainer, each service is updated independently. Hence, larger apps can be developed and maintained by separate teams, each free to work in a way that best supports their service.
 
 {% hint style="warning" %}
-For additional information on working with multiple containers with balena see the [services masterclass](../../../learn/more/masterclasses/services-masterclass/).
+For additional information on working with multiple containers with balena see the [services masterclass](../more/masterclasses/services-masterclass.md).
 {% endhint %}
 
 This guide will cover the considerations you need to take into account when running multiple containers, including `docker-compose.yml` configuration and some important balena specific settings.
 
 ## docker-compose.yml file
 
-The multicontainer functionality provided by balena is built around the [**Docker Compose**](https://docs.docker.com/compose/overview/) file format. The balena device supervisor implements a subset of the [Compose v2.1 feature set](https://docs.docker.com/compose/compose-file/compose-file-v2/). You can find a full list of supported and known unsupported features in our [device supervisor reference docs](../../../reference/supervisor/docker-compose/).
+The multicontainer functionality provided by balena is built around the [**Docker Compose**](https://docs.docker.com/compose/overview/) file format. The balena device supervisor implements a subset of the [Compose v2.1 feature set](https://docs.docker.com/compose/compose-file/compose-file-v2/). You can find a full list of supported and known unsupported features in our [device supervisor reference docs](../../reference/supervisor/docker-compose.md).
 
 At the root of your multicontainer release, you'll use a `docker-compose.yml` file to specify the configuration of your containers. The `docker-compose.yml` defines the services you'll be building, as well as how the services interact with each other and the host OS.
 
