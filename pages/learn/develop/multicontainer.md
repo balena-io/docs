@@ -123,7 +123,7 @@ In addition to the settings above, there are some balena specific labels that ca
 Container requirements are available when using balenaCLI >= 21.1.0
 {% endhint %}
 
-An additional set of labels ensures device compatibility for running a service. For example, before updating to a new release, it may be desirable to ensure that the device is running a specific version of [Supervisor](../../../reference/supervisor/supervisor-api/) or has a specific version of the [NVIDIA Tegra Linux Driver Package](https://developer.nvidia.com/embedded/linux-tegra) (L4T).
+An additional set of labels ensures device compatibility for running a service. For example, before updating to a new release, it may be desirable to ensure that the device is running a specific version of [Supervisor](../../reference/supervisor/supervisor-api.md) or has a specific version of the [NVIDIA Tegra Linux Driver Package](https://developer.nvidia.com/embedded/linux-tegra) (L4T).
 
 The following set of requirement labels are enforced via the supervisor. Each service may define one or more requirements and if any of them is not met for any non-[optional](multicontainer.md#optional-containers) service, then [the release will be rejected](../manage/device-statuses.md#update-statuses) and no changes will be performed for the new release.
 
