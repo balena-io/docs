@@ -63,7 +63,7 @@ Cloudlink status in the dashboard represents a device connection to the balenaCl
 * [Public Device Url](../manage/actions.md#public-device-url)
 * [Device actions](../manage/actions.md#device-actions) that allow controlling device state
 * [Host OS Updates](../../reference/OS/updates/self-service.md)
-* [Device Diagnostics](../../../reference/diagnostics/)
+* [Device Diagnostics](../../reference/diagnostics.md)
 
 Currently, Cloudlink uses [OpenVPN](https://openvpn.net/) as an underlying technology to achieve its functionality. Devices only connect outbound to Cloudlink, and all traffic over Cloudlink is encrypted with TLS.
 
@@ -71,7 +71,7 @@ Cloudlink disallows device-to-device traffic and prohibits outbound traffic to t
 
 Currently, authentication against Cloudlink is performed with API token authentication. API keys can be managed and revoked in the balena dashboard.
 
-Cloudlink connection is optional and [can be disabled](../../../reference/supervisor/bandwidth-reduction/) to conserve bandwidth or to remove the option of outside device control through the balenaCloud dashboard or API. When disabled, the Cloudlink connection will not be established from the device. No traffic will be transmitted or received through this channel. If desired, Cloudlink can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
+Cloudlink connection is optional and [can be disabled](../../reference/supervisor/bandwidth-reduction.md) to conserve bandwidth or to remove the option of outside device control through the balenaCloud dashboard or API. When disabled, the Cloudlink connection will not be established from the device. No traffic will be transmitted or received through this channel. If desired, Cloudlink can be enabled and disabled programmatically so that it is turned on only when in active use (e.g. for interactive debugging) and disabled normally.
 
 It is important to understand that due to its current design, Cloudlink is not architected for high availability. Cloudlink will periodically drop connections momentarily due to re-configuration or scaling, but it reconnects with the device automatically. For mission-critical workflows, we recommend designing your solution to be resilient to the potential brief unavailability of these specific interactive features. Furthermore, to protect overall platform stability for all users, devices that send/receive large amounts of data via Cloudlink continuously may be throttled.
 
