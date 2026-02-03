@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update peter-evans/create-issue-from-file action to v6
+      hash: 727dc7e0fafbb709214b2d79d231fc820468cb4d
+      body: |
+        Update peter-evans/create-issue-from-file from 5.0.1 to 6.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 6.14.9
+  title: ""
+  date: 2026-02-03T23:13:24.131Z
+- commits:
     - subject: "dependabot: Remove dependabot config"
       hash: 2598c5b614820880aa0c6497b7bed3fff3e4e2c5
       body: |
