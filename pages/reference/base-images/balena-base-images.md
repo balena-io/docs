@@ -44,7 +44,7 @@ Scroll past the tag list to find more helpful information in the “Overview” 
 
 ### Choose the right device architecture
 
-Dockerhub uses a different naming convention for device architecture than balena. Use the table below to convert a balena specified architecture to the equivalent architecture listed on Dockerhub. To see the architecture for balena-supported devices, check out the [balena Machine names and architecture page](/broken/pages/EhV16mhEUxH6qOC1TNyC).
+Dockerhub uses a different naming convention for device architecture than balena. Use the table below to convert a balena specified architecture to the equivalent architecture listed on Dockerhub. To see the architecture for balena-supported devices, check out the [single-board computers page](../hardware/devices.md).
 
 As an example, if you are using a Raspberry Pi Zero 2W, the balena machine name page shows the “balena\_arch” as “aarch64”. In the table below, aarch64 is referred to as “arm64v8 (ARMv8 64-bit)” on Dockerhub. Look out for arm64v8 images to find images compatible with the Raspberry Pi Zero 2W device type.
 
