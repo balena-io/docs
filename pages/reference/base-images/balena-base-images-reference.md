@@ -112,7 +112,7 @@ CMD ["node", "main.js"]
 
 #### Notes
 
-Devices with a [device type](devicetypes.md) of `raspberry-pi` (Raspberry Pi1 and Zero) were built from `balenalib/rpi-raspbian` and were [Raspbian](https://github.com/balena-io-library/resin-rpi-raspbian) base images. The `raspberry-pi2` and `raspberrypi3` device types Debian base images have the Raspbian package source added, and Raspbian userland pre-installed.
+Devices with a [device type](/broken/pages/EhV16mhEUxH6qOC1TNyC) of `raspberry-pi` (Raspberry Pi1 and Zero) were built from `balenalib/rpi-raspbian` and were [Raspbian](https://github.com/balena-io-library/resin-rpi-raspbian) base images. The `raspberry-pi2` and `raspberrypi3` device types Debian base images have the Raspbian package source added, and Raspbian userland pre-installed.
 
 Not all OS distro and language stack versions are compatible with each other. Notice that there are some combinations that were not available in the `balenalib` base images.
 
