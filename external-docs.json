@@ -249,7 +249,7 @@
       "repo": "balena-io/balena-cli",
       "ref": "v23.2.30",
       "file": "docs/balena-cli.md",
-      "targetDir": "shared/balena-cli-versions",
+      "targetDir": "pages/balena-cli-versions",
       "dictionary": "config/dictionaries/balenacli.json"
     },
     {
@@ -257,7 +257,7 @@
       "repo": "balena-io/balena-sdk",
       "ref": "v22.4.7",
       "file": "DOCUMENTATION.md",
-      "targetDir": "shared/balena-sdk-versions",
+      "targetDir": "pages/balena-sdk-versions",
       "dictionary": "config/dictionaries/nodesdk.json"
     },
     {
@@ -265,7 +265,7 @@
       "repo": "balena-io/balena-sdk-python",
       "ref": "v15.1.4",
       "file": "DOCUMENTATION.md",
-      "targetDir": "shared/balena-sdk-python-versions",
+      "targetDir": "pages/balena-sdk-python-versions",
       "dictionary": "config/dictionaries/pythonsdk.json"
     }
   ],
