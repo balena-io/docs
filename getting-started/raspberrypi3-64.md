@@ -10,43 +10,30 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 
 ## What you'll need
 
- * A [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) or [B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/). See our [supported devices list](../../reference/hardware/devices/) for other boards.
+* A [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) or [B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/). See our [supported devices list](../reference/hardware/devices/) for other boards.
 * A 4GB or larger microSD card. The [speed class](https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating) of the card also matters - use the fastest you can find.
 * A micro USB cable (for power supply).
 * A [2A micro USB power supply](https://www.raspberrypi.org/products/raspberry-pi-universal-power-supply/).
 * **\[Optional]** An ethernet cable.
 * A [balenaCloud account](https://dashboard.balena-cloud.com/signup).
- 
 
 ## Create a fleet
 
-A fleet is a group of devices that share the same [architecture](../../reference/hardware/devices.md) and run the same code. Devices are added to fleets and can be moved between fleets at any time.
+A fleet is a group of devices that share the same [architecture](../reference/hardware/devices.md) and run the same code. Devices are added to fleets and can be moved between fleets at any time.
 
 To create your first fleet, log into your [balenaCloud dashboard](https://dashboard.balena-cloud.com/) and click the **Create fleet** button.
 
-<figure><img src="../../.gitbook/assets/create-first-fleet.webp" alt="Create a fleet"><figcaption></figcaption></figure>
-
 Enter a fleet name, select the **Raspberry Pi 3 (using 64bit OS)** device type, choose the _Starter_ [fleet type](../accounts/fleet-types.md), and click **Create new fleet**:
-
-<figure><img src="../../.gitbook/assets/create-fleet.webp"><figcaption></figcaption></figure>
 
 You'll then be redirected to the summary of the newly created fleet, where you can add your first Raspberry Pi 3 (using 64bit OS).
 
 ## Add a device and download OS
 
-<figure><img src="../../.gitbook/assets/fleet-view.webp" alt="Add a device"><figcaption></figcaption></figure>
+balenaCloud builds a custom balenaOS image configured for Raspberry Pi 3 (using 64bit OS) which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../reference/hardware/devices.md) can also be picked to join the fleet.
 
-balenaCloud builds a custom balenaOS image configured for Raspberry Pi 3 (using 64bit OS) which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../../reference/hardware/devices.md) can also be picked to join the fleet.
-
-<figure><img src="../../.gitbook/assets/add-device.webp" alt="Add new device"><figcaption></figcaption></figure>
-
-Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../../reference/OS/overview.md#development-vs-production-images).
-
-<figure><img src="../../.gitbook/assets/network.webp" alt="Network configuration"><figcaption></figcaption></figure>
+Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../reference/OS/overview.md#development-vs-production-images).
 
 Select the type of network connection you'll be using: _Ethernet Only_ or _Wifi + Ethernet_. A network connection is required to allow the device to connect to balenaCloud. Selecting _Wifi + Ethernet_ allows you to enter a _Wifi SSID_ and _Wifi Passphrase_ which is then built into the image.
-
-<figure><img src="../../.gitbook/assets/download_image.webp" alt="Download Image" width="375"><figcaption></figcaption></figure>
 
 Finally, click the **Download balenaOS** button. When the download completes, you should have a zipped image file with a name like `balena-First-Fleet-raspberrypi3-64-6.10.24-v17.4.2.img.zip`.
 
@@ -55,13 +42,13 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
 * Insert the SD card to the host machine.
-* Write the balenaOS file you downloaded to the SD card. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
 * Wait for writing of balenaOS to complete.
 * Remove the SD card from the host machine.
 * Insert the freshly flashed SD card into the Raspberry Pi 3 (using 64bit OS).
 * Connect power to the Raspberry Pi 3 (using 64bit OS) to boot the device.
 
-When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Raspberry Pi 3 (using 64bit OS)](/faq/troubleshooting/raspberrypi3-64) or try our [support channels](../accounts/support-access.md).
+When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Raspberry Pi 3 (using 64bit OS)](../faq/troubleshooting/raspberrypi3-64/) or try our [support channels](../accounts/support-access.md).
 
 ## Install the balena CLI
 
@@ -108,8 +95,6 @@ Logging in to cloud.com
 
 You will be asked to choose an authentication method, choose _Web authorization_ which will bring up a web browser window that allows you to login to your balenaCloud account. Click the **Authorize** button, and head back to the terminal after the login successful message appears.
 
-<figure><img src="../../.gitbook/assets/web_authorization.webp" alt="Web authorization" width="563"><figcaption></figcaption></figure>
-
 ## Create a release
 
 After login, test the balena CLI by running the `balena fleet list` command, which should return information about the fleet you created in the previous step. Take a note of the fleet `NAME` as you'll need this in the next step to push the code to your device(s) in that fleet.
@@ -124,15 +109,19 @@ ID    NAME         SLUG                                 DEVICE TYPE           DE
 {% tab title="Node.js" %}
 A nice project to try is the [balena-nodejs-hello-world](https://github.com/balena-io-examples/balena-nodejs-hello-world) project. It's a Node.js web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-nodejs-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
+
 {% tab title="Python" %}
 A nice project to try is the [balena-python-hello-world](https://github.com/balena-io-examples/balena-python-hello-world) project. It's a Python web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-python-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
+
 {% tab title="C++" %}
 A nice project to try is the [balena-cpp-hello-world](https://github.com/balena-io-examples/balena-cpp-hello-world) project. It's a C++ web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-cpp-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
+
 {% tab title="Rust" %}
 A nice project to try is the [balena-rust-hello-world](https://github.com/balena-io-examples/balena-rust-hello-world) project. It's a Rust web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-rust-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
+
 {% tab title="Go" %}
 A nice project to try is the [balena-go-hello-world](https://github.com/balena-io-examples/balena-go-hello-world) project. It's a Go web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-go-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
@@ -190,17 +179,11 @@ You'll know your code has been successfully compiled and built when our friendly
 
 The release will then be downloaded and started by all the devices in the fleet. You can see the progress of the device code updates on the device dashboard:
 
-<figure><img src="../../.gitbook/assets/download-progress.webp" alt="Service download progress"><figcaption></figcaption></figure>
-
 After the download, you should now have a web server running on your device and see some logs on your dashboard.
 
 To give your device a public URL, click the _Public Device URL_ toggle on the device dashboard. Public device URL allow you to serve content from the device to the world easily without configuration as long as the server is running on port 80.
 
-<figure><img src="../../.gitbook/assets/enable-public-url-device.webp" alt="Enable public URLs" width="563"><figcaption></figcaption></figure>
-
 Follow the URL to view the welcome page with additional resources. Alternatively, you can point your browser to your device's local IP address to access the server running on your device. You can find the device's IP address on the device dashboard page. This is what you should be seeing.
-
-<figure><img src="../../.gitbook/assets/success.webp" alt="Success screen 1" width="563"><figcaption></figcaption></figure>
 
 ## Developing your project
 
@@ -208,11 +191,7 @@ Now, let's try making some changes to this project and testing them right on the
 
 Activate local mode on the device via the dashboard.
 
-<figure><img src="../../.gitbook/assets/enable-local-mode.webp" alt="Enable Local Mode" width="563"><figcaption></figcaption></figure>
-
 Once enabled, you can now use `balena push` again, but this time we will push directly to the local IP address of the device obtained via the dashboard.
-
-<figure><img src="../../.gitbook/assets/local-ip-address.webp" alt="Local IP address" width="563"><figcaption></figcaption></figure>
 
 ```shell
 $ balena push 10.19.0.153
@@ -247,8 +226,6 @@ The balena CLI will now watch for changes to all the files within the project, a
 
 When the rebuild is complete, take a look at the public device URL again to see your changes. The welcome page should have been updated with the new title.
 
-<figure><img src="../../.gitbook/assets/success-change.webp" alt="Success screen 2" width="563"><figcaption></figcaption></figure>
-
 ## Next steps
 
 Once you've finished making your changes, disable local mode and the device will revert back to running the latest release that's on your fleet. To update your fleet with the latest changes you've just worked on, use `balena push <fleet name>` once more to create a new release with those changes.
@@ -258,7 +235,7 @@ When it's finished building the device(s) will update as before. Remember anythi
 * Learn more about [local mode](../develop/local-mode.md), which allows you to build and sync code to your device locally for rapid development.
 * Develop an application with [multiple containers](../develop/multicontainer.md) to provide a more modular approach to fleet management.
 * Manage your device fleet with the use of [configuration](../manage/configuration.md), [environment](../manage/variables.md), and [service variables](../manage/variables.md).
-* Find out more about the [balena CLI](../../reference/balena-cli.md) and the functionality it offers.
+* Find out more about the [balena CLI](../reference/balena-cli.md) and the functionality it offers.
 * Visit our blog to find step-by-step tutorials for some [classic balena projects](https://blog.balena.io/tags/project).
 * To publish what you will build or have already built, head over to [balenaHub](https://hub.balena.io/).
 * If you find yourself stuck or confused, help is just a [click away](https://www.balena.io/support).

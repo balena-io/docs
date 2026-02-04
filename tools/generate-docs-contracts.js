@@ -13,8 +13,8 @@ const DEVICE_IMG_PATH = '../pages/.gitbook/assets/';
 const GUIDE_TEMPLATE_FILE_PATH = '../templates/getting-started.md';
 const WHAT_YOU_NEED_TEMPLATE_PATH = '../templates/whatYouNeed/';
 const DEVICE_LIST_TEMPLATE_PATH = '../templates/device-list.md';
-const SUMMARY_FILE_PATH = '../pages/SUMMARY.md';
-const GUIDES_DEST_FOLDER = '../pages/learn/getting-started/';
+const SUMMARY_FILE_PATH = '../summary/SUMMARY.md';
+const GUIDES_DEST_FOLDER = '../getting-started/';
 const DEVICE_LIST_DEST_FOLDER = '../pages/reference/hardware/';
 
 const
@@ -188,8 +188,8 @@ const updateGettingStartedSectionInSummary = async (deviceTypes) => {
 
   // 4. Generate new content
   const indent = ' '.repeat(parentIndent);
-  const tmpl = `${indent}* [Getting Started](learn/getting-started/README.md "Getting Started")\n` +
-    `${deviceTypes.map((dt) => `${indent}  * [Getting Started with ${dt.name}](learn/getting-started/${dt.id}.md "${dt.name}")`).join(`\n`)}`;
+  const tmpl = `${indent}* [Getting Started](getting-started/README.md "Getting Started")\n` +
+    `${deviceTypes.map((dt) => `${indent}  * [Getting Started with ${dt.name}](getting-started/${dt.id}.md "${dt.name}")`).join(`\n`)}`;
 
   // 5. Replace the old range with the new template
   lines.splice(startIndex, endIndex - startIndex, tmpl);

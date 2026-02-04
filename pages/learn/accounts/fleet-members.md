@@ -33,15 +33,15 @@ Developers are given, in addition to the access provided to operators, the abili
 
 To add a new member to your fleet, click on the _Members_ tab of the fleet:
 
-<figure><img src="../../.gitbook/assets/members_tab.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/members_tab.webp" alt=""><figcaption></figcaption></figure>
 
 This brings up a list of all fleet members, if any have been assigned. Click on the _Add member_ button in the top left:
 
-<figure><img src="../../.gitbook/assets/add_member.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/add_member.webp" alt=""><figcaption></figcaption></figure>
 
 The _Add member_ dialog has a dropdown with descriptions of the member types, as well as information about which types are available based on your billing plan. Choose a level of access, then enter the username or email address of the new member:
 
-<figure><img src="../../.gitbook/assets/member_dialog.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/member_dialog.webp" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 Fleet members must have already signed up for a balena account before they can be added to a fleet.
@@ -49,11 +49,11 @@ Fleet members must have already signed up for a balena account before they can b
 
 After you click _Add_, you will see the username of the new member in the list. From here, you can edit access levels or remove the user if necessary:
 
-<figure><img src="../../.gitbook/assets/member_list.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/member_list.webp" alt=""><figcaption></figcaption></figure>
 
 All users that have been added to a fleet will see that fleet in their dashboard, with an indicator to designate it has been shared by the fleet owner:
 
-<figure><img src="../../.gitbook/assets/shared_app.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/shared_app.webp" alt=""><figcaption></figcaption></figure>
 
 Fleet members will have the option to remove themselves from a fleet by clicking on the members tab, selecting the checkbox by their name from the member list, clicking on the _Modify_ button, and selecting _Delete member_.
 
