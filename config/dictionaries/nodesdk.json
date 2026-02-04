@@ -1,6 +1,6 @@
 [
   {
-    "id": "latest",
+    "id": "v22.4.9 (latest)",
     "name": "v22.4.9 latest",
     "version": "v22.4.9"
   },
@@ -10,7 +10,7 @@
     "version": "v21.7.4"
   },
   {
-    "id": "v20.9.1",
+    "id": "v20.9.1 (deprecated)",
     "name": "v20.9.1 deprecated",
     "version": "v20.9.1"
   }
