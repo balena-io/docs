@@ -111,7 +111,7 @@ Please contact sales@balena.io with any questions regarding continued device sup
 
 ### **I have a device that is not on the supported devices list. Can it run on balena?**
 
-There are a few options for devices that do not have an official device type on balena. If your device has an x86 architecture, you can try either the [Intel NUC](../../learn/getting-started/intel-nuc/nodejs/) image (which is built to support generic x86 devices with a minimum set of drivers), or the generic genericx86-64 image (that includes all the standard X86 drivers). For other devices, you can [build your own](https://github.com/balena-os/meta-balena/blob/master/contributing-device-support.md) version of balenaOS using our [open source repos](https://github.com/balena-os). To discuss custom board support, please contact sales@balena.io.
+There are a few options for devices that do not have an official device type on balena. If your device has an x86 architecture, you can try either the [Intel NUC](../learn/getting-started/intel-nuc.md) image (which is built to support generic x86 devices with a minimum set of drivers), or the generic genericx86-64 image (that includes all the standard X86 drivers). For other devices, you can [build your own](https://github.com/balena-os/meta-balena/blob/master/contributing-device-support.md) version of balenaOS using our [open source repos](https://github.com/balena-os). To discuss custom board support, please contact sales@balena.io.
 
 ### **What to keep in mind when choosing power supply units?**
 
