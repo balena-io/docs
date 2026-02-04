@@ -446,7 +446,7 @@ async function processVersionedSources(manifest) {
         let content = await fetchContentFromGithub(url);
         content = removeFirstLine(content);
 
-        const versionId = version.policy === 'latest' ? 'latest' : version.tag;
+        const versionId = `${version.tag} ${version.policy === 'supported' ? '' : ('(' + version.policy + ')')}`.trim();
         const targetPath = path.join(targetDir, `${versionId}.md`);
 
         if (DRY_RUN) {
