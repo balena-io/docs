@@ -9,11 +9,13 @@ const LANGUAGES = require('../config/dictionaries/language.json');
 
 const CLI_LATEST_VERSION_URL = 'https://api.github.com/repos/balena-io/balena-cli/releases/latest';
 const DEVICE_IMG_URL = '/img/device/';
-const DEVICE_IMG_PATH = '../static/img/device/';
-const TEMPLATE_FILE_PATH = '../templates/getting-started.md';
-const SUMMARY_FILE_PATH = '../pages/SUMMARY.md';
+const DEVICE_IMG_PATH = '../pages/.gitbook/assets/';
+const GUIDE_TEMPLATE_FILE_PATH = '../templates/getting-started.md';
 const WHAT_YOU_NEED_TEMPLATE_PATH = '../templates/whatYouNeed/';
-const DEST_FOLDER = '../pages/learn/getting-started/';
+const DEVICE_LIST_TEMPLATE_PATH = '../templates/device-list.md';
+const SUMMARY_FILE_PATH = '../pages/SUMMARY.md';
+const GUIDES_DEST_FOLDER = '../pages/learn/getting-started/';
+const DEVICE_LIST_DEST_FOLDER = '../pages/reference/hardware/';
 
 const
   balena = getSdk({
@@ -61,7 +63,7 @@ function img(data) {
 const svgCreator = async function (data, name) {
   const result = img(data);
   const filePathContract = path.join(DEVICE_IMG_URL, name + result.extname);
-  const filePathActual = path.join(__dirname, DEVICE_IMG_PATH + name + result.extname);
+  const filePathActual = path.join(__dirname, DEVICE_IMG_PATH + 'dt-' + name + result.extname);
 
   await writeFile(filePathActual, result.base64, { encoding: 'base64' });
 
@@ -143,8 +145,8 @@ const getLatestCLIVersion = async () => {
 };
 
 const emptyDirectory = async () => {
-  for (const file of await readdir(path.join(__dirname, DEST_FOLDER))) {
-    await unlink(path.join(path.join(__dirname, DEST_FOLDER), file));
+  for (const file of await readdir(path.join(__dirname, GUIDES_DEST_FOLDER))) {
+    await unlink(path.join(path.join(__dirname, GUIDES_DEST_FOLDER), file));
   }
 };
 
@@ -198,6 +200,16 @@ const updateGettingStartedSectionInSummary = async (deviceTypes) => {
   console.log('SUMMARY.md updated successfully!');
 }
 
+const generateDeviceListPage = async (deviceTypes) => {
+  const tmpl = await readFile(path.join(__dirname, DEVICE_LIST_TEMPLATE_PATH));
+  const template = Handlebars.compile(tmpl.toString());
+  const compiledTemplate = template({
+    deviceTypes,
+  });
+  await writeFile(path.join(__dirname, DEVICE_LIST_DEST_FOLDER, 'devices.md'), compiledTemplate);
+  console.log('Generated Device list at ', DEVICE_LIST_DEST_FOLDER, 'devices.md');
+}
+
 /**
  * This is where the script starts
  */
@@ -205,7 +217,7 @@ const updateGettingStartedSectionInSummary = async (deviceTypes) => {
 
   const deviceTypes = await supportedDeviceTypeContract();
 
-  const tmpl = await readFile(path.join(__dirname, TEMPLATE_FILE_PATH));
+  const tmpl = await readFile(path.join(__dirname, GUIDE_TEMPLATE_FILE_PATH));
 
   await emptyDirectory();
 
@@ -232,9 +244,11 @@ const updateGettingStartedSectionInSummary = async (deviceTypes) => {
         $latestCLIVersion: latestCLIVersion,
         $whatYouNeed: whatYouNeedSection,
       });
-      await writeFile(path.join(__dirname, DEST_FOLDER, `${deviceType['id']}.md`), compiledTemplate);
+      await writeFile(path.join(__dirname, GUIDES_DEST_FOLDER, `${deviceType['id']}.md`), compiledTemplate);
     }),
   );
 
   await updateGettingStartedSectionInSummary(deviceTypes);
+  
+  await generateDeviceListPage(deviceTypes);
 })();

@@ -7,7 +7,7 @@ excerpt: How balena gets your code to your device fleet, from end to end
 
 The balena platform encompasses device, server, and client software, all designed to get your code securely deployed to a fleet of devices. The broad strokes are easy to grasp: once your device is set up with our [host OS](../../reference/OS/overview.md), you can push code to the balena [build servers](../deploy/deployment.md#the-balenacloud-build-server), where it will be packaged into containers and delivered to your fleet. All your devices and their services can be managed, monitored, and updated from your [balena dashboard](https://dashboard.balena-cloud.com/).
 
-If you're eager to learn more about the inner workings, you're in luck! This guide covers the components and workflows involved in a typical balena deployment, with enough detail to answer the most common questions. If you're ready to dig in deeper, why not [get started](<../../README (1).md>) with a project of your own?
+If you're eager to learn more about the inner workings, you're in luck! This guide covers the components and workflows involved in a typical balena deployment, with enough detail to answer the most common questions. If you're ready to dig in deeper, why not [get started](../getting-started/) with a project of your own?
 
 Refer to the [balena Glossary](../more/glossary.md) for definition on any of the terms referred in the docs.
 
@@ -49,7 +49,7 @@ For Node.js services, you can use a package.json file without a Dockerfile. In t
 
 Once your Docker images are built, they are stored in our container registry, and the balena device supervisor is alerted that a new version of your application is ready. If a device is offline at the time, it will be made aware of the new containers when it comes back online. The communication between balena and your device is encrypted at all times, either through HTTPS or a VPN that we set up for the devices in your fleet.
 
-The device supervisor, using [delta updates](../deploy/delta.md), then downloads the binary differences between the old and the new images, stops the old services, and starts the new ones. You can control the exact sequence by configuring the supervisor to use [different update strategies](../deploy/release-strategy/update-strategies.md). The services themselves can also make use of [update locking](../../learn/deploy/release-strategy/update-locking.md) to block updates from happening during critical times (e.g. [a drone that is flying](https://www.youtube.com/watch?time_continue=1569\&v=75vm6rRb6K0), or an industrial machine that is in the middle of an operation).
+The device supervisor, using [delta updates](../deploy/delta.md), then downloads the binary differences between the old and the new images, stops the old services, and starts the new ones. You can control the exact sequence by configuring the supervisor to use [different update strategies](../deploy/release-strategy/update-strategies.md). The services themselves can also make use of [update locking](../deploy/release-strategy/update-locking.md) to block updates from happening during critical times (e.g. [a drone that is flying](https://www.youtube.com/watch?time_continue=1569\&v=75vm6rRb6K0), or an industrial machine that is in the middle of an operation).
 
 As the downloads proceed, you can watch the progress in the balena dashboard. You can click on any device to see more detailed information about the services being downloaded:
 
