@@ -26,6 +26,7 @@ const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const MANIFEST_PATH = path.join(ROOT_DIR, 'external-docs.json');
+const SUMMARY_PATH = path.join(ROOT_DIR, 'pages/SUMMARY.md');
 const SEPARATOR = '='.repeat(60);
 const GITHUB_API_BASE = 'https://api.github.com';
 const HEADER_REGEX = /^#+\s+/;
@@ -413,8 +414,11 @@ async function processVersionedSources(manifest) {
 
   console.log(`\nProcessing ${versionedSources.length} versioned source(s)...`);
 
+  const versionedData = {};
+
   for (const source of versionedSources) {
     console.log(`\n[${source.id}] Processing versioned docs from ${source.repo}`);
+    versionedData[source.targetDir] = [];
 
     // Fetch releases and determine versions to track
     const releases = await fetchReleases(source.repo);
@@ -445,10 +449,12 @@ async function processVersionedSources(manifest) {
       try {
         let content = await fetchContentFromGithub(url);
         content = removeFirstLine(content);
+        const pageTitle = `${version.policy === 'latest' ? 'Latest' : version.tag} ${version.policy === 'deprecated' ? '(DEPRECATED)' : ''}`.trim();
+        content = `# ${pageTitle}\n\n${version.policy === 'latest' ? ('## ' + version.tag + '\n\n') : ''}` + content
 
         const versionId = version.policy === 'latest' ? 'latest' : version.tag;
         const targetPath = path.join(targetDir, `${versionId}.md`);
-
+        versionedData[source.targetDir].push({filePath: `${source.targetDir}/${versionId}.md`, pageTitle});
         if (DRY_RUN) {
           console.log(`  [DRY-RUN] Would write to: ${source.targetDir}/${versionId}.md (${content.length} bytes)`);
         } else {
@@ -476,6 +482,132 @@ async function processVersionedSources(manifest) {
       writeFile(dictionaryPath, dictionaryContent, `${source.dictionary} (${dictionaryEntries.length} versions)`);
     }
   }
+  updateSummary(versionedData);
+}
+
+/**
+ * @param {Object} versionedData - { targetDir: [{ filePath, pageTitle }] }
+ */
+function updateSummary(versionedData) {
+    let summaryContent = fs.readFileSync(SUMMARY_PATH, 'utf8');
+    let lines = summaryContent.split('\n');
+
+    // unified check: look at the URL (the LAST set of parentheses) to see if it's a version
+    const isVersioned = (text) => {
+      // This regex looks for parentheses at the end of a string or followed by optional whitespace
+      // It captures the URL specifically.
+      const match = text.match(/\(([^)]+)\)[^()]*$/);
+      const target = match ? match[1] : text; 
+      
+      const filename = path.basename(target).toLowerCase().replace('.md', '');
+      return filename === 'latest' || /^(v)?\d+\.\d+\.\d+/.test(filename);
+    };
+
+    const findEndOfList = (parentIndex) => {
+        const parentIndent = lines[parentIndex].match(/^(\s*)/)[0];
+        let lastIndex = parentIndex;
+        for (let i = parentIndex + 1; i < lines.length; i++) {
+            const line = lines[i];
+            if (line.trim() === "" && i < lines.length - 1) continue;
+            const currentIndent = line.match(/^(\s*)/)[0];
+            if (currentIndent.length <= parentIndent.length && line.trim() !== "") break;
+            lastIndex = i;
+        }
+        return lastIndex;
+    };
+
+    const entries = Object.entries(versionedData).sort((a, b) => a[0].length - b[0].length);
+
+    entries.forEach(([targetDir, files]) => {
+        if (!files || files.length === 0) return;
+
+        const gitbookBaseDir = targetDir.replace(/^pages\//, '');
+        const exactAnchor = `](${gitbookBaseDir}/`;
+        
+        let startIndex = lines.findIndex(line => line.includes(exactAnchor));
+
+        // 1. NESTING & SECTION APPEND
+        if (startIndex === -1) {
+            const pathParts = gitbookBaseDir.split('/');
+            
+            if (pathParts.length > 2) {
+                const parentDirPath = pathParts.slice(0, -1).join('/');
+                const parentAnchor = `](${parentDirPath}/`;
+                let parentIndex = lines.findIndex(line => line.includes(parentAnchor));
+
+                if (parentIndex !== -1) {
+                    const lastLineOfParent = findEndOfList(parentIndex);
+                    const parentIndent = lines[parentIndex].match(/^(\s*)/)[0];
+                    const newChildIndent = parentIndent + (parentIndent.includes('\t') ? '\t' : '  ');
+                    const label = pathParts[pathParts.length - 1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    
+                    const newParentLine = `${newChildIndent}* [${label}](${gitbookBaseDir}/README.md)`;
+                    lines.splice(lastLineOfParent + 1, 0, newParentLine);
+                    startIndex = lastLineOfParent + 1;
+                }
+            } 
+            
+            if (startIndex === -1) {
+                const sectionName = pathParts[0];
+                const sectionHeader = `## ${sectionName.charAt(0).toUpperCase() + sectionName.slice(1)}`;
+                let headerIndex = lines.findIndex(l => l.trim().startsWith(sectionHeader));
+
+                if (headerIndex !== -1) {
+                    let insertAt = headerIndex + 1;
+                    while (insertAt < lines.length && !lines[insertAt].trim().startsWith('##')) {
+                        insertAt++;
+                    }
+                    while (insertAt > headerIndex + 1 && lines[insertAt - 1].trim() === "") insertAt--;
+
+                    const label = pathParts[pathParts.length - 1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    const newEntry = `* [${label}](${gitbookBaseDir}/README.md)`;
+                    lines.splice(insertAt, 0, newEntry);
+                    startIndex = insertAt;
+                }
+            }
+        }
+
+        if (startIndex === -1) return;
+
+        // 2. CHILD REPLACEMENT (The fix for duplication)
+        const parentIndent = lines[startIndex].match(/^(\s*)/)[0];
+        const childIndent = parentIndent + (parentIndent.includes('\t') ? '\t' : '  ');
+
+        let scanIndex = startIndex + 1;
+        let staticLines = [];
+
+        while (scanIndex < lines.length) {
+            const line = lines[scanIndex];
+            if (line.trim() === "") { scanIndex++; continue; }
+            const currentIndent = line.match(/^(\s*)/)[0];
+            if (currentIndent.length <= parentIndent.length) break;
+
+            // If the line links to a versioned file, we DON'T save it to staticLines
+            // This ensures "v20.9.1 (DEPRECATED)" is treated as a versioned line and replaced
+            if (!isVersioned(line)) {
+                staticLines.push(line);
+            }
+            scanIndex++;
+        }
+
+        const versionLines = files
+            .filter(f => isVersioned(f.filePath))
+            .sort((a, b) => {
+                const aName = path.basename(a.filePath).toLowerCase();
+                const bName = path.basename(b.filePath).toLowerCase();
+                if (aName.includes('latest')) return -1;
+                if (bName.includes('latest')) return 1;
+                return bName.localeCompare(aName, undefined, { numeric: true });
+            })
+            .map(fileObj => {
+                const fileName = path.basename(fileObj.filePath);
+                return `${childIndent}* [${fileObj.pageTitle}](${gitbookBaseDir}/${fileName})`;
+            });
+
+        lines.splice(startIndex + 1, scanIndex - (startIndex + 1), ...staticLines, ...versionLines);
+    });
+
+    fs.writeFileSync(SUMMARY_PATH, lines.join('\n'));
 }
 
 /**
