@@ -8,7 +8,7 @@
   * [Going to production](../pages/learn/welcome/production-plan.md)
   * [Security](../pages/learn/welcome/security.md)
   * [Getting Help](../pages/learn/welcome/support.md)
-  * [Getting Started](learn/pages/getting-started/README.md "Getting Started")
+  * [Getting Started](../getting-started/README.md "Getting Started")
     * [Getting Started with Advantech ECU1370](../getting-started/advantech-ecu1370.md "Advantech ECU1370")
     * [Getting Started with Asus Tinker Board](../getting-started/asus-tinker-board.md "Asus Tinker Board")
     * [Getting Started with ASUS Tinker Edge T](../getting-started/asus-tinker-edge-t.md "ASUS Tinker Edge T")
