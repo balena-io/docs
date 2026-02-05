@@ -1,12 +1,12 @@
 [
   {
     "id": "latest",
-    "name": "v15.1.4 latest",
-    "version": "v15.1.4"
+    "name": "v15.1.5 latest",
+    "version": "v15.1.5"
   },
   {
     "id": "v14.5.0",
-    "name": "v14.5.0",
+    "name": "v14.5.0 deprecated",
     "version": "v14.5.0"
   },
   {
