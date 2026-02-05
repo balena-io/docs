@@ -60,7 +60,7 @@ BalenaOS [local mode](../develop/local-mode.md) gives you the ability to build a
 
 While prototyping, you should start thinking about how your devices will be connected when deployed in the real world. If it's possible to have network settings preconfigured, or to have everything done by DHCP, this is easy. But most devices will need onsite configuration.
 
-Balena provides the ability to configure networking from inside containers and exposes a great deal of functionality to make this easier. One example is the [wifi-connect](https://github.com/balena-os/wifi-connect) project, which allows the device to create its own WiFi access point that users can connect with to configure proper credentials. The balena [supervisor API](../../reference/supervisor/supervisor-api.md#patch-v1-device-host-config) also makes it possible to configure more advanced networking parameters, including hostname and proxy configuration.
+Balena provides the ability to configure networking from inside containers and exposes a great deal of functionality to make this easier. One example is the [wifi-connect](https://github.com/balena-os/wifi-connect) project, which allows the device to create its own WiFi access point that users can connect with to configure proper credentials. The balena [supervisor API](../../../external-docs/supervisor-api.md#patch-v1-device-host-config) also makes it possible to configure more advanced networking parameters, including hostname and proxy configuration.
 
 ### Multiple developers
 
@@ -106,11 +106,11 @@ Now that your testing is wrapping up, it's time to get your devices into a fleet
 
 While a device will provision itself and download your latest release as soon as it's turned on and connected to the Internet, this might not be the experience you want your users to have. It would be nice to have something that works right away, rather than having to wait for a potentially slow download to finish.
 
-Happily, you can [preload](../../../reference/cli/#preload-image) your release into a balenaOS image with a one-time process. Then, when that image is flashed onto your devices in the factory, it will have the release already installed and ready. Any updates made to the fleet after the preloading process will be downloaded and applied when the device is brought online, so there's no need to worry about devices that have been sitting in a warehouse or on store shelves.
+Happily, you can [preload](../../../external-docs/balena-cli/latest.md#preload-1) your release into a balenaOS image with a one-time process. Then, when that image is flashed onto your devices in the factory, it will have the release already installed and ready. Any updates made to the fleet after the preloading process will be downloaded and applied when the device is brought online, so there's no need to worry about devices that have been sitting in a warehouse or on store shelves.
 
-For situations where you need to register your devices before they have been powered on or connected to the network, you can [preregister](../../../reference/cli/#device-register-fleet) them. Preregistering a device allows the creation of individually registered devices in a fleet, which is extremely useful in situations such as manufacturing where a device may require tracking, as a specific device UUID can then be associated with a specific customer order.
+For situations where you need to register your devices before they have been powered on or connected to the network, you can [preregister](../../../external-docs/balena-cli/latest.md#device-register) them. Preregistering a device allows the creation of individually registered devices in a fleet, which is extremely useful in situations such as manufacturing where a device may require tracking, as a specific device UUID can then be associated with a specific customer order.
 
-More information about preloading images and preregistering devices can be found in the [CLI Advanced Masterclass](../more/masterclasses/advanced-cli.md) or the [CLI documentation](../../../reference/cli/).
+More information about preloading images and preregistering devices can be found in the [CLI Advanced Masterclass](../../../external-docs/masterclasses/advanced-cli.md) or the [CLI documentation](../../../external-docs/balena-cli/latest.md).
 
 ### Canary deployments
 

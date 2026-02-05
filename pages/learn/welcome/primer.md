@@ -31,7 +31,7 @@ First, the device connects to the network and performs its early provisioning, w
 
 ## Code deployment
 
-`balena push` is the recommended method for deployment and [development](../develop/local-mode.md) on the balenaCloud platform. To use `balena push` you need to first [install the balena CLI](../../../reference/cli/#install-the-cli) and ensure you are logged in to your account with `balena login`.
+`balena push` is the recommended method for deployment and [development](../develop/local-mode.md) on the balenaCloud platform. To use `balena push` you need to first [install the balena CLI](../../../external-docs/balena-cli/latest.md#installation) and ensure you are logged in to your account with `balena login`.
 
 <figure><img src="../../../summary/.gitbook/assets/balena-push (1).webp" alt=""><figcaption></figcaption></figure>
 
@@ -49,7 +49,7 @@ For Node.js services, you can use a package.json file without a Dockerfile. In t
 
 Once your Docker images are built, they are stored in our container registry, and the balena device supervisor is alerted that a new version of your application is ready. If a device is offline at the time, it will be made aware of the new containers when it comes back online. The communication between balena and your device is encrypted at all times, either through HTTPS or a VPN that we set up for the devices in your fleet.
 
-The device supervisor, using [delta updates](../deploy/delta.md), then downloads the binary differences between the old and the new images, stops the old services, and starts the new ones. You can control the exact sequence by configuring the supervisor to use [different update strategies](../deploy/release-strategy/update-strategies.md). The services themselves can also make use of [update locking](../deploy/release-strategy/update-locking.md) to block updates from happening during critical times (e.g. [a drone that is flying](https://www.youtube.com/watch?time_continue=1569\&v=75vm6rRb6K0), or an industrial machine that is in the middle of an operation).
+The device supervisor, using [delta updates](../deploy/delta.md), then downloads the binary differences between the old and the new images, stops the old services, and starts the new ones. You can control the exact sequence by configuring the supervisor to use [different update strategies](../deploy/release-strategy/update-strategies.md). The services themselves can also make use of [update locking](../../../external-docs/update-locking.md) to block updates from happening during critical times (e.g. [a drone that is flying](https://www.youtube.com/watch?time_continue=1569\&v=75vm6rRb6K0), or an industrial machine that is in the middle of an operation).
 
 As the downloads proceed, you can watch the progress in the balena dashboard. You can click on any device to see more detailed information about the services being downloaded:
 
@@ -59,4 +59,4 @@ As the downloads proceed, you can watch the progress in the balena dashboard. Yo
 
 Once your services are up and running, you can use the dashboard to monitor and interact with them. Messages from the device supervisor, as well as anything written by your services to `stdout` and `stderr`, will appear in the _Logs_ window, which can be filtered by service. Our built-in [web terminal](../manage/ssh-access.md) allows you to SSH into any running services, as well as the underlying host OS.
 
-Much of the device, service, and fleet information provided by the dashboard is managed through the [balena API](../../reference/api/), and can also be viewed and modified using the [CLI](../../reference/balena-cli.md) or the [Node.js](../../reference/sdk/node-sdk.md) and [Python](../../reference/sdk/python-sdk.md) SDKs. Balena has been designed so users can build rich experiences, combining device-level data provided by balena with higher-level fleet-specific data that lives in other data domains.
+Much of the device, service, and fleet information provided by the dashboard is managed through the [balena API](../../reference/api/), and can also be viewed and modified using the [CLI](../../../external-docs/balena-cli/latest.md) or the [Node.js](../../../external-docs/sdk/node-sdk/latest.md) and [Python](../../../external-docs/sdk/python-sdk/latest.md) SDKs. Balena has been designed so users can build rich experiences, combining device-level data provided by balena with higher-level fleet-specific data that lives in other data domains.
