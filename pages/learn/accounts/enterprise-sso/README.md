@@ -105,7 +105,7 @@ Currently, SAML authentication users cannot create API keys. If you require API 
 
 #### How do I delete a SAML account?
 
-To delete a SAML account, you need to use the [balena SDK](../../../reference/sdk/node-sdk.md). This step is only required if you intend to [delete your IdP](./#how-do-i-delete-an-identity-provider-in-balenacloud). **Removing the user from your IdP will block their access to balenaCloud**, but their current session will remain active for up to 12 hours after their last login.
+To delete a SAML account, you need to use the [balena SDK](../../../../external-docs/sdk/node-sdk/latest.md). This step is only required if you intend to [delete your IdP](./#how-do-i-delete-an-identity-provider-in-balenacloud). **Removing the user from your IdP will block their access to balenaCloud**, but their current session will remain active for up to 12 hours after their last login.
 
 {% hint style="danger" %}
 Ensure that there is at least one non-SAML admin user in your organization before deleting all SAML users in the Identity Providers (IdPs). Failure to do so may result in being locked out of your organization.

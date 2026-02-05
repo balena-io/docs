@@ -45,7 +45,7 @@ To enable support access for block, select the _Grant Support Access_ from the _
 
 ### Grant support access using the CLI
 
-To grant or revoke support access for devices or fleets, use the `balena support <action>` command. Refer to [CLI Support access](../../../reference/balena-cli/#support-action) docs for more information.
+To grant or revoke support access for devices or fleets, use the `balena support <action>` command. Refer to [CLI Support access](../../../external-docs/balena-cli/latest.md#support-1) docs for more information.
 
 ## Feeling Stuck?
 
