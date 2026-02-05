@@ -19,7 +19,7 @@
       "files": [
         {
           "source": "diagnostics.md",
-          "target": "pages/reference/diagnostics.md"
+          "target": "external-docs/diagnostics.md"
         }
       ]
     },
@@ -30,11 +30,11 @@
       "files": [
         {
           "source": "docs/update-locking.md",
-          "target": "pages/learn/deploy/release-strategy/update-locking.md"
+          "target": "external-docs/update-locking.md"
         },
         {
           "source": "docs/API.md",
-          "target": "pages/reference/supervisor/supervisor-api.md"
+          "target": "external-docs/supervisor-api.md"
         },
         {
           "source": "docs/debugging-supervisor.md",
@@ -57,11 +57,11 @@
         },
         {
           "source": "docs/rollbacks.md",
-          "target": "pages/reference/OS/updates/rollbacks.md"
+          "target": "external-docs/rollbacks.md"
         },
         {
           "source": "contributing-device-support.md",
-          "target": "pages/reference/OS/customer-board-support.md"
+          "target": "external-docs/customer-board-support.md"
         },
         {
           "source": "docs/debugging-balenaos.md",
@@ -88,7 +88,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "pages/reference/sdk/deprecation-policy.md",
+          "target": "external-docs/deprecation-policy.md",
           "transform": [
             {
               "type": "extract-section",
@@ -109,7 +109,7 @@
       "files": [
         {
           "source": "docs/base-images-ref.md",
-          "target": "pages/reference/base-images/base-images-ref.md",
+          "target": "external-docs/base-images-ref.md",
           "transform": {
             "type": "prepend",
             "content": "# [Deprecated] Balenalib Images List\n\n"
@@ -124,7 +124,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "pages/learn/more/masterclasses/cli-masterclass.md"
+          "target": "external-docs/masterclasses/cli-masterclass.md"
         }
       ]
     },
@@ -135,7 +135,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "pages/learn/more/masterclasses/advanced-cli.md"
+          "target": "external-docs/masterclasses/advanced-cli.md"
         }
       ]
     },
@@ -146,7 +146,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "pages/learn/more/masterclasses/host-os-masterclass.md"
+          "target": "external-docs/masterclasses/host-os-masterclass.md"
         }
       ]
     },
@@ -157,7 +157,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "pages/learn/more/masterclasses/services-masterclass.md"
+          "target": "external-docs/masterclasses/services-masterclass.md"
         }
       ]
     },
@@ -168,7 +168,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "pages/learn/more/masterclasses/fleet-management.md"
+          "target": "external-docs/masterclasses/fleet-management.md"
         }
       ]
     },
@@ -179,7 +179,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "pages/learn/more/masterclasses/device-debugging.md"
+          "target": "external-docs/masterclasses/device-debugging.md"
         }
       ]
     },
@@ -190,7 +190,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "pages/learn/more/masterclasses/docker-masterclass.md"
+          "target": "external-docs/masterclasses/docker-masterclass.md"
         }
       ]
     }
@@ -221,7 +221,7 @@
           "transform": { "type": "extract-section", "section": "Device Logs" }
         },
         {
-          "source": "pages/learn/more/masterclasses/network-masterclass.md",
+          "source": "external-docs/masterclasses/network-masterclass.md",
           "target": "shared/masterclass/debugging/network.md",
           "transform": { "type": "extract-section", "section": "Network debugging" }
         },
@@ -249,7 +249,7 @@
       "repo": "balena-io/balena-cli",
       "ref": "v23.2.30",
       "file": "docs/balena-cli.md",
-      "targetDir": "pages/reference/balena-cli",
+      "targetDir": "external-docs/balena-cli",
       "dictionary": "config/dictionaries/balenacli.json"
     },
     {
@@ -257,7 +257,7 @@
       "repo": "balena-io/balena-sdk",
       "ref": "v22.4.7",
       "file": "DOCUMENTATION.md",
-      "targetDir": "pages/reference/sdk/node-sdk",
+      "targetDir": "external-docs/sdk/node-sdk",
       "dictionary": "config/dictionaries/nodesdk.json"
     },
     {
@@ -265,7 +265,7 @@
       "repo": "balena-io/balena-sdk-python",
       "ref": "v15.1.4",
       "file": "DOCUMENTATION.md",
-      "targetDir": "pages/reference/sdk/python-sdk",
+      "targetDir": "external-docs/sdk/python-sdk",
       "dictionary": "config/dictionaries/pythonsdk.json"
     }
   ],
