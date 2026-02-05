@@ -9,13 +9,13 @@ On balenaCloud, when we deploy code to devices grouped in a fleet, they all run 
 
 There are 3 ways to create and deploy a release, namely [balena push](deployment.md#balena-push), [balena deploy](deployment.md#balena-build--deploy) and [git push](deployment.md#git-push). Each method has slightly different use cases and differ on how and where the container images are built. We'll explain each of the options in more detail below. If you are just starting out with balenaCloud, we recommend using [balena push](deployment.md#balena-push).
 
-To get started with the balena CLI, check out our [balena CLI masterclass](../more/masterclasses/cli-masterclass.md)
+To get started with the balena CLI, check out our [balena CLI masterclass](../../../external-docs/masterclasses/cli-masterclass.md)
 
 ## Balena Push
 
 ### Overview
 
-`balena push` is the recommended method for deployment and [development](../develop/local-mode.md) on the balenaCloud platform. To use `balena push`you need to first [install the balena CLI](../../../reference/cli/#install-the-cli) and ensure you are logged in to your account with`balena login`.
+`balena push` is the recommended method for deployment and [development](../develop/local-mode.md) on the balenaCloud platform. To use `balena push`you need to first [install the balena CLI](../../../external-docs/balena-cli/latest.md#installation) and ensure you are logged in to your account with`balena login`.
 
 When you run the `balena push <APP_NAME or DEVICE_IP>` command from your laptop it will essentially take your project (or repository) folder, compress it and send it to the [balenaCloud build server](deployment.md#the-balenacloud-build-server) or local balenaOS device in [localMode](../develop/local-mode.md) where it will be built.
 
@@ -26,7 +26,7 @@ Once the cloud builder has successfully completed building all the images in the
 It should be noted that `balena push` is independent of git, so you are free to use any version control system you wish. This also means that it is possible to use [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) in your project when deploying with `balena push`.
 
 {% hint style="warning" %}
-Refer to the [`balena push` command reference](../../../reference/balena-cli/#push-fleetordevice) for additional documentation.
+Refer to the [`balena push` command reference](../../../external-docs/balena-cli/latest.md#push-1) for additional documentation.
 {% endhint %}
 
 ## Balena Build & Deploy
@@ -44,7 +44,7 @@ If you are building your own container images, `balena deploy` will upload the i
 Like `balena push` it is also independent of git, and you can use any version control system you wish. It is also possible to use [private base images](deployment.md#private-base-images).
 
 {% hint style="warning" %}
-Refer to the [`balena build`](../../reference/balena-cli.md#build-source) and [`balena deploy` command reference](../../reference/balena-cli.md#deploy-fleet-image) for additional documentation.
+Refer to the [`balena build`](../../../external-docs/balena-cli/latest.md#build) and [`balena deploy` command reference](../../../external-docs/balena-cli/latest.md#deploy-1) for additional documentation.
 {% endhint %}
 
 ## Git Push
