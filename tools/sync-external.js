@@ -482,13 +482,13 @@ async function processVersionedSources(manifest) {
       writeFile(dictionaryPath, dictionaryContent, `${source.dictionary} (${dictionaryEntries.length} versions)`);
     }
   }
-  updateSummary(versionedData);
+  updateSummaryWithVersionedData(versionedData);
 }
 
 /**
  * @param {Object} versionedData - { targetDir: [{ filePath, pageTitle }] }
  */
-function updateSummary(versionedData) {
+function updateSummaryWithVersionedData(versionedData) {
     let summaryContent = fs.readFileSync(SUMMARY_PATH, 'utf8');
     let lines = summaryContent.split('\n');
 
