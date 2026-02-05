@@ -8,7 +8,7 @@ title: Welcome
 
 Our [balena primer](primer.md) covers the platform from end to end, walking through all the pieces and how they fit together.
 
-Ready to dive in? The [getting started guides](../../../getting-started/) take you step-by-step through creating your first fleet, provisioning your first device and deploying your first release.
+Ready to dive in? The [getting started guides](../getting-started/) take you step-by-step through creating your first fleet, provisioning your first device and deploying your first release.
 
 Once you're up on the basics, we've got all the info you need to build and manage larger fleets with more advanced functionality:
 

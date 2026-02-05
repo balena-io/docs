@@ -13,7 +13,7 @@ The **Deploy with balena** button allows users to perform a single-click deploym
 
 Clicking the **Deploy with balena** button opens the balenaCloud dashboard with a modal window pre-populated with everything required to deploy a fleet. Clicking the _Advanced_ toggle in the modal window allows adding additional configuration options. If the project has provided configuration variables via a [configuration file](deploy-with-balena-button.md#balena.yml-configuration-file), then they are pre-populated in this section.
 
-<figure><img src="../../.gitbook/assets/deploy-to-balena.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/deploy-to-balena.webp" alt=""><figcaption></figcaption></figure>
 
 Clicking _Create and deploy_ creates a new fleet and generates a release. Any devices added to the fleet will immediately download and begin running the release.
 
