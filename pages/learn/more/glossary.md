@@ -41,7 +41,7 @@ Amazon Aurora is a global-scale relational database service built for the cloud 
 
 ### balena CLI
 
-**(balena specific term)** The Command Line Interface for interacting with balenaCloud, openBalena and local balenaOS devices. [more](https://docs.balena.io/reference/balena-cli/)
+**(balena specific term)** The Command Line Interface for interacting with balenaCloud, openBalena and local balenaOS devices. [more](../../../external-docs/balena-cli/latest.md)
 
 ### balenaCloud
 
@@ -77,7 +77,7 @@ Amazon Aurora is a global-scale relational database service built for the cloud 
 
 ### balenaSDK
 
-**(balena specific term)** Balena’s Software Development Kit, allowing users to create software that can interact with balenaCloud via the balenaAPI. Available for node.js and python. [more](https://docs.balena.io/reference/sdk/node-sdk/)
+**(balena specific term)** Balena’s Software Development Kit, allowing users to create software that can interact with balenaCloud via the balenaAPI. Available for node.js and python. [more](../../reference/sdk/)
 
 ### balena-on-balena (aka.BoB)
 
