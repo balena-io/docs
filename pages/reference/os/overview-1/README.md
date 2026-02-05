@@ -76,7 +76,7 @@ A secure boot installation also alters the default balenaOS partition table as t
 
 The notion of a chain of trust arises because each stage in the boot process validates the integrity of the subsequent stage before executing it. If at any point a link in this chain is corrupted, unsigned, or otherwise fails validation, the boot process halts or reverts to a known-good state. This sequential validation ensures that if the first link is trusted, every subsequent link remains trustworthy, preventing unauthorized or tampered code from ever running.
 
-<figure><img src="../../../.gitbook/assets/balenaos-sb-fde-chain-of-trust.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/balenaos-sb-fde-chain-of-trust.webp" alt=""><figcaption></figcaption></figure>
 
 The root of trust is always the device’s `bootROM`. `bootROM` refers to the very first piece of firmware that runs when a device powers on. It resides in read-only memory (ROM) that is physically embedded in the processor or system-on-chip (SoC). Because the code stored in bootROM is difficult or impossible to modify (without physically altering the chip), it serves as the hardware-enforced starting point or “root of trust” for the boot process.
 

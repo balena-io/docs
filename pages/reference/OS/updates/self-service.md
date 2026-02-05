@@ -21,15 +21,15 @@ For device types and balenaOS versions that are not yet supported, please contac
 
 To run an update for an individual device, navigate to that device's _Settings_ tab, go to the section _OS version_, and select the version of balenaOS you would like to update to. After making your selection, click the _Save_ button.
 
-<figure><img src="../../../.gitbook/assets/update-os.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/update-os.webp" alt=""><figcaption></figcaption></figure>
 
 Updates can also be made to multiple devices in the same fleet. From the device list, click the checkbox to the left of any online devices you wish to update. Then use the _Modify_ dropdown to choose the _OS version_ option to set and trigger an update on all selected devices.
 
-<figure><img src="../../../.gitbook/assets/group-update.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/group-update.webp" alt=""><figcaption></figcaption></figure>
 
 From the dialog box that opens, select the OS version you would like to update to and click the `Apply` button to trigger the OS update.
 
-<figure><img src="../../../.gitbook/assets/group-update-dialog.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/group-update-dialog.webp" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 Updates to the balena Supervisor, balena's agent on the device, can be [triggered independently](../../supervisor/supervisor-upgrades.md).
