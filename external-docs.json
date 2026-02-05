@@ -221,7 +221,7 @@
           "transform": { "type": "extract-section", "section": "Device Logs" }
         },
         {
-          "source": "external-docs/masterclasses/network-masterclass.md",
+          "source": "pages/learn/more/masterclasses/network-masterclass.md",
           "target": "shared/masterclass/debugging/network.md",
           "transform": { "type": "extract-section", "section": "Network debugging" }
         },
