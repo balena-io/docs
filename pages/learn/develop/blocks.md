@@ -96,7 +96,7 @@ Fill the details for your block in the modal, and click `Create new block` butto
 
 <figure><img src="../../.gitbook/assets/create-block.webp" alt=""><figcaption></figcaption></figure>
 
-Next, we have to [push a new release](../deploy/deployment.md#balena-push) from your project to your newly created block on balenaCloud. If you are new to this, then follow the [Getting Started](../getting-started/) guide. After the release has been created, your block is ready. You can manage, modify and iterate further on your block from the balenaCloud dashboard.
+Next, we have to [push a new release](../deploy/deployment.md#balena-push) from your project to your newly created block on balenaCloud. If you are new to this, then follow the [Getting Started](../../../getting-started/) guide. After the release has been created, your block is ready. You can manage, modify and iterate further on your block from the balenaCloud dashboard.
 
 ## Release management for blocks
 
