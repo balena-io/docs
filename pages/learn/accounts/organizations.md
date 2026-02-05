@@ -66,7 +66,7 @@ Once the team is created, add members or grant the team access to fleets by clic
 
 ## Creating new fleets under your organization
 
-With members invited to the organization, let's get started on creating new fleets under an organization. Navigate to the `fleets` tab in the sidebar (under the correct Organization if you have multiple ones) to find the `Create fleet` button for creating a new fleet under your organization. Learn more about creating a fleet from the [getting started](../getting-started/) guide.
+With members invited to the organization, let's get started on creating new fleets under an organization. Navigate to the `fleets` tab in the sidebar (under the correct Organization if you have multiple ones) to find the `Create fleet` button for creating a new fleet under your organization. Learn more about creating a fleet from the [getting started](../../../getting-started/) guide.
 
 <figure><img src="../../.gitbook/assets/create_app_under_org.webp" alt=""><figcaption></figcaption></figure>
 
