@@ -71,5 +71,5 @@ Adding custom device configuration is similar to adding custom fleet configurati
 <figure><img src="../../../summary/.gitbook/assets/add_device_custom_variable.webp" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
-In addition to the dashboard, this configuration can be also be set using the API or any of its clients, including the \[SDK]\[needs new link] and \[CLI]\[needs new link].
+In addition to the dashboard, this configuration can be also be set using the API or any of its clients, including the [SDK](../../../external-docs/sdk/node-sdk/latest.md) and [CLI](../../../external-docs/balena-cli/latest.md).
 {% endhint %}

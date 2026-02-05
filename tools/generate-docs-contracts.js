@@ -144,9 +144,15 @@ const getLatestCLIVersion = async () => {
   }
 };
 
+/**
+ * Empty getting started guides directory (keep the README file)
+ * @returns {Promise<void>}
+ */
 const emptyDirectory = async () => {
   for (const file of await readdir(path.join(__dirname, GUIDES_DEST_FOLDER))) {
-    await unlink(path.join(path.join(__dirname, GUIDES_DEST_FOLDER), file));
+    if (file !== 'README.md') {
+      await unlink(path.join(path.join(__dirname, GUIDES_DEST_FOLDER), file));
+    }
   }
 };
 
@@ -189,7 +195,7 @@ const updateGettingStartedSectionInSummary = async (deviceTypes) => {
   // 4. Generate new content
   const indent = ' '.repeat(parentIndent);
   const tmpl = `${indent}* [Getting Started](getting-started/README.md "Getting Started")\n` +
-    `${deviceTypes.map((dt) => `${indent}  * [Getting Started with ${dt.name}](getting-started/${dt.id}.md "${dt.name}")`).join(`\n`)}`;
+    `${deviceTypes.map((dt) => `${indent}  * [Getting Started with ${dt.name}](../getting-started/${dt.id}.md "${dt.name}")`).join(`\n`)}`;
 
   // 5. Replace the old range with the new template
   lines.splice(startIndex, endIndex - startIndex, tmpl);
