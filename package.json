@@ -13,6 +13,7 @@
     "test": "npm run test:spelling && npm run sync-external -- --dry-run",
     "test:spelling": "cspell lint --gitignore -c cspell.json",
     "sync-external": "node tools/sync-external.js",
+    "generate-device-specific-content": "node tools/generate-device-specific-content.js",
     "build": "npm run build:fast",
     "build:fast": "./tools/build.sh && webpack --mode production && ./tools/deploy-static-page.sh",
     "deploy-docs": "sudo apt install webp && npm ci && npm run build",
