@@ -28,6 +28,21 @@
         ],
         "executionMode": "update"
       }
+    },
+    {
+      "description": "Generate device-specific content when contracts are updated",
+      "matchManagers": ["git-submodules"],
+      "matchFileNames": ["contracts"],
+      "postUpgradeTasks": {
+        "commands": ["npm run generate-device-specific-content"],
+        "fileFilters": [
+          "getting-started/",
+          "troubleshooting/",
+          "pages/reference/hardware/devices.md",
+          "summary/SUMMARY.md"
+        ],
+        "executionMode": "update"
+      }
     }
   ]
 }
