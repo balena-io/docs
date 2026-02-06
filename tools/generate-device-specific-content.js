@@ -130,11 +130,11 @@ async function supportedDeviceTypeContract() {
         // icon: base64Decorder(contract.logo),
         instructions: prepareInstructions(await balena.models.deviceType.getInstructions(contract.contract.slug)),
       }),
-    )
+    ),
   );
 
   console.log('✅ Fetched device type contracts');
-  
+
   return deviceTypes;
 }
 
@@ -198,9 +198,12 @@ const generateGettingStartedGuides = async (deviceTypes) => {
   console.log(`✅ Generated Getting Started guides in ${GUIDES_DEST_FOLDER}`);
 
   // Update section in SUMMARY.md
-  await updateGettingStartedSectionInSummary(deviceTypes);
-
-  console.log(`✅ Updated Getting Started Section in ${SUMMARY_FILE_PATH}`);
+  await updateSummaryFile(
+    deviceTypes, 
+    'Getting Started', 
+    '../getting-started', 
+    (deviceTypeName) => `Getting started with ${deviceTypeName}`,
+  );
 }
 
 const generateTroubleshootingPages = async (deviceTypes) => {
@@ -227,18 +230,33 @@ const generateTroubleshootingPages = async (deviceTypes) => {
   );
 
   console.log(`✅ Generated Troubleshooting pages in ${TROUBLESHOOTING_DEST_FOLDER}`);
+
+  await updateSummaryFile(
+    deviceTypes, 
+    'Troubleshooting', 
+    '../troubleshooting',
+    (deviceTypeName) => `Troubleshooting information for ${deviceTypeName}`,
+  );
 }
 
 
-const updateGettingStartedSectionInSummary = async (deviceTypes) => {
-  const content = await readFile(path.join(__dirname, SUMMARY_FILE_PATH), 'utf8');
-  const lines = content.split('\n');
+/**
+ *
+ * @param deviceTypes
+ * @param sectionTitle
+ * @param sectionPathWithoutTrailingSlash
+ * @param pageTitle (deviceTypeName: string) => string
+ * @returns {Promise<void>}
+ */
+const updateSummaryFile = async (deviceTypes, sectionTitle, sectionPathWithoutTrailingSlash, pageTitle) => {
+  const summaryFileContent = await readFile(path.join(__dirname, SUMMARY_FILE_PATH), 'utf8');
+  const lines = summaryFileContent.split('\n');
 
   // 1. Find the index of the target item
-  const startIndex = lines.findIndex(line => line.trim().startsWith('* [Getting Started]'));
+  const startIndex = lines.findIndex(line => line.trim().startsWith(`* [${sectionTitle}]`));
 
   if (startIndex === -1) {
-    console.error('Could not find the \'getting-started\' section.');
+    console.error(`Could not find the ${sectionTitle} section in SUMMARY.md.`);
     return;
   }
 
@@ -267,15 +285,16 @@ const updateGettingStartedSectionInSummary = async (deviceTypes) => {
 
   // 4. Generate new content
   const indent = ' '.repeat(parentIndent);
-  const tmpl = `${indent}* [Getting Started](getting-started/README.md "Getting Started")\n` +
-    `${deviceTypes.map((dt) => `${indent}  * [Getting Started with ${dt.name}](../getting-started/${dt.id}.md "${dt.name}")`).join(`\n`)}`;
+  const tmpl = `${indent}* [${sectionTitle}](${sectionPathWithoutTrailingSlash}/README.md "${sectionTitle}")\n` +
+    `${deviceTypes.map((dt) => `${indent}  * [${pageTitle(dt.name)}](${sectionPathWithoutTrailingSlash}/${dt.id}.md "${dt.name}")`).join(`\n`)}`;
 
   // 5. Replace the old range with the new template
   lines.splice(startIndex, endIndex - startIndex, tmpl);
 
   const updatedContent = lines.join('\n');
-  writeFile(path.join(__dirname, SUMMARY_FILE_PATH), updatedContent, 'utf8');
+  await writeFile(path.join(__dirname, SUMMARY_FILE_PATH), updatedContent, 'utf8');
 
+  console.log(`✅ Updated ${sectionTitle} Section in ${SUMMARY_FILE_PATH}`);
 }
 
 const generateDeviceListPage = async (deviceTypes) => {
@@ -301,6 +320,7 @@ const generateDeviceListPage = async (deviceTypes) => {
   await generateTroubleshootingPages(deviceTypes);
 
   // 3. Config list pages
+  // TODO
 
   // 4. Device type list
   await generateDeviceListPage(deviceTypes);
