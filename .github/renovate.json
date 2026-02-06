@@ -39,7 +39,8 @@
           "getting-started/",
           "troubleshooting/",
           "pages/reference/hardware/devices.md",
-          "summary/SUMMARY.md"
+          "summary/SUMMARY.md",
+          "config-list/"
         ],
         "executionMode": "update"
       }
