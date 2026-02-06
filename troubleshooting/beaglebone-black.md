@@ -25,7 +25,7 @@ The qemu: Unsupported syscall: 384 is a warning that the getrandom(2) system cal
 
 ### Help! My device won't show up.
 
-If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly (if you need help fixing your credentials, see [WiFi Help](/reference/OS/network/2.x/#wifi-setup)) and ensure that your network meets these [basic requirements](/reference/OS/network/2.x/#network-requirements). If the device has a LED indicator, it may also be worth checking it for any known error codes or signals.
+If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly (if you need help fixing your credentials, see [WiFi Help](../pages/reference/OS/network.md#wifi-setup)) and ensure that your network meets these [basic requirements](../pages/reference/OS/network.md#network-requirements). If the device has a LED indicator, it may also be worth checking it for any known error codes or signals.
 
 If you have an HDMI screen attached, you should see balena logo on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted.
 
@@ -33,7 +33,7 @@ If you have an HDMI screen attached, you should see balena logo on the screen wh
 
 Always run the board from 5VDC 1A minimum supply when using a WiFi Dongle. You may need to use a extension cable to move the dongle away from the planes of the PCB. We also have had instances where when placed in a metal case, there can be WiFi issues as well. It will also help to use a dongle with a real antenna on it.
 
-If you still can't get your device online, come on over and talk to us on our [support channel](/support/).
+If you still can't get your device online, come on over and talk to us on our [support channel](../pages/learn/accounts/support-access.md).
 
 ### This is the wrong balena device.
 
@@ -44,4 +44,4 @@ If you see this error, there are several potential causes, including:
     - This could be caused by config.json corruption or storage corruption
 - You are attempting to SSH into a device using the wrong IP address
 
-Please contact [balena support](/support/) if you encounter this issue so that we can investigate the root cause.
+Please contact [balena support](../pages/learn/accounts/support-access.md) if you encounter this issue so that we can investigate the root cause.
