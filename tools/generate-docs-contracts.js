@@ -144,9 +144,15 @@ const getLatestCLIVersion = async () => {
   }
 };
 
+/**
+ * Empty getting started guides directory (keep the README file)
+ * @returns {Promise<void>}
+ */
 const emptyDirectory = async () => {
   for (const file of await readdir(path.join(__dirname, GUIDES_DEST_FOLDER))) {
-    await unlink(path.join(path.join(__dirname, GUIDES_DEST_FOLDER), file));
+    if (file !== 'README.md') {
+      await unlink(path.join(path.join(__dirname, GUIDES_DEST_FOLDER), file));
+    }
   }
 };
 
