@@ -19,6 +19,8 @@ const DEVICE_LIST_DEST_FOLDER = '../pages/reference/hardware/';
 const TROUBLESHOOTING_TEMPLATE_PATH = '../templates/troubleshooting.md';
 const TROUBLESHOOTING_TEMPLATE_DT_PATH = '../templates/troubleshooting/';
 const TROUBLESHOOTING_DEST_FOLDER = '../troubleshooting/';
+const CONFIG_LIST_TEMPLATE_PATH = '../templates/config-list.md';
+const CONFIG_LIST_DEST_FOLDER = '../config-list/';
 
 const
   balena = getSdk({
@@ -199,9 +201,9 @@ const generateGettingStartedGuides = async (deviceTypes) => {
 
   // Update section in SUMMARY.md
   await updateSummaryFile(
-    deviceTypes, 
-    'Getting Started', 
-    '../getting-started', 
+    deviceTypes,
+    'Getting Started',
+    '../getting-started',
     (deviceTypeName) => `Getting started with ${deviceTypeName}`,
   );
 }
@@ -209,6 +211,9 @@ const generateGettingStartedGuides = async (deviceTypes) => {
 const generateTroubleshootingPages = async (deviceTypes) => {
   const troubleshootingFile = await readFile(path.join(__dirname, TROUBLESHOOTING_TEMPLATE_PATH))
   const template = Handlebars.compile(troubleshootingFile.toString());
+  
+  await emptyDirectory(TROUBLESHOOTING_DEST_FOLDER);
+  
   await Promise.all(
     deviceTypes.map(async (deviceType) => {
       let deviceSpecificContent;
@@ -232,10 +237,56 @@ const generateTroubleshootingPages = async (deviceTypes) => {
   console.log(`✅ Generated Troubleshooting pages in ${TROUBLESHOOTING_DEST_FOLDER}`);
 
   await updateSummaryFile(
-    deviceTypes, 
-    'Troubleshooting', 
+    deviceTypes,
+    'Troubleshooting',
     '../troubleshooting',
     (deviceTypeName) => `Troubleshooting information for ${deviceTypeName}`,
+  );
+}
+
+const generateConfigListPages = async (deviceTypes) => {
+  await emptyDirectory(CONFIG_LIST_DEST_FOLDER);
+  
+  await Promise.all(
+    deviceTypes.map(async (deviceType) => {
+      const apiEndPoint = `https://api.balena-cloud.com/config/vars?deviceType=${deviceType.id}`;
+      const response = await fetch(apiEndPoint);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      const variables = [];
+
+      // Construct the list of variables
+      Object.keys(result.configVarSchema.properties).forEach((key) => {
+        const variable = result.configVarSchema.properties[key];
+        variables.push({
+          name: key,
+          description: variable.hasOwnProperty('description') ? variable.description : 'No description available',
+          willReboot: variable.hasOwnProperty('will_reboot') ? 'Yes' : 'No',
+          type: Array.isArray(variable.enum) ? variable.enum.join(', ') : variable.type,
+          default: variable.hasOwnProperty('default') ? variable.default : '',
+        })
+      });
+
+      const tmpl = await readFile(path.join(__dirname, CONFIG_LIST_TEMPLATE_PATH));
+      const template = Handlebars.compile(tmpl.toString());
+      const compiledTemplate = template({
+        $variables: variables,
+      });
+      await writeFile(path.join(__dirname, CONFIG_LIST_DEST_FOLDER, `${deviceType.id}.md`), compiledTemplate);
+    }),
+  );
+  
+  console.log(`✅ Generated Device list in ${CONFIG_LIST_DEST_FOLDER}`);
+
+  await updateSummaryFile(
+    deviceTypes,
+    'Configuration List',
+    '../config-list',
+    (deviceTypeName) => `Configuration List for ${deviceTypeName}`,
   );
 }
 
@@ -320,8 +371,8 @@ const generateDeviceListPage = async (deviceTypes) => {
   await generateTroubleshootingPages(deviceTypes);
 
   // 3. Config list pages
-  // TODO
+  await generateConfigListPages(deviceTypes);
 
-  // 4. Device type list
+  // 4. Device type list page
   await generateDeviceListPage(deviceTypes);
 })();
