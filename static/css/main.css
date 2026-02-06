@@ -220,6 +220,7 @@ ol {
 
 .page-content img {
   max-width: 100%;
+  height: auto;
   margin: 50px auto;
   display: block;
 }
