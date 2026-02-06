@@ -16,6 +16,9 @@ const DEVICE_LIST_TEMPLATE_PATH = '../templates/device-list.md';
 const SUMMARY_FILE_PATH = '../summary/SUMMARY.md';
 const GUIDES_DEST_FOLDER = '../getting-started/';
 const DEVICE_LIST_DEST_FOLDER = '../pages/reference/hardware/';
+const TROUBLESHOOTING_TEMPLATE_PATH = '../templates/troubleshooting.md';
+const TROUBLESHOOTING_TEMPLATE_DT_PATH = '../templates/troubleshooting/';
+const TROUBLESHOOTING_DEST_FOLDER = '../troubleshooting/';
 
 const
   balena = getSdk({
@@ -117,17 +120,22 @@ async function supportedDeviceTypeContract() {
     ],
   })
 
-  console.log('Generating Getting Started Guides...')
-  return await Promise.all(contracts.map(async (contract) => ({
-      id: contract.contract.slug,
-      name: contract.contract.name,
-      arch: contract.contract.data.arch,
-      // bootMedia: bootMediaDecider(contract.contract.data.media, contract.contract.data.flashProtocol),
-      icon: await svgCreator(contract.logo, contract.contract.slug),
-      // icon: base64Decorder(contract.logo),
-      instructions: prepareInstructions(await balena.models.deviceType.getInstructions(contract.contract.slug)),
-    }),
-  ))
+  const deviceTypes = await Promise.all(
+    contracts.map(async (contract) => ({
+        id: contract.contract.slug,
+        name: contract.contract.name,
+        arch: contract.contract.data.arch,
+        // bootMedia: bootMediaDecider(contract.contract.data.media, contract.contract.data.flashProtocol),
+        icon: await svgCreator(contract.logo, contract.contract.slug),
+        // icon: base64Decorder(contract.logo),
+        instructions: prepareInstructions(await balena.models.deviceType.getInstructions(contract.contract.slug)),
+      }),
+    )
+  );
+
+  console.log('✅ Fetched device type contracts');
+  
+  return deviceTypes;
 }
 
 const getLatestCLIVersion = async () => {
@@ -148,13 +156,78 @@ const getLatestCLIVersion = async () => {
  * Empty getting started guides directory (keep the README file)
  * @returns {Promise<void>}
  */
-const emptyDirectory = async () => {
-  for (const file of await readdir(path.join(__dirname, GUIDES_DEST_FOLDER))) {
+const emptyDirectory = async (folder) => {
+  for (const file of await readdir(path.join(__dirname, folder))) {
     if (file !== 'README.md') {
-      await unlink(path.join(path.join(__dirname, GUIDES_DEST_FOLDER), file));
+      await unlink(path.join(path.join(__dirname, folder), file));
     }
   }
 };
+
+const generateGettingStartedGuides = async (deviceTypes) => {
+  const latestCLIVersion = await getLatestCLIVersion();
+  const tmpl = await readFile(path.join(__dirname, GUIDE_TEMPLATE_FILE_PATH));
+  const template = Handlebars.compile(tmpl.toString());
+
+  // Empty Getting Started Guides Directory (except for the README file)
+  await emptyDirectory(GUIDES_DEST_FOLDER);
+
+  await Promise.all(
+    deviceTypes.map(async (deviceType) => {
+      let whatYouNeedSection;
+      try {
+        const whatYouNeedMdFile = await readFile(path.join(__dirname, WHAT_YOU_NEED_TEMPLATE_PATH, `${deviceType['id']}.md`));
+        const whatYouNeedTemplate = Handlebars.compile(whatYouNeedMdFile.toString());
+        whatYouNeedSection = whatYouNeedTemplate({
+          $device: deviceType,
+        });
+      } catch (e) {
+        // not all devices have specific "what you'll need" sections, in that case the template falls back to default content
+      }
+
+      const compiledTemplate = template({
+        $languages: LANGUAGES,
+        $device: deviceType,
+        $latestCLIVersion: latestCLIVersion,
+        $whatYouNeed: whatYouNeedSection,
+      });
+      await writeFile(path.join(__dirname, GUIDES_DEST_FOLDER, `${deviceType['id']}.md`), compiledTemplate);
+    }),
+  );
+
+  console.log(`✅ Generated Getting Started guides in ${GUIDES_DEST_FOLDER}`);
+
+  // Update section in SUMMARY.md
+  await updateGettingStartedSectionInSummary(deviceTypes);
+
+  console.log(`✅ Updated Getting Started Section in ${SUMMARY_FILE_PATH}`);
+}
+
+const generateTroubleshootingPages = async (deviceTypes) => {
+  const troubleshootingFile = await readFile(path.join(__dirname, TROUBLESHOOTING_TEMPLATE_PATH))
+  const template = Handlebars.compile(troubleshootingFile.toString());
+  await Promise.all(
+    deviceTypes.map(async (deviceType) => {
+      let deviceSpecificContent;
+      try {
+        const troubleshootingMdFile = await readFile(path.join(__dirname, TROUBLESHOOTING_TEMPLATE_DT_PATH, `${deviceType['id']}.md`));
+        const troubleshootingTemplate = Handlebars.compile(troubleshootingMdFile.toString());
+        deviceSpecificContent = troubleshootingTemplate({
+          $device: deviceType,
+        });
+      } catch (e) {
+        // not all devices have a specific troubleshooting page
+      }
+      const compiledTemplate = template({
+        $device: deviceType,
+        $deviceSpecificContent: deviceSpecificContent,
+      });
+      await writeFile(path.join(__dirname, TROUBLESHOOTING_DEST_FOLDER, `${deviceType['id']}.md`), compiledTemplate);
+    }),
+  );
+
+  console.log(`✅ Generated Troubleshooting pages in ${TROUBLESHOOTING_DEST_FOLDER}`);
+}
 
 
 const updateGettingStartedSectionInSummary = async (deviceTypes) => {
@@ -203,7 +276,6 @@ const updateGettingStartedSectionInSummary = async (deviceTypes) => {
   const updatedContent = lines.join('\n');
   writeFile(path.join(__dirname, SUMMARY_FILE_PATH), updatedContent, 'utf8');
 
-  console.log('SUMMARY.md updated successfully!');
 }
 
 const generateDeviceListPage = async (deviceTypes) => {
@@ -213,48 +285,23 @@ const generateDeviceListPage = async (deviceTypes) => {
     deviceTypes,
   });
   await writeFile(path.join(__dirname, DEVICE_LIST_DEST_FOLDER, 'devices.md'), compiledTemplate);
-  console.log('Generated Device list at ', DEVICE_LIST_DEST_FOLDER, 'devices.md');
+  console.log(`✅ Generated Device list in ${DEVICE_LIST_DEST_FOLDER}devices.md`);
 }
 
 /**
  * This is where the script starts
  */
 (async () => {
-
   const deviceTypes = await supportedDeviceTypeContract();
 
-  const tmpl = await readFile(path.join(__dirname, GUIDE_TEMPLATE_FILE_PATH));
+  // 1. Getting started guides
+  await generateGettingStartedGuides(deviceTypes);
 
-  await emptyDirectory();
+  // 2. Troubleshooting pages
+  await generateTroubleshootingPages(deviceTypes);
 
-  const template = Handlebars.compile(tmpl.toString());
+  // 3. Config list pages
 
-  const latestCLIVersion = await getLatestCLIVersion();
-
-  await Promise.all(
-    deviceTypes.map(async (deviceType) => {
-      let whatYouNeedSection;
-      try {
-        const whatYouNeedMdFile = await readFile(path.join(__dirname, WHAT_YOU_NEED_TEMPLATE_PATH, `${deviceType['id']}.md`));
-        const whatYouNeedTemplate = Handlebars.compile(whatYouNeedMdFile.toString());
-        whatYouNeedSection = whatYouNeedTemplate({
-          $device: deviceType,
-        });
-      } catch (e) {
-        // not all devices have specific "what you'll need" sections, in that case the template falls back to default content
-      }
-
-      const compiledTemplate = template({
-        $languages: LANGUAGES,
-        $device: deviceType,
-        $latestCLIVersion: latestCLIVersion,
-        $whatYouNeed: whatYouNeedSection,
-      });
-      await writeFile(path.join(__dirname, GUIDES_DEST_FOLDER, `${deviceType['id']}.md`), compiledTemplate);
-    }),
-  );
-
-  await updateGettingStartedSectionInSummary(deviceTypes);
-  
+  // 4. Device type list
   await generateDeviceListPage(deviceTypes);
 })();
