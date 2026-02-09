@@ -11,7 +11,7 @@ Variables allow you to provide runtime configuration to one or more running serv
 
 Variables defined in the dashboard are exposed on the device as environment variables and can be accessed within the service or services that they were defined for as shown below:
 
-<figure><img src="../../../summary/.gitbook/assets/accessing_variables.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/accessing_variables (1).webp" alt=""><figcaption></figcaption></figure>
 
 Variables can be applied at the fleet or the individual device level through the Variables page. You can apply Variables to the entire fleet by navigating to the Variables page for that fleet. Adding or modifying a fleet variable for all services will restart all services on the device. Similarly, changing device variables defined only for a specific service will only restart the affected service.
 
@@ -31,17 +31,17 @@ Fleet-wide variables can be found from the Fleet Summary page by clicking the _V
 
 To define a new variable, click the _Add variable_ button in the upper-left corner.
 
-<figure><img src="../../../summary/.gitbook/assets/add_fleet_variable.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add_fleet_variable (1).webp" alt=""><figcaption></figcaption></figure>
 
 In the dialog box that opens, select either 'All services' or a specific service to which the variable will be applied.
 
 Define a name and value for your variable. Click the _Add_ button to apply the variable to all devices in your fleet that do not have their own values defined:
 
-<figure><img src="../../../summary/.gitbook/assets/variable_editor.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/variable_editor (1).webp" alt=""><figcaption></figcaption></figure>
 
 Your new variable will show up in the list, where it can easily be modified or removed. Adding or modifying fleet variables will trigger restart of all services on the device.
 
-<figure><img src="../../../summary/.gitbook/assets/variable_list.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/variable_list (1).webp" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 Deleting a fleet-level variable will not delete a device-level variable of the same name.
@@ -49,7 +49,7 @@ Deleting a fleet-level variable will not delete a device-level variable of the s
 
 If you have already defined variables at the device level, they will appear below the fleet variables of the same type. You can easily apply a device value to the entire fleet by clicking _Define fleet-wide_:
 
-<figure><img src="../../../summary/.gitbook/assets/define_app_wide (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/define_app_wide (1) (1).webp" alt=""><figcaption></figcaption></figure>
 
 ## Device Variables
 
@@ -59,11 +59,11 @@ Adding a device variable is very similar to adding a fleet variable. From the De
 
 The variable list will include variables defined for that specific device, as well as any fleet variables of the same type:
 
-<figure><img src="../../../summary/.gitbook/assets/device_variables.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/device_variables (1).webp" alt=""><figcaption></figcaption></figure>
 
 You can override the value of a fleet variable by clicking _override_ in the far-right column. This will pop up the variable editing dialog, where you can change the value:
 
-<figure><img src="../../../summary/.gitbook/assets/override.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/override (1).webp" alt=""><figcaption></figcaption></figure>
 
 Changing a variable defined only for a specific service will only restart the affected service.
 

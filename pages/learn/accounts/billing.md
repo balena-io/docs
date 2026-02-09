@@ -6,7 +6,7 @@ title: Billing
 
 Billing in balenaCloud is managed through [organizations](organizations.md). To manage billing for a specific organization, navigate to the organization and select the `Billing` tab from the sidebar on the left:
 
-<figure><img src="../../../summary/.gitbook/assets/billing_nav.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/billing_nav (1).webp" alt=""><figcaption></figcaption></figure>
 
 From this dashboard, you can change your billing plan, update your billing information, monitor your usage, and download invoices. If you have any questions about billing for your account, please contact [our customer success team](mailto:solutions@balena.io).
 
@@ -14,15 +14,15 @@ From this dashboard, you can change your billing plan, update your billing infor
 
 To modify or upgrade your billing plan, click the "Change plan" button on the billing page:
 
-<figure><img src="../../../summary/.gitbook/assets/current_plan.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/current_plan (1).webp" alt=""><figcaption></figcaption></figure>
 
 Select the plan you'd like to upgrade to from the list of available options:
 
-<figure><img src="../../../summary/.gitbook/assets/plan_selection.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_selection (1).webp" alt=""><figcaption></figcaption></figure>
 
 Enter your billing information and complete the signup process:
 
-<figure><img src="../../../summary/.gitbook/assets/billing_info.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/billing_info (1).webp" alt=""><figcaption></figcaption></figure>
 
 If you need to downgrade or cancel your plan, you can follow the steps mentioned above by choosing a lower tier or free plan instead.
 
@@ -32,15 +32,15 @@ Certain plans may require you to contact our customer success team in order to c
 
 At the top of the billing page, you'll find a summary of your subscription with information on the total amount and due date for your next payment:
 
-<figure><img src="../../../summary/.gitbook/assets/sub_sum.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sub_sum (1).webp" alt=""><figcaption></figcaption></figure>
 
 Beneath this you can see your current usage, including [active devices](billing.md#inactive-devices) and collaborators:
 
-<figure><img src="../../../summary/.gitbook/assets/usage.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/usage (1).webp" alt=""><figcaption></figcaption></figure>
 
 Further down, you'll find a place to download invoices, add or edit payment methods, and update account information:
 
-<figure><img src="../../../summary/.gitbook/assets/account_details.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/account_details (1).webp" alt=""><figcaption></figcaption></figure>
 
 At the bottom of this page, you'll find more information on the available [plans](https://balena.io/pricing/), and you can change plans as necessary.
 
@@ -52,7 +52,7 @@ Credit purchases of any size will result in paying less for device usage on the 
 
 To manage credits, navigate to the organization and select the `Credits` tab from the sidebar on the left:
 
-<figure><img src="../../../summary/.gitbook/assets/credits_nav.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/credits_nav (1).webp" alt=""><figcaption></figcaption></figure>
 
 On the Credits page, you're able to see credit purchase history and the number of credits that have been purchased and are still allocatable for device usage. This is also where you can initiate credit purchases. An invoice will be automatically generated and listed on the Billing page when a credit purchase is initiated.
 
@@ -82,7 +82,7 @@ Marking a device as `Inactive` is a [device setting](../manage/actions.md#device
 
 To understand the difference between inactive and offline devices, we define them in the following ways:
 
-* **Inactive**: The device has been either [deactivated](../manage/actions.md#deactivate-device) or [preregistered](../more/masterclasses/advanced-cli.md) but hasn't connected to the balenaCloud API yet.
+* **Inactive**: The device has been either [deactivated](../manage/actions.md#deactivate-device) or [preregistered](/broken/pages/tAdmS7VhfWwHTNcoKQDc) but hasn't connected to the balenaCloud API yet.
 * **Offline**: The device is not connected to cloudlink and didn't have any recent API communications.
 
 If you have a device **offline and active**, you will **still be billed for that device**. Those devices are usually still deployed in the field and ready to be used at any time. If you make the decision to have your devices offline intentionally, you will still be able see them in your fleet and can take some actions such as applying updates, that will take effect as soon as they come online.

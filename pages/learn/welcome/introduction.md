@@ -4,7 +4,7 @@ title: Welcome
 
 # Welcome
 
-[Balena](https://balena.io/) makes it easy to deploy code to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
+[Balena](https://balena.io/) makes it easy to deploy [code ](https://app.gitbook.com/s/fXIFCRguWUgHSswRoNSa/diagnostics)to fleets of connected devices, bringing the power of Linux containers to the edge. We've optimized the cloud paradigm for remote devices, taking familiar container workflows and custom building for low overhead, high reliability, and out-of-the-box support across a wide variety of devices. With a few simple commands, you can monitor, manage, and update your fleet from anywhere.
 
 Our [balena primer](primer.md) covers the platform from end to end, walking through all the pieces and how they fit together.
 

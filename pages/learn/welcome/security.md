@@ -63,7 +63,7 @@ Cloudlink status in the dashboard represents a device connection to the balenaCl
 * [Public Device Url](../manage/actions.md#public-device-url)
 * [Device actions](../manage/actions.md#device-actions) that allow controlling device state
 * [Host OS Updates](../../reference/OS/updates/self-service.md)
-* [Device Diagnostics](../../reference/diagnostics.md)
+* [Device Diagnostics](/broken/pages/ST3eAfYvu3wFnVbQa4io)
 
 Currently, Cloudlink uses [OpenVPN](https://openvpn.net/) as an underlying technology to achieve its functionality. Devices only connect outbound to Cloudlink, and all traffic over Cloudlink is encrypted with TLS.
 

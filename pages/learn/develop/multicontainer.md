@@ -8,7 +8,7 @@ excerpt: A guide to running multiple containers with Docker Compose and balena
 As your apps grow more complex, you may find significant benefit in running some services in separate containers. Splitting your app into multiple containers allows you to better isolate and maintain key services, providing a more modular and secure approach to fleet management. Each service can be packaged with the operating environment and tools it specifically needs to run, and each service can be limited to the minimum system resources necessary to perform its task. The benefits of multicontainer fleets compound as the complexity of the app grows. With multicontainer, each service is updated independently. Hence, larger apps can be developed and maintained by separate teams, each free to work in a way that best supports their service.
 
 {% hint style="warning" %}
-For additional information on working with multiple containers with balena see the [services masterclass](../more/masterclasses/services-masterclass.md).
+For additional information on working with multiple containers with balena see the [services masterclass](/broken/pages/1UQB1Oein1tJ4keIvhoA).
 {% endhint %}
 
 This guide will cover the considerations you need to take into account when running multiple containers, including `docker-compose.yml` configuration and some important balena specific settings.
@@ -123,7 +123,7 @@ In addition to the settings above, there are some balena specific labels that ca
 Container requirements are available when using balenaCLI >= 21.1.0
 {% endhint %}
 
-An additional set of labels ensures device compatibility for running a service. For example, before updating to a new release, it may be desirable to ensure that the device is running a specific version of [Supervisor](../../reference/supervisor/supervisor-api.md) or has a specific version of the [NVIDIA Tegra Linux Driver Package](https://developer.nvidia.com/embedded/linux-tegra) (L4T).
+An additional set of labels ensures device compatibility for running a service. For example, before updating to a new release, it may be desirable to ensure that the device is running a specific version of [Supervisor](/broken/pages/huTxQ9dbPeenbvNqQbYl) or has a specific version of the [NVIDIA Tegra Linux Driver Package](https://developer.nvidia.com/embedded/linux-tegra) (L4T).
 
 The following set of requirement labels are enforced via the supervisor. Each service may define one or more requirements and if any of them is not met for any non-[optional](multicontainer.md#optional-containers) service, then [the release will be rejected](../manage/device-statuses.md#update-statuses) and no changes will be performed for the new release.
 

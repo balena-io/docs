@@ -21,15 +21,15 @@ For device types and balenaOS versions that are not yet supported, please contac
 
 To run an update for an individual device, navigate to that device's _Settings_ tab, go to the section _OS version_, and select the version of balenaOS you would like to update to. After making your selection, click the _Save_ button.
 
-<figure><img src="../../../../summary/.gitbook/assets/update-os.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/update-os (1).webp" alt=""><figcaption></figcaption></figure>
 
 Updates can also be made to multiple devices in the same fleet. From the device list, click the checkbox to the left of any online devices you wish to update. Then use the _Modify_ dropdown to choose the _OS version_ option to set and trigger an update on all selected devices.
 
-<figure><img src="../../../../summary/.gitbook/assets/group-update.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/group-update (1).webp" alt=""><figcaption></figcaption></figure>
 
 From the dialog box that opens, select the OS version you would like to update to and click the `Apply` button to trigger the OS update.
 
-<figure><img src="../../../../summary/.gitbook/assets/group-update-dialog.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/group-update-dialog (1).webp" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 Updates to the balena Supervisor, balena's agent on the device, can be [triggered independently](../../supervisor/supervisor-upgrades.md).
@@ -43,6 +43,6 @@ If your balenaOS update fails for any reason, the device should still be recover
 
 ## Update locks
 
-[Update locks](../../../learn/deploy/release-strategy/update-locking.md) is a mechanism that allows applications to enter critical sections of code and prevent updates that would interrupt the application from running. Update locks can also be used to delay the reboot that applies a hostOS update operation until the application exits the critical section by removing the update locks. HostOS update operations require the use of exclusive locks and will not respect shared locks. [Overriding update locks](../../../learn/deploy/release-strategy/update-locking.md) will ignore existing locks and allow a hostOS update process to proceed with a reboot.
+[Update locks](/broken/pages/9dHmWDwkOZSf8jVzHjBT) is a mechanism that allows applications to enter critical sections of code and prevent updates that would interrupt the application from running. Update locks can also be used to delay the reboot that applies a hostOS update operation until the application exits the critical section by removing the update locks. HostOS update operations require the use of exclusive locks and will not respect shared locks. [Overriding update locks](/broken/pages/9dHmWDwkOZSf8jVzHjBT) will ignore existing locks and allow a hostOS update process to proceed with a reboot.
 
 Check out our [update process](update-process.md) to understand how the process goes through each step.

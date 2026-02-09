@@ -175,7 +175,7 @@ method return time=1474008856.507103 sender=:1.12 -> destination=:1.11 serial=4 
 The entry `NTPSynchronized` shows `true`, so the device is NTP synchronized. (The key `NTP` only shows whether the device is using the systemd service `systemd-timesyncd`; starting from balenaOS 2.13.1, the `chrony` service is used for time management.)
 
 {% hint style="warning" %}
-For additional D-Bus examples see the [balenaOS masterclass](../more/masterclasses/host-os-masterclass.md#id-13.-advanced-dbus-examples)
+For additional D-Bus examples see the [balenaOS masterclass](/broken/pages/cj24pSGQGlu80OxE1mbz#id-13.-advanced-dbus-examples)
 {% endhint %}
 
 ### Blacklisting kernel modules won't work
@@ -197,7 +197,7 @@ curl -X POST --header "Content-Type:application/json" \
     "$BALENA_SUPERVISOR_ADDRESS/v1/reboot?apikey=$BALENA_SUPERVISOR_API_KEY"
 ```
 
-[Read more about the supervisor API](../../reference/supervisor/supervisor-api.md#post-v1-reboot)
+[Read more about the supervisor API](/broken/pages/huTxQ9dbPeenbvNqQbYl#post-v1-reboot)
 
 {% hint style="warning" %}
 `BALENA_SUPERVISOR_API_KEY` and `BALENA_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the [io.resin.features.supervisor-api](../../reference/supervisor/docker-compose.md#labels) set . You will also **need** `curl` installed in your container.
@@ -259,14 +259,14 @@ For multicontainer releases, setting the service `network_mode` to `host` in `do
 Balena `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` [keyword](https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases) for providing alias names for services (including FQDNs) and [IPAM bridge networks](https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference) are also supported.
 
 {% hint style="warning" %}
-For more information on networking with balena, see the [balena services masterclass](../more/masterclasses/services-masterclass.md#id-4.-networking-types).
+For more information on networking with balena, see the [balena services masterclass](/broken/pages/1UQB1Oein1tJ4keIvhoA#id-4.-networking-types).
 {% endhint %}
 
 ### Public device URLS
 
 Balena currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the balenaCloud dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../manage/actions.md#public-device-url)
 
-<figure><img src="../../../summary/.gitbook/assets/enable-public-url-device.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enable-public-url-device (1).webp" alt=""><figcaption></figcaption></figure>
 
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js](https://expressjs.com/) server which will serve to the devices URL.
 
@@ -319,7 +319,7 @@ When using named volumes, note that:
 
 Since balena-supervisor v10.0.0, volumes are no longer automatically removed from disk when references to them are removed from a fleet's `docker-compose` file. This means that it's no longer possible for data to be lost due to the accidental rename of a volume.
 
-If you change volume names regularly, your device will now continue to retain all previous volumes including their contents. To avoid this the supervisor API now provides an [endpoint to cleanup unreferenced volumes](../../reference/supervisor/supervisor-api.md#cleanup-volumes-with-no-references). Additionally, it is possible to perform this action from the dashboard via the `Purge Data` action, found on the `Actions` tab for a device.
+If you change volume names regularly, your device will now continue to retain all previous volumes including their contents. To avoid this the supervisor API now provides an [endpoint to cleanup unreferenced volumes](/broken/pages/huTxQ9dbPeenbvNqQbYl#cleanup-volumes-with-no-references). Additionally, it is possible to perform this action from the dashboard via the `Purge Data` action, found on the `Actions` tab for a device.
 
 {% hint style="warning" %}
 Volumes will continue to be removed automatically when moving a device between fleets.
