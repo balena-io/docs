@@ -155,7 +155,11 @@ By default, most Jetson Orin devices need an internal storage media and a USB fl
 
 The first medium found in the `target_devices` list will be used for provisioning and it will become the main storage of your device once flashing is complete.
 
-Available target devices are: - `mmcblk0` - on-board eMMC. Unless overriden, this is the default for the AGX Orin Devkit 64GB - `sda` - removable drives like USB flash drives or SSDs - `nvme0n1` - NVMe drive
+Available target devices are:
+
+* `mmcblk0` - on-board eMMC. Unless overriden, this is the default for the AGX Orin Devkit 64GB
+* `sda` - removable drives like USB flash drives or SSDs
+* `nvme0n1` - NVMe drive
 
 <details>
 

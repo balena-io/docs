@@ -153,7 +153,11 @@ By default, most Jetson Orin devices need an internal storage media and a USB fl
 
 The first medium found in the `target_devices` list will be used for provisioning and it will become the main storage of your device once flashing is complete.
 
-Available target devices are: - `mmcblk0` - SD-CARD - `sda` - removable drives like USB flash drives or SSDs - `nvme0n1` - NVMe drive. Unless overriden, this is the default for the Jetson Orin Nano Devkit
+Available target devices are:
+
+* `mmcblk0` - SD-CARD
+* `sda` - removable drives like USB flash drives or SSDs
+* `nvme0n1` - NVMe drive. Unless overriden, this is the default for the Jetson Orin Nano Devkit
 
 <details>
 
