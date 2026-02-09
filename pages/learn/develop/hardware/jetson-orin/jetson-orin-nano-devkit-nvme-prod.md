@@ -172,5 +172,3 @@ sudo balena config inject config.json -d balena.img
 10. Your device should appear in your application dashboard within a few minutes.
 
 </details>
-
-If you want to see options for other Orin devices, select the device from the drop down at the top of this page.

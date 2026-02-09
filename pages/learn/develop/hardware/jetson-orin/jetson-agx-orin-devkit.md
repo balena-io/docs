@@ -45,5 +45,3 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 <figure><img src="../../../../../summary/.gitbook/assets/jetson_orin_interrupt_booting_uefi.webp" alt=""><figcaption></figcaption></figure>
 
 </details>
-
-If you want to see options for other Orin devices, select the device from the drop down at the top of this page.
