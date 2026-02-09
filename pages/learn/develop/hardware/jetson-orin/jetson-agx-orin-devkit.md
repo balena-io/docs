@@ -12,7 +12,7 @@ This device exposes a debug UART interface over the microUSB port. From Linux ma
 
 The default internal storage used for provisioning balenaOS is the AGX Orin 32GB's on-board eMMC, and the [Jetson Flash](https://github.com/balena-os/jetson-flash) tool is used for provisioning balenaOS. The eMMC is the only boot medium supported for this device type currently.
 
-**Checking your Jetson Orin's UEFI firmware version**
+#### **Checking your Jetson Orin's UEFI firmware version**
 
 You can check which UEFI firmware version your Jetson Orin device is running either by connecting to your device's debug UART interface, or by attaching a display to the Orin's video port.
 
