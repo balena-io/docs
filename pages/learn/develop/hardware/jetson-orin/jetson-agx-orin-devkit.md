@@ -40,7 +40,7 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 
 <summary>I want to use a monitor</summary>
 
-A Display Port cable or Display Port to HDMI adapter is necessary for connecting your Jetson AGX Orin Devkit 32GB to a monitor. Once the monitor is attached, the UEFI firmware version will be displayed at the top of the screen:
+**A Display Port cable or Display Port to HDMI adapter is necessary for connecting your Jetson AGX Orin Devkit 32GB to a monitor.** Once the monitor is attached, the UEFI firmware version will be displayed at the top of the screen:
 
 <figure><img src="../../../../../summary/.gitbook/assets/jetson_orin_interrupt_booting_uefi.webp" alt=""><figcaption></figcaption></figure>
 
