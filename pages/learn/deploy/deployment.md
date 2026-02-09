@@ -19,7 +19,7 @@ To get started with the balena CLI, check out our [balena CLI masterclass](../..
 
 When you run the `balena push <APP_NAME or DEVICE_IP>` command from your laptop it will essentially take your project (or repository) folder, compress it and send it to the [balenaCloud build server](deployment.md#the-balenacloud-build-server) or local balenaOS device in [localMode](../develop/local-mode.md) where it will be built.
 
-<figure><img src="../../../summary/.gitbook/assets/balena-push.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/balena-push (3).webp" alt=""><figcaption></figcaption></figure>
 
 Once the cloud builder has successfully completed building all the images in the deployment, it will upload these images to the balenaCloud registry and create a release entry in the [balena API](../../../reference/api/overview/) database. It will then notify all the devices in the fleet that a new release is available. If you need to pull in proprietary code or use a private base image during your builds, you can do so using the [build time secrets](deployment.md#build-time-secrets-and-variables) or [private base images](deployment.md#private-base-images) feature of `balena push`.
 
@@ -35,7 +35,7 @@ Refer to the [`balena push` command reference](../../../external-docs/balena-cli
 
 The `balena deploy` is functionally very similar to [balena push](deployment.md#balena-push) but avoids pushing any source code to the [balenaCloud build server](deployment.md#the-balenacloud-build-server). It gives more control over how and where your container images are built, allowing for `balena deploy` to be integrated into your own [CI/CD](https://en.wikipedia.org/wiki/Continuous_deployment) build system.
 
-<figure><img src="../../../summary/.gitbook/assets/balena-deploy.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/balena-deploy (2).webp" alt=""><figcaption></figcaption></figure>
 
 With `balena build` container images are built on your development machine or on a remote machine, by specifying a docker daemon's IP address and port number with the relevant command-line options (for example a device running a balenaOS [development image](../../reference/OS/overview.md)). Depending on your fleet's targeted CPU architecture builds will be run emulated via [qemu](https://www.qemu.org/).
 
@@ -55,11 +55,11 @@ The `git push balena master` method of deployment is the original deployment mec
 
 The `git push` workflow requires that you have [git](https://git-scm.com/) installed on your development machine and that you have an SSH key [setup on your balenaCloud account](../manage/ssh-access.md).
 
-<figure><img src="../../../summary/.gitbook/assets/git-push.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/git-push (2).webp" alt=""><figcaption></figcaption></figure>
 
 Then, simply add your balenaCloud app's git endpoint to your local git repository via `git remote add balena <fleet git endpoint>` . You can find the fleet git remote endpoint by clicking the 'Add release' button in the releases tab of the dashboard.
 
-<figure><img src="../../../summary/.gitbook/assets/git-remote.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/git-remote (2).webp" alt=""><figcaption></figcaption></figure>
 
 Whenever you subsequently need to push code to your devices, simply run `git push balena master`.
 
@@ -200,14 +200,14 @@ For [multicontainer](../develop/multicontainer.md) fleets (Microservices [fleet 
 
 All successful deployments will result in a release being added to balenaCloud. These releases are tracked in their own dashboard page accessed via the fleet:
 
-<figure><img src="../../../summary/.gitbook/assets/release_list.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/release_list (2).webp" alt=""><figcaption></figcaption></figure>
 
 The releases page includes a list of all attempted and deployed releases, with information on the status of the release, when it was completed, how long it took, and how many devices are on that particular release. Clicking any row will open up a summary page specifically for that release, with windows showing the `docker-compose.yml` file and Build Logs:
 
-<figure><img src="../../../summary/.gitbook/assets/release_summary.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/release_summary (2).webp" alt=""><figcaption></figcaption></figure>
 
 Much like with the device list, [filters](../manage/filters-tags.md#device-filters) can be added to the release list by clicking _Add filter_ and filling in the appropriate fields:
 
-<figure><img src="../../../summary/.gitbook/assets/release_filter.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/release_filter (2).webp" alt=""><figcaption></figcaption></figure>
 
 [Saved views](../manage/filters-tags.md#create-a-view) can also be created to return to a specific collection of filters.

@@ -31,4 +31,4 @@ For more details on interacting with external hardware, check out these guides:
 * [GPIO](gpio.md)
 * [i2C and SPI](i2c-and-spi.md)
 * [USB](usb.md)
-* [Jetson Orin devices](jetson-orin.md)
+* [Jetson Orin devices](../../../../summary/learn/develop/hardware/nvidia-jetson-orin/)

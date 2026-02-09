@@ -18,7 +18,7 @@ Each ESR release is supported for nine months from the time of release. A suppor
 
 Three lines of ESR versions are supported, known as _next_, _current_, and _sunset_. Every three months, a new ESR version is released, and each line will transition forward at that time as illustrated on the following diagram:
 
-<figure><img src="../../../summary/.gitbook/assets/esr-process.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esr-process (2).webp" alt=""><figcaption></figcaption></figure>
 
 ESR versions are named by year and month `yyyy.m` and contain a patch version number starting at 0. So, `2022.1.4` would be the fifth release of the `2022.1` ESR version. Since ESR versions will only receive backports for high-risk security vulnerabilities and critical bug fixes, new releases during the lifecycle of an ESR version will only increment the patch number.
 
@@ -30,7 +30,7 @@ For example, an ESR version is released known as `2022.10`, which becomes the _n
 
 For new devices, if you are on a Production or Enterprise plan with a [supported device type](extended-support-release.md#supported-devices), when you add a new device, you will be given the option to _Select OS type_ which defaults to _balenaOS ESR_. If you would like a non-ESR version, expand this dropdown and select _balenaOS_ for the host OS type.
 
-<figure><img src="../../../summary/.gitbook/assets/esr-new-device.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esr-new-device (2).webp" alt=""><figcaption></figcaption></figure>
 
 Next, select the ESR version as either _next_, _current_, or _sunset_ if available. The _next_ version is selected by default and offers at least six months (and up to nine months) of critical backports and fixes.
 
