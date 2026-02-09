@@ -28,7 +28,7 @@ Development mode is recommended while getting started with balenaOS and building
 * Capable of entering [local mode](../../learn/develop/local-mode.md) for rapid development of application containers locally.
 
 {% hint style="warning" %}
-Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via [configuration variables](../supervisor/configuration-list/).
+Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via [configuration variables](../../../config-list/).
 {% endhint %}
 
 {% hint style="danger" %}
