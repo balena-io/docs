@@ -8,7 +8,7 @@ excerpt: Tips for reducing the time to build your balena container builds
 These are just a few tips and tricks to optimize your balena container builds and hopefully reduce the time it takes to build and push. They mostly make use of the caching mechanism in the Docker container builders on our servers. If you want to read more about how Docker caches layers and Docker best practices, head over to [Docker best practices](https://docs.docker.com/articles/dockerfile_best-practices/).
 
 {% hint style="info" %}
-For information on using multi-stage builds to reduce image sizes, see the [services masterclass](/broken/pages/1UQB1Oein1tJ4keIvhoA#id-6.-multi-stage-builds).
+For information on using multi-stage builds to reduce image sizes, see the [services masterclass](../more/masterclasses/services-masterclass.md#id-6.-multi-stage-builds).
 {% endhint %}
 
 ## Move `ADD` and `COPY` Commands

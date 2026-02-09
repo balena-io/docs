@@ -11,11 +11,11 @@ Feedback on the masterclasses is welcome and should be given by creating an issu
 
 Currently, the following masterclasses are available:
 
-* [Balena CLI masterclass](/broken/pages/D2tjUcqFoQT10272aaoV) - a guide to getting started with the balena CLI.
-* [Balena CLI advanced masterclass](/broken/pages/tAdmS7VhfWwHTNcoKQDc) - a guide to the advanced features available in balena CLI.
-* [BalenaOS masterclass](/broken/pages/cj24pSGQGlu80OxE1mbz) - an introduction to balenaOS.
-* [Balena fleet management masterclass](/broken/pages/8ZommRGVXRMwPIL7zCPZ) - a guide to managing a fleet with balena.
-* [Balena debugging masterclass](/broken/pages/T79VY1kNylIMs4lrtHQC) - a guide to debugging balena device issues.
-* [Docker masterclass](/broken/pages/psgpcxV1iNAUu6I8Y9KY) - a guide covering the basics of Docker.
-* [Services masterclass](/broken/pages/1UQB1Oein1tJ4keIvhoA) - a guide to developing and deploying services on a balena device.
+* [Balena CLI masterclass](cli-masterclass.md) - a guide to getting started with the balena CLI.
+* [Balena CLI advanced masterclass](advanced-cli.md) - a guide to the advanced features available in balena CLI.
+* [BalenaOS masterclass](host-os-masterclass.md) - an introduction to balenaOS.
+* [Balena fleet management masterclass](fleet-management.md) - a guide to managing a fleet with balena.
+* [Balena debugging masterclass](device-debugging.md) - a guide to debugging balena device issues.
+* [Docker masterclass](docker-masterclass.md) - a guide covering the basics of Docker.
+* [Services masterclass](services-masterclass.md) - a guide to developing and deploying services on a balena device.
 * [Network masterclass](network-masterclass.md) - A standalone debugging guide to debugging network for a balena device.

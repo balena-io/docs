@@ -78,15 +78,15 @@ The Public Device URL feature is a tool for remote configuration, debugging, and
 
 For applications that require a stable, continuously available public endpoint, we recommend using a dedicated tunneling service designed for production use. Popular services include [Cloudflare Tunnels](https://www.cloudflare.com/products/tunnel/) (See our [blog post](https://www.balena.io/blog/expose-your-balena-device-to-the-internet-with-cloudflare-tunnel/), [Tailscale](https://tailscale.com/) and [Ngrok](https://ngrok.com/).
 
-<figure><img src="../../.gitbook/assets/toggle-public-url (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/toggle-public-url.webp" alt=""><figcaption></figcaption></figure>
 
 To see what your device is serving on port 80, click on the [public URL](../develop/runtime.md#public-device-urls). If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
-<figure><img src="../../.gitbook/assets/public-url-error (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/public-url-error.webp" alt=""><figcaption></figcaption></figure>
 
 You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
 
-<figure><img src="../../.gitbook/assets/public-url-toggle (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/public-url-toggle.webp" alt=""><figcaption></figcaption></figure>
 
 ### Move device to another Fleet
 
@@ -188,4 +188,4 @@ This option can be used to mark your release as valid or invalid. Entities can o
 
 This option permanently deletes your release. This may be the setting you want to use if you want to clean up releases beyond simply [invalidating releases](actions.md#validation-status).
 
-**Info:** If you have a device [preloaded](/broken/pages/tAdmS7VhfWwHTNcoKQDc#id-5.-preloading-and-preregistering) with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.
+**Info:** If you have a device [preloaded](../more/masterclasses/advanced-cli.md#id-5.-preloading-and-preregistering) with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.

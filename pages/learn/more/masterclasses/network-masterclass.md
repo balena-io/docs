@@ -450,7 +450,7 @@ Another stumbling block is that if there are VPN issues then this usually means 
 
 #### 6.4 Firewalled Endpoints
 
-Balena devices work on a variety of networks, but they do require the basic networking environment as listed in [6. Determining Networking Issues](/broken/pages/T79VY1kNylIMs4lrtHQC#id-6.-determining-networking-issues).
+Balena devices work on a variety of networks, but they do require the basic networking environment as listed in [6. Determining Networking Issues](device-debugging.md#id-6.-determining-networking-issues).
 
 Firewalls are a sensible precaution in any network, be they personal or corporate. A large number of firewalls are built to provide freedom for devices to initiate connections to an outgoing connection on the wider Internet (where a device _in_ the network can create a connection and receive all data from the Internet based on that connection), but to refuse any incoming connection from the Internet, unless specifically allowed.
 

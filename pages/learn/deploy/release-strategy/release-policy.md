@@ -15,11 +15,11 @@ By default, the setting is set to `track latest`, which means that new releases 
 
 You can set the release the fleet is pinned to via the Releases card on the on the Fleet Summary page.
 
-<figure><img src="../../../.gitbook/assets/releases_card_dropdown (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/releases_card_dropdown.webp" alt=""><figcaption></figcaption></figure>
 
 This can also be achieved using the `Pin to release` setting on the Fleet settings page.
 
-<figure><img src="../../../.gitbook/assets/pin_to_release_setting (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/pin_to_release_setting.webp" alt=""><figcaption></figcaption></figure>
 
 The dropdown menu at each of the above locations displays all successful and valid releases for the fleet.
 
@@ -36,19 +36,19 @@ There are several ways to achieve this from the Device dashboard. The dropdown o
 
 * On the Devices page, you can select one or more devices using the checkboxes present on the table. Next, open the `Modify` menu and select the `Pin to release` option.
 
-<figure><img src="../../../.gitbook/assets/devices_table_modify (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/devices_table_modify.webp" alt=""><figcaption></figcaption></figure>
 
 * Alternatively, on hovering over the `Target release` property in the Device summary page, you will see a pencil icon appear. This can be used to pin the release as well.
 
-<figure><img src="../../../.gitbook/assets/device_target_release_pencil (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/device_target_release_pencil.webp" alt=""><figcaption></figcaption></figure>
 
 * Lastly, the Settings page of a device also has the option to pin the release.
 
-<figure><img src="../../../.gitbook/assets/device_settings (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/device_settings.webp" alt=""><figcaption></figcaption></figure>
 
 Once the device has been pinned to a release and updated, its `Target release` column updates to the pinned release. It will show a pin, rather than just showing the release targetted by the fleet. The `Release policy` column also updates to say `Pinned`.
 
-<figure><img src="../../../.gitbook/assets/target_release_pin (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../summary/.gitbook/assets/target_release_pin.webp" alt=""><figcaption></figcaption></figure>
 
 You can also pin a device to a release via the CLI as follows:
 

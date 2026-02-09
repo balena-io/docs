@@ -17,7 +17,7 @@ SSH access is built on [Cloudlink](../welcome/security.md#cloudlink) and it not 
 
 To use this feature, navigate to your fleet and select the device you want to access. You will see a _Terminal_ window below the _Logs_ window:
 
-<figure><img src="../../.gitbook/assets/terminal (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/terminal.webp" alt=""><figcaption></figcaption></figure>
 
 If your device is online, select a target as either the host OS or a running service, and click the blue _>\_ Start Terminal session_ button. In order to start a terminal session for a service, you need to ensure that the service container is running. If the container code crashes or ends quickly, it is not possible to attach a console to it.
 
@@ -92,7 +92,7 @@ See note in the [previous section](ssh-access.md#using-a-standalone-ssh-client) 
 
 To add an SSH key, go to the _Preferences_ page of balenaCloud and select the _SSH Keys_ tab.
 
-<figure><img src="../../.gitbook/assets/preferences-ssh-keys (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/preferences-ssh-keys.webp" alt=""><figcaption></figcaption></figure>
 
 You may either import an existing SSH key from GitHub or manually enter the public SSH key of an existing SSH key on your development machine.
 
@@ -101,7 +101,7 @@ If you do not have an existing key, you can follow [GitHub's documentation](http
 ### Troubleshooting with host OS access
 
 {% hint style="warning" %}
-For an in-depth guide to debugging balena devices see the [device debugging masterclass](/broken/pages/T79VY1kNylIMs4lrtHQC).
+For an in-depth guide to debugging balena devices see the [device debugging masterclass](../more/masterclasses/device-debugging.md).
 {% endhint %}
 
 Host OS SSH access gives you a handful of tools that can help you gather more information about potential issues on your device.

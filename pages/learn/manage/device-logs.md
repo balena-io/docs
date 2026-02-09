@@ -6,7 +6,7 @@ title: Device Logs
 
 Device logging and the storage of device logs in balenaCloud is designed to be a debugging feature for balena devices. The Logs section in the balenaCloud dashboard can be used to view and download logs from the system and app services running on the device in real-time.
 
-<figure><img src="../../.gitbook/assets/device_logs (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/device_logs.webp" alt=""><figcaption></figcaption></figure>
 
 ## Device logs on the balenaCloud dashboard
 
@@ -74,4 +74,4 @@ Do keep in mind persistent logging increases the wear on the storage medium due 
 
 If you are dealing with excessive logs, persistent logging might not be a reliable long-term solution. Persistent logging increases writes on the device's storage media, which results in higher wear and tear over time.
 
-Instead, device logs can be streamed using the supervisor API. Refer to the [Supervisor's journald](/broken/pages/huTxQ9dbPeenbvNqQbYl#journald-logs) endpoint. Through this endpoint, device logs can be streamed to whichever cloud monitoring platform you use to store logs reliably over time. For example, using a solution like [Datadog](https://www.balena.io/blog/iot-fleet-monitoring-with-datadog-and-balenacloud-how-small-agent-containers-make-a-big-impact/).
+Instead, device logs can be streamed using the supervisor API. Refer to the [Supervisor's journald](../../reference/supervisor/supervisor-api.md#journald-logs) endpoint. Through this endpoint, device logs can be streamed to whichever cloud monitoring platform you use to store logs reliably over time. For example, using a solution like [Datadog](https://www.balena.io/blog/iot-fleet-monitoring-with-datadog-and-balenacloud-how-small-agent-containers-make-a-big-impact/).
