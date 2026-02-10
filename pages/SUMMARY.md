@@ -106,7 +106,3 @@
   * [Resources](reference/api/resources.md)
 * [sdk](reference/sdk/README.md)
   * [Balena SDK deprecation policy](reference/sdk/deprecation-policy.md)
-
-***
-
-* [Integration test](integration-test.md)
