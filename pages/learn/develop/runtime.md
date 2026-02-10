@@ -266,7 +266,7 @@ For more information on networking with balena, see the [balena services masterc
 
 Balena currently exposes port 80 for web forwarding. To enable web forwarding on a specific device, navigate to the device's **actions** tab on the balenaCloud dashboard and select the `Enable a public URL for this device` button. For more information about device URLs see the [Device Management Page](../manage/actions.md#public-device-url)
 
-<figure><img src="../../../summary/.gitbook/assets/enable-public-url-device.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enable-public-url-device (2).webp" alt=""><figcaption></figcaption></figure>
 
 Running a server listening on port 80 with public device URL enabled will allow you to serve content from the device to the world. Here is an example of an [express.js](https://expressjs.com/) server which will serve to the devices URL.
 

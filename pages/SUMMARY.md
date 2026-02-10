@@ -19,7 +19,7 @@
     * [GPIO](learn/develop/hardware/gpio.md)
     * [USB](learn/develop/hardware/usb.md)
     * [I2C and Other Interfaces](learn/develop/hardware/i2c-and-spi.md)
-    * [Nvidia Jetson Orin](learn/develop/hardware/jetson-orin/README.md)
+    * [Nvidia Jetson Orin](learn/develop/hardware/nvidia-jetson-orin/README.md)
       * [Nvidia Jetson AGX Orin Devkit 64GB](learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit-64gb.md)
       * [Nvidia Jetson AGX Orin Devkit 32GB](learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit.md)
       * [Nvidia Jetson Orin Nano 8GB Production module](learn/develop/hardware/jetson-orin/jetson-orin-nano-devkit-nvme-prod.md)
@@ -106,3 +106,7 @@
   * [Resources](reference/api/resources.md)
 * [sdk](reference/sdk/README.md)
   * [Balena SDK deprecation policy](reference/sdk/deprecation-policy.md)
+
+***
+
+* [Integration test](integration-test.md)
