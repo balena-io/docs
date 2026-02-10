@@ -94,7 +94,7 @@
     * [I2C and Other Interfaces](../pages/learn/develop/hardware/i2c-and-spi.md)
     * [Nvidia Jetson Orin](learn/develop/hardware/nvidia-jetson-orin/README.md)
       * [Nvidia Jetson AGX Orin Devkit 32GB](../pages/learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit.md)
-      * [Nvidia Jetson AGX Orin Devkit 64GB](../pages/learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit-64gb.md)
+      * [Nvidia Jetson AGX Orin Devkit 64GB test](../pages/learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit-64gb.md)
       * [Nvidia Jetson Orin Nano 8GB (SD) Devkit NVMe](../pages/learn/develop/hardware/jetson-orin/jetson-orin-nano-devkit-nvme.md)
       * [Nvidia Jetson Orin Nano 8GB Production module](../pages/learn/develop/hardware/jetson-orin/jetson-orin-nano-devkit-nvme-prod.md)
       * [Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME](../pages/learn/develop/hardware/jetson-orin/jetson-orin-nx-xavier-nx-devkit.md)
