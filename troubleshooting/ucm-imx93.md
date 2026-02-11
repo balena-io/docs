@@ -13,7 +13,7 @@ In some cases social logins can be disrupted or completely borked by Adblocker o
 Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like:
 /usr/src/app/run.sh: line 2: $'\r': command not found
 
-To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look here: https://help.github.com/articles/dealing-with-line-endings/#platform-windows.
+To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look [at this Github article](https://help.github.com/articles/dealing-with-line-endings/#platform-windows).
 
 ### Device keeps dropping off wifi
 
