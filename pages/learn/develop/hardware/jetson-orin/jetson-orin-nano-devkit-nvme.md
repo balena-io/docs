@@ -1,12 +1,12 @@
 # Nvidia Jetson Orin Nano 8GB (SD) Devkit NVMe
 
-<figure><img src="../../../../.gitbook/assets/Orin_Nano_Devkit.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/Orin_Nano_Devkit (1).webp" alt=""><figcaption></figcaption></figure>
 
 The Orin Nano 8GB SD module has the part number 900-13767-0050-000. This number may not be printed on some modules, however, the part can be distinguished by having an SD-CARD slot.
 
-<figure><img src="../../../../.gitbook/assets/Nano_SD_in_Devkit.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/Nano_SD_in_Devkit (1).webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/Nano_8GB_Devkit_SOM_900-13767-0050-000.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/Nano_8GB_Devkit_SOM_900-13767-0050-000 (1).webp" alt=""><figcaption></figcaption></figure>
 
 The carrier board exposes a debug interface on the UART TXD, UART RXD and GND pins, which are located underneath the Orin module. Additionally, a monitor can be connected to the board's Display Port.
 
@@ -22,17 +22,17 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 
 For this step you will need a USB to TTL converter cable. The USB to TTL converter's pins need to be connected to the UART TXD, UART RXD and GND pins on the Jetson carrier board, which are located underneath the Orin module. The other end of the cable should be plugged into the USB port of your host/development PC. Your host PC can connect to the Jetson device using a serial communication program like `minicom`
 
-<figure><img src="../../../../.gitbook/assets/Nano_pinout_with_module_square.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/Nano_pinout_with_module_square (1).webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/Nano_pinout_close_square.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/Nano_pinout_close_square (1).webp" alt=""><figcaption></figcaption></figure>
 
 If you are using the UART interface, the UEFI firmware version will be printed in the boot sequence logs:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_version_uart_logs.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/jetson_orin_uefi_version_uart_logs (1).webp" alt=""><figcaption></figcaption></figure>
 
 Alternatively, if booting is stopped in the UEFI menu by pressing `Esc`, the firmware version will be printed in the top-left corner:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uart_uefi_menu.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/jetson_orin_uart_uefi_menu (1).webp" alt=""><figcaption></figcaption></figure>
 
 If instead you would like to use a monitor and a keyboard, please expand the section below.
 
@@ -44,7 +44,7 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 
 **A Display Port cable or Display Port to HDMI adapter is necessary for connecting your Jetson Orin Nano to a monitor.** Once the monitor is attached, the UEFI firmware version will be displayed at the top of the screen:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/jetson_orin_interrupt_booting_uefi (1).webp" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -68,21 +68,21 @@ If the firmware on your device is v36.3.0 or newer, inserting the USB flash driv
 
 1. For this step you will need a USB to TTL converter cable. The USB to TTL converter's pins need to be connected to the UART TXD, UART RXD and GND pins on the Jetson carrier board, which are located underneath the Orin module. The other end of the cable should be plugged into the USB port of your host/development PC. Your host PC can connect to the Jetson device using a serial communication program like `minicom`
 
-<figure><img src="../../../../.gitbook/assets/Nano_pinout_with_module_square.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/Nano_pinout_with_module_square (1).webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/Nano_pinout_close_square.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/Nano_pinout_close_square (1).webp" alt=""><figcaption></figcaption></figure>
 
 2. Power on the device and press `Esc` when prompted by the UEFI firmware, or `F11` to enter the Boot Manager Menu directly:
 
-<figure><img src="../../../../.gitbook/assets/interrupt_boot_uart.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/interrupt_boot_uart (1).webp" alt=""><figcaption></figcaption></figure>
 
 If `Esc` was pressed, navigate to the Boot Manager Menu:
 
-<figure><img src="../../../../.gitbook/assets/boot_manager_uart.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/boot_manager_uart (1).webp" alt=""><figcaption></figcaption></figure>
 
 3. Select the attached USB device as boot media:
 
-<figure><img src="../../../../.gitbook/assets/usb_device.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/usb_device (1).webp" alt=""><figcaption></figcaption></figure>
 
 4. Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive can be unplugged.
 5. Remove and re-connect power to the carrier board.
@@ -103,13 +103,13 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 1. Attach a USB keyboard and a monitor to the device.
 2. Power on the device and press `Esc` when prompted by the UEFI firmware, or `F11` to enter the Boot Manager Menu directly:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/jetson_orin_interrupt_booting_uefi (1).webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_boot_manager.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/jetson_orin_uefi_boot_manager (1).webp" alt=""><figcaption></figcaption></figure>
 
 3. Select the attached USB flash drive as boot media:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_usb_key.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/jetson_orin_uefi_usb_key (1).webp" alt=""><figcaption></figcaption></figure>
 
 4. Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive can be unplugged.
 5. Remove and re-connect power to the carrier board.
@@ -129,11 +129,11 @@ Please do not interrupt the UEFI firmware process by resetting or cutting power 
 
 If you are using the debug UART, the firmware update process will be displayed by a progress bar similar to the one below:
 
-<figure><img src="../../../../.gitbook/assets/post_provisioning_uefi_firmware_update.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/post_provisioning_uefi_firmware_update (1).webp" alt=""><figcaption></figcaption></figure>
 
 If a display is connected to the device, the firmware update process will also be rendered on the screen:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_firmware_update.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../summary/.gitbook/assets/jetson_orin_uefi_firmware_update (1).webp" alt=""><figcaption></figcaption></figure>
 
 #### **Alternative provisioning options**
 

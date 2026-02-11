@@ -89,6 +89,7 @@
   * [Develop with blocks](../pages/learn/develop/blocks.md)
   * [Communicate outside the container](../pages/learn/develop/runtime.md)
   * [Interact with hardware](../pages/learn/develop/hardware/README.md)
+    * [Interact with hardware](learn/develop/hardware/interact-with-hardware.md)
     * [GPIO](../pages/learn/develop/hardware/gpio.md)
     * [USB](../pages/learn/develop/hardware/usb.md)
     * [I2C and Other Interfaces](../pages/learn/develop/hardware/i2c-and-spi.md)
@@ -100,7 +101,10 @@
       * [Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME](../pages/learn/develop/hardware/jetson-orin/jetson-orin-nx-xavier-nx-devkit.md)
       * [Seeed reComputer J4012 Jetson Orin NX 16GB](../pages/learn/develop/hardware/jetson-orin/jetson-orin-nx-seeed-j4012.md)
       * [Seeed reComputer J3010 Jetson Orin Nano 4GB](../pages/learn/develop/hardware/jetson-orin/jetson-orin-nano-seeed-j3010.md)
-  * [Cloud IoT Provisioning with \{{ $cloud.name \}}](../pages/learn/develop/cloud-iot-provisioning.md)
+  * [Provision with Cloud IoT](../cloud-iot-provisioning/README.md "Provision with Cloud IoT")
+    * [Cloud IoT Provisioning with AWS](../cloud-iot-provisioning/aws.md "AWS")
+    * [Cloud IoT Provisioning with Azure](../cloud-iot-provisioning/azure.md "Azure")
+    * [Cloud IoT Provisioning with ClearBlade-GCP](../cloud-iot-provisioning/cb-gcp.md "ClearBlade-GCP")
 * [deploy](../pages/learn/deploy/README.md)
   * [Deploy to your Fleet](../pages/learn/deploy/deployment.md)
   * [release-strategy](../pages/learn/deploy/release-strategy/README.md)
@@ -122,6 +126,7 @@
 * [Accounts & Billing](../pages/learn/accounts/README.md)
   * [Account management](../pages/learn/accounts/account.md)
   * [Enterprise Single Sign-On (SSO)](../pages/learn/accounts/enterprise-sso/README.md)
+    * [Enterprise Single Sign-On (SSO)](learn/accounts/enterprise-sso/enterprise-single-sign-on-sso.md)
     * [idp-setup](../pages/learn/accounts/enterprise-sso/idp-setup/README.md)
       * [Configure a SAML app for Google Workspace](../pages/learn/accounts/enterprise-sso/idp-setup/google-workspace-saml-setup.md)
       * [Configure a SAML app for Microsoft Entra ID (formerly Azure Active Directory)](../pages/learn/accounts/enterprise-sso/idp-setup/microsoft-entra-saml-setup.md)
@@ -132,6 +137,7 @@
   * [Support access](../pages/learn/accounts/support-access.md)
 * [More resources](../pages/learn/more/README.md)
   * [Projects built on balena](../pages/learn/more/labs-projects/README.md)
+    * [Projects built on balena](learn/more/labs-projects/projects-built-on-balena.md)
     * [balenaBlocks built for balenaCloud](../pages/learn/more/labs-projects/balenablocks.md)
     * [Balena example projects](../pages/learn/more/labs-projects/example-projects.md)
   * [Balena Glossary](../pages/learn/more/glossary.md)
@@ -247,6 +253,7 @@
   * [Time management](../pages/reference/OS/time.md)
   * [Advanced boot settings](../pages/reference/OS/advanced.md)
   * [Secure Boot and Full Disk Encryption](../pages/reference/os/overview-1/README.md)
+    * [Secure Boot and Full Disk Encryption](reference/os/overview-1/secure-boot-and-full-disk-encryption.md)
     * [Setup secure boot and full disk encryption for Generic x86\_64 (GPT)](../pages/reference/os/overview-1/generic-x86-64-gpt.md)
 * [Device Supervisor](../pages/reference/supervisor/README.md)
   * [Supervisor API](../external-docs/supervisor-api.md)
@@ -334,6 +341,17 @@
 * [api](../pages/reference/api/README.md)
   * [Overview](../pages/reference/api/overview.md)
   * [Resources](../pages/reference/api/resources.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: true
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: balenaltd-api
+    ```
 * [sdk](../pages/reference/sdk/README.md)
   * [Balena SDK deprecation policy](../pages/reference/sdk/deprecation-policy.md)
   * [Node Sdk](reference/sdk/node-sdk/README.md)

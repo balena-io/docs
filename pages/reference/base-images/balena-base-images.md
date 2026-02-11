@@ -19,7 +19,7 @@ We now recommend using [Docker Official Images](https://hub.docker.com/search?ba
 
 The Docker Official Images team, with help from community contributors, formally reviews each Docker image before accepting it into the program. To identify a Docker Official Image, look for this tag below on Docker Hub for the image you are assessing.
 
-<figure><img src="../../.gitbook/assets/docker_official (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/docker_official (2).webp" alt=""><figcaption></figcaption></figure>
 
 ## How to Pick a Base Image
 
@@ -65,11 +65,11 @@ We recommend using a fixed (pinned) version of an image in production. Using a d
 
 For instance, we can see the digests listed for ubuntu 22.04 in Dockerhub:
 
-<figure><img src="../../.gitbook/assets/digests (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/digests (2).webp" alt=""><figcaption></figcaption></figure>
 
 Clicking on the one for linux/arm64/v8, we can copy the full digest by clicking the link:
 
-<figure><img src="../../.gitbook/assets/digest_link (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/digest_link (2).webp" alt=""><figcaption></figcaption></figure>
 
 And then we can use that digest instead of the tag to always get the same version of Ubuntu 22.04:
 

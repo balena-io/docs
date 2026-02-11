@@ -69,7 +69,7 @@ Should you wish to add an unconfigured device to your balenaCloud fleet, you may
 
 The balenaOS userspace packages only provide the bare essentials for running containers, while still offering flexibility. The philosophy is that software and services always default to being in a container unless they are generically useful to all containers, or they absolutely can’t live in a container. The userspace consists of many open source components, but in this section, we will highlight some of the most important services.
 
-<figure><img src="../../.gitbook/assets/balenaOS-components (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/balenaOS-components (2).webp" alt=""><figcaption></figcaption></figure>
 
 ### systemd
 
@@ -117,7 +117,7 @@ BalenaOS versions < v2.38.0 use [dropbear](https://matt.ucc.asn.au/dropbear/drop
 
 ## Image Partition Layout
 
-<figure><img src="../../.gitbook/assets/image-partition-layout (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/image-partition-layout (2).webp" alt=""><figcaption></figcaption></figure>
 
 The first partition, `resin-boot`, holds important boot files according to each board (e.g. kernel image, bootloader image). It also holds the `config.json` file, which is the central point of [configuring balenaOS](configuration.md) and defining its behavior. For example using `config.json` you can set your hostname, add SSH keys, allow persistent logging or define custom DNS servers.
 
@@ -137,7 +137,7 @@ BalenaOS contains a partition named `resin-state` that is meant to hold all this
 
 A diagram of our read-only rootfs can be seen below:
 
-<figure><img src="../../.gitbook/assets/read-only-rootfs (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/read-only-rootfs (2).webp" alt=""><figcaption></figcaption></figure>
 
 ## BalenaOS Yocto Composition
 

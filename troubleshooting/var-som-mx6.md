@@ -10,8 +10,7 @@ In some cases social logins can be disrupted or completely borked by Adblocker o
 
 ### I get `$'\r': command not found` when my device tries to run scripts
 
-Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like:
-/usr/src/app/run.sh: line 2: $'\r': command not found
+Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like: /usr/src/app/run.sh: line 2: $'\r': command not found
 
 To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look here: https://help.github.com/articles/dealing-with-line-endings/#platform-windows.
 
@@ -35,8 +34,7 @@ Currently balenaOS on the Variscite VAR-SOM-MX6 is only capable of booting from 
 
 1. Verify Switch SW5 is OFF (downwards).
 2. Set Boot select switch (SW6) right to boot from microSD Card.
-3. Push microSD card into the microSD card slot (J102) of the
-   VAR-SOLOCustomBoard.
+3. Push microSD card into the microSD card slot (J102) of the VAR-SOLOCustomBoard.
 4. Ensure the device has a connection to the internet.
 5. Switch ON (upwards) the SW5 switch
 
@@ -44,16 +42,15 @@ While you wait, balenaOS is partitioning your SD card, installing a custom Linux
 
 If you have a class 10 SD card and a fast internet connection your device should appear on the dashboard in a minute or so.
 
-
 If you still can't get your device online, come on over and talk to us on our [support channel](../pages/learn/accounts/support-access.md).
 
 ### This is the wrong balena device.
 
 If you see this error, there are several potential causes, including:
 
-- The config.json file is missing or corrupted
-- The UUID in the config.json file does not match the device's UUID
-    - This could be caused by config.json corruption or storage corruption
-- You are attempting to SSH into a device using the wrong IP address
+* The config.json file is missing or corrupted
+* The UUID in the config.json file does not match the device's UUID
+  * This could be caused by config.json corruption or storage corruption
+* You are attempting to SSH into a device using the wrong IP address
 
 Please contact [balena support](../pages/learn/accounts/support-access.md) if you encounter this issue so that we can investigate the root cause.
