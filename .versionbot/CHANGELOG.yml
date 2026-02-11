@@ -1,4 +1,20 @@
 - commits:
+    - subject: "navigation: Add extra-firmware page to sidebar"
+      hash: 601eeecc377f728535ddd34392edf76d28f01502
+      body: |
+        The extra-firmware docs page was merged without a navigation entry,
+        making it inaccessible from the sidebar and search results.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 6.14.11
+  title: ""
+  date: 2026-02-11T19:47:32.861Z
+- commits:
     - subject: "pages/learn: Add docs for extra-firmware feature"
       hash: 729f1ddb4c754603a16b2628b4807e79b2b5c641
       body: ""
