@@ -33,7 +33,7 @@
   "dependencies": {
     "@balena/doxx": "^1.0.3",
     "balena-sdk": "^20.8.3",
-    "bootstrap": "^3.4.1",
+    "bootstrap": "^4.0.0",
     "bootstrap-select": "^1.13.18",
     "coffeescript": "^2.7.0",
     "express": "^4.21.2",
