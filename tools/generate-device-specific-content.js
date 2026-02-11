@@ -4,6 +4,7 @@ const { writeFile, readFile, readdir, unlink } = require('fs/promises');
 const path = require('path');
 const { getSdk } = require('balena-sdk')
 const Handlebars = require('handlebars');
+const { updateSummaryFile } = require('./utils');
 
 const LANGUAGES = require('../config/dictionaries/language.json');
 
@@ -13,7 +14,6 @@ const DEVICE_IMG_PATH = '../pages/.gitbook/assets/';
 const GUIDE_TEMPLATE_FILE_PATH = '../templates/getting-started.md';
 const WHAT_YOU_NEED_TEMPLATE_PATH = '../templates/whatYouNeed/';
 const DEVICE_LIST_TEMPLATE_PATH = '../templates/device-list.md';
-const SUMMARY_FILE_PATH = '../summary/SUMMARY.md';
 const GUIDES_DEST_FOLDER = '../getting-started/';
 const DEVICE_LIST_DEST_FOLDER = '../pages/reference/hardware/';
 const TROUBLESHOOTING_TEMPLATE_PATH = '../templates/troubleshooting.md';
@@ -291,62 +291,7 @@ const generateConfigListPages = async (deviceTypes) => {
 }
 
 
-/**
- *
- * @param deviceTypes
- * @param sectionTitle
- * @param sectionPathWithoutTrailingSlash
- * @param pageTitle (deviceTypeName: string) => string
- * @returns {Promise<void>}
- */
-const updateSummaryFile = async (deviceTypes, sectionTitle, sectionPathWithoutTrailingSlash, pageTitle) => {
-  const summaryFileContent = await readFile(path.join(__dirname, SUMMARY_FILE_PATH), 'utf8');
-  const lines = summaryFileContent.split('\n');
 
-  // 1. Find the index of the target item
-  const startIndex = lines.findIndex(line => line.trim().startsWith(`* [${sectionTitle}]`));
-
-  if (startIndex === -1) {
-    console.error(`Could not find the ${sectionTitle} section in SUMMARY.md.`);
-    return;
-  }
-
-  // 2. Identify the indentation level of the parent
-  const parentIndent = lines[startIndex].match(/^\s*/)[0].length;
-
-  // 3. Find where the sub-items end
-  let endIndex = startIndex + 1;
-  while (endIndex < lines.length) {
-    const line = lines[endIndex];
-
-    // Skip empty lines
-    if (line.trim() === '') {
-      endIndex++;
-      continue;
-    }
-
-    const currentIndent = line.match(/^\s*/)[0].length;
-
-    // If we find a line with the same or less indentation, we've exited the sub-tree
-    if (currentIndent <= parentIndent) {
-      break;
-    }
-    endIndex++;
-  }
-
-  // 4. Generate new content
-  const indent = ' '.repeat(parentIndent);
-  const tmpl = `${indent}* [${sectionTitle}](${sectionPathWithoutTrailingSlash}/README.md "${sectionTitle}")\n` +
-    `${deviceTypes.map((dt) => `${indent}  * [${pageTitle(dt.name)}](${sectionPathWithoutTrailingSlash}/${dt.id}.md "${dt.name}")`).join(`\n`)}`;
-
-  // 5. Replace the old range with the new template
-  lines.splice(startIndex, endIndex - startIndex, tmpl);
-
-  const updatedContent = lines.join('\n');
-  await writeFile(path.join(__dirname, SUMMARY_FILE_PATH), updatedContent, 'utf8');
-
-  console.log(`✅ Updated ${sectionTitle} Section in ${SUMMARY_FILE_PATH}`);
-}
 
 const generateDeviceListPage = async (deviceTypes) => {
   const tmpl = await readFile(path.join(__dirname, DEVICE_LIST_TEMPLATE_PATH));
