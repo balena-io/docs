@@ -1,4 +1,18 @@
 - commits:
+    - subject: "pages/learn: Add docs for extra-firmware feature"
+      hash: 729f1ddb4c754603a16b2628b4807e79b2b5c641
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Christina Ying Wang <christina@balena.io>
+        signed-off-by: Christina Ying Wang <christina@balena.io>
+      author: Christina Ying Wang
+      nested: []
+  version: 6.14.10
+  title: ""
+  date: 2026-02-11T12:53:01.082Z
+- commits:
     - subject: Update peter-evans/create-issue-from-file action to v6
       hash: 727dc7e0fafbb709214b2d79d231fc820468cb4d
       body: |
