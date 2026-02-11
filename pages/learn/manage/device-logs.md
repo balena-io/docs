@@ -6,7 +6,7 @@ title: Device Logs
 
 Device logging and the storage of device logs in balenaCloud is designed to be a debugging feature for balena devices. The Logs section in the balenaCloud dashboard can be used to view and download logs from the system and app services running on the device in real-time.
 
-<figure><img src="../../.gitbook/assets/device_logs (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../summary/.gitbook/assets/device_logs (2).webp" alt=""><figcaption></figcaption></figure>
 
 ## Device logs on the balenaCloud dashboard
 

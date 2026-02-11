@@ -10,10 +10,9 @@ In some cases social logins can be disrupted or completely borked by Adblocker o
 
 ### I get `$'\r': command not found` when my device tries to run scripts
 
-Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like:
-/usr/src/app/run.sh: line 2: $'\r': command not found
+Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like: /usr/src/app/run.sh: line 2: $'\r': command not found
 
-To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look [at this Github article](https://help.github.com/articles/dealing-with-line-endings/#platform-windows).
+To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look here: https://help.github.com/articles/dealing-with-line-endings/#platform-windows.
 
 ### Device keeps dropping off wifi
 
@@ -39,9 +38,9 @@ If you still can't get your device online, come on over and talk to us on our [s
 
 If you see this error, there are several potential causes, including:
 
-- The config.json file is missing or corrupted
-- The UUID in the config.json file does not match the device's UUID
-    - This could be caused by config.json corruption or storage corruption
-- You are attempting to SSH into a device using the wrong IP address
+* The config.json file is missing or corrupted
+* The UUID in the config.json file does not match the device's UUID
+  * This could be caused by config.json corruption or storage corruption
+* You are attempting to SSH into a device using the wrong IP address
 
 Please contact [balena support](../pages/learn/accounts/support-access.md) if you encounter this issue so that we can investigate the root cause.
