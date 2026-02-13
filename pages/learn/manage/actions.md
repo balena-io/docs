@@ -78,15 +78,15 @@ The Public Device URL feature is a tool for remote configuration, debugging, and
 
 For applications that require a stable, continuously available public endpoint, we recommend using a dedicated tunneling service designed for production use. Popular services include [Cloudflare Tunnels](https://www.cloudflare.com/products/tunnel/) (See our [blog post](https://www.balena.io/blog/expose-your-balena-device-to-the-internet-with-cloudflare-tunnel/), [Tailscale](https://tailscale.com/) and [Ngrok](https://ngrok.com/).
 
-<figure><img src="../../../summary/.gitbook/assets/toggle-public-url (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/toggle-public-url (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 To see what your device is serving on port 80, click on the [public URL](../develop/runtime.md#public-device-urls). If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
-<figure><img src="../../../summary/.gitbook/assets/public-url-error (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/public-url-error (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
 
-<figure><img src="../../../summary/.gitbook/assets/public-url-toggle (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/public-url-toggle (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 ### Move device to another Fleet
 

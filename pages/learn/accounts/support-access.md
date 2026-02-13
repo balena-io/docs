@@ -9,7 +9,7 @@ excerpt: >-
 
 ## Accessing your device
 
-Any device owned by you will automatically allow access via either the WebTerminal (in the device's Dashboard page), or the balena CLI via `balena ssh <uuid>`. However, for a support agent to gain access to a device that isn't owned by them, you would need to grant access for it explicitly.
+{% include "../../.gitbook/includes/access-device.md" %}
 
 ## Granting Support Access to a Support Agent
 
@@ -29,19 +29,19 @@ It is possible to disable support access functionality by removing the balena SS
 
 To enable support access for a single device, select the _Actions_ menu in the Device dashboard, and choose the _Grant Support Access_ button and choose the period to grant device access. You may revoke access at any time by selecting _Revoke Support Access_ on the same page.
 
-<figure><img src="../../../summary/.gitbook/assets/enable-support-access-device (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enable-support-access-device (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 ### Grant support access for a fleet
 
 To enable support access for all devices in a fleet, select the _Grant Support Access_ from the _Settings_ menu of the Fleet dashboard, and choose the period to grant access. This may be revoked at any time by selecting _Revoke Support Access_ on the same page.
 
-<figure><img src="../../../summary/.gitbook/assets/enable-support-access-fleet (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enable-support-access-fleet (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 ### Grant support access for a block
 
 To enable support access for block, select the _Grant Support Access_ from the _Settings_ menu of the block dashboard, and choose the period to grant access. This may be revoked at any time by selecting _Revoke Support Access_ on the same page.
 
-<figure><img src="../../../summary/.gitbook/assets/enable-support-block (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enable-support-block (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 ### Grant support access using the CLI
 

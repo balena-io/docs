@@ -27,7 +27,7 @@
       * [Seeed reComputer J3010 Jetson Orin Nano 4GB](learn/develop/hardware/jetson-orin/jetson-orin-nano-seeed-j3010.md)
       * [Seeed reComputer J4012 Jetson Orin NX 16GB](learn/develop/hardware/jetson-orin/jetson-orin-nx-seeed-j4012.md)
       * [Nvidia Jetson Orin NX 16GB in Xavier NX Devkit NVME](learn/develop/hardware/jetson-orin/jetson-orin-nx-xavier-nx-devkit.md)
-  * [Cloud IoT Provisioning with \{{ $cloud.name \}}](learn/develop/cloud-iot-provisioning.md)
+  * [Cloud IoT Provisioning with \{{ $cloud.name \}}](learn/develop/cloud-iot-provisioning-with-usdcloud.name.md)
 * [deploy](learn/deploy/README.md)
   * [Deploy to your Fleet](learn/deploy/deployment.md)
   * [release-strategy](learn/deploy/release-strategy/README.md)
@@ -65,6 +65,7 @@
   * [masterclasses](learn/more/masterclasses/README.md)
     * [Balena Masterclasses](learn/more/masterclasses/masterclass-intro.md)
     * [Network debugging](learn/more/masterclasses/network-masterclass.md)
+    * [Device debugging](learn/more/masterclasses/device-debugging.md)
   * [Anti-patterns, or how to break your balenaOS devices](learn/more/anti-patterns.md)
 
 ## FAQ

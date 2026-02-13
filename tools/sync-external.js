@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * Sync documentation from external and local sources.
+ * Sync documentation from external.
  *
  * Reads external-docs.json and processes:
  * - sources: GitHub repos at pinned versions (managed by Renovate)
  * - versionedSources: Multi-version docs (CLI, SDK) with dictionary generation
  *   NOTE: The `ref` field is a Renovate tracking anchor only. Actual versions
  *   are discovered dynamically from GitHub releases API, not from `ref`.
- * - local: Extracts sections from local files (build-time partials)
  * - dynamic: GitHub API calls (org repos, not version-tracked)
  *
  * Supports transforms: extract-section, prepend
@@ -631,38 +630,6 @@ function updateSummaryWithVersionedData(versionedData) {
 }
 
 /**
- * Process local source (extracts sections from local files)
- */
-async function processLocalSource(source) {
-  console.log(`\n[${source.id}] Processing local extractions`);
-
-  for (const file of source.files) {
-    const sourcePath = path.join(ROOT_DIR, file.source);
-    const targetPath = path.join(ROOT_DIR, file.target);
-
-    console.log(`  Reading: ${file.source}`);
-
-    if (!fs.existsSync(sourcePath)) {
-      throw new Error(`Source file not found: ${file.source}`);
-    }
-
-    let content = fs.readFileSync(sourcePath, 'utf-8');
-
-    if (file.transform) {
-      if (!Array.isArray(file.transform)) {
-        content = applyTransform(content, file.transform);
-      } else {
-        for (const t of file.transform) {
-          content = applyTransform(content, t);
-        }
-      }
-    }
-
-    writeFile(targetPath, content, file.target);
-  }
-}
-
-/**
  * Print final status and exit
  */
 function finish() {
@@ -745,12 +712,6 @@ async function main() {
       return finish();
     }
 
-    const localSource = manifest.local?.find(s => s.id === SOURCE_FILTER);
-    if (localSource) {
-      await processLocalSource(localSource);
-      return finish();
-    }
-
     const dynamicSource = manifest.dynamic?.find(s => s.id === SOURCE_FILTER);
     if (dynamicSource) {
       await processDynamicSource(dynamicSource);
@@ -768,11 +729,6 @@ async function main() {
 
   if (manifest.versionedSources) {
     await processVersionedSources(manifest);
-  }
-
-  if (manifest.local) {
-    console.log(`\nProcessing ${manifest.local.length} local source(s)...`);
-    await Promise.all(manifest.local.map(source => processLocalSource(source)));
   }
 
   if (!SKIP_DYNAMIC && manifest.dynamic) {

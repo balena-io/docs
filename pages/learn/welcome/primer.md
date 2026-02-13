@@ -13,7 +13,7 @@ Refer to the [balena Glossary](../more/glossary.md) for definition on any of the
 
 ## On your device
 
-<figure><img src="../../../summary/.gitbook/assets/architecture (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/architecture (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 Devices in the balena ecosystem run [balenaOS](https://www.balena.io/os), a bare-bones, [Yocto Linux](https://www.yoctoproject.org/) based host OS, which comes packaged with [balenaEngine](https://www.balena.io/engine), our lightweight, [Docker](https://www.docker.com/)-compatible container engine. The host OS is responsible for kicking off the device supervisor, balena's agent on your device, as well as your containerized services. Within each service's container you can specify a base OS, which can come from any existing Docker base image that is compatible with your device architecture. The base OS shares a kernel with the host OS, but otherwise works independently. If you choose, your containers [can be configured](../develop/multicontainer.md) to run as privileged, access hardware directly, and even inject modules into the kernel. The balena device supervisor runs in its own container, which allows the device to continue running and pulling new code even if your application crashes.
 
@@ -33,7 +33,7 @@ First, the device connects to the network and performs its early provisioning, w
 
 `balena push` is the recommended method for deployment and [development](../develop/local-mode.md) on the balenaCloud platform. To use `balena push` you need to first [install the balena CLI](../../../external-docs/balena-cli/latest.md#installation) and ensure you are logged in to your account with `balena login`.
 
-<figure><img src="../../../summary/.gitbook/assets/balena-push (1) (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/balena-push (1) (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 ### Building containers
 
@@ -53,7 +53,7 @@ The device supervisor, using [delta updates](../deploy/delta.md), then downloads
 
 As the downloads proceed, you can watch the progress in the balena dashboard. You can click on any device to see more detailed information about the services being downloaded:
 
-<figure><img src="../../../summary/.gitbook/assets/device_summary (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/device_summary (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 ## Device management
 

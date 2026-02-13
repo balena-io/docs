@@ -150,7 +150,6 @@
     * [BalenaOS Masterclass](../external-docs/masterclasses/host-os-masterclass.md)
     * [Balena Services Masterclass](../external-docs/masterclasses/services-masterclass.md)
     * [Balena Fleet Management Masterclass](../external-docs/masterclasses/fleet-management.md)
-    * [Balena Device Debugging Masterclass](../external-docs/masterclasses/device-debugging.md)
     * [Docker Masterclass](../external-docs/masterclasses/docker-masterclass.md)
   * [Anti-patterns, or how to break your balenaOS devices](../pages/learn/more/anti-patterns.md)
 
