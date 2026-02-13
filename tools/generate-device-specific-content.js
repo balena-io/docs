@@ -303,6 +303,28 @@ const generateDeviceListPage = async (deviceTypes) => {
   console.log(`✅ Generated Device list in ${DEVICE_LIST_DEST_FOLDER}devices.md`);
 }
 
+const generateESRSupportedDevicesPartial = async () => {
+  const response = await fetch('https://api.balena-cloud.com/v7/device_type?$select=name,slug,logo&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false)%20and%20(idfa/owns__release/any(r:(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false))))%20and(contains(idfa/app_name,%27-esr%27)))&$orderby=name%20asc');
+  if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+  }
+
+  const deviceTypes = (await response.json())['d'];
+
+  const tmpl = await readFile(path.join(__dirname, '../templates/device-list.md'));
+  const template = Handlebars.compile(tmpl.toString());
+  const compiledTemplate = template({
+    deviceTypes: deviceTypes.map((dt) => ({
+      id: dt.slug,
+      name: dt.name,
+      arch: dt.is_of__cpu_architecture[0].slug,
+    })),
+  });
+  await writeFile(path.join(__dirname, '../pages/.gitbook/includes/esr-supported-devices.md'), compiledTemplate);
+  console.log(`✅ Generated ESR Supported Devices partial in ${'../pages/.gitbook/includes/esr-supported-devices.md'}`);
+  
+}
+
 /**
  * This is where the script starts
  */
@@ -320,4 +342,7 @@ const generateDeviceListPage = async (deviceTypes) => {
 
   // 4. Device type list page
   await generateDeviceListPage(deviceTypes);
+  
+  // 5. ESR Supported Device Types partial
+  await generateESRSupportedDevicesPartial();
 })();
