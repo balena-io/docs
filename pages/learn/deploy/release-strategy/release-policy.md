@@ -7,7 +7,7 @@ excerpt: Manage the fleet and device release policy
 
 When managing a fleet, you may require devices to be running different releases. By default, fleets follow a rolling release policy where new releases are deployed to all devices in the fleet once successfully built. However, you can customize this behavior, so the fleet or individual devices remain on a fixed release, by utilizing release pinning.
 
-You may define the fleet and device release policies via the [balenaCloud dashboard](https://dashboard.balena-cloud.com/) or programmatically through the [API](../../../../reference/api/overview/), [SDKs](../../../../external-docs/sdk/node-sdk/latest.md), or [CLI](../../../../external-docs/balena-cli/latest.md).
+You may define the fleet and device release policies via the [balenaCloud dashboard](https://dashboard.balena-cloud.com/) or programmatically through the [API](../../../reference/api/overview.md), [SDKs](../../../../external-docs/sdk/node-sdk/latest.md), or [CLI](../../../../external-docs/balena-cli/latest.md).
 
 ## Pin fleet to a release
 
