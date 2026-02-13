@@ -56,7 +56,7 @@ $ balena device ssh 192.168.1.23
 $ balena device ssh <device-uuid>.local
 ```
 
-When used with a [production variant of balenaOS](../../reference/OS/overview.md#development-vs.-production-mode), this feature requires balena CLI v13.3.0 or later, and balenaOS v2.44.0 or later. Otherwise, an SSH key must be added to the device's `config.json` file, [sshKeys section](../../reference/OS/configuration.md). These restrictions do not apply to [development variants of balenaOS](../../reference/OS/overview.md#development-vs.-production-mode), which allow unauthenticated `root` access (and for this reason, should never be directly exposed to the public internet).
+When used with a [production variant of balenaOS](../../reference/OS/overview.md#development-vs.-production-mode), this feature requires balena CLI v13.3.0 or later, and balenaOS v2.44.0 or later. Otherwise, an SSH key must be added to the device's `config.json` file, [sshKeys section](../../reference/OS/configuration.md#sshkeys). These restrictions do not apply to [development variants of balenaOS](../../reference/OS/overview.md#development-vs.-production-mode), which allow unauthenticated `root` access (and for this reason, should never be directly exposed to the public internet).
 
 ### Using a standalone SSH client
 
@@ -66,7 +66,7 @@ The SSH server of a balenaOS device (host OS) listens on TCP port `22222`, and a
 $ ssh -p 22222 <username>@<device_ip_address>
 ```
 
-When the username is `root`, [production variants of balenaOS](../../reference/OS/overview.md#development-vs.-production-mode) perform authentication against public SSH keys previously added to the device's `config.json` file, [sshKeys section](../../reference/OS/configuration.md). When the username matches a valid balenaCloud user account, authentication is also performed against that user's public SSH keys [stored in balenaCloud](ssh-access.md#add-an-ssh-key-to-balenacloud) (this feature requires balenaOS v2.44.0 or later). The username can be found in the profile or preferences section of the web dashboard, or with the balena whoami\` CLI command.
+When the username is `root`, [production variants of balenaOS](../../reference/OS/overview.md#development-vs.-production-mode) perform authentication against public SSH keys previously added to the device's `config.json` file, [sshKeys section](../../reference/OS/configuration.md#sshkeys). When the username matches a valid balenaCloud user account, authentication is also performed against that user's public SSH keys [stored in balenaCloud](ssh-access.md#add-an-ssh-key-to-balenacloud) (this feature requires balenaOS v2.44.0 or later). The username can be found in the profile or preferences section of the web dashboard, or with the balena whoami\` CLI command.
 
 Development variants of balenaOS allow unauthenticated access and should never be directly exposed to the public internet.
 

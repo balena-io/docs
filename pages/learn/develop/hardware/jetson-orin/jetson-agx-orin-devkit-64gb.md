@@ -10,7 +10,7 @@ The Nvidia Jetson AGX Orin 64 GB development kit has a label on the inside botto
 
 This device exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using `minicom -D /dev/ttyACM0`. It also offers one Display Port for video output.
 
-The default internal storage used for provisioning balenaOS is the AGX Orin 64GB's on-board eMMC. If instead you would like to use an NVMe drive as main storage, please consult the OS installer [target\_devices](../../../../reference/OS/configuration.md#valid-fields) configuration option or the [alternative provisioning options](jetson-agx-orin-devkit-64gb.md#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS is the AGX Orin 64GB's on-board eMMC. If instead you would like to use an NVMe drive as main storage, please consult the OS installer [target\_devices](../../../../reference/OS/configuration.md#target_devices) configuration option or the [alternative provisioning options](jetson-agx-orin-devkit-64gb.md#alternative-provisioning-options) section.
 
 #### **Checking your Jetson Orin's UEFI firmware version**
 
@@ -134,7 +134,7 @@ If a display is connected to the device, the firmware update process will also b
 
 By default, most Jetson Orin devices need an internal storage media and a USB flash drive in order to be provisioned. The AGX Orin 64GB Devkit has a built-in eMMC which is used by default for provisioning balenaOS.
 
-* If you would like to use a USB flash drive to flash an NVME drive attached to your Jetson AGX Orin 64GB instead of the on-board eMMC, use the installer.target\_devices configuration option in the flasher USB drive's [config.json](../../../../reference/OS/configuration.md#about-config.json) to specify the NVME as target medium:
+* If you would like to use a USB flash drive to flash an NVME drive attached to your Jetson AGX Orin 64GB instead of the on-board eMMC, use the [installer.target\_devices](../../../../reference/OS/configuration.md#target_devices) configuration option in the flasher USB drive's [config.json](../../../../reference/OS/configuration.md#about-config.json) to specify the NVME as target medium:
 
 ```json
 "installer": {
@@ -142,7 +142,7 @@ By default, most Jetson Orin devices need an internal storage media and a USB fl
 }
 ```
 
-* If you would like the same USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the installer.migrate and installer.target\_devices configuration options:
+* If you would like the same USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate](../../../../reference/OS/configuration.md#migrate) and [installer.target\_devices](../../../../reference/OS/configuration.md#target_devices) configuration options:
 
 ```json
 "installer": {
@@ -205,8 +205,8 @@ sudo balena config inject config.json -d balena.img
 8. Insert the freshly flashed USB flash drive or NVMe drive into the Jetson AGX Orin Devkit and press the power button.
 9. Once provisioning is complete, the board will perform one of the following actions:
 
-* restart and boot balenaOS automatically, if installer.migrate.force has been set in [config.json](../../../../reference/OS/configuration.md#about-config.json).
-* shut down if installer.migrate.force has not been set in [config.json](../../../../reference/OS/configuration.md#about-config.json). Unplug the flasher USB flash drive before powering the AGX Orin Devkit back on.
+* restart and boot balenaOS automatically, if [installer.migrate.force](../../../../reference/OS/configuration.md#migrate) has been set in [config.json](../../../../reference/OS/configuration.md#about-config.json).
+* shut down if [installer.migrate.force](../../../../reference/OS/configuration.md#migrate) has not been set in [config.json](../../../../reference/OS/configuration.md#about-config.json). Unplug the flasher USB flash drive before powering the AGX Orin Devkit back on.
 
 10. Your device should appear in your application dashboard within a few minutes.
 
