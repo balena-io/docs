@@ -340,18 +340,18 @@
   * [Choosing a base image](../pages/reference/base-images/balena-base-images.md)
 * [api](../pages/reference/api/README.md)
   * [Overview](../pages/reference/api/overview.md)
-  * [Resources](../pages/reference/api/resources.md)
-  * ```yaml
-    type: builtin:openapi
-    props:
-      models: true
-      downloadLink: true
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: balenaltd-api
-    ```
+  * [Resources](reference/api/resources/README.md)
+    * ```yaml
+      type: builtin:openapi
+      props:
+        models: true
+        downloadLink: true
+      dependencies:
+        spec:
+          ref:
+            kind: openapi
+            spec: balenaltd-api
+      ```
 * [sdk](../pages/reference/sdk/README.md)
   * [Balena SDK deprecation policy](../pages/reference/sdk/deprecation-policy.md)
   * [Node Sdk](reference/sdk/node-sdk/README.md)

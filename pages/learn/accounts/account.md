@@ -28,7 +28,7 @@ There are two types of access tokens: session tokens and API keys. Both authenti
 
 ### Session tokens
 
-Session tokens are retrieved from the _Preferences_ page, and they can be refreshed with the [API](../../reference/api/resources.md). These tokens expire after seven days, and they cannot be revoked.
+Session tokens are retrieved from the _Preferences_ page, and they can be refreshed with the [API](/broken/pages/60d4a9fe024639b2236e7994494c997ead2ae4a8). These tokens expire after seven days, and they cannot be revoked.
 
 ### API keys
 
@@ -56,7 +56,7 @@ To revoke one or more API keys, select the boxes to the left of the tokens you w
 
 <figure><img src="../../../summary/.gitbook/assets/api_key_delete (2).webp" alt=""><figcaption></figcaption></figure>
 
-API keys can also be generated using the API, [CLI](../../reference/balena-cli.md), and [Node.js](../../../reference/sdk/node-sdk/#auth-createapikey-name-code-promise-code-) and [Python](../../../reference/sdk/python-sdk/#function-create_api_key-name-description-) SDKs.
+API keys can also be generated using the API, [CLI](../../../external-docs/balena-cli/latest.md#api-key-generate), and [Node.js](../../../external-docs/sdk/node-sdk/latest.md#models.apikey-object) and [Python](../../../external-docs/sdk/python-sdk/latest.md#apikey) SDKs.
 
 ## Fleet members
 

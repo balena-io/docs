@@ -21,7 +21,7 @@ When you run the `balena push <APP_NAME or DEVICE_IP>` command from your laptop 
 
 <figure><img src="../../../summary/.gitbook/assets/balena-push (3).webp" alt=""><figcaption></figcaption></figure>
 
-Once the cloud builder has successfully completed building all the images in the deployment, it will upload these images to the balenaCloud registry and create a release entry in the [balena API](../../../reference/api/overview/) database. It will then notify all the devices in the fleet that a new release is available. If you need to pull in proprietary code or use a private base image during your builds, you can do so using the [build time secrets](deployment.md#build-time-secrets-and-variables) or [private base images](deployment.md#private-base-images) feature of `balena push`.
+Once the cloud builder has successfully completed building all the images in the deployment, it will upload these images to the balenaCloud registry and create a release entry in the [balena API](../../reference/api/overview.md) database. It will then notify all the devices in the fleet that a new release is available. If you need to pull in proprietary code or use a private base image during your builds, you can do so using the [build time secrets](deployment.md#build-time-secrets-and-variables) or [private base images](deployment.md#private-base-images) feature of `balena push`.
 
 It should be noted that `balena push` is independent of git, so you are free to use any version control system you wish. This also means that it is possible to use [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) in your project when deploying with `balena push`.
 
@@ -39,7 +39,7 @@ The `balena deploy` is functionally very similar to [balena push](deployment.md#
 
 With `balena build` container images are built on your development machine or on a remote machine, by specifying a docker daemon's IP address and port number with the relevant command-line options (for example a device running a balenaOS [development image](../../reference/OS/overview.md)). Depending on your fleet's targeted CPU architecture builds will be run emulated via [qemu](https://www.qemu.org/).
 
-If you are building your own container images, `balena deploy` will upload the images to the balenaCloud image registry and then create a release entry in the [balena API](../../../reference/api/overview/) database. The devices in the fleet will then be notified of a new release and download it. Should `balena deploy` not find the required images on the specified docker daemon, it will automatically trigger a build.
+If you are building your own container images, `balena deploy` will upload the images to the balenaCloud image registry and then create a release entry in the [balena API](../../reference/api/overview.md) database. The devices in the fleet will then be notified of a new release and download it. Should `balena deploy` not find the required images on the specified docker daemon, it will automatically trigger a build.
 
 Like `balena push` it is also independent of git, and you can use any version control system you wish. It is also possible to use [private base images](deployment.md#private-base-images).
 
