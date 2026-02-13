@@ -195,54 +195,6 @@
       ]
     }
   ],
-  "local": [
-    {
-      "id": "debugging-masterclass-partials",
-      "description": "Partials extracted from local docs for the debugging masterclass",
-      "files": [
-        {
-          "source": "pages/learn/accounts/support-access.md",
-          "target": "shared/masterclass/debugging/access-device.md",
-          "transform": { "type": "extract-section", "section": "Accessing your device" }
-        },
-        {
-          "source": "pages/learn/accounts/support-access.md",
-          "target": "shared/masterclass/debugging/support-access-device.md",
-          "transform": { "type": "extract-section", "section": "Granting Support Access to a Support Agent" }
-        },
-        {
-          "source": "pages/faq/debugging-device-gateway.md",
-          "target": "shared/masterclass/debugging/device-gateway-partial.md",
-          "transform": { "type": "extract-section", "section": "Accessing a Device using a Gateway Device" }
-        },
-        {
-          "source": "pages/learn/manage/device-logs.md",
-          "target": "shared/masterclass/debugging/device-logs-partial.md",
-          "transform": { "type": "extract-section", "section": "Device Logs" }
-        },
-        {
-          "source": "pages/learn/more/masterclasses/network-masterclass.md",
-          "target": "shared/masterclass/debugging/network.md",
-          "transform": { "type": "extract-section", "section": "Network debugging" }
-        },
-        {
-          "source": "pages/reference/OS/configuration.md",
-          "target": "shared/masterclass/debugging/configuration-partial.md",
-          "transform": { "type": "extract-section", "section": "Configuring balenaOS" }
-        },
-        {
-          "source": "pages/learn/manage/device-statuses.md",
-          "target": "shared/masterclass/debugging/device-connectivity.md",
-          "transform": { "type": "extract-section", "section": "Device Connectivity states" }
-        },
-        {
-          "source": "pages/faq/debugging-storage-media.md",
-          "target": "shared/masterclass/debugging/storage-media.md",
-          "transform": { "type": "extract-section", "section": "Storage Media Debugging" }
-        }
-      ]
-    }
-  ],
   "versionedSources": [
     {
       "id": "balena-cli-docs",
