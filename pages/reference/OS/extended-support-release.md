@@ -48,5 +48,4 @@ All device types are eligible for ESR, however they require a dedicated build an
 
 ESR host OS versions are currently available for the following devices:
 
-|   | Device Name | Machine Name | Architecture |
-| - | ----------- | ------------ | ------------ |
+{% include "../../.gitbook/includes/esr-supported-devices.md" %}

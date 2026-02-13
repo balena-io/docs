@@ -67,7 +67,7 @@ Starting from balenaOS 2.0.7, the devices connect to the following NTP servers:
 
 To be clear, `ntp.org` uses a large pool of servers that change frequently. So UDP port `123` must be open outgoing to all hosts.
 
-You can configure your own NTP servers in the [`config.json` file](../../../reference/OS/configuration/#ntpservers) location in the [boot partition](overview.md#image-partition-layout). For example:
+You can configure your own NTP servers in the [`config.json` file](configuration.md#ntpservers) location in the [boot partition](overview.md#image-partition-layout). For example:
 
 ```json
 "ntpServers": "0.resinio.pool.ntp.org 1.resinio.pool.ntp.org"

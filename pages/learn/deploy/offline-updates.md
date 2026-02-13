@@ -32,7 +32,7 @@ Some consideration is required if an application requiring persistent data stora
 
 If this is the case, mount an external mass storage (USB) device into a privileged data container and share it with other containers (if applicable) via NFS or a similar network storage protocol for the data. These external storage devices are not a part of the update process. Hence, data on them would be left intact, as long as they are temporarily disconnected during the update process.
 
-By contrast, a typical balena online update leaves services and data intact, and [persistent logging](../../../reference/OS/configuration/#persistentlogging) can be enabled to save your logs across device restarts.
+By contrast, a typical balena online update leaves services and data intact, and [persistent logging](../../reference/OS/configuration.md#persistentlogging) can be enabled to save your logs across device restarts.
 
 ## Performing an Offline Update
 
@@ -218,7 +218,7 @@ An example for Raspberry Pi devices: insert the recently flashed SD card and pow
 
 If a device isn't locally deployed, one can ship the flashed SD cards or USB sticks/drives to a remote location. There someone can run the update by simply inserting them into the devices and booting.
 
-If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys](../../../reference/OS/configuration/#sshkeys) during the configuration step will allow fleet managers at the remote site to connect to the device directly via OpenSSH and verify the update by examining container logs, etc.
+If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys](../../reference/OS/configuration.md#sshkeys) during the configuration step will allow fleet managers at the remote site to connect to the device directly via OpenSSH and verify the update by examining container logs, etc.
 
 If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal](../manage/ssh-access.md#using-the-dashboard-web-terminal) commands and output container logs to the dashboard.
 

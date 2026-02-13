@@ -10,7 +10,7 @@ Part number 900-13767-0000-000 is printed on the right side of the SOM bottom si
 
 The Jetson Orin NX 16GB module can be used with the Xavier NX Devkit, which exposes a debug interface on the UART TXD, UART RXD and GND pins. The UART pins are located underneath the Orin NX module. Additionally, a monitor can be connected to the board's HDMI port.
 
-The default internal storage used for provisioning balenaOS on the Jetson Orin NX 16GB is an NVME drive, which needs to be attached to the carrier board prior to booting via a USB flash drive containing the balenaOS flasher image. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer target\_devices configuration option or the [alternative provisioning options](jetson-orin-nx-xavier-nx-devkit.md#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS on the Jetson Orin NX 16GB is an NVME drive, which needs to be attached to the carrier board prior to booting via a USB flash drive containing the balenaOS flasher image. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target\_devices](../../../../reference/OS/configuration.md#target_devices) configuration option or the [alternative provisioning options](jetson-orin-nx-xavier-nx-devkit.md#alternative-provisioning-options) section.
 
 #### **Checking your Jetson Orin's UEFI firmware version**
 
@@ -139,7 +139,7 @@ If a display is connected to the device, the firmware update process will also b
 By default, most Jetson Orin devices need an internal storage media and a USB flash drive in order to be provisioned. When using the Jetson Orin NX in a Xavier NX Devkit, an NVMe drive has to be attached to the carrier board before starting the provisioning process.
 
 * If you would like to use a USB flash drive an NVME drive attached to your device, simply insert the USB flash drive and connect power to the board.
-* If you would like the same USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the installer.migrate and installer.target\_devices configuration options:
+* If you would like the same USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate](../../../../reference/OS/configuration.md#migrate) and [installer.target\_devices](../../../../reference/OS/configuration.md#target_devices) configuration options:
 
 ```json
 "installer": {
@@ -200,8 +200,8 @@ sudo balena config inject config.json -d balena.img
 7. Ensure the power cable is disconnected from your device.
 8. Insert the freshly flashed SD-CARD, USB flash drive or NVMe drive into the carrier board and connect its power cable.
 9. Once provisioning is complete, the board will perform one of the following actions:
-   * restart and boot balenaOS automatically, if installer.migrate.force has been set in [config.json](../../../../reference/OS/configuration.md#about-config.json).
-   * shut down if installer.migrate.force has not been set in [config.json](../../../../reference/OS/configuration.md#about-config.json). Unplug the external flasher medium and then remove and re-connect the power cable to the carrier board.
+   * restart and boot balenaOS automatically, if [installer.migrate.force](../../../../reference/OS/configuration.md#migrate) has been set in [config.json](../../../../reference/OS/configuration.md#about-config.json).
+   * shut down if [installer.migrate.force](../../../../reference/OS/configuration.md#migrate) has not been set in [config.json](../../../../reference/OS/configuration.md#about-config.json). Unplug the external flasher medium and then remove and re-connect the power cable to the carrier board.
 10. Your device should appear in your application dashboard within a few minutes.
 
 </details>
