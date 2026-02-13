@@ -1,0 +1,2267 @@
+openapi: 3.0.0
+info:
+  title: Balena API Spec
+  description: Automated API spec generation.
+  version: 7.0.0
+servers:
+  - url: https://api.balena-cloud.com
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    fleet:
+      type: object
+      title: Fleet Model
+      properties:
+        id:
+          type: string
+        uuid:
+          type: string
+        organization:
+          type: string
+        actor:
+          type: string
+        app_name:
+          type: string
+        slug:
+          type: string
+        should_be_running__release:
+          type: string
+        application_type:
+          type: string
+        is_for__device_type:
+          type: string
+        should_track_latest_release:
+          type: string
+        is_accessible_by_support_until__date:
+          type: string
+        is_public:
+          type: string
+        is_host:
+          type: string
+        is_archived:
+          type: string
+        is_discoverable:
+          type: string
+        is_stored_at__repository_url:
+          type: string
+        created_at:
+          type: string
+    fleet_membership_role:
+      type: object
+      title: Fleet membership role Model
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    fleet_tag:
+      type: object
+      title: Fleet tag Model
+      properties:
+        id:
+          type: string
+        application:
+          type: string
+        tag_key:
+          type: string
+        value:
+          type: string
+    api_key:
+      type: object
+      title: API key Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        is_of__actor:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    device:
+      type: object
+      title: Device Model
+      properties:
+        id:
+          type: string
+        belongs_to__application:
+          type: string
+        belongs_to__user:
+          type: string
+        actor:
+          type: string
+        device_name:
+          type: string
+        is_of__device_type:
+          type: string
+        uuid:
+          type: string
+        is_running__release:
+          type: string
+        is_pinned_on__release:
+          type: string
+        should_be_running__release:
+          type: string
+        note:
+          type: string
+        local_id:
+          type: string
+        status:
+          type: string
+        overall_status:
+          type: string
+        is_online:
+          type: string
+        last_connectivity_event:
+          type: string
+        is_connected_to_vpn:
+          type: string
+        last_vpn_event:
+          type: string
+        ip_address:
+          type: string
+        mac_address:
+          type: string
+        public_address:
+          type: string
+        os_version:
+          type: string
+        os_variant:
+          type: string
+        supervisor_version:
+          type: string
+        should_be_managed_by__release:
+          type: string
+        is_managed_by__service_instance:
+          type: string
+        provisioning_progress:
+          type: string
+        provisioning_state:
+          type: string
+        download_progress:
+          type: string
+        is_web_accessible:
+          type: string
+        longitude:
+          type: string
+        latitude:
+          type: string
+        location:
+          type: string
+        custom_longitude:
+          type: string
+        custom_latitude:
+          type: string
+        is_locked_until__date:
+          type: string
+        is_accessible_by_support_until__date:
+          type: string
+        created_at:
+          type: string
+        is_active:
+          type: string
+        api_heartbeat_state:
+          type: string
+        memory_usage:
+          type: string
+        memory_total:
+          type: string
+        storage_block_device:
+          type: string
+        storage_usage:
+          type: string
+        storage_total:
+          type: string
+        cpu_temp:
+          type: string
+        cpu_usage:
+          type: string
+        cpu_id:
+          type: string
+        is_undervolted:
+          type: string
+    device_type:
+      type: object
+      title: Device type Model
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        is_private:
+          type: string
+        is_of__cpu_architecture:
+          type: string
+        belongs_to__device_family:
+          type: string
+    device_config_variable:
+      type: object
+      title: Device config variable Model
+      properties:
+        id:
+          type: string
+        device:
+          type: string
+        value:
+          type: string
+        name:
+          type: string
+    device_environment_variable:
+      type: object
+      title: Device Environment Variable Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        device:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+    device_service_environment_variable:
+      type: object
+      title: Device service variable Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        service_install:
+          type: string
+        value:
+          type: string
+        name:
+          type: string
+    device_tag:
+      type: object
+      title: Device tag Model
+      properties:
+        id:
+          type: string
+        device:
+          type: string
+        tag_key:
+          type: string
+        value:
+          type: string
+    fleet_config_variable:
+      type: object
+      title: Fleet config variable Model
+      properties:
+        id:
+          type: string
+        application:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+    fleet_environment_variable:
+      type: object
+      title: Fleet environment variable Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        application:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+    service_environment_variable:
+      type: object
+      title: Fleet service variable Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        service_install:
+          type: string
+        value:
+          type: string
+        name:
+          type: string
+    organization:
+      type: object
+      title: Organization Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        name:
+          type: string
+        handle:
+          type: string
+        company_name:
+          type: string
+        website:
+          type: string
+        industry:
+          type: string
+        billing_account_code:
+          type: string
+    organization_membership:
+      type: object
+      title: Organization Membership Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        user:
+          type: string
+        is_member_of__organization:
+          type: string
+        organization_membership_role:
+          type: string
+        effective_seat_role:
+          type: string
+    release:
+      type: object
+      title: Release Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        belongs_to__application:
+          type: string
+        is_created_by__user:
+          type: string
+        raw_version:
+          type: string
+        semver:
+          type: string
+        semver_major:
+          type: string
+        semver_minor:
+          type: string
+        semver_patch:
+          type: string
+        semver_prerelease:
+          type: string
+        semver_build:
+          type: string
+        revision:
+          type: string
+        variant:
+          type: string
+        commit:
+          type: string
+        composition:
+          type: string
+        status:
+          type: string
+        source:
+          type: string
+        build_log:
+          type: string
+        start_timestamp:
+          type: string
+        end_timestamp:
+          type: string
+        update_timestamp:
+          type: string
+        is_invalidated:
+          type: string
+        release_version:
+          type: string
+        contract:
+          type: string
+    release_tag:
+      type: object
+      title: Release tag Model
+      properties:
+        id:
+          type: string
+        release:
+          type: string
+        tag_key:
+          type: string
+        value:
+          type: string
+    supervisor_release:
+      type: object
+      title: List Supervisor releases Model
+      properties:
+        id:
+          type: string
+        raw_version:
+          type: string
+    user__has__public_key:
+      type: object
+      title: SSH key Model
+      properties:
+        id:
+          type: string
+        user:
+          type: string
+        title:
+          type: string
+        public_key:
+          type: string
+        created_at:
+          type: string
+    service:
+      type: object
+      title: Service Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        application:
+          type: string
+        service_name:
+          type: string
+    service_install:
+      type: object
+      title: Service install Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        device:
+          type: string
+        installs__service:
+          type: string
+    user:
+      type: object
+      title: User Model
+      properties:
+        id:
+          type: string
+        actor:
+          type: string
+        username:
+          type: string
+        created_at:
+          type: string
+    team:
+      type: object
+      title: Team Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        belongs_to__organization:
+          type: string
+    team_fleet_access:
+      type: object
+      title: Team Fleet Access Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        team:
+          type: string
+        grants_access_to__application:
+          type: string
+        application_membership_role:
+          type: string
+    team_membership:
+      type: object
+      title: Team Membership Model
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        user:
+          type: string
+        is_member_of__team:
+          type: string
+    whoami:
+      type: object
+      title: Who am I Model
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+paths:
+  /v7/application:
+    get:
+      tags:
+        - Fleet
+      summary: Get all fleets of an organization by its HANDLE
+      description: |-
+        ## Fleet Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `uuid` |
+        | `organization` |
+        | `actor` |
+        | `app_name` |
+        | `slug` |
+        | `should_be_running__release` |
+        | `application_type` |
+        | `is_for__device_type` |
+        | `should_track_latest_release` |
+        | `is_accessible_by_support_until__date` |
+        | `is_public` |
+        | `is_host` |
+        | `is_archived` |
+        | `is_discoverable` |
+        | `is_stored_at__repository_url` |
+        | `created_at` |
+
+
+        ---
+
+        `GET /v7/application`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all fleets
+        `GET /v7/application`
+
+        Note: This will also include all public fleets of the platform. In most cases retrieving the fleets by their organization will be preferable.
+
+        --- 
+        #### Get all fleets associated with authenticated user
+        `GET /v7/application?$filter=is_directly_accessible_by__user/any(dau:true)`
+
+        --- 
+        #### Get fleet by name
+        `GET /v7/application?$filter=app_name eq '<NAME>'`
+
+        --- 
+        #### Filter public fleets from result
+        `GET /v7/application?$filter=is_public eq false`
+    post:
+      tags:
+        - Fleet
+      summary: Create fleet
+      description: |-
+        `POST /v7/application`
+
+        **Request Body:**
+        ```json
+        {
+            "app_name": <NAME>,
+            "organization": <ORGANIZATION_ID>,
+            "is_for__device_type": <DEVICE_TYPE_ID>
+        }
+        ```
+
+        To retrieve the numeric ORGANIZATION_ID & DEVICE_TYPE_ID, check the respective documentation page for the organization & device type resources.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-app:
+                summary: Create fleet
+                value:
+                  app_name: <NAME>
+                  organization: <ORGANIZATION_ID>
+                  is_for__device_type: <DEVICE_TYPE_ID>
+  /v7/application/{ID}:
+    get:
+      tags:
+        - Fleet
+      summary: Get fleet by ID
+      description: |-
+        `GET /v7/application(<ID>)`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get fleet by id along with its devices
+        `GET /v7/application(<ID>)?$expand=owns__device`
+    delete:
+      tags:
+        - Fleet
+      summary: Delete fleet
+      description: '`DELETE /v7/application(<ID>)`'
+    patch:
+      tags:
+        - Fleet
+      summary: Pin entire fleet to a specific release by ID
+      description: |-
+        `PATCH /v7/application(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "should_be_running__release": <RELEASE ID>,
+            "should_track_latest_release": false
+        }
+        ```
+
+
+        ### Usage Variations
+
+        --- 
+        #### Disable automatic update tracking for a fleet
+        `PATCH /v7/application(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "should_track_latest_release": false
+        }
+        ```
+
+        --- 
+        #### Enable automatic update tracking for a fleet
+        `PATCH /v7/application(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "should_track_latest_release": true
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              set-target-release-by-id:
+                summary: Pin entire fleet to a specific release by ID
+                value:
+                  should_be_running__release: <RELEASE ID>
+                  should_track_latest_release: false
+              disable-auto-update:
+                summary: Disable automatic update tracking for a fleet
+                value:
+                  should_track_latest_release: false
+              enable-auto-update:
+                summary: Enable automatic update tracking for a fleet
+                value:
+                  should_track_latest_release: true
+  /v7/application/slug='{SLUG}':
+    get:
+      tags:
+        - Fleet
+      summary: Get fleet by SLUG
+      description: |-
+        `GET /v7/application(slug='<SLUG>')`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get fleet by SLUG along with its devices
+        `GET /v7/application(slug='<SLUG>')?$expand=owns__device`
+
+        --- 
+        #### Get the target release of a fleet
+        `GET /v7/application(slug='<SLUG>')?$select=should_be_running__release`
+    patch:
+      tags:
+        - Fleet
+      summary: Pin entire fleet to a specific release by SLUG
+      description: |-
+        `PATCH /v7/application(slug='<SLUG>')`
+
+        **Request Body:**
+        ```json
+        {
+            "should_be_running__release": <RELEASE ID>,
+            "should_track_latest_release": false
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              set-target-release-by-slug:
+                summary: Pin entire fleet to a specific release by SLUG
+                value:
+                  should_be_running__release: <RELEASE ID>
+                  should_track_latest_release: false
+  /v7/application_membership_role:
+    get:
+      tags:
+        - Fleet membership role
+      summary: Get all fleet membership roles
+      description: |-
+        ## Fleet membership role Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `name` |
+
+
+        ---
+
+        `GET /v7/application_membership_role`
+  /v7/application_tag:
+    get:
+      tags:
+        - Fleet tag
+      summary: Get all tags by fleet name
+      description: |-
+        ## Fleet tag Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `application` |
+        | `tag_key` |
+        | `value` |
+
+
+        ---
+
+        `GET /v7/application_tag`
+    post:
+      tags:
+        - Fleet tag
+      summary: Create a new fleet tag
+      description: |-
+        `POST /v7/application_tag`
+
+        **Request Body:**
+        ```json
+        {
+            "application": <FLEET ID>,
+            "tag_key": <KEY>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-fleet-tag:
+                summary: Create a new fleet tag
+                value:
+                  application: <FLEET ID>
+                  tag_key: <KEY>
+                  value: <VALUE>
+  /v7/application_tag//{ID}:
+    patch:
+      tags:
+        - Fleet tag
+      summary: Update a fleet tag
+      description: |-
+        `PATCH /v7/application_tag/(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "value": <NEW VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              update-fleet-tag:
+                summary: Update a fleet tag
+                value:
+                  value: <NEW VALUE>
+    delete:
+      tags:
+        - Fleet tag
+      summary: Delete a fleet tag
+      description: '`DELETE /v7/application_tag/(<ID>)`'
+  /v7/api_key:
+    get:
+      tags:
+        - API key
+      summary: Get all API keys
+      description: |-
+        ## API key Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `is_of__actor` |
+        | `name` |
+        | `description` |
+
+
+        ---
+
+        `GET /v7/api_key`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all API keys of a device by UUID
+        `GET /v7/api_key?$filter=is_of__actor/any(a:a/is_of__device/any(d:d/uuid eq '<DEVICE_UUID>'))`
+
+        --- 
+        #### Get all API keys of an application by slug
+        `GET /v7/api_key?$filter=is_of__actor/any(a:a/is_of__application/any(ioa:ioa/slug eq '<SLUG>'))`
+
+        --- 
+        #### Get all user API keys for the authenticated user
+        `GET /v7/api_key?$filter=is_of__actor/any(a:a/is_of__user eq <USER_ID>))`
+  /v7/api_key/{ID}:
+    patch:
+      tags:
+        - API key
+      summary: Update the expiry date for an API Key
+      description: |-
+        `PATCH /v7/api_key(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "expiry_date": <ISO_8601_DATE_TIME>
+        }
+        ```
+
+        Note: Select a date in the past to expire an API Key immediately.
+
+
+        ### Usage Variations
+
+        --- 
+        #### Clear the expiry date of an API Key
+        `PATCH /v7/api_key(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "expiry_date": null
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              set-api-key-expiry-date:
+                summary: Update the expiry date for an API Key
+                value:
+                  expiry_date: <ISO_8601_DATE_TIME>
+              clear-api-key-expiry-date:
+                summary: Clear the expiry date of an API Key
+                value:
+                  expiry_date: null
+  /api-key/user/full:
+    post:
+      tags:
+        - API key
+      summary: Create new API key
+      description: |-
+        `POST /api-key/user/full`
+
+        **Request Body:**
+        ```json
+        {
+            "name": <NAME>,
+            "description": <DESCRIPTION>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-api-key:
+                summary: Create new API key
+                value:
+                  name: <NAME>
+                  description: <DESCRIPTION>
+  /v7/device:
+    get:
+      tags:
+        - Device
+      summary: Get all devices
+      description: |-
+        ## Device Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `belongs_to__application` |
+        | `belongs_to__user` |
+        | `actor` |
+        | `device_name` |
+        | `is_of__device_type` |
+        | `uuid` |
+        | `is_running__release` |
+        | `is_pinned_on__release` |
+        | `should_be_running__release` |
+        | `note` |
+        | `local_id` |
+        | `status` |
+        | `overall_status` |
+        | `is_online` |
+        | `last_connectivity_event` |
+        | `is_connected_to_vpn` |
+        | `last_vpn_event` |
+        | `ip_address` |
+        | `mac_address` |
+        | `public_address` |
+        | `os_version` |
+        | `os_variant` |
+        | `supervisor_version` |
+        | `should_be_managed_by__release` |
+        | `is_managed_by__service_instance` |
+        | `provisioning_progress` |
+        | `provisioning_state` |
+        | `download_progress` |
+        | `is_web_accessible` |
+        | `longitude` |
+        | `latitude` |
+        | `location` |
+        | `custom_longitude` |
+        | `custom_latitude` |
+        | `is_locked_until__date` |
+        | `is_accessible_by_support_until__date` |
+        | `created_at` |
+        | `is_active` |
+        | `api_heartbeat_state` |
+        | `memory_usage` |
+        | `memory_total` |
+        | `storage_block_device` |
+        | `storage_usage` |
+        | `storage_total` |
+        | `cpu_temp` |
+        | `cpu_usage` |
+        | `cpu_id` |
+        | `is_undervolted` |
+
+
+        ---
+
+        `GET /v7/device`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all devices by fleet
+        `GET /v7/device?$filter=belongs_to__application eq '<FLEET ID>'`
+
+        --- 
+        #### Get multiple devices by UUID
+        `GET /v7/device?$filter=uuid in ('<UUID1>','<UUID2>','<UUID3>')`
+  /v7/device/{ID}:
+    get:
+      tags:
+        - Device
+      summary: Get device by ID
+      description: |-
+        `GET /v7/device(<ID>)`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get the device overall_status field
+        `GET /v7/device(<ID>)?$select=overall_status`
+
+        The overall_status field is returned only when explicitly requested with $select.
+
+        --- 
+        #### Get the release currently running on a device
+        `GET /v7/device(<ID>)?$select=is_running__release`
+
+        --- 
+        #### Get the release a device is pinned to
+        `GET /v7/device(<ID>)?$select=is_pinned_on__release`
+
+        Note: is_pinned_on__release will be null/not set if the device isn't pinned to any release, in which case the device will be tracking the release of the application it belongs to.
+    patch:
+      tags:
+        - Device
+      summary: Pin device to a specific release by ID
+      description: |-
+        `PATCH /v7/device(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "is_pinned_on__release": <RELEASE ID>
+        }
+        ```
+
+
+        ### Usage Variations
+
+        --- 
+        #### Rename device
+        `PATCH /v7/device(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "device_name": <NEW NAME>
+        }
+        ```
+
+        --- 
+        #### Add note to a device
+        `PATCH /v7/device(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "note": <NEW NOTE>
+        }
+        ```
+
+        --- 
+        #### Move device to another fleet
+        `PATCH /v7/device(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "belongs_to__application": <FLEET ID>
+        }
+        ```
+
+        --- 
+        #### Deactivate an offline device (CHARGEABLE)
+        `PATCH /v7/device(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "is_active": false
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              set-device-to-release-by-id:
+                summary: Pin device to a specific release by ID
+                value:
+                  is_pinned_on__release: <RELEASE ID>
+              rename-device:
+                summary: Rename device
+                value:
+                  device_name: <NEW NAME>
+              add-note:
+                summary: Add note to a device
+                value:
+                  note: <NEW NOTE>
+              move-device:
+                summary: Move device to another fleet
+                value:
+                  belongs_to__application: <FLEET ID>
+              deactivate-device:
+                summary: Deactivate an offline device (CHARGEABLE)
+                value:
+                  is_active: false
+    delete:
+      tags:
+        - Device
+      summary: Delete device
+      description: '`DELETE /v7/device(<ID>)`'
+  /v7/device/uuid='{UUID}':
+    get:
+      tags:
+        - Device
+      summary: Get device by UUID
+      description: |-
+        `GET /v7/device(uuid='<UUID>')`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get the target release of a device
+        `GET /v7/device(uuid='<UUID>')?$select=should_be_running__release`
+
+        This will be the release that the device is pinned to, or the target release of the fleet for non-pinned devices.
+    patch:
+      tags:
+        - Device
+      summary: Pin device to a specific release by UUID
+      description: |-
+        `PATCH /v7/device(uuid='<UUID>')`
+
+        **Request Body:**
+        ```json
+        {
+            "is_pinned_on__release": <RELEASE ID>
+        }
+        ```
+
+
+        ### Usage Variations
+
+        --- 
+        #### Mark a device to be updated to a specific supervisor release
+        `PATCH /v7/device(uuid='<UUID>')`
+
+        **Request Body:**
+        ```json
+        {
+            "should_be_managed_by__release": <SUPERVISOR RELEASE ID>
+        }
+        ```
+
+        To request a list of available supervisor versions, check the respective documentation page for the supervisor release resource.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              set-device-to-release-by-uuid:
+                summary: Pin device to a specific release by UUID
+                value:
+                  is_pinned_on__release: <RELEASE ID>
+              update-device-supervisor-by-uuid:
+                summary: Mark a device to be updated to a specific supervisor release
+                value:
+                  should_be_managed_by__release: <SUPERVISOR RELEASE ID>
+  /v7/device_type/{ID}:
+    get:
+      tags:
+        - Device type
+      summary: Get a device type by its ID
+      description: |-
+        ## Device type Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `slug` |
+        | `name` |
+        | `is_private` |
+        | `is_of__cpu_architecture` |
+        | `belongs_to__device_family` |
+
+
+        ---
+
+        `GET /v7/device_type(<ID>)`
+
+        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
+  /v7/device_type/slug='{DEVICE TYPE SLUG}':
+    get:
+      tags:
+        - Device type
+      summary: Get a device type by its SLUG
+      description: |-
+        `GET /v7/device_type(slug='<DEVICE TYPE SLUG>')`
+
+        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
+  /v7/device_type:
+    get:
+      tags:
+        - Device type
+      summary: Get a device type by its NAME
+      description: |-
+        `GET /v7/device_type`
+
+        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all supported device types
+        `GET /v7/device_type?$filter=is_default_for__application/any(idfa:(idfa/is_host eq true) and (idfa/is_archived eq false) and (idfa/owns__release/any(r:(r/status eq 'success') and (r/is_final eq true) and (r/is_invalidated eq false))))&$orderby=name asc`
+
+        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
+  /v7/device_config_variable:
+    get:
+      tags:
+        - Device config variable
+      summary: Get all device config variables for a device
+      description: |-
+        ## Device config variable Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `device` |
+        | `value` |
+        | `name` |
+
+
+        ---
+
+        `GET /v7/device_config_variable`
+    post:
+      tags:
+        - Device config variable
+      summary: Create a device config variable
+      description: |-
+        `POST /v7/device_config_variable`
+
+        **Request Body:**
+        ```json
+        {
+            "device": <DEVICE ID>,
+            "name": <NAME>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-device-config-var:
+                summary: Create a device config variable
+                value:
+                  device: <DEVICE ID>
+                  name: <NAME>
+                  value: <VALUE>
+  /v7/device_config_variable/{ID}:
+    patch:
+      tags:
+        - Device config variable
+      summary: Update a device config variable
+      description: |-
+        `PATCH /v7/device_config_variable(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "value": <NEW VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              update-device-config-var:
+                summary: Update a device config variable
+                value:
+                  value: <NEW VALUE>
+    delete:
+      tags:
+        - Device config variable
+      summary: Remove a device config variable
+      description: '`DELETE /v7/device_config_variable(<ID>)`'
+  /v7/device_environment_variable:
+    get:
+      tags:
+        - Device Environment Variable
+      summary: Get all device environment variables for a device by UUID
+      description: |-
+        ## Device Environment Variable Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `device` |
+        | `name` |
+        | `value` |
+
+
+        ---
+
+        `GET /v7/device_environment_variable`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all device environment variables for a device by ID
+        `GET /v7/device_environment_variable?$filter=device eq <DEVICE ID>`
+    post:
+      tags:
+        - Device Environment Variable
+      summary: Create a device environment variable
+      description: |-
+        `POST /v7/device_environment_variable`
+
+        **Request Body:**
+        ```json
+        {
+            "device": <DEVICE ID>,
+            "name": <NAME>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-device-env-var:
+                summary: Create a device environment variable
+                value:
+                  device: <DEVICE ID>
+                  name: <NAME>
+                  value: <VALUE>
+  /v7/device_environment_variable/{ID}:
+    patch:
+      tags:
+        - Device Environment Variable
+      summary: Update a device environment variable
+      description: |-
+        `PATCH /v7/device_environment_variable(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "value": <NEW VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              update-device-env-var:
+                summary: Update a device environment variable
+                value:
+                  value: <NEW VALUE>
+    delete:
+      tags:
+        - Device Environment Variable
+      summary: Remove a device environment variable
+      description: '`DELETE /v7/device_environment_variable(<ID>)`'
+  /v7/device_service_environment_variable:
+    get:
+      tags:
+        - Device service variable
+      summary: Get all service variables for a device by UUID
+      description: |-
+        ## Device service variable Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `service_install` |
+        | `value` |
+        | `name` |
+
+
+        ---
+
+        `GET /v7/device_service_environment_variable`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all service variables for a device by UUID, including the service name
+        `GET /v7/device_service_environment_variable?$filter=service_install/any(si:si/device/any(d:d/uuid eq '<DEVICE_UUID>'))&$expand=service_install($expand=installs__service($select=id,service_name))`
+
+        --- 
+        #### Get all service variables for a device by ID
+        `GET /v7/device_service_environment_variable?$filter=service_install/device eq <DEVICE ID>`
+    post:
+      tags:
+        - Device service variable
+      summary: Create a device service variable
+      description: |-
+        `POST /v7/device_service_environment_variable`
+
+        **Request Body:**
+        ```json
+        {
+            "service_install": <SERVICE INSTALL ID>,
+            "name": <NAME>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-device-service-var:
+                summary: Create a device service variable
+                value:
+                  service_install: <SERVICE INSTALL ID>
+                  name: <NAME>
+                  value: <VALUE>
+  /v7/device_service_environment_variable/{ID}:
+    patch:
+      tags:
+        - Device service variable
+      summary: Update a device service variable
+      description: |-
+        `PATCH /v7/device_service_environment_variable(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "value": <NEW VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              update-device-service-var:
+                summary: Update a device service variable
+                value:
+                  value: <NEW VALUE>
+    delete:
+      tags:
+        - Device service variable
+      summary: Remove a device service variable
+      description: '`DELETE /v7/device_service_environment_variable(<ID>)`'
+  /v7/device_tag:
+    get:
+      tags:
+        - Device tag
+      summary: Get all tags by device UUID
+      description: |-
+        ## Device tag Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `device` |
+        | `tag_key` |
+        | `value` |
+
+
+        ---
+
+        `GET /v7/device_tag`
+    post:
+      tags:
+        - Device tag
+      summary: Create a new device tag
+      description: |-
+        `POST /v7/device_tag`
+
+        **Request Body:**
+        ```json
+        {
+            "device": <DEVICE ID>,
+            "tag_key": <KEY>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-tag:
+                summary: Create a new device tag
+                value:
+                  device: <DEVICE ID>
+                  tag_key: <KEY>
+                  value: <VALUE>
+  /v7/device_tag/device={DEVICE_ID},tag_key='{EXISTING-KEY}':
+    patch:
+      tags:
+        - Device tag
+      summary: Update a device tag
+      description: |-
+        `PATCH /v7/device_tag(device=<DEVICE_ID>,tag_key='<EXISTING-KEY>')`
+
+        **Request Body:**
+        ```json
+        {
+            "value": <NEW-VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              update-tag:
+                summary: Update a device tag
+                value:
+                  value: <NEW-VALUE>
+  /v7/device_tag/{TAG-ID}:
+    delete:
+      tags:
+        - Device tag
+      summary: Delete a device tag given its database ID
+      description: '`DELETE /v7/device_tag(<TAG-ID>)`'
+  /v7/application_config_variable:
+    get:
+      tags:
+        - Fleet config variable
+      summary: Get all fleet config variables for a fleet
+      description: |-
+        ## Fleet config variable Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `application` |
+        | `name` |
+        | `value` |
+
+
+        ---
+
+        `GET /v7/application_config_variable`
+    post:
+      tags:
+        - Fleet config variable
+      summary: Create a fleet config variable
+      description: |-
+        `POST /v7/application_config_variable`
+
+        **Request Body:**
+        ```json
+        {
+            "application": <FLEET ID>,
+            "name": <NAME>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-fleet-config-var:
+                summary: Create a fleet config variable
+                value:
+                  application: <FLEET ID>
+                  name: <NAME>
+                  value: <VALUE>
+  /v7/application_config_variable/{ID}:
+    patch:
+      tags:
+        - Fleet config variable
+      summary: Update a fleet environment variable
+      description: |-
+        `PATCH /v7/application_config_variable(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "value": <NEW VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              update-fleet-config-var:
+                summary: Update a fleet environment variable
+                value:
+                  value: <NEW VALUE>
+    delete:
+      tags:
+        - Fleet config variable
+      summary: Remove a fleet config variable
+      description: '`DELETE /v7/application_config_variable(<ID>)`'
+  /v7/application_environment_variable:
+    get:
+      tags:
+        - Fleet environment variable
+      summary: Get all fleet environment variables for a fleet
+      description: |-
+        ## Fleet environment variable Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `application` |
+        | `name` |
+        | `value` |
+
+
+        ---
+
+        `GET /v7/application_environment_variable`
+    post:
+      tags:
+        - Fleet environment variable
+      summary: Create a fleet environment variable
+      description: |-
+        `POST /v7/application_environment_variable`
+
+        **Request Body:**
+        ```json
+        {
+            "application": <FLEET ID>,
+            "name": <NAME>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-fleet-env-var:
+                summary: Create a fleet environment variable
+                value:
+                  application: <FLEET ID>
+                  name: <NAME>
+                  value: <VALUE>
+  /v7/application_environment_variable/{ID}:
+    patch:
+      tags:
+        - Fleet environment variable
+      summary: Update a fleet environment variable
+      description: |-
+        `PATCH /v7/application_environment_variable(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "value": <NEW VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              update-fleet-env-var:
+                summary: Update a fleet environment variable
+                value:
+                  value: <NEW VALUE>
+    delete:
+      tags:
+        - Fleet environment variable
+      summary: Remove a fleet environment variable
+      description: '`DELETE /v7/application_environment_variable(<ID>)`'
+  /v7/service_environment_variable:
+    get:
+      tags:
+        - Fleet service variable
+      summary: Get all fleet service variables for a service
+      description: |-
+        ## Fleet service variable Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `service_install` |
+        | `value` |
+        | `name` |
+
+
+        ---
+
+        `GET /v7/service_environment_variable`
+    post:
+      tags:
+        - Fleet service variable
+      summary: Create a fleet service variable
+      description: |-
+        `POST /v7/service_environment_variable`
+
+        **Request Body:**
+        ```json
+        {
+            "service": <SERVICE ID>,
+            "name": <NAME>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-fleet-service-var:
+                summary: Create a fleet service variable
+                value:
+                  service: <SERVICE ID>
+                  name: <NAME>
+                  value: <VALUE>
+  /v7/service_environment_variable/{ID}:
+    patch:
+      tags:
+        - Fleet service variable
+      summary: Update a device service variable
+      description: |-
+        `PATCH /v7/service_environment_variable(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "value": <NEW VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              update-fleet-service-var:
+                summary: Update a device service variable
+                value:
+                  value: <NEW VALUE>
+    delete:
+      tags:
+        - Fleet service variable
+      summary: Remove a fleet service variable
+      description: '`DELETE /v7/service_environment_variable(<ID>)`'
+  /v7/organization:
+    get:
+      tags:
+        - Organization
+      summary: Get all organizations associated with authenticated user
+      description: |-
+        ## Organization Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `name` |
+        | `handle` |
+        | `company_name` |
+        | `website` |
+        | `industry` |
+        | `billing_account_code` |
+
+
+        ---
+
+        `GET /v7/organization`
+  /v7/organization/{ID}:
+    get:
+      tags:
+        - Organization
+      summary: Get organization by ID
+      description: '`GET /v7/organization(<ID>)`'
+  /v7/organization/handle='{HANDLE}':
+    get:
+      tags:
+        - Organization
+      summary: Get organization by handle
+      description: |-
+        `GET /v7/organization(handle='<HANDLE>')`
+
+        Uniquely identifies an organization. Handles are currently automatically generated and read-only.
+  /v7/organization_membership:
+    get:
+      tags:
+        - Organization Membership
+      summary: Get all organization memberships
+      description: |-
+        ## Organization Membership Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `user` |
+        | `is_member_of__organization` |
+        | `organization_membership_role` |
+        | `effective_seat_role` |
+
+
+        ---
+
+        `GET /v7/organization_membership`
+  /v7/release:
+    get:
+      tags:
+        - Release
+      summary: Get all releases for a fleet
+      description: |-
+        ## Release Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `belongs_to__application` |
+        | `is_created_by__user` |
+        | `raw_version` |
+        | `semver` |
+        | `semver_major` |
+        | `semver_minor` |
+        | `semver_patch` |
+        | `semver_prerelease` |
+        | `semver_build` |
+        | `revision` |
+        | `variant` |
+        | `commit` |
+        | `composition` |
+        | `status` |
+        | `source` |
+        | `build_log` |
+        | `start_timestamp` |
+        | `end_timestamp` |
+        | `update_timestamp` |
+        | `is_invalidated` |
+        | `release_version` |
+        | `contract` |
+
+
+        ---
+
+        `GET /v7/release`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get a release ID given a specific fleet and version
+        `GET /v7/release?$filter=belongs_to__application eq <FLEET ID> and raw_version eq '<RAW VERSION>'&$select=id`
+
+        --- 
+        #### Get a release ID given a specific fleet and commit
+        `GET /v7/release?$filter=belongs_to__application eq <FLEET ID> and commit eq '<COMMIT HASH>'&$select=id`
+  /v7/release/{ID}:
+    get:
+      tags:
+        - Release
+      summary: Get the release raw_version field
+      description: |-
+        `GET /v7/release(<ID>)`
+
+        The raw_version field is returned only when explicitly requested with $select.
+  /v7/release_tag:
+    get:
+      tags:
+        - Release tag
+      summary: Get all tags by release commit
+      description: |-
+        ## Release tag Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `release` |
+        | `tag_key` |
+        | `value` |
+
+
+        ---
+
+        `GET /v7/release_tag`
+    post:
+      tags:
+        - Release tag
+      summary: Create a new release tag
+      description: |-
+        `POST /v7/release_tag`
+
+        **Request Body:**
+        ```json
+        {
+            "release": <RELEASE ID>,
+            "tag_key": <KEY>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-release-tag:
+                summary: Create a new release tag
+                value:
+                  release: <RELEASE ID>
+                  tag_key: <KEY>
+                  value: <VALUE>
+  /v7/release#List_Supervisor_releases:
+    get:
+      tags:
+        - List Supervisor releases
+      summary: Get all supervisor releases for a specific cpu architecture by slug (eg amd64/rpi/armv7hf/aarch64)
+      description: |-
+        ## List Supervisor releases Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `raw_version` |
+
+
+        ---
+
+        `GET /v7/release`
+
+        To request a list of the supported supervisor releases for a particular cpu architecture, the `CPU_ARCHITECTURE_SLUG` parameter is required. Even though this query only selects the `id` and `raw_version` fields, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all supervisor releases for a specific cpu architecture by ID
+        `GET /v7/release?$select=id,raw_version&$filter=(status eq 'success') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,'balena_os%2F') and endswith(a/slug,'-supervisor')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture eq <CPU_ARCHITECTURE_ID>)))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
+
+        --- 
+        #### Get a specific supervisor release version for a specific cpu architecture
+        `GET /v7/release?$select=id,raw_version&$filter=(status eq 'success') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,'balena_os%2F') and endswith(a/slug,'-supervisor')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug eq '<CPU_ARCHITECTURE_SLUG>')))))) and (raw_version eq '<VERSION>')&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
+  /v7/release#List_balenaOS_releases:
+    get:
+      tags:
+        - List balenaOS releases
+      summary: List the supported balenaOS versions for a device type
+      description: |-
+        ## List balenaOS releases Resource Fields
+
+        | Field |
+        | :--- |
+
+
+        ---
+
+        `GET /v7/release`
+
+        To request a list of the supported balenaOS versions for a particular device type, the `DEVICE TYPE SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.
+
+
+        ### Usage Variations
+
+        --- 
+        #### List the supported balenaOS versions for a private device type
+        `GET /v7/release?$select=raw_version&$filter=(is_final eq true) and (is_invalidated eq false) and (status eq 'success') and (semver_major gt 0) and (belongs_to__application/any(bta:(bta/is_host eq true) and (bta/is_for__device_type/any(dt:dt/slug eq '<DEVICE TYPE SLUG>'))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
+
+        Same as above, but in order to access private device types, you must provide an authentication token.
+  /download:
+    get:
+      tags:
+        - Download balenaOS
+      summary: Download private or ESR balenaOS images
+      description: |-
+        ## Download balenaOS Resource Fields
+
+        | Field |
+        | :--- |
+
+
+        ---
+
+        `GET /download`
+
+        In order to download an ESR or private balenaOS image, you need to provide your bearer token. The `deviceType` and `version` parameters are required. Add an `--output` flag to provide a path for the image to be downloaded.
+
+
+        ### Usage Variations
+
+        --- 
+        #### Download public balenaOS images
+        `GET /download?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'`
+
+        Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also available for download on balena.io/os and the dashboard.
+  /v7/user__has__public_key:
+    get:
+      tags:
+        - SSH key
+      summary: Get all SSH keys
+      description: |-
+        ## SSH key Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `user` |
+        | `title` |
+        | `public_key` |
+        | `created_at` |
+
+
+        ---
+
+        `GET /v7/user__has__public_key`
+    post:
+      tags:
+        - SSH key
+      summary: Add new SSH key to account
+      description: |-
+        `POST /v7/user__has__public_key`
+
+        **Request Body:**
+        ```json
+        {
+            "public_key": <SSH KEY>,
+            "title": <TITLE>,
+            "user": <USER ID>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              new-ssh-key:
+                summary: Add new SSH key to account
+                value:
+                  public_key: <SSH KEY>
+                  title: <TITLE>
+                  user: <USER ID>
+  /v7/user__has__public_key/{ID}:
+    get:
+      tags:
+        - SSH key
+      summary: Get SSH key by ID
+      description: '`GET /v7/user__has__public_key(<ID>)`'
+    delete:
+      tags:
+        - SSH key
+      summary: Remove SSH key
+      description: '`DELETE /v7/user__has__public_key(<ID>)`'
+  /v7/service:
+    get:
+      tags:
+        - Service
+      summary: Get all services belonging to a fleet
+      description: |-
+        ## Service Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `application` |
+        | `service_name` |
+
+
+        ---
+
+        `GET /v7/service`
+  /v7/service_install:
+    get:
+      tags:
+        - Service install
+      summary: Get service name for all services on a device
+      description: |-
+        ## Service install Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `device` |
+        | `installs__service` |
+
+
+        ---
+
+        `GET /v7/service_install`
+  /v7/user:
+    get:
+      tags:
+        - User
+      summary: Get users associated with account
+      description: |-
+        ## User Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `actor` |
+        | `username` |
+        | `created_at` |
+
+
+        ---
+
+        `GET /v7/user`
+  /v7/user__is_member_of__application:
+    get:
+      tags:
+        - User
+      summary: Get users associated with fleet
+      description: '`GET /v7/user__is_member_of__application`'
+    post:
+      tags:
+        - User
+      summary: Create fleet membership
+      description: |-
+        `POST /v7/user__is_member_of__application`
+
+        **Request Body:**
+        ```json
+        {
+            "is_member_of_application": <ID>,
+            "username": <USERNAME>,
+            "application_membership_role": <ROLE ID>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-fleet-membership:
+                summary: Create fleet membership
+                value:
+                  is_member_of_application: <ID>
+                  username: <USERNAME>
+                  application_membership_role: <ROLE ID>
+  /v7/user__is_member_of__application/is_member_of__application={ID},user={USER ID}:
+    delete:
+      tags:
+        - User
+      summary: Delete fleet membership
+      description: '`DELETE /v7/user__is_member_of__application(is_member_of__application=<ID>,user=<USER ID>)`'
+  /v7/team:
+    get:
+      tags:
+        - Team
+      summary: Get all teams associated with user
+      description: |-
+        ## Team Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `name` |
+        | `description` |
+        | `belongs_to__organization` |
+
+
+        ---
+
+        `GET /v7/team`
+    post:
+      tags:
+        - Team
+      summary: Create a new team in organization
+      description: |-
+        `POST /v7/team`
+
+        **Request Body:**
+        ```json
+        {
+            "name": <TEAM NAME>,
+            "belongs_to__organization": <ORG ID>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-team:
+                summary: Create a new team in organization
+                value:
+                  name: <TEAM NAME>
+                  belongs_to__organization: <ORG ID>
+  /v7/team/{ID}:
+    get:
+      tags:
+        - Team
+      summary: Get team by ID
+      description: '`GET /v7/team(<ID>)`'
+    delete:
+      tags:
+        - Team
+      summary: Delete team with ID
+      description: '`Delete /v7/team(<ID>)`'
+  /v7/team_application_access:
+    get:
+      tags:
+        - Team Fleet Access
+      summary: Get Team's fleet access
+      description: |-
+        ## Team Fleet Access Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `team` |
+        | `grants_access_to__application` |
+        | `application_membership_role` |
+
+
+        ---
+
+        `GET /v7/team_application_access`
+  /v7/team_membership:
+    get:
+      tags:
+        - Team Membership
+      summary: Get team membership of users
+      description: |-
+        ## Team Membership Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `created_at` |
+        | `user` |
+        | `is_member_of__team` |
+
+
+        ---
+
+        `GET /v7/team_membership`
+  /user/v1/whoami:
+    get:
+      tags:
+        - Who am I
+      summary: Get user associated with token
+      description: |-
+        ## Who am I Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `username` |
+        | `email` |
+
+
+        ---
+
+        `GET /user/v1/whoami`
+security:
+  - bearerAuth: []
