@@ -17,7 +17,7 @@ SSH access is built on [Cloudlink](../welcome/security.md#cloudlink) and it not 
 
 To use this feature, navigate to your fleet and select the device you want to access. You will see a _Terminal_ window below the _Logs_ window:
 
-<figure><img src="../../../summary/.gitbook/assets/terminal (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/terminal (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 If your device is online, select a target as either the host OS or a running service, and click the blue _>\_ Start Terminal session_ button. In order to start a terminal session for a service, you need to ensure that the service container is running. If the container code crashes or ends quickly, it is not possible to attach a console to it.
 
@@ -92,7 +92,7 @@ See note in the [previous section](ssh-access.md#using-a-standalone-ssh-client) 
 
 To add an SSH key, go to the _Preferences_ page of balenaCloud and select the _SSH Keys_ tab.
 
-<figure><img src="../../../summary/.gitbook/assets/preferences-ssh-keys (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/preferences-ssh-keys (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 You may either import an existing SSH key from GitHub or manually enter the public SSH key of an existing SSH key on your development machine.
 
