@@ -173,17 +173,6 @@
       ]
     },
     {
-      "id": "debugging-masterclass",
-      "repo": "balena-io/debugging-masterclass",
-      "ref": "v1.1.3",
-      "files": [
-        {
-          "source": "README.md",
-          "target": "external-docs/masterclasses/device-debugging.md"
-        }
-      ]
-    },
-    {
       "id": "docker-masterclass",
       "repo": "balena-io/docker-masterclass",
       "ref": "v1.0.7",
