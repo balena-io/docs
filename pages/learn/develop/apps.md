@@ -70,7 +70,7 @@ data:
 version: 2.0.0
 ```
 
-Next, navigate to the Apps tab in the sidebar and click the `Create App` button in the balenaCloud dashboard. Fill the details for your App in the modal, and click `Create new app` button to create your App. Next, we need to push a new release to your newly created App on balenaCloud. If you are new to this, then follow the [Getting Started](../../../getting-started/) guide.
+Next, navigate to the Apps tab in the sidebar and click the `Create App` button in the balenaCloud dashboard. Fill the details for your App in the modal, and click `Create new app` button to create your App. Next, we need to push a new release to your newly created App on balenaCloud. If you are new to this, then follow the [Getting Started](../getting-started/) guide.
 
 ## Publishing an App on balenaHub
 

@@ -2,7 +2,7 @@
 
 ## Learn
 
-* [welcome](README.md)
+* [Welcome](README.md)
   * [Welcome](learn/welcome/introduction.md)
   * [Core Concepts: A balena primer](learn/welcome/primer.md)
   * [Going to production](learn/welcome/production-plan.md)
@@ -81,7 +81,7 @@
   * [Getting started with Variscite VAR-SOM-MX6](learn/getting-started/var-som-mx6.md "Variscite VAR-SOM-MX6")
   * [Getting started with Variscite VAR-SOM-MX7](learn/getting-started/imx7-var-som.md "Variscite VAR-SOM-MX7")
   * [Getting started with Variscite VAR-SOM-MX8M-MINI Devkit](learn/getting-started/imx8mm-var-som.md "Variscite VAR-SOM-MX8M-MINI Devkit")
-* [develop](learn/develop/README.md)
+* [Develop](learn/develop/README.md)
   * [Develop locally](learn/develop/local-mode.md)
   * [Define a container](learn/develop/dockerfile.md)
   * [Multiple containers](learn/develop/multicontainer.md)

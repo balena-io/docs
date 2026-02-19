@@ -7,10 +7,10 @@ excerpt: Use Dockerfiles to package your balena services and their dependencies
 
 Balena uses [Docker](https://www.docker.com/) containers to manage deployment and updates. You can use one or more containers to package your services with whichever environments and tools they need to run.
 
-To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image](https://docs.docker.com/engine/understanding-docker/#/inside-docker). Whether the build process is done [on your device](local-mode.md), [on your workstation](../../../external-docs/balena-cli/latest.md#build), or on the [balena builders](../deploy/deployment.md), the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the balenaOS version) to kick off a running container.
+To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image](https://docs.docker.com/engine/understanding-docker/#/inside-docker). Whether the build process is done [on your device](local-mode.md), [on your workstation](../../external-docs/balena-cli/latest.md#build), or on the [balena builders](../deploy/deployment.md), the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the balenaOS version) to kick off a running container.
 
 {% hint style="warning" %}
-For additional information on working with Dockerfiles with balena see the [services masterclass](../../../external-docs/masterclasses/services-masterclass.md).
+For additional information on working with Dockerfiles with balena see the [services masterclass](../../external-docs/masterclasses/services-masterclass.md).
 {% endhint %}
 
 ## Dockerfiles
@@ -123,7 +123,7 @@ Note that this feature works with the following commands: `git push`, `balena pu
 
 ## Node applications
 
-Balena supports [Node.js](https://node.jshttps/nodejs.org/) natively using the [package.json](https://docs.npmjs.com/files/package.json) file located in the root of the repository to determine how to build and execute node applications.
+Balena supports [Node.js](https://nodejs.org/) natively using the [package.json](https://docs.npmjs.com/files/package.json) file located in the root of the repository to determine how to build and execute node applications.
 
 When you push your code to your fleet, the build server generates a [container](https://en.wikipedia.org/wiki/Operating_system%E2%80%93level_virtualization) for the environment your device operates in, deploys your code to it and runs `npm install` to resolve [npm](https://www.npmjs.org/) dependencies, reporting progress to your terminal as it goes.
 
@@ -177,4 +177,4 @@ With a plain Node.js project, our build server will detect compatible nodejs ver
 
 ## Container Requirements
 
-The balena Supervisor requires that the directory `/tmp/balena` in containers be available for inter-container communication via [update locks](../../../external-docs/update-locking.md). Therefore, scripts should not attempt to remove this directory on startup.
+The balena Supervisor requires that the directory `/tmp/balena` in containers be available for inter-container communication via [update locks](../../external-docs/update-locking.md). Therefore, scripts should not attempt to remove this directory on startup.
