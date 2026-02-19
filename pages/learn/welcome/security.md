@@ -35,7 +35,7 @@ The first points of access to the balena ecosystem are the user dashboard and th
 
 ## Device access
 
-Device access is managed by our host operating system, [balenaOS](../../reference/OS/overview.md). BalenaOS is a thin Linux that supports the balena services and user containers. BalenaOS is built using [Yocto Linux](https://www.yoctoproject.org/), the de facto standard for building lightweight embedded Linux environments. Using Yocto allows balena to build images that contain no unused or unnecessary code in either userspace or the running kernel, minimizing the device's available attack surface. All balena software running on devices is 100% open source and can be independently audited and verified. Device access is granted to a subset of balena employees to enable support and device troubleshooting. This access is controlled by ssh key access and only after access is explicitly granted to balena.
+Device access is managed by our host operating system, [balenaOS](../../reference/os/overview.md). BalenaOS is a thin Linux that supports the balena services and user containers. BalenaOS is built using [Yocto Linux](https://www.yoctoproject.org/), the de facto standard for building lightweight embedded Linux environments. Using Yocto allows balena to build images that contain no unused or unnecessary code in either userspace or the running kernel, minimizing the device's available attack surface. All balena software running on devices is 100% open source and can be independently audited and verified. Device access is granted to a subset of balena employees to enable support and device troubleshooting. This access is controlled by ssh key access and only after access is explicitly granted to balena.
 
 User source code and images are stored on balena backend servers with access limited only to administrative/operational staff and are not exposed to anyone outside of balena. It is also possible to bypass the balena builder entirely and push only pre-built artifacts, meaning that balena never has access to the code at any point.
 
@@ -62,8 +62,8 @@ Cloudlink status in the dashboard represents a device connection to the balenaCl
 * [SSH access](../manage/ssh-access.md) via CLI or web terminal
 * [Public Device Url](../manage/actions.md#public-device-url)
 * [Device actions](../manage/actions.md#device-actions) that allow controlling device state
-* [Host OS Updates](../../reference/OS/updates/self-service.md)
-* [Device Diagnostics](../../reference/diagnostics.md)
+* [Host OS Updates](../../reference/os/updates/self-service.md)
+* [Device Diagnostics](../../external-docs/diagnostics.md)
 
 Currently, Cloudlink uses [OpenVPN](https://openvpn.net/) as an underlying technology to achieve its functionality. Devices only connect outbound to Cloudlink, and all traffic over Cloudlink is encrypted with TLS.
 

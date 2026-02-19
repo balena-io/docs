@@ -32,8 +32,8 @@
   * [Getting started with Etcher Pro](learn/getting-started/etcher-pro.md "Etcher Pro")
   * [Getting started with Forecr DSBOARD-ORNX-LAN Orin Nano 8GB](learn/getting-started/forecr-dsb-ornx-orin-nano-8gb.md "Forecr DSBOARD-ORNX-LAN Orin Nano 8GB")
   * [Getting started with Generic AARCH64](learn/getting-started/generic-aarch64.md "Generic AARCH64")
-  * [Getting started with Generic x86_64 (GPT)](learn/getting-started/generic-amd64.md "Generic x86_64 (GPT)")
-  * [Getting started with Generic x86_64 (legacy MBR)](learn/getting-started/genericx86-64-ext.md "Generic x86_64 (legacy MBR)")
+  * [Getting started with Generic x86\_64 (GPT)](learn/getting-started/generic-amd64.md "Generic x86_64 (GPT)")
+  * [Getting started with Generic x86\_64 (legacy MBR)](learn/getting-started/genericx86-64-ext.md "Generic x86_64 (legacy MBR)")
   * [Getting started with Intel NUC](learn/getting-started/intel-nuc.md "Intel NUC")
   * [Getting started with Kontron i.MX8M Mini](learn/getting-started/kontron-mx8mm.md "Kontron i.MX8M Mini")
   * [Getting started with NanoPi R2S](learn/getting-started/nanopi-r2s.md "NanoPi R2S")
@@ -182,8 +182,8 @@
   * [Troubleshooting information for Etcher Pro](faq/troubleshooting/etcher-pro.md "Etcher Pro")
   * [Troubleshooting information for Forecr DSBOARD-ORNX-LAN Orin Nano 8GB](faq/troubleshooting/forecr-dsb-ornx-orin-nano-8gb.md "Forecr DSBOARD-ORNX-LAN Orin Nano 8GB")
   * [Troubleshooting information for Generic AARCH64](faq/troubleshooting/generic-aarch64.md "Generic AARCH64")
-  * [Troubleshooting information for Generic x86_64 (GPT)](faq/troubleshooting/generic-amd64.md "Generic x86_64 (GPT)")
-  * [Troubleshooting information for Generic x86_64 (legacy MBR)](faq/troubleshooting/genericx86-64-ext.md "Generic x86_64 (legacy MBR)")
+  * [Troubleshooting information for Generic x86\_64 (GPT)](faq/troubleshooting/generic-amd64.md "Generic x86_64 (GPT)")
+  * [Troubleshooting information for Generic x86\_64 (legacy MBR)](faq/troubleshooting/genericx86-64-ext.md "Generic x86_64 (legacy MBR)")
   * [Troubleshooting information for Intel NUC](faq/troubleshooting/intel-nuc.md "Intel NUC")
   * [Troubleshooting information for Kontron i.MX8M Mini](faq/troubleshooting/kontron-mx8mm.md "Kontron i.MX8M Mini")
   * [Troubleshooting information for NanoPi R2S](faq/troubleshooting/nanopi-r2s.md "NanoPi R2S")
@@ -231,6 +231,7 @@
   * [Troubleshooting information for Variscite VAR-SOM-MX6](faq/troubleshooting/var-som-mx6.md "Variscite VAR-SOM-MX6")
   * [Troubleshooting information for Variscite VAR-SOM-MX7](faq/troubleshooting/imx7-var-som.md "Variscite VAR-SOM-MX7")
   * [Troubleshooting information for Variscite VAR-SOM-MX8M-MINI Devkit](faq/troubleshooting/imx8mm-var-som.md "Variscite VAR-SOM-MX8M-MINI Devkit")
+
 ## Reference
 
 * [Supported devices](reference/hardware/README.md)
@@ -283,8 +284,8 @@
     * [Configuration List for Etcher Pro](reference/supervisor/config-list/etcher-pro.md "Etcher Pro")
     * [Configuration List for Forecr DSBOARD-ORNX-LAN Orin Nano 8GB](reference/supervisor/config-list/forecr-dsb-ornx-orin-nano-8gb.md "Forecr DSBOARD-ORNX-LAN Orin Nano 8GB")
     * [Configuration List for Generic AARCH64](reference/supervisor/config-list/generic-aarch64.md "Generic AARCH64")
-    * [Configuration List for Generic x86_64 (GPT)](reference/supervisor/config-list/generic-amd64.md "Generic x86_64 (GPT)")
-    * [Configuration List for Generic x86_64 (legacy MBR)](reference/supervisor/config-list/genericx86-64-ext.md "Generic x86_64 (legacy MBR)")
+    * [Configuration List for Generic x86\_64 (GPT)](reference/supervisor/config-list/generic-amd64.md "Generic x86_64 (GPT)")
+    * [Configuration List for Generic x86\_64 (legacy MBR)](reference/supervisor/config-list/genericx86-64-ext.md "Generic x86_64 (legacy MBR)")
     * [Configuration List for Intel NUC](reference/supervisor/config-list/intel-nuc.md "Intel NUC")
     * [Configuration List for Kontron i.MX8M Mini](reference/supervisor/config-list/kontron-mx8mm.md "Kontron i.MX8M Mini")
     * [Configuration List for NanoPi R2S](reference/supervisor/config-list/nanopi-r2s.md "NanoPi R2S")
@@ -340,10 +341,10 @@
   * [Overview](reference/api/overview.md)
   * [Resources](reference/api/resources/README.md)
     * ```yaml
-      type: builtin:openapi
       props:
         models: true
         downloadLink: true
+      type: builtin:openapi
       dependencies:
         spec:
           ref:

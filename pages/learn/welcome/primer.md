@@ -5,9 +5,9 @@ excerpt: How balena gets your code to your device fleet, from end to end
 
 # Core Concepts: A balena primer
 
-The balena platform encompasses device, server, and client software, all designed to get your code securely deployed to a fleet of devices. The broad strokes are easy to grasp: once your device is set up with our [host OS](../../reference/OS/overview.md), you can push code to the balena [build servers](../deploy/deployment.md#the-balenacloud-build-server), where it will be packaged into containers and delivered to your fleet. All your devices and their services can be managed, monitored, and updated from your [balena dashboard](https://dashboard.balena-cloud.com/).
+The balena platform encompasses device, server, and client software, all designed to get your code securely deployed to a fleet of devices. The broad strokes are easy to grasp: once your device is set up with our [host OS](../../reference/os/overview.md), you can push code to the balena [build servers](../deploy/deployment.md#the-balenacloud-build-server), where it will be packaged into containers and delivered to your fleet. All your devices and their services can be managed, monitored, and updated from your [balena dashboard](https://dashboard.balena-cloud.com/).
 
-If you're eager to learn more about the inner workings, you're in luck! This guide covers the components and workflows involved in a typical balena deployment, with enough detail to answer the most common questions. If you're ready to dig in deeper, why not [get started](../../../getting-started/) with a project of your own?
+If you're eager to learn more about the inner workings, you're in luck! This guide covers the components and workflows involved in a typical balena deployment, with enough detail to answer the most common questions. If you're ready to dig in deeper, why not [get started](../getting-started/) with a project of your own?
 
 Refer to the [balena Glossary](../more/glossary.md) for definition on any of the terms referred in the docs.
 
@@ -19,9 +19,9 @@ Devices in the balena ecosystem run [balenaOS](https://www.balena.io/os), a bare
 
 ### Host and kernel updates
 
-Balena is built with the goal of 100% updatability. While the balena device supervisor and your application containers are easy to update without losing connection to the device, the [process for updating](../../reference/OS/updates/update-process.md) the host OS involves a few more steps. To mitigate problems while updating, balena creates an additional partition of identical size to the boot partition. The supervisor downloads a new OS version and boots the device from the alternative boot partition. This way, we can ensure that the new version of the OS is downloaded and installed correctly before rebooting the device to the new version. Even if the new version fails to boot for some reason, our system is built in such a way that the next boot will bring the device back to the original working version of the host OS, operating and ready to download a correctly installed new version.
+Balena is built with the goal of 100% updatability. While the balena device supervisor and your application containers are easy to update without losing connection to the device, the [process for updating](../../reference/os/updates/update-process.md) the host OS involves a few more steps. To mitigate problems while updating, balena creates an additional partition of identical size to the boot partition. The supervisor downloads a new OS version and boots the device from the alternative boot partition. This way, we can ensure that the new version of the OS is downloaded and installed correctly before rebooting the device to the new version. Even if the new version fails to boot for some reason, our system is built in such a way that the next boot will bring the device back to the original working version of the host OS, operating and ready to download a correctly installed new version.
 
-It is important to note that all balena devices, both those in production and development today, have the ability to have their host OS updated. For most devices, this can even be done directly [through the dashboard](../../reference/OS/updates/self-service.md).
+It is important to note that all balena devices, both those in production and development today, have the ability to have their host OS updated. For most devices, this can even be done directly [through the dashboard](../../reference/os/updates/self-service.md).
 
 ### Device provisioning
 
@@ -31,7 +31,7 @@ First, the device connects to the network and performs its early provisioning, w
 
 ## Code deployment
 
-`balena push` is the recommended method for deployment and [development](../develop/local-mode.md) on the balenaCloud platform. To use `balena push` you need to first [install the balena CLI](../../../external-docs/balena-cli/latest.md#installation) and ensure you are logged in to your account with `balena login`.
+`balena push` is the recommended method for deployment and [development](../develop/local-mode.md) on the balenaCloud platform. To use `balena push` you need to first [install the balena CLI](../../external-docs/balena-cli/latest.md#installation) and ensure you are logged in to your account with `balena login`.
 
 <figure><img src="../../.gitbook/assets/balena-push (1) (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
@@ -49,7 +49,7 @@ For Node.js services, you can use a package.json file without a Dockerfile. In t
 
 Once your Docker images are built, they are stored in our container registry, and the balena device supervisor is alerted that a new version of your application is ready. If a device is offline at the time, it will be made aware of the new containers when it comes back online. The communication between balena and your device is encrypted at all times, either through HTTPS or a VPN that we set up for the devices in your fleet.
 
-The device supervisor, using [delta updates](../deploy/delta.md), then downloads the binary differences between the old and the new images, stops the old services, and starts the new ones. You can control the exact sequence by configuring the supervisor to use [different update strategies](../deploy/release-strategy/update-strategies.md). The services themselves can also make use of [update locking](../../../external-docs/update-locking.md) to block updates from happening during critical times (e.g. [a drone that is flying](https://www.youtube.com/watch?time_continue=1569\&v=75vm6rRb6K0), or an industrial machine that is in the middle of an operation).
+The device supervisor, using [delta updates](../deploy/delta.md), then downloads the binary differences between the old and the new images, stops the old services, and starts the new ones. You can control the exact sequence by configuring the supervisor to use [different update strategies](../deploy/release-strategy/update-strategies.md). The services themselves can also make use of [update locking](../../external-docs/update-locking.md) to block updates from happening during critical times (e.g. [a drone that is flying](https://www.youtube.com/watch?time_continue=1569\&v=75vm6rRb6K0), or an industrial machine that is in the middle of an operation).
 
 As the downloads proceed, you can watch the progress in the balena dashboard. You can click on any device to see more detailed information about the services being downloaded:
 
@@ -59,4 +59,4 @@ As the downloads proceed, you can watch the progress in the balena dashboard. Yo
 
 Once your services are up and running, you can use the dashboard to monitor and interact with them. Messages from the device supervisor, as well as anything written by your services to `stdout` and `stderr`, will appear in the _Logs_ window, which can be filtered by service. Our built-in [web terminal](../manage/ssh-access.md) allows you to SSH into any running services, as well as the underlying host OS.
 
-Much of the device, service, and fleet information provided by the dashboard is managed through the [balena API](../../reference/api/), and can also be viewed and modified using the [CLI](../../../external-docs/balena-cli/latest.md) or the [Node.js](../../../external-docs/sdk/node-sdk/latest.md) and [Python](../../../external-docs/sdk/python-sdk/latest.md) SDKs. Balena has been designed so users can build rich experiences, combining device-level data provided by balena with higher-level fleet-specific data that lives in other data domains.
+Much of the device, service, and fleet information provided by the dashboard is managed through the [balena API](../../reference/api/), and can also be viewed and modified using the [CLI](../../external-docs/balena-cli/latest.md) or the [Node.js](../../external-docs/sdk/node-sdk/latest.md) and [Python](../../external-docs/sdk/python-sdk/latest.md) SDKs. Balena has been designed so users can build rich experiences, combining device-level data provided by balena with higher-level fleet-specific data that lives in other data domains.
