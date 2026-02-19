@@ -76,8 +76,8 @@ const svgCreator = async function (data, name) {
   return filePathContract
 };
 
-const etcherLinkInstruction = `[Etcher](https://www.etcher.io/)`
-const sdCardInstruction = `Insert the freshly flashed sdcard into`
+const etcherLinkInstruction = `[Etcher](https://etcher.balena.io/)`
+const sdCardInstruction = `Insert the freshly flashed SD card into`
 
 /**
  * Adds gifs and screenshots where needed in the provisioning instructions.
@@ -97,13 +97,13 @@ function prepareInstructions(instructions) {
   const etcherIndex = instructions.findIndex((instruction) => instruction.includes(etcherLinkInstruction))
   // findIndex returns -1 as output when the element can't be found 
   if (etcherIndex !== -1) {
-    instructions.splice(etcherIndex + 1, 0, `![etcher flashing](/img/common/etcher/etcher.gif)`)
+    instructions.splice(etcherIndex + 1, 0, `\n\n<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">\n`)
   }
 
   // Add SD card GIF to instructions
   const sdCardIndex = instructions.findIndex((instruction) => instruction.includes(sdCardInstruction))
   if (sdCardIndex !== -1) {
-    instructions.splice(sdCardIndex + 1, 0, `![insert SD card](/img/gifs/insert-sd.gif)`)
+    instructions.splice(sdCardIndex + 1, 0, `\n\n<img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">\n`)
   }
 
   return instructions

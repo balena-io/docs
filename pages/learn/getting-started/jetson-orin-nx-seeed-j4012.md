@@ -56,7 +56,11 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 * For balenaOS versions v6.1.16 and newer, please ensure your device is running UEFI firmware version 36.3.0. Check and update the [firmware version](https://docs.balena.io/learn/develop/hardware/jetson-orin/jetson-orin-nx-seeed-j4012/#checking-your-jetson-orins-uefi-firmware-version) before proceeding. For balenaOS versions older than v6.1.16, please refer to the [Seeed reComputer J4012 (Classic) Jetson Orin NX 16GB legacy flashing](https://github.com/balena-os/jetson-flash?tab=readme-ov-file) guide.
 * Insert the USB key to the host machine.
-* Write the balenaOS file you downloaded to the USB key. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Write the balenaOS file you downloaded to the USB key. We recommend using [Etcher](https://etcher.balena.io/).
+* 
+
+<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+
 * Wait for writing of balenaOS to complete.
 * Remove the USB key from the host machine.
 * Insert the freshly flashed USB key into the Seeed reComputer J4012 (Classic) Jetson Orin NX 16GB.

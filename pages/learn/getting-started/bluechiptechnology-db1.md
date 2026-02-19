@@ -55,10 +55,18 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
 * Insert the SD card to the host machine.
-* Write the balenaOS file you downloaded to the SD card. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
+* 
+
+<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+
 * Wait for writing of balenaOS to complete.
 * Remove the SD card from the host machine.
 * Insert the freshly flashed SD card into the Blue Chip Technology DB1.
+* 
+
+<img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
+
 * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
 * Connect power to the Blue Chip Technology DB1
 * Wait for the Blue Chip Technology DB1 to finish flashing and shutdown. Please wait until Screen and ethernet green LED are off.

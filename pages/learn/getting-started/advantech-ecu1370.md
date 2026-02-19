@@ -55,10 +55,18 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
 * Insert the SD card to the host machine.
-* Write the balenaOS file you downloaded to the SD card. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
+* 
+
+<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+
 * Wait for writing of balenaOS to complete.
 * Remove the SD card from the host machine.
 * Insert the freshly flashed SD card into the Advantech ECU1370.
+* 
+
+<img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
+
 * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
 * Switch SW2 to 1: OFF, 2: ON. Insert SD card and power on the board. Wait for LP3 to blink for at least 10 seconds.
 * Wait for the Advantech ECU1370 to finish flashing and shutdown. Please wait until LP3 blinks.
