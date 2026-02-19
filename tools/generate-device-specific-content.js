@@ -14,13 +14,13 @@ const DEVICE_IMG_PATH = '../pages/.gitbook/assets/';
 const GUIDE_TEMPLATE_FILE_PATH = '../templates/getting-started.md';
 const WHAT_YOU_NEED_TEMPLATE_PATH = '../templates/whatYouNeed/';
 const DEVICE_LIST_TEMPLATE_PATH = '../templates/device-list.md';
-const GUIDES_DEST_FOLDER = '../getting-started/';
+const GUIDES_DEST_FOLDER = '../pages/learn/getting-started/';
 const DEVICE_LIST_DEST_FOLDER = '../pages/reference/hardware/';
 const TROUBLESHOOTING_TEMPLATE_PATH = '../templates/troubleshooting.md';
 const TROUBLESHOOTING_TEMPLATE_DT_PATH = '../templates/troubleshooting/';
-const TROUBLESHOOTING_DEST_FOLDER = '../troubleshooting/';
+const TROUBLESHOOTING_DEST_FOLDER = '../pages/faq/troubleshooting/';
 const CONFIG_LIST_TEMPLATE_PATH = '../templates/config-list.md';
-const CONFIG_LIST_DEST_FOLDER = '../config-list/';
+const CONFIG_LIST_DEST_FOLDER = '../pages/reference/supervisor/config-list/';
 
 const
   balena = getSdk({
@@ -203,7 +203,7 @@ const generateGettingStartedGuides = async (deviceTypes) => {
   await updateSummaryFile(
     deviceTypes,
     'Getting Started',
-    '../getting-started',
+    'learn/getting-started',
     (deviceTypeName) => `Getting started with ${deviceTypeName}`,
   );
 }
@@ -239,7 +239,7 @@ const generateTroubleshootingPages = async (deviceTypes) => {
   await updateSummaryFile(
     deviceTypes,
     'Troubleshooting',
-    '../troubleshooting',
+    'faq/troubleshooting',
     (deviceTypeName) => `Troubleshooting information for ${deviceTypeName}`,
   );
 }
@@ -285,7 +285,7 @@ const generateConfigListPages = async (deviceTypes) => {
   await updateSummaryFile(
     deviceTypes,
     'Configuration List',
-    '../config-list',
+    'reference/supervisor/config-list',
     (deviceTypeName) => `Configuration List for ${deviceTypeName}`,
   );
 }

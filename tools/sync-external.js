@@ -25,7 +25,7 @@ const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const MANIFEST_PATH = path.join(ROOT_DIR, 'external-docs.json');
-const SUMMARY_PATH = path.join(ROOT_DIR, 'summary/', 'SUMMARY.md');
+const SUMMARY_PATH = path.join(ROOT_DIR, 'pages/', 'SUMMARY.md');
 const SEPARATOR = '='.repeat(60);
 const GITHUB_API_BASE = 'https://api.github.com';
 const HEADER_REGEX = /^#+\s+/;
@@ -486,7 +486,7 @@ async function processVersionedSources(manifest) {
 
 /**
  * @param {Object} versionedData - Format: { 
- * 'external-docs/balena-cli': [{ filePath: 'external-docs/balena-cli/latest.md', pageTitle: 'Latest' }],
+ * 'pages/external-docs/balena-cli': [{ filePath: 'pages/external-docs/balena-cli/latest.md', pageTitle: 'Latest' }],
  * ... 
  * }
  */
@@ -510,22 +510,23 @@ function updateSummaryWithVersionedData(versionedData) {
             if (!line || line.trim() === "") continue;
             const currentIndentMatch = line.match(/^(\s*)/);
             const currentIndent = currentIndentMatch ? currentIndentMatch[0] : "";
-            // If the indentation is same or less than parent, the list has ended
             if (currentIndent.length <= parentIndent.length && line.trim() !== "") break;
             lastIndex = i;
         }
         return lastIndex;
     };
 
-    // Depth-sort helps process 'sdk' before 'sdk/node-sdk'
     const entries = Object.entries(versionedData).sort((a, b) => a[0].length - b[0].length);
 
     entries.forEach(([sourceDir, files]) => {
         if (!files || files.length === 0) return;
 
-        // Logical mapping: external-docs/sdk/node-sdk -> reference/sdk/node-sdk
-        const logicalPath = sourceDir.replace('external-docs/', 'reference/');
-        const anchorUrl = `(../pages/${logicalPath}/`;
+        // FIX 1: Strip 'pages/' from the start of the sourceDir for mapping
+        const cleanSourceDir = sourceDir.replace(/^pages\//, '');
+        const logicalPath = cleanSourceDir.replace('external-docs/', 'reference/');
+        
+        // Anchor now looks for (reference/balena-cli/
+        const anchorUrl = `(${logicalPath}/`; 
         let startIndex = lines.findIndex(line => line.includes(anchorUrl));
 
         // 1. NESTING & SECTION APPEND
@@ -533,9 +534,8 @@ function updateSummaryWithVersionedData(versionedData) {
             const pathParts = logicalPath.split('/');
             
             if (pathParts.length > 2) {
-                // Handle nested folders like SDK
                 const parentDirPath = pathParts.slice(0, -1).join('/');
-                const parentAnchor = `(../pages/${parentDirPath}/`;
+                const parentAnchor = `(${parentDirPath}/`;
                 let parentIndex = lines.findIndex(line => line.includes(parentAnchor));
 
                 if (parentIndex !== -1) {
@@ -544,40 +544,33 @@ function updateSummaryWithVersionedData(versionedData) {
                     const newChildIndent = parentIndent + (parentIndent.includes('\t') ? '\t' : '  ');
                     const label = pathParts[pathParts.length - 1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
                     
-                    lines.splice(lastLineOfParent + 1, 0, `${newChildIndent}* [${label}](../pages/${logicalPath}/README.md)`);
+                    lines.splice(lastLineOfParent + 1, 0, `${newChildIndent}* [${label}](${logicalPath}/README.md)`);
                     startIndex = lastLineOfParent + 1;
                 }
             } 
             
-            // Fallback for top-level (like CLI)
             if (startIndex === -1) {
                 const sectionHeader = `## Reference`;
                 let headerIndex = lines.findIndex(l => l.trim().startsWith(sectionHeader));
 
                 if (headerIndex !== -1) {
-                    // FIND THE TRUE END OF THE SECTION
                     let insertAt = headerIndex + 1;
                     while (insertAt < lines.length) {
                         const line = lines[insertAt].trim();
-                        // Stop if we hit a new section header
                         if (line.startsWith('##')) break;
-                        
-                        // If it's a top-level list item (indent 0), find the end of ITS children
                         if (line.startsWith('*')) {
                             insertAt = findEndOfList(insertAt) + 1;
-                            continue; // Check the new index
+                            continue;
                         }
                         insertAt++;
                     }
 
-                    // Backtrack past trailing whitespace
                     while (insertAt > headerIndex + 1 && (!lines[insertAt-1] || lines[insertAt-1].trim() === "")) {
                         insertAt--;
                     }
 
                     const label = pathParts[pathParts.length - 1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                    // Force 0 indentation for top-level items
-                    lines.splice(insertAt, 0, `* [${label}](../pages/${logicalPath}/README.md)`);
+                    lines.splice(insertAt, 0, `* [${label}](${logicalPath}/README.md)`);
                     startIndex = insertAt;
                 }
             }
@@ -619,8 +612,9 @@ function updateSummaryWithVersionedData(versionedData) {
                 return bName.localeCompare(aName, undefined, { numeric: true });
             })
             .map(fileObj => {
-                const relativeUrl = `../${fileObj.filePath}`; 
-                return `${childIndent}* [${fileObj.pageTitle}](${relativeUrl})`;
+                // FIX 2: Strip 'pages/' from the link path as well
+                const cleanFilePath = fileObj.filePath.replace(/^pages\//, '');
+                return `${childIndent}* [${fileObj.pageTitle}](${cleanFilePath})`;
             });
 
         lines.splice(startIndex + 1, scanIndex - (startIndex + 1), ...staticLines, ...versionLines);

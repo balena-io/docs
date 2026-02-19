@@ -1,8 +1,13 @@
 [
   {
     "id": "latest",
-    "name": "v23.2.30 latest",
-    "version": "v23.2.30"
+    "name": "v24.0.2 latest",
+    "version": "v24.0.2"
+  },
+  {
+    "id": "v23.2.32",
+    "name": "v23.2.32",
+    "version": "v23.2.32"
   },
   {
     "id": "v22.5.5",

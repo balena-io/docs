@@ -10,7 +10,7 @@ The Orin Nano production module has the part number 900-13767-0030-000, which ca
 
 When this module is used with the carrier board provided by the Orin Nano Devkit, a debug interface is available on the UART TXD, UART RXD and GND pins, which are located underneath the Orin module. Additionally, a monitor can be connected to the board's Display Port.
 
-The default internal storage used for provisioning balenaOS on the Orin Nano Production module is an NVMe drive, which needs to be attached to the carrier board prior to booting via a USB flash drive containing the balenaOS flasher image. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target\_devices](../../../../reference/OS/configuration.md#target_devices) configuration option or the [alternative provisioning options](jetson-orin-nano-devkit-nvme-prod.md#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS on the Orin Nano Production module is an NVMe drive, which needs to be attached to the carrier board prior to booting via a USB flash drive containing the balenaOS flasher image. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target\_devices](../../../../reference/os/configuration.md#target_devices) configuration option or the [alternative provisioning options](jetson-orin-nano-devkit-nvme-prod.md#alternative-provisioning-options) section.
 
 #### **Checking your Jetson Orin's UEFI firmware version**
 
@@ -139,7 +139,7 @@ If a display is connected to the device, the firmware update process will also b
 By default, most Jetson Orin devices need an internal storage media and a USB flash drive in order to be provisioned. When using the Jetson Orin Nano Devkit with a Jetson Orin Nano 8GB production module, an NVMe drive has to be attached to the carrier board before starting the provisioning process.
 
 * If you would like to use a USB flash drive to flash an NVMe drive attached to your Jetson Orin Nano, simply insert the USB flash drive into your device and connect power to the board.
-* If you would like the same SD-Card, USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate](../../../../reference/OS/configuration.md#migrate) and [installer.target\_devices](../../../../reference/OS/configuration.md#target_devices) configuration options:
+* If you would like the same SD-Card, USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate](../../../../reference/os/configuration.md#migrate) and [installer.target\_devices](../../../../reference/os/configuration.md#target_devices) configuration options:
 
 ```json
 "installer": {
@@ -162,7 +162,7 @@ Available target devices are:
 
 <summary>How do I set this configuration in my balenaOS image?</summary>
 
-1. Make sure you have [jq](https://jqlang.org/download/) and the [balena CLI](../../../../../external-docs/balena-cli/latest.md) installed on your host/development PC. You can obtain it from [here](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md).
+1. Make sure you have [jq](https://jqlang.org/download/) and the [balena CLI](../../../../external-docs/balena-cli/latest.md) installed on your host/development PC. You can obtain it from [here](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md).
 2. Download the balenaOS image from the balenaCloud dashboard or use the balena CLI to obtain one:
 
 ```shell
@@ -201,8 +201,8 @@ sudo balena config inject config.json -d balena.img
 7. Ensure the power cable is disconnected from the Orin Nano Devkit.
 8. Insert the freshly flashed SD-CARD, USB flash drive or NVMe drive into the Devkit and connect its power cable.
 9. Once provisioning is complete, the board will perform one of the following actions:
-   * restart and boot balenaOS automatically, if [installer.migrate.force](../../../../reference/OS/configuration.md#migrate) has been set in [config.json](../../../../reference/OS/configuration.md#about-config.json).
-   * shut down if [installer.migrate.force](../../../../reference/OS/configuration.md#migrate) has not been set in [config.json](../../../../reference/OS/configuration.md#about-config.json) Unplug the external flasher medium and then remove and re-connect the power cable to the Devkit.
+   * restart and boot balenaOS automatically, if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has been set in [config.json](../../../../reference/os/configuration.md#about-config.json).
+   * shut down if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has not been set in [config.json](../../../../reference/os/configuration.md#about-config.json) Unplug the external flasher medium and then remove and re-connect the power cable to the Devkit.
 10. Your device should appear in your application dashboard within a few minutes.
 
 </details>

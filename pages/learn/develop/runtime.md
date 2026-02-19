@@ -92,7 +92,7 @@ To use the `dbus-send` command in the example you will need to install the `dbus
 
 #### Change the Device hostname
 
-Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the [host OS](../../reference/OS/overview.md) is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API](../../../reference/supervisor/supervisor-api/#patch-v1devicehost-config)
+Changing the device hostname via a dbus-send method invocation of `org.freedesktop.hostname1.SetHostname` is no longer possible, due to the fact that this would attempt to write to `/etc/hostname`, which on the [host OS](../../reference/os/overview.md) is stored in the read-only root partition. To change the device hostname, use the [balena supervisor API](../../external-docs/supervisor-api.md#patch-v1-device-host-config)
 
 #### Rebooting the Device
 
@@ -197,7 +197,7 @@ curl -X POST --header "Content-Type:application/json" \
     "$BALENA_SUPERVISOR_ADDRESS/v1/reboot?apikey=$BALENA_SUPERVISOR_API_KEY"
 ```
 
-[Read more about the supervisor API](../../reference/supervisor/supervisor-api.md#post-v1-reboot)
+[Read more about the supervisor API](../../external-docs/supervisor-api.md#post-v1-reboot)
 
 {% hint style="warning" %}
 `BALENA_SUPERVISOR_API_KEY` and `BALENA_SUPERVISOR_ADDRESS` should already be in your environment by default for single containers, but for multicontainer devices the service needs the [io.resin.features.supervisor-api](../../reference/supervisor/docker-compose.md#labels) set . You will also **need** `curl` installed in your container.
@@ -259,7 +259,7 @@ For multicontainer releases, setting the service `network_mode` to `host` in `do
 Balena `docker-compose.yml` files support the creation of multiple bridge networks allowing you to compartmentalize further, so that some services exist in only one defined network, whereas others may be able to communicate in many. The `aliases` [keyword](https://docs.docker.com/compose/compose-file/compose-file-v2/#aliases) for providing alias names for services (including FQDNs) and [IPAM bridge networks](https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference) are also supported.
 
 {% hint style="warning" %}
-For more information on networking with balena, see the [balena services masterclass](../more/masterclasses/services-masterclass.md#id-4.-networking-types).
+For more information on networking with balena, see the [balena services masterclass](../../external-docs/masterclasses/services-masterclass.md#id-4.-networking-types).
 {% endhint %}
 
 ### Public device URLS
@@ -319,7 +319,7 @@ When using named volumes, note that:
 
 Since balena-supervisor v10.0.0, volumes are no longer automatically removed from disk when references to them are removed from a fleet's `docker-compose` file. This means that it's no longer possible for data to be lost due to the accidental rename of a volume.
 
-If you change volume names regularly, your device will now continue to retain all previous volumes including their contents. To avoid this the supervisor API now provides an [endpoint to cleanup unreferenced volumes](../../reference/supervisor/supervisor-api.md#cleanup-volumes-with-no-references). Additionally, it is possible to perform this action from the dashboard via the `Purge Data` action, found on the `Actions` tab for a device.
+If you change volume names regularly, your device will now continue to retain all previous volumes including their contents. To avoid this the supervisor API now provides an [endpoint to cleanup unreferenced volumes](../../external-docs/supervisor-api.md#cleanup-volumes-with-no-references). Additionally, it is possible to perform this action from the dashboard via the `Purge Data` action, found on the `Actions` tab for a device.
 
 {% hint style="warning" %}
 Volumes will continue to be removed automatically when moving a device between fleets.

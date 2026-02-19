@@ -19,7 +19,7 @@
       "files": [
         {
           "source": "diagnostics.md",
-          "target": "external-docs/diagnostics.md"
+          "target": "pages/external-docs/diagnostics.md"
         }
       ]
     },
@@ -30,11 +30,11 @@
       "files": [
         {
           "source": "docs/update-locking.md",
-          "target": "external-docs/update-locking.md"
+          "target": "pages/external-docs/update-locking.md"
         },
         {
           "source": "docs/API.md",
-          "target": "external-docs/supervisor-api.md"
+          "target": "pages/external-docs/supervisor-api.md"
         },
         {
           "source": "docs/debugging-supervisor.md",
@@ -57,11 +57,11 @@
         },
         {
           "source": "docs/rollbacks.md",
-          "target": "external-docs/rollbacks.md"
+          "target": "pages/external-docs/rollbacks.md"
         },
         {
           "source": "contributing-device-support.md",
-          "target": "external-docs/customer-board-support.md"
+          "target": "pages/external-docs/customer-board-support.md"
         },
         {
           "source": "docs/debugging-balenaos.md",
@@ -88,7 +88,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "external-docs/deprecation-policy.md",
+          "target": "pages/external-docs/deprecation-policy.md",
           "transform": [
             {
               "type": "extract-section",
@@ -109,7 +109,7 @@
       "files": [
         {
           "source": "docs/base-images-ref.md",
-          "target": "external-docs/base-images-ref.md",
+          "target": "pages/external-docs/base-images-ref.md",
           "transform": {
             "type": "prepend",
             "content": "# [Deprecated] Balenalib Images List\n\n"
@@ -124,7 +124,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "external-docs/masterclasses/cli-masterclass.md"
+          "target": "pages/external-docs/masterclasses/cli-masterclass.md"
         }
       ]
     },
@@ -135,7 +135,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "external-docs/masterclasses/advanced-cli.md"
+          "target": "pages/external-docs/masterclasses/advanced-cli.md"
         }
       ]
     },
@@ -146,7 +146,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "external-docs/masterclasses/host-os-masterclass.md"
+          "target": "pages/external-docs/masterclasses/host-os-masterclass.md"
         }
       ]
     },
@@ -157,7 +157,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "external-docs/masterclasses/services-masterclass.md"
+          "target": "pages/external-docs/masterclasses/services-masterclass.md"
         }
       ]
     },
@@ -168,7 +168,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "external-docs/masterclasses/fleet-management.md"
+          "target": "pages/external-docs/masterclasses/fleet-management.md"
         }
       ]
     },
@@ -179,7 +179,7 @@
       "files": [
         {
           "source": "README.md",
-          "target": "external-docs/masterclasses/docker-masterclass.md"
+          "target": "pages/external-docs/masterclasses/docker-masterclass.md"
         }
       ]
     }
@@ -190,7 +190,7 @@
       "repo": "balena-io/balena-cli",
       "ref": "v23.2.30",
       "file": "docs/balena-cli.md",
-      "targetDir": "external-docs/balena-cli",
+      "targetDir": "pages/external-docs/balena-cli",
       "dictionary": "config/dictionaries/balenacli.json"
     },
     {
@@ -198,7 +198,7 @@
       "repo": "balena-io/balena-sdk",
       "ref": "v22.4.7",
       "file": "DOCUMENTATION.md",
-      "targetDir": "external-docs/sdk/node-sdk",
+      "targetDir": "pages/external-docs/sdk/node-sdk",
       "dictionary": "config/dictionaries/nodesdk.json"
     },
     {
@@ -206,7 +206,7 @@
       "repo": "balena-io/balena-sdk-python",
       "ref": "v15.1.4",
       "file": "DOCUMENTATION.md",
-      "targetDir": "external-docs/sdk/python-sdk",
+      "targetDir": "pages/external-docs/sdk/python-sdk",
       "dictionary": "config/dictionaries/pythonsdk.json"
     }
   ],

@@ -41,7 +41,7 @@ Amazon Aurora is a global-scale relational database service built for the cloud 
 
 ### balena CLI
 
-**(balena specific term)** The Command Line Interface for interacting with balenaCloud, openBalena and local balenaOS devices. [more](../../../external-docs/balena-cli/latest.md)
+**(balena specific term)** The Command Line Interface for interacting with balenaCloud, openBalena and local balenaOS devices. [more](../../external-docs/balena-cli/latest.md)
 
 ### balenaCloud
 
@@ -65,7 +65,7 @@ Amazon Aurora is a global-scale relational database service built for the cloud 
 
 ### balenaOS
 
-**(balena specific term)** An operating system optimized for running Docker containers on embedded devices, with an emphasis on reliability over long periods of operation. Based on Yocto. [more](../../reference/OS/overview.md)
+**(balena specific term)** An operating system optimized for running Docker containers on embedded devices, with an emphasis on reliability over long periods of operation. Based on Yocto. [more](../../reference/os/overview.md)
 
 ### balenaOS image
 
@@ -123,7 +123,7 @@ Command Line Interface is 'a text-based user interface (UI) used to run programs
 
 ### config.json
 
-**(configuration files are not unique to balena, but in this instance it's a reference specific to balena)** 'The main configuration file'. A file located on the boot partition of balenaOS devices, which can be used to modify the behaviour of the OS. [more](../../reference/OS/configuration.md)
+**(configuration files are not unique to balena, but in this instance it's a reference specific to balena)** 'The main configuration file'. A file located on the boot partition of balenaOS devices, which can be used to modify the behaviour of the OS. [more](../../reference/os/configuration.md)
 
 ### Container (docker)
 

@@ -1,7 +1,17 @@
 [
   {
     "id": "latest",
-    "name": "v15.1.5 latest",
+    "name": "v17.0.0 latest",
+    "version": "v17.0.0"
+  },
+  {
+    "id": "v16.0.0",
+    "name": "v16.0.0",
+    "version": "v16.0.0"
+  },
+  {
+    "id": "v15.1.5",
+    "name": "v15.1.5",
     "version": "v15.1.5"
   },
   {

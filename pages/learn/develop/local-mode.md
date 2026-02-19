@@ -12,8 +12,8 @@ Local mode is the development mode for balena. It allows you to build and sync c
 To use local mode on a device:
 
 * The device must be running balenaOS v2.29.0 or higher.
-* The device must be running a [development](../../reference/OS/overview.md) variant of the OS.
-* You must have the [balena CLI](../../../external-docs/balena-cli/latest.md) installed on your development machine.
+* The device must be running a [development](../../reference/os/overview.md) variant of the OS.
+* You must have the [balena CLI](../../external-docs/balena-cli/latest.md) installed on your development machine.
 * Local mode must be enabled through the balenaCloud dashboard. You can enable it from the device _Settings_ tab.
 
 <figure><img src="../../.gitbook/assets/enable-local-mode (2) (1).webp" alt=""><figcaption></figcaption></figure>

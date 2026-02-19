@@ -16,7 +16,7 @@ Configuration defined in the dashboard will not apply to devices in [local mode]
 
 Aside from [variables](variables.md), you can also configure device behavior with Supervisor or device type specific variables.
 
-For a complete list of valid configuration variables that can be configured, check the [configuration list](../../../config-list/).
+For a complete list of valid configuration variables that can be configured, check the [configuration list](../../reference/supervisor/config-list/).
 
 ## Fleet configuration management
 
@@ -56,7 +56,7 @@ To replace the balena logo with your custom splash logo, go to your Fleet or Dev
 
 ## Adding custom configuration
 
-The custom configuration section can be used to modify configuration options beyond the ones pre-populated for your device using the balenaCloud dashboard. Examples include, [modifying config.txt using configuration variables](../../reference/OS/advanced.md#modifying-config.txt-using-configuration-variables) for Raspberry Pi devices.
+The custom configuration section can be used to modify configuration options beyond the ones pre-populated for your device using the balenaCloud dashboard. Examples include, [modifying config.txt using configuration variables](../../reference/os/advanced.md#modifying-config.txt-using-configuration-variables) for Raspberry Pi devices.
 
 To define custom fleet wide configuration, scroll past the automatically populated options, then click the _Add custom configuration_ button in the lower-right corner:
 
@@ -71,5 +71,5 @@ Adding custom device configuration is similar to adding custom fleet configurati
 <figure><img src="../../.gitbook/assets/add_device_custom_variable (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
-In addition to the dashboard, this configuration can be also be set using the API or any of its clients, including the [SDK](../../../external-docs/sdk/node-sdk/latest.md) and [CLI](../../../external-docs/balena-cli/latest.md).
+In addition to the dashboard, this configuration can be also be set using the API or any of its clients, including the [SDK](../../external-docs/sdk/node-sdk/latest.md) and [CLI](../../external-docs/balena-cli/latest.md).
 {% endhint %}

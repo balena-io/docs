@@ -66,7 +66,7 @@ Once the team is created, add members or grant the team access to fleets by clic
 
 ## Creating new fleets under your organization
 
-With members invited to the organization, let's get started on creating new fleets under an organization. Navigate to the `fleets` tab in the sidebar (under the correct Organization if you have multiple ones) to find the `Create fleet` button for creating a new fleet under your organization. Learn more about creating a fleet from the [getting started](../../../getting-started/) guide.
+With members invited to the organization, let's get started on creating new fleets under an organization. Navigate to the `fleets` tab in the sidebar (under the correct Organization if you have multiple ones) to find the `Create fleet` button for creating a new fleet under your organization. Learn more about creating a fleet from the [getting started](../getting-started/) guide.
 
 <figure><img src="../../.gitbook/assets/create_app_under_org (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
@@ -78,7 +78,7 @@ Moving an existing fleet to an organization is a common task accomplished by [tr
 
 ### Granting access to fleets
 
-Organization administrators can grant access to fleets either directly to individual members or to teams. There are three fleet-level roles that can be assigned, [`Developer`](../../../learn/accounts/fleet-members/#developer), [`Observer`](../../../learn/accounts/fleet-members/#observer), and [`Operator`](../../../learn/accounts/fleet-members/#operator), which grant varying levels of access. Administrators are implicitly granted full access to all fleets of the organization.
+Organization administrators can grant access to fleets either directly to individual members or to teams. There are three fleet-level roles that can be assigned, [`Developer`](fleet-members.md#developer), [`Observer`](fleet-members.md#observer), and [`Operator`](fleet-members.md#operator), which grant varying levels of access. Administrators are implicitly granted full access to all fleets of the organization.
 
 * **Granting individual members access to fleets** - Once you are done inviting members, click the username of the member you want to grant access from the `Members` list. On the member's summary page, click `Manage fleets`. From there, click the `Add to fleets` button to add the member to one or more fleets with the desired role.
 * **Granting teams access to fleets** - Teams and their members can be granted access to specific fleets from the `Organization Teams` tab. Click the `Manage fleets` button on the team summary page. From there, click the `Add fleets to team` button to add the team to one or more fleets available under the org with the desired roles. All team members will be granted access to the selected application(s) with the specified role per fleet.
