@@ -26,11 +26,11 @@ On the device we have a writable data partition that uses all the free space rem
 
 ### **What NTP servers do the devices use?**
 
-NTP servers used by devices are enumerated on the [time management](../reference/OS/time.md#networking-requirements) documentation page.
+NTP servers used by devices are enumerated on the [time management](../reference/os/time.md#networking-requirements) documentation page.
 
 ### **What network ports are required?**
 
-Please take a look at the [networking requirements](../reference/OS/network.md#network-requirements) section of our documentation.
+Please take a look at the [networking requirements](../reference/os/network.md#network-requirements) section of our documentation.
 
 ### **Can I use balenaCloud in countries with restrictive firewalls such as China?**
 
@@ -44,7 +44,7 @@ For fleets running [multiple containers](../learn/develop/multicontainer.md), yo
 
 ### **Can I set a static IP address for my device?**
 
-Yes! It's actually pretty easy. Have a look at the [network setup](../reference/OS/network.md#setting-a-static-ip) section of our documentation. In general, most network configurations can be achieved by changing the NetworkManager configuration file.
+Yes! It's actually pretty easy. Have a look at the [network setup](../reference/os/network.md#setting-a-static-ip) section of our documentation. In general, most network configurations can be achieved by changing the NetworkManager configuration file.
 
 ### **Why can't I SSH into or run code in older versions of the host OS?**
 
@@ -97,7 +97,7 @@ Generally, we try to follow good OPSEC practices for our systems. We support 2FA
 
 ### **How long is a balenaOS release maintained for?**
 
-BalenaOS comes in two flavors, a rolling release and an [Extended Support Release (ESR)](../reference/OS/extended-support-release.md). Rolling releases stop being maintained as soon as a new release is out. In other words, only the latest balenaOS release is maintained. ESR releases receive bug and security fixes for 9 months after its release date.
+BalenaOS comes in two flavors, a rolling release and an [Extended Support Release (ESR)](../reference/os/extended-support-release.md). Rolling releases stop being maintained as soon as a new release is out. In other words, only the latest balenaOS release is maintained. ESR releases receive bug and security fixes for 9 months after its release date.
 
 ### **When are device types discontinued?**
 
@@ -105,13 +105,13 @@ Device types are [discontinued](questions.md#what-does-it-mean-when-a-device-typ
 
 ### **What does it mean when a device type is discontinued?**
 
-Discontinued devices will continue to work as usual and will be able to use all balenaCloud functionality available at the time of the last balenaOS release. However, discontinued devices will no longer receive new balenaOS releases, except for [Extended Support Releases](../reference/OS/extended-support-release.md) that will continue to receive bug and security fixes for 9 months from the ESR release date. Balena will no longer offer support for discontinued devices on the paid support channels, but support is available in the forums.
+Discontinued devices will continue to work as usual and will be able to use all balenaCloud functionality available at the time of the last balenaOS release. However, discontinued devices will no longer receive new balenaOS releases, except for [Extended Support Releases](../reference/os/extended-support-release.md) that will continue to receive bug and security fixes for 9 months from the ESR release date. Balena will no longer offer support for discontinued devices on the paid support channels, but support is available in the forums.
 
 Please contact sales@balena.io with any questions regarding continued device support.
 
 ### **I have a device that is not on the supported devices list. Can it run on balena?**
 
-There are a few options for devices that do not have an official device type on balena. If your device has an x86 architecture, you can try either the [Intel NUC](../../getting-started/intel-nuc.md) image (which is built to support generic x86 devices with a minimum set of drivers), or the generic genericx86-64 image (that includes all the standard X86 drivers). For other devices, you can [build your own](https://github.com/balena-os/meta-balena/blob/master/contributing-device-support.md) version of balenaOS using our [open source repos](https://github.com/balena-os). To discuss custom board support, please contact sales@balena.io.
+There are a few options for devices that do not have an official device type on balena. If your device has an x86 architecture, you can try either the [Intel NUC](../learn/getting-started/intel-nuc.md) image (which is built to support generic x86 devices with a minimum set of drivers), or the generic genericx86-64 image (that includes all the standard X86 drivers). For other devices, you can [build your own](https://github.com/balena-os/meta-balena/blob/master/contributing-device-support.md) version of balenaOS using our [open source repos](https://github.com/balena-os). To discuss custom board support, please contact sales@balena.io.
 
 ### **What to keep in mind when choosing power supply units?**
 
