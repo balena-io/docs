@@ -25,7 +25,7 @@ which are explained below. The `io.balena.update.handover-timeout` label is only
 Prior to balena Supervisor v7.23.0 the strategy was controlled by two configuration variables, `RESIN_SUPERVISOR_UPDATE_STRATEGY` and `RESIN_SUPERVISOR_HANDOVER_TIMEOUT`, which had the same effect as the labels do today. This mechanism for controlling the strategy is considered _deprecated_ and may be removed in the future.
 {% endhint %}
 
-All update strategies below honor the [fleet update locks](update-locking.md) which you can use prevent updates temporarily.
+All update strategies below honor the [fleet update locks](../../../external-docs/update-locking.md) which you can use prevent updates temporarily.
 
 ## download-then-kill
 

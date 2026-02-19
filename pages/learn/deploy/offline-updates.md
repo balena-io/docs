@@ -11,9 +11,9 @@ Offline updates is a process to update devices without needing an internet conne
 
 ## Overview of the process
 
-When a device is reflashed, it defaults back to a factory state. The device is provisioned with a new identity, a new API key, and updated [`config.json`](../../reference/OS/configuration.md#valid-fields) settings. All services, data and logs stored on the device are erased permanently.
+When a device is reflashed, it defaults back to a factory state. The device is provisioned with a new identity, a new API key, and updated [`config.json`](../../reference/os/configuration.md#valid-fields) settings. All services, data and logs stored on the device are erased permanently.
 
-With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`](../../reference/OS/configuration.md#valid-fields). It uses [`balena preload`](../../../external-docs/balena-cli/latest.md#preload-1) to load an updated release. That way, the device will pick up right where it left off with the same name and UUID but with an updated release or/and balenaOS update.
+With the offline updates process, the device still resets to a default factory state. It adds a new API key while preserving its identity in [`config.json`](../../reference/os/configuration.md#valid-fields). It uses [`balena preload`](../../external-docs/balena-cli/latest.md#preload) to load an updated release. That way, the device will pick up right where it left off with the same name and UUID but with an updated release or/and balenaOS update.
 
 Broad steps of the process include:
 
@@ -32,11 +32,11 @@ Some consideration is required if an application requiring persistent data stora
 
 If this is the case, mount an external mass storage (USB) device into a privileged data container and share it with other containers (if applicable) via NFS or a similar network storage protocol for the data. These external storage devices are not a part of the update process. Hence, data on them would be left intact, as long as they are temporarily disconnected during the update process.
 
-By contrast, a typical balena online update leaves services and data intact, and [persistent logging](../../reference/OS/configuration.md#persistentlogging) can be enabled to save your logs across device restarts.
+By contrast, a typical balena online update leaves services and data intact, and [persistent logging](../../reference/os/configuration.md#persistentlogging) can be enabled to save your logs across device restarts.
 
 ## Performing an Offline Update
 
-To perform an offline update, we will be using [balena-cli](../../../external-docs/balena-cli/latest.md). All commands should work on Linux distributions running Docker on Linux Kernel with AUFS and overlay filesystem support. For Windows and macOS, the last version of Docker Desktop supporting AUFS is 18.06.1
+To perform an offline update, we will be using [balena-cli](../../external-docs/balena-cli/latest.md). All commands should work on Linux distributions running Docker on Linux Kernel with AUFS and overlay filesystem support. For Windows and macOS, the last version of Docker Desktop supporting AUFS is 18.06.1
 
 {% hint style="warning" %}
 In an offline updates process, all data on the device is wiped at this point, making this different from a typical software update process in the balena ecosystem. Any additional user data and system settings written to various device partitions would be lost in this process.
@@ -54,13 +54,13 @@ Offline update includes the following steps:
 * [Process of reprovisioning](offline-updates.md#process-of-reprovisioning)
 * [Update device registration(s)](offline-updates.md#update-device-registration-s)
 
-The process needs some prerequisite knowledge of the balena ecosystem, [balena-cli](../../../external-docs/balena-cli/latest.md) commands and shell commands. Please read all instructions carefully and make sure to try the update process first on a test device.
+The process needs some prerequisite knowledge of the balena ecosystem, [balena-cli](../../external-docs/balena-cli/latest.md) commands and shell commands. Please read all instructions carefully and make sure to try the update process first on a test device.
 
 ### Setup
 
-> Download and install [balena-cli](../../../external-docs/balena-cli/latest.md) on a Linux distribution. The commands have been tested to work on Ubuntu 20.04.
+> Download and install [balena-cli](../../external-docs/balena-cli/latest.md) on a Linux distribution. The commands have been tested to work on Ubuntu 20.04.
 
-Several `balena-cli` commands require access to a balenaCloud account. Those commands require creating a CLI login session by running [`balena login`](../../../external-docs/balena-cli/latest.md#login) in the terminal.
+Several `balena-cli` commands require access to a balenaCloud account. Those commands require creating a CLI login session by running [`balena login`](../../external-docs/balena-cli/latest.md#login) in the terminal.
 
 ```bash
 $ balena login
@@ -88,7 +88,7 @@ $ device_type=<DEVICE_TYPE>
 $ fleet_name=offline-${arch}
 ```
 
-These environment variables will be used later in the process. If a pre-existing fleet needs to be used, then the next step can be skipped. Otherwise, create a new balenaCloud fleet by running [`balena fleet create`](../../../external-docs/balena-cli/latest.md#fleet-create).
+These environment variables will be used later in the process. If a pre-existing fleet needs to be used, then the next step can be skipped. Otherwise, create a new balenaCloud fleet by running [`balena fleet create`](../../external-docs/balena-cli/latest.md#fleet-create).
 
 ```bash
 $ balena fleet create ${fleet_name} --type ${device_type}
@@ -114,7 +114,7 @@ OR
 $ uuid=<UUID OF YOUR DEVICE>
 ```
 
-With [`balena device register`](../../../external-docs/balena-cli/latest.md#device-register), devices can be preregistered to a balenaCloud fleet involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass](../../../external-docs/masterclasses/advanced-cli.md#id-5.2-preregistering-a-device). This step can be skipped if a pre-existing device is needed to be updated.
+With [`balena device register`](../../external-docs/balena-cli/latest.md#device-register), devices can be preregistered to a balenaCloud fleet involving a simple call with a unique identifier for the device. You can read more about the full process of pre-registering a device in the [balena-cli advanced masterclass](../../external-docs/masterclasses/advanced-cli.md#id-5.2-preregistering-a-device). This step can be skipped if a pre-existing device is needed to be updated.
 
 ```bash
 $ balena device register ${fleet_slug} --uuid ${uuid}
@@ -135,7 +135,7 @@ $ balena os download ${device_type} \
 
 ### Configure balenaOS Image
 
-Configure the downloaded image by injecting a [config.json](../../reference/OS/configuration.md#valid-fields) file using the [`balena os configure`](../../../external-docs/balena-cli/latest.md#os-configure) command. Most common system settings can be (re)specified via [config.json](../../reference/OS/configuration.md#valid-fields). To preserve the pre-existing registered device's identity, the same `uuid` initialized earlier will be used to generate a config.json file.
+Configure the downloaded image by injecting a [config.json](../../reference/os/configuration.md#valid-fields) file using the [`balena os configure`](../../external-docs/balena-cli/latest.md#os-configure) command. Most common system settings can be (re)specified via [config.json](../../reference/os/configuration.md#valid-fields). To preserve the pre-existing registered device's identity, the same `uuid` initialized earlier will be used to generate a config.json file.
 
 ```bash
 $ tmpconfig=$(mktemp)
@@ -162,10 +162,10 @@ $ rm ${config}
 
 ### Create and Preload Release
 
-Offline updates revolve around the concept of [balena preload](../../../external-docs/balena-cli/latest.md#preload-1). Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image](../../../external-docs/masterclasses/advanced-cli.md#id-5.1-preloading-a-device-image).
+Offline updates revolve around the concept of [balena preload](../../external-docs/balena-cli/latest.md#preload). Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image](../../external-docs/masterclasses/advanced-cli.md#id-5.1-preloading-a-device-image).
 
 {% hint style="warning" %}
-[balena preload](../../../external-docs/balena-cli/latest.md#preload-1) functionality requires Docker with AUFS support.
+[balena preload](../../external-docs/balena-cli/latest.md#preload) functionality requires Docker with AUFS support.
 {% endhint %}
 
 Preload involves flashing a fleet's release with the balenaOS image. If the pre-existing fleet doesn't have any releases, then a release needs to be created using [`balena deploy`](deployment.md#balena-build-and-deploy). Navigate to the directory of your source code folder and run the command below to deploy the latest release of your fleet. If a release is present already, then the next step can be skipped.
@@ -218,7 +218,7 @@ An example for Raspberry Pi devices: insert the recently flashed SD card and pow
 
 If a device isn't locally deployed, one can ship the flashed SD cards or USB sticks/drives to a remote location. There someone can run the update by simply inserting them into the devices and booting.
 
-If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys](../../reference/OS/configuration.md#sshkeys) during the configuration step will allow fleet managers at the remote site to connect to the device directly via OpenSSH and verify the update by examining container logs, etc.
+If the target device exists on an air-gapped or Internet restricted network, [inserting ssh keys](../../reference/os/configuration.md#sshkeys) during the configuration step will allow fleet managers at the remote site to connect to the device directly via OpenSSH and verify the update by examining container logs, etc.
 
 If the target device is connected via a low-bandwidth connection, it should eventually establish a connection to balenaCloud. Depending on the connection's quality, it may respond to [web terminal](../manage/ssh-access.md#using-the-dashboard-web-terminal) commands and output container logs to the dashboard.
 
@@ -257,7 +257,7 @@ $ curl --silent \
 
 #### \[Optional] Set Tags on Devices
 
-Tags help identify and track devices in your fleet as to what commit and OS version have they been flashed & updated offline with. One can use [`balena tag set`](../../../external-docs/balena-cli/latest.md#tag-set) to create new tags as needed.
+Tags help identify and track devices in your fleet as to what commit and OS version have they been flashed & updated offline with. One can use [`balena tag set`](../../external-docs/balena-cli/latest.md#tag-set) to create new tags as needed.
 
 ```bash
 $ balena tag set 'offline:commit' "${commit}" \
