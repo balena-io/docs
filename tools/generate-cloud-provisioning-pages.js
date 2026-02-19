@@ -7,7 +7,7 @@ const Handlebars = require('handlebars');
 const { updateSummaryFile } = require('./utils');
 const cloudDictionary = require('../config/dictionaries/cloud.json');
 
-const DEST_FOLDER = '../cloud-iot-provisioning';
+const DEST_FOLDER = '../pages/learn/develop/cloud-iot-provisioning';
 const TEMPLATE_PATH = '../templates/cloud-iot-provisioning.md';
 
 Handlebars.registerHelper('is', function(a, b, options) {
@@ -40,7 +40,7 @@ const generateCloudIoTProvisioningPages = async () => {
   await updateSummaryFile(
     cloudDictionary,
     'Provision with Cloud IoT',
-    '../cloud-iot-provisioning',
+    'learn/develop/cloud-iot-provisioning',
     (cloudPlatform) => `Cloud IoT Provisioning with ${cloudPlatform}`,
     );
 })();

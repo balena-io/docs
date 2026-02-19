@@ -1,7 +1,7 @@
 const { writeFile, readFile } = require('fs/promises');
 const path = require('path');
 
-const SUMMARY_FILE_PATH = '../summary/SUMMARY.md';
+const SUMMARY_FILE_PATH = '../pages/SUMMARY.md';
 
 /**
  * Find an item in the SUMMARY.md file and update it along with its children 
