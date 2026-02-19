@@ -101,7 +101,7 @@ If you do not have an existing key, you can follow [GitHub's documentation](http
 ### Troubleshooting with host OS access
 
 {% hint style="warning" %}
-For an in-depth guide to debugging balena devices see the [device debugging masterclass](../more/masterclasses/balena-device-debugging-masterclass.md).
+For an in-depth guide to debugging balena devices see the [device debugging masterclass](../more/masterclasses/device-debugging.md).
 {% endhint %}
 
 Host OS SSH access gives you a handful of tools that can help you gather more information about potential issues on your device.

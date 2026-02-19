@@ -15,7 +15,7 @@ Currently, the following masterclasses are available:
 * [Balena CLI advanced masterclass](../../../external-docs/masterclasses/advanced-cli.md) - a guide to the advanced features available in balena CLI.
 * [BalenaOS masterclass](../../../external-docs/masterclasses/host-os-masterclass.md) - an introduction to balenaOS.
 * [Balena fleet management masterclass](../../../external-docs/masterclasses/fleet-management.md) - a guide to managing a fleet with balena.
-* [Balena debugging masterclass](balena-device-debugging-masterclass.md) - a guide to debugging balena device issues.
+* [Balena debugging masterclass](device-debugging.md) - a guide to debugging balena device issues.
 * [Docker masterclass](../../../external-docs/masterclasses/docker-masterclass.md) - a guide covering the basics of Docker.
 * [Services masterclass](../../../external-docs/masterclasses/services-masterclass.md) - a guide to developing and deploying services on a balena device.
 * [Network masterclass](network-masterclass.md) - A standalone debugging guide to debugging network for a balena device.

@@ -62,4 +62,4 @@ The `Update status` currently focuses on application updates, and for the time b
 
 ## Debugging Device Status
 
-If you find your device to be displaying a status which is unclear even with the above notes, visit the [device debugging masterclass](../more/masterclasses/balena-device-debugging-masterclass.md) for more information.
+If you find your device to be displaying a status which is unclear even with the above notes, visit the [device debugging masterclass](../more/masterclasses/device-debugging.md) for more information.

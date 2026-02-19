@@ -1,4 +1,4 @@
-# Device debugging
+# Balena Device Debugging Masterclass
 
 ## Balena Device Debugging Masterclass
 
@@ -6,8 +6,8 @@
 
 This masterclass builds upon knowledge that has been taught in previous classes. To gain the most from this masterclass, we recommend that you first undertake the following masterclasses:
 
-* [Balena CLI Masterclass](https://github.com/balena-io/balena-cli-masterclass)
-* [BalenaOS Masterclass](https://github.com/balena-io/balenaos-masterclass/)
+* [Balena CLI Masterclass](../../../external-docs/masterclasses/cli-masterclass.md)
+* [BalenaOS Masterclass](../../../external-docs/masterclasses/host-os-masterclass.md)
 
 ### Introduction
 
@@ -64,9 +64,9 @@ Getting device operating system for raspberrypi4-64
 balenaOS image version 2022.7.0 downloaded successfully
 ```
 
-**Note:** Above, we used a [balenaOS Extended Support Release (ESR)](https://www.balena.io/docs/reference/OS/extended-support-release/). These ESRs are currently available for many device types, but only on paid plans and balena team member accounts. If you are going through this masterclass on a free plan, just pick the latest release available and the remainder of the guide is still applicable.
+**Note:** Above, we used a [balenaOS Extended Support Release (ESR)](../../../reference/os/extended-support-release.md). These ESRs are currently available for many device types, but only on paid plans and balena team member accounts. If you are going through this masterclass on a free plan, just pick the latest release available and the remainder of the guide is still applicable.
 
-Carry out any configuration generation required, should you be using a Wifi AP and inject the configuration into the image (see [balena CLI Advanced Masterclass](https://github.com/balena-io-projects/balena-cli-advanced-masterclass#32-configuring-a-provisioning-image) for more details), or use a configuration for an ethernet connection:
+Carry out any configuration generation required, should you be using a Wifi AP and inject the configuration into the image (see [balena CLI Advanced Masterclass](../../../external-docs/masterclasses/advanced-cli.md#id-3.2-configuring-a-provisioning-image) for more details), or use a configuration for an ethernet connection:
 
 ```shell
 $ balena os configure balena-debug.img --fleet DebugFleet --config-network=ethernet
@@ -123,7 +123,7 @@ To run health checks through balenaCloud dashboard, head to the `Diagnostics` ta
 
 ![diagnostics](https://user-images.githubusercontent.com/22801822/154141814-6953717d-f90a-456b-ad51-474b14dcc5e9.png)
 
-This will trigger a set of [health checks](https://www.balena.io/docs/reference/diagnostics#device-health-checks) to run on the device. You should see all the checks as `Succeeded` in the Success column if the device is healthy and there are no obvious faults.
+This will trigger a set of [health checks](../../../external-docs/diagnostics.md#device-health-checks) to run on the device. You should see all the checks as `Succeeded` in the Success column if the device is healthy and there are no obvious faults.
 
 That's no fun, let's create a fault.
 
@@ -191,7 +191,7 @@ We'll discuss issues with balenaEngine and the Supervisor later in this mastercl
 
 There are many other health checks that can immediately expose a problem. For example, warnings on low free memory or disk space can expose problems which will exhibit themselves as release updates failing to download, or service containers restarting abnormally (especially if a service runs unchecked and consumes memory until none is left). We'll also go through some of these scenarios later in this masterclass.
 
-Checkout the [Diagnostics page](https://www.balena.io/docs/reference/diagnostics) for more information on tests you can run on the device.
+Checkout the [Diagnostics page](../../../external-docs/diagnostics.md) for more information on tests you can run on the device.
 
 #### 3. Device Access Responsibilities
 
@@ -317,7 +317,7 @@ For determining networking issues, check out the [Network Debugging masterclass]
 
 #### 7. Working with the `config.json` File
 
-See the docs on [Configuring balenaOS](../../../reference/OS/configuration.md) to learn about working with the `config.json` file.
+See the docs on [Configuring balenaOS](../../../reference/os/configuration.md) to learn about working with the `config.json` file.
 
 #### 8. Working with the Supervisor
 
@@ -461,9 +461,9 @@ Aug 19 18:13:34 debug-device balena-supervisor[3089]: [success] Device state app
 
 Occasionally, there are situations where the Supervisor requires an update. This may be because a device needs to use a new feature or because the version of the Supervisor on a device is outdated and is causing an issue. Usually the best way to achieve this is via a balenaOS update, either from the dashboard or via the command line on the device.
 
-If updating balenaOS is not desirable or a user prefers updating the Supervisor independently, this can easily be accomplished using [self-service](https://www.balena.io/docs/reference/supervisor/supervisor-upgrades/) Supervisor upgrades. Alternatively, this can be programmatically done by using the Node.js SDK method [device.setSupervisorRelease](https://www.balena.io/docs/reference/sdk/node-sdk/#devicesetsupervisorreleaseuuidorid-supervisorversionorid-%E2%87%92-codepromisecode).
+If updating balenaOS is not desirable or a user prefers updating the Supervisor independently, this can easily be accomplished using [self-service](../../../reference/supervisor/supervisor-upgrades.md) Supervisor upgrades. Alternatively, this can be programmatically done by using the Node.js SDK method [device.setSupervisorRelease](../../../external-docs/sdk/node-sdk/latest.md#models.device-object).
 
-You can additionally write a script to manage this for a fleet of devices in combination with other SDK functions such as [device.getAll](https://www.balena.io/docs/reference/sdk/node-sdk/#devicegetalloptions-%E2%87%92-codepromisecode).
+You can additionally write a script to manage this for a fleet of devices in combination with other SDK functions such as [device.getAll](../../../external-docs/sdk/node-sdk/latest.md#models.device-object).
 
 **Note:** In order to update the Supervisor release for a device, you must have edit permissions on the device (i.e., more than just support access).
 
