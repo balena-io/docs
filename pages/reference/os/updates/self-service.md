@@ -43,6 +43,6 @@ If your balenaOS update fails for any reason, the device should still be recover
 
 ## Update locks
 
-[Update locks](../../../learn/deploy/release-strategy/update-locking.md) is a mechanism that allows applications to enter critical sections of code and prevent updates that would interrupt the application from running. Update locks can also be used to delay the reboot that applies a hostOS update operation until the application exits the critical section by removing the update locks. HostOS update operations require the use of exclusive locks and will not respect shared locks. [Overriding update locks](../../../learn/deploy/release-strategy/update-locking.md) will ignore existing locks and allow a hostOS update process to proceed with a reboot.
+[Update locks](../../../external-docs/update-locking.md) is a mechanism that allows applications to enter critical sections of code and prevent updates that would interrupt the application from running. Update locks can also be used to delay the reboot that applies a hostOS update operation until the application exits the critical section by removing the update locks. HostOS update operations require the use of exclusive locks and will not respect shared locks. [Overriding update locks](../../../external-docs/update-locking.md) will ignore existing locks and allow a hostOS update process to proceed with a reboot.
 
 Check out our [update process](update-process.md) to understand how the process goes through each step.

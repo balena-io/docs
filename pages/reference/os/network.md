@@ -495,7 +495,7 @@ Deploying devices in heavily restricted networks, such as behind country-level f
 
 ## Connecting Behind a Proxy
 
-We use [**redsocks**](https://github.com/darkk/redsocks) to connect your device to balena from behind a proxy. There are two ways to enable redsocks proxy. The preferred method is through Supervisor's `GET/PATCH /v1/device/host-config` endpoints - more info may be found [here](../supervisor/supervisor-api.md#patch-v1-device-host-config).
+We use [**redsocks**](https://github.com/darkk/redsocks) to connect your device to balena from behind a proxy. There are two ways to enable redsocks proxy. The preferred method is through Supervisor's `GET/PATCH /v1/device/host-config` endpoints - more info may be found [here](../../external-docs/supervisor-api.md#patch-v1-device-host-config).
 
 Alternatively, a `redsocks.conf` file should be added at `/mnt/boot/system-proxy/`, specifying the needed proxy configuration:
 

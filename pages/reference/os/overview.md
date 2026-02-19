@@ -28,7 +28,7 @@ Development mode is recommended while getting started with balenaOS and building
 * Capable of entering [local mode](../../learn/develop/local-mode.md) for rapid development of application containers locally.
 
 {% hint style="warning" %}
-Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via [configuration variables](../../../config-list/).
+Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via [configuration variables](../supervisor/config-list/).
 {% endhint %}
 
 {% hint style="danger" %}
@@ -45,7 +45,7 @@ To persist logs on the device, enable persistent logging via the [configuration]
 
 ### Hostname
 
-balenaOS allows the setting of a custom [hostname](configuration.md#hostname) via `config.json`, by setting `"hostname": "my-new-hostname"`. Your device will then broadcast (via Avahi) on the network as `my-new-hostname.local`. If you don't set a custom hostname, the device hostname will default to `<short-UUID>`. You can also set a custom hostname via the [Supervisor API](../../../external-docs/supervisor-api.md#patch-v1-device-host-config) on device.
+balenaOS allows the setting of a custom [hostname](configuration.md#hostname) via `config.json`, by setting `"hostname": "my-new-hostname"`. Your device will then broadcast (via Avahi) on the network as `my-new-hostname.local`. If you don't set a custom hostname, the device hostname will default to `<short-UUID>`. You can also set a custom hostname via the [Supervisor API](../../external-docs/supervisor-api.md#patch-v1-device-host-config) on device.
 
 ### Logo
 
@@ -63,7 +63,7 @@ When a balenaOS image is downloaded from the balenaCloud dashboard, it contains 
 
 Images downloaded via the CLI (using `os download`), via [balena.io/os](https://www.balena.io/os), or [manually built via Yocto](https://www.balena.io/os/docs/custom-build/#Bake-your-own-Image) are the same balenaOS images as those downloaded from balenaCloud but are unconfigured, and will not connect to the balenaCloud servers, but still make use of the Supervisor to keep the containers running. This version of balenaOS is meant as an excellent way to get started with Docker containers on embedded systems, and you can read more about this at [balena.io/os](https://www.balena.io/os).
 
-Should you wish to add an unconfigured device to your balenaCloud fleet, you may migrate it using the interactive `balena join` [CLI command](../../../external-docs/balena-cli/latest.md#join) or update the `config.json` of an unconfigured device with a configuration file downloaded from the _Add device_ page of the balenaCloud dashboard.
+Should you wish to add an unconfigured device to your balenaCloud fleet, you may migrate it using the interactive `balena join` [CLI command](../../external-docs/balena-cli/latest.md#join) or update the `config.json` of an unconfigured device with a configuration file downloaded from the _Add device_ page of the balenaCloud dashboard.
 
 ## BalenaOS Components
 
@@ -77,7 +77,7 @@ The balenaOS userspace packages only provide the bare essentials for running con
 
 ### Supervisor
 
-The balena Supervisor is a lightweight container that runs on devices. Its main roles are to ensure your app is running, and keep communications with the balenaCloud API server, downloading new application containers and updates to existing containers as you push them in addition to sending logs to your dashboard. It also provides an [API interface](../../../external-docs/supervisor-api.md), which allows you to query the update status and perform certain actions on the device.
+The balena Supervisor is a lightweight container that runs on devices. Its main roles are to ensure your app is running, and keep communications with the balenaCloud API server, downloading new application containers and updates to existing containers as you push them in addition to sending logs to your dashboard. It also provides an [API interface](../../external-docs/supervisor-api.md), which allows you to query the update status and perform certain actions on the device.
 
 ### BalenaEngine
 
