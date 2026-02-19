@@ -22,4 +22,4 @@ All devices microservice and essentials fleets must run balenaOS v2.12.0 or high
 
 Existing fleets can be converted to Microservices, as long as all devices belonging to that fleet meet the OS version requirements, and the account has appropriate privileges.
 
-To convert your fleet, first be sure all devices meet the balenaOS version requirements for the desired fleet type, [updating](../../reference/OS/updates/self-service.md) if necessary. Then, from the fleet summary page, click _Settings_, and scroll down to the _Fleet type_ section. Select the fleet type you would like to convert to from the dropdown. If your fleet cannot be converted to the selected type, you will see it marked as unavailable.
+To convert your fleet, first be sure all devices meet the balenaOS version requirements for the desired fleet type, [updating](../../reference/os/updates/self-service.md) if necessary. Then, from the fleet summary page, click _Settings_, and scroll down to the _Fleet type_ section. Select the fleet type you would like to convert to from the dropdown. If your fleet cannot be converted to the selected type, you will see it marked as unavailable.

@@ -35,7 +35,7 @@ To get you started, here is an [example project](https://github.com/balena-labs-
 
 #### SPI
 
-SPI is enabled by default on balenaOS via the `dtparam=spi=on` [device tree parameter](../../../reference/OS/advanced.md#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam). This default behavior can be modified by editing the [device configuration](../../manage/configuration.md#device-configuration-management).
+SPI is enabled by default on balenaOS via the `dtparam=spi=on` [device tree parameter](../../../reference/os/advanced.md#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam). This default behavior can be modified by editing the [device configuration](../../manage/configuration.md#device-configuration-management).
 
 For Node.js applications it should work out of the box with the [spi node module](https://www.npmjs.com/package/spi). For an example of this, check out this project: [digitiser](https://github.com/balena-io-playground/digitiser).
 
@@ -147,7 +147,7 @@ The 90 and 270 degrees rotation options require additional memory on GPU, so won
 
 #### Customizing config.txt
 
-These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings in the `config.txt` file on the SD cards `boot` partition. See [here](../../../reference/OS/advanced.md) for more details.
+These are some tips and tricks for customizing your raspberry pi. Most of them require changing settings in the `config.txt` file on the SD cards `boot` partition. See [here](../../../reference/os/advanced.md) for more details.
 
 You can also set all of these variables remotely for a single device or the entire fleet using the Configuration tab on the device or fleet level respectively. If the setting in `config.txt` is `variable=value`, you can achieve the same settings by adding a configuration variable with `BALENA_HOST_CONFIG_variable` set to the value `value`. For example:
 
@@ -309,11 +309,11 @@ Please note that if the changes for your carrier board expand past kernel device
 
 #### Configurable fan profiles
 
-Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 offer support for configurable fan profiles. You can switch between the options provided by Jetpack by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device fan profile" configuration option, and typing in the desired value. The input value should be a string, without quotes. The change will be applied at runtime and will not trigger a device reboot. Preloading the [fan profile configuration](../../../reference/OS/configuration.md#fan) before provisioning your device can be achieved by editing the [config.json](../../../reference/OS/configuration.md#about-config.json) file.
+Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 offer support for configurable fan profiles. You can switch between the options provided by Jetpack by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device fan profile" configuration option, and typing in the desired value. The input value should be a string, without quotes. The change will be applied at runtime and will not trigger a device reboot. Preloading the [fan profile configuration](../../../reference/os/configuration.md#fan) before provisioning your device can be achieved by editing the [config.json](../../../reference/os/configuration.md#about-config.json) file.
 
 #### Configurable power modes
 
-Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 also offer the possibility for selecting the desired power mode. You can set the values _low_, _mid_ and _high_ or specify the power mode ID directly by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device power mode" configuration option, and typing in the desired value. The input value should be a string, or a single digit number, without quotes. Please note that your device(s) will automatically reboot to apply the new power mode. The available power modes IDs for your device type are visible in the host OS in `/etc/nvpmodel.conf`. Preloading the desired power mode configuration can be achieved by editing the [config.json](../../../reference/OS/configuration.md#about-config.json) file and specifying the desired [power mode](../../../reference/OS/configuration.md#power) before provisioning the device.
+Jetson Orin Devices running balenaOS revisions newer than v6.1.24 and supervisor versions greater than v16.10.0 also offer the possibility for selecting the desired power mode. You can set the values _low_, _mid_ and _high_ or specify the power mode ID directly by navigating to the Device/Fleet Configuration tab on the sidebar of the balenaCloud dashboard, clicking "activate" on the "Define the device power mode" configuration option, and typing in the desired value. The input value should be a string, or a single digit number, without quotes. Please note that your device(s) will automatically reboot to apply the new power mode. The available power modes IDs for your device type are visible in the host OS in `/etc/nvpmodel.conf`. Preloading the desired power mode configuration can be achieved by editing the [config.json](../../../reference/os/configuration.md#about-config.json) file and specifying the desired [power mode](../../../reference/os/configuration.md#power) before provisioning the device.
 
 #### Container packages
 

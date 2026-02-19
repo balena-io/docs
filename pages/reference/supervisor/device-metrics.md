@@ -8,7 +8,7 @@ The balena Supervisor reports metrics about your device to the cloud. These metr
 
 ![Device Metrics](https://assets.balena.io/blog-common/archive/2020/09/device-metrics-1.png)
 
-You can also fetch device metrics data through balena's [open API](../api/overview.md), [Node SDK](../../../external-docs/sdk/node-sdk/latest.md), and [Python SDK](../../../external-docs/sdk/python-sdk/latest.md). This allows you to port metrics data to a custom dashboard in order to monitor the utilization and health of your fleet. Note that device metrics are available with balenaOS v2.56.0+rev1 and higher, running Supervisor v11.14.0 and higher.
+You can also fetch device metrics data through balena's [open API](../api/overview.md), [Node SDK](../../external-docs/sdk/node-sdk/latest.md), and [Python SDK](../../external-docs/sdk/python-sdk/latest.md). This allows you to port metrics data to a custom dashboard in order to monitor the utilization and health of your fleet. Note that device metrics are available with balenaOS v2.56.0+rev1 and higher, running Supervisor v11.14.0 and higher.
 
 The following table has descriptions for each metric reported by the balena Supervisor:
 
