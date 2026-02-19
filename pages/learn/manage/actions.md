@@ -102,7 +102,7 @@ For devices running balenaOS version 2.12.0 and above, data in [persistent stora
 
 ### BalenaOS Update
 
-This setting allows you to remotely update the host OS running on your device. For more details on supported devices and the update process, check out our balenaOS [update documentation](../../reference/OS/updates/self-service.md).
+This setting allows you to remotely update the host OS running on your device. For more details on supported devices and the update process, check out our balenaOS [update documentation](../../reference/os/updates/self-service.md).
 
 ### Local Mode
 
@@ -136,7 +136,7 @@ Fleets with all their associated devices, releases and members can be transferre
 
 Fleet transfers are between a **source** and a **target** organization. If you are transferring a **source** fleet from a [paid plan to a free plan](https://www.balena.io/pricing/) and your fleet exceeds the device limit, your fleet will be frozen until a plan is purchased for the **target** organization.
 
-Only organization [administrators](../accounts/organizations.md#managing-roles-and-access-in-an-organization)can initiate and complete fleet transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
+Only organization [administrators](../accounts/organizations.md#managing-roles-and-access-in-an-organization) can initiate and complete fleet transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
 
 1. Take note of the fleet name in the **source** organization and your balenaCloud username (_in the top-right drop-down menu_).
 2. Ask an administrator of the **target** balenaCloud organization to create a new empty fleet using the same fleet name (the [fleet type](../accounts/fleet-types.md) doesn't need to match).
@@ -188,4 +188,4 @@ This option can be used to mark your release as valid or invalid. Entities can o
 
 This option permanently deletes your release. This may be the setting you want to use if you want to clean up releases beyond simply [invalidating releases](actions.md#validation-status).
 
-**Info:** If you have a device [preloaded](../more/masterclasses/advanced-cli.md#id-5.-preloading-and-preregistering) with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.
+**Info:** If you have a device [preloaded](../../external-docs/masterclasses/advanced-cli.md#id-5.-preloading-and-preregistering) with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.
