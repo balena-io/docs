@@ -10,8 +10,5 @@ npm-debug.log
 tmp
 .lycheecache
 
-# Ignore dynamic assets generated for Getting Started
-config/dictionaries/device.json
-
 # Curl error output
 output
