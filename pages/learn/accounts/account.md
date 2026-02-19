@@ -20,7 +20,7 @@ To add a password to an account created with a social login (Google, Github), na
 
 ## Access tokens
 
-Access tokens are used for authentication in the balena [API](../../reference/api/overview.md), [CLI](../../reference/balena-cli.md), and [Node.js](../../reference/sdk/node-sdk.md) and [Python](../../reference/sdk/python-sdk.md) SDKs. They are managed in the _Access tokens_ tab of the [_Preferences_](https://dashboard.balena-cloud.com/preferences?tab=details) page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
+Access tokens are used for authentication in the balena [API](../../reference/api/overview.md), [CLI](../../external-docs/balena-cli/latest.md), and [Node.js](../../external-docs/sdk/node-sdk/latest.md) and [Python](../../external-docs/sdk/python-sdk/latest.md) SDKs. They are managed in the _Access tokens_ tab of the [_Preferences_](https://dashboard.balena-cloud.com/preferences?tab=details) page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
 
 <figure><img src="../../.gitbook/assets/access_tokens (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
@@ -28,7 +28,7 @@ There are two types of access tokens: session tokens and API keys. Both authenti
 
 ### Session tokens
 
-Session tokens are retrieved from the _Preferences_ page, and they can be refreshed with the [API](/broken/pages/60d4a9fe024639b2236e7994494c997ead2ae4a8). These tokens expire after seven days, and they cannot be revoked.
+Session tokens are retrieved from the _Preferences_ page, and they can be refreshed with the [API](../../reference/api/resources/). These tokens expire after seven days, and they cannot be revoked.
 
 ### API keys
 
@@ -56,7 +56,7 @@ To revoke one or more API keys, select the boxes to the left of the tokens you w
 
 <figure><img src="../../.gitbook/assets/api_key_delete (2) (1).webp" alt=""><figcaption></figcaption></figure>
 
-API keys can also be generated using the API, [CLI](../../../external-docs/balena-cli/latest.md#api-key-generate), and [Node.js](../../../external-docs/sdk/node-sdk/latest.md#models.apikey-object) and [Python](../../../external-docs/sdk/python-sdk/latest.md#apikey) SDKs.
+API keys can also be generated using the API, [CLI](../../external-docs/balena-cli/latest.md#api-key-generate), and [Node.js](../../external-docs/sdk/node-sdk/latest.md#models.apikey-object) and [Python](../../external-docs/sdk/python-sdk/latest.md#apikey) SDKs.
 
 ## Fleet members
 

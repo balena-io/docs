@@ -127,7 +127,7 @@
   * [Account management](learn/accounts/account.md)
   * [Enterprise Single Sign-On (SSO)](learn/accounts/enterprise-sso/README.md)
     * [Enterprise Single Sign-On (SSO)](learn/accounts/enterprise-sso/enterprise-single-sign-on-sso.md)
-    * [idp-setup](learn/accounts/enterprise-sso/idp-setup/README.md)
+    * [IDP Setup](learn/accounts/enterprise-sso/idp-setup/README.md)
       * [Configure a SAML app for Google Workspace](learn/accounts/enterprise-sso/idp-setup/google-workspace-saml-setup.md)
       * [Configure a SAML app for Microsoft Entra ID (formerly Azure Active Directory)](learn/accounts/enterprise-sso/idp-setup/microsoft-entra-saml-setup.md)
   * [Billing](learn/accounts/billing.md)
