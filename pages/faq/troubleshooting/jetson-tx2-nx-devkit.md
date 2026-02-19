@@ -10,9 +10,10 @@ In some cases social logins can be disrupted or completely borked by Adblocker o
 
 ### I get `$'\r': command not found` when my device tries to run scripts
 
-Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like: /usr/src/app/run.sh: line 2: $'\r': command not found
+Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like:
+/usr/src/app/run.sh: line 2: $'\r': command not found
 
-To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look here: https://help.github.com/articles/dealing-with-line-endings/#platform-windows.
+To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look [at this Github article](https://help.github.com/articles/dealing-with-line-endings/#platform-windows).
 
 ### Device keeps dropping off wifi
 
@@ -28,9 +29,11 @@ If your device still hasn't shown up on your dashboard after 10 minutes, somethi
 
 If you have an HDMI screen attached, you should see balena logo on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted.
 
+
 ### Are L4T 28.4 and 28.5 releases supported in balenaOS?
 
-The L4T versions 28.4 and 28.5 did not follow the usual incremental release process, instead these version were released in July 2020 and July 2021 respectively, after the first iterations of L4T 32.X were released. Since balenaOS uses the [OE4T/meta-tegra](https://github.com/OE4T/meta-tegra) yocto repository and only updates to incremetal versions of L4T, balenaOS images based on 28.4 and and 28.5 which were released after L4T 32.1 are not available in the balenaCloud.
+The L4T versions 28.4 and 28.5 did not follow the usual incremental release process, instead these version were released in July 2020 and July 2021 respectively, after the first iterations of L4T 32.X were released.
+Since balenaOS uses the [OE4T/meta-tegra](https://github.com/OE4T/meta-tegra) yocto repository and only updates to incremetal versions of L4T, balenaOS images based on 28.4 and and 28.5 which were released after L4T 32.1 are not available in the balenaCloud.
 
 ### Can a balenaOS update from an older L4T 28.X based release to a newer L4T 32.X be interrupted? Can I boot back into the old OS?
 
@@ -42,6 +45,7 @@ In the case of a device that will not boot because of an interrupted update proc
 
 Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section](../pages/learn/develop/hardware/i2c-and-spi.md#jetson-devices).
 
+
 ## Jetson L4T versions
 
 ### How can I determine which L4T a balenaOS image uses?
@@ -52,15 +56,16 @@ If the device is running, typing `uname -a` will show the L4T in the kernel vers
 
 Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section](../pages/learn/develop/hardware/i2c-and-spi.md#jetson-devices).
 
+
 If you still can't get your device online, come on over and talk to us on our [support channel](../pages/learn/accounts/support-access.md).
 
 ### This is the wrong balena device.
 
 If you see this error, there are several potential causes, including:
 
-* The config.json file is missing or corrupted
-* The UUID in the config.json file does not match the device's UUID
-  * This could be caused by config.json corruption or storage corruption
-* You are attempting to SSH into a device using the wrong IP address
+- The config.json file is missing or corrupted
+- The UUID in the config.json file does not match the device's UUID
+    - This could be caused by config.json corruption or storage corruption
+- You are attempting to SSH into a device using the wrong IP address
 
 Please contact [balena support](../pages/learn/accounts/support-access.md) if you encounter this issue so that we can investigate the root cause.
