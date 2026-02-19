@@ -8,7 +8,7 @@ As you are building your fleet and preparing for production, there are a number 
 
 ## Networking
 
-One of the biggest causes of issues during deployment is either a misconfigured local network or otherwise a network that does not adhere to the balenaOS [networking requirements](../../reference/OS/network.md#network-requirements).
+One of the biggest causes of issues during deployment is either a misconfigured local network or otherwise a network that does not adhere to the balenaOS [networking requirements](../../reference/os/network.md#network-requirements).
 
 ### Connectivity dependent on container (e.g. kernel module for wifi dongle, or udev rule for modem)
 
@@ -16,17 +16,17 @@ Since there can be cases where containers fail to start, having any networking c
 
 ### Iptables rules that block supervisor/cloudlink traffic
 
-it is enticing to use custom iptables rules to filter traffic, to limit the surface of the api. those rules combined with host networking however can prevent the supervisor or cloudlink from successfully connecting to balenaCloud, and therefore should be treated with caution. for a full list of networking requirements, consult [this document](../../reference/OS/network.md#network-requirements).
+it is enticing to use custom iptables rules to filter traffic, to limit the surface of the api. those rules combined with host networking however can prevent the supervisor or cloudlink from successfully connecting to balenaCloud, and therefore should be treated with caution. for a full list of networking requirements, consult [this document](../../reference/os/network.md#network-requirements).
 
 ### Manually changing the system clock, or blocking NTP requests
 
-Since balenaOS and the supervisor communicate with balenaCloud using an HTTPS API, it is important that time is synchronized on the device. If the system date/time drifts substantially, SSL certificate validation may fail and the device may unexpectedly lose the ability to reach HTTPS websites or update the balenaCloud web dashboard, and may even no longer be reachable over ssh or cloudlink. BalenaOS provides a [number of mechanisms](../../reference/OS/time.md) to keep time as up-to-date as possible, but ensuring [NTP is accessible over the network](../../reference/OS/network.md#network-requirements) is critical.
+Since balenaOS and the supervisor communicate with balenaCloud using an HTTPS API, it is important that time is synchronized on the device. If the system date/time drifts substantially, SSL certificate validation may fail and the device may unexpectedly lose the ability to reach HTTPS websites or update the balenaCloud web dashboard, and may even no longer be reachable over ssh or cloudlink. BalenaOS provides a [number of mechanisms](../../reference/os/time.md) to keep time as up-to-date as possible, but ensuring [NTP is accessible over the network](../../reference/os/network.md#network-requirements) is critical.
 
 ## Local storage
 
 ### Writing to files in the container file system (and not a volume)
 
-Commonly, users misunderstand the distinction between the container's file system and a volume. Named volumes are preserved across updates unless specifically dereferenced or destroyed, while anything written to the container's file system will be purged during updates to new releases. In addition, the container's file system often uses the AUFS driver, which typically has worse performance both in disk space and CPU utilization when compared to a named volume's standard Linux ext4 file system. For an in-depth comparison of the two, it is recommended to complete the following [services masterclass](masterclasses/services-masterclass.md). Additionally, the [supervisor provides an API](../../reference/supervisor/supervisor-api.md#cleanup-volumes-with-no-references) to manage named volumes.
+Commonly, users misunderstand the distinction between the container's file system and a volume. Named volumes are preserved across updates unless specifically dereferenced or destroyed, while anything written to the container's file system will be purged during updates to new releases. In addition, the container's file system often uses the AUFS driver, which typically has worse performance both in disk space and CPU utilization when compared to a named volume's standard Linux ext4 file system. For an in-depth comparison of the two, it is recommended to complete the following [services masterclass](../../external-docs/masterclasses/services-masterclass.md). Additionally, the [supervisor provides an API](../../external-docs/supervisor-api.md#cleanup-volumes-with-no-references) to manage named volumes.
 
 ### Running out of disk space
 
@@ -58,7 +58,7 @@ Since the supervisor is the brain of the update process for balenaOS devices, an
 
 ### Incorrect config.txt/config.json settings
 
-These two configuration files are critical for the boot process on most devices. Specifically, a malformed `config.json` will cause any balenaOS devices to not boot properly, and a mangled `config.txt` (on certain Raspberry Pi-based devices) may cause a loss in functionality at boot. There are some tools that can help manage these files across devices, like [configizer](https://github.com/balena-io-playground/configizer) and [dtparam tuneables](../../reference/OS/advanced.md#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam).
+These two configuration files are critical for the boot process on most devices. Specifically, a malformed `config.json` will cause any balenaOS devices to not boot properly, and a mangled `config.txt` (on certain Raspberry Pi-based devices) may cause a loss in functionality at boot. There are some tools that can help manage these files across devices, like [configizer](https://github.com/balena-io-playground/configizer) and [dtparam tuneables](../../reference/os/advanced.md#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam).
 
 ## Managing Resources
 

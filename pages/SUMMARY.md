@@ -142,7 +142,7 @@
     * [Balena example projects](learn/more/labs-projects/example-projects.md)
   * [Balena Glossary](learn/more/glossary.md)
   * [Data collected by balena](learn/more/collected-data.md)
-  * [masterclasses](learn/more/masterclasses/README.md)
+  * [Masterclasses](learn/more/masterclasses/README.md)
     * [Balena Masterclasses](learn/more/masterclasses/masterclass-intro.md)
     * [Balena CLI Masterclass](external-docs/masterclasses/cli-masterclass.md)
     * [Balena CLI Advanced Masterclass](external-docs/masterclasses/advanced-cli.md)
