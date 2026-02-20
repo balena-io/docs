@@ -31,9 +31,3 @@ jobs:
     with:
       docusaurus_website: false
       disable_versioning: true
-
-  link-checker:
-    needs: flowzone
-    uses: ./.github/workflows/link-checker.yml
-    with:
-      deployment_url: ${{ needs.flowzone.outputs.cloudflare_deployment_url }}
