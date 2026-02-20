@@ -122,7 +122,7 @@ exclude = [
     ]
 
 # Exclude these filesystem paths from getting checked.
-exclude_path = ["./build/img/", "./build/css/", "./build/favicon.png", "./build/dist/", "./build/reference/base-images/base-images-ref/", "./node_modules"]
+exclude_path = ["./build/img/", "./build/css/", "./build/favicon.png", "./build/dist/", "./node_modules"]
 
 # Already mentioned in the GitHub action to include paths to check links
 include = []

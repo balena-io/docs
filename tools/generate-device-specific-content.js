@@ -22,6 +22,12 @@ const TROUBLESHOOTING_DEST_FOLDER = '../pages/faq/troubleshooting/';
 const CONFIG_LIST_TEMPLATE_PATH = '../templates/config-list.md';
 const CONFIG_LIST_DEST_FOLDER = '../pages/reference/supervisor/config-list/';
 
+Handlebars.registerHelper('isImage', function (str) {
+  if (typeof str !== 'string') return false;
+  // .trim() removes spaces, tabs, and newlines from the start/end
+  return str.trim().startsWith('<img');
+});
+
 const
   balena = getSdk({
     apiUrl: 'https://api.balena-cloud.com/',
@@ -97,13 +103,13 @@ function prepareInstructions(instructions) {
   const etcherIndex = instructions.findIndex((instruction) => instruction.includes(etcherLinkInstruction))
   // findIndex returns -1 as output when the element can't be found 
   if (etcherIndex !== -1) {
-    instructions.splice(etcherIndex + 1, 0, `\n\n<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">\n`)
+    instructions.splice(etcherIndex + 1, 0, `\n<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">\n`)
   }
 
   // Add SD card GIF to instructions
   const sdCardIndex = instructions.findIndex((instruction) => instruction.includes(sdCardInstruction))
   if (sdCardIndex !== -1) {
-    instructions.splice(sdCardIndex + 1, 0, `\n\n<img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">\n`)
+    instructions.splice(sdCardIndex + 1, 0, `\n<img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">\n`)
   }
 
   return instructions
@@ -155,7 +161,7 @@ const getLatestCLIVersion = async () => {
 };
 
 /**
- * Empty getting started guides directory (keep the README file)
+ * Empty the given directory (keep the README file)
  * @returns {Promise<void>}
  */
 const emptyDirectory = async (folder) => {

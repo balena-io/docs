@@ -1,27 +1,22 @@
 [
   {
     "id": "nodejs",
-    "name": "Node.js",
-    "icon": "/img/language/nodejs.svg"
+    "name": "Node.js"
   },
   {
     "id": "python",
-    "name": "Python",
-    "icon": "/img/language/python.svg"
+    "name": "Python"
   },
   {
     "id": "cpp",
-    "name": "C++",
-    "icon": "/img/language/c++.svg"
+    "name": "C++"
   },
   {
     "id": "rust",
-    "name": "Rust",
-    "icon": "/img/language/rust.svg"
+    "name": "Rust"
   },
   {
     "id": "go",
-    "name": "Go",
-    "icon": "/img/language/go.svg"
+    "name": "Go"
   }
 ]

@@ -55,7 +55,7 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
 {{#each $device.instructions }}
-* {{{this}}}
+  {{#unless (isImage this)}}* {{/unless}}{{{this}}}
 {{/each}}
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for {{ $device.name }}](/faq/troubleshooting/{{ $device.id }}) or try our [support channels](../accounts/support-access.md).

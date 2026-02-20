@@ -3,11 +3,11 @@ name: Flowzone
 on:
   pull_request:
     types: [opened, synchronize, closed]
-    branches: [main, master]
+    branches: [main, master, gitbook]
   # allow external contributions to use secrets within trusted code
   pull_request_target:
     types: [opened, synchronize, closed]
-    branches: [main, master]
+    branches: [main, master, gitbook]
 
 permissions:
   contents: read
@@ -29,11 +29,5 @@ jobs:
       )
     secrets: inherit
     with:
-      cloudflare_website: "balenacloud-docs"
       docusaurus_website: false
-
-  link-checker:
-    needs: flowzone
-    uses: ./.github/workflows/link-checker.yml
-    with:
-      deployment_url: ${{ needs.flowzone.outputs.cloudflare_deployment_url }}
+      disable_versioning: true

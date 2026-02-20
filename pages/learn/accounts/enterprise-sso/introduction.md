@@ -1,4 +1,4 @@
-# Enterprise Single Sign-On (SSO)
+# Introduction
 
 {% hint style="warning" %}
 This feature is available to customers on [standard paid plans](https://www.balena.io/pricing) - Prototype Plan, Pilot Plan, Production Plan, or Enterprise Plan.
@@ -30,7 +30,7 @@ BalenaCloud requires a list of organizations to which SAML users will be automat
 Removing organizations after IdP creation will not revoke access for SAML users who have previously authenticated with this IdP. However, new authentications will no longer include the removed organization. An IdP will always require at least one organization to be associated.
 {% endhint %}
 
-You have successfully configured SAML 2.0 for your balenaCloud Enterprise SSO. Your team can now access balenaCloud securely and seamlessly through the configured Identity Provider. For instructions on how your team can log in, refer to [Authenticating as a SAML/SSO User](enterprise-single-sign-on-sso.md#authenticating-as-a-saml-user). If you encounter any issues or need further assistance, please contact our support team.
+You have successfully configured SAML 2.0 for your balenaCloud Enterprise SSO. Your team can now access balenaCloud securely and seamlessly through the configured Identity Provider. For instructions on how your team can log in, refer to [Authenticating as a SAML/SSO User](introduction.md#authenticating-as-a-saml-user). If you encounter any issues or need further assistance, please contact our support team.
 
 <figure><img src="../../../.gitbook/assets/idp-with-two-orgs (2).webp" alt=""><figcaption></figcaption></figure>
 
@@ -88,7 +88,7 @@ Each SAML Identity Provider (IdP) has its own unique implementation and terminol
 
 #### Can I use any identity provider with balena’s Enterprise SSO?
 
-We support any identity provider as long as they are compliant with the SAML 2.0 protocol specification, for example, Okta. We have provided examples for [Microsoft Entra ID](idp-setup/microsoft-entra-saml-setup.md) (formerly Azure AD) and [Google Workspace](idp-setup/google-workspace-saml-setup.md) in our documentation. To setup your IdP, get the Federation Metadata XML as we have setup for Microsoft/Google IdP's and then follow the [instructions to link that IdP](enterprise-single-sign-on-sso.md#link-a-saml-identity-provider) to balenaCloud's SSO.
+We support any identity provider as long as they are compliant with the SAML 2.0 protocol specification, for example, Okta. We have provided examples for [Microsoft Entra ID](idp-setup/microsoft-entra-saml-setup.md) (formerly Azure AD) and [Google Workspace](idp-setup/google-workspace-saml-setup.md) in our documentation. To setup your IdP, get the Federation Metadata XML as we have setup for Microsoft/Google IdP's and then follow the [instructions to link that IdP](introduction.md#link-a-saml-identity-provider) to balenaCloud's SSO.
 
 #### Can I enforce SAML on all users in my organization?
 
@@ -100,7 +100,7 @@ Currently, SAML authentication users cannot create API keys. If you require API 
 
 #### How do I delete a SAML account?
 
-To delete a SAML account, you need to use the [balena SDK](../../../external-docs/sdk/node-sdk/latest.md). This step is only required if you intend to [delete your IdP](enterprise-single-sign-on-sso.md#how-do-i-delete-an-identity-provider-in-balenacloud). **Removing the user from your IdP will block their access to balenaCloud**, but their current session will remain active for up to 12 hours after their last login.
+To delete a SAML account, you need to use the [balena SDK](../../../external-docs/sdk/node-sdk/latest.md). This step is only required if you intend to [delete your IdP](introduction.md#how-do-i-delete-an-identity-provider-in-balenacloud). **Removing the user from your IdP will block their access to balenaCloud**, but their current session will remain active for up to 12 hours after their last login.
 
 {% hint style="danger" %}
 Ensure that there is at least one non-SAML admin user in your organization before deleting all SAML users in the Identity Providers (IdPs). Failure to do so may result in being locked out of your organization.

@@ -54,15 +54,14 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* Fit the jumper to disable eMMC boot on J2 and connect the Raspberry Pi CM4 IO Board's microUSB port to your PC. Power the board and use [usbboot](https://github.com/raspberrypi/usbboot) to put the eMMC in mass storage mode.
-* Write the balenaOS file you downloaded to the Raspberry Pi CM4 IO Board. We recommend using [Etcher](https://etcher.balena.io/).
-* 
-
+  * Fit the jumper to disable eMMC boot on J2 and connect the Raspberry Pi CM4 IO Board's microUSB port to your PC. Power the board and use [usbboot](https://github.com/raspberrypi/usbboot) to put the eMMC in mass storage mode.
+  * Write the balenaOS file you downloaded to the Raspberry Pi CM4 IO Board. We recommend using [Etcher](https://etcher.balena.io/).
+  
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 
-* Wait for writing of balenaOS to complete.
-* Disconnect the power source and eMMC boot jumper.
-* Remove and re-connect power to the Raspberry Pi CM4 IO Board. to boot the device.
+  * Wait for writing of balenaOS to complete.
+  * Disconnect the power source and eMMC boot jumper.
+  * Remove and re-connect power to the Raspberry Pi CM4 IO Board. to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Raspberry Pi CM4 IO Board](/faq/troubleshooting/raspberrypicm4-ioboard) or try our [support channels](../accounts/support-access.md).
 

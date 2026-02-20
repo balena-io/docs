@@ -103,21 +103,6 @@
       ]
     },
     {
-      "id": "base-images",
-      "repo": "balena-io-library/base-images",
-      "ref": "v2.12.24",
-      "files": [
-        {
-          "source": "docs/base-images-ref.md",
-          "target": "pages/external-docs/base-images-ref.md",
-          "transform": {
-            "type": "prepend",
-            "content": "# [Deprecated] Balenalib Images List\n\n"
-          }
-        }
-      ]
-    },
-    {
       "id": "cli-masterclass",
       "repo": "balena-io/balena-cli-masterclass",
       "ref": "v1.1.12",

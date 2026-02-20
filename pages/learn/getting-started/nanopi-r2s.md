@@ -54,20 +54,18 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* Insert the SD card to the host machine.
-* Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
-* 
-
+  * Insert the SD card to the host machine.
+  * Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
+  
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 
-* Wait for writing of balenaOS to complete.
-* Remove the SD card from the host machine.
-* Insert the freshly flashed SD card into the NanoPi R2S.
-* 
-
+  * Wait for writing of balenaOS to complete.
+  * Remove the SD card from the host machine.
+  * Insert the freshly flashed SD card into the NanoPi R2S.
+  
 <img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
 
-* Connect the NanoPi R2S to the internet, then power it up to boot the device.
+  * Connect the NanoPi R2S to the internet, then power it up to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for NanoPi R2S](/faq/troubleshooting/nanopi-r2s) or try our [support channels](../accounts/support-access.md).
 

@@ -54,21 +54,20 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* For balenaOS versions v6.1.16 and newer, please ensure your device is running UEFI firmware version 36.3.0. Check and update the [firmware version](https://docs.balena.io/learn/develop/hardware/jetson-orin/jetson-orin-nano-devkit-nvme/#checking-your-jetson-orins-uefi-firmware-version) before proceeding. For balenaOS versions older than v6.1.16, please refer to the [Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME legacy flashing](https://github.com/balena-os/jetson-flash?tab=readme-ov-file) guide.
-* Insert the USB key to the host machine.
-* Write the balenaOS file you downloaded to the USB key. We recommend using [Etcher](https://etcher.balena.io/).
-* 
-
+  * For balenaOS versions v6.1.16 and newer, please ensure your device is running UEFI firmware version 36.3.0. Check and update the [firmware version](https://docs.balena.io/learn/develop/hardware/jetson-orin/jetson-orin-nano-devkit-nvme/#checking-your-jetson-orins-uefi-firmware-version) before proceeding. For balenaOS versions older than v6.1.16, please refer to the [Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME legacy flashing](https://github.com/balena-os/jetson-flash?tab=readme-ov-file) guide.
+  * Insert the USB key to the host machine.
+  * Write the balenaOS file you downloaded to the USB key. We recommend using [Etcher](https://etcher.balena.io/).
+  
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 
-* Wait for writing of balenaOS to complete.
-* Remove the USB key from the host machine.
-* Insert the freshly flashed USB key into the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME.
-* <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
-* Insert a NVME drive in the Devkit and power up the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME.
-* Wait for the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME to finish flashing and shutdown. Please wait until power LED is off.
-* Remove the USB key from the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME.
-* Power up the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME. If you have a display or a debug UART cable connected to the device, a progress bar will show up while the UEFI firmware is updated. Please do not interrupt this process by turning off power or rebooting the device. Once the firmware update completes, the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME will reset automatically and no other steps are necessary to boot the device.
+  * Wait for writing of balenaOS to complete.
+  * Remove the USB key from the host machine.
+  * Insert the freshly flashed USB key into the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME.
+  * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
+  * Insert a NVME drive in the Devkit and power up the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME.
+  * Wait for the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME to finish flashing and shutdown. Please wait until power LED is off.
+  * Remove the USB key from the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME.
+  * Power up the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME. If you have a display or a debug UART cable connected to the device, a progress bar will show up while the UEFI firmware is updated. Please do not interrupt this process by turning off power or rebooting the device. Once the firmware update completes, the Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME will reset automatically and no other steps are necessary to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Nvidia Jetson Orin Nano 8GB (SD) Devkit NVME](/faq/troubleshooting/jetson-orin-nano-devkit-nvme) or try our [support channels](../accounts/support-access.md).
 

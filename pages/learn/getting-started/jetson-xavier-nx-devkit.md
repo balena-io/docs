@@ -52,7 +52,7 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* To provision Nvidia Jetson Xavier NX Devkit SD-CARD, follow the instructions using our [Jetson Flash tool](https://github.com/balena-os/jetson-flash/blob/master/docs/jetson-xavier-nx-devkit.md) to make the process more streamlined.
+  * To provision Nvidia Jetson Xavier NX Devkit SD-CARD, follow the instructions using our [Jetson Flash tool](https://github.com/balena-os/jetson-flash/blob/master/docs/jetson-xavier-nx-devkit.md) to make the process more streamlined.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Nvidia Jetson Xavier NX Devkit SD-CARD](/faq/troubleshooting/jetson-xavier-nx-devkit) or try our [support channels](../accounts/support-access.md).
 

@@ -19,6 +19,9 @@ permissions:
   contents: read
   issues: write
 
+env:
+  lychee_exit_code: 0
+
 jobs:
   Checking-Links:
     runs-on: ubuntu-latest

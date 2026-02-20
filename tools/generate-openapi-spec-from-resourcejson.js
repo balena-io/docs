@@ -15,7 +15,6 @@ if (!inputDir || !inputFile || !outputDir || !outputFile) {
 	process.exit(1);
 }
 
-// Resolve absolute paths to avoid confusion with relative "./"
 const inputPath = path.resolve(inputDir, inputFile);
 const outputPath = path.resolve(outputDir, outputFile);
 
@@ -43,13 +42,20 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 	}
 
 	const rawData = fs.readFileSync(inputPath, 'utf8');
-	const resources = JSON.parse(rawData);
+	let resources = JSON.parse(rawData);
+
+	// --- Alphabetize Resources by Name/ID ---
+	resources.sort((a, b) => {
+		const nameA = (a.name || a.id).toLowerCase();
+		const nameB = (b.name || b.id).toLowerCase();
+		return nameA.localeCompare(nameB);
+	});
 
 	const openapi = {
 		openapi: '3.0.0',
 		info: {
 			title: 'Balena API Spec',
-			description: 'Automated API spec generation.',
+			description: 'Automated API spec generation with alphabetized resources.',
 			version: '7.0.0',
 		},
 		servers: [{ url: 'https://api.balena-cloud.com' }],
@@ -220,12 +226,16 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 		});
 	});
 
+	if (!fs.existsSync(outputDir)) {
+		fs.mkdirSync(outputDir, { recursive: true });
+	}
+
 	fs.writeFileSync(
 		outputPath,
 		yaml.dump(openapi, { lineWidth: -1, noRefs: true }),
 		'utf8',
 	);
-	console.log(`Successfully wrote file to: ${outputPath}`);
+	console.log(`Alphabetized spec generated at: ${outputPath}`);
 }
 
 convertResourceToOpenApi(inputPath, outputPath);

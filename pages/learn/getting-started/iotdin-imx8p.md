@@ -54,10 +54,10 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* Unpack the balenaOS image you downloaded from balena-cloud.
-* Make sure the device is not powered and connect the PROG port to your PC using a micro USB cable.
-* From a Linux-based host, use the [IOT-GATE-iMX8PLUS flashing tools](https://github.com/balena-os/iot-gate-imx8plus-flashtools) to write balenaOS on your device.
-* After flashing is completed, disconnect the micro USB cable from the PROG port, power off the device and then power it back on.
+  * Unpack the balenaOS image you downloaded from balena-cloud.
+  * Make sure the device is not powered and connect the PROG port to your PC using a micro USB cable.
+  * From a Linux-based host, use the [IOT-GATE-iMX8PLUS flashing tools](https://github.com/balena-os/iot-gate-imx8plus-flashtools) to write balenaOS on your device.
+  * After flashing is completed, disconnect the micro USB cable from the PROG port, power off the device and then power it back on.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Compulab IOTDIN-iMX8P 2G-4G DRAM](/faq/troubleshooting/iotdin-imx8p) or try our [support channels](../accounts/support-access.md).
 

@@ -1,0 +1,6 @@
+root: ./
+
+redirects:
+  reference/balena-cli: reference/balena-cli/latest.md
+  reference/sdk/balena-sdk: reference/sdk/balena-sdk/latest.md
+  reference/sdk/balena-sdk-python: reference/sdk/balena-sdk-python/latest.md
