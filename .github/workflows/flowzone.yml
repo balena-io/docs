@@ -31,6 +31,7 @@ jobs:
     with:
       cloudflare_website: "balenacloud-docs"
       docusaurus_website: false
+      disable_versioning: true
 
   link-checker:
     needs: flowzone
