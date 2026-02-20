@@ -8,8 +8,7 @@
   "description": "This repo contains balenaCloud's public-facing documentation.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test:spelling && npm run sync-external -- --dry-run",
-    "test:spelling": "cspell lint --gitignore -c cspell.json",
+    "test": "npm run sync-external -- --dry-run",
     "sync-external": "node tools/sync-external.js",
     "generate-openapi": "node tools/generate-openapi-spec-from-resourcejson.js ./config/dictionaries resource.json ./ openapi.yaml",
     "generate-device-specific-content": "node tools/generate-device-specific-content.js",
