@@ -58,11 +58,13 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 * Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
 * 
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+
 * Wait for writing of balenaOS to complete.
 * Remove the SD card from the host machine.
 * Insert the freshly flashed SD card into the Variscite VAR-SOM-MX8M-MINI Devkit.
 * 
 <img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
+
 * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
 * Set the BOOT-SELECT switch to EXT. Connect power to the Variscite VAR-SOM-MX8M-MINI Devkit.
 * Wait for the Variscite VAR-SOM-MX8M-MINI Devkit to finish flashing and shutdown. Please wait until all LEDs are off.

@@ -57,11 +57,13 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 * Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
 * 
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+
 * Wait for writing of balenaOS to complete.
 * Remove the SD card from the host machine.
 * Insert the freshly flashed SD card into the Nvidia Jetson TX2.
 * 
 <img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
+
 * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
 * Connect power to the Nvidia Jetson TX2 and press and hold the POWER push button for 1 second
 * Wait for the Nvidia Jetson TX2 to finish flashing and shutdown. Please wait until all LEDs are off.

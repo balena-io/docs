@@ -58,6 +58,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 * Write the balenaOS file you downloaded to the Revolution Pi Connect 4. We recommend using [Etcher](https://etcher.balena.io/).
 * 
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+
 * Wait for writing of balenaOS to complete.
 * Power off the Revolution Pi Connect 4 and unplug the micro-USB cable
 * Remove and re-connect power to the Revolution Pi Connect 4 to boot the device.

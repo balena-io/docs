@@ -58,6 +58,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 * Write the balenaOS file you downloaded to the Raspberry Pi CM4 IO Board. We recommend using [Etcher](https://etcher.balena.io/).
 * 
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+
 * Wait for writing of balenaOS to complete.
 * Disconnect the power source and eMMC boot jumper.
 * Remove and re-connect power to the Raspberry Pi CM4 IO Board. to boot the device.

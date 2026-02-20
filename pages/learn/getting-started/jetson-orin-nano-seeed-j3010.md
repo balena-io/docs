@@ -59,6 +59,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 * Write the balenaOS file you downloaded to the USB key. We recommend using [Etcher](https://etcher.balena.io/).
 * 
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+
 * Wait for writing of balenaOS to complete.
 * Remove the USB key from the host machine.
 * Insert the freshly flashed USB key into the Seeed reComputer J3010 Jetson Orin Nano 4GB.
