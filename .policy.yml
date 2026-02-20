@@ -1,0 +1,99 @@
+policy:
+  approval:
+    - or:
+        - and:
+            # All rules must be satisfied.
+            # If a rule does not meet the IF conditions, it will be skipped as if it was not required.
+            - docs team has approved for branches
+            - docs team has approved for forks
+        - author is renovate bot
+  disapproval:
+    requires:
+      permissions: ["write"]
+      teams:
+        - "balena-io/balena-dev"
+    options:
+      methods:
+        disapprove:
+          comments:
+            - ":-1:"
+            - "👎"
+          github_review: true
+        revoke:
+          comments: []
+          comment_patterns: &approvalCommentPatterns
+            - "^(?i)acked(-| )by:?\\s+" # eg. Acked-by: , acked by
+            - "^(?i)lgtm!?$" # eg. LGTM, lgtm, Lgtm!
+          github_review: true
+
+approval_rules:
+
+  - &reviewersHaveApproved
+    name: docs team has approved for branches
+
+    if:
+      # Only apply to branches, not forks
+      from_branch:
+        pattern: "^[^:]+$"
+
+    requires:
+      count: 1
+      permissions: ["write"]
+      teams:
+        - "balena-io/docs"
+
+    options: &reviewersHaveApprovedOptions
+      # disable self-certify
+      # If true, approvals by the author of a pull request are considered when
+      # calculating the status. False by default.
+      allow_author: false
+      # If true, the approvals of someone who has committed to the pull request are
+      # considered when calculating the status. The pull request author is considered
+      # a contributor. If allow_author and allow_contributor would disagree, this option
+      # always wins. False by default.
+      allow_contributor: false
+      # If true, pushing new commits to a pull request will invalidate existing
+      # approvals for this rule. False by default.
+      invalidate_on_push: false
+      # If true, comments on PRs, the PR Body, and review comments that have been edited in any way
+      # will be ignored when evaluating approval rules. False by default.
+      # GitHub users with sufficient permissions can edit the comments of other users, possibly
+      # changing an unrelated comment into one that enables approval.
+      # See https://github.com/palantir/policy-bot#comment-edits
+      ignore_edited_comments: true
+
+      methods:
+        comments: []
+        comment_patterns: *approvalCommentPatterns
+        github_review: true
+
+  - <<: *reviewersHaveApproved
+    name: docs team has approved for forks
+
+    if:
+      # Only apply to external forks, not internal branches
+      from_branch:
+        pattern: "^.+:.+$"
+
+    # requires are inherited from reviewersHaveApproved
+
+    options:
+      <<: *reviewersHaveApprovedOptions
+      # If true, pushing new commits to a pull request will invalidate existing
+      # approvals for this rule. False by default.
+      invalidate_on_push: true
+
+  - name: author is renovate bot
+    if:
+      # "has_author_in" is satisfied if the user who opened the pull request is in
+      # the users list or belongs to any of the listed organizations or teams. The
+      # `users` field can contain a GitHub App by appending `[bot]` to the end of
+      # the name, for example: `fun-github-app[bot]`
+      has_author_in:
+        users:
+          - "balena-renovate[bot]"
+      # "author_is_only_contributor", when true, is satisfied if all commits in the
+      # pull request are authored by and committed by the user who opened the pull
+      # request. When false, it is satisfied if at least one commit in the pull
+      # request was authored or committed by another user.
+      author_is_only_contributor: true
