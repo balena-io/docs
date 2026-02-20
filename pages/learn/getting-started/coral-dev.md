@@ -53,24 +53,22 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* Insert the SD card to the host machine.
-* Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
-* 
-
+  * Insert the SD card to the host machine.
+  * Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
+  
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 
-* Wait for writing of balenaOS to complete.
-* Remove the SD card from the host machine.
-* Insert the freshly flashed SD card into the Coral Dev Board.
-* 
-
+  * Wait for writing of balenaOS to complete.
+  * Remove the SD card from the host machine.
+  * Insert the freshly flashed SD card into the Coral Dev Board.
+  
 <img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
 
-* <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
-* Set the BOOT_SELECT switch to the SD-CARD position Connect power to the Coral Dev Board
-* Wait for the Coral Dev Board to finish flashing and shutdown. Please wait until all LEDs are off.
-* Remove the SD card from the Coral Dev Board.
-* Set the BOOT_SELECT switch to the eMMC position,Remove and re-connect power to the Coral Dev Board to boot the device.
+  * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
+  * Set the BOOT_SELECT switch to the SD-CARD position Connect power to the Coral Dev Board
+  * Wait for the Coral Dev Board to finish flashing and shutdown. Please wait until all LEDs are off.
+  * Remove the SD card from the Coral Dev Board.
+  * Set the BOOT_SELECT switch to the eMMC position,Remove and re-connect power to the Coral Dev Board to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Coral Dev Board](/faq/troubleshooting/coral-dev) or try our [support channels](../accounts/support-access.md).
 

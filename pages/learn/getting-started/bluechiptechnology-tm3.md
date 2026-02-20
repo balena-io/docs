@@ -54,24 +54,22 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* Insert the SD card to the host machine.
-* Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
-* 
-
+  * Insert the SD card to the host machine.
+  * Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
+  
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 
-* Wait for writing of balenaOS to complete.
-* Remove the SD card from the host machine.
-* Insert the freshly flashed SD card into the Blue Chip Technology TM3.
-* 
-
+  * Wait for writing of balenaOS to complete.
+  * Remove the SD card from the host machine.
+  * Insert the freshly flashed SD card into the Blue Chip Technology TM3.
+  
 <img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
 
-* <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
-* Connect power to the Blue Chip Technology TM3
-* Wait for the Blue Chip Technology TM3 to finish flashing and shutdown. Please wait until Screen and ethernet green LED are off.
-* Remove the SD card from the Blue Chip Technology TM3.
-* Remove and re-connect power to the Blue Chip Technology TM3 to boot the device.
+  * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
+  * Connect power to the Blue Chip Technology TM3
+  * Wait for the Blue Chip Technology TM3 to finish flashing and shutdown. Please wait until Screen and ethernet green LED are off.
+  * Remove the SD card from the Blue Chip Technology TM3.
+  * Remove and re-connect power to the Blue Chip Technology TM3 to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Blue Chip Technology TM3](/faq/troubleshooting/bluechiptechnology-tm3) or try our [support channels](../accounts/support-access.md).
 

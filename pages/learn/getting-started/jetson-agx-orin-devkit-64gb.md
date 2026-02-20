@@ -54,21 +54,20 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* For balenaOS versions v6.1.16 and newer, please ensure your device is running UEFI firmware version 36.3.0. Check and update the [firmware version](https://docs.balena.io/learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit-64gb/#checking-your-jetson-orins-uefi-firmware-version) before proceeding. For balenaOS versions older than v6.1.16, please refer to the [Nvidia Jetson AGX Orin Devkit 64GB legacy flashing](https://github.com/balena-os/jetson-flash?tab=readme-ov-file) guide.
-* Insert the USB key to the host machine.
-* Write the balenaOS file you downloaded to the USB key. We recommend using [Etcher](https://etcher.balena.io/).
-* 
-
+  * For balenaOS versions v6.1.16 and newer, please ensure your device is running UEFI firmware version 36.3.0. Check and update the [firmware version](https://docs.balena.io/learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit-64gb/#checking-your-jetson-orins-uefi-firmware-version) before proceeding. For balenaOS versions older than v6.1.16, please refer to the [Nvidia Jetson AGX Orin Devkit 64GB legacy flashing](https://github.com/balena-os/jetson-flash?tab=readme-ov-file) guide.
+  * Insert the USB key to the host machine.
+  * Write the balenaOS file you downloaded to the USB key. We recommend using [Etcher](https://etcher.balena.io/).
+  
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 
-* Wait for writing of balenaOS to complete.
-* Remove the USB key from the host machine.
-* Insert the freshly flashed USB key into the Nvidia Jetson AGX Orin Devkit 64GB.
-* <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
-* Power on the Nvidia Jetson AGX Orin Devkit 64GB. NOTE: Only If your device is already flashed with a balenaOS version older than v6.1.16, power it on and interrupt booting by pressing the 'Esc' key when prompted by the UEFI firmware. Enter the Boot Manager Menu of the UEFI firmware and select the attached USB key as boot media, to trigger the provisioning process.
-* Wait for the Nvidia Jetson AGX Orin Devkit 64GB to finish flashing and shutdown. Please wait until power LED is off.
-* Remove the USB key from the Nvidia Jetson AGX Orin Devkit 64GB.
-* Power up the Nvidia Jetson AGX Orin Devkit 64GB. A progress bar will show up on the display while the UEFI firmware is updated. Please do not interrupt this process by turning off power or rebooting the device. Once the firmware update completes, the Nvidia Jetson AGX Orin Devkit 64GB will reset automatically and no other steps are necessary to boot the device.
+  * Wait for writing of balenaOS to complete.
+  * Remove the USB key from the host machine.
+  * Insert the freshly flashed USB key into the Nvidia Jetson AGX Orin Devkit 64GB.
+  * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
+  * Power on the Nvidia Jetson AGX Orin Devkit 64GB. NOTE: Only If your device is already flashed with a balenaOS version older than v6.1.16, power it on and interrupt booting by pressing the 'Esc' key when prompted by the UEFI firmware. Enter the Boot Manager Menu of the UEFI firmware and select the attached USB key as boot media, to trigger the provisioning process.
+  * Wait for the Nvidia Jetson AGX Orin Devkit 64GB to finish flashing and shutdown. Please wait until power LED is off.
+  * Remove the USB key from the Nvidia Jetson AGX Orin Devkit 64GB.
+  * Power up the Nvidia Jetson AGX Orin Devkit 64GB. A progress bar will show up on the display while the UEFI firmware is updated. Please do not interrupt this process by turning off power or rebooting the device. Once the firmware update completes, the Nvidia Jetson AGX Orin Devkit 64GB will reset automatically and no other steps are necessary to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Nvidia Jetson AGX Orin Devkit 64GB](/faq/troubleshooting/jetson-agx-orin-devkit-64gb) or try our [support channels](../accounts/support-access.md).
 

@@ -53,15 +53,14 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* While not having the Revolution Pi Core 3 board powered, connect your system to the board's USB port via a micro-USB cable. Power on the Revolution Pi Core 3.
-* Write the balenaOS file you downloaded to the Revolution Pi Core 3. We recommend using [Etcher](https://etcher.balena.io/).
-* 
-
+  * While not having the Revolution Pi Core 3 board powered, connect your system to the board's USB port via a micro-USB cable. Power on the Revolution Pi Core 3.
+  * Write the balenaOS file you downloaded to the Revolution Pi Core 3. We recommend using [Etcher](https://etcher.balena.io/).
+  
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 
-* Wait for writing of balenaOS to complete.
-* Power off the Revolution Pi Core 3 and unplug the micro-USB cable.
-* Remove and re-connect power to the Revolution Pi Core 3. to boot the device.
+  * Wait for writing of balenaOS to complete.
+  * Power off the Revolution Pi Core 3 and unplug the micro-USB cable.
+  * Remove and re-connect power to the Revolution Pi Core 3. to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Revolution Pi Core 3](/faq/troubleshooting/revpi-core-3) or try our [support channels](../accounts/support-access.md).
 
