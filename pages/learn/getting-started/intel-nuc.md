@@ -56,7 +56,8 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
 * Insert the USB key to the host machine.
-* Write the balenaOS file you downloaded to the USB key. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Write the balenaOS file you downloaded to the USB key. We recommend using [Etcher](https://etcher.balena.io/).
+* <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 * Wait for writing of balenaOS to complete.
 * Remove the USB key from the host machine.
 * Insert the freshly flashed USB key into the Intel NUC.

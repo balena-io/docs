@@ -50,7 +50,7 @@ const updateSummaryFile = async (items, sectionTitle, sectionPathWithoutTrailing
   // 4. Generate new content
   const indent = ' '.repeat(parentIndent);
   const tmpl = `${indent}* [${sectionTitle}](${sectionPathWithoutTrailingSlash}/README.md "${sectionTitle}")\n` +
-    `${items.map((dt) => `${indent}  * [${pageTitle(dt.name)}](${sectionPathWithoutTrailingSlash}/${dt.id}.md "${dt.name}")`).join(`\n`)}`;
+    `${items.map((item) => `${indent}  * [${pageTitle(item.name)}](${sectionPathWithoutTrailingSlash}/${item.id}.md "${item.name}")`).join(`\n`)}`;
 
   // 5. Replace the old range with the new template
   lines.splice(startIndex, endIndex - startIndex, tmpl);

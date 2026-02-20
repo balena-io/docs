@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { writeFile, readFile, readdir, unlink } = require('fs/promises');
+const { writeFile, readFile } = require('fs/promises');
 const path = require('path');
 const Handlebars = require('handlebars');
 

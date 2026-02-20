@@ -54,10 +54,12 @@ Finally, click the **Download balenaOS** button. When the download completes, yo
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
 * Insert the SD card to the host machine.
-* Write the balenaOS file you downloaded to the SD card. We recommend using <a href="https://etcher.balena.io/">Etcher</a>.
+* Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
+* <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 * Wait for writing of balenaOS to complete.
 * Remove the SD card from the host machine.
 * Insert the freshly flashed SD card into the Asus Tinker Board.
+* <img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
 * Connect power to the Asus Tinker Board to boot the device.
 
 When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Asus Tinker Board](/faq/troubleshooting/asus-tinker-board) or try our [support channels](../accounts/support-access.md).
