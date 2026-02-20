@@ -57,6 +57,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 * Fit the jumper to disable eMMC boot on J2 and connect the Raspberry Pi CM4 IO Board's microUSB port to your PC. Power the board and use [usbboot](https://github.com/raspberrypi/usbboot) to put the eMMC in mass storage mode.
 * Write the balenaOS file you downloaded to the Raspberry Pi CM4 IO Board. We recommend using [Etcher](https://etcher.balena.io/).
 * 
+
 <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 
 * Wait for writing of balenaOS to complete.
