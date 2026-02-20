@@ -36,11 +36,11 @@
       "postUpgradeTasks": {
         "commands": ["npm run generate-device-specific-content"],
         "fileFilters": [
-          "getting-started/",
-          "troubleshooting/",
+          "pages/getting-started/",
+          "pages/faq/troubleshooting/",
           "pages/reference/hardware/devices.md",
-          "summary/SUMMARY.md",
-          "config-list/"
+          "pages/SUMMARY.md",
+          "pages/reference/supervisor/config-list/"
         ],
         "executionMode": "update"
       }
