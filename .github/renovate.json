@@ -40,7 +40,7 @@
           "pages/learn/getting-started/**",
           "pages/faq/troubleshooting/**",
           "pages/reference/hardware/devices.md",
-          "pages/reference/supervisor/config-list/**",
+          "pages/reference/supervisor/configuration-list/**",
           "pages/SUMMARY.md",
           "pages/.gitbook/assets/dt-*",
           "pages/.gitbook/includes/esr-supported-devices.md"

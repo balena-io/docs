@@ -10,7 +10,8 @@ In some cases social logins can be disrupted or completely borked by Adblocker o
 
 ### I get `$'\r': command not found` when my device tries to run scripts
 
-Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like: /usr/src/app/run.sh: line 2: $'\r': command not found
+Line endings differ between Windows and the Unix-y world (they used to be different again for Mac but not for many years), which can result in issues. E.g. a user seeing something like:
+/usr/src/app/run.sh: line 2: $'\r': command not found
 
 To resolve this, you will need to configure git to automatically convert line endings. In order to configure this for Windows have a look [at this Github article](https://help.github.com/articles/dealing-with-line-endings/#platform-windows).
 
@@ -24,7 +25,7 @@ The qemu: Unsupported syscall: 384 is a warning that the getrandom(2) system cal
 
 ### Help! My device won't show up.
 
-If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly (if you need help fixing your credentials, see [WiFi Help](../pages/reference/OS/network.md#wifi-setup)) and ensure that your network meets these [basic requirements](../pages/reference/OS/network.md#network-requirements). If the device has a LED indicator, it may also be worth checking it for any known error codes or signals.
+If your device still hasn't shown up on your dashboard after 10 minutes, something is definitely wrong. First check that you entered the WiFi credentials correctly (if you need help fixing your credentials, see [WiFi Help](../../reference/os/network.md#wifi-setup)) and ensure that your network meets these [basic requirements](../../reference/os/network.md#network-requirements). If the device has a LED indicator, it may also be worth checking it for any known error codes or signals.
 
 If you have an HDMI screen attached, you should see balena logo on the screen when the device boots. If instead you see rainbow colors or a blank screen, it could mean that the SD card was not burned correctly or is corrupted.
 
@@ -36,7 +37,7 @@ To determine if you have hardware Rev 1.1 of the CM4, follow either of the steps
 
 1. If your CM4 has a Dialog DA9090 power management controller (see image below), then your CM4 is Rev 1.1 or later.
 
-
+<img src="/img/troubleshooting/CM4_DA9090_identified_800.webp" width="50%">
 
 2. Run the following command in Raspberry Pi OS (release date April 4th 2022 or later): The output should confirm the hardware revision.
 
@@ -47,15 +48,15 @@ Raspberry Pi Compute Module 4 Rev 1.1
 
 For more information about the CM4 Rev 1.1, please refer to the "CM4 Revision 5 PCN" in the [Product Information Portal](https://pip.raspberrypi.com/) by Raspberry Pi.
 
-If you still can't get your device online, come on over and talk to us on our [support channel](../pages/learn/accounts/support-access.md).
+If you still can't get your device online, come on over and talk to us on our [support channel](../../learn/accounts/support-access.md).
 
 ### This is the wrong balena device.
 
 If you see this error, there are several potential causes, including:
 
-* The config.json file is missing or corrupted
-* The UUID in the config.json file does not match the device's UUID
-  * This could be caused by config.json corruption or storage corruption
-* You are attempting to SSH into a device using the wrong IP address
+- The config.json file is missing or corrupted
+- The UUID in the config.json file does not match the device's UUID
+    - This could be caused by config.json corruption or storage corruption
+- You are attempting to SSH into a device using the wrong IP address
 
-Please contact [balena support](../pages/learn/accounts/support-access.md) if you encounter this issue so that we can investigate the root cause.
+Please contact [balena support](../../learn/accounts/support-access.md) if you encounter this issue so that we can investigate the root cause.

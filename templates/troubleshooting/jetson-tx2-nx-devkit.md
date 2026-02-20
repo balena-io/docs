@@ -12,7 +12,7 @@ In the case of a device that will not boot because of an interrupted update proc
 
 ### Custom device tree support
 
-Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section](../pages/learn/develop/hardware/i2c-and-spi.md#jetson-devices).
+Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section](../../learn/develop/hardware/i2c-and-spi.md#jetson-devices).
 
 
 ## Jetson L4T versions
@@ -23,4 +23,4 @@ If the device is running, typing `uname -a` will show the L4T in the kernel vers
 
 ### Custom device tree support
 
-Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section](../pages/learn/develop/hardware/i2c-and-spi.md#jetson-devices).
+Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section](../../learn/develop/hardware/i2c-and-spi.md#jetson-devices).

@@ -25,8 +25,8 @@ environment before applying them to production devices.
 | `BALENA_SUPERVISOR_HARDWARE_METRICS` | Enable / Disable reporting device metrics such as CPU usage for bandwidth conservation. Only supported by supervisor versions &gt;&#x3D; v12.8.0. | No | false, true | true | 
 
 You can find more information on updating config.txt through configuration variables in our [Advanced Boot Configuration
-Guide](../pages/reference/OS/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
+Guide](../../os/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
 dashboard, this configuration can be also be set using the API or any of its clients, including
-the [SDK](../pages/reference/sdk/node-sdk/latest.md) and [CLI](../pages/reference/balena-cli/latest.md#env-list).
+the [SDK](../../../external-docs/node-sdk/latest.md) and [CLI](../../../external-docs/balena-cli/latest.md#env-list).
 If you are using configuration to specify i2c or other interfaces, then check out the docs on how to go about
-[interacting with hardware](../pages/learn/develop/hardware/i2c-and-spi.md).
+[interacting with hardware](../../../learn/develop/hardware/i2c-and-spi.md).

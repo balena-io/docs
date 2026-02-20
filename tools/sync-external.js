@@ -50,32 +50,39 @@ let hasVersionedFailures = false;
  * Log error and exit with non-zero status
  */
 function fatal(message) {
-  console.error(message);
-  process.exit(1);
+	console.error(message);
+	process.exit(1);
 }
 
 /**
  * Fetch content from a URL with optional authorization and JSON parsing
  */
-async function fetchContentFromGithub(url, { auth = false, json = false } = {}) {
-  console.log(`  Fetching: ${url}`);
-  const response = await fetch(url, {
-    headers: {
-      ...(auth && GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}),
-    },
-  });
-  if (!response.ok) {
-    throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
-  }
-  try {
-    if (json) {
-      return await response.json();
-    } else {
-      return await response.text();
-    }
-  } catch (err) {
-    throw new Error(`Failed to parse response from ${url}: ${err.message}`);
-  }
+async function fetchContentFromGithub(
+	url,
+	{ auth = false, json = false } = {},
+) {
+	console.log(`  Fetching: ${url}`);
+	const response = await fetch(url, {
+		headers: {
+			...(auth && GITHUB_TOKEN
+				? { Authorization: `token ${GITHUB_TOKEN}` }
+				: {}),
+		},
+	});
+	if (!response.ok) {
+		throw new Error(
+			`Failed to fetch ${url}: ${response.status} ${response.statusText}`,
+		);
+	}
+	try {
+		if (json) {
+			return await response.json();
+		} else {
+			return await response.text();
+		}
+	} catch (err) {
+		throw new Error(`Failed to parse response from ${url}: ${err.message}`);
+	}
 }
 
 /**
@@ -85,78 +92,81 @@ async function fetchContentFromGithub(url, { auth = false, json = false } = {}) 
  * Throws if section is not found.
  */
 function extractSection(content, sectionName) {
-  const lines = content.split('\n');
-  const result = [];
-  let capturing = false;
-  let headerLevel = 0;
+	const lines = content.split('\n');
+	const result = [];
+	let capturing = false;
+	let headerLevel = 0;
 
-  for (const line of lines) {
-    // Check if this line is a header matching our section
-    const headerMatch = line.match(/^(#+)\s+(.+)$/);
+	for (const line of lines) {
+		// Check if this line is a header matching our section
+		const headerMatch = line.match(/^(#+)\s+(.+)$/);
 
-    if (headerMatch) {
-      const level = headerMatch[1].length;
-      const title = headerMatch[2].trim();
+		if (headerMatch) {
+			const level = headerMatch[1].length;
+			const title = headerMatch[2].trim();
 
-      if (title === sectionName) {
-        // Found our section, start capturing (but don't include the header itself)
-        capturing = true;
-        headerLevel = level;
-        continue;
-      } else if (capturing && level <= headerLevel) {
-        // Hit a same-level or higher-level header, stop capturing
-        break;
-      }
-    }
+			if (title === sectionName) {
+				// Found our section, start capturing (but don't include the header itself)
+				capturing = true;
+				headerLevel = level;
+				continue;
+			} else if (capturing && level <= headerLevel) {
+				// Hit a same-level or higher-level header, stop capturing
+				break;
+			}
+		}
 
-    if (capturing) {
-      result.push(line);
-    }
-  }
+		if (capturing) {
+			result.push(line);
+		}
+	}
 
-  // Fail if section was not found
-  if (!capturing) {
-    const headers = lines
-      .filter(line => HEADER_REGEX.test(line))
-      .map(line => line.replace(HEADER_REGEX, '').trim());
-    throw new Error(
-      `Section "${sectionName}" not found in ${headers.length} headers: ${headers.join(', ')}`
-    );
-  }
+	// Fail if section was not found
+	if (!capturing) {
+		const headers = lines
+			.filter((line) => HEADER_REGEX.test(line))
+			.map((line) => line.replace(HEADER_REGEX, '').trim());
+		throw new Error(
+			`Section "${sectionName}" not found in ${headers.length} headers: ${headers.join(', ')}`,
+		);
+	}
 
-  // Trim leading/trailing empty lines
-  let start = 0;
-  while (start < result.length && result[start].trim() === '') {
-    start++;
-  }
-  let end = result.length - 1;
-  while (end >= start && result[end].trim() === '') {
-    end--;
-  }
+	// Trim leading/trailing empty lines
+	let start = 0;
+	while (start < result.length && result[start].trim() === '') {
+		start++;
+	}
+	let end = result.length - 1;
+	while (end >= start && result[end].trim() === '') {
+		end--;
+	}
 
-  return result.slice(start, end + 1).join('\n') + '\n';
+	return result.slice(start, end + 1).join('\n') + '\n';
 }
 
 const TRANSFORMS = {
-  'extract-section': (content, transform) => extractSection(content, transform.section),
-  'prepend': (content, transform) => transform.content + content,
+	'extract-section': (content, transform) =>
+		extractSection(content, transform.section),
+	prepend: (content, transform) => transform.content + content,
 };
 
 /**
  * Apply transforms to content
  */
 function applyTransform(content, transform) {
-  if (!transform) {
-    throw new Error('applyTransform called without transform argument');
-  }
-  console.log(`  Applying transform: ${transform.type}${transform.section ? ` (${transform.section})` : ''}`);
-  const handler = TRANSFORMS[transform.type];
-  if (!handler) {
-    throw new Error(
-      `Unknown transform type: "${transform.type}". Valid types: ${Object.keys(TRANSFORMS).join(', ')}`
-    );
-  }
-  return handler(content, transform);
+	if (!transform) {
+		throw new Error('applyTransform called without transform argument');
+	}
+	console.log(
+		`  Applying transform: ${transform.type}${transform.section ? ` (${transform.section})` : ''}`,
+	);
+	const handler = TRANSFORMS[transform.type];
+	if (!handler) {
+		throw new Error(
+			`Unknown transform type: "${transform.type}". Valid types: ${Object.keys(TRANSFORMS).join(', ')}`,
+		);
+	}
+	return handler(content, transform);
 }
 
 /**
@@ -164,10 +174,10 @@ function applyTransform(content, transform) {
  * Validates that filePath doesn't contain path traversal sequences
  */
 function buildRawUrl(repo, ref, filePath) {
-  if (filePath.includes('..') || path.isAbsolute(filePath)) {
-    throw new Error(`Invalid file path (path traversal detected): ${filePath}`);
-  }
-  return `https://raw.githubusercontent.com/${repo}/${ref}/${filePath}`;
+	if (filePath.includes('..') || path.isAbsolute(filePath)) {
+		throw new Error(`Invalid file path (path traversal detected): ${filePath}`);
+	}
+	return `https://raw.githubusercontent.com/${repo}/${ref}/${filePath}`;
 }
 
 /**
@@ -175,9 +185,9 @@ function buildRawUrl(repo, ref, filePath) {
  * Respects DRY_RUN mode - won't create directories during dry run
  */
 function ensureDir(filePath) {
-  if (!DRY_RUN) {
-    fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  }
+	if (!DRY_RUN) {
+		fs.mkdirSync(path.dirname(filePath), { recursive: true });
+	}
 }
 
 /**
@@ -185,99 +195,103 @@ function ensureDir(filePath) {
  * Validates that targetPath stays within ROOT_DIR (defense against path traversal)
  */
 function writeFile(targetPath, content, label = null) {
-  // Validate path stays within ROOT_DIR
-  const resolvedPath = path.resolve(targetPath);
-  const resolvedRoot = path.resolve(ROOT_DIR);
-  const relativePath = path.relative(resolvedRoot, resolvedPath);
-  if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
-    throw new Error(`Target path outside root directory: ${targetPath}`);
-  }
+	// Validate path stays within ROOT_DIR
+	const resolvedPath = path.resolve(targetPath);
+	const resolvedRoot = path.resolve(ROOT_DIR);
+	const relativePath = path.relative(resolvedRoot, resolvedPath);
+	if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
+		throw new Error(`Target path outside root directory: ${targetPath}`);
+	}
 
-  const displayPath = label || path.relative(ROOT_DIR, targetPath);
-  if (DRY_RUN) {
-    console.log(`  [DRY-RUN] Would write to: ${displayPath} (${content.length} bytes)`);
-  } else {
-    ensureDir(targetPath);
-    fs.writeFileSync(targetPath, content);
-    console.log(`  Written: ${displayPath} (${content.length} bytes)`);
-  }
+	const displayPath = label || path.relative(ROOT_DIR, targetPath);
+	if (DRY_RUN) {
+		console.log(
+			`  [DRY-RUN] Would write to: ${displayPath} (${content.length} bytes)`,
+		);
+	} else {
+		ensureDir(targetPath);
+		fs.writeFileSync(targetPath, content);
+		console.log(`  Written: ${displayPath} (${content.length} bytes)`);
+	}
 }
 
 /**
  * Process a single versioned source
  */
 async function processSource(source) {
-  console.log(`\n[${source.id}] Processing ${source.repo}@${source.ref}`);
+	console.log(`\n[${source.id}] Processing ${source.repo}@${source.ref}`);
 
-  for (const file of source.files) {
-    const url = buildRawUrl(source.repo, source.ref, file.source);
-    const targetPath = path.join(ROOT_DIR, file.target);
+	for (const file of source.files) {
+		const url = buildRawUrl(source.repo, source.ref, file.source);
+		const targetPath = path.join(ROOT_DIR, file.target);
 
-    let content = await fetchContentFromGithub(url);
+		let content = await fetchContentFromGithub(url);
 
-    if (file.transform) {
-      if (!Array.isArray(file.transform)) {
-        content = applyTransform(content, file.transform);
-      } else {
-        for (const t of file.transform) {
-          content = applyTransform(content, t);
-        }
-      }
-    }
+		if (file.transform) {
+			if (!Array.isArray(file.transform)) {
+				content = applyTransform(content, file.transform);
+			} else {
+				for (const t of file.transform) {
+					content = applyTransform(content, t);
+				}
+			}
+		}
 
-    writeFile(targetPath, content, file.target);
-  }
+		writeFile(targetPath, content, file.target);
+	}
 }
 
 /**
  * Process dynamic GitHub org repos source
  */
 async function processDynamicOrgRepos(source) {
-  console.log(`\n[${source.id}] Fetching repos from org: ${source.org}`);
+	console.log(`\n[${source.id}] Fetching repos from org: ${source.org}`);
 
-  const url = `${GITHUB_API_BASE}/orgs/${source.org}/repos?per_page=${source.perPage || 30}`;
-  const targetPath = path.join(ROOT_DIR, source.target);
+	const url = `${GITHUB_API_BASE}/orgs/${source.org}/repos?per_page=${source.perPage || 30}`;
+	const targetPath = path.join(ROOT_DIR, source.target);
 
-  try {
-    const repos = await fetchContentFromGithub(url, { auth: true, json: true });
+	try {
+		const repos = await fetchContentFromGithub(url, { auth: true, json: true });
 
-    // Sort by stars descending
-    repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+		// Sort by stars descending
+		repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-    // Build markdown table
-    const lines = ['Name|Description', '---|---'];
-    for (const repo of repos) {
-      const description = (repo.description || '')
-        .replace(/\\/g, '\\\\')
-        .replace(/\|/g, '\\|');
-      lines.push(`[${repo.name}](${repo.html_url})|${description}`);
-    }
+		// Build markdown table
+		const lines = ['Name|Description', '---|---'];
+		for (const repo of repos) {
+			const description = (repo.description || '')
+				.replace(/\\/g, '\\\\')
+				.replace(/\|/g, '\\|');
+			lines.push(`[${repo.name}](${repo.html_url})|${description}`);
+		}
 
-    const content = lines.join('\n') + '\n';
-    writeFile(targetPath, content, `${source.target} (${repos.length} repos)`);
-  } catch (error) {
-    // Don't throw for dynamic sources - they may be rate limited
-    console.error(`  ERROR: ${error.message}`);
-    console.error(`  Warning: Skipping ${source.id} due to error (will report failure)`);
-    hasDynamicFailures = true;
-  }
+		const content = lines.join('\n') + '\n';
+		writeFile(targetPath, content, `${source.target} (${repos.length} repos)`);
+	} catch (error) {
+		// Don't throw for dynamic sources - they may be rate limited
+		console.error(`  ERROR: ${error.message}`);
+		console.error(
+			`  Warning: Skipping ${source.id} due to error (will report failure)`,
+		);
+		hasDynamicFailures = true;
+	}
 }
 
 const DYNAMIC_SOURCE_HANDLERS = {
-  'github-org-repos': processDynamicOrgRepos,
+	'github-org-repos': processDynamicOrgRepos,
 };
 
 /**
  * Process a dynamic source based on its type
  */
 async function processDynamicSource(source) {
-  const handler = DYNAMIC_SOURCE_HANDLERS[source.type];
-  if (!handler) {
-    throw new Error(
-      `Unknown dynamic source type: "${source.type}". Valid types: ${Object.keys(DYNAMIC_SOURCE_HANDLERS).join(', ')}`
-    );
-  }
-  await handler(source);
+	const handler = DYNAMIC_SOURCE_HANDLERS[source.type];
+	if (!handler) {
+		throw new Error(
+			`Unknown dynamic source type: "${source.type}". Valid types: ${Object.keys(DYNAMIC_SOURCE_HANDLERS).join(', ')}`,
+		);
+	}
+	await handler(source);
 }
 
 /**
@@ -285,47 +299,58 @@ async function processDynamicSource(source) {
  * This matches versioning.js behavior
  */
 function removeFirstLine(content) {
-  const lines = content.split('\n');
-  return lines.slice(1).join('\n');
+	const lines = content.split('\n');
+	return lines.slice(1).join('\n');
 }
 
 /**
  * Fetch releases from GitHub API for a repository
  */
 async function fetchReleases(repo, maxPages = 3) {
-  console.log(`  Fetching releases from ${repo}...`);
-  const allReleases = [];
+	console.log(`  Fetching releases from ${repo}...`);
+	const allReleases = [];
 
-  for (let page = 1; page <= maxPages; page++) {
-    const url = `${GITHUB_API_BASE}/repos/${repo}/releases?per_page=100&page=${page}`;
-    try {
-      const releases = await fetchContentFromGithub(url, { auth: true, json: true });
+	for (let page = 1; page <= maxPages; page++) {
+		const url = `${GITHUB_API_BASE}/repos/${repo}/releases?per_page=100&page=${page}`;
+		try {
+			const releases = await fetchContentFromGithub(url, {
+				auth: true,
+				json: true,
+			});
 
-      if (!Array.isArray(releases) || releases.length === 0) {
-        break;
-      }
+			if (!Array.isArray(releases) || releases.length === 0) {
+				break;
+			}
 
-      allReleases.push(...releases);
+			allReleases.push(...releases);
 
-      // Early exit once we have 10+ semantic versions - covers ~5 major versions
-      // (each with latest patch) which is our maximum tracking depth
-      const semanticCount = allReleases.filter(r => /^v?\d+\.\d+\.\d+$/.test(r.tag_name)).length;
-      if (semanticCount >= 10) {
-        break;
-      }
-    } catch (error) {
-      // Page 1 failure is critical - we have no data to work with
-      if (page === 1) {
-        const hint = !GITHUB_TOKEN ? ' (hint: set GITHUB_TOKEN to avoid rate limits)' : '';
-        throw new Error(`Failed to fetch releases for ${repo}: ${error.message}${hint}`);
-      }
-      // Later page failures are warnings - we have partial data
-      console.error(`  Warning: Partial release data - page ${page} failed: ${error.message}`);
-      break;
-    }
-  }
+			// Early exit once we have 10+ semantic versions - covers ~5 major versions
+			// (each with latest patch) which is our maximum tracking depth
+			const semanticCount = allReleases.filter((r) =>
+				/^v?\d+\.\d+\.\d+$/.test(r.tag_name),
+			).length;
+			if (semanticCount >= 10) {
+				break;
+			}
+		} catch (error) {
+			// Page 1 failure is critical - we have no data to work with
+			if (page === 1) {
+				const hint = !GITHUB_TOKEN
+					? ' (hint: set GITHUB_TOKEN to avoid rate limits)'
+					: '';
+				throw new Error(
+					`Failed to fetch releases for ${repo}: ${error.message}${hint}`,
+				);
+			}
+			// Later page failures are warnings - we have partial data
+			console.error(
+				`  Warning: Partial release data - page ${page} failed: ${error.message}`,
+			);
+			break;
+		}
+	}
 
-  return allReleases;
+	return allReleases;
 }
 
 /**
@@ -337,62 +362,64 @@ async function fetchReleases(repo, maxPages = 3) {
  * - Versions older than 1 year marked as 'deprecated'
  */
 function determineVersionsToTrack(releases) {
-  // Filter to semantic versions and parse
-  const semanticReleases = releases
-    .filter(r => /^v?\d+\.\d+\.\d+$/.test(r.tag_name))
-    .map(r => ({
-      tag: r.tag_name,
-      major: parseInt(r.tag_name.replace('v', '').split('.')[0], 10),
-      date: new Date(r.published_at),
-    }))
-    .sort((a, b) => b.date - a.date);
+	// Filter to semantic versions and parse
+	const semanticReleases = releases
+		.filter((r) => /^v?\d+\.\d+\.\d+$/.test(r.tag_name))
+		.map((r) => ({
+			tag: r.tag_name,
+			major: parseInt(r.tag_name.replace('v', '').split('.')[0], 10),
+			date: new Date(r.published_at),
+		}))
+		.sort((a, b) => b.date - a.date);
 
-  if (semanticReleases.length === 0) {
-    return [];
-  }
+	if (semanticReleases.length === 0) {
+		return [];
+	}
 
-  // Get latest release of each major version
-  const byMajor = new Map();
-  for (const release of semanticReleases) {
-    if (!byMajor.has(release.major)) {
-      byMajor.set(release.major, release);
-    }
-  }
+	// Get latest release of each major version
+	const byMajor = new Map();
+	for (const release of semanticReleases) {
+		if (!byMajor.has(release.major)) {
+			byMajor.set(release.major, release);
+		}
+	}
 
-  const latestByMajor = Array.from(byMajor.values()).sort((a, b) => b.major - a.major);
-  const [latestRelease] = latestByMajor;
+	const latestByMajor = Array.from(byMajor.values()).sort(
+		(a, b) => b.major - a.major,
+	);
+	const [latestRelease] = latestByMajor;
 
-  // Calculate 1-year cutoff from latest release
-  const oneYearAgo = new Date(latestRelease.date);
-  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+	// Calculate 1-year cutoff from latest release
+	const oneYearAgo = new Date(latestRelease.date);
+	oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
 
-  // Select versions: within 1 year, or up to 5 total
-  const selectedVersions = [];
-  for (const release of latestByMajor) {
-    const isLatest = release.major === latestRelease.major;
-    const withinOneYear = release.date >= oneYearAgo;
-    const needMore = selectedVersions.length < 5;
+	// Select versions: within 1 year, or up to 5 total
+	const selectedVersions = [];
+	for (const release of latestByMajor) {
+		const isLatest = release.major === latestRelease.major;
+		const withinOneYear = release.date >= oneYearAgo;
+		const needMore = selectedVersions.length < 5;
 
-    if (!isLatest && !withinOneYear && !needMore) {
-      continue;
-    }
+		if (!isLatest && !withinOneYear && !needMore) {
+			continue;
+		}
 
-    let policy = 'supported';
-    if (isLatest) {
-      policy = 'latest';
-    } else if (release.date < oneYearAgo) {
-      policy = 'deprecated';
-    }
+		let policy = 'supported';
+		if (isLatest) {
+			policy = 'latest';
+		} else if (release.date < oneYearAgo) {
+			policy = 'deprecated';
+		}
 
-    selectedVersions.push({
-      tag: release.tag,
-      major: release.major,
-      date: release.date,
-      policy,
-    });
-  }
+		selectedVersions.push({
+			tag: release.tag,
+			major: release.major,
+			date: release.date,
+			policy,
+		});
+	}
 
-  return selectedVersions;
+	return selectedVersions;
 }
 
 /**
@@ -405,341 +432,406 @@ function determineVersionsToTrack(releases) {
  * from the GitHub releases API.
  */
 async function processVersionedSources(manifest) {
-  const versionedSources = manifest.versionedSources || [];
+	const versionedSources = manifest.versionedSources || [];
 
-  if (versionedSources.length === 0) {
-    return;
-  }
+	if (versionedSources.length === 0) {
+		return;
+	}
 
-  console.log(`\nProcessing ${versionedSources.length} versioned source(s)...`);
+	console.log(`\nProcessing ${versionedSources.length} versioned source(s)...`);
 
-  const versionedData = {};
+	const versionedData = {};
 
-  for (const source of versionedSources) {
-    console.log(`\n[${source.id}] Processing versioned docs from ${source.repo}`);
-    versionedData[source.targetDir] = [];
+	for (const source of versionedSources) {
+		console.log(
+			`\n[${source.id}] Processing versioned docs from ${source.repo}`,
+		);
+		versionedData[source.targetDir] = [];
 
-    // Fetch releases and determine versions to track
-    const releases = await fetchReleases(source.repo);
-    const versionsToTrack = determineVersionsToTrack(releases);
+		// Fetch releases and determine versions to track
+		const releases = await fetchReleases(source.repo);
+		const versionsToTrack = determineVersionsToTrack(releases);
 
-    if (versionsToTrack.length === 0) {
-      console.log(`  Warning: No semantic versions found, skipping`);
-      continue;
-    }
+		if (versionsToTrack.length === 0) {
+			console.log(`  Warning: No semantic versions found, skipping`);
+			continue;
+		}
 
-    console.log(`  Found ${versionsToTrack.length} versions to track: ${versionsToTrack.map(v => v.tag).join(', ')}`);
+		console.log(
+			`  Found ${versionsToTrack.length} versions to track: ${versionsToTrack.map((v) => v.tag).join(', ')}`,
+		);
 
-    const dictionaryEntries = [];
-    const targetDir = path.join(ROOT_DIR, source.targetDir);
+		const dictionaryEntries = [];
+		const targetDir = path.join(ROOT_DIR, source.targetDir);
 
-    // Ensure target directory exists (and is clean)
-    if (!DRY_RUN) {
-      if (fs.existsSync(targetDir)) {
-        fs.rmSync(targetDir, { recursive: true });
-      }
-      fs.mkdirSync(targetDir, { recursive: true });
-    }
+		// Ensure target directory exists (and is clean)
+		if (!DRY_RUN) {
+			if (fs.existsSync(targetDir)) {
+				fs.rmSync(targetDir, { recursive: true });
+			}
+			fs.mkdirSync(targetDir, { recursive: true });
+		}
 
-    for (const version of versionsToTrack) {
-      const url = buildRawUrl(source.repo, `refs/tags/${version.tag}`, source.file);
-      console.log(`  Version: ${version.tag} (${version.policy})`);
+		for (const version of versionsToTrack) {
+			const url = buildRawUrl(
+				source.repo,
+				`refs/tags/${version.tag}`,
+				source.file,
+			);
+			console.log(`  Version: ${version.tag} (${version.policy})`);
 
-      try {
-        let content = await fetchContentFromGithub(url);
-        content = removeFirstLine(content);
-        const pageTitle = `${version.policy === 'latest' ? 'Latest' : version.tag} ${version.policy === 'deprecated' ? '(DEPRECATED)' : ''}`.trim();
-        content = `# ${pageTitle}\n\n${version.policy === 'latest' ? ('## ' + version.tag + '\n\n') : ''}` + content
+			try {
+				let content = await fetchContentFromGithub(url);
+				content = removeFirstLine(content);
+				const pageTitle =
+					`${version.policy === 'latest' ? 'Latest' : version.tag} ${version.policy === 'deprecated' ? '(DEPRECATED)' : ''}`.trim();
+				content =
+					`# ${pageTitle}\n\n${version.policy === 'latest' ? '## ' + version.tag + '\n\n' : ''}` +
+					content;
 
-        const versionId = version.policy === 'latest' ? 'latest' : version.tag;
-        const targetPath = path.join(targetDir, `${versionId}.md`);
-        versionedData[source.targetDir].push({filePath: `${source.targetDir}/${versionId}.md`, pageTitle});
-        if (DRY_RUN) {
-          console.log(`  [DRY-RUN] Would write to: ${source.targetDir}/${versionId}.md (${content.length} bytes)`);
-        } else {
-          fs.writeFileSync(targetPath, content);
-          console.log(`  Written: ${source.targetDir}/${versionId}.md (${content.length} bytes)`);
-        }
+				const versionId = version.policy === 'latest' ? 'latest' : version.tag;
+				const targetPath = path.join(targetDir, `${versionId}.md`);
+				versionedData[source.targetDir].push({
+					filePath: `${source.targetDir}/${versionId}.md`,
+					pageTitle,
+				});
+				if (DRY_RUN) {
+					console.log(
+						`  [DRY-RUN] Would write to: ${source.targetDir}/${versionId}.md (${content.length} bytes)`,
+					);
+				} else {
+					fs.writeFileSync(targetPath, content);
+					console.log(
+						`  Written: ${source.targetDir}/${versionId}.md (${content.length} bytes)`,
+					);
+				}
 
-        // Build dictionary entry with display name based on policy
-        const policySuffix = version.policy === 'supported' ? '' : ` ${version.policy}`;
-        dictionaryEntries.push({
-          id: versionId,
-          name: `${version.tag}${policySuffix}`,
-          version: version.tag,
-        });
-      } catch (error) {
-        console.error(`  ERROR fetching ${version.tag}: ${error.message}`);
-        hasVersionedFailures = true;
-      }
-    }
+				// Build dictionary entry with display name based on policy
+				const policySuffix =
+					version.policy === 'supported' ? '' : ` ${version.policy}`;
+				dictionaryEntries.push({
+					id: versionId,
+					name: `${version.tag}${policySuffix}`,
+					version: version.tag,
+				});
+			} catch (error) {
+				console.error(`  ERROR fetching ${version.tag}: ${error.message}`);
+				hasVersionedFailures = true;
+			}
+		}
 
-    // Write dictionary file
-    if (dictionaryEntries.length > 0) {
-      const dictionaryPath = path.join(ROOT_DIR, source.dictionary);
-      const dictionaryContent = JSON.stringify(dictionaryEntries, null, 2) + '\n';
-      writeFile(dictionaryPath, dictionaryContent, `${source.dictionary} (${dictionaryEntries.length} versions)`);
-    }
-  }
-  updateSummaryWithVersionedData(versionedData);
+		// Write dictionary file
+		if (dictionaryEntries.length > 0) {
+			const dictionaryPath = path.join(ROOT_DIR, source.dictionary);
+			const dictionaryContent =
+				JSON.stringify(dictionaryEntries, null, 2) + '\n';
+			writeFile(
+				dictionaryPath,
+				dictionaryContent,
+				`${source.dictionary} (${dictionaryEntries.length} versions)`,
+			);
+		}
+	}
+	updateSummaryWithVersionedData(versionedData);
 }
 
+const isVersioned = (text) => {
+	// extract the url inside the parentheses of a markdown link
+	const match = text.match(/\(([^)]+)\)[^()]*$/);
+	const target = match ? match[1] : text;
+	const filename = path.basename(target).toLowerCase().replace('.md', '');
+	// check if it follows the pattern of 'latest' or semantic versioning (vX.Y.Z or X.Y.Z)
+	return filename === 'latest' || /^(v)?\d+\.\d+\.\d+/.test(filename);
+};
+
 /**
- * @param {Object} versionedData - Format: { 
+ * @param {Object} versionedData - Format: {
  * 'pages/external-docs/balena-cli': [{ filePath: 'pages/external-docs/balena-cli/latest.md', pageTitle: 'Latest' }],
- * ... 
+ * ...
  * }
  */
 function updateSummaryWithVersionedData(versionedData) {
-    let summaryContent = fs.readFileSync(SUMMARY_PATH, 'utf8');
-    let lines = summaryContent.split('\n');
+	let summaryContent = fs.readFileSync(SUMMARY_PATH, 'utf8');
+	let lines = summaryContent.split('\n');
 
-    const isVersioned = (text) => {
-        const match = text.match(/\(([^)]+)\)[^()]*$/);
-        const target = match ? match[1] : text; 
-        const filename = path.basename(target).toLowerCase().replace('.md', '');
-        return filename === 'latest' || /^(v)?\d+\.\d+\.\d+/.test(filename);
-    };
+	const findEndOfList = (parentIndex) => {
+		const parentIndentMatch = lines[parentIndex].match(/^(\s*)/);
+		const parentIndent = parentIndentMatch ? parentIndentMatch[0] : '';
+		let lastIndex = parentIndex;
+		for (let i = parentIndex + 1; i < lines.length; i++) {
+			const line = lines[i];
+			if (!line || line.trim() === '') continue;
+			const currentIndentMatch = line.match(/^(\s*)/);
+			const currentIndent = currentIndentMatch ? currentIndentMatch[0] : '';
+			if (currentIndent.length <= parentIndent.length && line.trim() !== '')
+				break;
+			lastIndex = i;
+		}
+		return lastIndex;
+	};
 
-    const findEndOfList = (parentIndex) => {
-        const parentIndentMatch = lines[parentIndex].match(/^(\s*)/);
-        const parentIndent = parentIndentMatch ? parentIndentMatch[0] : "";
-        let lastIndex = parentIndex;
-        for (let i = parentIndex + 1; i < lines.length; i++) {
-            const line = lines[i];
-            if (!line || line.trim() === "") continue;
-            const currentIndentMatch = line.match(/^(\s*)/);
-            const currentIndent = currentIndentMatch ? currentIndentMatch[0] : "";
-            if (currentIndent.length <= parentIndent.length && line.trim() !== "") break;
-            lastIndex = i;
-        }
-        return lastIndex;
-    };
+	const entries = Object.entries(versionedData).sort(
+		(a, b) => a[0].length - b[0].length,
+	);
 
-    const entries = Object.entries(versionedData).sort((a, b) => a[0].length - b[0].length);
+	entries.forEach(([sourceDir, files]) => {
+		if (!files || files.length === 0) return;
 
-    entries.forEach(([sourceDir, files]) => {
-        if (!files || files.length === 0) return;
+		// FIX 1: Strip 'pages/' from the start of the sourceDir for mapping
+		const cleanSourceDir = sourceDir.replace(/^pages\//, '');
+		const logicalPath = cleanSourceDir.replace('external-docs/', 'reference/');
 
-        // FIX 1: Strip 'pages/' from the start of the sourceDir for mapping
-        const cleanSourceDir = sourceDir.replace(/^pages\//, '');
-        const logicalPath = cleanSourceDir.replace('external-docs/', 'reference/');
-        
-        // Anchor now looks for (reference/balena-cli/
-        const anchorUrl = `(${logicalPath}/`; 
-        let startIndex = lines.findIndex(line => line.includes(anchorUrl));
+		// Anchor now looks for something like (reference/balena-cli/
+		const anchorUrl = `(${logicalPath}/`;
+		let startIndex = lines.findIndex((line) => line.includes(anchorUrl));
 
-        // 1. NESTING & SECTION APPEND
-        if (startIndex === -1) {
-            const pathParts = logicalPath.split('/');
-            
-            if (pathParts.length > 2) {
-                const parentDirPath = pathParts.slice(0, -1).join('/');
-                const parentAnchor = `(${parentDirPath}/`;
-                let parentIndex = lines.findIndex(line => line.includes(parentAnchor));
+		// 1. NESTING & SECTION APPEND
+		if (startIndex === -1) {
+			const pathParts = logicalPath.split('/');
 
-                if (parentIndex !== -1) {
-                    const lastLineOfParent = findEndOfList(parentIndex);
-                    const parentIndent = lines[parentIndex].match(/^(\s*)/)[0];
-                    const newChildIndent = parentIndent + (parentIndent.includes('\t') ? '\t' : '  ');
-                    const label = pathParts[pathParts.length - 1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                    
-                    lines.splice(lastLineOfParent + 1, 0, `${newChildIndent}* [${label}](${logicalPath}/README.md)`);
-                    startIndex = lastLineOfParent + 1;
-                }
-            } 
-            
-            if (startIndex === -1) {
-                const sectionHeader = `## Reference`;
-                let headerIndex = lines.findIndex(l => l.trim().startsWith(sectionHeader));
+			// Find a parent folder and nest under it
+			if (pathParts.length > 2) {
+				const parentDirPath = pathParts.slice(0, -1).join('/');
+				const parentAnchor = `(${parentDirPath}/`;
+				let parentIndex = lines.findIndex((line) =>
+					line.includes(parentAnchor),
+				);
 
-                if (headerIndex !== -1) {
-                    let insertAt = headerIndex + 1;
-                    while (insertAt < lines.length) {
-                        const line = lines[insertAt].trim();
-                        if (line.startsWith('##')) break;
-                        if (line.startsWith('*')) {
-                            insertAt = findEndOfList(insertAt) + 1;
-                            continue;
-                        }
-                        insertAt++;
-                    }
+				if (parentIndex !== -1) {
+					const lastLineOfParent = findEndOfList(parentIndex);
+					const parentIndent = lines[parentIndex].match(/^(\s*)/)[0];
+					const newChildIndent =
+						parentIndent + (parentIndent.includes('\t') ? '\t' : '  ');
+					const label = pathParts[pathParts.length - 1]
+						.replace(/-/g, ' ')
+						.replace(/\b\w/g, (l) => l.toUpperCase());
 
-                    while (insertAt > headerIndex + 1 && (!lines[insertAt-1] || lines[insertAt-1].trim() === "")) {
-                        insertAt--;
-                    }
+					lines.splice(
+						lastLineOfParent + 1,
+						0,
+						`${newChildIndent}* [${label}](${logicalPath}/README.md)`,
+					);
+					startIndex = lastLineOfParent + 1;
+				}
+			}
 
-                    const label = pathParts[pathParts.length - 1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                    lines.splice(insertAt, 0, `* [${label}](${logicalPath}/README.md)`);
-                    startIndex = insertAt;
-                }
-            }
-        }
+			// Find the "## Reference" header and put the link there
+			if (startIndex === -1) {
+				const sectionHeader = `## Reference`;
+				let headerIndex = lines.findIndex((l) =>
+					l.trim().startsWith(sectionHeader),
+				);
 
-        if (startIndex === -1) return;
+				if (headerIndex !== -1) {
+					let insertAt = headerIndex + 1;
+					while (insertAt < lines.length) {
+						const line = lines[insertAt].trim();
+						if (line.startsWith('##')) break;
+						if (line.startsWith('*')) {
+							insertAt = findEndOfList(insertAt) + 1;
+							continue;
+						}
+						insertAt++;
+					}
 
-        // 2. CHILD REPLACEMENT
-        const parentIndentMatch = lines[startIndex].match(/^(\s*)/);
-        const parentIndent = parentIndentMatch ? parentIndentMatch[0] : "";
-        const childIndent = parentIndent + (parentIndent.includes('\t') ? '\t' : '  ');
+					while (
+						insertAt > headerIndex + 1 &&
+						(!lines[insertAt - 1] || lines[insertAt - 1].trim() === '')
+					) {
+						insertAt--;
+					}
 
-        let scanIndex = startIndex + 1;
-        let staticLines = [];
+					const label = pathParts[pathParts.length - 1]
+						.replace(/-/g, ' ')
+						.replace(/\b\w/g, (l) => l.toUpperCase());
+					lines.splice(insertAt, 0, `* [${label}](${logicalPath}/README.md)`);
+					startIndex = insertAt;
+				}
+			}
+		}
 
-        while (scanIndex < lines.length) {
-            const line = lines[scanIndex];
-            if (line && line.trim() === "") { scanIndex++; continue; }
-            if (!line) break;
+		if (startIndex === -1) return;
 
-            const currentIndentMatch = line.match(/^(\s*)/);
-            const currentIndent = currentIndentMatch ? currentIndentMatch[0] : "";
-            
-            if (currentIndent.length <= parentIndent.length) break;
+		// 2. CHILD REPLACEMENT
+		const parentIndentMatch = lines[startIndex].match(/^(\s*)/);
+		const parentIndent = parentIndentMatch ? parentIndentMatch[0] : '';
+		const childIndent =
+			parentIndent + (parentIndent.includes('\t') ? '\t' : '  ');
 
-            if (!isVersioned(line)) {
-                staticLines.push(line);
-            }
-            scanIndex++;
-        }
+		let scanIndex = startIndex + 1;
+		let staticLines = [];
 
-        const versionLines = files
-            .filter(f => isVersioned(f.filePath))
-            .sort((a, b) => {
-                const aName = path.basename(a.filePath).toLowerCase();
-                const bName = path.basename(b.filePath).toLowerCase();
-                if (aName.includes('latest')) return -1;
-                if (bName.includes('latest')) return 1;
-                return bName.localeCompare(aName, undefined, { numeric: true });
-            })
-            .map(fileObj => {
-                // FIX 2: Strip 'pages/' from the link path as well
-                const cleanFilePath = fileObj.filePath.replace(/^pages\//, '');
-                return `${childIndent}* [${fileObj.pageTitle}](${cleanFilePath})`;
-            });
+		while (scanIndex < lines.length) {
+			const line = lines[scanIndex];
+			if (line && line.trim() === '') {
+				scanIndex++;
+				continue;
+			}
+			if (!line) break;
 
-        lines.splice(startIndex + 1, scanIndex - (startIndex + 1), ...staticLines, ...versionLines);
-    });
+			const currentIndentMatch = line.match(/^(\s*)/);
+			const currentIndent = currentIndentMatch ? currentIndentMatch[0] : '';
 
-    fs.writeFileSync(SUMMARY_PATH, lines.join('\n'));
+			if (currentIndent.length <= parentIndent.length) break;
+
+			if (!isVersioned(line)) {
+				staticLines.push(line);
+			}
+			scanIndex++;
+		}
+
+		const versionLines = files
+			.filter((f) => isVersioned(f.filePath))
+			.sort((a, b) => {
+				const aName = path.basename(a.filePath).toLowerCase();
+				const bName = path.basename(b.filePath).toLowerCase();
+				if (aName.includes('latest')) return -1;
+				if (bName.includes('latest')) return 1;
+				return bName.localeCompare(aName, undefined, { numeric: true });
+			})
+			.map((fileObj) => {
+				// Strip 'pages/' from the link path as well
+				const cleanFilePath = fileObj.filePath.replace(/^pages\//, '');
+				return `${childIndent}* [${fileObj.pageTitle}](${cleanFilePath})`;
+			});
+
+		lines.splice(
+			startIndex + 1,
+			scanIndex - (startIndex + 1),
+			...staticLines,
+			...versionLines,
+		);
+	});
+
+	fs.writeFileSync(SUMMARY_PATH, lines.join('\n'));
 }
 
 /**
  * Print final status and exit
  */
 function finish() {
-  console.log('\n' + SEPARATOR);
-  if (hasDynamicFailures || hasVersionedFailures) {
-    fatal('Sync completed with errors (see above)');
-  }
-  console.log('Sync complete!');
+	console.log('\n' + SEPARATOR);
+	if (hasDynamicFailures || hasVersionedFailures) {
+		fatal('Sync completed with errors (see above)');
+	}
+	console.log('Sync complete!');
 }
 
 /**
  * Load and parse the manifest file
  */
 function loadManifest() {
-  if (!fs.existsSync(MANIFEST_PATH)) {
-    fatal(`Manifest not found: ${MANIFEST_PATH}`);
-  }
+	if (!fs.existsSync(MANIFEST_PATH)) {
+		fatal(`Manifest not found: ${MANIFEST_PATH}`);
+	}
 
-  try {
-    return JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf-8'));
-  } catch (error) {
-    fatal(`Failed to parse manifest: ${error.message}`);
-  }
+	try {
+		return JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf-8'));
+	} catch (error) {
+		fatal(`Failed to parse manifest: ${error.message}`);
+	}
 }
 
 /**
  * Main entry point
  */
 async function main() {
-  console.log(SEPARATOR);
-  console.log('External Documentation Sync');
-  console.log(SEPARATOR);
+	console.log(SEPARATOR);
+	console.log('External Documentation Sync');
+	console.log(SEPARATOR);
 
-  if (DRY_RUN) {
-    console.log('\n[DRY-RUN MODE] No files will be written\n');
-  }
+	if (DRY_RUN) {
+		console.log('\n[DRY-RUN MODE] No files will be written\n');
+	}
 
-  if (!GITHUB_TOKEN) {
-    console.log('Warning: GITHUB_TOKEN not set. API calls may be rate limited.\n');
-  }
+	if (!GITHUB_TOKEN) {
+		console.log(
+			'Warning: GITHUB_TOKEN not set. API calls may be rate limited.\n',
+		);
+	}
 
-  const manifest = loadManifest();
+	const manifest = loadManifest();
 
-  // Handle --repo filter: process all sources from a specific repo
-  if (REPO_FILTER) {
-    console.log(`Filtering by repo: ${REPO_FILTER}\n`);
+	// Handle --repo filter: process all sources from a specific repo
+	if (REPO_FILTER) {
+		console.log(`Filtering by repo: ${REPO_FILTER}\n`);
 
-    const matchingSources = manifest.sources.filter(s => s.repo === REPO_FILTER);
-    const matchingVersioned = manifest.versionedSources?.filter(s => s.repo === REPO_FILTER) || [];
+		const matchingSources = manifest.sources.filter(
+			(s) => s.repo === REPO_FILTER,
+		);
+		const matchingVersioned =
+			manifest.versionedSources?.filter((s) => s.repo === REPO_FILTER) || [];
 
-    if (matchingSources.length === 0 && matchingVersioned.length === 0) {
-      fatal(`No sources found for repo: ${REPO_FILTER}`);
-    }
+		if (matchingSources.length === 0 && matchingVersioned.length === 0) {
+			fatal(`No sources found for repo: ${REPO_FILTER}`);
+		}
 
-    if (matchingSources.length > 0) {
-      console.log(`Processing ${matchingSources.length} pinned source(s) from ${REPO_FILTER}...`);
-      for (const source of matchingSources) {
-        await processSource(source);
-      }
-    }
+		if (matchingSources.length > 0) {
+			console.log(
+				`Processing ${matchingSources.length} pinned source(s) from ${REPO_FILTER}...`,
+			);
+			for (const source of matchingSources) {
+				await processSource(source);
+			}
+		}
 
-    if (matchingVersioned.length > 0) {
-      await processVersionedSources({ versionedSources: matchingVersioned });
-    }
+		if (matchingVersioned.length > 0) {
+			await processVersionedSources({ versionedSources: matchingVersioned });
+		}
 
-    return finish();
-  }
+		return finish();
+	}
 
-  // Handle --source filter: find and process a single source by id
-  if (SOURCE_FILTER) {
-    const source = manifest.sources.find(s => s.id === SOURCE_FILTER);
-    if (source) {
-      await processSource(source);
-      return finish();
-    }
+	// Handle --source filter: find and process a single source by id
+	if (SOURCE_FILTER) {
+		const source = manifest.sources.find((s) => s.id === SOURCE_FILTER);
+		if (source) {
+			await processSource(source);
+			return finish();
+		}
 
-    const versionedSource = manifest.versionedSources?.find(s => s.id === SOURCE_FILTER);
-    if (versionedSource) {
-      await processVersionedSources({ versionedSources: [versionedSource] });
-      return finish();
-    }
+		const versionedSource = manifest.versionedSources?.find(
+			(s) => s.id === SOURCE_FILTER,
+		);
+		if (versionedSource) {
+			await processVersionedSources({ versionedSources: [versionedSource] });
+			return finish();
+		}
 
-    const dynamicSource = manifest.dynamic?.find(s => s.id === SOURCE_FILTER);
-    if (dynamicSource) {
-      await processDynamicSource(dynamicSource);
-      return finish();
-    }
+		const dynamicSource = manifest.dynamic?.find((s) => s.id === SOURCE_FILTER);
+		if (dynamicSource) {
+			await processDynamicSource(dynamicSource);
+			return finish();
+		}
 
-    fatal(`Source not found: ${SOURCE_FILTER}`);
-  }
+		fatal(`Source not found: ${SOURCE_FILTER}`);
+	}
 
-  // Process all sources
-  console.log(`Processing ${manifest.sources.length} pinned source(s)...`);
-  for (const source of manifest.sources) {
-    await processSource(source);
-  }
+	// Process all sources
+	console.log(`Processing ${manifest.sources.length} pinned source(s)...`);
+	for (const source of manifest.sources) {
+		await processSource(source);
+	}
 
-  if (manifest.versionedSources) {
-    await processVersionedSources(manifest);
-  }
+	if (manifest.versionedSources) {
+		await processVersionedSources(manifest);
+	}
 
-  if (!SKIP_DYNAMIC && manifest.dynamic) {
-    console.log(`\nProcessing ${manifest.dynamic.length} dynamic source(s)...`);
-    for (const source of manifest.dynamic) {
-      await processDynamicSource(source);
-    }
-  }
+	if (!SKIP_DYNAMIC && manifest.dynamic) {
+		console.log(`\nProcessing ${manifest.dynamic.length} dynamic source(s)...`);
+		for (const source of manifest.dynamic) {
+			await processDynamicSource(source);
+		}
+	}
 
-  finish();
+	finish();
 }
 
-main().catch(error => {
-  console.error('\nFatal error:', error.message);
-  if (error.stack) {
-    console.error('\nStack trace:');
-    console.error(error.stack);
-  }
-  process.exit(1);
+main().catch((error) => {
+	console.error('\nFatal error:', error.message);
+	if (error.stack) {
+		console.error('\nStack trace:');
+		console.error(error.stack);
+	}
+	process.exit(1);
 });

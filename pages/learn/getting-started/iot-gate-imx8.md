@@ -40,7 +40,7 @@ balenaCloud builds a custom balenaOS image configured for Compulab IOT-gate-imx8
 
 <figure><img src="../../.gitbook/assets/add-device.webp" alt="Add new device"><figcaption></figcaption></figure>
 
-Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../../reference/OS/overview.md#development-vs-production-images).
+Select an OS type of _balenaOS_, and you will see a list of available balenaOS versions with the latest preselected. Choose a **Development** version of the OS. The production OS does not facilitate the development workflow we'll be using. Find out more about the [differences between Development and Production images](../../reference/os/overview.md#development-vs-production-images).
 
 <figure><img src="../../.gitbook/assets/network.webp" alt="Network configuration"><figcaption></figcaption></figure>
 

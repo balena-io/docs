@@ -18,6 +18,28 @@ if (!inputDir || !inputFile || !outputDir || !outputFile) {
 const inputPath = path.resolve(inputDir, inputFile);
 const outputPath = path.resolve(outputDir, outputFile);
 
+const unescapeEndpoint = (str) => {
+	if (!str) return '';
+	return str
+		.replace(/\\\$/g, '$')
+		.replace(/%20/g, ' ')
+		.replace(/%27/g, "'")
+		.replace(/%28/g, '(')
+		.replace(/%29/g, ')');
+};
+
+const formatJsonData = (dataStr) => {
+	if (!dataStr || dataStr.trim() === '') return '';
+	let fixed = dataStr.replace(/"\s*\n\s*"/g, '",\n"');
+	fixed = fixed.replace(/: "true"/g, ': true').replace(/: "false"/g, ': false');
+	try {
+		let pretty = JSON.stringify(JSON.parse(fixed), null, 4);
+		return pretty.replace(/: "(\s*<[^>]+>\s*)"/g, ': $1');
+	} catch (e) {
+		return fixed.replace(/: "(\s*<[^>]+>\s*)"/g, ': $1');
+	}
+};
+
 function convertResourceToOpenApi(inputPath, outputPath) {
 	console.log(`Reading from: ${inputPath}`);
 	console.log(`Targeting output at: ${outputPath}`);
@@ -69,30 +91,6 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 
 	const injectedTags = new Set();
 
-	const unescapeEndpoint = (str) => {
-		if (!str) return '';
-		return str
-			.replace(/\\\$/g, '$')
-			.replace(/%20/g, ' ')
-			.replace(/%27/g, "'")
-			.replace(/%28/g, '(')
-			.replace(/%29/g, ')');
-	};
-
-	const formatJsonData = (dataStr) => {
-		if (!dataStr || dataStr.trim() === '') return '';
-		let fixed = dataStr.replace(/"\s*\n\s*"/g, '",\n"');
-		fixed = fixed
-			.replace(/: "true"/g, ': true')
-			.replace(/: "false"/g, ': false');
-		try {
-			let pretty = JSON.stringify(JSON.parse(fixed), null, 4);
-			return pretty.replace(/: "(\s*<[^>]+>\s*)"/g, ': $1');
-		} catch (e) {
-			return fixed.replace(/: "(\s*<[^>]+>\s*)"/g, ': $1');
-		}
-	};
-
 	resources.forEach((resource) => {
 		const tagName = (resource.name || resource.id).trim();
 
@@ -101,7 +99,10 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 				type: 'object',
 				title: `${tagName} Model`,
 				properties: Object.fromEntries(
-					resource.fields.map((f) => [f, { type: 'string' }]),
+					resource.fields.map((f) => [
+						f,
+						{ description: 'Type information not available yet' },
+					]),
 				),
 			};
 		}
@@ -225,10 +226,6 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 			delete op['x-fields-table'];
 		});
 	});
-
-	if (!fs.existsSync(outputDir)) {
-		fs.mkdirSync(outputDir, { recursive: true });
-	}
 
 	fs.writeFileSync(
 		outputPath,
