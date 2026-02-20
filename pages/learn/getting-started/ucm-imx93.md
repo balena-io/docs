@@ -56,11 +56,13 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 * Insert the SD card to the host machine.
 * Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
-* <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+* 
+<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 * Wait for writing of balenaOS to complete.
 * Remove the SD card from the host machine.
 * Insert the freshly flashed SD card into the Compulab UCM-iMX93 Devkit.
-* <img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
+* 
+<img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
 * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
 * Connect power to the Compulab UCM-iMX93 Devkit Press and hold SW3 followed by SW4 Release SW3 followed by SW4
 * Wait for the Compulab UCM-iMX93 Devkit to finish flashing and shutdown. Please wait until ethernet LEDs are off for more than 5 seconds. An Ethernet cable needs pe plugged in for the LEDs to stay on during provisioning..

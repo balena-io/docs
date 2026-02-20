@@ -56,11 +56,13 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
 
 * Insert the SD card to the host machine.
 * Write the balenaOS file you downloaded to the SD card. We recommend using [Etcher](https://etcher.balena.io/).
-* <img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
+* 
+<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 * Wait for writing of balenaOS to complete.
 * Remove the SD card from the host machine.
 * Insert the freshly flashed SD card into the ASUS Tinker Edge T.
-* <img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
+* 
+<img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">
 * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
 * Set the BOOT_SELECT switch to the SD-CARD position. Connect power to the ASUS Tinker Edge T.
 * Wait for the ASUS Tinker Edge T to finish flashing and shutdown. Please wait until all LEDs are off.
