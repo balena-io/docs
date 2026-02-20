@@ -29,7 +29,6 @@ jobs:
       )
     secrets: inherit
     with:
-      cloudflare_website: "balenacloud-docs"
       docusaurus_website: false
       disable_versioning: true
 
