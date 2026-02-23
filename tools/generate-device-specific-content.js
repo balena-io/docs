@@ -161,7 +161,7 @@ const getLatestCLIVersion = async () => {
 };
 
 /**
- * Empty getting started guides directory (keep the README file)
+ * Empty the given directory (keep the README file)
  * @returns {Promise<void>}
  */
 const emptyDirectory = async (folder) => {
