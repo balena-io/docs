@@ -12,7 +12,7 @@
     "sync-external": "node tools/sync-external.js",
     "generate-openapi": "node tools/generate-openapi-spec-from-resourcejson.js ./config/dictionaries resource.json ./ openapi.yaml",
     "generate-device-specific-content": "node tools/generate-device-specific-content.js",
-    "build": "npm run sync-external && npm run generate-openapi && npm run generate-device-specific-content"
+    "generate-cloud-iot": "node tools/generate-cloud-iot.js"
   },
   "repository": {
     "type": "git",
