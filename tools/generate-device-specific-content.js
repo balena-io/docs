@@ -20,7 +20,7 @@ const TROUBLESHOOTING_TEMPLATE_PATH = '../templates/troubleshooting.md';
 const TROUBLESHOOTING_TEMPLATE_DT_PATH = '../templates/troubleshooting/';
 const TROUBLESHOOTING_DEST_FOLDER = '../pages/faq/troubleshooting/';
 const CONFIG_LIST_TEMPLATE_PATH = '../templates/config-list.md';
-const CONFIG_LIST_DEST_FOLDER = '../pages/reference/supervisor/config-list/';
+const CONFIG_LIST_DEST_FOLDER = '../pages/reference/supervisor/configuration-list/';
 
 Handlebars.registerHelper('isImage', function (str) {
   if (typeof str !== 'string') return false;
@@ -271,7 +271,7 @@ const generateConfigListPages = async (deviceTypes) => {
         variables.push({
           name: key,
           description: variable.hasOwnProperty('description') ? variable.description : 'No description available',
-          willReboot: variable.hasOwnProperty('will_reboot') ? 'Yes' : 'No',
+          willReboot: variable.hasOwnProperty('will_reboot') && variable.will_reboot ? 'Yes' : 'No',
           type: Array.isArray(variable.enum) ? variable.enum.join(', ') : variable.type,
           default: variable.hasOwnProperty('default') ? variable.default : '',
         })
@@ -291,7 +291,7 @@ const generateConfigListPages = async (deviceTypes) => {
   await updateSummaryFile(
     deviceTypes,
     'Configuration List',
-    'reference/supervisor/config-list',
+    'reference/supervisor/configuration-list',
     (deviceTypeName) => `Configuration List for ${deviceTypeName}`,
   );
 }
