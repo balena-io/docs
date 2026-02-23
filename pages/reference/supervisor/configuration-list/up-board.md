@@ -26,7 +26,7 @@ environment before applying them to production devices.
 | `RESIN_HOST_CONFIGFS_ssdt` | Define SSDT overlays. Only supported by supervisor versions &gt;&#x3D; v. Only supported by supervisor versions &gt;&#x3D; v10.9.2. | Yes | string |  | 
 
 You can find more information on updating config.txt through configuration variables in our [Advanced Boot Configuration
-Guide](../../OS/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
+Guide](../../os/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
 dashboard, this configuration can be also be set using the API or any of its clients, including
 the [SDK](../../sdk/node-sdk/latest.md) and [CLI](../../balena-cli/latest.md#env-list).
 If you are using configuration to specify i2c or other interfaces, then check out the docs on how to go about

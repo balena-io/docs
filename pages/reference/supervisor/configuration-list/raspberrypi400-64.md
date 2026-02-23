@@ -39,7 +39,7 @@ environment before applying them to production devices.
 | `BALENA_HOST_CONFIG_hdmi_mode:1` | Define the HDMI output format on HDMI port 2  Only supported by supervisor versions &gt;&#x3D; v14.6.0. | Yes | integer | 1 | 
 
 You can find more information on updating config.txt through configuration variables in our [Advanced Boot Configuration
-Guide](../../OS/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
+Guide](../../os/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
 dashboard, this configuration can be also be set using the API or any of its clients, including
 the [SDK](../../sdk/node-sdk/latest.md) and [CLI](../../balena-cli/latest.md#env-list).
 If you are using configuration to specify i2c or other interfaces, then check out the docs on how to go about
