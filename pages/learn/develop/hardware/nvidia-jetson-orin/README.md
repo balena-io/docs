@@ -1,2 +1,0 @@
-# Nvidia Jetson Orin
-

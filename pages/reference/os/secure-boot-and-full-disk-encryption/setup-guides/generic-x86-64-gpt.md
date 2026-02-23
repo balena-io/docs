@@ -7,7 +7,7 @@ excerpt: Setup secure boot and full disk encryption for Generic x86_64 (GPT)
 
 This section describes how to setup a device with secure boot and full disk encryption using `Generic x86_64 (GPT)` balenaOS image. This image should be compatible on a wide range of x86\_64 devices. Note that `Generic x86-64 (legacy MBR)` and `Intel NUC` images do not provide secure boot and full disk encryption.
 
-Before diving into how to provision a device with secure boot and full disk encryption, let's look at some important considerations around this feature specifically for x86\_64 devices. For more information on the general approach to secure boot, see our docs on a [general overview of our secure boot and full disk encryption implementation](./).
+Before diving into how to provision a device with secure boot and full disk encryption, let's look at some important considerations around this feature specifically for x86\_64 devices. For more information on the general approach to secure boot, see our docs on a [general overview of our secure boot and full disk encryption implementation](../).
 
 ## Important Considerations and Caveats
 
@@ -15,15 +15,15 @@ Before diving into how to provision a device with secure boot and full disk encr
 * Disk encryption and decryption is unattended - there is no user interaction when mounting the encrypted disks as it is expected from an embedded device.
 * Secure boot and disk encryption have been designed to work as a bundle in balenaOS and they cannot be configured separately.
 * Only system partitions are encrypted. Any extra storages are not encrypted.
-* OS images are signed images and balena manages a secure signing server. We currently use a single key for the platform and consequently we can never provide the key to end users. You can read further on [how we handle keys](./#keys-and-certificates-in-secure-boot).
+* OS images are signed images and balena manages a secure signing server. We currently use a single key for the platform and consequently we can never provide the key to end users. You can read further on [how we handle keys](../#keys-and-certificates-in-secure-boot).
 * It is not possible to configure GRUB or kernel parameters
-* There are [other trade-offs](./#other-considerations) pertaining to debugging and system configuration.
+* There are [other trade-offs](../#other-considerations) pertaining to debugging and system configuration.
 
 ## System requirements
 
 *   **Secure Element: Trusted Platform Module (TPM) 2.0**
 
-    To use secure boot and full disk encryption, your device must have a Trusted Platform Module (TPM) 2.0 which is the [secure element](./#secure-element) on x86\_64 devices. For initial setup, the TPM must be in a mode that allows enrolling new keys, often called "Setup Mode" in the BIOS/UEFI settings. While most modern x86\_64 devices support this, some models may be locked into "Deployed Mode," which prevents key enrollment and is therefore incompatible.
+    To use secure boot and full disk encryption, your device must have a Trusted Platform Module (TPM) 2.0 which is the [secure element](../#secure-element) on x86\_64 devices. For initial setup, the TPM must be in a mode that allows enrolling new keys, often called "Setup Mode" in the BIOS/UEFI settings. While most modern x86\_64 devices support this, some models may be locked into "Deployed Mode," which prevents key enrollment and is therefore incompatible.
 
     Moreover, TPMs can be of two types:
 
@@ -60,7 +60,7 @@ You can then proceed to download the configured image.
 
 #### Using balena CLI
 
-Balena CLI versions `16.2.0` or newer allow you to [configure](../../../external-docs/balena-cli/latest.md#os-configure) a balenaOS installer image to opt-in secure boot by using the following command:
+Balena CLI versions `16.2.0` or newer allow you to [configure](../../../../external-docs/balena-cli/latest.md#os-configure) a balenaOS installer image to opt-in secure boot by using the following command:
 
 ```
 balena os configure <image> --secureBoot --fleet <fleetName> --device-type generic-amd64
@@ -97,7 +97,7 @@ The device should show up on balenaCloud.
 
 **Note** We are working on adding support for the device to report it's secure boot and full disk encryption status to balenaCloud. In the meantime, you can use the following instructions to manually check the status.
 
-1. SSH into the hostOS [using the dashboard web terminal](../../../learn/manage/ssh-access.md#using-the-dashboard-web-terminal) or [using the CLI](../../../learn/manage/ssh-access.md#using-balena-device-ssh-from-the-cli)
+1. SSH into the hostOS [using the dashboard web terminal](../../../../learn/manage/ssh-access.md#using-the-dashboard-web-terminal) or [using the CLI](../../../../learn/manage/ssh-access.md#using-balena-device-ssh-from-the-cli)
 2. Run the following command to check if secure boot is enabled:
 
 ```

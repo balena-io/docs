@@ -16,7 +16,7 @@ Configuration defined in the dashboard will not apply to devices in [local mode]
 
 Aside from [variables](variables.md), you can also configure device behavior with Supervisor or device type specific variables.
 
-For a complete list of valid configuration variables that can be configured, check the [configuration list](../../reference/supervisor/config-list/).
+For a complete list of valid configuration variables that can be configured, check the [configuration list](../../reference/supervisor/configuration-list/).
 
 ## Fleet configuration management
 
