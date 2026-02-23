@@ -29,6 +29,6 @@ environment before applying them to production devices.
 You can find more information on updating config.txt through configuration variables in our [Advanced Boot Configuration
 Guide](../../os/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
 dashboard, this configuration can be also be set using the API or any of its clients, including
-the [SDK](../../../../external-docs/node-sdk/latest.md) and [CLI](../../../../external-docs/balena-cli/latest.md#env-list).
+the [SDK](../../../external-docs/node-sdk/latest.md) and [CLI](../../../external-docs/balena-cli/latest.md#env-list).
 If you are using configuration to specify i2c or other interfaces, then check out the docs on how to go about
 [interacting with hardware](../../../learn/develop/hardware/i2c-and-spi.md).
