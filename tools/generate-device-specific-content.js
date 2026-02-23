@@ -296,9 +296,6 @@ const generateConfigListPages = async (deviceTypes) => {
   );
 }
 
-
-
-
 const generateDeviceListPage = async (deviceTypes) => {
   const tmpl = await readFile(path.join(__dirname, DEVICE_LIST_TEMPLATE_PATH));
   const template = Handlebars.compile(tmpl.toString());
