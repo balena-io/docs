@@ -351,17 +351,6 @@
             kind: openapi
             spec: balenaltd-api
       ```
-    * ```yaml
-      props:
-        models: true
-        downloadLink: true
-      type: builtin:openapi
-      dependencies:
-        spec:
-          ref:
-            kind: openapi
-            spec: balenaltd-api
-      ```
 * [Balena CLI](reference/balena-cli/README.md)
   * [Latest](external-docs/balena-cli/latest.md)
   * [v23.2.32](external-docs/balena-cli/v23.2.32.md)
