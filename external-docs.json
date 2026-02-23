@@ -195,7 +195,6 @@
       "dictionary": "config/dictionaries/pythonsdk.json"
     }
   ],
-
   "dynamic": [
     {
       "id": "balena-labs-projects",
@@ -210,6 +209,13 @@
       "org": "balena-io-examples",
       "target": "pages/.gitbook/includes/balena-example-projects.md",
       "perPage": 100
+    }
+  ],
+  "tracked": [
+    {
+      "id": "contracts",
+      "repo": "balena-io/contracts",
+      "ref": "v2.0.137"
     }
   ]
 }

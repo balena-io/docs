@@ -18,6 +18,7 @@
       "description": "Sync external documentation when source repos are updated",
       "matchManagers": ["custom.regex"],
       "matchFileNames": ["external-docs.json"],
+      "excludePackageNames": ["balena-io/contracts"],
       "postUpgradeTasks": {
         "commands": ["npm run sync-external -- --repo {{{depName}}}"],
         "fileFilters": [
@@ -31,16 +32,18 @@
     },
     {
       "description": "Generate device-specific content when contracts are updated",
-      "matchManagers": ["git-submodules"],
-      "matchFileNames": ["contracts"],
+      "matchManagers": ["custom.regex"],
+      "matchPackageNames": ["balena-io/contracts"],
       "postUpgradeTasks": {
         "commands": ["npm run generate-device-specific-content"],
         "fileFilters": [
-          "pages/getting-started/",
-          "pages/faq/troubleshooting/",
+          "pages/learn/getting-started/**",
+          "pages/faq/troubleshooting/**",
           "pages/reference/hardware/devices.md",
+          "pages/reference/supervisor/config-list/**",
           "pages/SUMMARY.md",
-          "pages/reference/supervisor/config-list/"
+          "pages/.gitbook/assets/dt-*",
+          "pages/.gitbook/includes/esr-supported-devices.md"
         ],
         "executionMode": "update"
       }
