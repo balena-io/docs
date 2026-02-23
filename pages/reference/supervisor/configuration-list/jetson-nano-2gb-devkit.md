@@ -27,8 +27,8 @@ environment before applying them to production devices.
 | `RESIN_HOST_EXTLINUX_isolcpus` | Allows to isolate CPU cores from the kernel scheduler by specifying CPU cores in the system starting from 0. Only supported by supervisor versions &gt;&#x3D; v7.25.0. | Yes | string |  | 
 
 You can find more information on updating config.txt through configuration variables in our [Advanced Boot Configuration
-Guide](../pages/reference/OS/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
+Guide](../../OS/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
 dashboard, this configuration can be also be set using the API or any of its clients, including
-the [SDK](../pages/reference/sdk/node-sdk/latest.md) and [CLI](../pages/reference/balena-cli/latest.md#env-list).
+the [SDK](../../sdk/node-sdk/latest.md) and [CLI](../../balena-cli/latest.md#env-list).
 If you are using configuration to specify i2c or other interfaces, then check out the docs on how to go about
-[interacting with hardware](../pages/learn/develop/hardware/i2c-and-spi.md).
+[interacting with hardware](../../../learn/develop/hardware/i2c-and-spi.md).
