@@ -51,7 +51,7 @@ Using the keyboard arrow keys, select the `UEFI : USB` option and hit enter. You
 
 **Note:** The blue power LED will stay illuminated even once the device has shutdown. You can find the user LEDs on the underside of the board near the USB ports.
 
-You can now remove the  and power up the board again. Your **UP Board** should now be sitting happily waiting on the balena dashboard. If it still hasn't appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the right WiFi credentials at download time. If you still can't get it online, [contact us on support](../pages/learn/accounts/support-access.md).
+You can now remove the  and power up the board again. Your **UP Board** should now be sitting happily waiting on the balena dashboard. If it still hasn't appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the right WiFi credentials at download time. If you still can't get it online, [contact us on support](../../learn/accounts/support-access.md).
 
 Now it's time to deploy some code!
 

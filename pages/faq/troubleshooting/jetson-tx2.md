@@ -35,7 +35,7 @@ With balenaOS 2.47, the [Tegra Linux Driver Package](https://developer.nvidia.co
 
 To resolve, either:
 
-- Perform a [self-service update](../pages/reference/OS/updates/self-service.md) to update balenaOS to >=2.47.
+- Perform a [self-service update](../../reference/os/updates/self-service.md) to update balenaOS to >=2.47.
 - Update the Tegra partitions on the eMMC by [downloading the L4T Driver Package](https://developer.nvidia.com/embedded/linux-tegra-archive) (BSP), unpack it, put the board in recovery mode and execute `sudo ./flash.sh jetson-tx2 mmcblk0p1`. Once this completes, you can reboot the board with the SD card inserted and flash the board as normal. You only need to perform this process once.
 
 ### Are L4T 28.4 and 28.5 releases supported in balenaOS?
@@ -57,7 +57,7 @@ If the device is running, typing `uname -a` will show the L4T in the kernel vers
 
 ### Custom device tree support
 
-Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section](../pages/learn/develop/hardware/i2c-and-spi.md#jetson-devices).
+Loading of custom device trees (DT) in balenaOS is supported only by the Jetson Nano and Jetson TX2 family of devices, which have u-boot support. The complete list of devices supporting custom DT and how to apply them is available in the [hardware section](../../learn/develop/hardware/i2c-and-spi.md#jetson-devices).
 
 
 If you still can't get your device online, come on over and talk to us on our [support channel](../../learn/accounts/support-access.md).
