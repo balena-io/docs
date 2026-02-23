@@ -85,25 +85,14 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 			securitySchemes: { bearerAuth: { type: 'http', scheme: 'bearer' } },
 			schemas: {},
 		},
-		tags: [],
 		paths: {},
 		security: [{ bearerAuth: [] }],
 	};
 
+	const injectedTags = new Set();
+
 	resources.forEach((resource) => {
 		const tagName = (resource.name || resource.id).trim();
-
-		// Build the table once
-		let fieldsTable = `## ${tagName} Resource Fields\n\n| Field |\n| :--- |\n`;
-		resource.fields.forEach((field) => {
-			fieldsTable += `| \`${field}\` |\n`;
-		});
-
-		// Add this resource to the global tags list
-		openapi.tags.push({
-			name: tagName,
-			description: fieldsTable, // The table lives HERE now
-		});
 
 		if (resource.fields && resource.fields.length > 0) {
 			openapi.components.schemas[resource.id] = {
@@ -117,6 +106,12 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 				),
 			};
 		}
+
+		let fieldsTable = `## ${tagName} Resource Fields\n\n| Field |\n| :--- |\n`;
+		resource.fields.forEach((field) => {
+			fieldsTable += `| \`${field}\` |\n`;
+		});
+		fieldsTable += '\n\n---\n';
 
 		resource.examples.forEach((ex) => {
 			const method = ex.method.toLowerCase();
@@ -142,6 +137,10 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 					description: '',
 					'x-variations': [],
 				};
+				if (!injectedTags.has(tagName) && fieldsTable !== '') {
+					op['x-fields-table'] = fieldsTable;
+					injectedTags.add(tagName);
+				}
 				openapi.paths[pathKey][method] = op;
 			}
 
@@ -198,7 +197,9 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 	Object.values(openapi.paths).forEach((pathObj) => {
 		Object.values(pathObj).forEach((op) => {
 			let fullDescription = '';
+			if (op['x-fields-table']) fullDescription += op['x-fields-table'];
 			if (op['x-primary-method']) {
+				if (op['x-fields-table']) fullDescription += '\n';
 				fullDescription += `\`${op['x-primary-method']} ${op['x-primary-endpoint']}\`\n`;
 				if (op['x-primary-data'] && op['x-primary-data'].trim() !== '') {
 					fullDescription += `\n**Request Body:**\n\`\`\`json\n${op['x-primary-data']}\n\`\`\`\n`;
@@ -222,6 +223,7 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 			delete op['x-primary-endpoint'];
 			delete op['x-primary-method'];
 			delete op['x-primary-data'];
+			delete op['x-fields-table'];
 		});
 	});
 
