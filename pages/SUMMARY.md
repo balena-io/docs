@@ -337,7 +337,6 @@
 * [Base Images](reference/base-images/README.md)
   * [\[Deprecated\] balenalib base images](reference/base-images/balena-base-images-reference.md)
   * [Choosing a base image](reference/base-images/balena-base-images.md)
-  * [Balenalib Images List](external-docs/base-images-ref.md)
 * [API](reference/api/README.md)
   * [Overview](reference/api/overview.md)
   * [Resources](reference/api/resources/README.md)
