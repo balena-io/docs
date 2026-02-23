@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Balena API Spec
-  description: Automated API spec generation.
+  description: Automated API spec generation with alphabetized resources.
   version: 7.0.0
 servers:
   - url: https://api.balena-cloud.com
@@ -11,64 +11,6 @@ components:
       type: http
       scheme: bearer
   schemas:
-    fleet:
-      type: object
-      title: Fleet Model
-      properties:
-        id:
-          type: string
-        uuid:
-          type: string
-        organization:
-          type: string
-        actor:
-          type: string
-        app_name:
-          type: string
-        slug:
-          type: string
-        should_be_running__release:
-          type: string
-        application_type:
-          type: string
-        is_for__device_type:
-          type: string
-        should_track_latest_release:
-          type: string
-        is_accessible_by_support_until__date:
-          type: string
-        is_public:
-          type: string
-        is_host:
-          type: string
-        is_archived:
-          type: string
-        is_discoverable:
-          type: string
-        is_stored_at__repository_url:
-          type: string
-        created_at:
-          type: string
-    fleet_membership_role:
-      type: object
-      title: Fleet membership role Model
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    fleet_tag:
-      type: object
-      title: Fleet tag Model
-      properties:
-        id:
-          type: string
-        application:
-          type: string
-        tag_key:
-          type: string
-        value:
-          type: string
     api_key:
       type: object
       title: API key Model
@@ -185,22 +127,6 @@ components:
           type: string
         is_undervolted:
           type: string
-    device_type:
-      type: object
-      title: Device type Model
-      properties:
-        id:
-          type: string
-        slug:
-          type: string
-        name:
-          type: string
-        is_private:
-          type: string
-        is_of__cpu_architecture:
-          type: string
-        belongs_to__device_family:
-          type: string
     device_config_variable:
       type: object
       title: Device config variable Model
@@ -253,6 +179,60 @@ components:
           type: string
         value:
           type: string
+    device_type:
+      type: object
+      title: Device type Model
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        is_private:
+          type: string
+        is_of__cpu_architecture:
+          type: string
+        belongs_to__device_family:
+          type: string
+    fleet:
+      type: object
+      title: Fleet Model
+      properties:
+        id:
+          type: string
+        uuid:
+          type: string
+        organization:
+          type: string
+        actor:
+          type: string
+        app_name:
+          type: string
+        slug:
+          type: string
+        should_be_running__release:
+          type: string
+        application_type:
+          type: string
+        is_for__device_type:
+          type: string
+        should_track_latest_release:
+          type: string
+        is_accessible_by_support_until__date:
+          type: string
+        is_public:
+          type: string
+        is_host:
+          type: string
+        is_archived:
+          type: string
+        is_discoverable:
+          type: string
+        is_stored_at__repository_url:
+          type: string
+        created_at:
+          type: string
     fleet_config_variable:
       type: object
       title: Fleet config variable Model
@@ -279,6 +259,14 @@ components:
           type: string
         value:
           type: string
+    fleet_membership_role:
+      type: object
+      title: Fleet membership role Model
+      properties:
+        id:
+          type: string
+        name:
+          type: string
     service_environment_variable:
       type: object
       title: Fleet service variable Model
@@ -292,6 +280,26 @@ components:
         value:
           type: string
         name:
+          type: string
+    fleet_tag:
+      type: object
+      title: Fleet tag Model
+      properties:
+        id:
+          type: string
+        application:
+          type: string
+        tag_key:
+          type: string
+        value:
+          type: string
+    supervisor_release:
+      type: object
+      title: List Supervisor releases Model
+      properties:
+        id:
+          type: string
+        raw_version:
           type: string
     organization:
       type: object
@@ -393,28 +401,6 @@ components:
           type: string
         value:
           type: string
-    supervisor_release:
-      type: object
-      title: List Supervisor releases Model
-      properties:
-        id:
-          type: string
-        raw_version:
-          type: string
-    user__has__public_key:
-      type: object
-      title: SSH key Model
-      properties:
-        id:
-          type: string
-        user:
-          type: string
-        title:
-          type: string
-        public_key:
-          type: string
-        created_at:
-          type: string
     service:
       type: object
       title: Service Model
@@ -439,15 +425,17 @@ components:
           type: string
         installs__service:
           type: string
-    user:
+    user__has__public_key:
       type: object
-      title: User Model
+      title: SSH key Model
       properties:
         id:
           type: string
-        actor:
+        user:
           type: string
-        username:
+        title:
+          type: string
+        public_key:
           type: string
         created_at:
           type: string
@@ -491,6 +479,18 @@ components:
           type: string
         is_member_of__team:
           type: string
+    user:
+      type: object
+      title: User Model
+      properties:
+        id:
+          type: string
+        actor:
+          type: string
+        username:
+          type: string
+        created_at:
+          type: string
     whoami:
       type: object
       title: Who am I Model
@@ -502,300 +502,6 @@ components:
         email:
           type: string
 paths:
-  /v7/application:
-    get:
-      tags:
-        - Fleet
-      summary: Get all fleets of an organization by its HANDLE
-      description: |-
-        ## Fleet Resource Fields
-
-        | Field |
-        | :--- |
-        | `id` |
-        | `uuid` |
-        | `organization` |
-        | `actor` |
-        | `app_name` |
-        | `slug` |
-        | `should_be_running__release` |
-        | `application_type` |
-        | `is_for__device_type` |
-        | `should_track_latest_release` |
-        | `is_accessible_by_support_until__date` |
-        | `is_public` |
-        | `is_host` |
-        | `is_archived` |
-        | `is_discoverable` |
-        | `is_stored_at__repository_url` |
-        | `created_at` |
-
-
-        ---
-
-        `GET /v7/application`
-
-
-        ### Usage Variations
-
-        --- 
-        #### Get all fleets
-        `GET /v7/application`
-
-        Note: This will also include all public fleets of the platform. In most cases retrieving the fleets by their organization will be preferable.
-
-        --- 
-        #### Get all fleets associated with authenticated user
-        `GET /v7/application?$filter=is_directly_accessible_by__user/any(dau:true)`
-
-        --- 
-        #### Get fleet by name
-        `GET /v7/application?$filter=app_name eq '<NAME>'`
-
-        --- 
-        #### Filter public fleets from result
-        `GET /v7/application?$filter=is_public eq false`
-    post:
-      tags:
-        - Fleet
-      summary: Create fleet
-      description: |-
-        `POST /v7/application`
-
-        **Request Body:**
-        ```json
-        {
-            "app_name": <NAME>,
-            "organization": <ORGANIZATION_ID>,
-            "is_for__device_type": <DEVICE_TYPE_ID>
-        }
-        ```
-
-        To retrieve the numeric ORGANIZATION_ID & DEVICE_TYPE_ID, check the respective documentation page for the organization & device type resources.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-            examples:
-              create-app:
-                summary: Create fleet
-                value:
-                  app_name: <NAME>
-                  organization: <ORGANIZATION_ID>
-                  is_for__device_type: <DEVICE_TYPE_ID>
-  /v7/application/{ID}:
-    get:
-      tags:
-        - Fleet
-      summary: Get fleet by ID
-      description: |-
-        `GET /v7/application(<ID>)`
-
-
-        ### Usage Variations
-
-        --- 
-        #### Get fleet by id along with its devices
-        `GET /v7/application(<ID>)?$expand=owns__device`
-    delete:
-      tags:
-        - Fleet
-      summary: Delete fleet
-      description: '`DELETE /v7/application(<ID>)`'
-    patch:
-      tags:
-        - Fleet
-      summary: Pin entire fleet to a specific release by ID
-      description: |-
-        `PATCH /v7/application(<ID>)`
-
-        **Request Body:**
-        ```json
-        {
-            "should_be_running__release": <RELEASE ID>,
-            "should_track_latest_release": false
-        }
-        ```
-
-
-        ### Usage Variations
-
-        --- 
-        #### Disable automatic update tracking for a fleet
-        `PATCH /v7/application(<ID>)`
-
-        **Request Body:**
-        ```json
-        {
-            "should_track_latest_release": false
-        }
-        ```
-
-        --- 
-        #### Enable automatic update tracking for a fleet
-        `PATCH /v7/application(<ID>)`
-
-        **Request Body:**
-        ```json
-        {
-            "should_track_latest_release": true
-        }
-        ```
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-            examples:
-              set-target-release-by-id:
-                summary: Pin entire fleet to a specific release by ID
-                value:
-                  should_be_running__release: <RELEASE ID>
-                  should_track_latest_release: false
-              disable-auto-update:
-                summary: Disable automatic update tracking for a fleet
-                value:
-                  should_track_latest_release: false
-              enable-auto-update:
-                summary: Enable automatic update tracking for a fleet
-                value:
-                  should_track_latest_release: true
-  /v7/application/slug='{SLUG}':
-    get:
-      tags:
-        - Fleet
-      summary: Get fleet by SLUG
-      description: |-
-        `GET /v7/application(slug='<SLUG>')`
-
-
-        ### Usage Variations
-
-        --- 
-        #### Get fleet by SLUG along with its devices
-        `GET /v7/application(slug='<SLUG>')?$expand=owns__device`
-
-        --- 
-        #### Get the target release of a fleet
-        `GET /v7/application(slug='<SLUG>')?$select=should_be_running__release`
-    patch:
-      tags:
-        - Fleet
-      summary: Pin entire fleet to a specific release by SLUG
-      description: |-
-        `PATCH /v7/application(slug='<SLUG>')`
-
-        **Request Body:**
-        ```json
-        {
-            "should_be_running__release": <RELEASE ID>,
-            "should_track_latest_release": false
-        }
-        ```
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-            examples:
-              set-target-release-by-slug:
-                summary: Pin entire fleet to a specific release by SLUG
-                value:
-                  should_be_running__release: <RELEASE ID>
-                  should_track_latest_release: false
-  /v7/application_membership_role:
-    get:
-      tags:
-        - Fleet membership role
-      summary: Get all fleet membership roles
-      description: |-
-        ## Fleet membership role Resource Fields
-
-        | Field |
-        | :--- |
-        | `id` |
-        | `name` |
-
-
-        ---
-
-        `GET /v7/application_membership_role`
-  /v7/application_tag:
-    get:
-      tags:
-        - Fleet tag
-      summary: Get all tags by fleet name
-      description: |-
-        ## Fleet tag Resource Fields
-
-        | Field |
-        | :--- |
-        | `id` |
-        | `application` |
-        | `tag_key` |
-        | `value` |
-
-
-        ---
-
-        `GET /v7/application_tag`
-    post:
-      tags:
-        - Fleet tag
-      summary: Create a new fleet tag
-      description: |-
-        `POST /v7/application_tag`
-
-        **Request Body:**
-        ```json
-        {
-            "application": <FLEET ID>,
-            "tag_key": <KEY>,
-            "value": <VALUE>
-        }
-        ```
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-            examples:
-              create-fleet-tag:
-                summary: Create a new fleet tag
-                value:
-                  application: <FLEET ID>
-                  tag_key: <KEY>
-                  value: <VALUE>
-  /v7/application_tag//{ID}:
-    patch:
-      tags:
-        - Fleet tag
-      summary: Update a fleet tag
-      description: |-
-        `PATCH /v7/application_tag/(<ID>)`
-
-        **Request Body:**
-        ```json
-        {
-            "value": <NEW VALUE>
-        }
-        ```
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-            examples:
-              update-fleet-tag:
-                summary: Update a fleet tag
-                value:
-                  value: <NEW VALUE>
-    delete:
-      tags:
-        - Fleet tag
-      summary: Delete a fleet tag
-      description: '`DELETE /v7/application_tag/(<ID>)`'
   /v7/api_key:
     get:
       tags:
@@ -1152,56 +858,6 @@ paths:
                 summary: Mark a device to be updated to a specific supervisor release
                 value:
                   should_be_managed_by__release: <SUPERVISOR RELEASE ID>
-  /v7/device_type/{ID}:
-    get:
-      tags:
-        - Device type
-      summary: Get a device type by its ID
-      description: |-
-        ## Device type Resource Fields
-
-        | Field |
-        | :--- |
-        | `id` |
-        | `slug` |
-        | `name` |
-        | `is_private` |
-        | `is_of__cpu_architecture` |
-        | `belongs_to__device_family` |
-
-
-        ---
-
-        `GET /v7/device_type(<ID>)`
-
-        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
-  /v7/device_type/slug='{DEVICE TYPE SLUG}':
-    get:
-      tags:
-        - Device type
-      summary: Get a device type by its SLUG
-      description: |-
-        `GET /v7/device_type(slug='<DEVICE TYPE SLUG>')`
-
-        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
-  /v7/device_type:
-    get:
-      tags:
-        - Device type
-      summary: Get a device type by its NAME
-      description: |-
-        `GET /v7/device_type`
-
-        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
-
-
-        ### Usage Variations
-
-        --- 
-        #### Get all supported device types
-        `GET /v7/device_type?$filter=is_default_for__application/any(idfa:(idfa/is_host eq true) and (idfa/is_archived eq false) and (idfa/owns__release/any(r:(r/status eq 'success') and (r/is_final eq true) and (r/is_invalidated eq false))))&$orderby=name asc`
-
-        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
   /v7/device_config_variable:
     get:
       tags:
@@ -1523,6 +1179,284 @@ paths:
         - Device tag
       summary: Delete a device tag given its database ID
       description: '`DELETE /v7/device_tag(<TAG-ID>)`'
+  /v7/device_type/{ID}:
+    get:
+      tags:
+        - Device type
+      summary: Get a device type by its ID
+      description: |-
+        ## Device type Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `slug` |
+        | `name` |
+        | `is_private` |
+        | `is_of__cpu_architecture` |
+        | `belongs_to__device_family` |
+
+
+        ---
+
+        `GET /v7/device_type(<ID>)`
+
+        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
+  /v7/device_type/slug='{DEVICE TYPE SLUG}':
+    get:
+      tags:
+        - Device type
+      summary: Get a device type by its SLUG
+      description: |-
+        `GET /v7/device_type(slug='<DEVICE TYPE SLUG>')`
+
+        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
+  /v7/device_type:
+    get:
+      tags:
+        - Device type
+      summary: Get a device type by its NAME
+      description: |-
+        `GET /v7/device_type`
+
+        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all supported device types
+        `GET /v7/device_type?$filter=is_default_for__application/any(idfa:(idfa/is_host eq true) and (idfa/is_archived eq false) and (idfa/owns__release/any(r:(r/status eq 'success') and (r/is_final eq true) and (r/is_invalidated eq false))))&$orderby=name asc`
+
+        When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
+  /download:
+    get:
+      tags:
+        - Download balenaOS
+      summary: Download private or ESR balenaOS images
+      description: |-
+        ## Download balenaOS Resource Fields
+
+        | Field |
+        | :--- |
+
+
+        ---
+
+        `GET /download`
+
+        In order to download an ESR or private balenaOS image, you need to provide your bearer token. The `deviceType` and `version` parameters are required. Add an `--output` flag to provide a path for the image to be downloaded.
+
+
+        ### Usage Variations
+
+        --- 
+        #### Download public balenaOS images
+        `GET /download?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'`
+
+        Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also available for download on balena.io/os and the dashboard.
+  /v7/application:
+    get:
+      tags:
+        - Fleet
+      summary: Get all fleets of an organization by its HANDLE
+      description: |-
+        ## Fleet Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `uuid` |
+        | `organization` |
+        | `actor` |
+        | `app_name` |
+        | `slug` |
+        | `should_be_running__release` |
+        | `application_type` |
+        | `is_for__device_type` |
+        | `should_track_latest_release` |
+        | `is_accessible_by_support_until__date` |
+        | `is_public` |
+        | `is_host` |
+        | `is_archived` |
+        | `is_discoverable` |
+        | `is_stored_at__repository_url` |
+        | `created_at` |
+
+
+        ---
+
+        `GET /v7/application`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all fleets
+        `GET /v7/application`
+
+        Note: This will also include all public fleets of the platform. In most cases retrieving the fleets by their organization will be preferable.
+
+        --- 
+        #### Get all fleets associated with authenticated user
+        `GET /v7/application?$filter=is_directly_accessible_by__user/any(dau:true)`
+
+        --- 
+        #### Get fleet by name
+        `GET /v7/application?$filter=app_name eq '<NAME>'`
+
+        --- 
+        #### Filter public fleets from result
+        `GET /v7/application?$filter=is_public eq false`
+    post:
+      tags:
+        - Fleet
+      summary: Create fleet
+      description: |-
+        `POST /v7/application`
+
+        **Request Body:**
+        ```json
+        {
+            "app_name": <NAME>,
+            "organization": <ORGANIZATION_ID>,
+            "is_for__device_type": <DEVICE_TYPE_ID>
+        }
+        ```
+
+        To retrieve the numeric ORGANIZATION_ID & DEVICE_TYPE_ID, check the respective documentation page for the organization & device type resources.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-app:
+                summary: Create fleet
+                value:
+                  app_name: <NAME>
+                  organization: <ORGANIZATION_ID>
+                  is_for__device_type: <DEVICE_TYPE_ID>
+  /v7/application/{ID}:
+    get:
+      tags:
+        - Fleet
+      summary: Get fleet by ID
+      description: |-
+        `GET /v7/application(<ID>)`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get fleet by id along with its devices
+        `GET /v7/application(<ID>)?$expand=owns__device`
+    delete:
+      tags:
+        - Fleet
+      summary: Delete fleet
+      description: '`DELETE /v7/application(<ID>)`'
+    patch:
+      tags:
+        - Fleet
+      summary: Pin entire fleet to a specific release by ID
+      description: |-
+        `PATCH /v7/application(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "should_be_running__release": <RELEASE ID>,
+            "should_track_latest_release": false
+        }
+        ```
+
+
+        ### Usage Variations
+
+        --- 
+        #### Disable automatic update tracking for a fleet
+        `PATCH /v7/application(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "should_track_latest_release": false
+        }
+        ```
+
+        --- 
+        #### Enable automatic update tracking for a fleet
+        `PATCH /v7/application(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "should_track_latest_release": true
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              set-target-release-by-id:
+                summary: Pin entire fleet to a specific release by ID
+                value:
+                  should_be_running__release: <RELEASE ID>
+                  should_track_latest_release: false
+              disable-auto-update:
+                summary: Disable automatic update tracking for a fleet
+                value:
+                  should_track_latest_release: false
+              enable-auto-update:
+                summary: Enable automatic update tracking for a fleet
+                value:
+                  should_track_latest_release: true
+  /v7/application/slug='{SLUG}':
+    get:
+      tags:
+        - Fleet
+      summary: Get fleet by SLUG
+      description: |-
+        `GET /v7/application(slug='<SLUG>')`
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get fleet by SLUG along with its devices
+        `GET /v7/application(slug='<SLUG>')?$expand=owns__device`
+
+        --- 
+        #### Get the target release of a fleet
+        `GET /v7/application(slug='<SLUG>')?$select=should_be_running__release`
+    patch:
+      tags:
+        - Fleet
+      summary: Pin entire fleet to a specific release by SLUG
+      description: |-
+        `PATCH /v7/application(slug='<SLUG>')`
+
+        **Request Body:**
+        ```json
+        {
+            "should_be_running__release": <RELEASE ID>,
+            "should_track_latest_release": false
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              set-target-release-by-slug:
+                summary: Pin entire fleet to a specific release by SLUG
+                value:
+                  should_be_running__release: <RELEASE ID>
+                  should_track_latest_release: false
   /v7/application_config_variable:
     get:
       tags:
@@ -1674,6 +1608,23 @@ paths:
         - Fleet environment variable
       summary: Remove a fleet environment variable
       description: '`DELETE /v7/application_environment_variable(<ID>)`'
+  /v7/application_membership_role:
+    get:
+      tags:
+        - Fleet membership role
+      summary: Get all fleet membership roles
+      description: |-
+        ## Fleet membership role Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `name` |
+
+
+        ---
+
+        `GET /v7/application_membership_role`
   /v7/service_environment_variable:
     get:
       tags:
@@ -1750,6 +1701,137 @@ paths:
         - Fleet service variable
       summary: Remove a fleet service variable
       description: '`DELETE /v7/service_environment_variable(<ID>)`'
+  /v7/application_tag:
+    get:
+      tags:
+        - Fleet tag
+      summary: Get all tags by fleet name
+      description: |-
+        ## Fleet tag Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `application` |
+        | `tag_key` |
+        | `value` |
+
+
+        ---
+
+        `GET /v7/application_tag`
+    post:
+      tags:
+        - Fleet tag
+      summary: Create a new fleet tag
+      description: |-
+        `POST /v7/application_tag`
+
+        **Request Body:**
+        ```json
+        {
+            "application": <FLEET ID>,
+            "tag_key": <KEY>,
+            "value": <VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-fleet-tag:
+                summary: Create a new fleet tag
+                value:
+                  application: <FLEET ID>
+                  tag_key: <KEY>
+                  value: <VALUE>
+  /v7/application_tag//{ID}:
+    patch:
+      tags:
+        - Fleet tag
+      summary: Update a fleet tag
+      description: |-
+        `PATCH /v7/application_tag/(<ID>)`
+
+        **Request Body:**
+        ```json
+        {
+            "value": <NEW VALUE>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              update-fleet-tag:
+                summary: Update a fleet tag
+                value:
+                  value: <NEW VALUE>
+    delete:
+      tags:
+        - Fleet tag
+      summary: Delete a fleet tag
+      description: '`DELETE /v7/application_tag/(<ID>)`'
+  /v7/release:
+    get:
+      tags:
+        - List balenaOS releases
+      summary: List the supported balenaOS versions for a device type
+      description: |-
+        ## List balenaOS releases Resource Fields
+
+        | Field |
+        | :--- |
+
+
+        ---
+
+        `GET /v7/release`
+
+        To request a list of the supported balenaOS versions for a particular device type, the `DEVICE TYPE SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.
+
+
+        ### Usage Variations
+
+        --- 
+        #### List the supported balenaOS versions for a private device type
+        `GET /v7/release?$select=raw_version&$filter=(is_final eq true) and (is_invalidated eq false) and (status eq 'success') and (semver_major gt 0) and (belongs_to__application/any(bta:(bta/is_host eq true) and (bta/is_for__device_type/any(dt:dt/slug eq '<DEVICE TYPE SLUG>'))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
+
+        Same as above, but in order to access private device types, you must provide an authentication token.
+  /v7/release#List_Supervisor_releases:
+    get:
+      tags:
+        - List Supervisor releases
+      summary: Get all supervisor releases for a specific cpu architecture by slug (eg amd64/rpi/armv7hf/aarch64)
+      description: |-
+        ## List Supervisor releases Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `raw_version` |
+
+
+        ---
+
+        `GET /v7/release`
+
+        To request a list of the supported supervisor releases for a particular cpu architecture, the `CPU_ARCHITECTURE_SLUG` parameter is required. Even though this query only selects the `id` and `raw_version` fields, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.
+
+
+        ### Usage Variations
+
+        --- 
+        #### Get all supervisor releases for a specific cpu architecture by ID
+        `GET /v7/release?$select=id,raw_version&$filter=(status eq 'success') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,'balena_os%2F') and endswith(a/slug,'-supervisor')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture eq <CPU_ARCHITECTURE_ID>)))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
+
+        --- 
+        #### Get a specific supervisor release version for a specific cpu architecture
+        `GET /v7/release?$select=id,raw_version&$filter=(status eq 'success') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,'balena_os%2F') and endswith(a/slug,'-supervisor')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug eq '<CPU_ARCHITECTURE_SLUG>')))))) and (raw_version eq '<VERSION>')&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
   /v7/organization:
     get:
       tags:
@@ -1809,7 +1891,7 @@ paths:
         ---
 
         `GET /v7/organization_membership`
-  /v7/release:
+  /v7/release#Release:
     get:
       tags:
         - Release
@@ -1914,88 +1996,44 @@ paths:
                   release: <RELEASE ID>
                   tag_key: <KEY>
                   value: <VALUE>
-  /v7/release#List_Supervisor_releases:
+  /v7/service:
     get:
       tags:
-        - List Supervisor releases
-      summary: Get all supervisor releases for a specific cpu architecture by slug (eg amd64/rpi/armv7hf/aarch64)
+        - Service
+      summary: Get all services belonging to a fleet
       description: |-
-        ## List Supervisor releases Resource Fields
+        ## Service Resource Fields
 
         | Field |
         | :--- |
         | `id` |
-        | `raw_version` |
+        | `created_at` |
+        | `application` |
+        | `service_name` |
 
 
         ---
 
-        `GET /v7/release`
-
-        To request a list of the supported supervisor releases for a particular cpu architecture, the `CPU_ARCHITECTURE_SLUG` parameter is required. Even though this query only selects the `id` and `raw_version` fields, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.
-
-
-        ### Usage Variations
-
-        --- 
-        #### Get all supervisor releases for a specific cpu architecture by ID
-        `GET /v7/release?$select=id,raw_version&$filter=(status eq 'success') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,'balena_os%2F') and endswith(a/slug,'-supervisor')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture eq <CPU_ARCHITECTURE_ID>)))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
-
-        --- 
-        #### Get a specific supervisor release version for a specific cpu architecture
-        `GET /v7/release?$select=id,raw_version&$filter=(status eq 'success') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,'balena_os%2F') and endswith(a/slug,'-supervisor')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug eq '<CPU_ARCHITECTURE_SLUG>')))))) and (raw_version eq '<VERSION>')&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
-  /v7/release#List_balenaOS_releases:
+        `GET /v7/service`
+  /v7/service_install:
     get:
       tags:
-        - List balenaOS releases
-      summary: List the supported balenaOS versions for a device type
+        - Service install
+      summary: Get service name for all services on a device
       description: |-
-        ## List balenaOS releases Resource Fields
+        ## Service install Resource Fields
 
         | Field |
         | :--- |
+        | `id` |
+        | `created_at` |
+        | `device` |
+        | `installs__service` |
 
 
         ---
 
-        `GET /v7/release`
-
-        To request a list of the supported balenaOS versions for a particular device type, the `DEVICE TYPE SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.
-
-
-        ### Usage Variations
-
-        --- 
-        #### List the supported balenaOS versions for a private device type
-        `GET /v7/release?$select=raw_version&$filter=(is_final eq true) and (is_invalidated eq false) and (status eq 'success') and (semver_major gt 0) and (belongs_to__application/any(bta:(bta/is_host eq true) and (bta/is_for__device_type/any(dt:dt/slug eq '<DEVICE TYPE SLUG>'))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
-
-        Same as above, but in order to access private device types, you must provide an authentication token.
-  /download:
-    get:
-      tags:
-        - Download balenaOS
-      summary: Download private or ESR balenaOS images
-      description: |-
-        ## Download balenaOS Resource Fields
-
-        | Field |
-        | :--- |
-
-
-        ---
-
-        `GET /download`
-
-        In order to download an ESR or private balenaOS image, you need to provide your bearer token. The `deviceType` and `version` parameters are required. Add an `--output` flag to provide a path for the image to be downloaded.
-
-
-        ### Usage Variations
-
-        --- 
-        #### Download public balenaOS images
-        `GET /download?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'`
-
-        Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also available for download on balena.io/os and the dashboard.
+        `GET /v7/service_install`
   /v7/user__has__public_key:
     get:
       tags:
@@ -2054,102 +2092,6 @@ paths:
         - SSH key
       summary: Remove SSH key
       description: '`DELETE /v7/user__has__public_key(<ID>)`'
-  /v7/service:
-    get:
-      tags:
-        - Service
-      summary: Get all services belonging to a fleet
-      description: |-
-        ## Service Resource Fields
-
-        | Field |
-        | :--- |
-        | `id` |
-        | `created_at` |
-        | `application` |
-        | `service_name` |
-
-
-        ---
-
-        `GET /v7/service`
-  /v7/service_install:
-    get:
-      tags:
-        - Service install
-      summary: Get service name for all services on a device
-      description: |-
-        ## Service install Resource Fields
-
-        | Field |
-        | :--- |
-        | `id` |
-        | `created_at` |
-        | `device` |
-        | `installs__service` |
-
-
-        ---
-
-        `GET /v7/service_install`
-  /v7/user:
-    get:
-      tags:
-        - User
-      summary: Get users associated with account
-      description: |-
-        ## User Resource Fields
-
-        | Field |
-        | :--- |
-        | `id` |
-        | `actor` |
-        | `username` |
-        | `created_at` |
-
-
-        ---
-
-        `GET /v7/user`
-  /v7/user__is_member_of__application:
-    get:
-      tags:
-        - User
-      summary: Get users associated with fleet
-      description: '`GET /v7/user__is_member_of__application`'
-    post:
-      tags:
-        - User
-      summary: Create fleet membership
-      description: |-
-        `POST /v7/user__is_member_of__application`
-
-        **Request Body:**
-        ```json
-        {
-            "is_member_of_application": <ID>,
-            "username": <USERNAME>,
-            "application_membership_role": <ROLE ID>
-        }
-        ```
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-            examples:
-              create-fleet-membership:
-                summary: Create fleet membership
-                value:
-                  is_member_of_application: <ID>
-                  username: <USERNAME>
-                  application_membership_role: <ROLE ID>
-  /v7/user__is_member_of__application/is_member_of__application={ID},user={USER ID}:
-    delete:
-      tags:
-        - User
-      summary: Delete fleet membership
-      description: '`DELETE /v7/user__is_member_of__application(is_member_of__application=<ID>,user=<USER ID>)`'
   /v7/team:
     get:
       tags:
@@ -2245,6 +2187,64 @@ paths:
         ---
 
         `GET /v7/team_membership`
+  /v7/user:
+    get:
+      tags:
+        - User
+      summary: Get users associated with account
+      description: |-
+        ## User Resource Fields
+
+        | Field |
+        | :--- |
+        | `id` |
+        | `actor` |
+        | `username` |
+        | `created_at` |
+
+
+        ---
+
+        `GET /v7/user`
+  /v7/user__is_member_of__application:
+    get:
+      tags:
+        - User
+      summary: Get users associated with fleet
+      description: '`GET /v7/user__is_member_of__application`'
+    post:
+      tags:
+        - User
+      summary: Create fleet membership
+      description: |-
+        `POST /v7/user__is_member_of__application`
+
+        **Request Body:**
+        ```json
+        {
+            "is_member_of_application": <ID>,
+            "username": <USERNAME>,
+            "application_membership_role": <ROLE ID>
+        }
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              create-fleet-membership:
+                summary: Create fleet membership
+                value:
+                  is_member_of_application: <ID>
+                  username: <USERNAME>
+                  application_membership_role: <ROLE ID>
+  /v7/user__is_member_of__application/is_member_of__application={ID},user={USER ID}:
+    delete:
+      tags:
+        - User
+      summary: Delete fleet membership
+      description: '`DELETE /v7/user__is_member_of__application(is_member_of__application=<ID>,user=<USER ID>)`'
   /user/v1/whoami:
     get:
       tags:
