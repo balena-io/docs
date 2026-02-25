@@ -113,9 +113,7 @@ services:
 
 ### Labels
 
-In addition to the settings above, there are some balena specific labels that can be defined in the `docker-compose.yml` file. These provide access to certain bind mounts and environment variables without requiring you to run the container as privileged:
-
-{% include "../../.gitbook/includes/labels.md" %}
+In addition to the settings above, there are some balena specific labels that can be defined in the `docker-compose.yml` file. These provide access to certain bind mounts and environment variables without requiring you to run the container as privileged. You can a detailed list of these labels on the [docker-compose.yml fields page](../../reference/supervisor/docker-compose.md#labels).
 
 ### Container requirements
 
