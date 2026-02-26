@@ -2,7 +2,7 @@
 
 ## Learn
 
-* [Welcome](learn/welcome/README.md)
+* [Welcome](README.md)
   * [Core Concepts: A balena primer](learn/welcome/primer.md)
   * [Going to production](learn/welcome/production-plan.md)
   * [Security](learn/welcome/security.md)
@@ -86,6 +86,7 @@
   * [Multiple containers](learn/develop/multicontainer.md)
   * [Develop with Apps](learn/develop/apps.md)
   * [Develop with blocks](learn/develop/blocks.md)
+  * [Extra firmware](learn/develop/extra-firmware.md)
   * [Communicate outside the container](learn/develop/runtime.md)
   * [Interact with hardware](learn/develop/hardware/README.md)
     * [Introduction](learn/develop/hardware/introduction.md)
