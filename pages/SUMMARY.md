@@ -341,15 +341,15 @@
   * [Overview](reference/api/overview.md)
   * [Resources](reference/api/resources/README.md)
     * ```yaml
+      type: builtin:openapi
       props:
         models: true
         downloadLink: true
-      type: builtin:openapi
       dependencies:
         spec:
           ref:
             kind: openapi
-            spec: balenaltd-api
+            spec: balena-api
       ```
 * [Balena CLI](reference/balena-cli/README.md)
   * [Latest](external-docs/balena-cli/latest.md)
