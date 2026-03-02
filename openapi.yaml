@@ -16,491 +16,491 @@ components:
       title: API key Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         is_of__actor:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
         description:
-          type: string
+          description: Type information not available yet
     device:
       type: object
       title: Device Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         belongs_to__application:
-          type: string
+          description: Type information not available yet
         belongs_to__user:
-          type: string
+          description: Type information not available yet
         actor:
-          type: string
+          description: Type information not available yet
         device_name:
-          type: string
+          description: Type information not available yet
         is_of__device_type:
-          type: string
+          description: Type information not available yet
         uuid:
-          type: string
+          description: Type information not available yet
         is_running__release:
-          type: string
+          description: Type information not available yet
         is_pinned_on__release:
-          type: string
+          description: Type information not available yet
         should_be_running__release:
-          type: string
+          description: Type information not available yet
         note:
-          type: string
+          description: Type information not available yet
         local_id:
-          type: string
+          description: Type information not available yet
         status:
-          type: string
+          description: Type information not available yet
         overall_status:
-          type: string
+          description: Type information not available yet
         is_online:
-          type: string
+          description: Type information not available yet
         last_connectivity_event:
-          type: string
+          description: Type information not available yet
         is_connected_to_vpn:
-          type: string
+          description: Type information not available yet
         last_vpn_event:
-          type: string
+          description: Type information not available yet
         ip_address:
-          type: string
+          description: Type information not available yet
         mac_address:
-          type: string
+          description: Type information not available yet
         public_address:
-          type: string
+          description: Type information not available yet
         os_version:
-          type: string
+          description: Type information not available yet
         os_variant:
-          type: string
+          description: Type information not available yet
         supervisor_version:
-          type: string
+          description: Type information not available yet
         should_be_managed_by__release:
-          type: string
+          description: Type information not available yet
         is_managed_by__service_instance:
-          type: string
+          description: Type information not available yet
         provisioning_progress:
-          type: string
+          description: Type information not available yet
         provisioning_state:
-          type: string
+          description: Type information not available yet
         download_progress:
-          type: string
+          description: Type information not available yet
         is_web_accessible:
-          type: string
+          description: Type information not available yet
         longitude:
-          type: string
+          description: Type information not available yet
         latitude:
-          type: string
+          description: Type information not available yet
         location:
-          type: string
+          description: Type information not available yet
         custom_longitude:
-          type: string
+          description: Type information not available yet
         custom_latitude:
-          type: string
+          description: Type information not available yet
         is_locked_until__date:
-          type: string
+          description: Type information not available yet
         is_accessible_by_support_until__date:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         is_active:
-          type: string
+          description: Type information not available yet
         api_heartbeat_state:
-          type: string
+          description: Type information not available yet
         memory_usage:
-          type: string
+          description: Type information not available yet
         memory_total:
-          type: string
+          description: Type information not available yet
         storage_block_device:
-          type: string
+          description: Type information not available yet
         storage_usage:
-          type: string
+          description: Type information not available yet
         storage_total:
-          type: string
+          description: Type information not available yet
         cpu_temp:
-          type: string
+          description: Type information not available yet
         cpu_usage:
-          type: string
+          description: Type information not available yet
         cpu_id:
-          type: string
+          description: Type information not available yet
         is_undervolted:
-          type: string
+          description: Type information not available yet
     device_config_variable:
       type: object
       title: Device config variable Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         device:
-          type: string
+          description: Type information not available yet
         value:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
     device_environment_variable:
       type: object
       title: Device Environment Variable Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         device:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
         value:
-          type: string
+          description: Type information not available yet
     device_service_environment_variable:
       type: object
       title: Device service variable Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         service_install:
-          type: string
+          description: Type information not available yet
         value:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
     device_tag:
       type: object
       title: Device tag Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         device:
-          type: string
+          description: Type information not available yet
         tag_key:
-          type: string
+          description: Type information not available yet
         value:
-          type: string
+          description: Type information not available yet
     device_type:
       type: object
       title: Device type Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         slug:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
         is_private:
-          type: string
+          description: Type information not available yet
         is_of__cpu_architecture:
-          type: string
+          description: Type information not available yet
         belongs_to__device_family:
-          type: string
+          description: Type information not available yet
     fleet:
       type: object
       title: Fleet Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         uuid:
-          type: string
+          description: Type information not available yet
         organization:
-          type: string
+          description: Type information not available yet
         actor:
-          type: string
+          description: Type information not available yet
         app_name:
-          type: string
+          description: Type information not available yet
         slug:
-          type: string
+          description: Type information not available yet
         should_be_running__release:
-          type: string
+          description: Type information not available yet
         application_type:
-          type: string
+          description: Type information not available yet
         is_for__device_type:
-          type: string
+          description: Type information not available yet
         should_track_latest_release:
-          type: string
+          description: Type information not available yet
         is_accessible_by_support_until__date:
-          type: string
+          description: Type information not available yet
         is_public:
-          type: string
+          description: Type information not available yet
         is_host:
-          type: string
+          description: Type information not available yet
         is_archived:
-          type: string
+          description: Type information not available yet
         is_discoverable:
-          type: string
+          description: Type information not available yet
         is_stored_at__repository_url:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
     fleet_config_variable:
       type: object
       title: Fleet config variable Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         application:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
         value:
-          type: string
+          description: Type information not available yet
     fleet_environment_variable:
       type: object
       title: Fleet environment variable Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         application:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
         value:
-          type: string
+          description: Type information not available yet
     fleet_membership_role:
       type: object
       title: Fleet membership role Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
     service_environment_variable:
       type: object
       title: Fleet service variable Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         service_install:
-          type: string
+          description: Type information not available yet
         value:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
     fleet_tag:
       type: object
       title: Fleet tag Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         application:
-          type: string
+          description: Type information not available yet
         tag_key:
-          type: string
+          description: Type information not available yet
         value:
-          type: string
+          description: Type information not available yet
     supervisor_release:
       type: object
       title: List Supervisor releases Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         raw_version:
-          type: string
+          description: Type information not available yet
     organization:
       type: object
       title: Organization Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
         handle:
-          type: string
+          description: Type information not available yet
         company_name:
-          type: string
+          description: Type information not available yet
         website:
-          type: string
+          description: Type information not available yet
         industry:
-          type: string
+          description: Type information not available yet
         billing_account_code:
-          type: string
+          description: Type information not available yet
     organization_membership:
       type: object
       title: Organization Membership Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         user:
-          type: string
+          description: Type information not available yet
         is_member_of__organization:
-          type: string
+          description: Type information not available yet
         organization_membership_role:
-          type: string
+          description: Type information not available yet
         effective_seat_role:
-          type: string
+          description: Type information not available yet
     release:
       type: object
       title: Release Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         belongs_to__application:
-          type: string
+          description: Type information not available yet
         is_created_by__user:
-          type: string
+          description: Type information not available yet
         raw_version:
-          type: string
+          description: Type information not available yet
         semver:
-          type: string
+          description: Type information not available yet
         semver_major:
-          type: string
+          description: Type information not available yet
         semver_minor:
-          type: string
+          description: Type information not available yet
         semver_patch:
-          type: string
+          description: Type information not available yet
         semver_prerelease:
-          type: string
+          description: Type information not available yet
         semver_build:
-          type: string
+          description: Type information not available yet
         revision:
-          type: string
+          description: Type information not available yet
         variant:
-          type: string
+          description: Type information not available yet
         commit:
-          type: string
+          description: Type information not available yet
         composition:
-          type: string
+          description: Type information not available yet
         status:
-          type: string
+          description: Type information not available yet
         source:
-          type: string
+          description: Type information not available yet
         build_log:
-          type: string
+          description: Type information not available yet
         start_timestamp:
-          type: string
+          description: Type information not available yet
         end_timestamp:
-          type: string
+          description: Type information not available yet
         update_timestamp:
-          type: string
+          description: Type information not available yet
         is_invalidated:
-          type: string
+          description: Type information not available yet
         release_version:
-          type: string
+          description: Type information not available yet
         contract:
-          type: string
+          description: Type information not available yet
     release_tag:
       type: object
       title: Release tag Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         release:
-          type: string
+          description: Type information not available yet
         tag_key:
-          type: string
+          description: Type information not available yet
         value:
-          type: string
+          description: Type information not available yet
     service:
       type: object
       title: Service Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         application:
-          type: string
+          description: Type information not available yet
         service_name:
-          type: string
+          description: Type information not available yet
     service_install:
       type: object
       title: Service install Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         device:
-          type: string
+          description: Type information not available yet
         installs__service:
-          type: string
+          description: Type information not available yet
     user__has__public_key:
       type: object
       title: SSH key Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         user:
-          type: string
+          description: Type information not available yet
         title:
-          type: string
+          description: Type information not available yet
         public_key:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
     team:
       type: object
       title: Team Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         name:
-          type: string
+          description: Type information not available yet
         description:
-          type: string
+          description: Type information not available yet
         belongs_to__organization:
-          type: string
+          description: Type information not available yet
     team_fleet_access:
       type: object
       title: Team Fleet Access Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         team:
-          type: string
+          description: Type information not available yet
         grants_access_to__application:
-          type: string
+          description: Type information not available yet
         application_membership_role:
-          type: string
+          description: Type information not available yet
     team_membership:
       type: object
       title: Team Membership Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
         user:
-          type: string
+          description: Type information not available yet
         is_member_of__team:
-          type: string
+          description: Type information not available yet
     user:
       type: object
       title: User Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         actor:
-          type: string
+          description: Type information not available yet
         username:
-          type: string
+          description: Type information not available yet
         created_at:
-          type: string
+          description: Type information not available yet
     whoami:
       type: object
       title: Who am I Model
       properties:
         id:
-          type: string
+          description: Type information not available yet
         username:
-          type: string
+          description: Type information not available yet
         email:
-          type: string
+          description: Type information not available yet
 paths:
   /v7/api_key:
     get:
@@ -537,7 +537,7 @@ paths:
         --- 
         #### Get all user API keys for the authenticated user
         `GET /v7/api_key?$filter=is_of__actor/any(a:a/is_of__user eq <USER_ID>))`
-  /v7/api_key/{ID}:
+  /v7/api_key({ID}):
     patch:
       tags:
         - API key
@@ -567,6 +567,10 @@ paths:
             "expiry_date": null
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -682,7 +686,7 @@ paths:
         --- 
         #### Get multiple devices by UUID
         `GET /v7/device?$filter=uuid in ('<UUID1>','<UUID2>','<UUID3>')`
-  /v7/device/{ID}:
+  /v7/device({ID}):
     get:
       tags:
         - Device
@@ -708,6 +712,10 @@ paths:
         `GET /v7/device(<ID>)?$select=is_pinned_on__release`
 
         Note: is_pinned_on__release will be null/not set if the device isn't pinned to any release, in which case the device will be tracking the release of the application it belongs to.
+      parameters:
+        - name: ID
+          in: path
+          required: true
     patch:
       tags:
         - Device
@@ -768,6 +776,10 @@ paths:
             "is_active": false
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -799,7 +811,11 @@ paths:
         - Device
       summary: Delete device
       description: '`DELETE /v7/device(<ID>)`'
-  /v7/device/uuid='{UUID}':
+      parameters:
+        - name: ID
+          in: path
+          required: true
+  /v7/device(uuid='{UUID}'):
     get:
       tags:
         - Device
@@ -815,6 +831,10 @@ paths:
         `GET /v7/device(uuid='<UUID>')?$select=should_be_running__release`
 
         This will be the release that the device is pinned to, or the target release of the fleet for non-pinned devices.
+      parameters:
+        - name: UUID
+          in: path
+          required: true
     patch:
       tags:
         - Device
@@ -844,6 +864,10 @@ paths:
         ```
 
         To request a list of available supervisor versions, check the respective documentation page for the supervisor release resource.
+      parameters:
+        - name: UUID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -904,7 +928,7 @@ paths:
                   device: <DEVICE ID>
                   name: <NAME>
                   value: <VALUE>
-  /v7/device_config_variable/{ID}:
+  /v7/device_config_variable({ID}):
     patch:
       tags:
         - Device config variable
@@ -918,6 +942,10 @@ paths:
             "value": <NEW VALUE>
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -933,6 +961,10 @@ paths:
         - Device config variable
       summary: Remove a device config variable
       description: '`DELETE /v7/device_config_variable(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/device_environment_variable:
     get:
       tags:
@@ -987,7 +1019,7 @@ paths:
                   device: <DEVICE ID>
                   name: <NAME>
                   value: <VALUE>
-  /v7/device_environment_variable/{ID}:
+  /v7/device_environment_variable({ID}):
     patch:
       tags:
         - Device Environment Variable
@@ -1001,6 +1033,10 @@ paths:
             "value": <NEW VALUE>
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -1016,6 +1052,10 @@ paths:
         - Device Environment Variable
       summary: Remove a device environment variable
       description: '`DELETE /v7/device_environment_variable(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/device_service_environment_variable:
     get:
       tags:
@@ -1074,7 +1114,7 @@ paths:
                   service_install: <SERVICE INSTALL ID>
                   name: <NAME>
                   value: <VALUE>
-  /v7/device_service_environment_variable/{ID}:
+  /v7/device_service_environment_variable({ID}):
     patch:
       tags:
         - Device service variable
@@ -1088,6 +1128,10 @@ paths:
             "value": <NEW VALUE>
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -1103,6 +1147,10 @@ paths:
         - Device service variable
       summary: Remove a device service variable
       description: '`DELETE /v7/device_service_environment_variable(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/device_tag:
     get:
       tags:
@@ -1149,7 +1197,7 @@ paths:
                   device: <DEVICE ID>
                   tag_key: <KEY>
                   value: <VALUE>
-  /v7/device_tag/device={DEVICE_ID},tag_key='{EXISTING-KEY}':
+  /v7/device_tag(device={DEVICE_ID},tag_key='{EXISTING-KEY}'):
     patch:
       tags:
         - Device tag
@@ -1163,6 +1211,13 @@ paths:
             "value": <NEW-VALUE>
         }
         ```
+      parameters:
+        - name: DEVICE_ID
+          in: path
+          required: true
+        - name: EXISTING-KEY
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -1173,13 +1228,17 @@ paths:
                 summary: Update a device tag
                 value:
                   value: <NEW-VALUE>
-  /v7/device_tag/{TAG-ID}:
+  /v7/device_tag({TAG-ID}):
     delete:
       tags:
         - Device tag
       summary: Delete a device tag given its database ID
       description: '`DELETE /v7/device_tag(<TAG-ID>)`'
-  /v7/device_type/{ID}:
+      parameters:
+        - name: TAG-ID
+          in: path
+          required: true
+  /v7/device_type({ID}):
     get:
       tags:
         - Device type
@@ -1202,7 +1261,11 @@ paths:
         `GET /v7/device_type(<ID>)`
 
         When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
-  /v7/device_type/slug='{DEVICE TYPE SLUG}':
+      parameters:
+        - name: ID
+          in: path
+          required: true
+  /v7/device_type(slug='{DEVICE TYPE SLUG}'):
     get:
       tags:
         - Device type
@@ -1211,6 +1274,10 @@ paths:
         `GET /v7/device_type(slug='<DEVICE TYPE SLUG>')`
 
         When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
+      parameters:
+        - name: DEVICE TYPE SLUG
+          in: path
+          required: true
   /v7/device_type:
     get:
       tags:
@@ -1337,7 +1404,7 @@ paths:
                   app_name: <NAME>
                   organization: <ORGANIZATION_ID>
                   is_for__device_type: <DEVICE_TYPE_ID>
-  /v7/application/{ID}:
+  /v7/application({ID}):
     get:
       tags:
         - Fleet
@@ -1351,11 +1418,19 @@ paths:
         --- 
         #### Get fleet by id along with its devices
         `GET /v7/application(<ID>)?$expand=owns__device`
+      parameters:
+        - name: ID
+          in: path
+          required: true
     delete:
       tags:
         - Fleet
       summary: Delete fleet
       description: '`DELETE /v7/application(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
     patch:
       tags:
         - Fleet
@@ -1395,6 +1470,10 @@ paths:
             "should_track_latest_release": true
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -1414,7 +1493,7 @@ paths:
                 summary: Enable automatic update tracking for a fleet
                 value:
                   should_track_latest_release: true
-  /v7/application/slug='{SLUG}':
+  /v7/application(slug='{SLUG}'):
     get:
       tags:
         - Fleet
@@ -1432,6 +1511,10 @@ paths:
         --- 
         #### Get the target release of a fleet
         `GET /v7/application(slug='<SLUG>')?$select=should_be_running__release`
+      parameters:
+        - name: SLUG
+          in: path
+          required: true
     patch:
       tags:
         - Fleet
@@ -1446,6 +1529,10 @@ paths:
             "should_track_latest_release": false
         }
         ```
+      parameters:
+        - name: SLUG
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -1503,7 +1590,7 @@ paths:
                   application: <FLEET ID>
                   name: <NAME>
                   value: <VALUE>
-  /v7/application_config_variable/{ID}:
+  /v7/application_config_variable({ID}):
     patch:
       tags:
         - Fleet config variable
@@ -1517,6 +1604,10 @@ paths:
             "value": <NEW VALUE>
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -1532,6 +1623,10 @@ paths:
         - Fleet config variable
       summary: Remove a fleet config variable
       description: '`DELETE /v7/application_config_variable(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/application_environment_variable:
     get:
       tags:
@@ -1579,7 +1674,7 @@ paths:
                   application: <FLEET ID>
                   name: <NAME>
                   value: <VALUE>
-  /v7/application_environment_variable/{ID}:
+  /v7/application_environment_variable({ID}):
     patch:
       tags:
         - Fleet environment variable
@@ -1593,6 +1688,10 @@ paths:
             "value": <NEW VALUE>
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -1608,6 +1707,10 @@ paths:
         - Fleet environment variable
       summary: Remove a fleet environment variable
       description: '`DELETE /v7/application_environment_variable(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/application_membership_role:
     get:
       tags:
@@ -1672,7 +1775,7 @@ paths:
                   service: <SERVICE ID>
                   name: <NAME>
                   value: <VALUE>
-  /v7/service_environment_variable/{ID}:
+  /v7/service_environment_variable({ID}):
     patch:
       tags:
         - Fleet service variable
@@ -1686,6 +1789,10 @@ paths:
             "value": <NEW VALUE>
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -1701,6 +1808,10 @@ paths:
         - Fleet service variable
       summary: Remove a fleet service variable
       description: '`DELETE /v7/service_environment_variable(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/application_tag:
     get:
       tags:
@@ -1747,7 +1858,7 @@ paths:
                   application: <FLEET ID>
                   tag_key: <KEY>
                   value: <VALUE>
-  /v7/application_tag//{ID}:
+  /v7/application_tag/({ID}):
     patch:
       tags:
         - Fleet tag
@@ -1761,6 +1872,10 @@ paths:
             "value": <NEW VALUE>
         }
         ```
+      parameters:
+        - name: ID
+          in: path
+          required: true
       requestBody:
         content:
           application/json:
@@ -1776,6 +1891,10 @@ paths:
         - Fleet tag
       summary: Delete a fleet tag
       description: '`DELETE /v7/application_tag/(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/release:
     get:
       tags:
@@ -1855,13 +1974,17 @@ paths:
         ---
 
         `GET /v7/organization`
-  /v7/organization/{ID}:
+  /v7/organization({ID}):
     get:
       tags:
         - Organization
       summary: Get organization by ID
       description: '`GET /v7/organization(<ID>)`'
-  /v7/organization/handle='{HANDLE}':
+      parameters:
+        - name: ID
+          in: path
+          required: true
+  /v7/organization(handle='{HANDLE}'):
     get:
       tags:
         - Organization
@@ -1870,6 +1993,10 @@ paths:
         `GET /v7/organization(handle='<HANDLE>')`
 
         Uniquely identifies an organization. Handles are currently automatically generated and read-only.
+      parameters:
+        - name: HANDLE
+          in: path
+          required: true
   /v7/organization_membership:
     get:
       tags:
@@ -1941,7 +2068,7 @@ paths:
         --- 
         #### Get a release ID given a specific fleet and commit
         `GET /v7/release?$filter=belongs_to__application eq <FLEET ID> and commit eq '<COMMIT HASH>'&$select=id`
-  /v7/release/{ID}:
+  /v7/release({ID}):
     get:
       tags:
         - Release
@@ -1950,6 +2077,10 @@ paths:
         `GET /v7/release(<ID>)`
 
         The raw_version field is returned only when explicitly requested with $select.
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/release_tag:
     get:
       tags:
@@ -2081,17 +2212,25 @@ paths:
                   public_key: <SSH KEY>
                   title: <TITLE>
                   user: <USER ID>
-  /v7/user__has__public_key/{ID}:
+  /v7/user__has__public_key({ID}):
     get:
       tags:
         - SSH key
       summary: Get SSH key by ID
       description: '`GET /v7/user__has__public_key(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
     delete:
       tags:
         - SSH key
       summary: Remove SSH key
       description: '`DELETE /v7/user__has__public_key(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/team:
     get:
       tags:
@@ -2137,17 +2276,25 @@ paths:
                 value:
                   name: <TEAM NAME>
                   belongs_to__organization: <ORG ID>
-  /v7/team/{ID}:
+  /v7/team({ID}):
     get:
       tags:
         - Team
       summary: Get team by ID
       description: '`GET /v7/team(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
     delete:
       tags:
         - Team
       summary: Delete team with ID
       description: '`Delete /v7/team(<ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
   /v7/team_application_access:
     get:
       tags:
@@ -2239,12 +2386,19 @@ paths:
                   is_member_of_application: <ID>
                   username: <USERNAME>
                   application_membership_role: <ROLE ID>
-  /v7/user__is_member_of__application/is_member_of__application={ID},user={USER ID}:
+  /v7/user__is_member_of__application(is_member_of__application={ID},user={USER ID}):
     delete:
       tags:
         - User
       summary: Delete fleet membership
       description: '`DELETE /v7/user__is_member_of__application(is_member_of__application=<ID>,user=<USER ID>)`'
+      parameters:
+        - name: ID
+          in: path
+          required: true
+        - name: USER ID
+          in: path
+          required: true
   /user/v1/whoami:
     get:
       tags:
