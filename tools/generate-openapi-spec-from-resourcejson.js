@@ -117,16 +117,12 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 			const method = ex.method.toLowerCase();
 			const cleanEndpoint = unescapeEndpoint(ex.endpoint);
 
-			let baseKey = cleanEndpoint
-				.split('?')[0]
-				.replace(/\(/g, '/')
-				.replace(/\)/g, '')
-				.replace(/<([^>]+)>/g, '{$1}');
-			let pathKey = baseKey;
+			let pathKey = cleanEndpoint.split('?')[0].replace(/<([^>]+)>/g, '{$1}');
 
+			// Handle duplicate paths across tags via Fragment Shadowing
 			const existingPath = openapi.paths[pathKey];
 			if (existingPath && Object.values(existingPath)[0].tags[0] !== tagName) {
-				pathKey = `${baseKey}#${tagName.replace(/\s+/g, '_')}`;
+				pathKey = `${pathKey}#${tagName.replace(/\s+/g, '_')}`;
 			}
 
 			if (!openapi.paths[pathKey]) openapi.paths[pathKey] = {};
@@ -135,8 +131,23 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 					tags: [tagName],
 					summary: '',
 					description: '',
+					parameters: [],
 					'x-variations': [],
 				};
+
+				// Populate parameters so GitBook shows the input fields
+				const paramMatches = pathKey.match(/{([^}]+)}/g);
+				if (paramMatches) {
+					paramMatches.forEach((match) => {
+						const paramName = match.replace(/{|}/g, '');
+						op.parameters.push({
+							name: paramName,
+							in: 'path',
+							required: true,
+						});
+					});
+				}
+
 				if (!injectedTags.has(tagName) && fieldsTable !== '') {
 					op['x-fields-table'] = fieldsTable;
 					injectedTags.add(tagName);
@@ -224,6 +235,9 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 			delete op['x-primary-method'];
 			delete op['x-primary-data'];
 			delete op['x-fields-table'];
+
+			// Clean up empty parameter arrays for a tidier YAML
+			if (op.parameters && op.parameters.length === 0) delete op.parameters;
 		});
 	});
 
