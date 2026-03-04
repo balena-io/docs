@@ -28,13 +28,13 @@ jobs:
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           persist-credentials: false
 
       # fetch external files && Building the docs
       - name: Build the docs
-        uses: actions/setup-node@v6.2.0
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version: 22
 
@@ -43,7 +43,7 @@ jobs:
       - name: Restore lychee cache
         id: restore-cache
         if: github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
-        uses: actions/cache/restore@v5.0.2
+        uses: actions/cache/restore@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
@@ -62,7 +62,7 @@ jobs:
 
       - name: Create Issue From File
         if: env.lychee_exit_code != 0 && github.event_name == 'schedule'
-        uses: peter-evans/create-issue-from-file@v5.0.0
+        uses: peter-evans/create-issue-from-file@24452a72d85239eacf1468b0f1982a9f3fec4c94 # v5.0.0
         with:
           title: Link Checker Report
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -72,7 +72,7 @@ jobs:
             automated issue
 
       - name: Save lychee cache
-        uses: actions/cache/save@v5.0.2
+        uses: actions/cache/save@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
         if: always()
         with:
           path: .lycheecache
