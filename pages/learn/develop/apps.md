@@ -76,13 +76,13 @@ Next, navigate to the Apps tab in the sidebar and click the `Create App` button 
 
 By default, Apps that you create within the balenaCloud dashboard are private and only accessible by the owner along with any other teams or members that you explicitly grant access to. When you are ready to release, head to the Settings tab in the sidebar and add your App’s GitHub repository to the Repository URL section. Next, toggle the App visibility button to on for your App to be visible on balenaHub. You’re free to toggle the visibility on and off as necessary at any time.
 
-<figure><img src="../../.gitbook/assets/visibility-toggle (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/visibility-toggle.webp" alt=""><figcaption></figcaption></figure>
 
 Apps marked with visibility set to ‘on’ in the dashboard will be made available as another resource for the community on balenaHub. Users can deploy Apps from balenaHub to their own fleets managed in their own balenaCloud accounts using the `Deploy` button with each App.
 
 ## Deploying Apps from balenaHub
 
-<figure><img src="../../.gitbook/assets/deploy-from-balenahub (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deploy-from-balenahub.webp" alt=""><figcaption></figcaption></figure>
 
 When the deploy button on balenaHub is used, the balenaCloud builder will fetch the latest source from the linked GitHub repository and create a new build for the chosen fleet. This process uses the [Deploy with balena](../deploy/deploy-with-balena-button.md) workflow in order to guide users through the process of creating/signing in to a balenaCloud account, creating a fleet and deploying the App.
 
@@ -92,7 +92,7 @@ If you require assistance with an App and have contacted balena for support, age
 
 Once enabled, for security reasons, the support access toggle will revert back to ‘off’ at the time specified.
 
-<figure><img src="../../.gitbook/assets/enable-support-access (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enable-support-access.webp" alt=""><figcaption></figcaption></figure>
 
 ## Release management
 
@@ -106,10 +106,10 @@ Apps with all their associated releases and members can be transferred to any ot
 
 Only organization administrators can initiate and complete App transfers. You must coordinate with one of the receiving organization's administrators to perform the following actions:
 
-* Take note of the App name in the source organization and your balenaCloud username (in the top-right drop-down menu).
-* Ask an administrator of the target balenaCloud organization to create a new empty App using the same block name (the type doesn't need to match).
-* Ask the administrator of the target balenaCloud organization to add you as a member of the newly created App with a Developer role, using your username. If you are an administrator of the target organization, you already have access to the new App & this step can be skipped.
-* In the source organization, select Settings --> Set App ownership and pick the target organization from the list to complete the transfer.
+- Take note of the App name in the source organization and your balenaCloud username (in the top-right drop-down menu).
+- Ask an administrator of the target balenaCloud organization to create a new empty App using the same block name (the type doesn't need to match).
+- Ask the administrator of the target balenaCloud organization to add you as a member of the newly created App with a Developer role, using your username. If you are an administrator of the target organization, you already have access to the new App & this step can be skipped.
+- In the source organization, select Settings --> Set App ownership and pick the target organization from the list to complete the transfer.
 
 {% hint style="warning" %}
 If the dropdown for the destination organization is empty and grayed out, ensure that you have created an empty App in the target organization with the same name as the source App, and that the user that is transferring ownership of the App from the source organization has been added as a Developer to the target App.

@@ -22,10 +22,10 @@ balenaOS can be downloaded in production or development mode. This can be later 
 
 Development mode is recommended while getting started with balenaOS and building an application using the fast [local mode](../../learn/develop/local-mode.md) workflow. Development mode enables a number of useful features while developing, namely:
 
-* Passwordless [SSH access](../../learn/manage/ssh-access.md) into balenaOS on port `22222` as the root user, unless custom [ssh keys](configuration.md#sshkeys) are provided in which case key-based authentication is used.
-* Docker socket exposed on port `2375`, which allows `balena push` / `build` / `deploy`, that enables remote Docker builds on the target device (see [Deploy to your Fleet](../../learn/deploy/deployment.md)).
-* Getty console attached to tty1 and serial.
-* Capable of entering [local mode](../../learn/develop/local-mode.md) for rapid development of application containers locally.
+- Passwordless [SSH access](../../learn/manage/ssh-access.md) into balenaOS on port `22222` as the root user, unless custom [ssh keys](configuration.md#sshkeys) are provided in which case key-based authentication is used.
+- Docker socket exposed on port `2375`, which allows `balena push` / `build` / `deploy`, that enables remote Docker builds on the target device (see [Deploy to your Fleet](../../learn/deploy/deployment.md)).
+- Getty console attached to tty1 and serial.
+- Capable of entering [local mode](../../learn/develop/local-mode.md) for rapid development of application containers locally.
 
 {% hint style="warning" %}
 Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via [configuration variables](../supervisor/configuration-list/).
@@ -69,7 +69,7 @@ Should you wish to add an unconfigured device to your balenaCloud fleet, you may
 
 The balenaOS userspace packages only provide the bare essentials for running containers, while still offering flexibility. The philosophy is that software and services always default to being in a container unless they are generically useful to all containers, or they absolutely can’t live in a container. The userspace consists of many open source components, but in this section, we will highlight some of the most important services.
 
-<figure><img src="../../.gitbook/assets/balenaOS-components (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/balenaOS-components.webp" alt=""><figcaption></figcaption></figure>
 
 ### systemd
 
@@ -117,7 +117,7 @@ BalenaOS versions < v2.38.0 use [dropbear](https://matt.ucc.asn.au/dropbear/drop
 
 ## Image Partition Layout
 
-<figure><img src="../../.gitbook/assets/image-partition-layout (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image-partition-layout.webp" alt=""><figcaption></figcaption></figure>
 
 The first partition, `resin-boot`, holds important boot files according to each board (e.g. kernel image, bootloader image). It also holds the `config.json` file, which is the central point of [configuring balenaOS](configuration.md) and defining its behavior. For example using `config.json` you can set your hostname, add SSH keys, allow persistent logging or define custom DNS servers.
 
@@ -137,7 +137,7 @@ BalenaOS contains a partition named `resin-state` that is meant to hold all this
 
 A diagram of our read-only rootfs can be seen below:
 
-<figure><img src="../../.gitbook/assets/read-only-rootfs (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/read-only-rootfs.webp" alt=""><figcaption></figcaption></figure>
 
 ## BalenaOS Yocto Composition
 

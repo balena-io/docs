@@ -20,9 +20,9 @@ The `Restart Services` action restarts the currently running **services** for al
 
 By removing containers and recreating them from scratch, we see benefits like the following:
 
-* Containers are meant to be ephemeral, meaning that a new container should be a drop-in replacement for an old container with minimal to no impact. Removing and recreating containers adheres to this philosophy.
-* Because containers are removed and recreated with the restart action, you're encouraged to follow best practices in Docker data persistence. For more information, see our [persistent storage](../develop/runtime.md) documentation or [Docker's data persistence strategies](https://docs.docker.com/storage/). These strategies also offer a performance boost over storing files in the container's writable layer.
-* Removing and recreating containers may allow recovery from release bugs where the container was stuck in an invalid state. For example, a process ID file that is no longer valid but is persisted to the container filesystem would be cleaned up when recreating the container.
+- Containers are meant to be ephemeral, meaning that a new container should be a drop-in replacement for an old container with minimal to no impact. Removing and recreating containers adheres to this philosophy.
+- Because containers are removed and recreated with the restart action, you're encouraged to follow best practices in Docker data persistence. For more information, see our [persistent storage](../develop/runtime.md) documentation or [Docker's data persistence strategies](https://docs.docker.com/storage/). These strategies also offer a performance boost over storing files in the container's writable layer.
+- Removing and recreating containers may allow recovery from release bugs where the container was stuck in an invalid state. For example, a process ID file that is no longer valid but is persisted to the container filesystem would be cleaned up when recreating the container.
 
 When the containers are being restarted, the containers are politely asked to stop by sending a `SIGTERM`. If the containers haven't stopped after 10 seconds, a `SIGKILL` is sent.
 
@@ -78,15 +78,15 @@ The Public Device URL feature is a tool for remote configuration, debugging, and
 
 For applications that require a stable, continuously available public endpoint, we recommend using a dedicated tunneling service designed for production use. Popular services include [Cloudflare Tunnels](https://www.cloudflare.com/products/tunnel/) (See our [blog post](https://www.balena.io/blog/expose-your-balena-device-to-the-internet-with-cloudflare-tunnel/), [Tailscale](https://tailscale.com/) and [Ngrok](https://ngrok.com/).
 
-<figure><img src="../../.gitbook/assets/toggle-public-url (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/toggle-public-url.webp" alt=""><figcaption></figcaption></figure>
 
 To see what your device is serving on port 80, click on the [public URL](../develop/runtime.md#public-device-urls). If no service inside your app is serving anything on port 80 or your webserver on the device crashes, you should see something like this:
 
-<figure><img src="../../.gitbook/assets/public-url-error (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/public-url-error.webp" alt=""><figcaption></figcaption></figure>
 
 You may also enable or disable public device URLs by clicking the _Public device URL_ toggle button on the device summary page.
 
-<figure><img src="../../.gitbook/assets/public-url-toggle (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/public-url-toggle.webp" alt=""><figcaption></figcaption></figure>
 
 ### Move device to another Fleet
 

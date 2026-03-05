@@ -17,7 +17,7 @@ SSH access is built on [Cloudlink](../welcome/security.md#cloudlink) and it not 
 
 To use this feature, navigate to your fleet and select the device you want to access. You will see a _Terminal_ window below the _Logs_ window:
 
-<figure><img src="../../.gitbook/assets/terminal (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/terminal.webp" alt=""><figcaption></figcaption></figure>
 
 If your device is online, select a target as either the host OS or a running service, and click the blue _>\_ Start Terminal session_ button. In order to start a terminal session for a service, you need to ensure that the service container is running. If the container code crashes or ends quickly, it is not possible to attach a console to it.
 
@@ -92,7 +92,7 @@ See note in the [previous section](ssh-access.md#using-a-standalone-ssh-client) 
 
 To add an SSH key, go to the _Preferences_ page of balenaCloud and select the _SSH Keys_ tab.
 
-<figure><img src="../../.gitbook/assets/preferences-ssh-keys (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/preferences-ssh-keys.webp" alt=""><figcaption></figcaption></figure>
 
 You may either import an existing SSH key from GitHub or manually enter the public SSH key of an existing SSH key on your development machine.
 
@@ -114,19 +114,19 @@ Making changes to running services and network configurations carries the risk o
 
 BalenaOS uses **systemd** as its init system, and as such, almost all the fundamental components in balenaOS run as systemd services. In general, some core services need to execute for a device to come online, connect to Cloudlink, download applications, and then run them:
 
-* `chronyd.service` - Responsible for NTP duties and syncing 'real' network time to the device.
-* `dnsmasq.service` - The local DNS service which is used for all host OS lookups.
-* `NetworkManager.service` - The underlying Network Manager service, ensuring that configured connections are used for networking.
-* `os-config.service` - Retrieves settings and configs from the API endpoint, including certificates, authorized keys, the cloudlink config, etc.
-* `openvpn.service` - The VPN service itself, which connects to cloudlink, allowing a device to come online.
-* `balena.service` - The [balenaEngine](https://www.balena.io/engine) service, the modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking.
-* `balena-supervisor.service` - The balena Supervisor service, responsible for the management of releases, including downloading updates for and self-healing (via monitoring), variables (fleet/device), and exposure of these services to fleets via an API endpoint.
-* `dbus.service` - The DBus daemon socket which can be used by containers by applying the _io.balena.features.dbus_ label, which exposes it in-container. This allows you to control several host OS features, including the Network Manager.
+- `chronyd.service` - Responsible for NTP duties and syncing 'real' network time to the device.
+- `dnsmasq.service` - The local DNS service which is used for all host OS lookups.
+- `NetworkManager.service` - The underlying Network Manager service, ensuring that configured connections are used for networking.
+- `os-config.service` - Retrieves settings and configs from the API endpoint, including certificates, authorized keys, the cloudlink config, etc.
+- `openvpn.service` - The VPN service itself, which connects to cloudlink, allowing a device to come online.
+- `balena.service` - The [balenaEngine](https://www.balena.io/engine) service, the modified Docker daemon fork that allows the management and running of service images, containers, volumes, and networking.
+- `balena-supervisor.service` - The balena Supervisor service, responsible for the management of releases, including downloading updates for and self-healing (via monitoring), variables (fleet/device), and exposure of these services to fleets via an API endpoint.
+- `dbus.service` - The DBus daemon socket which can be used by containers by applying the _io.balena.features.dbus_ label, which exposes it in-container. This allows you to control several host OS features, including the Network Manager.
 
 Additionally, there are a couple of utility services that, while not required for a barebones operation, are also useful:
 
-* `ModemManager.service` - Deals with non-Ethernet or Wifi devices, such as LTE/GSM modems.
-* `avahi-daemon.service` - Used to broadcast the device’s local hostname.
+- `ModemManager.service` - Deals with non-Ethernet or Wifi devices, such as LTE/GSM modems.
+- `avahi-daemon.service` - Used to broadcast the device’s local hostname.
 
 You may see all enabled services on the host OS with the following command:
 

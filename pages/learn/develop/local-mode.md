@@ -11,22 +11,22 @@ Local mode is the development mode for balena. It allows you to build and sync c
 
 To use local mode on a device:
 
-* The device must be running balenaOS v2.29.0 or higher.
-* The device must be running a [development](../../reference/os/overview.md) variant of the OS.
-* You must have the [balena CLI](../../external-docs/balena-cli/latest.md) installed on your development machine.
-* Local mode must be enabled through the balenaCloud dashboard. You can enable it from the device _Settings_ tab.
+- The device must be running balenaOS v2.29.0 or higher.
+- The device must be running a [development](../../reference/os/overview.md) variant of the OS.
+- You must have the [balena CLI](../../external-docs/balena-cli/latest.md) installed on your development machine.
+- Local mode must be enabled through the balenaCloud dashboard. You can enable it from the device _Settings_ tab.
 
-<figure><img src="../../.gitbook/assets/enable-local-mode (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enable-local-mode.webp" alt=""><figcaption></figcaption></figure>
 
 ## Local mode caveats
 
-* In local mode, a device will not send logs back to the balenaCloud dashboard. Refer to the [local mode logs section](local-mode.md#local-mode-logs) to view logs in local mode.
-* Device and service environment variables set from the balenaCloud will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
-* Changes to device [configuration](../manage/configuration.md), for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
-* Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
-* When switching out of local mode and back to tracking releases from balenaCloud, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that balenaCloud instructs it to run.
+- In local mode, a device will not send logs back to the balenaCloud dashboard. Refer to the [local mode logs section](local-mode.md#local-mode-logs) to view logs in local mode.
+- Device and service environment variables set from the balenaCloud will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
+- Changes to device [configuration](../manage/configuration.md), for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
+- Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
+- When switching out of local mode and back to tracking releases from balenaCloud, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that balenaCloud instructs it to run.
 
-<figure><img src="../../.gitbook/assets/device-in-local-mode (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/device-in-local-mode.webp" alt=""><figcaption></figcaption></figure>
 
 ## Scan the network and find your device
 

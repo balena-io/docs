@@ -19,7 +19,7 @@ We now recommend using [Docker Official Images](https://hub.docker.com/search?ba
 
 The Docker Official Images team, with help from community contributors, formally reviews each Docker image before accepting it into the program. To identify a Docker Official Image, look for this tag below on Docker Hub for the image you are assessing.
 
-<figure><img src="../../.gitbook/assets/docker_official (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/docker_official.webp" alt=""><figcaption></figcaption></figure>
 
 ## How to Pick a Base Image
 
@@ -30,32 +30,32 @@ FROM debian:bookworm-20250407  # This is the official image
 
 # Here we install a utility not included in the base image:
 
-RUN apt update && apt install -y --no-install-recommends nano  
+RUN apt update && apt install -y --no-install-recommends nano
 
 CMD ["sleep", "infinity"]
 ```
 
 Scroll past the tag list to find more helpful information in the “Overview” tab on the Docker Hub repository for these popular OS images. That information includes supported architectures, image descriptions, and the available variants and tags:
 
-* Debian official images: [https://hub.docker.com/\_/debian](https://hub.docker.com/_/debian)
-* Ubuntu official images: [https://hub.docker.com/\_/ubuntu/](https://hub.docker.com/_/ubuntu/)
-* Fedora official images: [https://hub.docker.com/\_/fedora](https://hub.docker.com/_/fedora)
-* Alpine official images: [https://hub.docker.com/\_/alpine](https://hub.docker.com/_/alpine)
+- Debian official images: [https://hub.docker.com/\_/debian](https://hub.docker.com/_/debian)
+- Ubuntu official images: [https://hub.docker.com/\_/ubuntu/](https://hub.docker.com/_/ubuntu/)
+- Fedora official images: [https://hub.docker.com/\_/fedora](https://hub.docker.com/_/fedora)
+- Alpine official images: [https://hub.docker.com/\_/alpine](https://hub.docker.com/_/alpine)
 
 ### Choose the right device architecture
 
 Dockerhub uses a different naming convention for device architecture than balena. Use the table below to convert a balena specified architecture to the equivalent architecture listed on Dockerhub. To see the architecture for balena-supported devices, check out the [single-board computers page](../hardware/devices.md).
 
-As an example, if you are using a Raspberry Pi Zero 2W, the balena machine name page shows the “balena\_arch” as “aarch64”. In the table below, aarch64 is referred to as “arm64v8 (ARMv8 64-bit)” on Dockerhub. Look out for arm64v8 images to find images compatible with the Raspberry Pi Zero 2W device type.
+As an example, if you are using a Raspberry Pi Zero 2W, the balena machine name page shows the “balena_arch” as “aarch64”. In the table below, aarch64 is referred to as “arm64v8 (ARMv8 64-bit)” on Dockerhub. Look out for arm64v8 images to find images compatible with the Raspberry Pi Zero 2W device type.
 
-| Docker Architecture            | Balena Architecture (BALENA\_ARCH) | Alternative Names               | Example Device Types                         |
-| ------------------------------ | ---------------------------------- | ------------------------------- | -------------------------------------------- |
-| arm32v6 (ARMv6 32-bit)         | rpi                                | armv6, armhf (in some contexts) | Raspberry Pi 1 model B+, Raspberry Pi Zero/W |
-| arm32v7 (ARMv7 32-bit)         | armv7hf                            | armv7, armv7l, armhf            | BeagleBone Black, Raspberry Pi 2             |
-| arm64v8 (ARMv8 64-bit)         | aarch64                            | arm64, armv8                    | IOT-GATE-iMX8, Raspberry Pi 4, NVIDIA Jetson |
-| amd64 (Linux x86-64)           | amd64                              | x86\_64, x64                    | Intel NUC, generic x86-64 devices, cloud VMs |
-| i386 (x86/i686)                | i386                               | x86, i686, ia32                 | Older 32-bit x86 based devices               |
-| windows-amd64 (Windows x86-64) | Not supported                      | win-amd64, x86\_64 (on Windows) | ?                                            |
+| Docker Architecture            | Balena Architecture (BALENA_ARCH) | Alternative Names               | Example Device Types                         |
+| ------------------------------ | --------------------------------- | ------------------------------- | -------------------------------------------- |
+| arm32v6 (ARMv6 32-bit)         | rpi                               | armv6, armhf (in some contexts) | Raspberry Pi 1 model B+, Raspberry Pi Zero/W |
+| arm32v7 (ARMv7 32-bit)         | armv7hf                           | armv7, armv7l, armhf            | BeagleBone Black, Raspberry Pi 2             |
+| arm64v8 (ARMv8 64-bit)         | aarch64                           | arm64, armv8                    | IOT-GATE-iMX8, Raspberry Pi 4, NVIDIA Jetson |
+| amd64 (Linux x86-64)           | amd64                             | x86_64, x64                     | Intel NUC, generic x86-64 devices, cloud VMs |
+| i386 (x86/i686)                | i386                              | x86, i686, ia32                 | Older 32-bit x86 based devices               |
+| windows-amd64 (Windows x86-64) | Not supported                     | win-amd64, x86_64 (on Windows)  | ?                                            |
 
 ### Tags vs. digests
 
@@ -65,11 +65,11 @@ We recommend using a fixed (pinned) version of an image in production. Using a d
 
 For instance, we can see the digests listed for ubuntu 22.04 in Dockerhub:
 
-<figure><img src="../../.gitbook/assets/digests (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/digests.webp" alt=""><figcaption></figcaption></figure>
 
 Clicking on the one for linux/arm64/v8, we can copy the full digest by clicking the link:
 
-<figure><img src="../../.gitbook/assets/digest_link (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/digest_link.webp" alt=""><figcaption></figcaption></figure>
 
 And then we can use that digest instead of the tag to always get the same version of Ubuntu 22.04:
 
@@ -101,12 +101,12 @@ To utilize a software language stack such as Python or Node.js in your container
 
 Here’s a list of Docker Official images for popular programming languages:
 
-* Python: [https://hub.docker.com/\_/python](https://hub.docker.com/_/python)
-* Node: [https://hub.docker.com/\_/node](https://hub.docker.com/_/node)
-* OpenJDK: [https://hub.docker.com/\_/openjdk](https://hub.docker.com/_/openjdk)
-* .NET: [https://hub.docker.com/r/microsoft/dotnet-sdk](https://hub.docker.com/r/microsoft/dotnet-sdk)
-* Rust: [https://hub.docker.com/\_/rust](https://hub.docker.com/_/rust)
-* Go: [https://hub.docker.com/\_/golang](https://hub.docker.com/_/golang)
+- Python: [https://hub.docker.com/\_/python](https://hub.docker.com/_/python)
+- Node: [https://hub.docker.com/\_/node](https://hub.docker.com/_/node)
+- OpenJDK: [https://hub.docker.com/\_/openjdk](https://hub.docker.com/_/openjdk)
+- .NET: [https://hub.docker.com/r/microsoft/dotnet-sdk](https://hub.docker.com/r/microsoft/dotnet-sdk)
+- Rust: [https://hub.docker.com/\_/rust](https://hub.docker.com/_/rust)
+- Go: [https://hub.docker.com/\_/golang](https://hub.docker.com/_/golang)
 
 These language stacks are often built on top of only one or two different OS images such as Debian and Alpine. What if you want an image combination that the official image does not provide, such as Python on Ubuntu? In that case you can try installing packages from the OS’s package management system tool, in this case using `apt` to install the language version which ships with the selected distribution, for example:
 
@@ -124,10 +124,10 @@ In the above example, Ubuntu’s apt will install the default Python version set
 
 The instructions for installing a language stack from the official binaries is beyond the scope of this document, but many guides exist online. Here are a few examples:
 
-* Installing Python from source: [https://realpython.com/installing-python/#linux-how-to-build-python-from-source-code](https://realpython.com/installing-python/#linux-how-to-build-python-from-source-code)
-* Installing Node from source: [https://github.com/nodejs/node/blob/main/BUILDING.md](https://github.com/nodejs/node/blob/main/BUILDING.md)
-* Installing Golang from source: [https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/](https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/)
-* Installing OpenJDK from source: [https://openjdk.org/groups/build/doc/building.html](https://openjdk.org/groups/build/doc/building.html) And so on
+- Installing Python from source: [https://realpython.com/installing-python/#linux-how-to-build-python-from-source-code](https://realpython.com/installing-python/#linux-how-to-build-python-from-source-code)
+- Installing Node from source: [https://github.com/nodejs/node/blob/main/BUILDING.md](https://github.com/nodejs/node/blob/main/BUILDING.md)
+- Installing Golang from source: [https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/](https://linuxhit.com/how-to-install-go-on-linux-using-official-binary-releases/)
+- Installing OpenJDK from source: [https://openjdk.org/groups/build/doc/building.html](https://openjdk.org/groups/build/doc/building.html) And so on
 
 Note that these instructions are not necessarily written for building a container, so you may have to adapt the steps to work in a Dockerfile. For example, if an instruction says to “download a file with wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz” the line in the Dockerfile would be: `RUN wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz`
 
@@ -178,8 +178,8 @@ RUN apt-get update
 
 More resources for working with NVIDIA Jetson devices and base images are here:
 
-* [How to use NVIDIA Jetson devices on balena](https://blog.balena.io/how-to-use-nvidia-jetson-devices-on-balena/)
-* [Jetson on balena Dockerfile examples](https://github.com/balena-io-examples/jetson-examples)
+- [How to use NVIDIA Jetson devices on balena](https://blog.balena.io/how-to-use-nvidia-jetson-devices-on-balena/)
+- [Jetson on balena Dockerfile examples](https://github.com/balena-io-examples/jetson-examples)
 
 ## Installing your own Initsystem
 
@@ -237,9 +237,9 @@ All Dockerfiles for the base images publicly are available in the [balena-io-lib
 
 This approach allows you to:
 
-* **Maintain existing functionality** while gradually migrating to official images
-* **Update dependencies** and security patches as needed
-* **Customize the base image** for your specific requirements
-* **Reduce disruption** to existing deployments
+- **Maintain existing functionality** while gradually migrating to official images
+- **Update dependencies** and security patches as needed
+- **Customize the base image** for your specific requirements
+- **Reduce disruption** to existing deployments
 
 Before deployment to your fleet, please **test thoroughly** on actual hardware before deploying to production fleets.

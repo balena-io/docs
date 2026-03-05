@@ -1,16 +1,16 @@
 # Nvidia Jetson AGX Orin Devkit 64GB
 
-<figure><img src="../../../../.gitbook/assets/AGX_Orin_perspective_2 (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/AGX_Orin_perspective_2.webp" alt=""><figcaption></figcaption></figure>
 
 The Nvidia Jetson AGX Orin 64 GB development kit has a label on the inside bottom as shown. It mentions part number 945-13730-0050-000 and reads “Jetson AGX Orin 64GB Developer Kit”.
 
-<figure><img src="../../../../.gitbook/assets/AGX-Orin-64-wide (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/AGX-Orin-64-wide.webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/orin-64GB-close (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/orin-64GB-close.webp" alt=""><figcaption></figcaption></figure>
 
 This device exposes a debug UART interface over the microUSB port. From Linux machines, the serial connection can be accessed using `minicom -D /dev/ttyACM0`. It also offers one Display Port for video output.
 
-The default internal storage used for provisioning balenaOS is the AGX Orin 64GB's on-board eMMC. If instead you would like to use an NVMe drive as main storage, please consult the OS installer [target\_devices](../../../../reference/os/configuration.md#target_devices) configuration option or the [alternative provisioning options](jetson-agx-orin-devkit-64gb.md#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS is the AGX Orin 64GB's on-board eMMC. If instead you would like to use an NVMe drive as main storage, please consult the OS installer [target_devices](../../../../reference/os/configuration.md#target_devices) configuration option or the [alternative provisioning options](jetson-agx-orin-devkit-64gb.md#alternative-provisioning-options) section.
 
 #### **Checking your Jetson Orin's UEFI firmware version**
 
@@ -22,15 +22,15 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 
 The debug UART interface of the Jetson AGX Orin 64GB Devkit is available through the micro-USB interface, when the device is powered on. Connect the other end of the micro-usb cable to your host/development PC. If your host is running Linux, the serial connection to the Jetson device can be accessed using `minicom -D /dev/ttyACM0`.
 
-<figure><img src="../../../../.gitbook/assets/AGX_Orin_DP_microUSB_square (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/AGX_Orin_DP_microUSB_square.webp" alt=""><figcaption></figcaption></figure>
 
 If you are using the UART interface, the UEFI firmware version will be printed in the boot sequence logs:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_version_uart_logs (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_version_uart_logs.webp" alt=""><figcaption></figcaption></figure>
 
 Alternatively, if booting is stopped in the UEFI menu by pressing `Esc`, the firmware version will be printed in the top-left corner:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uart_uefi_menu (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uart_uefi_menu.webp" alt=""><figcaption></figcaption></figure>
 
 If instead you would like to use a monitor and a keyboard, please expand the section below.
 
@@ -42,14 +42,14 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 
 **A Display Port cable or Display Port to HDMI adapter is necessary for connecting your Jetson AGX Orin Devkit 64GB to a monitor.** Once the monitor is attached, the UEFI firmware version will be displayed at the top of the screen:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi.webp" alt=""><figcaption></figcaption></figure>
 
 </details>
 
 \
 In case the UEFI firmware version on your device is older than v36.3.0, please update its firmware using the following guide:
 
-* [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) 🔗
+- [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) 🔗
 
 If for whatever reason checking the UEFI firmware version is not possible, flashing Jetpack 6 using the SDK Manager will guarantee your device has the latest firmware installed.
 
@@ -65,19 +65,19 @@ If the firmware on your device is v36.3.0 or newer, inserting the USB flash driv
 
 1. The debug UART interface of the Jetson AGX Orin 64GB Devkit is available through the micro-USB interface, when the device is powered on. Connect the other end of the micro-usb cable to your host/development PC. If your host is running Linux, the serial connection to the Jetson device can be accessed using `minicom -D /dev/ttyACM0`.
 
-<figure><img src="../../../../.gitbook/assets/AGX_Orin_DP_microUSB_square (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/AGX_Orin_DP_microUSB_square.webp" alt=""><figcaption></figcaption></figure>
 
 2. Power on the device and press `Esc` when prompted by the UEFI firmware, or `F11` to enter the Boot Manager Menu directly.
 
-<figure><img src="../../../../.gitbook/assets/interrupt_boot_uart (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/interrupt_boot_uart.webp" alt=""><figcaption></figcaption></figure>
 
 If `Esc` was pressed, navigate to the Boot Manager Menu
 
-<figure><img src="../../../../.gitbook/assets/boot_manager_uart (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/boot_manager_uart.webp" alt=""><figcaption></figcaption></figure>
 
 3. Select the attached USB device as boot media
 
-<figure><img src="../../../../.gitbook/assets/usb_device (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/usb_device.webp" alt=""><figcaption></figcaption></figure>
 
 4. Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive can be unplugged.
 5. Press the power button of your Jetson AGX Orin 64GB to initiate booting.
@@ -98,13 +98,13 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 1. Attach a USB keyboard and a monitor to the device.
 2. Power on the device and press `Esc` when prompted by the UEFI firmware, or `F11` to enter the Boot Manager Menu directly.
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi.webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_boot_manager (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_boot_manager.webp" alt=""><figcaption></figcaption></figure>
 
 3. Select the attached USB flash drive as boot media:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_usb_key (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_usb_key.webp" alt=""><figcaption></figcaption></figure>
 
 4. Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive can be unplugged.
 5. Press the power button of your Jetson AGX Orin 64GB to initiate booting.
@@ -124,17 +124,17 @@ Please do not interrupt the UEFI firmware process by resetting or cutting power 
 
 If you are using the debug UART, the firmware update process will be displayed by a progress bar similar to the one below:
 
-<figure><img src="../../../../.gitbook/assets/post_provisioning_uefi_firmware_update (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/post_provisioning_uefi_firmware_update.webp" alt=""><figcaption></figcaption></figure>
 
 If a display is connected to the device, the firmware update process will also be rendered on the screen:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_firmware_update (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_firmware_update.webp" alt=""><figcaption></figcaption></figure>
 
 #### **Alternative provisioning options**
 
 By default, most Jetson Orin devices need an internal storage media and a USB flash drive in order to be provisioned. The AGX Orin 64GB Devkit has a built-in eMMC which is used by default for provisioning balenaOS.
 
-* If you would like to use a USB flash drive to flash an NVME drive attached to your Jetson AGX Orin 64GB instead of the on-board eMMC, use the [installer.target\_devices](../../../../reference/os/configuration.md#target_devices) configuration option in the flasher USB drive's [config.json](../../../../reference/os/configuration.md#about-config.json) to specify the NVME as target medium:
+- If you would like to use a USB flash drive to flash an NVME drive attached to your Jetson AGX Orin 64GB instead of the on-board eMMC, use the [installer.target_devices](../../../../reference/os/configuration.md#target_devices) configuration option in the flasher USB drive's [config.json](../../../../reference/os/configuration.md#about-config.json) to specify the NVME as target medium:
 
 ```json
 "installer": {
@@ -142,7 +142,7 @@ By default, most Jetson Orin devices need an internal storage media and a USB fl
 }
 ```
 
-* If you would like the same USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate](../../../../reference/os/configuration.md#migrate) and [installer.target\_devices](../../../../reference/os/configuration.md#target_devices) configuration options:
+- If you would like the same USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate](../../../../reference/os/configuration.md#migrate) and [installer.target_devices](../../../../reference/os/configuration.md#target_devices) configuration options:
 
 ```json
 "installer": {
@@ -157,9 +157,9 @@ The first medium found in the `target_devices` list will be used for provisionin
 
 Available target devices are:
 
-* `mmcblk0` - on-board eMMC. Unless overriden, this is the default for the AGX Orin Devkit 64GB
-* `sda` - removable drives like USB flash drives or SSDs
-* `nvme0n1` - NVMe drive
+- `mmcblk0` - on-board eMMC. Unless overriden, this is the default for the AGX Orin Devkit 64GB
+- `sda` - removable drives like USB flash drives or SSDs
+- `nvme0n1` - NVMe drive
 
 <details>
 
@@ -205,8 +205,8 @@ sudo balena config inject config.json -d balena.img
 8. Insert the freshly flashed USB flash drive or NVMe drive into the Jetson AGX Orin Devkit and press the power button.
 9. Once provisioning is complete, the board will perform one of the following actions:
 
-* restart and boot balenaOS automatically, if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has been set in [config.json](../../../../reference/os/configuration.md#about-config.json).
-* shut down if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has not been set in [config.json](../../../../reference/os/configuration.md#about-config.json). Unplug the flasher USB flash drive before powering the AGX Orin Devkit back on.
+- restart and boot balenaOS automatically, if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has been set in [config.json](../../../../reference/os/configuration.md#about-config.json).
+- shut down if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has not been set in [config.json](../../../../reference/os/configuration.md#about-config.json). Unplug the flasher USB flash drive before powering the AGX Orin Devkit back on.
 
 10. Your device should appear in your application dashboard within a few minutes.
 
