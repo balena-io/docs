@@ -21,11 +21,11 @@ The syntax of Dockerfiles is fairly simple - at core there are 2 valid entries i
 
 Typically you will only need to use 4 instructions - [FROM](https://docs.docker.com/engine/reference/builder/#from), [RUN](https://docs.docker.com/engine/reference/builder/#run) and [ADD](https://docs.docker.com/engine/reference/builder/#add) or [COPY](https://docs.docker.com/engine/reference/builder/#copy):-
 
-* [FROM](https://docs.docker.com/engine/reference/builder/#from) **has** to be the first instruction in any valid `Dockerfile` and defines the base image to use as the basis for the container you're building.
-* [RUN](https://docs.docker.com/engine/reference/builder/#run) simply executes commands in the container - this can be of the format of a single line to execute, e.g. `RUN apt-get -y update` which will be run via `/bin/sh -c`, or `[ "executable", "param1", "param2", ... ]` which is executed directly.
-* [ADD](https://docs.docker.com/engine/reference/builder/#add) copies files from the current directory into the container, e.g. `ADD <src> <dest>`. Note that if `<dest>` doesn't exist, it will be created for you, e.g. if you specify a folder. If the `<src>` is a _local_ tar archive it will unpack it for you. It also allows the `<src>` to be a url but will **not** unpack _remote_ urls.
-* [COPY](https://docs.docker.com/engine/reference/builder/#copy) is very similar to [ADD](https://docs.docker.com/engine/reference/builder/#add), but without the compression and url functionality. According to [the Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy), you should always use [COPY](https://docs.docker.com/engine/reference/builder/#copy) unless the auto-extraction capability of [ADD](https://docs.docker.com/engine/reference/builder/#add) is needed.
-* [CMD](https://docs.docker.com/engine/reference/builder/#cmd) this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a balena service, this is typically used to execute a start script or entrypoint for the user's service. [CMD](https://docs.docker.com/engine/reference/builder/#cmd) should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD](https://docs.docker.com/engine/reference/builder/#cmd) command and all processes that it spawns.
+- [FROM](https://docs.docker.com/engine/reference/builder/#from) **has** to be the first instruction in any valid `Dockerfile` and defines the base image to use as the basis for the container you're building.
+- [RUN](https://docs.docker.com/engine/reference/builder/#run) simply executes commands in the container - this can be of the format of a single line to execute, e.g. `RUN apt-get -y update` which will be run via `/bin/sh -c`, or `[ "executable", "param1", "param2", ... ]` which is executed directly.
+- [ADD](https://docs.docker.com/engine/reference/builder/#add) copies files from the current directory into the container, e.g. `ADD <src> <dest>`. Note that if `<dest>` doesn't exist, it will be created for you, e.g. if you specify a folder. If the `<src>` is a _local_ tar archive it will unpack it for you. It also allows the `<src>` to be a url but will **not** unpack _remote_ urls.
+- [COPY](https://docs.docker.com/engine/reference/builder/#copy) is very similar to [ADD](https://docs.docker.com/engine/reference/builder/#add), but without the compression and url functionality. According to [the Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy), you should always use [COPY](https://docs.docker.com/engine/reference/builder/#copy) unless the auto-extraction capability of [ADD](https://docs.docker.com/engine/reference/builder/#add) is needed.
+- [CMD](https://docs.docker.com/engine/reference/builder/#cmd) this command provides defaults for an executing container. This command will be run when the container starts up on your device, whereas RUN commands will be executed on our build servers. In a balena service, this is typically used to execute a start script or entrypoint for the user's service. [CMD](https://docs.docker.com/engine/reference/builder/#cmd) should always be the last command in your Dockerfile. The only processes that will run inside the container are the [CMD](https://docs.docker.com/engine/reference/builder/#cmd) command and all processes that it spawns.
 
 For details on other instructions, consult the official [Dockerfile documentation](https://docs.docker.com/engine/reference/builder/).
 
@@ -113,9 +113,9 @@ There are cases when you would need a higher granularity of control when specify
 
 When creating a release, the balenaCloud build servers or the balena CLI tool (depending on the deployment method used) look at all available Dockerfiles and build the appropriate image using the following order of preference:
 
-* Dockerfile.\<device-type>
-* Dockerfile.\<arch>
-* Dockerfile.template
+- Dockerfile.\<device-type>
+- Dockerfile.\<arch>
+- Dockerfile.template
 
 As an example, let's say you have two Dockerfiles available, `Dockerfile.raspberrypi3` and `Dockerfile.template`. Whenever you publish the application to balenaCloud, if the fleet `device-type` is Raspberry Pi 3, `Dockerfile.raspberrypi3` will be selected as an exact match and for all other devices the builder will automatically select `Dockerfile.template`.
 
@@ -173,7 +173,7 @@ We use [Raspbian](https://www.raspbian.org/) as our contained operating system, 
 With a plain Node.js project, our build server will detect compatible nodejs versions from the `package.json` and build the container using a Docker image that satisfies the version requirement. If no version is specified then the default node version is `0.10.22` and it will be used if a node version is not specified. There will be an error if the specified node version is not in our registry. You can either try another node version or contact us to be supported. More details about Docker node images in our registry can be found [here](../../reference/base-images/balena-base-images.md).
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/terminal-builder-window (2) (1).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/terminal-builder-window.webp" alt=""><figcaption></figcaption></figure>
 
 ## Container Requirements
 

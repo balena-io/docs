@@ -16,7 +16,7 @@ To enable Single Sign-On (SSO) for balenaCloud organizations, you must establish
 2. From the balenaCloud dashboard, select the [Identity Provider](https://dashboard.balena-cloud.com/identity-provider) option from the left sidebar.
 3. Click on the Add Identity Provider button. In the dialog that appears, either upload the XML file or manually enter the IdP details.
 
-<figure><img src="../../../.gitbook/assets/add-idp-form-filled (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/add-idp-form-filled.webp" alt=""><figcaption></figcaption></figure>
 
 To create an Identity Provider entity, start by first selecting a unique SSO identifier. This identifier will be part of your team's URL for logging in. For instance, if your organization is `ACME Corp`, you can choose your unique SSO identifier as `acme` and your team's login URL will be `https://dashboard.balena-cloud.com/saml/acme`.
 
@@ -32,7 +32,7 @@ Removing organizations after IdP creation will not revoke access for SAML users 
 
 You have successfully configured SAML 2.0 for your balenaCloud Enterprise SSO. Your team can now access balenaCloud securely and seamlessly through the configured Identity Provider. For instructions on how your team can log in, refer to [Authenticating as a SAML/SSO User](introduction.md#authenticating-as-a-saml-user). If you encounter any issues or need further assistance, please contact our support team.
 
-<figure><img src="../../../.gitbook/assets/idp-with-two-orgs (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/idp-with-two-orgs.webp" alt=""><figcaption></figcaption></figure>
 
 #### (Optional) Configure a Default Team
 
@@ -48,27 +48,27 @@ If you unlink the default team in the Identity Provider configuration, it will n
 
 To log in using your enterprise SAML authentication, you must first have or [create](https://dashboard.balena-cloud.com/signup) a standard balenaCloud account using your company email address. Once logged in to this account, navigate to your [user preferences](https://dashboard.balena-cloud.com/preferences/details) and click "Enable" in the "Enterprise SSO" section.
 
-<figure><img src="../../../.gitbook/assets/merge-account-accept (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/merge-account-accept.webp" alt=""><figcaption></figcaption></figure>
 
 Next, provide the company `SSO Identifier` supplied by your balenaCloud organization administrator.
 
-<figure><img src="../../../.gitbook/assets/add-sso-identifier-merge-modal (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/add-sso-identifier-merge-modal.webp" alt=""><figcaption></figcaption></figure>
 
 **Important:** By activating SAML, you are transferring your personal account to a company account. **This action is non-reversible**. The following changes will occur:
 
-* **Your API keys will be deleted**
-* You will no longer be able to create new API keys
-* Ownership of your fleets and devices will be transferred to your company
-* Your company can revoke your access at any time
-* You will no longer be able to log in using `username` and `password`
+- **Your API keys will be deleted**
+- You will no longer be able to create new API keys
+- Ownership of your fleets and devices will be transferred to your company
+- Your company can revoke your access at any time
+- You will no longer be able to log in using `username` and `password`
 
 You will still be subject to balenaCloud's [**Terms of Service**](https://www.balena.io/terms-of-service) and [**Master Service Agreement**](https://www.balena.io/master-agreement), with the following changes:
 
-* Transfer of Responsibility: The ownership and management of your account will be transferred from you, as an individual user, to the designated company. This means that all rights and obligations under the Terms of Service and the Master Service Agreement will now be governed by the company.
-* Legal Entity: The company will become the legal entity responsible for the account. All contractual obligations, liabilities, and benefits associated with the account will be transferred to the company.
-* Terms and Conditions: The terms and conditions that apply to your account will remain the same. However, the company will now be responsible for ensuring compliance with these terms.
-* Data and Privacy: Your personal data associated with the account will be transferred to the company. The company will be responsible for the protection and use of your data in accordance with the existing privacy policy.
-* Consent: By proceeding with this transfer, you confirm that you have the authority to transfer the account to the company and that you consent to the changes outlined above.
+- Transfer of Responsibility: The ownership and management of your account will be transferred from you, as an individual user, to the designated company. This means that all rights and obligations under the Terms of Service and the Master Service Agreement will now be governed by the company.
+- Legal Entity: The company will become the legal entity responsible for the account. All contractual obligations, liabilities, and benefits associated with the account will be transferred to the company.
+- Terms and Conditions: The terms and conditions that apply to your account will remain the same. However, the company will now be responsible for ensuring compliance with these terms.
+- Data and Privacy: Your personal data associated with the account will be transferred to the company. The company will be responsible for the protection and use of your data in accordance with the existing privacy policy.
+- Consent: By proceeding with this transfer, you confirm that you have the authority to transfer the account to the company and that you consent to the changes outlined above.
 
 By clicking the Enable button, you agree to the above terms. If you have any questions or concerns, please contact our support team before completing the transfer.
 
@@ -76,7 +76,7 @@ By clicking the Enable button, you agree to the above terms. If you have any que
 
 Once you have enabled SAML on your account, you can log in using the Enterprise SSO login button or the login URL provided by your balenaCloud organization administrator, e.g., `https://dashboard.balena-cloud.com/saml/acme`.
 
-<figure><img src="../../../.gitbook/assets/login-page (2).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/login-page.webp" alt=""><figcaption></figcaption></figure>
 
 Once you have enabled SAML, you can no longer log in using a `username` and `password` combination and you must always use the SSO login method.
 
@@ -110,13 +110,13 @@ If you really want to delete your SAML users, execute the following command:
 
 ```js
 await sdk.pine.delete({
-    resource: 'saml_account',
-    options: {
-        $filter: {
-            remote_id: '<USER_EMAIL_GOES_HERE>'
-        }
-    }
-})
+	resource: 'saml_account',
+	options: {
+		$filter: {
+			remote_id: '<USER_EMAIL_GOES_HERE>',
+		},
+	},
+});
 ```
 
 **Important:** This action is irreversible and the account cannot be recovered once deleted.
