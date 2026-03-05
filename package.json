@@ -28,7 +28,7 @@
     "balena-sdk": "^23.0.2",
     "handlebars": "^4.7.8",
     "js-yaml": "^4.1.1",
-    "node-jq": "^4.4.0"
+    "node-jq": "^5.0.0"
   },
   "versionist": {
     "publishedAt": "2026-01-19T09:56:20.015Z"
