@@ -1,16 +1,16 @@
 # Nvidia Jetson Orin Nano 8GB Production module
 
-<figure><img src="../../../../.gitbook/assets/Orin_Nano_Devkit.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Orin_Nano_Devkit (1).webp" alt=""><figcaption></figcaption></figure>
 
 The Orin Nano production module has the part number 900-13767-0030-000, which can be observed on the bottom. The main difference from the Orin Nano SD - 900-13767-0050-000 - is that it does not have an SD card slot. This module can be used with a Jetson Orin Nano Devkit carrier board, along with the balenaOS image for the Jetson Orin Nano 8GB (SD) Devkit, provided that the corresponding kernel device-tree is configured in your balena-cloud device configuration page.
 
-<figure><img src="../../../../.gitbook/assets/Nano_8GB_Production_SOM_900-13767-0030-000.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Nano_8GB_Production_SOM_900-13767-0030-000 (1).webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/Nano_8GB_Production_SOM_900-13767-0030-000_closeup.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Nano_8GB_Production_SOM_900-13767-0030-000_closeup (1).webp" alt=""><figcaption></figcaption></figure>
 
 When this module is used with the carrier board provided by the Orin Nano Devkit, a debug interface is available on the UART TXD, UART RXD and GND pins, which are located underneath the Orin module. Additionally, a monitor can be connected to the board's Display Port.
 
-The default internal storage used for provisioning balenaOS on the Orin Nano Production module is an NVMe drive, which needs to be attached to the carrier board prior to booting via a USB flash drive containing the balenaOS flasher image. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target_devices](../../../../reference/os/configuration.md#target_devices) configuration option or the [alternative provisioning options](jetson-orin-nano-devkit-nvme-prod.md#alternative-provisioning-options) section.
+The default internal storage used for provisioning balenaOS on the Orin Nano Production module is an NVMe drive, which needs to be attached to the carrier board prior to booting via a USB flash drive containing the balenaOS flasher image. If instead you would like to use other media, like for example an SSD as main storage, please consult the OS installer [target\_devices](../../../../reference/os/configuration.md#target_devices) configuration option or the [alternative provisioning options](jetson-orin-nano-devkit-nvme-prod.md#alternative-provisioning-options) section.
 
 #### **Checking your Jetson Orin's UEFI firmware version**
 
@@ -22,17 +22,17 @@ You can check which UEFI firmware version your Jetson Orin device is running eit
 
 For this step you will need a USB to TTL converter cable. The USB to TTL converter's pins need to be connected to the UART TXD, UART RXD and GND pins on the Jetson carrier board, which are located underneath the Orin module. The other end of the cable should be plugged into the USB port of your host/development PC. Your host PC can connect to the Jetson device using a serial communication program like `minicom`
 
-<figure><img src="../../../../.gitbook/assets/Nano_pinout_with_module_square.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Nano_pinout_with_module_square (1).webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/Nano_pinout_close_square.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Nano_pinout_close_square (1).webp" alt=""><figcaption></figcaption></figure>
 
 If you are using the UART interface, the UEFI firmware version will be printed in the boot sequence logs:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_version_uart_logs.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_version_uart_logs (1).webp" alt=""><figcaption></figcaption></figure>
 
 Alternatively, if booting is stopped in the UEFI menu by pressing `Esc`, the firmware version will be printed in the top-left corner:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uart_uefi_menu.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uart_uefi_menu (1).webp" alt=""><figcaption></figcaption></figure>
 
 If instead you would like to use a monitor and a keyboard, please expand the section below.
 
@@ -44,14 +44,14 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 
 **A Display Port cable or Display Port to HDMI adapter is necessary for connecting your Jetson Orin Nano to a monitor.** Once the monitor is attached, the UEFI firmware version will be displayed at the top of the screen:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi (1).webp" alt=""><figcaption></figcaption></figure>
 
 </details>
 
 \
 In case the UEFI firmware version on your device is older than v36.3.0, please update its firmware using the following guide:
 
-- [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) 🔗
+* [Flashing Jetpack 6 using SDK Manager](https://developer.ridgerun.com/wiki/index.php/JetPack_6_Migration_and_Developer_Guide/Installing_JetPack_6/Flashing_with_SDK_Manager) 🔗
 
 If for whatever reason checking the UEFI firmware version is not possible, flashing Jetpack 6 using the SDK Manager will guarantee your device has the latest firmware installed.
 
@@ -67,21 +67,21 @@ If the firmware on your device is v36.3.0 or newer, inserting the USB flash driv
 
 1. For this step you will need a USB to TTL converter cable. The USB to TTL converter's pins need to be connected to the UART TXD, UART RXD and GND pins on the Jetson carrier board, which are located underneath the Orin module. The other end of the cable should be plugged into the USB port of your host/development PC. Your host PC can connect to the Jetson device using a serial communication program like `minicom`
 
-<figure><img src="../../../../.gitbook/assets/Nano_pinout_with_module_square.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Nano_pinout_with_module_square (1).webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/Nano_pinout_close_square.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Nano_pinout_close_square (1).webp" alt=""><figcaption></figcaption></figure>
 
 2. Power on the device and press `Esc` when prompted by the UEFI firmware, or `F11` to enter the Boot Manager Menu directly:
 
-<figure><img src="../../../../.gitbook/assets/interrupt_boot_uart.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/interrupt_boot_uart (1).webp" alt=""><figcaption></figcaption></figure>
 
 If `Esc` was pressed, navigate to the Boot Manager Menu:
 
-<figure><img src="../../../../.gitbook/assets/boot_manager_uart.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/boot_manager_uart (1).webp" alt=""><figcaption></figcaption></figure>
 
 3. Select the attached USB device as boot media:
 
-<figure><img src="../../../../.gitbook/assets/usb_device.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/usb_device (1).webp" alt=""><figcaption></figcaption></figure>
 
 4. Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive should be unplugged.
 5. Remove and re-connect power to the carrier board.
@@ -102,13 +102,13 @@ If instead you would like to use a monitor and a keyboard, please expand the sec
 1. Attach a USB keyboard and a monitor to the device.
 2. Power on the device and press `Esc` when prompted by the UEFI firmware, or `F11` to enter the Boot Manager Menu directly:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_interrupt_booting_uefi (1).webp" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_boot_manager.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_boot_manager (1).webp" alt=""><figcaption></figcaption></figure>
 
 3. Select the attached USB flash drive as boot media:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_usb_key.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_usb_key (1).webp" alt=""><figcaption></figcaption></figure>
 
 4. Your device should boot from the attached USB flash drive and provision the internal storage. Once provisioning is complete and the device shuts down, the USB flash drive can be unplugged.
 5. Remove and re-connect power to the carrier board.
@@ -128,18 +128,18 @@ Please do not interrupt the UEFI firmware process by resetting or cutting power 
 
 If you are using the debug UART, the firmware update process will be displayed by a progress bar similar to the one below:
 
-<figure><img src="../../../../.gitbook/assets/post_provisioning_uefi_firmware_update.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/post_provisioning_uefi_firmware_update (1).webp" alt=""><figcaption></figcaption></figure>
 
 If a display is connected to the device, the firmware update process will also be rendered on the screen:
 
-<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_firmware_update.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/jetson_orin_uefi_firmware_update (1).webp" alt=""><figcaption></figcaption></figure>
 
 #### **Alternative provisioning options**
 
 By default, most Jetson Orin devices need an internal storage media and a USB flash drive in order to be provisioned. When using the Jetson Orin Nano Devkit with a Jetson Orin Nano 8GB production module, an NVMe drive has to be attached to the carrier board before starting the provisioning process.
 
-- If you would like to use a USB flash drive to flash an NVMe drive attached to your Jetson Orin Nano, simply insert the USB flash drive into your device and connect power to the board.
-- If you would like the same SD-Card, USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate](../../../../reference/os/configuration.md#migrate) and [installer.target_devices](../../../../reference/os/configuration.md#target_devices) configuration options:
+* If you would like to use a USB flash drive to flash an NVMe drive attached to your Jetson Orin Nano, simply insert the USB flash drive into your device and connect power to the board.
+* If you would like the same SD-Card, USB flash drive or NVMe on which the balenaOS flasher image has been written to be used as both install and boot media, use both the [installer.migrate](../../../../reference/os/configuration.md#migrate) and [installer.target\_devices](../../../../reference/os/configuration.md#target_devices) configuration options:
 
 ```json
 "installer": {
@@ -154,9 +154,9 @@ The first medium found in the `target_devices` list will be used for provisionin
 
 Available target devices are:
 
-- `mmcblk0` - SD-CARD
-- `sda` - removable drives like USB flash drives or SSDs
-- `nvme0n1` - NVMe drive. Unless overriden, this is the default for the Jetson Orin Nano Devkit
+* `mmcblk0` - SD-CARD
+* `sda` - removable drives like USB flash drives or SSDs
+* `nvme0n1` - NVMe drive. Unless overriden, this is the default for the Jetson Orin Nano Devkit
 
 <details>
 
@@ -201,8 +201,8 @@ sudo balena config inject config.json -d balena.img
 7. Ensure the power cable is disconnected from the Orin Nano Devkit.
 8. Insert the freshly flashed SD-CARD, USB flash drive or NVMe drive into the Devkit and connect its power cable.
 9. Once provisioning is complete, the board will perform one of the following actions:
-   - restart and boot balenaOS automatically, if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has been set in [config.json](../../../../reference/os/configuration.md#about-config.json).
-   - shut down if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has not been set in [config.json](../../../../reference/os/configuration.md#about-config.json) Unplug the external flasher medium and then remove and re-connect the power cable to the Devkit.
+   * restart and boot balenaOS automatically, if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has been set in [config.json](../../../../reference/os/configuration.md#about-config.json).
+   * shut down if [installer.migrate.force](../../../../reference/os/configuration.md#migrate) has not been set in [config.json](../../../../reference/os/configuration.md#about-config.json) Unplug the external flasher medium and then remove and re-connect the power cable to the Devkit.
 10. Your device should appear in your application dashboard within a few minutes.
 
 </details>
