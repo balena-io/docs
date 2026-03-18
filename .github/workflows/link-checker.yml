@@ -43,7 +43,7 @@ jobs:
       - name: Restore lychee cache
         id: restore-cache
         if: github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
-        uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        uses: actions/cache/restore@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
@@ -72,7 +72,7 @@ jobs:
             automated issue
 
       - name: Save lychee cache
-        uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        uses: actions/cache/save@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
         if: always()
         with:
           path: .lycheecache
