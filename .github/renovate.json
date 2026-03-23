@@ -8,7 +8,7 @@
       "customType": "regex",
       "description": "Track external documentation sources",
       "managerFilePatterns": [
-        "^external-docs\\.json$"
+        "external-docs.json"
       ],
       "matchStrings": [
         "\"repo\":\\s*\"(?<depName>[^\"]+)\"[^}]*\"ref\":\\s*\"(?<currentValue>v[^\"]+)\""
