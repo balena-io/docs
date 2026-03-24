@@ -9,12 +9,13 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run sync-external -- --dry-run && npm run renovate:validate",
-    "sync-external": "node tools/sync-external.js",
+    "sync-external": "node tools/sync-external.js && npm run generate-node-sdk-pages",
     "generate-openapi": "node tools/generate-openapi-spec-from-resourcejson.js ./config/dictionaries resource.json ./ openapi.yaml",
     "generate-device-specific-content": "node tools/generate-device-specific-content.js",
     "generate-cloud-iot": "node tools/generate-cloud-iot.js",
     "prepare": "node -e \"try { (await import('husky')).default() } catch (e) { if (e.code !== 'ERR_MODULE_NOT_FOUND') throw e }\" --input-type module",
-    "renovate:validate": "renovate-config-validator .github/renovate.json"
+    "renovate:validate": "renovate-config-validator .github/renovate.json",
+    "generate-node-sdk-pages": "node tools/generate-node-sdk-pages.js"
   },
   "repository": {
     "type": "git",
