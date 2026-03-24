@@ -189,7 +189,7 @@
     {
       "id": "balena-sdk-python-docs",
       "repo": "balena-io/balena-sdk-python",
-      "ref": "v15.1.5",
+      "ref": "v16.0.0",
       "file": "DOCUMENTATION.md",
       "targetDir": "pages/external-docs/sdk/python-sdk",
       "dictionary": "config/dictionaries/pythonsdk.json"
