@@ -26,8 +26,11 @@
       "matchFileNames": [
         "external-docs.json"
       ],
+      "groupName": "{{{depName}}} documentation updates",
+      "automerge": true,
       "postUpgradeTasks": {
         "commands": [
+          "npm install",
           "npm run sync-external -- --repo {{{depName}}}"
         ],
         "fileFilters": [
