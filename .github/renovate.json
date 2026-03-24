@@ -52,6 +52,7 @@
       ],
       "postUpgradeTasks": {
         "commands": [
+          "npm install",
           "npm run generate-device-specific-content"
         ],
         "fileFilters": [
