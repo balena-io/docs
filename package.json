@@ -8,11 +8,13 @@
   "description": "This repo contains balenaCloud's public-facing documentation.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run sync-external -- --dry-run",
+    "test": "npm run sync-external -- --dry-run && npm run renovate:validate",
     "sync-external": "node tools/sync-external.js",
     "generate-openapi": "node tools/generate-openapi-spec-from-resourcejson.js ./config/dictionaries resource.json ./ openapi.yaml",
     "generate-device-specific-content": "node tools/generate-device-specific-content.js",
-    "generate-cloud-iot": "node tools/generate-cloud-iot.js"
+    "generate-cloud-iot": "node tools/generate-cloud-iot.js",
+    "prepare": "node -e \"try { (await import('husky')).default() } catch (e) { if (e.code !== 'ERR_MODULE_NOT_FOUND') throw e }\" --input-type module",
+    "renovate:validate": "renovate-config-validator .github/renovate.json"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,9 @@
   "devDependencies": {
     "balena-sdk": "^23.0.2",
     "handlebars": "^4.7.8",
-    "js-yaml": "^4.1.1"
+    "husky": "^9.1.7",
+    "js-yaml": "^4.1.1",
+    "renovate": "^43.89.1"
   },
   "versionist": {
     "publishedAt": "2026-01-19T09:56:20.015Z"
