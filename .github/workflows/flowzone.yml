@@ -17,7 +17,7 @@ permissions:
 jobs:
   flowzone:
     name: Flowzone
-    uses: product-os/flowzone/.github/workflows/flowzone.yml@cc9836f6186621b864c25ffb25484ff4cfab6292 # master
+    uses: product-os/flowzone/.github/workflows/flowzone.yml@7b87702ed500aad15c3b8b85c622c709c63e7238 # master
     # prevent duplicate workflow executions for pull_request and pull_request_target
     if: |
       (
