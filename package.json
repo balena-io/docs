@@ -31,7 +31,8 @@
     "handlebars": "^4.7.8",
     "husky": "^9.1.7",
     "js-yaml": "^4.1.1",
-    "renovate": "^43.89.1"
+    "renovate": "^43.89.1",
+    "semver": "^7.7.4"
   },
   "versionist": {
     "publishedAt": "2026-01-19T09:56:20.015Z"
