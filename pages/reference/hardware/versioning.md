@@ -65,54 +65,48 @@ A device type will be discontinued based on a set of criteria detailed below, in
 
 **List of discontinued device types**
 
-* `Aetina N510 TX2`
-* `Asus Tinker Board S`
-* `Auvidea CNX100 Xavier NX`
-* `BananaPi-M1+`
-* `BeagleBone Green`
-* `BeagleBone Green Gateway`
-* `BeagleBone Green Wireless`
-* `CTI Astro TX2 G+`
-* `CTI Orbitty TX2`
-* `CTI Spacely TX2`
-* `Digi ConnectCore 8X SBC Pro`
-* `Eurotec Lowpad (lcbzu9)`
-* `I-Pi SMARC PX30 SD-CARD`
-* `Microsoft Surface 6`
-* `Microsoft Surface Go`
-* `NanoPC-T4`
-* `Nanopi Neo Air`
-* `NanoPi R2C`
-* `NPE X500 M3`
-* `Nvidia Jetson Xavier NX Devkit SD Seeed ReSpeaker-2Mic`
-* `Orange Pi One`
-* `Orange Pi Plus2`
-* `Orange Pi Zero`
-* `ROCKPro64`
-* `Seeed ODYSSEY-X86`
-* `Topic Florida Plus (tdpzu9)`
-* `Balena Fin`
-
-**List of devices pending discontinuation**
-
-The following device types will be discontinued on March 1st 2026, given no change to circumstances:
-
-* `Advantech ECU1370`
-* `Asus Tinker Board`
-* `BeaglePlay`
-* `Blue Chip Technology DB1`
-* `Blue Chip Technology TM3`
-* `CTI Photon Nano`
-* `CTI Photon TX2 NX`
-* `CTI Photon Xavier NX`
-* `ODROID-XU4`
-* `PocketBeagle`
-* `Raspberry Pi 400`
-* `Revolution Pi Connect`
-* `Revolution Pi Core 3`
-* `Rocktech ISG 503`
-* `Variscite VAR-SOM-MX7`
-* `Variscite DART-6UL`
+- `Aetina N510 TX2`
+- `Asus Tinker Board S`
+- `Auvidea CNX100 Xavier NX`
+- `BananaPi-M1+`
+- `BeagleBone Green`
+- `BeagleBone Green Gateway`
+- `BeagleBone Green Wireless`
+- `CTI Astro TX2 G+`
+- `CTI Orbitty TX2`
+- `CTI Spacely TX2`
+- `Digi ConnectCore 8X SBC Pro`
+- `Eurotec Lowpad (lcbzu9)`
+- `I-Pi SMARC PX30 SD-CARD`
+- `Microsoft Surface 6`
+- `Microsoft Surface Go`
+- `NanoPC-T4`
+- `Nanopi Neo Air`
+- `NanoPi R2C`
+- `NPE X500 M3`
+- `Nvidia Jetson Xavier NX Devkit SD Seeed ReSpeaker-2Mic`
+- `Orange Pi One`
+- `Orange Pi Plus2`
+- `Orange Pi Zero`
+- `ROCKPro64`
+- `Seeed ODYSSEY-X86`
+- `Topic Florida Plus (tdpzu9)`
+- `Balena Fin`
+- `Advantech ECU1370`
+- `Asus Tinker Board`
+- `BeaglePlay`
+- `Blue Chip Technology DB1`
+- `Blue Chip Technology TM3`
+- `CTI Photon Nano`
+- `CTI Photon TX2 NX`
+- `CTI Photon Xavier NX`
+- `PocketBeagle`
+- `Raspberry Pi 400`
+- `Revolution Pi Connect`
+- `Revolution Pi Core 3`
+- `Rocktech ISG 503`
+- `Variscite VAR-SOM-MX7`
+- `Variscite DART-6UL`
 
 ### Versioning
 
