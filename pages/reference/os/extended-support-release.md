@@ -18,7 +18,7 @@ Each ESR release is supported for nine months from the time of release. A suppor
 
 Three lines of ESR versions are supported, known as _next_, _current_, and _sunset_. Every three months, a new ESR version is released, and each line will transition forward at that time as illustrated on the following diagram:
 
-<figure><img src="../../.gitbook/assets/esr-process (3).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esr-docs.jpg" alt=""><figcaption></figcaption></figure>
 
 ESR versions are named by year and month `yyyy.m` and contain a patch version number starting at 0. So, `2022.1.4` would be the fifth release of the `2022.1` ESR version. Since ESR versions will only receive backports for high-risk security vulnerabilities and critical bug fixes, new releases during the lifecycle of an ESR version will only increment the patch number.
 

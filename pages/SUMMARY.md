@@ -4,7 +4,7 @@
 
 ## Learn
 
-* [Introduction](learn/welcome/README.md)
+* [Introduction](learn/introduction/README.md)
   * [Core Concepts: A balena primer](learn/welcome/primer.md)
   * [Going to production](learn/welcome/production-plan.md)
   * [Security](learn/welcome/security.md)
