@@ -31,6 +31,10 @@ For details on other instructions, consult the official [Dockerfile documentatio
 
 ### Using Dockerfiles with balena
 
+{% hint style="danger" %}
+Containers ran as single container **have no security restrictions**, this should only be used for prototyping and testing. For production applications, we recommend defining your own `docker-compose.yml` file with the appropriate security settings for your use case. For more information on this, see our [multicontainer documentation](./multicontainer.md).
+{% endhint %}
+
 To deploy a single-container release to balena, simply place a `Dockerfile` at the root of your repository. A `docker-compose.yml` file will be automatically generated, ensuring your container has host networking, is privileged, and has `lib/modules`, `/lib/firmware`, and `/run/dbus` bind mounted into the container. The default `docker-compose.yml` will look something like this:
 
 {% include "../../.gitbook/includes/labels-version-note.md" %}
