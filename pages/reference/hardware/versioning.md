@@ -1,6 +1,6 @@
 ---
 title: Device Types and Versioning
-excerpt: Explanation of device types and their version scheme
+excerpt: Explanation of device types designations and their version scheme
 ---
 
 # Device Types and Versioning
