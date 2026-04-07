@@ -8,7 +8,7 @@
       "files": [
         {
           "source": "balena-docs/engine-debugging.md",
-          "target": "shared/masterclass/debugging/engine.md"
+          "target": "pages/.gitbook/includes/engine.md"
         }
       ]
     },
@@ -38,7 +38,7 @@
         },
         {
           "source": "docs/debugging-supervisor.md",
-          "target": "shared/masterclass/debugging/supervisor.md"
+          "target": "pages/.gitbook/includes/supervisor.md"
         }
       ]
     },
@@ -65,7 +65,7 @@
         },
         {
           "source": "docs/debugging-balenaos.md",
-          "target": "shared/masterclass/debugging/journal-logs.md",
+          "target": "pages/.gitbook/includes/journal-logs.md",
           "transform": {
             "type": "extract-section",
             "section": "Journal Logs"
@@ -73,7 +73,7 @@
         },
         {
           "source": "docs/debugging-balenaos.md",
-          "target": "shared/masterclass/debugging/kernel-logs.md",
+          "target": "pages/.gitbook/includes/kernel-logs.md",
           "transform": {
             "type": "extract-section",
             "section": "Using the Kernel Logs"

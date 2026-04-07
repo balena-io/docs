@@ -35,8 +35,6 @@
         ],
         "fileFilters": [
           "pages/**/*.md",
-          "shared/**/*.md",
-          "shared/**/*.json",
           "config/dictionaries/*.json"
         ],
         "executionMode": "update"

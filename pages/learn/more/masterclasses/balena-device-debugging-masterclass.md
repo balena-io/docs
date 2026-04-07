@@ -1,2 +1,0 @@
-# Balena Device Debugging Masterclass
-
