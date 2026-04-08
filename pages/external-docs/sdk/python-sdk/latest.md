@@ -1,6 +1,6 @@
 # Latest
 
-## v17.0.0
+## v17.0.1
 
 
 Welcome to the balena python SDK documentation.
