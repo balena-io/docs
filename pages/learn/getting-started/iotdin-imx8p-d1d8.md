@@ -1,8 +1,8 @@
-# Getting Started with Compulab IOTDIN-iMX8P 1G-8G DRAM
+# Getting Started with Compulab IOTDIN-iMX8P 1GB or 8GB DRAM
 
 In this guide, we will help you get started with balenaCloud by:
 
-* Setting up your **Compulab IOTDIN-iMX8P 1G-8G DRAM** device and bringing it online on the balenaCloud dashboard.
+* Setting up your **Compulab IOTDIN-iMX8P 1GB or 8GB DRAM** device and bringing it online on the balenaCloud dashboard.
 * Deploying a _hello world_ project on the device in your language of choice.
 * Developing the sample project: making changes and testing them on the device in real-time.
 
@@ -11,7 +11,7 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 ## What you'll need
 
 
-* Your Compulab IOTDIN-iMX8P 1G-8G DRAM device you want to get started with. Check out all of our [supported devices](../../reference/hardware/devices.md).
+* Your Compulab IOTDIN-iMX8P 1GB or 8GB DRAM device you want to get started with. Check out all of our [supported devices](../../reference/hardware/devices.md).
 * A tool to flash the new operating system on the device. We recommend [Etcher](https://www.balena.io/etcher).
 * A way to connect the device to the internet, either through wifi (if available) or ethernet cable.
 * A method of reliably powering the device.
@@ -26,17 +26,17 @@ To create your first fleet, log into your [balenaCloud dashboard](https://dashbo
 
 <figure><img src="../../.gitbook/assets/create-first-fleet.webp" alt="Create a fleet"><figcaption></figcaption></figure>
 
-Enter a fleet name, select the **Compulab IOTDIN-iMX8P 1G-8G DRAM** device type, choose the _Starter_ [fleet type](../accounts/fleet-types.md), and click **Create new fleet**:
+Enter a fleet name, select the **Compulab IOTDIN-iMX8P 1GB or 8GB DRAM** device type, choose the _Starter_ [fleet type](../accounts/fleet-types.md), and click **Create new fleet**:
 
 <figure><img src="../../.gitbook/assets/create-fleet.webp"><figcaption></figcaption></figure>
 
-You'll then be redirected to the summary of the newly created fleet, where you can add your first Compulab IOTDIN-iMX8P 1G-8G DRAM.
+You'll then be redirected to the summary of the newly created fleet, where you can add your first Compulab IOTDIN-iMX8P 1GB or 8GB DRAM.
 
 ## Add a device and download OS
 
 <figure><img src="../../.gitbook/assets/fleet-view.webp" alt="Add a device"><figcaption></figcaption></figure>
 
-balenaCloud builds a custom balenaOS image configured for Compulab IOTDIN-iMX8P 1G-8G DRAM which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../../reference/hardware/devices.md) can also be picked to join the fleet.
+balenaCloud builds a custom balenaOS image configured for Compulab IOTDIN-iMX8P 1GB or 8GB DRAM which allows the device to provision and join the new fleet you created automatically. Start by clicking **Add device** on the fleet summary. Your device type will be preselected here since you already chose it when creating the fleet. Other device types of the same [architecture](../../reference/hardware/devices.md) can also be picked to join the fleet.
 
 <figure><img src="../../.gitbook/assets/add-device.webp" alt="Add new device"><figcaption></figcaption></figure>
 
@@ -59,7 +59,7 @@ Next, we will flash the downloaded image onto the device. To do so, follow the f
   * From a Linux-based host, use the [IOT-GATE-iMX8PLUS flashing tools](https://github.com/balena-os/iot-gate-imx8plus-flashtools) to write balenaOS on your device.
   * After flashing is completed, disconnect the micro USB cable from the PROG port, power off the device and then power it back on.
 
-When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Compulab IOTDIN-iMX8P 1G-8G DRAM](/faq/troubleshooting/iotdin-imx8p-d1d8) or try our [support channels](../accounts/support-access.md).
+When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for Compulab IOTDIN-iMX8P 1GB or 8GB DRAM](/faq/troubleshooting/iotdin-imx8p-d1d8) or try our [support channels](../accounts/support-access.md).
 
 ## Install the balena CLI
 
@@ -67,19 +67,19 @@ Now that you have an `operational` device in your fleet, it's time to deploy som
 
 {% tabs %}
 {% tab title="OSX" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v24.0.2/balena-cli-v24.0.2-macOS-x64-installer.pkg).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v24.1.3/balena-cli-v24.1.3-macOS-x64-installer.pkg).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open the Terminal app ([Terminal User guide](https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac)).
 {% endtab %}
 
 {% tab title="Windows" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v24.0.2/balena-cli-v24.0.2-windows-x64-installer.exe).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v24.1.3/balena-cli-v24.1.3-windows-x64-installer.exe).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open a command prompt: Click on the Windows Start Menu, type PowerShell, and then click on Windows PowerShell.
 {% endtab %}
 
 {% tab title="Linux" %}
-1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/v24.0.2/balena-cli-v24.0.2-linux-x64-standalone.tar.gz).
+1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/v24.1.3/balena-cli-v24.1.3-linux-x64-standalone.tar.gz).
 2. Extract the contents of the tar.gz file to any folder you choose, for example `/home/james`. The extracted contents will include a `balena/bin` folder.
 3. Add that folder (e.g. `/home/james/balena/bin`) to the PATH environment variable. Check this [StackOverflow](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix) post for instructions. Close and re-open the terminal window so that the changes to PATH can take effect.
 {% endtab %}
@@ -115,7 +115,7 @@ After login, test the balena CLI by running the `balena fleet list` command, whi
 ```shell
 $ balena fleets
 ID    NAME         SLUG                                 DEVICE TYPE           DEVICE COUNT   ONLINE DEVICES
-98264 First-Fleet  balena CLI/first-fleet    Compulab IOTDIN-iMX8P 1G-8G DRAM    0              0
+98264 First-Fleet  balena CLI/first-fleet    Compulab IOTDIN-iMX8P 1GB or 8GB DRAM    0              0
 ```
 
 {% tabs %}
