@@ -10,19 +10,19 @@ extras: esr-devices-js
 This feature is only available on [Production and Enterprise plans](https://balena.io/pricing/).
 {% endhint %}
 
-The balenaOS Extended Support Release (ESR) process allows fleet owners to update to a new ESR version on their devices at most twice a year to ensure they are on a supported version. New ESR versions are released on a three-month schedule, and as such, fleet owners know in advance when releases will be available and when they need to upgrade.
+The balenaOS Extended Support Release (ESR) process allows fleet owners to update to a new ESR version on their devices at most twice a year to ensure they are on a supported version. New ESR versions are released quarterly, which allows fleet owners to plan their update schedule.
 
-Each ESR release is supported for nine months from the time of release. A supported ESR version implies that high-risk security vulnerabilities and critical bug fixes will be backported to that version, and are guaranteed not to break the interface. Backports of any functional enhancements are not in scope.
+Each ESR release is supported for nine months from the time of release. Support includes backports for high-risk security vulnerabilities and critical bug fixes, and are guaranteed not to break the interface. Backports of any functional enhancements are not in scope.
 
-## ESR schedule
+## ESR versions and schedule
 
-Three lines of ESR versions are supported, known as _next_, _current_, and _sunset_. Every three months, a new ESR version is released, and each line will transition forward at that time as illustrated on the following diagram:
+ESR versions are named by year and month like `yyyy.m` and contain a patch version number starting at zero. So `2026.1.0` is the first release of the `2026.1` ESR version, and the first backport or fix during its supported lifetime is `2026.1.1`.
 
-<figure><img src="../../.gitbook/assets/esr-docs.jpg" alt=""><figcaption></figcaption></figure>
+At any one time there are three supported lines of ESR versions, which we tag as _next_, _current_, and _sunset_ based on their age, as shown in the diagram below. Every three months a new ESR version is released, which advances the ESR version tagged for each line, for example `2026.1` to `2026.4` below. At the same time, the tag for a particular ESR version transitions downward toward eventual end of life (EOL).
 
-ESR versions are named by year and month `yyyy.m` and contain a patch version number starting at 0. So, `2022.1.4` would be the fifth release of the `2022.1` ESR version. Since ESR versions will only receive backports for high-risk security vulnerabilities and critical bug fixes, new releases during the lifecycle of an ESR version will only increment the patch number.
+<figure><img src="../../.gitbook/assets/esr-process (5).webp" alt=""><figcaption></figcaption></figure>
 
-For example, an ESR version is released known as `2022.10`, which becomes the _next-ESR_. In three months, a new ESR version, i.e., `2023.1`, becomes the _next-ESR_ line, while `2022.10` transitions to become the _current-ESR_. Similarly, three months after that, there is a new ESR version, and `2022.10` becomes the _sunset-ESR_. Three months later and nine months after release, the `2022.10` ESR version will reach its end-of-life, and no further updates will be offered, and users should update to one of the supported releases to receive future updates by performing a [self-service update](updates/self-service.md#running-an-update).
+Let's walk through an example. In January 2026, at the beginning of Q1, the master branch of balenaOS is released as ESR version `2026.1` and tagged as _next_ since it is the next ESR release. In three months a new ESR version, `2026.4`, is tagged as _next_, while the tag for `2026.1` transitions to _current_. Similarly, three months after that a new ESR version is released and `2026.1` is tagged as _sunset_. Finally in October, nine months after release, the `2026.1` ESR version is untagged, having reached its end of life. It will not receive further fixes. A user should perform a [self-service update](updates/self-service.md#running-an-update) to a newer supported ESR version by now for the ongoing benefits.
 
 ## Using an ESR host OS version
 

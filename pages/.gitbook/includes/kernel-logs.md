@@ -1,10 +1,10 @@
-There are occasionally instances where a problem arises which is not immediately
-obvious. In these cases, you might see services fail 'randomly', perhaps
-attached devices don't behave as they should, or maybe spurious reboots occur.
+---
+title: kernel-logs
+---
 
-If an issue isn't apparent fairly soon after looking at a device, the
-examination of the kernel logs can be a useful check to see if anything is
-causing an issue.
+There are occasionally instances where a problem arises which is not immediately obvious. In these cases, you might see services fail 'randomly', perhaps attached devices don't behave as they should, or maybe spurious reboots occur.
+
+If an issue isn't apparent fairly soon after looking at a device, the examination of the kernel logs can be a useful check to see if anything is causing an issue.
 
 To examine the kernel log on-device, simply run `dmesg` from the host OS:
 
@@ -75,22 +75,12 @@ root@debug-device:~# dmesg
 ...
 ```
 
-The rest of the output is truncated here. Note that the time output is in
-seconds. If you want to display a human readable time, use the `-T` switch.
-This will, however, strip the nanosecond accuracy and revert to chronological
-order with a minimum granularity of a second.
+The rest of the output is truncated here. Note that the time output is in seconds. If you want to display a human readable time, use the `-T` switch. This will, however, strip the nanosecond accuracy and revert to chronological order with a minimum granularity of a second.
 
-Note that the 'Device Diagnostics' tab from the 'Diagnostics' section of a
-device also runs `dmesg -T` and will display these in the output window.
-However, due to the sheer amount of information presented here, it's sometimes
-easier to run it on-device.
+Note that the 'Device Diagnostics' tab from the 'Diagnostics' section of a device also runs `dmesg -T` and will display these in the output window. However, due to the sheer amount of information presented here, it's sometimes easier to run it on-device.
 
 Some common issues to watch for include:
 
-- Under-voltage warnings, signifying that a device is not receiving what it
-  requires from the power supply to operate correctly (these warnings
-  are only present on the Raspberry Pi series).
-- Block device warnings, which could signify issues with the media that balenaOS
-  is running from (for example, SD card corruption).
-- Device detection problems, where devices that are expected to show in the
-  device node list are either incorrectly detected or misdetected.
+* Under-voltage warnings, signifying that a device is not receiving what it requires from the power supply to operate correctly (these warnings are only present on the Raspberry Pi series).
+* Block device warnings, which could signify issues with the media that balenaOS is running from (for example, SD card corruption).
+* Device detection problems, where devices that are expected to show in the device node list are either incorrectly detected or misdetected.
