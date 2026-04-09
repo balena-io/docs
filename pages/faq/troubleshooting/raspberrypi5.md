@@ -1,4 +1,4 @@
-# Troubleshooting information for Raspberry Pi 5
+# Troubleshooting information for Raspberry Pi 5 &amp; CM5
 
 ### Terminal Closes On Update
 

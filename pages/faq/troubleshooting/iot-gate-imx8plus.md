@@ -1,4 +1,4 @@
-# Troubleshooting information for Compulab IOT-GATE-iMX8PLUS 2G-4G DRAM
+# Troubleshooting information for Compulab IOT-GATE-iMX8PLUS 2GB or 4GB DRAM
 
 ### Terminal Closes On Update
 

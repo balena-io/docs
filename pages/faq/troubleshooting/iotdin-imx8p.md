@@ -1,4 +1,4 @@
-# Troubleshooting information for Compulab IOTDIN-iMX8P 2G-4G DRAM
+# Troubleshooting information for Compulab IOTDIN-iMX8P 2GB or 4GB DRAM
 
 ### Terminal Closes On Update
 
