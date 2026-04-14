@@ -26,7 +26,7 @@
     {
       "id": "balena-supervisor",
       "repo": "balena-os/balena-supervisor",
-      "ref": "v17.7.1",
+      "ref": "v17.7.2",
       "files": [
         {
           "source": "docs/update-locking.md",
