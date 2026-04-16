@@ -28,6 +28,14 @@ const unescapeEndpoint = (str) => {
 		.replace(/%29/g, ')');
 };
 
+const escapeFilters = (str) => {
+	if (!str) return '';
+	return str
+		.replace(/ /g, '%20')
+		.replace(/\(/g, '%28')
+		.replace(/\)/g, '%29');
+}
+
 const formatJsonData = (dataStr) => {
 	if (!dataStr || dataStr.trim() === '') return '';
 	let fixed = dataStr.replace(/"\s*\n\s*"/g, '",\n"');
@@ -117,12 +125,16 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 			const method = ex.method.toLowerCase();
 			const cleanEndpoint = unescapeEndpoint(ex.endpoint);
 
-			let pathKey = cleanEndpoint.split('?')[0].replace(/<([^>]+)>/g, '{$1}');
+			let pathKey = cleanEndpoint.split('?')[0];
+			if (resource.aliasOfResource) {
+				pathKey = `${cleanEndpoint}${ex.filters ? ex.filters : ''}`;
+			}
+			pathKey = pathKey.replace(/<([^>]+)>/g, '{$1}');
 
 			// Handle duplicate paths across tags via Fragment Shadowing
 			const existingPath = openapi.paths[pathKey];
 			if (existingPath && Object.values(existingPath)[0].tags[0] !== tagName) {
-				pathKey = `${pathKey}#${tagName.replace(/\s+/g, '_')}`;
+				throw new Error(`Found duplicate path "${pathKey}" while generating example "${ex.id}"`);
 			}
 
 			openapi.paths[pathKey] ??= {};
