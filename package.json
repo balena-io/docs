@@ -10,7 +10,7 @@
   "scripts": {
     "test": "npm run sync-external -- --dry-run && npm run renovate:validate",
     "sync-external": "node tools/sync-external.js",
-    "generate-openapi": "node tools/generate-openapi-spec-from-resourcejson.js ./config/dictionaries resource.json ./ openapi.yaml",
+    "generate-playground-and-resources": "node tools/generate-playground-and-resources.js",
     "generate-device-specific-content": "node tools/generate-device-specific-content.js",
     "generate-cloud-iot": "node tools/generate-cloud-iot.js",
     "prepare": "node -e \"try { (await import('husky')).default() } catch (e) { if (e.code !== 'ERR_MODULE_NOT_FOUND') throw e }\" --input-type module",
