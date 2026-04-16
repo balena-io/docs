@@ -125,7 +125,7 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 				pathKey = `${pathKey}#${tagName.replace(/\s+/g, '_')}`;
 			}
 
-			if (!openapi.paths[pathKey]) openapi.paths[pathKey] = {};
+			openapi.paths[pathKey] ??= {};
 			if (!openapi.paths[pathKey][method]) {
 				const op = {
 					tags: [tagName],
@@ -190,12 +190,13 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 				op.summary = ex.summary;
 				op.description = ex.description || '';
 				op['x-primary-endpoint'] = cleanEndpoint;
+				op['x-primary-filter'] = ex.filters;
 				op['x-primary-method'] = ex.method;
 				op['x-primary-data'] = formattedData;
 			} else {
 				op['x-variations'].push({
 					summary: ex.summary,
-					filter: ex.filters || 'None',
+					filter: ex.filters,
 					description: ex.description,
 					endpoint: cleanEndpoint,
 					method: ex.method,
@@ -211,7 +212,7 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 			if (op['x-fields-table']) fullDescription += op['x-fields-table'];
 			if (op['x-primary-method']) {
 				if (op['x-fields-table']) fullDescription += '\n';
-				fullDescription += `\`${op['x-primary-method']} ${op['x-primary-endpoint']}\`\n`;
+				fullDescription += `\`${op['x-primary-method']} ${op['x-primary-endpoint']}${op['x-primary-filter'] ? unescapeEndpoint(op['x-primary-filter']) : ''}\`\n`;
 				if (op['x-primary-data'] && op['x-primary-data'].trim() !== '') {
 					fullDescription += `\n**Request Body:**\n\`\`\`json\n${op['x-primary-data']}\n\`\`\`\n`;
 				}
@@ -222,7 +223,7 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 				fullDescription += '\n\n### Usage Variations\n';
 				op['x-variations'].forEach((v) => {
 					fullDescription += `\n--- \n#### ${v.summary}\n`;
-					fullDescription += `\`${v.method} ${v.endpoint}${v.filter !== 'None' ? unescapeEndpoint(v.filter) : ''}\`\n`;
+					fullDescription += `\`${v.method} ${v.endpoint}${v.filter ? unescapeEndpoint(v.filter) : ''}\`\n`;
 					if (v.data && v.data.trim() !== '') {
 						fullDescription += `\n**Request Body:**\n\`\`\`json\n${v.data}\n\`\`\`\n`;
 					}
@@ -232,6 +233,7 @@ function convertResourceToOpenApi(inputPath, outputPath) {
 			op.description = fullDescription.trim();
 			delete op['x-variations'];
 			delete op['x-primary-endpoint'];
+			delete op['x-primary-filter'];
 			delete op['x-primary-method'];
 			delete op['x-primary-data'];
 			delete op['x-fields-table'];
