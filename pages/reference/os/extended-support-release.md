@@ -30,7 +30,7 @@ Let's walk through an example. In January 2026, at the beginning of Q1, the mast
 
 For new devices, if you are on a Production or Enterprise plan with a [supported device type](extended-support-release.md#supported-devices), when you add a new device, you will be given the option to _Select OS type_ which defaults to _balenaOS ESR_. If you would like a non-ESR version, expand this dropdown and select _balenaOS_ for the host OS type.
 
-<figure><img src="../../.gitbook/assets/esr-new-device (3).webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/esr-new-device.webp" alt=""><figcaption></figcaption></figure>
 
 Next, select the ESR version as either _next_, _current_, or _sunset_ if available. The _next_ version is selected by default and offers at least six months (and up to nine months) of critical backports and fixes.
 
