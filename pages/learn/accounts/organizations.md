@@ -8,7 +8,7 @@ In balenaCloud, users manage fleets and collaborate in _organizations_. An organ
 
 Administrators are implicitly granted the ability to perform any possible action to the organization and its associated resources. Actions include inviting and removing members, managing fleets, teams, and billing of the organization. General members have much more limited administration capabilities and rely on Administrators to place them in teams, grant access to fleets, and more.
 
-Each user can create or be a member of an unlimited number of organizations. A organization is automatically created upon user registration, and the user is assigned as its administrator. This organization is named after the user's balenaCloud username and is managed like any other but _currently cannot be deleted_.
+Each user can create or be a member of an unlimited number of organizations. An organization is automatically created upon user registration, and the user is assigned as its administrator. This organization is named after the user's balenaCloud username and is managed like any other organization.
 
 {% hint style="warning" %}
 Billing applies to each organization separately. Administrators can upgrade an organization at any time to the appropriate billing plan as needed.
