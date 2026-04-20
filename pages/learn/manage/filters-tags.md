@@ -16,7 +16,7 @@ To add a filter, click the _Add filter_ button near the top-left corner of your 
 
 The first dropdown lists the device characteristics you can filter on. These characteristics correspond to the columns in your device list. The second dropdown contains comparison operators appropriate to the device characteristic, such as `is`, `is before`, `contains`, and `matches RegEx`. The third field is where you specify a value to filter on.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 When filtering by [device tags](filters-tags.md#device-tags), you can filter by name, value, or both.
 {% endhint %}
 
@@ -66,7 +66,7 @@ Tags you add to your device will appear in a list in the management window. They
 
 When you are finished creating and editing tags, click _Apply_ to keep the changes.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Device tags can also be created and managed programmatically [via the API](https://github.com/balena-io-playground/device-tags).
 {% endhint %}
 

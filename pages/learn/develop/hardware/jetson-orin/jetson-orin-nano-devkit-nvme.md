@@ -124,7 +124,7 @@ Should you encounter any unexpected issues while provisioning your device, pleas
 Once your device has been provisioned with balenaOS and powered back-on, it will attempt to update the UEFI firmware automatically. The status of the UEFI firmware update process is depicted by a progress bar on the debug UART interface, as well on the display, if connected.
 
 {% hint style="warning" %}
-Please do not interrupt the UEFI firmware process by resetting or cutting power to the device.
+Do not interrupt the UEFI firmware process by resetting or cutting power to the device.
 {% endhint %}
 
 If you are using the debug UART, the firmware update process will be displayed by a progress bar similar to the one below:

@@ -44,7 +44,7 @@ The estimated drift of the system clock is saved to a driftfile located at `/var
 
 ## systemd-timesyncd
 
-{% hint style="warning" %}
+{% hint style="info" %}
 This section is only applicable to balenaOS versions < 2.13.1.
 {% endhint %}
 

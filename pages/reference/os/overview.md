@@ -32,7 +32,7 @@ Raspberry Pi devices don’t have Getty attached to serial by default, but they 
 {% endhint %}
 
 {% hint style="danger" %}
-Development mode has an exposed Docker socket and enable passwordless root SSH access and should never be used in production.
+**Development mode** has an exposed Docker socket and enable passwordless root SSH access and **should never be used in production**.
 {% endhint %}
 
 Production mode disables passwordless root access, and an SSH key must be [added](configuration.md#sshkeys) to `config.json` to access a production image using a direct SSH connection. You may still access a production image by tunneling SSH through the cloudlink via the CLI (using `balena ssh <uuid>`) or the balenaCloud [web terminal](../../learn/manage/ssh-access.md). To use SSH via cloudlink, you need to have an SSH key configured on your development machine and [added](../../learn/manage/ssh-access.md#add-an-ssh-key-to-balenacloud) to the balenaCloud dashboard.
@@ -97,7 +97,7 @@ In order to improve the [development experience](../../learn/develop/local-mode.
 
 ### chrony
 
-{% hint style="warning" %}
+{% hint style="info" %}
 BalenaOS versions less than v2.13.0 used systemd-timesyncd for time management.
 {% endhint %}
 
@@ -109,7 +109,7 @@ BalenaOS versions less than v2.13.0 used systemd-timesyncd for time management.
 
 ### OpenSSH
 
-{% hint style="warning" %}
+{% hint style="info" %}
 BalenaOS versions < v2.38.0 use [dropbear](https://matt.ucc.asn.au/dropbear/dropbear.html) as the SSH server and client
 {% endhint %}
 
@@ -143,7 +143,7 @@ A diagram of our read-only rootfs can be seen below:
 
 BalenaOS is composed of multiple [Yocto](https://www.yoctoproject.org/) layers. The Yocto Project build system uses these layers to compile balenaOS for the various [supported devices](../hardware/devices.md). Below is an example from the [Raspberry Pi family](https://github.com/balena-os/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample).
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Instructions for building your own version of balenaOS are available [here](https://www.balena.io/os/docs/custom-build/#Bake-your-own-Image).
 {% endhint %}
 
@@ -171,6 +171,6 @@ Next is the board-specific meta-balena configuration layer. This layer works in 
 
 The final meta-rust layer enables support for the rust compiler and the cargo package manager.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Instructions for adding custom board support may be found [here](https://os-docs.balena.io/custom-build/#Supporting-your-Own-Board).
 {% endhint %}

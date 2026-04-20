@@ -31,7 +31,7 @@ From the dialog box that opens, select the OS version you would like to update t
 
 <figure><img src="../../../.gitbook/assets/group-update-dialog.webp" alt=""><figcaption></figcaption></figure>
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Updates to the balena Supervisor, balena's agent on the device, can be [triggered independently](../../supervisor/supervisor-upgrades.md).
 {% endhint %}
 

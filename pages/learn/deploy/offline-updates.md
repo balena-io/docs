@@ -164,7 +164,7 @@ $ rm ${config}
 
 Offline updates revolve around the concept of [balena preload](../../external-docs/balena-cli/latest.md#preload). Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image](../../external-docs/masterclasses/advanced-cli.md#id-5.1-preloading-a-device-image).
 
-{% hint style="warning" %}
+{% hint style="info" %}
 [balena preload](../../external-docs/balena-cli/latest.md#preload) functionality requires Docker with AUFS support.
 {% endhint %}
 
@@ -189,7 +189,7 @@ $ balena preload ${tmpimg} \
 
 Next, a USB flash drive, an SD card or any relevant storage media needs to be prepared and flashed. This storage media will be used to update the device through the offline process. Plug in your storage media and run the following commands.
 
-{% hint style="warning" %}
+{% hint style="danger" %}
 The process of flashing will delete all data stored on the storage media.
 {% endhint %}
 

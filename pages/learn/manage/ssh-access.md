@@ -43,7 +43,7 @@ $ balena device ssh <device-uuid> main
 
 This also works in multicontainer fleets; simply pass the name of the appropriate service (as defined in docker-compose.yml) instead of `main`.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 To run a command in a non-interactive way, you can pipe commands to the CLI's stdin. For example, `echo "uptime; exit;" | balena device ssh <device-uuid>`.
 {% endhint %}
 
@@ -100,7 +100,7 @@ If you do not have an existing key, you can follow [GitHub's documentation](http
 
 ### Troubleshooting with host OS access
 
-{% hint style="warning" %}
+{% hint style="info" %}
 For an in-depth guide to debugging balena devices see the [device debugging masterclass](../more/masterclasses/device-debugging.md).
 {% endhint %}
 

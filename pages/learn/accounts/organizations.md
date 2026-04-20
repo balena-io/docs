@@ -10,7 +10,7 @@ Administrators are implicitly granted the ability to perform any possible action
 
 Each user can create or be a member of an unlimited number of organizations. An organization is automatically created upon user registration, and the user is assigned as its administrator. This organization is named after the user's balenaCloud username and is managed like any other organization.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Billing applies to each organization separately. Administrators can upgrade an organization at any time to the appropriate billing plan as needed.
 {% endhint %}
 

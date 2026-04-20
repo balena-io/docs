@@ -7,7 +7,7 @@ excerpt: A guide to running multiple containers with Docker Compose and balena
 
 As your apps grow more complex, you may find significant benefit in running some services in separate containers. Splitting your app into multiple containers allows you to better isolate and maintain key services, providing a more modular and secure approach to fleet management. Each service can be packaged with the operating environment and tools it specifically needs to run, and each service can be limited to the minimum system resources necessary to perform its task. The benefits of multicontainer fleets compound as the complexity of the app grows. With multicontainer, each service is updated independently. Hence, larger apps can be developed and maintained by separate teams, each free to work in a way that best supports their service.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 For additional information on working with multiple containers with balena see the [services masterclass](../../external-docs/masterclasses/services-masterclass.md).
 {% endhint %}
 
@@ -117,7 +117,7 @@ In addition to the settings above, there are some balena specific labels that ca
 
 ### Container requirements
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Container requirements are available when using balenaCLI >= 21.1.0
 {% endhint %}
 

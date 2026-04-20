@@ -9,7 +9,7 @@ Balena uses [Docker](https://www.docker.com/) containers to manage deployment an
 
 To ensure a service has everything it needs, you'll want to create a list of instructions for building a [container image](https://docs.docker.com/engine/understanding-docker/#/inside-docker). Whether the build process is done [on your device](local-mode.md), [on your workstation](../../external-docs/balena-cli/latest.md#build), or on the [balena builders](../deploy/deployment.md), the end result is a read-only image that ends up on your device. This image is used by the container engine (balena or Docker, depending on the balenaOS version) to kick off a running container.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 For additional information on working with Dockerfiles with balena see the [services masterclass](../../external-docs/masterclasses/services-masterclass.md).
 {% endhint %}
 

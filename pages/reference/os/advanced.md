@@ -74,7 +74,7 @@ The mini UART is enabled by default for development images. For production image
 enable_uart=1
 ```
 
-{% hint style="warning" %}
+{% hint style="info" %}
 For further information on UART device tree overlays, see the [Raspberry Pi documentation](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts).
 {% endhint %}
 

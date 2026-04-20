@@ -44,7 +44,7 @@ When you click _Create token_, you will see a dialog with the new API key:
 
 <figure><img src="../../.gitbook/assets/api_key_warning.webp" alt=""><figcaption></figcaption></figure>
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 This is your **only** opportunity to see the key, so make sure to download or copy to a secure location!
 {% endhint %}
 
@@ -66,7 +66,7 @@ When a fleet needs to be shared with more than one user, the fleet owner can add
 
 We offer the option to enable [Two-factor Authentication](https://en.wikipedia.org/wiki/Two_factor_authentication) - this is a feature that prompts you to input a code from your smartphone/computer _in addition_ to your password, providing an additional layer of security for your account.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 We use the industry standard [Time-based One-time Password Algorithm](https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) to implement this functionality.
 {% endhint %}
 
@@ -78,7 +78,7 @@ We use the industry standard [Time-based One-time Password Algorithm](https://en
 
 Next, you will be shown a QR code and prompted for a pairing code as shown below:
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Two-factor authentication will only be enabled once you have finished configuring it against your smartphone/computer, so no need to worry about logging out before finishing the configuration then not having access to your account!
 {% endhint %}
 
@@ -88,7 +88,7 @@ In order to use your phone/computer as your added layer of security you will nee
 
 Once installed, navigate to the barcode scanner:
 
-{% hint style="warning" %}
+{% hint style="info" %}
 The Android app is shown here - if you already have accounts installed, tap the 3 vertical dots in the top right-hand corner and select 'Set up account', otherwise you should be given the option when you first start the app.
 {% endhint %}
 

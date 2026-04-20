@@ -32,7 +32,7 @@ During a restart any data that is not stored in `/data` will be lost.
 
 It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 Restart device container is not equivalent to a reboot of the device!
 {% endhint %}
 
@@ -42,7 +42,7 @@ This action clears [persistent storage](../develop/runtime.md#persistent-storage
 
 It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 This action is only supported on devices with an Agent version >= 1.1.0
 {% endhint %}
 
@@ -50,7 +50,7 @@ This action is only supported on devices with an Agent version >= 1.1.0
 
 This action allows you to perform a reboot on your devices. This is different from the `Restart Services` action mentioned above. With this action, the entire device, including the kernel, will be rebooted as if there was a power cycle. It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of the action it missed.
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 This action is only supported on devices with an Agent version >= 1.1.0
 {% endhint %}
 
@@ -58,7 +58,7 @@ This action is only supported on devices with an Agent version >= 1.1.0
 
 The `Shutdown` action allows you to safely shut down your devices. It should be noted that once you trigger this action, there is no way for balena to start your device back up, so you will need to physically restart your device. Obviously this action is not a wise choice if your device is somewhere remote and inaccessible
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 This action is only supported on devices with an Agent version >= 1.1.0
 {% endhint %}
 
@@ -96,7 +96,7 @@ Note that you are only able to move devices between fleets with device types tha
 
 Obviously you may only select one fleet to transfer your device to. Once you select the appropriate radio button, your device will immediately appear in the selected fleet's device list. Note that it will take a while for the device to start the update process as it does not receive a push notification of a new code update from the API, so it has to wait for the update poll, which happens every couple of minutes.
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 For devices running balenaOS version 2.12.0 and above, data in [persistent storage](../develop/runtime.md#persistent-storage) (named volumes) is automatically purged when a device is moved to a new fleet. On older host OS versions, the `/data` folder in the new fleet will not contain any of the old fleet data, but it can still be accessed via the host OS and if the device is switched back to the original fleet. Unless you plan to revert back to the original fleet, be sure to [purge](actions.md#purge-data) the `/data` folder.
 {% endhint %}
 
@@ -173,7 +173,7 @@ Once the transfer of ownership has been completed, the source block owner will n
 This option permanently deletes your fleet.
 
 {% hint style="danger" %}
-**Warning:** It is a good idea to [move your devices to another fleet](actions.md#move-device-to-another-fleet) before deleting your current fleet. If you do not, **all devices attached to the fleet will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device operations from balena.
+It is a good idea to [move your devices to another fleet](actions.md#move-device-to-another-fleet) before deleting your current fleet. If you do not, **all devices attached to the fleet will become orphaned and you will need to reconfigure them from scratch**. The most recent code deployment will continue to function as before, but the devices will not be able to receive code updates or device operations from balena.
 {% endhint %}
 
 ## Release settings

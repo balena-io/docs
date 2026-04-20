@@ -24,7 +24,7 @@ These typically include:
 
 Secure Boot-enabled balenaOS images are provided pre-signed using **balena-owned** secrets - this is a convenient way to guarantee that only trusted software runs in the device while avoiding the friction of secrets generation, managing and safeguarding.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 We are aware that balena owned keys might not fit all use cases. Unique customer keys can also be used as an extra service. Contact [sales@balena.io](mailto:sales@balena.io) to discuss further.
 {% endhint %}
 

@@ -70,7 +70,7 @@ Reporting scan results
 
 When local mode has been activated, balena CLI can push code directly to the local device instead of going via the balenaCloud builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `balena push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `balena device detect` command.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 By default `balena push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
 {% endhint %}
 
@@ -161,7 +161,7 @@ When a source file is modified, the Supervisor will immediately detect the chang
 [Live]    [main] Restarting service..
 ```
 
-{% hint style="warning" %}
+{% hint style="info" %}
 You can disable Livepush by passing the `--nolive` option to `balena push`. In this case to rebuild on the device you will need to perform another `balena push`.
 {% endhint %}
 
@@ -198,7 +198,7 @@ These options can be combined to output system and selected service logs e.g.
 balena device logs 827b231.local --system --service first --service second
 ```
 
-{% hint style="warning" %}
+{% hint style="info" %}
 You may also specify the `--service` and `--system` options using the `balena push` command to filter the log output.
 {% endhint %}
 
@@ -216,7 +216,7 @@ To connect to a container, we can specify the service name e.g.
 sudo balena device ssh 63ec46c.local my-service
 ```
 
-{% hint style="warning" %}
+{% hint style="info" %}
 If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `balena device ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
 {% endhint %}
 

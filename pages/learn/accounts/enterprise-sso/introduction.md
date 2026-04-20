@@ -1,7 +1,7 @@
 # Introduction
 
-{% hint style="warning" %}
-This feature is available to customers on [standard paid plans](https://www.balena.io/pricing) - Prototype Plan, Pilot Plan, Production Plan, or Enterprise Plan.
+{% hint style="info" %}
+This feature is available to all customers on [standard paid plans](https://www.balena.io/pricing) - Prototype Plan, Pilot Plan, Production Plan, or Enterprise Plan.
 {% endhint %}
 
 BalenaCloud Enterprise Single Sign-On (SSO) using SAML (Security Assertion Markup Language) allows organizations to manage user access and authentication through their existing Identity Providers (IdP). This integration enables users to use their corporate credentials to log in and access BalenaCloud services. By leveraging SAML, enterprises can simplify the login process, enhance security, streamline user management, and ensure compliance with their internal policies and procedures.

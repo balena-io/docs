@@ -25,7 +25,7 @@ Once the cloud builder has successfully completed building all the images in the
 
 It should be noted that `balena push` is independent of git, so you are free to use any version control system you wish. This also means that it is possible to use [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) in your project when deploying with `balena push`.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Refer to the [`balena push` command reference](../../external-docs/balena-cli/latest.md#push) for additional documentation.
 {% endhint %}
 
@@ -43,7 +43,7 @@ If you are building your own container images, `balena deploy` will upload the i
 
 Like `balena push` it is also independent of git, and you can use any version control system you wish. It is also possible to use [private base images](deployment.md#private-base-images).
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Refer to the [`balena build`](../../external-docs/balena-cli/latest.md#build) and [`balena deploy` command reference](../../external-docs/balena-cli/latest.md#deploy) for additional documentation.
 {% endhint %}
 
@@ -63,7 +63,7 @@ Then, simply add your balenaCloud app's git endpoint to your local git repositor
 
 Whenever you subsequently need to push code to your devices, simply run `git push balena master`.
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 The balenaCloud git repository **is not** intended as a code hosting solution, and we cannot guarantee the persistence of data in balenaCloud git remotes. We recommend you use a service like [GitHub](https://github.com/) to manage and share your code.
 {% endhint %}
 

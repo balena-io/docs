@@ -55,6 +55,6 @@ You can also pin a device to a release via the CLI as follows:
 * Pin to a specific release: `balena device pin <DEVICE_UUID> <RELEASE_COMMIT>`
 * Track latest: `balena device track-fleet <DEVICE_UUID>`
 
-{% hint style="warning" %}
+{% hint style="info" %}
 For more details about using the API to manage the release policy see the [Fleet Management Masterclass](../../../external-docs/masterclasses/fleet-management.md).
 {% endhint %}
