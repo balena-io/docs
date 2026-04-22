@@ -23,6 +23,7 @@ environment before applying them to production devices.
 | `RESIN_OVERRIDE_LOCK` | Override existing update lock(s) if your app is stuck in an invalid state under an update lock | No | 0, 1 | 0 | 
 | `BALENA_HOST_SPLASH_IMAGE` | Define the PNG image to be used for the boot splash screen. Only supported by supervisor versions &gt;&#x3D; v12.3.0. | Yes | string |  | 
 | `BALENA_SUPERVISOR_HARDWARE_METRICS` | Enable / Disable reporting device metrics such as CPU usage for bandwidth conservation. Only supported by supervisor versions &gt;&#x3D; v12.8.0. | No | false, true | true | 
+| `RESIN_HOST_EXTLINUX_fdt` | Define the file name of the DTB to be used. Only supported by supervisor versions &gt;&#x3D; v17.6.28. | Yes | string |  | 
 
 You can find more information on updating config.txt through configuration variables in our [Advanced Boot Configuration
 Guide](../../os/advanced.md#modifying-configtxt-using-configuration-variables). In addition to the
