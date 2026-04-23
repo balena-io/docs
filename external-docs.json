@@ -84,7 +84,7 @@
     {
       "id": "balena-sdk",
       "repo": "balena-io/balena-sdk",
-      "ref": "v23.1.18",
+      "ref": "v23.2.0",
       "files": [
         {
           "source": "README.md",
@@ -181,7 +181,7 @@
     {
       "id": "balena-sdk-docs",
       "repo": "balena-io/balena-sdk",
-      "ref": "v23.1.18",
+      "ref": "v23.2.0",
       "file": "DOCUMENTATION.md",
       "targetDir": "pages/external-docs/sdk/node-sdk",
       "dictionary": "config/dictionaries/nodesdk.json"
