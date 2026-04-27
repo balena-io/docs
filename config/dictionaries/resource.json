@@ -519,7 +519,7 @@
         "summary": "Get a device type by its SLUG",
         "description": "When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.",
         "method": "GET",
-        "endpoint": "/v7/device_type(slug='<DEVICE TYPE SLUG>')",
+        "endpoint": "/v7/device_type(slug='<DEVICE_TYPE_SLUG>')",
         "filters": ""
       },
       {
@@ -528,7 +528,7 @@
         "description": "When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.",
         "method": "GET",
         "endpoint": "/v7/device_type",
-        "filters": "?\\$filter=name%20eq%20'<DEVICE TYPE NAME>'"
+        "filters": "?\\$filter=name%20eq%20'<DEVICE_TYPE_NAME>'"
       },
       {
         "id": "get-supported-device-types",
@@ -1048,6 +1048,7 @@
  {
     "id": "supervisor_release",
     "name": "List Supervisor releases",
+    "aliasOfResource": "release",
     "fields": [
       "id",
       "raw_version"
@@ -1080,17 +1081,21 @@
     ]
   },
   {
-    "id": "balenaos_versions",
+    "id": "balenaos_releases",
     "name": "List balenaOS releases",
-    "fields": [],
+    "aliasOfResource": "release",
+    "fields": [
+      "id",
+      "raw_version"
+    ],
     "examples": [
       {
         "id": "list-balenaos-versions-for-device-type",
         "summary": "List the supported balenaOS versions for a device type",
-        "description": "To request a list of the supported balenaOS versions for a particular device type, the `DEVICE TYPE SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.",
+        "description": "To request a list of the supported balenaOS versions for a particular device type, the `DEVICE_TYPE_SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.",
         "method": "GET",
         "endpoint": "/v7/release",
-        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
+        "filters": "?\\$select=id,raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE_TYPE_SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
       },
       {
         "id": "list-balenaos-versions-for-private-device-type",
@@ -1098,7 +1103,7 @@
         "description": "Same as above, but in order to access private device types, you must provide an authentication token.",
         "method": "GET",
         "endpoint": "/v7/release",
-        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
+        "filters": "?\\$select=id,raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE_TYPE_SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
       }
     ]
   },
@@ -1114,7 +1119,7 @@
         "method": "GET",
         "endpoint": "/download",
         "content-type": "application/octet-stream",
-        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.zip'"
+        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS_VERSION>&fileType=.zip'"
       },
       {
         "id": "download-balenaos",
@@ -1123,7 +1128,7 @@
         "method": "GET",
         "endpoint": "/download",
         "content-type": "application/octet-stream",
-        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'"
+        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS_VERSION>&fileType=.gz'"
       }
     ]
   },

@@ -293,6 +293,14 @@ components:
           description: Type information not available yet
         value:
           description: Type information not available yet
+    balenaos_releases:
+      type: object
+      title: List balenaOS releases Model
+      properties:
+        id:
+          description: Type information not available yet
+        raw_version:
+          description: Type information not available yet
     supervisor_release:
       type: object
       title: List Supervisor releases Model
@@ -900,7 +908,7 @@ paths:
 
         ---
 
-        `GET /v7/device_config_variable`
+        `GET /v7/device_config_variable?$filter=device eq <DEVICE ID>`
     post:
       tags:
         - Device config variable
@@ -984,7 +992,7 @@ paths:
 
         ---
 
-        `GET /v7/device_environment_variable`
+        `GET /v7/device_environment_variable?$filter=device/any(d:d/uuid eq '<DEVICE_UUID>')`
 
 
         ### Usage Variations
@@ -1075,7 +1083,7 @@ paths:
 
         ---
 
-        `GET /v7/device_service_environment_variable`
+        `GET /v7/device_service_environment_variable?$filter=service_install/any(si:si/device/any(d:d/uuid eq '<DEVICE_UUID>'))`
 
 
         ### Usage Variations
@@ -1169,7 +1177,7 @@ paths:
 
         ---
 
-        `GET /v7/device_tag`
+        `GET /v7/device_tag?$filter=device/uuid eq '<UUID>'`
     post:
       tags:
         - Device tag
@@ -1265,17 +1273,17 @@ paths:
         - name: ID
           in: path
           required: true
-  /v7/device_type(slug='{DEVICE TYPE SLUG}'):
+  /v7/device_type(slug='{DEVICE_TYPE_SLUG}'):
     get:
       tags:
         - Device type
       summary: Get a device type by its SLUG
       description: |-
-        `GET /v7/device_type(slug='<DEVICE TYPE SLUG>')`
+        `GET /v7/device_type(slug='<DEVICE_TYPE_SLUG>')`
 
         When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
       parameters:
-        - name: DEVICE TYPE SLUG
+        - name: DEVICE_TYPE_SLUG
           in: path
           required: true
   /v7/device_type:
@@ -1284,7 +1292,7 @@ paths:
         - Device type
       summary: Get a device type by its NAME
       description: |-
-        `GET /v7/device_type`
+        `GET /v7/device_type?$filter=name eq '<DEVICE_TYPE_NAME>'`
 
         When querying a private device type it's necessary to include your bearer token. For public device types the auth header is optional.
 
@@ -1310,7 +1318,7 @@ paths:
 
         ---
 
-        `GET /download`
+        `GET /download?deviceType=<DEVICE NAME>&version=<BALENAOS_VERSION>&fileType=.zip'`
 
         In order to download an ESR or private balenaOS image, you need to provide your bearer token. The `deviceType` and `version` parameters are required. Add an `--output` flag to provide a path for the image to be downloaded.
 
@@ -1319,7 +1327,7 @@ paths:
 
         --- 
         #### Download public balenaOS images
-        `GET /download?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'`
+        `GET /download?deviceType=<DEVICE NAME>&version=<BALENAOS_VERSION>&fileType=.gz'`
 
         Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also available for download on balena.io/os and the dashboard.
   /v7/application:
@@ -1353,7 +1361,7 @@ paths:
 
         ---
 
-        `GET /v7/application`
+        `GET /v7/application?$filter=organization/any(o:o/handle eq '<ORG_HANDLE>')`
 
 
         ### Usage Variations
@@ -1562,7 +1570,7 @@ paths:
 
         ---
 
-        `GET /v7/application_config_variable`
+        `GET /v7/application_config_variable?$filter=application eq <FLEET ID>`
     post:
       tags:
         - Fleet config variable
@@ -1646,7 +1654,7 @@ paths:
 
         ---
 
-        `GET /v7/application_environment_variable`
+        `GET /v7/application_environment_variable?$filter=application eq <FLEET ID>`
     post:
       tags:
         - Fleet environment variable
@@ -1747,7 +1755,7 @@ paths:
 
         ---
 
-        `GET /v7/service_environment_variable`
+        `GET /v7/service_environment_variable?$filter=service eq <SERVICE ID>`
     post:
       tags:
         - Fleet service variable
@@ -1830,7 +1838,7 @@ paths:
 
         ---
 
-        `GET /v7/application_tag`
+        `GET /v7/application_tag?$filter=application/app_name eq '<NAME>'`
     post:
       tags:
         - Fleet tag
@@ -1895,7 +1903,7 @@ paths:
         - name: ID
           in: path
           required: true
-  /v7/release:
+  /v7/release?$select=id,raw_version&$filter=%28is_final%20eq%20true%29%20and%20%28is_invalidated%20eq%20false%29%20and%20%28status%20eq%20'success'%29%20and%20%28semver_major%20gt%200%29%20and%20%28belongs_to__application/any%28bta:%28bta/is_host%20eq%20true%29%20and%20%28bta/is_for__device_type/any%28dt:dt/slug%20eq%20'{DEVICE_TYPE_SLUG}'%29%29%29%29&$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc:
     get:
       tags:
         - List balenaOS releases
@@ -1905,23 +1913,29 @@ paths:
 
         | Field |
         | :--- |
+        | `id` |
+        | `raw_version` |
 
 
         ---
 
-        `GET /v7/release`
+        `GET /v7/release?$select=id,raw_version&$filter=(is_final eq true) and (is_invalidated eq false) and (status eq 'success') and (semver_major gt 0) and (belongs_to__application/any(bta:(bta/is_host eq true) and (bta/is_for__device_type/any(dt:dt/slug eq '<DEVICE_TYPE_SLUG>'))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
 
-        To request a list of the supported balenaOS versions for a particular device type, the `DEVICE TYPE SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.
+        To request a list of the supported balenaOS versions for a particular device type, the `DEVICE_TYPE_SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.
 
 
         ### Usage Variations
 
         --- 
         #### List the supported balenaOS versions for a private device type
-        `GET /v7/release?$select=raw_version&$filter=(is_final eq true) and (is_invalidated eq false) and (status eq 'success') and (semver_major gt 0) and (belongs_to__application/any(bta:(bta/is_host eq true) and (bta/is_for__device_type/any(dt:dt/slug eq '<DEVICE TYPE SLUG>'))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
+        `GET /v7/release?$select=id,raw_version&$filter=(is_final eq true) and (is_invalidated eq false) and (status eq 'success') and (semver_major gt 0) and (belongs_to__application/any(bta:(bta/is_host eq true) and (bta/is_for__device_type/any(dt:dt/slug eq '<DEVICE_TYPE_SLUG>'))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
 
         Same as above, but in order to access private device types, you must provide an authentication token.
-  /v7/release#List_Supervisor_releases:
+      parameters:
+        - name: DEVICE_TYPE_SLUG
+          in: path
+          required: true
+  /v7/release?$select=id,raw_version&$filter=%28status%20eq%20'success'%29%20and%20%28is_final%20eq%20true%29%20and%20%28is_invalidated%20eq%20false%29%20and%20%28semver_major%20gt%200%29%20and%20%28belongs_to__application/any%28a:%28startswith%28a/slug,'balena_os%2F'%29%20and%20endswith%28a/slug,'-supervisor'%29%29%20and%20%28%28a/is_public%20eq%20true%29%20and%20%28a/is_host%20eq%20false%29%20and%20%28a/is_for__device_type/any%28dt:dt/is_of__cpu_architecture/any%28c:c/slug%20eq%20'{CPU_ARCHITECTURE_SLUG}'%29%29%29%29%29%29&$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc:
     get:
       tags:
         - List Supervisor releases
@@ -1937,20 +1951,36 @@ paths:
 
         ---
 
-        `GET /v7/release`
+        `GET /v7/release?$select=id,raw_version&$filter=(status eq 'success') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,'balena_os%2F') and endswith(a/slug,'-supervisor')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug eq '<CPU_ARCHITECTURE_SLUG>'))))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
 
         To request a list of the supported supervisor releases for a particular cpu architecture, the `CPU_ARCHITECTURE_SLUG` parameter is required. Even though this query only selects the `id` and `raw_version` fields, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.
-
-
-        ### Usage Variations
-
-        --- 
-        #### Get all supervisor releases for a specific cpu architecture by ID
-        `GET /v7/release?$select=id,raw_version&$filter=(status eq 'success') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,'balena_os%2F') and endswith(a/slug,'-supervisor')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture eq <CPU_ARCHITECTURE_ID>)))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
-
-        --- 
-        #### Get a specific supervisor release version for a specific cpu architecture
-        `GET /v7/release?$select=id,raw_version&$filter=(status eq 'success') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,'balena_os%2F') and endswith(a/slug,'-supervisor')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug eq '<CPU_ARCHITECTURE_SLUG>')))))) and (raw_version eq '<VERSION>')&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`
+      parameters:
+        - name: CPU_ARCHITECTURE_SLUG
+          in: path
+          required: true
+  /v7/release?$select=id,raw_version&$filter=%28status%20eq%20'success'%29%20and%20%28is_final%20eq%20true%29%20and%20%28is_invalidated%20eq%20false%29%20and%20%28semver_major%20gt%200%29%20and%20%28belongs_to__application/any%28a:%28startswith%28a/slug,'balena_os%2F'%29%20and%20endswith%28a/slug,'-supervisor'%29%29%20and%20%28%28a/is_public%20eq%20true%29%20and%20%28a/is_host%20eq%20false%29%20and%20%28a/is_for__device_type/any%28dt:dt/is_of__cpu_architecture%20eq%20{CPU_ARCHITECTURE_ID}%29%29%29%29%29&$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc:
+    get:
+      tags:
+        - List Supervisor releases
+      summary: Get all supervisor releases for a specific cpu architecture by ID
+      description: '`GET /v7/release?$select=id,raw_version&$filter=(status eq ''success'') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,''balena_os%2F'') and endswith(a/slug,''-supervisor'')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture eq <CPU_ARCHITECTURE_ID>)))))&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`'
+      parameters:
+        - name: CPU_ARCHITECTURE_ID
+          in: path
+          required: true
+  /v7/release?$select=id,raw_version&$filter=%28status%20eq%20'success'%29%20and%20%28is_final%20eq%20true%29%20and%20%28is_invalidated%20eq%20false%29%20and%20%28semver_major%20gt%200%29%20and%20%28belongs_to__application/any%28a:%28startswith%28a/slug,'balena_os%2F'%29%20and%20endswith%28a/slug,'-supervisor'%29%29%20and%20%28%28a/is_public%20eq%20true%29%20and%20%28a/is_host%20eq%20false%29%20and%20%28a/is_for__device_type/any%28dt:dt/is_of__cpu_architecture/any%28c:c/slug%20eq%20'{CPU_ARCHITECTURE_SLUG}'%29%29%29%29%29%29%20and%20%28raw_version%20eq%20'{VERSION}'%29&$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc:
+    get:
+      tags:
+        - List Supervisor releases
+      summary: Get a specific supervisor release version for a specific cpu architecture
+      description: '`GET /v7/release?$select=id,raw_version&$filter=(status eq ''success'') and (is_final eq true) and (is_invalidated eq false) and (semver_major gt 0) and (belongs_to__application/any(a:(startswith(a/slug,''balena_os%2F'') and endswith(a/slug,''-supervisor'')) and ((a/is_public eq true) and (a/is_host eq false) and (a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug eq ''<CPU_ARCHITECTURE_SLUG>'')))))) and (raw_version eq ''<VERSION>'')&$orderby=semver_major desc,semver_minor desc,semver_patch desc,revision desc`'
+      parameters:
+        - name: CPU_ARCHITECTURE_SLUG
+          in: path
+          required: true
+        - name: VERSION
+          in: path
+          required: true
   /v7/organization:
     get:
       tags:
@@ -2018,7 +2048,7 @@ paths:
         ---
 
         `GET /v7/organization_membership`
-  /v7/release#Release:
+  /v7/release:
     get:
       tags:
         - Release
@@ -2056,7 +2086,7 @@ paths:
 
         ---
 
-        `GET /v7/release`
+        `GET /v7/release?$filter=belongs_to__application eq <FLEET ID>`
 
 
         ### Usage Variations
@@ -2074,7 +2104,7 @@ paths:
         - Release
       summary: Get the release raw_version field
       description: |-
-        `GET /v7/release(<ID>)`
+        `GET /v7/release(<ID>)?$select=raw_version`
 
         The raw_version field is returned only when explicitly requested with $select.
       parameters:
@@ -2099,7 +2129,7 @@ paths:
 
         ---
 
-        `GET /v7/release_tag`
+        `GET /v7/release_tag?$filter=release/commit eq '<COMMIT>'`
     post:
       tags:
         - Release tag
@@ -2145,7 +2175,7 @@ paths:
 
         ---
 
-        `GET /v7/service`
+        `GET /v7/service?$filter=application/app_name eq '<FLEET NAME>'`
   /v7/service_install:
     get:
       tags:
@@ -2164,7 +2194,7 @@ paths:
 
         ---
 
-        `GET /v7/service_install`
+        `GET /v7/service_install?$filter=device/uuid eq '<DEVICE UUID>'&$expand=installs__service($select=service_name)`
   /v7/user__has__public_key:
     get:
       tags:
@@ -2358,7 +2388,7 @@ paths:
       tags:
         - User
       summary: Get users associated with fleet
-      description: '`GET /v7/user__is_member_of__application`'
+      description: '`GET /v7/user__is_member_of__application?$expand=user($select=id,username,actor),application_membership_role($select=id,name,actor)&$filter=is_member_of__application eq <ID>`'
     post:
       tags:
         - User
