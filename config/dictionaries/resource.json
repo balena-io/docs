@@ -1013,6 +1013,48 @@
         "method": "GET",
         "endpoint": "/v7/release",
         "filters": "?\\$filter=belongs_to__application%20eq%20<FLEET ID>%20and%20commit%20eq%20'<COMMIT HASH>'&\\$select=id"
+      },
+
+      {
+        "id": "list-balenaos-versions-for-device-type",
+        "summary": "List the supported balenaOS versions for a device type",
+        "description": "To request a list of the supported balenaOS versions for a particular device type, the `DEVICE TYPE SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.",
+        "method": "GET",
+        "endpoint": "/v7/release",
+        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
+      },
+      {
+        "id": "list-balenaos-versions-for-private-device-type",
+        "summary": "List the supported balenaOS versions for a private device type",
+        "description": "Same as above, but in order to access private device types, you must provide an authentication token.",
+        "method": "GET",
+        "endpoint": "/v7/release",
+        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
+      },
+
+      {
+        "id": "get-supervisor-releases-by-cpu-architecture-slug",
+        "summary": "Get all supervisor releases for a specific cpu architecture by slug (eg amd64/rpi/armv7hf/aarch64)",
+        "description": "To request a list of the supported supervisor releases for a particular cpu architecture, the `CPU_ARCHITECTURE_SLUG` parameter is required. Even though this query only selects the `id` and `raw_version` fields, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.",
+        "method": "GET",
+        "endpoint": "/v7/release",
+        "filters": "?\\$select=id,raw_version&\\$filter=(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(a:(startswith(a/slug,%27balena_os%2F%27)%20and%20endswith(a/slug,%27-supervisor%27))%20and%20((a/is_public%20eq%20true)%20and%20(a/is_host%20eq%20false)%20and%20(a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug%20eq%20%27<CPU_ARCHITECTURE_SLUG>%27))))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
+      },
+      {
+        "id": "get-supervisor-releases-by-cpu-architecture-id",
+        "summary": "Get all supervisor releases for a specific cpu architecture by ID",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v7/release",
+        "filters": "?\\$select=id,raw_version&\\$filter=(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(a:(startswith(a/slug,%27balena_os%2F%27)%20and%20endswith(a/slug,%27-supervisor%27))%20and%20((a/is_public%20eq%20true)%20and%20(a/is_host%20eq%20false)%20and%20(a/is_for__device_type/any(dt:dt/is_of__cpu_architecture%20eq%20<CPU_ARCHITECTURE_ID>)))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
+      },
+      {
+        "id": "get-supervisor-releases-by-cpu-architecture-slug-and-version",
+        "summary": "Get a specific supervisor release version for a specific cpu architecture",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v7/release",
+        "filters": "?\\$select=id,raw_version&\\$filter=(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(a:(startswith(a/slug,%27balena_os%2F%27)%20and%20endswith(a/slug,%27-supervisor%27))%20and%20((a/is_public%20eq%20true)%20and%20(a/is_host%20eq%20false)%20and%20(a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug%20eq%20%27<CPU_ARCHITECTURE_SLUG>%27))))))%20and%20(raw_version%20eq%20%27<VERSION>%27)&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
       }
     ]
   },
@@ -1045,68 +1087,20 @@
       }
     ]
   },
- {
-    "id": "supervisor_release",
-    "name": "List Supervisor releases",
-    "fields": [
-      "id",
-      "raw_version"
-    ],
-    "examples": [
-      {
-        "id": "get-supervisor-releases-by-cpu-architecture-slug",
-        "summary": "Get all supervisor releases for a specific cpu architecture by slug (eg amd64/rpi/armv7hf/aarch64)",
-        "description": "To request a list of the supported supervisor releases for a particular cpu architecture, the `CPU_ARCHITECTURE_SLUG` parameter is required. Even though this query only selects the `id` and `raw_version` fields, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.",
-        "method": "GET",
-        "endpoint": "/v7/release",
-        "filters": "?\\$select=id,raw_version&\\$filter=(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(a:(startswith(a/slug,%27balena_os%2F%27)%20and%20endswith(a/slug,%27-supervisor%27))%20and%20((a/is_public%20eq%20true)%20and%20(a/is_host%20eq%20false)%20and%20(a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug%20eq%20%27<CPU_ARCHITECTURE_SLUG>%27))))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
-      },
-      {
-        "id": "get-supervisor-releases-by-cpu-architecture-id",
-        "summary": "Get all supervisor releases for a specific cpu architecture by ID",
-        "description": "",
-        "method": "GET",
-        "endpoint": "/v7/release",
-        "filters": "?\\$select=id,raw_version&\\$filter=(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(a:(startswith(a/slug,%27balena_os%2F%27)%20and%20endswith(a/slug,%27-supervisor%27))%20and%20((a/is_public%20eq%20true)%20and%20(a/is_host%20eq%20false)%20and%20(a/is_for__device_type/any(dt:dt/is_of__cpu_architecture%20eq%20<CPU_ARCHITECTURE_ID>)))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
-      },
-      {
-        "id": "get-supervisor-releases-by-cpu-architecture-slug-and-version",
-        "summary": "Get a specific supervisor release version for a specific cpu architecture",
-        "description": "",
-        "method": "GET",
-        "endpoint": "/v7/release",
-        "filters": "?\\$select=id,raw_version&\\$filter=(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(a:(startswith(a/slug,%27balena_os%2F%27)%20and%20endswith(a/slug,%27-supervisor%27))%20and%20((a/is_public%20eq%20true)%20and%20(a/is_host%20eq%20false)%20and%20(a/is_for__device_type/any(dt:dt/is_of__cpu_architecture/any(c:c/slug%20eq%20%27<CPU_ARCHITECTURE_SLUG>%27))))))%20and%20(raw_version%20eq%20%27<VERSION>%27)&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
-      }
-    ]
-  },
-  {
-    "id": "balenaos_versions",
-    "name": "List balenaOS releases",
-    "fields": [],
-    "examples": [
-      {
-        "id": "list-balenaos-versions-for-device-type",
-        "summary": "List the supported balenaOS versions for a device type",
-        "description": "To request a list of the supported balenaOS versions for a particular device type, the `DEVICE TYPE SLUG` parameter is required. Even though this query only selects the `raw_version` field, you can additionally specify any of the fields found in the release resource. The Authorization header is optional.",
-        "method": "GET",
-        "endpoint": "/v7/release",
-        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
-      },
-      {
-        "id": "list-balenaos-versions-for-private-device-type",
-        "summary": "List the supported balenaOS versions for a private device type",
-        "description": "Same as above, but in order to access private device types, you must provide an authentication token.",
-        "method": "GET",
-        "endpoint": "/v7/release",
-        "filters": "?\\$select=raw_version&\\$filter=(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false)%20and%20(status%20eq%20'success')%20and%20(semver_major%20gt%200)%20and%20(belongs_to__application/any(bta:(bta/is_host%20eq%20true)%20and%20(bta/is_for__device_type/any(dt:dt/slug%20eq%20'<DEVICE TYPE SLUG>'))))&\\$orderby=semver_major%20desc,semver_minor%20desc,semver_patch%20desc,revision%20desc"
-      }
-    ]
-  },
   {
     "id": "download",
     "name": "Download balenaOS",
     "fields": [],
     "examples": [
+      {
+        "id": "download-balenaos",
+        "summary": "Download public balenaOS images",
+        "description": "Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. You can find the available balenaOS version by using the [Release resource example for listing the supported balenaOS versions for a device type](release#list-balenaos-versions-for-device-type) .These releases also available for download on balena.io/os and the dashboard.",
+        "method": "GET",
+        "endpoint": "/download",
+        "content-type": "application/octet-stream",
+        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'"
+      },
       {
         "id": "download-private-balenaos",
         "summary": "Download private or ESR balenaOS images",
@@ -1115,15 +1109,6 @@
         "endpoint": "/download",
         "content-type": "application/octet-stream",
         "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.zip'"
-      },
-      {
-        "id": "download-balenaos",
-        "summary": "Download public balenaOS images",
-        "description": "Same as above but the auth header is optional to use. The `deviceType` and `version` parameters are required. These releases also available for download on balena.io/os and the dashboard.",
-        "method": "GET",
-        "endpoint": "/download",
-        "content-type": "application/octet-stream",
-        "filters": "?deviceType=<DEVICE NAME>&version=<BALENAOS VERSION>&fileType=.gz'"
       }
     ]
   },
