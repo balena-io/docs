@@ -55,7 +55,9 @@ BALENA_SUPERVISOR_PORT=48484
 In some cases it's necessary to communicate with the host OS systemd to perform actions on the host. To do this you can use [dbus](https://www.freedesktop.org/wiki/Software/dbus/). In order to ensure that you are communicating to the host OS systemd and not the systemd in your container it is important to set `DBUS_SYSTEM_BUS_ADDRESS` for all D-Bus communication. The setting of that environment variable is different for older and newer devices (based on the balena supervisor version), choose the line that is correct for your device's OS version (can be found in your device dashboard):
 
 {% hint style="danger" %}
-In multicontainer fleets, the `io.balena.features.dbus` label must be applied for each service that requires access to the D-Bus. If you have devices with a supervisor version lower than 7.22.0, you should use `io.resin.features` labeling as that will ensure backward compatibility.
+**Giving dbus access to the host significantly lowers the security of your container. Treat the container as if it was running `privileged` and had full root access to the host.**
+
+It's recommended to only give that level of access to containers that have a single and well-defined purpose, very limited interfaces and a tighly-controlled lifecycle.
 {% endhint %}
 
 ```

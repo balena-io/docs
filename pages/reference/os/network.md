@@ -311,6 +311,8 @@ Under the hood, WiFi Connect is interacting with **NetworkManager** via its [DBU
 
 {% hint style="warning" %}
 You will need to install the `dbus` module in order to run this example (`apt-get install python-dbus`) and make sure `DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket` is exported in the environment. This ensures that DBUS calls are directed to the system bus that the host OS is listening on rather than the DBUS bus in your container.
+
+Keep in mind that the dbus host interface is dangerous and breaks the isolation between the host and the container. It's recommended to only give that level of access to containers that have a single and well-defined purpose, very limited interfaces and a tighly-controlled lifecycle.
 {% endhint %}
 
 The following example will add a new WiFi connection file to your host OS **NetworkManager** configuration in `/etc/NetworkManager/system-connections`. It should be noted that you will not see a new file created in `resin-boot/system-connections` because there isn't a two-way binding. On device boot, the files in `resin-boot/system-connections` are copied into `/mnt/state/root-overlay/etc/NetworkManager/system-connections` without removing any files from the destination. That directory is then bind mounted to `/etc/NetworkManager/system-connections` in the root filesystem on the host.
