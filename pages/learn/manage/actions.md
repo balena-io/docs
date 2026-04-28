@@ -38,7 +38,7 @@ Restart device container is not equivalent to a reboot of the device!
 
 ### Purge Data
 
-This action clears [persistent storage](../develop/runtime.md#persistent-storage) on any applicable devices. For devices running balenaOS versions before 2.12.0, this means clearing the `/data` folder in the container (and the associated volume at `/mnt/data/resin-data`). On newer balenaOS versions, this action deletes all named volumes and recreates them as empty.
+This action clears [persistent storage](../develop/runtime.md#persistent-storage) on any applicable devices. This action deletes all named volumes and recreates them as empty.
 
 It should be noted that currently these action notifications are not queued up, so if a device is offline when the action is triggered, it will never be notified of it.
 
@@ -97,7 +97,7 @@ Note that you are only able to move devices between fleets with device types tha
 Obviously you may only select one fleet to transfer your device to. Once you select the appropriate radio button, your device will immediately appear in the selected fleet's device list. Note that it will take a while for the device to start the update process as it does not receive a push notification of a new code update from the API, so it has to wait for the update poll, which happens every couple of minutes.
 
 {% hint style="warning" %}
-For devices running balenaOS version 2.12.0 and above, data in [persistent storage](../develop/runtime.md#persistent-storage) (named volumes) is automatically purged when a device is moved to a new fleet. On older host OS versions, the `/data` folder in the new fleet will not contain any of the old fleet data, but it can still be accessed via the host OS and if the device is switched back to the original fleet. Unless you plan to revert back to the original fleet, be sure to [purge](actions.md#purge-data) the `/data` folder.
+Data in [persistent storage](../develop/runtime.md#persistent-storage) (named volumes) is automatically purged when a device is moved to a new fleet.
 {% endhint %}
 
 ### BalenaOS Update
@@ -188,4 +188,6 @@ This option can be used to mark your release as valid or invalid. Entities can o
 
 This option permanently deletes your release. This may be the setting you want to use if you want to clean up releases beyond simply [invalidating releases](actions.md#validation-status).
 
-**Info:** If you have a device [preloaded](../../external-docs/masterclasses/advanced-cli.md#id-5.-preloading-and-preregistering) with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.
+{% hint style="info" %}
+If you have a device [preloaded](../../external-docs/masterclasses/advanced-cli.md#id-5.-preloading-and-preregistering) with an OS version lower than 2.113.14 and a release, and you delete the release before provisioning the device, then when the device provisions it will be in a VPN-only state. To fix this, you must update the supervisor on the device to version 14.9.4 or higher.
+{% endhint %}

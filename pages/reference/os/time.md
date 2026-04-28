@@ -5,11 +5,7 @@ excerpt: How time is synchronized and managed for balena devices
 
 # Time management
 
-{% hint style="warning" %}
-Starting from balenaOS 2.13.1 the `chrony` service is used for time management. Prior versions of balenaOS use `systemd-timesyncd`.
-{% endhint %}
-
-Devices running balenaOS make use of the `chrony` (or `systemd-timesyncd`) service to keep the system time synchronized. That service is running in the host OS, independent of the application containers.
+Devices running balenaOS make use of the `chrony` service to keep the system time synchronized. That service is running in the host OS, independent of the application containers.
 
 It is important that the date and time are set correctly, as an inaccurate date can manifest itself as several different issues on the device, such as SSL/TLS certificates appearing invalid. If you want to query the current time on the device, you can do so by using the `date` utility or the datetime related functions of the standard library of your language.
 
@@ -41,16 +37,6 @@ The estimated drift of the system clock is saved to a driftfile located at `/var
 * `chronyc sources` - A list of all the current NTP sources being used by the NTP daemon, which will also indicate if they are reachable.
 * `chronyc tracking` - Information about the system clock itself, including skew.
 * `chronyc ntpdata` - Detailed information on all the current NTP sources.
-
-## systemd-timesyncd
-
-{% hint style="info" %}
-This section is only applicable to balenaOS versions < 2.13.1.
-{% endhint %}
-
-When the balena device boots up, and before any container is run, the system will query the hardware clock to get the current time, while it will also read the timestamp value, stored in the last modification time of a special file, `/var/lib/systemd/clock`. If the hardware clock is behind the value stored with `/var/lib/systemd/clock`, the system will forcefully set the clock to the stored value. This is done to ensure that time from the point of view of the applications is monotonically increasing. After that, the device will start its Network Time Protocol (NTP) client, which will be attempting to sync the clock with NTP servers periodically. If a successful synchronization occurs, the last modification time of `/var/lib/systemd/clock` is updated to that timestamp.
-
-When you first provision a device, as a fallback, `/var/lib/systemd/clock` is set to the timestamp of the host OS build (or more precisely, the timestamp of the systemd build within the host OS). For more info, you can check the [`systemd-timesyncd` documentation](https://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html) and the [timesyncd source code](https://github.com/systemd/systemd/blob/master/src/timesync/timesyncd.c).
 
 ## Networking Requirements
 

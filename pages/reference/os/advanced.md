@@ -82,7 +82,7 @@ For further information on UART device tree overlays, see the [Raspberry Pi docu
 
 The Raspberry Pi allows loading [custom device tree overlays](https://github.com/raspberrypi/linux/blob/rpi-4.19.y/arch/arm/boot/dts/overlays/README) using the `dtoverlay` setting in `config.txt`. It also allows setting parameters for the default overlay with the `dtparam` setting. For these settings, the syntax is different from other keys because several entries can be added, and the bootloader will use all of them.
 
-To allow setting several values, devices running balenaOS version >= 2.12.0 (supervisor >= 7.0.0), will parse the values of `BALENA_HOST_CONFIG_dtoverlay` and `BALENA_HOST_CONFIG_dtparam` in a special way where the value of the configuration variable will be treated as the contents of a JSON array (without the enclosing braces `[]`), so a comma-separated list of quote-enclosed values (straight quotes, not curly) will be split into several lines.
+To allow setting several values, devices will parse the values of `BALENA_HOST_CONFIG_dtoverlay` and `BALENA_HOST_CONFIG_dtparam` in a special way where the value of the configuration variable will be treated as the contents of a JSON array (without the enclosing braces `[]`), so a comma-separated list of quote-enclosed values (straight quotes, not curly) will be split into several lines.
 
 For example, the default value of `BALENA_HOST_CONFIG_dtparam = "i2c_arm=on","spi=on","audio=on"` will translate into the following entries in config.txt:
 

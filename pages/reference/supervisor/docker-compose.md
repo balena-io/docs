@@ -110,9 +110,13 @@ It's recommended to only give that level of access to containers that have a sin
 i.e. balena-socket, dbus, sysfs, procfs, kernel-modules, firmware, extra-firmware, and supervisor-api can be used to completely take over a device.
 {% endhint %}
 
-{% include "../../.gitbook/includes/labels-version-note.md" %}
+Labels are considered _dangerous_ if they break container isolation and can lead to a full device take-over if a container is compromised.
 
-| Label                             | Default            | Dangerous (*)        | Description                                                                                                                                                                                                                                                                | Supervisor | balenaOS\  |
+{% hint style="info" %}
+You can find which supervisor ships with which balenaOS versions in the [balenaOS Changelog](https://github.com/balena-os/meta-balena/blob/master/CHANGELOG.md).
+{% endhint %}
+
+| Label                             | Default            | Dangerous            | Description                                                                                                                                                                                                                                                                | Supervisor | balenaOS   |
 | --------------------------------- | ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- |
 | io.balena.features.balena-socket  | false              | dangerous            | Bind mounts the balena container engine socket into the container and sets the environment variable `DOCKER_HOST` with the socket location for use by docker clients.                                                                                                      | v7.23.0    | v2.21.0    |
 | io.balena.features.dbus           | false              | dangerous            | Bind mounts the host OS dbus into the container using `/run/dbus:/host/run/dbus`.                                                                                                                                                                                          | v7.23.0    | v2.21.0    |
@@ -126,10 +130,6 @@ i.e. balena-socket, dbus, sysfs, procfs, kernel-modules, firmware, extra-firmwar
 | io.balena.features.balena-api     | false              | dangerous            | When enabled, it will make sure that `BALENA_API_KEY` is added to the container environment variables.                                                                                                                                                                     | v7.23.0    | v2.21.0    |
 | io.balena.update.strategy         | download-then-kill |                      | Set the fleet update strategy.                                                                                                                                                                                                                                             | v7.23.0    | v2.21.0    |
 | io.balena.update.handover-timeout | 60000              |                      | Time, in milliseconds, before an old container is automatically killed. Only used with the `hand-over` update strategy.                                                                                                                                                    | v7.23.0    | v2.21.0    |
-
-Labels are considered _dangerous_ if they breaks container isolation and can lead to a full device take-over on container is compromised.
-
-\* balenaOS versions that ship with a compatible device supervisor version as per [balenaOS Changelog](https://github.com/balena-os/meta-balena/blob/master/CHANGELOG.md).
 
 
 These labels are applied to a specific service with the `labels:` setting:

@@ -12,7 +12,7 @@ The core insight behind balenaOS is that Linux containers offer, for the first t
 
 BalenaOS is an operating system built for easy portability to multiple device types (via the [Yocto framework](https://www.yoctoproject.org/) and optimized for Linux containers, and Docker in particular. There are many decisions, large and small, we have made to enable that vision, which are present throughout our architecture.
 
-The first version of balenaOS was developed as part of the balena platform, and has run on thousands of embedded devices on balena, deployed in many different contexts for several years. balenaOS v2 represents the combination of the learnings we extracted over those years, as well as our determination to make balenaOS a first-class open source project, able to run as an independent operating system, for any context where embedded devices and containers intersect.
+The first version of balenaOS was developed as part of the balena platform, and has run on thousands of embedded devices on balena, deployed in many different contexts for several years. balenaOS v2 and later versions represent the combination of the learnings we extracted over those years, as well as our determination to make balenaOS a first-class open source project, able to run as an independent operating system, for any context where embedded devices and containers intersect.
 
 We look forward to working with the community to grow and mature balenaOS into an operating system with even broader device support, a broader operating envelope, and as always, taking advantage of the most modern developments in security and reliability.
 
@@ -41,7 +41,7 @@ Production mode disables passwordless root access, and an SSH key must be [added
 
 In balenaOS, logs are written to an 8 MB journald RAM buffer in order to avoid wear on the flash storage used by most of the supported boards.
 
-To persist logs on the device, enable persistent logging via the [configuration](../../learn/manage/configuration.md#fleet-configuration-management) tab in the balenaCloud dashboard, or prior to device provisioning setting the `"persistentLogging": true` [key](configuration.md#persistentlogging) in `config.json`. The logs can be accessed via the host OS at `/var/log/journal`. For versions of balenaOS < 2.45.0, persistent logs are limited to 8 MB and stored in the state partition of the device. BalenaOS versions >= 2.45.0 store a maximum of 32 MB of persistent logs in the data partition of the device.
+To persist logs on the device, enable persistent logging via the [configuration](../../learn/manage/configuration.md#fleet-configuration-management) tab in the balenaCloud dashboard, or prior to device provisioning setting the `"persistentLogging": true` [key](configuration.md#persistentlogging) in `config.json`. The logs can be accessed via the host OS at `/var/log/journal`. BalenaOS stores a maximum of 32 MB of persistent logs in the data partition of the device.
 
 ### Hostname
 
@@ -97,10 +97,6 @@ In order to improve the [development experience](../../learn/develop/local-mode.
 
 ### chrony
 
-{% hint style="info" %}
-BalenaOS versions less than v2.13.0 used systemd-timesyncd for time management.
-{% endhint %}
-
 [chrony](https://en.wikipedia.org/wiki/Chrony) is used by balenaOS to keep the system time synchronized.
 
 ### OpenVPN
@@ -108,10 +104,6 @@ BalenaOS versions less than v2.13.0 used systemd-timesyncd for time management.
 [OpenVPN](https://community.openvpn.net/openvpn) is used as the VPN service by balenaOS, which connects to cloudlink, allowing a device to be connected to remotely and enabling remote SSH access.
 
 ### OpenSSH
-
-{% hint style="info" %}
-BalenaOS versions < v2.38.0 use [dropbear](https://matt.ucc.asn.au/dropbear/dropbear.html) as the SSH server and client
-{% endhint %}
 
 [OpenSSH](https://www.openssh.com/) is used in balenaOS as the SSH server and client allowing remote login using the SSH protocol.
 
@@ -142,10 +134,6 @@ A diagram of our read-only rootfs can be seen below:
 ## BalenaOS Yocto Composition
 
 BalenaOS is composed of multiple [Yocto](https://www.yoctoproject.org/) layers. The Yocto Project build system uses these layers to compile balenaOS for the various [supported devices](../hardware/devices.md). Below is an example from the [Raspberry Pi family](https://github.com/balena-os/balena-raspberrypi/blob/master/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample).
-
-{% hint style="info" %}
-Instructions for building your own version of balenaOS are available [here](https://www.balena.io/os/docs/custom-build/#Bake-your-own-Image).
-{% endhint %}
 
 | Layer Name                                 | Repository                                                                                                                                                                               | Description                                                               |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |

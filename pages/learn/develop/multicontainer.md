@@ -76,7 +76,7 @@ Setting `network_mode` to `host` allows the container to share the same network 
 
 ### Named volumes
 
-With multicontainer fleets, balena supports the use of named volumes, a feature that expands on the [persistent storage](runtime.md#persistent-storage) functionality used by older versions of balenaOS. Named volumes can be given arbitrary names and can be linked to a directory in one or more containers. As long as every release of the fleet includes a `docker-compose.yml` and the volume name does not change, the data in the volume will persist across updates.
+Balena supports the use of named volumes, a feature that expands on the [persistent storage](runtime.md#persistent-storage) functionality used by older versions of balenaOS. Named volumes can be given arbitrary names and can be linked to a directory in one or more containers. As long as every release of the fleet includes a `docker-compose.yml` and the volume name does not change, the data in the volume will persist across updates.
 
 Use the `volumes` field of the service to link a directory in your container to your named volume. The named volume should also be specified at the top level of the `docker-compose.yml`:
 

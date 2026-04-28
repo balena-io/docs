@@ -7,10 +7,6 @@ excerpt: Communicate with the host OS and service containers via SSH with balena
 
 To help you debug, develop, and work with your fleets, we've provided a browser-based terminal and a command line tool for easy SSH access to your devices. With these tools, you have console access to any of your running containers, as well as to the host OS, letting you test out small snippets of code and check system logs on your device. You can also access your device via a standalone SSH client.
 
-{% hint style="warning" %}
-Host OS SSH access is available for devices running balenaOS version 2.7.5 and above.
-{% endhint %}
-
 SSH access is built on [Cloudlink](../welcome/security.md#cloudlink) and it not designed for high availability. It is not intended for use in the critical path of your application - you should not depend on it for continuous use as part of your own application.
 
 ### Using the dashboard web terminal
@@ -56,8 +52,6 @@ $ balena device ssh 192.168.1.23
 $ balena device ssh <device-uuid>.local
 ```
 
-When used with a [production variant of balenaOS](../../reference/os/overview.md#development-vs.-production-mode), this feature requires balena CLI v13.3.0 or later, and balenaOS v2.44.0 or later. Otherwise, an SSH key must be added to the device's `config.json` file, [sshKeys section](../../reference/os/configuration.md#sshkeys). These restrictions do not apply to [development variants of balenaOS](../../reference/os/overview.md#development-vs.-production-mode), which allow unauthenticated `root` access (and for this reason, should never be directly exposed to the public internet).
-
 ### Using a standalone SSH client
 
 The SSH server of a balenaOS device (host OS) listens on TCP port `22222`, and access is also possible with a standalone ssh client:
@@ -66,7 +60,7 @@ The SSH server of a balenaOS device (host OS) listens on TCP port `22222`, and a
 $ ssh -p 22222 <username>@<device_ip_address>
 ```
 
-When the username is `root`, [production variants of balenaOS](../../reference/os/overview.md#development-vs.-production-mode) perform authentication against public SSH keys previously added to the device's `config.json` file, [sshKeys section](../../reference/os/configuration.md#sshkeys). When the username matches a valid balenaCloud user account, authentication is also performed against that user's public SSH keys [stored in balenaCloud](ssh-access.md#add-an-ssh-key-to-balenacloud) (this feature requires balenaOS v2.44.0 or later). The username can be found in the profile or preferences section of the web dashboard, or with the balena whoami\` CLI command.
+When the username is `root`, [production variants of balenaOS](../../reference/os/overview.md#development-vs.-production-mode) perform authentication against public SSH keys previously added to the device's `config.json` file, [sshKeys section](../../reference/os/configuration.md#sshkeys). When the username matches a valid balenaCloud user account, authentication is also performed against that user's public SSH keys [stored in balenaCloud](ssh-access.md#add-an-ssh-key-to-balenacloud). The username can be found in the profile or preferences section of the web dashboard, or with the balena whoami\` CLI command.
 
 Development variants of balenaOS allow unauthenticated access and should never be directly exposed to the public internet.
 
@@ -174,7 +168,7 @@ $ dmesg | tail -n 100
 
 #### Monitor balenaEngine
 
-beginning with version 2.9.0, balenaOS includes the lightweight container engine [**balenaEngine**](https://www.balena.io/engine) to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to use `balena` for debugging.
+BalenaOS includes the lightweight container engine [**balenaEngine**](https://www.balena.io/engine) to manage **Docker** containers. If you think the supervisor or application container may be having problems, you’ll want to use `balena` for debugging.
 
 From the host OS this command will show the status of all containers:
 
@@ -187,10 +181,6 @@ You can also check the **journalctl** logs for messages related to the balenaEng
 ```shell
 $ journalctl --follow -n 100 -u balena
 ```
-
-{% hint style="warning" %}
-For devices with balenaOS versions earlier than 2.9.0, you can replace `balena` in these commands with `docker`.
-{% endhint %}
 
 #### Inspect network settings
 
