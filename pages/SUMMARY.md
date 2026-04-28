@@ -337,6 +337,7 @@
       ```
 * [Balena CLI](reference/balena-cli/README.md)
   * [Latest](external-docs/balena-cli/latest.md)
+  * [v24.1.4](external-docs/balena-cli/v24.1.4.md)
   * [v23.2.32](external-docs/balena-cli/v23.2.32.md)
   * [v22.5.5](external-docs/balena-cli/v22.5.5.md)
   * [v21.1.14](external-docs/balena-cli/v21.1.14.md)
