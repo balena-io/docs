@@ -319,6 +319,7 @@
       "public_address",
       "os_version",
       "os_variant",
+      "should_be_operated_by__release",
       "supervisor_version",
       "should_be_managed_by__release",
       "is_managed_by__service_instance",
@@ -442,11 +443,20 @@
       {
         "id": "update-device-supervisor-by-uuid",
         "summary": "Mark a device to be updated to a specific supervisor release",
-        "description": "To request a list of available supervisor versions, check the respective documentation page for the supervisor release resource.",
+        "description": "To request a list of available supervisor releases, check the 'List Supervisor releases' documentation page.",
         "method": "PATCH",
         "endpoint": "/v7/device(uuid='<UUID>')",
         "filters": "",
         "data": "{\n    \"should_be_managed_by__release\": <SUPERVISOR RELEASE ID>\n}"
+      },
+      {
+        "id": "update-device-os-by-uuid",
+        "summary": "Mark a device to be updated to a specific OS release",
+        "description": "This endpoint relies on the Experimental Queued OS updates feature.\nTo request a list of available OS releases, check the 'List balenaOS releases' documentation page.",
+        "method": "PATCH",
+        "endpoint": "/v7/device(uuid='<UUID>')",
+        "filters": "",
+        "data": "{\n    \"should_be_operated_by__release\": <OS RELEASE ID>\n}"
       },
       {
         "id": "rename-device",
