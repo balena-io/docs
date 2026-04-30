@@ -27,6 +27,7 @@
 | `public_address` |
 | `os_version` |
 | `os_variant` |
+| `should_be_operated_by__release` |
 | `supervisor_version` |
 | `should_be_managed_by__release` |
 | `is_managed_by__service_instance` |
@@ -168,6 +169,20 @@ PATCH "https://api.balena-cloud.com/v7/device(uuid='<UUID>')" \
 -H "Authorization: Bearer <AUTH_TOKEN>" \
 --data '{
     "should_be_managed_by__release": <SUPERVISOR RELEASE ID>
+}'
+```
+
+### Mark a device to be updated to a specific OS release
+
+This endpoint relies on the Experimental Queued OS updates feature.
+To request a list of available OS releases, check the 'List balenaOS releases' documentation page.
+
+```bash
+PATCH "https://api.balena-cloud.com/v7/device(uuid='<UUID>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>" \
+--data '{
+    "should_be_operated_by__release": <OS RELEASE ID>
 }'
 ```
 

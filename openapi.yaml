@@ -75,6 +75,8 @@ components:
           description: Type information not available yet
         os_variant:
           description: Type information not available yet
+        should_be_operated_by__release:
+          description: Type information not available yet
         supervisor_version:
           description: Type information not available yet
         should_be_managed_by__release:
@@ -552,6 +554,7 @@ paths:
         | `public_address` |
         | `os_version` |
         | `os_variant` |
+        | `should_be_operated_by__release` |
         | `supervisor_version` |
         | `should_be_managed_by__release` |
         | `is_managed_by__service_instance` |
