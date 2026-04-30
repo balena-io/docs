@@ -161,7 +161,7 @@ GET "https://api.balena-cloud.com/v7/device(uuid='<UUID>')?\$select=should_be_ru
 
 ### Mark a device to be updated to a specific supervisor release
 
-To request a list of available supervisor versions, check the respective documentation page for the supervisor release resource.
+To request a list of available supervisor releases, check the 'List Supervisor releases' documentation page.
 
 ```bash
 PATCH "https://api.balena-cloud.com/v7/device(uuid='<UUID>')" \

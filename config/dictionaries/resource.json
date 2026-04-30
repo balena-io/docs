@@ -443,7 +443,7 @@
       {
         "id": "update-device-supervisor-by-uuid",
         "summary": "Mark a device to be updated to a specific supervisor release",
-        "description": "To request a list of available supervisor versions, check the respective documentation page for the supervisor release resource.",
+        "description": "To request a list of available supervisor releases, check the 'List Supervisor releases' documentation page.",
         "method": "PATCH",
         "endpoint": "/v7/device(uuid='<UUID>')",
         "filters": "",
