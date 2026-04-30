@@ -26,7 +26,7 @@ To create your first fleet, log into your [balenaCloud dashboard](https://dashbo
 
 <figure><img src="../../.gitbook/assets/create-first-fleet.webp" alt="Create a fleet"><figcaption></figcaption></figure>
 
-Enter a fleet name, select the **Nvidia Jetson Xavier** device type, choose the _Starter_ [fleet type](../accounts/fleet-types.md), and click **Create new fleet**:
+Enter a fleet name, select the **Nvidia Jetson Xavier** device type, and click **Create new fleet**:
 
 <figure><img src="../../.gitbook/assets/create-fleet.webp"><figcaption></figcaption></figure>
 
@@ -46,9 +46,35 @@ Select an OS type of _balenaOS_, and you will see a list of available balenaOS v
 
 Select the type of network connection you'll be using: _Ethernet Only_ or _Wifi + Ethernet_. A network connection is required to allow the device to connect to balenaCloud. Selecting _Wifi + Ethernet_ allows you to enter a _Wifi SSID_ and _Wifi Passphrase_ which is then built into the image.
 
-<figure><img src="../../.gitbook/assets/download_image.webp" alt="Download Image" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/download-image-1.webp" alt="Download Image Step 1" width="375"><figcaption></figcaption></figure>
 
-Finally, click the **Download balenaOS** button. When the download completes, you should have a zipped image file with a name like `balena-First-Fleet-jetson-xavier-6.10.24-v17.4.2.img.zip`.
+Click the arrow by the **Flash** button. You'll see several options.
+
+<figure><img src="../../.gitbook/assets/download-image-2.webp" alt="Download Image Step 2" width="375"><figcaption></figcaption></figure>
+
+Pick the option that works best for you:
+
+{% tabs %}
+{% tab title="Flash" %}
+If you have [Etcher](https://etcher.balena.io/) installed, you can just click the Flash button. This will automatically open Etcher with your image loaded. The contents of the image that gets loaded are the same as the contents of the image you would get from the **Download balenaOS** option. Once Etcher opens, proceed to [Provision device](#provision-device).
+
+**This option is best for quickly flashing a device(s) in a single session. Once you close Etcher, the image will no longer be loaded in it.**
+{% endtab %}
+
+{% tab title="Download balenaOS" %}
+This will download a zipped image file with a name like `balena-First-Fleet-jetson-xavier-6.10.24-v17.4.2.img.zip`. The contents of this image file are the same as what Etcher would have received if you had chosen the **Flash**. The difference is that you could reuse this image file repeatedly without having to fill out the form again.
+
+**This option is best for preparing an image for provisioning several devices. Even if you close Etcher, you can just load the same image again for as many devices as you need, and they will all be provisioned with the same basic information that you indicated in the form.**
+{% endtab %}
+
+{% tab title="Download configuration file only" %}
+This only downloads a configuration file with details that you filled out in the form and information about the fleet. **This is for more complex workflows and we do not recommend it for getting started**.
+
+You can read more about it [here](../../reference/os/configuration).
+{% endtab %}
+{% endtabs %}
+
+Once you have chosen one of the options, the button should update to whichever option you have chosen. Click the button and proceed.
 
 ## Provision device
 
@@ -64,19 +90,19 @@ Now that you have an `operational` device in your fleet, it's time to deploy som
 
 {% tabs %}
 {% tab title="OSX" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v24.1.3/balena-cli-v24.1.3-macOS-x64-installer.pkg).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.1.0/balena-cli-v25.1.0-macOS-x64-installer.pkg).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open the Terminal app ([Terminal User guide](https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac)).
 {% endtab %}
 
 {% tab title="Windows" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v24.1.3/balena-cli-v24.1.3-windows-x64-installer.exe).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.1.0/balena-cli-v25.1.0-windows-x64-installer.exe).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open a command prompt: Click on the Windows Start Menu, type PowerShell, and then click on Windows PowerShell.
 {% endtab %}
 
 {% tab title="Linux" %}
-1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/v24.1.3/balena-cli-v24.1.3-linux-x64-standalone.tar.gz).
+1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/v25.1.0/balena-cli-v25.1.0-linux-x64-standalone.tar.gz).
 2. Extract the contents of the tar.gz file to any folder you choose, for example `/home/james`. The extracted contents will include a `balena/bin` folder.
 3. Add that folder (e.g. `/home/james/balena/bin`) to the PATH environment variable. Check this [StackOverflow](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix) post for instructions. Close and re-open the terminal window so that the changes to PATH can take effect.
 {% endtab %}
