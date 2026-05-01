@@ -119,10 +119,12 @@ exclude = [
     "https://github.com/balena-io/docs/issues/new?*",
     "https://api/",
     "https://raw.githubusercontent.com/balena-os/meta-balena/$%7Bos_version_tag%7D/meta-balena-common/recipes-containers/balena-supervisor/balena-supervisor.inc",
+    ".gitbook/assets/",
+    "^[^http]"
     ]
 
 # Exclude these filesystem paths from getting checked.
-exclude_path = ["./build/img/", "./build/css/", "./build/favicon.png", "./build/dist/", "./node_modules"]
+exclude_path = []
 
 # Already mentioned in the GitHub action to include paths to check links
 include = []
