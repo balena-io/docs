@@ -1,6 +1,6 @@
 # Latest
 
-## v25.1.1
+## v25.1.2
 
 
 The balena CLI is a Command Line Interface for [balenaCloud](https://www.balena.io/cloud/) or
