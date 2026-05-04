@@ -173,7 +173,7 @@
     {
       "id": "balena-cli-docs",
       "repo": "balena-io/balena-cli",
-      "ref": "v25.1.0",
+      "ref": "v25.1.1",
       "file": "docs/balena-cli.md",
       "targetDir": "pages/external-docs/balena-cli",
       "dictionary": "config/dictionaries/balenacli.json"
