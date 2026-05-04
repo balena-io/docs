@@ -85,7 +85,7 @@ To demonstrate this functionality, you can push this project ([https://github.co
 
 #### Raspberry Pi camera module
 
-Depending on the version of your balenaOS, the system contains different version of the Raspberry Pi firmware, and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](../../manage/configuration.md).
+Depending on the version of your balenaOS, the system contains a different version of the Raspberry Pi firmware and you need to apply slightly different settings. In both cases you can either modify `config.txt` on the `resin-boot` partition of your SD card, or add the settings remotely by using `BALENA_HOST_CONFIG_variablename` settings in your [fleet or device configuration](../../manage/configuration.md).
 
 **BalenaOS 1.16.0 and newer**
 

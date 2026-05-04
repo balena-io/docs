@@ -4,7 +4,7 @@ title: Configuration
 
 # Configuration
 
-Variables on the configuration page allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`. Beginning with supervisor v7.0.0, a number of them appear automatically in your dashboard when your device is provisioned.
+Variables on the configuration page allow you to provide runtime configuration to the host OS and supervisor. These variables all begin with `BALENA_` or `RESIN_`. A number of them appear automatically in your dashboard when your device is provisioned.
 
 Configuration can be managed at both the fleet and device level.
 

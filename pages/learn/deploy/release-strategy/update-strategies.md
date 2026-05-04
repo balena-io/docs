@@ -5,7 +5,7 @@ excerpt: Choosing an update strategy for your balena devices
 
 # Controlling the update strategy
 
-With the balena device supervisor version 1.3, we added the ability to choose the update strategy on devices, that is, the order and way in which the steps to perform an update are executed. You can check whether your Supervisor has the appropriate version in the "Supervisor version" entry in the device dashboard page. These update strategies allow users to choose between four modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
+The balena device supervisor allows you to choose the update strategy on devices. An update strategy is the order and way in which the steps to perform an update are executed. These update strategies allow users to choose between four modes that are suited for different applications, depending on available resources and the possible need to have a container running at all times.
 
 Update strategies can be applied by setting a [docker-compose label](../../../reference/supervisor/docker-compose.md#labels). The two labels that are involved are:
 
@@ -55,10 +55,6 @@ This strategy is meant for resource-constrained scenarios or when the images be 
 
 {% hint style="warning" %}
 This strategy is only recommended for extreme low storage scenarios, where the available storage cannot even fit the target [image deltas](../delta.md). For most cases, using the default strategy or the `kill-then-download` strategy (if memory usage is a concern), and ensuring [deltas are enabled](../delta.md) is the recommended approach.
-{% endhint %}
-
-{% hint style="warning" %}
-**Requires Supervisor >= v2.5.1**
 {% endhint %}
 
 ## hand-over

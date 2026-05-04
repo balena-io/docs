@@ -23,10 +23,6 @@ From the dialog box that opens, select the Supervisor version you would like to 
 
 Additionally, these updates can be scheduled for an offline device as well. The update will be performed once the device comes back online and successfully connects to the balenaCloud backend.
 
-{% hint style="warning" %}
-Only devices running balenaOS v2.12.0 or greater are able to upgrade the Supervisor independently.
-{% endhint %}
-
 ## Upgrade paths
 
 Downgrades of the Supervisor are not supported.

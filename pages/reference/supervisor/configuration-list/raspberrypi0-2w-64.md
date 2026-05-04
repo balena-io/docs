@@ -1,5 +1,5 @@
-The list contains configuration and their respective variables that can be used with balena devices. Some of which will
-automatically appear for devices with supervisor v7.0.0 and greater. While they may not automatically populate in the
+The list contains configuration and their respective variables that can be used with balena devices. Some of these will
+automatically appear for devices. While they may not automatically populate in the
 Configuration dashboard, most of these variables can still be used with older supervisor versions, so be sure to check
 the *Supported by* context for each configuration.
 
