@@ -12,7 +12,7 @@
     "sync-external": "node tools/sync-external.js",
     "generate-playground-and-resources": "node tools/generate-playground-and-resources.js",
     "generate-device-specific-content": "node tools/generate-device-specific-content.js",
-    "generate-cloud-iot": "node tools/generate-cloud-iot.js",
+    "generate-cloud-provisioning-pages": "node tools/generate-cloud-provisioning-pages.js",
     "prepare": "node -e \"try { (await import('husky')).default() } catch (e) { if (e.code !== 'ERR_MODULE_NOT_FOUND') throw e }\" --input-type module",
     "renovate:validate": "renovate-config-validator .github/renovate.json"
   },
