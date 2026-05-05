@@ -5,21 +5,11 @@ excerpt: Definitions for concepts mentioned throughout the balena documentation
 
 # Balena Glossary
 
-The glossary is a quick reference tool for important terms, concepts and phrasing used at balena. This includes both balena-specific and general terminology that's commonly used in and across balena.
+The glossary is a quick reference tool for important terms, concepts and phrasing used by balena. This includes both balena-specific and general terminology that's commonly used in and across balena.
 
-Is there a word or term that's missing? Does a definition need reworking or further clarity? Additions and improvements to the glossary are encouraged! You can either add these yourself or open a issue on the [GitHub repository](https://github.com/balena-io/docs/issues/new).
 
-> Make sure an entry is comprised of the word / acronym or phrase, whether it's a balena specific term or not, brief description and (when possible) a link to further reading / single source of truth for that definition.
 
 ## A
-
-### Apps
-
-**(Apps are not unique to balena, but in this instance it's a reference specific to balena)** An app is a coherent combination of services (blocks or other software) which will produce something useful for someone, it's ready to be deployed on a device / fleet.
-
-### Assume Positive Intent
-
-As we're a remote first company that communicates asynchronously across keyboards and screen the majority of the time, social cues, context and body language aren't present to help with understanding each other. We try to stick to 'assume positive intent' when trying to understand how we're communicating with each other. E.g. not using an emoji doesn't mean they're annoyed at you.
 
 ### AUFS
 
@@ -53,15 +43,11 @@ Amazon Aurora is a global-scale relational database service built for the cloud 
 
 ### balenaFin
 
-**(balena specific term)** A single board computer developed by balena with field deployment in mind. It is a carrier board for the Raspberry Compute Module 3 and 3+ Lite (CM3L/CM3+L), that can run all the software that the Raspberry Pi can run, hardened for field deployment use cases.
+**(balena specific term)** **DEPRECATED**, a single board computer developed by balena with field deployment in mind. It is a carrier board for the Raspberry Compute Module 3 and 3+ Lite (CM3L/CM3+L), that can run all the software that the Raspberry Pi can run, hardened for field deployment use cases.
 
 ### balenaHub
 
 **(balena specific term)** A marketplace that enables the exchange of resources between our users. At a higher-level, the goal of hub is to lower the barrier to entry within the IoT industry. [more](https://hub.balena.io/what-is-balenahub)
-
-### balenaMachine
-
-**(balena specific term)** On-premises fleet management, delivered as a single virtual machine that includes all core balenaCloud services.
 
 ### balenaOS
 
@@ -83,10 +69,6 @@ Amazon Aurora is a global-scale relational database service built for the cloud 
 
 **(balena specific term)** Balena’s developer environment, which is a device run on and managed by balenaCloud that runs a local instance of balena.
 
-### balenista(s)
-
-**(balena specific term)** One or more balena team member
-
 ### Barys
 
 A wrapper around Poky's environment setup scripts used to initialize build directories [see _Yocto_](glossary.md#yocto)
@@ -95,19 +77,11 @@ A wrapper around Poky's environment setup scripts used to initialize build direc
 
 A specific combination of a Linux distribution and additional packages (a docker image), used as the base operating environment for a service.
 
-### Beast, the
-
-**(balena specific term)** An unholy cluster of 144 RaspberryPi’s running balenaOS and weighing in at 150Kg. [more](https://www.balena.io/blog/the-evolution-of-the-beast-continues/)
-
 ### bitbake
 
 Fundamentally, BitBake is a generic task execution engine that allows shell and Python tasks to be run efficiently and in parallel while working within complex inter-task dependency constraints. One of BitBake's main users, OpenEmbedded, takes this core and builds embedded Linux software stacks using a task-oriented approach. [see _Yocto_](glossary.md#yocto)
 
 ## C
-
-### Chesterton's Fence
-
-The principle that 'reforms should not be made until the reasoning behind the existing state of affairs is understood.' or if you don't understand why something has been done the way it has / why it's there, don't scrap or change it until you understand the reasoning first. [more](https://fs.blog/chestertons-fence/)
 
 ### CLI
 
@@ -117,10 +91,6 @@ Command Line Interface is 'a text-based user interface (UI) used to run programs
 
 **(balena specific term)** Previously called balenaVPN, this is the connection that allows balena to have a secure tunnel to the device. Cloudlink uses openVPN as an underlying technology to enable features like [SSH access](../develop/local-mode.md#ssh-into-the-running-app-container-or-host-os), the [public device URL](../manage/actions.md#public-device-url), and the [web terminal](../manage/ssh-access.md#using-the-dashboard-web-terminal) in balenaCloud.
 
-### companyOS
-
-**(balena specific term)** The loop that manages balena’s legal, financial and corporate architecture and provides it as a service to the rest of the business.
-
 ### config.json
 
 **(configuration files are not unique to balena, but in this instance it's a reference specific to balena)** 'The main configuration file'. A file located on the boot partition of balenaOS devices, which can be used to modify the behaviour of the OS. [more](../../reference/os/configuration.md)
@@ -129,9 +99,7 @@ Command Line Interface is 'a text-based user interface (UI) used to run programs
 
 'a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.' [more](https://www.docker.com/resources/what-container/)
 
-### Customer Success aka. CS
 
-**(balena specific term)** The loop / group of team members that act as account managers / interface with our customers and clients.
 
 ## D
 
@@ -171,29 +139,17 @@ a software bus, inter-process communication, and remote procedure call mechanism
 
 ### Etcher
 
-**(balena specific term)** [A balena product (software).](https://www.balena.io/etcher/) A 'swiss army knife' for getting your software onto a device. Flashes disk images (such as balenaOS) on storage devices like SD cards and validates flash integrity.
+**(balena specific term)** [A software product made by balena.](https://www.balena.io/etcher/) A 'swiss army knife' for getting your software onto a device. Flashes disk images (such as balenaOS) on storage devices like SD cards and validates flash integrity.
 
-### Etcher Pro aka. EP
+### Etcher Pro&#x20;
 
-**(balena specific term)** [A balena product (software and hardware).](https://www.balena.io/etcher/) A device running Etcher. Can flash 16 devices simultaneously.
-
-### Etcher Featured Project aka. EFP
-
-**(balena specific term)** The example project that we promote within the etcher app. This changes regularly and the objective of showing this project is to encourage etcher users to discover balenaCloud and follow a tutorial to build a project
+**(balena specific term) DISCONTINUED.** A hardware product made by balena. A device running Etcher. Can flash 16 devices simultaneously.
 
 ## F
-
-### Feedback Loop
-
-'The part of a system in which some portion (or all) of the system's output is used as input for future operations. Each feedback loop has a minimum of four stages. During the first stage, input is created. During the second stage, input is captured and stored. During the third stage, input is analyzed and during the fourth stage, the insight gained from analysis is used to make decisions.' Feedback loops are a core to the way we work at balena as they are fundamental to systems design.
 
 ### Fleet
 
 **(Fleets are not unique to balena, but in this instance it's a reference specific to balena)** A group of devices sharing the same releases, variables, configuration, settings and members.
-
-### Fin
-
-**(balena specific term)** [see _balenaFin_](glossary.md#balenafin)
 
 ### Fog
 
@@ -201,31 +157,7 @@ The term “fog” attempts to categorize network+compute architectures which fl
 
 ## G
 
-### Git
-
-A command line tool. An open source distributed code management and version control system. [more](https://git-scm.com/)
-
-### Github
-
-'A [code hosting platform](https://github.com/) for version control and collaboration.'
-
-### Github Flow
-
-A method of software development used at balena where changes are made to [Git branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) as opposed to `main`. [more](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
-
-### Git server (balena architecture)
-
-**(Git servers are not unique to balena, but in this instance it's a reference specific to balena)** The balenaCloud-hosted git servers that users may do a “git push” to in order to build their application. This is more of a legacy feature since we recommend users to do a “balena push” that sends their code directly to the builders. This is ephemeral and we do not commit to the users any level of persistence for their code. Users should not use this as a source of truth for their version control system.
-
 ## H
-
-### Hardware on demand aka. HOD
-
-**(balena specific term)** Pre-assembled device including customer-specific branding/packaging, pre-configured for use with balenaOS, pre-installed with user software. Essentially, plug and play hardware for customers, provided by balena.
-
-### Hardware Hacker in Residence aka. HHR
-
-**(balena specific term)** A balena job title for balenistas that occupied Labs and built cool projects to market and showcase the capabilities of balena.
 
 ### hostapp
 
@@ -245,15 +177,7 @@ A method of software development used at balena where changes are made to [Git b
 
 **(balena specific term)** Modifies a stock balenaOS image and embeds information needed to map the OS image to an application running on balenaCloud. The image maker is also used to embed WIFI network connection details into the image.
 
-### Improvement
-
-**(balena specific term)** These are used for documenting a change or addition to a system, with the intent of improving it. [more](https://github.com/balenaltd/handbook/tree/main/docs/how-we-work/contracts-glossary/improvements.md)
-
 ## J
-
-### Jellyfish aka. JF
-
-**(balena specific term)** A balena product. Jellyfish is a social knowledge database that the team uses to collaborate. Jellyfish gathers all information company wide and makes it a platform to implement processes that enhance the team's productivity and understanding. [more](https://github.com/balenaltd/handbook/tree/main/docs/how-we-work/README.md)
 
 ## K
 
@@ -271,19 +195,7 @@ Kubernetes (K8s) is a system for automating deployment, scaling, and management 
 
 Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus. Used by balenaCloud to store customer device logs. Used by productOS to store internal logs. [more](https://github.com/grafana/loki)
 
-### Loop (balena)
-
-**(balena specific team)** [See _Feedback Loop_](glossary.md#feedback-loop). At balena, we structure our team as a collection of feedback loops. What we often call "the loop" is our framework for continuously improving products. We also define specific loops at balena that focus on building products for a particular user. Each of these loops puts "the loop" framework into practice to build a product for its users. For example, the teamOS loop uses "the loop" to build and improve the user experience for balena team members. The balena.io product loop uses "the loop" to build and improve the user experience for balena users. etc
-
 ## M
-
-### Maintainers or Mission team aka. M-Team
-
-The former name of the Leadership Group at balena.
-
-### MVP
-
-Minimum Viable Product, an initial or simple implementation of a product or feature.
 
 ## N
 
@@ -297,43 +209,11 @@ A range of small form factor PCs from Intel. [more](https://en.wikipedia.org/wik
 
 **(balena specific term)** [A balena product.](https://www.balena.io/open/) The open source offering of balena’s platform. Devices run balenaOS and are managed via the balena CLI. openBalena does not include the dashboard.
 
-### Organization (balena)
-
-**(balena specific term)** A group of members, teams, and fleets that is managed by one or more organization administrators. [more](../accounts/organizations.md)
-
 ## P
-
-### Pants project
-
-**(balena specific term)** A fully HR compliant code name by the hardware team. It's essentially a new [Fin](glossary.md#balenafin) but instead of using a compute module it accepts a single board computer (rpi 4 for instance) and extends its capabilities. (currently paused / in hiatus)
-
-### Pattern
-
-**(balena specific term)** A pattern (or symptom) of behaviour that we've observed, that we feedback into the [loops](glossary.md#loop-balena). Patterns are observations rather than solutions - For example 'Customer wants the ability to filter device type' is a pattern, as opposed to 'create device filter'. As a pattern receives higher weighting (so, for example, we see more customers experiencing a similar issue or point of friction), or higher urgency signals, its relative importance is raised so that the loop team can see it emerge.
-
-### People-ops
-
-**(balena specific term)** An aspect group at balena. In traditional organizations this would be akin to Human Resources (HR). The intention of People-ops is to build products and processes that support the people within the team.
 
 ### Pine.js
 
 **(balena specific term)** Pine.js is a sophisticated rules-driven API engine that enables you to define rules in a structured subset of English. Those rules are used in order for Pine.js to generate a database schema and the associated OData API. This makes it very easy to rapidly create, update and maintain a backend while keeping the logic in an easily understood form, as well as providing the ability to update and maintain this logic going forward. [more](https://github.com/balena-io/pinejs)
-
-### Preset
-
-Preset is a data exploration and visualization platform, powered by open source Apache Superset. See [Preset Playbook](https://github.com/balenaltd/handbook/blob/main/docs/tooling/preset-playbook.md) for more information.
-
-### Pull request aka. PR
-
-'also referred to as a merge request – is an event that takes place in software development when a contributor/developer is ready to begin the process of merging new code changes with the main project repository.'
-
-### productOS
-
-**(balena specific term)** A loop within balena and aka. [Jellyfish](https://github.com/balenaltd/handbook/tree/main/docs/how-we-work/README.md). The intention of productOS is to create products that can be used by teams to develop and maintain products.
-
-### Prometheus
-
-Metrics / alerting framework - used by balena-monitor. [more](https://prometheus.io/)
 
 ### Provisioning (balena)
 
@@ -342,10 +222,6 @@ Metrics / alerting framework - used by balena-monitor. [more](https://prometheus
 ## Q
 
 ## R
-
-### Radical Candor
-
-[A term coined by Kim Scott in her book by the same name](https://www.radicalcandor.com/). It means to describe caring personally while challenging directly. It's something we refer to alot at balena in how we communicate with each other - another term used is 'friends don't let friends be wrong'.
 
 ### Redshift
 
@@ -361,7 +237,7 @@ The former name for balena, changed late 2018.
 
 ### Rulemotion
 
-The former name for Resin.
+The former name for [Resin.](glossary.md#resin)
 
 ## S
 
@@ -377,25 +253,9 @@ A version number given to a new release. Versions are broken into MAJOR.MINOR.PA
 
 **(Services are not unique to balena, but in this instance it's a reference specific to balena)** An independently deployable component of an application, packaged into a Docker image and run as a container.
 
-### Slug
-
-'A human-readable, unique identifier'
-
-### Snapback
-
-**(balena specific term)** When a JellyFish support ticket “snaps back” from Closed state to Open state and reappears in the queue. This action is driven by linking a GitHub issue in the relevant repository to a ticket. When the issue is closed, the snapback is triggered. A support agent then sees the ticket, and can send a message to the affected user to let them know the issue is resolved. Snapback often is used to notify of a requested OS release.
-
-### Social sign-on aka. SSO
-
-Using a social media account to sign up for a platform
-
 ### Supervisor aka. SV
 
 **(balena specific term)** Balena's on-device agent, responsible for monitoring and applying changes to an IoT device. It communicates with balenaCloud and handles the lifecycle of an IoT application. [more](https://github.com/balena-os/balena-supervisor)
-
-### Systems design
-
-'The process of defining the elements of a system such as the architecture, modules and components, the different interfaces of those components and the data that goes through that system.' Watch [Nicky Case's talk 'Seeing in Systems'](https://longnow.org/seminars/02017/aug/07/seeing-whole-systems/) to get a clear understanding of how to visualize systems and how they work. Alternatively read
 
 ## T
 
@@ -404,10 +264,6 @@ Using a social media account to sign up for a platform
 **(balena specific term)** The testbot is a device used to aid in the automation of hardware testing. It connects to a balena fin through a HAT interface, and provides a mechanism to remotely provision, power, and run a test suite against a device under test (DUT). Testbot’s vision is to completely isolate the DUT when testing it much like an octopus around its prey. We control the power, network type and the image flashed to the DUT.
 
 ## U
-
-### Universally Unique Identifier aka. UUID
-
-A 128-bit label used for information in computer systems
 
 ## V
 
