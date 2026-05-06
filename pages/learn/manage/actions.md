@@ -76,7 +76,7 @@ Balena currently exposes **port 80** for web forwarding. This setting enables we
 
 The Public Device URL feature is a tool for remote configuration, debugging, and other intermittent or periodic use cases. The feature is built on [Cloudlink](../welcome/security.md#cloudlink) and not designed for high availability. We do not recommend using the Public Device URL feature for continuous use as part of your application.
 
-For applications that require a stable, continuously available public endpoint, we recommend using a dedicated tunneling service designed for production use. Popular services include [Cloudflare Tunnels](https://www.cloudflare.com/products/tunnel/) (See our [blog post](https://www.balena.io/blog/expose-your-balena-device-to-the-internet-with-cloudflare-tunnel/), [Tailscale](https://tailscale.com/) and [Ngrok](https://ngrok.com/).
+For applications that require a stable, continuously available public endpoint, we recommend using a dedicated tunneling service designed for production use. Popular services include [Cloudflare Tunnels](https://www.cloudflare.com/products/tunnel/) (See our [blog post](https://blog.balena.io/how-to-expose-your-device-with-a-custom-url-using-cloudflare-tunnels/), [Tailscale](https://tailscale.com/) and [Ngrok](https://ngrok.com/).
 
 <figure><img src="../../.gitbook/assets/toggle-public-url.webp" alt=""><figcaption></figcaption></figure>
 

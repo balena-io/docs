@@ -11,7 +11,7 @@ Our IoT provisioning tools automate device registration to Azure IoT Hub, and le
 Provisioning includes three components:
 
 * **Service Container** like [Cloud Relay block](https://github.com/balena-io-examples/cloud-relay) on a device to request the provisioning and use the credential environment variables from balenaCloud
-* **Azure (cloud) function** to securely validate device identity and register the device with IoT Hub, triggered by an HTTP request ([source code](https://github.com/balena-io-examples/%7B%7B$cloud.provisionRepoName%7D%7D/blob/master/index.js))
+* **Azure (cloud) function** to securely validate device identity and register the device with IoT Hub, triggered by an HTTP request ([source code](https://github.com/balena-io-examples/azure-iot-provision/blob/master/index.js))
 * **balenaCloud** to accept and store the generated key/certificate credentials for the device
 
 The cloud function first validates the device UUID in the provision request with balenaCloud. Then it generates a public key certificate and registers with the IoT Hub service. The function then provides the generated credentials to balenaCloud, which stores and pushes them to the device as environment variables for use by the service container.
