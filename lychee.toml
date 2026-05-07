@@ -59,8 +59,8 @@ method = "get"
 # Remap URI matching pattern to different URI.
 # remap = [ "https://example.com http://example.invalid" ]
 
-# Base URL or website root directory to check relative URLs.
-# base = "https://docs.balena.io"
+# Base URL for resolving root-relative links.
+# base_url = "https://docs.balena.io"
 
 # HTTP basic auth support. This will be the username and password passed to the
 # authorization HTTP header. See
