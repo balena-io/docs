@@ -20,8 +20,6 @@ ESR versions are named by year and month like `yyyy.m` and contain a patch versi
 
 At any one time there are three supported lines of ESR versions, which we tag as _next_, _current_, and _sunset_ based on their age, as shown in the diagram below. Every three months a new ESR version is released, which advances the ESR version tagged for each line, for example `2026.1` to `2026.4` below. At the same time, the tag for a particular ESR version transitions downward toward eventual end of life (EOL).
 
-<figure><img src="../../.gitbook/assets/esr-process (5).webp" alt=""><figcaption></figcaption></figure>
-
 Let's walk through an example. In January 2026, at the beginning of Q1, the master branch of balenaOS is released as ESR version `2026.1` and tagged as _next_ since it is the next ESR release. In three months a new ESR version, `2026.4`, is tagged as _next_, while the tag for `2026.1` transitions to _current_. Similarly, three months after that a new ESR version is released and `2026.1` is tagged as _sunset_. Finally in October, nine months after release, the `2026.1` ESR version is untagged, having reached its end of life. It will not receive further fixes. A user should perform a [self-service update](updates/self-service.md#running-an-update) to a newer supported ESR version by now for the ongoing benefits.
 
 ## Using an ESR host OS version
