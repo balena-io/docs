@@ -119,7 +119,7 @@ service does not require its recreation, and implies that nothing has changed
 in the configuration requirements of the service container. However, it can
 be tricky to determine when a service might be recreated or restarted
 (note there is currently
-[an issue](https://github.com/balena-io/balena-supervisor/issues/1116) with the
+[an issue](https://github.com/balena-os/balena-supervisor/issues/1116) with the
 Supervisor where the `/v2/fleets/:fleetId/restart-service` endpoint actually
 recreates the service container rather than restarting it).
 
