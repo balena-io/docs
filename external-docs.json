@@ -138,7 +138,7 @@
     {
       "id": "services-masterclass",
       "repo": "balena-io/services-masterclass",
-      "ref": "v1.0.22",
+      "ref": "v1.0.23",
       "files": [
         {
           "source": "README.md",
