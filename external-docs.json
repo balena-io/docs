@@ -149,7 +149,7 @@
     {
       "id": "fleet-management-masterclass",
       "repo": "balena-io-projects/balena-fleet-management-masterclass",
-      "ref": "v0.0.20",
+      "ref": "v0.0.21",
       "files": [
         {
           "source": "README.md",

@@ -215,7 +215,7 @@ curl -X GET 'https://api.balena-cloud.com/v5/application?$filter=app_name%20eq%2
 }
 ```
 
-> Note: If you see a blank output or an unauthorized response, ensure that you have set the `API_TOKEN` variable. You can check this by running `echo $API_TOKEN` in your terminal, which should output the value of the access token. Variables set this way do not persist between sessions, so if you close your terminal, you will need to set the API_TOKEN variable again or [make it persistent](https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/).
+> Note: If you see a blank output or an unauthorized response, ensure that you have set the `API_TOKEN` variable. You can check this by running `echo $API_TOKEN` in your terminal, which should output the value of the access token. Variables set this way do not persist between sessions, so if you close your terminal, you will need to set the API_TOKEN variable again or [make it persistent](https://help.ubuntu.com/community/EnvironmentVariables#Persistent_environment_variables).
 
 ### 3. Configuration
 
