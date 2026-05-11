@@ -21,7 +21,7 @@ The appropriate method to access GPIO features is via the standard Linux libgpio
 
 The current Raspberry Pi GPIO libraries include:
 
-* [Libgpiod](https://libgpiod.readthedocs.io/en/latest/) is a C library and set of tools for interacting with the Linux GPIO character devices (/dev/gpiochipX).
+* [Libgpiod](https://libgpiod.readthedocs.io/en/master/) is a C library and set of tools for interacting with the Linux GPIO character devices (/dev/gpiochipX).
 * [Pinctrl](https://github.com/raspberrypi/utils/tree/master/pinctrl) is a more powerful replacement for raspi-gpio, a tool for displaying and modifying the GPIO and pin muxing state of a system. It accesses the hardware directly, bypassing the kernel drivers
 * [Rpi-lgpio](https://rpi-lgpio.readthedocs.io/en/release-0.4/) is a compatibility package intended to provide compatibility with the rpi-gpio (aka RPi.GPIO) library, on top of kernels that only support the gpiochip device (and which have removed the deprecated sysfs GPIO interface).
 
