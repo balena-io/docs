@@ -1,6 +1,6 @@
 # Latest
 
-## v17.1.0
+## v17.1.1
 
 
 Welcome to the balena python SDK documentation.
@@ -184,6 +184,7 @@ hesitate to open an issue in GitHub](https://github.com/balena-io/balena-sdk-pyt
             - [is_online(uuid_or_id)](#device.is_online) ⇒ <code>bool</code>
             - [is_tracking_application_release(uuid_or_id)](#device.is_tracking_application_release) ⇒ <code>bool</code>
             - [move(uuid_or_id, app_slug_or_uuid_or_id)](#device.move) ⇒ <code>None</code>
+            - [pin_to_os_release(uuid_or_id, target_os_version)](#device.pin_to_os_release) ⇒ <code>None</code>
             - [pin_to_release(uuid_or_id, full_release_hash_or_id)](#device.pin_to_release) ⇒ <code>None</code>
             - [pin_to_supervisor_release(uuid_or_id, supervisor_version_or_id)](#device.pin_to_supervisor_release) ⇒ <code>None</code>
             - [ping(uuid_or_id)](#device.ping) ⇒ <code>None</code>
@@ -1752,6 +1753,24 @@ Move a device to another application.
 #### Examples:
 ```python
 >>> balena.models.device.move(123, 'RPI1Test')
+```
+
+<a name="device.pin_to_os_release"></a>
+### Function: pin_to_os_release(uuid_or_id, target_os_version) ⇒ <code>None</code>
+
+Mark a specific device to be updated to a particular OS release
+
+#### Args:
+    uuid_or_id (Union[str, int]): device uuid (string) or id (int).
+    target_os_version (str): semver-compatible version for the target device.
+        Unsupported (unpublished) version will result in rejection.
+        The version **must** be the exact version number, a "prod" variant
+        and greater or equal to the one running on the device.
+
+#### Examples:
+```python
+>>> balena.models.device.pin_to_os_release('b6070f4fea5a4f11b4d05c1f1c3b4e72', '2.29.2+rev1.prod')
+>>> balena.models.device.pin_to_os_release('b6070f4fea5a4f11b4d05c1f1c3b4e72', '2.89.0+rev1')
 ```
 
 <a name="device.pin_to_release"></a>
