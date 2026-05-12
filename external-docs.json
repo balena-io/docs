@@ -172,15 +172,18 @@
       "ref": "v25.1.6",
       "file": "docs/balena-cli.md",
       "targetDir": "pages/external-docs/balena-cli",
-      "dictionary": "config/dictionaries/balenacli.json"
+      "dictionary": "config/dictionaries/balenacli.json",
+      "summarySectionTitle": "Balena CLI"
     },
     {
       "id": "balena-sdk-docs",
       "repo": "balena-io/balena-sdk",
       "ref": "v23.2.0",
-      "file": "DOCUMENTATION.md",
+      "file": "docs/",
+      "fallback": "DOCUMENTATION.md",
       "targetDir": "pages/external-docs/sdk/node-sdk",
-      "dictionary": "config/dictionaries/nodesdk.json"
+      "dictionary": "config/dictionaries/nodesdk.json",
+      "summarySectionTitle": "Node SDK"
     },
     {
       "id": "balena-sdk-python-docs",
@@ -188,7 +191,8 @@
       "ref": "v17.1.1",
       "file": "DOCUMENTATION.md",
       "targetDir": "pages/external-docs/sdk/python-sdk",
-      "dictionary": "config/dictionaries/pythonsdk.json"
+      "dictionary": "config/dictionaries/pythonsdk.json",
+      "summarySectionTitle": "Python SDK"
     }
   ],
   "dynamic": [
