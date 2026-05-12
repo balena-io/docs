@@ -12,3 +12,5 @@ tmp
 
 # Curl error output
 output
+
+.env

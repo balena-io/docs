@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
-const { updateSummaryFile } = require('./utils');
+const { updateSummaryFileWithItems } = require('./utils');
 
 const resourceJsonPath = path.resolve('./config/dictionaries/resource.json');
 const openApiYamlOutputPath = path.resolve('./openapi.yaml');
@@ -168,7 +168,7 @@ ${example.data ? `--data '${example.data}'\n` : ''}\`\`\`\n\n`;
 			'utf8',
 		);
 	});
-	updateSummaryFile(
+	updateSummaryFileWithItems(
 		resources.map((r) => ({ name: r.name || r.id, id: r.id })),
 		'Resources',
 		'reference/api/resources',
