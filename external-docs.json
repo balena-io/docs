@@ -2,17 +2,6 @@
   "description": "External documentation sources with pinned versions. Managed by Renovate.",
   "sources": [
     {
-      "id": "balena-engine",
-      "repo": "balena-os/balena-engine",
-      "ref": "v20.10.44",
-      "files": [
-        {
-          "source": "balena-docs/engine-debugging.md",
-          "target": "pages/.gitbook/includes/engine.md"
-        }
-      ]
-    },
-    {
       "id": "device-diagnostics",
       "repo": "balena-io-modules/device-diagnostics",
       "ref": "v4.23.1",
