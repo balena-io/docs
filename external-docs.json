@@ -19,7 +19,7 @@
       "files": [
         {
           "source": "diagnostics.md",
-          "target": "pages/external-docs/diagnostics.md"
+          "target": "pages/.gitbook/includes/health-checks.md"
         }
       ]
     },
