@@ -95,7 +95,7 @@
   * [Deploy to your Fleet](learn/deploy/deployment.md)
   * [Release strategy](learn/deploy/release-strategy/README.md)
     * [Release policy](learn/deploy/release-strategy/release-policy.md)
-    * [Update locks](external-docs/update-locking.md)
+    * [Update locks](learn/deploy/release-strategy/update-locking.md)
     * [Controlling the update strategy](learn/deploy/release-strategy/update-strategies.md)
   * [Delta updates](learn/deploy/delta.md)
   * [Offline Updates](learn/deploy/offline-updates.md)
