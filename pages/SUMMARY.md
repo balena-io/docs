@@ -354,4 +354,4 @@
     * [v14.5.0 (DEPRECATED)](external-docs/sdk/python-sdk/v14.5.0.md)
     * [v10.2.0 (DEPRECATED)](external-docs/sdk/python-sdk/v10.2.0.md)
   * [Balena SDK deprecation policy](reference/sdk/deprecation-policy.md)
-* [Diagnostics](external-docs/diagnostics.md)
+* [Diagnostics](reference/diagnostics.md)
