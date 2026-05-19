@@ -2,13 +2,14 @@
 
 const { writeFile, readFile, readdir, unlink } = require('fs/promises');
 const path = require('path');
-const { getSdk } = require('balena-sdk')
+const { getSdk } = require('balena-sdk');
 const Handlebars = require('handlebars');
-const { updateSummaryFile } = require('./utils');
+const { updateSummaryFileWithItems } = require('./utils');
 
 const LANGUAGES = require('../config/dictionaries/language.json');
 
-const CLI_LATEST_VERSION_URL = 'https://api.github.com/repos/balena-io/balena-cli/releases/latest';
+const CLI_LATEST_VERSION_URL =
+	'https://api.github.com/repos/balena-io/balena-cli/releases/latest';
 const DEVICE_IMG_URL = '/img/device/';
 const DEVICE_IMG_PATH = '../pages/.gitbook/assets/';
 const GUIDE_TEMPLATE_FILE_PATH = '../templates/getting-started.md';
@@ -20,45 +21,45 @@ const TROUBLESHOOTING_TEMPLATE_PATH = '../templates/troubleshooting.md';
 const TROUBLESHOOTING_TEMPLATE_DT_PATH = '../templates/troubleshooting/';
 const TROUBLESHOOTING_DEST_FOLDER = '../pages/faq/troubleshooting/';
 const CONFIG_LIST_TEMPLATE_PATH = '../templates/config-list.md';
-const CONFIG_LIST_DEST_FOLDER = '../pages/reference/supervisor/configuration-list/';
+const CONFIG_LIST_DEST_FOLDER =
+	'../pages/reference/supervisor/configuration-list/';
 
 Handlebars.registerHelper('isImage', function (str) {
-  if (typeof str !== 'string') return false;
-  // .trim() removes spaces, tabs, and newlines from the start/end
-  return str.trim().startsWith('<img');
+	if (typeof str !== 'string') return false;
+	// .trim() removes spaces, tabs, and newlines from the start/end
+	return str.trim().startsWith('<img');
 });
 
-const
-  balena = getSdk({
-    apiUrl: 'https://api.balena-cloud.com/',
-    dataDirectory: '/opt/local/balena',
-  });
+const balena = getSdk({
+	apiUrl: 'https://api.balena-cloud.com/',
+	dataDirectory: '/opt/local/balena',
+});
 
 const baseType = {
-  'png': 'png',
-  'jpg': 'jpg',
-  'jpeg': 'jpg',
-  'svg+xml': 'svg',
-  'svg': 'svg',
+	png: 'png',
+	jpg: 'jpg',
+	jpeg: 'jpg',
+	'svg+xml': 'svg',
+	svg: 'svg',
 };
 
 /**
  * Code modified from https://github.com/douzi8/base64-img/blob/master/base64-img.js
  */
 function img(data) {
-  const reg = /^data:image\/([\w+]+);base64,([\s\S]+)/;
-  const match = data.match(reg);
+	const reg = /^data:image\/([\w+]+);base64,([\s\S]+)/;
+	const match = data.match(reg);
 
-  if (!match) {
-    throw new Error('image base64 data error');
-  }
+	if (!match) {
+		throw new Error('image base64 data error');
+	}
 
-  const extname = baseType[match[1]] ? baseType[match[1]] : match[1];
+	const extname = baseType[match[1]] ? baseType[match[1]] : match[1];
 
-  return {
-    extname: '.' + extname,
-    base64: match[2],
-  };
+	return {
+		extname: '.' + extname,
+		base64: match[2],
+	};
 }
 
 /**
@@ -72,18 +73,21 @@ function img(data) {
  * @returns
  */
 const svgCreator = async function (data, name) {
-  const result = img(data);
-  const filePathContract = path.join(DEVICE_IMG_URL, name + result.extname);
-  const filePathActual = path.join(__dirname, DEVICE_IMG_PATH + 'dt-' + name + result.extname);
+	const result = img(data);
+	const filePathContract = path.join(DEVICE_IMG_URL, name + result.extname);
+	const filePathActual = path.join(
+		__dirname,
+		DEVICE_IMG_PATH + 'dt-' + name + result.extname,
+	);
 
-  await writeFile(filePathActual, result.base64, { encoding: 'base64' });
+	await writeFile(filePathActual, result.base64, { encoding: 'base64' });
 
-  // return path of the image for the contracts
-  return filePathContract
+	// return path of the image for the contracts
+	return filePathContract;
 };
 
-const etcherLinkInstruction = `[Etcher](https://etcher.balena.io/)`
-const sdCardInstruction = `Insert the freshly flashed SD card into`
+const etcherLinkInstruction = `[Etcher](https://etcher.balena.io/)`;
+const sdCardInstruction = `Insert the freshly flashed SD card into`;
 
 /**
  * Adds gifs and screenshots where needed in the provisioning instructions.
@@ -94,25 +98,37 @@ const sdCardInstruction = `Insert the freshly flashed SD card into`
  * @returns
  */
 function prepareInstructions(instructions) {
-  // Convert HTML to markdown 
-  // Create a markdown list of all instructions
-  // trying to bypass node-html- as gitbook should be able to interpret html
-  // instructions = instructions.map(instruction => `- ${NodeHtmlMarkdown.translate(instruction)}`)
+	// Convert HTML to markdown
+	// Create a markdown list of all instructions
+	// trying to bypass node-html- as gitbook should be able to interpret html
+	// instructions = instructions.map(instruction => `- ${NodeHtmlMarkdown.translate(instruction)}`)
 
-  // Add etcher flashing GIF to instructions
-  const etcherIndex = instructions.findIndex((instruction) => instruction.includes(etcherLinkInstruction))
-  // findIndex returns -1 as output when the element can't be found 
-  if (etcherIndex !== -1) {
-    instructions.splice(etcherIndex + 1, 0, `\n<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">\n`)
-  }
+	// Add etcher flashing GIF to instructions
+	const etcherIndex = instructions.findIndex((instruction) =>
+		instruction.includes(etcherLinkInstruction),
+	);
+	// findIndex returns -1 as output when the element can't be found
+	if (etcherIndex !== -1) {
+		instructions.splice(
+			etcherIndex + 1,
+			0,
+			`\n<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">\n`,
+		);
+	}
 
-  // Add SD card GIF to instructions
-  const sdCardIndex = instructions.findIndex((instruction) => instruction.includes(sdCardInstruction))
-  if (sdCardIndex !== -1) {
-    instructions.splice(sdCardIndex + 1, 0, `\n<img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">\n`)
-  }
+	// Add SD card GIF to instructions
+	const sdCardIndex = instructions.findIndex((instruction) =>
+		instruction.includes(sdCardInstruction),
+	);
+	if (sdCardIndex !== -1) {
+		instructions.splice(
+			sdCardIndex + 1,
+			0,
+			`\n<img src="../../.gitbook/assets/insert-sd.gif" alt="insert SD card">\n`,
+		);
+	}
 
-  return instructions
+	return instructions;
 }
 
 /**
@@ -121,43 +137,41 @@ function prepareInstructions(instructions) {
  * These contracts are used to populate dropdown present in
  */
 async function supportedDeviceTypeContract() {
-  const contracts = await balena.models.deviceType.getAllSupported({
-    $select: [
-      'contract',
-      'logo',
-    ],
-  })
+	const contracts = await balena.models.deviceType.getAllSupported({
+		$select: ['contract', 'logo'],
+	});
 
-  const deviceTypes = await Promise.all(
-    contracts.map(async (contract) => ({
-        id: contract.contract.slug,
-        name: contract.contract.name,
-        arch: contract.contract.data.arch,
-        // bootMedia: bootMediaDecider(contract.contract.data.media, contract.contract.data.flashProtocol),
-        icon: await svgCreator(contract.logo, contract.contract.slug),
-        // icon: base64Decorder(contract.logo),
-        instructions: prepareInstructions(await balena.models.deviceType.getInstructions(contract.contract.slug)),
-      }),
-    ),
-  );
+	const deviceTypes = await Promise.all(
+		contracts.map(async (contract) => ({
+			id: contract.contract.slug,
+			name: contract.contract.name,
+			arch: contract.contract.data.arch,
+			// bootMedia: bootMediaDecider(contract.contract.data.media, contract.contract.data.flashProtocol),
+			icon: await svgCreator(contract.logo, contract.contract.slug),
+			// icon: base64Decorder(contract.logo),
+			instructions: prepareInstructions(
+				await balena.models.deviceType.getInstructions(contract.contract.slug),
+			),
+		})),
+	);
 
-  console.log('✅ Fetched device type contracts');
+	console.log('✅ Fetched device type contracts');
 
-  return deviceTypes;
+	return deviceTypes;
 }
 
 const getLatestCLIVersion = async () => {
-  try {
-    const response = await fetch(CLI_LATEST_VERSION_URL);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
+	try {
+		const response = await fetch(CLI_LATEST_VERSION_URL);
+		if (!response.ok) {
+			throw new Error(`Response status: ${response.status}`);
+		}
 
-    const result = await response.json();
-    return result['tag_name'];
-  } catch (error) {
-    console.error(error.message);
-  }
+		const result = await response.json();
+		return result['tag_name'];
+	} catch (error) {
+		console.error(error.message);
+	}
 };
 
 /**
@@ -165,187 +179,242 @@ const getLatestCLIVersion = async () => {
  * @returns {Promise<void>}
  */
 const emptyDirectory = async (folder) => {
-  for (const file of await readdir(path.join(__dirname, folder))) {
-    if (file !== 'README.md') {
-      await unlink(path.join(path.join(__dirname, folder), file));
-    }
-  }
+	for (const file of await readdir(path.join(__dirname, folder))) {
+		if (file !== 'README.md') {
+			await unlink(path.join(path.join(__dirname, folder), file));
+		}
+	}
 };
 
 const generateGettingStartedGuides = async (deviceTypes) => {
-  const latestCLIVersion = await getLatestCLIVersion();
-  const tmpl = await readFile(path.join(__dirname, GUIDE_TEMPLATE_FILE_PATH));
-  const template = Handlebars.compile(tmpl.toString());
+	const latestCLIVersion = await getLatestCLIVersion();
+	const tmpl = await readFile(path.join(__dirname, GUIDE_TEMPLATE_FILE_PATH));
+	const template = Handlebars.compile(tmpl.toString());
 
-  // Empty Getting Started Guides Directory (except for the README file)
-  await emptyDirectory(GUIDES_DEST_FOLDER);
+	// Empty Getting Started Guides Directory (except for the README file)
+	await emptyDirectory(GUIDES_DEST_FOLDER);
 
-  await Promise.all(
-    deviceTypes.map(async (deviceType) => {
-      let whatYouNeedSection;
-      try {
-        const whatYouNeedMdFile = await readFile(path.join(__dirname, WHAT_YOU_NEED_TEMPLATE_PATH, `${deviceType['id']}.md`));
-        const whatYouNeedTemplate = Handlebars.compile(whatYouNeedMdFile.toString());
-        whatYouNeedSection = whatYouNeedTemplate({
-          $device: deviceType,
-        });
-      } catch (e) {
-        // not all devices have specific "what you'll need" sections, in that case the template falls back to default content
-      }
+	await Promise.all(
+		deviceTypes.map(async (deviceType) => {
+			let whatYouNeedSection;
+			try {
+				const whatYouNeedMdFile = await readFile(
+					path.join(
+						__dirname,
+						WHAT_YOU_NEED_TEMPLATE_PATH,
+						`${deviceType['id']}.md`,
+					),
+				);
+				const whatYouNeedTemplate = Handlebars.compile(
+					whatYouNeedMdFile.toString(),
+				);
+				whatYouNeedSection = whatYouNeedTemplate({
+					$device: deviceType,
+				});
+			} catch (e) {
+				// not all devices have specific "what you'll need" sections, in that case the template falls back to default content
+			}
 
-      const compiledTemplate = template({
-        $languages: LANGUAGES,
-        $device: deviceType,
-        $latestCLIVersion: latestCLIVersion,
-        $whatYouNeed: whatYouNeedSection,
-      });
-      await writeFile(path.join(__dirname, GUIDES_DEST_FOLDER, `${deviceType['id']}.md`), compiledTemplate);
-    }),
-  );
+			const compiledTemplate = template({
+				$languages: LANGUAGES,
+				$device: deviceType,
+				$latestCLIVersion: latestCLIVersion,
+				$whatYouNeed: whatYouNeedSection,
+			});
+			await writeFile(
+				path.join(__dirname, GUIDES_DEST_FOLDER, `${deviceType['id']}.md`),
+				compiledTemplate,
+			);
+		}),
+	);
 
-  console.log(`✅ Generated Getting Started guides in ${GUIDES_DEST_FOLDER}`);
+	console.log(`✅ Generated Getting Started guides in ${GUIDES_DEST_FOLDER}`);
 
-  // Update section in SUMMARY.md
-  await updateSummaryFile(
-    deviceTypes,
-    'Getting Started',
-    'learn/getting-started',
-    (deviceTypeName) => `Getting started with ${deviceTypeName}`,
-  );
-}
+	// Update section in SUMMARY.md
+	await updateSummaryFileWithItems(
+		deviceTypes,
+		'Getting Started',
+		'learn/getting-started',
+		(deviceTypeName) => `Getting started with ${deviceTypeName}`,
+	);
+};
 
 const generateTroubleshootingPages = async (deviceTypes) => {
-  const troubleshootingFile = await readFile(path.join(__dirname, TROUBLESHOOTING_TEMPLATE_PATH))
-  const template = Handlebars.compile(troubleshootingFile.toString());
-  
-  await emptyDirectory(TROUBLESHOOTING_DEST_FOLDER);
-  
-  await Promise.all(
-    deviceTypes.map(async (deviceType) => {
-      let deviceSpecificContent;
-      try {
-        const troubleshootingMdFile = await readFile(path.join(__dirname, TROUBLESHOOTING_TEMPLATE_DT_PATH, `${deviceType['id']}.md`));
-        const troubleshootingTemplate = Handlebars.compile(troubleshootingMdFile.toString());
-        deviceSpecificContent = troubleshootingTemplate({
-          $device: deviceType,
-        });
-      } catch (e) {
-        // not all devices have a specific troubleshooting page
-      }
-      const compiledTemplate = template({
-        $device: deviceType,
-        $deviceSpecificContent: deviceSpecificContent,
-      });
-      await writeFile(path.join(__dirname, TROUBLESHOOTING_DEST_FOLDER, `${deviceType['id']}.md`), compiledTemplate);
-    }),
-  );
+	const troubleshootingFile = await readFile(
+		path.join(__dirname, TROUBLESHOOTING_TEMPLATE_PATH),
+	);
+	const template = Handlebars.compile(troubleshootingFile.toString());
 
-  console.log(`✅ Generated Troubleshooting pages in ${TROUBLESHOOTING_DEST_FOLDER}`);
+	await emptyDirectory(TROUBLESHOOTING_DEST_FOLDER);
 
-  await updateSummaryFile(
-    deviceTypes,
-    'Troubleshooting',
-    'faq/troubleshooting',
-    (deviceTypeName) => `Troubleshooting information for ${deviceTypeName}`,
-  );
-}
+	await Promise.all(
+		deviceTypes.map(async (deviceType) => {
+			let deviceSpecificContent;
+			try {
+				const troubleshootingMdFile = await readFile(
+					path.join(
+						__dirname,
+						TROUBLESHOOTING_TEMPLATE_DT_PATH,
+						`${deviceType['id']}.md`,
+					),
+				);
+				const troubleshootingTemplate = Handlebars.compile(
+					troubleshootingMdFile.toString(),
+				);
+				deviceSpecificContent = troubleshootingTemplate({
+					$device: deviceType,
+				});
+			} catch (e) {
+				// not all devices have a specific troubleshooting page
+			}
+			const compiledTemplate = template({
+				$device: deviceType,
+				$deviceSpecificContent: deviceSpecificContent,
+			});
+			await writeFile(
+				path.join(
+					__dirname,
+					TROUBLESHOOTING_DEST_FOLDER,
+					`${deviceType['id']}.md`,
+				),
+				compiledTemplate,
+			);
+		}),
+	);
+
+	console.log(
+		`✅ Generated Troubleshooting pages in ${TROUBLESHOOTING_DEST_FOLDER}`,
+	);
+
+	await updateSummaryFileWithItems(
+		deviceTypes,
+		'Troubleshooting',
+		'faq/troubleshooting',
+		(deviceTypeName) => `Troubleshooting information for ${deviceTypeName}`,
+	);
+};
 
 const generateConfigListPages = async (deviceTypes) => {
-  await emptyDirectory(CONFIG_LIST_DEST_FOLDER);
-  
-  await Promise.all(
-    deviceTypes.map(async (deviceType) => {
-      const apiEndPoint = `https://api.balena-cloud.com/config/vars?deviceType=${deviceType.id}`;
-      const response = await fetch(apiEndPoint);
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
+	await emptyDirectory(CONFIG_LIST_DEST_FOLDER);
 
-      const result = await response.json();
+	await Promise.all(
+		deviceTypes.map(async (deviceType) => {
+			const apiEndPoint = `https://api.balena-cloud.com/config/vars?deviceType=${deviceType.id}`;
+			const response = await fetch(apiEndPoint);
+			if (!response.ok) {
+				throw new Error(`Response status: ${response.status}`);
+			}
 
-      const variables = [];
+			const result = await response.json();
 
-      // Construct the list of variables
-      Object.keys(result.configVarSchema.properties).forEach((key) => {
-        const variable = result.configVarSchema.properties[key];
-        variables.push({
-          name: key,
-          description: variable.hasOwnProperty('description') ? variable.description : 'No description available',
-          willReboot: variable.hasOwnProperty('will_reboot') && variable.will_reboot ? 'Yes' : 'No',
-          type: Array.isArray(variable.enum) ? variable.enum.join(', ') : variable.type,
-          default: variable.hasOwnProperty('default') ? variable.default : '',
-        })
-      });
+			const variables = [];
 
-      const tmpl = await readFile(path.join(__dirname, CONFIG_LIST_TEMPLATE_PATH));
-      const template = Handlebars.compile(tmpl.toString());
-      const compiledTemplate = template({
-        $variables: variables,
-      });
-      await writeFile(path.join(__dirname, CONFIG_LIST_DEST_FOLDER, `${deviceType.id}.md`), compiledTemplate);
-    }),
-  );
-  
-  console.log(`✅ Generated Device list in ${CONFIG_LIST_DEST_FOLDER}`);
+			// Construct the list of variables
+			Object.keys(result.configVarSchema.properties).forEach((key) => {
+				const variable = result.configVarSchema.properties[key];
+				variables.push({
+					name: key,
+					description: variable.hasOwnProperty('description')
+						? variable.description
+						: 'No description available',
+					willReboot:
+						variable.hasOwnProperty('will_reboot') && variable.will_reboot
+							? 'Yes'
+							: 'No',
+					type: Array.isArray(variable.enum)
+						? variable.enum.join(', ')
+						: variable.type,
+					default: variable.hasOwnProperty('default') ? variable.default : '',
+				});
+			});
 
-  await updateSummaryFile(
-    deviceTypes,
-    'Configuration List',
-    'reference/supervisor/configuration-list',
-    (deviceTypeName) => `Configuration List for ${deviceTypeName}`,
-  );
-}
+			const tmpl = await readFile(
+				path.join(__dirname, CONFIG_LIST_TEMPLATE_PATH),
+			);
+			const template = Handlebars.compile(tmpl.toString());
+			const compiledTemplate = template({
+				$variables: variables,
+			});
+			await writeFile(
+				path.join(__dirname, CONFIG_LIST_DEST_FOLDER, `${deviceType.id}.md`),
+				compiledTemplate,
+			);
+		}),
+	);
+
+	console.log(`✅ Generated Device list in ${CONFIG_LIST_DEST_FOLDER}`);
+
+	await updateSummaryFileWithItems(
+		deviceTypes,
+		'Configuration List',
+		'reference/supervisor/configuration-list',
+		(deviceTypeName) => `Configuration List for ${deviceTypeName}`,
+	);
+};
 
 const generateDeviceListPage = async (deviceTypes) => {
-  const tmpl = await readFile(path.join(__dirname, DEVICE_LIST_TEMPLATE_PATH));
-  const template = Handlebars.compile(tmpl.toString());
-  const compiledTemplate = template({
-    deviceTypes,
-  });
-  await writeFile(path.join(__dirname, DEVICE_LIST_DEST_FOLDER, 'devices.md'), compiledTemplate);
-  console.log(`✅ Generated Device list in ${DEVICE_LIST_DEST_FOLDER}devices.md`);
-}
+	const tmpl = await readFile(path.join(__dirname, DEVICE_LIST_TEMPLATE_PATH));
+	const template = Handlebars.compile(tmpl.toString());
+	const compiledTemplate = template({
+		deviceTypes,
+	});
+	await writeFile(
+		path.join(__dirname, DEVICE_LIST_DEST_FOLDER, 'devices.md'),
+		compiledTemplate,
+	);
+	console.log(
+		`✅ Generated Device list in ${DEVICE_LIST_DEST_FOLDER}devices.md`,
+	);
+};
 
 const generateESRSupportedDevicesPartial = async () => {
-  const response = await fetch('https://api.balena-cloud.com/v7/device_type?$select=name,slug,logo&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false)%20and%20(idfa/owns__release/any(r:(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false))))%20and(contains(idfa/app_name,%27-esr%27)))&$orderby=name%20asc');
-  if (!response.ok) {
-    throw new Error(`Response status: ${response.status}`);
-  }
+	const response = await fetch(
+		'https://api.balena-cloud.com/v7/device_type?$select=name,slug,logo&$expand=is_of__cpu_architecture($select=slug)&$filter=is_default_for__application/any(idfa:((idfa/is_host%20eq%20true)%20and%20(idfa/is_archived%20eq%20false)%20and%20(idfa/owns__release/any(r:(status%20eq%20%27success%27)%20and%20(is_final%20eq%20true)%20and%20(is_invalidated%20eq%20false))))%20and(contains(idfa/app_name,%27-esr%27)))&$orderby=name%20asc',
+	);
+	if (!response.ok) {
+		throw new Error(`Response status: ${response.status}`);
+	}
 
-  const deviceTypes = (await response.json())['d'];
+	const deviceTypes = (await response.json())['d'];
 
-  const tmpl = await readFile(path.join(__dirname, '../templates/device-list.md'));
-  const template = Handlebars.compile(tmpl.toString());
-  const compiledTemplate = template({
-    deviceTypes: deviceTypes.map((dt) => ({
-      id: dt.slug,
-      name: dt.name,
-      arch: dt.is_of__cpu_architecture[0].slug,
-    })),
-  });
-  await writeFile(path.join(__dirname, '../pages/.gitbook/includes/esr-supported-devices.md'), compiledTemplate);
-  console.log(`✅ Generated ESR Supported Devices partial in ${'../pages/.gitbook/includes/esr-supported-devices.md'}`);
-  
-}
+	const tmpl = await readFile(
+		path.join(__dirname, '../templates/device-list.md'),
+	);
+	const template = Handlebars.compile(tmpl.toString());
+	const compiledTemplate = template({
+		deviceTypes: deviceTypes.map((dt) => ({
+			id: dt.slug,
+			name: dt.name,
+			arch: dt.is_of__cpu_architecture[0].slug,
+		})),
+	});
+	await writeFile(
+		path.join(__dirname, '../pages/.gitbook/includes/esr-supported-devices.md'),
+		compiledTemplate,
+	);
+	console.log(
+		`✅ Generated ESR Supported Devices partial in ${'../pages/.gitbook/includes/esr-supported-devices.md'}`,
+	);
+};
 
 /**
  * This is where the script starts
  */
 (async () => {
-  const deviceTypes = await supportedDeviceTypeContract();
+	const deviceTypes = await supportedDeviceTypeContract();
 
-  // 1. Getting started guides
-  await generateGettingStartedGuides(deviceTypes);
+	// 1. Getting started guides
+	await generateGettingStartedGuides(deviceTypes);
 
-  // 2. Troubleshooting pages
-  await generateTroubleshootingPages(deviceTypes);
+	// 2. Troubleshooting pages
+	await generateTroubleshootingPages(deviceTypes);
 
-  // 3. Config list pages
-  await generateConfigListPages(deviceTypes);
+	// 3. Config list pages
+	await generateConfigListPages(deviceTypes);
 
-  // 4. Device type list page
-  await generateDeviceListPage(deviceTypes);
-  
-  // 5. ESR Supported Device Types partial
-  await generateESRSupportedDevicesPartial();
+	// 4. Device type list page
+	await generateDeviceListPage(deviceTypes);
+
+	// 5. ESR Supported Device Types partial
+	await generateESRSupportedDevicesPartial();
 })();

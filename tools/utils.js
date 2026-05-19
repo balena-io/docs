@@ -12,7 +12,7 @@ const SUMMARY_FILE_PATH = '../pages/SUMMARY.md';
  * @param pageTitle (deviceTypeName: string) => string
  * @returns {Promise<void>}
  */
-const updateSummaryFile = async (
+const updateSummaryFileWithItems = async (
 	items,
 	sectionTitle,
 	sectionPathWithoutTrailingSlash,
@@ -76,6 +76,75 @@ const updateSummaryFile = async (
 	console.log(`✅ Updated ${sectionTitle} Section in ${SUMMARY_FILE_PATH}`);
 };
 
+/**
+ * Find an item in the SUMMARY.md file and update it along with its children
+ *
+ * @param sectionContent
+ * @param sectionTitle
+ * @returns {Promise<void>}
+ */
+const updateSummaryFileWithSection = async (sectionContent, sectionTitle) => {
+	const summaryFileContent = await readFile(
+		path.join(__dirname, SUMMARY_FILE_PATH),
+		'utf8',
+	);
+	const lines = summaryFileContent.split('\n');
+
+	// 1. Find the index of the target item
+	const startIndex = lines.findIndex((line, index) =>
+		line.trim().startsWith(`* [${sectionTitle}]`),
+	);
+
+	if (startIndex === -1) {
+		console.error(`Could not find the ${sectionTitle} section in SUMMARY.md.`);
+		return;
+	}
+
+	// 2. Identify the indentation level of the parent
+	const parentIndent = lines[startIndex].match(/^\s*/)[0].length;
+
+	// 3. Find where the sub-items end
+	let endIndex = startIndex + 1;
+	while (endIndex < lines.length) {
+		const line = lines[endIndex];
+
+		// Skip empty lines
+		if (line.trim() === '') {
+			endIndex++;
+			continue;
+		}
+
+		const currentIndent = line.match(/^\s*/)[0].length;
+
+		// If we find a line with the same or less indentation, we've exited the sub-tree
+		if (currentIndent <= parentIndent) {
+			break;
+		}
+		endIndex++;
+	}
+
+	// 4. Insert indent before each line of the new content
+	const indent = ' '.repeat(parentIndent + 2);
+	const tmpl = sectionContent
+		.split('\n')
+		.filter((line) => line.trim() !== '')
+		.map((line) => indent + line)
+		.join('\n');
+
+	// 5. Replace the old range with the new template
+	lines.splice(startIndex + 1, endIndex - (startIndex + 1), tmpl);
+
+	const updatedContent = lines.join('\n');
+	await writeFile(
+		path.join(__dirname, SUMMARY_FILE_PATH),
+		updatedContent,
+		'utf8',
+	);
+
+	console.log(`✅ Updated ${sectionTitle} Section in ${SUMMARY_FILE_PATH}`);
+};
+
 module.exports = {
-	updateSummaryFile,
+	updateSummaryFileWithItems,
+	updateSummaryFileWithSection,
 };

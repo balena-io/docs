@@ -22,6 +22,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const { updateSummaryFileWithSection } = require('./utils');
+require('dotenv').config();
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const MANIFEST_PATH = path.join(ROOT_DIR, 'external-docs.json');
@@ -83,6 +85,135 @@ async function fetchContentFromGithub(
 	} catch (err) {
 		throw new Error(`Failed to parse response from ${url}: ${err.message}`);
 	}
+}
+
+// returns summary content for the files that were downloaded successfully
+async function downloadFolderFromGithub(repo, folderPath, ref, targetDir) {
+	// Get the recursive tree manifest
+	const treeUrl = `https://api.github.com/repos/${repo}/git/trees/${ref}?recursive=1`;
+
+	const response = await fetch(treeUrl, {
+		headers: {
+			Accept: 'application/vnd.github.v3+json',
+			...(GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {}),
+		},
+	});
+
+	if (!response.ok) {
+		throw new Error(`Manifest fetch failed: ${response.statusText}`);
+	}
+
+	// Grab only the array of files and folders
+	const { tree } = await response.json();
+
+	// Filter for the folder we need
+	const files = tree
+		.filter(
+			// blobs are files, trees are folders. Downloading a tree would just yield another json manifest. We will create the folders ourselves
+			(item) => item.path.startsWith(folderPath) && item.type === 'blob',
+		)
+		// Ensure introduction.md comes first within its directory, then sort alphabetically by filename, then by directory path
+		.sort((a, b) => {
+			const dirA = path.dirname(a.path);
+			const dirB = path.dirname(b.path);
+
+			// If the files are in the same directory, check for introduction.md
+			if (dirA === dirB) {
+				const nameA = path.basename(a.path).toLowerCase();
+				const nameB = path.basename(b.path).toLowerCase();
+
+				if (nameA === 'introduction.md') {
+					return -1;
+				}
+				if (nameB === 'introduction.md') {
+					return 1;
+				}
+
+				return nameA.localeCompare(nameB); // otherwise, alphabetical by filename
+			}
+
+			// These next lines are to blend folders and files together
+			// Otherwise, all files would be sorted before folders regardless of alphabetization
+			const segmentsA = a.path.split('/');
+			const segmentsB = b.path.split('/');
+
+			// Find the first path segment where they don't match
+			let i = 0;
+			while (
+				i < segmentsA.length &&
+				i < segmentsB.length &&
+				segmentsA[i] === segmentsB[i]
+			) {
+				i++;
+			}
+
+			// These are the diverging segments (could be a filename or a subfolder name)
+			let segA = segmentsA[i] || '';
+			let segB = segmentsB[i] || '';
+
+			// If one of these segments is an introduction file, force it to the top of this branch
+			if (segA.toLowerCase() === 'introduction.md') {
+				return -1;
+			}
+			if (segB.toLowerCase() === 'introduction.md') {
+				return 1;
+			}
+
+			// Strip extensions so that `.md` files are compared fairly against folders
+			segA = segA.replace(/\.md$/i, '').toLowerCase();
+			segB = segB.replace(/\.md$/i, '').toLowerCase();
+
+			return segA.localeCompare(segB);
+		});
+
+	if (files.length === 0) {
+		return '';
+	}
+
+	console.log(`Found ${files.length} files. Starting parallel sync...`);
+
+	let summaryContent = '';
+	for (const file of files) {
+		const rawUrl = `https://raw.githubusercontent.com/${repo}/${ref}/${file.path}`;
+		const destLatter = file.path.split(folderPath)[1];
+		const dest = path.join(targetDir, destLatter);
+		const dirName = path.dirname(dest);
+		const summaryPath = dest.split('pages/')[1];
+
+		try {
+			const content = await fetchContentFromGithub(rawUrl, {
+				auth: true,
+				json: false,
+			});
+
+			// Ensure folders exist and save the file
+			fs.mkdirSync(dirName, { recursive: true });
+			fs.writeFileSync(dest, content);
+
+			const readmePath = path.join(dirName, 'README.md');
+			const indentDepth = destLatter.split('/').length;
+			if (dirName !== targetDir && !fs.existsSync(readmePath)) {
+				const folderDisplayName =
+					path.basename(dirName).charAt(0).toUpperCase() +
+					path.basename(dirName).slice(1);
+				fs.writeFileSync(readmePath, `# ${folderDisplayName}`, 'utf-8');
+				summaryContent += `${'  '.repeat(indentDepth - 1)}* [${folderDisplayName}](${summaryPath
+					.split('/')
+					.slice(0, -1)
+					.join('/')}/README.md)\n`;
+			}
+			const fileDisplayName =
+				path.basename(dest, '.md').charAt(0).toUpperCase() +
+				path.basename(dest, '.md').slice(1);
+			summaryContent += `${'  '.repeat(indentDepth)}* [${fileDisplayName}](${summaryPath})\n`;
+
+			console.log(`Synced: ${file.path}`);
+		} catch (err) {
+			console.error(`Error syncing ${file.path}: ${err.message}`);
+		}
+	}
+
+	return summaryContent;
 }
 
 /**
@@ -216,7 +347,7 @@ function writeFile(targetPath, content, label = null) {
 }
 
 /**
- * Process a single versioned source
+ * Process a single source
  */
 async function processSource(source) {
 	console.log(`\n[${source.id}] Processing ${source.repo}@${source.ref}`);
@@ -440,13 +571,11 @@ async function processVersionedSources(manifest) {
 
 	console.log(`\nProcessing ${versionedSources.length} versioned source(s)...`);
 
-	const versionedData = {};
-
 	for (const source of versionedSources) {
+		let summaryContent = '';
 		console.log(
 			`\n[${source.id}] Processing versioned docs from ${source.repo}`,
 		);
-		versionedData[source.targetDir] = [];
 
 		// Fetch releases and determine versions to track
 		const releases = await fetchReleases(source.repo);
@@ -473,28 +602,51 @@ async function processVersionedSources(manifest) {
 		}
 
 		for (const version of versionsToTrack) {
-			const url = buildRawUrl(
-				source.repo,
-				`refs/tags/${version.tag}`,
-				source.file,
-			);
+			const pageTitle =
+				`${version.policy === 'latest' ? 'Latest' : version.tag} ${version.policy === 'deprecated' ? '(DEPRECATED)' : ''}`.trim();
+
+			const versionId = version.policy === 'latest' ? 'latest' : version.tag;
+			const targetPath = path.join(targetDir, `${versionId}.md`);
+
+			let file = source.file;
+
+			// Assume source.file is a folder if it ends with a slash
+			if (file.endsWith('/')) {
+				let downloadedSummaryContent = '';
+				try {
+					downloadedSummaryContent = await downloadFolderFromGithub(
+						source.repo,
+						file,
+						`refs/tags/${version.tag}`,
+						path.join(targetDir, versionId),
+					);
+				} catch (error) {
+					if (source.fallback === undefined) {
+						throw error;
+					}
+				}
+				if (downloadedSummaryContent.length > 0) {
+					fs.writeFileSync(
+						path.join(targetDir, versionId, 'README.md'),
+						`# ${pageTitle}`,
+						'utf-8',
+					);
+					summaryContent += `* [${pageTitle}](${source.targetDir.split('pages/')[1]}/${versionId}/README.md)\n`;
+					summaryContent += downloadedSummaryContent;
+					continue;
+				}
+				file = source.fallback;
+			}
+			const url = buildRawUrl(source.repo, `refs/tags/${version.tag}`, file);
 			console.log(`  Version: ${version.tag} (${version.policy})`);
 
 			try {
 				let content = await fetchContentFromGithub(url);
 				content = removeFirstLine(content);
-				const pageTitle =
-					`${version.policy === 'latest' ? 'Latest' : version.tag} ${version.policy === 'deprecated' ? '(DEPRECATED)' : ''}`.trim();
 				content =
 					`# ${pageTitle}\n\n${version.policy === 'latest' ? '## ' + version.tag + '\n\n' : ''}` +
 					content;
 
-				const versionId = version.policy === 'latest' ? 'latest' : version.tag;
-				const targetPath = path.join(targetDir, `${versionId}.md`);
-				versionedData[source.targetDir].push({
-					filePath: `${source.targetDir}/${versionId}.md`,
-					pageTitle,
-				});
 				if (DRY_RUN) {
 					console.log(
 						`  [DRY-RUN] Would write to: ${source.targetDir}/${versionId}.md (${content.length} bytes)`,
@@ -505,19 +657,20 @@ async function processVersionedSources(manifest) {
 						`  Written: ${source.targetDir}/${versionId}.md (${content.length} bytes)`,
 					);
 				}
-
-				// Build dictionary entry with display name based on policy
-				const policySuffix =
-					version.policy === 'supported' ? '' : ` ${version.policy}`;
-				dictionaryEntries.push({
-					id: versionId,
-					name: `${version.tag}${policySuffix}`,
-					version: version.tag,
-				});
+				summaryContent += `* [${pageTitle}](${source.targetDir.split('pages/')[1]}/${versionId}.md)\n`;
 			} catch (error) {
 				console.error(`  ERROR fetching ${version.tag}: ${error.message}`);
 				hasVersionedFailures = true;
 			}
+
+			// Build dictionary entry with display name based on policy
+			const policySuffix =
+				version.policy === 'supported' ? '' : ` ${version.policy}`;
+			dictionaryEntries.push({
+				id: versionId,
+				name: `${version.tag}${policySuffix}`,
+				version: version.tag,
+			});
 		}
 
 		// Write dictionary file
@@ -531,8 +684,11 @@ async function processVersionedSources(manifest) {
 				`${source.dictionary} (${dictionaryEntries.length} versions)`,
 			);
 		}
+		await updateSummaryFileWithSection(
+			summaryContent,
+			source.summarySectionTitle,
+		);
 	}
-	updateSummaryWithVersionedData(versionedData);
 }
 
 const isVersioned = (text) => {
@@ -543,168 +699,6 @@ const isVersioned = (text) => {
 	// check if it follows the pattern of 'latest' or semantic versioning (vX.Y.Z or X.Y.Z)
 	return filename === 'latest' || /^(v)?\d+\.\d+\.\d+/.test(filename);
 };
-
-/**
- * @param {Object} versionedData - Format: {
- * 'pages/external-docs/balena-cli': [{ filePath: 'pages/external-docs/balena-cli/latest.md', pageTitle: 'Latest' }],
- * ...
- * }
- */
-function updateSummaryWithVersionedData(versionedData) {
-	let summaryContent = fs.readFileSync(SUMMARY_PATH, 'utf8');
-	let lines = summaryContent.split('\n');
-
-	const findEndOfList = (parentIndex) => {
-		const parentIndentMatch = lines[parentIndex].match(/^(\s*)/);
-		const parentIndent = parentIndentMatch ? parentIndentMatch[0] : '';
-		let lastIndex = parentIndex;
-		for (let i = parentIndex + 1; i < lines.length; i++) {
-			const line = lines[i];
-			if (!line || line.trim() === '') continue;
-			const currentIndentMatch = line.match(/^(\s*)/);
-			const currentIndent = currentIndentMatch ? currentIndentMatch[0] : '';
-			if (currentIndent.length <= parentIndent.length && line.trim() !== '')
-				break;
-			lastIndex = i;
-		}
-		return lastIndex;
-	};
-
-	const entries = Object.entries(versionedData).sort(
-		(a, b) => a[0].length - b[0].length,
-	);
-
-	entries.forEach(([sourceDir, files]) => {
-		if (!files || files.length === 0) return;
-
-		// FIX 1: Strip 'pages/' from the start of the sourceDir for mapping
-		const cleanSourceDir = sourceDir.replace(/^pages\//, '');
-		const logicalPath = cleanSourceDir.replace('external-docs/', 'reference/');
-
-		// Anchor now looks for something like (reference/balena-cli/
-		const anchorUrl = `(${logicalPath}/`;
-		let startIndex = lines.findIndex((line) => line.includes(anchorUrl));
-
-		// 1. NESTING & SECTION APPEND
-		if (startIndex === -1) {
-			const pathParts = logicalPath.split('/');
-
-			// Find a parent folder and nest under it
-			if (pathParts.length > 2) {
-				const parentDirPath = pathParts.slice(0, -1).join('/');
-				const parentAnchor = `(${parentDirPath}/`;
-				let parentIndex = lines.findIndex((line) =>
-					line.includes(parentAnchor),
-				);
-
-				if (parentIndex !== -1) {
-					const lastLineOfParent = findEndOfList(parentIndex);
-					const parentIndent = lines[parentIndex].match(/^(\s*)/)[0];
-					const newChildIndent =
-						parentIndent + (parentIndent.includes('\t') ? '\t' : '  ');
-					const label = pathParts[pathParts.length - 1]
-						.replace(/-/g, ' ')
-						.replace(/\b\w/g, (l) => l.toUpperCase());
-
-					lines.splice(
-						lastLineOfParent + 1,
-						0,
-						`${newChildIndent}* [${label}](${logicalPath}/README.md)`,
-					);
-					startIndex = lastLineOfParent + 1;
-				}
-			}
-
-			// Find the "## Reference" header and put the link there
-			if (startIndex === -1) {
-				const sectionHeader = `## Reference`;
-				let headerIndex = lines.findIndex((l) =>
-					l.trim().startsWith(sectionHeader),
-				);
-
-				if (headerIndex !== -1) {
-					let insertAt = headerIndex + 1;
-					while (insertAt < lines.length) {
-						const line = lines[insertAt].trim();
-						if (line.startsWith('##')) break;
-						if (line.startsWith('*')) {
-							insertAt = findEndOfList(insertAt) + 1;
-							continue;
-						}
-						insertAt++;
-					}
-
-					while (
-						insertAt > headerIndex + 1 &&
-						(!lines[insertAt - 1] || lines[insertAt - 1].trim() === '')
-					) {
-						insertAt--;
-					}
-
-					const label = pathParts[pathParts.length - 1]
-						.replace(/-/g, ' ')
-						.replace(/\b\w/g, (l) => l.toUpperCase());
-					lines.splice(insertAt, 0, `* [${label}](${logicalPath}/README.md)`);
-					startIndex = insertAt;
-				}
-			}
-		}
-
-		if (startIndex === -1) return;
-
-		// 2. CHILD REPLACEMENT
-		const parentIndentMatch = lines[startIndex].match(/^(\s*)/);
-		const parentIndent = parentIndentMatch ? parentIndentMatch[0] : '';
-		const childIndent =
-			parentIndent + (parentIndent.includes('\t') ? '\t' : '  ');
-
-		let scanIndex = startIndex + 1;
-		let staticLines = [];
-
-		while (scanIndex < lines.length) {
-			const line = lines[scanIndex];
-			if (line && line.trim() === '') {
-				scanIndex++;
-				continue;
-			}
-			if (!line) break;
-
-			const currentIndentMatch = line.match(/^(\s*)/);
-			const currentIndent = currentIndentMatch ? currentIndentMatch[0] : '';
-
-			if (currentIndent.length <= parentIndent.length) break;
-
-			if (!isVersioned(line)) {
-				staticLines.push(line);
-			}
-			scanIndex++;
-		}
-
-		const versionLines = files
-			.filter((f) => isVersioned(f.filePath))
-			.sort((a, b) => {
-				const aName = path.basename(a.filePath).toLowerCase();
-				const bName = path.basename(b.filePath).toLowerCase();
-				if (aName.includes('latest')) return -1;
-				if (bName.includes('latest')) return 1;
-				return bName.localeCompare(aName, undefined, { numeric: true });
-			})
-			.map((fileObj) => {
-				// Strip 'pages/' from the link path as well
-				const cleanFilePath = fileObj.filePath.replace(/^pages\//, '');
-				return `${childIndent}* [${fileObj.pageTitle}](${cleanFilePath})`;
-			});
-
-		lines.splice(
-			startIndex + 1,
-			scanIndex - (startIndex + 1),
-			...staticLines,
-			...versionLines,
-		);
-	});
-
-	fs.writeFileSync(SUMMARY_PATH, lines.join('\n'));
-}
 
 /**
  * Print final status and exit
@@ -770,9 +764,9 @@ async function main() {
 			console.log(
 				`Processing ${matchingSources.length} pinned source(s) from ${REPO_FILTER}...`,
 			);
-			for (const source of matchingSources) {
-				await processSource(source);
-			}
+			// for (const source of matchingSources) {
+			// 	await processSource(source);
+			// }
 		}
 
 		if (matchingVersioned.length > 0) {
