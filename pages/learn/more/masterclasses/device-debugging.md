@@ -1,15 +1,13 @@
 # Balena Device Debugging Masterclass
 
-## Balena Device Debugging Masterclass
-
-### Prerequisite Classes
+## Prerequisite Classes
 
 This masterclass builds upon knowledge that has been taught in previous classes. To gain the most from this masterclass, we recommend that you first undertake the following masterclasses:
 
 * [Balena CLI Masterclass](../../../external-docs/masterclasses/cli-masterclass.md)
 * [BalenaOS Masterclass](../../../external-docs/masterclasses/host-os-masterclass.md)
 
-### Introduction
+## Introduction
 
 At balena, we believe the best people to support a customer are the engineers who build the product. They have the depth and breadth of knowledge that can quickly identify and track down issues that traditional support agents usually do not. Not only does this help a customer quickly and efficiently solve most issues, but it also immerses balena engineers in sections of the product they might not otherwise encounter in their usual working life, which further improves the support each engineer can offer. This masterclass has been written as an initial guide for new engineers about to start support duties.
 
@@ -32,7 +30,7 @@ Whilst this masterclass is intended for new engineers about to start support dut
 
 **Note:** The balena VPN service was renamed to cloudlink in 2022 in customer facing documentation.
 
-### Hardware and Software Requirements
+## Hardware and Software Requirements
 
 It is assumed that the reader has access to the following:
 
@@ -45,7 +43,7 @@ It is assumed that the reader has access to the following:
 * A familiarity with [Dockerfiles](https://docs.docker.com/engine/reference/builder/)
 * An installed instance of the [balena CLI](https://github.com/balena-io/balena-cli/)
 
-### Exercises
+## Exercises
 
 The following exercises assume access to a device that has been provisioned. As per the other masterclasses in this series we're going to assume that's a Raspberry Pi 4, however you can simply alter the device type as appropriate in the following instructions. The balena CLI is going to be used instead of the WebTerminal in the balenaCloud Dashboard for accessing the device, but all of the exercises could be completed using the WebTerminal if preferred.
 
@@ -107,17 +105,17 @@ $ cd $BALENA_DEBUGGING_MASTERCLASS/multicontainer-app
 $ balena push DebugFleet
 ```
 
-#### 1. Accessing a User Device
+## 1. Accessing a User Device
 
 {% include "../../../.gitbook/includes/access-device.md" %}
 
 See: [#granting-support-access-to-a-support-agent](../../accounts/support-access.md#granting-support-access-to-a-support-agent "mention")
 
-#### 2. Initial Diagnosis
+## 2. Initial Diagnosis
 
 The balenaCloud Dashboard includes the ability to run diagnostics on a device to determine its current condition. This should be the first step in attempting to diagnose an issue without having to actually access the device via SSH. Ensuring diagnostics and health checks are examined first ensures that you have a good idea of the state a device is in before SSHing into it, as well as ensuring that the information can be accessed later if required (should a device be in a catastrophic state). This helps significantly in a support post-mortem should one be required.
 
-**2.1 Device Health Checks**
+### 2.1 Device Health Checks
 
 To run health checks through balenaCloud dashboard, head to the `Diagnostics` tab in the sidebar and click the `Run checks` button to start the tests.
 
@@ -193,7 +191,7 @@ There are many other health checks that can immediately expose a problem. For ex
 
 Checkout the [Diagnostics page](../../../external-docs/diagnostics.md) for more information on tests you can run on the device.
 
-#### 3. Device Access Responsibilities
+## 3. Device Access Responsibilities
 
 When accessing a customer's device you have a number of responsibilities, both technically and ethically. A customer assumes that the support agent has a level of understanding and competence, and as such support agents should ensure that these levels are met successfully.
 
@@ -218,11 +216,11 @@ You can copy data from your local machine onto a device by piping the file in in
 ssh -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 22 ${USER}@ssh.balena-devices.com host -s ${UUID} 'cat > ${PATH_TO_FILE}' < ${LOCAL_PATH}
 ```
 
-#### 4. Accessing a Device using a Gateway Device
+## 4. Accessing a Device using a Gateway Device
 
 {% include "../../../.gitbook/includes/device-gateway.md" %}
 
-#### 5. Component Checklist
+## 5. Component Checklist
 
 The key to any support is context. As a support agent, you should have enough context from a customer to start an investigation. If you do not, then you should ask for as much context and detail about the device as you can before starting an investigation on the device.
 
@@ -230,43 +228,39 @@ When accessing a device, there are usually some things you can check to see why 
 
 The following sections discuss some of the first components to check when carrying out on-device support. The components that should be checked and in what order comes down to the context of support, and the symptoms seen.
 
-**5.1 Service Status and Journal Logs**
+### 5.1 Service Status and Journal Logs
 
 {% include "../../../.gitbook/includes/journal-logs.md" %}
 
-**5.2 Persistent Logs**
+### 5.2 Persistent Logs
 
 See the [Device Logs](../../manage/device-logs.md) docs to learn about persistent logging.
 
-#### 6. Determining Networking Issues
+## 6. Determining Networking Issues
 
 For determining networking issues, check out the [Network Debugging masterclass](network-masterclass.md).
 
-#### 7. Working with the `config.json` File
+## 7. Working with the `config.json` File
 
 See the docs on [Configuring balenaOS](../../../reference/os/configuration.md) to learn about working with the `config.json` file.
 
-#### 8. Working with the Supervisor
+## 8. Working with the Supervisor
 
 {% include "../../../.gitbook/includes/supervisor.md" %}
 
-#### 9. Working with balenaEngine
-
-{% include "../../../.gitbook/includes/engine.md" %}
-
-#### 10. Using the Kernel Logs
+## 9. Using the Kernel Logs
 
 {% include "../../../.gitbook/includes/kernel-logs.md" %}
 
-#### 11. Media Issues
+## 10. Media Issues
 
 See the [Storage Media Debugging](../../../faq/debugging-storage-media.md) docs for help with debugging media issues.
 
-#### 12. Device connectivity status
+## 11. Device connectivity status
 
 See the [Device Connectivity states](../../manage/device-statuses.md#device-connectivity-states) section of our [Device Statuses](../../manage/device-statuses.md) docs to learn about device connectivity statuses.
 
-### Conclusion
+## Conclusion
 
 In this masterclass, you've learned how to deal with balena devices as a support agent. You should now be confident enough to:
 
