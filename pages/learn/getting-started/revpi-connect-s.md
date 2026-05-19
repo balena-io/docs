@@ -97,19 +97,19 @@ Now that you have an `operational` device in your fleet, it's time to deploy som
 
 {% tabs %}
 {% tab title="OSX" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.1.0/balena-cli-v25.1.0-macOS-x64-installer.pkg).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.1.6/balena-cli-v25.1.6-macOS-x64-installer.pkg).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open the Terminal app ([Terminal User guide](https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac)).
 {% endtab %}
 
 {% tab title="Windows" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.1.0/balena-cli-v25.1.0-windows-x64-installer.exe).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.1.6/balena-cli-v25.1.6-windows-x64-installer.exe).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open a command prompt: Click on the Windows Start Menu, type PowerShell, and then click on Windows PowerShell.
 {% endtab %}
 
 {% tab title="Linux" %}
-1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/v25.1.0/balena-cli-v25.1.0-linux-x64-standalone.tar.gz).
+1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/v25.1.6/balena-cli-v25.1.6-linux-x64-standalone.tar.gz).
 2. Extract the contents of the tar.gz file to any folder you choose, for example `/home/james`. The extracted contents will include a `balena/bin` folder.
 3. Add that folder (e.g. `/home/james/balena/bin`) to the PATH environment variable. Check this [StackOverflow](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix) post for instructions. Close and re-open the terminal window so that the changes to PATH can take effect.
 {% endtab %}
