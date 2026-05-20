@@ -29,10 +29,6 @@
       "ref": "v17.8.2",
       "files": [
         {
-          "source": "docs/update-locking.md",
-          "target": "pages/external-docs/update-locking.md"
-        },
-        {
           "source": "docs/API.md",
           "target": "pages/external-docs/supervisor-api.md"
         },
