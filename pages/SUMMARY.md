@@ -222,7 +222,7 @@
   * [Configuring balenaOS](reference/os/configuration.md)
   * [Time management](reference/os/time.md)
   * [Advanced boot settings](reference/os/advanced.md)
-  * [Customer Board Support](external-docs/customer-board-support.md)
+  * [Customer Board Support](reference/os/customer-board-support.md)
   * [Secure Boot and Full Disk Encryption](reference/os/secure-boot-and-full-disk-encryption/README.md)
     * [Overview](reference/os/secure-boot-and-full-disk-encryption/overview.md)
     * [Setup guides](reference/os/secure-boot-and-full-disk-encryption/setup-guides/README.md)
