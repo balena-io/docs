@@ -20,10 +20,6 @@
         {
           "source": "docs/API.md",
           "target": "pages/external-docs/supervisor-api.md"
-        },
-        {
-          "source": "docs/debugging-supervisor.md",
-          "target": "pages/.gitbook/includes/supervisor.md"
         }
       ]
     },
