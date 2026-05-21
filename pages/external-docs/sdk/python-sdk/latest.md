@@ -1,7 +1,3 @@
-# Latest
-
-## v17.1.1
-
 
 Welcome to the balena python SDK documentation.
 This document aims to describe all the functions supported by the SDK, as well as
