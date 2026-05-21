@@ -45,10 +45,6 @@
           "target": "pages/external-docs/rollbacks.md"
         },
         {
-          "source": "contributing-device-support.md",
-          "target": "pages/external-docs/customer-board-support.md"
-        },
-        {
           "source": "docs/debugging-balenaos.md",
           "target": "pages/.gitbook/includes/journal-logs.md",
           "transform": {
