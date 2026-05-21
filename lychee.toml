@@ -115,7 +115,8 @@ exclude = [
     "https://api/",
     "https://raw.githubusercontent.com/balena-os/meta-balena/[^/]+/meta-balena-common/recipes-containers/balena-supervisor/balena-supervisor.inc",
     ".gitbook/assets/",
-    "https://admin.google.com/ac/apps/unified"
+    "https://admin.google.com/ac/apps/unified",
+    "https://repo.download.nvidia.com/jetson/*"
     ]
 
 # Exclude these filesystem paths from getting checked.
