@@ -652,7 +652,13 @@ async function processVersionedSources(manifest) {
 				);
 				file = source.fallback;
 			}
-			const url = buildRawUrl(source.repo, `refs/tags/${version.tag}`, file);
+			const url = buildRawUrl(
+				source.repo,
+				source.repo.includes('python')
+					? encodeURIComponent('clean-documentation-for-use-in-docs-site')
+					: `refs/tags/${version.tag}`,
+				file,
+			);
 			console.log(`  Version: ${version.tag} (${version.policy})`);
 
 			try {
