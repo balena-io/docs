@@ -137,7 +137,11 @@ services:
     network_mode: host
 ```
 
-Note that specifying a revision via `+rev_` is not supported in image URLs as the plus sign is considered a special character. Instead, we will default to pulling the latest revision when a release version is provided.
+{% hint style="info" icon="message-exclamation" %}
+Note the forward slash `/` instead of the colon `:`  syntax when specifying the version in the URL. [Learn more](https://github.com/balena-io/open-balena-registry-proxy#usage).
+{% endhint %}
+
+Specifying a revision via `+rev_` is not supported in image URLs as the plus sign is considered a special character. Instead, we will default to pulling the latest revision when a release version is provided.
 
 So if there are multiple revisions of a release, for example `2.3.8`, `2.3.8+rev1`, and `2.3.8+rev2`, specifying `2.3.8` in the image reference will result in `2.3.8+rev2` being pulled.
 
