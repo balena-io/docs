@@ -1,7 +1,3 @@
-# Latest
-
-## v25.1.6
-
 
 The balena CLI is a Command Line Interface for [balenaCloud](https://www.balena.io/cloud/) or
 [openBalena](https://www.balena.io/open/). It is a software tool available for Windows, macOS and

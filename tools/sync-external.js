@@ -614,8 +614,7 @@ async function processVersionedSources(manifest) {
 		}
 
 		for (const version of versionsToTrack) {
-			const pageTitle =
-				`${version.policy === 'latest' ? 'Latest' : version.tag} ${version.policy === 'deprecated' ? '(DEPRECATED)' : ''}`.trim();
+			const pageTitle = `${version.tag}${version.policy === 'latest' ? ' (latest)' : ''}${version.policy === 'deprecated' ? ' (DEPRECATED)' : ''}`;
 
 			const versionId = version.policy === 'latest' ? 'latest' : version.tag;
 			const targetPath = path.join(targetDir, `${versionId}.md`);
@@ -659,9 +658,6 @@ async function processVersionedSources(manifest) {
 			try {
 				let content = await fetchContentFromGithub(url);
 				content = removeFirstLine(content);
-				content =
-					`# ${pageTitle}\n\n${version.policy === 'latest' ? '## ' + version.tag + '\n\n' : ''}` +
-					content;
 
 				if (DRY_RUN) {
 					console.log(

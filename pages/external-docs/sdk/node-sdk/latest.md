@@ -1,7 +1,3 @@
-# Latest
-
-## v23.2.0
-
 
 ## Installation
 
