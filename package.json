@@ -28,7 +28,7 @@
   "homepage": "https://github.com/balena-io/docs",
   "devDependencies": {
     "balena-sdk": "23.2.0",
-    "dotenv": "^17.4.2",
+    "dotenv": "17.4.2",
     "handlebars": "4.7.9",
     "husky": "9.1.7",
     "js-yaml": "4.1.1",
