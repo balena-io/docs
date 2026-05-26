@@ -90,7 +90,7 @@ async function fetchContentFromGithub(
 // returns summary content for the files that were downloaded successfully
 async function downloadFolderFromGithub(repo, folderPath, ref, targetDir) {
 	// Get the recursive tree manifest
-	const treeUrl = `https://api.github.com/repos/${repo}/git/trees/${ref}?recursive=1`;
+	const treeUrl = `https://api.github.com/repos/${repo}/git/trees/${encodeURIComponent('wikify-docs')}?recursive=1`;
 
 	const response = await fetch(treeUrl, {
 		headers: {
@@ -174,7 +174,7 @@ async function downloadFolderFromGithub(repo, folderPath, ref, targetDir) {
 
 	let summaryContent = '';
 	for (const file of files) {
-		const rawUrl = `https://raw.githubusercontent.com/${repo}/${ref}/${file.path}`;
+		const rawUrl = `https://raw.githubusercontent.com/${repo}/${encodeURIComponent('wikify-docs')}/${file.path}`;
 		// These looks like `pages/foo/bar/fizz.md. They are the path within the repo but not the full path in the local directory
 		const destLatter = file.path.split(folderPath)[1];
 		// This is the full local path, i.e. `/home/wsl/repos/docs/pages/foo/bar/fizz.md`
