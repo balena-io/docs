@@ -57,27 +57,6 @@
           }
         }
       ]
-    },
-    {
-      "id": "balena-sdk",
-      "repo": "balena-io/balena-sdk",
-      "ref": "v23.2.0",
-      "files": [
-        {
-          "source": "README.md",
-          "target": "pages/external-docs/deprecation-policy.md",
-          "transform": [
-            {
-              "type": "extract-section",
-              "section": "Deprecation policy"
-            },
-            {
-              "type": "prepend",
-              "content": "# Balena SDK deprecation policy\n\n"
-            }
-          ]
-        }
-      ]
     }
   ],
   "versionedSources": [
