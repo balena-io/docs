@@ -165,7 +165,7 @@ $ rm ${config}
 Offline updates revolve around the concept of [balena preload](../../external-docs/balena-cli/latest.md#preload). Preload is used to flash the balenaOS image and your fleet release in a single step, so the device starts running your release's containers as soon as it boots. Preloading removes the need for your devices to download the initial images directly from balena's build servers, making it an ideal base for the offline update process. Read more about [preloading a device image](../../external-docs/masterclasses/advanced-cli.md#id-5.1-preloading-a-device-image).
 
 {% hint style="info" %}
-[balena preload](../../external-docs/balena-cli/latest.md#preload) functionality requires Docker with AUFS support.
+[balena preload](../../external-docs/balena-cli/latest.md#preload) functionality is not available with a secure boot OS image. Read more about [why application preloading is not supported in this case](../../reference/os/secure-boot-and-full-disk-encryption/overview.md#application-preloading-not-supported).
 {% endhint %}
 
 Preload involves flashing a fleet's release with the balenaOS image. If the pre-existing fleet doesn't have any releases, then a release needs to be created using [`balena deploy`](deployment.md#balena-build-and-deploy). Navigate to the directory of your source code folder and run the command below to deploy the latest release of your fleet. If a release is present already, then the next step can be skipped.

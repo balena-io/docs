@@ -137,6 +137,10 @@ We strongly recommend following security best practices to ensure a robust secur
 
 All the kernel modules need to be signed with a trusted key. At this moments we only sign the module at build time so only the out-of-tree modules that we build and ship as a part of balenaOS are properly signed. Loading user-built kernel modules requires building custom software and is an extra service available on demand. Contact [sales@balena.io](mailto:sales@balena.io) to discuss further.
 
+### Application preloading not supported
+
+Preloading the fleet application on to the image is not permitted for security reasons. The OS installation tool verifies the hash of the OS image to prevent installation of a tampered image. Since preloading in effect adds the application to the OS image, the hash verification would fail.
+
 ### Debugging
 
 It is important to understand that due to the nature of the feature, not all debugging procedures are available. Some of the more common ones are:

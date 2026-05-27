@@ -17,7 +17,7 @@ Before diving into how to provision a device with secure boot and full disk encr
 * Only system partitions are encrypted. Any extra storages are not encrypted.
 * OS images are signed images and balena manages a secure signing server. We currently use a single key for the platform and consequently we can never provide the key to end users. You can read further on [how we handle keys](../#keys-and-certificates-in-secure-boot).
 * It is not possible to configure GRUB or kernel parameters
-* There are [other trade-offs](../#other-considerations) pertaining to debugging and system configuration.
+* There are [other trade-offs](../overview.md#other-considerations) pertaining to debugging and system configuration.
 
 ## System requirements
 
