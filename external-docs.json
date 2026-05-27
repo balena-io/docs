@@ -39,22 +39,6 @@
         {
           "source": "docs/rollbacks.md",
           "target": "pages/external-docs/rollbacks.md"
-        },
-        {
-          "source": "docs/debugging-balenaos.md",
-          "target": "pages/.gitbook/includes/journal-logs.md",
-          "transform": {
-            "type": "extract-section",
-            "section": "Journal Logs"
-          }
-        },
-        {
-          "source": "docs/debugging-balenaos.md",
-          "target": "pages/.gitbook/includes/kernel-logs.md",
-          "transform": {
-            "type": "extract-section",
-            "section": "Using the Kernel Logs"
-          }
         }
       ]
     }
