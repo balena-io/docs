@@ -42,8 +42,8 @@ will allow anybody to develop balena apps and services.
 It is assumed that the reader has access to the following:
 
 * A locally cloned copy of this repository,
-	[Docker Masterclass](https://github.com/balena-io/docker-masterclass).
-	Either:
+    [Docker Masterclass](https://github.com/balena-io/docker-masterclass).
+    Either:
   * `git clone https://github.com/balena-io/docker-masterclass.git`
   * Download ZIP file (from 'Clone or download'->'Download ZIP') and then unzip it to a suitable directory
 * A suitable text editor for developing code on your development platform (eg.
