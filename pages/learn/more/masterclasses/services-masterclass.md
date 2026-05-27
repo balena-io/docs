@@ -36,14 +36,14 @@ In this masterclass, you will learn how to:
 It is assumed that the reader has access to the following:
 
 * A locally cloned copy of this repository
-	[Balena Services Masterclass](https://github.com/balena-io/services-masterclass).
-	Either:
+    [Balena Services Masterclass](https://github.com/balena-io/services-masterclass).
+    Either:
   * `git clone https://github.com/balena-io/services-masterclass.git`
   * Download ZIP file (from 'Clone or download'->'Download ZIP') and then unzip it to a suitable directory
 * A balena-supported device, such as a [balenaFin 1.1](https://balena.io/fin),
-	[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
-	or [Intel NUC](https://www.intel.co.uk/content/www/uk/en/products/boards-kits/nuc.html). If you don't have a device, you can emulate an Intel NUC by
-	installing VirtualBox and following [this guide](https://www.balena.io/blog/no-hardware-use-virtualbox/)
+    [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+    or [Intel NUC](https://www.intel.co.uk/content/www/uk/en/products/boards-kits/nuc.html). If you don't have a device, you can emulate an Intel NUC by
+    installing VirtualBox and following [this guide](https://www.balena.io/blog/no-hardware-use-virtualbox/)
 * A suitable text editor for developing code on your development platform (e.g.
     [Visual Code](https://code.visualstudio.com/))
 * A suitable shell environment for command execution (such as `bash`)
@@ -212,29 +212,29 @@ $ balena push SingleService
 [Info]     │ main    │ 128.10 MB  │ < 1 second │
 [Info]     └─────────┴────────────┴────────────┘
 [Info]     Build finished in 15 seconds
-			    \
-			     \
-			      \\
-			       \\
-			        >\/7
-			    _.-(6'  \
-			   (=___._/` \
-			        )  \ |
-			       /   / |
-			      /    > /
-			     j    < _\
-			 _.-' :      ``.
-			 \ r=._\        `.
-			<`\\_  \         .`-.
-			 \ r-7  `-. ._  ' .  `\
-			  \`,      `-.`7  7)   )
-			   \/         \|  \'  / `-._
-			              ||    .'
-			               \\  (
-			                >\  >
-			            ,.-' >.'
-			           <.'_.''
-			             <'
+                \
+                 \
+                  \\
+                   \\
+                    >\/7
+                _.-(6'  \
+               (=___._/` \
+                    )  \ |
+                   /   / |
+                  /    > /
+                 j    < _\
+             _.-' :      ``.
+             \ r=._\        `.
+            <`\\_  \         .`-.
+             \ r-7  `-. ._  ' .  `\
+              \`,      `-.`7  7)   )
+               \/         \|  \'  / `-._
+                          ||    .'
+                           \\  (
+                            >\  >
+                        ,.-' >.'
+                       <.'_.''
+                         <'
 ```
 
 This will build and deploy the fleet service to your provisioned device.
@@ -313,29 +313,29 @@ $ balena push SingleService
 [Info]     │ main    │ 128.10 MB  │ < 1 second │
 [Info]     └─────────┴────────────┴────────────┘
 [Info]     Build finished in 15 seconds
-			    \
-			     \
-			      \\
-			       \\
-			        >\/7
-			    _.-(6'  \
-			   (=___._/` \
-			        )  \ |
-			       /   / |
-			      /    > /
-			     j    < _\
-			 _.-' :      ``.
-			 \ r=._\        `.
-			<`\\_  \         .`-.
-			 \ r-7  `-. ._  ' .  `\
-			  \`,      `-.`7  7)   )
-			   \/         \|  \'  / `-._
-			              ||    .'
-			               \\  (
-			                >\  >
-			            ,.-' >.'
-			           <.'_.''
-			             <'
+                \
+                 \
+                  \\
+                   \\
+                    >\/7
+                _.-(6'  \
+               (=___._/` \
+                    )  \ |
+                   /   / |
+                  /    > /
+                 j    < _\
+             _.-' :      ``.
+             \ r=._\        `.
+            <`\\_  \         .`-.
+             \ r-7  `-. ._  ' .  `\
+              \`,      `-.`7  7)   )
+               \/         \|  \'  / `-._
+                          ||    .'
+                           \\  (
+                            >\  >
+                        ,.-' >.'
+                       <.'_.''
+                         <'
 ```
 
 You'll now see the logs update to:
@@ -466,29 +466,29 @@ $ balena push MulticontainerServices
 [Info]      │ frontend │ 216.32 MB  │ 8 seconds  │
 [Info]      └──────────┴────────────┴────────────┘
 [Info]      Build finished in 30 seconds
-			    \
-			     \
-			      \\
-			       \\
-			        >\/7
-			    _.-(6'  \
-			   (=___._/` \
-			        )  \ |
-			       /   / |
-			      /    > /
-			     j    < _\
-			 _.-' :      ``.
-			 \ r=._\        `.
-			<`\\_  \         .`-.
-			 \ r-7  `-. ._  ' .  `\
-			  \`,      `-.`7  7)   )
-			   \/         \|  \'  / `-._
-			              ||    .'
-			               \\  (
-			                >\  >
-			            ,.-' >.'
-			           <.'_.''
-			             <'
+                \
+                 \
+                  \\
+                   \\
+                    >\/7
+                _.-(6'  \
+               (=___._/` \
+                    )  \ |
+                   /   / |
+                  /    > /
+                 j    < _\
+             _.-' :      ``.
+             \ r=._\        `.
+            <`\\_  \         .`-.
+             \ r-7  `-. ._  ' .  `\
+              \`,      `-.`7  7)   )
+               \/         \|  \'  / `-._
+                          ||    .'
+                           \\  (
+                            >\  >
+                        ,.-' >.'
+                       <.'_.''
+                         <'
 ```
 
 This will create an fleet with a single service that acts as a frontend,
@@ -925,29 +925,29 @@ balena push systemd --nocache
 [Info]     │ printer │ 228.02 MB  │ 20 seconds │
 [Info]     └─────────┴────────────┴────────────┘
 [Info]     Build finished in 37 seconds
-			    \
-			     \
-			      \\
-			       \\
-			        >\/7
-			    _.-(6'  \
-			   (=___._/` \
-			        )  \ |
-			       /   / |
-			      /    > /
-			     j    < _\
-			 _.-' :      ``.
-			 \ r=._\        `.
-			<`\\_  \         .`-.
-			 \ r-7  `-. ._  ' .  `\
-			  \`,      `-.`7  7)   )
-			   \/         \|  \'  / `-._
-			              ||    .'
-			               \\  (
-			                >\  >
-			            ,.-' >.'
-			           <.'_.''
-			             <'
+                \
+                 \
+                  \\
+                   \\
+                    >\/7
+                _.-(6'  \
+               (=___._/` \
+                    )  \ |
+                   /   / |
+                  /    > /
+                 j    < _\
+             _.-' :      ``.
+             \ r=._\        `.
+            <`\\_  \         .`-.
+             \ r-7  `-. ._  ' .  `\
+              \`,      `-.`7  7)   )
+               \/         \|  \'  / `-._
+                          ||    .'
+                           \\  (
+                            >\  >
+                        ,.-' >.'
+                       <.'_.''
+                         <'
 ```
 
 We've cut down the build log a bit, to make it shorter. Wait for the project
@@ -1021,7 +1021,7 @@ definition to run it non-privileged.
 Change the `printer` service definition to the following:
 
 ```yaml
-	printer:
+    printer:
     build: ./printer
     cap_add:
       - SYS_RESOURCE
@@ -1083,29 +1083,29 @@ $ balena push systemd
 [Info]     │ printer │ 228.02 MB  │ < 1 second │
 [Info]     └─────────┴────────────┴────────────┘
 [Info]     Build finished in 17 seconds
-			    \
-			     \
-			      \\
-			       \\
-			        >\/7
-			    _.-(6'  \
-			   (=___._/` \
-			        )  \ |
-			       /   / |
-			      /    > /
-			     j    < _\
-			 _.-' :      ``.
-			 \ r=._\        `.
-			<`\\_  \         .`-.
-			 \ r-7  `-. ._  ' .  `\
-			  \`,      `-.`7  7)   )
-			   \/         \|  \'  / `-._
-			              ||    .'
-			               \\  (
-			                >\  >
-			            ,.-' >.'
-			           <.'_.''
-			             <'
+                \
+                 \
+                  \\
+                   \\
+                    >\/7
+                _.-(6'  \
+               (=___._/` \
+                    )  \ |
+                   /   / |
+                  /    > /
+                 j    < _\
+             _.-' :      ``.
+             \ r=._\        `.
+            <`\\_  \         .`-.
+             \ r-7  `-. ._  ' .  `\
+              \`,      `-.`7  7)   )
+               \/         \|  \'  / `-._
+                          ||    .'
+                           \\  (
+                            >\  >
+                        ,.-' >.'
+                       <.'_.''
+                         <'
 ```
 
 A quick SSH into the `printer` service will show that `systemd` is still running
@@ -1533,29 +1533,29 @@ $ balena push Multistage
 [Info]     │ main    │ 275.19 MB  │ 34 seconds │
 [Info]     └─────────┴────────────┴────────────┘
 [Info]     Build finished in 1 minute, 6 seconds
-			    \
-			     \
-			      \\
-			       \\
-			        >\/7
-			    _.-(6'  \
-			   (=___._/` \
-			        )  \ |
-			       /   / |
-			      /    > /
-			     j    < _\
-			 _.-' :      ``.
-			 \ r=._\        `.
-			<`\\_  \         .`-.
-			 \ r-7  `-. ._  ' .  `\
-			  \`,      `-.`7  7)   )
-			   \/         \|  \'  / `-._
-			              ||    .'
-			               \\  (
-			                >\  >
-			            ,.-' >.'
-			           <.'_.''
-			             <'
+                \
+                 \
+                  \\
+                   \\
+                    >\/7
+                _.-(6'  \
+               (=___._/` \
+                    )  \ |
+                   /   / |
+                  /    > /
+                 j    < _\
+             _.-' :      ``.
+             \ r=._\        `.
+            <`\\_  \         .`-.
+             \ r-7  `-. ._  ' .  `\
+              \`,      `-.`7  7)   )
+               \/         \|  \'  / `-._
+                          ||    .'
+                           \\  (
+                            >\  >
+                        ,.-' >.'
+                       <.'_.''
+                         <'
 ```
 
 As you can see, a *lot* of dependencies were installed to be able to build
@@ -1669,29 +1669,29 @@ $ balena push Multistage
 [Info]     │ main    │ 38.07 MB   │ 2 seconds  │
 [Info]     └─────────┴────────────┴────────────┘
 [Info]     Build finished in 24 seconds
-			    \
-			     \
-			      \\
-			       \\
-			        >\/7
-			    _.-(6'  \
-			   (=___._/` \
-			        )  \ |
-			       /   / |
-			      /    > /
-			     j    < _\
-			 _.-' :      ``.
-			 \ r=._\        `.
-			<`\\_  \         .`-.
-			 \ r-7  `-. ._  ' .  `\
-			  \`,      `-.`7  7)   )
-			   \/         \|  \'  / `-._
-			              ||    .'
-			               \\  (
-			                >\  >
-			            ,.-' >.'
-			           <.'_.''
-			             <'
+                \
+                 \
+                  \\
+                   \\
+                    >\/7
+                _.-(6'  \
+               (=___._/` \
+                    )  \ |
+                   /   / |
+                  /    > /
+                 j    < _\
+             _.-' :      ``.
+             \ r=._\        `.
+            <`\\_  \         .`-.
+             \ r-7  `-. ._  ' .  `\
+              \`,      `-.`7  7)   )
+               \/         \|  \'  / `-._
+                          ||    .'
+                           \\  (
+                            >\  >
+                        ,.-' >.'
+                       <.'_.''
+                         <'
 ```
 
 Even though we've changed the initial `FROM` line, you can see that as it's
