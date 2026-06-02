@@ -343,7 +343,7 @@
   * [v22.5.5](external-docs/balena-cli/v22.5.5.md)
 * [SDK](reference/sdk/README.md)
   * [Node SDK](reference/sdk/node-sdk/README.md)
-    * [v23.2.0 (latest)](external-docs/sdk/node-sdk/latest.md)
+    * [v23.2.1 (latest)](external-docs/sdk/node-sdk/latest.md)
     * [v22.4.9](external-docs/sdk/node-sdk/v22.4.9.md)
     * [v21.7.4](external-docs/sdk/node-sdk/v21.7.4.md)
     * [v20.9.1 (DEPRECATED)](external-docs/sdk/node-sdk/v20.9.1.md)
