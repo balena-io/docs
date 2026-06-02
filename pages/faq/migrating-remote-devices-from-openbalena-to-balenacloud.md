@@ -17,7 +17,7 @@ You can obtain the `config.json` for your target fleet in two ways:
 
 * Using the Dashboard: Navigate to your target fleet in the balenaCloud dashboard and click the Add device button. In the modal, configure your desired network settings, open the dropdown menu next to the "Flash" button, and select Download configuration file only.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/download_configuration_only.png" alt=""><figcaption></figcaption></figure>
 
 * Using the CLI: Alternatively, you can generate this file using the balenaCLI via the `balena os configure` command.
 
