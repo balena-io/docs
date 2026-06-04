@@ -7,7 +7,36 @@ excerpt: Manage the fleet and device release policy
 
 When managing a fleet, you may require devices to be running different releases. By default, fleets follow a rolling release policy where new releases are deployed to all devices in the fleet once successfully built. However, you can customize this behavior, so the fleet or individual devices remain on a fixed release, by utilizing release pinning.
 
-You may define the fleet and device release policies via the [balenaCloud dashboard](https://dashboard.balena-cloud.com/) or programmatically through the [API](../../../reference/api/overview.md), [SDKs](../../../external-docs/sdk/node-sdk/latest.md), or [CLI](../../../external-docs/balena-cli/latest.md).
+You may define the fleet and device release policies via the [balenaCloud dashboard](https://dashboard.balena-cloud.com/). We also offer the ability to do so programmatically via the:
+
+{% tabs %}
+{% tab title="API" %}
+* [Pin a Fleet/Block/App to a release](../../../reference/api/resources/fleet.md#pin-entire-fleet-to-a-specific-release-by-id)
+* [Make a Fleet/Block/App track the latest release](../../../reference/api/resources/fleet.md#enable-automatic-update-tracking-for-a-fleet)
+* [Pin a Device to a releas](../../../reference/api/resources/device.md#pin-device-to-a-specific-release-by-id)
+{% endtab %}
+
+{% tab title="Node SDK" %}
+* [Pin a Fleet/Block/App to a release](../../../external-docs/sdk/node-sdk/latest/models/application.md#pintorelease)
+* [Make a Fleet/Block/App track the latest release](../../../external-docs/sdk/node-sdk/latest/models/application.md#tracklatestrelease)
+* [Pin a Device to a release](../../../external-docs/sdk/node-sdk/latest/models/device.md#pintorelease)
+* [Make a Device track the fleet's release policy](../../../external-docs/sdk/node-sdk/latest/models/device.md#trackapplicationrelease)
+{% endtab %}
+
+{% tab title="Python SDK" %}
+* [Pin a Fleet/Block/App to a release](../../../external-docs/sdk/python-sdk/latest.md#pin_to_release)
+* [Make a Fleet/Block/App track the latest release](../../../external-docs/sdk/python-sdk/latest.md#track_latest_release)
+* [Pin a Device to a release](../../../external-docs/sdk/python-sdk/latest.md#pin_to_release-1)
+* [Make a Device track the fleet's release policy](../../../external-docs/sdk/python-sdk/latest.md#track_application_release)
+{% endtab %}
+
+{% tab title="CLI" %}
+* [Pin a Fleet/Block/App to a release](../../../external-docs/balena-cli/latest.md#fleet-pin)
+* [Make a Fleet/Block/App track the latest release](../../../external-docs/balena-cli/latest.md#fleet-track-latest)
+* [Pin a Device to a release](../../../external-docs/balena-cli/latest.md#device-pin)
+* [Make a Device track the fleet's release policy](../../../external-docs/balena-cli/latest.md#device-track-fleet)
+{% endtab %}
+{% endtabs %}
 
 ## Pin fleet to a release
 

@@ -20,7 +20,7 @@ To add a password to an account created with a social login (Google, Github), na
 
 ## Access tokens
 
-Access tokens are used for authentication in the balena [API](../../reference/api/overview.md), [CLI](../../external-docs/balena-cli/latest.md), and [Node.js](../../external-docs/sdk/node-sdk/latest.md) and [Python](../../external-docs/sdk/python-sdk/latest.md) SDKs. They are managed in the _Access tokens_ tab of the [_Preferences_](https://dashboard.balena-cloud.com/preferences?tab=details) page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
+Access tokens are used for authentication in the balena [API](../../reference/api/overview.md), [CLI](../../external-docs/balena-cli/latest.md), and [Node.js](../../external-docs/sdk/node-sdk/latest/introduction.md) and [Python](../../external-docs/sdk/python-sdk/latest.md) SDKs. They are managed in the _Access tokens_ tab of the [_Preferences_](https://dashboard.balena-cloud.com/preferences?tab=details) page, which can be found via the dropdown menu in the upper-right corner of the dashboard:
 
 <figure><img src="../../.gitbook/assets/access_tokens.webp" alt=""><figcaption></figcaption></figure>
 
@@ -56,7 +56,7 @@ To revoke one or more API keys, select the boxes to the left of the tokens you w
 
 <figure><img src="../../.gitbook/assets/api_key_delete.webp" alt=""><figcaption></figcaption></figure>
 
-API keys can also be generated using the API, [CLI](../../external-docs/balena-cli/latest.md#api-key-generate), and [Node.js](../../external-docs/sdk/node-sdk/latest.md#models.apikey-object) and [Python](../../external-docs/sdk/python-sdk/latest.md#apikey) SDKs.
+API keys can also be generated using the API, [CLI](../../external-docs/balena-cli/latest.md#api-key-generate), and [Node.js](../../external-docs/sdk/node-sdk/latest/models/apiKey.md) and [Python](../../external-docs/sdk/python-sdk/latest.md#apikey) SDKs.
 
 ## Fleet members
 

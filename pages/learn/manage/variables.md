@@ -71,6 +71,18 @@ Changing a variable defined only for a specific service will only restart the af
 
 The balena CLI and SDKs all include methods to easily read, add or update variables. Consult the appropriate reference for code examples.
 
-* [CLI environment reference](../../external-docs/balena-cli/latest.md#env-list)
-* [Node.js SDK environment reference](../../external-docs/sdk/node-sdk/latest.md#balena.models-object)
-* [Python SDK environment reference](../../external-docs/sdk/python-sdk/latest.md)
+{% tabs %}
+{% tab title="Node SDK" %}
+* [Fleet environment reference](../../external-docs/sdk/node-sdk/latest/models/application.md#envvar)
+* [Device environment reference](../../external-docs/sdk/node-sdk/latest/models/device.md#envvar)
+{% endtab %}
+
+{% tab title="Python SDK" %}
+* [Fleet environment reference](../../external-docs/sdk/python-sdk/latest.md#applicationenvvariable)
+* [Device environment reference](../../external-docs/sdk/python-sdk/latest.md#deviceenvvariable)
+{% endtab %}
+
+{% tab title="CLI" %}
+[Environment reference](../../external-docs/balena-cli/latest.md#env-list)
+{% endtab %}
+{% endtabs %}

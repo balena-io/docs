@@ -71,5 +71,30 @@ Adding custom device configuration is similar to adding custom fleet configurati
 <figure><img src="../../.gitbook/assets/add_device_custom_variable.webp" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-In addition to the dashboard, this configuration can be also be set using the API or any of its clients, including the [SDK](../../external-docs/sdk/node-sdk/latest.md) and [CLI](../../external-docs/balena-cli/latest.md).
+In addition to the dashboard, configurations can also be managed programmatically via the:
+
+{% tabs %}
+{% tab title="API" %}
+* [Add a configuration variable for a fleet](../../reference/api/resources/fleet_config_variable.md#create-a-fleet-config-variable)
+* [Update a configuration variable for a fleet](../../reference/api/resources/fleet_config_variable.md#update-a-fleet-environment-variable)
+* [Remove a configuration variable from a fleet](../../reference/api/resources/fleet_config_variable.md#remove-a-fleet-config-variable)
+* [Add configuration variable for a device](../../reference/api/resources/device_config_variable.md#create-a-device-config-variable)
+* [Update a configuration variable for a device](../../reference/api/resources/device_config_variable.md#update-a-device-config-variable)
+* [Remove a configuration variable from a device](../../reference/api/resources/device_config_variable.md#remove-a-device-config-variable)
+{% endtab %}
+
+{% tab title="Node SDK" %}
+* [Add or update a configuration variable for a fleet](../../external-docs/sdk/node-sdk/latest/models/application.md#set-1)
+* [Remove a configuration variable from a fleet](../../external-docs/sdk/node-sdk/latest/models/application.md#remove-2)
+* [Add or update a configuration variable for a device](../../external-docs/sdk/node-sdk/latest/models/device.md#set)
+* [Remove a configuration variable from a device](../../external-docs/sdk/node-sdk/latest/models/device.md#remove-1)
+{% endtab %}
+
+{% tab title="Python SDK" %}
+* [Add or update a configuration variable for a fleet](../../external-docs/sdk/python-sdk/latest.md#set-1)
+* [Remove a configuration variable from a fleet](../../external-docs/sdk/python-sdk/latest.md#remove-2)
+* [Add or update a configuration variable for a device](../../external-docs/sdk/python-sdk/latest.md#set-5)
+* [Remove a configuration variable from a device](../../external-docs/sdk/python-sdk/latest.md#remove-8)
+{% endtab %}
+{% endtabs %}
 {% endhint %}

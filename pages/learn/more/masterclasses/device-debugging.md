@@ -230,30 +230,16 @@ The following sections discuss some of the first components to check when carryi
 
 ### 5.1 Service Status and Journal Logs
 
-balenaOS uses [systemd](https://www.freedesktop.org/wiki/Software/systemd/) as
-its [init system](https://en.wikipedia.org/wiki/Init), and as such almost all
-the fundamental components in balenaOS run as systemd services. systemd builds
-a dependency graph of all of its unit files (in which services are defined) to
-determine the order that these should be started/shutdown in. This is
-generated when systemd is run, although there are ways to rebuild this after
-startup and during normal system execution.
+balenaOS uses [systemd](https://www.freedesktop.org/wiki/Software/systemd/) as its [init system](https://en.wikipedia.org/wiki/Init), and as such almost all the fundamental components in balenaOS run as systemd services. systemd builds a dependency graph of all of its unit files (in which services are defined) to determine the order that these should be started/shutdown in. This is generated when systemd is run, although there are ways to rebuild this after startup and during normal system execution.
 
-Possibly the most important command is `journalctl`, which allows you to read
-the service's journal entries. This takes a variety of switches, the most
-useful being:
+Possibly the most important command is `journalctl`, which allows you to read the service's journal entries. This takes a variety of switches, the most useful being:
 
-- `--follow`/`-f` - Continues displaying journal entries until the command is halted
-  (eg. with Ctrl-C)
-- `--unit=<unitFile>`/`-u <unitFile>` - Specifies the unit file to read journal
-  entries for. Without this, all units entries are read.
-- `--pager-end`/`-e` - Jump straight to the final entries for a unit.
-- `--all`/`-a` - Show all entries, even if long or with unprintable
-  characters. This is especially useful for displaying the service container
-  logs from user containers when applied to `balena.service`.
+* `--follow`/`-f` - Continues displaying journal entries until the command is halted (eg. with Ctrl-C)
+* `--unit=<unitFile>`/`-u <unitFile>` - Specifies the unit file to read journal entries for. Without this, all units entries are read.
+* `--pager-end`/`-e` - Jump straight to the final entries for a unit.
+* `--all`/`-a` - Show all entries, even if long or with unprintable characters. This is especially useful for displaying the service container logs from user containers when applied to `balena.service`.
 
-A typical example of using `journalctl` might be following a service to see
-what's occuring. Here's it for the Supervisor, following journal entries in
-real time:
+A typical example of using `journalctl` might be following a service to see what's occuring. Here's it for the Supervisor, following journal entries in real time:
 
 ```shell
 root@9294512:~# journalctl --follow --unit=balena-supervisor
@@ -270,101 +256,54 @@ Aug 18 16:59:40 9294512 balena-supervisor[6890]: [info]    Reported current stat
 Aug 18 17:00:00 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
 ```
 
-Any systemd service can be referenced in the same way, and there are some common
-commands that can be used with services:
+Any systemd service can be referenced in the same way, and there are some common commands that can be used with services:
 
-- `systemctl status <serviceName>` - Will show the status of a service. This
-  includes whether it is currently loaded and/or enabled, if it is currently
-  active (running) and when it was started, its PID, how much memory it is
-  notionally (and beware here, this isn't always the amount of physical
-  memory) using, the command used to run it and finally the last set of
-  entries in its journal log. Here's example output from the OpenVPN service:
+*   `systemctl status <serviceName>` - Will show the status of a service. This includes whether it is currently loaded and/or enabled, if it is currently active (running) and when it was started, its PID, how much memory it is notionally (and beware here, this isn't always the amount of physical memory) using, the command used to run it and finally the last set of entries in its journal log. Here's example output from the OpenVPN service:
 
-  ```shell
-  root@9294512:~# journalctl --follow --unit=balena-supervisor
-  -- Journal begins at Fri 2021-08-06 14:40:59 UTC. --
-  Aug 18 16:56:55 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 16:57:05 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 16:58:17 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 16:58:27 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 16:58:37 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 16:58:48 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 16:58:58 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 16:59:19 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 16:59:40 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 17:00:00 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 17:00:11 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 17:00:31 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 17:00:42 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
-  Aug 18 17:00:49 9294512 balena-supervisor[6890]: [api]     GET /v1/healthy 200 - 3.272 ms
-  ```
+    ```shell
+    root@9294512:~# journalctl --follow --unit=balena-supervisor
+    -- Journal begins at Fri 2021-08-06 14:40:59 UTC. --
+    Aug 18 16:56:55 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 16:57:05 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 16:58:17 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 16:58:27 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 16:58:37 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 16:58:48 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 16:58:58 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 16:59:19 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 16:59:40 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 17:00:00 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 17:00:11 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 17:00:31 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 17:00:42 9294512 balena-supervisor[6890]: [info]    Reported current state to the cloud
+    Aug 18 17:00:49 9294512 balena-supervisor[6890]: [api]     GET /v1/healthy 200 - 3.272 ms
+    ```
+* `systemctl start <serviceName>` - Will start a non-running service. Note that this will _not_ restart a service that is already running.
+* `systemctl stop <serviceName>` - Will stop a running service. If the service is not running, this command will not do anything.
+* `systemctl restart <serviceName>` - Will restart a running service. If the service is not running, this will start it.
+* `systemctl daemon-reload` - Will essentially run through the startup process systemd carries out at initialisation, but without restarting services or units. This allows the rebuild of the system dependency graph, and should be carried out if any of the unit files are changed whilst the system is running.
 
-- `systemctl start <serviceName>` - Will start a non-running service. Note that
-  this will _not_ restart a service that is already running.
-- `systemctl stop <serviceName>` - Will stop a running service. If the service
-  is not running, this command will not do anything.
-- `systemctl restart <serviceName>` - Will restart a running service. If the
-  service is not running, this will start it.
-- `systemctl daemon-reload` - Will essentially run through the startup process
-  systemd carries out at initialisation, but without restarting services or
-  units. This allows the rebuild of the system dependency graph, and should be
-  carried out if any of the unit files are changed whilst the system is
-  running.
+This last command may sound a bit confusing but consider the following. Imagine that you need to dynamically change the `balena-supervisor.service` unit file to increase the healthcheck timeout on a very slow system. Once that change has been made, you'll want to restart the service. However, first, you need to reload the unit file as this has changed from the loaded version. To do this, you'll run `systemctl daemon-reload` and then `systemctl restart balena-supervisor.service` to restart the Supervisor.
 
-This last command may sound a bit confusing but consider the following. Imagine
-that you need to dynamically change the `balena-supervisor.service` unit file
-to increase the healthcheck timeout on a very slow system. Once that change has
-been made, you'll want to restart the service. However, first, you need to
-reload the unit file as this has changed from the loaded version. To do this,
-you'll run `systemctl daemon-reload` and then
-`systemctl restart balena-supervisor.service` to restart the Supervisor.
+In general, there are some core services that need to execute for a device to come online, connect to the balenaCloud VPN, download releases and then run them:
 
-In general, there are some core services that need to execute for a device to
-come online, connect to the balenaCloud VPN, download releases and then run
-them:
+* `chronyd.service` - Responsible for NTP duties and syncing 'real' network time to the device. Note that balenaOS versions less than v2.13.0 used `systemd-timesyncd.service` as their NTP service, although inspecting it is very similar to that of `chronyd.service`.
+* `dnsmasq.service` - The local DNS service which is used for all host OS lookups (and is the repeater for user service containers by default).
+* `NetworkManager.service` - The underlying Network Manager service, ensuring that configured connections are used for networking.
+* `os-config.service` - Retrieves settings and configs from the API endpoint, including certificates, authorized keys, the VPN config, etc.
+* `openvpn.service` - The VPN service itself, which connects to the balenaCloud VPN, allowing a device to come online (and to be SSHd to and have actions performed on it). Note that in balenaOS versions less than v2.10.0 this was called `openvpn-resin.service`, but the method for inspecting and dealing with the service is the same.
+* `balena.service` - The balenaEngine service, the modified Docker daemon fork that allows the management and running of service images, containers, volumes and networking.
+* `balena-supervisor.service` - The \{{ $names.company.short \}} Supervisor service, responsible for the management of releases, including downloading updates of the app and self-healing (via monitoring), variables (fleet/device), and exposure of these services to containers via an API endpoint.
+* `dbus.service` - The DBus daemon socket can be used by services if the `io.balena.features.dbus` label is applied. This exposes the DBus daemon socket in the container which allows the service to control several host OS features, including the Network Manager.
 
-- `chronyd.service` - Responsible for NTP duties and syncing 'real' network
-  time to the device. Note that balenaOS versions less than v2.13.0 used
-  `systemd-timesyncd.service` as their NTP service, although inspecting it is
-  very similar to that of `chronyd.service`.
-- `dnsmasq.service` - The local DNS service which is used for all host OS
-  lookups (and is the repeater for user service containers by default).
-- `NetworkManager.service` - The underlying Network Manager service, ensuring
-  that configured connections are used for networking.
-- `os-config.service` - Retrieves settings and configs from the API endpoint,
-  including certificates, authorized keys, the VPN config, etc.
-- `openvpn.service` - The VPN service itself, which connects to the balenaCloud
-  VPN, allowing a device to come online (and to be SSHd to and have actions
-  performed on it). Note that in balenaOS versions less than v2.10.0 this
-  was called `openvpn-resin.service`, but the method for inspecting and
-  dealing with the service is the same.
-- `balena.service` - The balenaEngine service, the modified Docker daemon fork
-  that allows the management and running of service images,
-  containers, volumes and networking.
-- `balena-supervisor.service` - The {{ $names.company.short }} Supervisor service,
-  responsible for the management of releases, including downloading updates of the app and
-  self-healing (via monitoring), variables (fleet/device), and exposure of these
-  services to containers via an API endpoint.
-- `dbus.service` - The DBus daemon socket can be used by services if the
-  `io.balena.features.dbus` label is applied. This exposes the DBus daemon
-  socket in the container which allows the service to control several
-  host OS features, including the Network Manager.
+Additionally, there are some utility services that, whilst not required for a barebones operation, are also useful:
 
-Additionally, there are some utility services that, whilst not required
-for a barebones operation, are also useful:
+* `ModemManager.service` - Deals with non-Ethernet or Wifi devices, such as LTE/GSM modems.
+* `avahi-daemon.service` - Used to broadcast the device's local hostname (useful in development mode, responds to `balena scan`).
 
-- `ModemManager.service` - Deals with non-Ethernet or Wifi devices, such as
-  LTE/GSM modems.
-- `avahi-daemon.service` - Used to broadcast the device's local hostname
-  (useful in development mode, responds to `balena scan`).
+We'll go into several of these services in the following sections, but generally these are the first points to examine if a system is not behaving as it should, as most issues will be associated with these services.
 
-We'll go into several of these services in the following sections, but generally
-these are the first points to examine if a system is not behaving as it should,
-as most issues will be associated with these services.
-
-Additionally there are a large number of utility services that facilitate the
-services above, such as those to mount the correct partitions for data storage,
-configuring the Supervisor and running it should it crash, etc.
+Additionally there are a large number of utility services that facilitate the services above, such as those to mount the correct partitions for data storage, configuring the Supervisor and running it should it crash, etc.
 
 ### 5.2 Persistent Logs
 
@@ -382,22 +321,13 @@ See the docs on [Configuring balenaOS](../../../reference/os/configuration.md) t
 
 Service: `balena-supervisor.service`, or `resin-supervisor.service` if OS < v2.78.0
 
-The balena Supervisor is the service that carries out the management of the
-software release on a device, including determining when to download updates,
-the changing of variables, ensuring services are restarted correctly, etc. 
-It is the on-device agent for balenaCloud.
+The balena Supervisor is the service that carries out the management of the software release on a device, including determining when to download updates, the changing of variables, ensuring services are restarted correctly, etc. It is the on-device agent for balenaCloud.
 
-As such, it's imperative that the Supervisor is operational and healthy at all
-times, even when a device is not connected to the Internet, as the Supervisor still
-ensures the running of a device that is offline.
+As such, it's imperative that the Supervisor is operational and healthy at all times, even when a device is not connected to the Internet, as the Supervisor still ensures the running of a device that is offline.
 
-The Supervisor itself is a Docker service that runs alongside any installed
-user services and the healthcheck container. One major advantage of running it as 
-a Docker service is that it can be updated just like any other service, although 
-carrying that out is slightly different than updating user containers. (See [Updating the Supervisor](#82-updating-the-supervisor)).
+The Supervisor itself is a Docker service that runs alongside any installed user services and the healthcheck container. One major advantage of running it as a Docker service is that it can be updated just like any other service, although carrying that out is slightly different than updating user containers. (See [Updating the Supervisor](device-debugging.md#82-updating-the-supervisor)).
 
-Before attempting to debug the Supervisor, it's recommended to upgrade the Supervisor to
-the latest version, as we frequently release bugfixes and features that may resolve device issues.
+Before attempting to debug the Supervisor, it's recommended to upgrade the Supervisor to the latest version, as we frequently release bugfixes and features that may resolve device issues.
 
 Otherwise, assuming you're still logged into your development device, run the following:
 
@@ -429,39 +359,17 @@ Aug 19 18:09:17 debug-device balena-supervisor[2486]: [info]    Internet Connect
 Aug 19 18:09:18 debug-device balena-supervisor[2486]: [info]    Reported current state to the cloud
 ```
 
-You can see the Supervisor is just another `systemd` service
-(`balena-supervisor.service`) and that it is started and run by balenaEngine.
+You can see the Supervisor is just another `systemd` service (`balena-supervisor.service`) and that it is started and run by balenaEngine.
 
-Supervisor issues, due to their nature, vary significantly. Issues may commonly 
-be misattributed to the Supervisor. As the Supervisor is verbose about its
-state and actions, such as the download of images, it tends to be suspected of
-problems when in fact there are usually other underlying issues. A few examples
-are:
+Supervisor issues, due to their nature, vary significantly. Issues may commonly be misattributed to the Supervisor. As the Supervisor is verbose about its state and actions, such as the download of images, it tends to be suspected of problems when in fact there are usually other underlying issues. A few examples are:
 
-- Networking problems - The Supervisor reports failed downloads
-  or attempts to retrieve the same images repeatedly, where in fact unstable
-  networking is usually the cause.
-- Service container restarts - The default policy for service containers is to
-  restart if they exit, and this sometimes is misunderstood. If a container is
-  restarting, it's worth ensuring it's not because the container itself is
-  exiting either due to a bug in the service container code or
-  because it has correctly come to the end of its running process.
-- Release not being downloaded - For instance, a fleet/device has been pinned 
-  to a particular version, and a new push is not being downloaded.
+* Networking problems - The Supervisor reports failed downloads or attempts to retrieve the same images repeatedly, where in fact unstable networking is usually the cause.
+* Service container restarts - The default policy for service containers is to restart if they exit, and this sometimes is misunderstood. If a container is restarting, it's worth ensuring it's not because the container itself is exiting either due to a bug in the service container code or because it has correctly come to the end of its running process.
+* Release not being downloaded - For instance, a fleet/device has been pinned to a particular version, and a new push is not being downloaded.
 
-It's _always_ worth considering how the system is configured, how releases were
-produced, how the fleet or device is configured and what the current
-networking state is when investigating Supervisor issues, to ensure that there
-isn't something else amiss that the Supervisor is merely exposing via logging.
+It's _always_ worth considering how the system is configured, how releases were produced, how the fleet or device is configured and what the current networking state is when investigating Supervisor issues, to ensure that there isn't something else amiss that the Supervisor is merely exposing via logging.
 
-Another point to note is that the Supervisor is started using
-[`healthdog`](https://github.com/balena-os/healthdog-rs) which continually
-ensures that the Supervisor is present by using balenaEngine to find the
-Supervisor image. If the image isn't present, or balenaEngine doesn't respond,
-then the Supervisor is restarted. The default period for this check is 180
-seconds. Inspecting `/lib/systemd/system/balena-supervisor.service` on-device 
-will show whether the timeout period is different for a particular device.
-For example:
+Another point to note is that the Supervisor is started using [`healthdog`](https://github.com/balena-os/healthdog-rs) which continually ensures that the Supervisor is present by using balenaEngine to find the Supervisor image. If the image isn't present, or balenaEngine doesn't respond, then the Supervisor is restarted. The default period for this check is 180 seconds. Inspecting `/lib/systemd/system/balena-supervisor.service` on-device will show whether the timeout period is different for a particular device. For example:
 
 ```shell
 root@debug-device:~# cat /lib/systemd/system/balena-supervisor.service
@@ -508,24 +416,11 @@ Alias=resin-supervisor.service
 
 ### 8.1 Restarting the Supervisor
 
-It's rare to actually _need_ a Supervisor restart. The Supervisor will attempt to 
-recover from issues that occur automatically, without the requirement for a restart. 
-When in doubt about whether a restart is required, look at the Supervisor logs and 
-double check other on-duty support agents if needed. If fairly certain, it's generally
-safe to restart the Supervisor, as long as the user is aware that some extra bandwidth 
-and device resources will be used on startup.
+It's rare to actually _need_ a Supervisor restart. The Supervisor will attempt to recover from issues that occur automatically, without the requirement for a restart. When in doubt about whether a restart is required, look at the Supervisor logs and double check other on-duty support agents if needed. If fairly certain, it's generally safe to restart the Supervisor, as long as the user is aware that some extra bandwidth and device resources will be used on startup.
 
-There are instances where the Supervisor is incorrectly restarted when in fact
-the issue could be the corruption of service images, containers, volumes
-or networking. In these cases, you're better off dealing with the underlying
-balenaEngine to ensure that anything corrupt is recreated correctly. See the
-balenaEngine section for more details.
+There are instances where the Supervisor is incorrectly restarted when in fact the issue could be the corruption of service images, containers, volumes or networking. In these cases, you're better off dealing with the underlying balenaEngine to ensure that anything corrupt is recreated correctly. See the balenaEngine section for more details.
 
-If a restart is required, ensure that you have gathered as much information
-as possible before a restart, including pertinent logs and symptoms so that
-investigations can occur asynchronously to determine what occurred and how it
-may be mitigated in the future. Enabling persistent logging may also be beneficial
-in cases where symptoms are repeatedly occurring.
+If a restart is required, ensure that you have gathered as much information as possible before a restart, including pertinent logs and symptoms so that investigations can occur asynchronously to determine what occurred and how it may be mitigated in the future. Enabling persistent logging may also be beneficial in cases where symptoms are repeatedly occurring.
 
 To restart the Supervisor, simply restart the `systemd` service:
 
@@ -560,37 +455,25 @@ Aug 19 18:13:34 debug-device balena-supervisor[3089]: [success] Device state app
 
 ### 8.2 Updating the Supervisor
 
-Occasionally, there are situations where the Supervisor requires an update. This
-may be because a device needs to use a new feature or because the version of
-the Supervisor on a device is outdated and is causing an issue. Usually the best
-way to achieve this is via a balenaOS update, either from the dashboard or via
-the command line on the device.
+Occasionally, there are situations where the Supervisor requires an update. This may be because a device needs to use a new feature or because the version of the Supervisor on a device is outdated and is causing an issue. Usually the best way to achieve this is via a balenaOS update, either from the dashboard or via the command line on the device.
 
-If updating balenaOS is not desirable or a user prefers updating the Supervisor independently, this can easily be accomplished using [self-service](../../../reference/supervisor/supervisor-upgrades/) Supervisor upgrades. Alternatively, this can be programmatically done by using the Node.js SDK method [device.setSupervisorRelease](../../../reference/sdk/node-sdk/latest#devicesetsupervisorreleaseuuidorid-supervisorversionorid-%E2%87%92-codepromisecode).
+If updating balenaOS is not desirable or a user prefers updating the Supervisor independently, this can easily be accomplished using [self-service](../../../reference/supervisor/supervisor-upgrades/) Supervisor upgrades. Alternatively, this can be programmatically done by using the Node.js SDK method [device.pinToSupervisorRelease](../../../external-docs/sdk/node-sdk/latest/models/device.md#pintosupervisorrelease).
 
-You can additionally write a script to manage this for a fleet of devices in combination with other SDK functions such as [device.getAll](../../../reference/sdk/node-sdk/latest#devicegetalloptions-%E2%87%92-codepromisecode).
+You can additionally write a script to manage this for a fleet of devices in combination with other SDK functions such as [device.getAllByApplication](../../../external-docs/sdk/node-sdk/latest/models/device.md#getallbyapplication).
 
 **Note:** In order to update the Supervisor release for a device, you must have edit permissions on the device (i.e., more than just support access).
 
 ### 8.3 The Supervisor Database
 
-The Supervisor uses a SQLite database to store persistent state, so in the
-case of going offline, or a reboot, it knows exactly what state an
-app should be in, and which images, containers, volumes and networks
-to apply to it.
+The Supervisor uses a SQLite database to store persistent state, so in the case of going offline, or a reboot, it knows exactly what state an app should be in, and which images, containers, volumes and networks to apply to it.
 
-This database is located at
-`/mnt/data/resin-data/balena-supervisor/database.sqlite` and can be accessed
-inside the Supervisor container at `/data/database.sqlite` by running Node. 
-Assuming you're logged into your device, run the following:
+This database is located at `/mnt/data/resin-data/balena-supervisor/database.sqlite` and can be accessed inside the Supervisor container at `/data/database.sqlite` by running Node. Assuming you're logged into your device, run the following:
 
 ```shell
 root@debug-device:~# balena exec -ti balena_supervisor node
 ```
 
-This will get you into a Node interpreter in the Supervisor service
-container. From here, we can use the `sqlite3` NPM module used by
-the Supervisor to make requests to the database:
+This will get you into a Node interpreter in the Supervisor service container. From here, we can use the `sqlite3` NPM module used by the Supervisor to make requests to the database:
 
 ```shell
 > sqlite3 = require('sqlite3');
@@ -667,9 +550,7 @@ Database { open: true, filename: '/data/database.sqlite', mode: 65542 }
 ]
 ```
 
-With these, you can then examine and modify data, if required. Note that there's
-usually little reason to do so, but this is included for completeness. For
-example, to examine the configuration used by the Supervisor:
+With these, you can then examine and modify data, if required. Note that there's usually little reason to do so, but this is included for completeness. For example, to examine the configuration used by the Supervisor:
 
 ```shell
 > db.all('SELECT * FROM config;', console.log);
@@ -688,12 +569,7 @@ Database { open: true, filename: '/data/database.sqlite', mode: 65542 }
 ]
 ```
 
-Occasionally, should the Supervisor get into a state where it is unable to
-determine which release images it should be downloading or running, it
-is necessary to clear the database. This usually goes hand-in-hand with removing
-the current containers and putting the Supervisor into a 'first boot' state,
-whilst keeping the Supervisor and release images. This can be achieved by
-carrying out the following:
+Occasionally, should the Supervisor get into a state where it is unable to determine which release images it should be downloading or running, it is necessary to clear the database. This usually goes hand-in-hand with removing the current containers and putting the Supervisor into a 'first boot' state, whilst keeping the Supervisor and release images. This can be achieved by carrying out the following:
 
 ```shell
 root@debug-device:~# systemctl stop balena-supervisor.service update-balena-supervisor.timer
@@ -706,34 +582,21 @@ root@debug-device:~# rm /mnt/data/resin-data/balena-supervisor/database.sqlite
 
 This:
 
-- Stops the Supervisor (and the timer that will attempt to restart it).
-- Removes all current service containers, including the Supervisor.
-- Removes the Supervisor database.
-  (If for some reason the images also need to be removed, run
-  `balena rmi -f $(balena images -q)` which will remove all images _including_
-  the Supervisor image).
-  You can now restart the Supervisor:
+* Stops the Supervisor (and the timer that will attempt to restart it).
+* Removes all current service containers, including the Supervisor.
+* Removes the Supervisor database. (If for some reason the images also need to be removed, run `balena rmi -f $(balena images -q)` which will remove all images _including_ the Supervisor image). You can now restart the Supervisor:
 
 ```shell
 root@debug-device:~# systemctl start update-balena-supervisor.timer balena-supervisor.service
 ```
 
-If you deleted all the images, this will first download the Supervisor image
-again before restarting it.
-At this point, the Supervisor will start up as if the device has just been
-provisioned and already registered, and the device's target release will
-be freshly downloaded if images were removed before starting the service
-containers.
+If you deleted all the images, this will first download the Supervisor image again before restarting it. At this point, the Supervisor will start up as if the device has just been provisioned and already registered, and the device's target release will be freshly downloaded if images were removed before starting the service containers.
 
 ## 9. Using the Kernel Logs
 
-There are occasionally instances where a problem arises which is not immediately
-obvious. In these cases, you might see services fail 'randomly', perhaps
-attached devices don't behave as they should, or maybe spurious reboots occur.
+There are occasionally instances where a problem arises which is not immediately obvious. In these cases, you might see services fail 'randomly', perhaps attached devices don't behave as they should, or maybe spurious reboots occur.
 
-If an issue isn't apparent fairly soon after looking at a device, the
-examination of the kernel logs can be a useful check to see if anything is
-causing an issue.
+If an issue isn't apparent fairly soon after looking at a device, the examination of the kernel logs can be a useful check to see if anything is causing an issue.
 
 To examine the kernel log on-device, simply run `dmesg` from the host OS:
 
@@ -804,25 +667,15 @@ root@debug-device:~# dmesg
 ...
 ```
 
-The rest of the output is truncated here. Note that the time output is in
-seconds. If you want to display a human readable time, use the `-T` switch.
-This will, however, strip the nanosecond accuracy and revert to chronological
-order with a minimum granularity of a second.
+The rest of the output is truncated here. Note that the time output is in seconds. If you want to display a human readable time, use the `-T` switch. This will, however, strip the nanosecond accuracy and revert to chronological order with a minimum granularity of a second.
 
-Note that the 'Device Diagnostics' tab from the 'Diagnostics' section of a
-device also runs `dmesg -T` and will display these in the output window.
-However, due to the sheer amount of information presented here, it's sometimes
-easier to run it on-device.
+Note that the 'Device Diagnostics' tab from the 'Diagnostics' section of a device also runs `dmesg -T` and will display these in the output window. However, due to the sheer amount of information presented here, it's sometimes easier to run it on-device.
 
 Some common issues to watch for include:
 
-- Under-voltage warnings, signifying that a device is not receiving what it
-  requires from the power supply to operate correctly (these warnings
-  are only present on the Raspberry Pi series).
-- Block device warnings, which could signify issues with the media that balenaOS
-  is running from (for example, SD card corruption).
-- Device detection problems, where devices that are expected to show in the
-  device node list are either incorrectly detected or misdetected.
+* Under-voltage warnings, signifying that a device is not receiving what it requires from the power supply to operate correctly (these warnings are only present on the Raspberry Pi series).
+* Block device warnings, which could signify issues with the media that balenaOS is running from (for example, SD card corruption).
+* Device detection problems, where devices that are expected to show in the device node list are either incorrectly detected or misdetected.
 
 ## 10. Media Issues
 
