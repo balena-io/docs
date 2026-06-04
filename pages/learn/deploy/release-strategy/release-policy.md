@@ -13,7 +13,7 @@ You may define the fleet and device release policies via the [balenaCloud dashbo
 {% tab title="API" %}
 * [Pin a Fleet/Block/App to a release](../../../reference/api/resources/fleet.md#pin-entire-fleet-to-a-specific-release-by-id)
 * [Make a Fleet/Block/App track the latest release](../../../reference/api/resources/fleet.md#enable-automatic-update-tracking-for-a-fleet)
-* [Pin a Device to a releas](../../../reference/api/resources/device.md#pin-device-to-a-specific-release-by-id)
+* [Pin a Device to a release](../../../reference/api/resources/device.md#pin-device-to-a-specific-release-by-id)
 {% endtab %}
 
 {% tab title="Node SDK" %}
