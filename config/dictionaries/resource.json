@@ -989,6 +989,7 @@
       "update_timestamp",
       "is_invalidated",
       "release_version",
+      "note",
       "contract"
     ],
     "examples": [
@@ -1023,6 +1024,15 @@
         "method": "GET",
         "endpoint": "/v7/release",
         "filters": "?\\$filter=belongs_to__application%20eq%20<FLEET ID>%20and%20commit%20eq%20'<COMMIT HASH>'&\\$select=id"
+      },
+      {
+        "id": "set-note-for-release",
+        "summary": "Set the notes for a release",
+        "description": "",
+        "method": "PATCH",
+        "endpoint": "/v7/release(<ID>)",
+        "filters": "",
+        "data": "{\"note\": \"your release note here\"}"
       }
     ]
   },

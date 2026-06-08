@@ -381,6 +381,8 @@ components:
           description: Type information not available yet
         release_version:
           description: Type information not available yet
+        note:
+          description: Type information not available yet
         contract:
           description: Type information not available yet
     release_tag:
@@ -1143,12 +1145,21 @@ paths:
         | `update_timestamp` |
         | `is_invalidated` |
         | `release_version` |
+        | `note` |
         | `contract` |
 
 
         ---
   /v7/release(<ID>):
     get:
+      tags:
+        - Release
+      parameters:
+        - name: ID
+          in: path
+          required: true
+      description: ''
+    patch:
       tags:
         - Release
       parameters:

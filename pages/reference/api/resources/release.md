@@ -27,6 +27,7 @@
 | `update_timestamp` |
 | `is_invalidated` |
 | `release_version` |
+| `note` |
 | `contract` |
 
 
@@ -65,5 +66,14 @@ GET "https://api.balena-cloud.com/v7/release?\$filter=belongs_to__application%20
 GET "https://api.balena-cloud.com/v7/release?\$filter=belongs_to__application%20eq%20<FLEET ID>%20and%20commit%20eq%20'<COMMIT HASH>'&\$select=id" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>" 
+```
+
+### Set the notes for a release
+
+```bash
+PATCH "https://api.balena-cloud.com/v7/release(<ID>)" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>" \
+--data '{"note": "your release note here"}'
 ```
 
