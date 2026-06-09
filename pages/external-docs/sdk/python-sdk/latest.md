@@ -80,6 +80,123 @@ hesitate to open an issue in GitHub](https://github.com/balena-io/balena-sdk-pyt
 # Models
 
 This module implements all models for balena python SDK.
+
+# ApiKey
+
+This class implements user API key model for balena python SDK.
+## create
+
+This method registers a new api key for the current user with the name given.
+
+**Signature:** `balena.models.api_key.create(name, description, expiry_date)` ⇒ <code>str</code>
+
+**Args:**
+    name (str): the API key name
+    description (Optional[str]): the API key description
+    expiry_date (Optional[str]): the API key expiring date
+
+**Returns:**
+    str: API key
+
+**Examples:**
+```python
+>>> balena.models.api_key.create_api_key("myApiKey")
+>>> balena.models.api_key.create_api_key("myApiKey", "my api key description")
+>>> balena.models.api_key.create_api_key("myApiKey", "my descr", datetime.datetime.utcnow().isoformat())
+```
+
+## get_all
+
+This function gets all API keys.
+
+**Signature:** `balena.models.api_key.get_all(options)` ⇒ [<code>List[APIKeyType]</code>](#apikeytype)
+
+**Args:**
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[APIKeyType]: user API key
+
+**Examples:**
+```python
+>>> balena.models.api_key.get_all()
+```
+
+## get_all_named_user_api_keys
+
+Get all named user API keys of the current user.
+
+**Signature:** `balena.models.api_key.get_all_named_user_api_keys(options)` ⇒ [<code>List[APIKeyType]</code>](#apikeytype)
+
+**Args:**
+    options (AnyObject): extra pine options to use
+
+**Examples:**
+```python
+>>> balena.models.api_key.get_all_named_user_api_keys()
+```
+
+## get_device_api_keys_by_device
+
+Get all API keys for a device.
+
+**Signature:** `balena.models.api_key.get_device_api_keys_by_device(uuid_or_id, options)` ⇒ [<code>List[APIKeyType]</code>](#apikeytype)
+
+**Args:**
+    device_uuid (Union[str, int]): device, uuid (string) or id (int)
+    options (AnyObject): extra pine options to use
+
+**Examples:**
+```python
+>>> balena.models.api_key.get_device_api_keys_by_device("44cc9d186")
+>>> balena.models.api_key.get_device_api_keys_by_device(1111386)
+```
+
+## get_provisioning_api_keys_by_application
+
+Get all provisioning API keys for an application.
+
+**Signature:** `balena.models.api_key.get_provisioning_api_keys_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[APIKeyType]</code>](#apikeytype)
+
+**Args:**
+    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
+    options (AnyObject): extra pine options to use
+
+**Examples:**
+```python
+>>> balena.models.api_key.get_provisioning_api_keys_by_application(1296047)
+>>> balena.models.api_key.get_provisioning_api_keys_by_application("myorg/myapp")
+```
+
+## revoke
+
+This function revokes an API key.
+
+**Signature:** `balena.models.api_key.revoke(id)` ⇒ <code>None</code>
+
+**Args:**
+    id (int): API key id.
+
+**Examples:**
+```python
+>>> balena.models.api_key.revoke(1296047)
+```
+
+## update
+
+This function updates details of an API key.
+
+**Signature:** `balena.models.api_key.update(id, api_key_info)` ⇒ <code>None</code>
+
+**Args:**
+    id (str): API key id.
+    api_key_info (APIKeyInfoType): new API key info.
+
+**Examples:**
+```python
+>>> balena.models.api_key.update(1296047, {"name":"new name"})
+```
+
 # Application
 
 This class implements application model for balena python SDK.
@@ -550,61 +667,6 @@ Configure a specific application to track the latest available release.
 >>> balena.models.application.will_track_new_releases(5685)
 ```
 
-# ApplicationTag
-
-This class implements application tag model for balena python SDK.
-## get_all_by_application
-
-Get all application tags for an application.
-
-**Signature:** `balena.models.application.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[BaseTagType]</code>](#basetagtype)
-
-**Args:**
-    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[BaseTagType]: tags list.
-
-**Examples:**
-```python
->>> balena.models.application.tags.get_all_by_application(1005160)
-```
-
-## remove
-
-Remove an application tag.
-
-**Signature:** `balena.models.application.remove(slug_or_uuid_or_id, tag_key)` ⇒ <code>None</code>
-
-**Args:**
-    slug_or_uuid_or_id (int): application slug (string), uuid (string) or id (number)
-    tag_key (str): tag key.
-
-**Examples:**
-```python
->>> balena.models.application.tags.remove(1005767, 'tag1')
-```
-
-## set
-
-Set an application tag (update tag value if it exists).
-
-**Signature:** `balena.models.application.set(slug_or_uuid_or_id, tag_key, value)` ⇒ <code>None</code>
-
-**Args:**
-    slug_or_uuid_or_id (int): application slug (string), uuid (string) or id (number)
-    tag_key (str): tag key.
-    value (str): tag value.
-
-**Returns:**
-    List[BaseTagType]: tags list.
-
-**Examples:**
-```python
->>> balena.models.application.tags.set(1005767, 'tag1', 'Python SDK')
-```
-
 # ApplicationConfigVariable
 
 This class implements application config variable model for balena python SDK.
@@ -740,72 +802,92 @@ Set the value of a specific application environment variable.
 >>> balena.models.application.env_var.set('8deb12a7d7592c2b7f9e44735c2b0a41','test_env4', 'testing1')
 ```
 
-# BuildEnvVariable
+# ApplicationInvite
 
-This class implements build environment variable model for balena python SDK.
-## get
+This class implements application invite model for balena python SDK.
+## accept
 
-Get build environment variable.
+Accepts an invite.
 
-**Signature:** `balena.models.application.get(slug_or_uuid_or_id, env_var_name)` ⇒ <code>Optional[str]</code>
+**Signature:** `balena.models.application.accept(invite_token)` ⇒ <code>None</code>
 
 **Args:**
-    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
-    env_var_name (str): environment variable name.
+    invite_token (str): invitationToken - invite token.
 
 **Examples:**
 ```python
->>> balena.models.application.build_var.get('8deb12a7d7592c2b7f9e44735c2b0a41','test_env4')
+>>> balena.models.application.invite.accept("qwerty-invitation-token")
+```
+
+## create
+
+Creates a new invite for an application.
+
+**Signature:** `balena.models.application.create(slug_or_uuid_or_id, options)` ⇒ [<code>ApplicationInviteType</code>](#applicationinvitetype)
+
+**Args:**
+    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number).
+    options (ApplicationInviteOptions): Application Invite options dict to use.
+        invitee (str): the email/balena_username of the invitee.
+        role_name (Optional[str]): the role name to be granted to the invitee.
+        One of "observer", "developer", "operator". Defaults to "developer"
+        message (Optional[str]): the message to send along with the invite.
+
+**Returns:**
+    dict: application invite.
+
+**Examples:**
+```python
+>>> balena.models.application.invite.create(1681618, 'invitee@example.org', 'developer', 'Test invite')
+```
+
+## get_all
+
+Get all invites.
+
+**Signature:** `balena.models.application.get_all(options)` ⇒ [<code>List[ApplicationInviteType]</code>](#applicationinvitetype)
+
+**Args:**
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[ApplicationInviteType]: list contains info of invites.
+
+**Examples:**
+```python
+>>> balena.models.application.invite.get_all()
 ```
 
 ## get_all_by_application
 
-Get all build environment variables by application.
+Get all invites by application.
 
-**Signature:** `balena.models.application.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[EnvironmentVariableBase]</code>](#environmentvariablebase)
+**Signature:** `balena.models.application.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[ApplicationInviteType]</code>](#applicationinvitetype)
 
 **Args:**
-    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
+    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number).
     options (AnyObject): extra pine options to use
 
 **Returns:**
-    List[EnvironmentVariableBase]: build environment variables.
+    List[ApplicationInviteType]: list contains info of invites.
 
 **Examples:**
 ```python
->>> balena.models.application.build_var.get_all_by_application(9020)
->>> balena.models.application.build_var.get_all_by_application("myorg/myslug")
+>>> balena.models.application.invite.get_all_by_application(1681618)
 ```
 
-## remove
+## revoke
 
-Remove an build environment variable.
+Revoke an invite.
 
-**Signature:** `balena.models.application.remove(slug_or_uuid_or_id, key)` ⇒ <code>None</code>
+**Signature:** `balena.models.application.revoke(invite_id)` ⇒ <code>None</code>
 
 **Args:**
-    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
-    key (str): environment variable name.
+    invite_id (int): application invite id.
 
 **Examples:**
 ```python
->>> balena.models.application.build_var.remove(2184, 'test_env4')
-```
-
-## set
-
-Set the value of a specific build environment variable.
-
-**Signature:** `balena.models.application.set(slug_or_uuid_or_id, env_var_name, value)` ⇒ <code>None</code>
-
-**Args:**
-    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
-    env_var_name (str): environment variable name.
-    value (str): environment variable value.
-
-**Examples:**
-```python
->>> balena.models.application.build_var.set('8deb12a7d7592c2b7f9e44735c2b0a41','test_env4', 'testing1')
+>>> balena.models.application.invite.revoke(5860)
 ```
 
 # ApplicationMembership
@@ -910,92 +992,317 @@ Remove a membership.
 **Args:**
     membership_id (ResourceKey): the id or an object with the unique `user` & `is_member_of__application`
 
-# ApplicationInvite
+# ApplicationTag
 
-This class implements application invite model for balena python SDK.
-## accept
+This class implements application tag model for balena python SDK.
+## get_all_by_application
 
-Accepts an invite.
+Get all application tags for an application.
 
-**Signature:** `balena.models.application.accept(invite_token)` ⇒ <code>None</code>
-
-**Args:**
-    invite_token (str): invitationToken - invite token.
-
-**Examples:**
-```python
->>> balena.models.application.invite.accept("qwerty-invitation-token")
-```
-
-## create
-
-Creates a new invite for an application.
-
-**Signature:** `balena.models.application.create(slug_or_uuid_or_id, options)` ⇒ [<code>ApplicationInviteType</code>](#applicationinvitetype)
+**Signature:** `balena.models.application.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[BaseTagType]</code>](#basetagtype)
 
 **Args:**
-    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number).
-    options (ApplicationInviteOptions): Application Invite options dict to use.
-        invitee (str): the email/balena_username of the invitee.
-        role_name (Optional[str]): the role name to be granted to the invitee.
-        One of "observer", "developer", "operator". Defaults to "developer"
-        message (Optional[str]): the message to send along with the invite.
-
-**Returns:**
-    dict: application invite.
-
-**Examples:**
-```python
->>> balena.models.application.invite.create(1681618, 'invitee@example.org', 'developer', 'Test invite')
-```
-
-## get_all
-
-Get all invites.
-
-**Signature:** `balena.models.application.get_all(options)` ⇒ [<code>List[ApplicationInviteType]</code>](#applicationinvitetype)
-
-**Args:**
+    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
     options (AnyObject): extra pine options to use
 
 **Returns:**
-    List[ApplicationInviteType]: list contains info of invites.
+    List[BaseTagType]: tags list.
 
 **Examples:**
 ```python
->>> balena.models.application.invite.get_all()
+>>> balena.models.application.tags.get_all_by_application(1005160)
+```
+
+## remove
+
+Remove an application tag.
+
+**Signature:** `balena.models.application.remove(slug_or_uuid_or_id, tag_key)` ⇒ <code>None</code>
+
+**Args:**
+    slug_or_uuid_or_id (int): application slug (string), uuid (string) or id (number)
+    tag_key (str): tag key.
+
+**Examples:**
+```python
+>>> balena.models.application.tags.remove(1005767, 'tag1')
+```
+
+## set
+
+Set an application tag (update tag value if it exists).
+
+**Signature:** `balena.models.application.set(slug_or_uuid_or_id, tag_key, value)` ⇒ <code>None</code>
+
+**Args:**
+    slug_or_uuid_or_id (int): application slug (string), uuid (string) or id (number)
+    tag_key (str): tag key.
+    value (str): tag value.
+
+**Returns:**
+    List[BaseTagType]: tags list.
+
+**Examples:**
+```python
+>>> balena.models.application.tags.set(1005767, 'tag1', 'Python SDK')
+```
+
+# Auth
+
+This class implements all authentication functions for balena python SDK.
+## authenticate
+
+This function authenticates provided credentials information.
+You should use Auth.login when possible, as it takes care of saving the Auth Token and username as well.
+
+**Signature:** `balena.auth.authenticate()` ⇒ <code>str</code>
+
+**Args:**
+    **credentials: credentials keyword arguments.
+        username (str): Balena username.
+        password (str): Password.
+
+**Returns:**
+    str: Auth Token,
+
+**Examples:**
+```python
+>>> balena.auth.authenticate(username='<your email>', password='<your password>')
+```
+
+## get_actor_id
+
+Get current logged in actor id.
+
+**Signature:** `balena.auth.get_actor_id()` ⇒ <code>int</code>
+
+**Returns:**
+    int: actor id
+
+**Examples:**
+```python
+# If you are logged in.
+>>> balena.auth.get_actor_id()
+```
+
+## get_token
+
+This function retrieves Auth Token.
+
+**Signature:** `balena.auth.get_token()` ⇒ <code>Optional[str]</code>
+
+**Returns:**
+    str: Auth Token.
+
+**Examples:**
+```python
+>>> balena.auth.get_token()
+```
+
+## get_user_info
+
+Get current logged in user's info
+
+**Signature:** `balena.auth.get_user_info()` ⇒ <code>UserInfo</code>
+
+**Returns:**
+    UserInfo: user info.
+
+**Examples:**
+```python
+# If you are logged in as a user.
+>>> balena.auth.get_user_info()
+```
+
+## is_logged_in
+
+This function checks if you're logged in
+
+**Signature:** `balena.auth.is_logged_in()` ⇒ <code>bool</code>
+
+**Returns:**
+    bool: True if logged in, False otherwise.
+
+**Examples:**
+```python
+# Check if user logged in.
+>>> if balena.auth.is_logged_in():
+...     print('You are logged in!')
+... else:
+...     print('You are not logged in!')
+```
+
+## login
+
+This function is used for logging into balena using email and password.
+
+**Signature:** `balena.auth.login()` ⇒ <code>None</code>
+
+**Args:**
+    **credentials: credentials keyword arguments.
+        username (str): Balena email.
+        password (str): Password.
+
+**Examples:**
+```python
+>>> from balena import Balena
+... balena = Balena()
+... credentials = {'username': '<your email>', 'password': '<your password>'}
+... balena.auth.login(**credentials)
+... # or
+... balena.auth.login(username='<your email>', password='<your password>')
+```
+
+## login_with_token
+
+This function is used for logging into balena using Auth Token.
+Auth Token can be found in Preferences section on balena Dashboard.
+
+**Signature:** `balena.auth.login_with_token(token)` ⇒ <code>None</code>
+
+**Args:**
+    token (str): Auth Token.
+
+**Returns:**
+    This functions saves Auth Token to Settings and returns nothing.
+
+**Examples:**
+```python
+>>> from balena import Balena
+>>> balena = Balena()
+>>> auth_token = <your token>
+>>> balena.auth.login_with_token(auth_token)
+```
+
+## logout
+
+This function is used for logging out from balena.
+
+**Signature:** `balena.auth.logout()` ⇒ <code>None</code>
+
+**Examples:**
+```python
+# If you are logged in.
+>>> balena.auth.logout()
+```
+
+## register
+
+This function is used for registering to balena.
+
+**Signature:** `balena.auth.register()` ⇒ <code>str</code>
+
+**Args:**
+    **credentials: credentials keyword arguments.
+        email (str): email to register.
+        password (str): Password.
+
+**Returns:**
+    str: Auth Token for new account.
+
+**Examples:**
+```python
+>>> credentials = {'email': '<your email>', 'password': '<your password>'}
+>>> balena.auth.register(**credentials)
+```
+
+## whoami
+
+Return current logged in username.
+
+**Signature:** `balena.auth.whoami()` ⇒ <code>Union[UserKeyWhoAmIResponse, ApplicationKeyWhoAmIResponse, DeviceKeyWhoAmIResponse, None]</code>
+
+**Returns:**
+    Optional[WhoamiResult]: current logged in information
+
+**Examples:**
+```python
+>>> balena.auth.whoami()
+```
+
+# BuildEnvVariable
+
+This class implements build environment variable model for balena python SDK.
+## get
+
+Get build environment variable.
+
+**Signature:** `balena.models.application.get(slug_or_uuid_or_id, env_var_name)` ⇒ <code>Optional[str]</code>
+
+**Args:**
+    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
+    env_var_name (str): environment variable name.
+
+**Examples:**
+```python
+>>> balena.models.application.build_var.get('8deb12a7d7592c2b7f9e44735c2b0a41','test_env4')
 ```
 
 ## get_all_by_application
 
-Get all invites by application.
+Get all build environment variables by application.
 
-**Signature:** `balena.models.application.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[ApplicationInviteType]</code>](#applicationinvitetype)
+**Signature:** `balena.models.application.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[EnvironmentVariableBase]</code>](#environmentvariablebase)
 
 **Args:**
-    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number).
+    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
     options (AnyObject): extra pine options to use
 
 **Returns:**
-    List[ApplicationInviteType]: list contains info of invites.
+    List[EnvironmentVariableBase]: build environment variables.
 
 **Examples:**
 ```python
->>> balena.models.application.invite.get_all_by_application(1681618)
+>>> balena.models.application.build_var.get_all_by_application(9020)
+>>> balena.models.application.build_var.get_all_by_application("myorg/myslug")
 ```
 
-## revoke
+## remove
 
-Revoke an invite.
+Remove an build environment variable.
 
-**Signature:** `balena.models.application.revoke(invite_id)` ⇒ <code>None</code>
+**Signature:** `balena.models.application.remove(slug_or_uuid_or_id, key)` ⇒ <code>None</code>
 
 **Args:**
-    invite_id (int): application invite id.
+    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
+    key (str): environment variable name.
 
 **Examples:**
 ```python
->>> balena.models.application.invite.revoke(5860)
+>>> balena.models.application.build_var.remove(2184, 'test_env4')
+```
+
+## set
+
+Set the value of a specific build environment variable.
+
+**Signature:** `balena.models.application.set(slug_or_uuid_or_id, env_var_name, value)` ⇒ <code>None</code>
+
+**Args:**
+    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
+    env_var_name (str): environment variable name.
+    value (str): environment variable value.
+
+**Examples:**
+```python
+>>> balena.models.application.build_var.set('8deb12a7d7592c2b7f9e44735c2b0a41','test_env4', 'testing1')
+```
+
+# Config
+
+This class implements configuration model for balena python SDK.
+## get_all
+
+Get all configuration.
+
+**Signature:** `balena.models.config.get_all()` ⇒ <code>ConfigType</code>
+
+**Returns:**
+    ConfigType: configuration information.
+
+**Examples:**
+```python
+>>> balena.models.config.get_all()
 ```
 
 # Device
@@ -1943,116 +2250,6 @@ update the device.
 >>> balena.models.device.update('8f66ec7335dd4a97b7661faa131b1502')
 ```
 
-# DeviceTag
-
-This class implements device tag model for balena python SDK.
-## get
-
-Get a device tag (update tag value if it exists).
-___Note___: Notice that when using the device ID rather than UUID,
-it will avoid one extra API roundtrip.
-
-**Signature:** `balena.models.device.get(uuid_or_id, tag_key)` ⇒ <code>Optional[str]</code>
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid or device id.
-    tag_key (str): tag key.
-
-**Returns:**
-    Optional[str]: tag value
-
-**Examples:**
-```python
->>> balena.models.device.tags.get('f5213eac0d63ac4', 'testtag')
-```
-
-## get_all
-
-Get all device tags.
-
-**Signature:** `balena.models.device.get_all(options)` ⇒ [<code>List[BaseTagType]</code>](#basetagtype)
-
-**Args:**
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[BaseTagType]: tags list.
-
-**Examples:**
-```python
->>> balena.models.device.tags.get_all()
-```
-
-## get_all_by_application
-
-Get all device tags for an application.
-
-**Signature:** `balena.models.device.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[BaseTagType]</code>](#basetagtype)
-
-**Args:**
-    slug_or_uuid_or_id (int): application slug (string), uuid (string) or id (number)
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[BaseTagType]: tags list.
-
-**Examples:**
-```python
->>> balena.models.device.tags.get_all_by_application(1005160)
-```
-
-## get_all_by_device
-
-Get all device tags for a device.
-
-**Signature:** `balena.models.device.get_all_by_device(uuid_or_id, options)` ⇒ [<code>List[BaseTagType]</code>](#basetagtype)
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid (string) or id (number)
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[BaseTagType]: tags list.
-
-**Examples:**
-```python
->>> balena.models.device.tags.get_all_by_device('a03ab646ca5a4f11b4d05c1f1c3b4e72')
-```
-
-## remove
-
-Remove a device tag.
-
-**Signature:** `balena.models.device.remove(uuid_or_id, tag_key)` ⇒ <code>None</code>
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid or device id.
-    tag_key (str): tag key.
-
-**Examples:**
-```python
->>> balena.models.device.tags.remove('f5213eac0d63ac477', 'testtag')
-```
-
-## set
-
-Set a device tag (update tag value if it exists).
-___Note___: Notice that when using the device ID rather than UUID,
-it will avoid one extra API roundtrip.
-
-**Signature:** `balena.models.device.set(uuid_or_id, tag_key, value)` ⇒ <code>None</code>
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid or device id.
-    tag_key (str): tag key.
-    value (str): tag value.
-
-**Examples:**
-```python
->>> balena.models.device.tags.set('f5213eac0d63ac4', 'testtag', 'test1')
->>> balena.models.device.tags.set('f5213eac0d63ac4', 'testtag', 'test2')
-```
-
 # DeviceConfigVariable
 
 This class implements device config variable model for balena python SDK.
@@ -2223,100 +2420,6 @@ Set the value of a specific environment variable.
 >>> balena.models.device.env_var.set('8deb12a7d7592c2b7f9e44735c2b0a41', 'test_env4', 'testing1')
 ```
 
-# DeviceServiceEnvVariable
-
-This class implements device service variable model for balena python SDK.
-## get
-
-Get the overriden value of a service variable on a device
-
-**Signature:** `balena.models.device.get(uuid_or_id, service_name_or_id, key)` ⇒ <code>Optional[str]</code>
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
-    service_name_or_id (Union[str, int]): service name (string) or service id (number)
-    key (str): variable name
-
-**Returns:**
-   Optional[str]: device service environment variables.
-
-**Examples:**
-```python
->>> balena.models.device.service_var.get('8deb12a7d7592c2b7f9e44735c2b0a41', 'myservice', 'VAR')
->>> balena.models.device.service_var.get('8deb12a7d7592c2b7f9e44735c2b0a41', 1234', 'VAR')
-```
-
-## get_all_by_application
-
-Get all device service environment variables belong to an application.
-
-**Signature:** `balena.models.device.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[EnvironmentVariableBase]</code>](#environmentvariablebase)
-
-**Args:**
-    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[EnvironmentVariableBase]: device service environment variables.
-
-**Examples:**
-```python
->>> balena.models.device.service_var.get_all_by_application(1043050)
-```
-
-## get_all_by_device
-
-Get all device environment variables.
-
-**Signature:** `balena.models.device.get_all_by_device(uuid_or_id, options)` ⇒ [<code>List[EnvironmentVariableBase]</code>](#environmentvariablebase)
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[EnvironmentVariableBase]: device service environment variables.
-
-**Examples:**
-```python
->>> balena.models.device.service_var.get_all_by_device(8deb12a)
-```
-
-## remove
-
-Remove a device service environment variable.
-
-**Signature:** `balena.models.device.remove(uuid_or_id, service_name_or_id, key)` ⇒ <code>None</code>
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
-    service_name_or_id (Union[str, int]): service name (string) or service id (number)
-    key (str): variable name
-
-**Examples:**
-```python
->>> balena.models.device.service_var.set('7cf02a6a016a4b3c9e3b7a8d5f46e127', 'myservice', 'VAR')
->>> balena.models.device.service_var.remove('7cf02a6a016a4b3c9e3b7a8d5f46e127', 28970, 'VAR')
-```
-
-## set
-
-Set the overriden value of a service variable on a device.
-
-**Signature:** `balena.models.device.set(uuid_or_id, service_name_or_id, key, value)` ⇒ <code>None</code>
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
-    service_name_or_id (Union[str, int]): service name (string) or service id (number)
-    key (str): variable name
-    value (str): variable value
-
-**Examples:**
-```python
->>> balena.models.device.service_var.set('7cf02a6a016a4b3c9e3b7a8d5f46e127', 'myservice', 'VAR', 'override')
->>> balena.models.device.service_var.set('7cf02a6a016a4b3c9e3b7a8d5f46e127', 123, 'VAR', 'override')
-```
-
 # DeviceHistory
 
 This class implements device history model for balena python SDK.
@@ -2376,557 +2479,6 @@ Get all device history entries for a device.
 ...     from_date=datetime.utcnow() + timedelta(days=-10),
 ...     to_date=from_date = datetime.utcnow() + timedelta(days=-5))
 ... )
-```
-
-# DeviceType
-
-This class implements user API key model for balena python SDK.
-## get
-
-Get a single device type.
-
-**Signature:** `balena.models.device_type.get(id_or_slug, options)` ⇒ [<code>DeviceTypeType</code>](#devicetypetype)
-
-**Args:**
-    id_or_slug (Union[str, int]): device type slug or alias (string) or id (int).
-    options (AnyObject): extra pine options to use.
-
-**Returns:**
-    DeviceTypeType: Returns the device type
-
-## get_all
-
-Get all device types.
-
-**Signature:** `balena.models.device_type.get_all(options)` ⇒ [<code>List[DeviceTypeType]</code>](#devicetypetype)
-
-**Args:**
-    options (AnyObject): extra pine options to use.
-
-**Returns:**
-    List[DeviceTypeType]: list contains info of device types.
-
-## get_all_supported
-
-Get all supported device types.
-
-**Signature:** `balena.models.device_type.get_all_supported(options)` ⇒ <code>None</code>
-
-**Args:**
-    options (AnyObject): extra pine options to use.
-
-**Returns:**
-    List[DeviceTypeType]: list contains info of all supported device types.
-
-## get_by_slug_or_name
-
-Get a single device type by slug or name.
-
-**Signature:** `balena.models.device_type.get_by_slug_or_name(slug_or_name, options)` ⇒ [<code>DeviceTypeType</code>](#devicetypetype)
-
-**Args:**
-    slug_or_name (str): device type slug or name.
-    options (AnyObject): extra pine options to use.
-
-**Returns:**
-    DeviceTypeType: Returns the device type
-
-## get_name
-
-Get display name for a device.
-
-**Signature:** `balena.models.device_type.get_name(slug)` ⇒ <code>str</code>
-
-**Args:**
-    slug (str): device type slug.
-
-## get_slug_by_name
-
-Get device slug.
-
-**Signature:** `balena.models.device_type.get_slug_by_name(name)` ⇒ <code>str</code>
-
-**Args:**
-    name (str): device type name.
-
-# ApiKey
-
-This class implements user API key model for balena python SDK.
-## create
-
-This method registers a new api key for the current user with the name given.
-
-**Signature:** `balena.models.api_key.create(name, description, expiry_date)` ⇒ <code>str</code>
-
-**Args:**
-    name (str): the API key name
-    description (Optional[str]): the API key description
-    expiry_date (Optional[str]): the API key expiring date
-
-**Returns:**
-    str: API key
-
-**Examples:**
-```python
->>> balena.models.api_key.create_api_key("myApiKey")
->>> balena.models.api_key.create_api_key("myApiKey", "my api key description")
->>> balena.models.api_key.create_api_key("myApiKey", "my descr", datetime.datetime.utcnow().isoformat())
-```
-
-## get_all
-
-This function gets all API keys.
-
-**Signature:** `balena.models.api_key.get_all(options)` ⇒ [<code>List[APIKeyType]</code>](#apikeytype)
-
-**Args:**
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[APIKeyType]: user API key
-
-**Examples:**
-```python
->>> balena.models.api_key.get_all()
-```
-
-## get_all_named_user_api_keys
-
-Get all named user API keys of the current user.
-
-**Signature:** `balena.models.api_key.get_all_named_user_api_keys(options)` ⇒ [<code>List[APIKeyType]</code>](#apikeytype)
-
-**Args:**
-    options (AnyObject): extra pine options to use
-
-**Examples:**
-```python
->>> balena.models.api_key.get_all_named_user_api_keys()
-```
-
-## get_device_api_keys_by_device
-
-Get all API keys for a device.
-
-**Signature:** `balena.models.api_key.get_device_api_keys_by_device(uuid_or_id, options)` ⇒ [<code>List[APIKeyType]</code>](#apikeytype)
-
-**Args:**
-    device_uuid (Union[str, int]): device, uuid (string) or id (int)
-    options (AnyObject): extra pine options to use
-
-**Examples:**
-```python
->>> balena.models.api_key.get_device_api_keys_by_device("44cc9d186")
->>> balena.models.api_key.get_device_api_keys_by_device(1111386)
-```
-
-## get_provisioning_api_keys_by_application
-
-Get all provisioning API keys for an application.
-
-**Signature:** `balena.models.api_key.get_provisioning_api_keys_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[APIKeyType]</code>](#apikeytype)
-
-**Args:**
-    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
-    options (AnyObject): extra pine options to use
-
-**Examples:**
-```python
->>> balena.models.api_key.get_provisioning_api_keys_by_application(1296047)
->>> balena.models.api_key.get_provisioning_api_keys_by_application("myorg/myapp")
-```
-
-## revoke
-
-This function revokes an API key.
-
-**Signature:** `balena.models.api_key.revoke(id)` ⇒ <code>None</code>
-
-**Args:**
-    id (int): API key id.
-
-**Examples:**
-```python
->>> balena.models.api_key.revoke(1296047)
-```
-
-## update
-
-This function updates details of an API key.
-
-**Signature:** `balena.models.api_key.update(id, api_key_info)` ⇒ <code>None</code>
-
-**Args:**
-    id (str): API key id.
-    api_key_info (APIKeyInfoType): new API key info.
-
-**Examples:**
-```python
->>> balena.models.api_key.update(1296047, {"name":"new name"})
-```
-
-# Key
-
-This class implements ssh key model for balena python SDK.
-## create
-
-Create a ssh key.
-
-**Signature:** `balena.models.key.create(title, key)` ⇒ [<code>SSHKeyType</code>](#sshkeytype)
-
-**Args:**
-    title (str): key title.
-    key (str): the public ssh key.
-
-**Returns:**
-    SSHKeyType: new ssh key id.
-
-## get
-
-Get a single ssh key.
-
-**Signature:** `balena.models.key.get(id)` ⇒ [<code>SSHKeyType</code>](#sshkeytype)
-
-**Args:**
-    id (int): key id.
-
-**Returns:**
-    SSHKeyType: ssh key info.
-
-## get_all
-
-Get all ssh keys.
-
-**Signature:** `balena.models.key.get_all(options)` ⇒ [<code>List[SSHKeyType]</code>](#sshkeytype)
-
-**Args:**
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[SSHKeyType]: list of ssh keys.
-
-## remove
-
-Remove a ssh key.
-
-**Signature:** `balena.models.key.remove(id)` ⇒ <code>None</code>
-
-**Args:**
-    id (int): key id.
-
-# Organization
-
-This class implements organization model for balena python SDK.
-## create
-
-Creates a new organization.
-
-**Signature:** `balena.models.organization.create(name, handle, logo_image)` ⇒ [<code>OrganizationType</code>](#organizationtype)
-
-**Args:**
-    name (str): the name of the organization that will be created.
-    handle (Optional[str]): The handle of the organization that will be created.
-    logo_image (Optional[io.BufferedReader]): The organization logo to be used.
-
-**Returns:**
-    dict: organization info.
-
-**Examples:**
-```python
->>> balena.models.organization.create('My Org', 'test_org')
->>> with open('mypath/myfile.png', 'rb') as f:
->>>     org = sdk.models.organization.create("my-name", None, f)
-```
-
-## get
-
-Get a single organization.
-
-**Signature:** `balena.models.organization.get(handle_or_id, options)` ⇒ [<code>OrganizationType</code>](#organizationtype)
-
-**Args:**
-    handle_or_id (str): organization handle (string) or id (number).
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    dict: organization info.
-
-**Raises:**
-    OrganizationNotFound: if organization couldn't be found.
-
-**Examples:**
-```python
->>> balena.models.organization.get(26474)
->>> balena.models.organization.get('myorg')
-```
-
-## get_all
-
-Get all organizations.
-
-**Signature:** `balena.models.organization.get_all(options)` ⇒ [<code>List[OrganizationType]</code>](#organizationtype)
-
-**Args:**
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[OrganizationType]: list contains information of organizations.
-
-**Examples:**
-```python
->>> balena.models.organization.get_all()
-```
-
-## remove
-
-Remove an organization.
-
-**Signature:** `balena.models.organization.remove(handle_or_id)` ⇒ <code>None</code>
-
-**Args:**
-    handle_or_id (str): organization handle (string) or id (number).
-
-**Examples:**
-```python
->>> balena.models.organization.remove(148003)
-```
-
-# OrganizationMembership
-
-This class implements organization membership model for balena python SDK.
-## get
-
-Get a single organization membership.
-
-**Signature:** `balena.models.organization.get(membership_id, options)` ⇒ [<code>OrganizationMembershipType</code>](#organizationmembershiptype)
-
-**Args:**
-    membership_id (ResourceKey): the id (int) or an object with the unique
-    `user` & `is_member_of__organization` numeric pair of the membership
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    Organization membership.
-
-**Examples:**
-```python
->>> balena.models.organization.memberships.get(17608)
-```
-
-## get_all
-
-Get all organization memberships.
-
-**Signature:** `balena.models.organization.get_all(options)` ⇒ [<code>List[OrganizationMembershipType]</code>](#organizationmembershiptype)
-
-**Args:**
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[OrganizationMembershipType]: organization memberships.
-
-**Examples:**
-```python
->>> balena.models.organization.memberships.tags.get_all()
-```
-
-## get_all_by_organization
-
-Get all memberships by organization.
-
-**Signature:** `balena.models.organization.get_all_by_organization(handle_or_id, options)` ⇒ [<code>List[OrganizationMembershipType]</code>](#organizationmembershiptype)
-
-**Args:**
-    handle_or_id (Union[str, int]): organization handle (string) or id (number).
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[OrganizationMembershipType]: organization memberships.
-
-**Examples:**
-```python
->>> balena.models.organization.memberships.get_all_by_organization(3014)
-```
-
-# OrganizationMembershipTag
-
-This class implements organization membership tag model for balena python SDK.
-## get
-
-Get an organization membership tag.
-
-**Signature:** `balena.models.organization.get(membership_id, tag_key)` ⇒ <code>Optional[str]</code>
-
-**Args:**
-    membership_id: organization membership id.
-    tag_key (str): tag key.
-
-**Examples:**
-```python
->>> balena.models.organization.memberships.tags.get(17608, 'mTag1')
-```
-
-## get_all
-
-Get all organization membership tags.
-
-**Signature:** `balena.models.organization.get_all(options)` ⇒ [<code>List[OrganizationMembershipTagType]</code>](#organizationmembershiptagtype)
-
-**Args:**
-    options (AnyObject): extra pine options to use
-
-
-**Examples:**
-```python
->>> balena.models.organization.memberships.tags.get_all()
-```
-
-## get_all_by_organization
-
-Get all organization membership tags for an organization.
-
-**Signature:** `balena.models.organization.get_all_by_organization(handle_or_id, options)` ⇒ [<code>List[OrganizationMembershipTagType]</code>](#organizationmembershiptagtype)
-
-**Args:**
-    handle_or_id (Union[str, int]): organization handle (string) or id (number).
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[OrganizationMembershipTagType]: organization membership tags.
-
-**Examples:**
-```python
->>> balena.models.organization.memberships.tags.get_all_by_organization(3014)
-```
-
-## get_all_by_organization_membership
-
-Get all organization membership tags for a memberships of an organization.
-
-**Signature:** `balena.models.organization.get_all_by_organization_membership(membership_id, options)` ⇒ [<code>List[OrganizationMembershipTagType]</code>](#organizationmembershiptagtype)
-
-**Args:**
-    membership_id (int): organization membership id.
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    list: organization membership tags.
-
-**Examples:**
-```python
->>> balena.models.organization.memberships.tags.get_all_by_organization_membership(17608)
-```
-
-## remove
-
-Remove an organization membership tag.
-
-**Signature:** `balena.models.organization.remove(membership_id, tag_key)` ⇒ <code>None</code>
-
-**Args:**
-    membership_id: organization membership id.
-    tag_key (str): tag key.
-
-**Examples:**
-```python
->>> balena.models.organization.memberships.tags.remove(17608, 'mTag1')
-```
-
-## set
-
-Set an organization membership tag.
-
-**Signature:** `balena.models.organization.set(membership_id, tag_key, value)` ⇒ <code>None</code>
-
-**Args:**
-    membership_id: organization membership id.
-    tag_key (str): tag key.
-    value (str): tag value.
-
-**Examples:**
-```python
->>> balena.models.organization.memberships.tags.set(17608, 'mTag1', 'Python SDK')
-```
-
-# OrganizationInvite
-
-This class implements organization invite model for balena python SDK.
-## accept
-
-Accepts an invite.
-
-**Signature:** `balena.models.organization.accept(invite_token)` ⇒ <code>None</code>
-
-**Args:**
-    invite_token (str): invitation Token - invite token.
-
-## create
-
-Creates a new invite for an organization.
-
-**Signature:** `balena.models.organization.create(handle_or_id, invitee, role_name, message)` ⇒ [<code>OrganizationInviteType</code>](#organizationinvitetype)
-
-**Args:**
-    handle_or_id (Union[str, int]): organization handle (string), or id (number).
-    invitee (str): the email/balena_username of the invitee.
-    role_name (Optional[str]): the role name to be granted to the invitee.
-    message (Optional[str]): the message to send along with the invite.
-
-**Returns:**
-    OrganizationInviteType: organization invite.
-
-**Examples:**
-```python
->>> balena.models.organization.invite.create(26474, 'invitee@example.org', 'member', 'Test invite')
-```
-
-## get_all
-
-Get all invites.
-
-**Signature:** `balena.models.organization.get_all(options)` ⇒ [<code>List[OrganizationInviteType]</code>](#organizationinvitetype)
-
-**Args:**
-    options (AnyObject): extra pine options to use
-
-**Returns:**
-    List[OrganizationInviteType]: list contains info of invites.
-
-**Examples:**
-```python
->>> balena.models.organization.invite.get_all()
-```
-
-## get_all_by_organization
-
-Get all invites by organization.
-
-**Signature:** `balena.models.organization.get_all_by_organization(handle_or_id, options)` ⇒ [<code>List[OrganizationInviteType]</code>](#organizationinvitetype)
-
-**Args:**
-    handle_or_id (Union[str, int]): organization handle (string), or id (number).
-    options (AnyObject): extra pine options to use.
-
-**Returns:**
-    List[OrganizationInviteType]: list contains info of invites.
-
-**Examples:**
-```python
->>> balena.models.organization.invite.get_all_by_organization(26474)
-```
-
-## revoke
-
-Revoke an invite.
-
-**Signature:** `balena.models.organization.revoke(invite_id)` ⇒ <code>None</code>
-
-**Args:**
-    invite_id (int): organization invite id.
-
-**Examples:**
-```python
->>> balena.models.organization.invite.revoke(2862)
 ```
 
 # DeviceOs
@@ -3107,21 +2659,717 @@ Returns whether the specified OS architecture is compatible with the target arch
     current_version (str): emver-compatible version for the starting OS version
     target_version (str): semver-compatible version for the target OS version
 
-# Config
+# DeviceServiceEnvVariable
 
-This class implements configuration model for balena python SDK.
-## get_all
+This class implements device service variable model for balena python SDK.
+## get
 
-Get all configuration.
+Get the overriden value of a service variable on a device
 
-**Signature:** `balena.models.config.get_all()` ⇒ <code>ConfigType</code>
+**Signature:** `balena.models.device.get(uuid_or_id, service_name_or_id, key)` ⇒ <code>Optional[str]</code>
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
+    service_name_or_id (Union[str, int]): service name (string) or service id (number)
+    key (str): variable name
 
 **Returns:**
-    ConfigType: configuration information.
+   Optional[str]: device service environment variables.
 
 **Examples:**
 ```python
->>> balena.models.config.get_all()
+>>> balena.models.device.service_var.get('8deb12a7d7592c2b7f9e44735c2b0a41', 'myservice', 'VAR')
+>>> balena.models.device.service_var.get('8deb12a7d7592c2b7f9e44735c2b0a41', 1234', 'VAR')
+```
+
+## get_all_by_application
+
+Get all device service environment variables belong to an application.
+
+**Signature:** `balena.models.device.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[EnvironmentVariableBase]</code>](#environmentvariablebase)
+
+**Args:**
+    slug_or_uuid_or_id (Union[str, int]): application slug (string), uuid (string) or id (number)
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[EnvironmentVariableBase]: device service environment variables.
+
+**Examples:**
+```python
+>>> balena.models.device.service_var.get_all_by_application(1043050)
+```
+
+## get_all_by_device
+
+Get all device environment variables.
+
+**Signature:** `balena.models.device.get_all_by_device(uuid_or_id, options)` ⇒ [<code>List[EnvironmentVariableBase]</code>](#environmentvariablebase)
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[EnvironmentVariableBase]: device service environment variables.
+
+**Examples:**
+```python
+>>> balena.models.device.service_var.get_all_by_device(8deb12a)
+```
+
+## remove
+
+Remove a device service environment variable.
+
+**Signature:** `balena.models.device.remove(uuid_or_id, service_name_or_id, key)` ⇒ <code>None</code>
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
+    service_name_or_id (Union[str, int]): service name (string) or service id (number)
+    key (str): variable name
+
+**Examples:**
+```python
+>>> balena.models.device.service_var.set('7cf02a6a016a4b3c9e3b7a8d5f46e127', 'myservice', 'VAR')
+>>> balena.models.device.service_var.remove('7cf02a6a016a4b3c9e3b7a8d5f46e127', 28970, 'VAR')
+```
+
+## set
+
+Set the overriden value of a service variable on a device.
+
+**Signature:** `balena.models.device.set(uuid_or_id, service_name_or_id, key, value)` ⇒ <code>None</code>
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
+    service_name_or_id (Union[str, int]): service name (string) or service id (number)
+    key (str): variable name
+    value (str): variable value
+
+**Examples:**
+```python
+>>> balena.models.device.service_var.set('7cf02a6a016a4b3c9e3b7a8d5f46e127', 'myservice', 'VAR', 'override')
+>>> balena.models.device.service_var.set('7cf02a6a016a4b3c9e3b7a8d5f46e127', 123, 'VAR', 'override')
+```
+
+# DeviceTag
+
+This class implements device tag model for balena python SDK.
+## get
+
+Get a device tag (update tag value if it exists).
+___Note___: Notice that when using the device ID rather than UUID,
+it will avoid one extra API roundtrip.
+
+**Signature:** `balena.models.device.get(uuid_or_id, tag_key)` ⇒ <code>Optional[str]</code>
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid or device id.
+    tag_key (str): tag key.
+
+**Returns:**
+    Optional[str]: tag value
+
+**Examples:**
+```python
+>>> balena.models.device.tags.get('f5213eac0d63ac4', 'testtag')
+```
+
+## get_all
+
+Get all device tags.
+
+**Signature:** `balena.models.device.get_all(options)` ⇒ [<code>List[BaseTagType]</code>](#basetagtype)
+
+**Args:**
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[BaseTagType]: tags list.
+
+**Examples:**
+```python
+>>> balena.models.device.tags.get_all()
+```
+
+## get_all_by_application
+
+Get all device tags for an application.
+
+**Signature:** `balena.models.device.get_all_by_application(slug_or_uuid_or_id, options)` ⇒ [<code>List[BaseTagType]</code>](#basetagtype)
+
+**Args:**
+    slug_or_uuid_or_id (int): application slug (string), uuid (string) or id (number)
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[BaseTagType]: tags list.
+
+**Examples:**
+```python
+>>> balena.models.device.tags.get_all_by_application(1005160)
+```
+
+## get_all_by_device
+
+Get all device tags for a device.
+
+**Signature:** `balena.models.device.get_all_by_device(uuid_or_id, options)` ⇒ [<code>List[BaseTagType]</code>](#basetagtype)
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid (string) or id (number)
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[BaseTagType]: tags list.
+
+**Examples:**
+```python
+>>> balena.models.device.tags.get_all_by_device('a03ab646ca5a4f11b4d05c1f1c3b4e72')
+```
+
+## remove
+
+Remove a device tag.
+
+**Signature:** `balena.models.device.remove(uuid_or_id, tag_key)` ⇒ <code>None</code>
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid or device id.
+    tag_key (str): tag key.
+
+**Examples:**
+```python
+>>> balena.models.device.tags.remove('f5213eac0d63ac477', 'testtag')
+```
+
+## set
+
+Set a device tag (update tag value if it exists).
+___Note___: Notice that when using the device ID rather than UUID,
+it will avoid one extra API roundtrip.
+
+**Signature:** `balena.models.device.set(uuid_or_id, tag_key, value)` ⇒ <code>None</code>
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid or device id.
+    tag_key (str): tag key.
+    value (str): tag value.
+
+**Examples:**
+```python
+>>> balena.models.device.tags.set('f5213eac0d63ac4', 'testtag', 'test1')
+>>> balena.models.device.tags.set('f5213eac0d63ac4', 'testtag', 'test2')
+```
+
+# DeviceType
+
+This class implements user API key model for balena python SDK.
+## get
+
+Get a single device type.
+
+**Signature:** `balena.models.device_type.get(id_or_slug, options)` ⇒ [<code>DeviceTypeType</code>](#devicetypetype)
+
+**Args:**
+    id_or_slug (Union[str, int]): device type slug or alias (string) or id (int).
+    options (AnyObject): extra pine options to use.
+
+**Returns:**
+    DeviceTypeType: Returns the device type
+
+## get_all
+
+Get all device types.
+
+**Signature:** `balena.models.device_type.get_all(options)` ⇒ [<code>List[DeviceTypeType]</code>](#devicetypetype)
+
+**Args:**
+    options (AnyObject): extra pine options to use.
+
+**Returns:**
+    List[DeviceTypeType]: list contains info of device types.
+
+## get_all_supported
+
+Get all supported device types.
+
+**Signature:** `balena.models.device_type.get_all_supported(options)` ⇒ <code>None</code>
+
+**Args:**
+    options (AnyObject): extra pine options to use.
+
+**Returns:**
+    List[DeviceTypeType]: list contains info of all supported device types.
+
+## get_by_slug_or_name
+
+Get a single device type by slug or name.
+
+**Signature:** `balena.models.device_type.get_by_slug_or_name(slug_or_name, options)` ⇒ [<code>DeviceTypeType</code>](#devicetypetype)
+
+**Args:**
+    slug_or_name (str): device type slug or name.
+    options (AnyObject): extra pine options to use.
+
+**Returns:**
+    DeviceTypeType: Returns the device type
+
+## get_name
+
+Get display name for a device.
+
+**Signature:** `balena.models.device_type.get_name(slug)` ⇒ <code>str</code>
+
+**Args:**
+    slug (str): device type slug.
+
+## get_slug_by_name
+
+Get device slug.
+
+**Signature:** `balena.models.device_type.get_slug_by_name(name)` ⇒ <code>str</code>
+
+**Args:**
+    name (str): device type name.
+
+# Image
+
+This class implements image model for balena python SDK.
+## get
+
+Get a specific image.
+
+**Signature:** `balena.models.image.get(id, options)` ⇒ [<code>ImageType</code>](#imagetype)
+
+**Args:**
+    id (int): image id.
+    options (AnyObject): extra pine options to use.
+
+**Returns:**
+    ImageType: image info.
+
+## get_logs
+
+Get the build log from an image.
+
+**Signature:** `balena.models.image.get_logs(id)` ⇒ <code>str</code>
+
+**Args:**
+    id (str): image id.
+
+**Returns:**
+    str: build log.
+
+# Key
+
+This class implements ssh key model for balena python SDK.
+## create
+
+Create a ssh key.
+
+**Signature:** `balena.models.key.create(title, key)` ⇒ [<code>SSHKeyType</code>](#sshkeytype)
+
+**Args:**
+    title (str): key title.
+    key (str): the public ssh key.
+
+**Returns:**
+    SSHKeyType: new ssh key id.
+
+## get
+
+Get a single ssh key.
+
+**Signature:** `balena.models.key.get(id)` ⇒ [<code>SSHKeyType</code>](#sshkeytype)
+
+**Args:**
+    id (int): key id.
+
+**Returns:**
+    SSHKeyType: ssh key info.
+
+## get_all
+
+Get all ssh keys.
+
+**Signature:** `balena.models.key.get_all(options)` ⇒ [<code>List[SSHKeyType]</code>](#sshkeytype)
+
+**Args:**
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[SSHKeyType]: list of ssh keys.
+
+## remove
+
+Remove a ssh key.
+
+**Signature:** `balena.models.key.remove(id)` ⇒ <code>None</code>
+
+**Args:**
+    id (int): key id.
+
+# Logs
+
+This class implements functions that allow processing logs from device.
+## history
+
+Get device logs history.
+
+**Signature:** `balena.logs.history(uuid_or_id, count)` ⇒ <code>List[Log]</code>
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
+    count (Optional[Union[int, Literal["all"]]]): number of historical messages to include.
+
+## stop
+
+Will grecefully unsubscribe from all devices and stop the consumer thread.
+**Signature:** `balena.logs.stop()` ⇒ <code>None</code>
+
+
+## subscribe
+
+Subscribe to device logs.
+
+**Signature:** `balena.logs.subscribe(uuid_or_id, callback, error, count)` ⇒ <code>None</code>
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
+    callback (Callable[[Log], None]): this callback is called on receiving a message.
+    error (Optional[Callable[[Any], None]]): this callback is called on an error event.
+    count (Optional[Union[int, Literal["all"]]]): number of historical messages to include.
+
+## unsubscribe
+
+Unsubscribe from device logs for a specific device.
+
+**Signature:** `balena.logs.unsubscribe(uuid_or_id)` ⇒ <code>None</code>
+
+**Args:**
+    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
+
+## unsubscribe_all
+
+Unsubscribe all subscribed devices.
+**Signature:** `balena.logs.unsubscribe_all()` ⇒ <code>None</code>
+
+
+# Organization
+
+This class implements organization model for balena python SDK.
+## create
+
+Creates a new organization.
+
+**Signature:** `balena.models.organization.create(name, handle, logo_image)` ⇒ [<code>OrganizationType</code>](#organizationtype)
+
+**Args:**
+    name (str): the name of the organization that will be created.
+    handle (Optional[str]): The handle of the organization that will be created.
+    logo_image (Optional[io.BufferedReader]): The organization logo to be used.
+
+**Returns:**
+    dict: organization info.
+
+**Examples:**
+```python
+>>> balena.models.organization.create('My Org', 'test_org')
+>>> with open('mypath/myfile.png', 'rb') as f:
+>>>     org = sdk.models.organization.create("my-name", None, f)
+```
+
+## get
+
+Get a single organization.
+
+**Signature:** `balena.models.organization.get(handle_or_id, options)` ⇒ [<code>OrganizationType</code>](#organizationtype)
+
+**Args:**
+    handle_or_id (str): organization handle (string) or id (number).
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    dict: organization info.
+
+**Raises:**
+    OrganizationNotFound: if organization couldn't be found.
+
+**Examples:**
+```python
+>>> balena.models.organization.get(26474)
+>>> balena.models.organization.get('myorg')
+```
+
+## get_all
+
+Get all organizations.
+
+**Signature:** `balena.models.organization.get_all(options)` ⇒ [<code>List[OrganizationType]</code>](#organizationtype)
+
+**Args:**
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[OrganizationType]: list contains information of organizations.
+
+**Examples:**
+```python
+>>> balena.models.organization.get_all()
+```
+
+## remove
+
+Remove an organization.
+
+**Signature:** `balena.models.organization.remove(handle_or_id)` ⇒ <code>None</code>
+
+**Args:**
+    handle_or_id (str): organization handle (string) or id (number).
+
+**Examples:**
+```python
+>>> balena.models.organization.remove(148003)
+```
+
+# OrganizationInvite
+
+This class implements organization invite model for balena python SDK.
+## accept
+
+Accepts an invite.
+
+**Signature:** `balena.models.organization.accept(invite_token)` ⇒ <code>None</code>
+
+**Args:**
+    invite_token (str): invitation Token - invite token.
+
+## create
+
+Creates a new invite for an organization.
+
+**Signature:** `balena.models.organization.create(handle_or_id, invitee, role_name, message)` ⇒ [<code>OrganizationInviteType</code>](#organizationinvitetype)
+
+**Args:**
+    handle_or_id (Union[str, int]): organization handle (string), or id (number).
+    invitee (str): the email/balena_username of the invitee.
+    role_name (Optional[str]): the role name to be granted to the invitee.
+    message (Optional[str]): the message to send along with the invite.
+
+**Returns:**
+    OrganizationInviteType: organization invite.
+
+**Examples:**
+```python
+>>> balena.models.organization.invite.create(26474, 'invitee@example.org', 'member', 'Test invite')
+```
+
+## get_all
+
+Get all invites.
+
+**Signature:** `balena.models.organization.get_all(options)` ⇒ [<code>List[OrganizationInviteType]</code>](#organizationinvitetype)
+
+**Args:**
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[OrganizationInviteType]: list contains info of invites.
+
+**Examples:**
+```python
+>>> balena.models.organization.invite.get_all()
+```
+
+## get_all_by_organization
+
+Get all invites by organization.
+
+**Signature:** `balena.models.organization.get_all_by_organization(handle_or_id, options)` ⇒ [<code>List[OrganizationInviteType]</code>](#organizationinvitetype)
+
+**Args:**
+    handle_or_id (Union[str, int]): organization handle (string), or id (number).
+    options (AnyObject): extra pine options to use.
+
+**Returns:**
+    List[OrganizationInviteType]: list contains info of invites.
+
+**Examples:**
+```python
+>>> balena.models.organization.invite.get_all_by_organization(26474)
+```
+
+## revoke
+
+Revoke an invite.
+
+**Signature:** `balena.models.organization.revoke(invite_id)` ⇒ <code>None</code>
+
+**Args:**
+    invite_id (int): organization invite id.
+
+**Examples:**
+```python
+>>> balena.models.organization.invite.revoke(2862)
+```
+
+# OrganizationMembership
+
+This class implements organization membership model for balena python SDK.
+## get
+
+Get a single organization membership.
+
+**Signature:** `balena.models.organization.get(membership_id, options)` ⇒ [<code>OrganizationMembershipType</code>](#organizationmembershiptype)
+
+**Args:**
+    membership_id (ResourceKey): the id (int) or an object with the unique
+    `user` & `is_member_of__organization` numeric pair of the membership
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    Organization membership.
+
+**Examples:**
+```python
+>>> balena.models.organization.memberships.get(17608)
+```
+
+## get_all
+
+Get all organization memberships.
+
+**Signature:** `balena.models.organization.get_all(options)` ⇒ [<code>List[OrganizationMembershipType]</code>](#organizationmembershiptype)
+
+**Args:**
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[OrganizationMembershipType]: organization memberships.
+
+**Examples:**
+```python
+>>> balena.models.organization.memberships.tags.get_all()
+```
+
+## get_all_by_organization
+
+Get all memberships by organization.
+
+**Signature:** `balena.models.organization.get_all_by_organization(handle_or_id, options)` ⇒ [<code>List[OrganizationMembershipType]</code>](#organizationmembershiptype)
+
+**Args:**
+    handle_or_id (Union[str, int]): organization handle (string) or id (number).
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[OrganizationMembershipType]: organization memberships.
+
+**Examples:**
+```python
+>>> balena.models.organization.memberships.get_all_by_organization(3014)
+```
+
+# OrganizationMembershipTag
+
+This class implements organization membership tag model for balena python SDK.
+## get
+
+Get an organization membership tag.
+
+**Signature:** `balena.models.organization.get(membership_id, tag_key)` ⇒ <code>Optional[str]</code>
+
+**Args:**
+    membership_id: organization membership id.
+    tag_key (str): tag key.
+
+**Examples:**
+```python
+>>> balena.models.organization.memberships.tags.get(17608, 'mTag1')
+```
+
+## get_all
+
+Get all organization membership tags.
+
+**Signature:** `balena.models.organization.get_all(options)` ⇒ [<code>List[OrganizationMembershipTagType]</code>](#organizationmembershiptagtype)
+
+**Args:**
+    options (AnyObject): extra pine options to use
+
+
+**Examples:**
+```python
+>>> balena.models.organization.memberships.tags.get_all()
+```
+
+## get_all_by_organization
+
+Get all organization membership tags for an organization.
+
+**Signature:** `balena.models.organization.get_all_by_organization(handle_or_id, options)` ⇒ [<code>List[OrganizationMembershipTagType]</code>](#organizationmembershiptagtype)
+
+**Args:**
+    handle_or_id (Union[str, int]): organization handle (string) or id (number).
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    List[OrganizationMembershipTagType]: organization membership tags.
+
+**Examples:**
+```python
+>>> balena.models.organization.memberships.tags.get_all_by_organization(3014)
+```
+
+## get_all_by_organization_membership
+
+Get all organization membership tags for a memberships of an organization.
+
+**Signature:** `balena.models.organization.get_all_by_organization_membership(membership_id, options)` ⇒ [<code>List[OrganizationMembershipTagType]</code>](#organizationmembershiptagtype)
+
+**Args:**
+    membership_id (int): organization membership id.
+    options (AnyObject): extra pine options to use
+
+**Returns:**
+    list: organization membership tags.
+
+**Examples:**
+```python
+>>> balena.models.organization.memberships.tags.get_all_by_organization_membership(17608)
+```
+
+## remove
+
+Remove an organization membership tag.
+
+**Signature:** `balena.models.organization.remove(membership_id, tag_key)` ⇒ <code>None</code>
+
+**Args:**
+    membership_id: organization membership id.
+    tag_key (str): tag key.
+
+**Examples:**
+```python
+>>> balena.models.organization.memberships.tags.remove(17608, 'mTag1')
+```
+
+## set
+
+Set an organization membership tag.
+
+**Signature:** `balena.models.organization.set(membership_id, tag_key, value)` ⇒ <code>None</code>
+
+**Args:**
+    membership_id: organization membership id.
+    tag_key (str): tag key.
+    value (str): tag value.
+
+**Examples:**
+```python
+>>> balena.models.organization.memberships.tags.set(17608, 'mTag1', 'Python SDK')
 ```
 
 # Release
@@ -3457,207 +3705,11 @@ Set the value of a specific application environment variable.
 >>> balena.models.service.var.set(1234,'test_env4', 'value')
 ```
 
-# Image
+# Settings
 
-This class implements image model for balena python SDK.
-## get
+Create a module object.
 
-Get a specific image.
-
-**Signature:** `balena.models.image.get(id, options)` ⇒ [<code>ImageType</code>](#imagetype)
-
-**Args:**
-    id (int): image id.
-    options (AnyObject): extra pine options to use.
-
-**Returns:**
-    ImageType: image info.
-
-## get_logs
-
-Get the build log from an image.
-
-**Signature:** `balena.models.image.get_logs(id)` ⇒ <code>str</code>
-
-**Args:**
-    id (str): image id.
-
-**Returns:**
-    str: build log.
-
-# Auth
-
-This class implements all authentication functions for balena python SDK.
-## authenticate
-
-This function authenticates provided credentials information.
-You should use Auth.login when possible, as it takes care of saving the Auth Token and username as well.
-
-**Signature:** `balena.auth.authenticate()` ⇒ <code>str</code>
-
-**Args:**
-    **credentials: credentials keyword arguments.
-        username (str): Balena username.
-        password (str): Password.
-
-**Returns:**
-    str: Auth Token,
-
-**Examples:**
-```python
->>> balena.auth.authenticate(username='<your email>', password='<your password>')
-```
-
-## get_actor_id
-
-Get current logged in actor id.
-
-**Signature:** `balena.auth.get_actor_id()` ⇒ <code>int</code>
-
-**Returns:**
-    int: actor id
-
-**Examples:**
-```python
-# If you are logged in.
->>> balena.auth.get_actor_id()
-```
-
-## get_token
-
-This function retrieves Auth Token.
-
-**Signature:** `balena.auth.get_token()` ⇒ <code>Optional[str]</code>
-
-**Returns:**
-    str: Auth Token.
-
-**Examples:**
-```python
->>> balena.auth.get_token()
-```
-
-## get_user_info
-
-Get current logged in user's info
-
-**Signature:** `balena.auth.get_user_info()` ⇒ <code>UserInfo</code>
-
-**Returns:**
-    UserInfo: user info.
-
-**Examples:**
-```python
-# If you are logged in as a user.
->>> balena.auth.get_user_info()
-```
-
-## is_logged_in
-
-This function checks if you're logged in
-
-**Signature:** `balena.auth.is_logged_in()` ⇒ <code>bool</code>
-
-**Returns:**
-    bool: True if logged in, False otherwise.
-
-**Examples:**
-```python
-# Check if user logged in.
->>> if balena.auth.is_logged_in():
-...     print('You are logged in!')
-... else:
-...     print('You are not logged in!')
-```
-
-## login
-
-This function is used for logging into balena using email and password.
-
-**Signature:** `balena.auth.login()` ⇒ <code>None</code>
-
-**Args:**
-    **credentials: credentials keyword arguments.
-        username (str): Balena email.
-        password (str): Password.
-
-**Examples:**
-```python
->>> from balena import Balena
-... balena = Balena()
-... credentials = {'username': '<your email>', 'password': '<your password>'}
-... balena.auth.login(**credentials)
-... # or
-... balena.auth.login(username='<your email>', password='<your password>')
-```
-
-## login_with_token
-
-This function is used for logging into balena using Auth Token.
-Auth Token can be found in Preferences section on balena Dashboard.
-
-**Signature:** `balena.auth.login_with_token(token)` ⇒ <code>None</code>
-
-**Args:**
-    token (str): Auth Token.
-
-**Returns:**
-    This functions saves Auth Token to Settings and returns nothing.
-
-**Examples:**
-```python
->>> from balena import Balena
->>> balena = Balena()
->>> auth_token = <your token>
->>> balena.auth.login_with_token(auth_token)
-```
-
-## logout
-
-This function is used for logging out from balena.
-
-**Signature:** `balena.auth.logout()` ⇒ <code>None</code>
-
-**Examples:**
-```python
-# If you are logged in.
->>> balena.auth.logout()
-```
-
-## register
-
-This function is used for registering to balena.
-
-**Signature:** `balena.auth.register()` ⇒ <code>str</code>
-
-**Args:**
-    **credentials: credentials keyword arguments.
-        email (str): email to register.
-        password (str): Password.
-
-**Returns:**
-    str: Auth Token for new account.
-
-**Examples:**
-```python
->>> credentials = {'email': '<your email>', 'password': '<your password>'}
->>> balena.auth.register(**credentials)
-```
-
-## whoami
-
-Return current logged in username.
-
-**Signature:** `balena.auth.whoami()` ⇒ <code>Union[UserKeyWhoAmIResponse, ApplicationKeyWhoAmIResponse, DeviceKeyWhoAmIResponse, None]</code>
-
-**Returns:**
-    Optional[WhoamiResult]: current logged in information
-
-**Examples:**
-```python
->>> balena.auth.whoami()
-```
-
+The name must be a string; the optional doc argument can have any type.
 # TwoFactorAuth
 
 This class implements basic 2FA functionalities for balena python SDK.
@@ -3783,57 +3835,6 @@ You should use balena.twofactor_auth.challenge() when possible, as it takes care
 >>> balena.twofactor_auth.verify('123456')
 ```
 
-# Logs
-
-This class implements functions that allow processing logs from device.
-## history
-
-Get device logs history.
-
-**Signature:** `balena.logs.history(uuid_or_id, count)` ⇒ <code>List[Log]</code>
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
-    count (Optional[Union[int, Literal["all"]]]): number of historical messages to include.
-
-## stop
-
-Will grecefully unsubscribe from all devices and stop the consumer thread.
-**Signature:** `balena.logs.stop()` ⇒ <code>None</code>
-
-
-## subscribe
-
-Subscribe to device logs.
-
-**Signature:** `balena.logs.subscribe(uuid_or_id, callback, error, count)` ⇒ <code>None</code>
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
-    callback (Callable[[Log], None]): this callback is called on receiving a message.
-    error (Optional[Callable[[Any], None]]): this callback is called on an error event.
-    count (Optional[Union[int, Literal["all"]]]): number of historical messages to include.
-
-## unsubscribe
-
-Unsubscribe from device logs for a specific device.
-
-**Signature:** `balena.logs.unsubscribe(uuid_or_id)` ⇒ <code>None</code>
-
-**Args:**
-    uuid_or_id (Union[str, int]): device uuid (string) or id (int)
-
-## unsubscribe_all
-
-Unsubscribe all subscribed devices.
-**Signature:** `balena.logs.unsubscribe_all()` ⇒ <code>None</code>
-
-
-# Settings
-
-Create a module object.
-
-The name must be a string; the optional doc argument can have any type.
 # Types
 ## APIKeyInfoType
 

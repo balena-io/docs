@@ -375,7 +375,7 @@
     * [v21.7.4](external-docs/sdk/node-sdk/v21.7.4.md)
     * [v20.9.1 (DEPRECATED)](external-docs/sdk/node-sdk/v20.9.1.md)
   * [Python SDK](reference/sdk/python-sdk/README.md)
-    * [v17.1.2 (latest)](external-docs/sdk/python-sdk/latest.md)
+    * [v17.1.3 (latest)](external-docs/sdk/python-sdk/latest.md)
     * [v16.0.0](external-docs/sdk/python-sdk/v16.0.0.md)
     * [v15.1.5](external-docs/sdk/python-sdk/v15.1.5.md)
     * [v14.5.0 (DEPRECATED)](external-docs/sdk/python-sdk/v14.5.0.md)
