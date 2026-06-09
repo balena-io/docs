@@ -26,7 +26,7 @@
     {
       "id": "meta-balena",
       "repo": "balena-os/meta-balena",
-      "ref": "v7.2.1",
+      "ref": "v7.3.0",
       "files": [
         {
           "source": "README.md",
