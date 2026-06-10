@@ -56,7 +56,7 @@
     {
       "id": "balena-sdk-docs",
       "repo": "balena-io/balena-sdk",
-      "ref": "v23.2.6",
+      "ref": "v23.2.7",
       "file": "docs/",
       "fallback": "DOCUMENTATION.md",
       "targetDir": "pages/external-docs/sdk/node-sdk",
