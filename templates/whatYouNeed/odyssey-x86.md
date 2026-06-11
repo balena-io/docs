@@ -1,4 +1,4 @@
-* An [Odyssey x86](https://www.seeedstudio.com/ODYSSEY-X86J4125864-p-4916.html) board from Seeed. Check out our [supported devices list](../../reference/hardware/devices/).
+* An [Odyssey x86](https://www.seeedstudio.com/ODYSSEY-X86J4125864-p-4916.html) board from Seeed. Check out our [supported devices list](../../reference/hardware/devices.md).
 * A 4GB or larger USB thumb drive.
 * A [HDMI](https://en.wikipedia.org/wiki/HDMI) enabled LCD screen and HDMI cable.
 * A simple USB keyboard.

@@ -10,7 +10,7 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 
 ## What you'll need
 
- * A [Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/). See our [supported devices list](../../reference/hardware/devices/) for other boards.
+ * A [Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/). See our [supported devices list](../../reference/hardware/devices.md) for other boards.
 * A 4GB or larger microSD card. The [speed class](https://en.wikipedia.org/wiki/Secure_Digital#Speed_class_rating) of the card also matters - use the fastest you can find.
 * A USB-C cable (for power supply, rated at 3A).
 * A [3A USB-C power supply](https://www.raspberrypi.org/products/type-c-power-supply/).
