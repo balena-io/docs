@@ -8,7 +8,7 @@ excerpt: A guide to running multiple containers with Docker Compose and balena
 As your apps grow more complex, you may find significant benefit in running some services in separate containers. Splitting your app into multiple containers allows you to better isolate and maintain key services, providing a more modular and secure approach to fleet management. Each service can be packaged with the operating environment and tools it specifically needs to run, and each service can be limited to the minimum system resources necessary to perform its task. The benefits of multicontainer fleets compound as the complexity of the app grows. With multicontainer, each service is updated independently. Hence, larger apps can be developed and maintained by separate teams, each free to work in a way that best supports their service.
 
 {% hint style="info" %}
-For additional information on working with multiple containers with balena see the [services masterclass](../../external-docs/masterclasses/services-masterclass.md).
+For additional information on working with multiple containers with balena see the [services masterclass](../more/masterclasses/services-masterclass.md).
 {% endhint %}
 
 This guide will cover the considerations you need to take into account when running multiple containers, including `docker-compose.yml` configuration and some important balena specific settings.
@@ -121,14 +121,14 @@ An additional set of labels ensures device compatibility for running a service. 
 
 The following set of requirement labels are enforced via the supervisor. Each service may define one or more requirements and if any of them is not met for any non-[optional](multicontainer.md#optional-containers) service, then [the release will be rejected](../manage/device-statuses.md#update-statuses) and no changes will be performed for the new release.
 
-| Label                                      | Description                                                                                                                             | Valid from Supervisor | Valid from CLI |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------- |
+| Label                                      | Description                                                                                                                             | Valid from Supervisor | Valid from CLI         |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ---------------------- |
 | io.balena.features.requires.sw.supervisor  | Device Supervisor version (specified as a [version range](https://www.npmjs.com/package/semver))                                        | 10.16.17              | All supported versions |
 | io.balena.features.requires.sw.l4t         | [L4T](https://developer.nvidia.com/embedded/linux-tegra) version (specified as a [version range](https://www.npmjs.com/package/semver)) | 10.16.17              | All supported versions |
 | io.balena.features.requires.hw.device-type | The [device type](../../reference/hardware/devices.md) as given by `BALENA_MACHINE_NAME`                                                | 11.1.0                | All supported versions |
 | io.balena.features.requires.arch.sw        | The [architecture](../../reference/base-images/balena-base-images.md) as given by `BALENA_ARCH`                                         | 14.10.11              | All supported versions |
-| io.balena.features.requires.sw.balena-os   | balenaOS version (specified as a [version range](https://www.npmjs.com/package/semver))                                                 | 17.4.2                | 25.0.0         |
-| io.balena.features.requires.sw.linux       | Linux kernel version (specified as a [version range](https://www.npmjs.com/package/semver))                                             | 17.4.2                | 25.0.0         |
+| io.balena.features.requires.sw.balena-os   | balenaOS version (specified as a [version range](https://www.npmjs.com/package/semver))                                                 | 17.4.2                | 25.0.0                 |
+| io.balena.features.requires.sw.linux       | Linux kernel version (specified as a [version range](https://www.npmjs.com/package/semver))                                             | 17.4.2                | 25.0.0                 |
 
 For example, the following composition defines requirements on the supervisor and l4t version on the first service, and on the device type and architecture on the second service.
 
