@@ -1,4 +1,4 @@
-* An [Intel NUC](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html) mini PC from Intel. Check out our [supported devices list](../../reference/hardware/devices/).
+* An [Intel NUC](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html) mini PC from Intel. Check out our [supported devices list](../../reference/hardware/devices.md).
 * A 4GB or larger USB thumb drive.
 * A [HDMI](https://en.wikipedia.org/wiki/HDMI) enabled LCD screen and HDMI cable.
 * A simple USB keyboard.
