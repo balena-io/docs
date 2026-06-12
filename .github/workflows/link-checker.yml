@@ -16,9 +16,6 @@ permissions:
   contents: read
   issues: write
 
-env:
-  lychee_exit_code: 0
-
 jobs:
   Checking-Links:
     runs-on: ubuntu-latest
@@ -45,9 +42,11 @@ jobs:
             --root-dir ${{ github.workspace }}
             pages/**/*
           token: ${{ secrets.GITHUB_TOKEN }}
+          # continue on error for scheduled workflows in order to create an issue
+          fail: github.event_name != 'schedule'
 
       - name: Create Issue From File
-        if: env.lychee_exit_code != 0 && github.event_name == 'schedule'
+        if: steps.lychee.outputs.exit_code != 0
         uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6.0.0
         with:
           title: Link Checker Report
@@ -59,7 +58,7 @@ jobs:
 
       - name: Save lychee cache
         uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-        if: always()
+        if: ! cancelled()
         with:
           path: .lycheecache
           key: ${{ steps.restore-cache.outputs.cache-primary-key }}
