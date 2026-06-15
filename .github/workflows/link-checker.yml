@@ -43,7 +43,7 @@ jobs:
             pages/**/*
           token: ${{ secrets.GITHUB_TOKEN }}
           # continue on error for scheduled workflows in order to create an issue
-          fail: github.event_name != 'schedule'
+          fail: ${{ github.event_name != 'schedule' }}
 
       - name: Create Issue From File
         if: steps.lychee.outputs.exit_code != 0
