@@ -937,6 +937,14 @@
         "method": "GET",
         "endpoint": "/v7/organization(handle='<HANDLE>')",
         "filters": ""
+      },
+      {
+        "id": "org-by-handle-with-fleets-and-devices",
+        "summary": "Get organization by handle along with its fleets and devices",
+        "description": "",
+        "method": "GET",
+        "endpoint": "/v7/organization(handle='<HANDLE>')",
+        "filters": "?\\$expand=application(\\$expand=owns__device)"
       }
     ]
   },
