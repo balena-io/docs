@@ -43,3 +43,11 @@ GET "https://api.balena-cloud.com/v7/organization(handle='<HANDLE>')" \
 -H "Authorization: Bearer <AUTH_TOKEN>" 
 ```
 
+### Get organization by handle along with its fleets and devices
+
+```bash
+GET "https://api.balena-cloud.com/v7/organization(handle='<HANDLE>')?\$expand=application(\$expand=owns__device)" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>" 
+```
+
