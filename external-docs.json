@@ -15,7 +15,7 @@
     {
       "id": "balena-supervisor",
       "repo": "balena-os/balena-supervisor",
-      "ref": "v18.1.1",
+      "ref": "v18.1.2",
       "files": [
         {
           "source": "docs/API.md",
