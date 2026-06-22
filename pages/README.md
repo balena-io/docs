@@ -24,6 +24,6 @@ Check here for details on all the tools we provide for managing your device flee
 
 To gain mastery in various products and workflows supported by balena, head on over to [balena Masterclasses](learn/more/masterclasses/) and checkout out projects made by the community on [balenaHub](https://hub.balena.io/).
 
-Haven't found what you're looking for? Stop by our [FAQ](/broken/pages/u3os6YvY0kMtLJCIPMz5) and [Reference](/broken/pages/aTTGdjOTGApO21QT4vev) sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help](learn/accounts/support-access.md) is always available! Refer to the balena Glossary for definition on any of the terms referred in the docs.
+Haven't found what you're looking for? Stop by our [FAQ](https://app.gitbook.com/s/yQ348GwFntj7HlWYI0v4/faq) and [Reference](https://app.gitbook.com/s/yQ348GwFntj7HlWYI0v4/reference) sections, or better yet, use the search in the upper-left corner. And if you still have questions, [help](learn/accounts/support-access.md) is always available! Refer to the balena Glossary for definition on any of the terms referred in the docs.
 
 Check out our [Feature Requests Page](https://forums.balena.io/c/feature-requests/96) to share your ideas and upvote the things that matter most to you.
