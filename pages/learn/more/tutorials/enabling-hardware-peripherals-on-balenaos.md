@@ -84,7 +84,5 @@ Later in dmesg, we can see the successful loading of the firmware and the module
 
 ### More resources
 
-* Blog post: [Enabling hardware peripherals on balenaOS devices](enabling-hardware-peripherals-on-balenaos.md)
-* Blog post: [Using out-of-tree Linux kernel modules in your Balena application](https://blog.balena.io/building-out-of-tree-linux-kernel-modules/)
 * Docs: [extra-firmware.md](../../develop/extra-firmware.md "mention")
 
