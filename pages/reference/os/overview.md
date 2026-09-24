@@ -20,6 +20,10 @@ We look forward to working with the community to grow and mature balenaOS into a
 
 balenaOS can be downloaded in production or development mode. This can be later changed via [developmentMode](configuration.md#developmentmode).
 
+{% hint style="danger" %}
+**Never use development mode in production** because it exposes a Docker socket and enables passwordless root SSH access.
+{% endhint %}
+
 Development mode is recommended while getting started with balenaOS and building an application using the fast [local mode](../../learn/develop/local-mode.md) workflow. Development mode enables a number of useful features while developing, namely:
 
 * Passwordless [SSH access](../../learn/manage/ssh-access.md) into balenaOS on port `22222` as the root user, unless custom [ssh keys](configuration.md#sshkeys) are provided in which case key-based authentication is used.
@@ -29,10 +33,6 @@ Development mode is recommended while getting started with balenaOS and building
 
 {% hint style="warning" %}
 Raspberry Pi devices don’t have Getty attached to serial by default, but they can be configured to enable serial in the balenaCloud Dashboard via [configuration variables](../supervisor/configuration-list/).
-{% endhint %}
-
-{% hint style="danger" %}
-**Development mode** has an exposed Docker socket and enable passwordless root SSH access and **should never be used in production**.
 {% endhint %}
 
 Production mode disables passwordless root access, and an SSH key must be [added](configuration.md#sshkeys) to `config.json` to access a production image using a direct SSH connection. You may still access a production image by tunneling SSH through the cloudlink via the CLI (using `balena ssh <uuid>`) or the balenaCloud [web terminal](../../learn/manage/ssh-access.md). To use SSH via cloudlink, you need to have an SSH key configured on your development machine and [added](../../learn/manage/ssh-access.md#add-an-ssh-key-to-balenacloud) to the balenaCloud dashboard.
