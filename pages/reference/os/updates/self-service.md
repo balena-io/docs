@@ -79,11 +79,13 @@ In either case the host OS is still queued for update. The Supervisor retries th
 For Supervisors < v19, without the ability to retrieve the OS update, balenaCloud retries once when a device reconnects with Cloudlink.
 {% endhint %}
 
-However, sometimes the failure requires some intervention, and it is best to stop retries. In this case, you may cancel the update by clicking the button that appears beside the target OS version when hovering over it, like the screenshot below. The queued version then should be cleared from the display.
+However, sometimes the failure requires some intervention, and it is best to stop retries. In this case, you may cancel the update request by clicking the button that appears beside the target OS version when hovering over it, like the screenshot below. The queued version then should be removed from the display.
 
-<figure><img src="../../../.gitbook/assets/cancel-update.webp" alt=""><figcaption></figcaption></figure>
+To be clear, the cancel action changes the target state in balenaCloud rather than directly on the device. So if the update already is in progress on the device, canceling the request likely will not stop that ongoing action. Watch the device status and host OS version values on the device dashboard for the outcome.
 
-Alternatively, you can cancel the queued update using any of the version selection options described above, by re-selecting the current OS version.&#x20;
+<figure><img src="../../../.gitbook/assets/cancel-update (1).webp" alt=""><figcaption></figcaption></figure>
+
+Alternatively, you can cancel the update request with any of the version selection options described above, by re-selecting the current OS version.&#x20;
 
 #### Troubleshooting
 
