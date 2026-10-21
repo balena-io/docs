@@ -93,7 +93,7 @@
     {
       "id": "contracts",
       "repo": "balena-io/contracts",
-      "ref": "v2.0.144"
+      "ref": "v2.0.150"
     }
   ]
 }
