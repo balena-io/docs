@@ -1,4 +1,4 @@
-# Getting started with UP Board
+# Getting Started with UP Board
 
 In this guide, we will help you get started with balenaCloud by:
 
@@ -10,13 +10,14 @@ Once you've completed this getting started guide to balena, you'll be equipped w
 
 ## What you'll need
 
-* An [UP board](https://www.up-board.org/), [UP squared](https://www.up-board.org/upsquared/specifications), or [UP core](https://www.up-board.org/upcore/specifications). See our [supported devices list](https://github.com/balena-io/docs/blob/main/pages/hardware/devices/README.md) for other supported boards.
-* A 4GB or larger \{{ $device.bootMedia \}}.
-* An ethernet cable or WiFi adapter. Check our [list of supported WiFi adapters](https://github.com/balena-io/docs/blob/main/pages/hardware/wifi-dongles/README.md).
+ * An [UP board](https://www.up-board.org/), [UP squared](https://www.up-board.org/upsquared/specifications), or [UP core](https://www.up-board.org/upcore/specifications). See our [supported devices list](../../hardware/devices/) for other supported boards.
+* A 4GB or larger {{ $device.bootMedia \}}.
+* An ethernet cable or WiFi adapter. Check our [list of supported WiFi adapters](../../hardware/wifi-dongles/).
 * A [5V @4A UPboard power supply](https://up-shop.org/default/accessory/power-adapter.html).
 * A USB keyboard.
 * An HDMI LCD screen.
 * A [balenaCloud account](https://dashboard.balena-cloud.com/signup).
+ 
 
 ## Create a fleet
 
@@ -28,7 +29,7 @@ To create your first fleet, log into your [balenaCloud dashboard](https://dashbo
 
 Enter a fleet name, select the **UP Board** device type, and click **Create new fleet**:
 
-<figure><img src="../../.gitbook/assets/create-fleet.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create-fleet.webp"><figcaption></figcaption></figure>
 
 You'll then be redirected to the summary of the newly created fleet, where you can add your first UP Board.
 
@@ -56,7 +57,7 @@ Pick the option that works best for you:
 
 {% tabs %}
 {% tab title="Flash" %}
-If you have [Etcher](https://etcher.balena.io/) installed, you can just click the Flash button. This will automatically open Etcher with your image loaded. The contents of the image that gets loaded are the same as the contents of the image you would get from the **Download balenaOS** option. Once Etcher opens, proceed to [Provision device](up-board.md#provision-device).
+If you have [Etcher](https://etcher.balena.io/) installed, you can just click the Flash button. This will automatically open Etcher with your image loaded. The contents of the image that gets loaded are the same as the contents of the image you would get from the **Download balenaOS** option. Once Etcher opens, proceed to [Provision device](#provision-device).
 
 **This option is best for quickly flashing a device(s) in a single session. Once you close Etcher, the image will no longer be loaded in it.**
 {% endtab %}
@@ -70,7 +71,7 @@ This will download a zipped image file with a name like `balena-First-Fleet-up-b
 {% tab title="Download configuration file only" %}
 This only downloads a configuration file with details that you filled out in the form and information about the fleet. **This is for more complex workflows and we do not recommend it for getting started**.
 
-You can read more about it [here](https://github.com/balena-io/docs/blob/main/pages/reference/os/configuration/README.md).
+You can read more about it [here](../../reference/os/configuration).
 {% endtab %}
 {% endtabs %}
 
@@ -80,21 +81,21 @@ Once you have chosen one of the options, the button should update to whichever o
 
 Next, we will flash the downloaded image onto the device. To do so, follow the following steps:
 
-* Insert the USB key to the host machine.
-* Write the balenaOS file you downloaded to the USB key. We recommend using [Etcher](https://etcher.balena.io/).
+  * Insert the USB key to the host machine.
+  * Write the balenaOS file you downloaded to the USB key. We recommend using [Etcher](https://etcher.balena.io/).
+  
+<img src="../../.gitbook/assets/etcher-flashing.gif" alt="etcher flashing">
 
-![etcher flashing](../../.gitbook/assets/etcher-flashing.gif)
+  * Wait for writing of balenaOS to complete.
+  * Remove the USB key from the host machine.
+  * Insert the freshly flashed USB key into the UP Board.
+  * <strong role="alert">Warning!</strong> This will also completely erase internal storage medium, so please make a backup first.
+  * Power on the UP Board with a keyboard connected. Press the F7 key while BIOS is loading to enter the boot menu. Select the "UEFI:" option from the boot menu.
+  * Wait for the UP Board to finish flashing and shutdown. Please wait until all LEDs are off.
+  * Remove the USB key from the UP Board.
+  * Power up the UP Board to boot the device.
 
-* Wait for writing of balenaOS to complete.
-* Remove the USB key from the host machine.
-* Insert the freshly flashed USB key into the UP Board.
-* **Warning!** This will also completely erase internal storage medium, so please make a backup first.
-* Power on the UP Board with a keyboard connected. Press the F7 key while BIOS is loading to enter the boot menu. Select the "UEFI:" option from the boot menu.
-* Wait for the UP Board to finish flashing and shutdown. Please wait until all LEDs are off.
-* Remove the USB key from the UP Board.
-* Power up the UP Board to boot the device.
-
-When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for UP Board](https://github.com/balena-io/docs/blob/main/faq/troubleshooting/up-board/README.md) or try our [support channels](../accounts/support-access.md).
+When complete, after a minute or two the device should appear on your balenaCloud [dashboard](https://dashboard.balena-cloud.com/), and you should now be ready to deploy some code. If you are not able get the device to appear on the dashboard, then check out our [troubleshooting guide for UP Board](/faq/troubleshooting/up-board) or try our [support channels](../accounts/support-access.md).
 
 ## Install the balena CLI
 
@@ -102,19 +103,19 @@ Now that you have an `operational` device in your fleet, it's time to deploy som
 
 {% tabs %}
 {% tab title="OSX" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.1.7/balena-cli-v25.1.7-macOS-x64-installer.pkg).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.2.7/balena-cli-v25.2.7-macOS-x64-installer.pkg).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open the Terminal app ([Terminal User guide](https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac)).
 {% endtab %}
 
 {% tab title="Windows" %}
-1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.1.7/balena-cli-v25.1.7-windows-x64-installer.exe).
+1. [Download the CLI installer](https://github.com/balena-io/balena-cli/releases/download/v25.2.7/balena-cli-v25.2.7-windows-x64-installer.exe).
 2. Double click the downloaded file to run the installer and follow the installer's instructions.
 3. To run balena CLI commands, open a command prompt: Click on the Windows Start Menu, type PowerShell, and then click on Windows PowerShell.
 {% endtab %}
 
 {% tab title="Linux" %}
-1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/v25.1.7/balena-cli-v25.1.7-linux-x64-standalone.tar.gz).
+1. [Download the standalone CLI](https://github.com/balena-io/balena-cli/releases/download/v25.2.7/balena-cli-v25.2.7-linux-x64-standalone.tar.gz).
 2. Extract the contents of the tar.gz file to any folder you choose, for example `/home/james`. The extracted contents will include a `balena/bin` folder.
 3. Add that folder (e.g. `/home/james/balena/bin`) to the PATH environment variable. Check this [StackOverflow](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix) post for instructions. Close and re-open the terminal window so that the changes to PATH can take effect.
 {% endtab %}
@@ -157,19 +158,15 @@ ID    NAME         SLUG                                 DEVICE TYPE           DE
 {% tab title="Node.js" %}
 A nice project to try is the [balena-nodejs-hello-world](https://github.com/balena-io-examples/balena-nodejs-hello-world) project. It's a Node.js web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-nodejs-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
-
 {% tab title="Python" %}
 A nice project to try is the [balena-python-hello-world](https://github.com/balena-io-examples/balena-python-hello-world) project. It's a Python web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-python-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
-
 {% tab title="C++" %}
 A nice project to try is the [balena-cpp-hello-world](https://github.com/balena-io-examples/balena-cpp-hello-world) project. It's a C++ web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-cpp-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
-
 {% tab title="Rust" %}
 A nice project to try is the [balena-rust-hello-world](https://github.com/balena-io-examples/balena-rust-hello-world) project. It's a Rust web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-rust-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
-
 {% tab title="Go" %}
 A nice project to try is the [balena-go-hello-world](https://github.com/balena-io-examples/balena-go-hello-world) project. It's a Go web server that serves a static page on port 80. To get started, [download the project](https://github.com/balena-io-examples/balena-go-hello-world/archive/master.zip) as a zipped file from GitHub, unzip it and open a terminal in the root of the extracted project directory.
 {% endtab %}
@@ -295,7 +292,7 @@ When it's finished building the device(s) will update as before. Remember anythi
 * Learn more about [local mode](../develop/local-mode.md), which allows you to build and sync code to your device locally for rapid development.
 * Develop an application with [multiple containers](../develop/multicontainer.md) to provide a more modular approach to fleet management.
 * Manage your device fleet with the use of [configuration](../manage/configuration.md), [environment](../manage/variables.md), and [service variables](../manage/variables.md).
-* Find out more about the [balena CLI](https://github.com/balena-io/docs/blob/main/pages/reference/balena-cli.md) and the functionality it offers.
+* Find out more about the [balena CLI](../../reference/balena-cli.md) and the functionality it offers.
 * Visit our blog to find step-by-step tutorials for some [classic balena projects](https://blog.balena.io/tags/project).
 * To publish what you will build or have already built, head over to [balenaHub](https://hub.balena.io/).
 * If you find yourself stuck or confused, help is just a [click away](https://www.balena.io/support).
