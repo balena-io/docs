@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/balena-io/docs",
   "devDependencies": {
-    "balena-sdk": "23.2.10",
+    "balena-sdk": "23.2.16",
     "dotenv": "17.4.2",
     "handlebars": "4.7.10",
     "husky": "9.1.7",
