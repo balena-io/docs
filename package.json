@@ -31,7 +31,7 @@
     "dotenv": "18.0.8",
     "handlebars": "4.7.10",
     "husky": "9.1.7",
-    "js-yaml": "4.3.2",
+    "js-yaml": "5.5.0",
     "renovate": "43.288.0"
   },
   "versionist": {
