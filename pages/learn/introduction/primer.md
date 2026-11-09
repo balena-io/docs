@@ -1,0 +1,57 @@
+# Core Concepts: A balena primer
+
+The balena platform encompasses device, server, and client software, all designed to get your code securely deployed to a fleet of devices. The broad strokes are easy to grasp: once your device is set up with our [host OS](../../reference/os/overview.md), you can push code to the balena [build servers](../deploy/deployment.md#the-balenacloud-build-server), where it will be packaged into containers and delivered to your fleet. All your devices and their services can be managed, monitored, and updated from your [balena dashboard](https://dashboard.balena-cloud.com/).
+
+If you're eager to learn more about the inner workings, you're in luck! This guide covers the components and workflows involved in a typical balena deployment, with enough detail to answer the most common questions. If you're ready to dig in deeper, why not [get started](../getting-started/) with a project of your own?
+
+Refer to the [balena Glossary](../more/glossary.md) for definition on any of the terms referred in the docs.
+
+## On your device
+
+<figure><img src="../../.gitbook/assets/architecture.webp" alt=""><figcaption></figcaption></figure>
+
+Devices in the balena ecosystem run [balenaOS](https://www.balena.io/os), a bare-bones, [Yocto Linux](https://www.yoctoproject.org/) based host OS, which comes packaged with [balenaEngine](https://www.balena.io/engine), our lightweight, [Docker](https://www.docker.com/)-compatible container engine. The host OS is responsible for kicking off the device supervisor, balena's agent on your device, as well as your containerized services. Within each service's container you can specify a base OS, which can come from any existing Docker base image that is compatible with your device architecture. The base OS shares a kernel with the host OS, but otherwise works independently. If you choose, your containers [can be configured](../develop/multicontainer.md) to run as privileged, access hardware directly, and even inject modules into the kernel. The balena device supervisor runs in its own container, which allows the device to continue running and pulling new code even if your application crashes.
+
+### Host and kernel updates
+
+Balena is built with the goal of 100% updatability. While the balena device supervisor and your application containers are easy to update without losing connection to the device, the [process for updating](../../reference/os/updates/update-process.md) the host OS involves a few more steps. To mitigate problems while updating, balena creates an additional partition of identical size to the boot partition. The supervisor downloads a new OS version and boots the device from the alternative boot partition. This way, we can ensure that the new version of the OS is downloaded and installed correctly before rebooting the device to the new version. Even if the new version fails to boot for some reason, our system is built in such a way that the next boot will bring the device back to the original working version of the host OS, operating and ready to download a correctly installed new version.
+
+It is important to note that all balena devices, both those in production and development today, have the ability to have their host OS updated. For most devices, this can even be done directly [through the dashboard](../../reference/os/updates/self-service.md).
+
+### Device provisioning
+
+So how are devices added to your balena fleets? A key feature of balena is that a provisioning key for your fleet is embedded in the balenaOS image download. When the device boots up for the first time, it uses the provisioning API to register itself with balena. A new device entry on the balena backend is created, and a device API key for this device is generated. Once the provisioning is successful, the provisioning API key is deleted from the device. Unless someone downloads the OS from your dashboard (or via the CLI), a device cannot enter your fleet. While the details of provisioning differ depending on the device type (does it have an SD card slot? Does it boot from on-board flash?), the following things always happen at first boot:
+
+First, the device connects to the network and performs its early provisioning, which registers it on your dashboard. Then, the container partition is decompressed, and the device supervisor starts. This is the part that takes the most time. As soon as the supervisor starts, it registers onto cloudlink and receives its unique balena API key. At that point, you will see the device as online in your dashboard and can use the device as normal. If the fleet that the device joins already has releases, the new device downloads the latest one and begins operating.
+
+## Code deployment
+
+`balena push` is the recommended method for deployment and [development](../develop/local-mode.md) on the balenaCloud platform. To use `balena push` you need to first [install the balena CLI](../../reference/balena-cli/latest.md#installation) and ensure you are logged in to your account with `balena login`.
+
+<figure><img src="../../.gitbook/assets/balena-push.webp" alt=""><figcaption></figcaption></figure>
+
+### Building containers
+
+When you run the `balena push <APP_NAME>` command from your development machine it will essentially take your project (or repository) folder, compress it and send it to the [balenaCloud build server](../deploy/deployment.md#the-balenacloud-build-server) where it will be built. Your code is built in an environment that matches the devices in your fleet. So if you’re pushing an app for BeagleBone Black devices, we’ll build your code in an ARMv7 environment. For Raspberry Pi 1, it's ARMv6. In fact, we provide native ARM builders for ARM images, just as we use x86 servers to build images for x86 devices.
+
+For releases with [multiple containers](../develop/multicontainer.md), a `docker-compose.yml` file will need to be included at the root of your project. This configuration file specifies the services that make up your release, as well as the system resources each service has access to. Releases with a single container will have a default `docker-compose.yml` file generated if none is included.
+
+Most services will need to include a [Dockerfile](../develop/dockerfile.md), which contains a list of commands for the builders. For each service, the builders will pull a base OS, install packages and dependencies, clone git repositories, and run any other steps you define for the setup and initialization of that service.
+
+For Node.js services, you can use a package.json file without a Dockerfile. In this case, the builders create an implicit Dockerfile, which simulates the build process a Node.js/npm project expects. In this way, we are able to transparently run Node.js services on balena, while also taking advantage of some of Docker’s caching features. A Dockerfile will always give you more power to fine-tune, but you can start fast without and shift to a Dockerfile whenever you like.
+
+### Getting to the devices
+
+Once your Docker images are built, they are stored in our container registry, and the balena device supervisor is alerted that a new version of your application is ready. If a device is offline at the time, it will be made aware of the new containers when it comes back online. The communication between balena and your device is encrypted at all times, either through HTTPS or a VPN that we set up for the devices in your fleet.
+
+The device supervisor, using [delta updates](../deploy/delta.md), then downloads the binary differences between the old and the new images, stops the old services, and starts the new ones. You can control the exact sequence by configuring the supervisor to use [different update strategies](../deploy/release-strategy/update-strategies.md). The services themselves can also make use of [update locking](../deploy/release-strategy/update-locking.md) to block updates from happening during critical times (e.g. [a drone that is flying](https://www.youtube.com/watch?time_continue=1569\&v=75vm6rRb6K0), or an industrial machine that is in the middle of an operation).
+
+As the downloads proceed, you can watch the progress in the balena dashboard. You can click on any device to see more detailed information about the services being downloaded:
+
+<figure><img src="../../.gitbook/assets/device_summary.webp" alt=""><figcaption></figcaption></figure>
+
+## Device management
+
+Once your services are up and running, you can use the dashboard to monitor and interact with them. Messages from the device supervisor, as well as anything written by your services to `stdout` and `stderr`, will appear in the _Logs_ window, which can be filtered by service. Our built-in [web terminal](../manage/ssh-access.md) allows you to SSH into any running services, as well as the underlying host OS.
+
+Much of the device, service, and fleet information provided by the dashboard is managed through the [balena API](../../reference/api/), and can also be viewed and modified using the [CLI](../../reference/balena-cli/latest.md) or the [Node.js](../../reference/sdk/node-sdk/latest/) and [Python](../../reference/sdk/python-sdk/latest.md) SDKs. Balena has been designed so users can build rich experiences, combining device-level data provided by balena with higher-level fleet-specific data that lives in other data domains.

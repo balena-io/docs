@@ -1,0 +1,234 @@
+# Develop locally
+
+Local mode is the development mode for balena. It allows you to build and sync code to a single development device in your local network without having to go through the balenaCloud build service and deployment pipeline. It uses the Docker daemon on the device to build container images, and then the device Supervisor starts the containers in the same way as if they were deployed via the cloud.
+
+## Local mode requirements
+
+To use local mode on a device:
+
+* The device must be running balenaOS v2.29.0 or higher.
+* The device must be running a [development](../../reference/os/overview.md) variant of the OS.
+* You must have the [balena CLI](../../reference/balena-cli/latest.md) installed on your development machine.
+* Local mode must be enabled through the balenaCloud dashboard. You can enable it from the device _Settings_ tab.
+
+<figure><img src="../../.gitbook/assets/enable-local-mode.webp" alt=""><figcaption></figcaption></figure>
+
+## Local mode caveats
+
+* In local mode, a device will not send logs back to the balenaCloud dashboard. Refer to the [local mode logs section](local-mode.md#local-mode-logs) to view logs in local mode.
+* Device and service environment variables set from the balenaCloud will not be applied to local mode containers. It is still possible to set environment variables in your `docker-compose.yml` or `Dockerfile`.
+* Changes to device [configuration](../manage/configuration.md), for example, `BALENA_HOST_CONFIG_gpu_mem`, will result in the device rebooting and applying those settings.
+* Actions such as _Restart services_ and _Purge data_ will not apply to local mode containers.
+* When switching out of local mode and back to tracking releases from balenaCloud, the Supervisor will destroy any local mode containers and volumes, as well as clean up unneeded base images, and then start the release that balenaCloud instructs it to run.
+
+<figure><img src="../../.gitbook/assets/device-in-local-mode.webp" alt=""><figcaption></figcaption></figure>
+
+## Scan the network and find your device
+
+Before you can get your app running on your device in local mode, you have to find your device. You can find the `short-uuid` and local IP address of the device from the device dashboard or by scanning the network. To perform a scan, login to the balena CLI and use `balena device detect` to find any local balenaOS devices. All balenaOS devices advertise themselves on the network using [Avahi](https://linux.die.net/man/8/avahi-daemon). The names take the form `<short-uuid>.local`, where the `short-uuid` is the UUID you see on your device dashboard.
+
+{% hint style="warning" %}
+You may need administrator privileges to run `balena device detect` as it requires access to all network interfaces.
+{% endhint %}
+
+**Command**
+
+```bash
+sudo balena device detect
+```
+
+**Output**
+
+```bash
+Reporting scan results
+-
+  host:          63ec46c.local
+  address:       192.168.86.45
+  dockerInfo:
+    Containers:        1
+    ContainersRunning: 1
+    ContainersPaused:  0
+    ContainersStopped: 0
+    Images:            4
+    Driver:            aufs
+    SystemTime:        2020-01-09T21:17:11.703029598Z
+    KernelVersion:     4.19.71
+    OperatingSystem:   balenaOS 2.43.0+rev1
+    Architecture:      armv7l
+  dockerVersion:
+    Version:    18.09.8-dev
+    ApiVersion: 1.39
+
+```
+
+## Push over a new project
+
+When local mode has been activated, balena CLI can push code directly to the local device instead of going via the balenaCloud builders. As code is built on the device and then executed, this can significantly speed up development when requiring frequent changes. To do this, we use the `balena push` command providing either the local IP address or `<short-uuid>.local`, obtained from the preceding `balena device detect` command.
+
+{% hint style="info" %}
+By default `balena push` will build from the current working directory, but it is also possible to specify the project directory via the `--source` option.
+{% endhint %}
+
+Once the code has been built on the device, it immediately starts executing, and logs are output to the console. At any time, you can disconnect from the local device by using `Ctrl-C`. Note that after disconnection, the services on the device will continue to run.
+
+**Command**
+
+```bash
+balena push 63ec46c.local
+```
+
+**Output**
+
+```bash
+[Info]    Starting build on device 63ec46c.local
+[Info]    Creating default composition with source: .
+[Build]   [main] Step 1/9 : FROM balenalib/raspberrypi3-node:10-stretch-run
+[Build]   [main]  ---> 383e163cf46d
+[Build]   [main] Step 2/9 : WORKDIR /usr/src/app
+[Build]   [main]  ---> Running in 9d8460cb9d11
+[Build]   [main] Removing intermediate container 9d8460cb9d11
+[Build]   [main]  ---> 143557c3351a
+[Build]   [main] Step 3/9 : COPY package.json package.json
+[Build]   [main]  ---> 5a5818881215
+[Build]   [main] Step 4/9 : RUN JOBS=MAX npm install --production --unsafe-perm && npm cache verify && rm -rf /tmp/*
+[Build]   [main]  ---> Running in 03a4e27048cc
+[Build]   [main]
+[Build]   > ejs@3.0.1 postinstall /usr/src/app/node_modules/ejs
+[Build]   > node ./postinstall.js
+[Build]   [main] Thank you for installing EJS: built with the Jake JavaScript build tool (https://jakejs.com/)
+[Build]   [main] npm
+[Build]   [main] notice created a lockfile as package-lock.json. You should commit this file.
+[Build]
+[Build]   [main] added 51 packages from 38 contributors and audited 127 packages in 9.334s
+[Build]   [main] found 0 vulnerabilities
+[Build]   [main] Cache verified and compressed (~/.npm/_cacache):
+[Build]   [main] Content verified: 102 (1362229 bytes)
+[Build]   [main] Index entries: 155
+[Build]   [main] Finished in 1.568s
+[Build]   [main] Removing intermediate container 03a4e27048cc
+[Build]   [main]  ---> e199dbb1fe73
+[Build]   [main] Step 5/9 : COPY . ./
+[Build]   [main]  ---> 3309e8315a64
+[Build]   [main] Step 6/9 : ENV UDEV=1
+[Build]   [main]  ---> Running in 0867fd67e166
+[Build]   [main] Removing intermediate container 0867fd67e166
+[Build]   [main]  ---> cdb9c9a629df
+[Build]   [main] Step 7/9 : CMD ["npm", "start"]
+[Build]   [main]  ---> Running in b5e4aa98c5ab
+[Build]   [main] Removing intermediate container b5e4aa98c5ab
+[Build]   [main]  ---> 7b4a59f62bb5
+[Build]   [main] Step 8/9 : LABEL io.resin.local.image=1
+[Build]   [main]  ---> Running in 9d50c18f946c
+[Build]   [main] Removing intermediate container 9d50c18f946c
+[Build]   [main]  ---> 38935745a619
+[Build]   [main] Step 9/9 : LABEL io.resin.local.service=main
+[Build]   [main]  ---> Running in 5d8e9f324e28
+[Build]   [main] Removing intermediate container 5d8e9f324e28
+[Build]   [main]  ---> 88065a1a3f00
+[Build]   [main] Successfully built 88065a1a3f00
+[Build]   [main] Successfully tagged local_image_main:latest
+
+[Info]    Streaming device logs...
+[Live]    Watching for file changes...
+[Live]    Waiting for device state to settle...
+[Logs]    [1/9/2020, 1:46:58 PM] Creating network 'default'
+[Logs]    [1/9/2020, 1:46:58 PM] Creating volume 'resin-data'
+[Logs]    [1/9/2020, 1:46:58 PM] Installing service 'main sha256:88065a1a3f002ff7eaf6c56b5c8bdb477c43437d41fcbb3ec683842c86b25432'
+[Logs]    [1/9/2020, 1:46:59 PM] Installed service 'main sha256:88065a1a3f002ff7eaf6c56b5c8bdb477c43437d41fcbb3ec683842c86b25432'
+[Logs]    [1/9/2020, 1:46:59 PM] Starting service 'main sha256:88065a1a3f002ff7eaf6c56b5c8bdb477c43437d41fcbb3ec683842c86b25432'
+[Logs]    [1/9/2020, 1:47:01 PM] Started service 'main sha256:88065a1a3f002ff7eaf6c56b5c8bdb477c43437d41fcbb3ec683842c86b25432'
+[Logs]    [1/9/2020, 1:47:03 PM] [main]
+[Live]    Device state settled
+[Logs]    [1/9/2020, 1:47:03 PM] [main] > simple-server-node@1.0.0 start /usr/src/app
+[Logs]    [1/9/2020, 1:47:03 PM] [main] > node server.js
+[Logs]    [1/9/2020, 1:47:03 PM] [main]
+[Logs]    [1/9/2020, 1:47:04 PM] [main] Example app listening on port  80
+```
+
+### Livepush
+
+Local mode also has another huge benefit, known as [Livepush](https://github.com/balena-io-modules/livepush). Livepush makes intelligent decisions on how, or even if, to rebuild an image when changes are made. Instead of creating a new image and container with every code change, the Dockerfile commands are executed from within the running container. This means that, for example, if you added a dependency to your `package.json`, rather than having to install all of the dependencies again, only the new dependency would be installed.
+
+When a source file is modified, the Supervisor will immediately detect the change and then either rebuild the image or, for source files that run in-service, replace the changed files in situ in the relevant container layer and restart the service. As this happens in a few seconds, it makes the process of developing much faster and more convenient.
+
+```bash
+[Live]    Detected changes for container main, updating...
+[Live]    [main] Restarting service..
+```
+
+{% hint style="info" %}
+You can disable Livepush by passing the `--nolive` option to `balena push`. In this case to rebuild on the device you will need to perform another `balena push`.
+{% endhint %}
+
+### Local mode logs
+
+By default, when pushing code to a device in local mode using the balena CLI, the logs will be output to the console. You can prevent this by passing the `--detached` (`-d`) option to the `balena push` command (you may also detach the console at any time by pressing `Ctrl-C`).
+
+```bash
+balena push 63ec46c.local --detached
+```
+
+When detached, the services continue to run on the device, and you can access the logs using the `balena device logs` command, again passing the local IP address or `<short-uuid>.local`.
+
+```shell
+balena device logs 63ec46c.local
+```
+
+This command will output logs for the system and all running services. You may optionally filter the output to include only system or specific service logs using the available `--system` (`-S`) and `--service` (`-s`) options. For example, to output only the system logs:
+
+```bash
+balena device logs 63ec46c.local --system
+```
+
+To filter logs by a service, use the `--service` option. You may specify this option multiple times to output logs from multiple services.
+
+```bash
+balena device logs 63ec46c.local --service main
+balena device logs 63ec46c.local --service first --service second
+```
+
+These options can be combined to output system and selected service logs e.g.
+
+```bash
+balena device logs 827b231.local --system --service first --service second
+```
+
+{% hint style="info" %}
+You may also specify the `--service` and `--system` options using the `balena push` command to filter the log output.
+{% endhint %}
+
+## SSH into the running app container or host OS
+
+To access the local device over [SSH](../manage/ssh-access.md), use the `balena device ssh` command specifying the device IP address or `<short-uuid>.local`. By default, SSH access is routed into the host OS shell and, from there, we can check system logs and [perform other troubleshooting tasks](../manage/ssh-access.md#troubleshooting-with-host-os-access):
+
+```bash
+balena device ssh 192.168.86.45
+```
+
+To connect to a container, we can specify the service name e.g.
+
+```bash
+sudo balena device ssh 63ec46c.local my-service
+```
+
+{% hint style="info" %}
+If an IP address or a `.local` hostname is used (instead of a fleet name or device UUID), `balena device ssh` establishes a direct connection to the device on port `22222` that does not rely on cloudlink.
+{% endhint %}
+
+## Using a Private Docker Registry
+
+If your project relies on a private base image, then it is possible to specify your registry credentials when doing a `balena push` by passing the `--registry-secrets` option, as shown below.
+
+```bash
+balena push 192.168.86.45 --registry-secrets /Path/To/File/dockerhub-secret.yml
+```
+
+Where `dockerhub-secret.yml` is a YAML file containing my private registry usernames and passwords to be used by the device balenaEngine when pulling base images during a build.
+
+Sample secrets YAML file:
+
+```yaml
+'https://index.docker.io/v2/':
+  username: johnDoe
+  password: myPassword
+```
