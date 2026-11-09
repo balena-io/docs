@@ -1,0 +1,31 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: balena Docs
+  structure:
+    - type: section
+      key: section-1
+      title: Documentation
+      path: balena-docs
+      description: ""
+      default: true
+      children:
+        - type: space
+          key: space-1
+          title: content
+          path: docs
+          default: true
+          content:
+            directory: ./pages
+    - type: section
+      key: section-2
+      title: balenaOS Release Notes
+      path: release-notes
+      description: ""
+      children:
+        - type: space
+          key: space-2
+          title: Release notes
+          path: changelog
+          default: true
+          content:
+            directory: ./release-notes/changelog
