@@ -354,16 +354,6 @@ Before you start it's a good idea to check if the balenaOS kernel you are runnin
 
 If your filesystem is not supported you can contact us through our [forums](https://forums.balena.io/) and we will be glad to help.
 
-**Preparing the container**
-
-In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](../../reference/base-images/balena-base-images.md) by:
-
-* Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file.
-* Adding `ENV UDEV=on` to your container's `Dockerfile`.
-* Running the entrypoint as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
-
-This will ensure that the host propagates udev events into the container, enabling us to manipulate the device from within it.
-
 **General tips for external media**
 
 Devices can be selected in many ways, for example by its device name (`/dev` entry), label, or UUID. From a practical point of view, we recommend using labels (`LABEL=...` entries). Labels can easily be made the same across multiple cards or thumb drives, while you can still identify each device by their UUID. Also, `/dev` entries are not static on some platforms, and their value depends on which order the system brings up the devices. Device names or UUIDs are a good choice when you can easily identify or predict their values, for example within the context of a udev rule.
@@ -420,7 +410,7 @@ COPY scripts /usr/src/scripts
 
 Finally we need to write the `mount.sh` and `unmount.sh` scripts. These scripts will use `mount` and `umount` commands in the same way we described on the **Mounting** and **Unmounting** sections above.
 
-You can find a fully working example of automounting/unmounting devices with udev rules in this [project](https://github.com/balena-io-playground/balena-storage).
+You can find a fully working example of automounting/unmounting devices with udev rules in this [project](https://github.com/balena-io-experimental/balena-localvolume).
 
 **Sharing mounted devices across containers**
 
