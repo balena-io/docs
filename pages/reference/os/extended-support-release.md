@@ -6,8 +6,8 @@ extras: esr-devices-js
 
 # Extended Support Release (ESR) process
 
-{% hint style="warning" %}
-This feature is only available on [Production and Enterprise plans](https://balena.io/pricing/).
+{% hint style="info" %}
+This feature is available on [all paid plans](https://balena.io/pricing/).
 {% endhint %}
 
 The balenaOS Extended Support Release (ESR) process allows fleet owners to update to a new ESR version on their devices at most twice a year to ensure they are on a supported version. New ESR versions are released quarterly, which allows fleet owners to plan their update schedule.
@@ -28,7 +28,7 @@ Let's walk through an example. In January 2026, at the beginning of Q1, the mast
 
 ### Adding a new device
 
-For new devices, if you are on a Production or Enterprise plan with a [supported device type](extended-support-release.md#supported-devices), when you add a new device, you will be given the option to _Select OS type_ which defaults to _balenaOS ESR_. If you would like a non-ESR version, expand this dropdown and select _balenaOS_ for the host OS type.
+For new devices, if you are on a paid plan with a [supported device type](extended-support-release.md#supported-devices), when you add a new device, you will be given the option to _Select OS type_ which defaults to _balenaOS ESR_. If you would like a non-ESR version, expand this dropdown and select _balenaOS_ for the host OS type.
 
 <figure><img src="../../.gitbook/assets/esr-new-device.webp" alt=""><figcaption></figcaption></figure>
 

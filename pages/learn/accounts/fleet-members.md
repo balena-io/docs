@@ -10,7 +10,7 @@ When a fleet needs to be shared with more than one user, the fleet owner can add
 
 #### Administrator
 
-A new fleet in balenaCloud can only be created by an [administrator](organizations.md#managing-roles-and-access-in-an-organization) of an organization. Administrators are the only users who can add other fleet members or delete the fleet. Learn more about the [administrator role](organizations.md#managing-roles-and-access-in-an-organization) in an organization. ![](<../../.gitbook/assets/image (18).png>)
+A new fleet in balenaCloud can only be created by an [administrator](organizations.md#managing-roles-and-access-in-an-organization) of an organization. Administrators are the only users who can add other fleet members or delete the fleet. Learn more about the [administrator role](organizations.md#managing-roles-and-access-in-an-organization) in an organization. ![](<../../.gitbook/assets/image (16).png>)
 
 #### Observer
 
@@ -56,17 +56,17 @@ If you remove your member access to a fleet, you will not be able to undo the ac
 
 ### Custom roles for fleets
 
-You can create more granular permissions for fleet or block members by creating a custom role. These custom roles are managed at the organization level and assigned to members via the members tab of a fleet or a block.&#x20;
+You can create more granular permissions for fleet or block members by creating a custom role. These custom roles are managed at the organization level and assigned to members via the members tab of a fleet or a block.
 
-{% hint style="warning" %}
-This feature is only available on [Prototype, Pilot, and Production plans](https://balena.io/pricing/).
+{% hint style="info" %}
+This feature is available on [all paid plans](https://balena.io/pricing/).
 {% endhint %}
 
 #### Creating a custom role
 
 You can add, view, and delete custom roles from the "Fleet roles" tab under an organization.
 
-<p align="center"><img src="../../.gitbook/assets/image (15).png" alt=""></p>
+<div align="center"><img src="../../.gitbook/assets/image (15).png" alt=""></div>
 
 Click on the "Add new custom role" button under the "Custom Roles" section of the page. After you provide a name and description for your new custom role, you'll have the option to use an existing role as a template for your new role. This is the recommended method though you can also elect to start from scratch.
 
