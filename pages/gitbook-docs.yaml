@@ -18,12 +18,13 @@ site:
             directory: ./
     - type: section
       key: section-2
-      title: Release notes
+      title: balenaOS Release notes
       path: release-notes
+      description: ""
       children:
         - type: space
           key: space-1
-          title: Changelog
+          title: balenaOS Release notes
           path: changelog
           default: true
           content:
