@@ -362,13 +362,77 @@ If your filesystem is not supported you can contact us through our [forums](http
 
 **Preparing the container**
 
-In order to be able to detect external media dynamically you will need to run the container in privileged mode and enable `udevd` on it. This can be easily done if you are using [balena base images](../../reference/base-images/balena-base-images.md) by:
+In order to be able to detect external media dynamically you will need to run the container in privileged mode, give it a `/dev` that tracks hotplug events, and run `udevd` inside it.
 
-* Adding `privileged: true` to your container's service definition on the `docker-compose.yml` file.
-* Adding `ENV UDEV=on` to your container's `Dockerfile`.
-* Running the entrypoint as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
+{% hint style="warning" %}
+Older versions of this guide recommended setting `ENV UDEV=on`. That flag was only handled by the entrypoint of the [deprecated balenalib base images](../../reference/base-images/balena-base-images-reference.md#working-with-dynamically-plugged-devices) and has no effect on other images. Use your own base image and set up `udevd` yourself as shown below.
+{% endhint %}
 
-This will ensure that the host propagates udev events into the container, enabling us to manipulate the device from within it.
+The [udev-demo](https://github.com/balenasolutions/udev-demo) project shows the recommended pattern. It needs:
+
+* `privileged: true` and the `io.balena.features.sysfs: '1'` label on your service in `docker-compose.yml`.
+* A udev implementation and `mount` in the image, for example `eudev` and `util-linux` on Alpine, or `udev` and `util-linux` on Debian.
+* An entrypoint that replaces `/dev` with a fresh `devtmpfs` mount and starts `udevd` before your main command.
+* The entrypoint running as the `root` user in the container namespace. This is often the default but can be set in your container's `Dockerfile` with `USER root` in the target build stage, or in your `docker-compose.yml` file with `user: root`.
+
+```yaml
+services:
+  storage:
+    build: .
+    privileged: true
+    labels:
+      io.balena.features.sysfs: '1'
+```
+
+```dockerfile
+FROM alpine:latest
+
+RUN apk add --no-cache bash eudev util-linux
+
+COPY entrypoint.sh /usr/bin/entrypoint.sh
+RUN chmod +x /usr/bin/entrypoint.sh
+
+COPY scripts /usr/src/scripts
+
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]
+CMD ["/bin/bash", "/usr/src/scripts/start.sh"]
+```
+
+Here `start.sh` stands in for your application's start script.
+
+The `entrypoint.sh` mounts a new `devtmpfs`, moves the existing `/dev` submounts into it, swaps it in for `/dev` and then starts `udevd`:
+
+```bash
+#!/bin/sh
+
+setup_devtmpfs() {
+    newdev=/tmp/dev
+    mkdir -p "$newdev"
+    mount -t devtmpfs none "$newdev"
+    mount --move /dev/console "$newdev/console"
+    mount --move /dev/mqueue "$newdev/mqueue"
+    mount --move /dev/pts "$newdev/pts"
+    mount --move /dev/shm "$newdev/shm"
+    umount /dev
+    mount --move "$newdev" /dev
+    ln -sf /dev/pts/ptmx /dev/ptmx
+}
+
+setup_devtmpfs
+
+udevd --daemon
+
+exec "$@"
+```
+
+Before your application starts, reload the rules and replay events for devices that were already plugged in when the container started:
+
+```bash
+udevadm control --reload-rules
+udevadm trigger
+```
+
+With this in place, device nodes under `/dev` appear and disappear as hardware is plugged and unplugged, and any udev rules in `/etc/udev/rules.d/` run inside the container. You can watch events with `udevadm monitor --udev --kernel`.
 
 **General tips for external media**
 
@@ -426,7 +490,7 @@ COPY scripts /usr/src/scripts
 
 Finally we need to write the `mount.sh` and `unmount.sh` scripts. These scripts will use `mount` and `umount` commands in the same way we described on the **Mounting** and **Unmounting** sections above.
 
-You can find a fully working example of automounting/unmounting devices with udev rules in this [project](https://github.com/balena-io-playground/balena-storage).
+You can find example mount and unmount scripts in the [balena-storage](https://github.com/balena-io-playground/balena-storage) project. Note that this project still uses a deprecated balenalib base image with `ENV UDEV=on`. Combine its scripts and rules with the container setup described in **Preparing the container** above.
 
 **Sharing mounted devices across containers**
 
