@@ -1,0 +1,12 @@
+- tag: feature
+  label: New feature
+  icon: rocket
+  color: $primary
+- tag: improvement
+  label: Improvement
+  icon: wrench-simple
+  color: violet
+- tag: fix
+  label: Fix
+  icon: bug-slash
+  color: red
