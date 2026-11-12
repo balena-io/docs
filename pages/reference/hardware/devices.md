@@ -1,6 +1,5 @@
 |  Logo  | Device Name | Machine Name    | Architecture |             |
 |:------:|-------------|-----------------|--------------|-------------|
-| <img src="../../.gitbook/assets/dt-asus-tinker-edge-t.svg" data-size="line"> | ASUS Tinker Edge T   | asus-tinker-edge-t | aarch64 | [Get started](../../learn/getting-started/asus-tinker-edge-t.md) |
 | <img src="../../.gitbook/assets/dt-jn30b-nano.svg" data-size="line"> | Auvidea JN30B Nano   | jn30b-nano | aarch64 | [Get started](../../learn/getting-started/jn30b-nano.md) |
 | <img src="../../.gitbook/assets/dt-beaglebone-ai64.svg" data-size="line"> | BeagleBone AI64   | beaglebone-ai64 | aarch64 | [Get started](../../learn/getting-started/beaglebone-ai64.md) |
 | <img src="../../.gitbook/assets/dt-beaglebone-black.svg" data-size="line"> | BeagleBone Black   | beaglebone-black | armv7hf | [Get started](../../learn/getting-started/beaglebone-black.md) |
@@ -11,16 +10,13 @@
 | <img src="../../.gitbook/assets/dt-iot-gate-imx8plus-d1d8.svg" data-size="line"> | Compulab IOT-GATE-iMX8PLUS 1GB or 8GB DRAM   | iot-gate-imx8plus-d1d8 | aarch64 | [Get started](../../learn/getting-started/iot-gate-imx8plus-d1d8.md) |
 | <img src="../../.gitbook/assets/dt-iot-gate-imx8plus.svg" data-size="line"> | Compulab IOT-GATE-iMX8PLUS 2GB or 4GB DRAM   | iot-gate-imx8plus | aarch64 | [Get started](../../learn/getting-started/iot-gate-imx8plus.md) |
 | <img src="../../.gitbook/assets/dt-iot-link.svg" data-size="line"> | Compulab IOT-LINK Gateway   | iot-link | aarch64 | [Get started](../../learn/getting-started/iot-link.md) |
-| <img src="../../.gitbook/assets/dt-cl-som-imx8.svg" data-size="line"> | Compulab MX8M   | cl-som-imx8 | aarch64 | [Get started](../../learn/getting-started/cl-som-imx8.md) |
 | <img src="../../.gitbook/assets/dt-ucm-imx93.svg" data-size="line"> | Compulab UCM-iMX93 Devkit   | ucm-imx93 | aarch64 | [Get started](../../learn/getting-started/ucm-imx93.md) |
-| <img src="../../.gitbook/assets/dt-coral-dev.svg" data-size="line"> | Coral Dev Board   | coral-dev | aarch64 | [Get started](../../learn/getting-started/coral-dev.md) |
 | <img src="../../.gitbook/assets/dt-forecr-dsb-ornx-orin-nano-8gb.svg" data-size="line"> | Forecr DSBOARD-ORNX-LAN Orin Nano 8GB   | forecr-dsb-ornx-orin-nano-8gb | aarch64 | [Get started](../../learn/getting-started/forecr-dsb-ornx-orin-nano-8gb.md) |
 | <img src="../../.gitbook/assets/dt-generic-aarch64.svg" data-size="line"> | Generic AARCH64   | generic-aarch64 | aarch64 | [Get started](../../learn/getting-started/generic-aarch64.md) |
 | <img src="../../.gitbook/assets/dt-generic-amd64.svg" data-size="line"> | Generic x86_64 (GPT)   | generic-amd64 | amd64 | [Get started](../../learn/getting-started/generic-amd64.md) |
 | <img src="../../.gitbook/assets/dt-genericx86-64-ext.svg" data-size="line"> | Generic x86_64 (legacy MBR)   | genericx86-64-ext | amd64 | [Get started](../../learn/getting-started/genericx86-64-ext.md) |
 | <img src="../../.gitbook/assets/dt-intel-nuc.svg" data-size="line"> | Intel NUC   | intel-nuc | amd64 | [Get started](../../learn/getting-started/intel-nuc.md) |
 | <img src="../../.gitbook/assets/dt-kontron-mx8mm.svg" data-size="line"> | Kontron i.MX8M Mini   | kontron-mx8mm | aarch64 | [Get started](../../learn/getting-started/kontron-mx8mm.md) |
-| <img src="../../.gitbook/assets/dt-nanopi-r2s.svg" data-size="line"> | NanoPi R2S   | nanopi-r2s | aarch64 | [Get started](../../learn/getting-started/nanopi-r2s.md) |
 | <img src="../../.gitbook/assets/dt-nitrogen8mm.svg" data-size="line"> | Nitrogen8M Mini SBC   | nitrogen8mm | aarch64 | [Get started](../../learn/getting-started/nitrogen8mm.md) |
 | <img src="../../.gitbook/assets/dt-jetson-agx-orin-devkit.svg" data-size="line"> | Nvidia Jetson AGX Orin Devkit 32GB   | jetson-agx-orin-devkit | aarch64 | [Get started](../../learn/getting-started/jetson-agx-orin-devkit.md) |
 | <img src="../../.gitbook/assets/dt-jetson-agx-orin-devkit-64gb.svg" data-size="line"> | Nvidia Jetson AGX Orin Devkit 64GB   | jetson-agx-orin-devkit-64gb | aarch64 | [Get started](../../learn/getting-started/jetson-agx-orin-devkit-64gb.md) |
@@ -35,9 +31,7 @@
 | <img src="../../.gitbook/assets/dt-jetson-xavier.svg" data-size="line"> | Nvidia Jetson Xavier   | jetson-xavier | aarch64 | [Get started](../../learn/getting-started/jetson-xavier.md) |
 | <img src="../../.gitbook/assets/dt-jetson-xavier-nx-devkit-emmc.svg" data-size="line"> | Nvidia Jetson Xavier NX Devkit eMMC   | jetson-xavier-nx-devkit-emmc | aarch64 | [Get started](../../learn/getting-started/jetson-xavier-nx-devkit-emmc.md) |
 | <img src="../../.gitbook/assets/dt-jetson-xavier-nx-devkit.svg" data-size="line"> | Nvidia Jetson Xavier NX Devkit SD-CARD   | jetson-xavier-nx-devkit | aarch64 | [Get started](../../learn/getting-started/jetson-xavier-nx-devkit.md) |
-| <img src="../../.gitbook/assets/dt-imx8mm-lpddr4-evk.svg" data-size="line"> | NXP i.MX8M Mini LPDDR4 EVK   | imx8mm-lpddr4-evk | aarch64 | [Get started](../../learn/getting-started/imx8mm-lpddr4-evk.md) |
 | <img src="../../.gitbook/assets/dt-owa5x.svg" data-size="line"> | Owasys owa5X   | owa5x | aarch64 | [Get started](../../learn/getting-started/owa5x.md) |
-| <img src="../../.gitbook/assets/dt-phyboard-lyra-am62xx-2.svg" data-size="line"> | phyBOARD-AM62x   | phyboard-lyra-am62xx-2 | aarch64 | [Get started](../../learn/getting-started/phyboard-lyra-am62xx-2.md) |
 | <img src="../../.gitbook/assets/dt-raspberry-pi2.svg" data-size="line"> | Raspberry Pi 2   | raspberry-pi2 | armv7hf | [Get started](../../learn/getting-started/raspberry-pi2.md) |
 | <img src="../../.gitbook/assets/dt-raspberrypi3.svg" data-size="line"> | Raspberry Pi 3   | raspberrypi3 | armv7hf | [Get started](../../learn/getting-started/raspberrypi3.md) |
 | <img src="../../.gitbook/assets/dt-raspberrypi3-64.svg" data-size="line"> | Raspberry Pi 3 (using 64bit OS)   | raspberrypi3-64 | aarch64 | [Get started](../../learn/getting-started/raspberrypi3-64.md) |
@@ -57,5 +51,4 @@
 | <img src="../../.gitbook/assets/dt-up-board.svg" data-size="line"> | UP Board   | up-board | amd64 | [Get started](../../learn/getting-started/up-board.md) |
 | <img src="../../.gitbook/assets/dt-imx8m-var-dart.svg" data-size="line"> | Variscite DART-MX8M   | imx8m-var-dart | aarch64 | [Get started](../../learn/getting-started/imx8m-var-dart.md) |
 | <img src="../../.gitbook/assets/dt-imx8mm-var-dart.svg" data-size="line"> | Variscite DART-MX8M Mini   | imx8mm-var-dart | aarch64 | [Get started](../../learn/getting-started/imx8mm-var-dart.md) |
-| <img src="../../.gitbook/assets/dt-var-som-mx6.svg" data-size="line"> | Variscite VAR-SOM-MX6   | var-som-mx6 | armv7hf | [Get started](../../learn/getting-started/var-som-mx6.md) |
 | <img src="../../.gitbook/assets/dt-imx8mm-var-som.svg" data-size="line"> | Variscite VAR-SOM-MX8M-MINI Devkit   | imx8mm-var-som | aarch64 | [Get started](../../learn/getting-started/imx8mm-var-som.md) |
