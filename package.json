@@ -32,7 +32,7 @@
     "handlebars": "4.7.10",
     "husky": "9.1.7",
     "js-yaml": "5.5.0",
-    "renovate": "44.226.3"
+    "renovate": "44.232.0"
   },
   "versionist": {
     "publishedAt": "2026-01-19T09:56:20.015Z"
