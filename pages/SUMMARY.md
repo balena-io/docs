@@ -330,10 +330,10 @@
             spec: balena-api
       ```
 * [Balena CLI](reference/balena-cli/README.md)
-  * [v25.2.15 (latest)](external-docs/balena-cli/latest.md)
+  * [v25.2.17 (latest)](external-docs/balena-cli/latest.md)
   * [v24.1.4](external-docs/balena-cli/v24.1.4.md)
   * [v23.2.32](external-docs/balena-cli/v23.2.32.md)
-  * [v22.5.5](external-docs/balena-cli/v22.5.5.md)
+  * [v22.5.5 (DEPRECATED)](external-docs/balena-cli/v22.5.5.md)
 * [SDK](reference/sdk/README.md)
   * [Node SDK](reference/sdk/node-sdk/README.md)
     * [v23.2.24 (latest)](external-docs/sdk/node-sdk/latest/README.md)
