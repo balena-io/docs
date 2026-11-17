@@ -1,4 +1,4 @@
-# Troubleshooting information for Revolution Pi Connect 4
+# Troubleshooting information for RevPi Connect 4 (legacy)
 
 ### Terminal Closes On Update
 

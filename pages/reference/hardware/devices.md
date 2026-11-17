@@ -9,6 +9,7 @@
 | <img src="../../.gitbook/assets/dt-iot-gate-imx8.svg" data-size="line"> | Compulab IOT-gate-imx8   | iot-gate-imx8 | aarch64 | [Get started](../../learn/getting-started/iot-gate-imx8.md) |
 | <img src="../../.gitbook/assets/dt-iot-gate-imx8plus-d1d8.svg" data-size="line"> | Compulab IOT-GATE-iMX8PLUS 1GB or 8GB DRAM   | iot-gate-imx8plus-d1d8 | aarch64 | [Get started](../../learn/getting-started/iot-gate-imx8plus-d1d8.md) |
 | <img src="../../.gitbook/assets/dt-iot-gate-imx8plus.svg" data-size="line"> | Compulab IOT-GATE-iMX8PLUS 2GB or 4GB DRAM   | iot-gate-imx8plus | aarch64 | [Get started](../../learn/getting-started/iot-gate-imx8plus.md) |
+| <img src="../../.gitbook/assets/dt-iotg-rpi5.svg" data-size="line"> | Compulab IOT-GATE-RPI5   | iotg-rpi5 | aarch64 | [Get started](../../learn/getting-started/iotg-rpi5.md) |
 | <img src="../../.gitbook/assets/dt-iot-link.svg" data-size="line"> | Compulab IOT-LINK Gateway   | iot-link | aarch64 | [Get started](../../learn/getting-started/iot-link.md) |
 | <img src="../../.gitbook/assets/dt-ucm-imx93.svg" data-size="line"> | Compulab UCM-iMX93 Devkit   | ucm-imx93 | aarch64 | [Get started](../../learn/getting-started/ucm-imx93.md) |
 | <img src="../../.gitbook/assets/dt-forecr-dsb-ornx-orin-nano-8gb.svg" data-size="line"> | Forecr DSBOARD-ORNX-LAN Orin Nano 8GB   | forecr-dsb-ornx-orin-nano-8gb | aarch64 | [Get started](../../learn/getting-started/forecr-dsb-ornx-orin-nano-8gb.md) |
@@ -40,8 +41,8 @@
 | <img src="../../.gitbook/assets/dt-raspberrypicm4-ioboard.svg" data-size="line"> | Raspberry Pi CM4 IO Board   | raspberrypicm4-ioboard | aarch64 | [Get started](../../learn/getting-started/raspberrypicm4-ioboard.md) |
 | <img src="../../.gitbook/assets/dt-raspberry-pi.svg" data-size="line"> | Raspberry Pi (v1 / Zero / Zero W)   | raspberry-pi | rpi | [Get started](../../learn/getting-started/raspberry-pi.md) |
 | <img src="../../.gitbook/assets/dt-raspberrypi0-2w-64.svg" data-size="line"> | Raspberry Pi Zero 2 W (64bit)   | raspberrypi0-2w-64 | aarch64 | [Get started](../../learn/getting-started/raspberrypi0-2w-64.md) |
-| <img src="../../.gitbook/assets/dt-revpi-connect-4.svg" data-size="line"> | Revolution Pi Connect 4   | revpi-connect-4 | aarch64 | [Get started](../../learn/getting-started/revpi-connect-4.md) |
-| <img src="../../.gitbook/assets/dt-revpi-connect-s.svg" data-size="line"> | Revolution Pi Connect S   | revpi-connect-s | aarch64 | [Get started](../../learn/getting-started/revpi-connect-s.md) |
+| <img src="../../.gitbook/assets/dt-revpi-connect-4.svg" data-size="line"> | RevPi Connect 4 (legacy)   | revpi-connect-4 | aarch64 | [Get started](../../learn/getting-started/revpi-connect-4.md) |
+| <img src="../../.gitbook/assets/dt-revpi-connect-s.svg" data-size="line"> | RevPi Connect S/SE (legacy)   | revpi-connect-s | aarch64 | [Get started](../../learn/getting-started/revpi-connect-s.md) |
 | <img src="../../.gitbook/assets/dt-eg5120-imx8mp.svg" data-size="line"> | Robustel EG5120 i.MX8MP   | eg5120-imx8mp | aarch64 | [Get started](../../learn/getting-started/eg5120-imx8mp.md) |
 | <img src="../../.gitbook/assets/dt-rockpi-4b-rk3399.svg" data-size="line"> | ROCK Pi 4B   | rockpi-4b-rk3399 | aarch64 | [Get started](../../learn/getting-started/rockpi-4b-rk3399.md) |
 | <img src="../../.gitbook/assets/dt-isg-503.svg" data-size="line"> | Rocktech ISG 503   | isg-503 | aarch64 | [Get started](../../learn/getting-started/isg-503.md) |
