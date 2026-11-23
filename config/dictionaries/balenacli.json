@@ -1,8 +1,8 @@
 [
   {
     "id": "latest",
-    "name": "v25.2.36 latest",
-    "version": "v25.2.36"
+    "name": "v25.2.39 latest",
+    "version": "v25.2.39"
   },
   {
     "id": "v24.1.4",
@@ -13,10 +13,5 @@
     "id": "v23.2.32",
     "name": "v23.2.32",
     "version": "v23.2.32"
-  },
-  {
-    "id": "v22.5.5",
-    "name": "v22.5.5 deprecated",
-    "version": "v22.5.5"
   }
 ]
