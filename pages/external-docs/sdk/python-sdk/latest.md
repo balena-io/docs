@@ -1455,6 +1455,9 @@ This method returns a single device by id or uuid.
 
 ## get_all
 
+***Deprecated***
+Use balena.models.device.get_all_by_organization() or balena.models.device.get_all_by_application() instead.
+
 This method returns all devices that the current user can access.
 In order to have the following computed properties in the result
 you have to explicitly define them in a `$select` in the extra options:
