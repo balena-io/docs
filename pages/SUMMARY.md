@@ -338,7 +338,7 @@
   * [v23.2.32](external-docs/balena-cli/v23.2.32.md)
 * [SDK](reference/sdk/README.md)
   * [Node SDK](reference/sdk/node-sdk/README.md)
-    * [v23.2.28 (latest)](external-docs/sdk/node-sdk/latest/README.md)
+    * [v23.2.30 (latest)](external-docs/sdk/node-sdk/latest/README.md)
       * [Introduction](external-docs/sdk/node-sdk/latest/introduction.md)
       * [Auth](external-docs/sdk/node-sdk/latest/auth.md)
       * [Errors](external-docs/sdk/node-sdk/latest/errors.md)
