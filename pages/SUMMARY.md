@@ -333,7 +333,7 @@
             spec: balena-api
       ```
 * [Balena CLI](reference/balena-cli/README.md)
-  * [v25.2.41 (latest)](external-docs/balena-cli/latest.md)
+  * [v25.2.45 (latest)](external-docs/balena-cli/latest.md)
   * [v24.1.4](external-docs/balena-cli/v24.1.4.md)
   * [v23.2.32](external-docs/balena-cli/v23.2.32.md)
 * [SDK](reference/sdk/README.md)
